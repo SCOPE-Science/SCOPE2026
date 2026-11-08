@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:09:04.552062Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=4, b(S)=2r(S)+u(S) counts cycle-run boundaries and unmatched antipodal rungs. Parity and run analysis give minima beta(k): 3 at size 1 and 2n-1, 4 at even k, 5 at the other odd k. The paired order attains every beta(k), so sum minima is 9n-8. Even optimal intermediate prefixes are cyclic blocks of whole rung columns. For four initial and terminal vertices the permitted square permutations number 16 each; each of n-4 interior 2-vertex steps has 2 adjacent columns x 2 within-rung orders=4 choices. Therefore n*16*4^(n-4)*16=n*4^n distinct labeled optimal orders. Independently computed every 2^(2n) subset cut and exact DP optimum chain counts for n=4,5,6,7: 1024,5120,24576,114688, matching theorem; finite values corroborate, not prove general n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cutwidth focuses max_k b(S_k), whereas linear arrangement uses sum_k b(S_k).",
+          "Parameterized cutwidth algorithms do not imply optimizer multiplicities."
+        ],
+        "reasoning": "Even a complete cutwidth-five arrangement count would not automatically equal a minimum-linear-arrangement count, and known sizewise minima do not imply equality-chain enumeration.",
+        "searches": [
+          "Greeni–Rajasingh 2016 full article",
+          "Cygan et al. On Cutwidth Parameterized by Vertex Cover (2014)"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md and scripts verify_direct.py, verify_structure.py at frozen Git tree d7f1251be29445b14b1ff1128a4286899db7303d",
+        "Greeni–Rajasingh 2016 full primary article",
+        "McSorley 1998 abstract bibliographic only",
+        "Independent cut/DP calculation n=4..7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Greeni–Rajasingh yields beta(k) and the minimum sum but does not provide equality-set/chain multiplicity.",
+          "Source cut equality classification and square+two-vertex extension count give n4^n."
+        ],
+        "reasoning": "The new theorem uses a nontrivial equality-case chain analysis beyond the prior minimum-cut statement; no inspected theorem logically implies its enumeration.",
+        "searches": [
+          "Greeni–Rajasingh Lemma 8",
+          "Independent source proof RESULT.md and two verifier programs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known cut boundary beta(k) and an attaining paired order are established prior work; the specific n*4^n optimizer count was not located.",
+          "McSorley title only; full contents not inspected."
+        ],
+        "reasoning": "The older boundary statement is weaker: it gives b(S) lower bounds and existence of one chain, not the set and count of all compatible equality chains. A title mentioning counting structures is insufficient to establish the same statistic.",
+        "searches": [
+          "Resultary query: Möbius ladder minimum linear arrangement count number of optimal permutations orders cutwidth",
+          "Greeni–Rajasingh 2016 Lemma 8 and cutwidth construction",
+          "McSorley 1998 bibliographic record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No explicit n*4^n minimum-LA table found in consulted source passages; McSorley full article not read."
+        ],
+        "reasoning": "A known exact table could dominate the count but has not been verified; risk remains explicit.",
+        "searches": [
+          "Resultary query: Möbius ladder minimum linear arrangement count number of optimal permutations orders cutwidth",
+          "McSorley Counting Structures in the Möbius Ladder DOI:10.1016/S0012-365X(97)00086-1"
+        ]
+      },
+      "rationale": "The sizewise minimal boundary values and width-five construction belong to Greeni–Rajasingh 2016; the additional equality characterization and exact number n*4^n of all minimum-total-length orders are not derived in the inspected paper. McSorley 1998 has a potentially relevant title but full text inaccessible; best-of-knowledge PASS qualified by this risk.",
+      "residual_risks": [
+        "Historical overlap possible in McSorley (1998), inaccessible full text despite bounded OA/authorized attempt.",
+        "Finite exact enumeration does not prove arbitrary n; proof relies on equality classification for all prefix sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MINIMUM_BOUNDARY_NOT_MULTIPLICITY",
+          "evidence": [
+            "Lemma 8 gives induced-edge maxima by size and paired arrangement/cutwidth five; no n4^n enumeration."
+          ],
+          "identifier_or_url": "https://acadpubl.eu/jsi/2016-109-si/6/11/11.pdf",
+          "material_read": "Complete eight-page primary article, including Lemma 8 and cutwidth construction",
+          "method": "Full PDF text and rendered page inspection",
+          "title": "Cutwidth of Certain Classes of Circulant Networks",
+          "trigger": "Same Möbius ladder and optimal cut arrangement"
+        },
+        {
+          "assessment": "UNRESOLVED_PLAUSIBLE_SOURCE",
+          "evidence": [
+            "Title alone does not show optimizer permutations are counted; preserve priority risk, no claim of whole-document noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(97)00086-1",
+          "material_read": "Bibliographic abstract/title only; author repository full-text returned 403; authorized Oxford retrieval blocked by safety checks",
+          "method": "Bibliographic/abstract web reading, attempted legal access, no full text",
+          "title": "Counting Structures in the Möbius Ladder",
+          "trigger": "Plausible exact enumeration of same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting all optimum labeled graph arrangements is a natural exact ambiguity/degeneracy invariant of graph embedding; a classification of the optimizer fiber is stronger than a single optimal layout or known objective and could support uniform enumeration and sampling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source RESULT.md and scripts verify_direct.py, verify_structure.py at frozen Git tree d7f1251be29445b14b1ff1128a4286899db7303d",
+    "Greeni–Rajasingh 2016 full primary article",
+    "McSorley 1998 abstract bibliographic only",
+    "Independent cut/DP calculation n=4..7"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical overlap possible in McSorley (1998), inaccessible full text despite bounded OA/authorized attempt.",
+    "Finite exact enumeration does not prove arbitrary n; proof relies on equality classification for all prefix sizes."
+  ],
+  "schema_version": 1
+}

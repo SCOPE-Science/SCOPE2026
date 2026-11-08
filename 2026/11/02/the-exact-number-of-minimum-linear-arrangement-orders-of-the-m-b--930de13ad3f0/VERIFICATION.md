@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and limits
+# Independent mathematical audit
 
-The included `verify_direct.py` calculates the boundary of every subset by explicitly testing every graph edge, then uses exact integer dynamic programming on optimal prefix chains to compute the number of optimizing orders. It runs for every integer \(4\le n\le9\); all six instances passed. In order of increasing \(n\), the optimizer counts were \(1024,5120,24576,114688,524288,2359296\).
+## correctness
 
-The included independently structured `verify_structure.py` calculates the boundary by the cycle-run plus rung-crossing formula, checks the exact iff classification of four-boundary subsets for every interior even cardinality, and separately enumerates all twenty-four permutations of each terminal square to recover sixteen admissible orders. All six instances passed.
+PASS
 
-The mathematical all-parameter proof is in `RESULT.md`. The checks do not themselves prove infinitely many cases, establish historical novelty, or constitute an external audit. The only supplied status is the specified unperformed independent-audit marker.
+For every n>=4, b(S)=2r(S)+u(S) counts cycle-run boundaries and unmatched antipodal rungs. Parity and run analysis give minima beta(k): 3 at size 1 and 2n-1, 4 at even k, 5 at the other odd k. The paired order attains every beta(k), so sum minima is 9n-8. Even optimal intermediate prefixes are cyclic blocks of whole rung columns. For four initial and terminal vertices the permitted square permutations number 16 each; each of n-4 interior 2-vertex steps has 2 adjacent columns x 2 within-rung orders=4 choices. Therefore n*16*4^(n-4)*16=n*4^n distinct labeled optimal orders. Independently computed every 2^(2n) subset cut and exact DP optimum chain counts for n=4,5,6,7: 1024,5120,24576,114688, matching theorem; finite values corroborate, not prove general n.
+
+## originality
+
+PASS
+
+The sizewise minimal boundary values and width-five construction belong to Greeni–Rajasingh 2016; the additional equality characterization and exact number n*4^n of all minimum-total-length orders are not derived in the inspected paper. McSorley 1998 has a potentially relevant title but full text inaccessible; best-of-knowledge PASS qualified by this risk.
+
+## value
+
+PASS
+
+Counting all optimum labeled graph arrangements is a natural exact ambiguity/degeneracy invariant of graph embedding; a classification of the optimizer fiber is stronger than a single optimal layout or known objective and could support uniform enumeration and sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
