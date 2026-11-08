@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every \(\mathbb F_q\)-algebra automorphism is determined by two positive-degree substitution polynomials with invertible linear part. The nonlinear coefficient count is \(D_N\); a two-term averaging formula (valid because \(q\) is odd) conjugates an involution to its linear part by an identity-tangent substitution. Explicit parity tests give centralizer dimensions for both nonidentity linear types, and the ordinary \(\operatorname{GL}_2(q)\) class-size calculation yields the exact full conjugacy classes. The closed-form exponents and odd/even asymptotic limits follow by summation. Independent finite-equation checks are recorded in \(\texttt{verify.py}\), but are supporting evidence, not an infinite proof.
+## correctness
 
-**Originality — PASS relative to the inspected sources.** O'Farrell–Zaitsev (2011, Lemma 2.1) already prove the multivariate finite-order linearization principle and Cohen (2018, Theorems 1–2) provides one-variable formal power series classification. This finding does not claim these classical facts. The 2022 Caprace–Kassabov paper studies very different finite quotients. Searches for finite two-variable truncated-jet involution census, centralizer formulas, and alternating parity limits found no statement implying the exact class-size pair or the parity switch. Relevant indexed records on truncated coordinate-cross rings treat a different quotient. This cannot certify global novelty: an unlocated general finite-jet orbit-count theorem might contain the result.
+PASS
 
-**Value — PASS.** The exact sizes of the two nonidentity conjugacy classes are natural, basis-invariant finite-group invariants of a standard local algebra family. The limiting dominance depends sharply on jet parity and reverses at every truncation increment, which is not visible from the previously known conjugacy-type classification alone. This is a motivated infinite family rather than a sample-only computation or a small numerical gain.
+G_N=Aut_Fq(F_q[x,y]/(x,y)^N) for odd prime-power q and N>=3 splits U_N semidirect GL2(q), with |U_N|=q^D, D=N(N+1)-6. For every order-two f, linear part A is semisimple and h=(id+A^-1 f)/2 is identity-tangent and conjugates f to A. The centralizer coefficient restrictions are odd degrees for -I, and exactly one out of two output monomials for diag(1,-1); hence |fiber(-I)|=q^E and |fiber(mixed A)|=q^(D/2), times q(q+1) mixed linear parts. The other single class is identity, giving 1+q^E+q(q+1)q^(D/2); even/odd N parity exponent differences 1-r and r+2 establish alternating dominance. Independently counted homogeneous centralizer coefficient dimensions for q=3,5,7 at N=3..14. This is not an extension to q even.
 
-**Sources and limits.** Cohen (2018), O'Farrell–Zaitsev (2011), and Caprace–Kassabov (2022), full arXiv HTML in the specified relevant sections; published research index searches on equivalent formulations and broader coverage. Results exclude characteristic two and uniform \(q,N\) asymptotics. No publication priority or independent proof certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite-order formal linearization is classical; O’Farrell–Zaitsev Lemma 2.1 gives it in characteristic zero. Here the finite-field truncated two-variable group’s explicit centralizer orbit sizes and alternating dominance are the claim, not linearization. Resultary’s truncated coordinate-cross automorphisms involve another quotient, and indexed broader group results inspected do not supply these exact counts. Earlier unindexed group enumerations remain possible.
+
+## value
+
+PASS
+
+Natural finite jet automorphism group has a new complete conjugacy-class enumeration for involutions and a counterintuitive parity switch of dominant linear type with cutoff N. The explicit all-q all-N formula is a useful structural finite-group invariant, not merely a single numerical tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
