@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The core identity is analytic. The calculation checks four independent inputs: (i) completing the optimal partial matching cannot raise its cost; (ii) equal row and column sums make all off-diagonal cell flows balanced; (iii) each block admits nested finite-perimeter coordinate quantiles with exactly prescribed mass; (iv) the triangle inequality turns the constructed upper bounds into shortest-path identities. Every coordinate cut has interface area bounded by the diameter-powered bounding rectangle. The statement needs no continuum inference from enumeration.
+## correctness
 
-The standalone, standard-library checker was executed from the actual package directory using `python checker.py` and printed:
+PASS
 
-`PASS: 302 exact assertions for 2-,3-,4-cell balanced partitions`
+The known partial-matching formula can be completed to an optimal full matching at no extra cost because pairing unmatched cells subtracts 2|P_i cap Q_j|. After aligning labels, off-diagonal B_ij=P_i cap Q_j have finite perimeter. Coordinate quantiles E_ij(t) partition each off-diagonal block into nested fractions t|B_ij|, and row/column mass-balance identities preserve every equal cell volume at each t. The natural labels differ on measure (t-s)L for s<t; matching gives upper bounds and the triangle inequality with endpoint L forces d_V^1(R_s,R_t)=(t-s)L exactly. BV locality bounds intermediate interfaces by original interfaces plus at most m(m-1) plane cuts of section area <=diam(Omega)^(d-1), proving uniform finite perimeter. This is an analytic continuum construction. The checked checker.py simulates exact finite-grid matchings but does not prove the BV assertion.
 
-It tests discrete analogues using exact rational matching distances at five quarter-time points and fixed cell counts. It does not certify BV interface bounds, which are verified in the written proof. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+General metric matching identity belongs to Alvarado et al. 2026 and older partition metric formulations to Leonardi–Tamanini 2002; they are credited rather than claimed new. The inspected primary papers do not state this simultaneous equal-volume shortest-path interpolation with uniform interface bound. The new result is a geometric property of a constrained finite-perimeter subspace, not a restatement of equality between distance definitions.
+
+## value
+
+PASS
+
+A geodesic structure respecting equal cell volumes and a uniform perimeter bound is a natural structural question for partition spaces and exchange metrics used to compare polycrystalline microstructures. The result constructs globally shortest paths without losing admissible finite-interface regularity; stronger than mere metric computability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
