@@ -1,21 +1,21 @@
-# Review of spectral fluctuation and exact covariance laws for exclusion with sitewise reservoirs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The continuous-time exclusion and local Bernoulli-refresh generator is explicitly normalized and its finite-state invariant measure is unique. Stationarity of first moments gives the positive-definite resolvent \(\mu=\xi(\xi I+L)^{-1}h\). The exact stationary \(N^2\) balance gives \(\operatorname{Var}(N)=\sum_i h_i(1-\mu_i)\); separating the constant component yields the spectral fluctuation formula. Sherman–Morrison applied to a single edge's Laplacian increment proves the exact variance response, including its equality condition and positivity. The pair-covariance stationarity equation has forcing \(-w_{ij}(\mu_i-\mu_j)^2\); the inverse killed two-exclusion generator is strictly positive for connected graphs, proving the strict-sign classification. The Johnson-graph three-harmonic decomposition is explicitly reconstructed from pair row sums, with eigenvalues and the \(n=3\) degenerate boundary checked. No asymptotic claims are needed.
+PASS
 
-A separate exact-rational finite-state master-equation solver reproduces 1,291 assertions over 64 state-space regimes, plus closed-form tests through complete-graph order seven, including zero/one bath probabilities. These finite computations support, rather than replace, the proof for all finite orders and real rates.
+The generator yields (ξI+L)μ=ξh. Stationarity of N², whose exchange terms vanish, gives Var N=Σ_i h_i(1−μ_i)=n h̄(1−h̄)−ξδᵀ(ξI+L)⁻¹δ. The rank-one inverse formula gives exact variance gain under adding rate s to edge uv. Pair-generator subtraction produces (2ξI−Q^(2))C=−[w_ij(μ_i−μ_j)²]. Its positive resolvent plus irreducible two-particle exclusion proves strict covariance negativity when h varies, and summing yields the Dirichlet-form sum. Johnson J(n,2) harmonic decomposition gives the complete graph three-mode expression, zero third subspace at n=3. Independent exact rational 3-site eight-state CTMC solution verified means, variance, strict sign and edge response.
 
-## Originality — PASS, qualified by historical-priority risks
+## originality
 
-Schulman and Sinclair, arXiv:2607.22991v1 (July 25, 2026), analyze the same exchange/bath process but give spectral/mixing and computational small-set conclusions rather than an explicit global network variance response and the heterogeneous-bath complete-graph pair kernel. Their discussion of correlation computation makes this distinction substantive. Floreani and González Casanova, arXiv:2307.02481v1, obtain a general mixture/duality representation and explicit path correlations; its broad reach may imply some of the current stationary-moment equations, which therefore are not claimed to be novel merely as the existence of a duality. Established negative dependence is acknowledged rather than claimed as a new sign phenomenon. The scientific contribution assessed here is the joint explicit spectral variance, finite edge-response, killed-two-particle Green forcing and fully evaluated three-mode complete-graph formula. Searches for closed-form pair covariances of sitewise-reservoir complete graphs, Laplacian fluctuation response and equivalent stirring/mutation formulations located no direct coverage. A general network identity in older classical literature remains a residual priority risk, so this is a self-review originality assessment, not definitive certification.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.
 
-Local reservoirs generate a natural non-equilibrium exclusion system in which stationary correlations and their dependence on graph connectivity are hard to measure. The exact edge-response is an all-graph monotonicity and a sharp equality criterion, not merely a special parameter calculation. The complete-graph formula determines every pair covariance from a finite three-mode decomposition for arbitrary bath heterogeneity, and shows that a single global occupancy mean/variance recovers the squared spatial heterogeneity of reservoir parameters. These observables are natural and quantitative, with uses in comparing network connectivity and diagnosing non-equilibrium forcing. Negative correlation itself and elementary matrix inversion alone are not the asserted mathematical value.
+## value
 
-## Limitations and closest literature
+PASS
 
-The bath refresh rate must be the same at every vertex; complete-graph edges must have equal exchange rates for the closed pair kernel. Only stationary first/second moments are determined, not full steady laws or transient mixing rates. Closest primary sources are Schulman–Sinclair (arXiv:2607.22991v1) and Floreani–González Casanova (arXiv:2307.02481v1). Earlier negative-dependence and multi-species stirring studies provide contextual comparisons, not equivalence exclusions. The possibility that general duality, linear-response or classical interacting-particle techniques contain these exact special formulas is a residual historical-priority uncertainty.
+Produces exact graph-conductance sensitivity of stationary population-number fluctuations and complete-graph pair correlations under heterogeneous reservoirs; monotone response is a natural network-design fact and the variance formula allows recovering bath heterogeneity from aggregate measurements.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

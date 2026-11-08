@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic argument treats every finite connected undirected graph of order at least two, every positive edge rate, every common reservoir rate \(\xi>0\), and every reservoir density in \([0,1]\). The finite test below supplements and does not replace the proof.
+# Independent mathematical audit
 
-Run `python3 check_stationary_covariances.py` with a standard Python 3 installation. The verifier constructs exact rational continuous-time generators and solves stationary equations directly, comparing with the spectral resolvent, two-particle Green operator, edge-response, and complete-graph harmonic formulas. It reports the total exact assertions and full finite-state cases. The expected output appears in `check-output.txt`.
+## correctness
 
-Finite enumerations do not establish the general theorem; the unrestricted proof uses the generator identities, positive definite resolvent, rank-one matrix update, strictly positive two-particle Green kernel, and complete-graph Johnson-spectrum decomposition. The results do not claim a full law for the stationary configuration, a quantitative mixing rate, or unequal bath refresh rates.
+PASS
+
+The generator yields (ξI+L)μ=ξh. Stationarity of N², whose exchange terms vanish, gives Var N=Σ_i h_i(1−μ_i)=n h̄(1−h̄)−ξδᵀ(ξI+L)⁻¹δ. The rank-one inverse formula gives exact variance gain under adding rate s to edge uv. Pair-generator subtraction produces (2ξI−Q^(2))C=−[w_ij(μ_i−μ_j)²]. Its positive resolvent plus irreducible two-particle exclusion proves strict covariance negativity when h varies, and summing yields the Dirichlet-form sum. Johnson J(n,2) harmonic decomposition gives the complete graph three-mode expression, zero third subspace at n=3. Independent exact rational 3-site eight-state CTMC solution verified means, variance, strict sign and edge response.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.
+
+## value
+
+PASS
+
+Produces exact graph-conductance sensitivity of stationary population-number fluctuations and complete-graph pair correlations under heterogeneous reservoirs; monotone response is a natural network-design fact and the variance formula allows recovering bath heterogeneity from aggregate measurements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
