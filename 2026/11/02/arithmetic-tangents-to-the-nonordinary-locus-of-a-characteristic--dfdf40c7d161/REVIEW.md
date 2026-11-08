@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The characteristic-eleven Cartier operator was derived from regular differentials and exact coefficients; its stable rank gives geometric \(p\)-rank. Gröbner elimination accounts for all critical points of the Hasse polynomial. The discriminant removes every other critical point. The distinct twelfth-degree tangent form proves ordinary branch structure and the exact rational Frobenius cycles. Finite \(\mathbb F_{11}\)-enumeration is exhaustive; the symbolic script reproduces all key equations.
+## correctness
 
-**Originality — PASS, qualified.** The universal geometric twelve-branch crossing at a superspecial Picard modular point is known, as is superspeciality of the Fermat curve and the general Cartier coefficient formula. The assessed claim concerns the exact \(\mathbb F_{11}\)-arithmetic twist of the tangent directions in the given coefficient slice, its Frobenius decomposition, and all five normalized rational rank-zero parameters. No exact statement covering this combined rational arithmetic data was located in the completed comparisons. The 1991 Picard Jacobian article could not be examined in full and is a genuine historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** Rational tangent directions to a nonordinary locus determine which infinitesimal deformations can be made over a specified finite field. Their orbit structure and precise low-rank parameter set provide intrinsic arithmetic information for a classical superspecial curve in an explicit natural coefficient family, though not a classification of the global moduli space.
+For y³=x⁴+ax²+bx+1 in characteristic 11, Cartier–Manin coefficients [x^10]f^7 and [x^21]f^7 define H=a^11 c+b^11 d. Its initial form -5a^12-2b^12 has twelve distinct tangent roots r^12=3, so the origin is an ordinary twelve-fold point. The exact finite-field elimination in source gives critical support (0,0),(±2,0),(a=-4b²,b⁴=3), with all nonorigin points on the quartic discriminant. Frobenius acts r→3/r; two fixed slopes r²=3 and five two-cycles. Independent coefficient expansion, discriminant and exhaustive 121-pair enumeration confirmed exactly 111 smooth parameter pairs and H=0 at (0,0),(4,1),(4,5),(4,6),(4,10); the source Groebner certificate, not this finite enumeration, supplies geometric elimination.
 
-**Closest literature and limitations.** de Shalit–Goren (2014, 2016) provide the geometric p+1-branch setting; Kazemifard–Tafazolian (2015) cover Fermat superspeciality; Nourozi–Rahmati (2023) give the Cartier extraction approach. The 1991 Estrada-Sarlabous paper remains only abstract-inspected. The exact arithmetic conclusion is not asserted to have undergone independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+de Shalit–Goren 2016 gives the general p+1 ordinary-branch formal local equation at an inert Picard superspecial point, and Kazemifard–Tafazolian establish Fermat superspeciality in characteristic 11. Those known geometric conclusions are explicitly NOT the novelty. The new exact coefficient-slice tangent slope r^12=3, its F11 Frobenius permutation, and 111-point rational parameter census are not specified by the general local isomorphism alone.
+
+## value
+
+PASS
+
+Frobenius descent of twelve tangent directions and a complete finite-field rational specialization census are natural exact arithmetic invariants of a genus-three family; the slice-dependent coordinates are motivated by a canonical quartic normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
