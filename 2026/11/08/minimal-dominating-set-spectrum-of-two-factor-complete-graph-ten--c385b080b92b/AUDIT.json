@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The ordinary (closed-neighborhood) domination criterion was derived directly from the tensor adjacency. Three disjoint incidence edges always dominate; otherwise Koenig matching-cover theorem restricts selected cells to at most two covering row/column lines. Each of the one-line, mixed-cover, same-side-cover cases was resolved with necessary and sufficient tests, boundary restrictions m,n>=2, and deletion witnesses. Five disjoint families produce the exact polynomial. Verification independently enumerated all subsets in eleven small cases (1,419,077 candidates) and confirmed 2,231 minimal sets and every coefficient, plus generated-only tests in five larger cases. Finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defant-Iyer Theorem 2.1 supplies ordinary minimum domination for two factors; Proposition 4.5 handles upper domination with a four-cell reduction, but no exact family count.",
+        "Anderson-Kuenzel-Rall Theorem 3 addresses well-dominated direct products.",
+        "Burcroff-O'Brien Theorem 5.5 proves unimodality of all-domination polynomials via degree bounds."
+      ],
+      "reasoning": "Previously known extremal numbers, well-dominated classification, and unimodality are strictly weaker statements about the desired inclusion-minimal cardinality coefficients. The known total-domination classification on identical graphs has open-neighborhood quantifiers, so does not imply ordinary-minimal classification.",
+      "searches": [
+        "arXiv:1708.01305 Section 4 Proposition 4.5",
+        "arXiv:1909.09955 Theorem 3",
+        "arXiv:2110.00709 Section 5.1",
+        "web: \"direct product\" \"complete graphs\" \"minimal dominating sets\" classification"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1708.01305, Sections 2 and 4",
+      "arxiv:1909.09955, Theorem 3",
+      "arxiv:2110.00709, Sections 5 and 6",
+      "OEIS A291543 and A287274 (Cartesian/rook nonmatches)",
+      "Literature searches of product names and minimal-dominating-set expressions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Defant-Iyer determines extremal cardinalities but not multiplicities at each attainable cardinality.",
+        "Anderson-Kuenzel-Rall recognizes the all-same-cardinality case without determining general counts.",
+        "Burcroff-O'Brien counts all dominating sets, whose univariate coefficients do not determine which generators are inclusion-minimal."
+      ],
+      "reasoning": "The new theorem implies already-known minima/upper/well-dominated facts but is not implied by them. The additional full labeled spectrum and unbounded gap are the substantive components.",
+      "searches": [
+        "arXiv:1708.01305 Theorem 2.1 and Proposition 4.5",
+        "arXiv:1909.09955 Theorem 3",
+        "arXiv:2110.00709 Theorem 5.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1708.01305 defines direct/tensor product as cells adjacent when both coordinates differ (Section 1).",
+        "arXiv:2110.00709 §2 specifies distinct direct and Cartesian product adjacency, and §5.1 concerns all dominating sets."
+      ],
+      "reasoning": "Checked direct, tensor, categorical, Kronecker, lattice and Cayley-product aliases. Lattice/rook (Cartesian) tables use different adjacency. No source located proving equivalent five-family ordinary-minimal classification, though terminology risk persists.",
+      "searches": [
+        "minimal dominating sets of categorical products of complete graphs",
+        "minimal dominating sets domination polynomial direct product complete graphs K_m tensor K_n",
+        "web: \"Kronecker product of complete graphs\" \"minimal dominating sets\" size",
+        "web: \"K_p × K_q\" \"minimal dominating sets\" counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A291543 and A290632 refer to lattice (rook) graphs and maximal irredundant/minimal domination for Cartesian products, not the tensor adjacency.",
+        "OEIS A287274 refers to all dominating sets of rook graphs, not ordinary minimal sets of tensor products."
+      ],
+      "reasoning": "No exact table of the requested tensor-product minimal counts was identified. A table search is negative evidence only and cannot certify uniqueness; the similarly named rook-graph arrays have different adjacency and hence cannot cover the claim.",
+      "searches": [
+        "web: site:oeis.org \"minimal dominating sets\" \"direct product\"",
+        "web: site:oeis.org \"K_m x K_n\" dominating",
+        "web: site:oeis.org \"minimal dominating\" \"Kronecker\" complete",
+        "exact cardinality polynomial of inclusion-minimal dominating sets of direct product of complete graphs, K_m × K_n, upper domination spectrum gaps"
+      ]
+    },
+    "rationale": "Full-text section comparison against Defant-Iyer 2017 (minimum and upper parameter), Anderson-Kuenzel-Rall 2019 (well-dominated characterization), and Burcroff-O'Brien 2021 (all-set polynomial unimodality), together with focused mathematical-literature and OEIS searches, did not identify the complete ordinary-minimal five-family enumerator. A known total-domination result for this same product is logically distinct and does not give its ordinary-minimal family. Priority is provisional.",
+    "residual_risks": [
+      "A publication under unitary Cayley graph, Kronecker product, or another alias might contain the same classification without being indexed by searched expressions.",
+      "Search and full-text inspection do not constitute independent publication-priority certification.",
+      "Finite verification checks only enumerated orders; the universal statement rests on the written proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers extremal domination and a four-cell upper-bound argument; does not state complete five-family enumerator",
+        "evidence": [
+          "2017-08-03 first arXiv public version; v2 2018-06-28.",
+          "Theorem 2.1: minimum ordinary domination 2 if min factor=2, otherwise 3.",
+          "Proposition 4.5: two-factor upper formula and bound via remaining cross cells."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.01305",
+        "material_read": "Section 1 definitions, Section 2 Theorem 2.1, Section 4 Proposition 4.5 and proof, adjacent context",
+        "method": "Full-text arXiv PDF text inspection with page image cross-check",
+        "title": "Domination and Upper Domination of Direct Product Graphs",
+        "trigger": "Same graph product and ordinary domination and upper domination"
+      },
+      {
+        "assessment": "Characterizes well-dominated product cases; does not count all inclusion-minimal dominating sets at arbitrary orders",
+        "evidence": [
+          "First arXiv public version 2019-09-22.",
+          "Theorem 3 identifies K3 × K3 under its nonisolatable-factor hypothesis."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.09955",
+        "material_read": "Introduction, product definitions and Theorem 3 with its preceding lemmas",
+        "method": "Full-text arXiv PDF parsed text and theorem-context inspection; visual fetch was unavailable",
+        "title": "On Well-Dominated Graphs",
+        "trigger": "Strong nearby statement regarding equality of minimal dominating set cardinalities"
+      },
+      {
+        "assessment": "Proves coefficient unimodality for polynomial of all dominating sets; does not enumerate inclusion-minimal dominating sets",
+        "evidence": [
+          "First arXiv public version 2021-10-02.",
+          "Theorem 5.5 is unimodality, not formula for minimal dominating generators."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.00709",
+        "material_read": "Introduction, definition of domination polynomial, Section 5.1, Theorem 5.5, Section 6 minimal-set parameter discussion",
+        "method": "Full-text arXiv PDF parsed text and page 11 image cross-check",
+        "title": "Unimodality and Monotonic Portions of Certain Domination Polynomials",
+        "trigger": "Explicit graph-product domination polynomial paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c385b080-b92b-4988-badf-c6dae3d82b0f",
+  "value": {
+    "rationale": "The ordinary minimal dominating sets are a natural antichain for a classical graph-product domination problem already studied for its extremal invariants and all-set polynomial. The result classifies every labeled solution at arbitrary unequal factor sizes, gives all coefficients, and proves an unbounded forbidden interval in the minimal-set cardinality spectrum for K3 × Kn. This is not a renaming of upper/lower domination or a numeric small-case count.",
+    "status": "PASS"
+  }
+}
