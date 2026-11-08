@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Explicit equations give every family of lines and all three cross-incidence congruences, with zero-diagonal adjacency. The Fourier basis on each labelled \((\mathbb Z/d\mathbb Z)^2\) rook graph diagonalizes the intra-family term. The only cross couplings form three two-by-two blocks per nonzero generic Fourier parameter; when \(d\) is even, the unique order-two parameter yields a signed three-by-three block with eigenvalues \(d-2,d-2,-(2d+2)\). The remainder count reconstructs every multiplicity, including the odd degree-three endpoint. Simplicity of the top eigenvalue gives connectedness, and the matrix-tree formula follows from the complete spectrum. The exact stand-alone computation corroborates degrees three through nine but is not substituted for the proof of the universal claim.
+PASS
 
-## Originality
+PASS. The three families of d² Fermat lines and the exact three cross-incidence congruences give a simple 3d²-vertex (4d-2)-regular graph with zero diagonal. Fourier basis indexed by (r,s) in (Z/d)^2 diagonalizes the within-family rook graph; cross-incidence couples only characters on the two diagonals. Nonconstant generic parameters form three Hermitian 2x2 blocks with eigenvalues d-2 and -(d+2). For d even the unique r=d/2 merges three modes into a signed triangle with eigenvalues (d-2,d-2,-(2d+2)); remaining modes sit at -2 or axis level d-2. Multiplicity sums equal 3d² and top eigenvalue 4d-2 is simple, proving connectedness. Kirchhoff gives the exact stated spanning-tree product; the old Gram-rank formula follows from shifting adjacency by 2-d. Independent exact graph construction and adjacency diagonalization for d=3,4,5,6 matched each predicted eigenvalue/multiplicity. Finite experiments only corroborate the all-d Fourier proof.
 
-PASS, with a substantive priority qualification. Schütt–Shioda–van Luijk, arXiv:0812.2377 (2008), give the complete \(3d^2\)-line configuration, incidence rules, and known line-span rank; Degtyarev, arXiv:1305.3073 (2013), examines the same line lattice. Andria–Rojas–Mangueira, arXiv:2403.15666 (2024), use the incidence for skew-line extremal questions. A 2026 public prime-degree line-lattice manuscript gives related Fourier pairings and a lattice discriminant, not a theorem for the full graph spectrum in all composite and even degrees. The inspected sources and targeted mathematical-record searches did not reveal the displayed uniform parity-sensitive spectrum or spanning-tree formulas. The classical incidence rules *do* determine the underlying graph, so these formulas may be implicit consequences and independent priority review remains necessary; the prior line-span rank and the degree-four graph tree count are not claimed as novel.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The Fermat surfaces provide a natural infinite family of classical projective line configurations. Their exact graph spectra and spanning-tree complexities are invariant across coordinate labellings, quantify global incidence connectivity, and distinguish even degrees via a structurally explained exceptional signed Fourier mode. This is a closed classification across all degrees rather than an arbitrary finite numerical slice. The spectral-gap and graph-complexity consequences are independent of the known numerical rank statement.
+Qualified PASS for the all-degree adjacency spectrum of the complete Fermat-surface line graph and exact spanning-tree product, especially a unique signed-triangle eigenvalue in every even degree. Complete line families, incidence congruences, and line-lattice rank are classical and not original; no inspected full primary source contains the stated all-degree parity-resolved spectrum.
 
-## Scope and remaining risks
+## value
 
-The result is for the complex Fermat surfaces and their complete sets of geometric lines. It makes no integral-lattice saturation claim and does not extend to characteristic-dependent exceptional line configurations. Source matrices and Fourier methods in preexisting work create genuine implicit-coverage risks. Unindexed previous calculations or implicit published derivations remain possible; external independent verification is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Complete incidence graphs of lines on Fermat surfaces are natural geometric-combinatorial objects. The parity-sensitive all-degree integral spectrum, unusual unique negative level for every even d, spectral gap and exact spanning-tree complexity determine important exact graph invariants not available from Picard rank alone. This contributes meaningful closed-family structure despite known incidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

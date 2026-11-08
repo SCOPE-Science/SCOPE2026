@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python3 verify_fermat_spectrum.py` with Python 3; no third-party packages are needed. Its expected terminal line is `VERIFY_OK`, and the checked output from the executed script is provided as `verify_output.txt`.
+## correctness
 
-For \(d=3,4,5,6,7,8,9\), the program constructs a binary symmetric \(3d^2\)-vertex graph directly from the three projective-line incidence congruences. It checks every vertex degree and edge symmetry; the candidate eigenvalue multiplicities sum to the graph order; the adjacency matrix satisfies the product of distinct predicted linear factors; and the first \(r\) power traces determine the proposed multiplicities uniquely by Vandermonde invertibility. It checks the Gram-rank consequence. Computations use exact arbitrary-precision integers throughout.
+PASS
 
-The finite checks are not a proof for all integers \(d\). The published `RESULT.md` gives the all-degree proof using discrete Fourier decomposition, an explicit treatment of the even-degree signed three-mode block, and Kirchhoff's matrix-tree theorem. The claimed new fact is the full parity-sensitive spectrum and tree count, not the classical intersection congruences or line-lattice rank. Historical priority and the source literature comparison require independent review. No independent scientific audit has been performed.
+PASS. The three families of d² Fermat lines and the exact three cross-incidence congruences give a simple 3d²-vertex (4d-2)-regular graph with zero diagonal. Fourier basis indexed by (r,s) in (Z/d)^2 diagonalizes the within-family rook graph; cross-incidence couples only characters on the two diagonals. Nonconstant generic parameters form three Hermitian 2x2 blocks with eigenvalues d-2 and -(d+2). For d even the unique r=d/2 merges three modes into a signed triangle with eigenvalues (d-2,d-2,-(2d+2)); remaining modes sit at -2 or axis level d-2. Multiplicity sums equal 3d² and top eigenvalue 4d-2 is simple, proving connectedness. Kirchhoff gives the exact stated spanning-tree product; the old Gram-rank formula follows from shifting adjacency by 2-d. Independent exact graph construction and adjacency diagonalization for d=3,4,5,6 matched each predicted eigenvalue/multiplicity. Finite experiments only corroborate the all-d Fourier proof.
+
+## originality
+
+PASS
+
+Qualified PASS for the all-degree adjacency spectrum of the complete Fermat-surface line graph and exact spanning-tree product, especially a unique signed-triangle eigenvalue in every even degree. Complete line families, incidence congruences, and line-lattice rank are classical and not original; no inspected full primary source contains the stated all-degree parity-resolved spectrum.
+
+## value
+
+PASS
+
+PASS. Complete incidence graphs of lines on Fermat surfaces are natural geometric-combinatorial objects. The parity-sensitive all-degree integral spectrum, unusual unique negative level for every even d, spectral gap and exact spanning-tree complexity determine important exact graph invariants not available from Picard rank alone. This contributes meaningful closed-family structure despite known incidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
