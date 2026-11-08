@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:47:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Assumptions, Proof 1–3, weight-three 65-vector certificate; verify.py inspected",
+        "Independent spot-check output S1 (direct raw words versus capped gaps)"
+      ],
+      "rationale": "The all-length proof uses the unique zero-run parameterization x=0^g0 1 ... 1 0^gw, the invariant five nonzero-grade counts under g_i>=2 extension, and an exact stars-and-bars lift E_{n,w}(h). The disjoint capped-vector partition makes F_{n,w}(s)=sum_{Phi(h)=s} E_{n,w}(h) exhaustive, including t=0; its sum is binomial(n,w). All h containing a 2 are feasible for n>=3w+2, while the all-2 signature has 3w one-positive length-three windows and cannot occur at n=3w+1. Direct enumeration of the 65 positive capped four-gap tuples gives 29 distinct signatures, and enumeration for n=3,...,10 gives 1,2,6,9,16,21,26,28. Independent direct-versus-cap arithmetic checks were performed for bounded n,w; these finite checks are not the universal proof.",
+      "residual_risks": [
+        "No noisy, incomplete, cyclic, or rotation-identified reads; general weights have a finite signature formula not a closed polynomial."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye–Elishco Section VIII treats the length-limited observation and construction when read limit scales with length, not this all-(n,w) exact finite r=3 fiber formula.",
+          "Published Resultary r=2 RESULT.md gives arbitrary-weight length-two capacity and fiber sizes, a different smaller read limit."
+        ],
+        "reasoning": "The source methods and the r=2 capacity do not imply the r=3 five-grade inverse fibers without the new capped-two-gap analysis. Full-spectrum reconstruction observes more data and does not determine a coarser-channel inverse-fiber partition.",
+        "searches": [
+          "substring composition multiset short reads length at most 3 exact fibers binary fixed weight 3 saturation 29 profiles gap vector",
+          "Ye Elishco 2022 reconstruction length limited substring composition multiset Section VIII",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2208.14963",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ye–Elishco established the observation model and coding constructions, not all-length saturation at 3w+2.",
+          "Yang–Chen prefix/suffix compositions use a different family of substrings; Results for r=2 and exact three-only grades omit information in the joint channel."
+        ],
+        "reasoning": "Even if these are broader in source length or construction family, their proven conclusions do not imply these fiber values or sharp saturation by specialization. The length-two family is an explicit non-covering special case of a different read operation.",
+        "searches": [
+          "arxiv:2208.14963 section VIII",
+          "arxiv:2411.03776 prefix-suffix constant weight",
+          "arxiv:2208.14963 fixed r=3 fibers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A composition records only the number of ones in a length-j window; the five joint positive-grade counts at j=2,3 completely specify the observation at fixed (n,w).",
+          "A Resultary r=2 theorem instead uses only length-one/two compositions, so it is not an alias of these five-coordinate fibers."
+        ],
+        "reasoning": "Parikh-vector and grade-spectrum aliases were considered. Ordered substring spectra, length-three-only spectra and the r=2 truncated observation are different equivalence relations; their fiber formulae cannot directly replace the exact r<=3 multiplicity count.",
+        "searches": [
+          "substring composition multiset short reads length at most 3 exact fibers binary fixed weight 3 saturation 29 profiles gap vector",
+          "Parikh spectrum finite binary substring k-mer compositions exact fiber r=3",
+          "arxiv:2208.14963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 65 capped vectors and 29 signatures are explicit in the reviewed RESULT.md rather than a known external table.",
+          "Related Resultary two-multispectrum and r=2 records give other channel tables, not the joint r=3 29 signature classes."
+        ],
+        "reasoning": "No located published numerical table contains this exact joint five-coordinate 29-profile certificate. A missed unindexed table remains a priority risk; a failed search alone cannot prove novelty.",
+        "searches": [
+          "substring composition multiset short reads length at most 3 exact fibers binary fixed weight 3 saturation 29 profiles gap vector",
+          "binary composition multispectrum r=3 weight 3 29 possible profiles n>=11",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+        ]
+      },
+      "rationale": "Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.",
+      "residual_risks": [
+        "An unindexed Parikh-spectrum/local-pattern count could give the same r=3 exact fiber formula.",
+        "Inspection of selected prior results is not an exhaustive historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL_NOT_EXACT_FIBERS",
+          "evidence": "Section VIII addresses a length-limited composition model and code constructions, not the all-length fixed-r=3 exact five-grade fibers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.14963",
+          "material_read": "Primary PDF including the model, constructions and Section VIII length-limited setting; inspected relevant definitions and comparison sections",
+          "method": "lawful arXiv PDF, targeted pages/section reading and screenshot",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "Same bounded-composition observation defined by Ye and Elishco"
+        },
+        {
+          "assessment": "DIFFERENT_READ_LIMIT",
+          "evidence": "Length-one/two count is quadratic in n for unrestricted weight, whereas current claim fixes weight and includes third-length reads.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "material_read": "Full RESULT.md proof, class formula and limitations",
+          "method": "GitHub public RESULT.md via connected read-only connector",
+          "title": "Exact binary r=2 length-limited composition reconstruction",
+          "trigger": "Most relevant published comparison, same read model with r=2"
+        },
+        {
+          "assessment": "DIFFERENT_ORDERED_OBSERVATION",
+          "evidence": "That record distinguishes 01 and 10 and retains only ordered adjacent pairs, rather than their composition plus length-three counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "material_read": "Full RESULT.md proof and model definition",
+          "method": "GitHub public RESULT.md",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Possible multispectrum alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Reviewed final mathematical claim and bounded verification program",
+        "RESULT.md §§Assumptions, Proof 1–3, weight-three 65-vector certificate; verify.py inspected",
+        "Independent spot-check output S1 (direct raw words versus capped gaps)"
+      ],
+      "rationale": "Exact fiber multiplicities and zero-error code capacity are canonical invariants of the multiplicity-preserving bounded-read composition channel. Three is the first higher fixed read limit beyond the known two-read case; a sharp saturation threshold and the natural weight-three 29-profile ceiling are exact reusable classifications, not arbitrary sample counts.",
+      "residual_risks": [
+        "No noisy, incomplete, cyclic, or rotation-identified reads; general weights have a finite signature formula not a closed polynomial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No noisy, incomplete, cyclic, or rotation-identified reads; general weights have a finite signature formula not a closed polynomial.",
+    "An unindexed Parikh-spectrum/local-pattern count could give the same r=3 exact fiber formula.",
+    "Inspection of selected prior results is not an exhaustive historical priority guarantee."
+  ],
+  "schema_version": 1
+}

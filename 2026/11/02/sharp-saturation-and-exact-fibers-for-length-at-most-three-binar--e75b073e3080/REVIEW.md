@@ -1,19 +1,21 @@
-# Scientific review of short binary composition-read fibers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Each word of weight \(w\) corresponds bijectively to a nonnegative \((w+1)\)-tuple of zero gaps. Increasing a gap that already contains at least two zeros adds only zero-grade windows of lengths two and three. Capping gaps at two therefore preserves every positive-grade observation, and stars and bars proves the exact inverse-fiber formula. The sharp threshold follows because every truncated tuple having a gap capped at two is realizable at length \(3w+2\), whereas the all-two signature with \(3w\) one-grade triples is impossible at length \(3w+1\). For weight three, the fully enumerated finite certificate partitions 65 capped vectors into 29 distinct signatures, all with length-eleven witnesses; smaller lengths are exhausted separately. The verifier tested 106 full inverse-fiber distributions independently through length 18, including both equality of profile keys and individual preimage counts.
+PASS
 
-## Originality
+The all-length proof uses the unique zero-run parameterization x=0^g0 1 ... 1 0^gw, the invariant five nonzero-grade counts under g_i>=2 extension, and an exact stars-and-bars lift E_{n,w}(h). The disjoint capped-vector partition makes F_{n,w}(s)=sum_{Phi(h)=s} E_{n,w}(h) exhaustive, including t=0; its sum is binomial(n,w). All h containing a 2 are feasible for n>=3w+2, while the all-2 signature has 3w one-positive length-three windows and cannot occur at n=3w+1. Direct enumeration of the 65 positive capped four-gap tuples gives 29 distinct signatures, and enumeration for n=3,...,10 gives 1,2,6,9,16,21,26,28. Independent direct-versus-cap arithmetic checks were performed for bounded n,w; these finite checks are not the universal proof.
 
-**PASS, qualified.** Ye and Elishco (arXiv:2208.14963, Section VIII) define the precise length-limited composition channel, construct coding families, and explicitly leave capacity questions for further study; they do not derive the present capped-gap inverse-fiber formula or sharp fixed-weight saturation. The closest related results identify binary length-two composition profiles at all weights, length-limited composition profiles for exactly two markers, or single-length three-window composition profiles, none of which supplies the joint length-two-plus-three fibers for every fixed weight. An explicit eleven-symbol collision pair for the three-window profile splits when two-window counts are added. Yang and Chen (arXiv:2411.03776) instead observe prefixes and suffixes of every possible length. Searches under local-pattern, Parikh-spectrum, and short-mass-spectrum terminology found no matching complete statement, but an unindexed equivalence cannot be excluded.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating literature explicitly asks for capacity information in length-limited fragment models. The result supplies exact sizes of *all* reconstruction ambiguity classes, an effective exact-capacity algorithm at every length and sparse weight, a universal sharp saturation length, and a closed complete three-marker capacity profile. The bound demonstrates that lengthening a constant-weight source eventually does not add any distinguishable fragment profiles, an exact information-loss phenomenon rather than an ad hoc finite census.
+Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.
 
-## Scientific limits and closest literature
+## value
 
-The theorem is for binary indexed linear words, complete overlapping multiplicity-preserving fragment compositions, maximum fragment length three, and a known weight. It does not address cyclic reads, missing observations, long fragments, or error correction. Related earlier models with all substring lengths or with only prefix/suffix information are not equivalent. Public priority remains subject to a broader specialist literature check; the scientific review is not independent external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact fiber multiplicities and zero-error code capacity are canonical invariants of the multiplicity-preserving bounded-read composition channel. Three is the first higher fixed read limit beyond the known two-read case; a sharp saturation threshold and the natural weight-three 29-profile ceiling are exact reusable classifications, not arbitrary sample counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
