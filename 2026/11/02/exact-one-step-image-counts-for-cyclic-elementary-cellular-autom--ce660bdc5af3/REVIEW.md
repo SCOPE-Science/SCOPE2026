@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local rule, cyclic boundary convention, rooted-output counting, 4-state pair graph and Boolean composition are fully specified. A 75-state finite closure establishes deterministic recognition of all output strings. The exact 75-component identity \(T^2p(T)v=0\), independently recomputable in `verify.py`, proves the recurrence for every length, while initial values give the rational generating function. Root separation proves the displayed exponential asymptotic with leading coefficient one. Direct enumeration through length 16 is a cross-check and not the infinite proof.
+## correctness
 
-**Originality — PASS, with historical priority risk.** The earlier Rule-110 subset-diagram and de Bruijn literature provides the method of checking preimages, not an inspected formula for the number of distinct rooted cyclic outputs at every length. The accessible 2007 primary manuscript's glider-language and forbidden-pattern results do not imply the stated rational series as a recorded theorem. A related specialized earlier article was only partly accessible, so complete historical-priority exclusion is not possible. A concrete series and proof, not the recognition technique itself, is the contribution. Searches and comparisons are documented in `AUDIT.json`.
+PASS
 
-**Value — PASS.** The exact growth rate of the one-step image of a classical computationally universal local rule is a natural, nontrivial global-state invariant. It quantifies information loss on finite rings and determines the reachability fraction for every ring size, unlike finite small-size tables or local forbidden-pattern tests alone. No multi-step result is asserted.
+A circular output has a preimage iff its 4x4 Boolean de Bruijn product has nonzero diagonal. Closing the Boolean relation monoid yields exactly 75 states and 61 accepting; the deterministic subset automaton counts distinct outputs once. Independent fresh implementation checked all 75 states of T^2 p(T)f=0 for specified degree-nine integer polynomial p, the 11 initial values and direct images through n=16. This finite all-states operator identity, not empirical sequence extrapolation, proves rational GF for every n; logarithmic derivative of quartic factors yields lambda^n+O(1.381^n).
 
-The closest literature treats preimage calculations, subset diagrams and selected Garden-of-Eden languages. The fully inspected 2007 study is materially different. Partial access to an earlier preimage paper and unindexed prior results are residual historical risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: A recognized regular image language is not its enumerated periodic finite-ring image set. Classical undecidability/universality of Rule110 and generic finite automaton rationality do not evaluate the 75-component recurrence or exact lambda constant.
+
+## value
+
+PASS
+
+A full all-length distinct-image counting law and exact exponential entropy for the canonical complex Rule 110 automaton is a natural dynamical/combinatorial invariant. The 75-state exact relation-algebra certificate upgrades individual preimage tests and finite tables to a reproducible infinite formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

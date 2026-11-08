@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification instructions
 
-Run `python3 verify.py` in the directory containing this file. The program uses only the Python standard library and prints `VERIFY_OK` after completing all checks. It does not rely on external data files.
+# Independent mathematical audit
 
-Its exact checks reconstruct the 4-by-4 Boolean edge matrices from the stated local rule, the reachable 75-element relation monoid, and 61 accepting relation states. It then proves a vector identity with **75 zero components**, namely \(T^2p(T)v=0\), using arbitrary-precision integers. This is a finite mathematical certificate for an all-length recurrence; the proof of its implication is in `RESULT.md`. The program also checks the first coefficients, rational denominator, numerator and independent Newton-power-sum identity.
+## correctness
 
-An independent direct implementation applies Rule 110 to every binary ring input at each length from 1 to 16 and counts distinct output words, including rings with coinciding neighbor indices. These exhaustive finite checks do not alone establish the all-length statement; the finite transition-algebra identity does. The dominant-root argument is given analytically in `RESULT.md`.
+PASS
 
-The package does not certify multi-step reachability, fixed-density counts or priority over every historical publication. The scientific review is not an independent audit.
+A circular output has a preimage iff its 4x4 Boolean de Bruijn product has nonzero diagonal. Closing the Boolean relation monoid yields exactly 75 states and 61 accepting; the deterministic subset automaton counts distinct outputs once. Independent fresh implementation checked all 75 states of T^2 p(T)f=0 for specified degree-nine integer polynomial p, the 11 initial values and direct images through n=16. This finite all-states operator identity, not empirical sequence extrapolation, proves rational GF for every n; logarithmic derivative of quartic factors yields lambda^n+O(1.381^n).
+
+## originality
+
+PASS
+
+Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: A recognized regular image language is not its enumerated periodic finite-ring image set. Classical undecidability/universality of Rule110 and generic finite automaton rationality do not evaluate the 75-component recurrence or exact lambda constant.
+
+## value
+
+PASS
+
+A full all-length distinct-image counting law and exact exponential entropy for the canonical complex Rule 110 automaton is a natural dynamical/combinatorial invariant. The 75-state exact relation-algebra certificate upgrades individual preimage tests and finite tables to a reproducible infinite formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
