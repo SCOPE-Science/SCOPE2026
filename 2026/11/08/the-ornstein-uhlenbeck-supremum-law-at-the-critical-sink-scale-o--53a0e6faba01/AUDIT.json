@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Starting from Proposition 5 of arXiv:2604.04747, the exact Bernoulli-refresh transition probabilities yield stationary p-binomial counts and a stationary OU functional CLT on n-step windows. The sink count at the deterministic center has an independent Gaussian fluctuation; a maximal binomial-refresh martingale bound and Doob control of the sink count exclude early crossings, while an endpoint Gaussian bound controls late crossings. OU paths immediately cross C1 moving boundaries, making the first-contact map valid. Conditioning on the Gaussian intercept and using OU stationarity/reversibility produces the stated drift-penalized OU supremum. The packaged Python checker passed 69,812 exact finite assertions, but it is not a proof of weak convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.04747 Theorem 3 assumes 1/q_n >> n^{1/2+epsilon}, not the q_n sqrt(n) -> c window.",
+        "arXiv:2304.10169 studies the ordinary complete-graph sink mechanism of order 1/n and its sqrt(n log n) occupancy shift.",
+        "Reed–Ward–Zhan concern general OU and reflected diffusion hitting representations, but not stationary activated-random-walk particle counts."
+      ],
+      "reasoning": "The known Gumbel theorem has a disjoint scale; the earlier model has a different sink scaling. General OU functional theory may assist with a proof but does not by itself supply the exact particle-system limit and boundary localization.",
+      "searches": [
+        "activated random walk complete graph sink strength sqrt n crossover OU supremum law 2026 2025",
+        "\"activated random walk\" \"sink\" \"n^{-1/2}\" Gumbel limit critical",
+        "arXiv:2304.10169 Theorems 1.1–1.2 and Section 7.1",
+        "DOI:10.1239/jap/1363784421"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.04747v2, HTML model/main results/Proposition 5/Section 1.5",
+      "arXiv:2304.10169v4, PDF abstract/theorems/Section 7.1",
+      "DOI:10.1239/jap/1363784421, accessible summary and excerpt",
+      "Published mathematical-result semantic searches on model, scaling and OU equivalents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact sampling identity in arXiv:2604.04747 is an input, not the limit theorem.",
+        "Its stated Gumbel theorem cannot be specialized to q_n sqrt(n) -> c; the asymptotic requirement n^{1/2+epsilon} << 1/q_n fails.",
+        "The earlier concentrated sqrt(n log n) limit at q_n about 1/n is also inapplicable in the present finite-constant critical window."
+      ],
+      "reasoning": "Neither relevant statement implies the asserted limiting law by parameter specialization. Additional OU functional convergence, independent sink fluctuation, first-crossing localization and Gaussian-intercept cancellation are required.",
+      "searches": [
+        "arXiv:2604.04747 Proposition 5, Theorem 3, Section 1.5",
+        "arXiv:2304.10169 Theorems 1.1–1.2 and Section 7.1",
+        "Junge Kaufman Meisel 2604.04747 activated random walk critical q_n = lambda / sqrt(n) Ornstein Uhlenbeck drifted supremum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The distributional limit is equivalent to a first-contact law for a stationary OU process against an independent Gaussian-intercept line, and to the forward drift-penalized OU supremum by reversibility.",
+        "arXiv:2604.04747 Section 1.5 identifies the crossover as a question and does not state either equivalent distributional law."
+      ],
+      "reasoning": "The Gaussian-intercept hitting expression and stationary OU supremum are exact alternative descriptions of this result, not distinct contributions. The nearest source gives a qualitative anticipated crossover, not their fixed-strength law.",
+      "searches": [
+        "Junge Kaufman Meisel 2604.04747 activated random walk critical q_n = lambda / sqrt(n) Ornstein Uhlenbeck drifted supremum",
+        "ARW stationary sleeping particle count sink probability c divided by root n limit sup OU",
+        "arXiv:2604.04747 Section 1.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned nearby records about OU modes, Ehrenfest refresh chains and unrelated Gaussian thresholds, but no record giving the stationary ARW law q_n sqrt(n) -> c.",
+        "The finding is a distributional weak limit, not a finite tabulated invariant or parameter-specific exact value."
+      ],
+      "reasoning": "No inspected database record or numerical table fixes this model-and-scaling limit. This negative search evidence cannot guarantee global novelty.",
+      "searches": [
+        "binomial update process p biased Ehrenfest chain moving line boundary critical window q lambda/sqrt n OU first passage",
+        "stationary binomial update chain first intersection declining boundary Gaussian Ornstein-Uhlenbeck linear drift",
+        "published mathematical-result searches on Ornstein-Uhlenbeck critical activated random walk"
+      ]
+    },
+    "rationale": "Junge–Kaufman–Meisel arXiv:2604.04747 Proposition 5 supplies the model representation, and Theorem 3 supplies a Gumbel law only for inverse sink strength growing faster than n^{1/2+epsilon}. Section 1.5 explicitly anticipates an unresolved transition at order sqrt(n). The proposed theorem identifies the fixed-constant window q_n sqrt(n) -> c and its law; neither the source nor the separately inspected 2023 arXiv:2304.10169 state this result. Related classical OU maxima are not claimed as new in themselves. Published mathematical-record search did not locate a directly covering result; historical priority remains provisional.",
+    "residual_risks": [
+      "A broad pre-existing moving-boundary functional limit theorem might subsume the proof once Proposition 5 is supplied.",
+      "The related OU hitting literature was not exhaustively read; mathematical priority is not independently certified.",
+      "The 2023 paper was inspected at its most relevant theorem and OU sections, not line-by-line across all 42 pages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact representation and known disjoint-scale limits but does not state the fixed-constant reciprocal-square-root OU-supremum law",
+        "evidence": [
+          "Proposition 5: S_n equal in law to Y at the first equality with n-Z.",
+          "Section 1.5: transition expected near inverse sink strength n^{1/2+o(1)}.",
+          "Theorem 3: Gumbel result only for inverse sink strength >> n^{1/2+epsilon}."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.04747v2",
+        "material_read": "Abstract; Theorems 1–4; Section 1.5 further questions; definition of the binomial update chain; Proposition 5 and its proof in Section 2; beginning of Section 3",
+        "method": "Open full HTML and inspect the model definition, main results, crossing representation and conjectural transition text",
+        "title": "Scaling limit and density conjecture for activated random walk on the complete graph",
+        "trigger": "Same stationary ARW model; explicit open crossover scale; core stochastic representation"
+      },
+      {
+        "assessment": "The studied effective sink strength is order 1/n and the result is a sqrt(n log n) concentration law; no fixed c/sqrt(n) stationary law in inspected statements",
+        "evidence": [
+          "Theorem 1.2 specifies the sqrt(n log n) density shift.",
+          "Section 7.1 discusses OU heuristics for rare large deviations rather than the finite-constant crossover distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.10169",
+        "material_read": "Abstract; introduction and Theorems 1.1–1.2 on pages 1–4; Section 7.1 OU heuristic on page 20",
+        "method": "Inspect PDF extracted theorem text and page images for the stated results and OU interpretation",
+        "title": "The number of particles in activated random walk on the complete graph",
+        "trigger": "Original complete-graph ARW density and OU heuristic in the same general system"
+      },
+      {
+        "assessment": "Relates reflected OU transients and OU passage times, but no activated-random-walk stationary occupancy or sink scaling is stated in inspected material",
+        "evidence": [
+          "The stated application is a reflected OU process and heavy-traffic queues, not a binomial-update chain with a moving sink boundary."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1363784421",
+        "material_read": "Publicly available abstract and introduction excerpt",
+        "method": "Open accessible abstract/excerpt and compare the mathematical objects",
+        "title": "On the generalized drift Skorokhod problem in one dimension",
+        "trigger": "Potential stronger OU passage-time representation behind the limit functional"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53a0e6fa-ba01-4e12-8eea-9ae6c2404774",
+  "value": {
+    "rationale": "The 2026 source expressly calls the n^{1/2+o(1)} inverse-sink scaling a predicted but untreated transition. Identifying the fixed-constant window with a universal stationary OU supremum, proving cancellation of the random sink-clock intercept, and deriving strict monotone comparisons and both endpoints supplies a motivated quantitative law, not an arbitrary parameter substitution or a previously tabulated constant. Finite-n moment convergence and rates are appropriately left unproved.",
+    "status": "PASS"
+  }
+}
