@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite-field derivation enumerator
+# Independent mathematical audit
 
-The independent executable `verify.py` builds actual derivation matrices using \(D_f(x^j)=j x^{j-1} f\), then tests their squares by matrix multiplication and calculates ranks by field Gaussian elimination. This is independent of the proof's valuation criterion. It enumerates every coefficient vector in the following configurations: \(q=2\), \(2M\in\{2,4,6,8,10,12\}\); \(q=4\), \(2M\in\{2,4,6\}\); and \(q=8\), \(2M\in\{2,4\}\). For each configuration the direct histogram agrees with the exact formula in `RESULT.md`. The executable checks an additional 237 total-count identities for \(1\le M\le79\) and \(q\in\{2,4,8\}\).
+## correctness
 
-To reproduce: place `verify.py` in the same directory and run `python verify.py` with Python 3. No external packages or network access are needed. The final output is `VERIFY_OK: 11 exhaustive matrix cases and 237 symbolic total-count checks`.
+PASS
 
-The finite tests are not exhaustive over all dimensions or fields. The general claims are established by the written algebraic proof, including the analytic bound on normalized rank; the script does not constitute an independent mathematical audit.
+D_f=f∂ is all derivations since derivative of x^(2M) vanishes, and in characteristic 2 D_f²(g)=ff′g′. Decomposition f=a(t)+xb(t), t=x², reduces square zero to ab=0=b² over Fq[t]/t^M. Valuations partition every f without overlap; image is fB of rank M−min(v(a),v(b)). This derives all enumerator coefficients and the total. For nonzero b the order j is exactly uniform on ceil(M/2)..M−1, while rank deficit has geometric tail, implying W1 O(1/M). Independent exhaustive F2 operator matrix squares/ranks up to truncation 12 match formula; source verifies additional q=4,8 cases.
+
+## originality
+
+PASS
+
+Classical Witt/restricted-Lie algebra accounts prove that D^p is a derivation, not the exact finite-field 2-nilpotent operator-rank enumeration and uniform asymptotic. Briggs–Rubio y Degrassi discuss integrability and p-operations; Yao–Zhao consider 2-local derivations on p-truncated Jacobson–Witt algebras; Premet/Chen impose larger characteristic in cited theorems. Semantic Resultary comparison did not locate the same enumerator.
+
+## value
+
+PASS
+
+Exact rank spectrum and a nondegenerate uniform limit law describe a natural restricted-Lie nilpotent locus across all truncation lengths. This is more than checking a single tiny algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

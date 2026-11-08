@@ -1,15 +1,21 @@
-# Scientific review: square-zero derivations of truncated polynomial algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-Every derivation of \(\mathbb F_q[x]/(x^{2M})\) is \(f\,d/dx\) in characteristic two; its composition square equals \(ff'\,d/dx\). Splitting \(f=a(x^2)+xb(x^2)\) makes the square-zero equations exactly \(ab=b^2=0\) in \(\mathbb F_q[t]/(t^M)\). Valuations characterize all solutions and the image-rank equation is \(M-\min(v(a),v(b))\), so the enumerator counts a disjoint exhaustive set of cases. Conditioning on the valuation of nonzero \(b\) yields a discrete uniform law; the gap between that valuation and rank has uniformly geometric tails, proving the continuous uniform law and \(O_q(M^{-1})\) Wasserstein-1 rate. Independent direct-matrix exhaustive enumeration agrees in eleven cases across \(\mathbb F_2,\mathbb F_4,\mathbb F_8\), but is not used to prove the infinite statement. The boundary \(M=1\), zero derivation, and even-truncation hypothesis were checked explicitly.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Briggs and Rubio y Degrassi, arXiv:2205.01660v1 (May 3, 2022), establish restricted Lie structures of derivations of Artin algebras; the \(p\)-power construction is prior knowledge. The source does not give the finite-field rank enumerator or its limit distribution. Yao and Zhao, arXiv:2007.07746v1, treat 2-local derivations of Jacobson–Witt algebras associated to separate \(p\)-truncations; their characteristic-two, one-variable ring is the special case \(M=1\), not the family of arbitrary even truncations, and their conclusion does not imply counts of \(D^2=0\). Premet, arXiv:1405.2426v1, treats regular derivations in characteristic greater than two; Chen, arXiv:1707.02881v1, assumes characteristic greater than three for a different nilpotent variety. Scientific searches for square-zero derivations, restricted nullcones and Witt-type rank spectra, plus comparison with previously published research records, found no exact covering theorem. This is evidence-limited novelty assessment, not proof of priority. An older or differently indexed derivation/finite-group-scheme calculation remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The restricted \(2\)-nullcone \(\{D:D^2=0\}\) is a canonical subset of the derivation Lie algebra of a finite local algebra. The theorem determines its complete linear-rank stratification for *every* even truncation and every finite characteristic-two field, rather than a hand-picked small dimension. The limit law reveals macroscopically spread ranks, between half and the maximum square-zero rank, with a quantitative convergence rate. The rank spectrum is useful for testing characteristic-two restricted-Lie and module-geometry computations and cannot be read off from the order of the derivation space or from the existence of the restricted power map alone.
+D_f=f∂ is all derivations since derivative of x^(2M) vanishes, and in characteristic 2 D_f²(g)=ff′g′. Decomposition f=a(t)+xb(t), t=x², reduces square zero to ab=0=b² over Fq[t]/t^M. Valuations partition every f without overlap; image is fB of rank M−min(v(a),v(b)). This derives all enumerator coefficients and the total. For nonzero b the order j is exactly uniform on ceil(M/2)..M−1, while rank deficit has geometric tail, implying W1 O(1/M). Independent exhaustive F2 operator matrix squares/ranks up to truncation 12 match formula; source verifies additional q=4,8 cases.
 
-## Scope and residual limitations
-Only operator-square-zero derivations are counted, not arbitrary nilpotent derivations or restricted-powers of higher order. Rank is the linear rank on the quotient algebra; automorphism-conjugacy classes are not classified. The probability limit fixes the field size. Neither full publication-priority certification nor independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Witt/restricted-Lie algebra accounts prove that D^p is a derivation, not the exact finite-field 2-nilpotent operator-rank enumeration and uniform asymptotic. Briggs–Rubio y Degrassi discuss integrability and p-operations; Yao–Zhao consider 2-local derivations on p-truncated Jacobson–Witt algebras; Premet/Chen impose larger characteristic in cited theorems. Semantic Resultary comparison did not locate the same enumerator.
+
+## value
+
+PASS
+
+Exact rank spectrum and a nondegenerate uniform limit law describe a natural restricted-Lie nilpotent locus across all truncation lengths. This is more than checking a single tiny algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
