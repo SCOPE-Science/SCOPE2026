@@ -1,19 +1,21 @@
-# Scientific assessment: nested-circle chord-crossing radius law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The supporting-line representation converts the crossing event into containment of a signed line offset between two independent endpoint projections. The offset has the arcsine density at the outer radius, and the two projections have the independent inner arcsine law. Tonelli gives a one-dimensional integral with a nonnegative kernel. The binomial series yields strictly positive coefficients. Their sum is independently normalized to the known equal-radius probability \(1/3\), while the first coefficient equals \(8/\pi^3\), proving sharp global comparison constants and strict monotonicity. Endpoint expansion of the projection-overlap kernel yields coefficient asymptotics \(c_n=1/(\pi^2n^2)+O(n^{-5/2})\), whose Abelian sum proves the sharp \(2/\pi^2\) logarithmic cusp. Independent quadratures and direct random segment testing corroborate the identities; the analytic steps are complete and do not rely on simulation.
+PASS
 
-## Originality — PASS, with historical-priority limitations
+Independent uniform endpoint angles on radii 1 and R make the outer chord line offset H arcsine on [-R,R], independent of its normal; a crossing occurs precisely when H falls between the two inner endpoint projections. Their arcsine CDF F gives G(h)=2F(h)(1-F(h)), yielding p(R)=pi^-1 int_{-1}^1 G(x)/sqrt(R^2-x^2) dx for R>=1. Positive binomial expansion proves c_n>0 and strict complete monotonicity; the sum at R=1 equals 1/3 and the n=0 term 8/pi^3 yields sharp global bounds. Endpoint G(1-s)~(2sqrt(2)/pi)s^1/2 gives c_n~1/(pi^2n^2), whose dilogarithmic partial-sum singularity yields (2/pi^2)epsilon log(1/epsilon). Independently integrated the first three c_n and five radii, verifying coefficients and bounds; the proof, not simulations, controls all R and the infinite cusp.
 
-Bortolotto–Ramos (arXiv:2406.06771, public June 10, 2024; subsequently *Mathematika* 2025) and Bortolotto–Souza (*American Mathematical Monthly*, 2026, DOI 10.1080/00029890.2026.2662833) are the closest full primary treatments. Their same-circle crossing models and same-line-law intersection-radius theorems provide the established \(1/3\) benchmark and, by polarization of the latter, a route to the **basic mixed-circle probability integral**. This reduction is not claimed as a novel theorem. What is not supplied by those inspected statements is the sharp logarithmic cusp at coincident radii, global complete monotonicity in the radius ratio, exact positive-series coefficients and sharp rescaled crossing bounds. Search comparisons also included classical one-chord inner-circle penetration and unrelated concentric-disk overlap. A still-unlocated earlier source may contain the singular parameter analysis; priority is therefore provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem naturally interpolates between classical same-circle chord crossings and a small inner-circle target against an independently random outer chord. The ratio-one transition is nonsmooth, with an explicitly determined \(\varepsilon\log(1/\varepsilon)\) first loss rather than a routine linear perturbation. Complete monotonicity, sharp constants valid at every radius, and a certified far-field series quantify the full interpolation. These are structural geometric-probability conclusions requiring both line-distribution analysis and a nontrivial endpoint asymptotic, not merely a numerical probability or a restatement of an established exact integral.
+Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. Novelly credited only to the further radius-parametric asymptotic and global ordering, not the integral or p(1)=1/3. A sufficiently general unstated analytic corollary might cover it, retained as risk.
 
-## Scope and remaining risks
+## value
 
-Both endpoints of each chord must be independent and uniformly distributed by circle arclength, and the circles must be concentric. The known general same-law line-intersection theorem is stronger in its underlying distributional setting; the present claim is the additional specific singular analysis, not uniqueness of the integral representation. Historical priority requires independent specialist review, particularly for older stochastic-geometric asymptotics with different terminology. The calculation has no claim about nonconcentric circles or other Bertrand chord conventions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equal-radius limit is a singular collision of endpoint-supported chord laws: the first derivative diverges while the function stays continuous. The exact positive-series decomposition simultaneously yields strong shape information, strictly alternating derivatives and globally sharp scale-corrected bounds. These are motivated natural invariants of two nested circles and not a recomputation of 1/3 alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:55:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md 294adf9f840b84c422cc320f20806d42a8f6552b, steps 1-4; check.py 6a34cfe0019904143ffa3244c58d2d3f512fdf7e; independent_check.py exact integral coefficients and R in {1,1.002,1.2,3,10}."
+      ],
+      "rationale": "Independent uniform endpoint angles on radii 1 and R make the outer chord line offset H arcsine on [-R,R], independent of its normal; a crossing occurs precisely when H falls between the two inner endpoint projections. Their arcsine CDF F gives G(h)=2F(h)(1-F(h)), yielding p(R)=pi^-1 int_{-1}^1 G(x)/sqrt(R^2-x^2) dx for R>=1. Positive binomial expansion proves c_n>0 and strict complete monotonicity; the sum at R=1 equals 1/3 and the n=0 term 8/pi^3 yields sharp global bounds. Endpoint G(1-s)~(2sqrt(2)/pi)s^1/2 gives c_n~1/(pi^2n^2), whose dilogarithmic partial-sum singularity yields (2/pi^2)epsilon log(1/epsilon). Independently integrated the first three c_n and five radii, verifying coefficients and bounds; the proof, not simulations, controls all R and the infinite cusp.",
+      "residual_risks": [
+        "Only endpoint-uniform independent straight finite chords, concentric radii R>=1; p(1) has infinite negative right derivative, not differentiable at the collision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bortolotto–Souza Theorem 2 gives an exact CDF of intersection radii of independent same-law supporting lines and Theorem 1 the equal-unit-circle distribution; Bortolotto–Ramos studies crossing location and extremization of same-circle endpoint laws."
+        ],
+        "reasoning": "The general intersection-radius theorem dominates the base isotropic-line geometry by polarization but its stated same-law theorem has no variable ratio of two nested chord supports, no R-dependent Bernstein series, and no singular cusp expansion; these require extra endpoint and coefficient analysis.",
+        "searches": [
+          "Bortolotto Souza Intersections of Random Chords arxiv:2504.12866 Theorem 2",
+          "Bortolotto Ramos On Extremal Problems Associated with Random Chords arxiv:2406.06771 full Wiley article"
+        ]
+      },
+      "checked_sources": [
+        "Bortolotto–Souza (2025 preprint, 2026 journal), arXiv:2504.12866 full 18-page PDF",
+        "Bortolotto–Ramos (2025), DOI 10.1112/mtk.70024 full publisher HTML",
+        "Resultary topic search: random chords on two concentric circles intersection probability logarithmic cusp complete monotonicity radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mixture polarization makes the mixed *integral* an algebraic consequence of the previous general same-law formula; neither the k^-2 tail of its binomial coefficients nor the sharp collision cusp is explicitly furnished."
+        ],
+        "reasoning": "Novelly credited only to the further radius-parametric asymptotic and global ordering, not the integral or p(1)=1/3. A sufficiently general unstated analytic corollary might cover it, retained as risk.",
+        "searches": [
+          "arxiv:2504.12866 Theorem 2 and Eq 2.6",
+          "doi:10.1112/mtk.70024 Sections 1-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bortolotto–Souza Theorem 2 (arXiv:2504.12866 pp.7–11) supplies the law for intersecting two isotropic lines with the *same* offset distribution mu; it can be polarized with a two-component mixture to obtain the heteroradius base integral."
+        ],
+        "reasoning": "The elementary p(R) integral and equal-radius 1/3 are not original on their own. What survives is the complete monotonicity, sharp R p(R) bounds, explicit c_n and collision epsilon log epsilon coefficient; no read passage contains those mixed-radius parameter conclusions.",
+        "searches": [
+          "random chords on two concentric circles intersection probability logarithmic cusp complete monotonicity radius",
+          "intersections random chords nested concentric circles cross radius endpoint uniform cusp",
+          "arxiv:2504.12866 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published formula 1/3 for same-radius endpoint chords is prior background, and Bortolotto–Souza Eq.1.2 is a same-radius intersection-distance integral, not the mixed crossing-probability coefficient table."
+        ],
+        "reasoning": "Three coefficient values were independently recalculated; no matching R-dependent mixed table was inspected. Non-detection alone is not proof of priority.",
+        "searches": [
+          "random chords on two concentric circles intersection probability logarithmic cusp complete monotonicity radius",
+          "random chord intersection mixed radius ratio log cusp 2/pi^2 table",
+          "arxiv:2504.12866 Eq(1.2)"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. Novelly credited only to the further radius-parametric asymptotic and global ordering, not the integral or p(1)=1/3. A sufficiently general unstated analytic corollary might cover it, retained as risk.",
+      "residual_risks": [
+        "The general same-law theorem gives the basic mixed integral by mixture polarization, so that part alone is known.",
+        "A classical integral-geometric derivation may already have derived complete monotonicity or the collision cusp as an unstated special case.",
+        "The publisher journal version itself returned 403 on opening; the open arXiv preprint was inspected instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_INTEGRAL_PRIOR_COVERAGE_BUT_NOT_SHARP_MIXED_CUSP",
+          "evidence": [
+            "Theorem 2 samples both lines from G(mu) with one identical offset law; by polarizing a mixture one gets an off-diagonal mixed line-intersection integral. The paper studies distribution of line crossing points, not R-dependent crossing of nested finite chords or its positive series/cusp."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.12866",
+          "material_read": "Open arXiv 18-page preprint: introduction, Theorems 1–2, Sections 2.1–2.2 including formulae (1.5)/(2.6), discussion of integral transform and sections on Bertrand models; screenshots of pages 4 and 11. Not all 18 pages were independently read line-by-line.",
+          "method": "Lawful open arXiv PDF text and mandatory page screenshots",
+          "title": "Intersections of random chords of a circle",
+          "trigger": "Closest general isotropic line-intersection theorem; could imply mixed-radius result"
+        },
+        {
+          "assessment": "NOT_COVERING_MIXED_RADIUS_CUSP",
+          "evidence": [
+            "The circle endpoints of BOTH sampled chords share the same support circle; it varies an inner disk threshold or endpoint distribution, not the radius of one chord support."
+          ],
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70024",
+          "material_read": "Complete open publisher HTML was available; inspected the introduction, main extremal problem, representative Theorem/Lemma excerpts from Sections 2–3 and bibliography, not every line.",
+          "method": "Full open publisher HTML read for definitions, theorems and parametric scope",
+          "title": "On extremal problems associated with random chords on a circle",
+          "trigger": "Same endpoint-uniform circle random chords and inner disks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact endpoint analysis and c_n~1/(pi^2 n^2); Bortolotto–Souza same-law intersection geometry."
+      ],
+      "rationale": "The equal-radius limit is a singular collision of endpoint-supported chord laws: the first derivative diverges while the function stays continuous. The exact positive-series decomposition simultaneously yields strong shape information, strictly alternating derivatives and globally sharp scale-corrected bounds. These are motivated natural invariants of two nested circles and not a recomputation of 1/3 alone.",
+      "residual_risks": [
+        "Significance limited to this endpoint-uniform chord model; not a universal random-line convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent checks corroborate only the stated cases; all-dimensional or asymptotic conclusions rest on the cited mathematical proofs.",
+    "Historical novelty is a best-of-knowledge assessment, not external certification.",
+    "Publication withheld because public metadata contains operational identifiers."
+  ],
+  "schema_version": 1
+}
