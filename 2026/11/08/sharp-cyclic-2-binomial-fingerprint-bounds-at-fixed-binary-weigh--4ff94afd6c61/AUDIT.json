@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For binary words of fixed weight the 2-binomial signature is completely fixed by the scattered 01-count. Rotation increments this count by -k or n-k, hence its normalized partial-sum path has coprime steps +a,-b and period L=a+b. Distinct residues mod L prove the lower bound and force length-L periodicity at equality. A balanced length-L cyclic window always exists by sliding-window averaging and unit differences. Deleting its zero-displacement path segment removes at most L-1 distinct visited heights; induction gives n-d+1. Explicit clustered construction has exactly d-1 overlaps and achieves the bound. Direct scattered-count enumeration checked all 8166 nonconstant binary words of lengths 2..12 and equality classifications.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected 2013 Rigo–Salimov paper studies binomial complexity of full word sets and factors of infinite words; no rotation-orbit extremum is identified.",
+        "General small-step walk and rational-slope searches returned no covering theorem. The needed proof also handles equality for a particular cyclic word."
+      ],
+      "reasoning": "A stronger generic theorem about closed walks of steps +a and -b with exactly n-d+1 as universal maximum could imply the upper bound. None was found in the actual targeted searches; this residual possibility is recorded rather than ruled out by search absence.",
+      "searches": [
+        "Sharp extremal count of distinct binary 2-binomial equivalence classes within the cyclic rotation orbit of a fixed-content necklace, bounds n/gcd(n,k) and n-gcd(n,k)+1",
+        "Periodic paths with coprime jumps +a and -b number distinct partial sums n-d+1",
+        "lattice bridge path steps p and minus q maximum distinct heights n-gcd",
+        "walk +a -b closed length n at most n-gcd distinct visited vertices"
+      ]
+    },
+    "checked_sources": [
+      "https://orbi.uliege.be/handle/2268/149313",
+      "https://arxiv.org/abs/2001.11732",
+      "https://arxiv.org/abs/2510.07159",
+      "https://arxiv.org/abs/1402.5843",
+      "https://oeis.org/A321162"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rigo–Salimov, WORDS 2013, pages treating equivalence definitions and global complexity, and Thue–Morse factors (author preprint).",
+        "Lejeune–Rigo–Rosenfeld, 2020, full arXiv HTML §2: binary equivalence is Parikh-matrix equality; §3 addresses full equivalence-class generation; full-text search returned no cyclic or conjugate discussion.",
+        "Richomme, 2025, arXiv HTML §1, §4.2 and §5: paths, partition lattices, fair words; full-text search for conjugate and cyclic shift returned no direct matches.",
+        "Cassaigne–Fici–Sciortino–Zamboni, 2014, arXiv HTML Introduction and results: conjugacy of contiguous factors of an infinite word, not 2-binomial signatures of rotations of a finite word."
+      ],
+      "reasoning": "Existing results imply the fingerprint reduction or motivate studying cyclic words, but do not directly imply either sharp bound simultaneously or that exact minimizers are primitive-root repetitions. In particular, counting complete 2-binomial equivalence classes among all words does not give the cardinality of the image of a fixed rotation orbit.",
+      "searches": [
+        "Rigo Salimov Another Generalization of Abelian Equivalence 2013",
+        "Lejeune Rigo Rosenfeld On the binomial equivalence classes of finite words 2020",
+        "Richomme 2025 two binomial coefficients binary words fair words rotation",
+        "Cassaigne Fici Sciortino Zamboni Cyclic Complexity of Words 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lejeune–Rigo–Rosenfeld (arXiv:2001.11732, §2) identifies binary 2-binomial equivalence with Parikh-matrix equality, which permits the single 01-count reduction.",
+        "Richomme (arXiv:2510.07159, §4.2) identifies the full class at fixed content and 01-count with a restricted integer-partition set; this is a class-size question, not the number of distinct counts traversed by rotations of one chosen word."
+      ],
+      "reasoning": "Parikh matrices and 01-statistics are equivalent formulations of the same observation; searches and inspected sections did not state the lower/upper extrema over the cyclic orbit or the power characterization. The latter are not implied merely by equating the definitions.",
+      "searches": [
+        "Two-binomial equivalence signatures of rotations of binary necklaces, numbers of scattered 01 subsequences, circular words",
+        "Cyclic conjugates of words with same Parikh matrix binomial equivalence rotation extremal Hamming weight",
+        "binomial equivalence conjugate rotations binary words distinct",
+        "Parikh matrices cyclic shifts distinct conjugates",
+        "cyclic conjugation Parikh matrix binary word rotation equivalence distinct"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A retrieved published result on fixed-content bracelet orbits counts color-assignment group orbits, not scattered-pattern classes among rotations.",
+        "A retrieved published result on binary adjacent-pair multispectra counts contiguous length-two profiles across all words, not scattered 2-binomial signatures within one cyclic orbit.",
+        "OEIS A321162 tabulates maximum unbordered conjugates, a different predicate."
+      ],
+      "reasoning": "No exact table or database statement was found that computes the sharp pair (n/gcd(n,k), n-gcd(n,k)+1). Generic necklace enumeration, contiguous multiset profiles, and unbordered conjugacy are inequivalent observables.",
+      "searches": [
+        "binary necklaces 2 binomial equivalence shift distinguish gcd Hamming weight",
+        "conjugates Parikh matrix equivalent permutations rotation",
+        "binary necklace rotations 2-binomial fingerprint extremal counts fixed weight",
+        "maximum number unbordered conjugates fixed length OEIS A321162"
+      ]
+    },
+    "rationale": "Targeted database searches and materially inspected publications on binomial equivalence, Parikh matrices, fair binary words, and cyclic complexity did not identify a published assertion implying the simultaneous sharp extrema for a fixed-weight binary rotation orbit and the exact classification of minimum-extremizers. Risk of unindexed priority or an unlocated general lattice-walk lemma remains.",
+    "residual_risks": [
+      "A classical fact about distinct levels in coprime-step closed walks may imply the upper bound, although no such exact statement was found in targeted searches.",
+      "Older literature on cyclic Parikh-matrix equivalence might contain a corresponding fixed-orbit extremum under different terminology.",
+      "Targeted search coverage is not exhaustive; independent historical-priority review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_IN_INSPECTED_MATERIAL",
+        "evidence": "Theorem and sections concern class counts across all finite words and factors of morphic infinite words. No fixed cyclic-orbit extrema located.",
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf",
+        "material_read": "PDF definitions and Example 1 (page 2); global class counts (page 4); morphic-word complexity (page 8); text search for rotation, cyclic and conjugate in 12-page source",
+        "method": "author-preprint PDF visual page inspection and document text search",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+        "trigger": "Original introduction of 2-binomial equivalence; possible stronger general statements"
+      },
+      {
+        "assessment": "NOT_COVERING_FIXED_ROTATION_IMAGE_IN_INSPECTED_MATERIAL",
+        "evidence": "§2 gives Parikh-matrix characterization; §3 generates full 2-binomial classes, whereas our theorem counts equivalence signatures on a fixed word’s rotations.",
+        "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+        "material_read": "arXiv full HTML, Introduction, Section 2, Section 3 introduction, global word-equivalence claims; full-text searches for conjugate and cyclic",
+        "method": "lawful arXiv HTML full text, section and keyword inspection",
+        "title": "On the binomial equivalence classes of finite words",
+        "trigger": "Plausible exact classification of 2-binomial equivalence on binary words"
+      },
+      {
+        "assessment": "GEOMETRIC_RELATED_BUT_NO_ROTATION_EXTREMUM_LOCATED",
+        "evidence": "Lemma 4.12 identifies all binary words with given content and scattered 01-count with restricted integer partitions; does not compute distinct counts seen within one necklace orbit.",
+        "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+        "material_read": "arXiv full HTML Introduction and §4.2 partition correspondence and §5 fair-word overview; full-text searches for conjugate and cyclic shift",
+        "method": "arXiv HTML section inspection and document text search",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "Newest highly relevant work on binary 01-statistics and geometric/path representation"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE",
+        "evidence": "Counts conjugacy classes of contiguous factors of infinite words, not binomial-equivalence classes among rotations of a single fixed-content finite word.",
+        "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+        "material_read": "arXiv full HTML Introduction and main theorems and cyclic-complexity definition",
+        "method": "arXiv HTML full-text access and theorem comparison",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Potentially dominating use of cyclic conjugacy classes in combinatorics on words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ff94afd-6c61-4815-aaed-356a261a856c",
+  "value": {
+    "rationale": "Cyclic rotations of a source word are a natural restricted family in sequence reconstruction. The 2-binomial fingerprint records only Hamming weight and scattered pair counts. Exact minima and maxima for every content, a complete lower-equality structure and a simple upper-extremizing construction quantify best- and worst-case shift ambiguity over an infinite, motivated parameter family. This is not a parameter renaming or finite-table increment.",
+    "status": "PASS"
+  }
+}
