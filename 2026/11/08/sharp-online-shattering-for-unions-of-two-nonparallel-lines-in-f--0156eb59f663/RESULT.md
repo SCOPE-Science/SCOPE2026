@@ -1,0 +1,47 @@
+# Sharp online shattering for unions of two nonparallel lines in finite affine planes
+
+## Finding
+Let \(\Pi\) be any finite affine plane of order \(q\ge2\), with point set \(X\). Let \(\mathcal U(\Pi)\) be the Boolean point-membership class of all sets \(L\cup M\), where \(L,M\) are two distinct nonparallel lines. Then
+\[
+\operatorname{Ldim}(\mathcal U(\Pi))=
+\begin{cases}1,&q=2,\\4,&q=3,\\5,&q\ge4.\end{cases}
+\]
+This includes non-Desarguesian affine planes without any coordinatization assumption. In particular the sharp online upper bound is independent of the order, even though the number of hypotheses grows with \(q\). For \(q\ge3\) there are exactly \(q^2\binom{q+1}{2}\) distinct hypotheses; for \(q=2\) the distinct sets are the four complements of singleton points.
+
+## Assumptions and scope
+All affine planes are finite and satisfy the unique-line and parallel axioms. Two nonparallel lines meet in exactly one point. A concept labels a queried point \(x\in X\) by \(1\) precisely when \(x\in L\cup M\). Littlestone dimension is the maximum depth of a complete binary decision tree of point queries with all root-to-leaf label sequences realizable by hypotheses. Statements about one or three lines, higher-dimensional flats, or unrestricted unions of more than two lines are not claimed.
+
+## Proof
+**Online upper bound for every order.** First, the incidence class of single lines has Littlestone dimension at most \(2\). After requiring one positive query point \(p\), all remaining lines pass through \(p\). At any distinct next point \(x\), at most one such line contains \(x\); hence its positive child is a singleton, so the restricted class has dimension at most \(1\).
+
+We prove that *every restriction of \(\mathcal U(\Pi)\) by three distinct positive query points has Littlestone dimension at most \(2\)*. If those points lie on a common line \(L\), one of the two concept lines must be \(L\), because two different lines can meet \(L\) in at most two distinct points. Away from \(L\), the remaining queries are answered by a single variable line; hence the restricted dimension is at most \(2\).
+
+Otherwise the three positive points \(a,b,c\) are noncollinear. Every covering pair contains one of their three side-lines, with its other line passing through the opposite vertex. Fix any further query \(x\notin\{a,b,c\}\). If \(x\) lies on no triangle side, in each of the three side-line cases there is at most one possible second line (the unique line through \(x\) and the opposite vertex). Thus the positive child contains at most three distinct hypotheses and has Littlestone dimension at most \(1\). If \(x\) lies on a triangle side, say \(ab\), then every covering pair also containing \(x\) must contain the line \(ab\): without it two lines can cover at most two of the three points \(a,b,x\) on that line. The other line is in the pencil through \(c\), whose membership class has dimension at most \(1\) once the fixed side is disregarded. Therefore every informative query has a positive child of dimension at most \(1\); the restricted class has dimension at most \(2\). A query at \(a,b,c\) is fixed positive and cannot split the class.
+
+Now use the following realizable online algorithm. Predict \(1\) on already observed positive points and \(0\) on as-yet-unseen points until the third distinct positive example has been seen. If it never arrives, at most two mistakes occur; otherwise the first phase makes exactly three mistakes, and the remaining consistent hypothesis class has Littlestone dimension at most \(2\), so its optimal deterministic learner makes at most two further mistakes. The minimax mistake-bound characterization of Littlestone dimension gives \(\operatorname{Ldim}(\mathcal U(\Pi))\le5\) for every finite affine plane.
+
+**Uniform lower bound when \(q\ge4\).** Choose distinct intersecting lines \(L,M\) with intersection \(o\); choose distinct \(a,b\in L\setminus\{o\}\) and \(c\in M\setminus\{o\}\). There are \(q-2\ge2\) choices for \(d\in M\setminus\{o,c\}\). At most one \(d\) gives \(bd\parallel ac\), by the uniqueness of the parallel through \(b\), so select \(d\) with \(bd\not\parallel ac\). We show \(S=\{o,a,b,c,d\}\) is shattered by nonparallel two-line unions.
+
+There is a line parallel to \(L\) and disjoint from \(S\): among the \(q-1\) parallels of \(L\) other than \(L\), at most two contain \(c\) or \(d\), leaving at least one. Similarly there is a line parallel to \(M\) and disjoint from \(S\). These two safe lines have distinct directions. Thus the empty trace is realized. For a singleton positive \(p\), at most four forbidden lines through \(p\) meet the four negative points, so at least one line through \(p\) avoids them; combine it with whichever of the two safe lines has different direction. For two positive points, each has at least \(q-2\ge2\) lines through it avoiding the other three points, so choose two with different directions.
+
+A three-point positive subset that is collinear must be \(\{o,a,b\}\) or \(\{o,c,d\}\), and is realized by its whole supporting axis together with a safe line parallel to the *other* axis. If a three-point subset is noncollinear, use a cross-axis line through two of its positive points; it avoids both negative points, since it meets each axis only at the chosen point there. Through the remaining positive point, avoid both negatives and the direction of that cross-axis line: at least \(q-2\ge2\) directions remain. A four-point positive subset omitting one of \(a,b,c,d\) is covered by the axis containing its three other positive points together with a line through the remaining off-axis positive that avoids the omitted negative and is nonparallel to that axis. If the omitted point is \(o\), use \(ac\cup bd\); the two lines are nonparallel by construction and neither contains \(o\). The all-positive trace is \(L\cup M\). All \(32\) traces occur, proving \(\operatorname{VCdim}\ge5\), hence \(\operatorname{Ldim}\ge5\). This combines with the upper bound.
+
+**Orders two and three.** For order two the four hypotheses are precisely the complements of singleton points; the online dimension is \(1\), since after a negative answer the hypothesis is unique, while every point admits both labels. For order three a complete exact finite recurrence over its \(54\) hypotheses gives dimension \(4\). A shattered four-point support in \(\mathbb F_3^2\) is \(\{(0,0),(0,1),(1,0),(1,1)\}\), proving the matching lower bound. The independent finite verifier enumerates all finite hypothesis restrictions needed for this upper bound rather than relying on a sample of online trees.
+
+## Verification
+Run `python3 verify.py` with a standard Python installation. It enumerates two-line unions for orders \(2,3,4,5\), constructs GF(4) using \(t^2+t+1\), removes duplicate point sets, and executes the exact recurrence
+\[
+D(F)=\max_{x\in X:\,F_{x,0},F_{x,1}\ne\varnothing}\left(1+\min(D(F_{x,0}),D(F_{x,1}))\right),\qquad D(F)=0\text{ if no split exists}.
+\]
+The bit-count pruning discards only splits whose smaller child has fewer than \(2^{D_{\rm incumbent}}\) hypotheses, which cannot improve the current answer. The full run yields dimensions \(1,4,5,5\) and state counts \(7,677,29577,3912958\) respectively. Independent trace enumeration checks the claimed explicit shattered supports. The unbounded-order theorem relies on the preceding incidence-geometric proof, not on these finite computations.
+
+## Relationship to prior work
+Alon, Beimel, Moran and Stemmer (2020) give general online-dimension bounds for Boolean combinations of hypothesis classes, including OR; they do not obtain the sharp dimension for two-line incidence unions in finite affine planes. Iosevich, Pham, Senger and Tait (2023) use VC methods for finite-field point-line incidence problems, rather than determining this online invariant. Eleftheriou, Papadopoulos and Westhead (first public 2025) study the VC dimension of two- and three-line unions over the real plane and show VC dimension five for two real lines; their theorem does not determine finite-plane Littlestone dimension. The static VC dimension for nonparallel line unions in finite affine planes is also known in separate prior work; the new statement here is the sharp *online* bound across all orders, including the exact small-order transition. No claim is made that the five-point VC lower bound by itself is new.
+
+## Limitations
+This is a self-reviewed proof, not an independently audited theorem. A possible older source using online mistake-bound or model-theoretic terminology remains a priority risk. No existence is asserted for affine planes of orders where none exist. The full recurrence is only run through order five; its role is to verify the exceptional order-three case and check small-order predictions, not to certify all orders experimentally.
+
+## References
+- N. Alon, A. Beimel, S. Moran, U. Stemmer, *Closure Properties for Private Classification and Online Prediction*, COLT/PMLR 125 (2020), https://proceedings.mlr.press/v125/alon20a.html (first available preprint March 10, 2020, arXiv:2003.04509).
+- A. Iosevich, T. Pham, S. Senger, M. Tait, *An improved point-line incidence bound over arbitrary finite fields via the VC-dimension theory*, arXiv:2303.00330 (March 1, 2023), https://arxiv.org/abs/2303.00330.
+- P. E. Eleftheriou, A. Papadopoulos, F. Westhead, *Exact VC-Dimensions of Certain Geometric Set Systems*, arXiv:2501.09847 (January 16, 2025), https://arxiv.org/abs/2501.09847.

@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Three positive points condition the two-line class to Ldim<=2: collinear forces one complete line; noncollinear gives at most three covering hypotheses on positive off-side queries and one pencil on positive side queries. Predict previously observed positives as 1 and all new points as 0 until three distinct positives, then use an optimal restricted learner: <=3+2=5 mistakes. For every q>=4 the selected two-axis five-point bow-tie is shattered, with all label-cardinality cases covered and a nonparallel cross matching chosen by excluding at most one direction. Orders 2 and 3 have complete finite recurrence certificates (4 and 54 distinct concepts, ranks 1 and 4), and independent explicit lower-trace witnesses. The bundled verifier independently recomputes ranks 1,4,5,5 through q=5 using an exact recurrence with sound pruning.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon–Beimel–Moran–Stemmer 2020 proves finite upper bounds for OR composition from online learnability, not the constant 5.",
+        "Eleftheriou–Papadopoulos–Westhead arxiv:2501.09847 gives the real-plane two-line static VC dimension 5, but searching its accessible full text for Littlestone gives no occurrence."
+      ],
+      "reasoning": "The real-plane VC dimension supplies no upper bound on Littlestone dimension. General composition upper bounds are not sharp for the specific finite incidence system, and a static two-line result in a different geometry does not determine adaptive online depth.",
+      "searches": [
+        "web: \"Littlestone dimension\" \"lines\" finite geometry",
+        "published-finding corpus: exact online Littlestone dimension of union of two intersecting nonparallel affine lines in GF(4)^2 and GF(5)^2 as point-membership classifiers",
+        "web: exact VC-Dimensions of Certain Geometric Set Systems Eleftheriou Papadopoulos Westhead"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04509",
+      "arxiv:2303.00330",
+      "arxiv:2501.09847",
+      "private-ledger:d4d1e867-6d77-48b0-b4c1-2269ede8ca24",
+      "private-ledger:7ca43870-8acd-4ac9-b9e7-ef0f9dc7a5f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 source determines VC-dimensions of two/three real-line unions, not a sharp online dimension for finite affine planes.",
+        "The 2020 closure theorem gives nonexplicit larger-order-type general upper estimates, not exact rank 5; the present proof uses a three-positive sample reduction specific to affine-plane axioms.",
+        "The 2023 source uses VC dimension to improve incidence bounds, without Littlestone-dimension results."
+      ],
+      "reasoning": "None of the identified conclusions entails the present exact online formula. In particular VC=5 implies only Ldim>=5, not Ldim<=5; the latter is the essential new proof.",
+      "searches": [
+        "full accessible text: arxiv:2501.09847, Introduction, Theorem A, and VC-shattering discussion",
+        "full accessible text: proceedings.mlr.press/v125/alon20a/alon20a.pdf, pp. 2–3 Theorem 3",
+        "full accessible text: arxiv:2303.00330, Introduction/Theorems 1.2–1.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alon et al. 2020 (arxiv:2003.04509), pp. 2–3 gives broad Boolean-composition online bounds, with OR as an example; no finite-affine-plane exact two-line theorem is stated in inspected material.",
+        "No exact finite-affine-plane online formula was identified among the retrieved published-finding corpus hits or the searched literature."
+      ],
+      "reasoning": "The claim is equivalent to a sharp deterministic realizable mistake bound for two nonparallel affine-line OR classifiers, not merely the static VC dimension of their sets. Broad OR closure does not imply the exact value 5 or the exceptional orders.",
+      "searches": [
+        "published-finding corpus: Littlestone dimension of unions of two nonparallel lines in affine planes; two-line concepts, online incidence queries, mistake bounds",
+        "web: \"Littlestone dimension\" \"affine plane\" union lines",
+        "web: \"online learning\" \"union of two lines\" finite plane"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own ledger item d4d1e867-6d77-48b0-b4c1-2269ede8ca24 calculates online dimension for the DIFFERENT class of distinct parallel-line unions (1 restriction differs).",
+        "Own ledger item 7ca43870-8acd-4ac9-b9e7-ef0f9dc7a5f0 gives VC dimension for the SAME nonparallel-line class, but explicitly makes no Littlestone-dimension claim.",
+        "published-finding corpus listed projective-plane incidence and other finite-geometry results, not a table of the exact online dimensions for these two-line affine classifiers."
+      ],
+      "reasoning": "The existing same-family VC result only supplies a lower bound for Ldim, never the online upper bound. Parallel-line unions have different trace behavior and are not equivalent. No matched exact value table was recovered.",
+      "searches": [
+        "own accessible private foundation ledger claims and titles, including affine-plane and two-line/parallel-line entries",
+        "published-finding corpus: shattering polynomials and VC dimension of projective plane point-line incidence classes, finite affine planes, projective geometries",
+        "published-finding corpus: exact online Littlestone dimension of union of two intersecting nonparallel affine lines in GF(4)^2 and GF(5)^2 as point-membership classifiers"
+      ]
+    },
+    "rationale": "Sharp order-uniform online bound is absent from the inspected general closure theorem, finite-field VC-incidence results, static real two-line union theorem, and recovered same-slot prior claims. Static VC dimension five is acknowledged as already covered; this claim adds the independent adaptive upper bound and small-order transition.",
+    "residual_risks": [
+      "A historically earlier online-mistake-bound formulation of this restricted affine line-union family could have escaped the terminology-sensitive searches.",
+      "Available inspections of the 2020 PDF concentrated on the directly relevant theorem and introduction rather than all appendices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General qualitative and quantitative closure, but no finite-plane exact formula",
+        "evidence": [
+          "Theorem 3 bounds Ldim of Boolean composition in terms of ingredient dimensions; it is not the sharp constant 5."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v125/alon20a/alon20a.pdf",
+        "material_read": "Abstract, Introduction, pages 2–3 containing model-theoretic discussion and Theorem 3, with page 3 visually inspected",
+        "method": "Author-hosted open-access PDF text plus a rendered screenshot",
+        "title": "Closure Properties for Private Classification and Online Prediction",
+        "trigger": "Broad OR-closure theorem might dominate exact online dimension"
+      },
+      {
+        "assessment": "Incidence estimates via VC dimension, no exact union-of-two-lines online rank",
+        "evidence": [
+          "Introduction Theorems 1.2–1.4 concern incidence estimates and VC bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.00330",
+        "material_read": "Accessible complete arXiv-rendered Introduction and theorem statements, with search for Littlestone",
+        "method": "Open-access HTML/text rendering",
+        "title": "An improved point-line incidence bound over arbitrary finite fields via the VC-dimension theory",
+        "trigger": "Same finite-field incidence objects and VC dimension language"
+      },
+      {
+        "assessment": "Direct static VC prior work but no online rank; field and parallel constraints differ",
+        "evidence": [
+          "Theorem A identifies real-plane two-line VC dimension 5; no Littlestone mention found."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.09847",
+        "material_read": "Accessible full-text Introduction, Theorems A/B, Sections 5/7 summary, and document search for Littlestone",
+        "method": "Open-access arXiv-rendered text and keyword find",
+        "title": "Exact VC-Dimensions of Certain Geometric Set Systems",
+        "trigger": "Plausibly stronger same two-line union geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0156eb59-f663-47c4-a435-a2004589d61b",
+  "value": {
+    "rationale": "A sharp, order-independent, online mistake bound for ORs of two geometric predicates is a natural and nonroutine sharpening of the general composition theorem. It works even for non-Desarguesian planes, and gives the exact exceptional small-order transition. The intrinsic three-positive reduction is an explanatory structural lemma; exact q=3 checks are not substitutes for this all-order proof.",
+    "status": "PASS"
+  }
+}
