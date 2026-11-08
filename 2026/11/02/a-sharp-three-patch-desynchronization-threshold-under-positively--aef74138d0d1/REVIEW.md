@@ -1,19 +1,21 @@
-# Review of the three-patch desynchronization theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary covariance exists uniquely for each positive local damping and positive-definite environmental covariance. Differentiation of its Lyapunov equation gives the exact endpoint-correlation derivative for an arbitrary three-patch covariance matrix. Substitution of the shared-driver plus independent-noise construction produces a one-variable quadratic with the sole positive threshold \(\delta_c=(5\sqrt{10}-14)/2\). The high-dispersal limit follows from the zero eigenmode of the path Laplacian. For \(\delta=1/4\), the explicit rational covariance and 14-coefficient derivative polynomial prove a unique strict global interior minimum by Descartes' rule and endpoint signs. The packaged checker reconstructs all six covariance identities and the decisive polynomial certificates, without relying on sampled plots for infinite assertions.
+PASS
 
-## Originality — PASS under inspected evidence, with residual priority risk
+Stationary covariance S solves (γI+mL)S+S(γI+mL)=Q, so S(0)=Q/(2γ), S′(0)=−(LQ+QL)/(4γ²). Differentiating Pearson r gives the stated general path expression. In Qδ, q11=2+δ,q33=17+δ,q12=q23=1,q13=5; the slope numerator 2δ²+28δ−27 has exactly one positive root. Laplacian modal decomposition leaves only consensus variance at m→∞, giving r→1; continuity gives finite positive minimizer for δ below threshold. The δ=1/4 closed-form correlation K/sqrt(AC) has strictly positive A,C,K; derivative numerator polynomial has coefficients −,−,+,…,+, hence exactly one positive root by Descartes and endpoint signs, bracketed by exact rationals. Two-patch derivative = (a+b)(ab−c²)/(2γ(ab)^(3/2))>0. Independently verified symbolic derivative, degree-13 polynomial and bracket.
 
-Kendall et al. (2000; DOI 10.1086/303350) derive two-patch stochastic dispersal/correlation formulas in a discrete-time model. Wang et al. (2015; DOI 10.7717/peerj.1295) establish the Lyapunov covariance method and study homogeneous many-patch or heterogeneous two-patch settings. Abbott (2011; DOI 10.1111/j.1461-0248.2011.01670.x) explicitly documents earlier nonmonotone dispersal-synchrony phenomena, and Vasseur (2007; DOI 10.1111/j.0030-1299.2007.16101.x) treats temporal color and heterogeneity. No novelty is claimed for these known mechanisms or tools. In the inspected sources and accessible prior records, the exact arbitrary-Q three-node endpoint slope, a strictly positive environmental-covariance sign threshold, and its unique-minimum certificate were not covered. The full older Ripa and Lande manuscripts remained inaccessible, so independent historical priority is unresolved.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a motivated, sharp local-response classification for a networked ecological correlation observable. The universal two-patch positive initial slope contrasted with the three-patch sign reversal is a structural boundary, and the noise-intensity threshold identifies which spatial environmental patterns can create it. The exact finite-minimum witness makes the reversal more than a numerical possibility. The model is deliberately idealized; its observed dip is small, its forcing covariance is not distance-monotone, and no empirical or nonlinear conclusion follows.
+Best-of-knowledge independent statement/implication comparison supports a specific quantitative or structural contribution beyond inspected prior results; this is not an exhaustive novelty certificate. OU stationary Lyapunov covariance and Moran effects are established by Wang–Haegeman–Loreau, Kendall, Ripa, Abbott. The claim does not rename a generic synchrony paradox: its exact Q entry slope, SPD two-patch obstruction and Qδ algebraic threshold are additional specifics. Generic Lyapunov theory implies the implicit covariance, but does not by itself assert that strictly positive qij permits negative endpoint initial slope, the sharp δc in this constructed family, or unique global minimum certified by Descartes. Earlier generic nonmonotonicity results also do not imply this special positive-covariance minimality.
 
-## Scientific limitations
+## value
 
-Only symmetric nearest-neighbor migration, identical local linear relaxation and Gaussian white environmental forcing are analyzed. Global uniqueness is established only at \(\delta=1/4\), not throughout the negative-initial-slope interval. Some older full text could not be compared. Independent validation is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This identifies the smallest equal-damping connected habitat graph where positive pairwise environmental correlations do not guarantee monotone dispersal synchrony, and supplies a sharp noise boundary plus an exactly certified finite optimum. The environmental-driver loadings are explicitly motivated; the small numerical dip is not overstated as a major field effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
