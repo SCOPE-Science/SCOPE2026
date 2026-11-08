@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact 2x2 matrices have unit determinant and trace 2-h^2 in (-2,2), so each has bounded powers. The Gram average equals (1+h^6/32) times the identity, yielding an exact conditional expectation for every state and every step. For biased mixing the symmetric covariance map has det(I-T)=-h^8 p(1-p)(8-h^2)^2/128<0 and preserves the PSD cone, proving its spectral radius exceeds one. Alternating product trace 2-4h^2+h^4-h^6/16 crosses -2 at sqrt(5)-1, with nonzero off-diagonal Jordan witness. All critical identities were independently recalculated symbolically and 1302 finite rational assertions passed; finite experiments alone are not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Casas–Sanz-Serna–Shaw (2022) analyze deterministic semitraces/stability for Strang variants and rotation-kick splittings, not stochastic switching of the two Verlet orders.",
+        "Lie–Stahn–Sullivan (2021) treat additive perturbations of one-step operators at fixed final times; the stochastic map distribution and unbounded-horizon observable here are different."
+      ],
+      "reasoning": "General single-method boundedness, general finite-time random numerical solvers, and even generic positive-map theory do not themselves state the exact coefficient 1/32, mixed-law determinant, or threshold sqrt(5)-1 for these maps. The present precise calculation is not just a weaker corollary of a source theorem found in the inspected text.",
+      "searches": [
+        "Random order of Strang splitting in symplectic integrators deterministic Hamiltonian randomized energy growth",
+        "Mean square stability random compositions of two symplectic maps of determinant one",
+        "https://arxiv.org/abs/2210.07048",
+        "https://arxiv.org/abs/2103.16506",
+        "https://www.biomath.nyu.edu/biomath/index/papdir/fulllengths/pap_2_83.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2210.07048",
+      "https://arxiv.org/abs/2407.18726",
+      "https://arxiv.org/abs/2103.16506",
+      "https://www.biomath.nyu.edu/biomath/index/papdir/fulllengths/pap_2_83.pdf",
+      "https://arxiv.org/abs/2210.07048",
+      "https://doi.org/10.1063/1.1389855"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ni–Hu (2024) provide two distinct fixed-order modified Hamiltonians, which does not imply that their iid mixture has scalar mean-energy growth.",
+        "Casas–Sanz-Serna–Shaw (2022) and Batcho–Schlick (2001) use unimodular trace criteria for their specified deterministic schemes; they do not provide the trace of the alternating product of the two same-stepsize Verlet orders.",
+        "Lie–Stahn–Sullivan (2021) gives randomized additive numerical errors, not this multiplicatively switched matrix product."
+      ],
+      "reasoning": "The exact law follows from the average of two Gram matrices of specified maps; the sharp alternating boundary follows from the trace of their product. Existing known constituent stability and distinct modified energies do not imply either statement without a new cross-map computation. Residual risk is an overlooked classical mixed-Verlet computation.",
+      "searches": [
+        "Independent random choice between position and velocity Verlet (kick drift kick vs drift kick drift), harmonic oscillator mean squared energy growth h^6/32",
+        "Randomly alternating position Verlet and velocity Verlet exact energy inflation sharp stability threshold sqrt5-1",
+        "Random order of Strang splitting in symplectic integrators deterministic Hamiltonian randomized energy growth",
+        "Mean square stability random compositions of two symplectic maps of determinant one",
+        "https://arxiv.org/abs/2210.07048",
+        "https://arxiv.org/abs/2407.18726",
+        "https://arxiv.org/abs/2103.16506",
+        "https://www.biomath.nyu.edu/biomath/index/papdir/fulllengths/pap_2_83.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two fixed Verlet maps are each similarity-conjugate to rotations for 0<h<2, as in modified-Hamiltonian formulations (Ni–Hu 2024).",
+        "Batcho–Schlick (2001) develop impulse-Verlet resonance with one fixed inner order; no iid random order or alternating single-oscillator product is analyzed in its theoretical sections."
+      ],
+      "reasoning": "Exact conjugacy of the fixed methods to rotations does not give a common invariant metric or a random-product energy law. The result distinguishes iid switching, deterministic alternation, and unmixed repetition; source results with a fixed inner method cannot imply the growing mean-energy factor or the mixed-product threshold.",
+      "searches": [
+        "Independent random choice between position and velocity Verlet (kick drift kick vs drift kick drift), harmonic oscillator mean squared energy growth h^6/32",
+        "Randomly alternating position Verlet and velocity Verlet exact energy inflation sharp stability threshold sqrt5-1",
+        "https://arxiv.org/abs/2210.07048",
+        "https://arxiv.org/abs/2407.18726",
+        "https://www.biomath.nyu.edu/biomath/index/papdir/fulllengths/pap_2_83.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published impulse-Verlet stability diagrams involve split fast and slow harmonic forces and fixed inner time integrations, not independent/periodic mixing of the two step maps in the stated unit oscillator.",
+        "No identical tabulated constant or phase threshold was identified in the checked sources."
+      ],
+      "reasoning": "The claim is a parameter-uniform analytic classification with a finite-step energy equality, not an arbitrary numerical table entry. Absence from the checked documents is not a uniqueness certificate.",
+      "searches": [
+        "Independent random choice between position and velocity Verlet (kick drift kick vs drift kick drift), harmonic oscillator mean squared energy growth h^6/32",
+        "Randomly alternating position Verlet and velocity Verlet exact energy inflation sharp stability threshold sqrt5-1",
+        "Random order of Strang splitting in symplectic integrators deterministic Hamiltonian randomized energy growth",
+        "Special stability advantages of position-Verlet over velocity-Verlet in multiple-time step integration",
+        "https://www.biomath.nyu.edu/biomath/index/papdir/fulllengths/pap_2_83.pdf"
+      ]
+    },
+    "rationale": "The four inspected primary studies establish fixed-order modified-energy/deterministic stability, two-component fixed-order impulse-Verlet resonance, or additive finite-horizon randomization; they do not logically determine the present switched-map mean-energy multiplier, all-biased-mix second-moment condition or alternation threshold. Actual targeted searches and relevant earlier research records were checked at the claim/parameter level. Equivalence via uninspected older specialist literature remains a real precedence risk, hence publication novelty is qualified.",
+    "residual_risks": [
+      "Older geometric-integration literature may contain a direct iid-mixture or alternating-Verlet harmonic oscillator calculation not captured by targeted sources.",
+      "Same-model literature assessment is not independent publication-precedence certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-method deterministic stability/optimality, not iid order switching or the alternating product law",
+        "evidence": [
+          "Deterministic semitrace and stability bounds for a specified rotation/kick splitting."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.07048",
+        "material_read": "Introduction, definitions of Strang/Verlet steps, principal stability results and relevant end sections of openly accessible full text",
+        "method": "Read open-access primary full text and compare exact maps, hypotheses and observables",
+        "title": "A New Optimality Property of Strang's Splitting",
+        "trigger": "Shares the two Verlet Strang orders, harmonic oscillator semitrace and fixed-method stability range"
+      },
+      {
+        "assessment": "Compares individually fixed algorithms and their modified Hamiltonians; mixed-order energy/alternation not addressed",
+        "evidence": [
+          "The paper explicitly distinguishes the two fixed-order modified Hamiltonians."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.18726",
+        "material_read": "Full open-access text including method matrices, main results and appendices",
+        "method": "Read open-access primary full text and test whether mixed-order iterates or threshold are derived",
+        "title": "On the relation between the velocity- and position-Verlet integrators",
+        "trigger": "Same two algorithms and harmonic oscillator, including different modified quadratic energies"
+      },
+      {
+        "assessment": "Finite-horizon additive-perturbation randomization; no resulting exact fixed-step long-time physical-energy law",
+        "evidence": [
+          "Underlying deterministic integrator plus additive random perturbation, not iid choice between alternative Verlet orderings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.16506",
+        "material_read": "Open-access full-text method formulation, assumptions and main convergence statements",
+        "method": "Read primary HTML full text and compare additive-noise update with switched symplectic multiplicative matrices",
+        "title": "Randomised one-step time integration methods for deterministic operator differential equations",
+        "trigger": "Broader randomized time integration theorem potentially covering method switching"
+      },
+      {
+        "assessment": "Compares fixed inner order in fast/slow impulse MTS, not a single-oscillator random or alternating order at one step size",
+        "evidence": [
+          "Fast/slow impulse matrix and fixed-inner scheme defined in equations (4)–(5); resonant traces (14)–(17), and stability criteria (18)–(19)."
+        ],
+        "identifier_or_url": "https://www.biomath.nyu.edu/biomath/index/papdir/fulllengths/pap_2_83.pdf",
+        "material_read": "Original journal PDF abstract, introduction and theoretical sections II.A–II.C including matrix propagators, trace criteria and asymptotic stability analysis",
+        "method": "Read lawfully accessible primary PDF including first page image and mathematical derivations",
+        "title": "Special stability advantages of position-Verlet over velocity-Verlet in multiple-time step integration",
+        "trigger": "Closest older same two Verlet variants and stability analysis on a harmonic system"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3120b4c2-e0a4-4a02-a16c-9c0c132aa895",
+  "value": {
+    "rationale": "Long-time near energy conservation is a defining motivation for symplectic geometric integrators. The exact sixth-order per-step mean-energy inflation when randomly selecting between two individually stable, second-order symplectic Verlet methods is a meaningful caution about stochastic composition. The exact fifth-order physical-time horizon and contrasting, sharp deterministic alternation threshold distinguish a structural mechanism, not a routine numerical benchmark or isolated sample.",
+    "status": "PASS"
+  }
+}
