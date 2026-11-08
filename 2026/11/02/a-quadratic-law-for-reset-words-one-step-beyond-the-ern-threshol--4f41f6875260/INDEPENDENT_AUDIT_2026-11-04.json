@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T01:49:44.860418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Cerny automaton a:x->x+1 mod n and b:n-1->0 otherwise fixed, reverse preimages in a rotating frame give first appearances of n-1 missing states in forced predecessor order. For final singleton t, each successive productive inverse b needs at least n-1 inverse a advances, yielding |w| >= (n-1)^2+t. Equality t=0 gives unique palindrome U=b(a^{n-1}b)^{n-2}. One-letter slack only t=0 or1. Extensions aU,Ua, n-1 doubled-b insertions and (n-2)(n-3) valid nonforbidden interior splits are exhaustive, giving (n-2)^2+3. Independently counted exact reset target distributions by forward subset DP for n=2..7 and found shortest multiplicity 1, next counts [3,4,7,12,19,28]; unrestricted count rests on inverse-image proof, not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rodaro analyzes ideals, automata state complexity and factor-minimal reset languages, not the Cerny labelled L+1 coefficient.",
+          "Szykuła–Zyzik gives algorithms to find shortest words, which can compute individual instances but do not supply symbolic all-n multiplicity."
+        ],
+        "reasoning": "General-purpose enumerability or algorithms do not imply the claimed quadratic law without structural analysis.",
+        "searches": [
+          "Rodaro 1708.04864 language of minimal reset words",
+          "Szykuła Zyzik 2207.05495 shortest synchronizing words algorithm",
+          "Cerny automata number almost shortest reset words"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1708.04864 complete paper PDF",
+        "arXiv:2207.05495 abstract and overview",
+        "arXiv:1702.05455 abstract and context",
+        "Resultary query Cerny automata length (n-1)^2+1 count second shortest reset words enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing one shortest word does not constrain number of reset words at the next length.",
+          "Factor-minimal words and exact-length reset word cardinality are distinct sets/invariants."
+        ],
+        "reasoning": "The quadratic L+1 count is not a mathematical consequence of cited minimum-length or reset-ideal existence theorems.",
+        "searches": [
+          "Cerny n shortest reset word (n-1)^2 unique",
+          "Rodaro 2017 factor minimal reset words theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting length L+1 reset words is the coefficient of the reset-language length generating series, not just shortest path length.",
+          "Rodaro studies factor-minimal words under subword containment; those are not identical to second-shortest length slice."
+        ],
+        "reasoning": "Searched synchronizing automata, regular reset ideals, shortest-word multiplicity; no equivalent family closed form found.",
+        "searches": [
+          "Cerny automata length (n-1)^2+1 count second shortest reset words enumeration",
+          "Cerny automaton minimal reset words language coefficient near shortest length",
+          "Cerny n reset ideal generating function (n-1)^2+1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0 concerns D_n not C_n.",
+          "Direct DP produced next length counts 3,4,7,12,19,28, matching proposed law."
+        ],
+        "reasoning": "A specialized reset-language coefficient table might exist but none was found in inspected sources; limited n data alone not novelty proof.",
+        "searches": [
+          "Cerny automata length (n-1)^2+1 count second shortest reset words enumeration",
+          "Resultary exactly four shortest reset words D_n",
+          "Cerny automaton shortest second-shortest reset counts OEIS"
+        ]
+      },
+      "rationale": "Classical Černý shortest reset length (n-1)^2 and special word are prior; Szykuła–Zyzik compute shortest length algorithmically. Rodaro 2017 studies languages of factor-minimal reset words and ideals, a different invariant: second-shortest reset words need not be factor-minimal. Other published SCOPE findings count reset words in different families D_n/W_n, not this Cerny next layer. The exact all-n quadratic count and structural split classification were not located, best-of-knowledge PASS qualified by specialised word-enumeration risk.",
+      "residual_risks": [
+        "Possible existing Cerny reset-language generating function under unlocated notation implies this coefficient.",
+        "No claim for lengths L+2 or arbitrary synchronizing automata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies factor-minimal words and regular ideals, does not state all-n Cerny L+1 exact count in inspected text",
+          "evidence": "Introduction definition of factor-minimal; sections3-5 constructions and ideals",
+          "identifier_or_url": "arXiv:1708.04864",
+          "material_read": "Complete 17-page preprint sections 1-5 on minimal reset words, ideals, state complexity and Černý context",
+          "method": "Read full arXiv PDF text and visually inspected first page",
+          "title": "Synchronizing automata and the language of minimal reset words",
+          "trigger": "Highly relevant title suggests exact near-minimal reset-language enumeration"
+        },
+        {
+          "assessment": "Algorithmic shortest reset length results; cannot claim whole-document absence",
+          "evidence": "Algorithm locates minimal reset lengths, no claimed next-layer enumeration",
+          "identifier_or_url": "arXiv:2207.05495",
+          "material_read": "Accessible preprint abstract and theorem summary; full paper not read",
+          "method": "arXiv record and abstract",
+          "title": "An Improved Algorithm for Finding the Shortest Synchronizing Words",
+          "trigger": "Same automata optimization problem"
+        },
+        {
+          "assessment": "Not an exact second-shortest enumerator in read material",
+          "evidence": "Problem about global upper bound for reset length",
+          "identifier_or_url": "arXiv:1702.05455",
+          "material_read": "Accessible introduction and summary of general shortest-word bounds",
+          "method": "Open abstract and excerpt",
+          "title": "Improving the upper bound on the length of the shortest reset words",
+          "trigger": "Classical Černý lower example context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First nontrivial growth layer for a canonical extremal slowly synchronizing automaton: unique shortest word followed by exactly quadratic many at one extra symbol, plus full classification and target state. Natural exact invariant of reset-language geometry, not an arbitrary tiny-instance table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only displayed labeled Černý automaton for n>=2, one-symbol excess L+1; no larger length enumerator.",
+    "Residual risk of equivalent coefficient formula in specialised reset-language literature."
+  ],
+  "schema_version": 1
+}
