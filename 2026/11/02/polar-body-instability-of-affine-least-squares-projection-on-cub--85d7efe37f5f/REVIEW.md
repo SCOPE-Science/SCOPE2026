@@ -1,15 +1,21 @@
-# Review of sharp polar-body affine projector norms
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the real \(d\)-dimensional solid cube and polar cross-polytope, with normalized uniform volume and the \(L^2\)-orthogonal projector onto affine functions for each integer \(d\ge1\). Covariances give kernels \(1+3x\cdot y\) and \(1+((d+1)(d+2)/2)x\cdot y\), respectively. Convexity reduces the operator norm to kernel rows at corners; an explicit opposite-sign neighborhood for every pair of distinct vertices establishes the strict spatial-maximizer classification. The cross-polytope marginal beta density and cube Irwin–Hall identity integrate these rows exactly. A sign-of-kernel input attains each norm, and the negative part determines the sharp positivity defect. The central limit theorem with uniformly bounded second moments proves the cube asymptotics. A packaged checker executed 102 exact-rational and 12 noncertifying simulation checks; the proof, not the finite checks, establishes the universal assertions.
+## correctness
 
-## Originality — PASS (priority subject to literature limits)
-Actual semantic published-finding corpus searches covered the continuous cube, cross-polytope, affine least squares, exact kernel norms, Irwin–Hall law, and polynomial projection aliases. Closest published items include *Exact positivity defect and max norm of the affine least-squares projector on a simplex* and *Sharp isotropic-constant range of all Hanner polytopes*. Their fully read mathematical results respectively concern a different domain and covariance/isotropic constants rather than absolute projector row integrals. The published metric-projection and Minkowski-ellipse duality calculations concern different functionals. The inspected Oswald global spline projector, Hangelbroek et al. manifold kernel projector, and Migliorati–Nobile discrete least squares papers do not imply the two exact solid-body formulas and polar dimension-growth ratio. A complete historical search cannot be claimed; polynomial-projector constants on highly symmetric domains may have an equivalent older formulation.
+PASS
 
-## Mathematical value — PASS
-The sharp operator norm controls worst-case \(L^\infty\) error amplification in low-degree least-squares approximation. Fixing the polynomial degree and target dimension while varying the two polar solid domains isolates a structural instability: one sharp constant is linear and the other square-root in dimension. Exact universal rational formulas, sharp sign extremizers, strict spatial vertex rigidity, and the divergence coefficient supply a motivated infinite-dimensional family classification rather than a sample numerical table or an insignificant special case.
+For normalized uniform solid measure and the degree-one orthogonal L2 projector, symmetry/second moments give K_D(x,y)=1+[(d+1)(d+2)/2] x·y on the cross-polytope and K_Q(x,y)=1+3x·y on the cube. For any x the L∞ row norm is E|K(x,Y)|; convexity in x forces a maximizing vertex, and a positive-volume region with opposite signs of K(v,y) and K(w,y) for distinct vertices makes convexity strict for any nonvertex. At a cross-polytope vertex, the one-coordinate beta density d(1−t)^{d−1} gives 1+(d+2)/2[1−2/((d+1)(d+2))]^{d+1}; the cube row is an Irwin–Hall truncated-power sum 1+12/(d+1)!Σ_{k≤floor((3d−1)/6)}(−1)^k binom(d,k)((3d−1)/6−k)^{d+1}. The signed kernel input attains the norm, while its negative part gives sharp positivity loss (norm−1)/2. Beta asymptotics yield normD/d→1/2; the CLT with uniform integrability gives normQ/√d→√(6/π), hence divergence of normD/normQ. Independent exact rational calculations in dimensions 1..9 reproduce all formula values and special cases d1=5/3,d2=233/108,d3=10561/4000 versus 415/162; small d checks do not prove asymptotic/strict vertex claims.
 
-## Boundaries and risk
-The central symmetry covariance is prior work and not claimed as new. The theorem is not a general optimality claim for all projections or all convex bodies. The one-dimensional case agrees with interval/simplex results, and two-dimensional square/diamond are affinely equivalent. Independent scientific audit has not yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published full Resultary simplex projector theorem gives a sharp positivity defect for a different uniform domain; it does not establish the paired central symmetric cube/cross-polytope constants in d≥3. The published full Hanner-polytope isotropic constant theorem supplies both covariance matrices but not the absolute kernel row integrations nor L∞ norms. Oswald 2006 studies globally coupled spline projectors and mesh dependence, not one solid affine projector. Tensor-product Legendre projection literature may encode the cube expression and is an explicit priority risk; the pairwise exact polar growth separation is assessed original at best knowledge.
+
+## value
+
+PASS
+
+The cube and cross-polytope are canonical polar solids, yet their local affine projection constants have different order in dimension (sqrt d versus d). The sharp all-dimensional norms, unique spatial maximizers and positivity deficits provide a meaningful intrinsic stability comparison relevant to high-dimensional least squares, beyond reusing the elementary covariance matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
