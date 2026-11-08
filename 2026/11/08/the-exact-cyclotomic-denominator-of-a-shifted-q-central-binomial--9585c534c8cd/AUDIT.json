@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For every d>=2, exponent e_d is computed from the defining product. If gcd(d,k)>1, first progression dominates 2 floor(n/d) and second includes the terminal when needed. If gcd(d,k)=1, residue counting yields e_d=-1 exactly for d>1 dividing n and j; otherwise e_d>=0. For d=1, e_1=0. Thus exact denominator product over coprime divisors equals [u]_q. No omitted boundary cases; 4500 grid checks and 20 rational evaluations corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical cyclotomic factorization gives individual e_d by divisibility counting, but neither the original paper nor the thesis states their negative spectrum for this shifted product.",
+        "Search results included general q-Pochhammer background, rather than a dominating all-parameter statement."
+      ],
+      "reasoning": "General factorization as products of cyclotomic polynomials is a tool, not itself an exact classification of this family; the proof determines which multiplicities are negative, uniquely producing [u]_q. Any prior general theorem with this as an explicit corollary would cover the result; none was located.",
+      "searches": [
+        "Published-result search: cyclotomic factor integrality (1-q)/(1-q^{kn+j}) product (1-q^{km})(1-q^{j+km})/(1-q^m)^2 q polynomial characterization",
+        "Web: q factorial quotient cyclotomic integrality shifted step products j n k",
+        "Web: q-polynomial gcd radical cyclotomic denominator generalized binomial product"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0811.2028v1 (2008-11-13, Section 5, full paper)",
+      "Straub 2012 dissertation Chapter 14 Sections 14.4-14.5",
+      "Published-result semantic searches about named H family, q-cyclotomic denominator, radical criterion",
+      "Web literal/alias searches about H, G, gcd criterion, q-product and root factorization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0811.2028v1 Section 5 calls gcd(n,j)|k a proposed iff, not a proved criterion.",
+        "Straub dissertation 2012, Chapter 14, again gives the proposed criterion as Problem 14.5.2, without proving it in that section.",
+        "Nearest returned published-result q-polynomial record concerned Kronecker h-star polynomials of Gorenstein simplices, not q-binomial rational-function integrality."
+      ],
+      "reasoning": "The sources establish the problem, not the corrected answer. Earlier polynomiality for j=1 and basic q-binomial integrality do not imply the exact criterion for arbitrary j or the reduced denominator when it fails. Unseen later literature remains a genuine priority risk.",
+      "searches": [
+        "Web: \"Straub\" \"Moll\" \"Amdeberhan\" \"H\" \"polynomial\" \"counterexample\"",
+        "Web: \"Gn,k\" polynomial precisely gcd(n,j) k q generalization 2008 Straub Moll",
+        "Published-result search: Straub Moll Amdeberhan generalized q-central binomial polynomial H_{n,k,j}(q) G_{n,k}(q,q^j) conjecture gcd(n,j) corrected radical squarefree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0811.2028v1 Section 5 defines H_{n,k,j} and asks for polynomiality under gcd(n,j)|k; arminstraub.com dissertation Section 14.5/Problem 14.5.2 repeats the same conjecture.",
+        "No retrieved result gives the exact reduced denominator [u]_q or the radical iff criterion."
+      ],
+      "reasoning": "The first proposed iff requires divisibility by every prime power in gcd(n,j); the new iff requires only the prime support of the gcd to divide k. The latter is strictly weaker, as H_{4,2,4} and all (p^a,p,p^a), a>=2, demonstrate. Repeated statements of the original problem do not imply the correction.",
+      "searches": [
+        "Published-result search: Straub Moll Amdeberhan generalized q-central binomial polynomial H_{n,k,j}(q) G_{n,k}(q,q^j) conjecture gcd(n,j) corrected radical squarefree",
+        "Web: \"H_{n,k,j}\" polynomial integrality gcd radical 2009 number theory",
+        "Web: \"G_{n,k}(q,q\" polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The named example and prime-power counterfamily were not found in the queried results; the defining archival source leaves its own classification as a problem.",
+        "An independently canceled symbolic expression for H_{4,2,4} factors as Phi_2^3 Phi_4 Phi_5 Phi_6^2 Phi_8^2 Phi_10, consistent with the proof."
+      ],
+      "reasoning": "A finite table could exhibit the small counterexample but not imply the exact reduced denominator for arbitrary n,k,j. The claim includes an infinite necessary-and-sufficient classification and every denominator factor.",
+      "searches": [
+        "Published-result search: counterexample H(4,2,4) q-polynomial gcd(n,j) divides k radical divisibility",
+        "Web: \"H_{n,k,j}\" \"rad\" \"gcd\"",
+        "Web: \"k-central binomial\" \"polynomial\" \"j\" \"gcd\""
+      ]
+    },
+    "rationale": "Full-text study of the initiating 2008 preprint and the relevant 2012 dissertation section finds the former as a proposed gcd condition and latter repeating it as a problem; both are distinguished by exact radical criterion and all-parameter reduced denominator. Named/alias/cyclotomic searches and published-result searches gave no dominating result, though independent historical priority has not been established.",
+    "residual_risks": [
+      "An unindexed or differently titled later proof may independently have established the same corrected denominator.",
+      "Standard cyclotomic divisibility theory could subsume this through a prior general theorem not identified in the searches; uniqueness is not inferred from failed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original source defines H and proposes gcd(n,j)|k as iff; does not prove radical criterion or exact reduced denominator in its statements.",
+        "evidence": [
+          "arXiv first submission 2008-11-13; equations (5.3), (5.7) and polynomiality Problem Section 5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0811.2028",
+        "material_read": "Full 11-page article parsed; in particular Sections 2-5 and the final problem on page 10 (PDF page index 9), with pages 4,7,8 visually checked",
+        "method": "Full-text reading including equations (5.2)-(5.7), theorem claims, and references; page screenshots",
+        "title": "The p-adic valuation of k-central binomial coefficients",
+        "trigger": "Introduces the exact H_{n,k,j} product and an iff polynomiality problem"
+      },
+      {
+        "assessment": "The inspected section restates the same gcd(n,j)|k assertion as Problem 14.5.2; it does not give a corrected criterion there.",
+        "evidence": [
+          "Chapter 14 equations (14.51)-(14.55), Problem 14.5.2, dissertation dated May 2012."
+        ],
+        "identifier_or_url": "https://arminstraub.com/downloads/pub/dissertation.pdf",
+        "material_read": "Chapter 14 Section 14.4-14.5, including printed pages 348-350; screenshot of printed page 349",
+        "method": "Targeted parsed-text and page image inspection; other chapters not exhaustively assessed",
+        "title": "Arithmetic Aspects of Random Walks and Methods in Definite Integration",
+        "trigger": "2012 repetition by an original author could contain a resolution or revised hypothesis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9585c534-c8cd-47ce-9cec-cf1a79bde1af",
+  "value": {
+    "rationale": "The theorem corrects an explicitly published proposed iff polynomiality criterion for a natural q-central binomial product and determines the full reduced denominator, not just a single counterexample. The infinite prime-power exception shows the distinction between prime support and full gcd valuations is structurally necessary; this directly answers the motivating integrality problem.",
+    "status": "PASS"
+  }
+}
