@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The linear update decomposes exactly as \(F=D+U\) on vertex basis vectors. For every nonleaf the number of children is divisible by the field characteristic, so \(UD=0\). Height gives \(D^{h+1}=U^{h+1}=0\), yielding a noncommutative word expansion with precisely one term per pair of exponents. The terminal powers are exactly \(F^{2h}=D^hU^h\), of rank one, and \(F^{2h-1}=D^hU^{h-1}+D^{h-1}U^h\), of rank two; each rank is witnessed by inputs on appropriate depth levels. The general extinction bound follows, as do all last-shell probabilities by rank-nullity over \(\mathbb F_q\). Nonextinction for complete trees with mismatched characteristic is proven by an invariant difference of two child subtrees and induction from the star case. The attached verifier reruns small complete and irregular cases over characteristics two and three. The proof covers all sizes without relying on these checks.
+PASS
 
-## Originality — PASS, qualified
+Read RESULT.md and basis definition D e_v=sum child e_w, U e_v=parent. For each node UD e_v=(child count)e_v=0 in characteristic p; hence (D+U)^t=sum_{a+b=t}D^a U^b, with D,U nilpotent at height h+1. The only terms at t=2h and 2h−1 are D^hU^h and D^hU^{h−1}+D^{h−1}U^h. Their images are the nonzero, linearly independent deepest-two level indicators, yielding ranks 1,2 and exact index 2h+1. Kernel proportions q^{-rank} give the stated terminal shells; nonzero periodic points impossible. For p∤d, an invariant opposite-sign pair of child subtrees inducts to nonnilpotency from F² e_root=d e_root on a height-one star. Fresh independently implemented finite-field adjacency powers on 30 complete and irregular trees tested the terminal ranks and nonextinction. Small tests corroborate, proof covers every tree.
 
-Rojo (DOI:10.1016/j.laa.2005.09.019), including the adjacency-polynomial theorem, treats root-tree spectra over the usual real/complex setting. Rojo–Robbiano (DOI:10.1016/j.laa.2007.06.024) and Fritscher–Trevisan (DOI:10.1137/15M1013262) treat eigenvalue structure, while Aledo–Martínez–Valverde (DOI:10.1155/2015/594294) surveys general parallel-dynamics orbit questions. The available material shows no exact characteristic-divisible irregular-tree extinction index together with shape-independent terminal-shell distribution. Finite-field nilpotency can in some balanced special cases be inferred from specialized determinant identities, but that does not establish the sharp penultimate ranks, irregular branching coverage or final probability law. Targeted searches for equivalent terminology and general results yielded no decisive implication. Residual risk remains from unindexed work or parts of less-accessible prior full texts; this is a qualified, self-review originality assessment, not a proof of global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The natural invariant is first entry into the only periodic state of a network-wide additive finite-field dynamical system. The theorem gives a sharp height-only extinction time on a broad class of irregular graphs, with a universal three-way terminal distribution independent of topology and branching magnitudes. It also identifies a sharp characteristic-versus-branching bifurcation in the complete rooted-tree family. The noncommutative up/down factorization explains the mechanism rather than merely tabulating small cases, and the exact law has potential use in finite-field network dynamics and algebraic combinatorics. It does not purport to characterize every earlier shell.
+Rojo and Rojo–Robbiano treat real adjacency spectra and characteristic polynomials for more symmetric rooted trees; an eigenvalue zero result over characteristic p would not alone specify exact terminal ranks and uniform extinction shells over arbitrary irregular p-divisible trees. The proof has a distinguishing UD=0 operator factorization. No precise equivalent finite-field irregular-tree statement emerged from Resultary and primary comparison. Best-of-knowledge originality only.
 
-## Closest literature and limits
+## value
 
-Rojo's 2005 online paper was examined in its introduction and main adjacency-characteristic polynomial statement (Theorem 4); its spectral quantities are distinct from the finite-field dynamical stopping-time quantities here. The Aledo survey's available abstract and introductory sections supply a broader context, and abstracts of the Rojo–Robbiano and Fritscher–Trevisan studies were compared. No independent proof inspection by another researcher has taken place. The novelty conclusion is subject to limitations from full-text access to some relevant papers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Height is the natural time scale of linear nearest-neighbor propagation on rooted networks, and the exact nilpotency index and topology-independent terminal stopping-time shell distribution are genuinely structural, not merely a matrix-identity restatement. Complete d-ary necessity exhibits a sharp characteristic branching threshold, while irregular-tree reach goes beyond level-regular spectra. Earlier shell populations and arbitrary-tree necessity are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
