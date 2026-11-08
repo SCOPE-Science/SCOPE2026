@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "All cases and edge conditions n>=1, 0<=K<=n and 0<a<=b<=1 are proved. When b<=1/2, t=1/2 accepts all. When a>1/2, recovery of K orientations yields the parity-improved upper bound and an adaptive alternating-orientation transcript yields the matching lower. When a<=1/2<b, finite-grid exact interval learning yields the n-K upper bound, while a three-case adversarial completion guarantees n-K rejected untouched agents and OPT=0. The endpoint case b=1 and a=1/2 is explicitly included. A standalone Fraction checker passed 140 fixed-observed minimax and 470 constructive witness comparisons; the infinitary proof does not rely on those finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorems 6.1–6.2 explicitly assume m>=3 and their worst-case proof uses the third alternative; the same manuscript calls out that necessity.",
+        "Theorem I.3 gives a general minimax expression for a fixed history, not an evaluated all-policy minimax for m=2 and threshold intervals."
+      ],
+      "reasoning": "The published three-option lower bound does not specialize to two options. The general history formula can be a tool for derivation, but it neither selects adaptive contacts nor evaluates the threshold trichotomy and parity improvement; the claim is not a corollary obtained by parameter substitution.",
+      "searches": [
+        "arxiv:2610.37828v1 Theorems 6.1, 6.2 and Appendix H.2",
+        "arxiv:2610.37828v1 Theorem I.3 arbitrary fixed-history worst-case loss",
+        "web: two alternatives membership queries n-K violations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.37828v1 Sections 2,6, Appendix E.1, Appendix H.1–H.2, Appendix I.1; first public 2026-10-27",
+      "arxiv:2604.17505v1 Sections 1–1.1; first public 2026-04-19",
+      "published-finding corpus semantic records and specific IDs documented in four named comparison checks",
+      "AMS MSC2020 91B14 social choice taxonomy (mathscinet.ams.org/msc/msc2020.html)",
+      "Nicholas Teh research listing for distinct 2026 distance-based objective (https://nicteh.fyi/)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original lower bound only covers at least three alternatives and requires a queried agent accept two pure alternatives while remaining nondegenerate; with two alternatives this fails.",
+        "The original full-information line-segment interval algorithm provides the queried-agent optimization upper bound but not the adversarial lower constructions.",
+        "Choo–Goldberg–Teh asks whether all constraints are simultaneously satisfiable, not the minimum extra number of rejected constraints when they cannot all be satisfied."
+      ],
+      "reasoning": "Neither exact known-halfspace optimization nor unanimous feasibility implies the all-profile limited-contact deterministic minimax statement. The new proof supplies parity-specific adversarial transcripts and a two-endpoint three-case construction; the source generic fixed-history formula is compatible but does not explicitly evaluate these bounds.",
+      "searches": [
+        "arxiv:2610.37828v1 Section 6, Appendices E.1, H, I.1",
+        "arxiv:2604.17505v1 Section 1.1 and general results",
+        "published-finding corpus: min-viol lottery m=2 deterministic adaptive query lower bound worst-case n-K halfspace threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.37828v1 Appendix E.1 reduces two-alternative acceptability to left/right closed intervals; Proposition E.1 solves explicit max overlap, not limited-contact oracle minimax.",
+        "published-finding corpus hit 2026/10/4/SCOPE-complete-three-agent-lottery-shape-classification-for-random-ser--7ae5a1139952 concerns random serial dictatorship lottery shapes, not acceptance-interval oracles."
+      ],
+      "reasoning": "The theorem equivalently classifies minimax interval-overlap regret with unknown per-agent left/right intervals having endpoints in a public threshold range. Neither explicit max-overlap nor assignment lotteries provide its adaptive-query trichotomy.",
+      "searches": [
+        "published-finding corpus: Learning Lotteries with Minimal Stakeholder Violations from Membership Queries",
+        "published-finding corpus: two alternatives deterministic queries lottery stakeholders rejected exact minimax",
+        "published-finding corpus: stakeholder membership oracles partial elicitation worst-case regret 2 option interval stabbing",
+        "web: two alternatives thresholds half acceptability query deterministic minimax violating stakeholders"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched published published-finding corpus title or summary gives the two-option rejection trichotomy.",
+        "published-finding corpus hit 2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1 proves a two-preference-type random-priority assignment fact; its outcome and objective are different.",
+        "The publicly inspected Appendix E.1 is an algorithm, not a table or parameterized query-minimax result."
+      ],
+      "reasoning": "No matching published published-finding corpus mathematical record was found in the actual searches. Query-index incompleteness does not establish uniqueness.",
+      "searches": [
+        "published-finding corpus: binary utility two option Min-Viol no sampling deterministic worst-case threshold",
+        "published-finding corpus: heterogeneous approval cutoffs below above one half two outcome query budget parity minimax",
+        "published-finding corpus: two alternative lottery threshold half query cap K minimax n-K deterministic violations"
+      ]
+    },
+    "rationale": "The exact deterministic contact-budget formula for two alternatives and public threshold intervals, including the parity correction and discontinuity at one-half, is not stated or implied without new arguments by the inspected sources. The closest primary Theorems 6.1–6.2 are restricted to at least three alternatives and rely on a third coordinate. Its general arbitrary-history bound (I.3) is not an evaluated policy minimax over limited-contact adaptive algorithms. Earlier work asks unanimous feasibility instead of minimax rejection regret. Search of published mathematical research records for threshold, two-alternative, membership-oracle, interval-stabbing and regret aliases returned no equivalent result. Full unindexed literature and the unexamined distance-loss related paper are residual risks; this is best-knowledge originality, not a guarantee.",
+    "residual_risks": [
+      "Earlier or unindexed equivalent interval-regret results might exist; search cannot prove novelty.",
+      "The related 2026 Teh–Goldberg aggregated-violation-distance paper has not been inspected in full, and its objective differs.",
+      "No independent mathematical audit has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "m>=3 lower bound does not cover m=2; two-option full-information solver and arbitrary-history bound do not give this evaluated interval phase diagram.",
+        "evidence": [
+          "Theorems 6.1 and 6.2 explicitly specify m>=3; H.1 says the third coordinate is essential to its construction.",
+          "Proposition E.1 solves known two-option intervals by endpoint sweep.",
+          "Theorem I.3 is a generic worst-profile expression given a fixed history, with no minimax-contact classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.37828v1",
+        "material_read": "Relevant available HTML text inspected: abstract, Sections 1–2 and 6, Appendix A comparisons, B.2 finite-precision discussion, Appendix E.1, H.1–H.2, and I.1. Other sections not relied on for a document-wide exclusion claim.",
+        "method": "Primary HTML reading of the relevant theorem hypotheses, statements, proofs, exact optimization and post-history formulas.",
+        "title": "Learning Lotteries with Minimal Stakeholder Violations from Membership Queries",
+        "trigger": "Same objective and deterministic partial-contact lower bound; m=2 is the immediately adjacent excluded case."
+      },
+      {
+        "assessment": "A feasibility/infeasibility oracle model; no stated exact worst-case additive minimum-violations regret by number of distinct queried agents.",
+        "evidence": [
+          "The algorithm seeks a lottery accepted by all agents or an infeasibility certificate.",
+          "Its query complexity and approximation questions are different from minimax count regret when unanimity fails."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.17505v1",
+        "material_read": "Available HTML introduction, Section 1.1 and stated feasibility/elicitation guarantees.",
+        "method": "Primary open-access HTML reading; comparison of formal optimization targets.",
+        "title": "Learning Unanimously Acceptable Lotteries via Queries",
+        "trigger": "Earlier work with same membership oracles and two-alternative lottery model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb11235b-f9e7-4d72-a840-cac5e28f6c91",
+  "value": {
+    "rationale": "The closest paper leaves two alternatives outside its deterministic lower-bound theorem because the proof uses a third alternative. Exact classification at that first missing dimension is a motivated mathematical gap. The result sharply separates always-feasible approval (b<=1/2), incompatible strict approval (a>1/2, parity benefit), and a mixed-threshold regime where the full n-K contact obstruction reappears. That boundary describes the precise robustness of a limited-elicitation social-choice process and is not merely a small numerical gain or a renaming of an existing theorem.",
+    "status": "PASS"
+  }
+}
