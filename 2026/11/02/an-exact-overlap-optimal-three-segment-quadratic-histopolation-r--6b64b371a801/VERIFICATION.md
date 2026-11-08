@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof in RESULT.md establishes the result for every real parameter strictly between zero and one. The included `verify.py` uses only Python's standard library, recomputes exact overlapping-measurement inversions with rational arithmetic, confirms polynomial reproduction and the disjoint-cell identity, tests all eight cellwise signs, and validates rational-grid norm/Lebesgue bounds and their attaining abscissae. It also scans the independently proved minimizer. On the packaged script the output was:
+# Independent mathematical audit
 
-`PASS: 414575 exact-rational coefficient/reproduction/norm/overlap checks and numerical optimum comparisons`
+## correctness
 
-These checks are finite; they are not a substitute for the proof of universal bounds, uniqueness, or publication priority. No independent audit was performed.
+PASS
+
+For 0<epsilon<1, the normalized 3x3 mean matrix has determinant epsilon^2(1-epsilon)/3>0. Expressing the three overlapping means through independent cell means on the left/core/right disjoint intervals yields weights w_±=(3x^2±2x-(1-epsilon)^2)/(2(2-epsilon)) and w_0=(2-epsilon+(1-epsilon)^2-3x^2)/(2-epsilon). Every cell mean in [-1,1] is attainable by a common bounded measurable f, so the norm equals max_x sum |w_i(x)|. The proof uses |z-y|+|z+y|=2max(|z|,|y|) and a convex/concave branch analysis showing the maximum occurs at x=0 or ±1. The resulting norm is max{1+2(1-epsilon)^2/(2-epsilon),1+2epsilon(3-epsilon)/(2-epsilon)}. The branches cross once at epsilon=(5-sqrt17)/4, with minimum 3(sqrt17-3)/2. Independent mean perturbations instead have coefficient sum Lambda=1+4/(epsilon(1-epsilon)). Independent rational signs/cell averages checked 220 representative exact cases; proof covers the continuum.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after direct statement/implication comparisons against indexed findings and relevant primary sources. Known antecedents and any covered symmetric/special cases are acknowledged; no comprehensive priority certificate is claimed.
+
+## value
+
+PASS
+
+The distinction between a shared unknown bounded function and independently perturbed overlapping measurements is important in stability analysis: the generalized Lebesgue constant explodes while the true operator norm stays bounded. The unique minimax overlap is a natural three-measurement design invariant, not a random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

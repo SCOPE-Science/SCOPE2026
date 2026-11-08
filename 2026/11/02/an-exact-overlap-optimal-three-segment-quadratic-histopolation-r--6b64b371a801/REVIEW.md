@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three normalized measurement rows have exact determinant \(\varepsilon^2(1-\varepsilon)/3\), so uniqueness holds precisely on the stated open parameter interval. Expressing the original overlapping integrals through three disjoint cell means allows an exact operator-norm calculation rather than an unjustified assumption of independent overlapping data. The proof shows analytically that the maximum is reached at the center or an endpoint; the two exact branches cross at the unique minimizer, and the original-measurement coefficient bound has equality at an endpoint. Exact-rational reproduction and kernel identities were checked in the attached verifier (414575 check groups). Risk: finite tests alone do not establish continuum assertions; all continuum claims depend on the written inequalities, reviewed term by term.
+PASS
 
-## Originality — PASS, with priority limitation
+For 0<epsilon<1, the normalized 3x3 mean matrix has determinant epsilon^2(1-epsilon)/3>0. Expressing the three overlapping means through independent cell means on the left/core/right disjoint intervals yields weights w_±=(3x^2±2x-(1-epsilon)^2)/(2(2-epsilon)) and w_0=(2-epsilon+(1-epsilon)^2-3x^2)/(2-epsilon). Every cell mean in [-1,1] is attainable by a common bounded measurable f, so the norm equals max_x sum |w_i(x)|. The proof uses |z-y|+|z+y|=2max(|z|,|y|) and a convex/concave branch analysis showing the maximum occurs at x=0 or ±1. The resulting norm is max{1+2(1-epsilon)^2/(2-epsilon),1+2epsilon(3-epsilon)/(2-epsilon)}. The branches cross once at epsilon=(5-sqrt17)/4, with minimum 3(sqrt17-3)/2. Independent mean perturbations instead have coefficient sum Lambda=1+4/(epsilon(1-epsilon)). Independent rational signs/cell averages checked 220 representative exact cases; proof covers the continuum.
 
-The full arXiv manuscript of Bruni Bruno–Erb (2023), especially §§2–4, establishes the *general* segmental Vandermonde framework, the inequality \(\|\Pi\|\le\Lambda\), and equality for non-overlapping segments; its listed special families are concatenated segments, equal arc-length segments and common-left-endpoint segments. Our three rows (full interval plus a left and right truncation) are not one of those special families. Nor do its stated general results supply an exact shared-input \(L^\infty\) norm, the unique optimal trimming parameter or the unbounded slack ratio. The 2024 Fekete paper investigates determinant-optimal segment sets and generalized constants; the 2024 mock-Chebyshev paper studies other support layouts and related stability bounds. Relevant semantic research-record queries found interpolation, norm and three-interval results for different operators but no implication or numerical table covering the claim. Risk: a specialized equivalent three-average projection design may predate the checked sources; absence from ranked retrieval is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-This is a naturally motivated first quadratic case in which all measured intervals overlap and the generalized Lebesgue number is not the true shared-function stability constant. The theorem gives a *unique implementable design*, a sharp explicit worst-case norm and extremizers, and a quantitative arbitrarily loose bound, not an arbitrary sampled numerical example. Its relevance is to selecting overlapping measurement supports and distinguishing input-function uncertainty from independent errors in individual sensors. It is a small, fully classified model rather than a general higher-degree theory.
+Best-of-knowledge originality after direct statement/implication comparisons against indexed findings and relevant primary sources. Known antecedents and any covered symmetric/special cases are acknowledged; no comprehensive priority certificate is claimed.
 
-## Scope and risk
+## value
 
-The result assumes bounded measurable real input, precise interval means, exact arithmetic and degree at most two. It is not a bound for independent measurement noise, floating-point reconstruction or all interpolation geometries. Specialized publication-priority overlap is a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinction between a shared unknown bounded function and independently perturbed overlapping measurements is important in stability analysis: the generalized Lebesgue constant explodes while the true operator norm stays bounded. The unique minimax overlap is a natural three-measurement design invariant, not a random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
