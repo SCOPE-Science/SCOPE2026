@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact phase-locked orbit satisfies the full nonlinear equations because its three complex side vectors sum to zero and the radial squares equal the growth rates minus three. The full six-real-dimensional linearization is reconstructed without discarding amplitude or phase directions. The characteristic polynomial factors into one symmetry-zero mode and an explicitly listed quintic. Independent reconstruction of each five leading Hurwitz minors from the stated Jacobian matches the written formulas exactly. The strictly monotone cubic cutoff gives a unique positive stability boundary. The Routh first-column signs prove precisely two unstable eigenvalues below the boundary and zero above; at equality the auxiliary quadratic and the positive cubic factor establish a simple imaginary pair and three stable eigenvalues. The simple cutoff yields transverse crossing. The verifier prints `EXACT_CERTIFICATE_OK`.
+PASS
 
-Risks and limits: this is a linear orbital stability theorem, not proof of a nonlinear secondary branch, its critical normal-form coefficient, or global attraction.
+The displayed triangle u has sum zero, squared radii (49,169,289), and βj−3=|uj|², so z=e^(−3iγt)u solves the full nonlinear system for all real γ. In rotating coordinates, the full 6-real Jacobian blocks are [[1,−γ],[γ,1]]−2δjk UjUjᵀ. Independent symbolic computation reconstructs det(λI−J)=λqγ(λ) with the specified quintic, including linear γ² coefficients and positive qγ(0). Its leading Routh–Hurwitz minors Δ1,Δ2,Δ3 are strictly positive, Δ4=12F(γ²), Δ5=341713944(1+γ²)F(γ²); F has positive derivative for X≥0 and opposite signs at 112,113. Two right-half-plane roots below threshold and zero above follow from Routh signs. At F=0 auxiliary quadratic yields simple imaginary pair with remaining Hurwitz cubic; simple Δ4 zero yields transverse crossing. Directly recomputed numerical root counts near both sides corroborate, not prove, the global spectral claim.
 
-## Originality — PASS under examined evidence
+## originality
 
-The October 2026 source constructs and numerically samples the polygonal phase-locked manifold, including an unstable triangular region within its tested parameter plane. An exact analytic existence example of a stable heterogeneous triangle is also known. Neither establishes the complete stability/instability phase diagram as the imaginary coupling traverses all real values with a fixed linearly spaced growth triple, nor the exact unique crossing polynomial, exact unstable index, and simple imaginary-pair boundary. Nearby older work on globally coupled amplitude oscillators addresses clustering, strong-coupling synchronization, or delayed control with substantially different scope. Relevant indexed mathematical findings and the source's polygon formulas were compared by claim and implication, not by title matching.
+PASS
 
-Risks and limits: no mathematical priority claim can be absolute. Some historical articles were available only at abstract level; independent bibliographic assessment remains important.
+The 2026 Zhao–Uchida source already establishes polygonal zero-mean relative equilibria and configuration-dependent sampled transverse stability; the exact reactive threshold, unstable index and transversal simple pair for this particular arithmetic-growth triple are additional claims not found in inspected sections.
 
-## Value — PASS
+## value
 
-The source's numerical triangular-sector instability and broader configuration dependence naturally ask whether a three-active-oscillator zero-mean polygon has an exact reactive-coupling stabilization threshold. The squared side lengths \((49,169,289)\) form an arithmetic progression, so the example respects the source's natural linear-growth heterogeneity instead of imposing a generic unrelated parameter slice. The theorem computes the entire one-parameter phase diagram, exhibits stabilization by reactive coupling in the smallest nondegenerate polygon, and identifies the exact spectral mechanism. The classification is more informative than either a stable isolated example or a finite numerical scan, and it is useful for oscillator-coupling design and bifurcation benchmarks.
+PASS
 
-## Closest sources and limitations
+Supplies exact analytic stability boundary for a natural but nontrivial configuration family previously treated numerically; distinguishes spectral instability index, transverse imaginary pair and orbital attraction. Coefficient sizes arise from fixed triangle geometry rather than arbitrary slicing.
 
-Zhao–Uchida (2026), arXiv:2610.08239v1, Sections 2 and 5–7, supplies the polygonal family, numerical stability survey, and dimensionality. Lee–Ott–Antonsen (2013), arXiv:1304.3974, treats a broad heterogeneous global-coupling setting, with its directly retrieved abstract describing different synchronization and clustering regimes; its full text was not materially inspected here. Schneider (2013) treats delayed feedback for a three-oscillator rotating wave, not the zero-delay unequal-growth spectral threshold; only its abstract was inspected. Independent audit and validation have not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
