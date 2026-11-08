@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Greedy arch lemma is proved; parity on fixed-letter counts gives the exact qk versus qk+f−1 lower bound; equality forces the central fixed occurrence to be the middle of the 2r+1 disjoint complete blocks. Minimal left/right arch lengths plus central orbit coverage force r full permutation blocks and an exact orbit transversal. Constructing these provides sufficiency and injective factorial counting. The independent stdlib verifier checks 1,385,969 symmetric words, 7,632 classified extremizers and 79,828 full-pattern comparisons across 34 configurations; finite tests only supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barker et al. 2020 Section 4: midpoint index for ordinary palindromes, concatenation involving symbol permutations.",
+        "Adamson 2023 Sections 2–3: unrestricted universal-word counting.",
+        "arXiv:2311.10658: decision problems for regular languages rather than exact mixed-symmetry extremal enumeration."
+      ],
+      "reasoning": "The general existence and algorithm results do not assert or supply a stronger parameterized extremal theorem for arbitrary mixed involutions. Proposition 18 permits symbol permutations but does not directly force a central transversal or the f−1 penalty. The proof supplies an independent optimization under a nontrivial global antimorphic constraint.",
+      "searches": [
+        "arxiv:2003.04629v1 palindrome universality Proposition 15 Proposition 18",
+        "arxiv:2304.04583v1 ranking unranking k-subsequence universal words",
+        "arxiv:2311.10658 k-universality regular languages",
+        "mixed fixed points antimorphic palindrome",
+        "involution universality palindrome scattered words"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.04629v1: full PDF relevant propositions and preliminaries",
+      "arXiv:2304.04583v1: full PDF relevant enumeration/algorithm sections",
+      "arXiv:2311.10658: PDF introduction and language results",
+      "DOI:10.1016/j.csbj.2023.11.035: abstract/metadata as contextual evidence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barker’s pure palindrome midpoint relation addresses identity-involution only, with all letters fixed.",
+        "The fixed-point-free endpoint has the reverse-complement center-pair phenomenon and lacks the fixed-symbol parity surplus; it does not directly yield f−1 for f>=1.",
+        "The new construction uses exactly one representative from each swapped pair and all noncentral fixed letters."
+      ],
+      "reasoning": "The conclusion is not a corollary merely from ordinary universal-word length qk or the identity/pair-only cases. Its odd formula depends on q=2p+f with p,f both positive, and necessity is derived by matching left and right arch boundaries and central letter counts. Pure endpoints are not claimed.",
+      "searches": [
+        "arxiv:2003.04629v1 Proposition 15 Proposition 18",
+        "arxiv:2304.04583v1 subsequence universal enumeration",
+        "\"involution\" \"universality\" \"palindrome\" scattered words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2003.04629v1 Proposition 15 treats ordinary reversal; mixed symbols create fixed-point parity obligations not present in that result.",
+        "arXiv:2304.04583v1 counts unconstrained words rather than mixed antimorphism fixed words."
+      ],
+      "reasoning": "The symmetry condition is a fixed-point equation under reverse followed by a nontrivial involution with fixed letters and transpositions. It cannot be conjugated by a relabeling into either ordinary reversal or fixed-point-free complement because orbit type is invariant. Known endpoint formulas therefore do not yield the exact mixed optimal length and witness count without new structural argument.",
+      "searches": [
+        "\"palindromic\" \"subsequence universal\" word",
+        "\"palindrome\" \"universality index\" \"subsequences\"",
+        "\"palindromic\" \"arch factorization\" words",
+        "\"pseudopalindromic\" \"subsequence\" \"universality\"",
+        "\"reverse complement\" \"universal subsequence\" palindrome",
+        "arxiv:2003.04629v1 Proposition 15 palindrome universality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Barker et al. 2020 provides qualitative arch characterization and ordinary-palindrome index comparison, no listed mixed (p,f) counts.",
+        "Direct enumeration outputs are original diagnostics of the present theorem, not a claim that short sequence values themselves are new."
+      ],
+      "reasoning": "The result is a proof for all k,p,f rather than an unmotivated finite table. Searches did not find an existing mixed orbit-profile table/formula that would subsume it. Lack of indexing alone is not relied on for uniqueness.",
+      "searches": [
+        "\"pseudopalindromic\" \"subsequence\" \"universality\"",
+        "\"palindromic\" \"universality index\" words",
+        "arxiv:2003.04629 universality palindrome enumerations"
+      ]
+    },
+    "rationale": "A result for every mixed orbit profile (p>=1 transpositions and f>=1 fixed letters) establishes a new parity penalty f-1, exact orbit-transversal structural characterization and factorial count. The closest arXiv primary texts were materially examined: standard arch, all-fixed palindrome and unrestricted enumeration results do not directly imply the mixed formulas. The pure endpoint cases are expressly credited. Searches and accessible statement comparisons found no exact claim; this is a qualified best-knowledge originality judgment, not a proof of global priority.",
+    "residual_risks": [
+      "An equivalent mixed-involution theorem might exist in unindexed combinatorics-on-words literature or non-English material.",
+      "The contextual DNA-coding article was not used to assert full-text noncoverage; only its public abstract/metadata was inspected.",
+      "Independent mathematical and bibliographic evaluation has not yet occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides universality/arch equivalence and pure palindrome relations, but no mixed involution orbit-transversal optimum or count",
+        "evidence": "arXiv:2003.04629v1, especially pp. 4 and 10–11, Propositions 15 and 18",
+        "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+        "material_read": "Full open arXiv PDF, including preliminaries, Section 4, Proposition 15 and Proposition 18 and accompanying proofs/discussion",
+        "method": "Read extracted full-text spans and visually inspected source PDF pages with relevant propositions",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational arch factorization and apparent nearest palindrome index theorem (Proposition 15) and permutation concatenation criterion (Proposition 18)"
+      },
+      {
+        "assessment": "Studies unrestricted subsequence-universal words; its count is not the count of words satisfying a mixed fixed/transposition antimorphic equality",
+        "evidence": "arXiv:2304.04583v1, particularly Sections 2 and 3",
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Open arXiv PDF, definition, algorithms and enumeration treatment in Sections 2–3",
+        "method": "Read full PDF text and visually inspected relevant pages",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Potential general enumeration stronger than the exact constrained count"
+      },
+      {
+        "assessment": "Finite automata/regular-language decision setting differs from exact uniform-length optimal extremal classification across all involution orbit profiles",
+        "evidence": "arXiv:2311.10658, PDF introduction and results",
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Public arXiv PDF; introduction, key results and regular-language universality setting",
+        "method": "Read accessible text and visually inspected a relevant page",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Potential language-level decision criteria including involution-palindromic constraints"
+      },
+      {
+        "assessment": "Contextual only; abstract cannot establish noncoverage of the exact theorem",
+        "evidence": "DOI:10.1016/j.csbj.2023.11.035 (2023)",
+        "identifier_or_url": "https://doi.org/10.1016/j.csbj.2023.11.035",
+        "material_read": "Public metadata and abstract-level description, not full text",
+        "method": "Inspected public bibliographic and abstract material",
+        "title": "On secondary structure avoidance of codes for DNA storage",
+        "trigger": "Reverse-complement symmetry motivation and biological coding relevance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "04cb8d84-54d7-4127-b266-be014069df26",
+  "value": {
+    "rationale": "The mixed fixed-point and swapped-pair case is the natural previously missing orbit type between palindrome and reverse-complement universality. The theorem supplies an all-k, all-orbit-profiles optimal length, complete set of minimizers and exact number of minimizing labeled words, with a sharp f-dependent penalty rather than a local finite table. This gives exact constructive templates for reversible-symmetry constrained scattered-subsequence coverage.",
+    "status": "PASS"
+  }
+}
