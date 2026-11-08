@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Both programs use Python 3 with the standard library only. From an extracted artifact directory run:
+## correctness
 
-```sh
-python3 verification/coordinates.py
-python3 verification/singer.py
-```
+PASS
 
-The coordinate program checks the 13 point and 13 line representatives, closure and orbit disjointness of all 38,730 ideal states, seven cycle-length classes, the collineation generators' closure of size 5616, and all 22 projective orbit classes. The Singer program works with translated four-point lines modulo 13 and derives rowmotion from minimal elements of the ideal complement directly; it reconstructs 38,730 states, verifies a bijection, and checks the identical cycle census and permutation order 6930.
+The ideal parametrization (A,B subset E(A)) enumerates all 38,730 ideals. Complement-minimality yields rho(A,B)=((P\A) union U(E(A)\B), E(A)\B). A freshly implemented independent Singer-difference-set traversal of every ideal obtained exactly the seven prescribed cycle multiplicities 468,1249,702,624,1521,936,702 for lengths 2,3,5,6,7,9,11, respectively; cycle count 6,202, order 6,930. A second independent homogeneous-coordinate implementation checked the full PGL(3,3) generator closure of order 5,616 and all 22 symmetry orbit types, including their sizes. These computations exhaust the specified finite state space; they do not imply another projective-plane order.
 
-Neither implementation proves a result for arbitrary projective-plane order. The finite computations and complete state spaces are the evidence here; no outside independent scholarly audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.
+
+## value
+
+PASS
+
+A complete exact cycle-and-symmetry census for a canonical finite-geometric rank-two poset, including a nontrivial projective group orbit refinement. Exact finite orbits are reproducible mathematical invariants, not arbitrary small samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
