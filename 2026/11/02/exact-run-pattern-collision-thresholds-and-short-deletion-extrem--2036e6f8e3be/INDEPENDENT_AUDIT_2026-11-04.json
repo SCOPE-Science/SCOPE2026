@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:19:44.139321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "First unequal retained count in a pair of equal-output deletion patterns forces erasure of at least one current-run letter plus all letters between two equal-symbol runs; hence t>=delta. A pair of patterns deleting one opposite end-run letter and every intervening run collides at delta; same extra deletions extend to all t<length. Smoothing identity Q_(a-1)Q_(b+1)-Q_a Q_b=sum_(j=b+1)^(a-1) z^j is coefficientwise nonnegative, giving balanced upper bound. Cyclic q distinct successive run symbols ensure delta>=q>t, attaining it, and n=r=t+1 proves sharpness as a uniform sufficient q threshold. Independent exact enumeration checked iff onset for 3076 binary and 4923 ternary short-word/deletion cases. Full verifier read; finite checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wang–Fu arXiv:2601.06493v2 Theorem 17 and Corollary 18, nondivisible upper bound and balanced divisibility result",
+          "Mercier–Khabbazian–Bhargava 2008 DOI:10.1109/TIT.2008.924730"
+        ],
+        "reasoning": "The explicit 2026 nondivisible upper bound does not imply attainment by q>=t+1 cycling; the older general deletion-channel work could conceivably include a stronger implicit identity, not yet fully checked.",
+        "searches": [
+          "\"deletion channel run length distinct subsequences collision threshold equal symbol runs balanced extremal q alphabet\"; \"nonbinary deletion channel number subsequences balanced runs Li Wang Fu 2026\""
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.06493 full primary preprint relevant p13 and conclusion",
+        "arXiv:1202.1644 limited",
+        "DOI:10.1109/TIT.2008.924730 abstract",
+        "Resultary finite-alphabet deletion-query matches other reconstruction invariants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior upper bound counts deletion patterns but may double count descendants",
+          "New iff threshold shows precisely when pattern upper bound is attained"
+        ],
+        "reasoning": "The new explicit q-alphabet construction and first-collision analysis close a gap in the prior implication: a count of deletion patterns alone is not an exact count of distinct descendants.",
+        "searches": [
+          "\"deletion channel run length distinct subsequences collision threshold equal symbol runs balanced extremal q alphabet\"; \"nonbinary deletion channel number subsequences balanced runs Li Wang Fu 2026\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liron–Langberg arXiv:1202.1644 general deletion-pattern counts",
+          "New delta(w)=1+min intervening lengths between same-letter runs"
+        ],
+        "reasoning": "Classical deletion-pattern upper bound is the coefficient of product Q_lengths; it is equal to the sphere count only below an additionally proved collision threshold, which is not a mere renaming.",
+        "searches": [
+          "\"deletion channel run length distinct subsequences collision threshold equal symbol runs balanced extremal q alphabet\"; \"nonbinary deletion channel number subsequences balanced runs Li Wang Fu 2026\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Li–Wang–Fu arXiv:2601.06493 numerical tabulation and discussion of nondivisible case",
+          "Direct q=4,n=10,r=4,t=3 balanced coefficient 18 versus equal-length comparison 20"
+        ],
+        "reasoning": "Published numeric formulas for divisible runs and loose nondivisible bounds differ from the uniform exact extremum. No identical exact-delta table identified.",
+        "searches": [
+          "\"deletion channel run length distinct subsequences collision threshold equal symbol runs balanced extremal q alphabet\"; \"nonbinary deletion channel number subsequences balanced runs Li Wang Fu 2026\""
+        ]
+      },
+      "rationale": "The first-collision threshold and tight nondivisible-run extremum are not identical to prior general deletion-pattern upper bounds. The 2026 Li–Wang–Fu primary preprint explicitly gives only a larger equal-length upper bound for r not dividing n; 2008 Mercier–Khabbazian–Bhargava unavailable full text remains priority risk.",
+      "residual_risks": [
+        "Full Mercier–Khabbazian–Bhargava 2008 article not materially read; may subsume small-t cases.",
+        "Broader q-ary deletion-channel theorems may rephrase this exact threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounds and balanced r|n cases; nondivisible extremality not established in examined statements",
+          "evidence": "Theorem 17/Corollary 18 p13 of arXiv v2, concluding nondivisible bounds",
+          "identifier_or_url": "https://arxiv.org/abs/2601.06493",
+          "material_read": "Actual full primary PDF 22 pages accessed; introductory theorem statements, Theorem 17, Corollary 18 and conclusion inspected; relevant p13 PDF screenshot reviewed",
+          "method": "Read open preprint PDF and inspect relevant theorem pages",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Same objects and run parameters"
+        },
+        {
+          "assessment": "General upper count credited; no whole-text noncoverage asserted",
+          "evidence": "arXiv:1202.1644, deletion patterns",
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+          "material_read": "Abstract/identifying Section VII from source references; full text not read in this execution",
+          "method": "Search/bibliographic inspection",
+          "title": "A Characterization of the Number of Subsequences Obtained via the Deletion Channel",
+          "trigger": "General deletion-pattern bounds"
+        },
+        {
+          "assessment": "Possible stronger coverage remains explicitly unresolved as risk, not a claimed NOT_COVERING full text",
+          "evidence": "IEEE Transactions on Information Theory 54 (2008), 3279–3285",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+          "material_read": "Abstract only; full paper unavailable",
+          "method": "Search for lawful open full text, then bibliographic check",
+          "title": "On the Number of Subsequences When Deleting Symbols From a String",
+          "trigger": "Potential small-t precursor with exact formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a natural open short-deletion nondivisible-run maximum with sharp alphabet sufficiency, and characterizes exact injectivity breakdown in an arbitrary run profile. These are structural coding-channel invariants rather than an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "q>=t+1 for extremal formula; smaller alphabets and all maximizing constructions unclassified.",
+    "Historical original 2008 full text inaccessible; no priority certification."
+  ],
+  "schema_version": 1
+}

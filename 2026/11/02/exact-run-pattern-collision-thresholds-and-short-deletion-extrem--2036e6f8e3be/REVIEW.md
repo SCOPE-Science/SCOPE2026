@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact-threshold claim is proved in two directions: first-divergence of retained run counts forces at least one deleted symbol at an earlier run plus deletion of every intervening symbol to a later equal-letter run; conversely, deleting an intervening segment and choosing which adjacent equal-letter run loses one symbol gives a collision at the claimed threshold, which extends to every larger admissible deletion count. Polynomial smoothing is coefficientwise and terminates at positive near-equal run lengths. Periodic symbols ensure each repeated-symbol separation costs at least \(q\) deletions and attain the upper bound for \(t<q\). The edge cases \(r=1\), \(r=n\), and \(t=n-1\) are covered. Independent finite enumeration supports the exact domain but is not an infinite proof.
+PASS
 
-## Originality — PASS, with explicit residual risk
+First unequal retained count in a pair of equal-output deletion patterns forces erasure of at least one current-run letter plus all letters between two equal-symbol runs; hence t>=delta. A pair of patterns deleting one opposite end-run letter and every intervening run collides at delta; same extra deletions extend to all t<length. Smoothing identity Q_(a-1)Q_(b+1)-Q_a Q_b=sum_(j=b+1)^(a-1) z^j is coefficientwise nonnegative, giving balanced upper bound. Cyclic q distinct successive run symbols ensure delta>=q>t, attaining it, and n=r=t+1 proves sharpness as a uniform sufficient q threshold. Independent exact enumeration checked iff onset for 3076 binary and 4923 ternary short-word/deletion cases. Full verifier read; finite checks are corroboration only.
 
-Li–Wang–Fu (arXiv:2601.06493, 2026) prove balanced extremality for divisible run counts and only an inflated-length bound in their Corollary 15 for nondivisible counts; they identify the latter extremal problem as open. Liron–Langberg (arXiv:1202.1644, Section VII) already establish the deletion-pattern upper bound and discuss collisions, but not the all-word equality threshold or the short-deletion high-alphabet extremum. Searches across published findings and relevant literature, including collision, pattern, run-balance, and alias formulations, did not identify the stated all-parameter theorem. Mercier–Khabbazian–Bhargava (DOI:10.1109/TIT.2008.924730) offer older small-deletion formulas; their full text was unavailable through open sources and authorized institutional access at review time. That is a specific residual priority risk, not evidence of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The work converts a naturally occurring but sometimes loose counting bound into an exact characterization of its equality range, with a structural first-collision invariant computable directly from the runs. It also answers an infinite, genuinely nondivisible subfamily of a concrete open extremal problem for all \(q\ge t+1\), including arbitrarily many repeated runs; the uniform alphabet threshold cannot be reduced. For instance, the exact \(18\) replaces the inflated bound \(20\) at \((n,r,t,q)=(10,4,3,4)\). This is more than a numerical recomputation or a reformulation of the original balanced divisible theorem.
+The first-collision threshold and tight nondivisible-run extremum are not identical to prior general deletion-pattern upper bounds. The 2026 Li–Wang–Fu primary preprint explicitly gives only a larger equal-length upper bound for r not dividing n; 2008 Mercier–Khabbazian–Bhargava unavailable full text remains priority risk.
 
-## Remaining scientific limitations
+## value
 
-The maximum for \(q\le t\) generally remains undetermined. Not all maximizers are classified. Older inaccessible full text leaves priority uncertainty, and no independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves a natural open short-deletion nondivisible-run maximum with sharp alphabet sufficiency, and characterizes exact injectivity breakdown in an arbitrary run profile. These are structural coding-channel invariants rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
