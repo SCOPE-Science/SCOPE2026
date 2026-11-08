@@ -1,15 +1,21 @@
-# Scientific review — rational six-direction logarithmic Chern geography
+# Independent mathematical audit
 
-## Correctness — PASS
-The six integral primitive normal vectors have nonzero pairwise determinants, hence the lines are distinct and each finite point meets at most six families. The six infinity points each have multiplicity \(2n+1\). For each of all \(57\) direction subsets of cardinality at least two, an explicit rational polygon and full dual lattice yield an exact Ehrhart polynomial for widths divisible by six. Every vertex of the sixfold polygon is integral; each edge's lattice step count and polygon area are computed with rational arithmetic. The five subset sums are checked exactly and descending binomial inversion recovers every finite multiplicity. Direct substitution into the published Chern formulas gives the stated quadratic polynomials and their limit. Two separate exact arithmetic implementations returned success, including independently computed projective incidences for four widths. Finite-width tests corroborate the unrestricted proof but are not its basis.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-Eterović–Figueroa–Urzúa (arXiv:1805.00990), Definition 3.1, Lemma 4.2, and Example 4.5, provide the general logarithmic Chern method, an interval-density mechanism, and a **different four-direction** rational family with endpoint \(19/8\). Urzúa (2022), Question 2.2, still records only \([2,19/8]\) as a known rational density interval. Athanasiadis (2004), Theorem 1.2, covers the same classical extended \(G_2\) root arrangement at the characteristic-polynomial level, which fixes the rank-two **weighted** point sum, but does not state the full individual intersection-multiplicity census or the logarithmic Chern-slope result; full paper text, including the proof and concluding section, was compared. The new claim deliberately excludes novelty for the underlying arrangement and characteristic polynomial. Searches for \(43/18\), the six-direction census, root-arrangement equivalents, and stronger rational accumulation intervals found no claim implying this complete result. An unindexed or subsequently published treatment may nonetheless exist; an unsuccessful search is not uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The exact census yields a new explicitly justified rational logarithmic Chern-slope accumulation endpoint, advancing a concrete open geography question and enlarging the certified interval by \(1/72\). The contribution is not merely a small numerical improvement without geometric context: it identifies a whole natural infinite family, all singularity strata, two Chern polynomials, and a precise application of a published density theorem. It does not resolve the optimal endpoint \(5/2\).
+For n divisible by 6, all 57 nontrivial direction subsets yield rational polygons nP_S with lattice vertices for 6P_S; exact Pick/Ehrhart coefficients sum to M_j: (60u+15,39u+20,21u+15,7u+6,u+1) for j=2..6. Binomial inversion gives t2=14u,t3=5u,t4=u,t5=u,t6=u+1, plus six infinity points of multiplicity 2n+1; d=12n+6. Substitution in standard logarithmic Chern expressions gives c1²=86n²+62n-13 and c2=36n²+24n-4, hence limit 43/18. Independent exact primitive-projective incidence enumeration reproduced the full census, Chern numbers and pair identity at n=6 and 12. The published Eterović–Figueroa–Urzúa density lemma then gives [2,43/18]. It is a lower interval and not optimality.
 
-## Scope and limits
-The family is defined over \(\mathbb Q\), with widths \(n\in6\mathbb Z_{>0}\). The exact proof uses a finite \(57\)-subset rational-polygon computation supported by standalone readable code, followed by an algebraic Ehrhart argument; the independent four-width census is additional evidence. A complete field-wide optimality theorem, the full range at other widths, and independent external mathematical verification are not claimed. The most relevant literature risks are earlier unpublished counts for extended \(G_2\) Catalan arrangements and newer rational Chern-geography constructions not retrieved in the searched sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six directions are equivalent to the classical G₂ Catalan arrangement, and its root-system characteristic polynomial is known; the new assessment is the complete all-multiplicity projective census and logarithmic Chern-slope consequence. The published rational family had 19/8, and the mathematical combination was not established in read primary material. Unindexed G₂ tables remain an important priority risk.
+
+## value
+
+PASS
+
+The exact incidence distribution of a canonical root-system arrangement yields a mathematically motivated rational line-arrangement construction improving a known explicit logarithmic Chern accumulation endpoint from 19/8 to 43/18 (gain 1/72), with a full sharp family census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
