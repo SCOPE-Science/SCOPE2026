@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Alexander-dual face classification is exhaustive in all dimensions: every three-face is a two-edge path, every four-face is a coordinate square, and the five-vertex incidence count is impossible. Free-face uniqueness is justified independently for bend triangles, square diagonals and straight-path chords for all \(m,n\ge5\). The resulting torus plus \(\binom{mn}{2}-6mn\) edges gives the integral cohomology without relying on field computations, and the stated shift follows by integral Alexander duality. The checker independently verifies its combinatorial instances for three parameter pairs. No homotopy classification of the cut complex is asserted.
+## correctness
 
-**Originality — PASS on inspected material.** Bayer et al.'s original cut-complex theory gives definitions and general face-poset tools but not the toroidal product homology. Their follow-up classifies *rectangular* three-cut grids, with shellability and top-dimensional spheres, whereas this periodic family has a next-to-top integral class. Chauhan et al.'s single squared cycle is not a Cartesian cycle product. Indexed results on toroidal total two-cut complexes, discrete cubical square fillings and neighborhood complexes concern mathematically distinct complexes; indexed three-cut results for circular ladders and edge-disjoint squares have incompatible hypotheses. Searches and full-text inspections are recorded in the structured audit. Equivalent unindexed literature remains possible.
+PASS
 
-**Value — PASS.** Periodic identification changes a basic known shellable grid family into a uniformly non-shellable family. The explicit torus collapse explains the preserved integral two-dimensional class, supplies a complete two-degree torsion-free Betti classification, and distinguishes a cup-product-bearing dual space from a mere sphere wedge. The all-parameter structural lemma is more useful than a single finite computation.
+The Alexander dual consists of vertices, all unordered pairs, precisely 6N connected induced triples (2-edge paths), and N coordinate-square tetrahedra: graph is triangle-free and 4-regular, and a 5-set with every 3-subset having two edges contradicts 3|2*C(5,3)=20. Each tetrahedron has a free bent triangle; after deleting it the opposite square diagonal has a unique triangle coface. The remaining straight-path triangles each collapse with their unique distance-two chord (m,n>=5). Residual filled triangles are the square-torus triangulation, with C(N,2)-6N extra isolated edges. Thus dual is homotopy T^2 wedge that many S1, and integral Alexander duality yields Z in degree N-5 and Z^(C(N,2)-6N+2) in degree N-4. Nonzero next-to-top homology obstructs shellability of the pure cut complex. Independent graph enumeration: C5 x C5 gave 25 vertices, 50 graph edges, 150 path triples, 25 elementary squares and dual beta1=152; C5 x C6 gave (30,60,180,30), dual beta1=257.
 
-**Scientific limits.** The theorem assumes both cycle lengths are at least five. It classifies the homotopy of the Alexander dual and integral homology of the ordinary three-cut complex, not the cut-complex homotopy type or equivariant representation. Finite checker tests do not imply universal statements without the written collapse proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected prior results address boundary rectangular grids, single cycle powers, or different total k-cut constructions. The periodic toroidal dual retains H2 and a non-shellable adjacent-degree class absent from rectangular cases.
+
+## value
+
+PASS
+
+A natural periodic analogue of known shellable rectangular grids exhibits a topology-changing boundary identification: the dual literally retains a torus, creating a next-to-top integral class and uniform non-shellability. The explicit integral formula is all-parameter, structural and not a random small-grid recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

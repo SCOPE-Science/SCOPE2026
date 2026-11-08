@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Run `python3 toroidal_cut_checker.py` using only the Python standard library. The program independently generates the graph and all Alexander-dual faces for parameter pairs \((5,5)\), \((5,6)\), and \((6,6)\). It confirms the complete face counts, checks every tetrahedron is an elementary square, replays and verifies the freeness of the proposed elementary-collapse pairs, checks that the remaining filled two-complex is precisely the chosen torus triangulation, and separately computes all mod-two boundary ranks.
+## correctness
 
-Expected dual face vectors: \((25,300,150,25)\), \((30,435,180,30)\), and \((36,630,216,36)\). Expected boundary ranks: \((24,124,25)\), \((29,149,30)\), and \((35,179,36)\). Expected reduced dual Betti numbers: \((152,1)\), \((257,1)\), and \((416,1)\) in degrees one and two. The final output marker is `TOROIDAL_THREE_CUT_DUAL_CHAIN_CHECKS_OK`.
+PASS
 
-These checks are finite corroboration only. The universal proof is the face classification, free-face collapse and integral Alexander-duality calculation in `RESULT.md`. The proof excludes cycle factors of length four; neither an equivariant classification nor a homotopy classification of the original cut complex is verified. Independent audit has not been performed.
+The Alexander dual consists of vertices, all unordered pairs, precisely 6N connected induced triples (2-edge paths), and N coordinate-square tetrahedra: graph is triangle-free and 4-regular, and a 5-set with every 3-subset having two edges contradicts 3|2*C(5,3)=20. Each tetrahedron has a free bent triangle; after deleting it the opposite square diagonal has a unique triangle coface. The remaining straight-path triangles each collapse with their unique distance-two chord (m,n>=5). Residual filled triangles are the square-torus triangulation, with C(N,2)-6N extra isolated edges. Thus dual is homotopy T^2 wedge that many S1, and integral Alexander duality yields Z in degree N-5 and Z^(C(N,2)-6N+2) in degree N-4. Nonzero next-to-top homology obstructs shellability of the pure cut complex. Independent graph enumeration: C5 x C5 gave 25 vertices, 50 graph edges, 150 path triples, 25 elementary squares and dual beta1=152; C5 x C6 gave (30,60,180,30), dual beta1=257.
+
+## originality
+
+PASS
+
+The inspected prior results address boundary rectangular grids, single cycle powers, or different total k-cut constructions. The periodic toroidal dual retains H2 and a non-shellable adjacent-degree class absent from rectangular cases.
+
+## value
+
+PASS
+
+A natural periodic analogue of known shellable rectangular grids exhibits a topology-changing boundary identification: the dual literally retains a torus, creating a next-to-top integral class and uniform non-shellability. The explicit integral formula is all-parameter, structural and not a random small-grid recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

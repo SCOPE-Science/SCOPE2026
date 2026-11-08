@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:14:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exhaustive face and collapse proof",
+        "toroidal_cut_checker.py source inspected",
+        "independent combinatorial counts 5x5 and 5x6"
+      ],
+      "rationale": "The Alexander dual consists of vertices, all unordered pairs, precisely 6N connected induced triples (2-edge paths), and N coordinate-square tetrahedra: graph is triangle-free and 4-regular, and a 5-set with every 3-subset having two edges contradicts 3|2*C(5,3)=20. Each tetrahedron has a free bent triangle; after deleting it the opposite square diagonal has a unique triangle coface. The remaining straight-path triangles each collapse with their unique distance-two chord (m,n>=5). Residual filled triangles are the square-torus triangulation, with C(N,2)-6N extra isolated edges. Thus dual is homotopy T^2 wedge that many S1, and integral Alexander duality yields Z in degree N-5 and Z^(C(N,2)-6N+2) in degree N-4. Nonzero next-to-top homology obstructs shellability of the pure cut complex. Independent graph enumeration: C5 x C5 gave 25 vertices, 50 graph edges, 150 path triples, 25 elementary squares and dual beta1=152; C5 x C6 gave (30,60,180,30), dual beta1=257.",
+      "residual_risks": [
+        "Integral statement relies on valid elementary collapses and integral Alexander duality; mod-two examples alone cannot exclude torsion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem of shellability for rectangular grids cannot apply: current toroidal cut complex has nonzero next-to-top H(N-5). General cut-complex techniques do not specify the dual torus collapse."
+        ],
+        "reasoning": "Strong-looking rectangular theorem does not cover periodic edges and is topologically incompatible with the calculated homology.",
+        "searches": [
+          "arxiv:2304.13675",
+          "arxiv:2407.08158 Section 5",
+          "three-cut complex toroidal Cartesian product cycles Alexander dual torus integral homology"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.08158",
+        "arXiv:2304.13675",
+        "arXiv:2406.01979",
+        "Resultary semantic query: three-cut complex toroidal Cartesian product cycles Alexander dual torus integral homology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bayer et al. prove shellability for nonperiodic rectangular grids, incompatible with current nonzero next-to-top integral homology. C_n^2 is not generally isomorphic to C_m square C_n for m,n>=5."
+        ],
+        "reasoning": "No primary theorem checked has both the same objects and adequate broader coverage.",
+        "searches": [
+          "arxiv:2407.08158 propositions 5.6 and 5.8",
+          "arxiv:2406.01979",
+          "three-cut complex toroidal Cartesian product cycles Alexander dual torus integral homology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer et al. use ordinary cut-complex construction and study rectangular P_m square P_n; Chauhan et al. treat a single squared cycle C_n^2. Current graph is Cartesian product of two ordinary cycles, with periodic square class."
+        ],
+        "reasoning": "The names grid/cycle overlap, but boundary identification changes the graph and preserves toroidal H2; no equivalence to the classified path rectangle or cycle power.",
+        "searches": [
+          "three-cut complex toroidal Cartesian product cycles Alexander dual torus integral homology",
+          "arxiv:2407.08158",
+          "arxiv:2406.01979"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: toroidal total two-cut face-winding extension has order lcm(m,n); it uses total 2-cut, a different vertex-set face condition. No exact table was found for ordinary 3-cut toroidal products."
+        ],
+        "reasoning": "The total-two-cut representation result is neither an exact 3-cut Betti table nor an implication; incidental shared torus does not identify complexes.",
+        "searches": [
+          "three-cut complex toroidal Cartesian product cycles Alexander dual torus integral homology",
+          "Resultary integral face winding obstruction toroidal total two cut complex"
+        ]
+      },
+      "rationale": "The inspected prior results address boundary rectangular grids, single cycle powers, or different total k-cut constructions. The periodic toroidal dual retains H2 and a non-shellable adjacent-degree class absent from rectangular cases.",
+      "residual_risks": [
+        "Unindexed toroidal-cut papers or later extensions of the rectangular treatment could cover this case.",
+        "The result classifies dual homotopy and original integral groups only; no original cut-complex homotopy claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not imply the periodic torus claim; theorem covers path-by-path rectangular grid",
+          "evidence": "Rectangular P_m square P_n 3-cut shellability versus periodic C_m square C_n dual torus and non-shellability.",
+          "identifier_or_url": "arXiv:2407.08158",
+          "material_read": "Full PDF, Section 5 and relevant propositions; PDF page index 16 viewed graphically",
+          "method": "Read preprint PDF and screenshot Section 5",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Direct three-cut Cartesian grid results"
+        },
+        {
+          "assessment": "General graph cut-complex theory, not this exact periodic homology calculation",
+          "evidence": "Graph family and exact integral classes not directly presented in checked material.",
+          "identifier_or_url": "arXiv:2304.13675",
+          "material_read": "Introduction and published general statement context, not every page independently read",
+          "method": "Primary citation/overview comparison",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Original definitions and general cut complex coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md",
+        "Bayer et al. arXiv:2407.08158 Section 5"
+      ],
+      "rationale": "A natural periodic analogue of known shellable rectangular grids exhibits a topology-changing boundary identification: the dual literally retains a torus, creating a next-to-top integral class and uniform non-shellability. The explicit integral formula is all-parameter, structural and not a random small-grid recomputation.",
+      "residual_risks": [
+        "m=4 or n=4 changes unique common-neighbor conditions and is correctly excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement on m or n below five, integral cup product, original complex homotopy or equivariant type.",
+    "Independent finite counts checked 5x5 and 5x6; infinite proof is the structural collapse."
+  ],
+  "schema_version": 1
+}
