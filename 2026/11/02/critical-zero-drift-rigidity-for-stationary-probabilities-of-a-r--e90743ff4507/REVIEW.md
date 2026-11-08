@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim quantifies over all stationary Borel **probability** measures, without an integrable log observable. A bounded cutoff \(h_M\) permits stationarity directly. On the lower branch its drift is nonnegative by Jensen and zero once \(x\ge e^{-M}/\gamma_*\), making its total integral vanish as \(M\to\infty\). On compact subsets of the right branch the drift is uniformly negative, forcing zero stationary upper-interior mass. All lower-interior points possess some positive-probability finite itinerary to that open upper branch: a common expanding slope can be chosen away from countably many threshold equalities for \(0<x<1/2\), while \(x=1/2\) enters directly by the prescribed left branch. Stationarity and positivity of transition probabilities then eliminate all lower-interior mass, including the partition boundary. Conversely both endpoint atoms are genuinely fixed. The root equation and moment normalization were checked independently.
+PASS
 
-## Originality — PASS subject to specified literature risk
+PASS. The uniform β∈[γ*,2] mean logβ is zero at the unique root q(γ*)=2(log2−1)−γ*(logγ*−1)=0, with q increasing on (0,1). Independently solved γ*=0.2625828410491615 and checked endpoint atoms fixed. For any stationary Borel probability, bounded truncated log h_M= max(log x,−M) with h_M(0)=−M has expected nonnegative drift by Jensen on lower branch x≤1/2. This drift is bounded and supported only at 0<x<e^-M/γ*, so its integral against any finite μ tends to zero by continuity from above. Right-branch drift ≤0, strictly negative uniformly on J_ε=[1/2+ε,1−ε]; stationarity then forces μ((1/2,1))=0. Every x∈(0,1/2], including left-branch x=1/2, has positive probability to reach upper branch within finite steps by an open word with β∈(3/2,7/4); stationarity and a countable union force μ((0,1/2])=0. Only δ0 and δ1 mixtures remain, and both are stationary. The result concerns finite stationary Borel probabilities, not sigma-finite or pathwise asymptotics.
 
-The closest fully inspected same-object source is Pérez Otero (2023), Sections 4.5 and 5.3.3, establishing the phase-transition parameter but stating separate strict-inequality regimes; its hypotheses do not imply the equality-case classification of all Borel stationary probabilities. Kalle–Maggioni (2018) address invariant densities in other expansion regimes; Homburg et al. (2022) and Yan et al. (2023) study different critical random maps. Searches by map formula, author names, zero expected log slope and stationary-measure aliases, together with relevant existing claim comparisons, found no covering formula. The 2021 Maldonado–Pérez Otero article's complete body was inaccessible, although the coauthor's public 2023 dissertation was inspected; a broader unlocated null-recurrence theorem remains a residual publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result closes the natural equality case separating the contraction and expansion regimes in an explicitly studied phase transition. Unlike a mere no-density statement, it characterizes **every** stationary Borel probability and differentiates the two fixed endpoint atoms from arbitrary diffuse/singular interior laws. The cutoff proof works without a logarithmic-integrability assumption on a putative stationary state, precisely the obstruction near the critical neutral branch.
+PASS best of knowledge. Original Pérez Otero 2023 thesis Example 5.1 and Maldonado–Pérez Otero 2021 study exactly the same map and logarithmic-drift phase transition; thesis states γc≈0.2625828, existence of acim for γ>γc, attraction to 0 for γ<γc, but does not present the equality-case classification of *all Borel stationary probabilities* in the inspected relevant chapters. Existing random interval-map a.c.i.m. theorems concern densities or different branches. Original 2021 journal full text inaccessible, so possible hidden equality-case treatment is residual risk, not automatic scientific failure.
 
-## Scientific limitations
+## value
 
-No statement is made about sigma-finite invariant measures, sample-path convergence, rates, or other slope laws. Finite numerical tests are supplementary and are not the proof. Comprehensive publication-priority confirmation and independent scientific validation are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Boundary equality Elogβ=0 is the mathematically natural undecided parameter in a known random interval-map phase transition. The all-stationary-probability classification rules out not only invariant densities but any singular interior stationary laws via a bounded Lyapunov cutoff and reachability. This is an exact endpoint rigidity theorem stronger than a routine numerical critical-value estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
