@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness — PASS.** Affine rank and the unique rank-four relation give exactly four affine types; the pair-sum table is complete and its energies are \(168,120,96,96\). Character orthogonality and the complete two- and four-moment equations determine all three remaining local multiplicities after the unique maximal-magnitude coefficient is fixed. This proves all dimensions, while the integer checker separately covers all \(8036\) six-subsets in dimensions three and four and one five-dimensional representative per type. Boundary dimensions, coefficient normalization, and ambient lifting are explicit.
+
+**Originality — PASS relative to inspected evidence.** Kadowaki's eight-point zero-avoidance theorem and Ferguson–Iosevich's two-dimensional-subspace support lemma are not the stated six-point complete magnitude classification. The closest previously published binary-Fourier records concern eight-point spectrum counts, general four-sparse signals, and six-phase peak optimization; none entails the four six-point indicator magnitude rows by its stated hypotheses. Jauberty–Méaux establish attainable support cardinalities for general Boolean functions, a distinct unconditioned existence problem, but their inaccessible full text and potential implicit tables are a genuine residual priority risk; no absolute priority claim is made.
+
+**Value — PASS.** Six-point supports are the first even support size beyond the well-studied four-point case and give four genuinely different affine circuit geometries. A single spectral support statistic unexpectedly identifies all affine types, with an exact zero-free characterization and complete amplitude counts in every binary ambient dimension. These are natural finite harmonic-analysis invariants rather than an arbitrary parameter slice. The result does not assert a theorem about general coefficients or noise robustness.
+
+Self-review: passed. Independent audit: not yet performed.
