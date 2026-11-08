@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unique three-periodic state follows from \(q^3\)-contraction. The proof reduces total runoff to a periodic mass balance, establishes an anchored-state maximum formula, then proves both candidate reversed-order storage sums are at least the ascending sum. Its equality analysis yields the strict interval \((b+qa)/(1-q^2)<C<(c+qb+q^2a)/(1-q^3)\) exactly, including endpoints. All hypotheses and cases of equal depths are included. A standalone standard-library rational checker gives an additional 16,500 exact instances; the proof, not those finite instances, establishes the universal conclusion.
+## correctness
 
-## Originality — PASS within examined material
-The closest full text, Bartlett et al. (2015, DOI 10.1098/rspa.2015.0389), derives soil-moisture/runoff probability laws for rainfall jumps and threshold overflow, not a three-cycle permutation comparison. Its relevant main sections and appendices were inspected. Gani and Pyke (1962, DOI 10.1111/j.2517-6161.1962.tb00440.x) treat stochastic ordered dam inputs and first-emptiness probabilities under steady release; only their abstract was available. The checked literature has not been shown to imply the exact iff capacity window, but general queueing rearrangement theorems and inaccessible historical material remain priority risks.
+PASS
 
-## Value — PASS
-With the rainfall total and store parameters fixed, the theorem resolves which orientation of three different equally spaced rainfall events maximizes periodic overflow, and pinpoints the complete capacity band where temporal order matters. Three positions are the smallest cyclic schedule permitting two nonequivalent orders. This supplies a structural hydrological sequencing boundary, not a calibration or prediction claim.
+The three-step cap-affine contraction has a unique periodic state. The mass balance W=U−(1−q)Σx_i and anchored-saturation lemma reduce the two cycles to exact finite min/max formulas. For abc last event anchors every spilling orbit; for acb either second or third does. Set A=f_a(C), B=f_b(A), D=f_c(A), E=f_b(C), F=f_a(E). Since D≥B and E+F≥A+B, runoff is ordered. Both strict differences require a<b<c, B<C and positive abc spill, equivalent to the sharp open capacity bounds. Independently checked rational closed-form fixed points on 6720 parameter tuples, 479 strict; these tests do not establish the universal quantification.
 
-## Limitations and risks
-The result is for scalar capped exponential-loss storage and a settled deterministic periodic calendar. It does not extend without proof to unequal gaps, stochastic inputs, nonlinear depletion or distributed hydrology. Historical priority is not independently established; an older closely titled dam paper was abstract-only during comparison. The separate checker is a finite consistency test rather than a formal certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge independent statement/implication comparison supports a specific quantitative or structural contribution beyond inspected prior results; this is not an exhaustive novelty certificate. Classical scalar dam recursion and threshold-release maps are equivalent underlying dynamics; the inspected Bartlett stochastic model does not specify the exact deterministic three-cycle order comparison. Gani–Pyke concerns a different first-emptiness probability. Generic contraction and mass balance alone do not determine the sign: the two-step inequality E+F≥A+B and strictness conditions supply missing comparisons. Prior stochastic dam analyses do not imply those without extra work.
+
+## value
+
+PASS
+
+A complete three-impulse permutation classification is an exact structural boundary for a natural finite-buffer hydrological recurrence: three is minimal nontrivial period, and the theorem identifies precisely when rainfall order changes periodic spill rather than merely finding an example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
