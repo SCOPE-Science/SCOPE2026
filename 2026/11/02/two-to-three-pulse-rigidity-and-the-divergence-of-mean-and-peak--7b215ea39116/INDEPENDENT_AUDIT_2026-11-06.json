@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:03:50.520795Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Actual RESULT.md uses the unique contractive periodic disease-free state of dot S=mu(1-S) with instantaneous strengths p,q,r in (0,1). For two pulses, deficit J satisfies J_A=p+(1-p)E J_B/x and J_B=q+(1-q)xJ_A, giving mean bar S=1-[(p+q)(1-E)+2Epq-pq(x+E/x)]/(mu T D). The positive curvature x+E/x is uniquely minimized at x=sqrt E, hence tau=T/2 for all unequal strengths. Peak equals 1-min{A(x),B(x)}, with A increasing and B decreasing and exactly one intersection x*=[E(p-q)+sqrt(E²(p-q)²+4pqE)]/(2p). Half spacing coincides with minimax iff p=q. For three pulses, cyclic J recurrences and constraint xyz=E yield constrained gradient components p(q-r)(u-1)/D3 and r(q-p)(u-1)/D3 at x=y=z=u, which vanish jointly iff p=q=r; hence unequal strengths make equal spacing nonstationary, NOT a global three-pulse minimizer classification. Independently recalculated both symbolic gradients with SymPy and exact witness F_equal=257/253 versus F_unequal=2573/2530 (positive difference 3/2530). The scalar infected Floquet multiplier exp[T(beta bar S-delta)] is monotone in mean S only under constant beta,delta.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Metapopulation pulse synchronization varies patchwise pulse timing.",
+          "Seasonal epidemic optimal control varies vaccination effort; dose budget is not fixed per-present-susceptible fraction."
+        ],
+        "reasoning": "These are broader biological models but their stated objectives/constraints do not logically imply exact half-period and 3-pulse fixed-fraction results.",
+        "searches": [
+          "doi:10.3934/mbe.2010.7.455",
+          "arXiv:1309.0265",
+          "arXiv:1507.02940"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/mbe.2010.7.455",
+        "https://arxiv.org/abs/1309.0265",
+        "https://arxiv.org/abs/1507.02940",
+        "Resultary semantic query: pulse vaccination unequal fractions two pulses spacing mean susceptible peak three pulses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Browne et al use spatial synchronization; multiple patches are not interchangeable with multiple ordered pulses within one patch.",
+          "Doutor et al do not hold each fixed fraction p_i constant as timing varies."
+        ],
+        "reasoning": "Neither inspected published theorem directly implies the 2-versus-3 fixed-fraction rigidity/peak separation; standard affine equations are properly prior.",
+        "searches": [
+          "arXiv:1309.0265",
+          "arXiv:1507.02940"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The disease-free deficit J=1-S obeys a scalar affine impulse recurrence; the time-averaged S controls a scalar infected-class Floquet exponent.",
+          "Two-pulse mean reduces to pq(x+E/x), peak to two intersecting monotone curves."
+        ],
+        "reasoning": "The same finding can be phrased as an impulsive scalar affine oscillator spacing minimization, rather than epidemic intervention; the surveyed results have different controls/constraints.",
+        "searches": [
+          "Resultary: pulse vaccination unequal fractions two pulses spacing mean susceptible peak three pulses",
+          "arXiv:1309.0265"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact two-/three-pulse phase table in inspected Resultary top results; results mostly concerned other vaccine models."
+        ],
+        "reasoning": "Exact formula is a continuous optimum, not a finite database invariant; a missing hit does not establish priority.",
+        "searches": [
+          "Resultary: pulse vaccination unequal fractions two pulses spacing mean susceptible peak three pulses"
+        ]
+      },
+      "rationale": "The exact two-pulse equal-gap rigidity under unequal per-campaign fractions and explicit divergence from minimax timing, together with the three-pulse first-variation boundary, differ in control constraints from regional pulse-synchronization and dose-budget/effort optimal-control work. Prior SIR pulse dynamics and affine recurrence are not new. Literature may contain stronger impulse-interval optimization theorems; the best-of-knowledge positive assessment retains that risk.",
+      "residual_risks": [
+        "General optimal-impulse spacing theorems may subsume some clauses, despite model/control differences.",
+        "No result on nonlinear infection peak, seasonally varying beta, fixed total vaccine doses or global 3-pulse optimizer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One recurring pulse per patch and metapopulation coupling, not two versus three ordered unequal pulses in one homogeneous patch.",
+          "evidence": "Terry 2010 investigates metapopulation vaccination and epidemic persistence thresholds.",
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2010.7.455",
+          "material_read": "Article abstract and accessible model and theorem descriptions, focusing on patchwise pulses.",
+          "method": "Publisher full-text page / lawful PDF link.",
+          "title": "Pulse vaccination strategies in a metapopulation SIR model",
+          "trigger": "Fixed-fraction pulse SIR context."
+        },
+        {
+          "assessment": "Coordinates pulse campaigns across regions and uses a distinct fixed-number-of-vaccinations comparison; does not state fixed fractions of current susceptibles at 2 or 3 times in a single homogeneous patch.",
+          "evidence": "Browne, Smith, Bourouiba 2013 model multiregion disease eradication.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.0265",
+          "material_read": "Public full preprint PDF, introduction and vaccination/synchronization analysis in relevant later sections.",
+          "method": "ArXiv PDF pages inspected.",
+          "title": "From regional pulse vaccination to global disease eradication: insights from a mathematical model of poliomyelitis",
+          "trigger": "Possible stronger synchronization/spacing optimization."
+        },
+        {
+          "assessment": "Optimizes seasonal SIRS vaccination effort and related controls, not the exact finite pulse fractions with fixed chronological order.",
+          "evidence": "Doutor et al 2015 formulate general optimal-control vaccination model.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.02940",
+          "material_read": "Public full PDF, introductory problem statement and optimal-control formulations.",
+          "method": "ArXiv PDF pages inspected.",
+          "title": "Optimal vaccination strategies and rational behaviour in seasonal epidemics",
+          "trigger": "Broad pulse control could dominate three-pulse theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Scheduling pulses to reduce cumulative invasion potential versus worst instantaneous susceptibility is a natural epidemiological optimization tradeoff. The theorem establishes a sharp two-to-three intervention change: two heterogeneous campaigns optimally split mean-risk time equally, while three heterogeneous campaigns cannot be stationary at equal gaps. These exact phase and constraint boundaries can guide model comparison even without nonlinear epidemic predictions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.3934/mbe.2010.7.455",
+    "https://arxiv.org/abs/1309.0265",
+    "https://arxiv.org/abs/1507.02940",
+    "Resultary semantic query: pulse vaccination unequal fractions two pulses spacing mean susceptible peak three pulses",
+    "Frozen source Git tree 1aeb103651d626f7adbd79b31f4594f3347bad21"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General optimal-impulse spacing theorems may subsume some clauses, despite model/control differences.",
+    "No result on nonlinear infection peak, seasonally varying beta, fixed total vaccine doses or global 3-pulse optimizer."
+  ],
+  "residual_risks": [
+    "General optimal-impulse spacing theorems may subsume some clauses, despite model/control differences.",
+    "No result on nonlinear infection peak, seasonally varying beta, fixed total vaccine doses or global 3-pulse optimizer."
+  ],
+  "schema_version": 1
+}
