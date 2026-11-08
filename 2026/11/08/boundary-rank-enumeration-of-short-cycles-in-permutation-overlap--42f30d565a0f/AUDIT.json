@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The order-preserving bijection from prefix ranks to suffix ranks is uniquely determined by the ordered first k values and last-k value set. Its residue-class chains reconstruct at most one permutation, with termination and distinctness checks providing an if-and-only-if test. Enumerating all (n+1)^k insertion ranks counts every labeled closed walk exactly once. This proves O_k(n^(3k+1)) arithmetic operations for n>=2k. Two self-loop repetitions are the only nonsimple rooted closed three-walks for n>3. Exact C++ integer computation through n=24 and a separately implemented full-graph adjacency trace for n<=8 agree on all common cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ehrenborg–Kitaev–Steingrímsson Theorems 5.1–5.2 count a 312-avoiding subgraph; their counting function is independent of n.",
+        "Borga–Penaguiao describe the polytope of limiting frequency vectors, not the multiplicity of fixed-length walks as n varies."
+      ],
+      "reasoning": "A formula for a pattern-avoiding induced subgraph is not the sum over the unrestricted graph and cannot imply the table. A characterization of feasible polytope faces and vertices likewise does not give edge-distinguished short-walk multiplicities or the stated algorithm.",
+      "searches": [
+        "permutation pattern overlap graph cycle counts polynomial-time fixed length rank mapping",
+        "arxiv:1310.1520v1 Theorems 5.1 and 5.2",
+        "doi:10.5802/alco.135 cycle polytope"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.1520v1",
+      "arxiv:1609.02210v1",
+      "doi:10.5802/alco.135"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Asplund–Fox Theorems 1 and 3 provide the needed overlap condition, Theorem 18 counts eligible vertices for n<=2k, Theorem 19 gives bounds and expressly notes unresolved contingencies for n>2k, and Question 24 asks for k-cycle counts.",
+        "Ehrenborg et al. explicitly leave the unrestricted cycle counting question open while solving only an avoidance restriction."
+      ],
+      "reasoning": "The earlier overlap criterion is reused as a premise, not claimed as new. It alone does not provide a bounded polynomial enumeration of boundary descriptions with one uniquely reconstructed permutation each, nor the edge-labeled walk count for n>=2k. The new theorem logically combines that premise with a fresh unique-map reconstruction and an exhaustive rank-insertion edge census.",
+      "searches": [
+        "arxiv:1609.02210v1 Theorems 1, 3, 18, 19 and Question 24",
+        "arxiv:1310.1520v1 Section 5 and Questions 8.2–8.3",
+        "permutation overlap digraph fixed k closed walks algorithm polynomial n cycle counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full permutation-overlap graph is also called the overlap graph for consecutive permutation patterns; arxiv:1609.02210v1 explicitly distinguishes labeled parallel edges.",
+        "The rank-set reconstruction concerns whole-graph rooted edge-labeled closed walks and not just the number of eligible vertices."
+      ],
+      "reasoning": "The edge labels distinguish parallel edges; counting rooted walks gives the adjacency-matrix trace, and for three steps the two trivial-loop repetitions are the sole nonsimple walks. The checked equivalences do not identify another treatment of the polynomial boundary reconstruction or its nineteen exact values.",
+      "searches": [
+        "\"graph of overlapping permutations\" \"3-cycles\" counting algorithm",
+        "Asplund Fox 2016 graph overlapping permutations exact 3 cycle counts polynomial algorithm closed three walks short directed cycles rank deletion",
+        "arxiv:1609.02210v1 Sections 3–6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked Asplund–Fox paper gives 26 directed three-cycles for the example G(3), not the complete 6..24 table.",
+        "The inspected full texts do not supply a 19-row unrestricted edge-distinguished three-cycle census."
+      ],
+      "reasoning": "Searching equivalent order-pattern graph descriptions and the initial numeric values produced no table with the same exact 19 coefficients. This absence is not a proof of priority; nonindexed historical computations remain a residual risk.",
+      "searches": [
+        "\"overlapping permutations\" \"3-cycles\" \"n\" count Asplund Fox 2024 2025",
+        "\"G(n)\" \"3-cycles\" overlapping permutations formula",
+        "full permutation overlap multigraph G(n) exact number directed three cycles for n 9 to 24 edge label multiplicities"
+      ]
+    },
+    "rationale": "The closest full text explicitly asks for unrestricted k-cycle counts and gives overlap and candidate-vertex results but not the boundary-rank uniqueness algorithm or the 19-row exact edge-distinguished three-cycle census. A separate result counts only 312-avoiding cycles; a cycle-polytope paper studies limiting frequency geometry. Priority remains qualified for potentially uncatalogued computations and uninspected later publisher materials.",
+    "residual_risks": [
+      "Unindexed historical computational cycle tables may predate this census.",
+      "The 2020 cycle-polytope full article could not be completely read, although its stated results concern a different invariant.",
+      "Fixed-k polynomial counting might be rediscovered or implicit in unsearched combinatorics algorithm literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The order-standardization condition and previous two-cycle counts are prior. Neither polynomial boundary reconstruction nor new three-cycle table is stated; closest source.",
+        "evidence": [
+          "Theorem 18 is for n<=2k; Theorem 19 gives only partial bounds for n>2k.",
+          "Section 6, Question 24 asks how many k-cycles exist for 3<=k<n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.02210",
+        "material_read": "Full accessible arXiv HTML, including Sections 3–6, Theorems 1, 3, 6, 18, 19, 21, Corollary 22 and Question 24",
+        "method": "Compared theorem hypotheses, eligible-vertex bounds, edge multiplicity convention, and explicit open question",
+        "title": "Enumerating cycles in the graph of overlapping permutations",
+        "trigger": "Same unrestricted graph and explicitly stated open short-cycle enumeration problem"
+      },
+      {
+        "assessment": "Theorems 5.1 and 5.2 cover a 312-avoiding subgraph, not all permutations or the new algorithm.",
+        "evidence": [
+          "Theorem 5.1: restricted closed d-walk count equals central binomial coefficient.",
+          "Introduction explicitly leaves unrestricted G(n) cycles unanswered."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.1520",
+        "material_read": "Full accessible arXiv HTML, especially introduction, Sections 5–7 and Questions 8.2–8.3",
+        "method": "Compared restricted avoidance hypotheses and exact cycle-count implications",
+        "title": "Number of cycles in the graph of 312-avoiding permutations",
+        "trigger": "Earlier cycle-count treatment of a related permutation-overlap graph"
+      },
+      {
+        "assessment": "The available description concerns limiting frequency-polytope geometry, not exact edge-labeled short-cycle multiplicity. No stronger full-text noncoverage claim is made.",
+        "evidence": [
+          "The abstract says it computes dimension, vertices and faces of a limiting frequency polytope."
+        ],
+        "identifier_or_url": "https://doi.org/10.5802/alco.135",
+        "material_read": "Published abstract and article bibliographic information; full article text could not be retrieved from the attempted primary web endpoints",
+        "method": "Compared stated problem and reported the access limit",
+        "title": "The feasible region for consecutive patterns of permutations is a cycle polytope",
+        "trigger": "Related work on the same consecutive-pattern overlap graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "42f30d56-5a0f-45d4-a6ea-e77aef62e144",
+  "value": {
+    "rationale": "A previously identified enumeration challenge in a natural graph of consecutive order patterns is addressed with a uniform polynomial-for-fixed-k exact method that replaces factorial vertex enumeration. This is a structural reconstruction lemma, not a routine table increment. Its first complete computational application gives all labeled directed three-cycle counts across 19 consecutive graph sizes to order 24, including parallel-edge multiplicities, with a separately reproducible graph-trace cross-check.",
+    "status": "PASS"
+  }
+}
