@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Contract forced arrows in Ewens permutations, exactly enumerate the exceptional descent image pairs, condition on a fixed position, and algebraically simplify a positive-denominator rational function. The n=3 boundary is evaluated explicitly. A separate standard-library checker passed 225302 exact assertions; the general proof is not based on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gessel and Zhuang (2020) §§6-7 have joint total fixed point/cycle type and descent generating functions",
+        "Hultman (2013) §6 has class-averaged descents; Kammoun (2018) treats limiting descent process",
+        "n=4 permutations (1,4,2,3) and (2,3,1,4) share cycle type (3,1) and descent set {2}, but differ in fixed-point sets {1} versus {4}"
+      ],
+      "reasoning": "Existing enumerators cover aggregate observables (possibly formula (3)) but do not by their stated variables resolve the fixed-point location i. The witness proves that a distribution of cycle type and descent set does not encode the labelled fixed-point set. An enriched, more general position-sensitive enumerator would remain a risk.",
+      "searches": [
+        "random permutation cycle-weighted Ewens peak fixed points correlation",
+        "Ewens permutation fixed point count descent total covariance sign transition",
+        "arXiv:2001.00654v1 sections 6.1 and 7.1",
+        "arXiv:1301.0430v1 sections 5-6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1805.05253v1",
+      "arXiv:2001.00654v1",
+      "arXiv:1803.10457v1",
+      "arXiv:1301.0430v1",
+      "arXiv:2112.07728v1",
+      "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uniform published-finding corpus theorem gives exact θ=1 bidiagonal covariance and −1/n total covariance",
+        "Kim and Lee provide conjugacy-class descent distributions; Gessel and Zhuang provide cycle-type/total-fixed-point descent enumerators",
+        "Conditioning on a specified fixed point plus the Ewens forced-arrow law is needed to obtain each matrix entry"
+      ],
+      "reasoning": "The original theorem is neither a restatement of the uniform special case nor a direct aggregate-count corollary. The new implication establishes a unique locality transition and all nonuniform remote signs. The aggregate formula is a supplementary consequence and may already follow indirectly from older methods.",
+      "searches": [
+        "Ewens permutation fixed point count covariance number of descents stationary descent process",
+        "Ewens permutation fixed point count descent total covariance sign transition",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "arXiv:1803.10457v1",
+        "arXiv:2001.00654v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus public result on uniform permutation fixed-point/descent covariance; exact θ=1 specialization of the present matrix",
+        "Kammoun arXiv:1805.05253v1, descent process of invariant permutations"
+      ],
+      "reasoning": "The previously reported uniform cross-covariance is equivalent to the θ=1 restriction but does not determine the sign or values at θ≠1. Remote covariances are identically zero at θ=1 and strictly nonzero otherwise. Other parameterizations (cycle fugacity, Ewens sampling weight) were searched.",
+      "searches": [
+        "Ewens permutation fixed point count covariance number of descents stationary descent process",
+        "Ewens parameter cycle-weighted permutation fixed point indicator descent indicator covariance nonincident remote positions",
+        "fixed point descent covariance Ewens theta strict sign theta=1 zero remote correlations",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit reporting the nonuniform Ewens full position-indexed covariance matrix in the actual returned comparisons",
+        "Paguyo (2021), parabolic double cosets and fixedpoint/descent limit laws, different sampling law"
+      ],
+      "reasoning": "The searched sources provide no finite table or exact database covering all θ>0 and all labelled positions; finite numerical examples cannot subsume the claimed exact parameter theorem. Search absence is not proof of novelty.",
+      "searches": [
+        "Ewens parameter cycle-weighted permutation fixed point indicator descent indicator covariance nonincident remote positions",
+        "fixed point descent covariance Ewens theta strict sign theta=1 zero remote correlations",
+        "published-finding corpus fixed point descent positions Ewens θ mixed covariance",
+        "arXiv:2112.07728v1 fixed points descents parabolic double cosets"
+      ]
+    },
+    "rationale": "The all-position, all-positive-parameter Ewens covariance matrix and its unique sign/locality transition were not covered by the materially inspected closest papers or returned published-finding corpus claims. The uniform case and aggregate enumerator consequences are expressly credited rather than claimed as original. Position-sensitive historical literature could still supply equivalent coverage.",
+    "residual_risks": [
+      "An unlocated pre-existing result may provide the same Ewens position-resolved matrix or a stronger position-refined symmetric-function generating function.",
+      "Hultman and Gessel–Zhuang may already imply the aggregate covariance through their broader class/cycle-type machinery; the aggregate is only ancillary here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the all-position fixed-point/descent mixed Ewens covariance or its sign transition.",
+        "evidence": [
+          "arXiv:1805.05253v1, 2018-05-14, stationary one-dependent limiting descent process"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.05253",
+        "material_read": "Introduction and §1.3 statement of descent-process results; §3.4 proof and conditions; primary full PDF pages 5–6 and 23–24",
+        "method": "Open-access arXiv full text including rendered PDF pages",
+        "title": "Monotonous subsequences and the descent process of invariant random permutations",
+        "trigger": "Ewens sampling law and descent point process"
+      },
+      {
+        "assessment": "Aggregate or cycle-type refinements are genuine related coverage but do not label individual fixed-point positions.",
+        "evidence": [
+          "arXiv:2001.00654v1, §§6 and 7; both examples (1,4,2,3),(2,3,1,4) share aggregate invariants but differ in location"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.00654",
+        "material_read": "Introduction, §§6.1 and 7.1 with Theorem 6.1, Corollary 6.2, and cycle-type refinements",
+        "method": "Open-access arXiv full text and mathematical expressions",
+        "title": "Plethystic formulas for permutation enumeration",
+        "trigger": "Broad generating functions jointly tracking descents, fixed points, and cycle structure"
+      },
+      {
+        "assessment": "Conjugacy-class conditioned descent-count laws and CLT do not directly give labelled fixedpoint/descent covariances.",
+        "evidence": [
+          "arXiv:1803.10457v1, 2018-03-28, class-conditioned descent means"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.10457",
+        "material_read": "Abstract, Introduction, statements and conjugacy-class moment arguments of full paper",
+        "method": "Open-access arXiv primary text/PDF",
+        "title": "Central limit theorem for descents in conjugacy classes of S_n",
+        "trigger": "Ewens is a mixture of conjugacy classes and their descent means"
+      },
+      {
+        "assessment": "Provides important broader aggregate moment structure, not an individual prescribed-position fixedpoint–descent crosscovariance matrix.",
+        "evidence": [
+          "arXiv:1301.0430v1, class-averaged descent and inversion statistics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.0430",
+        "material_read": "Full open-access paper §§5–6, especially Lemma 6.1 and Theorem 6.2",
+        "method": "Open-access arXiv full PDF; publisher page not relied on",
+        "title": "Permutation statistics of products of random permutations",
+        "trigger": "Class averaged inversion/descent formula could dominate aggregate covariance"
+      },
+      {
+        "assessment": "Different probability space; does not yield the Ewens position-indexed formula by the stated results.",
+        "evidence": [
+          "arXiv:2112.07728v1, 2021-12-14, parabolic double-coset estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.07728",
+        "material_read": "Introduction, fixed-point/descent sections and definitions of the parabolic double-coset sampling law",
+        "method": "Open-access arXiv full PDF and source abstract",
+        "title": "Fixed points, descents, and inversions in parabolic double cosets of the symmetric group",
+        "trigger": "Joint fixed points and descent statistics may imply proposed covariance"
+      },
+      {
+        "assessment": "Directly covers θ=1; explicitly excluded from new novelty. No nonuniform θ classification in retrieved claim.",
+        "evidence": [
+          "published-finding corpus record 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "uniform positional matrix and -1/n aggregate"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "material_read": "Public finding title, summary and claim returned by published-finding corpus",
+        "method": "published-finding corpus scientific-record search; no assertion of full package reading",
+        "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+        "trigger": "Very close exact uniform special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "413586e5-00a3-4934-8864-378a87573c15",
+  "value": {
+    "rationale": "The theorem completely classifies an n-by-(n-1) matrix for every Ewens parameter; reveals a unique locality threshold, constant nonincident covariance sign switch, and interplay of local and remote dependence, with an exceptional small-size total-covariance sign boundary. This is a structurally motivated two-statistic relationship beyond an isolated numerical invariant.",
+    "status": "PASS"
+  }
+}
