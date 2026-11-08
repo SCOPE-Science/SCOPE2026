@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact chain-rule recursion in the substitution \(y=z^d\) is independently reconstructed. Ordinary Rolle interlacing and an extra vanishing of \(y^{r/d}Q(y)\) at zero account for every root after each differentiation. The critical external ingredient for the global core is connectedness in Hägg–Shapiro Theorem 1.4(i), cited and used only as stated. An exact-rational symbolic checker covers 560 finite instances; the algebraic proof establishes the universal quantifiers.
+## correctness
 
-**Originality — PASS under inspected evidence, with residual historical risk.** Hägg–Shapiro's general core theorem does not localize all derivatives onto these spokes. Bøgvad–Shapiro covers the classical quadratic case; Leurs–Van Assche's star orthogonality supplies the known selected Rodrigues derivative rather than the full range. Explicitly excluded from novelty are those special cases and Rolle's classical theorem. No equivalent all-order full-shadow statement was located; broader unindexed hypergeometric or multiple-orthogonality theory could contain one implicitly, and independent priority assessment is pending.
+PASS
 
-**Value — PASS.** A global exact shape and no-transient classification is a meaningful question for the natural binomial family initiating a regular-root shadow. The recurrence also gives interlacing and endpoint multiplicities. This is not a finite table, a normalization correction, or an unsupported generalization to arbitrary polynomials.
+For every integer d>=2, n>=1 and 0<=m<dn, (d/dz)^m(z^d-1)^n=z^r Q_m(z^d) with r=(-m mod d). Differentiation maps Q to rQ+dyQ' when r>0 and to dQ' when r=0, preserving positive roots (including their simple interiors) by Rolle interlacing of Q and y^(r/d)Q. The root z=1 multiplicity is exactly max(n-m,0), origin power r, and hence all complex zeros lie on d radial unit spokes. Hägg-Shapiro Theorem 1.4(i), an invoked external theorem, makes the limiting core connected and containing all d original roots; as it lies inside the star, connectedness forces every arm. This establishes shadow=core=star with no transient zeros. Independent direct SymPy differentiations/real root isolation for 140 (d,n,m) and exact z=1 multiplicities agreed; only the structural proof treats all d,n,m.
 
-**Scientific limits.** The proof invokes a published connectedness theorem, does not give each limiting radial density, and does not cover nonsymmetric root arrangements. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior full-shadow theory proves connectedness and root containment, but not that every derivative of every power has positive reduced zeros on the regular star. Quadratic and designated Rodrigues-order cases are credited; the all-order all-degree exact equality remains a distinct, qualified result.
+
+## value
+
+PASS
+
+The full shadow and its transient set are natural dynamical invariants of differentiation across powers; establishing an exact star for an unbounded family and every derivative order is a meaningful classification of a canonical nonquadratic root geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:42:58.372349Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and CHECK.py",
+        "Independent direct symbolic derivatives for d=2..5, n=1..4, all valid m",
+        "Hägg-Shapiro arXiv:2610.09602 Theorem 1.4(i)"
+      ],
+      "rationale": "For every integer d>=2, n>=1 and 0<=m<dn, (d/dz)^m(z^d-1)^n=z^r Q_m(z^d) with r=(-m mod d). Differentiation maps Q to rQ+dyQ' when r>0 and to dQ' when r=0, preserving positive roots (including their simple interiors) by Rolle interlacing of Q and y^(r/d)Q. The root z=1 multiplicity is exactly max(n-m,0), origin power r, and hence all complex zeros lie on d radial unit spokes. Hägg-Shapiro Theorem 1.4(i), an invoked external theorem, makes the limiting core connected and containing all d original roots; as it lies inside the star, connectedness forces every arm. This establishes shadow=core=star with no transient zeros. Independent direct SymPy differentiations/real root isolation for 140 (d,n,m) and exact z=1 multiplicities agreed; only the structural proof treats all d,n,m.",
+      "residual_risks": [
+        "The global equality depends on the accurately scoped published connectedness theorem; if its definition of limiting core differed, the last step would require reconsideration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General potential-theoretic limit-curve results classify aspects of large-power descendants, not every finite-order zero location in the inspected statements.",
+          "The quadratic d=2 case has a real interlacing interpretation."
+        ],
+        "reasoning": "The source proof is elementary but uniform over d,n,m and asserts equality of full shadow/core; asymptotic descendants or selected Rodrigues subsequences do not dominate this precise theorem.",
+        "searches": [
+          "Hägg-Shapiro full shadow of a polynomial I arXiv:2610.09602",
+          "Bøgvad Shapiro Rodrigues descendants of a polynomial and Boutroux curves arXiv:2107.05710",
+          "Leurs Van Assche Jacobi-Angelesco arXiv:1804.07512"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and CHECK.py",
+        "Hägg-Shapiro 2026 Theorem 1.4(i)",
+        "Bøgvad-Shapiro 2021/2022 Sections on Rodrigues descendants",
+        "Leurs-Van Assche 2018 Jacobi-Angelesco",
+        "Resultary semantic query: derivatives powers z^d-1 full shadow radial star Rodrigues descendant positive roots"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Core connectedness + each endpoint alone does not force core to equal regular star without separately proving star inclusion, which is provided by the recurrence/interlacing.",
+          "Special d=2 and Rodrigues-order results do not quantify over every m."
+        ],
+        "reasoning": "The exact claimed conclusion is genuinely stronger than the inspected hypotheses/conclusions of prior framework results; no proof of absolute priority is asserted.",
+        "searches": [
+          "Hägg-Shapiro arXiv:2610.09602 Theorem 1.4",
+          "Bøgvad-Shapiro arXiv:2107.05710 Section 6",
+          "Leurs Van Assche arXiv:1804.07512"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hägg-Shapiro defines full shadow and limiting core in general; its Theorem 1.4(i) supplies only connectedness and endpoint inclusion.",
+          "Jacobi-Angelesco Rodrigues formulas can place zeros on regular radial stars at special orders, not obviously all derivatives of all powers."
+        ],
+        "reasoning": "The all-order localization is a stronger special-family assertion, not an immediate consequence of the general connectedness theorem or an order-restricted Rodrigues identity.",
+        "searches": [
+          "derivatives powers z^d-1 full shadow radial star Rodrigues descendant positive roots",
+          "Hägg and Shapiro arXiv:2610.09602",
+          "Leurs Van Assche arXiv:1804.07512 Jacobi-Angelesco r-star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact all-order regular-binomial full-shadow table retrieved from semantic search; potential classical multiple-orthogonal-polynomial tables remain plausible."
+        ],
+        "reasoning": "This is a family theorem rather than finite database output; a classical zero-localization theorem for all derivative orders would cover it even if phrased in a different orthogonal-polynomial notation.",
+        "searches": [
+          "derivatives powers z^d-1 full shadow radial star Rodrigues descendant positive roots",
+          "Resultary full shadow root binomial regular spokes query"
+        ]
+      },
+      "rationale": "Prior full-shadow theory proves connectedness and root containment, but not that every derivative of every power has positive reduced zeros on the regular star. Quadratic and designated Rodrigues-order cases are credited; the all-order all-degree exact equality remains a distinct, qualified result.",
+      "residual_risks": [
+        "Classical multiple-orthogonal or hypergeometric root-preserving operator results could state the same all-order localization under another name.",
+        "Exact hypotheses and definitions in invoked external connectedness theorem must be preserved; perturbations of roots are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies connectedness and all original roots in core; does not alone supply finite zero localization; correctly credited.",
+          "evidence": [
+            "Theorem 1.4(i)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.09602v1",
+          "material_read": "Primary full HTML and Theorem 1.4(i), statements on connectedness and roots",
+          "method": "Full-text scholarly arXiv HTML reading and targeted theorem search",
+          "title": "The full shadow of a polynomial I. The limiting core and the transient set",
+          "trigger": "Same term and actual invoked external theorem"
+        },
+        {
+          "assessment": "The inspected material treats limit geometry and quadratic case; complete absence of equivalent formulation is not independently certified.",
+          "evidence": [
+            "Section 6 quadratic example and asymptotic descendant framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.05710",
+          "material_read": "Available full-text article sections and Section 6 quadratic discussion",
+          "method": "Open scholarly full-text HTML and targeted sections",
+          "title": "Rodrigues descendants of a polynomial and Boutroux curves",
+          "trigger": "Same derivative-of-powers objects and possible equivalent all-orders theorem"
+        },
+        {
+          "assessment": "Selected derivative-order/radial-star antecedent, not established all-order coverage.",
+          "evidence": [
+            "Jacobi-Angelesco Rodrigues family and positive interval zeros."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.07512",
+          "material_read": "Introduction and relevant indicated Section 3 descriptions; no full-page exhaustive reading",
+          "method": "Open-access discovery/primary description",
+          "title": "Jacobi-Angelesco multiple orthogonal polynomials on an r-star",
+          "trigger": "Regular star zeros of a special Rodrigues derivative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full-shadow framework Hägg-Shapiro 2026",
+        "Finite all-order radial localization and equality of full shadow/core"
+      ],
+      "rationale": "The full shadow and its transient set are natural dynamical invariants of differentiation across powers; establishing an exact star for an unbounded family and every derivative order is a meaningful classification of a canonical nonquadratic root geometry.",
+      "residual_risks": [
+        "No limiting zero density or asymptotic measure is computed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unperturbed equal-modulus d-th roots only; no arbitrary P(z) root systems.",
+    "The global core equality uses literature theorem as external premise."
+  ],
+  "schema_version": 1
+}
