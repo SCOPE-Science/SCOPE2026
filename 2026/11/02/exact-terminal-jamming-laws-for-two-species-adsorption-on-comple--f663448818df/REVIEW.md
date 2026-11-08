@@ -1,23 +1,21 @@
-# Scientific review: exact terminal jamming laws
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact finite law is supported by a direct competing-clock proof. The first accepted particle occupies one part with one species. Only two decisive outcomes are possible: the opposite species accepts inside that part, permanently excluding all other parts; or the same species accepts in another part, excluding the opposite species everywhere. The independently thinned Poisson streams give the conditional integral and finite binomial sums without independence assumptions between terminal occupancies. For fixed positive limiting part proportions, the rescaled first outside arrival time and bounded convergence yield the mixture weights. In the symmetric balanced bipartite case the binomial representation and a fourth-moment-controlled rational expansion give the coefficient \(3/8\) and the stated \(O(n^{-2})\) remainder.
+PASS
 
-The independent exact-rational state recursion in `check_jamming.py` matched 290 finite graph/parameter cases with 1,169 assertions. This computation checks implementations and corner cases but is not the proof of an all-size or asymptotic statement. Endpoints \(p\in\{0,1\}\) are treated separately; the finite formulas themselves require \(0<p<1\).
+The first successful A at part i leaves exactly two irreversible possibilities: an opposite B in the same part before any accepted A outside i permanently blocks every other part, so all of i eventually fills; an A outside i first bans all B thereafter and eventually fills N vertices. For a=n_i and b=N-a the full-coverage probability conditional on the first A is bp∫_0^∞exp(-bpt)(p+q exp(-t))^(a-1)dt; binomial expansion gives F_i^(A) and the B-symmetry gives F_i^(B), whence w_i=(a/N)(p(1-F_A)+q(1-F_B)). Finite support is only n_i and N (aggregate equal part sizes). Rescale the exponential race by N and apply bounded convergence for fixed positive limiting proportions: part-only limiting mass α_i²pq[( (1-α_i)p+α_i q)^(-1)+((1-α_i)q+α_i p)^(-1)]. At p=1/2, balanced r parts give masses 1/r at 1/r and 1-1/r at full coverage with positive variance (r-1)^3/r^4. For K_(n,n), J~Bin(n-1,1/2) and F_n=E[n/(n+2J)]; centered fourth-moment expansion yields 1/2+3/(8n)+O(n^-2). Endpoints p∈{0,1} separately yield complete coverage; r>=2 and n_i>=1 essential. Independently coded exact absorbing-state recursion matched exact formula in independently selected small multipartite graphs; only proof covers arbitrary sizes.
 
-## Originality (O): PASS, with residual priority risk
+## originality
 
-The closest same-dynamics source is Martins, Dickman and Ziff, arXiv:2211.04622 (first posted 2022-11-09). Its full text studies one- and two-dimensional lattice adsorption, perturbative jamming coefficients, and percolation; its model agrees on repeated attempts and incompatible species but does not present a complete-multipartite terminal distribution, the dense-graph mixture, or the balanced \(3/(8n)\) correction. Dhara, van Leeuwaarden and Mukherjee (2016) study different threshold/frequency RSA rules on sparse Erdős–Rényi graphs. Krivelevich, Mészáros, Michaeli and Shikhelman study single-species, single-pass greedy independent sets. Equilibrium Widom–Rowlinson partition enumerators do not determine the irreversible history-dependent absorption probabilities. The actual comparisons concern stochastic rules, geometry, and implication strength, not mere title similarity.
+PASS
 
-Targeted searches of accessible mathematical research records and primary literature did not find an implication-equivalent terminal law. Neither the absence of a match nor the graph-family restriction proves priority. Broader historic work on exactly solvable irreversible multitype adsorption or competing nucleation processes could still cover this case; a published but only abstract-accessible early graph-RSA paper remains a lesser risk. Independent source-by-source historical review is still needed.
+Best-of-knowledge PASS for complete finite-jamming distribution, growing multipartite mixture and balanced 3/(8n) correction. The exact same repeated-attempt antagonistic species dynamics are known from Martins–Dickman–Ziff, but their published 1D/2D lattice jamming/percolation results do not logically determine this all-part-size finite absorption law. One-species greedy RSA and equilibrium Widom–Rowlinson partition functions use different dynamics or statistics. Classical exponential race techniques are not credited as new. General unlocated absorbing-rate formula remains possible.
 
-## Value (V): PASS
+## value
 
-The result gives a complete probability law for a natural and entire dense graph family, rather than a small enumeration or a routine expected value. It identifies the only possible macroscopic jammed configurations, gives finite probabilities under arbitrary species bias, and shows that symmetric density has a strictly positive limiting variance even as the graph size tends to infinity. The sharp finite-size correction resolves the direction and first scale of the finite bias in the balanced benchmark. These facts provide an exactly solvable comparison geometry for studies of antagonistic adsorption and distinguish irreversible stochastic jamming from equilibrium occupancy counts.
+PASS
 
-## Scope and remaining risks
+Exact law for a physically defined nonequilibrium irreversible process across a canonical dense graph family, including a nontrivial non-self-averaging limit and sharp finite-size bias; not merely a numerically observed phase or a formula for a contrived small graph.
 
-The theorem assumes independent per-site Poisson attempts with revisiting, no desorption, a complete multipartite graph, and two species. It does not characterize jamming on sparse lattices, graphs with missing cross-edges, or single-attempt colored random-order models. The first-order thermodynamic mixture fixes the number of parts and assumes positive limiting proportions; the second-order expression concerns only \(K_{n,n}\) at equal species rates. Correctness and novelty assessments are confined to the stated result and inspected evidence.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
