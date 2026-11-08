@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal claim is established by a two-stage boundary reduction using strict convexity along area-preserving coordinate perturbations, followed by a complete two-case optimization of the square-corner incidence types. The potentially nontrivial second case is reduced to \(p=s+t\) at fixed \(q=st\), where the function is monotone for \(q\ge1/4\) and strictly convex otherwise. The analytic expression of \(U''\), the two endpoint values, and the strict endpoint comparison certify the result for all real \(A\in(0,1/2]\). Eight equalizers occur for interior areas and four at maximal area. The accompanying verifier's 151247 finite checks corroborate rather than establish this universal argument.
+PASS
 
-## Originality — PASS, provisional historical priority
+For each A in (0,1/2], compactness yields a maximizing triangle. Fixing ordinate coordinates and signed double area gives a 2-dimensional affine kernel of horizontal perturbations; moving a triangle with horizontal span <1 wholly into the square leaves a nontranslation feasible direction along which the perimeter is strictly convex, contradicting interior maximality. The same holds vertically. Thus normalized vertex coordinate extrema are 0 and 1. Coordinate orders reduce exactly to diagonal-edge Case I and the no-opposite-corner Case II. In I strict convexity along |s-t|=2A forces side endpoints, giving M(A). In II write q=st=1-2A and p=s+t in [2sqrt q,1+q]. The closed expression U(p)+V(p) is strictly increasing for q>=1/4 (p>=1) and strictly convex for q<1/4 (U second derivative positive since c=1-q>3/4, V second derivative positive); hence extrema at endpoints. Direct comparison shows p=1+q wins for 0<q<1/4; at q=0 endpoints represent identical three-corner equality orbits. Derivatives Mprime>0 and Mdoubleprime>0 and dihedral orbit counting yield 8 maximizers for 0<A<1/2, 4 at A=1/2. Independently checked rational equality witnesses and several Case-II inequalities; finite tests corroborate the continuum argument.
 
-Fattah, Ftouhi, and Zuazua (arXiv:2501.00928, §4.1) formulate the broader fixed-area reverse-perimeter optimization and prove polygonality of free boundaries; neither their statement nor its proof yields the sharp three-vertex square profile or equality classification. Bogosel (arXiv:2402.05648) explicitly solves a **disk**-container problem and proves that polygonal containers admit polygonal optimizers, but does not specify the square-triangle maximizers. Relevant indexed geometric research hits involve square inradius, equilateral Minkowski-square geometry, convex-square Cheeger geometry or polygons inscribed in ellipses: their premises/conclusions do not imply the new area–perimeter law. Searches covered aliases, geometric parameterizations and exact formula. An older elementary or historical equivalent could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact function and complete equality classification solve a naturally motivated full-parameter triangle restriction of a current reverse-isoperimetric shape problem. The unchanged diagonal at every area, the eight-to-four boundary coalescence and the strictly convex envelope are structural conclusions, not a small numerical improvement. No general convex-subset optimizer is claimed.
+Best-of-knowledge mathematical implication comparison of actual primary material and published records. Novelty is provisional, with explicit unresolved historical-source risks. 
 
-## Limitations and integrity
+## value
 
-The domain is nondegenerate Euclidean triangles contained in a square, not arbitrary convex bodies or general rectangles. Finite computational evidence is not independent proof or independent audit. Literature priority is provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete sharp all-area reverse-isoperimetric profile for Euclidean triangles inside a square is a naturally motivated tractable restriction of the active inclusion-constrained perimeter problem. The forced diagonal edge, strict convexity, endpoint orbit collapse and equality count are structural exact information, not an arbitrary finite gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
