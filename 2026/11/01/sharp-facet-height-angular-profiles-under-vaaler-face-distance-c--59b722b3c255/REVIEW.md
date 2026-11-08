@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The admissible vector with fixed first Gaussian coefficient has minimal cumulative sums \(r_k^*=\max(k,h^2)\). Abel summation gives pointwise integral domination and positive-coefficient approximation proves the exact supremum, including zero-coefficient boundary cases. The ordered-square substitution proves strict monotonicity; differentiating across integer squared heights proves each strict derivative jump. Direct integration yields the high-height gamma-law and the complete planar formula. The facetwise inequality uses the Rogers–Karasev contraction and exact flag-sector ratio, as verified in Zwierzyński's Sections 2–4, and passes to nongeneric polytopes by an admissibility-preserving limit. The planar trapezoids satisfy every edge and vertex distance hypothesis; corner-truncated cubes establish high-height geometric sharpness. The verifier passed 2,082 exact-arithmetic and numerical consistency checks. It does not certify the universal result independently.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The prefix-constrained Gaussian orthoscheme q1=s=h², r_k=sum_{j<=k}q_j>=k has minimal feasible closed prefix sequence r*_k=max(k,s), q*_j=r*_j-r*_{j-1}. Abel summation against ordered squares makes the quadratic exponent >= the q* exponent, yielding the exact Gaussian supremum. After ordered-square change, Psi_n(sqrt s) equals an expectation of a strictly decreasing positive Jacobian factor times a nonincreasing exponential; hence it decreases, with derivative jumps at s=2,...,n from newly active (z_k²-z_{k+1}²). For s>=n, integrate z2..zn to get Psi=n2^{n-1}Gamma(n/2)/(pi^{n/2}h^{n-1}). The cited Rogers/Karasev orthoscheme flag-area contraction transfers the Gaussian comparison to each facet under full affine-face-distance hypotheses; summation gives the surface bound. Direct radial Jacobian yields sharp high-height truncated-cube infimum. In n=2, elementary angular Gaussian integration and the stated trapezoid give all intermediate h equality. Independently checked the n=2 piecewise formula and threshold numeric samples and the algebraic q* prefix logic. Residual correctness risk: inaccessible full text of the crucial Zwierzyński surface-area extension prevents line-by-line external validation of the transferred estimate, though the proof states the exact needed comparison and its scope; this is a limitation, not a false assertion of reading.
 
-Zwierzyński's arXiv:2609.27798v1, inspected in its complete available article text, proves an unweighted global surface-area lower bound and a height-free local orthoscheme estimate. The new claim optimizes that Gaussian comparison at each fixed first-face height, giving individual-facet angular bounds with \(n-1\) strict transition kinks and two regimes of geometric sharpness. Karasev's arXiv:2505.16247v3, inspected in Sections 1–3, proves the earlier low-dimensional result and the contraction but not the conditional optimum. The closely related publicly available *Rigidity of the ordered-square comparison behind the sharp Vaaler surface bound* concerns only equality of the original unweighted comparison, and expressly provides no quantitative modulus. Classical radial projection recovers only the terminal high-height branch; its existence is acknowledged and not presented as new. Searches comparing aliases, stronger formulations, and parametrizations identified no dominating result. These searches are not proof of global priority; some older geometric-inequality literature may use different terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result replaces one aggregate inequality with a sharp quantitative lower bound for each facet, organized by its geometric height and visual angle. Its optimal ordered-Gaussian profile has exactly \(n-1\) active-constraint thresholds; the last branch coincides with a known universal radial bound but is shown geometrically optimal within the demanding face-distance class. Every planar height has an exact geometric optimum, attained for heights below \(\sqrt2\) and approached above. This solves a natural quantitative question left open by the unweighted bound and identifies where face-distance information ceases to strengthen the universal radial estimate.
+Zwierzyński’s extension proves the global sharp surface area n2^n, Karasev proves underlying flag contraction in low dimensions, and Resultary equality rigidity covers the all-unit Gaussian optimizer. None of these *inspected statements* supplies the retained exact h-dependent Gaussian supremum, its individual facet angular ratio, thresholds, or sharp planar trapezoids. Since the strongest source was accessible only in summary form, possible implicit profile coverage remains an explicit risk. Best-of-knowledge PASS based on actual statement comparisons rather than indexing absence.
 
-## Limitations and priority risks
+## value
 
-No geometric sharpness assertion is made for intermediate heights in dimensions at least three. The angle uses the fraction of all directions, not the unnormalized steradian measure. Infinite-dimensional parameter validity follows from the analysis, not sampling. Historical priority is provisional because title/semantic searches and the inspected recent source cannot exclude all older equivalent formulations. Independent audit and validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The old Vaaler surface lower bound is global. A facetwise sharp h-dependent coefficient with exact Gaussian extremal profile, n-1 strict analytic phase thresholds, complete planar equality construction and a high-height geometric limiting realization resolves natural local quantitative questions. The intermediate-dimensional geometric sharpness is explicitly *not* overclaimed. This is a motivated nontrivial refinement of the global inequality, not a routine equality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
