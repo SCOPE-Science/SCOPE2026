@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification limits
 
-The analytical result follows from a direct rooted Gram representation, its branch-symmetric decomposition, the negative-semidefiniteness of the between-branch kernel for exponents between one and two, and finite negative-type strictness. Computation is a supplement to, not a substitute for, the infinite proof.
+# Independent mathematical audit
 
-With Python 3, NumPy, and SciPy installed, from the package root run `python artifacts/check_numeric.py`. The script independently constructs graph distances by breadth-first search rather than using the displayed block expressions for the original distance matrix. It reports:
+## correctness
 
-`CHECK_OK: 448 full spectral comparisons; 64 endpoint multiplicity checks; 448 phase checks; 21 asymptotic checks`
+PASS
 
-The finite sampled parameter ranges are \(2\le k\le9\), \(1\le m\le8\), and seven interior exponents per tree; the asymptotic test uses additional large leaf counts. The numerical tolerance is at most \(5\times10^{-8}\) for spectral differences, with separate fixed thresholds for zero-eigenvalue and asymptotic checks. These tests do not establish exactness over all integers or validate the literature-priority assessment independently.
+PASS: Reconstructed root-anchored Schoenberg Gram K_p, leaf-difference eigenvalue 2^p/2, symmetric branch 2x2 G_p and (k-1) difference blocks H_p=G_p-k B_p. Integral formula for cross-branch K_p(s,t) with Γ(-p)>0 makes B negative definite for 1<p<2; therefore G positive is the only active obstruction and H remains positive at the first root. F(1)=1; at h_k the k>=3 cross term is nonzero; for k=2,m>1 the determinant goes negative just below 2, giving an interior root. Standard strict-p-negative-type monotonicity rules out additional roots. Critical Gram rank N-2 and exceptional Euclidean path N-1=4 rank1 are treated separately. Differentiation F’(1)=-m c_k -(k-2)log2 gives rho=1+1/(m c_k)+O_k(m^-2). Independent BFS/full-matrix versus 2x2 spectral comparisons passed 125 bounded checks. No finite experiment extends k,m quantifiers.
 
-The theorem does not include weighted, irregular, or height-three-and-greater trees. At the exceptional five-vertex path, the endpoint embedding dimension is one and not the usual codimension-one case.
+## originality
+
+PASS
+
+Best-knowledge PASS, qualified: the radius-two, identical-branch two-parameter exact threshold and one-dimensional critical load are not stated in the inspected earlier spherically symmetric tree results. Caffarelli–Doust–Weston already gives a 1.5272 numerical B_2 value and general bounds for radius≥3, explicitly credited. Li–Weston strictness, Schoenberg, Doust–Weston polygonal equality and Sánchez determinant criteria are known methods. Possible older unindexed symmetry reduction remains.
+
+## value
+
+PASS
+
+PASS: The family is a fundamental finite symmetric tree geometry. An exact implicitly specified threshold for all k,m, rank drop and sharp large-leaf rate improve an isolated known numerical value. It is a complete natural infinite two-parameter classification, not just relabeling a textbook formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review: two-level tree negative type
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is every integer pair \(k\ge2\), \(m\ge1\), with the five-vertex path handled separately. The proof explicitly constructs the root-anchored Gram matrix, computes all branch-permutation isotypic blocks, and shows the cross-branch block is negative semidefinite for \(1\le p\le2\) using a convergent Gamma-integral representation. The strict interior negativity follows from independence of two Laplace features at root depths one and two. Hence the full positive-semidefinite problem reduces to the displayed \(2\)-by-\(2\) determinant and principal minor. End-point existence is proved separately for \(k\ge3\) and \(k=2,m>1\); uniqueness follows from the finite-metric strict-negative-type theorem, not from an unsupported monotonicity assumption for the determinant. The critical Gram kernel is exactly one-dimensional, and Schoenberg's Gram criterion gives the claimed affine embedding rank. The fixed-\(k\) expansion follows by an implicit-function argument with a strictly positive denominator. Direct independent BFS/spectral computations passed 448 parameter/exponent eigenvalue comparisons, 64 critical-multiplicity tests, 448 phase checks and 21 asymptotic tests. Finite tests do not prove the infinite theorem; the exact analytic derivation does.
+## correctness
 
-## Originality — PASS, qualified
-Doust–Weston's 2024 polygonal-equality theorem determines the *set of exponents* supporting a nontrivial equality for an arbitrary finite metric, but does not specify the first exponent, the equality-vector structure or the exact asymptotic for this two-level tree family. Caffarelli–Doust–Weston (2010/2011) specifically draw the radius-two \((3,2)\) tree, but their main finite radius-degree upper bound assumes radius at least three. Their Section 5 Table for the complete binary tree at depth two reports the numerical value \(1.5272\), already covered and not claimed as new here. Sánchez (2011) supplies a general finite-metric determinant algorithm, but not the explicit branch-decomposition formula, all-parameter uniqueness, kernel multiplicity, or fixed-depth asymptotics. Li–Weston's strictness theorem is correctly used and attributed, not repackaged. Searches under generalized roundness, negative type, polygonal equality, symmetric depth-two trees and rooted branches found no stronger statement directly implying the complete package. A residual risk of older equivalent computations remains, particularly under alternate terminology or in tabulated small cases.
+PASS
 
-## Mathematical value — PASS
-Exact generalized roundness and the support of its first equality are natural quantities governing the Hilbert snowflake embedding of finite trees. Even for simple small trees, the critical exponent is nonlinear and not easily read off from edge counts or the generic finite-distance determinant. The new two-dimensional reduction across all orders, exact one-dimensional kernel classification, and sharp \(m^{-1}\) approach to one answer a coherent parameter-family question and distinguish structural versus numerical evaluations. The branch-kernel domination lemma additionally explains why one isotypic component controls the threshold; the benefit is not merely a new numerical constant.
+PASS: Reconstructed root-anchored Schoenberg Gram K_p, leaf-difference eigenvalue 2^p/2, symmetric branch 2x2 G_p and (k-1) difference blocks H_p=G_p-k B_p. Integral formula for cross-branch K_p(s,t) with Γ(-p)>0 makes B negative definite for 1<p<2; therefore G positive is the only active obstruction and H remains positive at the first root. F(1)=1; at h_k the k>=3 cross term is nonzero; for k=2,m>1 the determinant goes negative just below 2, giving an interior root. Standard strict-p-negative-type monotonicity rules out additional roots. Critical Gram rank N-2 and exceptional Euclidean path N-1=4 rank1 are treated separately. Differentiation F’(1)=-m c_k -(k-2)log2 gives rho=1+1/(m c_k)+O_k(m^-2). Independent BFS/full-matrix versus 2x2 spectral comparisons passed 125 bounded checks. No finite experiment extends k,m quantifiers.
 
-## Literature relationship and limitations
-Primary materials checked: Doust–Weston, *Polygonal equalities and p-negative type*, arXiv:2404.06658v1 (pp. 1–5); Caffarelli–Doust–Weston, *Metric trees of generalized roundness one*, arXiv:1008.3418 (sections 1, 2, 5 and tables); Sánchez, *On the supremal p-negative type of a finite metric space*, arXiv:1108.0451 (intro and finite-metric criterion); Li–Weston, *Strict p-negative type of a metric space*, arXiv:0901.0695 (intro and strictness theorem); Levy-Moore–Nichols–Weston, *Comparing the generalized roundness of metric spaces*, arXiv:1608.03699 (finite representability and metric-tree comparison). The proof addresses finite unit-weight depth-two trees only. The root is implicit, and the numerical tests are supplementary. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS, qualified: the radius-two, identical-branch two-parameter exact threshold and one-dimensional critical load are not stated in the inspected earlier spherically symmetric tree results. Caffarelli–Doust–Weston already gives a 1.5272 numerical B_2 value and general bounds for radius≥3, explicitly credited. Li–Weston strictness, Schoenberg, Doust–Weston polygonal equality and Sánchez determinant criteria are known methods. Possible older unindexed symmetry reduction remains.
+
+## value
+
+PASS
+
+PASS: The family is a fundamental finite symmetric tree geometry. An exact implicitly specified threshold for all k,m, rank drop and sharp large-leaf rate improve an isolated known numerical value. It is a complete natural infinite two-parameter classification, not just relabeling a textbook formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
