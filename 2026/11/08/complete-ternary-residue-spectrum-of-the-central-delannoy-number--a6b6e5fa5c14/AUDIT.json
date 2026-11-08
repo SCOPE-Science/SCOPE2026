@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The Laurent-polynomial constant-term representation gives the digit exclusion and a uniform sparse-block multiplication congruence. The multiplier D_(2*3^(k-1)) is 7 mod 9 and hence generates every principal unit mod 3^k. Two explicit Legendre-leading-coefficient seeds produce both unit signs at every positive valuation. All cases including zero and k=1 are addressed; the attached executable independently checks finite boundary and example cases, not the unbounded quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krattenthaler–Müller arXiv:1308.2856 full accessible Section 13 gives a method and concrete generating-function expansions modulo 9 and 27, including Delannoy numbers.",
+        "Sun arXiv:1009.2486 published description concerns sums of Delannoy values weighted by reciprocal squares mod primes.",
+        "The closest published-search record concerns generalized Domb sums, a different sequence."
+      ],
+      "reasoning": "The general finite-modulus algorithm does not by itself supply the uniform all-k two-ball image statement; no stronger published theorem containing the all-power image of P_n(3) was identified in material read. The not-fully-inspected Sun paper and possible unstated consequences remain residual risks.",
+      "searches": [
+        "digital distribution and valuations of central Delannoy numbers, digit patterns, exact counting formulas",
+        "exact p-adic closure of central Delannoy numbers D_n P_n(3) equals 3 Z_3 union (1+3 Z_3); every residue 0 or 1 modulo 3 is represented modulo every power of 3",
+        "3-adic Delannoy residue value image density two thirds, modular completeness two residue classes, Laurent polynomial constant term, separated base three digits",
+        "p-adic value sets Legendre polynomials P_n(3) modulo 3 powers, all residues congruent zero or one",
+        "arXiv:1308.2856 Krattenthaler Mueller Section 13"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0407326, Theorem 5.15",
+      "arXiv:1009.2486, abstract and MSC",
+      "arXiv:1308.2856, Section 13",
+      "arXiv:2505.08935, Theorem 3 and coefficient lemmas",
+      "OEIS A001850 sequence entry",
+      "OEIS A088917 mod-three digit sequence",
+      "OEIS A358360 exact valuation sequence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mod3 digit criterion gives V_k subset of allowed classes, not reverse inclusion.",
+        "Alekseyev–Amdeberhan–Shallit–Vukusic valuation theorem gives possibilities for ν_3(D_n), not the uniform first digits for each valuation and all successive unit digits.",
+        "New independent block congruence yields a generator congruent to 7 modulo 9 and two complementary normalized seeds."
+      ],
+      "reasoning": "The new surjectivity is strictly stronger than union of a mod3 necessary condition and valuation existence. It follows from independent sparse-block multiplication and the signs of two explicit seed families, which are not stated in the inspected prior theorems.",
+      "searches": [
+        "arXiv:math/0407326 Theorem 5.15",
+        "arXiv:1308.2856 Section 13",
+        "arXiv:2505.08935 valuations P_n(p)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Central Delannoy D_n=P_n(3); exact target is Z_3 closure 3 Z_3 union (1+3 Z_3), equivalently all-k image classes r mod3 in {0,1}.",
+        "Deutsch–Sagan arXiv:math/0407326 Theorem 5.15 determines the mod3 image only.",
+        "Alekseyev et al. arXiv:2505.08935 give valuation identities, not complete normalized unit images."
+      ],
+      "reasoning": "Checked both full-value and p-adic-closure formulations, Legendre alias P_n(3), residue counts, and block products. A valuation formula plus mod3 exclusion by themselves permit many proper subsets of the allowed residue balls, whereas the claimed theorem proves their full occupation.",
+      "searches": [
+        "central Delannoy numbers values modulo powers of three and p-adic closures of Legendre polynomial P_n(3)",
+        "central Delannoy numbers modulo 3 powers residue value set all 0 1 density Z_3",
+        "Legendre polynomials P_n(3) complete residue distribution modulo powers three",
+        "arXiv:2505.08935"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001850 lists central Delannoy values; OEIS A088917 records precisely their mod-three digit criterion; OEIS A358360 tabulates their exact 3-adic valuations. None records the complete residue image at every higher 3-power.",
+        "Verified independently from exact terms: the first five complete residue images have 2,6,18,54,162 elements.",
+        "published-finding corpus returned no record claiming the exact Delannoy 3-adic image."
+      ],
+      "reasoning": "A table for finitely many indices or moduli does not determine every residue image modulo all 3^k, nor ensure infinitely many witnesses per residue. No exact all-level table statement found.",
+      "searches": [
+        "OEIS A001850 central Delannoy values modulo powers 3",
+        "OEIS A088917 central Delannoy mod 3 Cantor",
+        "OEIS A358360 valuations central Delannoy values",
+        "central Delannoy numbers modulo 9 27 81 attainable residues",
+        "exact p-adic closure of central Delannoy numbers D_n P_n(3) equals 3 Z_3 union (1+3 Z_3); every residue 0 or 1 modulo 3 is represented modulo every power of 3"
+      ]
+    },
+    "rationale": "Deutsch–Sagan Theorem 5.15 gives only mod-three digit classification; Sun 2010 emphasizes prime-level Delannoy sum congruences; Krattenthaler–Müller Section 13 supplies generating-function congruence algorithms at individual 3-powers; Alekseyev et al. 2025 give valuations rather than all first-unit digits or the 3-adic value image. No exact all-power two-ball image statement was found in the targeted published-finding corpus and primary-literature comparisons. The Sun full text could not be materially inspected and unseen equivalents remain possible. OEIS A088917 and A358360 address mod-three digits and valuations, not higher-power unit images.",
+    "residual_risks": [
+      "Unlocated equivalently strong p-adic image theorem could exist under a different terminology.",
+      "Full text of Sun 2010 was not inspected; only its primary abstract and paper classification were accessible for this comparison.",
+      "An algorithmic generating-function method might be strengthened to imply the theorem with additional work; the inspected publication does not explicitly state this consequence.",
+      "Independent external validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exclusion modulo three, not all 3-power surjectivity",
+        "evidence": [
+          "Theorem 5.15 specifies the ternary-digit criterion for D_n modulo three."
+        ],
+        "identifier_or_url": "arXiv:math/0407326",
+        "material_read": "Full lawful primary PDF, especially Theorems 5.9 and 5.15 and surrounding statements",
+        "method": "PDF text and page images for relevant sections",
+        "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+        "trigger": "Delannoy mod-three necessary condition and ternary digit recursion"
+      },
+      {
+        "assessment": "Concrete generating-function reductions, no explicit uniform two-ball value image in inspected section",
+        "evidence": [
+          "Section 13 develops Delannoy polynomial expansions modulo nine and twenty-seven and a general lift procedure."
+        ],
+        "identifier_or_url": "arXiv:1308.2856",
+        "material_read": "Full accessible arXiv HTML discussion of Section 13 (central Delannoy) and general method",
+        "method": "Read text and formulas in source section",
+        "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+        "trigger": "Closest explicit all-modulus Delannoy congruence algorithm"
+      },
+      {
+        "assessment": "Valuation information only; does not classify unit-image sets",
+        "evidence": [
+          "The paper establishes ν_p(P_n(p)); Legendre coefficient domination is used here with an independently written proof."
+        ],
+        "identifier_or_url": "arXiv:2505.08935",
+        "material_read": "Full accessible arXiv HTML theorem statements and proofs of coefficient lemmas",
+        "method": "Read Theorem 3 and proofs of Lemmas 10–11",
+        "title": "On the p-adic valuations of values of Legendre polynomials",
+        "trigger": "Legendre alias and possible valuation domination"
+      },
+      {
+        "assessment": "Stated principal theorems about weighted sums mod primes, not an asserted all-exponent value-image theorem; incomplete full-text comparison",
+        "evidence": [
+          "First public 2010-09-13; Journal of Number Theory classification primary 11A07, 11B75."
+        ],
+        "identifier_or_url": "arXiv:1009.2486",
+        "material_read": "Original arXiv abstract, first-submission metadata, and published primary MSC/topic description; full body not inspected",
+        "method": "Primary abstract and publication metadata",
+        "title": "On Delannoy numbers and Schröder numbers",
+        "trigger": "Archival number-theory primary MSC 11B75 and Delannoy congruences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a6b6e5fa-5c14-42f2-89b8-15a5f9ce6ea0",
+  "value": {
+    "rationale": "Classifying a classical sequence’s entire 3-adic range is a natural arithmetic invariant, finer than its mod-three digit criterion and its valuation spectrum. The exact all-exponent residue count and Haar measure follow from a structural multiplicative sparse-block theorem and complementary valuation seeds, not from arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
