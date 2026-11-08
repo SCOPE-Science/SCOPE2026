@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:58:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For KG(n,2), n>=6, disjoint vertex-label pairs have metric distance 1 and intersecting pairs have distance 2. Every L1 cut semimetric has conditional negative type on zero-sum vectors: sum(z_e z_f rho(e,f))=-2(sum_(e in S)z_e)^2<=0. Symmetrization over S_n reduces rho to values u (disjoint) and v (intersecting). With unsigned incidence matrix B and A=B^TB−2I, vector z=B^Ta (sum a=0) lies in the eigenvalue (n−4) subspace, forcing (n−4)v<=(n−3)u, so D>=2(n−4)/(n−3). For the Hamilton-cycle edge-set cut orbit, elementary disjoint/intersecting crossing fractions p_D=4(n−4)/((n−1)(n−2)), p_I=4(n−3)/((n−1)(n−2)). Scaling the averaged nonnegative cut metric by 2/p_I gives intersecting distance 2 and disjoint distance D, proving the upper bound. Independent exact intersection/crossing tests on 46449 unordered vertex-label pairs over n=6..18; finite checks not all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baudier–Lancien–Motakis–Schlumprecht study Hamming-type Banach embeddings, not the exact reversed-distance L1 cut ratio.",
+          "SCOPE004 publishes a symmetry-reduction theorem and only six named fixed small graph metric values."
+        ],
+        "reasoning": "A general negative-type lower bound is necessary, not sufficient for membership in the L1 cut cone. The cycle-orbit upper construction is not inferred from spectral formulas.",
+        "searches": [
+          "L1 distortion Kneser graph KG(n,2) complement triangular Johnson graph shortest path metric Hamiltonian cycle cuts",
+          "arxiv:2004.04805",
+          "Resultary:2026/9/11/SCOPE004"
+        ]
+      },
+      "checked_sources": [
+        "Frozen KG(n,2) RESULT.md blob 20abc007724210f30de292ea825a910ad2d27720; verifier inventory",
+        "Ducey–Hill–Sin arXiv:1707.09115 relevant primary PDF sections",
+        "Published SCOPE004 full RESULT.md, exact Petersen boundary and other graphs",
+        "Baudier et al. arXiv:2004.04805 relevant indexed material",
+        "Resultary semantic Kneser L1 distortion search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ducey–Hill–Sin eigenvalues imply the eigenvector part but not cut-cone attainment.",
+          "Petersen is n=5 boundary; extrapolating c1=1 is false already n=6, with 4/3."
+        ],
+        "reasoning": "Neither known graph spectrum nor prior small n values imply the cycle-orbit cut certificate or the all-n sharp ratio.",
+        "searches": [
+          "L1 distortion Kneser graph KG(n,2) complement triangular Johnson graph shortest path metric Hamiltonian cycle cuts",
+          "arxiv:1707.09115",
+          "Resultary:2026/9/11/SCOPE004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ducey–Hill–Sin treat the same KG(n,2) graphs, incidence spectrum and critical group, not L1 distortion.",
+          "The usual Johnson/Hamming distance puts intersecting pairs closer, whereas disjoint pairs are closer in KG(n,2) metric."
+        ],
+        "reasoning": "Aliases Kneser/odd graph/two-class association scheme and complement of triangular graph were searched; no same metric-sharp-cut theorem found.",
+        "searches": [
+          "L1 distortion Kneser graph KG(n,2) complement triangular Johnson graph shortest path metric Hamiltonian cycle cuts",
+          "KG(n,2) complement triangular graph reversed Johnson distance",
+          "arxiv:1707.09115"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE004 RESULT.md full census explicitly lists Petersen KG(5,2) c1=1 but no KG(n,2) for n>=6.",
+          "Published Kneser-pair eigenpolytope result concerns John/Lowner ellipsoids (search/summary), not L1 shortest-path distortion."
+        ],
+        "reasoning": "No all-parameter table or stronger exact invariant for this graph metric was found in the actual searches; not a worldwide priority proof.",
+        "searches": [
+          "L1 distortion Kneser graph KG(n,2) complement triangular Johnson graph shortest path metric Hamiltonian cycle cuts",
+          "Resultary:2026/9/11/SCOPE004",
+          "Resultary:2026/10/11/SCOPE-parity-controlled-john-and-l-wner-ellipsoids-of-kneser-pair-eige--71ae72613d53"
+        ]
+      },
+      "rationale": "All-n sharp real L1 graph distortion of reverse-Johnson/2-subset Kneser shortest-path metric, with a Hamiltonian-cycle cut upper certificate matching an incidence eigenspace negative-type lower bound. Petersen n=5 is previously published and explicitly excluded. Qualified best-knowledge priority.",
+      "residual_risks": [
+        "Only n>=6 unweighted KG(n,2); Petersen n=5 known and different; no higher subset Kneser or weighted graphs.",
+        "Primary general Hamming-type treatment not fully inspected; historical alternate 2-class metric formulation may cover the result.",
+        "Finite tests n=6..18 not exhaustive n; formal negative-type and orbit-count proof is unrestricted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the L1 least-distortion cut representation",
+          "evidence": "Critical/Smith group and eigenstructure, not a matching L1 cut cone upper bound.",
+          "identifier_or_url": "arxiv:1707.09115",
+          "material_read": "primary PDF 16 pages accessible, inspected title, abstract and relevant spectral/Laplacian and critical group sections (PDF screenshot inspected)",
+          "method": "web PDF open and screenshot plus section reading",
+          "title": "The critical group of the Kneser graph on 2-subsets of an n-element set",
+          "trigger": "same graph and incidence eigenstructure"
+        },
+        {
+          "assessment": "COVERS Petersen boundary only, NOT all n>=6",
+          "evidence": "Six fixed graphs; KG(5,2) Petersen has c1=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/11/SCOPE004",
+          "material_read": "full RESULT.md including exact values/cut-certificate graph list",
+          "method": "connected GitHub full file",
+          "title": "Exact L1-distortion census for six small cubic-symmetric graphs",
+          "trigger": "same exact distortion invariant; Petersen n=5"
+        },
+        {
+          "assessment": "UNRESOLVED full-document exclusion; different metric direction in inspected material",
+          "evidence": "Hamming metric uses intersection as closer, not disjointness shortest path; exact covering theorem cannot be excluded solely from abstracts.",
+          "identifier_or_url": "arxiv:2004.04805",
+          "material_read": "abstract and indexed theorem descriptions; full text not reliably inspected",
+          "method": "web primary abstract/indexed result",
+          "title": "The geometry of Hamming-type metrics and their embeddings into Banach spaces",
+          "trigger": "close subset metrics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "L1 metric distortion is a natural graph metric invariant. The family gives an exact rational sequence rising from 4/3 toward 2, with spectral obstruction unexpectedly cut-cone sharp. Hamilton cycles provide explicit optimal cuts for every n>=6; this is a full natural classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen KG(n,2) RESULT.md blob 20abc007724210f30de292ea825a910ad2d27720; verifier inventory",
+    "Ducey–Hill–Sin arXiv:1707.09115 relevant primary PDF sections",
+    "Published SCOPE004 full RESULT.md, exact Petersen boundary and other graphs",
+    "Baudier et al. arXiv:2004.04805 relevant indexed material",
+    "Resultary semantic Kneser L1 distortion search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=6 unweighted KG(n,2); Petersen n=5 known and different; no higher subset Kneser or weighted graphs.",
+    "Primary general Hamming-type treatment not fully inspected; historical alternate 2-class metric formulation may cover the result.",
+    "Finite tests n=6..18 not exhaustive n; formal negative-type and orbit-count proof is unrestricted."
+  ],
+  "residual_risks": [
+    "Only n>=6 unweighted KG(n,2); Petersen n=5 known and different; no higher subset Kneser or weighted graphs.",
+    "Primary general Hamming-type treatment not fully inspected; historical alternate 2-class metric formulation may cover the result.",
+    "Finite tests n=6..18 not exhaustive n; formal negative-type and orbit-count proof is unrestricted."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING the L1 least-distortion cut representation",
+      "evidence": "Critical/Smith group and eigenstructure, not a matching L1 cut cone upper bound.",
+      "identifier_or_url": "arxiv:1707.09115",
+      "material_read": "primary PDF 16 pages accessible, inspected title, abstract and relevant spectral/Laplacian and critical group sections (PDF screenshot inspected)",
+      "method": "web PDF open and screenshot plus section reading",
+      "title": "The critical group of the Kneser graph on 2-subsets of an n-element set",
+      "trigger": "same graph and incidence eigenstructure"
+    },
+    {
+      "assessment": "COVERS Petersen boundary only, NOT all n>=6",
+      "evidence": "Six fixed graphs; KG(5,2) Petersen has c1=1.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/11/SCOPE004",
+      "material_read": "full RESULT.md including exact values/cut-certificate graph list",
+      "method": "connected GitHub full file",
+      "title": "Exact L1-distortion census for six small cubic-symmetric graphs",
+      "trigger": "same exact distortion invariant; Petersen n=5"
+    },
+    {
+      "assessment": "UNRESOLVED full-document exclusion; different metric direction in inspected material",
+      "evidence": "Hamming metric uses intersection as closer, not disjointness shortest path; exact covering theorem cannot be excluded solely from abstracts.",
+      "identifier_or_url": "arxiv:2004.04805",
+      "material_read": "abstract and indexed theorem descriptions; full text not reliably inspected",
+      "method": "web primary abstract/indexed result",
+      "title": "The geometry of Hamming-type metrics and their embeddings into Banach spaces",
+      "trigger": "close subset metrics"
+    }
+  ]
+}

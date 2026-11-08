@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The all-parameter proof has two independent mathematical halves: a conditional-negative-definiteness lower bound and a constructive orbit-averaged nonnegative cut-metric upper bound. The quantitative constants are checked symbolically by counting all intersecting and disjoint unordered pairs of two-subsets and their crossings with the edge set of a Hamiltonian cycle.
+## correctness
 
-The executable `verify_kneser.py` uses Python 3 standard-library modules only. Reproduction: extract the file beside this record and run `python3 verify_kneser.py`. The replay returned `CHECK_OK 8462 exact finite assertions; n=5..11; permutation orbit n=5..7`. Its checks include independently reconstructed shortest-path graph distances and full permutation averages for small orders. Every numerical equality used by the proof is rational and checked by `fractions.Fraction`; the code does not use floating point for certificates.
+PASS
 
-Finite checks cover only finitely many graph sizes and therefore are not a replacement for the all-\(n\) proof in RESULT.md. No proof is given for higher-rank Kneser graphs, weighted edges, uniqueness, or minimum embedding dimension. Independent audit has not been performed.
+For KG(n,2), n>=6, disjoint vertex-label pairs have metric distance 1 and intersecting pairs have distance 2. Every L1 cut semimetric has conditional negative type on zero-sum vectors: sum(z_e z_f rho(e,f))=-2(sum_(e in S)z_e)^2<=0. Symmetrization over S_n reduces rho to values u (disjoint) and v (intersecting). With unsigned incidence matrix B and A=B^TB−2I, vector z=B^Ta (sum a=0) lies in the eigenvalue (n−4) subspace, forcing (n−4)v<=(n−3)u, so D>=2(n−4)/(n−3). For the Hamilton-cycle edge-set cut orbit, elementary disjoint/intersecting crossing fractions p_D=4(n−4)/((n−1)(n−2)), p_I=4(n−3)/((n−1)(n−2)). Scaling the averaged nonnegative cut metric by 2/p_I gives intersecting distance 2 and disjoint distance D, proving the upper bound. Independent exact intersection/crossing tests on 46449 unordered vertex-label pairs over n=6..18; finite checks not all-n proof.
+
+## originality
+
+PASS
+
+All-n sharp real L1 graph distortion of reverse-Johnson/2-subset Kneser shortest-path metric, with a Hamiltonian-cycle cut upper certificate matching an incidence eigenspace negative-type lower bound. Petersen n=5 is previously published and explicitly excluded. Qualified best-knowledge priority.
+
+## value
+
+PASS
+
+L1 metric distortion is a natural graph metric invariant. The family gives an exact rational sequence rising from 4/3 toward 2, with spectral obstruction unexpectedly cut-cone sharp. Hamilton cycles provide explicit optimal cuts for every n>=6; this is a full natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

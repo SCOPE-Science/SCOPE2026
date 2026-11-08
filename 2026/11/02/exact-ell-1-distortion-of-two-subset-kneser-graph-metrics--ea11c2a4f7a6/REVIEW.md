@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph metric has two nontrivial distance classes, determined by disjointness or intersection of the two-element labels. Every finite real \(\ell_1\) semimetric obeys conditional negative semidefiniteness on zero-sum coefficients; the cut-metric identity \(-2(\sum_S z)^2\) establishes this directly. Averaging preserves the cut cone and distortion bounds. The unsigned incidence identity \(BB^{\mathsf T}=(n-2)I+J\) exhibits a nonzero zero-sum triangular-graph eigenvector of eigenvalue \(n-4\). Applying negative type to the averaged candidate yields \(D\ge2(n-4)/(n-3)\). The Hamiltonian-cycle cut orbit has intersection and disjointness crossing probabilities \(4(n-3)/((n-1)(n-2))\) and \(4(n-4)/((n-1)(n-2))\), respectively, yielding an explicit nonnegative cut metric attaining the obstruction. Every count has an all-\(n\) combinatorial derivation, and the endpoint \(n=6\) is included. Independently reconstructed graph distances, integer incidence identities, rational quadratic forms, cut counts, and small full permutation orbits were replayed in 8,462 exact finite checks. The finite checks supplement, rather than substitute for, the proof.
+## correctness
 
-## Originality — PASS, qualified
-Ducey–Hill–Sin (arXiv:1707.09115) treat the same graphs and their adjacency/Laplacian spectra and critical groups, but do not assert an exact \(\ell_1\) distortion or a Hamiltonian-cycle cut embedding. Baudier–Lancien–Motakis–Schlumprecht (arXiv:2004.04805) treat Hamming-type metrics on subsets and asymptotic Banach geometry; standard two-subset Hamming distance reverses the pair-distance ordering used here. The published exact cut-cone census of six cubic-symmetric graph metrics supplies the known Petersen boundary \(KG(5,2)\) but no all-\(n\) result. The published John/Löwner theorem for the \(KG(n,2)\) pair-eigenpolytope concerns different Euclidean polytope invariants; its incidence identity alone cannot provide the required cut-cone upper certificate. Actual published-findings searches, source/alias/parameter searches, comparison with existing research claims, and relevant primary full-text inspections did not identify a theorem implying the present value for every \(n\ge6\). This is a qualified best-knowledge originality judgment, not a proof of worldwide priority. A historically unlocated two-class cut-cone result remains a risk.
+PASS
 
-## Value — PASS
-Least \(\ell_1\) distortion is a natural quantitative invariant of finite graph metrics with significance for metric embedding and cut-cone geometry. The exact all-parameter result on the canonical family \(KG(n,2)\) is not a single arbitrary parameter lookup: it gives an increasing rational sequence from \(4/3\) toward \(2\), identifies a nontrivial spectral obstruction that is unexpectedly tight in the cut cone, and supplies an explicit combinatorial extremizing construction for all graph orders. The proof relates the Johnson association scheme's incidence eigenspace to Hamiltonian cycles as optimal cuts. No assertion is made for weighted Kneser metrics or higher subset size.
+For KG(n,2), n>=6, disjoint vertex-label pairs have metric distance 1 and intersecting pairs have distance 2. Every L1 cut semimetric has conditional negative type on zero-sum vectors: sum(z_e z_f rho(e,f))=-2(sum_(e in S)z_e)^2<=0. Symmetrization over S_n reduces rho to values u (disjoint) and v (intersecting). With unsigned incidence matrix B and A=B^TB−2I, vector z=B^Ta (sum a=0) lies in the eigenvalue (n−4) subspace, forcing (n−4)v<=(n−3)u, so D>=2(n−4)/(n−3). For the Hamilton-cycle edge-set cut orbit, elementary disjoint/intersecting crossing fractions p_D=4(n−4)/((n−1)(n−2)), p_I=4(n−3)/((n−1)(n−2)). Scaling the averaged nonnegative cut metric by 2/p_I gives intersecting distance 2 and disjoint distance D, proving the upper bound. Independent exact intersection/crossing tests on 46449 unordered vertex-label pairs over n=6..18; finite checks not all-n proof.
 
-## Scope and literature risk
-The Petersen \(n=5\) case was previously known and is excluded from the novelty claim. General negative-type necessary conditions do not automatically imply an \(\ell_1\) representation, so the explicit upper construction is essential. Equivalent results under complement-of-triangular-graph, cut cone, or two-class association-scheme terminology remain possible; no independent bibliographic audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All-n sharp real L1 graph distortion of reverse-Johnson/2-subset Kneser shortest-path metric, with a Hamiltonian-cycle cut upper certificate matching an incidence eigenspace negative-type lower bound. Petersen n=5 is previously published and explicitly excluded. Qualified best-knowledge priority.
+
+## value
+
+PASS
+
+L1 metric distortion is a natural graph metric invariant. The family gives an exact rational sequence rising from 4/3 toward 2, with spectral obstruction unexpectedly cut-cone sharp. Hamilton cycles provide explicit optimal cuts for every n>=6; this is a full natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
