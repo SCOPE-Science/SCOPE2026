@@ -1,11 +1,21 @@
-# Three-axis scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement specifies the full \(24^2\cdot 2^2\cdot5\) labeled sample space and BIS blocking criterion. A structural characterization handles the original unit capacities; an independent direct enumeration covers every possible joint option and singleton placement at the original and both expanded capacities. Both independently reproduce nonexistence counts \(0,128,128,192,192\). No unbounded theorem is inferred from enumeration. The witness exhibits actual nonexistence, so the positive repair guarantee is nonvacuous.
+## correctness
 
-**Originality — PASS, subject to finite-census priority risk.** The closest source is Wu–Xu–Biró, 2026 (arXiv:2610.32793), whose full definition, major capacity-modification theorems, computational sections and appendix were inspected. It proves global existence under modified capacity vectors and gives multihospital counterexamples, not the exact small-profile proportions or the assertion that both possible sites independently repair all failures in this domain. Other older couples-market papers establish that stable assignments can fail, but the weaker existence/nonexistence examples do not imply the complete exact frequency or site-symmetric repair census. Dedicated mathematical-record and public-literature searches found no equivalent displayed result; absence from search is not a proof of global novelty.
+PASS
 
-**Mathematical value — PASS.** A natural first finite benchmark for capacity modification with couples identifies not only the exact frequency of instability under all complete labeled preferences but whether the location of a scarce extra post matters. The surprise is that **no** two-hospital instability instance in this restricted domain requires directing the extra post to a particular hospital. The five-stratum counts distinguish the welfare implications of one versus two acceptable joint couple placements. This complete classification provides test cases for general repair formulations; it is not claimed as a larger-market theorem.
+The market has 5 possible ordered couple-option lists, 2^2 single preference configurations and 24^2 hospital priority pairs: exactly 11520 labeled profiles. At capacity (1,1), stable couple-assigned outcomes require a dominant option; if the couple stays out, both singles must fill one hospital each and neither singleton nor listed couple may block. This yields an exact criterion. Read both independent source verifiers; independently enumerated every feasible couple state and all 3^2 single assignments under capacities (1,1),(2,1),(1,2), respecting separate S1/S2 blocking. Recovered nonexistence by option list [0,128,128,192,192], total 640, and zero instances that failed either individual one-seat repair. This is a complete finite proof under this BIS definition, not extrapolation to larger markets or S3 same-hospital deviations.
 
-**Scientific limitations:** The two-hospital, two-singles restriction and distinct-hospital couple options are essential to the stated claim. The real-world probability interpretation is not asserted. An exhaustive numerical case classification is mathematically exact only because the loops cover every possible instance and all candidate matches; the two sources are available for reproduction. An unindexed prior complete census is possible. The Harvard-hosted couples-market paper could not be fully retrieved and is not treated as excluded by a mere excerpt.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existence failure with couples and capacity restoration are known; the complete labeled frequency and the stronger assertion that either named hospital independently suffices are not implied by the accessible global capacity-modification bounds. Close Wu–Xu–Biró 2026 article not full-read, so qualified.
+
+## value
+
+PASS
+
+Nonexistence frequencies and exact location-robust repair in the first structurally interesting two-hospital couple market give reusable finite benchmarks for matching algorithms and capacity policies. The either-site guarantee is a structural phenomenon stronger than mere existence of some repair. Natural exhaustive classification is mathematically valuable within its explicit restricted domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
