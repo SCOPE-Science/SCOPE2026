@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The central claim is the exact **token-slide** graph on minimum identifying codes of the four-by-four rook graph, with 2,208 states, 14,976 unordered edges, connectedness, radius and diameter 6, and degree counts 1,344 of degree 12 and 864 of degree 16. The host graph and original adjacency restriction are explicit. A closed-neighborhood identification criterion reduces correctness to nonempty signature masks and nonzero intersections with every pairwise symmetric difference; the criterion is necessary and sufficient. Every six-set among the 16 vertices is tested. Every five-set is tested and rejected as identifying; monotonicity excludes all smaller sets. All one-for-one slides are enumerated and the edge criterion is exact. Exhaustive BFS from every minimum code, in two separately implemented languages and using two different state/edge enumeration methods, returns eccentricity exactly six for every state. The two programs were executed and their saved output is included. The independently known unrestricted jump diameter six gives a matching lower bound for the new slide diameter, but not the essential upper bound. Finite exhaustive enumeration is a complete proof for the fixed finite host; no extrapolation is attempted.
+
+## Originality — PASS, subject to historical-priority qualification
+
+A previous exact finite census (opaque reference `7b3432c6-fd0d-42ec-a85b-a9e8ce6f20d4`) **already determines** the same optimum-code counts and both unrestricted token-jump reconfiguration graphs for the Shrikhande and four-by-four rook graphs. Its results are fully excluded from the new claim, as is the Shrikhande slide-freezing fact that follows directly from its structural classification (also `5aa17a0e-52c2-4c82-8441-afdba01b4591`). Jump adjacency and its diameter do not establish the adjacency-restricted edge subset nor guarantee the connectedness, degree sequence, or upper diameter of the slide graph. The new rook slide result retains just over half the jump edges yet exactly preserves the jump diameter, a nontrivial property specific to the host incidences. Foucaud et al. (arXiv:1107.0207, Proposition 10) already prove the rook minimum code size. Mynhardt–Teshima (arXiv:1707.02039, §2, Theorem 5) give general slide reconfiguration definitions and realizability constructions but no classification of the rook host. The full relevant primary sections were inspected, and searches of matching graph names, code terminology, slide/jump equivalences, and exact numerical invariants did not identify a dominating theorem. Missing or unindexed relevant work remains a risk; failed retrieval is not proof of novelty.
+
+## Value — PASS
+
+The precisely motivated gap is locality of feasible optimal identifying-code changes. The previous unrestricted exchange graph has 28,800 edges and sharp diameter six, but this does not quantify how much the physical adjacency constraint changes mobility. The new 14,976-edge slide subgraph remains connected with the same optimal six-step worst-case distance and exhibits a nonregular two-valued degree distribution; its exact counts give a complete natural constrained-relocation benchmark on the symmetric line graph of K4,4. This is richer than a cheap identity or a recomputation of the known code count. The Shrikhande comparison shows locality can instead remove every legal move but is supporting context, not a separately counted original theorem.
+
+## Limits and evidence
+
+Both standalone programs, source-state and edge certificates, and recorded execution outputs are embedded. The study is limited to the two explicit sixteen-vertex graphs, with only the rook slide graph being the principal new classification. The earlier unrestricted-jump work is acknowledged; no claim of independent historical priority is asserted. Independent review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
