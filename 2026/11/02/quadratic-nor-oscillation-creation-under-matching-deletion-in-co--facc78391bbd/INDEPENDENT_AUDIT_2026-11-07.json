@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:15:04.963951Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For active sets A⊆L,B⊆R, F(A,B)=(f(B),g(A)), where each one-sided map sends ∅ to whole part, matched singleton {i} to {i}, and other subsets to ∅. Because p,q>=2 the image consists of the (k+2) symbols ∅,whole,{i} per side and F² is identity on this image, giving F³=F and exact fixed/2-cycle counts. Each recurrent state has explicit predecessor fiber h_q or 1 in its first coordinate times h_p or 1 in the second, h_p=2^p-k-1,h_q=2^q-k-1. Summing fibers of the phase(s) proves all basin sizes and the global sum 2^(p+q); boundary (2,2,2) and k=0 separately hold. The giant basin ratio is 1-(k+1)(2^-p+2^-q)+((k+1)²+1)/2^(p+q), proving uniform limit. Independent actual graph-level neighborhood enumeration checked all 32 cases with 2<=p,q<=4; source supplies larger checks. Finite checks support, do not substitute for exact map reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General minterm/maxterm periodic-point results do not give the k-indexed exact fiber values h_p,h_q or their all-zero/all-one asymptotic basin."
+        ],
+        "reasoning": "Qualitative universal period bounds are broader in graphs but weaker in enumerative conclusion; they do not mathematically imply the complete profile here.",
+        "searches": [
+          "Aledo–Martínez–Valverde survey DOI 10.1155/2015/594294",
+          "Aledo et al. 2020 DOI 10.1155/2020/9708347"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: synchronous open neighborhood NOR Boolean dynamics K_{p,q} minus matching attractor basin count 2 cycles",
+        "Aledo et al. 2020 DOI 10.1155/2020/9708347",
+        "Veliz-Cuba–Laubenbacher DOI 10.1007/s12190-011-0517-9",
+        "Aledo–Martínez–Valverde survey DOI 10.1155/2015/594294",
+        "2020 Aledo primary full-text search for matching/basin",
+        "Aledo et al. 2020 §§2–3",
+        "Veliz-Cuba–Laubenbacher 2011 abstract",
+        "Open NOR graph join k=0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known F³=F and k=0 case do not supply the missing-matching one-sided map preimage fibers."
+        ],
+        "reasoning": "The stated complete seven-category profile and uniform dominant-basin fraction require additional explicit matching-deletion-dependent calculation; no inspected stronger theorem directly implies them.",
+        "searches": [
+          "Aledo et al. 2020 §§2–3",
+          "Veliz-Cuba–Laubenbacher 2011 abstract",
+          "Open NOR graph join k=0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-point/maximal-independent-set connection and general period <=2 restrictions cover only qualitative parts; Resultary nearest parity automata have different local rules."
+        ],
+        "reasoning": "The candidate novelty is exact matching-deletion basin profiles, not a restatement of fixed points or general period restrictions; open-neighborhood versus self-inclusive local rules matter.",
+        "searches": [
+          "Resultary: synchronous open neighborhood NOR Boolean dynamics K_{p,q} minus matching attractor basin count 2 cycles",
+          "Aledo et al. 2020 DOI 10.1155/2020/9708347",
+          "Veliz-Cuba–Laubenbacher DOI 10.1007/s12190-011-0517-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact p,q,k basin table was found in inspected source material; indexed nearest NOR/parity records concern distinct graph families or update rules."
+        ],
+        "reasoning": "A complete exact table would cover the result, but no verified such database was found. Absence of search results is not priority proof.",
+        "searches": [
+          "Resultary: synchronous open neighborhood NOR Boolean dynamics K_{p,q} minus matching attractor basin count 2 cycles",
+          "2020 Aledo primary full-text search for matching/basin"
+        ]
+      },
+      "rationale": "Open-NOR on graph joins, F³=F and the general fixed-state link to independent sets are known and not claimed new. The explicit k-dependent orbit creation, all individual basin fibers and uniform giant-basin limit were not established by inspected general graph Boolean dynamics literature, subject to an uninspected full 2011 fixed-point paper.",
+      "residual_risks": [
+        "The full 2011 fixed-point source was inaccessible and could include specialized matching-defect examples; no whole-article noncoverage claimed.",
+        "Synchronous OPEN-neighbor NOR only; self-inclusive NOR, other update rules or nonmatching deletions not covered.",
+        "Uniform probability assumes uniformly random independent initial bits, not stochastic transitions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General periodic-point theory, not explicit matching-deleted Kpq basin formula",
+          "evidence": [
+            "Definitions of minterm/maxterm systems and general period bounds"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+          "material_read": "Accessible full-text HTML relevant local rules and §§2–3; targeted searches for matching and basin",
+          "method": "Primary online full-text reading and targeted search",
+          "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "Possible general exact periodic-point theorem for NOR/maxterm networks"
+        },
+        {
+          "assessment": "Historical fixed-point comparison, no whole-article exclusion inferred",
+          "evidence": [
+            "Abstract emphasizes fixed points and maximal independent sets"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12190-011-0517-9",
+          "material_read": "Publisher abstract and bibliographic description only; full article NOT read",
+          "method": "Abstract/access-limited inspection",
+          "title": "On the computation of fixed points in Boolean networks",
+          "trigger": "Fixed-point independent-set correspondence may cover part of k+2 claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact attraction-basin spectrum detects a nontrivial phenomenon: deleting k disjoint edges creates quadratic numbers of oscillations while almost every initial configuration still enters one universal 2-cycle. It is a motivated complete family classification beyond qualitative period bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every p,q>=2 and 0<=k<=min(p,q), synchronous open-neighborhood binary NOR on K_{p,q} minus a matching has exactly (k+2) fixed/2-cycle label modes on each side; k+2 fixed states and C(k+2,2) distinct primitive 2-cycle orbits, complete seven-category individual basin profile and one-step entrance, with giant all-zero/all-one basin probability tending to 1 uniformly as min(p,q) grows.",
+  "limitations": [
+    "The full 2011 fixed-point source was inaccessible and could include specialized matching-defect examples; no whole-article noncoverage claimed.",
+    "Synchronous OPEN-neighbor NOR only; self-inclusive NOR, other update rules or nonmatching deletions not covered.",
+    "Uniform probability assumes uniformly random independent initial bits, not stochastic transitions."
+  ],
+  "schema_version": 1
+}

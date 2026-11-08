@@ -1,19 +1,21 @@
-# Scientific review of the matching-deletion NOR basin theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies the entire graph and update rule and reduces the dynamics to the pair of maps from each side of the bipartition to the other. The critical fact is that each side has only \(k+2\) possible one-step output subsets: the empty set, the whole part and the \(k\) matched singletons. Their interchange makes the recurrent image an involution. Direct counts give \(k+2\) fixed points and \(\binom{k+2}{2}\) primitive two-cycle orbits. The preimage fibers have sizes \(2^p-k-1\) and \(2^q-k-1\) in the only non-singleton cases; adding fibers over each cycle proves all individual basin sizes. The basin total is exactly \(2^{p+q}\), and the unique zero-transient boundary is checked. Two separately implemented exhaustive programs, inspecting 86,384 and 804,208 configurations across the stated ranges, corroborate the formulas. Their finite scope is explicitly separated from the all-parameter proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+For active sets A⊆L,B⊆R, F(A,B)=(f(B),g(A)), where each one-sided map sends ∅ to whole part, matched singleton {i} to {i}, and other subsets to ∅. Because p,q>=2 the image consists of the (k+2) symbols ∅,whole,{i} per side and F² is identity on this image, giving F³=F and exact fixed/2-cycle counts. Each recurrent state has explicit predecessor fiber h_q or 1 in its first coordinate times h_p or 1 in the second, h_p=2^p-k-1,h_q=2^q-k-1. Summing fibers of the phase(s) proves all basin sizes and the global sum 2^(p+q); boundary (2,2,2) and k=0 separately hold. The giant basin ratio is 1-(k+1)(2^-p+2^-q)+((k+1)²+1)/2^(p+q), proving uniform limit. Independent actual graph-level neighborhood enumeration checked all 32 cases with 2<=p,q<=4; source supplies larger checks. Finite checks support, do not substitute for exact map reduction.
 
-The 2011 fixed-point paper of Veliz-Cuba and Laubenbacher concerns AND-NOT networks and maximal independent sets, while the 2015 survey by Aledo, Martínez and Valverde and the 2020 periodic-point paper of Aledo and collaborators provide general maxterm/minterm context. The latter two full-text accounts were examined for mathematical implication, including differences between open-neighbor and self-inclusive conventions. The known one-step NOR periodicity and the complete-bipartite no-deletion case are expressly treated as antecedents. The new assertion is the explicit matching-defect-dependent orbit and **individual basin** classification. No covering exact family theorem was identified in the actual searches. A full extraction of the 2011 paper was unavailable, and an unindexed older result could overlap; the originality judgment is qualified by these limitations rather than stated as a guarantee of historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves the full finite dynamical classification for a natural infinite family containing the crown graphs and all partial missing matchings. Removing \(k\) independent edges creates \(k\) stationary states but \(k(k+3)/2\) new primitive two-cycles, a meaningful divergence in recurrence complexity. Simultaneously, a single specified oscillation attracts an asymptotic fraction one of random initial states, uniformly even when the missing matching is as large as possible. This exact coexistence of quadratic attractor proliferation and macroscopic basin concentration is a natural dynamical invariant with value independent of the code and verification alone.
+Open-NOR on graph joins, F³=F and the general fixed-state link to independent sets are known and not claimed new. The explicit k-dependent orbit creation, all individual basin fibers and uniform giant-basin limit were not established by inspected general graph Boolean dynamics literature, subject to an uninspected full 2011 fixed-point paper.
 
-## Boundaries and remaining uncertainty
+## value
 
-The result does not cover overlapping deleted edges, other local Boolean rules, stochastic updates or nonuniform initial distributions. The research compares accessible earlier statements by implication and does not assert uniqueness from an unsuccessful search. It is a self-contained mathematical proof with finite computational corroboration; there has been no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact attraction-basin spectrum detects a nontrivial phenomenon: deleting k disjoint edges creates quadratic numbers of oscillations while almost every initial configuration still enters one universal 2-cycle. It is a motivated complete family classification beyond qualitative period bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
