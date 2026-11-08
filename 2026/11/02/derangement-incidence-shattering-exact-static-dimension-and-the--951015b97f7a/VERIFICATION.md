@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python verify_derangement_learning.py derangement_depth4_witness.json` with Python 3 and no third-party packages. The program enumerates all derangements through size eight for the fixed cyclic-support checks, exhaustively computes the VC dimension through size five, checks all 16 root-to-leaf paths of the adaptive depth-four witness, and verifies the positive root-branch bound of eleven. The expected output is embedded in `verification_output.txt`.
+# Independent mathematical audit
 
-## Proof coverage and limits
-The all-order static formula depends on the explicit Hall argument in `RESULT.md`, not on the finite verifier. The five-element adaptive lower bound depends on the complete certificate: each leaf permutation is checked against every query on its path; the upper bound follows because every possible root query leaves only eleven positive concepts and a depth-five full tree would require sixteen in that branch. The verifier is not an independent audit. Historical priority remains uncertain.
+## correctness
+
+PASS
+
+All-n VC upper proof uses the unused row/column completion obstruction for n-1 positive queried edges; lower proof uses the cyclic partial matching and Hall on a forbidden 2n-cycle. Finite Littlestone statement n<=5 follows from independent dynamic recursive concept-set splitting and the positive-branch cardinal bound (11<16 for n=5); no n>=6 Littlestone formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge: direct mathematical comparison with published primary sources, Resultary semantic searches and four alias/implication checks; known component theorems and possible indirect consequences are explicitly credited.
+
+## value
+
+PASS
+
+Exact combinatorial dimensions of natural restricted perfect-matching incidence concepts and the first nontrivial separation of adaptive from static edge-membership learning; explicit all-n VC theorem and a finite minimal online witness are useful structural facts, not a rote substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
