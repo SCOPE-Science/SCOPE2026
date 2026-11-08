@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The submitted `verify.py` uses only the Python standard library. From the extracted package directory, run `python3 verify.py`.
+## correctness
 
-Expected exact output:
+PASS
 
-`VERIFY_OK width_length_cases=288 base_support_cases=6 matrix_rank_identities=4 direct_assignments=74954`
+The boundary equations imply a deterministic F_2 column recurrence v_{j+1}=B_w v_j+v_{j-1}, v_0=v_{n+1}=0, whose first zero-index and intervening ranks at widths 1..4 can be evaluated exactly in 4x4-or-smaller matrices. The zero column at each admissible period yields reflected block replication and scales weights and support union sizes by t for every length. All seed states and subspaces at six base configurations are finitely exhausted; independently checked width-length pairs 1<=w<=4,1<=n<=18 and full rank-support histograms for 4x4 (r1 13/2, r2 22/12/1, r3 4/8/3, r4 1), matching theorem.
 
-The check computes all binary first-column seeds at widths one through four and lengths one through 72, verifies the recurrence-based weight counts and each vertex's closed-neighborhood parity equation, enumerates every finite-base subcode through independent span generation and deduplication, and checks prime patterns. A separate brute-force method enumerates all \(74{,}954\) binary arrays in the sixteen grids of dimensions at most \(4\times4\) to compare parity equation counts directly.
+## originality
 
-The general proof uses the identity \(F_p(B)=0\), invertibility of \(F_{p-1}(B)\), and reflection about all-zero separator columns, so no infinite-length claim is inferred from finite testing. The 2002 primary reference was not completely accessible, leaving historical-priority uncertainty; no independent audit has been performed.
+PASS
+
+The Fibonacci-polynomial recurrence, binary nullity counts and prime-nullspace criteria are prior. The precise fixed-width Hamming enumerators, two-weight onset at w=4, and all generalized-support profiles for arbitrarily long strips are additional quantitative statements not found in the inspected 2026 primary article.
+
+## value
+
+PASS
+
+Weight distributions and support hierarchies are natural invariants governing erasure resilience and nullspace code structure; the first two-weight rectangular-grid transition is a coherent width boundary and the full infinite-length classification is useful beyond a single finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
