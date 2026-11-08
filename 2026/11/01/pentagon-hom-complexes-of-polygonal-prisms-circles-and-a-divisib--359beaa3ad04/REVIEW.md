@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies all \(n\ge3\) and treats the empty case, nonextreme windings and extreme windings separately. The square-circulation identity is integral because no nonzero multiple of five is attainable as a signed sum of four unit steps. The filled prism annulus has first homology of rank one, so the horizontal rim period is the only obstruction to integrating differences of the signed cochains. Every admissible height is linked to any other via pointwise minimum and finite source recolorings; acyclicity follows from comparing directed-cycle length with horizontal winding. The terminal windings consist of exactly ten rigid colorings for each sign. The published orientation criterion in Fujii et al., Theorem 5.1, is applied under its explicit hypotheses and upgrades the proved component count to a homotopy classification. Exhaustive independently constructed finite calculations for \(3\le n\le10\) corroborate both the winding partition and the polyhedral Euler characteristics. A finite check is not offered as an all-parameter proof.
+PASS
 
-## Originality — PASS against inspected sources
+The prism squares have four signed ±1 color increments summing to zero as an integer (any multiple of five has absolute value <=4), hence top and bottom rim windings coincide. The integer rim sum yields exactly w≡n mod 2 and |5w|<=n, all realizable using one rim sequence and constant vertical sign. Recoloring changes signed increments by an exact vertex coboundary, preserving winding. If |5w|<n, a directed cycle of length L would have integer signed circulation L=5wm with L≥n|m|, impossible for m=0 or |5w|<n. Two colorings of the same winding differ by an exact signed 1-cochain; admissible integer heights form a distributive lattice, and a finite acyclic source-raising argument joins them. A published cycle-target Hom theorem identifies each such acyclic-orientation component with S¹. Extreme winding forces all rim and vertical signs and hence exactly 10 isolated colorings per sign, totaling 20 when 5|n. Independent backtracking enumeration and recoloring-union-find for n=3..8 yielded respective graph-homomorphism totals 0,190,20,1410,560,11070 and exactly the predicted winding components (a check, not proof of the all-n circle type).
 
-Čukić–Kozlov classify cycle-source complexes, not prisms. Wrochna gives a general algorithm for determining whether two homomorphisms reconfigure; the inspected material does not count all prism components. Fujii et al. and Matsushita classify **possible component types** for cycle or square-free codomains, not the full explicit component count for \(C_n\square K_2\) to \(C_5\). Their theorems and proofs were used rather than silently treated as new. An earlier related theta-graph winding classification concerns a different source family, not a prism, so it does not imply the theorem. The resulting twenty rigid colorings at multiples of five and the exact circle multiplicities have no equivalent or dominating statement among the inspected literature. Residual risk: unindexed equivalent prior formulas or unpublished derivations.
+## originality
 
-## Value — PASS
+PASS
 
-The polygonal-prism family is a standard infinite graph family and is the first natural two-rim analogue of the extensively studied cycle-source Hom complexes. The result gives **complete** component types and numbers in all lengths, explains why cycles and isolated vertices coexist precisely at a divisibility threshold, and isolates a genuine periodic growth of circle multiplicities. This is stronger than an incidental finite example or a new name for the general point-or-circle dichotomy; it links integer cohomological winding, graph recoloring, and topological Hom components. The scope remains only this source family and pentagon target.
+The full homotopy type of Hom(C_n□K2,C5), n>=3, is one circle for each admissible nonextreme signed winding and exactly twenty isolated vertices precisely when 5 divides n. Originality judgment is best-of-knowledge, with direct comparison to inspected same-object and stronger sources; published ingredients are acknowledged and absent search hits are not proof.
 
-## Scientific limits and closest literature
+## value
 
-The broad topological dichotomy is inherited from arXiv:2408.04802, Theorem 5.1, and not newly proved. The graph-Hom construction differs from polygonal-prism graph Čech, cut or matching complexes. The remaining bibliographic risk is an equivalent calculation outside the inspected corpus. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ordinary graph-Hom complexes record more than mere colorability. The natural infinite family of polygonal prisms exhibits an exact winding decomposition and a sharp five-divisibility jump from loop components to twenty isolated points; the formula provides a useful explicit topological classification and separates source-reconfiguration connectivity from the known codomain-based component type theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

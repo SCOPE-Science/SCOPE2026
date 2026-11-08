@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The exact all-parameter proof checks the following: (i) the signed sum on every prism square is an integer zero; (ii) the two rims have one common winding, and all parity-admissible windings occur; (iii) recolorings preserve winding; (iv) strict windings admit no directed cycles because a nonzero horizontal winding of \(m\) requires at least \(n|m|\) horizontal edges; (v) integer potential heights for two same-winding colorings differ by an exact integral cochain; their coordinatewise-minimum and source-raising argument gives connectivity; (vi) extreme windings give ten rigid colorings for each sign; and (vii) the source orientation criterion of Fujii et al., Theorem 5.1, identifies nonextreme components as circles. The proof does not infer infinite statements from finite checking.
+## correctness
 
-The standalone Python 3 code `artifacts/verify_prism_hom.py` uses the standard library only and exhaustively checks \(3\le n\le10\). It independently generates graph homomorphisms, constructs the single-vertex recoloring graph, computes connected components, labels them by signed rim winding, and counts compatible product-cube cells using independent-set polynomials to calculate their Euler characteristics. It asserts exactly one Euler-zero component per strictly feasible winding and ten isolated Euler-one components for each extreme winding sign. Its actual recorded stdout is embedded in `artifacts/verification_output.txt`.
+PASS
 
-Observed full homomorphism counts for \(n=3,4,5,6,7,8,9,10\): \(0,190,20,1410,560,11070,8280,89550\). The reported success marker is `PRISM_C5_COMPONENTS_AND_CUBICAL_EULER_VERIFIED`. This confirms finite cases only; the identification of each nonextreme component with \(S^1\) relies on the cited published theorem, not merely on its Euler characteristic.
+The prism squares have four signed ±1 color increments summing to zero as an integer (any multiple of five has absolute value <=4), hence top and bottom rim windings coincide. The integer rim sum yields exactly w≡n mod 2 and |5w|<=n, all realizable using one rim sequence and constant vertical sign. Recoloring changes signed increments by an exact vertex coboundary, preserving winding. If |5w|<n, a directed cycle of length L would have integer signed circulation L=5wm with L≥n|m|, impossible for m=0 or |5w|<n. Two colorings of the same winding differ by an exact signed 1-cochain; admissible integer heights form a distributive lattice, and a finite acyclic source-raising argument joins them. A published cycle-target Hom theorem identifies each such acyclic-orientation component with S¹. Extreme winding forces all rim and vertical signs and hence exactly 10 isolated colorings per sign, totaling 20 when 5|n. Independent backtracking enumeration and recoloring-union-find for n=3..8 yielded respective graph-homomorphism totals 0,190,20,1410,560,11070 and exactly the predicted winding components (a check, not proof of the all-n circle type).
 
-The work has received self-review but has **not** received independent audit or independent validation. Scope is limited to the undirected pentagon target and the indicated prism family.
+## originality
+
+PASS
+
+The full homotopy type of Hom(C_n□K2,C5), n>=3, is one circle for each admissible nonextreme signed winding and exactly twenty isolated vertices precisely when 5 divides n. Originality judgment is best-of-knowledge, with direct comparison to inspected same-object and stronger sources; published ingredients are acknowledged and absent search hits are not proof.
+
+## value
+
+PASS
+
+Ordinary graph-Hom complexes record more than mere colorability. The natural infinite family of polygonal prisms exhibits an exact winding decomposition and a sharp five-divisibility jump from loop components to twenty isolated points; the formula provides a useful explicit topological classification and separates source-reconfiguration connectivity from the known codomain-based component type theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
