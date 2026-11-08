@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof is self-contained after the cited, established shadow-determinant characterization. Its critical algebraic identities are the five-site matching polynomial, the scalar reduction \(Q=u(S-u)-x_2x_3\), the piecewise minimum of \(Q\) on a bounded simplex, and the least-singular-value inequality. The exact transition values follow from solving \(q=(1+q)^2/9\) and the equality-feasibility condition \(1-q\le2q\).
+## correctness
 
-Run `python CHECK.py` to repeat supplementary finite sampling and exact invariant calculations. The completed run produced `CHECK_OK 3817 cases`. The checker has no external packages or data files. It does not certify a universal optimization claim: the analytical reduction and equality arguments in `RESULT.md` are the proof.
+PASS
 
-The infimum is genuinely not attained among strictly positive edge weights when \(0<q\le(7-3\sqrt5)/2\). Its positive approximants share the exact shadow, not an approximate shadow. This remains distinct from establishing publication priority. No independent validation has been undertaken.
+For five-site positive nilpotent complex shifts, the Haar-shadow determinant equality reduces exactly to S=sum x_j=1+q and Q=x1x3+x1x4+x2x4=q after scaling by 2lambda1. Minimizing operator norm is minimizing t=max x_j. The cap-constrained matching quadratic has a piecewise exact lower envelope Q_min=2St-5t^2 for S/4<=t<=S/3 and t(S-2t) for S/3<=t<=S/2; its equality cases give the two lower-q branches and strict-positive nonattainment. A bipartite singular-value Rayleigh quotient proves q<=max(x1,x4)<=t, attained iff x1=x4=q and positive middle weights exist, giving high-q branch. Checked actual CHECK.py and independent numerical allocations/Q_min tests; samples are not used as global proofs. Endpoints q_star and 1/3 and topology of minimizers (two, one, interval) are accounted for.
+
+## originality
+
+PASS
+
+Comparing mathematical statements rather than titles, full primary text and domain distinctions indicate the exact final all-parameter claim is not covered by the inspected prior theorems. Earlier frameworks explicitly acknowledged; historical priority is best-of-knowledge, not independently certified. Established equality-of-shadows determinant criterion used here; no minimum operator norm on five-site isoshadow fibre Classification/topology of isospectral Jacobi spaces; no sharp minimax largest-off-diagonal problem or two phase-transition formulas Possible related prior coverage remains an unresolved historical-priority risk, not treated as a proof of noncoverage Possible related prior coverage remains an unresolved historical-priority risk, not treated as a proof of noncoverage
+
+## value
+
+PASS
+
+Complete Haar numerical-shadow fibres are natural inverse-data equivalence classes for matrices. The sharp norm infimum, failure of attainment and switch from isolated to continuously many minimizers are informative geometry of a five-parameter inverse spectral fibre; not a mere renaming of general shadow uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

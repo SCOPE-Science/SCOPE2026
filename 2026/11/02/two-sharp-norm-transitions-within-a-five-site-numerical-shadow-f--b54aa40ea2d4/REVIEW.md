@@ -1,19 +1,21 @@
-# Scientific assessment: five-site shadow-fibre norm minimization
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The exact determinant recurrence for five-site nilpotent shifts reduces equality of complete Haar numerical shadows to a fixed sum and matching quadratic of four positive squared edges. With a fixed maximum-edge cap, the quadratic minimization reduces to a one-variable, piecewise-concave function whose endpoint minima give the two algebraic branches. A least-singular-value test of the bipartite Hermitian part supplies the sharp third branch. Explicit positive and boundary allocations prove attainability/nonattainability, and equality conditions classify every positive minimizer. The companion finite checker returned `CHECK_OK 3817 cases`, which is supplementary and is not substituted for the proof.
+PASS
 
-## Originality
+For five-site positive nilpotent complex shifts, the Haar-shadow determinant equality reduces exactly to S=sum x_j=1+q and Q=x1x3+x1x4+x2x4=q after scaling by 2lambda1. Minimizing operator norm is minimizing t=max x_j. The cap-constrained matching quadratic has a piecewise exact lower envelope Q_min=2St-5t^2 for S/4<=t<=S/3 and t(S-2t) for S/3<=t<=S/2; its equality cases give the two lower-q branches and strict-positive nonattainment. A bipartite singular-value Rayleigh quotient proves q<=max(x1,x4)<=t, attained iff x1=x4=q and positive middle weights exist, giving high-q branch. Checked actual CHECK.py and independent numerical allocations/Q_min tests; samples are not used as global proofs. Endpoints q_star and 1/3 and topology of minimizers (two, one, interval) are accounted for.
 
-**PASS (best-knowledge same mathematical model literature comparison).** The numerical-shadow determinant criterion, the general radial density formula, and zero-diagonal Jacobi isospectral geometry are published prior inputs. The closest 2026 rigidity paper classifies dimension three, and existing four-site shadow-norm analyses concern a one-dimensional feasible fibre. None of these statements yields the exact five-site three-branch maximum-edge minimum with distinct attainment transitions and a continuous family of minimizers above the second threshold. Older inverse-eigenvalue minimax literature may contain an equivalent formulation; publication priority is not independently established.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The complete shadow is an experimentally meaningful distributional operator invariant, but it does not fix the operator norm. The theorem quantifies the *smallest possible norm consistent with the entire shadow* on the first two-dimensional strictly positive nilpotent-shift fibre. The exact thresholds distinguish unattained, two-point, unique, and continuum minimizer regimes. They determine sharp boundaries of norm identifiability rather than a minor numerical improvement.
+Comparing mathematical statements rather than titles, full primary text and domain distinctions indicate the exact final all-parameter claim is not covered by the inspected prior theorems. Earlier frameworks explicitly acknowledged; historical priority is best-of-knowledge, not independently certified. Established equality-of-shadows determinant criterion used here; no minimum operator norm on five-site isoshadow fibre Classification/topology of isospectral Jacobi spaces; no sharp minimax largest-off-diagonal problem or two phase-transition formulas Possible related prior coverage remains an unresolved historical-priority risk, not treated as a proof of noncoverage Possible related prior coverage remains an unresolved historical-priority risk, not treated as a proof of noncoverage
 
-## Closest literature and limitations
+## value
 
-Relevant sources: Dunkl et al., *Numerical shadows: measures and densities on the numerical range*, arXiv:1010.4189 (complete-shadow determinant equivalence and radial data); Johnson, *Numerical Shadow Rigidity for 3×3 Matrices*, arXiv:2610.29675v1 (three-dimensional rigidity); Penskoi, *The Volterra system and topology of the isospectral variety of zero-diagonal Jacobi matrices*, arXiv:math-ph/0701061 (isospectral geometry); and Martínez Torres, *The topology of tridiagonal isospectral sets*, arXiv:2609.05733 (broader topological classification). The result is not a claim about arbitrary shadow-equivalent matrices, larger shifts, or a sharp upper norm bound. Publication priority and independent mathematics review remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete Haar numerical-shadow fibres are natural inverse-data equivalence classes for matrices. The sharp norm infimum, failure of attainment and switch from isolated to continuously many minimizers are informative geometry of a five-parameter inverse spectral fibre; not a mere renaming of general shadow uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
