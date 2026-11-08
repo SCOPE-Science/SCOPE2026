@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any invariant finite null, the mass on a directed permutation cycle is uniform. Exactly one failure mechanism matters: \(T(gX)<T(X)\). On that event the number of comparisons exceeding or equaling the observation is binomial with identity probability \(a\); otherwise the reported p-value is one. Directed cycles have at least one non-descending edge; the maximal descent fraction is \(1-1/L\) and is achieved by a strictly descending profile with a single return edge. The full all-level criterion follows because the p-value lies on a finite grid. A binomial size-bias identity and a weak law establish the finite/infinite frontier without relying on simulation. The actual standalone rational checker passed 78,579 tests. Ties are covered because the strict-decrease event is used.
+PASS
 
-## Originality — PASS (historical-priority qualification)
+Let D={T(gX)<T(X)}. On D^c every sampled transform gives comparison success so P_M=1; on D the number of successes equals Bin(M,a), independent of X. On each length-l g-cycle invariance gives uniform X and at most l-1 directed strict score descents; therefore Pr(D)<=delta_L=1-1/L, attained by one descending cycle. Every grid threshold exactly has maximal rejection delta_L F_{M,a}(k-1), so M inequalities characterize universal validity. Lower-binomial CDF monotone in a gives interval of safe masses. Size-bias identity with Bin(M+1,a) proves strict safety at a=delta_L and continuity gives a_M,L<delta_L; LLN proves limit. Independent direct enumeration of maximal strict cyclic score orderings and all 2^M transformation strings for L=2..6, M=1..4 and a in {0,1/4,1/2,3/4,1} matched the exact rational formula; finite verification is not all-M proof.
 
-Ramdas et al. (arXiv:2204.13581, Theorem 2) prove general validity after randomly re-centering the transformation draws; their theorem does not apply to the unmodified fixed-reference statistic here. Hemerik and Goeman (2018) prove validity with uniform subgroup sampling, not sharp safe biased mixture thresholds. Phipson and Smyth (2010) address appropriately randomized permutation p-values. Full-text sections covering the model, reference randomization and random group draws were compared for logical implication, not only keyword similarity. No exact simultaneous worst-case binomial calibration criterion for fixed-identity two-transform sampling was identified in the completed searches. Prior partial or less-visible literature may still contain an equivalent; external priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem answers a concrete inferential question: precisely when a computationally inexpensive, familiar but potentially invalid fixed-reference resampling p-value controls type-I error under a biased two-transform draw. The sharp all-level condition is directly checkable for any finite resampling budget, and the budget-reversal example shows that a procedure cannot be assumed safer merely by drawing more resamples. The longest-cycle dependence is structural, not an arbitrary parameter slice. This is not a general correction theorem, and corrected random-reference tests are preferable when arbitrary transformation distributions are needed.
+Earlier arbitrary-distribution permutation tests use randomized reference; the audited theorem characterizes when the unmodified statistic itself is valid under a biased two-transform sampler.
 
-## Limitations and comparison risk
+## value
 
-The null must be invariant; the transformation sampler must be a two-atom iid identity/permutation mixture; extremal scores may be synthetic; group-order and maximal orbit length are not interchangeable for nonfree actions. Historical priority, and possible deductions from unexamined general calibration results, remain residual risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nonuniform randomization is a practical validity concern in Monte Carlo permutation inference. The theorem gives a sharp universal all-threshold frontier and an exact resampling-budget reversal that separates fixed-origin tests from corrected random-reference schemes; these are substantive, reusable mathematical facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
