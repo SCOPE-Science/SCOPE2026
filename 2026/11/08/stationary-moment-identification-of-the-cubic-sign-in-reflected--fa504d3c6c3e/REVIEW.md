@@ -1,0 +1,21 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem is stated for a strictly elliptic scalar diffusion reflected at two known finite endpoints. Zero stationary probability flux yields the positive quartic-exponential density. At fixed variance, the fourth moment has a strictly positive derivative with respect to quartic tilt; strictness follows from strict Cauchy–Schwarz because the law is positive on an interval. A separate integration by parts uses test functions that vanish at both endpoints and yields a two-by-two system. Its determinant is a strictly positive weighted variance. These steps prove the signs and explicit drift-to-noise ratios for *all* real coefficients. The standalone verifier passed 26 numerical checks; it is diagnostic only. The principal risk is interpretational: the stationary theorem does not apply to killed or unreflected subcritical paths.
+
+## Originality — PASS within inspected prior work
+The October 2026 noisy-pitchfork paper fits linear and cubic coefficients from temporal increments, not static moments from a reflected stationary distribution. The generic reflected stationary-density formula is already established by Miyazawa, and general moment inference is already established by Pavliotis–Zanoni: neither is attributed to this result. Classical exponential-family theory gives two-statistic identifiability in general, so the bare existence of identification is also not presented as new. The assessed statement is the **sharp model-specific sign divider and insufficiency of variance alone, together with an explicit four-even-moment rational reconstruction that eliminates all unknown boundary densities and local times**. The unreflected polynomial-diffusion moment equations in Pavliotis–Zanoni lack the reflecting-boundary cancellation and do not directly imply this rational system. Earlier reflected Ornstein–Uhlenbeck estimation concerns a linear drift. Semantic mathematical-record searches for reflected cubic drift, stationary moments, and pitchfork identification found no equivalent assertion among their closest hits; this is evidence of checked overlap, not uniqueness. Broad historical literature may still contain equivalent special formulas; independent priority confirmation remains appropriate.
+
+## Mathematical value — PASS
+Confinement makes the subcritical cubic noisy model have a legitimate equilibrium law, unlike its potentially escaping unreflected counterpart. A sharp state-only diagnostic can therefore classify the underlying interior pitchfork sign without recording temporal derivatives, noise strength, or reflection regulators, in a regime directly relevant to noisy transition classification. The minimal two-moment criterion and its exact eighth-moment alternative clarify the observability-versus-algebraic-invertibility tradeoff. This is a motivated finite-dimensional inverse result, not a generic moment substitution or an arbitrary parameter slice. No finite-sample accuracy or extrapolation to unconstrained escapes is asserted.
+
+## Closest sources and limitations
+- Sanders, Kuehn, Hilder, Bastiaansen (2026), arXiv:2610.38866v1, sections 2–3: same cubic-sign target; unreflected, time-increment regression.
+- Miyazawa (2024), arXiv:2410.11496, section 4: general reflected stationary distribution, covering the known zero-current density used as a premise but not the parameter-sign reconstruction.
+- Pavliotis and Zanoni (2022/2024), arXiv:2212.00403v2, section 3 and experiments: prior unbounded polynomial moment estimators; no boundary-cancelling reflected cubic formula.
+- Hu, Lee, Lee, Song (2015), DOI:10.1007/s11203-014-9112-7: reflected linear Ornstein–Uhlenbeck moment estimation; abstract and metadata examined, complete primary text not available in this check.
+- Hu and Xi (2021), DOI:10.1016/j.spl.2021.109099: all-parameter reflected linear Ornstein–Uhlenbeck inference; abstract and metadata examined, complete primary text not read.
+
+Both exact integrals and algebraic inversion assume a known reflecting interval and constant additive noise. The unknown noise time scale can never be separated from the two drift coefficients using the stationary distribution alone.
+
+Self-review: passed. Independent audit: not yet performed.
