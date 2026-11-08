@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:52:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/conditional-sign-reversal-for-fixed-points-and-inversions-in-a-p--f30d3de5d0f1/RESULT.md blob 88d625c7df546f03d930b2d5e13ec7ec3f6fcd6c at fixed commit",
+        "2026/11/02/conditional-sign-reversal-for-fixed-points-and-inversions-in-a-p--f30d3de5d0f1/verified code blob 05521f493a3050b0f151a40f186aadc91bca986d"
+      ],
+      "rationale": "For one pass of independently cut in-place packet reversal from the identity, a packet of length l contributes 1_{l odd} fixed positions and l(l-1)/2 inversions. Turning a cut on increases F weakly and decreases I strictly; Harris product-measure inequality with a strictly influential cut proves unconditional Cov<0. Given M=m packets, all positive compositions are uniform: parity/stars-bars yields the precise F support and distribution; uniform weak-composition factorial moments give the increasing exact conditional regression and nonnegative covariance, strict exactly when 2+(n mod2)<=m<=n-2. The fixed-p multivariate renewal-reward CLT for geometric lengths yields the stated Sigma and correlation -(1+q^2)/(1+q)^2; terminal geometric residual is negligible and exponential moments justify covariance convergence. Independent enumeration all compositions for n=2..11 and multiple rational p corroborated finite formulas and signs. Reconstructed complete Git tree.",
+      "residual_risks": [
+        "One in-place packet reversal from identity, not globally reversed physical deck, repeated shuffles, or dependent cuts.",
+        "The Gaussian covariance limit is for fixed 0<p<1; finite enumeration does not prove the CLT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general renewal-reward CLT supplies Gaussianity of sums of packet rewards, acknowledged as existing.",
+          "Jiang establishes shuffling mixing and spectral results but no conditional exact F/I sign theorem."
+        ],
+        "reasoning": "A general CLT can imply the Gaussian mechanism (not a novel general limit theorem), but cannot directly supply the finite strict sign reversal and exact stars-and-bars regression without additional argument.",
+        "searches": [
+          "arxiv:2610.00137v1",
+          "Bender Canfield 2009 Locally Restricted Compositions II",
+          "multivariate renewal reward central limit theorem"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.00137v1",
+        "doi:10.1007/BF01048267",
+        "doi:10.37236/197",
+        "Archibald et al 2020 JIS",
+        "Resultary query 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The packet reversal identity F=sum odd lengths and I=sum choose(length,2), followed by Harris and weak-composition regression, yields opposing signs.",
+          "The physical overhand shuffle may globally reverse the deck, changing F/I statistics even if mixing distances match."
+        ],
+        "reasoning": "The new finite sign classification and all equality cases are not a direct corollary of one-card mixing or general random-composition CLTs.",
+        "searches": [
+          "arxiv:2610.00137v1",
+          "Archibald et al 2020",
+          "Resultary semantic query 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang studies the same independent-cut packet-reversal model but its one-card spectra and mixing are not joint fixed-point/inversion covariances.",
+          "Archibald et al. inversion counts compare composition PARTS, not card-pair inversions inside reversed packets."
+        ],
+        "reasoning": "Shuffle terminology and composition inversion terminology are distinct. The exact F,I conditional law is not equivalent to published mixing or part-inversion statistics.",
+        "searches": [
+          "overhand shuffle independent packet reversal fixed points inversions covariance conditioning descent count",
+          "arxiv:2610.00137v1",
+          "Archibald Blecher Knopfmacher Mays Inversions and Parity in Compositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a uniform permutation inversion-incidence precision law and a uniform-permutation fixed-point–descent boundary law, not Bernoulli packet reversals."
+        ],
+        "reasoning": "No existing exact table for these conditional packet-reversal covariances was located; this is bounded search evidence only.",
+        "searches": [
+          "overhand shuffle independent packet reversal fixed points inversions covariance conditioning descent count",
+          "Resultary semantic query 2",
+          "uniform permutation fixed point descent covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct combined claim survives comparison with actual relevant sources; precisely prior components are credited, and inaccessible or possibly dominating material is named as a priority risk, not treated as proof of noncoverage. The new finite sign classification and all equality cases are not a direct corollary of one-card mixing or general random-composition CLTs.",
+      "residual_risks": [
+        "The multivariate renewal-reward central limit is classical; only the exact model-specific covariance constants are assessed.",
+        "A broader unindexed conditioned composition regression result might imply the finite formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PROCESS_DIFFERENT_STATISTICS",
+          "evidence": "The HTML states the independent Bernoulli cuts and packet reversals; principal results concern cutoff and mixing, not sign reversal of F/I conditional covariances.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00137v1",
+          "material_read": "Read accessible full HTML: introduction, precise independent cut/reversal model, one-card spectral and mixing results, and relevant theorem statements; searched fixed-point/inversion terms",
+          "method": "primary full HTML and targeted find",
+          "title": "Cutoff for the Overhand Shuffle",
+          "trigger": "Identical packet-reversal construction and contemporary source"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "Counting inversions of part values is not sum_l binom(l,2) in a packet-reversal permutation.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL23/Archibald/arch3.html",
+          "material_read": "Reviewed abstract and formulation of inversion-between-parts versus within-packet card inversions; complete related formulation material",
+          "method": "journal HTML",
+          "title": "Inversions and Parity in Compositions of Integers",
+          "trigger": "Potential equivalent statistic via composition encoding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/conditional-sign-reversal-for-fixed-points-and-inversions-in-a-p--f30d3de5d0f1/RESULT.md",
+        "arxiv:2610.00137v1",
+        "doi:10.1007/BF01048267",
+        "doi:10.37236/197",
+        "Archibald et al 2020 JIS",
+        "Resultary query 2"
+      ],
+      "rationale": "Counterintuitive exact sign reversal under conditioning on observable descents (since M=n-descents) is a nontrivial finite combinatorial dependence law; the explicit regression/equality strata and limiting Gaussian covariance provide a useful quantitative statistic for this natural shuffle.",
+      "residual_risks": [
+        "The multivariate renewal-reward central limit is classical; only the exact model-specific covariance constants are assessed.",
+        "A broader unindexed conditioned composition regression result might imply the finite formulas."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One in-place packet reversal from identity, not globally reversed physical deck, repeated shuffles, or dependent cuts.",
+    "The Gaussian covariance limit is for fixed 0<p<1; finite enumeration does not prove the CLT.",
+    "The multivariate renewal-reward central limit is classical; only the exact model-specific covariance constants are assessed.",
+    "A broader unindexed conditioned composition regression result might imply the finite formulas."
+  ],
+  "schema_version": 1
+}
