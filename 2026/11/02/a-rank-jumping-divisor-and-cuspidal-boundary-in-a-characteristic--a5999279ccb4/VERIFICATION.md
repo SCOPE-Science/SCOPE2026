@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Algebraic verification
+# Independent mathematical audit
 
-Execute `python verify_net.py` with Python 3 and SymPy. It computes in characteristic three and checks the transposed Hasse–Witt coefficient matrix obtained from all sixteen coefficients of \((PQ)^2\), the identity \(\det B=s\), the permanently invertible minor, the quintic-discriminant resultant, and the two specializations. The observed completion token is `CHAR3_BIELLIPTIC_NET_RESULTANT_HASSE_RANK_CUSP_EXACT_PASS`.
+## correctness
 
-The certificate is a finite exact polynomial-identity check, not an exhaustive enumeration of arbitrary algebraically closed fields. Geometric connectedness, genus, local cusp type, normalization genus, Newton slopes, moduli dimension, and the exclusion of singular fibers outside \(V(\Delta)\) are justified by the independent symbolic-and-geometric arguments in `RESULT.md`. Earlier priority cannot be certified by a finite literature search. Independent audit: not performed.
+PASS
+
+In char 3 the smooth elliptic base has Hasse invariant zero; branch divisor q=XY+sXZ+tZ² has a simple zero at infinity. The eliminated quintic F=x^5+x^3+(1-s²)x²+stx-t² has Res_x(F,F')=t²Delta, with t=0 handled separately. Exact coefficient expansion of (P Q)^2 in the Koszul monomial basis independently reproduces H=[[0,0,0,0],[0,s,-1,s+t],[0,0,0,1],[0,0,-1,s]], whose 3x3 block determinant is s and surviving 2x2 block invertible. One-step/stable rank yields f,a=(3,1) off s=0 and (2,2) on it, and Newton slopes follow from residual dimension ≤2. The boundary Delta(0,t)=-(t²+1)^3 gives two order-three contacts, with local w²=u³ cusps and genus-three normalizations. Distinct degree-six branch divisors modulo finite automorphisms establish two moduli dimensions.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: broad genus-four bielliptic curves, Hasse–Witt algorithms, and general p-rank stratification are prior. The special characteristic-three two-parameter net's complete reduced rank-drop divisor, exact discriminant intersections and cuspidal boundary were not found covered.
+
+## value
+
+PASS
+
+The complete geometric and arithmetic stratification of a natural explicit genus-four elliptic-double-cover net is valuable: reduced p-rank-jump equation, precise Newton polygons and scheme-theoretic cuspidal boundary locate a meaningful degeneracy. Exact all-parameter equations and multiplicities go beyond generic existence and are not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
