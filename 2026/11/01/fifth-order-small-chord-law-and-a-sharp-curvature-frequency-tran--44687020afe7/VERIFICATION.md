@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The accompanying `verify_curve_tail.py` is a standalone SymPy/NumPy/SciPy program. Run `python verify_curve_tail.py` to reproduce exact symbolic checks of the Frenet frame through the fifth derivative, the symmetric midpoint chord squared to sixth order, series inversion, periodic integral coefficient, harmonic curvature energies, fourth-to-fifth sign threshold, and exact arcsine CDF of a circle. It also computes independent direct quadratures of the chord integral and positive inverse-radius for modes \(n=2,4,5,12\) at two thresholds each. Successful execution prints:
+## correctness
 
-`VERIFY_OK Frenet_series=6 inverse_series=1 exact_fourier=2 circle=1 numerical_cases=8`
+PASS
 
-The numeric comparisons check the Taylor error scale, not an infinite theorem. The proof of the general asymptotic is in RESULT.md, based on uniform local Taylor remainder and compact embeddedness. No finite-sample convergence guarantee is made, and the asymptotic remainder is not uniform over high-frequency curve families.
+For embedded C8 strictly convex arclength curve, compactness localizes small Euclidean chords near the diagonal. Midpoint coordinates u=(s+s')/2,h=s'-s give probability 2/L² times the integral of positive inverse chord length H(u,t). Frenet differentiation yields chord length h-kappa²h³/24+[kappa⁴/1920-kappa kappa''/480-(kappa')²/1440]h⁵+O(h⁷); formal inversion and periodic integration by parts produce the displayed t⁵ coefficient (3/320)int kappa⁴-(1/360)int(kappa')². Total curvature 2pi gives sharp circle cubic minimum. Harmonic theta(s)=rho s+(a/n)sin(n rho s), n>=2, makes a closed positive-curvature curve; exact curvature averages give coefficient difference rho⁴ a²/L[9/320-n²/720+9a²/2560], positive for modes 2–4, negative for >=5, tending to minus infinity for n->infty at fixed a. Error is O_Gamma(t⁷) separately for each fixed curve.
+
+## originality
+
+PASS
+
+Smooth-curve pair-proximity correlation integral is known and prior work Hein–Audibert covers the leading curvature correction (cubic here), while exact circular law is classic. The best-of-knowledge novel content is the general fifth-order coefficient with a negative curvature-gradient energy and sharp harmonic mode transition/unboundedness. Generic higher-order kernel asymptotics may imply that coefficient; no such dominating explicit formula was located and direct full-text coverage is incomplete.
+
+## value
+
+PASS
+
+The fifth coefficient separates curvature amplitude from derivative energy in an intrinsic arclength-sampled Euclidean chord statistic. The contrast between sharp cubic circle minimum and unbounded-below fifth coefficient, with precise mode-4/mode-5 transition, is a motivated structural phenomenon across natural smooth closed curves, not a known-circle recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

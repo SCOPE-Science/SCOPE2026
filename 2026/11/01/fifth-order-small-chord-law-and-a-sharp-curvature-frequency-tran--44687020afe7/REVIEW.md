@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is a fixed embedded \(C^8\) strictly convex arclength curve with positive curvature. Compact embeddedness ensures every sufficiently short ambient chord is local and lets midpoint-arclength coordinates parametrize exactly two nearby endpoints. The Frenet-frame expansion, fifth-order inversion, periodic integration by parts, strict cubic extremum, and closed harmonic examples all have self-contained proofs in RESULT.md. The executable verifier checks the algebra, exact circle law, harmonic averages and eight separate direct numerical chord integrals. All essential nonstandard coefficients are derived, not inferred from fitting data. The error term is fixed-curve \(O_\Gamma(t^7)\); no uniform high-frequency estimate is claimed.
+PASS
 
-## Originality — PASS, provisional priority
+For embedded C8 strictly convex arclength curve, compactness localizes small Euclidean chords near the diagonal. Midpoint coordinates u=(s+s')/2,h=s'-s give probability 2/L² times the integral of positive inverse chord length H(u,t). Frenet differentiation yields chord length h-kappa²h³/24+[kappa⁴/1920-kappa kappa''/480-(kappa')²/1440]h⁵+O(h⁷); formal inversion and periodic integration by parts produce the displayed t⁵ coefficient (3/320)int kappa⁴-(1/360)int(kappa')². Total curvature 2pi gives sharp circle cubic minimum. Harmonic theta(s)=rho s+(a/n)sin(n rho s), n>=2, makes a closed positive-curvature curve; exact curvature averages give coefficient difference rho⁴ a²/L[9/320-n²/720+9a²/2560], positive for modes 2–4, negative for >=5, tending to minus infinity for n->infty at fixed a. Error is O_Gamma(t⁷) separately for each fixed curve.
 
-Hein and Audibert (2005; DOI `10.1145/1102351.1102388`) studied kernel-weighted correlation integrals on embedded manifolds and explicitly obtained a second-order curvature correction. That gives prior coverage of the cubic \(t\)-term after dimensional rescaling. Its stated remainder does not supply the relative fourth-order coefficient, hence cannot yield the present fifth-order formula. Bäsel (2012; arXiv `1204.2707`) studies random-line chords and interior point distances in regular polygons, with a different boundary measure and nonsmooth domain. Lellouche and Souris (2019; DOI `10.3390/stats3010001`) give a general compact-set distance framework but no identified exact formula for the curvature-gradient term. The indexed near-zero polygon-boundary result concerns corner angles instead of curvature derivatives. This review has not established unconditional historical priority: higher-order manifold kernel asymptotics remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The negative \(\int(\kappa')^2\) energy has a genuine geometric consequence. Although the circle minimizes the cubic correction, the fifth correction is not bounded from below at fixed perimeter, and an explicit family of smooth strictly convex closed curves crosses from larger-than-circle to smaller-than-circle exactly at harmonic frequency five. This separates curvature magnitude from curvature variation using a measurable chord-proximity statistic; it is not a known-circle recomputation or an arbitrary finite benchmark.
+Smooth-curve pair-proximity correlation integral is known and prior work Hein–Audibert covers the leading curvature correction (cubic here), while exact circular law is classic. The best-of-knowledge novel content is the general fifth-order coefficient with a negative curvature-gradient energy and sharp harmonic mode transition/unboundedness. Generic higher-order kernel asymptotics may imply that coefficient; no such dominating explicit formula was located and direct full-text coverage is incomplete.
 
-## Limitations
+## value
 
-All results are asymptotic as the threshold tends to zero for each fixed curve. The sampling law is arclength-uniform and the metric is ambient Euclidean. The work does not identify an arbitrary shape from a finite number of coefficients, address noisy samples, or certify global novelty. Some primary manuscript sections were inaccessible, as specified in AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fifth coefficient separates curvature amplitude from derivative energy in an intrinsic arclength-sampled Euclidean chord statistic. The contrast between sharp cubic circle minimum and unbounded-below fifth coefficient, with precise mode-4/mode-5 transition, is a motivated structural phenomenon across natural smooth closed curves, not a known-circle recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
