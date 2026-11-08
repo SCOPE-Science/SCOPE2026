@@ -1,11 +1,21 @@
-# Scientific review: three-point exchanges of maximal ternary affine caps
+# Independent mathematical audit
 
-**Correctness — PASS.** The problem is finite and fully specified: \(27\) labelled ternary points, \(117\) affine lines, every nine-subset, and every exact three-point replacement. One verifier recursively enumerates all caps through size ten; the other visits all \(4686825\) nine-subsets and rules out ten-point extensions. Both obtain \(2106\) maximum caps. Independently constructed exchange graphs have the same \(75816\) edges and degree \(72\). Full BFS from every cap reproduces the joint distance/intersection table, proves connectivity, and gives diameter four. The classification is not an inference from partial exploration.
+## correctness
 
-**Originality — PASS, with a residual literature risk.** Follett et al. (arXiv:1302.4703, Section 2 and Proposition 2.2) already establish maximum size, affine equivalence, and the unique three-cap partition; those facts are explicitly excluded from the novelty claim. Awan et al. (arXiv:2106.14141, Proposition 3.1 and Table 1) include the previously known two-secant property for exterior points; their detailed results concern dimension-four demicaps. The inspected material does not determine the least mobile exchange size, the degree, the joint BFS spectrum, or the diameter of the maximum-nine-cap exchange graph. Searches also considered the maximum-independent-set formulation for the affine Steiner triple system and geometric intersection graphs. Equivalent results in obscure or unindexed finite-geometry or association-scheme literature remain possible.
+PASS
 
-**Value — PASS.** Maximum cap size alone does not describe whether two extremal cap sets can be modified locally. This theorem finds the sharp mobility threshold, proves global reachability in at most four three-point exchanges, identifies the two geometric distance-four antipodes, and detects genuine shortest-path detours among caps sharing three points. These are natural exact invariants of the first nontrivial three-dimensional ternary cap space and supply a calibrated instance for local search among extremal progression-free subsets.
+A freshly written exact ternary incidence enumeration generated all 2106 line-free 9-caps in 27-point AG(3,3) and verified no size-10 cap; all pairs were checked for intersections and 3-swaps, constructing 75816 edges of degree 72. BFS from each of all 2106 roots yielded the complete stated nine-cell distance/intersection histogram, connected graph radius=diameter=4; exactly two disjoint partners at distance four. Exhaustive finite checks match the target universe; no arbitrary-size inference.
 
-The proof and its computational certificates establish only the stated finite case. No independent scholarly validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Follett et al. already prove size 9 and unique disjoint triple partitions. The exact first legal three-point exchange graph and its complete distance/intersection structure were not in reviewed primary source/Resultary records; original relative to inspected evidence, with possible unindexed exact graph table.
+
+## value
+
+PASS
+
+The first nontrivial local reconfiguration metric of maximal progression-free ternary caps, including global reachability and precise farthest neighbors, is a natural finite-geometric invariant with direct use in cap-search dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

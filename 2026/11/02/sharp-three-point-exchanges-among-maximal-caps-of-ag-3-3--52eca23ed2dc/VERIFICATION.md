@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction and claim-to-evidence mapping
+# Independent mathematical audit
 
-The result concerns only \(27\) affine points and their \(117\) ternary three-point lines. Both complete programs are included as standalone files. They do not need downloaded data, external packages, or previously saved enumeration outputs.
+## correctness
 
-Run:
+PASS
 
-```
-python3 verify.py
-g++ -O3 -std=c++17 -Wall -Wextra verify_alt.cpp -o verify_alt
-./verify_alt
-```
+A freshly written exact ternary incidence enumeration generated all 2106 line-free 9-caps in 27-point AG(3,3) and verified no size-10 cap; all pairs were checked for intersections and 3-swaps, constructing 75816 edges of degree 72. BFS from each of all 2106 roots yielded the complete stated nine-cell distance/intersection histogram, connected graph radius=diameter=4; exactly two disjoint partners at distance four. Exhaustive finite checks match the target universe; no arbitrary-size inference.
 
-The first program builds all caps recursively using forbidden third points, verifies that exactly \(2106\) size-nine caps and no size-ten caps occur, compares every pair of size-nine caps, and constructs the \(3\)-exchange adjacency when the intersection size is six. It checks the full pair-intersection census, regularity, connectivity, and the complete joint intersection/distance table by breadth-first search from every vertex. Its final marker is `ALL_VERIFY_OK`.
+## originality
 
-The second program independently scans every one of the \(\binom{27}{9}=4686825\) size-nine bitmasks against \(117\) generated line masks, checks no size-nine cap extends to size ten, and generates each edge by explicitly choosing three removals and three insertions. All exchanges are rechecked for symmetry. It independently searches from all \(2106\) vertices and asserts every joint distance/intersection bin. Its final marker is `INDEPENDENT_VERIFY_OK`.
+PASS
 
-These exhaustive finite certificates establish the maximum size and number of caps, minimum nonzero exchange cardinality, \(72\)-regularity, \(75816\) edges, connectedness, diameter four, and the stated distance layers. The interpretation of disjoint distance-four partners as the unique complementary cap partition uses the independently published Proposition 2.2 of Follett et al. No result for larger affine dimensions follows from these checks. The reported checks are same-authority computational reproductions; independent scholarly audit is not performed.
+Follett et al. already prove size 9 and unique disjoint triple partitions. The exact first legal three-point exchange graph and its complete distance/intersection structure were not in reviewed primary source/Resultary records; original relative to inspected evidence, with possible unindexed exact graph table.
+
+## value
+
+PASS
+
+The first nontrivial local reconfiguration metric of maximal progression-free ternary caps, including global reachability and precise farthest neighbors, is a natural finite-geometric invariant with direct use in cap-search dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
