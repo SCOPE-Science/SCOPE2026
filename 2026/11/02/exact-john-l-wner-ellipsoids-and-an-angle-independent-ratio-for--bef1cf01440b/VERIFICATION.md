@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The standalone `check_bicylinders.py` runs from an extracted copy of this package and checks the defining radical relation, both outer-contact equalities, both contact-orbit masses, all three normalized Löwner covariance entries, the ellipsoid-volume ratio, and 24,000 combined finite random-point tests over eight radius ratios. The checks were actually executed, with successful output; the scientific conclusion rests on the general proof and exact contact moments in `RESULT.md`, not on sampling.
+## correctness
 
-The global all-parameters algebraic proof, its assumptions, and its contact identities are recorded in `RESULT.md`. No independent validation or expert audit has been carried out. The scripts do not test whether earlier publications contained equivalent results; that is addressed as a qualified literature comparison in `REVIEW.md` and `AUDIT.json`.
+PASS
+
+The nonparallel axis normals and common orthogonal direction provide an invertible affine map T, determinant |sin beta|; in canonical coordinates the intersection is two quadratic cylinder constraints. The centered inscribed ellipsoid with semiaxes (a,b,b) is certified by the six signed principal-axis contacts and John covariance. For the proposed Löwner form, its squared gauge is a positive linear combination of the two cylinder gauges and saturates on the common ridge. Two signed contact orbits have positive weights p0=(1+u)/3, p1=(2-u)/3, whose normalized covariance is I/3, certifying global minimum volume. The identity t(2u-1)=u(2-u) yields the radical u and strictly increasing ratio 2 to 3sqrt3/2 for a/b>=1. Affine volume cancels beta; the orthogonal case is the p=q=1 edge of record #3.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: Requires an explicit two-contact-orbit covariance calculation; this is additional mathematical content beyond generic optimality and known Steinmetz volume.
+
+## value
+
+PASS
+
+A classical Steinmetz solid is an important concrete convex body, and the exact two extremal ellipsoids, continuous contact ridge, sharp anisotropy ratio and angle invariance give a useful fully worked containment/inscription benchmark. This is not the old formula for the solid’s own volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

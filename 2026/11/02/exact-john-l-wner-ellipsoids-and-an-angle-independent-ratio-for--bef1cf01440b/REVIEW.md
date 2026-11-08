@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The affine reduction has determinant magnitude \(|\sin\beta|\), so the two cylinders are represented exactly by two coupled quadratic inequalities. Inscribed containment follows directly by semiaxis comparison, with six normalized signed-coordinate contacts satisfying the identity covariance. Covering containment is proved at every point by an affine-in-\(z^2\) maximum attaining one at both endpoints. Eight explicit contacts (six distinct at equal radii) satisfy the exact normalized Löwner covariance. The classical John and Löwner contact criteria therefore prove *global* uniqueness and extremality; an axis-aligned ansatz is not assumed. The exact ratio and its monotonicity follow by differentiation. Numerical checks are supplementary only.
+PASS
 
-## Originality — PASS (best-knowledge, historical risk remains)
+The nonparallel axis normals and common orthogonal direction provide an invertible affine map T, determinant |sin beta|; in canonical coordinates the intersection is two quadratic cylinder constraints. The centered inscribed ellipsoid with semiaxes (a,b,b) is certified by the six signed principal-axis contacts and John covariance. For the proposed Löwner form, its squared gauge is a positive linear combination of the two cylinder gauges and saturates on the common ridge. Two signed contact orbits have positive weights p0=(1+u)/3, p1=(2-u)/3, whose normalized covariance is I/3, certifying global minimum volume. The identity t(2u-1)=u(2-u) yields the radical u and strictly increasing ratio 2 to 3sqrt3/2 for a/b>=1. Affine volume cancels beta; the orthogonal case is the p=q=1 edge of record #3.
 
-J. H. Hubbell's full 1965 article computes the volume of two intersecting cylinders and tabulates it, but does not provide these extremal ellipsoid formulas or contact designs. The general papers by Freund–Sun, Klartag, and Weber–Schröcker explain covering or extremal ellipsoids, rather than deriving the bicylinder semiaxes. Known central-section area bounds for the circular bicylinder concern a different functional; the known two-ball covering-ellipsoid result treats compact spherical lenses, not noncompact cylinders intersected together. Independent historical indexing is incomplete, so this claim of novelty remains provisional.
+## originality
 
-## Value — PASS
+PASS
 
-These formulas completely solve a natural three-dimensional extremal-ellipsoid problem over all positive radii and all nonparallel intersecting axes. The full common-boundary contact ridge, two finite certifying contact orbits, and the sharp universal volume-ratio range distinguish geometric approximation of the classic Steinmetz solid from its already-understood intersection-volume problem. The result is useful when replacing crossed cylindrical regions with tight, certified ellipsoidal inner and outer approximations, and requires no algorithmic optimization for each new angle or radius ratio.
+Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: Requires an explicit two-contact-orbit covariance calculation; this is additional mathematical content beyond generic optimality and known Steinmetz volume.
 
-## Remaining limits
+## value
 
-The geometry does not cover skew-axis cylinders, finite heights, or parallel-axis noncompact intersections. Historical priority is subject to independent review. The 1965 precedent has an issue period but not an exact verified first-release day; no date is invented for it.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A classical Steinmetz solid is an important concrete convex body, and the exact two extremal ellipsoids, continuous contact ridge, sharp anisotropy ratio and angle invariance give a useful fully worked containment/inscription benchmark. This is not the old formula for the solid’s own volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
