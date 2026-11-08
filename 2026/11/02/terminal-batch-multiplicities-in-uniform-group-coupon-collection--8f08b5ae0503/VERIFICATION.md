@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof in RESULT.md gives the complete finite-parameter statement and its limiting arguments. The embedded standard-library Python file `checks/check.py` verifies the exact joint formula against an independently implemented hypergeometric count process and against exhaustive finite ordered-package enumeration; it also checks the strict-jump chain, finite collision bounds, factorial moments, and selected asymptotic diagnostics.
+## correctness
 
-The standalone checker passed **1,162 assertions** in a local execution. It is finite evidence, not an exhaustive proof for arbitrary population sizes. The sharp sparse result depends on the displayed strict-decrease union bounds, while total-variation convergence in the bulk regime depends on the analytic Poisson limits and normalization of the limiting masses.
+PASS
 
-Only a self-review has been performed; independent audit and independent validation have not been performed. Literature comparisons identify unresolved historical-priority risk for older works whose complete text was unavailable.
+The exact hypergeometric transition and inclusion-exclusion for M_{t-1}=b give the displayed joint law; conditional terminal hit is (s)_b/(n)_b. Embedded strictly decreasing missing-count chain gives exact 2->0 rate (s-1)/(2n-s-1) and summable skip/large-jump bounds; for s/n->0 they yield relative O(s/n). Bulk exact factorial moments of unseen counts converge to phase-indexed Poisson and hypergeometric thinning yields the marked joint pmf. Its mass telescopes over j∈Z, so pointwise convergence yields total variation. Independent rational DP versus inclusion-exclusion for n<=8, s<n, t<=5 confirms finite identities, not the asymptotic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original marked last-package multiplicity and sparse sharp coefficient plus joint lattice law, while classical group-coupon fixed-time Poisson counts and bulk completion-time scaling are credited; inaccessible older waiting-time paper is a genuine prior-coverage risk.
+
+## value
+
+PASS
+
+Natural stopping-time overshoot/terminal-multiplicity law for package coupon collection; sparse and bulk regimes have qualitatively different multiple-hit probabilities, meaningful for grouped sampling protocols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
