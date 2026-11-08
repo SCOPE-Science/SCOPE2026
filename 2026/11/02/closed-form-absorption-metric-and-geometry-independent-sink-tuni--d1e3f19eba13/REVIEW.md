@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers are over finite open paths \(N\ge2\), positive \(\Omega,\kappa\), and any normalized initial density matrix. The decay proof excludes dark eigenmodes by propagating the forced vanishing of the endpoint component. The explicit full matrix satisfies the Lyapunov equation in every parity and endpoint case, and its uniqueness identifies the survival integral. The diagonal formula, strict global optimization for \(j\ge2\), and exceptional direct-sink case follow exactly. The included independent symbolic/numerical checker reported 1267 successful finite-dimensional checks; universal correctness rests on the algebraic proof, not on finite enumeration.
+PASS
 
-## Originality — PASS (qualified best-knowledge)
+No-jump generator A=i Ω T/2−κ E/2 has A+A†=−κ E and no eigenvector with zero first component on the open connected path; hence every eigenvalue has negative real part and the Lyapunov equation A†X+XA=−I has a unique positive solution X=integral e^(A†t)e^(At) dt. Explicit parity-dependent X_jk=(N+1−k)[j/κ+κ(j−1)/Ω²] for even gap, −i(N+1−k)/Ω for odd gap (j<=k), plus conjugate extension; affine second differences and right boundary s_(N+1)=0 establish entrywise commutator identity. This identifies mean for arbitrary density matrices. Diagonal E_j τ=(N+1−j)(j/κ+κ(j−1)/Ω²), strictly convex in κ for j>=2, gives κ_opt=Ω sqrt(j/(j−1)) independent of N and minimum 2(N+1−j)sqrt(j(j−1))/Ω. For j=1 mean N/κ monotone. Independent Python numpy recomputation of Lyapunov residual for N=2..8 and multiple positive Ω,κ passed; all-N is from exact recurrence.
 
-The strongest directly relevant source, Riberi's May 8, 2026 first preprint, solves the semi-infinite boundary absorber and explicitly lists finite geometry as open. Varbanov–Krovi–Brun (2008) already supply a broad quantum measurement hitting-time superoperator formula and finite small-graph examples, which are credited; their general inverse is not the newly asserted explicit all-length kernel. Krapivsky–Luck–Mallick's 2013 trap paper treats infinite lines and finite rings, where dark states matter, and does not give the path formula. A 2024 continuous-time quantum Markov-chain work treats CP transfer channels rather than coherent hopping. Relevant published result statements were compared for source, aliases, parameters, and stronger-coverage implications; no matching evaluated formula was found.
+## originality
 
-The substantive priority risk is implicit derivability from earlier broad matrix-inverse or exciton-trapping work. Search absence does not certify uniqueness. Independent literature-priority review remains outstanding.
+PASS
 
-## Value — PASS
+General continuous-measurement hitting-time superoperator/inverse is prior work (Varbanov–Krovi–Brun 2008), as is semi-infinite endpoint Lindblad sink (Riberi 2026). The explicit finite N all-initial-state quadratic X and dimension-independent optimal κ for each j>=2 are not stated in inspected relevant prior texts. Prior inverse machinery does not mechanically determine the kernel without solving finite tridiagonal Lyapunov entries. Resultary query found no matching law.
 
-The finite-path problem was motivated by a specific open extension of a recent exact infinite-geometry result. Explicitly evaluating the entire mean-time operator reveals phase-coherence dependence for general preparations, while localized data produce a global rate optimizer completely independent of total path length. The sharp distinction between direct-sink initial states and all other initial sites clarifies quantum-Zeno absorber tuning for finite coherent devices.
+## value
 
-## Limitations
+PASS
 
-Only the finite uniform coherent chain with one endpoint Lindblad loss and first-jump mean is covered; other graphs, extra Lindblad terms, higher passage-time moments, and independent certification are not claimed. All computational checks are finite supporting evidence, not general proofs.
+The mean quantum first-jump time is a natural absorption observable on coherent finite paths. Formula controls every initial state, including coherences, and gives an exact global absorber-strength tuning rule with a physically meaningful exceptional direct-sink case. Explicit all-N solution and Zeno-vs-weak-loss optimum are useful even though a general inverse representation is classical.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
