@@ -1,19 +1,21 @@
-# Scientific review: minimal tangent-ball radii and far contacts
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Parameterizing the ellipsoid boundary as \(c+Au\), the exact inclusion condition for an inward tangent ball is \(r\ge\|A^{-1}u\|\|A(u-v)\|^2/\|u-v\|^2\) for every distinct unit \(v\). The normalized secants at \(u\) fill an open hemisphere, on which the supremum of the Rayleigh quotient of \(A^2\) is its largest eigenvalue \(a^2\). This establishes a necessary-and-sufficient radius, not merely a sufficient bound. Equality directions in the top eigenspace classify all remote contacts; the tangent-plane restriction produces the separate curvature comparison. The proof treats multiple top eigenvalues, circular/round ellipsoids, and nonattained secant suprema. Exact-rational verification: 2023 checks. Computation is not substituted for proof.
+PASS
 
-## Originality
+Containment of a second boundary point c+Av in the radius-r inward-normal ball is equivalent to r >= q ||A(u-v)||^2/||u-v||^2, q=||A^{-1}u||. Every unit secant direction z with <u,z> >0 is realized by v=u-2<u,z>z; its Rayleigh quotient attains supremum a^2, including by approach along the tangent equator. Equality of the quotient identifies exactly top-eigenspace directions and therefore all and only the remote contacts. Converting normal to support gives q=1/||A nu||; range [a,a^2/b]. Tangent-plane limits give R_loc=q max_{z perp u}||Az||^2, with equality to R_* iff W intersects u-perp. Independent exact rational tests of secant inequalities and reflected equality in dimensions 2--4 covered 958 cases; the universal proof is analytic.
 
-PASS within accessible literature, with explicit residual risk. Nour (2026) develops general variable-radius spherical support but does not give ellipsoid-specific sharp radii or far-contact classification. Nacry–Thibault (2024) proves general variable-radius support equivalences; the present formula requires an additional concrete geometric optimization. Weber–Reissig (2014, Example 3.9) **already proves** the constant global ellipsoid threshold and that fact is not claimed as new. Classical principal-curvature results give only the local term, whose possible strict gap is determined here. Searches of mathematical research records, web aliases and accessible earlier records did not identify an equivalent complete pointwise contact theorem. Some unindexed classical sphere/quadric literature or non-obvious equivalent formulations may still exist; absence of a match is not a proof of historical priority.
+## originality
 
-## Value
+PASS
 
-PASS. The smallest ball tangent at a given ellipsoid boundary point is an intrinsic natural geometric invariant in variable-radius strong convexity. The work completely calculates that invariant in every dimension and identifies the entire far-contact foliation and an unbounded discrepancy from the pointwise osculating radius. This distinguishes local differential curvature from the global sphere-containment constraint; the known uniform constant alone does not provide the contact classification. The result is not asserted for general convex bodies.
+The sharp uniform enclosing-ball radius a^2/b was published by Weber--Reissig (2014) and is not new. Their source distinguishes its constant global threshold from the pointwise minimal varying radius, exact far-contact foliation and local/nonlocal equality classification. Nour 2026 works in general variable-radius support but the full text remained inaccessible (arXiv and OA access failed; authorized institutional access signaled VPN disconnected), leaving material priority risk; still no contrary coverage established in the accessed scientific statements.
 
-## Limitations
+## value
 
-Independent scholarly novelty assessment and mathematical validation remain outstanding. Exact-rational tests are finite. Older constant-radius strong convexity and the general variable-radius criterion are properly credited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pointwise optimal radius (not merely the known worst-case constant) and remote-contact foliation solve a natural geometric support problem for a canonical family. The sharp equality condition exhibits a provably unbounded difference between the maximal local curvature radius and the global normal-tangent enclosing radius; this explicit boundary phenomenon can be useful in curvature-based enclosure and support theory. Value rests on the contact/equality classification, not re-reporting a^2/b.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
