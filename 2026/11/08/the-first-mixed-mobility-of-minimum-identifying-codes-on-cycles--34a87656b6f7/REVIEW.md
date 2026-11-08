@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The local cyclic characterization is obtained by comparing closed-neighborhood signatures and enforcing domination. The omitted vertices of a minimum code form an independent four-set in the step-three eleven-cycle; all five rotation classes are classified explicitly, giving exactly three admissible eleven-element orbits. Direct representative-neighbor calculations give the exact \(11K_1\sqcup C_{22}\) token-slide decomposition and the connected \(4\)-regular jumping graph. The cutoff below eleven is an exhaustive search of at most \(2^{10}\) subsets per order. Two standalone and independently structured programs passed, with their actual outputs included. The jumping radius and diameter follow from complete BFS, not from unproved extrapolation.
+
+**Originality: PASS, subject to priority risk.** The known cycle code-size theorem and identifying-code criterion are excluded from the novelty claim. The primary 2009 preprint was inspected at its introduction and Section 2; it determines optimal cardinalities, not the configuration-space graph. Relevant older cycle papers establish code-size optimization. Accessible historical claims and an indexed mathematical research corpus were checked for cycle-specific identifying-code moves, their binary word formulations, and stronger reconfiguration classifications; no statement found implies the eleven-cycle mobility decomposition. Two historical primary full texts were not obtained and remain a specific residual risk. A failed search is not a uniqueness certificate.
+
+**Value: PASS.** The result finds the first natural order at which an optimal identifying-code state space has coexistence of isolated and mobile states, and completely identifies the movable component as a \(22\)-cycle. It distinguishes physically local detector relocation from unrestricted reassignment, although both preserve the minimum detector budget. This is a motivated first-boundary classification, not a sample of arbitrary numerical cases.
+
+The exact claim is restricted to the first-coexistence cutoff and the order-eleven graphs. Independent assessment of publication priority and scholarly merit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
