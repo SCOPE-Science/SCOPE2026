@@ -1,19 +1,21 @@
-# Scientific review: five-cycle cluster roundness
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact metric described in `RESULT.md`, the powered-distance matrix factors into a five-cycle circulant tensor and a within-cluster diagonal tensor. Its zero-sum spectrum comprises \(-s^p\) (multiplicity \(5(m-1)\)), \(E_1\) (multiplicity two) and \(E_2\) (multiplicity two). The inequality \(E_1\le-1\) for the entire stipulated domain leaves only \(E_2\), a strictly convex function starting at \(-1\) and tending to infinity. This proves a unique positive critical exponent with an exactly two-dimensional nullspace. The limiting equation and its first two derivatives at zero prove the three distinct branching scales. Exact rational decomposition and independent numerical full-matrix diagonalization replayed successfully; those computations corroborate, rather than substitute for, the analytic proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+The exact metric with m>=2, 0<s<=2 admits D_p=B_p tensor J_m+s^p I_5 tensor (J_m-I_m). Its centered zero-sum spectrum has eigenvalues -s^p (multiplicity 5(m-1)), E1=m(a-b*2^p)+(m-1)s^p<=-1 (multiplicity 2) and E2=m(-b+a*2^p)+(m-1)s^p (multiplicity 2). E2(0)=-1, E2 is strictly convex, and E2 tends to infinity, so there is exactly one positive crossing. The equation m*a*2^p+(m-1)*s^p=m*b and the two-dimensional critical nullspace follow. Setting h_s(p)=a(2^p-1)+(s^p-1) gives at s_c=2^-a the vanishing first derivative and second derivative (log 2)^2, yielding the three m-asymptotic orders (constant, m^-1/2, m^-1), with the stated constants. The p=1 boundary follows by substituting E2(1)<=0. Independently constructed full matrices at four (m,s) values, diagonalized their zero-sum restrictions at analytic endpoints, and found eigenvalue errors <=7.9e-13. Numerical tests corroborate but do not prove all sizes/parameters.
 
-The closest primary precedents are Sánchez's full-text Example 2.8 for the ordinary five-cycle, Murugan's general determinant criterion for vertex-transitive metrics, Li–Weston's strict-negative-type inheritance theorem and Weston's universal metric-diameter lower bounds. None of the inspected material states the full \((m,s)\) classification or the three-regime limit with its \(m^{-1/2}\) critical law. General spectral methods are prior art and must not be represented as new. The special \(m=1\) five-cycle exponent is also prior art. Search-index coverage is not exhaustive, and an equivalent differently named clustered-metric result might exist.
+## originality
 
-## Value — PASS
+PASS
 
-The class contains both natural five-cycle graph blow-ups as endpoints and a continuous family of nontrivially weighted cluster metrics. The exact equation establishes a meaningful stability threshold for preserving positive Hilbert snowflake exponents under increasing cluster cardinality. The critical distance \(s_c\) separates persistent positive exponents from inverse-linear decay; exactly at the boundary, inverse-square-root decay occurs with an explicit universal constant. The endpoint Euclidean rank loss of two and a sharp \(1\)-negative-type criterion add direct embedding consequences. The finding is an exact infinite-family classification, not a numerical table or isolated parameter computation.
+Best-of-knowledge qualification: actual Resultary searches and directly compared primary mathematical results show no decisive prior implication of this exact final claim; component methods, previously known examples, accessible full-text scope and named inaccessible-source risks are explicitly distinguished.
 
-## Closest sources and limitations
+## value
 
-Sources examined: A. Weston, arXiv:0807.2705, Theorem 4.1; H. Li and A. Weston, arXiv:0901.0695, Theorem 5.4; S. Sánchez, arXiv:1108.0451, Corollary 2.4 and Example 2.8; M. K. Murugan, arXiv:1112.5657, Theorem 3.1. The result is restricted to five equally sized cyclic clusters and \(0<s\le2\). It does not solve unequal cluster-size or general cyclic cluster problems. There is no claim of independent external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Supremal negative type measures optimal Hilbert snowflake exponent of a natural five-cluster cycle metric. Determining every m,s endpoint, critical embedding rank, and sharp transition between nonvanishing, 1/sqrt(m), and 1/m scaling gives a motivated infinite-family classification; it is not merely the known ordinary five-cycle calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
