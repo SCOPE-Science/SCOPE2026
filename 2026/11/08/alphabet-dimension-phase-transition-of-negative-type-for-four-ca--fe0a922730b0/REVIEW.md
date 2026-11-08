@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The metric is translation invariant, and the q-ary Krawtchouk shell identity provides the exact Fourier eigenvalues of the powered-distance kernel with the diagonal excluded. Direct enumeration independently confirms the formula at representative integer and noninteger exponents, including composite alphabets. In the proportional-alphabet regime, uniform eventual positivity of the first three Krawtchouk coefficients outside bounded codimensions is the essential global step; it is proved with inequalities, not inferred from finitely many modes. The remaining bounded modes converge uniformly at the cubic scaling. The fixed-alphabet and fixed-dimension regimes have independent uniform or finite-layer analyses. The half-ratio proof is an exact polynomial discriminant argument. The unique full-weight critical layer for ratios strictly below one half follows from a strict gap for all bounded alternative codimensions, a global sign bound outside them, and an independently checked positive crossing derivative for the dimension-only full-weight root.
+
+## Originality
+PASS under bounded comparison. The closest primary text is Brouwer–Cioabă–Ihringer–McGinnis (2017, arXiv:1709.09011), which identifies Krawtchouk eigenvalues for Hamming distance-shell graphs and the fixed-dimension, large-alphabet minimizer of the pure degree-three shell. Sánchez (2011, arXiv:1108.0451) establishes general finite-metric negative-type methods; Dominici (2005, arXiv:math/0501072) explains Krawtchouk-to-Charlier passage. None of the inspected results derives the particular negative-type threshold for powered capped distance, its sharp \(q/n=1/2\) transition, or its three distinct asymptotic regimes. A published degree-two projection-norm Charlier crossover and a radius-two Turán extremal formula concern different operators. Related binary four-cap and nonbinary three-cap results neither imply the full proportional-alphabet phase diagram nor the new large-alphabet four-cap exponent. An implicit consequence of broader Hamming-scheme methods remains a priority risk.
+
+## Mathematical value
+PASS. The natural question is whether saturation of four-coordinate Hamming distance preserves Hilbert embeddability after snowflaking when both alphabet size and dimension grow. The theorem finds a sharp, unexpected phase boundary at alphabet/dimension ratio one half, describes its exact low-ratio full-weight stabilization and critical Fourier codimensions and degeneracy, and shows that fixed-dimension alphabet growth obeys a different quadratic law. This is not an arbitrary small-instance computation or a mere change of variables: the global spectral mode switches, and the q-ary metric's powered negative-type threshold changes scale.
+
+## Limits
+No exact root classification is supplied for every finite parameter pair. Tie-breaking among critical modes at proportional ratio one half is left open. Stronger unlocated results might imply a portion of the statement; no historical-priority guarantee is made. No independent validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
