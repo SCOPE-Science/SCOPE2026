@@ -1,11 +1,21 @@
-# Review of the central-trinomial divisibility-by-nine theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Laurent identity \(A(x)^3=A(x^3)+3Q(x)\) yields three explicit mod-\(9\) digit-appending recurrences. The proof checks the exceptional first \(2\)-digit, the subsequent \(0\)/\(1\) shift, persistence of the valuation class, and the transition at a second digit \(2\). A disjoint count of digit strings gives the exact expression. The included standalone exact-integer checker reproduces the recurrence and all inputs below \(3^8\); bounded checks are corroboration, not the infinite argument.
+## correctness
 
-**Originality — PASS within inspected literature.** Hou–Li, arXiv:2312.13613, develops product-sum congruences rather than pointwise mod-\(9\) digit languages. Rampersad–Shallit, arXiv:2110.06244, Section 3, gives Deutsch–Sagan's mod-\(3\) characterization and a mod-\(5\) automaton; the mod-\(9\) classification and exact count are absent. Rowland–Yassawi, arXiv:1310.8635, Section 4.2, computes mod-\(4\) central-trinomial automata and supplies a general method; generic computability is not a printed explicit language/count formula. Mikić, arXiv:2311.14623, treats other valuation parameters. Literature and mathematical-record comparisons identified no theorem that states or immediately specializes to the new two-case mod-\(9\) classification. Residual risk: a prior machine-generated automaton or unindexed congruence may encode the same classification; absolute priority is not certified.
+PASS
 
-**Mathematical value — PASS.** This is the first prime-square refinement of a natural and familiar mod-\(3\) digital divisibility theorem, with a particularly simple finite language and exact closed counting formula for every power-of-three interval. The result gives a structural explanation of why the density-one divisibility property is stronger than the mod-\(3\) criterion alone; the exceptional counting factor is not obtained merely by replacing \(3\) with \(9\) in the known Lucas product.
+In Laurent polynomials A=x^-1+1+x satisfies A³=A(x³)+3(x^-2+2x^-1+2+2x+x²). Expanding modulo 9 yields T_(3m)=T_m+6mT_(m-1), T_(3m+1)=T_m+3m(T_m+5T_(m-1)), T_(3m+2)=3(m+1)T_m (mod 9). Their mod-3 reduction is the known presence-of-a-2 digit test. Read ternary digits from most significant: a second 2 forces zero mod9, while one 2 preceded immediately by 1 becomes zero only once a following digit appears. The no-2 and exceptional singleton-2 classes yield exactly 3^k-(k+6)2^(k-2) for k>=2. Independently computed 2001 recurrence terms and matched the digit predicate throughout; not extrapolated to infinity.
 
-**Scope and limitations.** No claims are made for modulus \(27\), higher valuations, or bibliographic priority beyond the inspected sources. The checker is finite; the Laurent-recursion argument is an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the exact stated theorem only; public primary comparison and published-record semantic searches found related methods but no prior statement implying the complete final claim. This is not proof of worldwide priority. OEIS A002426 terms and mod3 Lucas digit-2 property are not an all-index mod9 zero table
+
+## value
+
+PASS
+
+Central trinomial divisibility is a standard arithmetic sequence question; the exact ternary language and finite-prefix count resolve the natural modulus-9 step beyond the classical mod-3 Lucas rule. A closed regular language and density with error counts are structurally useful, though they do not classify mod27.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
