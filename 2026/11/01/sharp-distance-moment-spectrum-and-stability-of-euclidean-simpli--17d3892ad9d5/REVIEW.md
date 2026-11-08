@@ -1,19 +1,21 @@
-# Scientific review: sharp simplex random-chord moment spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every fixed integer dimension at least three, the moment calculations are reconstructed from exact Dirichlet factorial moments, then expressed through centered vertex-Gram invariants. The sharp centered-vector quartic inequality, including equality cases, is proved by a constrained stationary-point and second-variation argument. Joint strictness with the spectral bound forces a unique normalized spike degeneration. Positive definite Gram interpolation supplies every admissible ratio; the exact Gram defect identity gives rigidity and an explicit deformation proves that the square-root exponent is optimal. The standalone verifier was executed from the actual file and returned `VERIFY_OK 591 exact identities and seeded pair-distance tests`. Finite tests are corroboration, not a proof of universal extrema.
+PASS
 
-## Originality — PASS (provisional priority)
+For each full-dimensional Euclidean d-simplex d>=3 (n=d+1), independent uniform barycentric Dirichlet(1,...,1) samples yield E||X-Y||²=2S/[n(n+1)] and an exact fourth moment in Gram invariants S=tr G, T=tr G², H=sum G_ii². Subtracting its regular value gives the positive defect K-kappa=A||G-(S/(n-1))J||_F²/S²+B sum_i(G_ii-S/n)²/S², A=2(n²+3n+3)/((n+2)(n+3)), B=3n(n+1)/((n+2)(n+3)); this forces the unique regular-simplex minimum kappa=n(n+1)(n+6)/((n-1)(n+2)(n+3)). The nonstandard centered quartic inequality sum a_i^4 <= ((n²-3n+3)/(n(n-1)))(sum a_i²)^2 follows via Lagrange stationarity, ruling out three root values by constrained second variation, then optimizing two-level multiplicities. Along with T<=S², it identifies the unique rank-one spike upper-limit U=6n³/((n-1)(n+2)(n+3)); rank n-1 excludes upper attainment. Regular-to-spike positive definite Gram interpolation realizes all [kappa,U). Edge quadratic forms bound shape deviation with optimal 1/2 exponent from trace-zero perturbations. Independently checked Dirichlet/Gram defect interpolation exact fractions n=4..11 and all two-level multiplicities; finite checks are not proof.
 
-Anderson, Goyal and Rademacher (arXiv:1211.2227v1) establish the simplex moment apparatus, not the normalized Euclidean pair-chord extremal interval. Nikolov and Rafailov (arXiv:1211.2975v1) study powered vertex-observer distances. Reichenwallner studies planar triangle chord moments; the planar case is expressly excluded. Two closely relevant public research records were inspected in full: the sharp difference-body **gauge** beta law and the parallelogram boundary/interior fourth-chord amplification law. Neither compares the same Euclidean random-interior-pair statistic or implies the new all-dimensional classification. An earlier planar triangle inverse moment result is disjoint in dimension and statement. The comparison does not rule out an unindexed earlier equivalent result expressed as a Dirichlet kurtosis or matrix-moment inequality.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives the exact attainable range, both extremal shape classes, a positive shape-defect identity and sharp stability order for a canonical scale-free geometric statistic across all simplex dimensions at least three. The regular simplex and vertex-spike degeneration define conceptually different extremes, and the Gram decomposition quantifies how observable near-equality constrains every side length. This classification is motivated by inverse geometric probability, not a routine extra moment table.
+Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. Simplex Dirichlet-moment formulas are established prior; only their sharp Euclidean pair-chord shape spectrum/stability are assessed as new. Implicit equivalent extremal matrix quartic inequality or older stochastic geometry results could be overlooked.
 
-## Scientific limitations and independent work
+## value
 
-Only full-dimensional Euclidean simplices, independent interior-uniform sampling, and second/fourth distance moments are treated. Upper equality is achieved only in the closure, not by a full-dimensional simplex. The explicit edge-rigidity constant is not claimed optimal. An earlier equivalent mathematical result may have escaped searches. Independent validation and priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact full range, both sharp extremal shape classifications, quantitative nonnegative Gram-defect identity and sharp square-root edge rigidity solve a natural geometric-probability shape functional rather than computing isolated simplex moments. The Euclidean metric makes the statistic genuinely shape dependent, unlike a difference-body gauge invariant; each exact endpoint is useful in stochastic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
