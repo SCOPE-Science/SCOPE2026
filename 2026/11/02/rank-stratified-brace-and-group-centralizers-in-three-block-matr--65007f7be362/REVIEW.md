@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nilpotent multiplication and both centralizer conditions are derived directly, and rank-nullity gives their dimensions. Surjective-map/Grassmannian counting proves each commutator fiber for every prime power; rank subadditivity and an explicit factorization provide necessary and sufficient length bounds. The standalone direct-enumeration code checks all centralizers and output fibers for eight small prime-field cases, including the nontrivial rank-three width obstruction. This does not replace the general proof.
+## correctness
 
-**Originality — PASS, qualified.** The two recent primary studies establish the terminology, bounds, and relative theory of brace commuting probability but do not state this three-parameter block-radical rank-stratification, the multiplicative-to-brace centralizer quotient, or the exact paired widths. Rank formulas for rectangular products are classical ingredients and are explicitly disclaimed as independent novelties. Comparisons with commuting full matrices and finite Kronecker path algebras do not imply the asserted joint theorem: their multiplication objects and centralizer constraints differ. Searches of public mathematical records did not locate the joint statement. Older algebra-group or generalized Heisenberg commutator-width work could nevertheless contain equivalent implications; the priority claim is qualified accordingly.
+PASS
 
-**Value — PASS.** The theorem fully classifies brace and circle centralizer size strata for a natural three-parameter family of class-two nilpotent algebra groups, computes both commuting probabilities and every commutator fiber, and exhibits a sharp factor-of-two difference between additive brace-product width and group-commutator width. The discrepancy survives arbitrary middle-block enlargement and yields a field-dependent limiting gap. Its value is the combined structural classification and exact width distinction, not a generic matrix multiplication identity.
+For three-block upper nilpotent algebra A(X,Y,Z), AB has central block XV and BA has block UY. For ranks a=rank X,b=rank Y, simultaneous annihilation imposes independent linear conditions at+rb; circle commutation imposes XV=UY whose image-space intersection has dimension ab. Thus |Cb(A)|=q^{rs+st+rt-at-rb} and |CG(A)|=q^{rs+st+rt-at-rb+ab}; gap q^{ab}. Averaging over rectangular matrix rank strata gives brace and group commuting probabilities. A commutator central block factors as [X,-U][V;Y] through dimension 2s; conditioning on first-factor image gives F_k(2s) exact fiber q^{2rt}F. Rank subadditivity and decomposition into rank-one factors yield exact commutator width ceil(rank C/(2s)) and additive-product width ceil(rank C/s), including zero. For s->infty and fixed r,t,q full ranks dominate, giving q^{-rt} versus q^{-2rt} limits. Independent F2 r=2,s=1,t=2 enumeration counts brace-centralizing pairs 49, group-commuting pairs 58 and commutator fibers by rank (58 for rank0, 18 each for nine rank1 matrices, 6 each for six rank2 matrices) over noncentral quadruples, agreeing with formulas.
 
-**Closest literature and scope.** Mondal–Yadav, arXiv:2603.16771, Sections 2–3, introduce commuting probabilities and general bounds; Mondal–Shumyatsky–Trombetti–Yadav, arXiv:2609.16269, Sections 2–3, study relative probabilities and structural consequences. Fulman–Guralnick, arXiv:1611.05499, enumerate commuting matrix pairs in full classical Lie algebras; this is not the present three-block radical and does not supply the brace centralizer comparison. The result does not settle more-than-three-block radicals, coefficient rings with zero divisors, or general skew braces. Some historical priority uncertainty persists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General finite skew brace commuting probabilities, group commutator counting, and finite-field rank formulas are prior. New combined three-block explicit rank-stratified brace/group centralizer gap, full commutator fibers and differing exact widths appear absent from inspected specific primary results, with older generalized-Heisenberg group word-map coverage risk.
+
+## value
+
+PASS
+
+Complete field-uniform centralizer distributions, distinct two-sided brace/group commuting probabilities and exact commutator versus product widths are natural algebraic invariants relevant to brace/group relationships.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

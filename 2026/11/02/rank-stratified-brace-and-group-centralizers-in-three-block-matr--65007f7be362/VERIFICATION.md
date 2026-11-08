@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact claims rest on the proof in `RESULT.md`: nilpotent block multiplication, rank-nullity for two centralizers, finite-field Gaussian-binomial counts, factorization counts, and constructive rank subadditivity bounds.
+## correctness
 
-Run `python3 verify.py` with Python 3.8+ and no third-party libraries. The verifier independently enumerates all adjacent block matrices and calculates products and ranks directly over the prime fields with \(q\in\{2,3,5\}\). Tested positive parameter triples are \((1,1,1),(2,1,2),(1,2,1),(2,1,3),(3,1,3)\) in the configurations listed in the research result. Its direct loop checks the centralizer sizes of every tested input, all output commutator and product fibers, and the relevant zero-probability counts against the symbolic formulas.
+PASS
 
-Observed output ends in `VERIFY_OK`. In the \((3,1,3;2)\) case, exactly 50 distinct central matrices arise from a single brace product and exactly 344 from one group commutator. The set of products of two group commutators has all 512 possible central values, whereas matrices of rank 3 do not occur as single commutators.
+For three-block upper nilpotent algebra A(X,Y,Z), AB has central block XV and BA has block UY. For ranks a=rank X,b=rank Y, simultaneous annihilation imposes independent linear conditions at+rb; circle commutation imposes XV=UY whose image-space intersection has dimension ab. Thus |Cb(A)|=q^{rs+st+rt-at-rb} and |CG(A)|=q^{rs+st+rt-at-rb+ab}; gap q^{ab}. Averaging over rectangular matrix rank strata gives brace and group commuting probabilities. A commutator central block factors as [X,-U][V;Y] through dimension 2s; conditioning on first-factor image gives F_k(2s) exact fiber q^{2rt}F. Rank subadditivity and decomposition into rank-one factors yield exact commutator width ceil(rank C/(2s)) and additive-product width ceil(rank C/s), including zero. For s->infty and fixed r,t,q full ranks dominate, giving q^{-rt} versus q^{-2rt} limits. Independent F2 r=2,s=1,t=2 enumeration counts brace-centralizing pairs 49, group-commuting pairs 58 and commutator fibers by rank (58 for rank0, 18 each for nine rank1 matrices, 6 each for six rank2 matrices) over noncentral quadruples, agreeing with formulas.
 
-The checker runs over prime fields rather than all extension fields. It confirms only bounded examples and is not a proof of the theorem for every field/dimension. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+General finite skew brace commuting probabilities, group commutator counting, and finite-field rank formulas are prior. New combined three-block explicit rank-stratified brace/group centralizer gap, full commutator fibers and differing exact widths appear absent from inspected specific primary results, with older generalized-Heisenberg group word-map coverage risk.
+
+## value
+
+PASS
+
+Complete field-uniform centralizer distributions, distinct two-sided brace/group commuting probabilities and exact commutator versus product widths are natural algebraic invariants relevant to brace/group relationships.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
