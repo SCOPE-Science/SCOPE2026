@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The doubled complex is defined by disjoint graph edges whose union is a face of a join of two simplex boundaries. Two independently structured exact enumerators agree on the entire face vector \((36,375,1050)\) and show no larger faces. A deterministic acyclic discrete-Morse matching is reconstructed on all 1,461 nonempty faces and 3,900 Hasse incidences; its complete topological sort succeeds, leaving one critical vertex and exactly 710 critical triangles. Discrete Morse theory therefore proves the integral wedge rather than merely equal Betti numbers. Separate mod-two chain ranks (35,340) corroborate the answer. Signed simplicial fixed-point traces over all 2,880 block permutations and exact irreducible character pairings establish the stated rational representation.
+PASS
 
-## Originality — PASS, residual literature risk acknowledged
+For the join of boundaries on four and five labelled vertices, an edge-pair is admissible iff it is part of a matching whose covered endpoints do not exhaust either block. Independently rebuilt the exact 36-vertex restricted matching complex: f=(36,375,1050), 1,461 nonempty simplices and no dimension above two. Reimplemented staged lexicographic toggle pairing and directed Hasse incidence graph without trusting stored results: 375 codimension-one pairs, critical counts (1,0,710), 3,900 oriented incidences and a full 1,461-vertex acyclic topological sort. Discrete Morse then gives the integral wedge of 710 two-spheres, rather than inferring it from mod-two Betti ranks. Independently recomputed signed fixed-face Hopf traces for every one of 4!5!=2,880 block permutations; all 35 class characters match actual character_table.csv, the class-weighted average is zero, and the multiplicities file contains 22 nonzero constituents summing to dimension 710. Normalization, empty-face exclusion, symmetry action and block saturation were explicitly handled.
 
-Lesh–Schreiner–Wahl (arXiv:2506.10436, Theorem A) give general weak Cohen–Macaulay connectivity but neither the exact homotopy classification of \(\partial\Delta^3*\partial\Delta^4\)'s double nor a block-permutation homology character. The complete-simplex reduction in that source describes a different, larger matching complex. Jonsson (arXiv:1203.5658) studies ordinary complete-graph matching complexes and their torsion, not the present two-block saturation restriction. Full relevant published text and mathematical-result searches did not reveal the exact claim or a stronger theorem implying it. Unindexed equivalent computations remain possible; a failed search is not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The join of two simplex boundaries is a canonical shellable sphere for testing what geometric information survives the recently defined doubling construction. A precise 710-sphere homotopy type is substantially sharper than a connectivity bound, and the lack of torsion contrasts with the complete nine-vertex matching complex. The complete 35-class rational character and the zero-invariants conclusion supply symmetry information not determined by the Betti number. The result is a meaningful, fully reproducible finite case, not a claimed general classification.
+PASS best-of-knowledge: original exact restricted-complex integral homotopy and symmetry computation not implied by known general double-connectivity or ordinary matching results.
 
-## Limits of verification
+## value
 
-The claim covers one specified source complex and its natural block-preserving action. The representation calculation is rational; integral equivariant decomposition and unrestricted parameters remain open here. The finite exhaustive procedure is reproducible but has no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The new exact homotopy type of a natural first nontrivial join of simplex boundaries, including an honest integral torsion-free certificate and a full nontrivial block symmetry character, is a motivated test case for simplicial doubling. It is materially stronger than tabulating an Euler characteristic or generic connectivity and may be needed when studying doubles and equivariant homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
