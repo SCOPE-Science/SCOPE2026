@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem gives exact quantifiers for all integers \(n\ge7\) and times \(t\ge0\), with the cubic open-neighbor rule defined explicitly. The determinant of the two-layer Laurent matrix is the square of the fifth cyclotomic polynomial times a unit; local factorization at its simple characteristic roots \(0,1\) proves the zero-primary module is multiplication by \(\phi^2\) on a single \(\mathbb F_2[z]/\phi^e\) summand. The CRT and ideal-size argument give the exact rank, Jordan-block structure and first-entry populations. A separate scalar determinant calculation yields the fixed-space dimension. Independent Python and C++ matrix computations agree for each \(7\le n\le120\), and exhaustive enumeration of \(2^{20}\) labelled states on \(GP(10,3)\) verifies the finite exemplar. The general claim rests on proof, not enumeration.
+## correctness
 
-## Originality — PASS (qualified)
-A full inspection of the 2011 Gera–Stănică article on generalized Petersen spectra found the underlying two-layer Fourier matrix, but its conclusions concern real eigenvalues and do not imply the characteristic-two nilpotent Jordan form or exact first-entry distributions. The 2006 Zaidenberg convolution framework establishes relevant methods without this specialized calculation. Explicit comparison against known parity results on \(GP(n,2)\), prisms, Boolean-cube distance graphs and multipartite graphs separates the statements by graph family and algebraic local factors; an isolated isomorphism at a small parameter is not an all-family implication. Research-record searches did not identify a covering formulation. The remaining risk is unindexed binary cellular-automaton, Lights Out, or modular adjacency literature, and this has not undergone independent historical review.
+PASS
 
-## Value — PASS
-This is an exact classification of a natural global dynamical invariant for an infinite family of well-studied cubic graphs. The nontrivial doubled fifth-cyclotomic determinant causes a sharp discontinuity: an invertible permutation off multiples of five, a one-step collapse at odd multiples of five, and arbitrarily long entry times proportional to \(n\) along \(n=5\cdot2^s\), with exponentially small initial periodic density. The theorem also determines each first-entry layer and fixed-space size rather than only a generic period bound. It remains intentionally limited to this dynamics and graph family; no unsupported claim about arbitrary primitive periods is made.
+Under the cyclic encoding R=F2[z,z^-1]/(z^n-1), the exact update block is [[z+z^-1,1],[1,z^3+z^-3]] and determinant z^-4 Phi_5(z)^2. For n coprime to five determinant is a unit. Otherwise Phi_5 occurs to multiplicity e=2^nu2(n). At this factor the characteristic polynomial has two simple roots 0 and 1, which lift to complementary rank-one local summands; on the zero summand the eigenvalue is unit*Phi_5². Multiplication by Phi_5^(2t) has kernel degree 4min(2t,e); this gives the rank, primary Jordan blocks and eventual-periodic counts, not an extrapolation. Independent GF2 bit-vector matrices constructed from labelled graph edges checked all t=0..7 for every 7<=n<=50 (352 exact rank checks) plus all 44 fixed dimensions, agreeing with det(B+I)=z^-4(z+1)^4Phi_5. The general proof uses CRT/local factorization; the bounded checks do not prove it.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact final combined claim, after reviewing primary statements and Resultary hits; credited known partial antecedents. Gera–Stănică gives the same graph adjacency blocks but over the real/complex spectral setting; the characteristic-two Jordan nilpotent part and exact periodic-state entrances are not determined by ordinary real eigenvalue multiplicities. Zaidenberg treats linear prime-characteristic convolution on lattices and provides a general harmonic framework, but no inspected result specifies the GP(n,3) squared fifth-cyclotomic factor, exact valuation-two nilpotent chain or entry-time population. Gera–Stănică Theorem 2.4 gives real eigenvalue quadratic equations for GP(n,k), not the modular Jordan filtration. Real adjacency spectra and the general convolution setup allow the 2x2 reduction but do not alone imply the characteristic-2 Phi_5² valuation or dyadic index ceiling(e/2). Those local computations are the differentiating mathematical steps.
+
+## value
+
+PASS
+
+For the classical GP(n,3) graph family, the exact GF2 periodization and rank-loss clock has sharp dependence on the 2-adic valuation of n and the 5-divisibility obstruction. This is a nontrivial natural family-wide classification of transient populations, not merely a numerical rank list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
