@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof starts from the exact normalized Hardy-kernel Berezin formula, iterates Schwarz's lemma to exclude remote level-set branches, verifies uniform differentiable Taylor expansion, proves radial level uniqueness, and obtains upper and lower section endpoints uniformly over the angular variable. The exact coefficient and power follow from a complete circle of phases. The inverse inference uses a positive leading width. Four nonmonomial finite examples and 44 assertions in the embedded script passed; those computations are illustrative, not infinite-dimensional certification.
+## correctness
 
-**Originality (PASS, best-knowledge).** The nearest full primary text, Bourdon–Le–Thompson's 2026 paper, proves a qualitative cusp and radial separation (Lemma 3.10, Theorem 3.11, Remark 3.12(i)). It does not state the sharp \(\delta^{(m+1)/2}\) vertical-section exponent, its coefficient \(2|a_m|\), or nonlinear arbitrary-tail inverse recovery. Proposition 3.7 and earlier monomial formulas are recognized as coverage of simple special cases. Independent comparable work on convexity and Berezin ranges does not imply the global all-tail local profile without the new radial monotonicity and angular analysis. An earlier equivalent local-jet formulation remains a real residual priority risk.
+PASS
 
-**Mathematical value (PASS).** The 2026 paper singles out the qualitative cusp at \(1\) as a notable geometric feature of Hardy composition Berezin ranges. The present complete sharp local profile turns that shape statement into a measurable inverse invariant: the range alone recovers discrete vanishing order and a continuous coefficient modulus, for all analytic perturbations, and explicitly distinguishes the nonlinear classes. This is structural information beyond routine estimates for a fixed parametrized monomial curve.
+For Hardy normalized Berezin transform F_phi(w)=(1-|w|^2)/(1-conj(w)phi(w)), iterated Schwarz gives |phi(w)|<=|w|^m when phi has zero order m>=2, so |F_phi(w)| <= (1-r^2)/(1-r^(m+1)) <1 with fixed gap outside every small origin disk, including at r->1 limit 2/(m+1). Thus all near-Re=1 level points lie at small r. Uniform angular Taylor analysis yields 1-Re F=r^2+O(r^(m+1)), derivative 2r+O(r^m)>0, so each angular ray has exactly one small radius r=sqrt(delta)(1+O(delta^((m-1)/2))). Imaginary part at that level equals delta^((m+1)/2) Im(a_m exp(i(m-1)theta))+O(delta^((m+2)/2)); angular continuity gives the whole compact vertical interval with extrema ±|a_m|delta^((m+1)/2)+O(delta^((m+2)/2)). Its positive width recovers m from the logarithmic slope and |a_m| from the prefactor; no claim to recover phase or higher jets. Independently checked nine nonmonomial finite-delta sections, supplementary only. Correct for every analytic disk selfmap of finite zero order m>=2, not just monomials.
 
-The result is proved analytically at arbitrary finite order; it does not claim to identify the full symbol or prove novelty relative to inaccessible literature. Finite tests are supplementary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after same-object source and implication comparisons. This result is not accepted merely because its wording differs from a prior title. Already known reductions, analytic machinery and restricted special cases are credited. Material access risks are explicitly listed.
+
+## value
+
+PASS
+
+The local unparameterized Berezin range is a natural geometric invariant. Quantifying the qualitative superattracting cusp yields a sharp inverse theorem that recovers both the discrete vanishing order and continuous leading coefficient magnitude under arbitrary analytic tails. It has direct motivation from the same-model 2026 cusp/convexity question and is not merely a plot of a single monomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

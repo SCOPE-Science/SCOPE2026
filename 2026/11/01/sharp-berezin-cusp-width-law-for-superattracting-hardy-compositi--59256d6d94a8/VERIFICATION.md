@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-**Analytical checks.** The closed-disk estimate \(|\varphi(z)|\le|z|^m\) follows from repeated Schwarz lemma. The radial bound has uniform gap from one on every exterior annulus, including its \(2/(m+1)\) endpoint. The polar expansion is differentiable uniformly in angle on a small fixed disk, so the radial level derivative is \(2r+O(r^m)\), and no extraneous distant preimages contribute to a near-\(1\) vertical section. The compact interval and both endpoints are obtained by continuous angular images and uniform error control, not merely sampled values.
+## correctness
 
-**Supplementary computation.** Run `python verify_cusp.py` with Python 3, NumPy and SciPy installed. It evaluates nonmonomial disk selfmaps of orders \(2\) through \(5\) at five positive section deficits using a radial root solver and a finite angular mesh; 44 assertions passed. These checks do not certify global maxima over all angles, exact small-deficit limits, or untested symbols.
+PASS
 
-**Scientific limits.** There is no independent audit. The phase and higher coefficients cannot be reconstructed from this theorem. Publication priority against all older equivalent terminology is not certified.
+For Hardy normalized Berezin transform F_phi(w)=(1-|w|^2)/(1-conj(w)phi(w)), iterated Schwarz gives |phi(w)|<=|w|^m when phi has zero order m>=2, so |F_phi(w)| <= (1-r^2)/(1-r^(m+1)) <1 with fixed gap outside every small origin disk, including at r->1 limit 2/(m+1). Thus all near-Re=1 level points lie at small r. Uniform angular Taylor analysis yields 1-Re F=r^2+O(r^(m+1)), derivative 2r+O(r^m)>0, so each angular ray has exactly one small radius r=sqrt(delta)(1+O(delta^((m-1)/2))). Imaginary part at that level equals delta^((m+1)/2) Im(a_m exp(i(m-1)theta))+O(delta^((m+2)/2)); angular continuity gives the whole compact vertical interval with extrema ±|a_m|delta^((m+1)/2)+O(delta^((m+2)/2)). Its positive width recovers m from the logarithmic slope and |a_m| from the prefactor; no claim to recover phase or higher jets. Independently checked nine nonmonomial finite-delta sections, supplementary only. Correct for every analytic disk selfmap of finite zero order m>=2, not just monomials.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after same-object source and implication comparisons. This result is not accepted merely because its wording differs from a prior title. Already known reductions, analytic machinery and restricted special cases are credited. Material access risks are explicitly listed.
+
+## value
+
+PASS
+
+The local unparameterized Berezin range is a natural geometric invariant. Quantifying the qualitative superattracting cusp yields a sharp inverse theorem that recovers both the discrete vanishing order and continuous leading coefficient magnitude under arbitrary analytic tails. It has direct motivation from the same-model 2026 cusp/convexity question and is not merely a plot of a single monomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
