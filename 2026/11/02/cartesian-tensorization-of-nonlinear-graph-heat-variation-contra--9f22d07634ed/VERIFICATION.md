@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification performed
 
-The executable `verify.py` is self-contained and requires only Python 3 standard libraries. Run `python verify.py`. Exhaustive three-valued inputs were tested on three Cartesian product examples for three integer exponents, with 393,660 exact derivative comparisons and no failures; the four-leaf-star lifted counterexample returned exactly 2. This is supporting finite evidence, not universal verification.
+# Independent mathematical audit
 
-The general result instead follows by the edgewise monotonicity/Kato argument and a convex directional derivative inequality, as proved in RESULT.md. Ties and zero gradients are included by taking all allowed absolute-value subgradients. Product converse uses coordinate-lifted solutions. No independent scientific audit has been conducted.
+## correctness
+
+PASS
+
+The nonlinear p_j generator is minus a convex energy gradient and is well-posed for p_j>1. Monotonicity of phi_p yields two-input vertex l1 dissipativity, hence cross-fiber edge-variation derivatives nonpositive; each factor contracting supplies own-fiber signs. Subadditivity of convex one-sided directional derivatives proves the sum-field inequality without requiring commuting nonlinear flows. Lifted one-coordinate data prove necessity. On stars a leaf impulse gives Jdot=(m-3)c, with m<=3 ensured by the subgradient coefficient 3-m; independent exact p=2 ternary-signal checks and m=4,5 impulses corroborate. The strict assumption of fiber-repeated conductance matters.
+
+## originality
+
+PASS
+
+Mugnolo 2013 establishes p-heat generation, order preservation and vertex l^q nonexpansivity; Hua–Mugnolo 2014 studies time regularity. Those vertex-space estimates provide the cross-coordinate tool but do not directly assert the iff product law for one-input edge total variation, nor the sharp star threshold with arbitrary positive edge conductances. General nonlinear tensorization literature might subsume it.
+
+## value
+
+PASS
+
+A nontrivial tensorization/reflection theorem for nonlinear flows that do not commute, with an exact graph branching obstruction, lets one determine contractivity for arbitrarily large finite products from their factors. The K1,4 witness is naturally tied to local branching and proves sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

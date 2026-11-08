@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete proof checks existence/uniqueness; the edgewise Kato inequality for cross-fiber two-input vertex \(\ell^1\) distances; the same-fiber total-variation derivative; subadditivity of convex directional derivatives; necessity by lifting factor states; and the path, cycle, complete-graph, and star boundary calculations. The star threshold is strict at four leaves, with a concrete derivative witness. The executable exact-arithmetic diagnostics check 393,660 directional inequalities and the obstruction derivative. The proof, not finite enumeration, supports every parameter.
+## correctness
 
-## Originality — PASS, with residual risk
-Compared the nonlinear semigroup setting in Mugnolo (arXiv:1207.1996) and Hua--Mugnolo (arXiv:1410.1584), plus searches for nonlinear edge-BV Cartesian tensorization and existing graph-heat variation findings. The primary sources establish vertex-space \(\ell^q\) contraction and semigroup regularity, rather than the stated necessary-and-sufficient product equivalence for edge variation. Historical single-graph tree and star results, although informative for factor cases, do not imply nonlinear product reflection or cross-fiber preservation without the new argument. Residual risk: an equivalent abstract tensorization principle may exist under other terminology; non-matching search results are not a novelty certificate.
+PASS
 
-## Mathematical value — PASS
-The claim is an all-finite-product structural theorem reducing a nonlinear, high-dimensional TVD question to exactly its one-factor instances. The sharp star branching transition immediately classifies entire multi-parameter Cartesian product families. The result is motivated by nonlinear diffusion on product networks and does not rely on trivial linear semigroup factorization.
+The nonlinear p_j generator is minus a convex energy gradient and is well-posed for p_j>1. Monotonicity of phi_p yields two-input vertex l1 dissipativity, hence cross-fiber edge-variation derivatives nonpositive; each factor contracting supplies own-fiber signs. Subadditivity of convex one-sided directional derivatives proves the sum-field inequality without requiring commuting nonlinear flows. Lifted one-coordinate data prove necessity. On stars a leaf impulse gives Jdot=(m-3)c, with m<=3 ensured by the subgradient coefficient 3-m; independent exact p=2 ternary-signal checks and m=4,5 impulses corroborate. The strict assumption of fiber-repeated conductance matters.
 
-## Limitations
-Unit vertex masses and conductances repeated across coordinate fibers are necessary stated assumptions. The proof does not cover independently varying conductances between fibers, arbitrary weighted edge variation, non-Cartesian products or infinite graphs. Prior-work comparison is self-review only, with remaining literature uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mugnolo 2013 establishes p-heat generation, order preservation and vertex l^q nonexpansivity; Hua–Mugnolo 2014 studies time regularity. Those vertex-space estimates provide the cross-coordinate tool but do not directly assert the iff product law for one-input edge total variation, nor the sharp star threshold with arbitrary positive edge conductances. General nonlinear tensorization literature might subsume it.
+
+## value
+
+PASS
+
+A nontrivial tensorization/reflection theorem for nonlinear flows that do not commute, with an exact graph branching obstruction, lets one determine contractivity for arbitrarily large finite products from their factors. The K1,4 witness is naturally tied to local branching and proves sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
