@@ -1,0 +1,11 @@
+# Review of the wheel-cycle online-shattering theorem
+
+**Correctness — PASS.** The wheel family contains exactly \(1+r(r-1)\) simple cycles; no complete depth-\(d\) tree can have more leaves than concepts. Published Theorem 3.4(2) establishes the static VC dimension. For rim length five, the attached complete depth-four tree has sixteen independently checked cycle witnesses, and the cardinality upper bound gives exact Littlestone dimension four. Edge subdivision and representative queries preserve the entire witness tree in larger wheels, while a fixed-spoke subfamily reduces to ordered thresholds to provide the unbounded logarithmic lower bound. The special rim lengths three and four follow from VC lower bounds and cycle-count upper bounds. The verification script independently enumerates simple cycles from adjacency and checks the certificate. No finite computation is treated as proof of the universal lower bound.
+
+**Originality — PASS, with priority risk.** Mofidi's fully inspected 2022 wheel-cycle hypergraph proof already gives the static VC dimension three, which is **explicitly excluded from the novelty claim**; its articles do not supply or imply the separate adaptive statement. The 2021 linear-zero-set learning theorem has inapplicable hypotheses. Literature and overlap searches with equivalent terminology did not identify any prior wheel cycle-edge Littlestone calculation. Related published work on graph cover-free parameters concerns different incidence invariants and does not imply the adaptive first-gap theorem. An uncatalogued equivalent online-learning treatment remains possible, and absolute originality is not asserted.
+
+**Value — PASS.** A standard family of planar wheel cycle hypergraphs with known uniformly bounded VC dimension has provably divergent online shattering depth. It identifies the first wheel showing this separation, gives a finite explicit extremal decision tree, and supplies uniform constructive bounds. This is a structural difference between static and sequential incidence complexity, not an arbitrary enumeration or a routine coefficient tweak.
+
+The exact online dimension beyond rim length five remains open here, and independent review has not been done.
+
+Self-review: passed. Independent audit: not yet performed.
