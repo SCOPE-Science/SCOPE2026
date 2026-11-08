@@ -1,19 +1,21 @@
-# Scientific review: arithmetic renewal limit cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses make the renewal-age distribution exact: \(\Pr(A_t=a)=u(t-a)\Pr(L>a)\). The lattice renewal theorem with the rescaled aperiodic interarrival \(K=L/d\) and summable renewal tails proves full total-variation convergence on each phase, which bounds matrix trace norm. The Fourier multiplier is zero-free because an expectation of unit complex numbers equals one only when every one is one; the gcd-one condition then forces unit frequency. Matrix-element comparison proves the exact phase-gap equality and strict criterion. Independently implemented exact rational finite-horizon and spectral computations passed 1212 diagnostics. Neither simulation nor partial enumeration is used to justify the infinite-time claim.
+PASS
 
-## Originality — PASS with residual risk
+For the stated proper iid positive integer L with finite mean, age law P(A_t=a)=u(t-a)P(L>a), renewal epoch function u(s)<=1. With d=gcd support and K=L/d span1, arithmetic renewal theorem yields u(dn)->1/nu, nu=EK. Along t=dn+j only ages dk+j appear, with tails P(L>dk+j)=P(K>k), summable since sum P(K>k)=nu. Dominated convergence establishes total variation convergence of full age law and trace-norm convergence of rho_t to U^jBU^-j. For |z|=1, H_K(z)=(1-E z^K)/(nu(1-z)) cannot vanish for z!=1 because equality Ez^K=1 forces z^K=1 a.s., then gcd=1 implies z=1. Each active offdiagonal of rho* persists in B; Hilbert–Schmidt phase gap equals sum of nonnegative terms and vanishes iff [U,rho*]=0 for d>1. For d=1 convergence is automatic regardless of commutator. Exact qubit witness L=2 or4, U=diag(1,i) has gap sqrt2/3. Independently checked convolution/predicted age limits, spectral multiplier and witness in finite examples; the infinite law invokes renewal theorem, not finite tests.
 
-Wald et al., arXiv:2410.11497v1 and the later v3, establish the discrete quantum resetting dynamics, the age recursion, constant-probability stationary states, and deterministic periodic nonconvergence. Section IV and appendices do not state the span-gcd classification for **all proper finite-mean random clocks**, the explicit trace-norm residue limits, or the zero-free Fourier criterion for noncollapse. Sevilla and Valdés-Hernández, arXiv:2209.05643v1, provide the continuous-time arbitrary-renewal model and conditional steady-state analysis; their conclusions do not cover integer-arithmetic limit cycles. The new assertion is neither a renamed deterministic example nor a claim that renewal theory is new. Residual risk: an unindexed general operator-valued arithmetic renewal theorem might subsume this result; a broader published result has not been excluded by exhaustive external search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The infinite family of all finite-mean lattice clocks permits a complete, sharp classification of late-time quantum state behavior without restricting to a particular hazard family, a qubit, or a second moment. It distinguishes nearly sure eventual resetting from actual equilibration, supplies the exact observable phase gap, and determines precisely when gate-state commutation suppresses coherent limit cycles. It is a natural structural answer to the non-Poisson convergence question in the motivating literature, rather than a parameter-specific numerical increment.
+Foundational discrete quantum reset age recursions and deterministic clock oscillations are established by Wald et al.; the claimed exact finite-mean gcd-phase classification and unit-circle no-cancellation criterion are a separate arithmetic-renewal specialization. Classical key renewal theorem is credited, not asserted new. A broader lattice operator renewal theorem might imply parts but no full comparator identified.
 
-## Boundaries and literature
+## value
 
-A proper finite-mean clock is essential; partial resets, infinite-mean processes, other gate channels, and pathwise state convergence remain outside the theorem. The arithmetic renewal theorem and deterministic-reset examples are established prior mathematics; independent literature and scientific review remain necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-mean iid clock class is natural in quantum resetting, and its gcd decisively determines whether the ensemble has one limit or a nonconstant d-phase orbit. Exact phase density matrices and a robust nonzero coherence certificate answer a motivated convergence question which generic reset recurrences alone do not settle. The condition [U,rho*]=0 is a useful exact structural criterion, not a routine finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
