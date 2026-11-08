@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:58:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-query-noise-universality-for-structured-zeroth-order-desce--d2907edfc70f/RESULT.md blob c1c7c5af6c5b366fe36fe6b9ac943c4595d54529",
+        "2026/11/02/exact-query-noise-universality-for-structured-zeroth-order-desce--d2907edfc70f/verify.py blob d9a4af935394a8382af7ec54f8767193e73a1199",
+        "independent_checks.py freshly constructed and run"
+      ],
+      "rationale": "For f(x)=λ||x||²/2, scaled random orthogonal frame P with PᵀP=(d/ℓ)I, E[PPᵀ]=I and E[P1]=0, and fresh centered finite-variance oracle errors, exact forward differences give G=λPPᵀX+(λhd/(2ℓ))P1+Pζ/h. The shared-baseline noise covariance is σ²(I+11ᵀ). Conditional first/second moments, (PPᵀ)²=(d/ℓ)PPᵀ and ||P1||²=d give r=1−2ηλ+η²λ²d/ℓ and b=η²[λ²d³h²/(4ℓ²)+2dσ²/h²]. Induction yields the exact all-horizon squared iterate norm. r∈[0,1) exactly for 0<η<2ℓ/(λd); AM–GM gives the unique h*, η*=ℓ/(λd) minimizes r, and the floor sqrt(2)dσ/λ (not globally minimized over η). Replacing a shared baseline with independent baselines retains the trace-based squared risk despite changing full law. Independently computed 4 exhaustive finite signed-frame/Rademacher second-moment cases using exact arithmetic.",
+      "residual_risks": [
+        "Requires isotropic quadratic Hessian and centered iid independent evaluation noise; equality concerns squared-risk only, not iterate distribution.",
+        "The optimized stationary floor is specifically at the step minimizing homogeneous contraction r, not globally best over all steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General S-SZD convergence upper bounds extend to broad objective classes but assume different sampling and do not state exact stationary MSE. 2019 bounds on noisy gradient approximation do not supply all-horizon recurrence constants."
+        ],
+        "reasoning": "A broader upper bound in a distinct oracle model cannot dominate the exact independent-query squared-error identity, optimal radius and comparison theorem.",
+        "searches": [
+          "arxiv:2206.05124 S-SZD general rates",
+          "arxiv:1905.01332 gradient approximation comparison",
+          "stochastic zeroth order descent structured directions noisy function evaluations shared baseline isotropic quadratic exact recurrence"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md, verify.py and requirements.txt frozen blob identities",
+        "Resultary semantic stochastic zeroth order descent structured directions noisy function evaluations shared baseline isotropic quadratic exact recurrence",
+        "arxiv:2206.05124 relevant primary full text",
+        "arxiv:2107.03941 relevant full text",
+        "arxiv:1905.01332 abstract",
+        "independent exact branch enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In common-stochastic-input differences, sample-independent additive noise cancels, whereas under the present independent-query setting b contains a strictly positive 2dσ²/h² term."
+        ],
+        "reasoning": "Prior first-order estimates cannot imply the nonzero optimum h* and stationary floor for this altered noise law without a new covariance derivation.",
+        "searches": [
+          "arxiv:2206.05124 methodology and sample reuse",
+          "arxiv:2107.03941 exact oracle",
+          "stochastic zeroth order descent structured directions noisy function evaluations shared baseline isotropic quadratic exact recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The S-SZD paper reuses the same stochastic input between evaluations, whereas independently resampled oracle errors have covariance σ²(I+11ᵀ) for common baseline; exact-function formulation has no sampled query-noise penalty."
+        ],
+        "reasoning": "The target conditional trace identity is not a parameter renaming of the common-sample or noise-free model. It quantifies correlated reused baseline effects precisely.",
+        "searches": [
+          "stochastic zeroth order descent structured directions noisy function evaluations shared baseline isotropic quadratic exact recurrence",
+          "arxiv:2206.05124 noisy zeroth order structured directions common input",
+          "arxiv:2107.03941 orthogonal directions exact function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search found related stochastic optimizer floors and Haar SSD improvements, not this correlated-baseline full-time equality."
+        ],
+        "reasoning": "The result is symbolic for every dimension, rank and n; finite example tables would need an additional theorem to imply universality. Unindexed formula remains a risk.",
+        "searches": [
+          "stochastic zeroth order descent structured directions noisy function evaluations shared baseline isotropic quadratic exact recurrence",
+          "structured zeroth order h optimal quadratic stationary MSE exact table",
+          "Resultary query stochastic zeroth order descent structured directions noisy function evaluations shared baseline isotropic quadratic exact recurrence"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact all-time mean-square law, shared-vs-separate baseline equivalence, and direction-count invariant fastest-step floor under independently redrawn query noise. General structured S-SZD paper uses a common stochastic sample instead, so its noise cancels in differences; exact-oracle orthogonal-direction paper lacks the inverse-h² term. Finite-difference bias/variance calculus and projector identities are classical and not claimed new.",
+      "residual_risks": [
+        "A more general source on stochastic finite-difference oracle covariance may imply the formulas; negative Resultary search is not novelty proof.",
+        "Classical AM–GM h balancing and random-projector variance identities are explicitly prior tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Common stochastic input is reused and can cancel additive noise, distinct from independent per-query additive error here",
+          "evidence": [
+            "Rando–Molinari–Villa–Rosasco 2022/2024 algorithm/assumptions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.05124",
+          "material_read": "Relevant full primary paper sections including Algorithm 1, sampling and assumption on common stochastic input",
+          "method": "Primary PDF full text, relevant sections inspected and page screenshot",
+          "title": "Stochastic Zeroth Order Descent with Structured Directions",
+          "trigger": "Same structured random-frame optimizer under stochastic functions"
+        },
+        {
+          "assessment": "Exact-function evaluation assumptions omit independent redraw noise",
+          "evidence": [
+            "Kozak et al. exact-oracle random orthogonal directions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+          "material_read": "Primary full PDF relevant model/algorithm and convergence hypotheses",
+          "method": "Primary PDF, relevant sections read",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Same orthogonal finite-difference frame method"
+        },
+        {
+          "assessment": "General error comparison does not establish a verified exact constant-step stationary law in read material; whole-document noncoverage not claimed",
+          "evidence": [
+            "Berahas et al. 2019 derivative-free gradient approximations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.01332",
+          "material_read": "Abstract and paper-level method summary, not whole text",
+          "method": "Public abstract/search",
+          "title": "A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization",
+          "trigger": "General noisy gradient-estimation error comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-query-noise-universality-for-structured-zeroth-order-desce--d2907edfc70f/RESULT.md blob c1c7c5af6c5b366fe36fe6b9ac943c4595d54529",
+        "Git RESULT.md, verify.py and requirements.txt frozen blob identities",
+        "Resultary semantic stochastic zeroth order descent structured directions noisy function evaluations shared baseline isotropic quadratic exact recurrence",
+        "arxiv:2206.05124 relevant primary full text",
+        "arxiv:2107.03941 relevant full text",
+        "arxiv:1905.01332 abstract",
+        "independent exact branch enumeration"
+      ],
+      "rationale": "The exact finite-time risk and shared-baseline economy answer a natural oracle-design question, with a sharp dimension/direction cancellation at fastest mean-square contraction; useful beyond a routine one-step textbook error calculation because it distinguishes true independent query redraw from common-sample schemes.",
+      "residual_risks": [
+        "A more general source on stochastic finite-difference oracle covariance may imply the formulas; negative Resultary search is not novelty proof.",
+        "Classical AM–GM h balancing and random-projector variance identities are explicitly prior tools."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "d≥2, 1≤ℓ≤d, sign-balanced isotropic scaled orthogonal independent frames, σ>0 finite variance, isotropic quadratic, squared risk only.",
+    "Requires isotropic quadratic Hessian and centered iid independent evaluation noise; equality concerns squared-risk only, not iterate distribution.",
+    "The optimized stationary floor is specifically at the step minimizing homogeneous contraction r, not globally best over all steps.",
+    "A more general source on stochastic finite-difference oracle covariance may imply the formulas; negative Resultary search is not novelty proof.",
+    "Classical AM–GM h balancing and random-projector variance identities are explicitly prior tools."
+  ],
+  "schema_version": 1
+}
