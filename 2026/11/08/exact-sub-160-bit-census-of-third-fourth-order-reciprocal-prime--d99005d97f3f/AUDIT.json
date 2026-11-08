@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For positive reciprocal-divisibility pairs, coprimality and the integer invariant K=(a*a+a+b*b+1)/(a*b) follow. Strict Vieta descent to (1,1) proves K=4 and exhausts two increasing rays. The verifier lists all 169 solutions with both coordinates ≤ 2^160 and excludes 81 by evenness and 77 by explicit modular Fermat witnesses. The six survivors have complete trial-division primality certificates and exact orders; an independent discriminant enumeration crosschecks small solutions. All quantifiers, boundary inclusion and exceptional small entries were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Costello–Korpal public search stops at 200-millionth prime, below 2^160; Mills 1953/1956 formulate general solution methods, without this exact prime-pair census"
+      ],
+      "reasoning": "A general symbolic conic classification does not give the finite prime count without exhaustive primality decisions. No stronger result stating the exact census up to the paper-motivated 2^160 boundary was found.",
+      "searches": [
+        "\"On pairs of primes with small order reciprocity\" finite search 200 million primes",
+        "\"A system of quadratic Diophantine equations\" Mills 1953",
+        "\"Certain Diophantine equations linear in one unknown\" Mills 1956",
+        "order reciprocity (3,4) divisibility of cyclotomic polynomials prime x and y Costello Korpal"
+      ]
+    },
+    "checked_sources": [
+      "https://eprint.iacr.org/2025/150",
+      "https://arxiv.org/abs/2608.03268",
+      "https://msp.org/pjm/1953/3-1/pjm-v3-n1-p15-p.pdf",
+      "https://doi.org/10.4153/CJM-1956-003-2",
+      "https://arxiv.org/abs/1908.09420",
+      "https://github.com/gkorpal/order-reciprocity/tree/main/data",
+      "https://math.stackexchange.com/questions/3118453/order-reciprocity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bibby–Vyncke–Zelinsky studies symmetric sigma(2,2) pair conditions, which differ from asymmetric order(3,4). A published theorem on the common cyclotomic divisor of symmetric (3,3) prime pairs proves a different gcd fact, not this finite (3,4) census."
+      ],
+      "reasoning": "The published reciprocal-order-pair list and the general descent papers do not, on the inspected material, imply exactly six bounded prime solutions without the new finite computation. Symmetric (3,3) conditions are not equivalent.",
+      "searches": [
+        "mixed cyclotomic reciprocity prime pairs ord_q(p)=3 ord_p(q)=4 4817 17977 orbit",
+        "3 13 61 291 1393 recurrence 5 u_n -u_{n-1} -1 prime pair reciprocity",
+        "https://arxiv.org/abs/1908.09420",
+        "https://eprint.iacr.org/2025/150"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Costello–Korpal eprint 2025/150 (definition of order reciprocity); Mills (1953) general Vieta-jumping conics; semantic mathematical-record searches with closest sigma(2,2) gcd result"
+      ],
+      "reasoning": "The coprime cyclotomic divisibilities and the conic are equivalent for integer inputs after a proved descent. The conic reduction is classical in spirit; the particular bounded exact prime count and full primality certificate were not located.",
+      "searches": [
+        "\"order reciprocity\" \"160\" \"pairs\"",
+        "\"a^2+a+b^2+1\" \"4ab\"",
+        "mutual cyclotomic divisibility primitive prime pairs order 3 4",
+        "positive solutions x^2+x+y^2+1=4xy, Vieta involution, two recurrences, prime (3,4) order reciprocity, density O(log X)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public code/data repository has two compressed archives of prime-pair searches over first 200 million primes. Author paper defines motivated 160-bit range but data search stops far below it."
+      ],
+      "reasoning": "Repository archives were indexed by path and scope, not decompressed. The publicly described search bound cannot include the two largest members of the new six-pair census. Remaining unindexed tables are a residual risk.",
+      "searches": [
+        "https://github.com/gkorpal/order-reciprocity/tree/main/data",
+        "order reciprocity (3,4) exact 160-bit pairs census",
+        "order reciprocity prime pair (137,37) (4817,17977) exact sparsity parametrization conic"
+      ]
+    },
+    "rationale": "The new result is a proved exact six-pair census at a motivated 160-bit boundary, not a claim that Vieta jumping or conic parametrization is new. Costello–Korpal searches finite public lists through the first 200 million primes; Mills supplies general conic methods but no stated exact six-pair count to 2^160. Searches of relevant tables, published mathematics and semantic mathematical records found no dominating exact count. Inaccessible/unindexed prior material remains a priority risk.",
+    "residual_risks": [
+      "An older or unindexed numeric database might already state the exact count.",
+      "The published compressed search archives were not decompressed, although their prime-index range is strictly beneath the 160-bit bound.",
+      "The result is finite and implies nothing about all larger reciprocal-order prime pairs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "defines order (3,4) and 160-bit computational motivation, but its table search is limited to first 200 million primes",
+        "evidence": "IACR version received 2025-01-31; companion arXiv 2608.03268; publicly stated finite computation boundary",
+        "identifier_or_url": "https://eprint.iacr.org/2025/150",
+        "material_read": "full mathematical text and statement of search scope",
+        "method": "primary full-text reading with cross-check against arXiv version",
+        "title": "On pairs of primes with small order reciprocity",
+        "trigger": "same ordered prime-pair objects and 160-bit range"
+      },
+      {
+        "assessment": "general method known; no exact 160-bit six-prime census claimed",
+        "evidence": "Mills 1953, Pacific J. Math. 3, linear transformations and descent",
+        "identifier_or_url": "https://msp.org/pjm/1953/3-1/pjm-v3-n1-p15-p.pdf",
+        "material_read": "relevant full article and its mathematical method",
+        "method": "primary extracted PDF text",
+        "title": "A system of quadratic Diophantine equations",
+        "trigger": "classical Vieta/descent method potentially dominating integer conic parametrization"
+      },
+      {
+        "assessment": "general conic method is earlier; no particular exact bounded prime census found",
+        "evidence": "Mills 1956, Canadian Journal of Mathematics, general Diophantine equation discussion",
+        "identifier_or_url": "https://doi.org/10.4153/CJM-1956-003-2",
+        "material_read": "abstract and mathematical opening sections",
+        "method": "published journal textual view",
+        "title": "Certain Diophantine equations linear in one unknown",
+        "trigger": "possible general classification of same family of quadratic equations"
+      },
+      {
+        "assessment": "studies different symmetric order constraints; no coverage of the stated asymmetric 160-bit census",
+        "evidence": "Bibby–Vyncke–Zelinsky (2019), related divisibility conditions",
+        "identifier_or_url": "https://arxiv.org/abs/1908.09420",
+        "material_read": "relevant full-text sections on sigma(2,2) pairs",
+        "method": "open preprint text inspection",
+        "title": "On the Third Largest Prime Divisor of an Odd Perfect Number",
+        "trigger": "reciprocal cyclotomic divisibility and sigma(2,2) primes"
+      },
+      {
+        "assessment": "two compressed finite-prime archives below target height, unexplored internal rows remain a documented limitation",
+        "evidence": "data/prime_pairs-1_100e6.tar.gz and data/prime_pairs-100e6plus1_200e6.tar.gz",
+        "identifier_or_url": "https://github.com/gkorpal/order-reciprocity/tree/main/data",
+        "material_read": "repository directory listing and public documented search extent; archives not decompressed",
+        "method": "GitHub repository listing",
+        "title": "Order reciprocity data",
+        "trigger": "possible identical numeric table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d99005d9-7f3f-4424-ae6f-828680fa35f3",
+  "value": {
+    "rationale": "The 160-bit cutoff is directly motivated by the security-scale parameter in the primary 2025 study; the exact count and large prime pairs are previously unresolved by the available finite table, with a compact reproducible full-domain certificate. This gives a natural exact census for a named reciprocal-order problem, not an arbitrary tiny parameter slice. It does not assert a general infinitude theorem.",
+    "status": "PASS"
+  }
+}
