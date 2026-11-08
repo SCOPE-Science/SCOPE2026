@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:08:30.837774Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized uniform spherical annulus has E X=0 and covariance kappa^-1 I with kappa=(d+2)(1-r^d)/(1-r^(d+2)); therefore the affine L2 projection's reproducing kernel is 1+kappa x·y. Convex symmetry of the row integral and existence of negative kernel values show precisely outer-sphere rows maximize its L-infinity norm, with sign-of-kernel extremizer. Ball-coordinate beta density and radial subtraction give the stated H_d incomplete-beta norm formula. The scaled radius S_r=kappa R_r has strictly rising lower and strictly falling upper support endpoints with density proportional to s^(d-1); its CDF has a single crossing and its mean strictly decreases. Thus it strictly dominates later radii in stop-loss order on the relevant thresholds; strict convexity of phi(s)=E(sU_1-1)_+ for s>1 proves L_d(r) strictly decreases to the sphere endpoint. Taylor at r=0 yields leading beta coefficient times r^d. Uniform radial concentration and uniform sphere-coordinate Gaussian limit give sup_r|L_d(r)/sqrt(d)-sqrt(2/pi)|->0. Independent radial/sphere quadrature checked d=2,3,4 at several radii and d=3 endpoints 253/125 and 5/3, not an all-dimensional proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu establishes sphere/ball polynomial connections at abstract level; Defant et al. 2026 abstract addresses spaces of polynomials on the sphere; both relate to the r=1 limit but not reported for variable annulus thickness."
+        ],
+        "reasoning": "Sphere/ball relations explain an endpoint dimension-shift but cannot establish strict hole monotonicity on arbitrary 0<r<1 by themselves. Defant's full article not checked; older radial approximation literature may contain an equivalent comparison.",
+        "searches": [
+          "L-infinity norm affine orthogonal projection annulus spherical shell shrinking interior hole beta monotonicity",
+          "Xu DOI:10.1137/S0036141096307357",
+          "Defant et al. DOI:10.1112/jlms.70429"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md a3fd5e22229c5be1190f5e8a57fcd97bfe5c57f8",
+        "pinned verify_annulus.py 454d94ca9f76523bd7b17dfd66b7f7461e51d8fb",
+        "Figueroa arXiv:1503.04485",
+        "Wang–Sloan arXiv:1509.03792",
+        "Xu DOI:10.1137/S0036141096307357 abstract",
+        "Defant et al DOI:10.1112/jlms.70429 abstract",
+        "Resultary semantic search L-infinity norm affine orthogonal projection annulus spherical shell shrinking interior hole beta monotonicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new proof uses a strict one-crossing scaled radial law, a feature absent from the inspected filled disk Sobolev theorem and sphere filtered-operator results."
+        ],
+        "reasoning": "Those results neither parameterize concentric holes nor imply the strict all-r weighted radial convex order, whose proof supplies a substantive new step. Sphere-only theorem can govern at most the limit, not without additional argument the strict radial interpolation.",
+        "searches": [
+          "L-infinity norm affine orthogonal projection annulus spherical shell shrinking interior hole beta monotonicity",
+          "arXiv:1503.04485 theorem 3.9",
+          "arXiv:1509.03792",
+          "Defant et al DOI:10.1112/jlms.70429"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Figueroa studies Sobolev error for filled-disk orthogonal polynomial projection, not L-infinity affine norm on varying hollow annuli. Wang–Sloan studies filtered polynomial projection on spheres."
+        ],
+        "reasoning": "The kernel-row expression equals an expectation under leverage-scaled radial law; neither a surface-only Lebesgue constant nor filled-ball value encodes the all-r strict stop-loss comparison. The r->1 and r=0 endpoints may be classical and are not asserted novel individually.",
+        "searches": [
+          "L-infinity norm affine orthogonal projection annulus spherical shell shrinking interior hole beta monotonicity",
+          "affine orthogonal projection Lebesgue constant radial shell",
+          "arXiv:1503.04485",
+          "arXiv:1509.03792"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit verified L_3(0)=253/125 and L_3(1)=5/3; related published Resultary 2026/10/4 finding for simplices instead of annuli."
+        ],
+        "reasoning": "Published endpoint constants and different-domain tables do not comprise an exact beta-function continuum or leading hole-loss coefficient. No matching annulus table identified, not a proof of novelty.",
+        "searches": [
+          "L-infinity norm affine orthogonal projection annulus spherical shell shrinking interior hole beta monotonicity",
+          "L-infinity norm affine least squares projector annulus table",
+          "Resultary L-infinity norm affine orthogonal projection annulus spherical shell shrinking interior hole beta monotonicity"
+        ]
+      },
+      "rationale": "Best-of-knowledge source comparison of exact mathematical implications, not merely titles; published SCOPE/Resultary semantic corpus queried and primary source material inspected as specifically recorded. No inspected stronger prior result covers the distinctive final claim, subject to explicitly named access and priority limitations.",
+      "residual_risks": [
+        "An earlier radial-kernel projection or stochastic-order theorem may imply strict hole monotonicity under other terminology.",
+        "2026 sphere projection paper fully unread; may subsume the endpoint (not by itself the main annulus law)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Filled disk Sobolev norms; no annulus operator-norm theorem in inspected material",
+          "evidence": "Theorem 3.9 compares approximation rates on disk",
+          "identifier_or_url": "arXiv:1503.04485",
+          "material_read": "Primary PDF statement, abstract and Theorem 3.9 region",
+          "method": "open arXiv PDF, page reading and text search",
+          "title": "Orthogonal polynomial projection error measured in Sobolev norms in the unit disk",
+          "trigger": "closest ball projection theorem"
+        },
+        {
+          "assessment": "Filtered sphere approximation rather than unfiltered affine annulus norm",
+          "evidence": "Degree/smoothing parameter emphasis",
+          "identifier_or_url": "arXiv:1509.03792",
+          "material_read": "Public article abstract and main scope",
+          "method": "open public preprint",
+          "title": "On filtered polynomial approximation on the sphere",
+          "trigger": "sphere endpoint and projection growth"
+        },
+        {
+          "assessment": "Endpoint priority risk; volume-annulus strict change not established from abstract",
+          "evidence": "Sphere-only domain in title/abstract",
+          "identifier_or_url": "DOI:10.1112/jlms.70429",
+          "material_read": "Published abstract only; full text not obtained",
+          "method": "public abstract metadata",
+          "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+          "trigger": "plausible surface endpoint stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp endpoint norm of the simplest affine least-squares projector over an annulus varies nontrivially with the concentric hole: an exact formula, rigorous monotonicity and first small-hole sensitivity supply useful design and approximation constants. Domain and invariant are natural; not a routine renamed ball/sphere constant, nor a claim about higher-degree projections or eccentric holes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md a3fd5e22229c5be1190f5e8a57fcd97bfe5c57f8",
+    "pinned verify_annulus.py 454d94ca9f76523bd7b17dfd66b7f7461e51d8fb",
+    "Figueroa arXiv:1503.04485",
+    "Wang–Sloan arXiv:1509.03792",
+    "Xu DOI:10.1137/S0036141096307357 abstract",
+    "Defant et al DOI:10.1112/jlms.70429 abstract",
+    "Resultary semantic search L-infinity norm affine orthogonal projection annulus spherical shell shrinking interior hole beta monotonicity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "d>=2, real L2-orthogonal affine projection, concentric Euclidean annuli and limiting normalized sphere measure only.",
+    "High-dimensional statement uniform in r includes separately defined surface endpoint, not a finite-volume r=1 annulus.",
+    "An earlier radial-kernel projection or stochastic-order theorem may imply strict hole monotonicity under other terminology.",
+    "2026 sphere projection paper fully unread; may subsume the endpoint (not by itself the main annulus law).",
+    "Neither self-review nor finite verification constitutes external formal proof or complete historical-priority certification.",
+    "Public-bound record files METADATA.json and AUDIT.json retain confidential operational provenance; no publication is authorized."
+  ],
+  "schema_version": 1
+}

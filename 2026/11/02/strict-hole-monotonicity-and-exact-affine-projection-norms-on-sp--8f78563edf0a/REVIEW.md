@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claimed operator uses normalized uniform volume on concentric annuli in each real dimension at least two, with the surface measure only a separate endpoint. The Gram covariance and kernel normalization are explicit. Strictly nested radial supports and a one-crossing CDF comparison, together with the strictly decreasing scaled mean, prove increasing-convex domination and therefore strict endpoint-norm monotonicity. The exact beta expression, sign extremizers, small-hole coefficient and uniform dimension asymptotic follow from explicit integrations and inequalities in RESULT.md. The standalone verifier completed 51 high-precision tests (including independent polar integration), which are auxiliary evidence rather than a substitute for the universal proof.
+## correctness
 
-## Originality (PASS, qualified)
-Figueroa (arXiv:1503.04485, 2015) treats weighted disk polynomial Sobolev approximation; Wang and Sloan (arXiv:1509.03792, 2015) treat degree-filtered sphere approximation. Their inspected formulations have neither a variable inner shell radius nor the stated strict all-radius maximum-norm ordering. The older sphere/ball connection and recent spherical projection constants can cover limiting subcases and are explicitly not represented as new. published-finding corpus queries using annulus, sharp affine norm, beta formulas, stochastic order and small-hole aliases, along with accessible historical titles/claims, revealed no implication subsuming the main theorem. An unexamined older radial-order theorem and incompletely accessed spherical projection literature remain priority risks; search absence is not a uniqueness certificate.
+PASS
 
-## Value (PASS)
-The norm and its complete outer-boundary extremizers quantify worst-case stability of a standard approximation operator when a central hole is introduced. Strict global hole-radius improvement is structural rather than a single benchmark, and the exact small-hole coefficient gives a dimension-dependent first-order sensitivity that neither the ball nor sphere endpoints alone determines. A uniform high-dimensional limit delineates the extent of this effect.
+The normalized uniform spherical annulus has E X=0 and covariance kappa^-1 I with kappa=(d+2)(1-r^d)/(1-r^(d+2)); therefore the affine L2 projection's reproducing kernel is 1+kappa x·y. Convex symmetry of the row integral and existence of negative kernel values show precisely outer-sphere rows maximize its L-infinity norm, with sign-of-kernel extremizer. Ball-coordinate beta density and radial subtraction give the stated H_d incomplete-beta norm formula. The scaled radius S_r=kappa R_r has strictly rising lower and strictly falling upper support endpoints with density proportional to s^(d-1); its CDF has a single crossing and its mean strictly decreases. Thus it strictly dominates later radii in stop-loss order on the relevant thresholds; strict convexity of phi(s)=E(sU_1-1)_+ for s>1 proves L_d(r) strictly decreases to the sphere endpoint. Taylor at r=0 yields leading beta coefficient times r^d. Uniform radial concentration and uniform sphere-coordinate Gaussian limit give sup_r|L_d(r)/sqrt(d)-sqrt(2/pi)|->0. Independent radial/sphere quadrature checked d=2,3,4 at several radii and d=3 endpoints 253/125 and 5/3, not an all-dimensional proof.
 
-## Limitations
-No extension is claimed for eccentric holes, arbitrary weights, degree above one or arbitrary projection choices. Finitely many numerical examples cannot prove the all-radius statements or establish priority, and some highly specialized historical comparisons remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge source comparison of exact mathematical implications, not merely titles; published SCOPE/Resultary semantic corpus queried and primary source material inspected as specifically recorded. No inspected stronger prior result covers the distinctive final claim, subject to explicitly named access and priority limitations.
+
+## value
+
+PASS
+
+The sharp endpoint norm of the simplest affine least-squares projector over an annulus varies nontrivially with the concentric hole: an exact formula, rigorous monotonicity and first small-hole sensitivity supply useful design and approximation constants. Domain and invariant are natural; not a routine renamed ball/sphere constant, nor a claim about higher-degree projections or eccentric holes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
