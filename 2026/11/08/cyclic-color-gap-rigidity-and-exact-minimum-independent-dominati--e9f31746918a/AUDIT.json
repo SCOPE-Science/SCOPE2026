@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The self-contained five-step proof identifies the exact integer domain, proves the three-layer lower bound, shows sharpness by explicit cyclic constructions, excludes any full layer at the minimum through a global excess budget of at most two, classifies all remaining monochromatic positive runs with distinct adjacent run colors, and counts labelled cyclic gap compositions times proper q-colorings. A literal graph-based verifier exhaustively checked all vertex subsets up to the predicted optimum in seven parameter profiles (786909 subsets). Finite checks do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2506.11865 proves triple-layer bounds for domination and builds minimum dominating sets of the product but does not count all independent optimal sets.",
+        "arxiv:1901.03218 classifies an allowed per-layer alphabet, not all optimal cyclic words and their multiplicities."
+      ],
+      "reasoning": "The strongest related generic statements either give scalar values or an all-sets feasibility encoding; exact minimum multiplicities require proving the equality-layer restriction and counting cyclic compositions with proper run colors. No inspected general polynomial specializes directly to the claimed explicit factorization.",
+      "searches": [
+        "arxiv:2506.11865 Sections 3–4, Lemmas 3.1–3.2 and Theorem 4.2",
+        "arxiv:1901.03218 general products with clique factors",
+        "Search: \"C_m × K_n\" \"minimum\" \"independent dominating sets\" number count",
+        "Search: \"independent domination polynomial\" direct product cycle complete graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.12397",
+      "arxiv:1901.03218",
+      "arxiv:2506.11865",
+      "arxiv:1808.07369",
+      "arxiv:2303.08190 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kuenzel–Rall prove the scalar i(C_n×K_q)=ceil(2n/3), explicitly for n>=6 and q>=3, and give optimum examples.",
+        "Bakal–Mane prove a corresponding ordinary domination minimum and three-column inequality, which by itself does not determine independent-optimal multiplicities.",
+        "Jahari–Alikhani discuss polynomial counts of different families, not categorical products of cycles and cliques."
+      ],
+      "reasoning": "The new assertion is neither that a minimum exists nor merely the known optimum value. It identifies every optimum set and counts them exactly. Those counts are computable in principle from the broad prior finite-state characterization, so a possible implicit-corollary objection remains a genuine residual risk; however, the documented literature does not already furnish the required slack rigidity, cycle-coloring count or equivalent closed specialization.",
+      "searches": [
+        "arxiv:2203.12397 Proposition 6, Table 2 and proof",
+        "arxiv:2506.11865 Lemma 3.1, Lemma 3.2, Theorem 4.2",
+        "arxiv:1808.07369 independent domination polynomial Section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2203.12397 supplies a general weak partition of all maximal independent sets and the cardinality minimum, not the closed extremizer multiplicity.",
+        "arxiv:1901.03218 Lemma 9 excludes partially occupied layers in maximal independent sets for any base graph."
+      ],
+      "reasoning": "Independent domination equals inclusion-maximal independence. Prior weak partitions imply a broad framework for deciding eligibility, but neither inspected work states the extremal equality rigidity or exact colored-gap enumerator; the exact statement is stronger in the counting dimension while much narrower in graph class.",
+      "searches": [
+        "arxiv:2203.12397, Section 3 (maximal independent sets, weak partitions, Proposition 6)",
+        "arxiv:1901.03218, Section 3 (direct-product maximal-independent-set layer lemma)",
+        "Search: \"minimum maximal independent sets\" \"C_7\" \"K_3\" 42",
+        "Search: \"independent domination\" \"direct product\" \"cycle\" chromatic polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Table 1 of arxiv:2203.12397 lists optimum cardinalities only (e.g. the cycles of orders 6–9), not the number of optimal subsets.",
+        "The direct graph checks count 18, 42, 72, 18 minimum subsets for the four smallest in-scope three-color cycles."
+      ],
+      "reasoning": "No exact database or tabulation containing this graph-invariant interpretation was identified. Searches returning unrelated sequence matches do not rule out a differently indexed table.",
+      "searches": [
+        "arxiv:2203.12397 Table 1 and Proposition 6",
+        "Search: \"C_6×K_3\" \"18\" maximal independent",
+        "Search: \"minimum independent dominating\" \"C_6\" \"K_3\" \"18\" direct product",
+        "Search: OEIS 18 42 72 18 210 independent dominating cycle K3"
+      ]
+    },
+    "rationale": "The published scalar minimum and general weak-partition characterization are substantial antecedents. The present unrestricted multiplicity formula and all-optimal-sets colored-gap bijection were not found in the inspected full accessible primary discussions; the residual risk of an equivalent implicit or unindexed enumeration is stated explicitly.",
+    "residual_risks": [
+      "General weak partitions from arxiv:1901.03218 and arxiv:2203.12397 conceptually determine all maximal independent sets, so the new closed extremizer count may be independently derivable as an unstated corollary.",
+      "Synonymous or unindexed enumerations, perhaps in categorical-product and combinatorial-coloring literatures, cannot be ruled out by the conducted searches.",
+      "The more recent arxiv:2506.11865 has a related three-column lower bound, so only the equality rigidity and exact independent-optimal multiplicity can be asserted as additional.",
+      "Only same-model scientific review and finite computations have occurred; no independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SCALAR_AND_GENERAL_FEASIBILITY_COVERED; CLOSED_MINIMUM_MULTIPLICITY_NOT_FOUND",
+        "evidence": [
+          "First public arXiv date 2022-03-23; AMS 05C69; Proposition 6 gives the known minimum for n>=6.",
+          "Section 3 characterizes legal weak partitions but supplies optimum sizes and example constructions, not an enumeration of all optimum subsets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.12397",
+        "material_read": "Accessible full HTML text with focused inspection of Sections 1–3, Lemma 4, the four weak-partition conditions, Table 1, Proposition 6 and its proof; later theorem summaries also checked.",
+        "method": "Read the source paper in arXiv full-text HTML form, including Sections 1–3 and Proposition 6, rather than only snippets.",
+        "title": "On independent domination in direct products",
+        "trigger": "Same two graph factors and same independent domination invariant; decisive closest source."
+      },
+      {
+        "assessment": "GENERAL_LAYER_RESTRICTION_PRIOR; NO_CYCLIC_OPTIMUM_COUNT_FOUND",
+        "evidence": [
+          "Lemma 9 states each layer in any maximal independent set of a product G×K_q has occupancy 0,1,q.",
+          "The paper primarily treats well-coveredness criteria for products rather than the multiplicities of smallest maximal independent sets of C_n×K_q."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.03218",
+        "material_read": "Complete accessible HTML, with concentrated reading of Section 3, Lemma 9 and the subsequent weak-partition framework.",
+        "method": "Read complete publicly accessible HTML rendering.",
+        "title": "On well-covered direct products",
+        "trigger": "Cited precursor containing the general layer restriction for products with K_q."
+      },
+      {
+        "assessment": "RELATED_LOWER_BOUND_AND_SCALAR_OPTIMUM; NO_COUNT_OF_ALL_MINIMUM_INDEPENDENT_DOMINATORS_FOUND",
+        "evidence": [
+          "Lemma 3.1 requires at least two selected vertices in each three-column window.",
+          "Theorem 4.2 and examples produce the cardinality optimum, not an extremizer counting theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.11865",
+        "material_read": "Complete accessible HTML, with Sections 2–4 and Lemmas 3.1–3.2, Theorem 4.2, and the structure of the later secure-domination section inspected.",
+        "method": "Read publicly accessible full HTML exposition.",
+        "title": "The domination and secure domination numbers of direct product of cliques with paths and cycles",
+        "trigger": "Same graph family and a more recent explicit three-column domination inequality."
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_CONSTRUCTIONS; NO_DIRECT_PRODUCT_CYCLE_CLIQUE_ENUMERATOR_FOUND",
+        "evidence": [
+          "Section 3 addresses clique-cover compounds and corona-type products.",
+          "Section 4 enumerates independent dominating sets of paths and related graphs, rather than tensor products of cycles with cliques."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+        "material_read": "Complete accessible HTML, especially definition and Sections 3–4 covering compound-graph and path-family independent-domination polynomials.",
+        "method": "Read publicly accessible HTML exposition.",
+        "title": "On the independent domination polynomial of a graph",
+        "trigger": "Possible more general coefficient enumerator that could imply the result."
+      },
+      {
+        "assessment": "DIFFERENT_BASE_GRAPHS; LIMITED_INSPECTION",
+        "evidence": [
+          "Abstract addresses i-graphs of ordinary paths and cycles, not a categorical product with a complete graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.08190",
+        "material_read": "ArXiv abstract, metadata and description of graph families (not full text).",
+        "method": "Read arxiv abstract and bibliographic record; no full-document assessment.",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Terminology for reconfiguring minimum independent dominating sets on cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e9f31746-918a-40a1-81c1-bc26725f8e60",
+  "value": {
+    "rationale": "The source literature explicitly studies independent domination on C_n×K_q and determines its scalar optimum, making the number and structure of optimum sets a motivated, exact invariant. This classification covers all n>=6 and q>=3, translates the entire optimum family into cyclic compositions and chromatic-cycle colorings, and gives an exponential closed multiplicity with residue-class effects. It is neither a parameter relabelling nor the already-known scalar minimum; no full polynomial or outside-range claims are made.",
+    "status": "PASS"
+  }
+}
