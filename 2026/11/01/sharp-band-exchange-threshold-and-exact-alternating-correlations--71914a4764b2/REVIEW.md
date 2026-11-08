@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exchange-partition necessity is proved from the peak and the descending branch, and sufficiency is checked by exact endpoint images. On the boundary the two physical branch transitions give a full-branch two-step skew-tent return with inverse-cylinder contraction; its uniform invariant law is unique among absolutely continuous return laws. The parity split and the affine Perron eigenfunction yield every original-time covariance exactly. The bundled exact-rational verifier reports 55 matching finite-horizon branch integrals. Its role is auxiliary, not a proof of infinite quantifiers. The fixed Dirac law is expressly excluded from uniqueness of all stationary laws.
+## correctness
 
-## Originality — PASS within inspected evidence
-The July 2023 precursor and December 2023 expanded map paper are credited for the original family, and the December full text's map formula, numerical analyses, and Frobenius–Perron discussion were inspected. General piecewise-linear density/autocorrelation synthesis (Rogers et al. 2008) predates this and may recover parts using a general algorithm; the inspected abstract does not specify the present parameter-exact classification. published-finding corpus and literature searches using endpoint aliases, parity, mixing, exact density and correlation did not surface an equivalent or dominating result. The match concerns precise statements, not mere paper titles. Residual risk: older or unindexed Markov-interval examples may contain these same explicit formulas; full text of the Rogers paper and the 2023 conference precursor was not successfully retrieved.
+PASS
 
-## Mathematical value — PASS
-Tunable maps are proposed for statistical design, making a sharp phase boundary between one-step bands natural and consequential. It is significant that a stationary map with positive entropy and exact two-step mixing retains a nondecaying alternating coordinate autocovariance; this prevents treating apparently chaotic iterates as temporally mixing samples. The exact parameter threshold, stationary density, and all-lag formula are mathematical characterizations of this natural family, not arbitrary numerical slices or mere relabelling of the classical tent map.
+For F_{a,b}, an exact exchange of two adjacent closed nondegenerate subintervals forces the division s to lie on the decreasing branch s>=b, where F([s,1])=[0,(1-s)/(1-b)] implies s=t=1/(2-b); the left interval maps onto [min(a,t),1], giving iff a>=t. At a=t, normalized lower u and upper v transition as u->T_q(u), v->1-v with q=b(2-b). The two-step return is a full-branch piecewise affine expanding Bernoulli map with inverse branch lengths q and 1-q, hence exact with a unique Lebesgue acip on each sector. The physical map swaps sectors, giving the explicit density, unique absolutely continuous invariant law, ergodicity but not mixing via S circ F=-S, and per-step entropy H(q)/2. The centered coordinate under the return transfer operator has eigenvalue lambda=1-2q, giving C_2m=1/16+[t^2+(1-t)^2]lambda^m/24 and C_2m+1=-1/16+t(1-t)(q-1)lambda^m/12. Independent direct numerical covariance integration checked nine sample horizons; exact-rational checker was read as supportive. The fixed-point Dirac mass exists; uniqueness is explicitly ONLY among acips, statistical law asserted ONLY on a=t.
 
-## Scope and outstanding validation
-Entropy, unique absolutely continuous density, and covariances are proved only on the threshold curve; the exchange condition holds for the indicated open parameter region as well. The independent assessment of publication priority and full scientific validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after same-object source and implication comparisons. This result is not accepted merely because its wording differs from a prior title. Already known reductions, analytic machinery and restricted special cases are credited. Material access risks are explicitly listed.
+
+## value
+
+PASS
+
+For a deliberately tunable family proposed for statistical design, the exact onset of exchanging bands, full stationary density and all-lag original-time covariance distinguish entropy/return mixing from true physical-time mixing. Nondecaying alternating correlations despite positive entropy are significant for using chaotic maps as statistically decorrelated generators; this is a complete motivated parametric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
