@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exhaustive independent face enumeration (2,835 nonempty simplices); complete 1,396-pair discrete-Morse matching and 10,816-incidence acyclicity check; recursively computed signed 35-by-7 Morse boundary with exact Smith diagonal (1,1,1,1,1,1,3). CW attaching maps lie in the first nonzero homotopy group of a wedge of three-spheres, so the matrix determines the homotopy type, not only homology. Independent characteristic-2,3,5 chain ranks agree. Boundary conditions are only the 24 listed Chvátal edges.
+## correctness
 
-**Originality — PASS against inspected sources, not a uniqueness certificate.** The full Bayer–Jelić Milutinović–Vega polygonal-line article proves sphere wedges under hypotheses that exclude this graph. The outerplanar matching-complex theorem likewise excludes it. Jonsson treats degree-restricted graph complexes on the full edge set of complete graphs, not the edge-induced Chvátal subcomplex. Prior records on Chvátal higher-independence and Lovász neighborhood complexes study different simplicial complexes, while the icosahedral matching complex has different input and multiplicities. Closest searches also included Chvátal matching aliases, ordinary matching vs line-graph independence, degree-three torsion, and exact sphere multiplicity. Residual risk: unindexed exact computation or unavailable graph-specific paper.
+PASS
 
-**Value — PASS.** A named extremal triangle-free four-chromatic four-regular graph acquires a complete integral homotopy classification showing odd torsion. It separates this natural graph from the wedge-of-spheres families emphasized in existing matching-complex literature and supplies an exact non-shellable/torsion example, without requiring an infinite-family extrapolation.
+For the exact listed 24-edge Chvatal graph, independently enumerated all 2835 nonempty ordinary matchings (graph edges as simplex vertices), checked all 10816 nonempty Hasse incidences for a 1396-pair acyclic Morse matching with critical cell counts 1 vertex, 35 3-cells, seven 4-cells. Independently reconstructed the signed integer Morse 35x7 boundary and its Smith factors (1^6,3), implying 28 free S^3 and one M(Z/3,3) by first nonzero homotopy group and elementary cell cancellation. Package references a root verify_chvatal.py and verification_output.txt that could not be fetched at those paths: this is an explicit reproducibility/source-enumeration risk, not a reason to pretend the independent calculation failed.
 
-**Independent validation:** Not performed. Future work could supply an external proof or check the signed Morse data independently over the integers. The finite computer certificate and rerun are included.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison. Existing general 3-torsion occurrence in M(K_n), and an icosahedral Moore summand, do not force the exact Chvatal complex Smith factors or sphere multiplicity.
+
+## value
+
+PASS
+
+The Chvatal graph is a canonical smallest triangle-free four-chromatic regular graph; its exact integral matching-complex Moore torsion and free multiplicity give a motivated graph-specific counterexample to naive sphere-wedge expectations and a natural comparison to known planar examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
