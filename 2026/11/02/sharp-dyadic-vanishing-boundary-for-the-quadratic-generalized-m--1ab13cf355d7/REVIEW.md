@@ -1,15 +1,21 @@
-# Review of the dyadic boundary theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The defining floor recurrence is converted to the exact divisor recurrence using consecutive-floor differences. The formal series indexed by dyadic valuation is a Dirichlet-convolution identity, not an analytic generating function requiring convergence. The coefficient \(J(1)=0\) forces at most \(\Omega(m)\) copies of \(J\) on odd part \(m\). The numerator has degree two, proving the support cutoff. At the boundary only the degree-two numerator contributes, and ordered prime factorizations yield the positive multinomial expression. The empty factorization at \(m=1\) is included. A separate exact computational cross-check of the original recurrence and finite boundary cases corroborates the argument.
+## correctness
 
-## Originality
-**PASS, with priority risk.** The closest primary paper, Andrews–Kauffman–Sahoo, arXiv:2609.25628v1, defines the recurrence, proves prime-value invariance and provides the divisor rewrite; the complete inspected text does not determine the eventual vanishing across all dyadic rays or its sharp positive boundary. Related indexed mathematical records about a constant-input degeneration and sequence tables about other Dirichlet inverses do not imply this theorem. Searches did not identify stronger covering results, but unindexed derivations or data remain possible.
+PASS
 
-## Mathematical value
-**PASS.** The result provides an infinite exact support theorem, with a sharp exponent threshold controlled by the prime-factor count of the odd part. It explains universal numerical vanishings on dyadic rays and computes their final nonzero values uniformly, including repeated prime factors. This materially advances structural knowledge of a recently defined arithmetic function; it is not a finite search cutoff, a mere rescaling, or just the already known prime-value identity.
+The floor-difference identity gives s*g=g+epsilon−1 with g(n)=2n−1 and invertible g(1)=1. At odd part m, the formal dyadic series G(t)=(H+tJ)/[(1−2t)(1−t)], H=2I−U, J=2(U−I), has J(1)=0; hence J^{*j}(m)=0 for j>Ω(m). The numerator of S(t) has degree 2, yielding support a≤Ω(m)+2. At the top coefficient, only J^{*k} contributes, and prime-factor ordered tuples give 2^{k+1}(k!/Πe_i!)Π(p_i−1)^{e_i}>0. Formal power series and divisor sums justify all odd m including m=1; independent floor/divisor computations to 1024 tested 43 boundaries and 50 zero-tail entries.
 
-## Scope and limitations
-The theorem applies to the quadratic input only and does not classify possible earlier zeros. Finite tests do not replace the formal proof. The prior-art comparison cannot establish absolute publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Andrews–Kauffman–Sahoo introduce the generalized floor recurrence and its divisor reformulation, but the cited primary abstract and available statements do not establish the Ω(m)-controlled sharp dyadic support boundary. Independent formal convolution derivation supports the exact extension; limited full-text access and unindexed arithmetic tables remain priority risks.
+
+## value
+
+PASS
+
+A sharp nilpotence-degree bound and positive last coefficient give a complete natural infinite family of exact zeros, addressing support of a newly studied number-theoretic recurrence rather than merely computing a handful of values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

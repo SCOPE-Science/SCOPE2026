@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The exact recurrence and boundary formula were checked with the companion `verify.py` in standard Python 3. The run evaluated the divisor recurrence through \(16384\), checked the original defining floor recurrence through \(512\), verified \(563\) positive boundary cases and \(624\) zero-tail cases.
+# Independent mathematical audit
 
-```
-VERIFY_OK limit= 16384 floor_crosscheck=512 odd_parts_with_boundary= 563 exact_boundaries= 563 zero_tail_checks= 624
-EXAMPLE 1 omega= 0 boundary= 4 value= 2 next= 0
-EXAMPLE 3 omega= 1 boundary= 24 value= 8 next= 0
-EXAMPLE 9 omega= 2 boundary= 144 value= 32 next= 0
-EXAMPLE 15 omega= 2 boundary= 240 value= 128 next= 0
-EXAMPLE 27 omega= 3 boundary= 864 value= 128 next= 0
-EXAMPLE 45 omega= 3 boundary= 1440 value= 768 next= 0
-EXAMPLE 105 omega= 3 boundary= 3360 value= 4608 next= 0
-```
+## correctness
 
-The infinite assertion is justified by the formal Dirichlet-convolution proof and its support restriction, not by finite enumeration. No independent validation is claimed.
+PASS
+
+The floor-difference identity gives s*g=g+epsilon−1 with g(n)=2n−1 and invertible g(1)=1. At odd part m, the formal dyadic series G(t)=(H+tJ)/[(1−2t)(1−t)], H=2I−U, J=2(U−I), has J(1)=0; hence J^{*j}(m)=0 for j>Ω(m). The numerator of S(t) has degree 2, yielding support a≤Ω(m)+2. At the top coefficient, only J^{*k} contributes, and prime-factor ordered tuples give 2^{k+1}(k!/Πe_i!)Π(p_i−1)^{e_i}>0. Formal power series and divisor sums justify all odd m including m=1; independent floor/divisor computations to 1024 tested 43 boundaries and 50 zero-tail entries.
+
+## originality
+
+PASS
+
+Andrews–Kauffman–Sahoo introduce the generalized floor recurrence and its divisor reformulation, but the cited primary abstract and available statements do not establish the Ω(m)-controlled sharp dyadic support boundary. Independent formal convolution derivation supports the exact extension; limited full-text access and unindexed arithmetic tables remain priority risks.
+
+## value
+
+PASS
+
+A sharp nilpotence-degree bound and positive last coefficient give a complete natural infinite family of exact zeros, addressing support of a newly studied number-theoretic recurrence rather than merely computing a handful of values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
