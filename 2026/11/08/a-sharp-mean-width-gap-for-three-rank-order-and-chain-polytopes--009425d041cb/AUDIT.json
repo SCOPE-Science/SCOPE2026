@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Stanley filter/antichain descriptions give exact finite Gaussian support formulas. Joint CLT for normal and centered absolute-normal sums has diagonal covariance and independent rank blocks; L2 bounds give uniform integrability. Every centered three-Gaussian maximum expectation is half the triangle perimeter divided by sqrt(2pi), yielding pairwise increment variances a,a,b versus a,a,a. Chi radial normalization gives the sharp Euclidean spherical constant. The attached standalone checker confirms small-n vertex identities and numerical constants without being used as the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fourier 2026, Theorem 1.1, proves all face-number inequalities, an enumerative invariant, not average support.",
+        "Lee 2026, introduction and edge results, compares edge direction multiplicity and edge lengths but does not give exterior angles or first intrinsic volumes; the mean width cannot be inferred from edge lengths alone.",
+        "Goel 2026, Theorem 1.2, gives strict face-count gaps and equality criteria; no directional width invariant is computed."
+      ],
+      "reasoning": "The strongest current covering literature on order/chain polytopes concerns face counts and edge lengths. Those data do not imply the Gaussian support-maxima limit or the sharp Euclidean mean-width gap, and none of the inspected statements asserts a universal mean-width comparison.",
+      "searches": [
+        "arXiv:2609.23629 The Hibi-Li Face-Number Conjecture",
+        "arXiv:2610.07413 A refinement of the edge theorem for order and chain polytopes",
+        "arXiv:2610.40703 The Hibi--Li (2016) conjecture is fully resolved"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2309.01626",
+      "https://arxiv.org/abs/2312.13890",
+      "https://arxiv.org/abs/2609.23629",
+      "https://arxiv.org/abs/2610.07413",
+      "https://arxiv.org/abs/2610.40703",
+      "https://journals.msp.org/mscand/article/view/372"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim concerns the positive nonzero limit of difference of Euclidean mean widths, with a closed elementary constant; arXiv:2309.01626 establishes monotone f-vectors along interpolants.",
+        "arXiv:2312.13890 analyzes face numbers under ordinal sums and disjoint unions, not the Gaussian process of support maxima.",
+        "arXiv:2610.07413 compares edge classes and lengths, which is insufficient to determine first intrinsic volume without exterior angles."
+      ],
+      "reasoning": "The known statements do not give an implication to the new metric asymptotic. The latter uses independent Gaussian positive-parts and a perimeter identity, not simply a different expression of the prior face enumeration.",
+      "searches": [
+        "arXiv:2309.01626 order and chain polytopes maximal ranked posets",
+        "arXiv:2312.13890 ordinal sums f-vector inequalities order chain polytopes",
+        "arXiv:2610.07413 edge lengths directions order and chain polytopes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stanley 1986 gives Ehrhart equivalence, not isometric equivalence. Ahmad–Fourier–Joswig, arXiv:2309.01626, §1 and §5, work with exactly the three-level maximal ranked posets but study faces.",
+        "For the two-level ordinal sum, complementing one level identifies the polytopes isometrically; this does not hold for the three-level case and does not determine the new width constant."
+      ],
+      "reasoning": "Potential aliases are Gaussian width, first intrinsic volume, average support function and mean projected length. The direct formulas for three independently aggregated positive Gaussian parts, their CLT, and the positive 3-rank width constant are absent from the inspected statements. These aliases are mathematical comparisons, not a claim that no unknown equivalent can exist.",
+      "searches": [
+        "\"order polytope\" \"chain polytope\" \"mean width\" Gaussian",
+        "\"Gaussian width\" \"order polytope\" \"chain polytope\"",
+        "\"intrinsic volumes\" \"order polytope\" \"chain polytope\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ahmad–Fourier–Joswig 2023, §5, explicitly tabulates f-vectors for many rank vectors, not metric width values.",
+        "The relevant later face-count tables of Fourier 2026 and Goel 2026 address integer face counts, with no table of Euclidean mean widths."
+      ],
+      "reasoning": "No exact table or recorded formula for the three-equal-rank mean-width difference was identified. Existing f-vector tables cannot imply it without normal-cone angle information.",
+      "searches": [
+        "\"maximal ranked posets\" \"Gaussian\" \"polytopes\"",
+        "\"chain polytopes\" \"mean widths\"",
+        "\"order polytope\" \"chain polytope\" \"intrinsic volume\" comparison"
+      ]
+    },
+    "rationale": "Specific full-text comparisons show that the closest poset sources give Ehrhart equivalence, f-vector/face inequalities and edge length relations, but not the exact Gaussian-support limit or positive asymptotic mean-width gap. Published claim-index searches found different invariants. Priority remains provisional; the residual risks are explicit.",
+    "residual_risks": [
+      "An equivalent Gaussian-maximum identity specialized to ordinal-sum posets could have been published under a different probabilistic title not indexed by the searches.",
+      "The complete 2016 Hibi–Li paper was not inspected here; only its public abstract and later full-text quotations were available.",
+      "Independent mathematical and historical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the asserted Gaussian support limit or mean-width gap",
+        "evidence": "Sections 1 and 4 concern monotone face vectors of chain-order interpolants; section 5 tabulates face counts, with no directional-width results.",
+        "identifier_or_url": "https://arxiv.org/abs/2309.01626",
+        "material_read": "Full-text HTML: introduction, definitions, main face theorem, sections on face normal forms and computations including rank-vector tables",
+        "method": "Read accessible arXiv HTML and searched the full text for width and Gaussian",
+        "title": "Order and chain polytopes of maximal ranked posets",
+        "trigger": "Same poset construction; strongest matching 2023 lead source"
+      },
+      {
+        "assessment": "Face-number inequalities only; does not calculate Euclidean mean width",
+        "evidence": "Introduction defines the recursive ordinal-sum class and formulates f-vector bounds rather than metric projection integrals.",
+        "identifier_or_url": "https://arxiv.org/abs/2312.13890",
+        "material_read": "Full-text HTML: introduction and section structure on ordinal sums and face polynomials; full-document width/Gaussian search",
+        "method": "Read accessible full-text arXiv HTML, located definitions and main theorem and performed targeted full-text searches",
+        "title": "f-vector inequalities for order and chain polytopes",
+        "trigger": "Same ordinal-sum construction, geometric operations"
+      },
+      {
+        "assessment": "Stronger for face-count inequalities but does not imply the present first intrinsic-volume value",
+        "evidence": "Theorem 1.1 proves face-vector monotonicity via coordinate switches and subdivision counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.23629",
+        "material_read": "Full-text HTML: introduction, Theorem 1.1, comparison with earlier papers and proof outline",
+        "method": "Read primary accessible arXiv HTML",
+        "title": "The Hibi-Li Face-Number Conjecture",
+        "trigger": "Most general later face-number covering theorem for order and chain polytopes"
+      },
+      {
+        "assessment": "Non-covering; edge lengths without exterior-angle weights do not determine mean width",
+        "evidence": "Abstract and opening theorems compare edge directions, lengths and face/skeleton combinatorics, not directional support averages.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.07413",
+        "material_read": "Full-text HTML: abstract, introduction, edge comparison main statements, full-text searches for mean width, Gaussian and intrinsic",
+        "method": "Read primary accessible arXiv HTML and searched specific geometric aliases",
+        "title": "A refinement of the edge theorem for order and chain polytopes",
+        "trigger": "Potentially stronger coverage via corresponding edge lengths and directions"
+      },
+      {
+        "assessment": "Not covering mean-width asymptotics",
+        "evidence": "Theorem 1.2 concerns all face counts and unimodular-equivalence equality criteria, not Euclidean mean width.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.40703",
+        "material_read": "Full-text HTML: introduction, Theorem 1.2, sharp face gap and comparisons with prior results; mean-width search",
+        "method": "Read accessible arXiv HTML and searched full text for mean width",
+        "title": "The Hibi--Li (2016) conjecture is fully resolved",
+        "trigger": "Latest stronger poset face-count and equality theorem"
+      },
+      {
+        "assessment": "Provides the X-poset equivalence criterion, not a mean-width formula; residual completeness risk retained",
+        "evidence": "Journal abstract states an iff condition for unimodular equivalence; no Euclidean mean-width statement in the accessible material.",
+        "identifier_or_url": "https://journals.msp.org/mscand/article/view/372",
+        "material_read": "Public journal abstract only; original complete text not inspected",
+        "method": "Read publisher abstract and the precise theorem as quoted in full-text later articles",
+        "title": "Unimodular Equivalence of Order and Chain Polytopes",
+        "trigger": "Historic equivalence criterion and possible stronger geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "009425d0-41cb-4b72-94d3-3534eb4f292a",
+  "value": {
+    "rationale": "This is a natural first nontrivial height (three) after exact Euclidean congruence in two levels. The theorem shows that Ehrhart-equivalent polytopes of equal volume remain separated by an explicit positive mean-width constant as their common dimension grows, even as their leading widths coincide. The limit has an explanatory Gaussian-triangle structure and goes beyond mere numerical reproduction or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
