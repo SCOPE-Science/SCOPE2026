@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:47:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stationary two-state continuous-time switching, the Brownian displacement conditional on occupation is centered Gaussian of variance 2A_t. Thus K2=2E[A], K4=12Var(A), K6=120cum3(A). The centered indicator Y has covariance p(1-p)exp(-lambda|u-v|), and three-time centered correlation p(1-p)(1-2p)exp(-lambda(max-min)); integration yields K2=2mu*t, K4=24w*t^2 F(lambda*t), K6=720c*t^3 G(lambda*t), F=(z-1+exp(-z))/z^2, G=(z-2+(z+2)exp(-z))/z^3. The elasticity H=-z F'/F has H'>0 (positive cosh remainder), so F(lambda*t1)/F(lambda*t2) is strictly increasing on lambda>0 from 1 to t2/t1 for 0<t1<t2. Consequently four cumulant values uniquely determine lambda,mu,w,c, and algebraically delta=sqrt((c/w)^2+4w), p=(1-c/(w*delta))/2 and both diffusivities/rates. All boundaries checked: positive rates, strictly ordered positive diffusivities, stationary start, any distinct positive observation times, symmetric p=1/2 allowed. Fixing mu,w,lambda and varying admissible p gives a nonidentifiable continuum for complete K2,K4 curves; invariance of domain excludes any three-continuous-scalar injection from the open four-dimensional parameter space. Numeric ODE checks corroborate but are not the proof. No claim about noisy finite-sample inference or other switching models.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Masuda 2024 use high-frequency switching-state and diffusion-path observations for estimation.",
+          "Guéneau et al. derive stronger complete forward law rather than this finite inverse design."
+        ],
+        "reasoning": "Different observation experiments or more powerful forward models do not logically imply this strict four-measurement inverse theorem without explicit identifiability analysis; no inspected stronger inverse statement covers it.",
+        "searches": [
+          "Two state Brownian switching diffusion parameter identifiability cumulants finite observations",
+          "arXiv:2410.11333v3",
+          "arXiv:2501.13754v2"
+        ]
+      },
+      "checked_sources": [
+        "Guéneau–Majumdar–Schehr (2025), arXiv:2501.13754v2, finite-time forward transform and switching specializations",
+        "Hidalgo-Soria–Barkai–Burov (2020), arXiv:2012.11265v2",
+        "Cheng–Masuda (2024), arXiv:2410.11333v3",
+        "Resultary semantic search for switching cumulant inverse identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A complete forward characteristic function can provide K2,K4,K6 but does not by itself prove strict time-ratio monotonicity or four-population-observation minimality.",
+          "The 2024 statistical inference model observes the latent regime, unlike the present observation protocol."
+        ],
+        "reasoning": "Explicitly tested whether the stronger forward law or richer-state observations directly entail the claimed inverse map: the source statements have different quantifiers/observables. The algebraic inverse is new relative to them; an unlocated general inverse theorem could still cover it.",
+        "searches": [
+          "Guéneau Majumdar Schehr switching diffusion forward characteristic 2025",
+          "Hidalgo-Soria Barkai Burov two-state occupation 2020",
+          "Cheng Masuda Markov switching statistical inference 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guéneau–Majumdar–Schehr 2025 provide complete forward characteristic information and even-moment formulas for switching diffusion, with a two-atom switching specialization.",
+          "Hidalgo-Soria–Barkai–Burov 2020 use the two-state Markov occupation-time representation."
+        ],
+        "reasoning": "The exact forward transform mathematically determines every cumulant but does not itself state or imply, without additional monotone-ratio and inverse analysis, the global uniqueness from the particular four scalar observations. These forward formulas are prior coverage, not new physics.",
+        "searches": [
+          "Resultary search: two state Markov switching diffusivity exact four cumulant population displacement inverse identify rates diffusivities fourth sixth cumulants",
+          "arXiv:2501.13754v2",
+          "arXiv:2012.11265v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby two-state stochastic processes and two-time aliasing, not a table of identical four-observable inverse solutions.",
+          "Forward moment formulae from the inspected primary papers are acknowledged as old."
+        ],
+        "reasoning": "There is no known finite database issue: the result is an injective continuous parameter-recovery theorem, not a census; the actual indexed query found no identical inverse theorem but lack of a hit is not novelty proof.",
+        "searches": [
+          "Resultary search: two state Markov switching diffusivity exact four cumulant population displacement inverse identify rates diffusivities fourth sixth cumulants",
+          "arXiv:2501.13754v2 cumulants",
+          "Hidalgo-Soria occupation time two-state 2020"
+        ]
+      },
+      "rationale": "Qualified PASS: the finite-observation inverse-identifiability theorem, unique monotone time-ratio inversion, and fourth-cumulant insufficiency are not established as such in the inspected forward or inference results. Existing same-model full forward characteristic transforms cover much underlying moment physics, which is credited; a stronger inverse corollary remains a priority risk.",
+      "residual_risks": [
+        "A general inverse theorem derivable from an uninspected part of the 2025 forward-transform literature could subsume uniqueness; strongest same-model forward coverage is expressly credited.",
+        "Noise and conditioning at near-zero or very large switching rate are not addressed; population cumulants only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORWARD_COVERAGE_NOT_INVERSE",
+          "evidence": "Same switching diffusion model and forward transform; assessed distinction is specified four-observable inverse injectivity and sharp insufficiency.",
+          "identifier_or_url": "https://arxiv.org/html/2501.13754v2",
+          "material_read": "HTML main theorem, finite-time moments, two-atom specialization and supplemental Sections III–IV, especially IV.3 equations (90)–(92)",
+          "method": "arXiv full-text HTML reading",
+          "title": "Large Deviations in Switching Diffusion: from Free Cumulants to Dynamical Transitions",
+          "trigger": "Same two-atom switching forward law and moments"
+        },
+        {
+          "assessment": "PRIOR_MODEL_AND_FORWARD",
+          "evidence": "Occupation time is the known Gaussian-mixture mechanism, not claimed new.",
+          "identifier_or_url": "https://arxiv.org/html/2012.11265v2",
+          "material_read": "Model and occupation-time derivation including asymmetric switching rates; sections stated in the mathematical package",
+          "method": "arXiv full-text HTML contextual inspection",
+          "title": "Cusp of non-Gaussian density of particles for a diffusing diffusivity model",
+          "trigger": "Two-state Markov occupation-time law"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVATION_MODEL",
+          "evidence": "Uses high-frequency state/path data; lacks the four marginal cumulant protocol.",
+          "identifier_or_url": "https://arxiv.org/html/2410.11333v3",
+          "material_read": "Abstract, observation model and stated estimation scope",
+          "method": "arXiv HTML reading",
+          "title": "Statistical inference for ergodic diffusion with Markovian switching",
+          "trigger": "Plausible general inverse statistical results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact global identifiability with a minimally sized fixed observation protocol is an independently useful inverse-problem classification for an established stochastic transport model; the failure of all second/fourth cumulant time courses is a meaningful impossibility boundary. The result is not merely a forward-moment recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only strictly two-state stationary rates positive and distinct diffusivities; ideal ensemble cumulants, not finite sample parameter estimates.",
+    "Possibility of an unlocated stronger inverse theorem in complete forward-transform literature."
+  ],
+  "schema_version": 1
+}
