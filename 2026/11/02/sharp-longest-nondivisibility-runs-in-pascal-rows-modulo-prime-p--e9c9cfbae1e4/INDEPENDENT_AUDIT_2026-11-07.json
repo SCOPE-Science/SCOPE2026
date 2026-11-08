@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:06:06.881689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every prime p, alpha>=1, n>=0, let n+1=p^r m with p∤m and R=m mod p^alpha (least positive residue). Kummer gives p-valuation of binomial(n,k) as number of base-p borrows. Since the last r digits of n are all p-1, the good/bad indicator in row n repeats the indicator of row m-1 in blocks p^r, so maximal run scales by p^r. For reduced N=m-1, its low alpha digits encode R-1. The initial R entries 0..R-1 incur fewer than alpha borrows, as do terminal R by symmetry. For any interval [K,K+R] inside row N, take Z=Q*floor(K/Q)+digitwise_max(K mod Q,R) for Q=p^alpha. Each extra digit added is bounded by its R digit so K<=Z<=K+R<=N, and subtracting Z from N forces borrow in every one of the first alpha digits. Hence no run >R, proving exact L=p^r R=(n+1) mod p^(r+alpha). Independent exact integer tests for p=2,3,5,7, alpha=1..3, n=0..160 (1,932 rows) corroborated maximal runs; the explicit all-parameter Kummer certificate, not finite enumeration, proves universality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact generating functions for count of each valuation do not preserve locations of bad coefficients, so no direct bound on longest runs follows from these theorems."
+        ],
+        "reasoning": "Broader count distributions and congruence identities could conceivably contain equivalent digit geometry, but inspected statements do not imply the explicit length formula.",
+        "searches": [
+          "arXiv:1604.07089 Spiegelhofer–Wallner exact valuation counting generating functions",
+          "arXiv:1710.10884 typical 2-adic valuation distributions",
+          "Granville prime-power binomial congruence surveys"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1001.1783 (Eric Rowland)",
+        "arXiv:1604.07089 (Spiegelhofer and Wallner)",
+        "Fine 1947, American Mathematical Monthly 54, pp. 589–592",
+        "Resultary semantic query: longest consecutive binomial coefficients not divisible prime power Pascal row Kummer runs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit interval witness implies each run cannot exceed the displayed residue, while endpoint blocks attain it. Prior counts may agree in total while allowing many run distributions."
+        ],
+        "reasoning": "The new theorem requires order information and a constructive witness; none of the cited counting results logically implies it without an additional argument.",
+        "searches": [
+          "Kummer 1852",
+          "Fine 1947",
+          "Rowland arXiv:1001.1783 Theorem 1",
+          "Git RESULT.md tree a91a9dd922f257b9ca671ff497245efcd1a71c27"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kummer provides pointwise p-adic valuation; Rowland studies total number of nonzero coefficients modulo prime powers, not contiguous order."
+        ],
+        "reasoning": "A formula for maximum consecutive nondivisible row entries is a different statistic, not equivalent to counting them; Kummer alone does not give global maximality without digitwise covering.",
+        "searches": [
+          "Kummer 1852 borrow criterion",
+          "arXiv:1001.1783 Rowland",
+          "Resultary: longest consecutive binomial coefficients not divisible prime power Pascal row Kummer runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hit concerns prime-power towers in a different binomial congruence; survivor-count tables do not list the all-prime longest run."
+        ],
+        "reasoning": "The formula is a universal family, not a previously found table lookup; historical unindexed tables remain a risk, and search failure alone is not proof.",
+        "searches": [
+          "Resultary: longest consecutive binomial coefficients not divisible prime power Pascal row Kummer runs",
+          "arXiv:1001.1783 Theorem 1",
+          "arXiv:1604.07089"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: classical Kummer pointwise valuation and Fine/Rowland/Spiegelhofer–Wallner survivor counts do not determine ordered maximum consecutive runs. The new digitwise universal covering lemma supplies the added result.",
+      "residual_risks": [
+        "An older classical study of Pascal zero-block geometry, including Granville prime-power surveys, may imply this formula; not fully exhausted.",
+        "Does not enumerate all maximal runs or treat arbitrary composite moduli and multinomial rows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts number of nonzero residues modulo p^alpha, not longest consecutive stretch",
+          "evidence": "Theorem 1 gives valuation-counting via digit-word statistics.",
+          "identifier_or_url": "arXiv:1001.1783 (Eric Rowland)",
+          "material_read": "Full primary preprint, Theorem 1 and digit-counting constructions in its main sections",
+          "method": "Read theorem/proof and render-inspected PDF pages",
+          "title": "The number of nonzero binomial coefficients modulo p^alpha",
+          "trigger": "Most relevant prime-power Pascal-row statistic"
+        },
+        {
+          "assessment": "Counts valuation classes without positional maximum-run classification",
+          "evidence": "Generates numbers of coefficients divisible by p-powers across rows, not positions of maximal blocks.",
+          "identifier_or_url": "arXiv:1604.07089 (Spiegelhofer and Wallner)",
+          "material_read": "Full primary preprint, statement and generating-function sections plus rendered PDF",
+          "method": "Primary theorem and relevant proof review",
+          "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+          "trigger": "Potential stronger p-adic distribution formula"
+        },
+        {
+          "assessment": "Mod-prime survivor count is not the new extremal run invariant",
+          "evidence": "Known binary digit product for number of odd coefficients.",
+          "identifier_or_url": "Fine 1947, American Mathematical Monthly 54, pp. 589–592",
+          "material_read": "Bibliographic result and theorem description, not full periodical article",
+          "method": "Theorem-level comparison only",
+          "title": "The number of odd binomial coefficients in a row of Pascal’s triangle",
+          "trigger": "Classical nonzero count baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximum uninterrupted stretches of binomial coefficients nondivisible by prime powers are natural structural invariants of modular Pascal rows, different from the classically enumerated number of survivors. The all-p/all-alpha sharp residue formula, endpoint witnesses and explicit divisibility witness for each longer interval answer a meaningful extremal digit-combinatorics question.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1001.1783 (Eric Rowland)",
+    "arXiv:1604.07089 (Spiegelhofer and Wallner)",
+    "Fine 1947, American Mathematical Monthly 54, pp. 589–592",
+    "Resultary semantic query: longest consecutive binomial coefficients not divisible prime power Pascal row Kummer runs",
+    "Git RESULT.md blob 71827fe4d1142a9d551f3d90fafcd7418aadf38c",
+    "Git verify.py blob 1b8894d3c7ff80289614b8a37eb833edd3c6bdca",
+    "Git tree a91a9dd922f257b9ca671ff497245efcd1a71c27"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older classical study of Pascal zero-block geometry, including Granville prime-power surveys, may imply this formula; not fully exhausted.",
+    "Does not enumerate all maximal runs or treat arbitrary composite moduli and multinomial rows."
+  ],
+  "residual_risks": [
+    "An older classical study of Pascal zero-block geometry, including Granville prime-power surveys, may imply this formula; not fully exhausted.",
+    "Does not enumerate all maximal runs or treat arbitrary composite moduli and multinomial rows."
+  ],
+  "schema_version": 1
+}

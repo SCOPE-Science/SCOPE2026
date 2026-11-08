@@ -1,19 +1,21 @@
-# Review: Sharp longest nondivisibility runs in Pascal rows modulo prime powers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The imported Kummer theorem equates the \(p\)-adic valuation of each binomial coefficient with a base-\(p\) subtraction borrow count. The proof first removes \(r=\nu_p(n+1)\) terminal maximal digits, repeating every reduced-row survival bit exactly \(p^r\) times. The reduced row has \(N=m-1\), \(Q=p^\alpha\), \(R=m\bmod Q\) and ends in digits \(R-1\). The initial \(R\) coefficients have fewer than \(\alpha\) borrows. In any longer block, the digitwise maximum of the block's first index modulo \(Q\) and the digits of \(R\) is a valid index in the block and produces at least \(\alpha\) borrows. This establishes both the upper bound and attainment for all quantified parameters. Exact-integer tests independently verified 8,320 parameter rows, 1,221,990 forbidden windows, and 667,809 explicit digit certificates. Tests are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For every prime p, alpha>=1, n>=0, let n+1=p^r m with p∤m and R=m mod p^alpha (least positive residue). Kummer gives p-valuation of binomial(n,k) as number of base-p borrows. Since the last r digits of n are all p-1, the good/bad indicator in row n repeats the indicator of row m-1 in blocks p^r, so maximal run scales by p^r. For reduced N=m-1, its low alpha digits encode R-1. The initial R entries 0..R-1 incur fewer than alpha borrows, as do terminal R by symmetry. For any interval [K,K+R] inside row N, take Z=Q*floor(K/Q)+digitwise_max(K mod Q,R) for Q=p^alpha. Each extra digit added is bounded by its R digit so K<=Z<=K+R<=N, and subtracting Z from N forces borrow in every one of the first alpha digits. Hence no run >R, proving exact L=p^r R=(n+1) mod p^(r+alpha). Independent exact integer tests for p=2,3,5,7, alpha=1..3, n=0..160 (1,932 rows) corroborated maximal runs; the explicit all-parameter Kummer certificate, not finite enumeration, proves universality.
 
-Fine's 1947 result counts nonzero entries modulo a prime; Rowland's arXiv:1001.1783v1 (2010-01-12), Sections 1–3, generalizes counts to prime powers. Spiegelhofer and Wallner's arXiv:1604.07089v1 (2016-04-24) gives explicit generating functions for exact valuation **counts**. Their later arXiv:1710.10884v1 investigates typical distributions. Their inspected theorems do not give maximal consecutive runs or a constructive bad-index certificate for every longer interval. Kummer's pointwise theorem is used as an assumption; the new result is a sharp global optimisation of the borrow geometry. Exact counts alone do not imply a formula for consecutive ordering. A separately indexed study of arithmetic progressions in rows with odd coefficients has a different objective and does not imply contiguous run maxima for arbitrary prime powers. Search terms included longest zero-free Pascal block, consecutive nonzero binomial coefficients, prime-power row streaks and equivalent digitwise formulations. Unlocated classical work, especially Granville's 1997 prime-power survey not inspected in full, remains a historical priority risk. Search failure is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Maximum uninterrupted nondivisibility runs are natural exact invariants of Pascal-row modular patterns. Unlike the number of surviving entries, this extremal statistic controls the maximum length of an interval avoiding any coefficient divisible by a specified prime power. A uniform optimal digitwise covering certificate is mathematically stronger than tabulating small rows. The complete all-prime/all-exponent formula is a meaningful structural complement to the classical counting literature, with both edge blocks realizing sharpness.
+Best-of-knowledge PASS: classical Kummer pointwise valuation and Fine/Rowland/Spiegelhofer–Wallner survivor counts do not determine ordered maximum consecutive runs. The new digitwise universal covering lemma supplies the added result.
 
-## Limitations and closest literature
+## value
 
-The theorem does not enumerate all individual maximal runs, evaluate coefficient units, handle general composite moduli without reduction, or extend to multinomial rows. The classical 1852 Kummer valuation theorem is an essential ingredient. Complete historical coverage is not claimed, and no independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximum uninterrupted stretches of binomial coefficients nondivisible by prime powers are natural structural invariants of modular Pascal rows, different from the classically enumerated number of survivors. The all-p/all-alpha sharp residue formula, endpoint witnesses and explicit divisibility witness for each longer interval answer a meaningful extremal digit-combinatorics question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
