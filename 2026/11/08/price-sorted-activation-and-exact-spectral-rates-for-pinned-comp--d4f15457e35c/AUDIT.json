@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every n≥2, every p_i>0 and B>0, the complete-graph Laplacian equals nI−11ᵀ. Its PSD rank-one test is exactly sum_i 1/(n+u_i−lambda)≤1 with all denominators positive. KKT determines the price-ordered clipped square-root reciprocals. A strict tangent inequality certifies unique global minimum cost for each lambda, hence unique maximal lambda for each budget. The active-set formulas, endpoint matching and C1/affine phase laws follow algebraically. Standard-library exact rational and numerical tests completed 16,146 supplementary cases; no finite test is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1109/TSMC.2022.3151222, Sections V and VIII, and Lemma 6: general uniform-total-gain SDP and exact completely pinned equal gain.",
+        "DOI 10.1109/TAC.2024.3376302, Problem 1-2 and Section V: freely variable edge weights and two-endpoint eigenvalue ratio, rather than fixed unit graph and nonuniform independent gain prices."
+      ],
+      "reasoning": "General uniform-cost SDP methods are stronger as to network topologies but do not assert the heterogeneous linear-price phase law. The 2024 weighted-edge framework solves a different fractional spectral objective. Equal-price special cases are acknowledged as prior-covered.",
+      "searches": [
+        "maximize minimum eigenvalue of graph Laplacian plus nonnegative diagonal with costs, resource allocation complete networks, grounded consensus",
+        "pinning control of networks: optimal convergence rate complete graph all pinned feedback gains 2022",
+        "Undirected Weighted Network Topologies With Best Possible Pinning Controllability complete graph spectral ratio 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1511.02012v1",
+      "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+      "https://www.researchgate.net/publication/378911728_Undirected_Weighted_Network_Topologies_with_Best_Possible_Pinning_Controllability",
+      "https://www.researchgate.net/publication/348538701_Pinning_Control_of_Dynamical_Networks_with_Optimal_Cost",
+      "https://arxiv.org/abs/1804.10818"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhou et al. (2015), Results, equations (11)-(14): weighted importance-derived budget and SDP, with only uniform coefficient analytic solution; on a unit complete graph degree-based importance is constant.",
+        "Jafarizadeh (2022), Lemma 6: for uniform cost and every pinned vertex, each gain equals total gain divided by number of vertices; this is a special case of the present theorem.",
+        "Jafarizadeh (2020), DOI 10.1109/LCN48667.2020.9314818 abstract: general pinning gain and cost semidefinite program; body unavailable for exhaustive implication comparison."
+      ],
+      "reasoning": "The current claim is a complete explicit closed-form arbitrary independent price allocation for every budget, including simultaneous ties and exact activation thresholds. The general SDP and prior equal-cost result do not directly imply the explicit positive-price classifications as published statements. However, no exhaustive specialist priority determination is claimed; inaccessible related 2020 text is a documented risk.",
+      "searches": [
+        "Exact optimal continuous pinning gain allocation for maximizing smallest eigenvalue of complete-graph Laplacian plus nonnegative diagonal gains under heterogeneous vertex control costs; water-filling threshold",
+        "Pinning Control of Dynamical Networks with Optimal Cost 2020 Jafarizadeh analytical gains complete networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1511.02012v1, Results: weighted importance-derived feedback cost and semidefinite formulation; analytic solution only at uniform coefficient.",
+        "DOI 10.1109/TSMC.2022.3151222, Sections IV-V: fixed total pinning gains, SDP dual equations and pinning optimization."
+      ],
+      "reasoning": "The scalar design is also a rank-one diagonal semidefinite-loading problem. This equivalence supplies the global reciprocal-sum criterion but neither inspected source identifies the complete arbitrary-positive-independent-price entry thresholds and C1-to-affine phase classification. Prior formulations and uniform-price subcases are not asserted new.",
+      "searches": [
+        "diagonal loading of rank-one symmetric matrix with weighted trace budget: maximize smallest eigenvalue, all active sets and water filling square root prices",
+        "pinning complete network optimal heterogeneous weighted cost gain allocation maximizing smallest eigenvalue closed form rank one pinning 2015 2022"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d optimizes discounted hitting domination, not Laplacian diagonal loading.",
+        "Closest published-finding corpus record 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6 addresses distributed gradient tracking, not pinned complete-graph smallest eigenvalue."
+      ],
+      "reasoning": "Search and direct scientific comparison identified no database table of the same arbitrary-price continuous gain allocation and its thresholds. This nonmatch is supporting context, not proof of priority or exhaustive absence.",
+      "searches": [
+        "Complete graph K_n, optimize the smallest eigenvalue of nI - J + diag(u_i) subject to heterogeneous linear pinning cost p_i u_i <= B: square-root price waterfilling, activation thresholds, C1 budget phase law",
+        "exact minimum eigenvalue maximizing diagonal pinning gains in complete network with unequal vertex prices, nested actuator activation, quadratic price-threshold phases and affine large-budget convergence"
+      ]
+    },
+    "rationale": "The prior weighted linear importance-budget and general SDP frameworks are acknowledged as existing, as is the complete-graph equal-price solution. Distinct assessed statements are the all-arbitrary-independent-price complete-network optimal allocation, nested budget activation thresholds, uniqueness, C1 concave rate and exact final affine law. Full text of most relevant 2015, 2022, 2024 sources was compared; a 2020 related source remained abstract-only and specialist priority risk is explicitly retained. A search nonmatch alone does not establish novelty.",
+    "residual_risks": [
+      "2015 linearly weighted importance-based cost formulation is a close predecessor; the independent price coefficients and complete explicit transitions are not shown in inspected article, but could be derivable via another source.",
+      "Full text of the 2020 optimal-cost proceedings source was not accessible; its abstract is insufficient for a decisive claim-level comparison.",
+      "A specialized matrix diagonal-loading/water-filling theorem or thesis could already imply the stated formulas, despite the available published-source and result-index comparisons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines linear importance-weighted prices but only analytic uniform-price formula, not arbitrary independent-price exact complete-graph support transitions.",
+        "evidence": [
+          "ArXiv submission 2015-11-06 UTC.",
+          "Results explicitly gives E_sum=sum d_i w_i^alpha=C and analytic answer only for alpha=0."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1511.02012v1",
+        "material_read": "Full-text Introduction, Results, speed metrics, control-efficiency restriction, equations (11)-(14), explicit alpha=0 analytic and other alpha numerical cases, conclusions.",
+        "method": "Public arXiv HTML full text.",
+        "title": "Enhancing speed of pinning synchronizability: low-degree nodes with high feedback gains",
+        "trigger": "Early source on rate-optimal nonuniform feedback gains and cost-weighted budget; first public date verified from arXiv submission history."
+      },
+      {
+        "assessment": "Stronger general graph SDP formulation with equal total unit prices; Lemma 6 explicitly covers the fully pinned equal-price uniform allocation. No inspected arbitrary-price exact activation-phase classification.",
+        "evidence": [
+          "DOI 10.1109/TSMC.2022.3151222.",
+          "Lemma 6: optimal gains equal for all pinned vertices in equal total-gain model."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+        "material_read": "Public full-text HTML transcript, SDP and dual formulation, Sections IV-V, Lemma 6 completely pinned network, vertex-orbit symmetry, Section VIII topologies.",
+        "method": "Indexed HTML full text, including displayed formula transcription.",
+        "title": "Pinning Control of Dynamical Networks With Optimal Convergence Rate",
+        "trigger": "Highly relevant general theorem with complete graph and feedback gain optimization."
+      },
+      {
+        "assessment": "Optimizes eigenratio/spectral-radius with variable edge weights and feedback; not the fixed unit complete graph max-min spectral value under independently priced gains.",
+        "evidence": [
+          "DOI 10.1109/TAC.2024.3376302.",
+          "Problem 1 jointly optimizes gain and edge weights under an eigenratio objective."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/378911728_Undirected_Weighted_Network_Topologies_with_Best_Possible_Pinning_Controllability",
+        "material_read": "Public full-text HTML transcript, optimization Problems 1-2 and complete graph Section V.",
+        "method": "Indexed HTML full text, including spectral ratio and variables.",
+        "title": "Undirected Weighted Network Topologies With Best Possible Pinning Controllability",
+        "trigger": "Potential stronger coverage of weighted networks and nonuniform feedback gains."
+      },
+      {
+        "assessment": "Insufficient material to exclude a close heterogeneous-cost theorem; specifically retained as priority risk, not classified as non-covering.",
+        "evidence": [
+          "DOI 10.1109/LCN48667.2020.9314818; abstract describes optimal gain and cost SDP."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/348538701_Pinning_Control_of_Dynamical_Networks_with_Optimal_Cost",
+        "material_read": "Abstract and public listing, not substantive full text.",
+        "method": "Publisher/repository abstract only; full text unavailable in inspected public output.",
+        "title": "Pinning Control of Dynamical Networks with Optimal Cost",
+        "trigger": "Potentially stronger fixed-rate minimum-cost formulation."
+      },
+      {
+        "assessment": "Studies ideal/infinite-gain grounded-node subset selection, not the finite continuous independently priced gain problem.",
+        "evidence": [
+          "arXiv:1804.10818 describes optimizing grounded principal-submatrix smallest eigenvalue for a prescribed number of deleted vertices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.10818",
+        "material_read": "Abstract, including grounded principal-minor objective.",
+        "method": "Public arXiv abstract.",
+        "title": "Optimizing Pinning Control of Complex Dynamical Networks Based on Spectral Properties of Grounded Laplacian Matrices",
+        "trigger": "Alternative grounded/pinning terminology and potential reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d4f15457-e35c-4494-8473-539d19005740",
+  "value": {
+    "rationale": "Independently priced pinning gains arise naturally in consensus control where actuator strengths incur different marginal costs. The exact support activation order, entry budgets, global uniqueness and C1-to-affine phase behavior give structurally useful design information unavailable from a uniform-price allocation or generic SDP statement alone. The result covers every complete-network size and every positive price vector without a preset active set.",
+    "status": "PASS"
+  }
+}
