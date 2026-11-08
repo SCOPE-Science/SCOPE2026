@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The result makes four exact assertions about one fixed connected star of homogeneous directed subtrees. Reconstructing the block matrix reduces surjectivity to finitely many ordinary backward co-shifts. The identities \(B_jB_j^*=b_jI\), the Neumann right inverse below \(\sqrt{b_j}\), the Neumann inverse above it, and the failure of surjectivity on its boundary prove the critical circles. The adjoint has no eigenvalues, so the critical ranges are dense and nonclosed. An explicit infinite antichain gives infinitely many reducing difference-wavelet co-shifts in the largest subtree, establishing Rota universality even at the smaller critical circles. Outside the open outer disk the global shift has no eigenvector, preventing universality. Descendant counts prove the power norm and growth radii. The attached checker independently evaluates finite combinatorial instances; it is not an infinite proof.
+
+## Originality — PASS, with stated priority risks
+The closest 2026 work, Buckley--Seco (arXiv:2610.40089v1), determines \(R_-\) and \(R_+\), guarantees universality inside the former, and asks about the annulus between them; its fully regular example does not have distinct radii. The 2017 tree-shift decomposition work (arXiv:1702.00765v1) supplies general decomposition methods but not the exact connected-star exceptional-circle classification in the material inspected. Partington--Pozzi (2011, DOI 10.7153/oam-05-33) prove universality for a different class of bilateral weighted shifts. Literature and published-results searches using regular-tree, direct-sum, Caradus, critical-circle and annulus formulations did not identify this complete statement. The main remaining risk is that general Wold/direct-sum or finite-root-extension theory may implicitly give the classification without naming the tree, so independent publication-priority assessment is needed.
+
+## Mathematical value — PASS
+The initiating paper explicitly asks what occurs between the lower and upper branching growth radii. The theorem gives a complete answer for a natural nonhomogeneous **connected** family: a full disk of universal translates but an arbitrarily large finite set of internal non-surjective circles. It demonstrates a consequential separation of the Rota and Caradus properties at explicitly prescribed natural thresholds and exposes which part of the graph controls universality versus surjectivity. This is a structural complete classification, not a numerical one-off or an arbitrary parameter slice.
+
+## Closest sources and limits
+Buckley--Seco, Theorem 1 and introductory question, arXiv:2610.40089v1; Budzynski et al., Theorem 16, arXiv:1702.00765v1; Partington--Pozzi, Theorem 1.1 and Section 2, DOI 10.7153/oam-05-33. No claim is made about arbitrary nonhomogeneous trees, variable edge weights, or continuous families of exceptional radii. Completeness of the mathematical proof and originality of the formulation are distinct from independent mathematical and publication-priority audits.
+
+Self-review: passed. Independent audit: not yet performed.
