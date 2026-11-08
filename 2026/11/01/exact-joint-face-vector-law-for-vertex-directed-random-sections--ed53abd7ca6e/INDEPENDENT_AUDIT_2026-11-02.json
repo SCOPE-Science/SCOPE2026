@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T05:02:16.575667Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE assigned RESULT.md blob 15709c5c2439c6260cddc9917944cf0979cf8cb4",
+        "SCOPE assigned verify.py blob a874e36ff899398e42ade968463c5fad55ffb383",
+        "Schange arXiv:2610.28084 Theorem 4.7, full arXiv HTML read",
+        "Independent coefficient/moment calculations d=3..10"
+      ],
+      "rationale": "PASS. For d>=3 and 0<=t<1, the affine plane through te_d is sampled by a Haar normal U=G/||G||. Orient U_d>0. The dth coordinate pair straddles the plane and among i<d exactly M_t-1 more coordinate pairs straddle it; the remaining d-M_t pairs have both vertices on its negative side. Every generic k-section face crosses one (k+1)-face of the crosspolytope. Counting signed choices by j=k+2 yields H_{d,m}(z)=(1+2z)^d-(1+z)^m-(1+z)^m(1+2z)^{d-m}+1 with the constant adjusted for the twice-subtracted empty face. Conditioning on |G_d| gives independent comparison indicators and precisely the stated half-normal binomial-mixture integral. As t approaches 1 from below, exchangeable absolute Gaussian order statistics make m uniform on {1,...,d}, but the section at t=1 is not covered. Difference H_{d,m+1}-H_{d,m}=z(1+z)^m((1+2z)^{d-m-1}-1) establishes componentwise monotonicity and the final tie m=d-1,d. Recomputed coefficients/number of distinct vectors and rank-uniform vertex means/variances exactly for d=3,...,10; the mean 2(d²-1)/3 and variance (d-2)(d-1)(d+1)(4d-7)/45 agree. For d=3 the small Gaussian cone gives the stated 2/pi arctan(t²/sqrt(1+2t²)) quadrilateral probability. The all-d proof comes from sign counting and Gaussian exchangeability, not the finite tests.",
+      "residual_risks": [
+        "The theorem is for axis-directed translation t e_d only, not arbitrary translations or t=1.",
+        "A moment agreement or a mean-face formula alone does not establish the joint distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schange Theorem 4.7 ranges over asymmetric crosspolytopes and arbitrary admissible offset x but returns only expectations.",
+          "Central regular-simplex chi-square fluctuation result covers another polytope family."
+        ],
+        "reasoning": "Broader geometry/offset scope does not imply higher-order joint probabilities; no published theorem read asserts the latent rank representation or d-1 limiting profiles.",
+        "searches": [
+          "joint distribution face vector random affine vertex directed sections of crosspolytope octahedron sections Schange"
+        ]
+      },
+      "checked_sources": [
+        "Solid-angle formulas for simplicial cones and random shifted sections of polytopes — https://arxiv.org/abs/2610.28084",
+        "Exact two-point face-vector law for random central sections of the four-cube — https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac",
+        "Resultary semantic search: joint distribution face vector random affine vertex directed sections of crosspolytope octahedron sections Schange",
+        "Resultary targeted search: vertex directed shifted section regular crosspolytope joint face vector Gaussian rank"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expected face numbers are integrals of conic intrinsic volumes in Schange; the present M_t conditional law gives exact masses of all f-vector outcomes.",
+          "A central four-cube section cannot imply generic shifted crosspolytope d-dimensional laws."
+        ],
+        "reasoning": "Expectation of each coordinate is a marginal first moment and is insufficient to recover the joint vector distribution; the original theorem therefore adds mathematically non-implied information.",
+        "searches": [
+          "joint distribution face vector random affine vertex directed sections of crosspolytope octahedron sections Schange"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schange 2026 §4.3 Theorem 4.7 explicitly computes E f_j for random shifted simplices/crosspolytopes, not the joint vector law.",
+          "Resultary 2026/10/11 central four-cube face-vector RESULT.md computes two profiles for central cube, a different body and offset."
+        ],
+        "reasoning": "Even full families of individual expectation formulas generally do not determine joint laws. Present single-rank mixture produces all correlations, and the 4-cube central law is not an equivalent specialization.",
+        "searches": [
+          "joint distribution face vector random affine vertex directed sections of crosspolytope octahedron sections Schange",
+          "vertex directed shifted section regular crosspolytope joint face vector Gaussian rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary four-cube central section: two profiles (8,12,6)/(12,18,8) with probabilities 1/3,2/3.",
+          "Resultary central simplex Gaussian chi-square fluctuation synopsis concerns simplex/central parameter."
+        ],
+        "reasoning": "Existing exact tables/models concern different objects. No identical table of H_{d,M_t} coefficients for shifted crosspolytopes was identified; search silence is not a novelty proof.",
+        "searches": [
+          "vertex directed shifted section regular crosspolytope joint face vector Gaussian rank"
+        ]
+      },
+      "rationale": "PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: Schange's exact more general EXPECTED face formulas do not determine the all-coordinate JOINT law, and the published central four-cube two-point law is a different body.",
+      "residual_risks": [
+        "Other unindexed random-section literature might give the same conditional rank distribution; the full main motivating preprint was read but does not settle every priority possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the joint law: Theorem 4.7 computes E f_j by conic intrinsic volumes, does not provide simultaneous f-vector probabilities or rank-uniform vertex limit.",
+          "evidence": "Theorem 4.7 explicitly starts with E f_j(P∩(x+L)); §4.3 heading is expected number of faces.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28084",
+          "material_read": "Full accessible arXiv HTML, especially §4.3 Proposition 4.6, Theorem 4.7 and Remark 4.8 on expected face counts",
+          "method": "Web arXiv HTML mathematical text including theorem and proof inspected",
+          "title": "Solid-angle formulas for simplicial cones and random shifted sections of polytopes",
+          "trigger": "same random shifted crosspolytope family and normal distribution"
+        },
+        {
+          "assessment": "Different dimension/body and central offset; not a corollary implying present formula.",
+          "evidence": "Original paper states Q=[-1,1]^4 and t=0 central sections; present object is C_d=conv(±e_i) with variable vertex-directed t.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac",
+          "material_read": "Entire RESULT.md: exact two-valued 4-cube central law, geometric sign proof, background and limitations",
+          "method": "Authorized GitHub source file read, blob 472598396fcccccd1e3189271443cfd00a72505b",
+          "title": "Exact two-point face-vector law for random central sections of the four-cube",
+          "trigger": "same joint-law notion, different regular-polytope family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/exact-joint-face-vector-law-for-vertex-directed-random-sections--ed53abd7ca6e/RESULT.md",
+        "Published same-object and neighboring-object comparisons described in originality"
+      ],
+      "rationale": "PASS. A single latent absolute Gaussian rank controls an entire random face vector, with exact probability weights, a monotone coupling and a sharp vertex-limit distribution in arbitrary dimension. Joint dependence and the merger of final rank profiles are genuinely finer combinatorial-probabilistic data than expected face counts and directly useful for comparing random sections.",
+      "residual_risks": [
+        "One-direction affine family rather than arbitrary offsets; the source proves a natural symmetry-reduced model, not a universal classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE assigned RESULT.md blob 15709c5c2439c6260cddc9917944cf0979cf8cb4",
+    "SCOPE assigned verify.py blob a874e36ff899398e42ade968463c5fad55ffb383",
+    "Schange arXiv:2610.28084 Theorem 4.7, full arXiv HTML read",
+    "Independent coefficient/moment calculations d=3..10",
+    "https://arxiv.org/abs/2610.28084",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is for axis-directed translation t e_d only, not arbitrary translations or t=1.",
+    "A moment agreement or a mean-face formula alone does not establish the joint distribution.",
+    "One-direction affine family rather than arbitrary offsets; the source proves a natural symmetry-reduced model, not a universal classification.",
+    "Other unindexed random-section literature might give the same conditional rank distribution; the full main motivating preprint was read but does not settle every priority possibility."
+  ],
+  "residual_risks": [
+    "The theorem is for axis-directed translation t e_d only, not arbitrary translations or t=1.",
+    "A moment agreement or a mean-face formula alone does not establish the joint distribution.",
+    "Other unindexed random-section literature might give the same conditional rank distribution; the full main motivating preprint was read but does not settle every priority possibility.",
+    "One-direction affine family rather than arbitrary offsets; the source proves a natural symmetry-reduced model, not a universal classification."
+  ],
+  "schema_version": 1
+}

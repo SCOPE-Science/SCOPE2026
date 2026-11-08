@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies every transversal section face with an original crosspolytope face having both positive and negative vertex evaluations, derives the two same-sign face polynomials by the independent axis choices, and subtracts them to obtain the full joint f-vector. A Haar normal is exactly normalized Gaussian; conditioning on the designated coordinate proves the binomial-mixture integral. Exchangeability proves the limiting rank is uniform, and the coefficientwise polynomial difference proves simultaneous monotonicity and the final-rank tie. The squared-rank moments yield the displayed exact asymptotic formulas. The three-dimensional arctangent probability follows from two explicit solid-angle cones. Signed-face enumeration and quadrature independently corroborate the formulas in representative dimensions.
+PASS
 
-## Originality — PASS, historical-priority risk explicitly retained
+PASS. For d>=3 and 0<=t<1, the affine plane through te_d is sampled by a Haar normal U=G/||G||. Orient U_d>0. The dth coordinate pair straddles the plane and among i<d exactly M_t-1 more coordinate pairs straddle it; the remaining d-M_t pairs have both vertices on its negative side. Every generic k-section face crosses one (k+1)-face of the crosspolytope. Counting signed choices by j=k+2 yields H_{d,m}(z)=(1+2z)^d-(1+z)^m-(1+z)^m(1+2z)^{d-m}+1 with the constant adjusted for the twice-subtracted empty face. Conditioning on |G_d| gives independent comparison indicators and precisely the stated half-normal binomial-mixture integral. As t approaches 1 from below, exchangeable absolute Gaussian order statistics make m uniform on {1,...,d}, but the section at t=1 is not covered. Difference H_{d,m+1}-H_{d,m}=z(1+z)^m((1+2z)^{d-m-1}-1) establishes componentwise monotonicity and the final tie m=d-1,d. Recomputed coefficients/number of distinct vectors and rank-uniform vertex means/variances exactly for d=3,...,10; the mean 2(d²-1)/3 and variance (d-2)(d-1)(d+1)(4d-7)/45 agree. For d=3 the small Gaussian cone gives the stated 2/pi arctan(t²/sqrt(1+2t²)) quadrilateral probability. The all-d proof comes from sign counting and Gaussian exchangeability, not the finite tests.
 
-The closest motivating reference, Schange, arXiv:2610.28084v1, explicitly advertises expected face counts for translated regular crosspolytope sections, not the full joint probability distribution. An expectation does not determine a distribution, and the new theorem also determines a uniform vertex-limit rank and a coupled monotonicity law. Relevant indexed full-f-vector distributions concern central sections of regular simplices or a four-cube, not this family. Full text of the motivating manuscript remained inaccessible for inspection; equivalent unpublished or unadvertised results remain possible. No uniqueness assertion follows from an incomplete index search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The joint law solves a natural stochastic-combinatorial inverse problem motivated by the literature's mean-face-count formulas, and provides all cross-moments without separate solid-angle computation. The exactly uniform rank at a vertex limit and the collapse of the two top ranks to the same face vector are structural phenomena; the strong coupling gives stochastic comparisons at every offset. This is more than a restatement or recomputation of a marginal mean.
+PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: Schange's exact more general EXPECTED face formulas do not determine the all-coordinate JOINT law, and the published central four-cube two-point law is a different body.
 
-## Literature and scope
+## value
 
-Schange (2026) is the closest source. Related central simplex and central cube section results were compared at the level of hypotheses and conclusions. The theorem is restricted to axis-directed affine hyperplanes in dimension at least three, and to a one-sided limit as the section point approaches a vertex. Independent historical and scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A single latent absolute Gaussian rank controls an entire random face vector, with exact probability weights, a monotone coupling and a sharp vertex-limit distribution in arbitrary dimension. Joint dependence and the merger of final rank profiles are genuinely finer combinatorial-probabilistic data than expected face counts and directly useful for comparing random sections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
