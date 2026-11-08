@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independent Poisson splitting yields the stated last-arrival density and winner weights. Conditioning the other counts on being positive produces independent singleton Bernoulli indicators. The mixture over last-arrival types is exactly the size-biased Poisson-binomial pmf, including all boundary terms. The nonstandard likelihood-ratio step is justified by the coordinatewise formula and log-concavity of a Poisson-binomial distribution; every parameter decreases strictly with elapsed time. Strict negative covariance follows from conditional monotonicity and positivity of the completion-time density. An independent finite-state rational recursion agrees with numerical Poissonized integration, and the standalone checker reports 16,538 passed assertions. Infinite-size correctness rests on the analytic proof, not the tests.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Independent first-arrival times X_i~Exp(p_i) give density h_i(t)=p_i exp(-p_it)product_{j !=i}(1-exp(-p_jt)) for the unique last new type. The conditional winner law is w_i(t)=q_i(t)/Q(t), where q_i(t)=p_it/(exp(p_it)-1). Given last type i at T=t, its count is one and other independent Poisson counts, truncated above zero, are singleton with Bernoulli probabilities q_j(t). Mixture is exactly positive-size-bias of Poisson-binomial Y_t, P(S=s|T=t)=s[z^s]F_t(z)/Q(t). The sum W of remaining Bernoullis has positive log-concave coefficients a_s; as one q increases, the ratio of size-biased pmfs across q has increasing fractional-linear dependence on a_(s-1)/a_s, including the terminal infinite ratio; hence strict MLR monotonicity in each coordinate. Every q_i(t) decreases strictly, giving strict reverse MLR for 0<t<u. This yields strictly decreasing conditional means of each strictly increasing g and Cov(f(T),g(S))<0 by independent-copy identity. Independently checked explicit convolution p=(.5,.3,.2), t=.5 vs5, obtaining strict increasing earlier/later probability ratios. No discrete stopping-count assertion is made.
 
-The classical equal-probability joint law in Myers–Wilf (2003), equation (44), does not cover unequal probabilities. The general-probability Poissonized expectation calculations in Adler–Oren–Ross (2003), Section 3, do not assert a time-conditioned full distribution or likelihood-ratio order. Long (2026) proves a different monotonicity result across the number of types and general nonuniform expectations; the inspected relevant sections do not give the claim. Published semantic searches of conditional singleton laws, parameterized size-biased Poisson-binomial sums and likelihood-ratio order did not reveal a statement implying this nonuniform theorem. A more general older conditional point-process theorem could still contain an equivalent specialization; publication priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-Completion time and leftover singletons are two directly interpretable diagnostics of collection efficiency. An all-parameter likelihood-ratio comparison is substantially stronger than a mean or covariance identity, and applies to arbitrary unequal types rather than a balanced case; it controls every increasing utility or tail threshold and fixes a structural negative dependence mechanism. The exact conditional pgf permits direct finite-sample calculations for nonuniform collection schemes.
+Best-of-knowledge source comparison of exact mathematical implications, not merely titles; published SCOPE/Resultary semantic corpus queried and primary source material inspected as specifically recorded. No inspected stronger prior result covers the distinctive final claim, subject to explicitly named access and priority limitations.
 
-## Scientific boundaries
+## value
 
-The order concerns the continuous Poissonized time and is not asserted for discrete completion draw count; no uniform quantitative covariance margin is claimed. Finite numerical assertions are reproducibility checks rather than an infinite proof. Historical-priority uncertainty remains despite direct comparison with highly relevant primary full text.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For unequal coupon frequencies, the *entire* singleton-count law conditional on continuous cover time and strict likelihood-ratio stochastic ranking is a natural, strong distributional relationship; it is substantially stronger than comparing expected singleton counts and yields negative covariance for every increasing transform. Important distinction between elapsed Poisson time and number of coupons drawn is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

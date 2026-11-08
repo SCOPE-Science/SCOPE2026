@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:08:30.837779Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent first-arrival times X_i~Exp(p_i) give density h_i(t)=p_i exp(-p_it)product_{j !=i}(1-exp(-p_jt)) for the unique last new type. The conditional winner law is w_i(t)=q_i(t)/Q(t), where q_i(t)=p_it/(exp(p_it)-1). Given last type i at T=t, its count is one and other independent Poisson counts, truncated above zero, are singleton with Bernoulli probabilities q_j(t). Mixture is exactly positive-size-bias of Poisson-binomial Y_t, P(S=s|T=t)=s[z^s]F_t(z)/Q(t). The sum W of remaining Bernoullis has positive log-concave coefficients a_s; as one q increases, the ratio of size-biased pmfs across q has increasing fractional-linear dependence on a_(s-1)/a_s, including the terminal infinite ratio; hence strict MLR monotonicity in each coordinate. Every q_i(t) decreases strictly, giving strict reverse MLR for 0<t<u. This yields strictly decreasing conditional means of each strictly increasing g and Cov(f(T),g(S))<0 by independent-copy identity. Independently checked explicit convolution p=(.5,.3,.2), t=.5 vs5, obtaining strict increasing earlier/later probability ratios. No discrete stopping-count assertion is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adler–Oren–Ross derives nonuniform Poissonized expectations and album bounds; Long 2026 claims nonuniform expectation and a different parameter monotonicity in indexed summary, full text unavailable this run."
+        ],
+        "reasoning": "A general theorem about size-biasing independent Bernoulli sums by coordinatewise parameters might imply the MLR step directly as a general corollary; the proof here supplies that step rather than asserting universal priority. No inspected stronger cover-time conditional theorem subsumes both distribution and all-t order.",
+        "searches": [
+          "nonuniform coupon collector poissonization singleton counts conditional on cover time likelihood ratio stochastic order",
+          "Adler Oren Ross Coupon-Collector Problem Revisited 2003 Section 3",
+          "arXiv:2606.29635",
+          "total positivity Poisson-binomial likelihood ratio"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md ce64b3c65f05d68df4f1f18671dd70beb3b0dc53",
+        "pinned coupon_singletons_check.py 769d36009c1ef226321a7755367a7e4b6d59e2b8",
+        "Myers–Wilf arXiv:math/0304229 §4",
+        "Adler–Oren–Ross public PDF §3",
+        "Long arXiv:2606.29635 abstract only",
+        "Resultary semantic search nonuniform coupon collector poissonization singleton counts conditional on cover time likelihood ratio stochastic order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional winner mixture requires time-density normalization w_i=q_i/Q and log-concave ratio argument; older unconditional uniform stopping laws and expectation identities omit this conditional comparison."
+        ],
+        "reasoning": "The inspected prior statements do not imply strict nonuniform conditional MLR without new conditioning and total-positivity reasoning. The 2026 manuscript and general size-biased Poisson-binomial literature remain explicit priority risks; an unpublished implication cannot be ruled out by a failed search.",
+        "searches": [
+          "nonuniform coupon collector poissonization singleton counts conditional on cover time likelihood ratio stochastic order",
+          "Myers Wilf 2003 PDF eq44-47",
+          "Adler Oren Ross 2003 PDF Section 3",
+          "arXiv:2606.29635"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Myers–Wilf already gives the equal-probability discrete stopping singleton law and mean. The new conditional continuous-time law is a size-biased Poisson-binomial distribution, equivalent to z F_t_prime(z)/Q(t)."
+        ],
+        "reasoning": "The size-bias identity is an exact algebraic re-expression, not by itself proof of new novelty; the claim's substance is strict likelihood-ratio ordering as t increases at arbitrary nonuniform p. Older equal-rate unconditional laws do not determine this conditional all-rate ordering.",
+        "searches": [
+          "nonuniform coupon collector poissonization singleton counts conditional on cover time likelihood ratio stochastic order",
+          "Myers Wilf 2003 Section 4 eq44-47",
+          "Poisson-binomial size biased likelihood ratio parameter monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing equal-probability coupon-collector singleton counts and exact discrete tables do not specify an all-positive-rate conditional density law indexed by each real completion time."
+        ],
+        "reasoning": "No exact database/table matching continuous-time size-biased Poisson-binomial family and its strict MLR ordering was found. Tabulated marginals alone cannot logically imply the order.",
+        "searches": [
+          "nonuniform coupon collector poissonization singleton counts conditional on cover time likelihood ratio stochastic order",
+          "Myers Wilf Section 4 eq44-47",
+          "conditional singleton count nonuniform coupon collector table"
+        ]
+      },
+      "rationale": "Best-of-knowledge source comparison of exact mathematical implications, not merely titles; published SCOPE/Resultary semantic corpus queried and primary source material inspected as specifically recorded. No inspected stronger prior result covers the distinctive final claim, subject to explicitly named access and priority limitations.",
+      "residual_risks": [
+        "More general older theorem that size-biased Poisson-binomial distributions are MLR ordered in every parameter could imply the ordering step.",
+        "Full text of Long 2026 nonuniform coupon collector manuscript not obtained; do not characterize whole document as noncovering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known uniform-discrete singleton law; nonuniform continuous T conditional order not stated in read section",
+          "evidence": "Eq. 47 gives uniform singleton count distribution",
+          "identifier_or_url": "arXiv:math/0304229",
+          "material_read": "Primary PDF Section 4 eqs. (44)–(47) and surrounding explanation",
+          "method": "open full public arXiv PDF, find equations, inspected page",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "historically closest singleton completion formulas"
+        },
+        {
+          "assessment": "Relevant rate tools, not conditional singleton MLR in inspected Section 3",
+          "evidence": "Section 3 expectation identities and bounds",
+          "identifier_or_url": "https://oren.ieor.berkeley.edu/pubs/coupon.pdf",
+          "material_read": "Complete public PDF Section 3 on poissonized unequal rates and later-album expectations",
+          "method": "open publicly available PDF with page screenshot",
+          "title": "The Coupon-Collector’s Problem Revisited",
+          "trigger": "nonuniform Poissonized collection results"
+        },
+        {
+          "assessment": "Plausible source not conclusively compared in full; priority risk",
+          "evidence": "Nonuniform sibling collection and a separate parameter monotonicity",
+          "identifier_or_url": "arXiv:2606.29635",
+          "material_read": "Bibliographic abstract/indexed scope; full preprint unavailable through tried public route",
+          "method": "arXiv/preprint lookup",
+          "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+          "trigger": "2026 nonuniform sibling and monotonicity claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For unequal coupon frequencies, the *entire* singleton-count law conditional on continuous cover time and strict likelihood-ratio stochastic ranking is a natural, strong distributional relationship; it is substantially stronger than comparing expected singleton counts and yields negative covariance for every increasing transform. Important distinction between elapsed Poisson time and number of coupons drawn is explicit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md ce64b3c65f05d68df4f1f18671dd70beb3b0dc53",
+    "pinned coupon_singletons_check.py 769d36009c1ef226321a7755367a7e4b6d59e2b8",
+    "Myers–Wilf arXiv:math/0304229 §4",
+    "Adler–Oren–Ross public PDF §3",
+    "Long arXiv:2606.29635 abstract only",
+    "Resultary semantic search nonuniform coupon collector poissonization singleton counts conditional on cover time likelihood ratio stochastic order"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite m>=2, every p_i>0; T is continuous Poissonized completion time, not integer draw-count stopping time.",
+    "Strict covariance assumes integrable increasing f and strictly increasing g; no uniform quantitative covariance gap.",
+    "More general older theorem that size-biased Poisson-binomial distributions are MLR ordered in every parameter could imply the ordering step.",
+    "Full text of Long 2026 nonuniform coupon collector manuscript not obtained; do not characterize whole document as noncovering.",
+    "Neither self-review nor finite verification constitutes external formal proof or complete historical-priority certification.",
+    "Public-bound record files METADATA.json and AUDIT.json retain confidential operational provenance; no publication is authorized."
+  ],
+  "schema_version": 1
+}
