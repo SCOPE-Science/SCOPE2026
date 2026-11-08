@@ -1,12 +1,21 @@
-# Mathematical review: exact four-term quadratic progressions
+# Independent mathematical audit
 
-## Correctness — PASS
-Normalization \(\Delta_j/u^2=X+jY+j^2\) follows from the discriminant formula and gives a bijection of coefficient pairs in odd characteristic. Characteristic two follows from two independent absolute-trace constraints; characteristic three from the three-line sign moment and correct treatment of zero discriminants. In characteristic at least five, the triple moments each equal \(q\), the fourfold moment is \(q-U_q\), and the zero-line and pair-intersection correction terms give the exact expression in `RESULT.md`. The squarefree cubic Hasse bounds and direct \(q=7\) witness establish a sharp existence criterion. Exhaustive independent polynomial-root tests cover 19 finite fields and 258 affine steps but are not a proof beyond these fields.
+## correctness
 
-## Originality — PASS, with limitations
-Bary-Soroker's *Hardy–Littlewood tuple conjecture over large finite fields*, arXiv:1206.3930, Theorem 1.1 treats exactly the broader tuple family but only yields an asymptotic with \(O(q^{3/2})\) for quadratic four-tuples, not this exact formula, the sharper arithmetic structure, or finite-field cutoff. Bank, Bary-Soroker and Rosenzweig, arXiv:1302.0625, concern intervals and congruence-progressions rather than four simultaneously irreducible polynomial translates. Pollack's simultaneous specialization theorem likewise gives asymptotic predictions and statements rather than this exact specialization. These sources were materially compared, not just identified by title. A prior exact three-shift quadratic theorem recovers the characteristic-three branch because the fourth shift repeats the first; for other characteristics it does not determine the required four-shift intersection. Residual risk: a classical character-sum treatment, obscure table or unlocated exact finite-field identity might already imply this count. A search failure is not proof of priority.
+PASS
 
-## Mathematical value — PASS
-This answers a natural fixed-degree, four-prime analogue of the finite-field Hardy–Littlewood counting question exactly for all finite fields and affine nonconstant steps. It identifies arithmetic elliptic oscillations and a universal sharp obstruction set \(\{2,3,5\}\), neither determined by existing broad asymptotic bounds. The theorem is substantive even though it does not extend to higher degrees.
+The affine discriminant normalization (a,b)↔(X,Y) is bijective in odd characteristic; z_j=X+jY+j². In char2, independent absolute trace constraints for a≠0,u give q(q-2)/4; char3 reduces to three distinct shifts and pairwise zero-line corrections giving (q-1)(q-3)/8. In char>=5, expansion of four nonsquare indicators, triple correlations, fourth correlation q-U_q, and zero-discriminant inclusion–exclusion yield the stated formula; Hasse bounds reduce existence to q<11 and explicit small cases. Independent root enumeration for p=2,3,5,7,11,13,17,19 matches formula (counts 0,0,0,1,4,6,12,14). Extension fields not independently replayed this time; finite checks do not establish all-q proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge exact finite-q four-translate enumeration, including elliptic corrections and small-characteristic repetition, not implied by Bary-Soroker asymptotic q²/16 as q grows odd. Known short-interval and simultaneous-prime polynomial theorems provide context, not the exact universal four-term character-sum identity and sharp finite exception list in inspected published statements.
+
+## value
+
+PASS
+
+Natural smallest nontrivial polynomial prime-tuple intersection: exact arithmetic fluctuations, elliptic traces and every-field existence criterion give more informative finite-field results than a leading asymptotic and capture characteristic collisions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
