@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A uniform complete-or-empty orbit-graph lemma applies to every side-and-level class and constructs a literal straight-line strong deformation retraction; this is stronger than a computation of Betti numbers. Both the odd-cycle orbit graph and the path orbit graph after side interchange are verified edge by edge, including the inadmissible top-level swapped orbit. Standard, separately cited path/cycle homotopy recurrences and the reduced Lefschetz identity determine the integral ranks and rational swap character. A self-contained checker reconstructs the input graphs and passes 108 orbit-graph tests, 18 finite homology tests and eight signed trace tests. Its finite domain is never used to establish an infinite claim.
+## correctness
 
-## Originality — PASS (qualified)
-Carnero Bravo's 2026 paper already gives the ordinary homotopy type for bipartite Mycielskians; no claim to a new nonequivariant sphere formula is made. Goyal–Shukla–Singh's earlier paper and the closest indexed group-representation result concern complete, not complete bipartite, base graphs. The additional assertions here are an explicit group-equivariant strong deformation, complete geometric fixed-locus descriptions for the side-preserving and part-swapping groups, and the remaining homology character. Those assertions do not logically follow from a bare nonequivariant homotopy equivalence or an analogous theorem for a different graph family. They may follow from generic twin-blow-up tools not found in the accessible searches; that possibility and unavailable complete text of the closest indexed result remain genuine residual risks.
+PASS
 
-## Value — PASS
-The main contribution is a complete equivariant classification for a natural unbounded family, not a fixed numerical example. Crucially, the side-preserving fixed locus carries all homotopy of the ambient complex through an equivariant retraction, while adding the involution may make the geometric common fixed locus contractible or lower its sphere dimension. This structural symmetry threshold and the exact rational characters are not recoverable from ambient Betti numbers, and they are meaningful for studying fixed-point topology of graph constructions.
+In the explicitly defined μ_ell(K_ab), each side-and-level class A_j,B_j is an independent set of twins, and adjacency between any two classes is complete or absent. The H=S_a×S_b vertex orbits have that form, so uniformly averaging barycentric coordinates inside each orbit sends a simplex to a simplex, preserves line segments and yields an H-equivariant PL strong deformation retraction onto the genuine H-fixed locus. The orbit-conflict graph has apex w, 2(ell+1) classes and degree two at each; following edges from w traverses every class exactly once, giving the odd cycle C_(2ell+3). For equal a=b, side-swap tau interchanges classes, averaging still commutes with W, and the merged top-level orbit is forbidden because it contains A_ell—B_ell edges; remaining orbits form precisely a path P_(ell+1). Classical path/cycle independence recurrences yield ambient/fixed homotopy formulas in all three congruence classes, including ell=1; reduced simplicial Lefschetz for the order-two swap yields trace zero if ell divisible by three and (-1)^(floor(ell/3)+1) otherwise, with rank-two positive/negative split at ell≡0. The package checker was inspected, and its finite orbit/homology/signed trace checks agree with the all-parameter graph proof rather than replacing it.
 
-## Prior-work and verification limits
-The cycle and path formulas themselves are classical, and the generic orbit-averaging principle is elementary; novelty is limited to their explicit, complete, equivariant interaction for this specified graph family. The closest indexed complete-graph comparison was available as a scientific summary, not a full original text; no uniqueness claim follows from the search. Checks are finite and self-review; no external audit occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete equivariant PL retraction and the full group-fixed locus/part-swap character, not for the pre-existing nonequivariant wedge counts. Carnero Bravo’s inspected theorem gives a more general ordinary homotopy formula but does not assert a deformation onto the actual H-fixed space. The closest Resultary representation record is for μ_ell(K_n), not μ_ell(K_ab), and no visible implication gives the balanced part-swap geometric path and trace. Generic false-twin equivariant blow-up theory is the main novelty risk.
+
+## value
+
+PASS
+
+The family μ_ell(K_ab) is a natural unbounded graph construction. The H-fixed subspace carries all ambient topology by an explicit strong deformation, while adding balanced part interchange can collapse the fixed locus to a point or lower-dimensional sphere, and its homology-character sign varies with ell mod 3. This is a complete motivated equivariant structure theorem, not the known nonequivariant recurrence or an arbitrary small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
