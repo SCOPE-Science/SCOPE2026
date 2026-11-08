@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The finite-field checker is `check.py` (NumPy required; see `requirements.txt`). From the standalone source, reconstruct the actual Kneser disjointness matrix for each marked-star partition, compute its rank by Gaussian elimination over the given prime, then independently compare the closed incidence-block expression. The checker also constructs graph-state amplitude vectors for two ten-qudit examples in dimensions two and three and checks the reduced-state nonzero eigenvalues.
+## correctness
 
-Observed successful execution: `VERIFY_OK exact_cross_matrix_checks=135 direct_spectra=4 sharp_resonance_checks=4284 largest_eigenvalue_error=1.94e-16 universal_odd_graph_checks=52`. The rank and spectrum checks are finite samples, and the congruence checks range over tested parameters only; the infinite theorem is established by the explicit mathematical proof in RESULT.md. The output is not an independent audit.
+PASS
+
+For prime-dimensional graph states the Schmidt spectrum is flat with rank p^r for cross-adjacency rank r. Complementing Kneser columns gives stacked subset inclusion matrices; integral chain decomposition reduces rank to nonvanishing Lucas binomial multipliers. The first susceptible rank block i*=k−s−1 vanishes exactly when the least p-power >s divides n−2k+1. Independent direct GF(p) elimination on actual Kneser cut adjacency verified 69 cases plus 1,680 resonance inequalities.
+
+## originality
+
+PASS
+
+Best-of-knowledge: direct mathematical comparison with published primary sources, Resultary semantic searches and four alias/implication checks; known component theorems and possible indirect consequences are explicitly credited.
+
+## value
+
+PASS
+
+Quantifies physically natural multipartite entanglement for marked-star cuts of highly symmetric Kneser graph states; sharp prime-specific digit resonance and deficiency degree/density are a meaningful structural classification not merely an isolated numerical rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
