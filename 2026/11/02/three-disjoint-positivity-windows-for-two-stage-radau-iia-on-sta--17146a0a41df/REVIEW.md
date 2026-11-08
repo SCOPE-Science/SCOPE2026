@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The star Laplacian has only three eigenvalues. Explicit projectors give all four entry classes; algebraic denominator clearing reduces signs to one quadratic and one quartic. A sharp universal lower bound on the scalar stability function proves all-step positivity for up to ten leaves. The quadratic discriminant gives a hub-negative interval for all larger sizes; Descartes' rule and the exact negative witness at step eight give precisely two positive quartic roots. The intervals are strictly separated. Exact asymptotic substitutions yield the limiting windows. The extracted verifier passed 3,951 exact checks and does not substitute finite enumeration for the root-count proof.
+PASS
 
-## Originality — PASS, qualified
+PASS: Spectral projectors for L(K1,m) at eigenvalues 0,1,m+1 yield four rational entry forms. Offdiagonals equal h[(m+1)h+6]/Db and h²[(m+1)h²+(6m+12)h+18]/(Da Db), so positive for all h>0. The only obstructions are hub quadratic H_m and leaf quartic F_m. Exact minimum R(x)>-(3 sqrt 3-5)/2 and delta<1/10 establish diagonal positivity for 2<=m<=10. For m>=11 hub discriminant 4(m²-10m-2) gives two roots below 2; F_m positive on [0,3], negative at 8, eventually positive, while Descartes allows at most two positive roots: exactly two simple leaf crossings >3. The two disjoint bad intervals yield three closed safe windows. Independent SymPy identities, rational isolations at m=10,11,12,20,100 and exact large-m asymptotic coefficient checks support, but do not prove, the all-m result.
 
-The actual source and database comparisons target same rational method, graph, entry signs, cutoff, three safe windows, and the singular large-size asymptotics. Zappavigna et al. (2012) treat diagonal Padé maps and a nilpotent chain, not the two-stage Radau endpoint on uniform stars. Lóczi and Ketcheson (2013) optimize rational absolute-monotonicity radii, not finite star matrix entries. Closest previously available mathematical claims concern Crank–Nicolson on weighted stars, fourth-order diagonal Padé on four-vertex stars, Radau on balanced multipartite graphs, and Radau on directed cycles. The different matrix functions and/or graph families do not imply the present four-boundary classification. Public mathematical-record searches returned no matching three-window classification; that absence is not a proof of global novelty. Residual risk: specialized nonindexed earlier literature and the inaccessible full text of the 1999 Radau survey.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp graph-size cutoff, two distinct physically interpretable diagonal sign failures, and three-component positivity set are a structural classification rather than a single counterexample. The radically different limits of the hub and leaf recovery scales show why timestep safety cannot be inferred from small tests or from A-/L-stability; the central safe interval stays finite while final recovery is linear in the number of leaves. An exact prescription for all safe timestep ranges is useful for preserving stochasticity in stiff star-network diffusion.
+PASS: Best-of-knowledge supported by direct statement/implication comparisons, not claimed absolute priority. A method-level radius does not determine the exact sequence of diagonal sign changes for this star, so these are not equivalent results. No inspected general theorem implies the two disjoint negative intervals in a uniform star for the exact [1/2] Radau map; similar positivity loss/recovery alone is weaker. The prior facts provide a setting for positivity loss, but cannot substitute for exact hub and leaf sign polynomials. A specialized, not yet indexed star result could still be prior.
 
-## Scope and risk
+## value
 
-Only the two-stage Radau IIA endpoint on uniformly weighted undirected stars is classified. A rational full matrix remains mass-conserving even when its entries turn negative. The general case of asymmetric spoke weights and intermediate-stage positivity is not proved. Literature risk remains qualified, and independent verification is still pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The nonmonotone endpoint-positivity region of a standard stiff integrator is a meaningful obstruction for graph diffusion and positivity-preserving timesteps. Two distinct diagonal obstructions produce a sharp smallest graph (12 states) and three disconnected feasible windows, including a finite [2,3] central window and a late O(m) recovery. This cannot be read off graph-independent absolute-monotonicity radii.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

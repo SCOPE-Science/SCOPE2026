@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:41:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Spectral projectors for L(K1,m) at eigenvalues 0,1,m+1 yield four rational entry forms. Offdiagonals equal h[(m+1)h+6]/Db and h²[(m+1)h²+(6m+12)h+18]/(Da Db), so positive for all h>0. The only obstructions are hub quadratic H_m and leaf quartic F_m. Exact minimum R(x)>-(3 sqrt 3-5)/2 and delta<1/10 establish diagonal positivity for 2<=m<=10. For m>=11 hub discriminant 4(m²-10m-2) gives two roots below 2; F_m positive on [0,3], negative at 8, eventually positive, while Descartes allows at most two positive roots: exactly two simple leaf crossings >3. The two disjoint bad intervals yield three closed safe windows. Independent SymPy identities, rational isolations at m=10,11,12,20,100 and exact large-m asymptotic coefficient checks support, but do not prove, the all-m result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general rational absolute-monotonicity machinery controls positivity for a prescribed abstract class but is sufficient, not an exact necessary-and-sufficient classification of graph-specific endpoint matrices.",
+          "Published positivity examples for Padé, BDF and star posets have different methods or operators."
+        ],
+        "reasoning": "No inspected general theorem implies the two disjoint negative intervals in a uniform star for the exact [1/2] Radau map; similar positivity loss/recovery alone is weaker.",
+        "searches": [
+          "arxiv:1303.6651 section 1 definitions and major results",
+          "Resultary: Radau IIA positivity star graph diffusion time step three intervals"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1112/S1461157013000326 (primary PDF part)",
+        "Maynooth repository MURAL 3761 (abstract)",
+        "Resultary semantic search for Radau IIA star positivity windows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lóczi–Ketcheson study stability function class Pi_s/s,p and maximal R(psi), with no Laplacian star parameter m in the inspected intro/definitions.",
+          "Zappavigna positivity counterexamples are for Padé discretizations and do not imply Radau IIA star positivity windows."
+        ],
+        "reasoning": "The prior facts provide a setting for positivity loss, but cannot substitute for exact hub and leaf sign polynomials. A specialized, not yet indexed star result could still be prior.",
+        "searches": [
+          "Cambridge LMS J Comput Math 17 (2014) Lóczi–Ketcheson DOI:10.1112/S1461157013000326",
+          "MURAL Zappavigna et al 2012 3761"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Lóczi–Ketcheson primary study defines graph-independent absolute monotonicity on an interval and optimizes rational approximation classes, not entrywise R(h L_star) for every h.",
+          "Zappavigna et al. study discretization of positive systems via diagonal Padé approximations, a distinct stability function and system classes."
+        ],
+        "reasoning": "A method-level radius does not determine the exact sequence of diagonal sign changes for this star, so these are not equivalent results.",
+        "searches": [
+          "Resultary: Radau IIA positivity star graph diffusion time step three intervals",
+          "Lóczi Ketcheson arxiv:1303.6651 rational function absolute monotonicity",
+          "Zappavigna Colaneri Kirkland Shorten Essentially Negative News About Positive Systems 2012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact quartic F_m, hub quadratic and threshold m=11 were derived from projectors, then independently verified; no matching data table was found.",
+          "Known 2013 absolute monotonicity coefficient tables concern scalar rational functions rather than star-size-dependent three components."
+        ],
+        "reasoning": "A generic coefficient table cannot supply exact graph-specific root order. Lack of indexed exact table is only a bounded search result.",
+        "searches": [
+          "Resultary: Radau IIA positivity star graph diffusion time step three intervals",
+          "web: Radau IIA positivity star graph step three intervals exact quartic"
+        ]
+      },
+      "rationale": "PASS: Best-of-knowledge supported by direct statement/implication comparisons, not claimed absolute priority. A method-level radius does not determine the exact sequence of diagonal sign changes for this star, so these are not equivalent results. No inspected general theorem implies the two disjoint negative intervals in a uniform star for the exact [1/2] Radau map; similar positivity loss/recovery alone is weaker. The prior facts provide a setting for positivity loss, but cannot substitute for exact hub and leaf sign polynomials. A specialized, not yet indexed star result could still be prior.",
+      "residual_risks": [
+        "Unindexed specialized numerical-analysis calculations may have already identified the star graph quartic or three-window phenomenon.",
+        "Only endpoint positivity for uniform stars is claimed; positivity of internal stages or general graphs is not implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formal global absolute-monotonicity radii are distinct from star-specific all-h endpoint sign windows. Remaining sections not read in full.",
+          "evidence": "https://www.cambridge.org/core/journals/lms-journal-of-computation-and-mathematics/article/rational-functions-with-maximal-radius-of-absolute-monotonicity/8F79291B94028B2390A185D932AFED41",
+          "identifier_or_url": "doi:10.1112/S1461157013000326",
+          "material_read": "Primary Cambridge PDF: title, abstract, §1 definitions through conjectures and relation R(A,b)<=R(psi); first page screenshot inspected",
+          "method": "publisher PDF text and screenshot",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "very relevant RK positivity criterion"
+        },
+        {
+          "assessment": "Covers Padé discretization counterexamples but is not sufficient to conclude precise Radau star windows.",
+          "evidence": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+          "material_read": "Institutional repository abstract and publication metadata, first deposit 2012-06-19; source PDF not read",
+          "method": "repository HTML",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "positive-system Padé failures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The nonmonotone endpoint-positivity region of a standard stiff integrator is a meaningful obstruction for graph diffusion and positivity-preserving timesteps. Two distinct diagonal obstructions produce a sharp smallest graph (12 states) and three disconnected feasible windows, including a finite [2,3] central window and a late O(m) recovery. This cannot be read off graph-independent absolute-monotonicity radii.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed specialized numerical-analysis calculations may have already identified the star graph quartic or three-window phenomenon.",
+    "Only endpoint positivity for uniform stars is claimed; positivity of internal stages or general graphs is not implied."
+  ],
+  "schema_version": 1
+}
