@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:13:29.974807Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_n=K_1 join C_n, n>=5, the diamond-conflict graph has spoke clique K_n, rim-edge cycle C_n, and precisely four forbidden spoke colours at rim r_i: indices i-1,i,i+1,i+2 mod n. A cyclic i+3 spoke-relative rim colouring attains the hub lower bound n. Every named-palette optimal colouring corresponds bijectively to one of n! spoke permutations and an independent-list rim assignment with cyclic inequalities, giving N_n=n!a_n. For independent uniform C_i in L_i, the adjacent-equality indicators have p=(n-5)/(n-4)^2; disjoint tuples contribute factorial moments 1, and k distinct events with c<k cyclic consecutive runs have O(n^c)(n-4)^(-k)=O(1/n) total. Hence Poisson(1) and N_n~e^(-1)n!(n-4)^n. Independent literal four-vertex diamond/conflict generation for n=5..12 and circular-list DP gave counts a_5..a_12=1,2,367,11966,400376,13440226,467622239,17062104558. This is a true asymptotic proof, not extrapolation of finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang arXiv:2606.06831 abstract states general quadratic max-degree bound, while Verma arXiv:2610.33322 abstract states sharp planar 2Delta-1 max-degree bound for Delta>=6.",
+          "Neither bounds alone determines named minimum-palette counts or e^-1 asymptotic; these are different invariants."
+        ],
+        "reasoning": "General colour-count bounds can contain the wheel example but do not logically specify the counting limit. Full body of both papers was not accessible, so unexamined specialized wheel lemmas remain a genuine priority risk.",
+        "searches": [
+          "rainbow diamond proper edge coloring wheel graphs named palette Poisson enumeration",
+          "Wang rainbow diamonds maximum degree 2026",
+          "Verma planar D coloring conjecture 2610.33322"
+        ]
+      },
+      "checked_sources": [
+        "Wang arXiv:2606.06831 public abstract and bibliographic description",
+        "Verma arXiv:2610.33322 public abstract and 2026-10-30 revision",
+        "Resultary query: rainbow diamond proper edge coloring wheel graphs named palette Poisson enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Verma discusses the exceptional four-rim wheel conflict graph K4 join C4 (different n boundary).",
+          "The user claim n>=5 and the exact e^-1 growth requires counting circular forbidden lists and controlling dependent collisions, not a consequence of sharp chromatic bounds."
+        ],
+        "reasoning": "A stronger theorem explicitly computing the chromatic polynomial of these conflict graphs would imply the result even without the Poisson wording; inspected abstracts and relevant cited excerpts did not establish such a theorem.",
+        "searches": [
+          "Verma 2610.33322 wheel four-rim conflict graph",
+          "Wang 2606.06831 D-colouring and planar extremal bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang defines rainbow-diamond D-edge colourings (arXiv:2606.06831); Verma solves a planar upper-bound conjecture (arXiv:2610.33322).",
+          "The wheel conflict graph is a join-like spoke clique plus cycle with four cross-forbiddances; counting its n-colourings is equivalent to a circular list-colouring count, not merely its chromatic number."
+        ],
+        "reasoning": "Aliases include optimal D-colour enumerator, chromatic polynomial evaluation for the diamond-conflict graph, restricted circular assignments, and Poisson collision count; no equivalent explicit enumeration was located from accessible inspected portions.",
+        "searches": [
+          "rainbow diamond proper edge coloring wheel graphs named palette Poisson enumeration",
+          "rainbow-diamond D-chromatic index wheel graph cycle list coloring",
+          "chromatic polynomial wheel conflict graph spoke-clique rim-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual independently computed first eight a_n: 1,2,367,11966,400376,13440226,467622239,17062104558; not attributed to any prior table.",
+          "Resultary semantic search found rainbow connection/edge-colouring works, no exact D-wheel named-palette count table."
+        ],
+        "reasoning": "No direct table of this count was identified; OEIS or generic chromatic-polynomial evaluations could encode the same numbers and were not exhaustively ruled out.",
+        "searches": [
+          "rainbow diamond proper edge coloring wheel graphs named palette Poisson enumeration",
+          "Resultary exact wheel rainbow diamond coloring sequence a_n",
+          "OEIS restricted cyclic list coloring counts wheel diamond conflict"
+        ]
+      },
+      "rationale": "Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.",
+      "residual_risks": [
+        "Wang and Verma full manuscripts unavailable due arXiv fetch restrictions and authorized institutional VPN disconnected; no whole-document negative coverage assertion.",
+        "Older conflict-graph chromatic polynomial, circular list-colouring or restricted-allocation enumeration may imply exactly a_n.",
+        "The asymptotic has no proven uniform finite-n error constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "abstract gives D-colouring definition and broad bounds; no full-document absence finding possible",
+          "evidence": "Wang 2026 abstract: diamond-rainbow definition and degree-dependent estimates; institutional status vpn_disconnected",
+          "identifier_or_url": "https://arxiv.org/abs/2606.06831",
+          "material_read": "public arXiv abstract, ResearchGate public bibliographic page; arXiv PDF fetch disabled; full body unavailable",
+          "method": "arXiv and lawful OA attempts, then authorized institutional download",
+          "title": "Proper edge coloring with rainbow diamonds",
+          "trigger": "originating definition and likely wheel example"
+        },
+        {
+          "assessment": "sharp planar D-colouring bound; potential wheel discussion not ruled out",
+          "evidence": "Verma v2 2026-10-30, planar 2Delta-1; institutional status vpn_disconnected",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33322",
+          "material_read": "public arXiv abstract and dated v2 metadata; experimental arXiv HTML disabled; full body unavailable",
+          "method": "arXiv HTML/alternative abstract, authorized institutional download",
+          "title": "A proof of Wang's planar D-coloring conjecture",
+          "trigger": "stronger current planar result and possible wheel lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The wheel is a natural family for a recently introduced diamond-rainbow edge colouring. Its palette size equals the obvious spoke lower bound despite many diamond constraints, while the exact enumerator and nontrivial e^(-1) asymptotic count all optimum named-palette colourings and identify the rare-event Poisson mechanism. The mathematical value resides mainly in the full counting theorem rather than the elementary colour-index observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=5 wheel, exactly n named colours; other planar graphs/palettes not classified.",
+    "Primary Wang/Verma full-text access blocked by disconnected institutional VPN, recorded as risk rather than scientific failure.",
+    "Wang and Verma full manuscripts unavailable due arXiv fetch restrictions and authorized institutional VPN disconnected; no whole-document negative coverage assertion.",
+    "Older conflict-graph chromatic polynomial, circular list-colouring or restricted-allocation enumeration may imply exactly a_n.",
+    "The asymptotic has no proven uniform finite-n error constant."
+  ],
+  "schema_version": 1
+}
