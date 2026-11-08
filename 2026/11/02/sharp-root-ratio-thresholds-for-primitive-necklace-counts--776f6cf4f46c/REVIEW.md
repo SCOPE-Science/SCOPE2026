@@ -1,11 +1,21 @@
-# Scientific review: sharp primitive-necklace root-ratio thresholds
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is the exact sign of the discrete second difference of \(\log M_n(q)/n\), with \(q\ge2\) an integer and \(n\ge T(q)\). Möbius inversion establishes the counting formula and positivity. A uniform exponential bound for the Möbius correction controls all \(n\ge23\) and independently all \(n\ge6\) when \(q\ge9\). Exact small-index logarithmic inequalities cover \(n=3,4\) and \(n=5\) for \(q\ge6\). The remaining 115 strict inequalities and seven sharp reverse witnesses are certified using integer arithmetic by the included standalone verifier. There is no inference from finite computation to an unproved infinite tail.
+## correctness
 
-**Originality — PASS, with qualification.** Remark 1.1 in Sun's *On irreducible polynomials over finite fields* (arXiv:1210.1562, 2012) expressly proposes the four sharp thresholds; Theorem 1.1 there only proves the ratio property beyond \(5.835\cdot10^{14}\). The current result proves the proposed threshold values, adds reverse signs at the immediately preceding indices, and extends from finite-field orders to all integer alphabets. Chebolu–Mináč–Nguyen–Tân, *Analytic Properties of Necklace Polynomials* (arXiv:2605.11445, 2026), proves **unrooted** log-convexity and real-alphabet monotonicity; its results do not imply the exact rooted second-difference signs. Direct searches for an earlier resolution did not identify one. Undetected equivalent literature remains a priority risk; independent historical validation is not asserted.
+PASS
 
-**Mathematical value — PASS.** This is the exact sharp answer to a 2012 numerical conjecture about a standard arithmetic enumeration sequence, not a routine generalization of a generic tail. Each of the four thresholds is certified as necessary and sufficient, with a concise analytic mechanism isolating the small-parameter obstructions. The integer-alphabet extension also makes the result a uniform theorem about primitive necklaces.
+For integer alphabet q>=2 and n>=4, set g_n=log(M_n(q))/n. Möbius inversion yields M_n=(q^n/n)(1+r_n), with |r_n| bounded by a geometric series of proper-divisor terms. The exact second-difference inequality D_n=g_(n+2)-2g_(n+1)+g_n< -L(n)+E(n,q), L=(2log n-3)/(n+2)^3 and E=[2q/((q-1)n q^(n/2))]*(1+2q^(-1/2)+q^-1), proves all n>=6 for q>=9 and all n>=23 for q>=2 by two strict ratio inductions. Exact small signs D_3>0, D_4<0, D_5<0 for q>=6; independently recomputed all 115 missing strict sign tests q=2..8, n=T(q)..22 and seven reverse witnesses D_(T-1)>0 by integer powers. Thus T(2)=14,T(3)=8,T(4,5)=6,T(q>=6)=4 are genuine smallest infinite tails; q restricted to integer, finite certificate used only for finite remainder.
 
-**Reproduction and boundaries.** Run `python3 verify.py` from the package directory. Verification uses only the standard Python library and exact integer or rational comparisons; the infinite cases rest on explicit analytic inequalities documented in RESULT.md. Nothing here establishes a corresponding sharp classification for arbitrary real alphabet values. Mathematical and historical assessments are not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun 2012 Remark 1.1 proposed these exact thresholds explicitly but supplied no proof, and Theorem 1.1 only provides large-index eventual monotonicity. Chebolu et al 2026 establish unrooted log-convexity, not the rooted negative second difference. The new exact proof appears to solve the proposed four-case cutoff conjecture; priority qualified by possible equivalent unpublished or unindexed proof.
+
+## value
+
+PASS
+
+Resolves a named finite-field irreducible-degree/root-ratio threshold conjecture with exact smallest indices and a uniform all-integer necklace extension; analytic-infinite and finite-exact components are independently useful for monotonicity of enumerative sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

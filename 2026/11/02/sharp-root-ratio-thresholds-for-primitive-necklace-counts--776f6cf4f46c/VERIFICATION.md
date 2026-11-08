@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-The standalone source `verify.py` uses Python 3's standard-library integer arithmetic and `fractions.Fraction`. Execute `python3 verify.py` in the package directory. Successful execution prints:
+## correctness
 
-```text
-VERIFY_OK finite_suffix=115 exact_witnesses=7 inversion_cases=168
-CHECK_OK analytic_rational_inequalities=8
-```
+PASS
 
-The 115 assertions compare exact integer powers equivalent to the required strict root-ratio inequality over every \(q\in\{2,3,4,5,6,7,8\}\) at every \(T(q)\le n\le22\). Each of the seven immediately preceding indices is independently checked to have the reverse strict sign. The 168 separate Möbius-inversion identities are checked for \(q=2,\ldots,8\) and \(n=1,\ldots,24\). Rational assertions separately check simple numerical inequalities used in the analytic proof. The source's complete code is supplied; no network, external package, floating-point comparison, or hidden certificate is required.
+For integer alphabet q>=2 and n>=4, set g_n=log(M_n(q))/n. Möbius inversion yields M_n=(q^n/n)(1+r_n), with |r_n| bounded by a geometric series of proper-divisor terms. The exact second-difference inequality D_n=g_(n+2)-2g_(n+1)+g_n< -L(n)+E(n,q), L=(2log n-3)/(n+2)^3 and E=[2q/((q-1)n q^(n/2))]*(1+2q^(-1/2)+q^-1), proves all n>=6 for q>=9 and all n>=23 for q>=2 by two strict ratio inductions. Exact small signs D_3>0, D_4<0, D_5<0 for q>=6; independently recomputed all 115 missing strict sign tests q=2..8, n=T(q)..22 and seven reverse witnesses D_(T-1)>0 by integer powers. Thus T(2)=14,T(3)=8,T(4,5)=6,T(q>=6)=4 are genuine smallest infinite tails; q restricted to integer, finite certificate used only for finite remainder.
 
-The source file's finite tests do **not** certify infinite index ranges by enumeration. Those are proved in RESULT.md from the explicit analytic remainder estimate, a ratio induction beginning at \(n=6\) for \(q\ge9\), another beginning at \(n=23\) for all \(q\ge2\), and closed-form small-index estimates. There has been no independent mathematical audit.
+## originality
+
+PASS
+
+Sun 2012 Remark 1.1 proposed these exact thresholds explicitly but supplied no proof, and Theorem 1.1 only provides large-index eventual monotonicity. Chebolu et al 2026 establish unrooted log-convexity, not the rooted negative second difference. The new exact proof appears to solve the proposed four-case cutoff conjecture; priority qualified by possible equivalent unpublished or unindexed proof.
+
+## value
+
+PASS
+
+Resolves a named finite-field irreducible-degree/root-ratio threshold conjecture with exact smallest indices and a uniform all-integer necklace extension; analytic-infinite and finite-exact components are independently useful for monotonicity of enumerative sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
