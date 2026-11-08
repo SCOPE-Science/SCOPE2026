@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "State transitions T0(a,b,c)=(a+1,b,c+b) and T1(a,b,c)=(a,b+a,c) compute all counted scattered subsequences. The exact integer identity c=a*b-sum(l_j^2) gives the parity obstruction. Finite-order transitions permit inverse words; commutators C and D shift (b,c) and c by explicitly proven amounts, giving every triple obeying the sole obstruction. Outputs after epsilon, 0 and 10 uniquely recover c,b,a, proving minimality. The proof applies for every m>=2; a standalone checker passed 147447 word comparisons, 22 modular reachability searches, 58751 distinct signature states and 2685 generator/witness checks and 9 independent Moore minimizations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.06717 sections 1-5 treat exact binary Parikh-matrix class universality/probability, not residue-output minimization.",
+        "Černý 2010, DOI 10.1051/ita/2009021, provides formal-series Parikh mapping generality and invertibility but no size of modular reachable orbit.",
+        "Alazemi–Černý 2011 abstract describes a counting trie automaton but does not establish minimum output-machine state counts."
+      ],
+      "reasoning": "Generic constructions for counting subsequences supply an upper-bound representation and may underlie the present transitions; without a reachability orbit classification and output-equivalence lower bound they do not imply the exact \\(m^3/\\gcd(m,2)\\) formula. Unavailable primary text is retained as a risk.",
+      "searches": [
+        "site:arxiv.org 2026 automata combinatorics on words state complexity subsequence 2026 October",
+        "regular language subsequence counts modulo m syntactic monoid counting subword occurrences minimal automata",
+        "\"Generalizations of Parikh mappings\" Cerny pdf 2010",
+        "\"Counting subwords using a trie automaton\" Alazemi Cerny pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.06717",
+      "https://www.numdam.org/article/ITA_2010__44_2_209_0.pdf",
+      "https://doi.org/10.1142/S0129054111008817",
+      "https://arxiv.org/abs/1804.11175",
+      "https://doi.org/10.3233/FI-2010-252"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 article proves interval realizability for exact 01 counts and universality indices of fixed finite binary classes; it does not quantify residue-output state equivalence for 010.",
+        "The 2018 arXiv full text explicitly defines subword to mean contiguous factor and investigates regularity of count comparisons.",
+        "The 2010 Parikh-mapping algebra encodes subsequence coefficients but the sought reachability parity and state minimality are additional theorems."
+      ],
+      "reasoning": "The new conclusion is neither the output of a fixed-frequency enumerator nor a corollary of a general automaton construction without a minimality proof. The 2011 paper remains a plausible uncovered historical route, which the abstract alone cannot resolve.",
+      "searches": [
+        "\"Subsequence Analysis Problems for Binary Parikh Matrices\" arxiv:2610.06717",
+        "\"Counting Subwords and Regular Languages\" arxiv:1804.11175",
+        "\"Counting subwords using a trie automaton\" 2011",
+        "\"Matrix indicators for subword occurrences and ambiguity\" Mateescu Salomaa"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Compared languages defined by exact counts, mod-m residue output functions, and Boolean residue acceptance; equivalence is not presumed between these different observables.",
+        "The three-suffix output right-congruence is a full-profile invariant, strictly stronger than a single target residue acceptance test."
+      ],
+      "reasoning": "Complementation maps 010 to 101, so the result explicitly includes that dual formulation. Known fixed-010 count enumerations sum over lengths and do not supply the modular output-machine right-congruence.",
+      "searches": [
+        "\"010\" \"subsequence\" \"modulo\" \"state complexity\" automaton",
+        "\"010\" \"Parikh\" \"parity\" scattered subword",
+        "automata minimal state complexity modular count of scattered subsequences length three 010"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic checks returned synchronization and other unrelated automaton ranks; the nearest text-evidence topics include subsequence-universality and two-deck reconstruction rather than exact modular 010 Moore state numbers.",
+        "Earlier exact enumeration of words with a fixed 010 multiplicity is a different count, and finite tests here are independently replayed rather than copied from a reference table."
+      ],
+      "reasoning": "No inspected published theorem or mathematical table gives this infinite all-modulus output-state cardinality. A search failure is not treated as proof of novelty; the conclusion rests on checked statement-level comparisons.",
+      "searches": [
+        "\"010\" \"minimal automaton\" \"subsequence\" counting",
+        "\"010\" \"state complexity\" \"modular\"",
+        "state complexity counting scattered subwords modulo n automata"
+      ]
+    },
+    "rationale": "The full-text comparison of the recent binary-Parikh paper, general Parikh mapping algebra and regular-language count-comparison paper finds no exact modular Moore orbit/minimality theorem. The 2011 trie-automaton paper is highly relevant but its full text was inaccessible; the available abstract gives a counting construction without exact minimal-output orbit enumeration. Relevant historical claims in accessible own materials address fixed integer 010-count enumeration and 0^d1 single-residue Boolean DFA complexity, neither implying the alternating 010 residue-output cardinality. Historical priority remains qualified.",
+    "residual_risks": [
+      "The 2011 Alazemi–Černý primary paper was located and its public abstract inspected but its full text could not be accessed, so an implicit earlier formula cannot be categorically excluded.",
+      "Unindexed textbooks and older computational studies might contain an equivalent modular-output specialization.",
+      "No independent mathematical audit has been performed. The result must not be transferred to Boolean single-residue DFA complexity without new work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: classifies subsequence universality and containment probability within fixed finite Parikh classes, not minimal output automata for 010 counts modulo arbitrary m.",
+        "evidence": [
+          "arXiv version 1 first submitted 2026-10-05",
+          "Sections 1-5 define finite languages L_(A,B,C), universality, and approximation; no modular output-state count"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+        "material_read": "Complete accessible arXiv HTML body, including definitions, Section 3 interval-realization theorem, Section 5 algorithms, and text searches for modular outputs and 010",
+        "method": "Read the accessible article text and compare quantified inputs/outputs and claimed complexity measures",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Recent binary subsequence-statistics language results using letter counts and 01 subsequences"
+      },
+      {
+        "assessment": "Its formal-series morphism can encode scattered-subsequence counts and is a natural precursor. The inspected theorems do not provide modular orbit size \\(m^3/\\gcd(m,2)\\), or the three-suffix minimality criterion.",
+        "evidence": [
+          "DOI 10.1051/ita/2009021, introduction and Theorem 3.5",
+          "Paper studies generalized Parikh mappings and word ambiguity; no stated modular Moore state complexity"
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/ITA_2010__44_2_209_0.pdf",
+        "material_read": "Open full text, including title/abstract, Sections 1-3 and Theorem 3.5, and Section 4 description; page image inspected",
+        "method": "Matched generalized Parikh mapping construction against modular orbit and output-machine minimization claim",
+        "title": "Generalizations of Parikh Mappings",
+        "trigger": "Potential algebraic general construction covering fixed scattered-subsequence statistics"
+      },
+      {
+        "assessment": "Potentially overlapping counting construction but no accessible statement establishing the exact modular reachable-orbit or minimal Moore-state count. Material access limit is recorded, not counted as proof of noncoverage.",
+        "evidence": [
+          "International Journal of Foundations of Computer Science 22 (2011), 1457-1469",
+          "Abstract describes nondeterministic trie automata corresponding to scattered subword occurrences"
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+        "material_read": "Publisher/University accessible abstract and bibliographic metadata only; full primary text inaccessible",
+        "method": "Read published abstract and university author record; attempted publisher DOI retrieval; searched for lawful publicly accessible full text",
+        "title": "Counting Subwords Using a Trie Automaton",
+        "trigger": "Highly relevant earlier counting automaton for scattered subsequences"
+      },
+      {
+        "assessment": "Not covering: compares counts of contiguous factors and gives regularity criteria; no result on modular counts of scattered 010 or minimal residue-output machines.",
+        "evidence": [
+          "arXiv:1804.11175 Introduction explicitly defines contiguous subwords",
+          "Theorems 3 and 4 concern regularity of pairwise count inequality/equality"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.11175",
+        "material_read": "Accessible full arXiv HTML, Sections 1-7, theorem statements and relevant comparisons",
+        "method": "Checked paper definition of subword as factor, and its exact-inequality regularity claims",
+        "title": "Counting Subwords and Regular Languages",
+        "trigger": "Title and formal-language state complexity may suggest coverage of modular counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f8d46c15-09db-4bbc-a3bf-356c49cc5eee",
+  "value": {
+    "rationale": "For an alternating length-three scattered pattern, the first return to the initial symbol produces a nonobvious parity restriction in the natural three-counter machine. The exact quotient \\(m^3/\\gcd(m,2)\\), constructive reachability for every allowed triple and three fixed distinguishing suffixes settle a complete natural invariant for all moduli. The phenomenon is a structural odd/even boundary rather than an arbitrary finite numeric increment. The result provides a benchmark for modular subword-statistics machines, although it does not assert complexity consequences for all patterns.",
+    "status": "PASS"
+  }
+}
