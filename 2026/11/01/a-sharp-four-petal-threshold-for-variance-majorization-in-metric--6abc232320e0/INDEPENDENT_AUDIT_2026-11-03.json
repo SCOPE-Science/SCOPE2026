@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T00:09:31.134475Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on selecting the same petal of length l, shortest circular distance is uniform on [0,l/2]; across different petals the junction distances add independent uniforms. Independently summed the conditional first and second moments to obtain M1=(2S2-S3)/4 and M2=S3/6+S2^2/8-5S4/24, then V=M2-M1^2. Symbolic differentiation independently reproduced the variance pair-transfer coefficient QV=-5(a^2+ab+b^2)/6+(1/2+3M1/2)(a+b)+S2/2-2M1 and the three-petal polynomial 24QV=9s^3+27s^2t-17s^2-72st+9s+44t. On m=2,3 it is positive because its affine t minimum is at t=0 or t=s^2/4 and both endpoint polynomials are positive. For raw M2 the differential coefficient is ≥s(4-3s)/8>0 for all m. At (1/2,1/2,0,0) the variance transfer coefficient is -1/8, while at equal petals it is positive, proving neither Schur-convexity nor concavity for m≥4 by continuity. Independent Fraction arithmetic verified the exact positive four-petal majorization witness and variance difference -515428427/192000000000000, with both first and second raw moments increasing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garijo et al. calculate continuous mean distances with an algorithm, a first moment; no second moment majorization theorem in the inspected abstract/introduction.",
+          "Baptista et al. prove mean minimization over unequal flowers, but not variance strict Schur sign or four-petal obstruction."
+        ],
+        "reasoning": "A general algorithm for first moments does not calculate the second moment from first-moment data; it cannot imply the exact variance classification.",
+        "searches": [
+          "metric flower graph bouquet of circles variance distance Schur convex majorization four petals",
+          "mean distance flower graph loop metric graph second moment variance general formula",
+          "Garijo Marquez Silveira arXiv:2103.11676 continuous mean distance"
+        ]
+      },
+      "checked_sources": [
+        "Baptista-Kennedy-Mugnolo J. Geom. Anal. 34 (2024), Example 4.3, Eq.(4.3), Lemma4.4",
+        "Garijo-Márquez-Silveira arXiv:2103.11676 first page/introduction",
+        "Doyle-Graver 1982 Journal of Graph Theory 6 bibliographic record only",
+        "Resultary queries on flower variance and bouquet second moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baptista et al. Eq.(4.3) contains a cubic flower length sum giving only mean, with Lemma4.4 pair balancing for that mean.",
+          "The new M2 introduces a fourth power S4 and squared S2, making the centered gradient differ and change sign only at m≥4."
+        ],
+        "reasoning": "Neither prior mean formula nor its Schur minimization logically fixes variance: the second moment is an independent moment, and the centered transfer coefficient changes sign under positive-length transfers.",
+        "searches": [
+          "metric flower graph bouquet of circles variance distance Schur convex majorization four petals",
+          "Mean Distance on Metric Graphs Example 4.3 Lemma 4.4",
+          "Continuous Mean Distance of a Weighted Graph arXiv:2103.11676"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known mean formula is exactly M1=(2S2-S3)/4 and is credited as prior.",
+          "Variance depends additionally on S4 and the square of M1, yielding a new sign-changing Schur pair-transfer coefficient."
+        ],
+        "reasoning": "Knowledge that the mean distance decreases under balancing does not imply a variance balancing law or the raw second moment; variance is not interchangeable with the mean.",
+        "searches": [
+          "metric flower graph bouquet of circles variance distance Schur convex majorization four petals",
+          "second moment variance shortest path on bouquet flower metric graphs length majorization",
+          "Baptista Kennedy Mugnolo Mean Distance on Metric Graphs Example 4.3 eq. (4.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational four-petal vectors p=(49,49,1,1)/100 and q=(98,98,3,1)/200 are a direct exact first-failure witness.",
+          "Resultary hits about tree zonotope widths or unrelated graph variances do not tabulate random shortest-path distance on bouquet metric circles."
+        ],
+        "reasoning": "No existing natural table with exact 4-petal variance sign is identified; the specificity of same object and measure was checked, while negative search is not treated as proof of priority.",
+        "searches": [
+          "metric flower graph bouquet of circles variance distance Schur convex majorization four petals",
+          "second moment variance shortest path on bouquet flower metric graphs length majorization",
+          "Resultary metric flower graph variance petals majorization"
+        ]
+      },
+      "rationale": "Baptista, Kennedy and Mugnolo, Mean Distance on Metric Graphs (2024), Example 4.3 and equation (4.3), establish the flower first moment and equal-length minimization, which are acknowledged as known; the article contains no variance theorem in its indexed full-text and inspected relevant sections. Garijo, Márquez and Silveira, Continuous mean distance of a weighted graph, studies the first moment rather than a second raw moment or variance majorization. Resultary searches for the four-petal variance threshold and bouquet second moments found no covering exact table. The unavailable original Doyle–Graver 1982 extended paper is a priority caveat, not an automatic rejection.",
+      "residual_risks": [
+        "The extended Doyle–Graver 1982 article was not inspected in full; a hidden higher-moment calculation is a residual priority risk.",
+        "The classification concerns positive petal lengths, fixed m and arclength-uniform endpoints, not trees or general metric graphs.",
+        "For m≥4 no global variance maximum or minimum has been established here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS M1 and unique equilateral mean minimizer; NO matching second moment or variance threshold in reviewed material",
+          "evidence": "Eq. (4.3) gives pairwise distances averaged over loops; a document search for variance returned no match.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s12220-024-01574-0",
+          "material_read": "Full-text HTML Example 4.3, Eq. (4.3), Lemma 4.4 and surrounding proof, plus full-page term search for variance",
+          "method": "Read freely available primary Springer HTML relevant entire flower example, indexed search for variance",
+          "title": "Mean Distance on Metric Graphs",
+          "trigger": "Exactly the same flower graphs and unequal positive petal lengths"
+        },
+        {
+          "assessment": "NONCOVERING by stated output: continuous average distance, not variance or majorization",
+          "evidence": "Abstract states two methods computing continuous mean distance, with structural results for several classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.11676",
+          "material_read": "Open-access arXiv full PDF first page/abstract and introduction inspected; title and contributions focus on mean only",
+          "method": "Opened PDF and visually inspected first page; searched relevant article description",
+          "title": "Continuous mean distance of a weighted graph",
+          "trigger": "Potential algorithm covering graph distance moments"
+        },
+        {
+          "assessment": "UNDETERMINED priority: cannot rule out an older second-moment result in its full text",
+          "evidence": "Journal of Graph Theory 6 (1982) 453–471; no invented passage or whole-document assessment.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190060410",
+          "material_read": "1982 publication title and bibliographic details only; complete mathematical paper inaccessible",
+          "method": "Historical bibliographic search; full text unavailable",
+          "title": "Mean distance for shapes",
+          "trigger": "Older and possibly broader predecessor to continuous flower metric moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact contrast between raw-second-moment and centered variance response to length balancing answers a natural geometry-of-networks question. A four-loop first-failure threshold with explicit rational witness is a motivated sharp topological boundary; it does not claim a global variance optimum for m≥4.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Baptista-Kennedy-Mugnolo J. Geom. Anal. 34 (2024), Example 4.3, Eq.(4.3), Lemma4.4",
+    "Garijo-Márquez-Silveira arXiv:2103.11676 first page/introduction",
+    "Doyle-Graver 1982 Journal of Graph Theory 6 bibliographic record only",
+    "Resultary queries on flower variance and bouquet second moments"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strict Schur-convexity claims use differential criterion and analytic positivity, not finite sampling.",
+    "Only bouquet-of-circles intrinsic geodesic metric and uniform arclength sampling.",
+    "Public-bound AUDIT.json and METADATA.json contain private scope_run_id; complete independently guarded UTF-8 sanitizing replacements were unavailable, so publication withheld. No source modification was made."
+  ],
+  "schema_version": 1
+}
