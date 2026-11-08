@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The statement fixes the exact loss, real symmetric nonsingular hollow matrices, positive diagonal factors, and inertia. Trace zero and Sylvester inertia reduce the loss to two groups of positive magnitudes; the two Cauchy–Schwarz inequalities and one completed square give exactly \((r-s)^2/n^2\). Equality fixes both spectral levels. Constant-diagonal real Fourier projections realize the sharpness construction. For positively weighted complete graphs, \((2/n)(J-I)\) attains the bound; positivity and the rank-one representation of the shifted equality matrix force the unique diagonal factor. The outer-product correction is checked by spectral projectors. Code passed 900 finite diagnostics from the packaged source; no enumeration is used as the proof of the universal result.
+
+## Originality — PASS, qualified
+The June 2026 paper by Brarda et al. defines a bimodal spectral target and acknowledges that fixed sparse supports may prevent exact two-point clustering, but its inspected Section 3 and conclusion do not state the sharp hollow-matrix inertia bound, the global unique positive diagonal optimum for weighted complete graphs, or the exact diagonal-plus-rank-one escape. Published comparison with similarity-scaling optimization (Balakrishnan–Boyd), classical inertia and Schur–Horn results, complete-graph spectra, accessible historical claim statements, and targeted published-finding corpus searches found no direct covering statement. The mathematical ingredients are classical; a broader unindexed matrix inequality or equivalent specialized preconditioning result remains a priority risk. The conclusion does **not** concern the paper's fully smoothed logarithmic penalty.
+
+## Value — PASS
+The result identifies a sharp, quantitative limitation of the sparsest natural congruence-factor support. For weighted complete graphs the best normalized clustering loss tends to one as size grows, while adding one explicitly specified global rank-one direction gives exactly zero. This is a concrete benchmark for factor-support choice and shows that optimizing values alone cannot overcome the diagonal-support obstruction. Its mathematical object and support comparison are natural to spectral preconditioner design; no numerical-solver acceleration is claimed.
+
+## Closest literature and limitations
+The motivating full-text preprint gives the spectral objective and projected gradients but not this sharp factor-support boundary. Sylvester's law supplies inertia invariance; Schur–Horn/real Fourier columns supply uniform-diagonal projections; classical complete-graph spectra supply one family. The claim is a sharp combination and complete global result for the stated family, not an assertion of novelty for any individual classical lemma. It is restricted to the unsmoothed objective and exact arithmetic; an equivalent older theorem may exist outside the inspected index. Independent evaluation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

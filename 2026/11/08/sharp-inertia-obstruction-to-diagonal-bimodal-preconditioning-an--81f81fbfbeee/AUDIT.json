@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Inertia and zero diagonal yield trace zero; splitting positive/negative eigenvalue magnitudes and completing the two Cauchy–Schwarz squares gives exactly (r-s)^2/n^2, with equality iff two levels. The real Fourier constant-diagonal projection construction proves sharpness for all inertia signatures. The weighted complete-graph calculation reaches equality, and its rank-one shifted-matrix argument forces the unique positive diagonal scaling for n≥3. The displayed diagonal-plus-rank-one factor gives P-(I-P) exactly by projector algebra. Packaged verify.py passed 900 finite checks; no finite check substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "V. Balakrishnan and S. Boyd, https://doi.org/10.1137/S0895479892235393 : diagonal similarity scaling of scaled singular values, not symmetric congruence absolute-eigenvalue clustering",
+        "Brarda et al. arXiv:2606.22742 Section 3 explains preservation of inertia and introduces the two-well target; exact factor-support minima and explicit one-rank augmentation are absent from inspected Sections 3, 5, 6"
+      ],
+      "reasoning": "A generic inertia law permits arbitrary congruence whitening and does not imply a sharp optimization with diagonal-only factor support. Similarity matrix scaling optimizes a different objective. Classical sign/spectral calculus does give the unrestricted sign target, but does not by itself solve the diagonal-constrained global minimum and uniqueness.",
+      "searches": [
+        "Web: diagonal congruence scaling eigenvalue cluster indefinite matrices zero diagonal trace fixed inertia optimization",
+        "Web: Existence and Uniqueness of Optimal Matrix Scalings Balakrishnan Boyd",
+        "published-finding corpus: Factored sparse approximate inverse spectral optimization indefinite bimodal penalty zero diagonal trace invariant"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.22742v1; full-text reproduction Section 3,5,6",
+      "https://doi.org/10.1137/S0895479892235393 (abstract only)",
+      "https://en.wikipedia.org/wiki/Sylvester%27s_law_of_inertia",
+      "https://en.wikipedia.org/wiki/Schur%E2%80%93Horn_theorem",
+      "https://www.i2m.univ-amu.fr/perso/charles.bordenave/_media/courssrg.pdf (web extracted complete-graph spectral excerpt)",
+      "published-finding corpus searches on inertia floor, rank-one escape, exact complete graph diagonal scaling, equivalent sign-distance formulation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary preprint full-text mirror https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization Section 3 defines f± with smoothing and log; Section 6 describes value-selection, not the present sharp hollow/inertia obstruction",
+        "The published-finding corpus record “A sharp row-coherence obstruction in PDNQP diagonal step initialization” concerns constraint-row coherence, not congruence spectral clustering"
+      ],
+      "reasoning": "The source states an inertia-respecting two-sided target and warns that some support patterns cannot achieve it; this qualitative claim neither implies the quantitative exact inertia floor nor characterizes equality, optimal weighted-complete-graph diagonal scalings, or the precise low-rank escape. The new loss is explicitly the unsmoothed first term and is not falsely identified with the paper’s full regularized objective.",
+      "searches": [
+        "Brarda Xu Kalantzis Li Xi arXiv 2606.22742 Section 3 spectral targets Section 5 experiments Section 6 conclusion",
+        "published-finding corpus: Sharp inertia imbalance lower bound for spectral bimodal clustering of zero-diagonal symmetric matrices under positive diagonal congruence preconditioning: sum (abs eigenvalue minus 1)^2 at least (r-s)^2/n, equality sharp complete graph adjacency",
+        "published-finding corpus: Exact rank-one low rank correction to diagonal preconditioner for weighted complete graph adjacency matrix achieves matrix sign, whereas every positive diagonal scaling has bimodal spectral loss (n-2)^2/n^2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schur–Horn theorem https://en.wikipedia.org/wiki/Schur%E2%80%93Horn_theorem characterizes realizable diagonals, not the fixed-support minimization",
+        "The published-finding corpus record “Frobenius radii and contact ranks of every Schur–Horn orbitope” concerns Frobenius radii of a Schur–Horn orbitope, with different constraints and objective"
+      ],
+      "reasoning": "An equivalent representation is the sharp Frobenius distance of |G^T A G| from I under zero trace and fixed inertia, and its rank-one escape for the weighted complete-graph family. No found equivalent statement minimizes this loss over all positive diagonal factors and classifies its unique family optimizer. The Cauchy–Schwarz ingredient itself is classical, not independently claimed novel.",
+      "searches": [
+        "published-finding corpus: Trace-zero hollow matrix fixed inertia sharp distance to symmetric involution and Schur Horn equality",
+        "published-finding corpus: Uniform diagonal projectors trace-zero symmetric matrix optimally approximates sign matrix absolute spectral loss under fixed inertia",
+        "Web: matrix sign trace zero inertia Frobenius minimum distance",
+        "Web: symmetric matrix absolute eigenvalues trace zero inertia sum squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Complete-graph spectrum in C. Bordenave lecture notes https://www.i2m.univ-amu.fr/perso/charles.bordenave/_media/courssrg.pdf records eigenvalues but not support-constrained spectral-loss optimization",
+        "The published-finding corpus record “Additive bidirectional Gauss–Seidel inverse” handles a particular Gauss-Seidel inverse and SPD threshold, not this loss"
+      ],
+      "reasoning": "Known matrix/graph eigenvalue tables determine the spectrum at a fixed scalar scaling, but do not state that scalar scaling globally minimizes the nonconvex objective over all positive diagonals, nor the exact one-rank factor correction. No exact database result directly covers the combined theorem in checked sources.",
+      "searches": [
+        "published-finding corpus: Exact minimum bimodal absolute eigenvalue loss under diagonal scaling for complete graph adjacency J-I, eigenvalue clustering ±1",
+        "published-finding corpus: Diagonal scaling rank one perturbation complete graph adjacency optimal eigenvalue absolute-value clustering sign matrix preconditioner",
+        "Web: complete graph adjacency matrix eigenvalues n minus 1 minus 1 multiplicity"
+      ]
+    },
+    "rationale": "Primary preprint (2026-06-22) defines the fixed-support bimodal spectral target but not the zero-diagonal inertia floor and its equality characterization or globally unique weighted-complete-graph optimum with a single-rank escape. Classical inertia, Schur-Horn/real Fourier uniform projectors and K_n spectrum were treated as background; searchable published-finding corpus and accessible own claim statements contain no covering implication. Exact comparison to closest results is documented; residual priority risk remains.",
+    "residual_risks": [
+      "A classical unindexed extremal spectral inequality may imply the inertia floor as an immediate corollary; no uniqueness proof is offered against all possible pre-2026 literature.",
+      "A full-text comparison for the 1994 diagonal similarity-scaling paper was unavailable; its abstract addresses a different problem.",
+      "The paper’s smoothed plus logarithmic loss has not been optimized here; no claim about that objective is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The original regularized f± and fixed-support spectral optimization do not report the derived exact unsmoothed diagonal floor, global optimum, uniqueness, and rank-one removal.",
+        "evidence": [
+          "Section 3.1: f±(λ)=(sqrt(λ²+δ²)-1)²+α log(sqrt(λ²+δ²)+ε)²",
+          "Section 6: spectral optimization and projected Krylov support-gradients; no exact hollow-matrix extremum"
+        ],
+        "identifier_or_url": "arxiv:2606.22742v1 ; https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+        "material_read": "Accessible full-text reproduction: introduction and definitions; Sections 2–3 including equations (3.1)–(3.2) and Proposition 3.1, Section 5 comparisons and Section 6 conclusion; arXiv metadata for v1 date. Not a page-by-page rendered PDF inspection.",
+        "method": "Opened HTML full-text reproduction and located inspected sections, equations, named supports, and conclusion",
+        "title": "Factored Sparse Approximate Inverse Preconditioning via Spectral Optimization",
+        "trigger": "Direct motivating primary paper sharing exact factors and bimodal spectral targets"
+      },
+      {
+        "assessment": "Diagonal similarity/scaled singular-value problem, not directly covering; limited access to complete article prevents categorical full-paper exclusion.",
+        "evidence": [
+          "Abstract explicitly describes diagonal similarity and scaled singular value; current claim concerns diagonal congruence of a symmetric indefinite A"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895479892235393",
+        "material_read": "Publisher abstract and bibliographic information only",
+        "method": "Compared objective and transformation described in the publisher abstract",
+        "title": "Existence and Uniqueness of Optimal Matrix Scalings",
+        "trigger": "Plausible general matrix-scaling coverage"
+      },
+      {
+        "assessment": "Supplies a classical ingredient for sharpness, not fixed-pattern spectral loss optimization.",
+        "evidence": [
+          "Theorem gives Hermitian diagonal realizations under majorization; does not optimize bimodal preconditioned spectra"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Schur%E2%80%93Horn_theorem",
+        "material_read": "The theorem statement and diagonal-majorization characterization",
+        "method": "Compared exact assumptions and explicit equal-diagonal projector construction",
+        "title": "Schur–Horn theorem and constant-diagonal projections",
+        "trigger": "Possible stronger theorem implying equality constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "81f81fbf-beee-42e6-b3b2-7c80bb12fc64",
+  "value": {
+    "rationale": "An exact factor-pattern obstruction and its equality classification are natural in fixed-support spectral preconditioner design. Weighted complete-graph congruences show that the best normalized diagonal-target loss approaches one with dimension, while a single explicit global rank-one correction reaches zero. This isolates a substantive support choice mechanism, not a mere numerical tolerance or terminology change; no downstream solver-rate theorem is asserted.",
+    "status": "PASS"
+  }
+}
