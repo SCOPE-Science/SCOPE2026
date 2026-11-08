@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification and limits
+# Independent mathematical audit
 
-Run `python3 verify_truncated_dodecahedron.py`. The program uses Python standard library only, builds the dodecahedral graph from the explicit generalized-Petersen adjacency, and creates its truncated graph from directed incidences. It computes all shortest-path distances and exhaustively generates all simplices through radius four. It checks the exact mod-two boundary ranks in every degree and verifies the radius-four Euler characteristic 14 independently of the boundary-rank calculation.
+## correctness
 
-For the relative simplicial collapses it constructs every proposed pair and verifies, on the complete currently remaining face set, that the lower face has exactly one immediate coface, the paired upper face, which is maximal. It checks 320+540=860 pairs from radius three to two and 90+90=180 pairs from radius two to one, with exact equality of the final face sets. The graph-theoretic homotopy identification of the first Rips stage then uses the twenty disjoint filled triangles in the connected cubic graph.
+PASS
 
-The recorded command output is stored as `verification_output.txt` and ends `VERIFY_TRUNCATED_DODECAHEDRON_RIPS_MOD2_PASS`. The executable code, not the output log alone, is the verification method. This verification concerns only the finite graph and stages 1–4; radius-four integral homology, the precise homotopy type, and any later barcode deaths were not verified and are not claimed.
+Independently reconstructed the 60-flag cubic graph (diameter 10), all distance-power cliques: 170,530,2250,13554 nonempty faces for r=1..4. Replayed 860 free-face relative collapses K3↘K2 and 180 K2↘K1 checking complete coface sets. K1 is 20 disjoint fibre triangles joined by 30 bridges and collapses to connected rank-11 graph. Independently computed F2 boundary ranks (59,571,1808,2422,1430,420,60) for K4 f=(60,630,2380,4230,3864,1850,480,60), giving beta2=1,beta4=12, beta1=0; lower beta1 persists through r3. No integer torsion or later death claim.
+
+## originality
+
+PASS
+
+Platonic-solid Rips paper excludes Archimedean truncated dodecahedron; same base dodecahedron and Čech graph-filtration sources concern distinct complexes. No matching 60-vertex radius-four Rips table found.
+
+## value
+
+PASS
+
+The simultaneous degree-two and degree-four finite-scale classes at r4 are a meaningful exact topological transition for a canonical Archimedean graph, with explicit persistence births and relative collapses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
