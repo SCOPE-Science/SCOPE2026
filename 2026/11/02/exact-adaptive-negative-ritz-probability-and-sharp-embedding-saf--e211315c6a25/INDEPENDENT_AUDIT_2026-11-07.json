@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:42:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-adaptive-negative-ritz-probability-and-sharp-embedding-saf--e211315c6a25/RESULT.md",
+        "2026/11/02/exact-adaptive-negative-ritz-probability-and-sharp-embedding-saf--e211315c6a25/verify.py"
+      ],
+      "rationale": "For A SPD with distinct extreme eigenvalues 0<a<b, Gaussian S (s×N), s>=2 and post-sketch selected nonzero vector in the plane of extreme eigenvectors, the restricted Gram G^T G has positive determinant almost surely. The symmetric sketched denominator matrix H=diag(a,b)C symmetrized has positive diagonals and det H=ab C11 C22−(a+b)^2 C12^2/4; a negative eigenvalue occurs iff |C12|/sqrt(C11 C22)>rho*=2sqrt(ab)/(a+b). Gaussian columns are independent rotationally invariant, giving R²~Beta(1/2,(s−1)/2), so Pr(exists negative quotient)=I_{((b−a)/(b+a))²}((s−1)/2,1/2), specifically .4 for s=3,b/a=9. Deterministic Kantorovich spectral bound shows cosine(Av,v)>=rho* for all v; the operator-norm perturbation inequality ensures ⟨Av,Wv⟩>0 for SPD W with ||W−I||<rho*. The extremizing vector v=(sqrt(b/(a+b)),sqrt(a/(a+b))) in the extremes and a Householder reflector U with Uv=Av/||Av|| produce W=I−epsilon U SPD for epsilon<1, denominator zero at rho* and negative above it. This establishes sharpness and quantifier specificity. For N>2 the exact beta law is only for the extreme plane, not all vectors.",
+      "residual_risks": [
+        "A SPD, real Gaussian sketch s>=2, extreme plane only for exact risk, SPD arbitrary W only for deterministic norm bound; no general sketching method convergence conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary section 5.3 shows positivity if epsilon||A^{-1}||<rho, with rho as a numerical-range bound, and describes convergence assumptions; it does not state exact sharp rho*=2sqrt(ab)/(a+b) for arbitrary SPD W nor probability.",
+          "Kantorovich cosine and spherical beta laws supply separate elementary ingredients."
+        ],
+        "reasoning": "The general algorithms and component lemmas are wider in context, but they do not explicitly solve the post-sketch extreme-plane existential event with the same quantifiers.",
+        "searches": [
+          "Sketch-and-Restart 2026 complete arxiv PDF §5 Theorem5.4 and §5.3",
+          "Classical Kantorovich inequality for cos(Av,v)",
+          "Gaussian Wishart correlation/angle-beta distribution"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 51a7b36492d95ae76ceb4c4698d2adc2df61aaff; verify.py 50a815d15b14651e858c1ee1d57145c2dd7401e8; SLOGAN, METADATA and VERIFICATION inspected",
+        "arxiv:2607.10354 complete primary §5.3, Theorem5.4",
+        "arxiv:2206.13457 background; cited prior fixed-vector result 16336c9a-1e80-4709-ae3a-89d629a714c3",
+        "Resultary adaptive Gaussian harmonic Ritz semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper controls a fixed Krylov basis under embedding conditions, not unrestricted post-sketch selection in a given eigenspace.",
+          "Classical spherical beta distribution implies exact tail only after deriving the two-mode determinant criterion; Householder witness completes sharpness."
+        ],
+        "reasoning": "Earlier numerical range condition is sufficient but not identified as equal to the exact SPD operator-norm threshold; the claimed exact adaptive risk is not a corollary of Theorem5.4.",
+        "searches": [
+          "Güttel/Liu/Nyman §5.3 inequality and 5.6",
+          "fixed-vector prior reciprocal Student tail",
+          "current RESULT.md 2×2 determinant and reflector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual denominator on span{u_a,u_b} is v^T(AC+CA)v/2, equivalent to negativity of a symmetric 2×2 random Gram expression.",
+          "The primary sketching paper gives a sufficient positive-real half-plane condition under subspace embedding, not an exact probability for the same sampled sketch allowing an afterward chosen vector."
+        ],
+        "reasoning": "Fixed-vector Student-type tails and uniform adaptive beta angular tails differ: for each drawn sketch, the latter tests the minimum eigenvalue of H. A prior fixed-vector theorem cannot simply exchange quantifiers.",
+        "searches": [
+          "Resultary query: Gaussian sketched harmonic Rayleigh quotient adaptive negative Ritz extreme plane beta tail SPD embedding safe Kantorovich cosine",
+          "Güttel Liu Nyman arxiv:2607.10354 §5.3 equation (5.6)",
+          "Fixed-before-sketch Gaussian 1D harmonic Ritz risk prior id 16336c9a-1e80-4709-ae3a-89d629a714c3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact probability table was identified in checked literature; the plotted/data sample in verify.py is diagnostic, not historical evidence.",
+          "Known Gaussian angle R^2 Beta(1/2,(s−1)/2) suffices to evaluate distribution once the determinant condition is derived."
+        ],
+        "reasoning": "The scalar .4 special case is not claimed valuable in isolation; the all-s all-kappa law and sharp deterministic frontier are the mathematical content.",
+        "searches": [
+          "Resultary semantic search adaptive sketched harmonic negative Ritz",
+          "s=3, b/a=9 exact probability 2/5 from beta law",
+          "Original verify.py Monte Carlo sample table"
+        ]
+      },
+      "rationale": "PASS, qualified. Güttel/Liu/Nyman 2026 develop sketched harmonic Arnoldi and derive a deterministic sufficient positivity condition for sketched Ritz values via a numerical-range/inverse-eigenvalue estimate in §5.3, but do not report the Gaussian extreme-plane adaptive probability or sharp rho* all-SPD perturbation frontier. Prior fixed-vector Gaussian sign tail is credited and has different order of quantifiers. Classical beta angular law and Kantorovich cosine bound are used without novelty claim. The theorem may be implicit in broader random Gram matrix or embedding literature.",
+      "residual_risks": [
+        "Broader random matrix/canonical correlation or Kantorovich inequalities may already give the adaptive event in equivalent terminology.",
+        "The selected vector may not belong to any actual fixed-start Krylov sequence; probability is exact only on extreme-eigenplane when N>2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING sketched harmonic method/positivity sufficient conditions; NOT same exact adaptive extreme-plane beta risk",
+          "evidence": "Güttel/Liu/Nyman 2026, §5.3, Eq (5.6), p20–21",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10354",
+          "material_read": "Full accessible PDF, §5.3 printed pages 20–21 (PDF p19–20) in detail including Eq (5.6), right-half-plane sufficient condition and following numerical experiments, plus Theorem 5.4 context",
+          "method": "Direct readable primary PDF and page screenshots",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Same sketched harmonic Ritz and positivity assumptions"
+        },
+        {
+          "assessment": "Prior fixed-before-sketch risk must be credited; cannot infer full adaptive event equivalence without source detail",
+          "evidence": "Different quantifier order explicitly stated in checked current source",
+          "identifier_or_url": "16336c9a-1e80-4709-ae3a-89d629a714c3",
+          "material_read": "Originating package reference/summary only; independent full research text not obtained this run",
+          "method": "Originating repository bibliography and Resultary semantic context",
+          "title": "Sharp negative-Ritz risk and universal inverse tails for one-dimensional Gaussian-sketched harmonic Arnoldi",
+          "trigger": "Closest mathematical fixed-vector risk claim"
+        },
+        {
+          "assessment": "BACKGROUND for generalized harmonic quotients, not established coverage of sketch-dependent probability",
+          "evidence": "Arxiv 2206.13457 overview",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13457",
+          "material_read": "Abstract and bibliographic context, not full source proof",
+          "method": "Bounded web/document search",
+          "title": "A homogeneous Rayleigh quotient with applications in gradient methods",
+          "trigger": "Deterministic harmonic quotient background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md 51a7b36492d95ae76ceb4c4698d2adc2df61aaff; verify.py 50a815d15b14651e858c1ee1d57145c2dd7401e8; SLOGAN, METADATA and VERIFICATION inspected",
+        "arxiv:2607.10354 complete primary §5.3, Theorem5.4",
+        "arxiv:2206.13457 background; cited prior fixed-vector result 16336c9a-1e80-4709-ae3a-89d629a714c3",
+        "Resultary adaptive Gaussian harmonic Ritz semantic search"
+      ],
+      "rationale": "A post-sketch adversarial/algorithm-adaptive direction is a genuinely different safety event from testing a prechosen vector. Its exact Gaussian beta tail and sharp all-vector embedding distortion identify a natural failure threshold relevant to sketched harmonic Rayleigh quantities. The result is a bounded illustrative stability criterion, not a promised iterative Krylov guarantee; it is mathematically nontrivial in its quantifier change and exactness.",
+      "residual_risks": [
+        "Broader random matrix/canonical correlation or Kantorovich inequalities may already give the adaptive event in equivalent terminology.",
+        "The selected vector may not belong to any actual fixed-start Krylov sequence; probability is exact only on extreme-eigenplane when N>2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A SPD, real Gaussian sketch s>=2, extreme plane only for exact risk, SPD arbitrary W only for deterministic norm bound; no general sketching method convergence conclusion.",
+    "Broader random matrix/canonical correlation or Kantorovich inequalities may already give the adaptive event in equivalent terminology.",
+    "The selected vector may not belong to any actual fixed-start Krylov sequence; probability is exact only on extreme-eigenplane when N>2."
+  ],
+  "schema_version": 1
+}
