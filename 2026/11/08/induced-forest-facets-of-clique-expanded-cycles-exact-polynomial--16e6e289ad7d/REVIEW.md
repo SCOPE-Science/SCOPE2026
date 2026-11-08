@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Fiber counts must belong to \(\{0,1,2\}\); a double fiber forces neighboring fibers empty, and the singleton support cannot occupy the entire base cycle. All ways to add one vertex have been analyzed, giving an exact local characterization of facets plus a unique-zero exceptional family. The cyclic gap decomposition proves the polynomial by marked occurrence counting. Incidence inequalities and explicit one-/two-zero gap constructions establish both size endpoints; direct graph enumeration corroborates the formulas.
+
+**Originality — PASS, provisional.** The closest inspected full paper is Jafarpour-Golzari's arXiv:2108.09146, especially Theorem 3.5 and Examples 3.4 and 3.7. It provides necessary conditions for the well-\(f\)-coveredness of nonempty lexicographic products, not an exact solution for cycle–clique products or their all-facet polynomial. Gunderson et al. (arXiv:2301.05207) treat maximum forests in distance-regular families; Dyer–Müller (arXiv:2309.01482) count independent sets/colorings in thick graphs. Searches of corresponding definitions, graph-product reductions, accessible earlier findings, and published research records yielded no identified covering claim. The 2021 introduction of well-\(f\)-coveredness (arXiv:2105.14339) was verifiable at abstract level only, and hidden equivalent treatments under feedback vertex sets or true-twin expansions remain priority risks; lack of a search hit is not proof of uniqueness.
+
+**Mathematical value — PASS.** The result fills a specific missing sufficiency/classification case in well-\(f\)-covered lexicographic products and enumerates every inclusion-minimal feedback deletion configuration, not merely a maximum forest size. The infinite-family transition is exceptional and nonmonotone: the clique-expanded cycle complex is pure only at lengths \(5\) and \(7\). The exact coefficient formula and sharp endpoints give a reproducible structural classification of a natural graph product family.
+
+**Limits.** No universal lexicographic-product characterization, homotopy type or claim of independent audit. The finite verifier is corroborative, not the reason the quantified theorem holds.
+
+Self-review: passed. Independent audit: not yet performed.
