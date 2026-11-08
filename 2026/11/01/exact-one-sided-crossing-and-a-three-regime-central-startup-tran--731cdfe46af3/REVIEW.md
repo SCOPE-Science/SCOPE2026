@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The field agrees with the coefficients in Kai (2026), equation (9), under regular-polygon specialization. The proof integrates the normal and tangent components **exactly**, writes both barycentric coordinates, and proves one and only one positive, transverse outgoing-ray crossing for each \(-1<s<1/C\). It tracks which Lambert branch is selected by the outgoing transversality inequality. The singular-center equation has an elementary branch analysis with a simple root, a double root, and a second positive root in the three respective regimes. Time laws and the multiplier follow from explicit identities. The independent two-dimensional integration check includes 864 cases and a maximum measured numerical discrepancy below \(4.8\cdot10^{-12}\). Finite checks do not substitute for the proof.
+PASS
 
-## Originality — PASS, conditional on accessible prior literature
+In RESULT.md the exact affine sector flow has barycentric beta(z)=z-(C/a)s(1-e^{-az}) and alpha(z)=1-z+(C/a)s+(E/a)s e^{-az}, with a=lambda L^2/omega>0, b=mu Delta/omega>=0, C=a/2+b, E=a/2-b. For -1<s<1/C, beta strictly increases and alpha crosses zero exactly once with negative derivative; the exit radius F=s e^{-az} satisfies log|s/F|=a+Cs+EF and the positive-derivative Lambert W0 branch constraint 1+EF>0. Then 0<|F|<|s|, F'(0)=exp(-a), cycle period N/omega and transverse multiplier exp(-Na). The u=1+s origin limit has the three separately verified E<1 linear, E=1 square-root and E>1 positive-ejection branches; the result expressly excludes the origin and global switching uniqueness. Independent numerical checks of initial-to-exit identities, times and transversality passed 96 independently selected parameter/section cases. Proof supplies all-parameter statement; finite checks do not.
 
-The full open-access Kai (2026) paper was inspected, including its exact vector-field coefficients, section-based local transversality construction, cycle period, exponential normal decay, and transient numerical examples. These earlier properties are all credited. Its stated results do not assert the new principal-Lambert one-sector first-exit map or the sharp central linear/square-root/finite-ejection transition. Searches for equivalent crossing maps, sector returns, and affine-oscillator origin limits in indexed research records and mathematical literature found no equal or stronger statement. Closest indexed studies concerned a four-sector relay center, a two-zone piecewise-affine center, and homogeneous radial oscillators with different equations, so none implies this specific claim. The 2012 and 2019 closely related Kai publications could not be read in full despite bounded legal-access attempts; their content therefore remains a real, named priority risk rather than being declared not covering.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source explicitly treats transient shaping as an oscillator-design freedom but supplies only local stabilization and numerical examples. The new result gives a natural complete one-sided first-exit classification, an exact sharp admissible entry cutoff, and a nontrivial **central startup phase change** controlled by the tangential shaping parameter, while keeping the designed cycle's local period and multiplier unchanged. A finite nonzero outgoing radius from arbitrarily small nonzero initial radius is qualitatively distinct from either linear or square-root startup and has clear relevance to hybrid implementation near the singular center. It is not merely a numerical sample or an arbitrary invariant chosen post hoc.
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: The closely related Kai--Masuda 2012 paper and Kai--Chiku--Maehara 2019 proceedings were not inspectable in full; an explicit earlier Lambert map or center asymptotic may exist. Boundary switching is one-sided, not unique for all global hybrid solutions.
 
-## Residual risks and limits
+## value
 
-The origin and the globally discontinuous switching problem are not included; the first mode is explicitly prescribed one-sidedly, and all subsequent transitions are proved transverse. The 2012 synthesis and 2019 control texts were not fully accessible. Historical priority remains provisional; no independent expert audit has been performed. Parameter-uniform asymptotics across the critical surface are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solves the entire natural one-sided section first-passage problem of a published polygonal oscillator, with an exact strict-entry interval and parameter-dependent singular central startup regimes invisible to the cycle period/Floquet multiplier. The Lambert branch and phase boundary distinguish real dynamics; not merely a renaming or numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

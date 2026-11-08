@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytical proof is given in `RESULT.md`. It relies only on explicit affine integration, positivity/monotonicity of barycentric coordinates, and a one-variable Taylor/implicit-branch analysis. The derivation proves the result for all specified parameters; the program below is an independent check rather than exhaustive evidence.
+## correctness
 
-Run `python verify.py` with NumPy and SciPy available. The executable code compares the exact Lambert solution against `solve_ivp` on the **original two-dimensional affine mode**, using directional event detection of the outgoing vertex ray. It checks 864 combinations, 3 central startup regimes plus an additional admissible parameter family, and exact implicit identities over selected additional parameters. The recorded run produced a maximum observed absolute error of \(4.7336982150551735\cdot10^{-12}\) and no failed assertions. It does not simulate arbitrary discontinuous selections at switching boundaries.
+PASS
 
-Reproducibility scope: the original field, event condition, parameter samples, numerical tolerances, and all dependencies are defined in the included checker. A numerical ODE tolerance is not an error bound for the analytic theorem. There is no independent audit or external certification associated with this work.
+In RESULT.md the exact affine sector flow has barycentric beta(z)=z-(C/a)s(1-e^{-az}) and alpha(z)=1-z+(C/a)s+(E/a)s e^{-az}, with a=lambda L^2/omega>0, b=mu Delta/omega>=0, C=a/2+b, E=a/2-b. For -1<s<1/C, beta strictly increases and alpha crosses zero exactly once with negative derivative; the exit radius F=s e^{-az} satisfies log|s/F|=a+Cs+EF and the positive-derivative Lambert W0 branch constraint 1+EF>0. Then 0<|F|<|s|, F'(0)=exp(-a), cycle period N/omega and transverse multiplier exp(-Na). The u=1+s origin limit has the three separately verified E<1 linear, E=1 square-root and E>1 positive-ejection branches; the result expressly excludes the origin and global switching uniqueness. Independent numerical checks of initial-to-exit identities, times and transversality passed 96 independently selected parameter/section cases. Proof supplies all-parameter statement; finite checks do not.
+
+## originality
+
+PASS
+
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: The closely related Kai--Masuda 2012 paper and Kai--Chiku--Maehara 2019 proceedings were not inspectable in full; an explicit earlier Lambert map or center asymptotic may exist. Boundary switching is one-sided, not unique for all global hybrid solutions.
+
+## value
+
+PASS
+
+Solves the entire natural one-sided section first-passage problem of a published polygonal oscillator, with an exact strict-entry interval and parameter-dependent singular central startup regimes invisible to the cycle period/Floquet multiplier. The Lambert branch and phase boundary distinguish real dynamics; not merely a renaming or numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
