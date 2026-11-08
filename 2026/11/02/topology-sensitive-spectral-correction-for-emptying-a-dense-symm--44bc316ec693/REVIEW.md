@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each fixed finite connected rooted graph, the proof establishes detailed balance and regeneration for the exact empty-to-empty mean; a simple eigenvalue at full occupancy when \(q=0\); a first-order eigenvector correction represented by a killed one-particle Green function; and an exact stationary flux equation yielding \(\lambda_q=(1-q)q^N[1-qT_G+O_G(q^2)]\). The fixed-graph spectral separation yields an exponential scaling law and all positive moments. Explicit path and star constants follow from continuant and Schur-complement calculations. The reproducible verifier checks finite cases rather than proving the general theorem.
+## correctness
 
-**Originality — PASS, with qualification.** Chatterjee–Ramola–Dhar (arXiv:2609.32314) already supply the single-branch model, restricted generator, product stationary state, and \(q^r\) rate hierarchy. Classical Kac reasoning already implies an exact return-time mean, so the mean is contextual rather than the original core. The newly assessed content is the first relative density correction, its root Green representation and its graph-shape contrast, together with a rigorous fixed-graph exponential excursion limit. Published-result searches and accessible primary comparisons did not locate these explicit statements. The source's exact restricted generator nevertheless implicitly determines all its eigenvalues, and an earlier published asymptotic computation remains possible.
+PASS
 
-**Value — PASS.** The graph Green coefficient measures the residence of a lone root particle before the next injection. It predicts distinct first finite-density bottleneck corrections between identical-size path and star branches even while the mean clearing time and principal \(q^N\) scale agree. This addresses geometric sensitivity of crowding-induced trapping rather than a parameter-chosen exercise.
+With one root reservoir at injection p=1−q and removal q, the reversible stationary measure is Bernoulli product and empty mass q^N. Renewal cycle empty Exp(p) followed by root-one-particle excursion gives exact E[B]=(q^{-N}−1)/p. At q=0 full occupancy is the sole nonempty recurrent configuration; the killed finite generator has isolated zero eigenvalue and all other modes have a uniform spectral gap for fixed G. First-order right-eigenvector perturbation solves a killed one-particle occupation Poisson equation: at entrance a, h_q(a)=1−qT_G+O(q²) with T_G=[(D_o−L_G)^−1]_{oo}. Exact reversible boundary-flux identity then yields λ_q=p q^N (1−qT_G+O(q²)), and spectral separation gives q^N B ⇒ Exp(1) with all positive moments. Independent Markov generator code, different from package code, solved killed first passage means and eigenvalues on path P3 (endpoint/root center) and star S4 for q=.035,.07; mean exact to numerical tolerance, scaled eigenvalue matches first correction to O(q²). Independently computed T_P3=5/3, T_P3-center=1, T_S4-center=2/3. The result is fixed graph only; no uniform-in-N claim.
 
-**Limitations and priority risks.** Fixed graph and edge rates only; no graph-size/density joint limit, arbitrary tagged-particle statistics on branching graphs, or multiple reservoir theorem. The 2001 semi-infinite open-SEP paper and another older stationary-source comparison were inspected at abstract level rather than in full. The result has no independent mathematical or literature-priority validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after inspecting the assigned theorem, searching the relevant published Resultary findings and primary literature, and comparing equivalence, broader results, exact tables and logical implications. Prior leading power q^N and steady tagged waiting do not imply the q-correction without eigenvector occupation-potential calculation. A detailed unpublished/unchecked Appendix of 2609.32314 remains capable of covering it. A more general Markov perturbation theorem would offer a route to derive the coefficient; no inspected source directly evaluated the root-dependent resolvent for this excursion. Because same-paper full text is inaccessible, O is best-of-knowledge rather than categorical exclusion. Priority is not certified; the named residual source-access and prior-coverage risks remain.
+
+## value
+
+PASS
+
+The exact mean and leading exponential law are natural consequences of renewal/metastability, but the first nontrivial spectral coefficient is a resolvent of a killed walk and depends on branch topology/root position. This separates identical-size branches whose mean excursion time coincides, providing a motivated quantitative refinement of rare-event lifetimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
