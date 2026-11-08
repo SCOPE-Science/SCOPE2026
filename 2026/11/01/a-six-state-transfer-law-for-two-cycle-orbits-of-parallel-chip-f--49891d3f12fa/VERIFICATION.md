@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact arithmetic and finite-state verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory with Python 3.10 or newer; it requires only the standard library. The run's recorded standard output is in `verification_output.txt` and terminates with `LADDER_CHIPFIRE_EXACT_VERIFY_OK`.
+## correctness
 
-The program generates the sixteen ordered binary rung pairs from scratch, constructs their six orbits under global color complementation and row interchange, and rebuilds every one of the 36 transfer-matrix entries and both boundary vectors from the local opposite-neighbour degree formula. It checks a polynomial matrix identity matching \((x-1)^3(x+1)(x^2-12x+1)\) and six scalar annihilator seeds, which suffice for the complete fourth-order recurrence given the degree-six characteristic identity. It calculates the first 25 terms of the proposed transfer sequence and verifies recurrence agreement.
+PASS
 
-Separately, it sums the local phase weight directly over all \(87{,}376\) binary assignments for all ladders with two through eight rungs, comparing with the transfer values. It constructs and executes the actual two-step chip-firing transition independently on every chip assignment in the box \(0\le c(v)<2d(v)\) on ladders with two, three and four rungs: \(341{,}248\) configurations in total. The primitive two-cycle counts agree exactly with the theorem. This box contains every primitive two-cycle by the phase-interval lemma; it is not an enumeration of every unbounded chip configuration.
+For any primitive two-cycle c→F(c)→c on connected graph, summing updates gives Laplacian(s^0+s^1)=0. The sum of two 0/1 firing indicators is constant and cannot be 0 or 2 for a primitive cycle; it is 1. Given phase colors φ_v=s_v^0, opposite-phase neighbour count b_v determines exactly b_v admissible starting chip values: if φ_v=1, d_v≤c_v≤d_v+b_v−1; if φ_v=0, d_v−b_v≤c_v≤d_v−1. All are nonnegative and second update returns, yielding N_G=(1/2)∑_φ∏_v b_v. On open ladders the rung-product factors through sixteen ordered binary pair types; global complement plus row swap collapses to six invariant classes with displayed 6×6 transfer B and vectors L,R. Then N_n=(1/2)L B^{n−2}R. Verified determinant det(I−zB)=(1−z)^3(1+z)(1−12z+z²), scalar numerator cancellation, fourth-order recurrence and asymptotic dominant root 6+√35. Independently computed a direct full sixteen-pair transfer from rung indicators and confirmed first eight integer counts through n=9, plus separate exact matrix characteristic/minimal scalar generating function checks; finite sums not the proof of the all-n rational identity.
 
-The all-length proof does not rely on these finite examples: it relies on the phase-interval bijection, local transfer factorization and exact rational-matrix identity in `RESULT.md`. The program does not evaluate longer primitive periods, classify transient states outside primitive two-cycles, or provide external validation. No independent audit has been conducted.
+## originality
+
+PASS
+
+The phase-cut identity and transfer-matrix methodology are acknowledged background, not independently novel. The originality claim is the explicitly evaluated six-state quotient and exact generating function for counts of primitive temporal two-cycle orbits on every open ladder length. Dall’Asta solves one-dimensional ring fixed-energy dynamics, Jiang restricts temporal periods, Fey–Levine–Wilson has the same ladder geometry but a stationary-density observable with a different transfer eigenvalue, and Jiang–Scully–Zhang constrains firing patterns generally. None of the inspected mathematical statements logically gives these N_n or the rational function; the queried mathematical record corpus returned unrelated six-state/Fourier results. Unindexed transfer enumerations remain a plausible historical risk.
+
+## value
+
+PASS
+
+Open ladders form the smallest genuinely cyclic width-two strip, an intrinsically motivated next family after paths and trees for recurrent parallel chip-firing dynamics. The count includes all labelled nonnegative primitive two-cycles at every n, not a convenient finite sample. The unexpectedly compact rational generating function, fourth-order recurrence and growth constant 6+sqrt(35) quantify recurrent-state complexity and give an exactly solved width-two benchmark. No basins, longer periods or fixed-total counts are implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

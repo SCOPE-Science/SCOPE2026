@@ -1,32 +1,21 @@
-# Scientific review: two-cycle enumeration on open chip-firing ladders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the actual synchronous degree-threshold chip-firing map on labelled undirected open ladders, with nonnegative integer chips, and counts only primitive two-cycle *orbits*. Summing two steps imposes a harmonic total firing-count function; connectedness forces all vertices to fire once per period. This yields the exact phase-dependent chip intervals, each of length equal to the number of opposite-phase neighbours. The converse explicitly reconstructs both states from any positive-weight phase pattern, making the weighted cut sum an exact bijection rather than a bound. The factor of two comes from the two actual states per primitive orbit.
+PASS
 
-For the rung transfer, all sixteen ordered rung-pair states reduce under bit complementation and row exchange to six symmetry classes; the quotient matrix, initial vector and terminal vector are explicitly reconstructed by the included independent Python checker. Direct exact matrix arithmetic gives the rational generating function and the order-four annihilator. The executable checks the six-dimensional characteristic identity and six scalar residual seeds to establish the recurrence for *all* lengths algebraically; the finite enumerations are separate corroboration. The claimed asymptotic follows from the strict dominance of the positive root. Boundary condition \(n=2\), count normalization and no horizontal wraparound are explicitly handled.
+For any primitive two-cycle c→F(c)→c on connected graph, summing updates gives Laplacian(s^0+s^1)=0. The sum of two 0/1 firing indicators is constant and cannot be 0 or 2 for a primitive cycle; it is 1. Given phase colors φ_v=s_v^0, opposite-phase neighbour count b_v determines exactly b_v admissible starting chip values: if φ_v=1, d_v≤c_v≤d_v+b_v−1; if φ_v=0, d_v−b_v≤c_v≤d_v−1. All are nonnegative and second update returns, yielding N_G=(1/2)∑_φ∏_v b_v. On open ladders the rung-product factors through sixteen ordered binary pair types; global complement plus row swap collapses to six invariant classes with displayed 6×6 transfer B and vectors L,R. Then N_n=(1/2)L B^{n−2}R. Verified determinant det(I−zB)=(1−z)^3(1+z)(1−12z+z²), scalar numerator cancellation, fourth-order recurrence and asymptotic dominant root 6+√35. Independently computed a direct full sixteen-pair transfer from rung indicators and confirmed first eight integer counts through n=9, plus separate exact matrix characteristic/minimal scalar generating function checks; finite sums not the proof of the all-n rational identity.
 
-Reproducibility: `python3 verify.py` finishes with `LADDER_CHIPFIRE_EXACT_VERIFY_OK`. The actual recorded run checked 87,376 complete firing-phase patterns for lengths 2–8 and 341,248 bounded chip configurations for lengths 2–4, besides transfer identities. General claims are not based on finite extrapolation.
+## originality
 
-## Originality — PASS, subject to indexed-literature limitations
+PASS
 
-The phase-cut sum is not claimed as a new characterization of graph-wide period-two chip firing. The claim is the ladder-specific exact six-state evaluation, explicit rational generating function, fourth-order recurrence, all-length coefficients and sharp exponential rate. Literature examined includes Dall'Asta's one-dimensional *ring* model [1], Jiang's graph-period theorem [2], Fey–Levine–Wilson's ladder sandpile *density* calculation [3], and Jiang–Scully–Zhang's general motor and firing-pattern framework [4]. None of the inspected relevant statements asserts or logically implies the exact number of primitive two-cycles on open ladders; [3] has the same spatial graph but a distinct observable and evolution setup. These comparisons are to implications, not simply matching titles.
+The phase-cut identity and transfer-matrix methodology are acknowledged background, not independently novel. The originality claim is the explicitly evaluated six-state quotient and exact generating function for counts of primitive temporal two-cycle orbits on every open ladder length. Dall’Asta solves one-dimensional ring fixed-energy dynamics, Jiang restricts temporal periods, Fey–Levine–Wilson has the same ladder geometry but a stationary-density observable with a different transfer eigenvalue, and Jiang–Scully–Zhang constrains firing patterns generally. None of the inspected mathematical statements logically gives these N_n or the rational function; the queried mathematical record corpus returned unrelated six-state/Fourier results. Unindexed transfer enumerations remain a plausible historical risk.
 
-Accessible earlier counts for paths, complete binary trees and complete bipartite graphs concern graph families not equivalent to the open ladder under relabelling or duality; their formulas do not determine this ladder evaluation. The online mathematical-record searches located no exact ladder formula or stronger matching census, but a failed search cannot certify universal uniqueness. Broader unindexed transfer enumerations and inaccessible historical literature remain explicit originality risks.
+## value
 
-## Mathematical value — PASS
+PASS
 
-An open ladder is the canonical width-two strip: it is the smallest genuinely cyclic family lying between path/tree structures and wider planar strips. Computing **the complete primitive two-cycle orbit population at every length** is a natural dynamical invariant, not an arbitrary finite slice. The unexpectedly small rational denominator and the Perron rate \(6+\sqrt{35}\), as well as the exact alternating finite-size term, distinguish its recurrent-state growth from path and branching-tree counts. It provides a tractable test case for systematic width growth and exact orbit enumeration beyond trees. No theorem about broader attractor periods or transient basin sizes is asserted.
+Open ladders form the smallest genuinely cyclic width-two strip, an intrinsically motivated next family after paths and trees for recurrent parallel chip-firing dynamics. The count includes all labelled nonnegative primitive two-cycles at every n, not a convenient finite sample. The unexpectedly compact rational generating function, fourth-order recurrence and growth constant 6+sqrt(35) quantify recurrent-state complexity and give an exactly solved width-two benchmark. No basins, longer periods or fixed-total counts are implied.
 
-## Scope and residual risks
-
-Originality is based on the four inspected source texts and targeted mathematical-record/literature searches; neither indexing nor access can rule out every historical equivalent. The phase-cut criterion itself and general transfer-matrix counting ideas are prior technique, not asserted inventions. Computational reproduction is a consistency check and does not replace the complete mathematical proof. Independent external validation has not been performed.
-
-## References
-
-[1] L. Dall'Asta, *Exact solution of the one-dimensional deterministic Fixed-Energy Sandpile*, arXiv:cond-mat/0601267 (2006-01-12).
-[2] T.-Y. Jiang, *On the Period Lengths of the Parallel Chip-Firing Game*, arXiv:1003.0943 (2010-03-04).
-[3] A. Fey, L. Levine, D. B. Wilson, *The approach to criticality in sandpiles*, arXiv:1001.3401 (2010).
-[4] T.-Y. Jiang, Z. Scully, Y. X. Zhang, *Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game*, arXiv:1211.6786 (2012-11-29).
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
