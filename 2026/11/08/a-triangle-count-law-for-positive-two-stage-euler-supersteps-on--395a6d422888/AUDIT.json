@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed exact entries of I-(h1+h2)L+h1*h2 L^2 for a simple regular graph, yielding iff diagonal and worst-edge inequalities. The clique/nonclique dichotomy is proved; the sharp upper bound follows from combining the inequalities, with strictly positive real roots attaining every smaller total. Equality forces the unique unordered pair and its explicit nonnegative stochastic matrix. The checker has 173 exact regular graph cases and 8304 rational pairs. The proof, not the finite checks, establishes all graph sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb–Shu–Tadmor (2001): sufficiently small stagewise Euler steps preserve convex invariants, but does not give necessary conditions or maximal overstepping.",
+        "Meyer–Balsara–Aslam (2012) abstract: an s-stage second-order Legendre scheme, not the present product of two first-order Euler factors.",
+        "Cheng et al. (2015), Definition 1.1: a convex nonnegative combination of random-walk matrix powers for sparsification."
+      ],
+      "reasoning": "The general frameworks address broader discretizations or spectra but do not imply the graph-specific triangle-floor extremal formula. The signed adjacency coefficient and negative diagonal coefficient in the extremal kernel preclude direct use of the nonnegative-coefficient random-walk polynomial theorem. The inaccessible 2012 full text remains a residual risk.",
+      "searches": [
+        "two-step Euler superstepping nonnegative Markov matrix regular graph triangle",
+        "Meyer Balsara Aslam RKL2 super timestep positivity preserving 2012 proof full text",
+        "graph Laplacian polynomial P=I-(h1+h2)L+h1*h2 L^2 nonnegative Markov kernel"
+      ]
+    },
+    "checked_sources": [
+      "V. Alexiades, G. Amiez, P.-A. Gremaud (1996), DOI 10.1002/(SICI)1099-0887(199601)12:1<31::AID-CNM950>3.0.CO;2-5",
+      "S. Gottlieb, C.-W. Shu, E. Tadmor (2001), DOI 10.1137/S003614450036757X",
+      "C. D. Meyer, D. S. Balsara, T. D. Aslam (2012), DOI 10.1111/j.1365-2966.2012.20744.x (abstract only)",
+      "D. Cheng, Y. Cheng, Y. Liu, R. Peng, S.-H. Teng (2015), arXiv:1502.03496"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alexiades et al., pp.33–35: upper stability time for polynomial products comes from Chebyshev extremal properties of a spectral interval; graph-entry signs and triangle counts are absent from the inspected result.",
+        "Gottlieb et al., Lemma 2.1 and Proposition 3.1: stagewise SSP conditions and CFL coefficient restriction are distinct from two-step endpoint positivity with unstable internal stages.",
+        "Cheng et al., §1.2: coefficients of powers of random-walk transition are nonnegative and sum to one; the proposed sharp transition has generally negative coefficients of the identity and adjacency terms."
+      ],
+      "reasoning": "A spectral norm bound cannot force a matrix to be entrywise nonnegative. Sufficient stagewise convexity conditions cannot rule out endpoint recovery after a nonpositive intermediate state. Random-walk polynomial sparsification with nonnegative coefficients does not automatically prove nonnegativity of a signed coefficient polynomial. In the degenerate two-eigenvalue clique, exact projection is standard, but it does not dominate the noncomplete graph classification.",
+      "searches": [
+        "Alexiades Amiez Gremaud 1996 super-time-stepping acceleration explicit schemes parabolic problems pdf",
+        "Gottlieb Shu Tadmor 2001 strong stability preserving high order time discretization PDF",
+        "Spectral Sparsification of Random-Walk Matrix Polynomials 2015 arxiv full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alexiades–Amiez–Gremaud 1996, §2: the factorized two-Euler-substep polynomial and Chebyshev spectral stability bound (author-hosted PDF, pp.32–35).",
+        "Gottlieb–Shu–Tadmor 2001, §§2–3: convex Euler-stage SSP sufficient conditions."
+      ],
+      "reasoning": "The same factorized polynomial is known, but the inspected two-step literature optimizes spectral stability, not the entrywise nonnegative endpoint over all connected regular graphs. SSP stagewise guarantees do not imply positivity when a factor has negative diagonal entries, as occurs at the sharp superstep.",
+      "searches": [
+        "\"two-step Euler\" \"positivity\" Laplacian",
+        "\"nonnegative\" \"(I-h_1 L)\" \"(I-h_2 L)\"",
+        "degree-two Chebyshev semi-iterate coordinatewise positivity for Stieltjes matrices and graph Laplacians"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant returned records concerned stagewise-safe Richardson steps, degree-three Chebyshev semi-iterates and different positive Runge–Kutta/Markov maps; none reported this all-regular-graph bound.",
+        "Inspected related results on classical RK4 and implicit graph propagators concern different update maps and do not imply this Euler-factor classification."
+      ],
+      "reasoning": "The nearest indexed statements optimize different stagewise criteria or different propagators. A nonappearance in a database or index is limited evidence, so the check also uses full-text primary source comparisons and an implication audit.",
+      "searches": [
+        "two-stage explicit Euler super-time-stepping positivity regular graphs with triangle counts common neighbors and maximal superstep",
+        "(A^2 - t A - d I)/(d(d-1-t)) stochastic matrix from two Euler steps",
+        "complete multipartite graph two Euler stages positivity maximal superstep and within-part random walk"
+      ]
+    },
+    "rationale": "Searches and detailed comparisons found prior work on two-stage Chebyshev Euler superstepping and SSP, but did not find the graph-specific iff endpoint-positivity inequalities, sharp maximum depending on minimum edge triangle count, unique stage pair, or signed Markov kernel for every regular graph. This is best-knowledge, not proof of priority. The 2012 Legendre STS full text remained inaccessible.",
+    "residual_risks": [
+      "Full text of the related 2012 RKL2 article was not available; it must not be described as NOT_COVERING in full.",
+      "Specialized discrete maximum-principle and Chebyshev polynomial literature not retrieved might already imply the local triangle-floor theorem.",
+      "Search-index absence and title mismatch do not prove publication priority; future independent bibliographic review is appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SPECTRAL_STABILITY_ANTECEDENT_NOT_THE_PROPOSED_ENTRYWISE_GRAPH_CLASSIFICATION",
+        "evidence": "Equations (5)–(11) and pp.34–35 discuss polynomial spectral stability, optimal superstep, and 2-stage factorization without the minimum-edge-triangle endpoint criterion.",
+        "identifier_or_url": "https://web.math.utk.edu/~vasili/va/descr/sts.CNME96.pdf",
+        "material_read": "Introduction, Section 2 and its two-stage example, printed pp.31–36; relevant mathematical statements and stability derivation",
+        "method": "Author-hosted PDF text and visual screenshots of printed pp.34–35",
+        "title": "Super-time-stepping acceleration of explicit schemes for parabolic problems",
+        "trigger": "Same two-factor Euler composition and possible Chebyshev optimization coverage"
+      },
+      {
+        "assessment": "STAGEWISE_SSP_ANTECEDENT_NO_SHARP_GRAPH_SPECIFIC_ENDPOINT_FORMULA_IN_INSPECTED_SECTIONS",
+        "evidence": "Theorem framework assumes stagewise stability or convex Euler combinations; its CFL coefficient statement is not a necessary graph-specific endpoint positivity bound.",
+        "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+        "material_read": "Introduction, §2 explicit SSP methods and §3 linear SSP, printed pp.89–94; particularly Lemma 2.1 and Proposition 3.1",
+        "method": "University-hosted full PDF text plus visual screenshot of printed p.94",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Possible stronger SSP/positivity theorem applying to the Euler composition"
+      },
+      {
+        "assessment": "DIFFERENT_NONNEGATIVE_COEFFICIENT_POLYNOMIAL_CLASS",
+        "evidence": "Definition 1.1 assumes nonnegative coefficients summing to one, whereas the extremal kernel has signed coefficients of the adjacency polynomial.",
+        "identifier_or_url": "https://arxiv.org/abs/1502.03496",
+        "material_read": "Abstract, introduction, Definition 1.1 and Proposition 1.2 in arXiv HTML full-text rendition",
+        "method": "Author preprint HTML text",
+        "title": "Spectral Sparsification of Random-Walk Matrix Polynomials",
+        "trigger": "Potentially dominating positivity theorem on quadratic graph transition polynomials"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_PRIORITY_RISK_FOR_A_DIFFERENT_LEGENDRE_SCHEME",
+        "evidence": "The abstract identifies RKL2 Legendre recursion with second-order stages and positivity, not a sharp two-factor Euler graph parameter. No negative full-text coverage claim is made.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2966.2012.20744.x",
+        "material_read": "Publisher and institutional abstract only; complete full text not obtained",
+        "method": "Publisher and institutional abstract pages; publicly accessible full text could not be retrieved",
+        "title": "A second-order accurate Super TimeStepping formulation for anisotropic thermal conduction",
+        "trigger": "Explicit published positive super-time-stepping claim possibly relevant to boundary positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "395a6d42-2888-4fb3-bb4d-d0386152c752",
+  "value": {
+    "rationale": "The maximal endpoint-positive two-stage explicit superstep over every connected regular graph depends exactly on a natural local graph invariant (minimum triangles per edge), with a unique extremal stage pair and an explicit stochastic transition kernel; a complete graph is the only unbounded case. This distinguishes positive endpoint superstepping from spectral stability and stagewise SSP, and gives meaningful nonbacktracking and complete-multipartite boundary classifications. The assertion is structural rather than a small parameter gain or mere numerical table.",
+    "status": "PASS"
+  }
+}
