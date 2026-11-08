@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite root-system filtration
+# Independent mathematical audit
 
-Run `python3 verify_b3_rips.py` from a directory containing `collapse_to_boundary.json`. Python's standard library suffices. The exact run output is `verification_output.txt` and ends in `VERIFY_OK`.
+## correctness
 
-The script checks all 153 unordered Euclidean squared distances, constructs the clique complexes at squared thresholds 0, 1, 2, 3, 4, 5, 6, and 8, and asserts every face vector. It checks connectedness and vertex links of the cuboctahedral-boundary triangulation, the twelve bridging triangles and eight additional short-root triangles at squared threshold 2, the entire 164-pair relative elementary collapse at threshold 3, and mod-two Betti numbers at thresholds 1, 2, and 3. At squared thresholds 4, 5, and 6, it constructs vertex-toggle matchings and checks every edge of the full directed Hasse graph for cycles, together with the sole critical zero-cell. No approximation to distances is used.
+PASS
 
-The integral wedge classifications rely on the elementary-collapse and CW-cell attachment proofs in RESULT.md; the mod-two calculations are independent supplementary checks, not substitutes for those integral arguments. The exact finite result makes no statement about other dimensions, varying short/long radial ratios, or external independent validation.
+Exactly 18 Euclidean type-B3 roots, short ±e_i, long ±e_i±e_j without shell normalization, inclusive diameter thresholds. Direct squared-coordinate differences have levels 1,2,3,4,5,6,8, so no other stages. At q=1 the once-subdivided octahedron graph has cycle rank 7. At q=2 the subdivided cuboctahedral boundary B is a 32-triangle S2 with 12 short-short bridge triangles collapsible to B and 8 remaining octahedron-facet cells attached along null loops; thus wedge9 S2. Independently regenerated all 426 q=3 faces and reproduced the 164 stepwise unique-coface free-face pairs in the actual Git certificate, leaving precisely the 98 faces of B, so inclusion of B induces a primitive persistent Z summand while the other eight die. Independently reconstructed full q=4,5,6 flag complexes with 715,5567,46655 faces, produced 357,2783,23327 vertex-toggle pairs, and topologically sorted every oriented Hasse incidence (2484,29742,326574) with only one critical vertex; hence contractible. q=8 full simplex; inclusivity and split-surjective H2 map yield exact integral barcodes.
+
+## originality
+
+PASS
+
+Checked actual theorems and their implications, original sources and relevant published exact results, including already-known special cases; none of those inspected entails the full target claim, subject to the explicit best-of-knowledge residual risks. This does not infer novelty from a failed search.
+
+## value
+
+PASS
+
+Canonical natural complete finite root system with two unequal Euclidean shells: provides the complete integral filtration rather than a sampled Betti table. The eight short-shell ephemeral H2 cycles and surviving primitive geometric boundary create a meaningful exact persistence benchmark unavailable from the 12-long-root case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

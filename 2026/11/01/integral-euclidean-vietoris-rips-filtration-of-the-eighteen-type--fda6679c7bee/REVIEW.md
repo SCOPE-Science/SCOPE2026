@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The eighteen coordinates and seven squared-distance classes are specified exactly. The subdivision-graph description proves the circle stage. At squared threshold two, a triangulated cuboctahedral boundary sphere, twelve bridge triangles, and eight octahedral facets exhaust the complex; twelve free-face reductions and nullhomotopic two-cell attachments prove the integral nine-sphere wedge. At squared threshold three, the verifier replays 164 actual elementary collapses onto the unchanged sphere, establishing the primitive persistence map. For squared thresholds four, five, and six, exhaustive acyclicity checks on complete Hasse graphs establish contractibility via perfect zero-dimensional Morse reductions; squared threshold eight is the full simplex. No finite sampling-to-infinite extrapolation is used. The verifier and certificate are included.
+## correctness
 
-## Originality — PASS, with residual risk
-The first-public 2015 circle results concern cyclic graphs, while the inspected 2023 Platonic-solid classification is explicitly scoped to five equal-radius vertex sets. The closest inspected published eighteen-vs-twelve-point comparison is the Euclidean cuboctahedron computation on the twelve long roots only; adding the six short roots is not covered by its homotopy theorem and produces a genuinely different scale-two homotopy type and an additional transition at \(\sqrt3\). The graph-metric complete-graph-subdivision theorem also differs in both object and metric. Targeted semantic and exact-term searches found no exact type-\(B_3\) classification; this does not establish absolute novelty. A differently indexed equivalent calculation remains possible.
+PASS
 
-## Value — PASS
-The full type-\(B_3\) root configuration is a natural two-length-shell system with octahedral symmetry. The result completely determines its integral homotopy filtration and identifies a primitive geometric class persisting while eight short-shell octahedral cycles disappear. It explains the topology structurally via a sphere, eight cell attachments, and a relative collapse, rather than merely giving a numerical table. This motivated natural complete classification may be useful as an exact two-shell benchmark; no general theorem for arbitrary root systems is asserted.
+Exactly 18 Euclidean type-B3 roots, short ±e_i, long ±e_i±e_j without shell normalization, inclusive diameter thresholds. Direct squared-coordinate differences have levels 1,2,3,4,5,6,8, so no other stages. At q=1 the once-subdivided octahedron graph has cycle rank 7. At q=2 the subdivided cuboctahedral boundary B is a 32-triangle S2 with 12 short-short bridge triangles collapsible to B and 8 remaining octahedron-facet cells attached along null loops; thus wedge9 S2. Independently regenerated all 426 q=3 faces and reproduced the 164 stepwise unique-coface free-face pairs in the actual Git certificate, leaving precisely the 98 faces of B, so inclusion of B induces a primitive persistent Z summand while the other eight die. Independently reconstructed full q=4,5,6 flag complexes with 715,5567,46655 faces, produced 357,2783,23327 vertex-toggle pairs, and topologically sorted every oriented Hasse incidence (2484,29742,326574) with only one critical vertex; hence contractible. q=8 full simplex; inclusivity and split-surjective H2 map yield exact integral barcodes.
 
-## Closest literature and limitations
-See *The Vietoris–Rips complexes of a circle* (arXiv:1503.03669), *Vietoris–Rips complexes of Platonic solids* (arXiv:2302.14388), the 2023 Saleh dissertation (DOI 10.22029/jlupub-17950), and the two public cuboctahedron and complete-graph-subdivision records cited in RESULT.md. The claim is confined to the eighteen specified roots with the fixed Euclidean short/long length ratio. Further equivalence searches or independent mathematical checks may refine publication-priority confidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Checked actual theorems and their implications, original sources and relevant published exact results, including already-known special cases; none of those inspected entails the full target claim, subject to the explicit best-of-knowledge residual risks. This does not infer novelty from a failed search.
+
+## value
+
+PASS
+
+Canonical natural complete finite root system with two unequal Euclidean shells: provides the complete integral filtration rather than a sampled Betti table. The eight short-shell ephemeral H2 cycles and surviving primitive geometric boundary create a meaningful exact persistence benchmark unavailable from the 12-long-root case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
