@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:02:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Marked interarrival times are iid Erlang(n,gamma), so the stationary renewal covariance transform gives F=[(1+z²)^n−1]/|(1+iz)^n−1|² for z=omega/gamma. The sign of F−1 is sign[Re(1+iz)^n−1]. Substituting theta=arctan z gives H_n(theta)=cos(n theta)/cos(theta)^n, H_n prime=−n sin((n−1)theta)/cos(theta)^(n+1); its strict alternating extrema below −1/above 1 and final divergent endpoint imply exactly floor(n/2)−1 simple positive roots. At omega=0 the continuous value 1/n; n=1 is a flat Poisson exception, not counted. Independent symbolic positive Sturm root counts and squarefreeness passed n=2..48.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brandes treats generally unequal rates and the homogeneous many-stage limit, giving a model/general-noise expression.",
+          "Wang–Yang treats peaks of stationary irreversible Markov state observables, not marked point-event spectra."
+        ],
+        "reasoning": "A formula encompassing this process is prior, but its statement does not supply the evaluated exact finite-stage plateau-crossing count unless the new monotonicity analysis is carried out. Specific level-set result is not an immediate parameter substitution in published theorem.",
+        "searches": [
+          "Brandes 2008 arxiv:0802.2233 full open paper",
+          "Wang and Yang 2025 DOI 10.1063/5.0184974"
+        ]
+      },
+      "checked_sources": [
+        "Waiting Times and Noise in Single Particle Transport — https://arxiv.org/abs/0802.2233",
+        "Neuronal Dynamics, Chapter 7.5 Renewal Statistics — https://neuronaldynamics.epfl.ch/online/Ch7.S5.html",
+        "Peak frequencies and relative peak heights of power spectra of stationary irreversible Markov processes — https://doi.org/10.1063/5.0184974"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior renewal/noise theory supplies characteristic transform and PSD; this is explicitly excluded from the novel contribution.",
+          "H_n derivative and endpoint sign analysis needed to prove count, simplicity and bands for all integer stages."
+        ],
+        "reasoning": "The general transform determines the function, but the precise all-n crossing classification is an additional evaluated consequence, not directly stated in the inspected source.",
+        "searches": [
+          "Brandes 2008 Sections II.1, III.3 and III.3.2",
+          "Neuronal Dynamics renewal statistics chapter 7.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erlang renewal event PSD is equivalent to marked-counting shot-noise spectrum for a directed equal-rate CTMC cycle.",
+          "Spectra of occupancy/state observables are distinct from the PSD of marked return point events."
+        ],
+        "reasoning": "Compared renewal-transform, full-counting-statistics and phase-type noise aliases. Established transforms contain the rational function; the question is whether existing work also classifies all positive level-one roots (not found in inspected Brandes text).",
+        "searches": [
+          "Resultary: Erlang renewal point process shot noise Poisson plateau crossings cyclic chain stages",
+          "Brandes waiting times and noise cyclic chain arxiv 0802.2233"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No all-n crossing-count sequence or complete localization table identified; n=4 crossing sqrt(6)gamma, n=5 sqrt(2)gamma follow directly from supplied polynomial."
+        ],
+        "reasoning": "Finite sampled spectral plots do not certify a global exact count. Unsuccessful searching is not novelty proof.",
+        "searches": [
+          "Resultary cyclic Erlang plateau spectral query",
+          "Brandes ring section III.3"
+        ]
+      },
+      "rationale": "The stationary renewal PSD identity and equal-rate Erlang waiting times are established and credited; the assessed addition is a complete analytic all-finite-n crossing count, simple roots and phase localization, plus adjacent-pair identification ambiguity. Prior broad noise formula allows derived count but does not directly state it in inspected text.",
+      "residual_risks": [
+        "Existing general renewal formula already implies the rational F_n; priority of the specific crossing theorem could be implicit in earlier level-crossing or phase-type analysis.",
+        "The inference from crossing count determines n only up to n=2r+2 or 2r+3; does not apply to heterogeneous stage rates or occupancy spectra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The renewal transform and directed ring are known; no all-n exact plateau-root theorem in inspected sections.",
+          "evidence": "Tobias Brandes, Annalen der Physik 520 (2008) 477–496",
+          "identifier_or_url": "https://arxiv.org/abs/0802.2233",
+          "material_read": "Accessible complete arXiv paper in HTML/text, including Sections II.1, III.3 and III.3.2 equal-rate limit and renewal noise equations",
+          "method": "full HTML reading of model, PSD and chain sections",
+          "title": "Waiting Times and Noise in Single Particle Transport",
+          "trigger": "same directed ring and waiting-time/noise formula"
+        },
+        {
+          "assessment": "General renewal spectral calculation provides input but not cyclic Erlang finite-stage root number.",
+          "evidence": "Gerstner, Kistler, Naud and Paninski",
+          "identifier_or_url": "https://neuronaldynamics.epfl.ch/online/Ch7.S5.html",
+          "material_read": "Accessible renewal chapter including renewal event spectrum derivation",
+          "method": "open online book section",
+          "title": "Neuronal Dynamics, Chapter 7.5 Renewal Statistics",
+          "trigger": "possible general renewal spectrum and frequency benchmark"
+        },
+        {
+          "assessment": "Different Markov state observable spectrum; not evidence of the specific jump-event level-set theorem.",
+          "evidence": "Wang and Yang, J Math Phys 66 (2025)",
+          "identifier_or_url": "https://doi.org/10.1063/5.0184974",
+          "material_read": "Accessible bibliographic record/abstract only; no claim of full text",
+          "method": "abstract-level comparison",
+          "title": "Peak frequencies and relative peak heights of power spectra of stationary irreversible Markov processes",
+          "trigger": "possible stronger noise-spectral classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number of sign-changing spectral bands is a robust natural feature of an equal-rate multi-stage renewal process and quantitatively restricts inferred hidden stage count; the full sharp all-n root classification is mathematically more than plotting finitely many examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Waiting Times and Noise in Single Particle Transport — https://arxiv.org/abs/0802.2233",
+    "Neuronal Dynamics, Chapter 7.5 Renewal Statistics — https://neuronaldynamics.epfl.ch/online/Ch7.S5.html",
+    "Peak frequencies and relative peak heights of power spectra of stationary irreversible Markov processes — https://doi.org/10.1063/5.0184974",
+    "Frozen source RESULT.md blob 0e9509fada291399fb51b3a41aeaee5ee92e7a24",
+    "source record Git tree 5d1b9592cce11fe5136874bd6be480059b318b4e"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the stationary point-event train of marked returns in a homogeneous n-stage directed rate-gamma continuous-time cycle (n>=2), the normalized centered two-sided spectrum has exactly floor(n/2)-1 simple positive-frequency Poisson-plateau crossings, one in each stated disjoint theta phase interval, with alternating excess/deficit bands.",
+  "limitations": [
+    "n>=2 homogeneous rate gamma>0, marked return event PSD with explicit two-sided convention.",
+    "n=1 is the Poisson flat spectrum; unequal-rate rings and unmarked jump streams are excluded."
+  ],
+  "residual_risks": [
+    "Existing general renewal formula already implies the rational F_n; priority of the specific crossing theorem could be implicit in earlier level-crossing or phase-type analysis.",
+    "The inference from crossing count determines n only up to n=2r+2 or 2r+3; does not apply to heterogeneous stage rates or occupancy spectra."
+  ],
+  "schema_version": 1
+}
