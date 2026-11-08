@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph \(\operatorname{GP}(8,3)\), its induced-degree-at-most-one face predicate, and all quantifiers are explicit. Full enumeration yields \(6812\) simplices. The \(3400\)-pair sequential matching is acyclic by a complete \(35104\)-incidence directed-Hasse topological sort. The signed Morse matrices have a unit entry in degree five and a primitive rank-three degree-six image witnessed by a minor of determinant \(-1\); a separate full-chain mod-two reduction agrees. High-dimensional attaching maps are classified by their degree matrices after the indicated cancellations, proving a threefold six-sphere **integral** wedge. Direct signed Lefschetz traces of all \(96\) automorphisms have squared norm one and zero mean, proving absolute irreducibility and rational quotient acyclicity.
+## correctness
 
-## Originality — PASS against inspected evidence
-The main 2020 higher-independence paper treats complete multipartite, whiskered, path, cycle and perfect rooted tree families; a 2021 chordal paper does not cover the nonchordal Möbius–Kantor graph. The closest public same-graph classification, *Integral homotopy type of the Möbius–Kantor independence complex*, was inspected as full result text and concerns **ordinary** independence (forbidden induced edges), not \(\operatorname{Ind}_2\) (induced maximum degree at most one). The indexed ordinary cyclic character is likewise in different dimensions. Actual published-finding corpus and web alias/equivalence searches did not identify a covering claim. The Knill same-graph PDF could not be read in full, although the abstract and author exposition discuss different invariants; an equivalent unindexed result remains possible.
+PASS
 
-## Value — PASS
-The sixteen-vertex Möbius–Kantor graph is a canonical cubic symmetric incidence graph. Classifying its first higher-independence complex integrally, and obtaining a genuinely irreducible full-group homology representation rather than just Betti numbers, gives natural structural information. The symmetry quotient's vanishing rational homology is an additional mathematical consequence. This is a finite canonical object, not an unsupported all-orders generalization.
+Reconstructed graph GP(8,3), face rule components at most two, 6812 nonempty simplices, f=(16,120,512,1324,2064,1840,816,120), 3400 greedy matched covers with no directed Hasse cycle, critical cells (0:1,4:1,5:4,6:6). Independently recomputed signed integral Morse differentials B5=[[-1,0,-1,-1]] and B6=[[-1,0,0,0,1,-1],[-1,0,-1,-1,1,0],[0,1,0,0,0,1],[1,-1,0,0,-1,0]], checked B5 B6=0 and a 3x3 unit minor. Integral cellular cancellations leave precisely three 6-cells with trivial attachments, giving wedge^3 S6. Independently generated 96 graph automorphisms and all signed Lefschetz traces: {3:2,-3:2,1:30,-1:30,0:32}, character-squared sum=96 and mean zero; rotation trace (3,-1,-1,-1,3,-1,-1,-1). Thus absolute irreducibility, order-2 action kernel and rationally acyclic quotient follow. This establishes nonequivariant integral homotopy plus rational group representation, not equivariant homotopy.
 
-## Limits
-The integral homotopy splitting is nonequivariant. The full symmetry module is rational. Rational quotient acyclicity does not imply a contractible quotient or describe its integral torsion. Bibliographic completeness and independent external validation are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS after matching exact graph and cutoff: relevant full-text sections on higher independence and chordal families and indexed same-graph Ind_1 records do not imply the present Ind_2 integral homotopy plus irreducible full-group character. The uninspected same-graph Knill full text remains a disclosed bibliographic risk.
+
+## value
+
+PASS
+
+Exact natural higher-independence topology of canonical symmetric cubic graph, strengthened by complete 96-element automorphism character, irreducibility and quotient invariant vanishing. A natural finite homotopy/symmetry classification beyond mere Betti enumeration; no general theorem is required for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
