@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary Davies master equations give the displayed longitudinal and transverse Bloch components, their exact derivatives and the full-rank qubit SLD quantum Fisher information (QFI). Uniform Taylor expansion on the closed target Bloch ball proves that the coherence-square derivative is strictly positive for sufficiently small positive inverse temperature, so an optimizer must be pure. Along pure targets the limiting objective is a strictly concave quadratic with critical reset-to-bath ratio \(1/3\); its nondegenerate curvature and endpoint derivative justify exact finite-temperature optimality near that high-temperature boundary. The implicit-function theorem gives the positive transition slope \(8/27\). Rational arithmetic proves a finite-temperature coherent-state QFI witness larger than both diagonal extremizers. The self-contained `verify.py` passes 7,220 finite tests; numerical tests corroborate but never replace the analytic proof. The statement concerns estimation of inverse temperature, not unknown reset parameters.
+PASS
 
-## Originality — PASS (qualified best knowledge)
+For bosonic Davies qubit GKSL reset at fixed s=r/gamma>0, x=e^(beta omega)-1, exact stationary Bloch coordinates are z=(sa-1)x/(2+(1+s)x) and w=s w_delta x/(1+(s+1/2+i kappa)x). Their beta derivatives and the full-rank qubit SLD QFI metric yield a smooth uniformly bounded rational objective on the entire compact reset Bloch ball as x->0. Leading QFI/omega^2=(sa-1)^2/4+s^2 t; derivative in transverse squared amplitude t is s^2+O(x)>0, forcing pure reset targets. Along t=1-a^2, leading f_s(a)=s^2+1/4 -sa/2-3s^2 a^2/4 is strictly concave, maximized at a=-1 for s<=1/3 and a=-1/(3s) for s>1/3. Uniform second derivative and boundary sign extend exact optimal types to sufficiently small positive beta omega; the derivative at a=-1 equals s(3s-1)/2+x s^2(1-7s)+O(x^2), so IFT gives critical curve s_c=1/3+8x/27+O(x^2). Exact rational evaluation at x=1/5,s=2,kappa=1,a=-1/2,t=3/4 gives coherent QFI 11574741702400/8063279547193 versus largest diagonal 405/338. This is an inverse-temperature QFI and specified ordered limits, not all temperatures.
 
-The principal full-text source, Li–Tong–Bao, arXiv:2610.31249v1, Supplemental Section III (equations S16–S24), solves the ground-reset steady-state Davies thermometry benchmark but does not optimize over coherent reset targets or identify a preparation phase transition. Its coherence-based metrology discussion is for frequency estimation, which is not the claimed QFI task. Frazão et al., arXiv:2405.14439v1, derive coherence-enhanced *transient* thermometry for freely relaxing initialized probes; that prior achievement does not give the stationary continuous-reset threshold, the finite-temperature calibration of the threshold, or the exact coherent reset witness. Altintas, arXiv:1602.06783v1, considers stationary phase-estimation QFI in a different two-qubit dephasing-reset model. Searches for aliases, Bloch-parametrized thermal-reset optimization, and related prior mathematical records did not identify dominating statements. A general QFI-target convexity/steady metrology theorem might subsume an element of the calculation. No priority certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing a reset target is an operational resource that the initiating paper fixes at its ground-state benchmark. The result establishes when coherence must be supplied to obtain globally optimal high-temperature stationary thermometry, with a sharp and computable control threshold. An explicit finite-temperature witness demonstrates genuine improvement over *every* incoherent reset target at the same rate, not merely over one preparation. The critical-curve correction and iterated-limit qualification are useful to separate real protocol design from a singular large-temperature asymptotic.
+Qualified PASS on best current knowledge: the motivating thermometry source solves diagonal ground-state reset, whereas its coherent reset discussion addresses a different metrological frequency objective. Transient coherent thermometry is prior art but is not a stationary reset-target phase diagram.
 
-## Scientific limits and residual risks
+## value
 
-The bath thermalization rate diverges as inverse temperature tends to zero in the specified bosonic Davies model; physical realizability arbitrarily close to that boundary is not established. The target-state optimization is local in temperature near that limit at fixed reset rate, while the exact rational witness is one finite-temperature point. A mathematically broader and presently unidentified stationary qubit QFI optimization could contain the phase result. Independent evaluation and exhaustive priority screening have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp preparation transition and explicit coherent-versus-diagonal advantage explain when steady resetting should preserve coherence in a natural open-qubit sensing model; a nontrivial uniform optimization over the Bloch ball and critical boundary slope go beyond a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

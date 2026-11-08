@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.10 or later, with no third-party dependencies. The program reproduces the exact rational witness \(F_\beta=11574741702400/8063279547193\) and ground-state value \(405/338\), checks the sign of their rational difference, and checks the diagonal excited-state comparison. It also evaluates exact stationary Bloch residuals, analytic temperature derivatives, positive physical-state constraints and QFI, the six selected limiting pure-target latitudes, and the leading critical-curve slope against numerically located derivative-sign boundaries. The final packaged verifier passes 7,220 finite assertions.
+## correctness
 
-The finite tests do **not** establish the continuous supremum or uniqueness over all temperatures and target states; these are proved in the accompanying mathematical argument through exact stationary equations, a uniform expansion on the closed Bloch ball, strict concavity, and the analytic implicit-function theorem. The explicit finite parameter witness uses rational arithmetic and needs no numerical tolerance. The high-temperature limit is taken at fixed, finite positive reset rate and bath rate, not uniformly in the ratio of those two rates. The comparison measures single-copy inverse-temperature QFI, not physical experimental costs.
+PASS
+
+For bosonic Davies qubit GKSL reset at fixed s=r/gamma>0, x=e^(beta omega)-1, exact stationary Bloch coordinates are z=(sa-1)x/(2+(1+s)x) and w=s w_delta x/(1+(s+1/2+i kappa)x). Their beta derivatives and the full-rank qubit SLD QFI metric yield a smooth uniformly bounded rational objective on the entire compact reset Bloch ball as x->0. Leading QFI/omega^2=(sa-1)^2/4+s^2 t; derivative in transverse squared amplitude t is s^2+O(x)>0, forcing pure reset targets. Along t=1-a^2, leading f_s(a)=s^2+1/4 -sa/2-3s^2 a^2/4 is strictly concave, maximized at a=-1 for s<=1/3 and a=-1/(3s) for s>1/3. Uniform second derivative and boundary sign extend exact optimal types to sufficiently small positive beta omega; the derivative at a=-1 equals s(3s-1)/2+x s^2(1-7s)+O(x^2), so IFT gives critical curve s_c=1/3+8x/27+O(x^2). Exact rational evaluation at x=1/5,s=2,kappa=1,a=-1/2,t=3/4 gives coherent QFI 11574741702400/8063279547193 versus largest diagonal 405/338. This is an inverse-temperature QFI and specified ordered limits, not all temperatures.
+
+## originality
+
+PASS
+
+Qualified PASS on best current knowledge: the motivating thermometry source solves diagonal ground-state reset, whereas its coherent reset discussion addresses a different metrological frequency objective. Transient coherent thermometry is prior art but is not a stationary reset-target phase diagram.
+
+## value
+
+PASS
+
+The sharp preparation transition and explicit coherent-versus-diagonal advantage explain when steady resetting should preserve coherence in a natural open-qubit sensing model; a nontrivial uniform optimization over the Bloch ball and critical boundary slope go beyond a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

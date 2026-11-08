@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:48:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For bosonic Davies qubit GKSL reset at fixed s=r/gamma>0, x=e^(beta omega)-1, exact stationary Bloch coordinates are z=(sa-1)x/(2+(1+s)x) and w=s w_delta x/(1+(s+1/2+i kappa)x). Their beta derivatives and the full-rank qubit SLD QFI metric yield a smooth uniformly bounded rational objective on the entire compact reset Bloch ball as x->0. Leading QFI/omega^2=(sa-1)^2/4+s^2 t; derivative in transverse squared amplitude t is s^2+O(x)>0, forcing pure reset targets. Along t=1-a^2, leading f_s(a)=s^2+1/4 -sa/2-3s^2 a^2/4 is strictly concave, maximized at a=-1 for s<=1/3 and a=-1/(3s) for s>1/3. Uniform second derivative and boundary sign extend exact optimal types to sufficiently small positive beta omega; the derivative at a=-1 equals s(3s-1)/2+x s^2(1-7s)+O(x^2), so IFT gives critical curve s_c=1/3+8x/27+O(x^2). Exact rational evaluation at x=1/5,s=2,kappa=1,a=-1/2,t=3/4 gives coherent QFI 11574741702400/8063279547193 versus largest diagonal 405/338. This is an inverse-temperature QFI and specified ordered limits, not all temperatures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frazão et al show transient coherence-enhanced qubit thermometry without Poisson reset; Altintas considers a two-qubit dephasing/reset setup and a different unknown parameter."
+        ],
+        "reasoning": "Neither has a stronger stationary bosonic Davies QFI theorem uniform over reset target states and near-zero inverse temperature.",
+        "searches": [
+          "Frazão et al arXiv:2405.14439",
+          "Altintas arXiv:1602.06783"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.31249v1",
+        "https://arxiv.org/abs/2405.14439",
+        "https://arxiv.org/abs/1602.06783",
+        "Resultary: reset assisted qubit thermometry coherent reset target high temperature Fisher information 1/3 threshold",
+        "Li–Tong–Bao arXiv:2610.31249v1 Supplementary III",
+        "Frazão et al arXiv:2405.14439",
+        "Altintas arXiv:1602.06783",
+        "Resultary coherent reset high temperature thermometry Fisher information query",
+        "Li–Tong–Bao supplemental S16–S24",
+        "Li–Tong–Bao arXiv:2610.31249v1 main and Supplemental III",
+        "Frazão et al arXiv:2405.14439"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known ground-reset benchmark and known transient coherence gains leave the optimization of steady reset-state coherence mathematically open in the inspected statements."
+        ],
+        "reasoning": "Neither the ground-state-only QFI nor transient initial-state coherent thermometry implies the all-target limiting envelope, critical 8/27 slope or rational finite-temperature witness.",
+        "searches": [
+          "Li–Tong–Bao arXiv:2610.31249v1 main and Supplemental III",
+          "Frazão et al arXiv:2405.14439"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Tong–Bao treat Davies stationary ground-reset thermometry, with coherent target calculations in frequency sensing rather than inverse-temperature sensing."
+        ],
+        "reasoning": "Same thermometry model at one fixed diagonal target is a special case; its ground-reset QFI does not optimize the coherent Bloch latitude or imply threshold 1/3.",
+        "searches": [
+          "Resultary: reset assisted qubit thermometry coherent reset target high temperature Fisher information 1/3 threshold",
+          "Li–Tong–Bao arXiv:2610.31249v1 Supplementary III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sampled database hits concern thermal entanglement rather than a reset-rate 1/3 phase boundary; inspected prior benchmark fixes ground reset."
+        ],
+        "reasoning": "No same-rate table found; failed index lookup is not proof of global priority.",
+        "searches": [
+          "Resultary coherent reset high temperature thermometry Fisher information query",
+          "Li–Tong–Bao supplemental S16–S24"
+        ]
+      },
+      "rationale": "Qualified PASS on best current knowledge: the motivating thermometry source solves diagonal ground-state reset, whereas its coherent reset discussion addresses a different metrological frequency objective. Transient coherent thermometry is prior art but is not a stationary reset-target phase diagram.",
+      "residual_risks": [
+        "No fourfold advantage for fixed temperature as r->infinity; unknown literature with equivalent target optimization could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Steady thermometry targets ground-state resetting; coherent discussion is frequency estimation, not coherent stationary temperature optimization",
+          "evidence": "Supplementary Section III selects diagonal reset, whereas other section changes estimated parameter.",
+          "identifier_or_url": "https://arxiv.org/html/2610.31249v1",
+          "material_read": "Primary HTML including model and supplemental Section III steady thermometry assumptions, equations S16–S24",
+          "method": "Full-text HTML searched and relevant passages read",
+          "title": "Reset-Enhanced Dissipative Quantum Metrology (Li, Tong and Bao)",
+          "trigger": "Very near motivating problem, same reset Lindbladian"
+        },
+        {
+          "assessment": "Studies transient coherence of initially prepared qubit, not perpetual reset steady target",
+          "evidence": "Out-of-equilibrium thermometry without Poisson-reset optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.14439",
+          "material_read": "Abstract and accessible method description; full PDF not inspected",
+          "method": "Public abstract/primary metadata",
+          "title": "Coherence-enhanced single-qubit thermometry out of equilibrium (Frazão et al)",
+          "trigger": "Coherence could be generic thermometry prior art"
+        },
+        {
+          "assessment": "Different two-qubit reset/dephasing and metrological parameter",
+          "evidence": "Different Lindbladian and target observable.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.06783",
+          "material_read": "Abstract and primary metadata; full article not inspected",
+          "method": "Public abstract",
+          "title": "Quantum Fisher Information of an Open and Noisy System in the Steady State (Altintas)",
+          "trigger": "Possible steady-state QFI alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp preparation transition and explicit coherent-versus-diagonal advantage explain when steady resetting should preserve coherence in a natural open-qubit sensing model; a nontrivial uniform optimization over the Bloch ball and critical boundary slope go beyond a routine substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "High-temperature beta->0 at fixed gamma,omega,s; ideal Davies rates diverge; no preparation costs.",
+    "No fourfold advantage for fixed temperature as r->infinity; unknown literature with equivalent target optimization could affect priority.",
+    "Unchanged confidential public metadata/audit field prevents automatic publication; this is a transport/privacy blocker, not a scientific C/O/V failure.",
+    "This scientific review is neither expert attestation nor Lean verification and makes no invented certification claim."
+  ],
+  "schema_version": 1
+}
