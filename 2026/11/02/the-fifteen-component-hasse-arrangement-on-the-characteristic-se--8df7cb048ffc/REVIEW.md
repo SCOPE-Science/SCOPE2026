@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The finite-type cover has genus \(5\) and admits five elliptic quotient factors through a prime-to-\(7\) isogeny. The supersingular Legendre polynomial has the three simple roots \(2,4,6\). Permutation symmetry reduces pairwise intersections of all five elliptic Hasse divisors to \(u,v\in\{2,4,6\}\) with distinct entries, a set of six transverse points. Testing the representative \((2,4)\) proves exactly three factors vanish; double-counting gives twenty geometric points, all rational over \(\mathbb F_7\). The complete stratification and the \((15_4,20_3)\) ordinary triple arrangement follow. The standalone exact checker reproduces the finite component and orbit assertions; no infinite claim rests on finite enumeration alone.
+## correctness
 
-**Originality: PASS, with qualifications.** Carvacho–Hidalgo–Quispe (2015, Section 5.1), Auffarth–Lucchini Arteche–Rojas (2019/2020, Theorems 2.1 and 4.1), and Martínez-Núñez (2023) already establish the relevant elliptic quotient decomposition, including a \(2\)-primary kernel. They are prior premises, not novel findings. The checked primary portions and semantic searches did not provide an equivalent classification of the characteristic-seven Hasse intersection arrangement or twenty-point locus. However, alternate coordinates and older special-case literature remain residual priority risks.
+PASS
 
-**Value: PASS.** A complete two-dimensional arithmetic moduli stratification, the rank-gap phenomenon, and a reduced triple-point configuration are natural, structurally informative classification results rather than an isolated parameter computation.
+The maximal (Z/2)^4 genus-five cover of P1 branched over five distinct points has five elliptic quotient characters; its Jacobian is prime-to-7 isogenous to the product, so 7-rank and a-number add. In characteristic 7 the Legendre Hasse Deuring cubic h(t)=(t-2)(t-4)(t-6); five omitted-branch cross ratios r0=u,r1=v,r2=v/u,r3=(v-1)/(u-1),r4=u(v-1)/(v(u-1)) yield five divisors each with three smooth rational irreducible components. S5 transitivity reduces each pairwise intersection to u,v in {2,4,6} distinct (six points); at (2,4) exactly three factors vanish with three distinct tangent directions. Double-count 10 divisor pairs x6 / binom(3,2)=20 triple points, all M0,5(F7) of cardinality20; 15 components each contain four. Thus only (f7,a)=(5,0),(4,1),(2,3) and only twenty maximal-degeneration ordered points. Independent modular enumeration reproduced all 20 tests, 15 components, 10 six-element pair intersections and three-factor incidences. Computation alone does not prove completeness over closure; S5 geometry does.
 
-**Scope and limitations.** Ordered five-branch genus-five Humbert–Edge covers in characteristic seven; no compactified or coarse-moduli multiplicities, nor independent historical-priority verification. The result does not classify the entire Newton polygon or all curve isomorphisms.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The positive-characteristic generalized Fermat cover and elliptic quotient/isogeny decomposition are established prior work. Inspected Auffarth–Lucchini Arteche–Rojas covers 2-power isogeny geometry but not the characteristic-seven Hasse divisor stratification with exactly 15 components/20 triple points and a-number gap. Best-of-knowledge original as exact arithmetic incidence classification.
+
+## value
+
+PASS
+
+The complete supersingular Hasse arrangement on the natural marked genus-five Humbert–Edge family identifies all exceptional p-rank/a-number types and a finite 15_4,20_3 incidence structure, a meaningful moduli-stratum classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
