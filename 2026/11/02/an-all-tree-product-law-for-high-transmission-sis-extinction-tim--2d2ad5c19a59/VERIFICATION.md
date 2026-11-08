@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-**Theorem scope.** Fixed finite connected bidirected network; positive directional rates and positive recovery rates; limit of a shared transmission multiplier to infinity. No finite-check enumeration is used as a proof for all networks.
+## correctness
 
-**Analytic checks.** The generator identity for the test function \(f(S)=(K/\lambda)^{|S|}\) is exactly \((\lambda-K)(M(S)/K-c(S))\), which is negative under the prescribed constant \(K\). Optional stopping supplies the uniform small hitting probability needed for the coefficient induction. The renewal cycle formula is exact, with an \(O(\lambda^{-1})\) expected excursion correction. The order-chamber and tree-edge transforms each have unit absolute Jacobian; each tree edge contributes exactly \(1/w_{uv}+1/w_{vu}\).
+PASS
 
-**Runnable exact checker.** Use `python3 verify.py` from the extracted package directory. The checker uses only the Python standard library, exact rational arithmetic, and Gaussian elimination for selected finite absorbing chains. The saved replay reported:
+The exact finite-state first-step hitting equations, strict superharmonic (K/lambda)^|S|, and subset-size induction produce a rare extinction probability of order lambda^-(n-1). Renewal from full occupancy with O(lambda^-1) excursions gives its reciprocal mean. Decomposing pinned-coordinate integral by total order yields C_G, and tree edge differences are unimodular independent coordinates giving product (1/w_uv+1/w_vu). Added positive edge shrinks integrand a.e. Independent exact rational recurrence equals product across all 1441 labelled trees n=2..6 with asymmetric weights; P3 C=4, triangle C=3/2. Infinite/all-tree assertion rests on the proof.
 
-```
-ALL_CHECKS_PASSED
-tree_product_checks: 1441
-total_exact_checks: 1576
-path_P3_C: 4
-triangle_K3_C: 3/2
-tree_directed_heterogeneous_factor: 4/45
-```
+## originality
 
-**Limits of the checks.** The finite enumerations cover labelled trees through six vertices, connected graphs through four vertices, and a few large-transmission test points. They neither exhaust all network sizes nor establish the asymptotic without the analytical proof. The 2015 exact survival-time paper was accessible only at the abstract level; its full implication to the claimed formula remains unresolved. Independent verification has not been performed.
+PASS
+
+Known complete-graph/star exact SIS formulas and graph-size supercritical survival rates do not establish this all-tree asymmetric edge product or fixed-network large-lambda directed-cut integral. The closest 2015 SIS full text was inaccessible (institutional connection disconnected): do not infer full-document noncoverage; retain the overlap risk.
+
+## value
+
+PASS
+
+An exact asymptotic prefactor for all trees, with heterogeneity and strict contact-monotonicity, provides a natural topological comparison beyond exponential-in-size survival bounds and shows leading universality among different tree shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
