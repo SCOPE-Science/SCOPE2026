@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise domain is an arbitrary binary palindrome of length at least three with first and last symbol \(1\) and no internal \(11\), followed by a specialization to the finite Cantor iterates. The unique cyclic \(11\) must be fixed by palindrome reflection, forcing it to be the central pair of every wrap-crossing palindrome. The palindrome property of the base word establishes existence of all central-join candidates; each has a unique even length and cannot be linear. For Cantor iterates, the constructive induction introduces \(2n\) genuinely new ordinary palindromes upon extending length \(n\) to \(3n\); the established universal \(|w|\)-palindrome bound proves exhaustiveness. The three-family description gives the exact length spectrum. The packaged checker validates the entire statements at finite ranks and an independent general-class sample; finite checks are explicitly supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-The closest source, Glen–Justin–Widmer–Zamboni's *Palindromic Richness* (arXiv:0801.1656), proves general rich-word facts and notes that the infinite Cantor word is rich. This covers ordinary richness and is **not** claimed new. Simpson's *Palindromes in circular words* (DOI 10.1016/j.tcs.2014.07.012) gives a general bound below \(5N/3\), but its accessible abstract does not assert a factor-language transfer or exact Cantor spectrum. The complete Simpson article could not be retrieved, so an undiscovered implication or covered special case remains possible. Schaeffer–Shallit (arXiv:1508.02074) study automatic-word palindromic predicates, not a complete literal cyclic language of Cantor iterates. Existing finite Cantor linear-palindrome spectra determine the ordinary component; the genuinely additional statement identifies **all cyclic-only words** via the join. Searches also included aliases and the complete implications of earlier finite Cantor palindrome claims. Unavailability of one plausible source is a residual originality risk, not evidence it lacks the result.
+PASS
 
-## Value — PASS
-Cyclic closure changes the set of factors of a finite string and is a natural variation in stringology. The theorem gives a full *language-level* classification for a broad boundary-isolated class rather than a numerical observation; it explains why no odd palindrome can be created at the join and why exactly one even palindrome appears at each length. Its Cantor specialization gives a complete recursive-family spectrum and shows the exact linear-to-circular increment \((N-1)/2\), useful as a benchmark for circular-palindrome enumeration and distinct-factor algorithms. The motivation is intrinsic to circular palindromic complexity; no unrelated downstream theorem is asserted.
+For a binary palindrome w length N>=3 with endpoints 1 and no internal 11, the circular join is the unique 11. A wrap-crossing palindromic factor contains this pair once; reflection forces it to occupy the two central positions, hence it has even length 2d and is exactly suf_d(w) pre_d(w). Palindromicity makes each of these words symmetric; their 11 prevents occurrence inside w and their distinct lengths make the union disjoint. For Cantor iterate C_{k+1}=C_k 0^{3^k} C_k, induction produces N existing palindromes plus 2N distinct new words through zero-only, zero-padded smaller Cantor and central-bridge families. The general at-most-word-length palindromic bound then proves exhaustiveness. Combining ordinary length spectrum with exactly one new even-length circular palindrome yields the stated piecewise 1/2/3 spectrum and (3N-1)/2 total. Independently enumerated every admissible palindromic word through N=12 and literal Cantor circular palindrome spectra through rank k=4. This is an all-rank proof beyond finite tests.
 
-## Sources and limitations
-The 2008 arXiv full text was inspected, especially the general bound and Cantor richness example (Proposition 2.10). Simpson (2014) was accessible at record/abstract level but the open-access PDF link failed; the complete article remained inaccessible. The 2015/2016 automatic-word abstract was inspected, not its full text. Earlier finite Cantor linear-spectrum statements were compared for logical coverage, without assuming that the cyclic problem is resolved by a linear statement. Independent review has not occurred. The mathematical claim is confined to the scope in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Crucial prior-coverage correction: Simpson 2014 Proposition 13 ALREADY proves the sharp upper bound ceil((3N-1)/2) for *every palindromic word*, so the Cantor total (3N-1)/2 by itself is not a novel bound. Glen–Justin–Widmer–Zamboni already recognize the infinite Cantor word as rich. What survives is the distinct circular-factor LANGUAGE via unique boundary 11 for every word in the specified boundary-isolated family and the complete finite Cantor lengthwise spectrum; neither is given by Simpson’s aggregate bound or richness alone. A direct implication from additional uninspected finite Cantor factor enumeration remains a residual historical risk.
+
+## value
+
+PASS
+
+An explicit transfer rule for literal circular palindromic languages and a full finite Cantor length spectrum supply usable detailed information beyond classical rich-word maximality and Simpson’s count bound. The theorem isolates a natural unique-boundary mechanism rather than an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
