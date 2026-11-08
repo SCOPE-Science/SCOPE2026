@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For each integer \(1\le m\le6\), the claim concerns all balanced length-\(2m\) binary words and exactly one deletion. The checksum-coloring proof constructs a code of Catalan cardinality by pigeonhole; its noncollision step counts crossed opposite bits, which are between one and \(m\), so distinct same-color words cannot share a deletion output. The exact rational dual certificate lists integer weights covering **every** balanced input with total below \(\operatorname{Cat}_m+1\). Both implementations independently reconstruct deletion output incidence and compare exact integer inequalities. The length-eight rational fractional primal separately satisfies every output capacity and has objective greater than fourteen. Unit duals show fractional integrality in the three preceding balanced layers. No extrapolation beyond length twelve is made.
+PASS
 
-## Originality: PASS (qualified historical priority)
+Modified Varshamov–Tenengolts residue mod (m+1) provides at least Catalan(m) mutually non-confusable balanced words; checksum differences for deletion-confusable distinct balanced words count a nonzero number <=m of crossed opposite symbols. For all m=1..6, actual dual_certificates.json integer weights of scale 1,000,000 have every source word deletion-shadow cover >=1,000,001 and objective totals 1,000,001;2,000,002;5,000,005;14,195,149;42,317,279;132,512,205, each strictly below (Catalan(m)+1)*scale. Independently fetched and decoded both actual signed Git blobs and reconstructed every word and distinct deletion shadow in a separate JavaScript verifier: all full finite-universe inequalities passed, sizes 2,6,20,70,252,924. Exact primal_gap_m4.json numerators have total 1,419,498 /100,000 and maximum output load 99,999 /100,000, proving strict fractional gap. Unit duals for m=1..3 in the inspected certificate prove LP integrality. These are exhaustive rational finite proofs for m<=6, not an infinite Catalan formula.
 
-The closest literature is Cullina–Kulkarni–Kiyavash's 2012 constant-weight graph paper and its original 2012 ISIT article, which prove optimal coloring, not the independence-number equalities or the exact first fractional packing gap. Kulkarni–Kiyavash (2012) supplies general hypergraph LP methods, not these certificate values. Actual semantic queries in published research records returned closest studies of unrestricted binary, ternary, and quinary deletion codes, which do not imply the balanced central layer through length twelve. Comparison was by hypotheses, channel, parameters and logical implication, not title alone. Historical priority cannot be guaranteed: related earlier or unindexed exact-value tables remain a residual risk.
+## originality
 
-## Value: PASS
+PASS
 
-Balanced constant-weight layers are a canonical restricted deletion channel studied explicitly through optimal colorings. The largest independent set is a distinct, natural coding invariant with operational meaning (maximum decodable messages). The six exact initial values advance beyond the published coloring theorem by closing upper bounds with checkable certificates, while the first fractional packing gap exposes a concrete limitation of the standard LP technique. This is a motivated exact finite cutoff and structural boundary, not a mere recomputation of known color classes. It does not assert a general new all-length theorem.
+Cullina–Kulkarni–Kiyavash 2012 establish optimal chromatic number and checksum coloring for constant-weight deletion-confusability graphs; a coloring into m+1 classes only provides A_m>=Catalan and does not imply matching independence upper bounds. Kulkarni–Kiyavash 2012 establish general deletion-channel fractional matching upper bounds but do not state these six exact dual certificates or the first balanced LP fractional gap. Adjacent Resultary single-deletion catalogs concern unrestricted length-six codes or other channels, so do not dominate central constant-weight values. Historical independent-set tables remain a residual priority risk.
 
-## Scope and limitations
+## value
 
-No claim is made for balanced length fourteen or higher, all optimum codebooks, or the exact fractional optimum at length eight. Primal and dual certificate checks are independent from each other as algorithms, but independent *scientific audit* has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact initial finite profile for a natural weight-constrained deletion channel plus the first failure of its canonical LP relaxation are meaningful coding-theoretic invariants. Upper bounds require nontrivial all-word integer dual coverage certificates; neither a known coloring nor routine recomputation proves the first relaxation gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
