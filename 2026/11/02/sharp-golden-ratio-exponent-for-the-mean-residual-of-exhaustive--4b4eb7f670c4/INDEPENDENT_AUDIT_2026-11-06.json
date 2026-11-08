@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:12:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git tree 7f8fd390... RESULT.md and verify.py at frozen commit; independently reconstructed recurrence",
+        "independent_checks_6590.py: rational moments N<=64 and all binary words N<=10",
+        "Garivier Section 8 PDF p.29-30 (primary known recurrence)"
+      ],
+      "rationale": "The fair-input transform has exact length recurrence a_(2n+rho)=a_n+E[a_B]+rho, B~Bin(n,1/2), with a_0=0,a_1=1 and b_m=a_m/2 for residual-one expectation. The golden exponent alpha=log_2 phi obeys n^alpha+(n/2)^alpha=(2n)^alpha. Taylor concavity and Chernoff bound control the binomial Jensen deficit uniformly by <4, including the B=0 atom. The constants 1/10,9/10 in the positive-length lower induction have spare >=.05; the 3,-2 upper induction includes odd lengths and B=0 correctly. Thus all N>=1 bounds and existential worst-case lower follow. Independent rational recurrence through N=64 and all 2^N strings through N=10 agreed; those finite checks are not the infinite proof.",
+      "residual_risks": [
+        "Expected residual length has no proved limit prefactor a_N/N^alpha here; biased inputs and maximum upper exponent are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garivier Theorem 7 and Appendix A: worst-case residual-one bound exponent approx 0.7729",
+          "Pae 2018 general recursion and asymptotic optimality; Peres 1992 rate limit"
+        ],
+        "reasoning": "A worst-case bound with larger exponent and qualitative entropy rates do not yield the sharp lower/upper mean exponent 0.694 for all lengths.",
+        "searches": [
+          "Peres exhaustive transform expected residual length golden ratio exponent alpha log2 phi uniform finite length sharp mean bound",
+          "Universal coding with exhaustive Peres transform 2610.26396",
+          "Pae Peres-Style Recursive Algorithms 1805.04610"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.26396 and XSci preprint PDF, section 8",
+        "Resultary semantic query Peres exhaustive transform expected residual length golden ratio exponent alpha log2 phi uniform finite length sharp mean bound",
+        "Peres 1992 DOI:10.1214/aos/1176348543 (citation and scope)",
+        "Pae arXiv:1805.04610 (reference/scope)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Garivier PDF p.29: a_(2n+rho)=a_n+E[a_B]+rho; n^alpha scaling described as heuristic",
+          "Present induction uses explicit uniform Jensen-gap bound and zero-child correction"
+        ],
+        "reasoning": "The recursion is credited. It logically determines all means but, without a quantified analytic comparison, does not state/prove the proposed sharp exponent and finite bounds.",
+        "searches": [
+          "Peres exhaustive transform expected residual length golden ratio exponent alpha log2 phi uniform finite length sharp mean bound",
+          "arxiv:2610.26396 section 8 open problems mean residual"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garivier 2026, open problems, PDF p.29-30: E|R| exact recurrence and heuristic exponent",
+          "Expectation of unused bits equals N minus expected fair extraction output length"
+        ],
+        "reasoning": "Mean leftover, expected extraction deficit and residual length are equivalent under |Y|+|R|=N. The primary paper gives only a heuristic mean exponent, not an all-N proof.",
+        "searches": [
+          "Peres exhaustive transform expected residual length golden ratio exponent alpha log2 phi uniform finite length sharp mean bound",
+          "Peres extractor mean residual leftover expected loss n^log2 phi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Garivier Section 8 reports selected maximal residual-one counts, not a complete table of exact means"
+        ],
+        "reasoning": "The all-N theorem is not a lookup of a precomputed maximum table; no exact mean table sufficient for the sharp asymptotic theorem was recovered.",
+        "searches": [
+          "Peres exhaustive transform expected residual length golden ratio exponent alpha log2 phi uniform finite length sharp mean bound",
+          "Garivier 2026 maximal residual dynamic-program lengths weights"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the quantitative all-N sharp-mean exponent, not for the recursion or conjectured worst-case exponent. The same mean recurrence and heuristic golden exponent are explicitly in Garivier 2026 Section 8; its deterministic upper exponent about .773 is weaker and for a different statistic. No inspected primary theorem supplies matching all-N two-sided mean bounds; older Peres/Pae extraction-rate results are qualitative. Earlier divide-and-conquer recurrence theory may independently imply these bounds.",
+      "residual_risks": [
+        "Unindexed earlier analysis of divide-and-conquer recurrences or Peres mean residuals could yield the same growth bounds.",
+        "Peres 1992 and Pae 2018 original full texts were not newly retrieved; comparison beyond printed claims is qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known recurrence/heuristic and worst-case conjecture; no all-N mean two-sided bound in inspected relevant sections",
+          "evidence": [
+            "Section 8 p.30 gives recurrence and alpha heuristically, explicitly separates maximum open problem"
+          ],
+          "identifier_or_url": "https://xsci.com/preprint/doi/10.66977/xsci.2610.002f.pdf",
+          "material_read": "PDF introduction pp.1-3 and Section 8 open problems pp.29-30; checked rendered page images p.1,p.30 and text",
+          "method": "Primary full preprint PDF opened, text and page screenshot inspection",
+          "title": "The Exhaustive Peres Transform: Extraction and Universal Coding",
+          "trigger": "Direct same transform and residual open question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Garivier 2026 residual-weight open problem and actual exponent heuristic",
+        "Rational recurrence and concavity-deficit induction in assigned RESULT.md"
+      ],
+      "rationale": "The expected leftover size is a natural efficiency invariant of an exhaustive unbiased-bit extractor. Proving the exact exponent conjectured heuristically by its inventor gives sharp decay of mean extraction loss and a nontrivial pointwise existence bound; no maximum-case equality or limit constant is asserted. The all-size bound is not a renamed finite table or routine output-rate calculation.",
+      "residual_risks": [
+        "Does not settle worst-case upper exponent, extraction for biased sources, or numerical optimal prefactors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Expected residual length has no proved limit prefactor a_N/N^alpha here; biased inputs and maximum upper exponent are excluded.",
+    "Unindexed earlier analysis of divide-and-conquer recurrences or Peres mean residuals could yield the same growth bounds.",
+    "Peres 1992 and Pae 2018 original full texts were not newly retrieved; comparison beyond printed claims is qualified.",
+    "Does not settle worst-case upper exponent, extraction for biased sources, or numerical optimal prefactors."
+  ],
+  "schema_version": 1
+}

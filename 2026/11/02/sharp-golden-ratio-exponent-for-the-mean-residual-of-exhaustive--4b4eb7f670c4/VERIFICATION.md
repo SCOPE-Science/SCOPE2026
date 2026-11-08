@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mean residual power-law theorem
+# Independent mathematical audit
 
-`verify.py` is self-contained and needs only Python's standard library. Running `python verify.py` produces the results recorded in `verification-output.txt` and ends with `VERIFY_OK`.
+## correctness
 
-It computes the exhaustive Peres map recursively from its pairwise definition and checks all \(2^N\) inputs for each \(1\le N\le12\), with exact rational mean comparisons against an independently implemented binomial recurrence. The total number of checked input strings is \(\sum_{N=1}^{12}2^N=8190\). It separately computes both rational expected residual-length and residual-one counts through length 90 and verifies their exact ratio \(2:1\), and checks the stated numerical barriers at these finite lengths.
+PASS
 
-The analytic all-length evidence is the detailed proof in `RESULT.md`: the binomial smoothing deficit is uniformly bounded by \(4\) using curvature and the Chernoff inequality; lower and upper barriers are established by complete strong inductions, handling the zero-child atom and odd remainders. Finite numerical checks are sanity checks only. There is no formal theorem prover, independent mathematical audit, or claim that enumerating finite strings certifies an infinite statement. Existence of a limiting ratio \(\mathbb E|R_N|/N^\alpha\), the maximum-residual upper exponent and biased-source rates are not established.
+The fair-input transform has exact length recurrence a_(2n+rho)=a_n+E[a_B]+rho, B~Bin(n,1/2), with a_0=0,a_1=1 and b_m=a_m/2 for residual-one expectation. The golden exponent alpha=log_2 phi obeys n^alpha+(n/2)^alpha=(2n)^alpha. Taylor concavity and Chernoff bound control the binomial Jensen deficit uniformly by <4, including the B=0 atom. The constants 1/10,9/10 in the positive-length lower induction have spare >=.05; the 3,-2 upper induction includes odd lengths and B=0 correctly. Thus all N>=1 bounds and existential worst-case lower follow. Independent rational recurrence through N=64 and all 2^N strings through N=10 agreed; those finite checks are not the infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the quantitative all-N sharp-mean exponent, not for the recursion or conjectured worst-case exponent. The same mean recurrence and heuristic golden exponent are explicitly in Garivier 2026 Section 8; its deterministic upper exponent about .773 is weaker and for a different statistic. No inspected primary theorem supplies matching all-N two-sided mean bounds; older Peres/Pae extraction-rate results are qualitative. Earlier divide-and-conquer recurrence theory may independently imply these bounds.
+
+## value
+
+PASS
+
+The expected leftover size is a natural efficiency invariant of an exhaustive unbiased-bit extractor. Proving the exact exponent conjectured heuristically by its inventor gives sharp decay of mean extraction loss and a nontrivial pointwise existence bound; no maximum-case equality or limit constant is asserted. The all-size bound is not a renamed finite table or routine output-rate calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

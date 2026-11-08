@@ -1,19 +1,21 @@
-# Review: sharp golden-ratio exponent for mean exhaustive-Peres residuals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fair binary input, the XOR sequence is uniformly distributed and the retained equal-pair bits are independent fair bits conditional on the XOR sequence. This proves both recurrences, including the odd final bit. The exponent is exactly the solution to \(2^{-\alpha}+4^{-\alpha}=1\). The lower induction does not approximate the binomial child by its mean: the proof bounds the actual Jensen gap by \(d_n<4\) using Taylor curvature and the standard binomial Chernoff tail. With the zero-binomial atom accounted for, the lower and upper barriers hold at every positive integer input length. The corresponding expected number of residual ones is exactly half by recurrence and the base cases. An independent direct recursive enumeration through length 12 and exact rational recurrence calculations through length 90 agree. These finite checks are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The fair-input transform has exact length recurrence a_(2n+rho)=a_n+E[a_B]+rho, B~Bin(n,1/2), with a_0=0,a_1=1 and b_m=a_m/2 for residual-one expectation. The golden exponent alpha=log_2 phi obeys n^alpha+(n/2)^alpha=(2n)^alpha. Taylor concavity and Chernoff bound control the binomial Jensen deficit uniformly by <4, including the B=0 atom. The constants 1/10,9/10 in the positive-length lower induction have spare >=.05; the 3,-2 upper induction includes odd lengths and B=0 correctly. Thus all N>=1 bounds and existential worst-case lower follow. Independent rational recurrence through N=64 and all 2^N strings through N=10 agreed; those finite checks are not the infinite proof.
 
-Garivier's October 2026 work presents the exact recurrence and specifically identifies the golden-ratio mean exponent as a heuristic in the discussion of the open worst-case residual-growth problem. Its proved deterministic upper exponent is larger and does not supply the all-length mean estimate. Peres's original asymptotic-rate proof, Pae's recursive extraction treatment, and Prasitsupparote–Konno–Shikata's finite-length conditional maximum-redundancy bound do not imply this two-sided sharp fair-source mean statement. Semantic mathematical-record searches and overlap comparisons with accessible prior scientific claims found no matching theorem. Recurrence asymptotics may be implicit in unindexed divide-and-conquer analysis, so this assessment is not independent priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The exponent of the expected number of unextracted bits determines the finite-length loss scale of an explicit lossless randomness extractor. The motivating paper singled out the same exponent heuristically, leaving a quantitative gap between numerical behavior and the established worst-case estimate. Proving positive universal lower and upper constants directly on the exact recursion identifies the mean scale at every length and gives a power-law lower obstruction to reducing the worst-case exponent below \(\log_2\varphi\). This does not settle the conjectured sharp maximum-residual exponent or the limiting prefactor.
+Best-of-knowledge PASS for the quantitative all-N sharp-mean exponent, not for the recursion or conjectured worst-case exponent. The same mean recurrence and heuristic golden exponent are explicitly in Garivier 2026 Section 8; its deterministic upper exponent about .773 is weaker and for a different statistic. No inspected primary theorem supplies matching all-N two-sided mean bounds; older Peres/Pae extraction-rate results are qualitative. Earlier divide-and-conquer recurrence theory may independently imply these bounds.
 
-## Closest literature and limitations
+## value
 
-The closest source is A. Garivier, arXiv:2610.26396, Section 8 and Appendix A: mean recursion and heuristic exponent, different rigorous worst-case upper bound. Y. Peres (1992) proves asymptotic extraction rates; S.-I. Pae (2018) treats recursive extraction; A. Prasitsupparote et al. (2018) give a different, heuristic-dependent maximum-redundancy lower bound. The theorem only concerns independent fair input and the specified exhaustive transform. No independent publication-priority or mathematical audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The expected leftover size is a natural efficiency invariant of an exhaustive unbiased-bit extractor. Proving the exact exponent conjectured heuristically by its inventor gives sharp decay of mean extraction loss and a nontrivial pointwise existence bound; no maximum-case equality or limit constant is asserted. The all-size bound is not a renamed finite table or routine output-rate calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
