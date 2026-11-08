@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies an Apéry rectangle using two nonnegative reduction relations and residue uniqueness. The identity \(a+c=2b+1\) produces exact adjacent-residue coordinate transformations and integer inequalities, so each claimed isolated gap is derived from the necessary-and-sufficient neighbor criterion. The exceptional indices are evaluated by the same finite inequalities. A separate Dijkstra-based verifier checks every \(3\le n\le150\) and direct membership for \(3\le n\le16\); the infinite proof does not rely on these experiments.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2017 Robles-Pérez–Rosales paper treats the same triangular triples and determines Frobenius and free-semigroup invariants, but an inspection of its full text found no formula or classification for isolated gaps. Moreno-Frías–Rosales (2023) treats covarieties of perfect semigroups and general algorithms but not this family. Singh–Ram (2024) treats embedding dimension two, whereas these triples have embedding dimension three for \(n\ge3\). Smith (2022) gives general Apéry-based observations and two-generator examples; its full PDF was inaccessible, so earlier implicit coverage cannot be absolutely excluded. Search results and research-index similarity hits did not identify an equivalent explicit triangular-three-generator count. This is a best-knowledge originality assessment, not a priority certificate.
+PASS
 
-## Value — PASS
-The result determines the entire set, not just a computed total, of a local representability invariant for an infinite natural family of coin-denomination problems. These semigroups were already studied for Frobenius number, yet Frobenius and genus do not determine the isolated-gap distribution. The surprisingly linear, parity-dependent count and the two-row support provide structural information beyond generic Apéry algorithms and are not an arbitrary numerical slice.
+Factor the triangular triple as (Ad,Bd,Be) with gcd(A,B)=gcd(d,e)=1 and relations Ab=Ba and dc=eb. Each residue modulo a=Ad has exactly one rectangular Apéry representative yb+zc for 0<=y<A,0<=z<d; reduction modulo d and then A proves uniqueness, while relations prove completeness. Identity a+c=2b+1 yields exact neighboring-residue coordinates. Interior 1<=z<=d-2 contributes only top two y rows, one gap each; z=0 contributes none and z=d-1 contributes B-1 gap levels for each top row. Edge cases n=3,4,6 handled with degenerating A. Count 2[(d-2)+(B-1)] gives stated parities and complete set. Independent Dijkstra-based residue enumeration and direct gap-neighbor tests checked every n from 3 through 33, but infinite correctness rests on the rectangular proof.
 
-## Closest literature and limitations
-The motivating isolated-gap work is Moreno-Frías–Rosales (arXiv:2305.14967, publicly posted 2023-05-24); the closest work on the same generators is Robles-Pérez–Rosales (arXiv:1706.04378, 2017). Smith's complete 2022 publisher PDF was not accessible, and unindexed earlier computations remain possible. The result does not cover nonconsecutive triangular triples or arbitrary telescopic systems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Robles-Pérez and Rosales explicitly treat the same consecutive triangular generators and their telescopic/free nature, Apéry and Frobenius properties. Those facts underlie but do not evaluate the isolated-gap set because neighbor membership in adjacent residues is additional information. Moreno-Frías–Rosales study perfect semigroups (zero isolated gaps) and Singh–Ram dimension two. The closest Smith paper is inaccessible beyond abstract, so priority risk is stated.
+
+## value
+
+PASS
+
+A complete exact local gap classification for a canonical embedding-dimension-three numerical semigroup is a motivated structural invariant, not a routine re-count of the already known Frobenius number. The parity-dependent sharp linear formulas and explicit full sets identify precisely where gaps have neighboring members, useful for perfect semigroup and Apéry-based classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

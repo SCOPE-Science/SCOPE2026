@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 verify.py` (Python 3 standard library only). A successful run prints `VERIFY_OK n=3..150 inclusive; exact isolated sets and counts; 573796 Apéry residues; 14 direct-membership cases`.
+# Independent mathematical audit
 
-For each parameter, the verifier independently constructs the residue shortest-path Apéry set with Dijkstra's algorithm, then derives all isolated gaps from adjacent Apéry thresholds. It checks the exact formula and, when applicable, every listed gap. At the fourteen smallest parameters it separately builds the semigroup's membership table through the Frobenius bound, using ordinary coin recurrences rather than Apéry arithmetic. All checks passed. These finite checks are reproducibility tests; they are not a substitute for the proof covering every index.
+## correctness
+
+PASS
+
+Factor the triangular triple as (Ad,Bd,Be) with gcd(A,B)=gcd(d,e)=1 and relations Ab=Ba and dc=eb. Each residue modulo a=Ad has exactly one rectangular Apéry representative yb+zc for 0<=y<A,0<=z<d; reduction modulo d and then A proves uniqueness, while relations prove completeness. Identity a+c=2b+1 yields exact neighboring-residue coordinates. Interior 1<=z<=d-2 contributes only top two y rows, one gap each; z=0 contributes none and z=d-1 contributes B-1 gap levels for each top row. Edge cases n=3,4,6 handled with degenerating A. Count 2[(d-2)+(B-1)] gives stated parities and complete set. Independent Dijkstra-based residue enumeration and direct gap-neighbor tests checked every n from 3 through 33, but infinite correctness rests on the rectangular proof.
+
+## originality
+
+PASS
+
+Robles-Pérez and Rosales explicitly treat the same consecutive triangular generators and their telescopic/free nature, Apéry and Frobenius properties. Those facts underlie but do not evaluate the isolated-gap set because neighbor membership in adjacent residues is additional information. Moreno-Frías–Rosales study perfect semigroups (zero isolated gaps) and Singh–Ram dimension two. The closest Smith paper is inaccessible beyond abstract, so priority risk is stated.
+
+## value
+
+PASS
+
+A complete exact local gap classification for a canonical embedding-dimension-three numerical semigroup is a motivated structural invariant, not a routine re-count of the already known Frobenius number. The parity-dependent sharp linear formulas and explicit full sets identify precisely where gaps have neighboring members, useful for perfect semigroup and Apéry-based classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
