@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Place `verify.py` beside this document and run `python verify.py` with Python 3, NumPy and SymPy available. On the recorded run, the script returned `PASS 4801 assertions` and printed the exact/approximate values for mixed Petersen and five-cycle examples. It checks the exact Petersen adjacency polynomial and rank-five Fiedler spectral projector, the \((2/3)I_3\) local Gram identity at all ten vertices, positivity and boundary identities for 1,140 pairs \((k,m)\), stochasticity and full numerical product spectra for six modest matrices, and seeded local edge-perturbation tests.
+## correctness
 
-The exact analytical argument in RESULT.md—not finite enumeration or floating-point experiments—proves the universal minimax optimum and uniqueness. Tests of perturbed matrices are sanity checks only; they do not establish unrestricted optimization. Complete factors' edge transitivity and Fiedler projected-edge independence are checked separately in the proof. For the mixed family with one Petersen factor the computed holding is strictly positive; with two Petersen factors it is zero.
+PASS
 
-The bibliographic day 2007-09-06 refers to the first exact-day verified public preprint record. An earlier technical report is listed by the publisher only as May 2007. Independent audit: not yet performed.
+Reconstructed the orbit average of a general symmetric stochastic matrix to directional weights w_i, the eigenvalue extrema 1-min_i(alpha_i w_i) and 1-sum_i(beta_i w_i), and the budget/minimax lower bound. The weights tau/alpha_i attain it. For unrestricted Q, the PSD matrix (1-tau)I-(Q-J/N) and zero averaged Fiedler quadratic forms force Q to agree on each factor Fiedler eigenspace; independence of the local projected neighbor differences fixes every edge. Petersen adjacency identity A^2=2I-A+J gives Pi=(4I+2A-J)/6 with Gram (2/3)I_3; cycle trigonometric Fiedler columns independent. Recomputed all ten Petersen local Gram matrices and 84 k,m branch instances. For odd m, (4-beta_m)/alpha_m=1/(4 cos^2(pi/(2m))) yields positive hold only k=1. Finite checks corroborate, while tensor/PSD proof covers all stated finite factors.
+
+## originality
+
+PASS
+
+The value formula is a symmetry-reduced standard fastest-mixing SDP application, and is not claimed novel alone. Best-of-knowledge surviving claim is a local Fiedler-edge independence criterion that proves uniqueness even for arbitrary non-invariant edge/loop weights, and the exact Petersen-cycle holding transition. The inspected Boyd–Diaconis–Parrilo–Xiao paper develops symmetry-based semidefinite optimization and Cartesian examples but its checked product and Petersen discussions do not establish this unrestricted local rigidity theorem. An implicit SDP strict-complementarity consequence elsewhere remains possible.
+
+## value
+
+PASS
+
+The local spectral independence test upgrades a symmetric optimum to an unrestricted uniqueness certificate, a structural issue not decided by averaging. The alternating zero/nonzero holding transition on a natural mixed Petersen-cycle family is an exact, parameter-uniform boundary, not a standalone generic numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
