@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The open-neighborhood update has the exact polynomial representation in `RESULT.md`, equation (1). Characteristic-two Chinese remaindering separates one hub-coupled primary factor from an invertible cyclic factor. On the exceptional factor, the exact square and cube of the local update give rank sequences determining the claimed nilpotent Jordan partitions: one block of length one for odd \(n\), \((3,1,1)\) when \(n\equiv2\pmod4\), and \((e,e,1)\) when \(4\mid n\). On the complementary factor, a two-by-two determinant calculation gives the displayed polynomial-gcd fixed-point dimensions. Fitting decomposition and Möbius inversion complete the entry-time and primitive-orbit counts. The proof verifies all parameters, not just a sample. Standalone `gear_verify.py` passed 2,326 rank checks and 1,984 return-count kernel checks for \(3\le n\le64\), plus direct enumeration of 174,720 states for \(3\le n\le8\).
+PASS
 
-## Originality — PASS, qualified
+Encode the rim in R=F2[X]/(X^n+1), with hub coupling via J=(X^n+1)/(X+1). The specified open-neighborhood XOR map is (c,U,V)->(U(1), cJ+(1+X)V, (1+X^-1)U). CRT separates the (X+1)^e primary ring R0 from invertible R1, where e=2^v2(n). In R0, J=t^(e-1), and the local 2e+1-dimensional map has an invertible hub/U pair plus (1) nilpotent block for odd n; for e=2 ranks 3,1,0 imply blocks (3,1,1); for e>=4 the exact ranks T,T²,T^j imply (e,e,1). Thus periodic dimensions are 2n for odd and 2n−2e for even n. Zero-primary nilpotent kernels give E_n(j)=2^(p_n+Σmin(j,ell)). On R1 the square B²=((X+1)^2/X)I yields gcd kernel formulas for even and odd return times; odd n contributes 1 or 2 hub dimensions, even n none. Mobius inversion correctly counts primitive t-cycles. Independent GF2 adjacency/matrix-power ranks and polynomial gcds checked n=3..20 and t=1..12, 340 exact comparisons. These finite tests corroborate, not replace, the all-n CRT argument. Verified e=2 special case and n powers of two.
 
-Marr–Hütt (arXiv:cond-mat/0502509v1, inspected full text in HTML and representative PDF page) considered binary network automata with degree-density threshold flip rules, rather than the present additive neighbor-XOR map. Berman–Borer–Hungerbühler (DOI 10.1007/s00591-021-00297-5, inspected open full HTML, including Theorem 4 and Propositions 7–9) concerns user-selected Lights Out switch sequences, not autonomous \(F_n^t\). Martin–Odlyzko–Wolfram (DOI 10.1007/BF01223745) developed polynomial state-transition algebra for homogeneous finite cellular automata, but the complete article was not available for full inspection; its abstract and beginning were checked, and this historical uncertainty remains explicit. Gear-graph sources identify the graph class and unrelated invariants. Searches of graph aliases, nilpotent blocks, return-time counts, polynomial gcds and published research records yielded no stronger or equivalent all-gear theorem. A negative search is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The family is an established wheel-subdivision/Jahangir graph class, and its binary recurrent behavior is not settled by graph size, bipartiteness or the generic finite-matrix method. The exact classification exhibits a nontrivial short-ring fusion at \(n\equiv2\pmod4\), periodic-state fractions that jump between odd and even sizes, complete nilpotency on power-of-two gears, and an all-time arithmetic recurrence census. These are coherent structural invariants of the whole infinite family rather than a list of small examples.
+Autonomous XOR iteration on a simple gear/bipartite wheel/Jahangir graph is distinguished from controllable Lights Out switching and threshold-density binary automata. Generic finite CA ring polynomial methods can in principle compute Fitting blocks and fixed spaces, but no inspected prior exact (e,e,1)/(3,1,1) gear-specific Jordan and gcd census. Published Resultary complete multipartite or distance-two cube parity censuses operate on different graphs. Martin–Odlyzko–Wolfram provides important general algebraic CA prior but does not visibly state a gear result in accessed sections; Sutner full 1990 paper not read. Explicit best-of-knowledge with meaningful risks.
 
-## Closest literature and limitations
+## value
 
-The most relevant inspected sources are Marr–Hütt's full 2005 arXiv paper on topology-dependent automata and Berman–Borer–Hungerbühler's 2021 open article on graph Lights Out; their different dynamics are compared explicitly above. The foundational 1984 paper of Martin–Odlyzko–Wolfram was not accessible in complete form. Sutner’s 1990 article connecting the σ-game with cellular automata was inspected only through its publisher abstract, which concerns directed graph games and rectangular grids. A differently presented historical derivation in either source cannot be ruled out. The result is confined to the binary synchronous open-neighborhood rule on simple gear graphs. Computational tests do not certify the infinite formula independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Every parameter n in a natural labelled family exhibits an exact zero-primary Jordan classification including exceptional short-ring fusion (3,1,1), arithmetic collapse at powers of two, nontrivial periodic-state dimension and a complete primitive orbit census for every return time. These classify the dynamics beyond generic finite-matrix algorithms and are reusable structural invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
