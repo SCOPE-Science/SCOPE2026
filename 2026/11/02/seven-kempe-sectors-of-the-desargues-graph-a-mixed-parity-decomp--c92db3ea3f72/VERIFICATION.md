@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Both executable verifiers were run from their standalone files with Python 3 and require no external library. Running `python verify_desargues_direct.py --emit certificate.json` reproduces all labelled colourings and the exact switching graph; `python verify_desargues_matchings.py` independently reconstructs the cubic graph as the bipartite double cover of the Petersen graph and recomputes all claimed statistics.
+## correctness
 
-Observed completion markers: `DESARGUES_DIRECT_PASS 192 504 [120, 12, 12, 12, 12, 12, 12] C4 180 C5 288`; `DESARGUES_INDEPENDENT_PASS matchings=60 states=192 edges=504 components=1x120+6x12`. The second program also prints the two distance-sphere profiles and verifies the claimed parity and chromatic distinction.
+PASS
 
-Exhaustiveness follows from the explicit backtracking branch invariants and the independent matching/alternating-cycle enumeration described in `RESULT.md`; finite output counts alone would not prove exhaustiveness. The certificate contains the full state/adjacency graph, a five-cycle in each nonbipartite component, a three-colouring of each such component, and a distance-five pair in the large component. The equality of the regenerated certificate bytes can be checked with a standard SHA-256 or byte comparison.
+A proper 3-edge-coloring is an ordered 1-factorization; independently constructed Desargues as the bipartite Petersen double cover, recursively enumerated all 60 perfect matchings and all 192 distinct labelled coloring states. Swapping each bicolored cycle gives the complete 504-edge reconfiguration graph; all-vertex BFS yielded component sizes [120,12,12,12,12,12,12], regular degrees 6/4 and exact distance profiles (1,6,27,48,32,6)/(1,4,7). Source matching and direct-coloring verifiers independently give 90/15 quadrilaterals and 0/48 pentagons respectively, and bipartiteness versus three-colorability. Checks are a complete finite classification of this graph only.
 
-The scientific scope is the one finite Desargues graph and the stated single-cycle Kempe move. Literature priority remains subject to independent scholarly assessment. No independent audit or external certification has been performed.
+## originality
+
+PASS
+
+Compared the precise final claim and its implications with same-object primary mathematics. The literature uses the same labelled Kempe switching graph and sometimes quotients by all color permutations; these are equivalent after recording the quotient action, not the graph itself. Goedgebeur–Östergård 2021 has broader cubic graph class-count tables, which may imply seven classes for the Desargues graph, but does not state component-wise bipartite/odd-cycle, diameter, sphere or short-cycle data. Best-of-knowledge originality is supported for the narrower stated new contribution, not for previously established premises. Residual risks documented.
+
+## value
+
+PASS
+
+Switching sectors of a canonical cubic bipartite graph are natural reconfiguration objects. The coexistence of bipartite and odd-cycle sectors, with exact metric profiles, is mathematically informative beyond older class-count tables; finite exhaustive graph-level classification can stand alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

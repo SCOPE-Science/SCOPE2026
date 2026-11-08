@@ -1,12 +1,21 @@
-# Scientific review of the Desargues edge-Kempe classification
+# Independent mathematical audit
 
-## Correctness (PASS)
-The graph, palette, states and one-cycle swap rule are unambiguous. A complete edge-by-edge colouring recursion enumerates 192 labelled proper edge-colourings, while independent perfect-matching enumeration on a proved-isomorphic double-cover presentation obtains the same 192. Both construct all legal moves and independently obtain 504 edges, component sizes 120 and six times 12, uniform sphere distributions, and exact short-cycle counts. The full canonical adjacency certificate, one pentagon witness per smaller component, three-colour witnesses, and code allow complete replay. The limitations are strictly finite, with no unproved extrapolation.
+## correctness
 
-## Originality (PASS, conditional on available literature)
-The 2012 Belcastro--Haas paper studies edge-Kempe equivalence-class counts, the 2017 Belcastro--Haas paper develops general structure of precisely this edge-Kempe graph, and Goedgebeur--Östergård (2021) tabulate attainable class counts for cubic graphs. Their full available source texts were compared for the named graph, equivalent formulations, and implications. The general triangle-free result, established Kempe terminology, and class counting are not claimed as newly discovered. The specific component-wise parity and distance-sphere split for the Desargues graph was not found in the inspected primary material. Residual risk: existing databases, old colouring-complex work, or unindexed scripts may already contain the same finite component graphs; negative searches cannot prove priority.
+PASS
 
-## Mathematical value (PASS)
-A natural reconfiguration invariant of the canonical bipartite double cover of the Petersen graph has a striking *mixed-parity* decomposition: one bipartite sector of diameter five and six three-chromatic sectors of diameter two. The distinction changes the period of nonlazy switching walks between sectors and answers precise component-metric questions suggested by the general structural study of edge-Kempe graphs. The complete distance and cycle spectra are motivated by that distinction rather than by an arbitrary numerical slice. The theorem is confined to this graph and does not establish a family-wide structure theorem.
+A proper 3-edge-coloring is an ordered 1-factorization; independently constructed Desargues as the bipartite Petersen double cover, recursively enumerated all 60 perfect matchings and all 192 distinct labelled coloring states. Swapping each bicolored cycle gives the complete 504-edge reconfiguration graph; all-vertex BFS yielded component sizes [120,12,12,12,12,12,12], regular degrees 6/4 and exact distance profiles (1,6,27,48,32,6)/(1,4,7). Source matching and direct-coloring verifiers independently give 90/15 quadrilaterals and 0/48 pentagons respectively, and bipartiteness versus three-colorability. Checks are a complete finite classification of this graph only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared the precise final claim and its implications with same-object primary mathematics. The literature uses the same labelled Kempe switching graph and sometimes quotients by all color permutations; these are equivalent after recording the quotient action, not the graph itself. Goedgebeur–Östergård 2021 has broader cubic graph class-count tables, which may imply seven classes for the Desargues graph, but does not state component-wise bipartite/odd-cycle, diameter, sphere or short-cycle data. Best-of-knowledge originality is supported for the narrower stated new contribution, not for previously established premises. Residual risks documented.
+
+## value
+
+PASS
+
+Switching sectors of a canonical cubic bipartite graph are natural reconfiguration objects. The coexistence of bipartite and odd-cycle sectors, with exact metric profiles, is mathematically informative beyond older class-count tables; finite exhaustive graph-level classification can stand alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
