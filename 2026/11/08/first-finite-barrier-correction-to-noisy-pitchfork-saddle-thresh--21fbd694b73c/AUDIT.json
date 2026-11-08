@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact stopped-diffusion backward integral, Gaussian inner-well estimate with no order-1/r correction, exact saddle coordinate identity and dominated expansion give the claimed uniform O_B(r^-2) statement. The third Gaussian moment yields the exact beta-dependent coefficient. Standalone finite-difference and quadrature checks provide finite corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berglund arXiv:1106.5799v2 surveys Eyring–Kramers and one-dimensional potential-well asymptotics",
+        "Jungblut–Dellago (2016) gives leading Gaussian cumulative form and Kramers prefactors, but not the next cubic saddle-skew term"
+      ],
+      "reasoning": "Generic Laplace asymptotic methods make the calculation plausible, but neither inspected broad theorem supplies the particular offset-dependent next coefficient without additional derivation. Thus the claim is not that the method is new; it is the concrete correction for the recent pitchfork tipping observable.",
+      "searches": [
+        "web: mean first passage time unstable equilibrium boundary layer error function threshold saddle stochastic potential escape half Kramers",
+        "web: absorbing boundary moving across saddle error function Kramers escape rate prefactor",
+        "arxiv:1106.5799v2 Kramers law survey",
+        "web: first passage error function boundary barrier asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.38866v1 Appendix A and Figure 2",
+      "doi:10.1140/epje/i2016-16077-6 sections 2.2 and 4.3",
+      "arxiv:1106.5799v2 Kramers review",
+      "published-finding corpus semantic claims as recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] proves the exact integral, which alone implies the correction after new asymptotic analysis but does not explicitly supply its expansion",
+        "Source [2] covers Gaussian Φ dependence and one-half at the saddle; these are removed from the claim",
+        "Source [3] gives classical leading potential-well transition asymptotics"
+      ],
+      "reasoning": "An exact integral trivially determines all quantities in principle, but it does not furnish the nontrivial quantitative uniform r^-1 expansion as a published statement. The known leading Φ theorem does not determine the positive coefficient: its size depends on third-order saddle geometry. The new theorem makes that coefficient and controlled remainder explicit for the motivating equation.",
+      "searches": [
+        "arxiv:2610.38866v1 Appendix A equations (A.5)–(A.8)",
+        "doi:10.1140/epje/i2016-16077-6 Sect.4.3 equations (76)–(77)",
+        "arxiv:1106.5799v2 Kramers asymptotic framework"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jungblut–Dellago (2016), Sect.4.3 Eq.(77), explicitly gives Gaussian error-function mean first-passage profile at moving near-barrier detection points",
+        "Sanders et al. arXiv:2610.38866v1 Appendix A gives same cubic SDE and exact double integral"
+      ],
+      "reasoning": "The leading Φ(2β) and half-factor are already equivalent to classical barrier first-passage theory and are excluded from originality. The candidate claim is the explicit positive nonconstant 1/r coefficient and its uniform bounded-offset remainder, which the inspected sources do not state.",
+      "searches": [
+        "published-finding corpus: uniform order 1/r correction to stochastic subcritical pitchfork mean first passage to absorbing threshold ±(sqrt r+beta/sqrt r), beyond Gaussian error-function crossover, cubic saddle skew",
+        "web: Kramers error function absorbing boundary saddle prefactor",
+        "doi:10.1140/epje/i2016-16077-6 Eq.(77)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest titles concern unrelated escape or critical-threshold phenomena and not the cubic-pitchfork moving-absorber r^-1 coefficient",
+        "Sanders et al. report a numerical MFPT curve and empirical C=0.6, not a table of the new finite-barrier coefficients"
+      ],
+      "reasoning": "No exact coefficient table or recorded statement was retrieved. Absence from search cannot prove priority and remains a residual risk.",
+      "searches": [
+        "published-finding corpus: finite barrier correction to noisy pitchfork tipping mean exit time empirical 0.6 vs exact 1/2 + 1/(2sqrt(2pi)r)",
+        "published-finding corpus: subcritical stochastic pitchfork additive noise first exit mean time to thresholds near unstable equilibrium sqrt(r)+beta/sqrt(r) Gaussian error function boundary layer prefactor correction",
+        "web: stochastic pitchfork first passage time near unstable equilibrium boundary layer width error function"
+      ]
+    },
+    "rationale": "The source SDE, exact MFPT integral, Gaussian error-function crossover and saddle half-factor are prior art and explicitly excluded. Inspected primary literature did not state the uniform next-order positive coefficient for this pitchfork, nor its effective detection offset; residual higher-order literature coverage risk is acknowledged.",
+    "residual_risks": [
+      "Generic higher-order Laplace expansions in specialized first-passage literature may already imply or tabulate the precise correction; priority is not exhaustive.",
+      "Full text of arxiv:0807.1681 was not accessible in the attempted HTML route.",
+      "The original exact integral [1] mathematically entails the new asymptotic after additional analysis; the claimed advance is explicitly the sharp quantitative expansion, not a different method or new stochastic model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME diffusion and exact MFPT already known; no explicit uniform 1/r saddle-offset correction stated",
+        "evidence": [
+          "Appendix A Eq.(A.7) same integral",
+          "Eq.(A.8) leading Kramers expression",
+          "Figure 2 uses empirical C=0.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.38866v1",
+        "material_read": "Full accessible HTML including Sections 3 and Appendix A, equations A.1–A.13, figure discussion and references",
+        "method": "Read primary arXiv HTML full text and inspected exact backward integral and empirical prefactor",
+        "title": "Early warning of critical transitions: Distinguishing supercritical and subcritical bifurcations from noisy observations",
+        "trigger": "Identical cubic stochastic pitchfork and exit time"
+      },
+      {
+        "assessment": "DOES COVER the leading Gaussian error function and half-factor. Does not report the proposed finite-barrier cubic skew term",
+        "evidence": [
+          "Section 4.3 Eq.(77): tau(q)=tau_J/2[1+erf((q-q*)c)]",
+          "Eq.(75) gives 1/(2tau(q*)) relation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1140/epje/i2016-16077-6",
+        "material_read": "Accessible parsed PDF text in Sections 2.2 and 4.3, especially Eq.(76)–(78) and Fig.6 captions; screenshot attempt was blocked by source 403",
+        "method": "Read primary PDF parsed text and compared its explicit mean-first-passage crossover with candidate",
+        "title": "Pathways to self-organization: Crystallization via nucleation and growth",
+        "trigger": "Plausible prior general Gaussian threshold crossover"
+      },
+      {
+        "assessment": "Classical leading exponential and prefactor background; does not state specific first cubic-pitchfork correction",
+        "evidence": [
+          "arXiv:1106.5799v2, metastable diffusion Kramers-law review"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1106.5799v2",
+        "material_read": "Accessible arXiv HTML theory and one-dimensional Kramers discussion",
+        "method": "Read preprint HTML and compared leading Eyring–Kramers formulas with offset-dependent next correction",
+        "title": "Kramers' law: Validity, derivations and generalisations",
+        "trigger": "Broad Kramers asymptotic framework potentially implying the main statement"
+      },
+      {
+        "assessment": "A different nonquadratic-saddle regime; full-text comparison remains unresolved and is a residual risk",
+        "evidence": [
+          "Title and abstract describe nonquadratic saddles, whereas the current saddle is nondegenerate and the detector moves on the Gaussian scale"
+        ],
+        "identifier_or_url": "arxiv:0807.1681",
+        "material_read": "Accessible abstract and bibliographic description; full arXiv HTML fetch unavailable",
+        "method": "Attempted primary arXiv HTML access; did not assert noncoverage of unseen material",
+        "title": "The Eyring–Kramers law for potentials with nonquadratic saddles",
+        "trigger": "Possible stronger higher-order saddle coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "21fbd694-b73c-4506-bd19-eea1c99af808",
+  "value": {
+    "rationale": "The exact observable used by Sanders et al. is calibrated with empirical C=0.6. This expansion supplies a mathematically controlled barrier-dependent replacement for the empirical calibration and resolves the first offset-dependent distortion for detectors near both saddles, giving an explicit systematic shift instead of a single multiplicative factor. The near-barrier window is natural to tipping detection; the positive coefficient records the bias of finite barriers. It is a genuinely source-motivated next-order quantitative feature rather than a restatement of the known Gaussian crossover.",
+    "status": "PASS"
+  }
+}
