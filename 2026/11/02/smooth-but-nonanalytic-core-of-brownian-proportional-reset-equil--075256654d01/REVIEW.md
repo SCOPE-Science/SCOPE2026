@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The stationary characteristic product gives integrability of every polynomial Fourier moment, hence global smoothness. The smooth stationary equation yields the exact all-order origin recursion; positivity of the nonzero infinite product proves superfactorial derivative growth and excludes every Gevrey order. The known exponential partial-fraction expansion supplies holomorphic continuations on the two open half-planes, and the cosine remainder supplies a quantitative log-squared Taylor bound. The packaged checker passed 202 independent finite rational and high-precision diagnostic assertions. These experiments do not replace the analytical infinite-parameter arguments.
+PASS
 
-## Originality: PASS, with limitations
+For Brownian diffusion D>0 and nonzero deterministic |a|=c<1 Poisson proportional resets rate r>0, stationary X=sum_{j>=0}a^j Z_j with independent Laplace variables of scale ell=sqrt(D/r). Characteristic function product∏(1+ell² c^{2j}u²)^-1 decays faster than every inverse polynomial (select arbitrarily many fixed factors), yielding C^infinity via Fourier inversion. Stationary adjoint pantograph equation at x=0 gives f^(2n)(0)=(-1)^n f(0)ell^(-2n)c^(-n²)∏_{j<n}(1-c^(2j+1)), with all odd derivatives zero; independent exact-rational recurrence checks passed 48 cases. Derivative growth exp(Ln²+O(n)) for L=-log c prohibits every finite Gevrey order and gives zero Taylor radius. Known exponential-density series converges holomorphically in Re z>0 (reflected on negative line), so zero is the sole nonanalytic point. Cosine Taylor remainder bounded by absolute 2n moment, taking n=floor(log(ell/|x|)/L) yields f(0)exp(L-t²/L). The stationary single-time density claim does not extend to |a|=0 or >=1.
 
-The primary June 2024 paper derives the stationary product and an exponential expansion, and reports a linear cancellation at the origin. The later December 2024 paper by Grzywny et al. establishes \(C^\infty\) regularity for a broader class; smoothness on its own is therefore not claimed as novel. The 2022 partial-resetting and proportional-resetting literature already gives the stationary law; the 2010 transform paper gives general Laplace-convolution inversion. Those inputs are openly credited. The new statement is the complete Taylor jet, classification of the unique nonanalytic point and its non-Gevrey strength, and explicit variable-order local approximation error. Searches for nonanalyticity, Gevrey regularity, and all-order jets did not locate a directly covering theorem, but mathematical consequences of general pantograph-equation theory remain an originality risk. The lone linear-cancellation identity is an elementary Euler \(q\)-binomial corollary and is not presented as independently novel.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The local core of the proportional-reset density is visibly Gaussian-like in the motivating literature, yet the exact theorem shows an unusually strong analytic obstruction precisely at the reset point, despite smoothness of all finite orders. A usable approximation theorem explains why low-degree fits work and provides a shrinking log-squared error envelope with increasing truncation degree. This resolves a concrete analytic-regularity question left open by the source's limited small-position analysis, rather than a mere reparametrization or a computation of a routine numerical invariant.
+Biroli et al. 2024, Section II, already derive the same stationary density, exponential series and Gaussian-like small-x behavior; page 4 explicitly says the linear-term cancellation identity was numerically checked but not proved. Grzywny et al. 2024 Proposition 2.22 proves C-infinity in a much broader stable partial-resetting family, so smoothness alone is covered. The assessed addition is exact complete origin jet, rigorous non-Gevrey/nonanalyticity and explicit logarithmic-order Taylor approximation error; classical q-binomial cancellation alone is not claimed new.
 
-## Closest literature and limits
+## value
 
-Biroli et al., arXiv:2406.08387, Section II, equations (8), (17)–(20); Tal-Friedman et al., arXiv:2205.03363, Section II and Appendix; Pierce, arXiv:2204.07215, Sections II–III; Grzywny et al., arXiv:2412.15626, Proposition 2.22 and Section 2.4; Ferreiro-Castilla and Utzet, arXiv:1009.1543, Sections 1–3. These support the known input formulas but do not assert the new exact regularity and quantitative approximation package in their inspected material. Independent priority review and broader related-work screening remain outstanding; no claim is made for random multipliers, non-Poisson clocks, or additional forces.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distinguishing global C-infinity regularity from extreme nonanalyticity at the stationary peak is a mathematically meaningful regularity phase change. The exact jet and explicit super-algebraic approximation by logarithmically many Taylor terms quantify this counterintuitive structure, which a researcher analyzing local reset distributions can use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

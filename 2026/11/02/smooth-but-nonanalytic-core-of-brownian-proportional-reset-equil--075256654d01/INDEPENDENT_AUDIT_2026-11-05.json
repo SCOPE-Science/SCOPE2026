@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:52:16.948335Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/smooth-but-nonanalytic-core-of-brownian-proportional-reset-equil--075256654d01/RESULT.md",
+        "Git blob 18bbb61fc50b72f3e6fd589a703dcd6f5a834f7b",
+        "Git tree d74451307e855bd511454d0126065b0a5a6fa721",
+        "independent_checks.py RESET_JET 48 exact rational recurrences"
+      ],
+      "rationale": "For Brownian diffusion D>0 and nonzero deterministic |a|=c<1 Poisson proportional resets rate r>0, stationary X=sum_{j>=0}a^j Z_j with independent Laplace variables of scale ell=sqrt(D/r). Characteristic function product∏(1+ell² c^{2j}u²)^-1 decays faster than every inverse polynomial (select arbitrarily many fixed factors), yielding C^infinity via Fourier inversion. Stationary adjoint pantograph equation at x=0 gives f^(2n)(0)=(-1)^n f(0)ell^(-2n)c^(-n²)∏_{j<n}(1-c^(2j+1)), with all odd derivatives zero; independent exact-rational recurrence checks passed 48 cases. Derivative growth exp(Ln²+O(n)) for L=-log c prohibits every finite Gevrey order and gives zero Taylor radius. Known exponential-density series converges holomorphically in Re z>0 (reflected on negative line), so zero is the sole nonanalytic point. Cosine Taylor remainder bounded by absolute 2n moment, taking n=floor(log(ell/|x|)/L) yields f(0)exp(L-t²/L). The stationary single-time density claim does not extend to |a|=0 or >=1.",
+      "residual_risks": [
+        "Convergence of the known residue series was checked by mathematical coefficient bounds; numerical checks do not certify full regularity.",
+        "The special case a=0 is a Laplace density with cusp; |a|=1 lacks stationary probability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grzywny et al. Proposition 2.22: rho_Y in C_0^infinity for stable partial resetting, with moment formula; Section 2.4 gives density expansion."
+        ],
+        "reasoning": "This broader smoothness theorem covers one subclaim, which is explicitly credited; it does not imply non-Gevrey growth or the sharp displayed Taylor remainder without separate derivative analysis.",
+        "searches": [
+          "arxiv:2412.15626",
+          "arxiv:2406.08387"
+        ]
+      },
+      "checked_sources": [
+        "Git blob 18bbb61fc50b72f3e6fd589a703dcd6f5a834f7b",
+        "Git tree d74451307e855bd511454d0126065b0a5a6fa721",
+        "independent_checks.py RESET_JET 48 exact rational recurrences",
+        "arxiv:2406.08387 primary Section II",
+        "arxiv:2412.15626 Proposition 2.22",
+        "Resultary partial resetting search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biroli et al. small-x claim is qualitative and linear cancellation unresolved there; Grzywny et al. C-infinity proof uses moment smoothness, without non-Gevrey statement."
+        ],
+        "reasoning": "The exact f^(2n)(0) growth and log^2 error are genuine additional implications not automatic from a cited first-order cancellation.",
+        "searches": [
+          "arxiv:2406.08387",
+          "arxiv:2412.15626"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli et al. arxiv:2406.08387 Section II equations (10)-(20): exponential density and numerically unproved first-order cancellation."
+        ],
+        "reasoning": "The density formula is equivalent prior input, but the entire jet/non-Gevrey and variable-order error are not explicitly asserted in inspected relevant text; no priority guarantee for pantograph literature.",
+        "searches": [
+          "partial resetting Brownian proportional reset stationary density exact Taylor derivatives zero Gevrey nonanalytic core",
+          "partial resetting stationary density Gevrey zero radius Taylor q Laplace convolution partial reset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching Resultary exact reset-derivative table appeared in the published findings search; Biroli provides density coefficients instead."
+        ],
+        "reasoning": "The full jet is algebraically computable from the pantograph equation, but a previously published derivative sequence or pantograph table could cover it.",
+        "searches": [
+          "partial resetting Brownian proportional reset stationary density exact Taylor derivatives zero Gevrey nonanalytic core",
+          "Resultary partial resetting Brownian Gevrey search"
+        ]
+      },
+      "rationale": "Biroli et al. 2024, Section II, already derive the same stationary density, exponential series and Gaussian-like small-x behavior; page 4 explicitly says the linear-term cancellation identity was numerically checked but not proved. Grzywny et al. 2024 Proposition 2.22 proves C-infinity in a much broader stable partial-resetting family, so smoothness alone is covered. The assessed addition is exact complete origin jet, rigorous non-Gevrey/nonanalyticity and explicit logarithmic-order Taylor approximation error; classical q-binomial cancellation alone is not claimed new.",
+      "residual_risks": [
+        "Exact Gevrey obstruction or full derivative jet might appear in older pantograph/partial-resetting mathematical theory despite not being in inspected relevant source sections.",
+        "The novel finite-Taylor error is a natural consequence of a high-order cosine inequality, so comparison to general optimal truncation theory remains bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Density and series covered; first derivative cancellation said numerically checked but unproved, no all-orders/Gevrey analysis stated in inspected relevant section",
+          "evidence": [
+            "turn367918view0",
+            "turn424590view5",
+            "turn984196view1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.08387",
+          "material_read": "full Section II through page 4, equations (10)-(20) and numerical small-x cancellation paragraph; introductions and conclusion cross-checked",
+          "method": "arXiv OA PDF text and p3 screenshot",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "same exact stochastic model and stationary density"
+        },
+        {
+          "assessment": "C-infinity and moments already covered; no exact origin-jet/non-Gevrey conclusion in inspected relevant pages",
+          "evidence": [
+            "turn367918view1",
+            "turn984196view0",
+            "turn424590view6"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.15626",
+          "material_read": "abstract, Sections 2.3–2.4, Proposition 2.22 and proof p19–20, relevant Lemma 2.27, Brownian example p20; keyword Gevrey absent",
+          "method": "arXiv OA PDF text with p20 screenshot",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "broader reset density regularity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/smooth-but-nonanalytic-core-of-brownian-proportional-reset-equil--075256654d01/RESULT.md",
+        "arxiv:2412.15626 Proposition 2.22",
+        "Resultary partial resetting search"
+      ],
+      "rationale": "Distinguishing global C-infinity regularity from extreme nonanalyticity at the stationary peak is a mathematically meaningful regularity phase change. The exact jet and explicit super-algebraic approximation by logarithmically many Taylor terms quantify this counterintuitive structure, which a researcher analyzing local reset distributions can use.",
+      "residual_risks": [
+        "Known stationary density and smoothness by themselves are not novel; value is attached to the rigorous all-order regularity and approximation dichotomy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Strictly contractive deterministic nonzero multiplier, Brownian noise, Poisson resets, one-point stationary law."
+  ]
+}
