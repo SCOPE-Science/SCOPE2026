@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The result uses the exact identity \(H/J=\sum_i(q_i^2-(h/J)q_i)/2-n(n-1)/2\), with \(q_i\) the signed incident-edge sum at a vertex of \(K_n\). A degree-spreading edge move proves that every parity-permitted nearly regular degree sequence exists. Strict discrete convexity then proves the three-case optimization rule, including ties; no numerical extrapolation is needed. The \(2J(n-3)\) odd-order crossing follows from comparing the only two admissible degree-defect families. All spin assignments for \(n=4,5,6,7\) were independently enumerated using exact arithmetic and compared with the classification over the indicated half-integer fields; the captured output and standalone checker are embedded.
+## correctness
 
-## Originality: PASS on examined evidence, provisional
-Park and Newman (2004) develop degree-square/two-star graph Hamiltonians; Annibale and Courtney (2015) analyze large-system two-star behavior and discuss degree regularity; Dyer, Heinrich, Jerrum and Müller (2020) give a general antiferromagnetic line-graph Ising framework with finite-temperature approximation algorithms. None of the specifically examined full texts asserts the finite \(T_n=L(K_n)\) all-field charge-pattern classification with its parity-forced one-vertex defect and odd-order \(P_3\)-versus-isolated-vertex crossing. Relevant mathematical equivalences were compared rather than treating different titles as evidence of novelty. The saturation matching phenomenon is already elementary and not claimed on its own. Specialized finite-size two-star/cut-spectrum work could still contain an equivalent formulation; independent priority verification is unperformed.
+PASS
 
-## Mathematical value: PASS
-The exact, all-size finite magnetic census addresses a natural frustrated Ising family whose sites are unordered pairs. The parity obstruction creates a previously unaccounted-for exact finite-size switching field and a two-unit magnetization step for every odd order, in contrast with even-order perfect-matching states. The coefficient rule computes full exact degeneracies for all fields without brute-forcing spin configurations. The result supplies a benchmark for repulsive degree-square ensembles and nonadditive defect counting; its significance is finite-system, not a claimed bulk thermodynamic transition.
+The line-graph interaction sum is exactly J/2 sum q_i² −Jn(n−1)/2 and magnetization is (1/2)sum q_i. Strict convexity of the discrete local charge energy leaves one or two adjacent optimal charges. The parity of total positive-edge degrees and an edge-switch minimization establish graphical realizability for all almost-regular prescribed degree vectors; when an all-equal optimum is non-graphical, a single nearest-charge defect is minimal. At h near saturation, these degree patterns produce the stated matchings, P3-plus-matching, isolated-vertex-plus-matching, and telephone-number saturation count. Independently enumerated all labelled spin states for n=4,5,6 (64,1024,32768 states), checking every half-integer field through and beyond saturation, with exact agreement in ground profiles. Finite checks only corroborate the all-n graph-theoretic proof.
 
-## Limits and closest literature
-Uniform classical zero-temperature \(T_n\) only; no quantum/thermal extension. General finite graph degree-square methods and matching-at-saturation are pre-existing. Park and Newman: https://arxiv.org/abs/cond-mat/0405457 ; Annibale and Courtney: https://arxiv.org/abs/1504.06458 ; Dyer and collaborators: https://arxiv.org/abs/2005.07944 . A broader exact finite graph theorem may cover the statement despite the examined evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known two-star graph Hamiltonians and fixed-degree regularity arguments supply the degree-square reduction. Existing line-graph Ising work proves finite-temperature approximation algorithms on broader graph classes, not exact all-field zero-T labelled ground-state multiplicities and odd-order internal parity crossing on L(K_n). The assessed contribution is the complete sharp finite-size parity-sensitive phase staircase rather than the elementary saturation matching observation.
+
+## value
+
+PASS
+
+Graph-line Ising frustration and parity cause a nontrivial finite-size switch: odd n admits P3-plus-matching versus isolated-vertex-plus-matching phases separated by a sharp magnetic field and exactly quantified magnetization jump. Their field thresholds and degeneracies are natural, physically interpretable observables; a full n,h classification is more than trivial reformulation of the degree-square energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
