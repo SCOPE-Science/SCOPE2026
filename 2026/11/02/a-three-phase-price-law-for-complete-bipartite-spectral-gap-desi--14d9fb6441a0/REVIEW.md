@@ -1,19 +1,21 @@
-# Mathematical review: three-phase bipartite spectral-gap design
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all integers \(m\ge p\ge3\), both strict price classes and all boundary ratios are handled by the exact eigenvalue factorization and the unit-gap feasible-region reduction. The important implication from the quadratic condition \(f(a,b)\ge0\) to \(\lambda_-\ge1\) explicitly includes the root-sum test; the derived lower envelope is convex and its unique stationary point gives the third price regime. Independent whole-matrix tests and symbolic identities are reproducible with `verify.py` (1,716 passing assertions, 26 successful numerical optimizations). Experiments are supplementary, not infinite proofs.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+PASS. Algebraic connectivity λ2 is concave in individual nonnegative edge conductances, so averaging over S_m×S_{p−1} preserves weighted cost and cannot worsen λ2; one two-class allocation attains the unrestricted global value, without claiming all asymmetric optima symmetric. Reconstructed full spectrum: S=a+(p−1)b, mb and two nonzero quotient roots with quadratic λ²−[(m+1)a+(m+p−1)b]λ+m(m+p)ab. Unit-gap feasibility b≥1/m and a≥max{1−(p−1)b, g(b)} where g(b)=((m+p−1)b−1)/(m(m+p)b−(m+1)). g' =−(p−1)/d², g''>0, intersection at b=β=(m+2(p−1)+sqrt(m²−4(p−1)))/(2(p−1)(m+p)). Boundary expense slope switches at r=P/Q=1; on convex branch it switches at r=R=d(β)², generating all three specified C_* and (a,b) formulas. Verified the quadratic trace/root condition excludes double-subunit-root cases. λ2^*=B/C_* and R~m^4/(p−1)^2. Independent full Laplacian eigenvalues and numerical optimizations checked 24 parameter/price cases, but general result is analytic.
 
-The closest full-text source is Sun–Boyd–Xiao–Diaconis (2006), establishing the general weighted-budget semidefinite optimization but not the two-price complete-bipartite formula. Boyd–Diaconis–Parrilo–Xiao (2007/2009), Section 5.4.2, treats complete bipartite walks under discrete-time SLEM with uniform transition-orbit parameters, and does not imply the continuous-time heterogeneous-price optimum. Shakeri et al. (2015) analyze one-to-one coupling between fixed connected layers. Closely related previous two-hub formulas concern \(\(K_{2,m}\)\), not the \(p\ge3\) statement, whose ordinary-hub eigenspace yields a different feasibility boundary and threshold. published-finding corpus searches for pricing, spectral-gap design and bipartite optimization returned no matching theorem. Residual risk: specialist work under algebraic connectivity, optimal weight design or semidefinite spectral allocation could state an equivalent formula not located in the accessible evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact unrestricted optimum is explicit for infinitely many bipartite dimensions and all positive price ratios. The formula identifies two distinct allocation regimes and a genuine active-eigenspace transition; the high-price boundary scales like \(\(m^4/(p-1)^2\)\) at fixed \(p\), so the price range in which a leaf-degree constraint remains binding can be unexpectedly large. This gives a usable exact benchmark for weighted network design rather than simply another SDP formulation or a tiny finite example.
+PASS at best knowledge for the explicit p>=3 two-price complete-bipartite optimum and all-parameter phase classification, not for the general SDP formulation/symmetrization theorem or the uniform-cost complete-bipartite eigenbasis.
 
-## Limits
+## value
 
-The symmetric solution need not describe every possible asymmetric optimizer. Prices are fixed by two hub classes; arbitrary edge prices and normalized objectives are outside scope. Historical full-text coverage is not exhaustive; independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Exact all-size positive-weight solution of a natural priced spectral-gap network-design SDP, with two genuine active-constraint transitions and a sharp price-ratio scale; this explicit design can be used without numerical optimization and is not merely a recomputation of a known general SDP formulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

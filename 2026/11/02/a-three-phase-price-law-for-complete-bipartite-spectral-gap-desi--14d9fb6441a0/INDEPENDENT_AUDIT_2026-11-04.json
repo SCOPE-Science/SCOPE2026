@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:10:41.238973Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Algebraic connectivity λ2 is concave in individual nonnegative edge conductances, so averaging over S_m×S_{p−1} preserves weighted cost and cannot worsen λ2; one two-class allocation attains the unrestricted global value, without claiming all asymmetric optima symmetric. Reconstructed full spectrum: S=a+(p−1)b, mb and two nonzero quotient roots with quadratic λ²−[(m+1)a+(m+p−1)b]λ+m(m+p)ab. Unit-gap feasibility b≥1/m and a≥max{1−(p−1)b, g(b)} where g(b)=((m+p−1)b−1)/(m(m+p)b−(m+1)). g' =−(p−1)/d², g''>0, intersection at b=β=(m+2(p−1)+sqrt(m²−4(p−1)))/(2(p−1)(m+p)). Boundary expense slope switches at r=P/Q=1; on convex branch it switches at r=R=d(β)², generating all three specified C_* and (a,b) formulas. Verified the quadratic trace/root condition excludes double-subunit-root cases. λ2^*=B/C_* and R~m^4/(p−1)^2. Independent full Laplacian eigenvalues and numerical optimizations checked 24 parameter/price cases, but general result is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Boyd–Xiao–Diaconis covers general conductance-cost λ2 maximization algorithm, but no presented formula for the two-price complete-bipartite model.",
+          "Boyd–Diaconis–Parrilo–Xiao analyzes complete bipartite discrete-time fastest mixing chain with SLEM, distinct eigen objective.",
+          "Shakeri et al. fixes intralayer graphs and variable one-to-one interlayer edge couplings."
+        ],
+        "reasoning": "General solve-by-SDP coverage of existence does not mathematically imply the explicit 3-regime evaluated formula as an already stated special-case theorem; neither of the other models has the same feasible set/objective.",
+        "searches": [
+          "doi:10.1137/S0036144504443821",
+          "arXiv:0709.0955",
+          "arXiv:1510.06785"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://arxiv.org/abs/0709.0955",
+        "https://arxiv.org/abs/1510.06785",
+        "Resultary: maximize algebraic connectivity complete bipartite graph heterogeneous edge cost distinguished vertex optimal design",
+        "frozen RESULT.md and independent verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General SDP may algorithmically recover any finite instance, but does not supply symbolic optimized design across all m,p and r.",
+          "Prior two-hub rules cannot automatically handle p>=3 ordinary-hub eigenspace and leaf-difference constraint."
+        ],
+        "reasoning": "The sharp first and second price transitions and m^4/(p−1)^2 scale require the derived active spectral envelope, not generic concavity alone.",
+        "searches": [
+          "doi:10.1137/S0036144504443821",
+          "arXiv:1510.06785"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent problem is minimum total priced conductance for unit algebraic connectivity (unit-gap SDP) under linear budget, with symmetry reduction.",
+          "Unweighted normalized random-walk fastest-mixing SLEM and unnormalized continuous Laplacian λ2 are distinct spectral objectives."
+        ],
+        "reasoning": "Abstract equivalence to a general SDP is prior known; the explicit optimal price law is not obtained without solving this specialized nontrivial active-set problem.",
+        "searches": [
+          "Resultary: maximize algebraic connectivity complete bipartite graph heterogeneous edge cost distinguished vertex optimal design",
+          "doi:10.1137/S0036144504443821",
+          "arXiv:0709.0955"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No consulted exact (p,m,r) two-price spectral-gap table surfaced in targeted search.",
+          "The basic unweighted K_{p,m} spectrum is known; price threshold R is not an existing tabulated graph invariant in inspected sources."
+        ],
+        "reasoning": "Absent table is not proof of priority; previous network-design reports might contain specialized examples.",
+        "searches": [
+          "Resultary: maximize algebraic connectivity complete bipartite graph heterogeneous edge cost distinguished vertex optimal design",
+          "arXiv:0709.0955"
+        ]
+      },
+      "rationale": "PASS at best knowledge for the explicit p>=3 two-price complete-bipartite optimum and all-parameter phase classification, not for the general SDP formulation/symmetrization theorem or the uniform-cost complete-bipartite eigenbasis.",
+      "residual_risks": [
+        "General weighted connectivity SDP literature could contain the same two-price biclique explicit optimum in an example/appendix not identified.",
+        "Uniqueness among asymmetric optimal allocations is not proved and must not be claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS framework/optimization algorithm, no explicit all-p,m two-price solution found",
+          "evidence": "The central formulation permits weighted-cost optimization; the specific K_{p,m} one-hub price law does not appear in studied examples.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Complete accessible paper PDF, objective, semidefinite program, examples and general optimality method",
+          "method": "Original full PDF and page-image inspection",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Direct dominating general algebraic connectivity optimization with costs"
+        },
+        {
+          "assessment": "DIFFERENT discrete-time SLEM objective and normalization; partial shared symmetry techniques",
+          "evidence": "The objective is second-largest absolute transition eigenvalue, not unnormalized Laplacian spectral gap with two prices.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Accessible full PDF, symmetry section and complete-bipartite example in Section 3.1.2",
+          "method": "Primary arXiv PDF text and page-image inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Potential closed form for complete-bipartite spectral blocks"
+        },
+        {
+          "assessment": "DIFFERENT variable edge set (diagonal interlayer edges), not a complete bipartite graph with individually adjustable all edges",
+          "evidence": "Its Laplacian decomposes into two fixed intralayer graphs and variable one-to-one cross edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+          "material_read": "Full accessible primary preprint, network model and budget optimization sections",
+          "method": "ArXiv PDF plus page-image inspection",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Potential dominating exact bipartite resource allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exact all-size positive-weight solution of a natural priced spectral-gap network-design SDP, with two genuine active-constraint transitions and a sharp price-ratio scale; this explicit design can be used without numerical optimization and is not merely a recomputation of a known general SDP formulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General weighted connectivity SDP literature could contain the same two-price biclique explicit optimum in an example/appendix not identified.",
+    "Uniqueness among asymmetric optimal allocations is not proved and must not be claimed.",
+    "Scientific priority is best-of-knowledge; no certification of exhaustive historical literature coverage. Source is self-reviewed before this independent assessment."
+  ],
+  "schema_version": 1
+}
