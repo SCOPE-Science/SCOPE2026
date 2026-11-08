@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "On the 81 points by 108 lines incidence matrix N, NN^T=4I+A_{H(4,3)} has exact eigenvalues 12,9,6,3,0 with multiplicities 1,8,24,32,16. The biregular Laplacian has orthogonal disjoint-support eigenspaces ker N^T of dimension 16 at eigenvalue 4 and ker N of dimension 43 at eigenvalue 3, requiring 16 point and 43 line inputs. The extracted standalone checker builds all integer entries and verifies rank N=65 and modular observation ranks 16,32,24,8,1 for the relevant rational spectral projectors with prime 101; the known eigenspace dimensions turn these into exact rational rank equalities. The 65 unactuated line columns are independent. For each positive singular eigenvalue, the Laplacian eigenvector observation differs only by a nonzero scalar multiplier in the line coordinates. PBH proves controllability with 59 and the lower bound proves optimality. A zero-forcing test finds no available initial forcing move.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burgarth et al. arXiv:1111.1475 Theorem 4.1 gives sufficient zero-forcing controllability; the exhibited 59-set is not zero forcing.",
+        "Monshizadeh et al. arXiv:1403.4868 Theorem IV.4 equates zero forcing with *all-matrices* controllability in the qualitative class, not controllability of this one fixed Laplacian.",
+        "Yuan et al. DOI 10.1038/ncomms3447 gives 43 as the unrestricted-input multiplicity count, without enforcing canonical coordinate columns."
+      ],
+      "reasoning": "The zero-forcing and unrestricted-driver theorems do not dominate the specific existence and minimality of 59 dedicated coordinate inputs. The 2014 qualitative-class quantifier is strictly stronger than fixed-matrix controllability and does not imply controllability of a non-zero-forcing placement. No general incidence theorem found in accessible sources implies the exact four-dimensional value.",
+      "searches": [
+        "Dual kernel eigenspaces on bipartite incidence graph produce dedicated actuation gap between maximum eigenvalue multiplicity and minimal coordinate drivers",
+        "Gray graph zero forcing number 54 16 semisymmetric",
+        "\"generalized Gray graph\" \"zero forcing\" q-ary grid",
+        "\"Hamming graph\" \"incidence graph\" zero forcing"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1111.1475",
+      "https://doi.org/10.1038/ncomms3447",
+      "https://arxiv.org/abs/1403.4868",
+      "https://doi.org/10.26240/heal.ntua.1353",
+      "https://doi.org/10.4153/CMB-1968-063-0",
+      "https://jaanos.github.io/tables/graphs/Gray.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Triantafillou (2014), DOI 10.26240/heal.ntua.1353, abstract reports maximum-nullity/zero-forcing equality for ordinary Gray graph; no visible theorem about the 189-vertex extension. Full document not examined.",
+        "Prior exact point-line projective-plane input results concern regular incidence graphs with different block sizes and eigenvalue multiplicities; they do not imply the biregular 4D number.",
+        "Previously recorded weighted-hypercube example established a dedicated-input multiplicity obstruction on another graph, not the present numerical invariant."
+      ],
+      "reasoning": "Existence of some dedicated-input gap is not claimed original; the natural exact new object is the ternary four-cube axis-line incidence network and its 59-sensor optimum plus concrete placement. Known 3D and regular incidence results do not imply the 4D value without an additional construction and the exact rank checks. Full-thesis uncertainty is retained.",
+      "searches": [
+        "Minimum coordinate actuator budget for biregular point-line incidence graph of 4-dimensional ternary grid with 81 points and 108 lines 59 actuators 43-dimensional Laplacian eigenspace",
+        "Leader selection exact controllability generalized Gray graph four-dimensional Hamming line-incidence Levi network 59 sensors",
+        "Dual kernel eigenspaces on bipartite incidence graph produce dedicated actuation gap between maximum eigenvalue multiplicity and minimal coordinate drivers",
+        "\"Gray graph\" \"Tutte-Coxeter\" \"knight's graph\" zero forcing pdf 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bouwer (1968), DOI 10.4153/CMB-1968-063-0, describes the 54-vertex cubic graph; the present graph has 189 vertices and degrees 4 and 3.",
+        "No inspected paper or indexed record states an equivalent 189-vertex 59-actuator coordinate-control result."
+      ],
+      "reasoning": "The standard Gray graph is the three-dimensional ternary incidence case, not this four-dimensional biregular case. Merely sharing the word Gray or a Hamming-derived incidence construction is not implication coverage; the exact Laplacian eigenvalue split and minimum set size are different.",
+      "searches": [
+        "Gray graph 54 vertex semisymmetric cubic Levi graph 27 points 27 lines exact minimum leader set Laplacian controllability dedicated coordinate actuator 16",
+        "Gray configuration 3x3x3 point-line incidence graph minimum input nodes 16 spectrum zero multiplicity 16",
+        "Leader selection exact controllability generalized Gray graph four-dimensional Hamming line-incidence Levi network 59 sensors",
+        "\"Gray graph\" \"controllability\" Laplacian PBH",
+        "\"Gray graph\" \"leader\" \"controllability\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Gray graph catalog https://jaanos.github.io/tables/graphs/Gray.html lists its 54-vertex spectrum ±3, ±sqrt6, ±sqrt3, zero multiplicity 16; this is not the 189-vertex graph or a leader-placement table.",
+        "Public search of specialized records returned no tabulated 189-vertex minimum actuator count."
+      ],
+      "reasoning": "An adjacency-spectrum table for the ordinary Gray graph is not a table of coordinate-input controllability of the degree-(4,3) 4D incidence extension. This negative table search is not treated as positive novelty proof.",
+      "searches": [
+        "Minimum coordinate actuator budget for biregular point-line incidence graph of 4-dimensional ternary grid with 81 points and 108 lines 59 actuators 43-dimensional Laplacian eigenspace",
+        "Four dimensional ternary grid 189-vertex point-line graph spectral Laplacian controllability 43 59",
+        "\"Gray graph\" \"minimum rank\" \"16\" control",
+        "\"Gray graph\" \"zero forcing\" \"number\" spectral"
+      ]
+    },
+    "rationale": "The identified exact 189-vertex dedicated coordinate actuator invariant and explicit non-zero-forcing optimum are not asserted in any inspected accessible source. The 2011 zero-forcing sufficiency theorem does not imply controllability for this stalled placement; the 2013 maximum-multiplicity result treats unrestricted input matrices and only yields 43 here; earlier ordinary Gray graph (54 vertices) zero-forcing results have different degree and eigenspace structure. Preexisting counterexamples to dedicated multiplicity equality, including a previously recorded weighted-hypercube family, are credited rather than claimed anew. Publication priority remains uncertain because the full 2014 Gray thesis and all specialist work could not be exhaustively inspected.",
+    "residual_risks": [
+      "The restricted-access 2014 Gray-graph thesis was inspected only at the abstract level, and might have unobserved extended results.",
+      "Specialized or unindexed 4D incidence-network leader-selection literature could predate the result.",
+      "Absence of an indexed exact number is not proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem is one-way sufficient and explicitly notes non-zero-forcing fixed-matrix controllability; no 4D ternary incidence result",
+        "evidence": [
+          "Theorem 4.1 in section 4 and Example 4.3; first public 2011-11-07"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.1475",
+        "material_read": "Parsed full article, introduction, Theorem 4.1 and Example 4.3, sections 3–5",
+        "method": "Accessible arXiv HTML text",
+        "title": "Zero forcing, linear and quantum controllability for systems evolving on networks",
+        "trigger": "Original zero-forcing sufficient condition might cover the placement"
+      },
+      {
+        "assessment": "Unrestricted generic input matrices, not constrained to distinct coordinate input columns; yields 43 but not the dedicated 59",
+        "evidence": [
+          "Published 2013-09-12; maximum geometric multiplicity theorem stated explicitly"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/ncomms3447",
+        "material_read": "Accessible indexed article abstract, introduction, results discussion and methods summary",
+        "method": "Public full-text indexing; direct open redirected",
+        "title": "Exact controllability of complex networks",
+        "trigger": "Maximum-multiplicity claim could dominate actuator optimum"
+      },
+      {
+        "assessment": "Theorem IV.4 concerns controllability for every matrix in a qualitative class; the specialized fixed-matrix counterexamples are acknowledged",
+        "evidence": [
+          "Theorem IV.4 and section IV-B near lines 245–254; first public 2014-03-19"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+        "material_read": "Full parsed article, especially sections I, IV Theorem IV.4, IV-A, IV-B and concluding sections",
+        "method": "Accessible arXiv HTML text",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Strong qualitative-class zero-forcing equivalence might dominate"
+      },
+      {
+        "assessment": "The visible abstract identifies the ordinary Gray graph, but no claim of 4D dedicated Laplacian controllability. Full paper may contain additional coverage; not assigned a definitive NOT_COVERING label.",
+        "evidence": [
+          "I. G. Triantafillou, 2014, repository abstract; 83-page thesis"
+        ],
+        "identifier_or_url": "https://doi.org/10.26240/heal.ntua.1353",
+        "material_read": "Public title, full abstract, date and repository metadata only; PDF full text timed out",
+        "method": "NTUA repository page and bounded PDF fetch attempt",
+        "title": "Singular graphs and the energy of singular graphs",
+        "trigger": "Gray-graph nullity/zero forcing work is unusually close"
+      },
+      {
+        "assessment": "Describes classic 54-vertex degree-three graph; no inspected claims about 4D control",
+        "evidence": [
+          "Canadian Mathematical Bulletin 11 (1968), 533–535"
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-1968-063-0",
+        "material_read": "Bibliographic metadata, introduction/extract; original three-page PDF not read",
+        "method": "Cambridge article page and independent graph catalog",
+        "title": "An edge but not vertex transitive cubic graph",
+        "trigger": "Original Gray graph and dimensional context"
+      },
+      {
+        "assessment": "54-vertex regular case differs from four-dimensional biregular network",
+        "evidence": [
+          "Spectrum ±3 (1), ±sqrt6 (6), ±sqrt3 (12), 0 (16)"
+        ],
+        "identifier_or_url": "https://jaanos.github.io/tables/graphs/Gray.html",
+        "material_read": "Full short construction and spectrum page",
+        "method": "HTML text",
+        "title": "Gray graph reference page",
+        "trigger": "Check exact ordinary Gray graph geometry and spectrum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2ac3b4ce-4f84-4c1d-be0c-522f02c886fc",
+  "value": {
+    "rationale": "This exact invariant concerns the first natural higher-dimensional Gray point-line incidence construction, which becomes biregular. Its two distinct support-separated kernel eigenspaces enforce an additive budget of 16+43=59, a substantial 16-input gap over its largest eigenvalue multiplicity 43. An explicit minimum placement is verified and is not zero forcing. This provides a relevant and reproducible fixed-network benchmark for leader selection, rather than an arbitrary numerical slice. No infinite-family theorem is claimed.",
+    "status": "PASS"
+  }
+}

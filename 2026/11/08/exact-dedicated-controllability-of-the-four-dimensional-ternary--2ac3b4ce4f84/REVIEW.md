@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The incidence matrix is determined without ambiguity from four ternary point coordinates and one free coordinate for every axis line. The tensor decomposition of the ternary Hamming graph gives the singular-square values \(12,9,6,3,0\) with multiplicities \(1,8,24,32,16\), and therefore the Laplacian eigenvalues and the two disjoint-support kernel eigenspaces. Every controllable coordinate placement needs at least \(16\) point and \(43\) line actuators. The exact, extractable `verify.py` recomputes the 65 independent incidence columns, all five Gram spectral-projector observation ranks, and the zero-forcing stall. Nonzero minors modulo \(101\) imply nonzero rational minors, and the analytic eigenspace dimensions supply the rank upper bounds. For each positive singular value the line observation is merely rescaled in the two Laplacian eigenspaces. All PBH hypotheses and boundaries are checked. The proof establishes only this fixed \(189\)-vertex unweighted graph.
+
+## Originality — PASS on inspected evidence, with priority caveats
+
+Burgarth et al. (2011, arXiv:1111.1475) give the zero-forcing sufficient criterion and state that its converse is false; they do not evaluate this 189-vertex grid-incidence network. The constructed set cannot initiate zero forcing, so their sufficient condition does not yield its controllability. Yuan et al. (2013, DOI 10.1038/ncomms3447) give the maximum-multiplicity rule for unrestricted input matrices; our exact \(43\) versus \(59\) dedicated-coordinate gap shows why that theorem alone does not settle this allocation. Bouwer (1968) and the Gray-graph catalog describe the cubic 54-vertex three-dimensional incidence graph, whereas the object here is biregular on 189 vertices. Triantafillou (2014, DOI 10.26240/heal.ntua.1353) treats the ordinary Gray graph's nullity and zero-forcing number; the available abstract does not assert the four-dimensional dedicated-control count, but the restricted full thesis could contain additional material. The exact four-dimensional claim was compared to the available prior records on projective-plane incidence networks, rook graphs, binary hypercubes, and a weighted-hypercube dedicated-control obstruction, none of which logically implies the asserted 189-vertex result. Additional specialist coverage remains a risk; failed search was not treated as novelty proof.
+
+## Mathematical value — PASS
+
+The 4-dimensional ternary point–axis-line graph is the first higher-dimensional extension of the classical Gray incidence construction, and the first where point and line degrees differ. That degree asymmetry splits the singular-vector kernels into two distinct Laplacian eigenvalues, forcing *additive* actuator demands instead of only the usual largest-eigenspace demand. The exact natural dedicated-actuator invariant \(59\), the constructive optimum, the non-zero-forcing witness, and the sharp gap \(59-43=16\) provide a concrete benchmark for graph-spectral leader selection and demonstrate a substantial topology-specific distinction. This is not a generalization to arbitrary grids or a claim that the existence of dedicated-input gaps is new.
+
+## Limits and nearby sources
+
+Only the fixed four-dimensional ternary network is classified; other optimal sets and higher dimensions are not. Bouwer's original full article and Triantafillou's full thesis were not materially inspected because full retrieval was unavailable; their public descriptions were reviewed, and their possible additional coverage is retained as a priority risk. Monshizadeh, Zhang and Camlibel (2014, arXiv:1403.4868) study robust zero-forcing leader sets for families of matrices, a different quantifier than a specific Laplacian and a non-zero-forcing placement.
+
+Self-review: passed. Independent audit: not yet performed.
