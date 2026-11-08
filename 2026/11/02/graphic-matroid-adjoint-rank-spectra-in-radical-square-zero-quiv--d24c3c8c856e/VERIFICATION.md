@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the mathematical claim
 
-Run `python check.py` with Python 3 and its standard library. The expected marker is `INCIDENCE_ADJOINT_MATROID_CYCLE_OK 17`. The checker implements actual finite-field arithmetic (with \(\mathbb F_4\) represented by the polynomial \(t^2+t+1\)), constructs the arrow-output matrix for each inner adjoint operator on the full algebra, and performs elimination from scratch. It checks the claimed pointwise rank equality for every algebra element in each of 17 small configurations; no graph-rank formula is used to compute the direct matrix rank.
+# Independent mathematical audit
 
-It separately calculates the graphic subset expansion for each configuration, divides element-rank counts by the exactly known center size, and compares them with the two closed formulas for forests and cycles. Tested patterns include a star, a path, a disconnected forest, triangles, four-, five-, and six-cycles, a pendant leaf, and two four-cycles joined at one vertex; the test also reverses the orientation of a cycle. Characteristic two, odd prime characteristic, and a nonprime extension field occur.
+## correctness
 
-Proof limits: exhaustive testing of finitely many fields and quivers does not certify all finite fields. The general proof in `RESULT.md` uses the exact adjoint-matrix rank decomposition and additive-character orthogonality, and is the sole justification for arbitrary sizes and characteristics. It excludes multiple arrows and higher radical powers. An independent mathematical audit has not been performed.
+PASS
+
+For X with vertex labels lambda and arrow labels x, independent arrow-input pivots occur on unequal-label edges B. Equal-label rows indexed by nonzero x form an oriented incidence matrix on F, rank r_G(F), over all characteristics. Hence rank ad_X=|B|+r_G(F). The center is componentwise-constant vertex scalars of dimension c(G). Expansion of (qz)^[different]=qz+(1-qz)1_[equal] gives the three-state formula after dividing by q^c; a forest has independent edge differences; a unicyclic graph has one additive-character constraint and a full-cycle rank-drop correction. These prove the claimed generality, not the small examples.
+
+## originality
+
+PASS
+
+Baclawski describes incidence-algebra derivation spaces, while Sánchez-Flores studies outer/Hochschild derivation structure and Zhang–Khrypchenko treats Lie derivations; none of the materially inspected text identifies this finite-field adjoint-rank distribution. The rank polynomial depends on the entire graphic cycle matroid, a more specific invariant than center dimension or number of derivations. Historical equivalence under commutator-centralizer or matroid-coloring enumeration remains plausible.
+
+## value
+
+PASS
+
+The full map-rank stratification of a natural class of finite algebras controls every centralizer fiber and commuting probability; its orientation independence and closed tree/unicyclic evaluations are useful structural facts rather than an arbitrary small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

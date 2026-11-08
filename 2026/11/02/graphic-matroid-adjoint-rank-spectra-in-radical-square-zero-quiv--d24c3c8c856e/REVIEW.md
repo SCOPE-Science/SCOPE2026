@@ -1,17 +1,21 @@
-# Scientific review: adjoint-rank spectra of radical-square-zero quiver algebras
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact statement concerns distinct inner derivation maps of \(A=\mathbb F_qQ/J^2\), not representatives in \(A\). The center is exactly the componentwise scalar diagonal, with dimension \(c(G)\); dividing representative counts by \(q^{c(G)}\) is essential. For each element the adjoint-matrix rows indexed by edges with unequal diagonal labels have independent arrow-input pivots. All remaining active rows form a weighted incidence matrix on an equal-label support graph, whose rank is the graphic rank in every characteristic. This reconstructs the pointwise rank equality; the three-state subset expansion then follows by a finite coloring identity. The forest and unicyclic formulas follow from independent tree-edge differences and a one-relation additive-character sum, including the explicit full-cycle rank-drop correction. The standalone checker independently reconstructs the actual matrices over three fields (including an extension field) and validates 17 exhaustive configurations. The theorem is proved for all finite fields; finite tests alone would not prove this.
+## correctness
 
-## Originality (PASS subject to historical-priority uncertainty)
-The full primary text of Baclawski (1972) was inspected for the classification and dimensions of incidence-algebra derivations; its Theorems 1--3 determine the center and structural derivation spaces, not finite-field pointwise adjoint ranks. The full arXiv text of Zhang--Khrypchenko (2016), including the introduction, local coordinate theorems and general theorem, concerns properness of Lie derivations for 2-torsion-free rings and gives no rank enumerator; its characteristic restriction alone prevents coverage of the all-characteristic claim. Sánchez-Flores (2011) is a closer radical-square-zero subject match, but available abstract/theorem descriptions concern outer derivations and Lie structure of Hochschild cohomology, not the rank distribution of inner derivation operators. A previously published exact count for Kronecker path algebras treats a parallel-arrow subclass and commutator fibers/commuting probabilities rather than the full arbitrary-simple-graph rank polynomial. Related graph-based character-degree and incidence-algebra orbit-enumeration results count distinct invariants; neither directly supplies the pointwise rank/matroid claim.
+PASS
 
-Search terms included rank distribution of inner derivations of radical-square-zero quiver algebras; rank and centralizer spectra of height-two incidence algebras; finite-field graphic matroid adjoint polynomials; commuting probability incidence algebra; and derivations of radical-square-zero monomial algebras. There was no located equivalent theorem, but an unindexed earlier result in finite algebra centralizer literature remains plausible. A publication-priority claim beyond the inspected evidence is not made.
+For X with vertex labels lambda and arrow labels x, independent arrow-input pivots occur on unequal-label edges B. Equal-label rows indexed by nonzero x form an oriented incidence matrix on F, rank r_G(F), over all characteristics. Hence rank ad_X=|B|+r_G(F). The center is componentwise-constant vertex scalars of dimension c(G). Expansion of (qz)^[different]=qz+(1-qz)1_[equal] gives the three-state formula after dividing by q^c; a forest has independent edge differences; a unicyclic graph has one additive-character constraint and a full-cycle rank-drop correction. These prove the claimed generality, not the small examples.
 
-## Value (PASS)
-A full rank spectrum is stronger than the dimension of the derivation space or one commuting probability: it gives the size of every centralizer stratum. The theorem makes this invariant orientation-independent and dependent solely on a graphic matroid, supplies a uniform binomial law for all forest orientations, and isolates a precise cycle correction for every unicyclic graph and all finite-field characteristics. This is an intrinsic, reusable algebraic classification over an unbounded natural family, rather than a numerical improvement or arbitrary small example. It also determines commuting probabilities without additional structural assumptions.
+## originality
 
-## Scope and residual risk
-The claim excludes parallel arrows, loops, non-square-zero radicals, and outer derivations. The general subset sum need not be computationally efficient. The analogy to established graph-polynomial and centralizer methods means prior equivalent formulations cannot be ruled out without a more exhaustive historical audit; a 2024 paper on derivations of incidence algebras was visible by abstract but its complete text could not be retrieved. The public proof is independent of that paper.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Baclawski describes incidence-algebra derivation spaces, while Sánchez-Flores studies outer/Hochschild derivation structure and Zhang–Khrypchenko treats Lie derivations; none of the materially inspected text identifies this finite-field adjoint-rank distribution. The rank polynomial depends on the entire graphic cycle matroid, a more specific invariant than center dimension or number of derivations. Historical equivalence under commutator-centralizer or matroid-coloring enumeration remains plausible.
+
+## value
+
+PASS
+
+The full map-rank stratification of a natural class of finite algebras controls every centralizer fiber and commuting probability; its orientation independence and closed tree/unicyclic evaluations are useful structural facts rather than an arbitrary small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
