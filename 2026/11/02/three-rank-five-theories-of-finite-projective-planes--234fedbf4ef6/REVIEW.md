@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is in the two-sorted incidence language, and the two separation sentences have exact quantifier ranks four and five. A four-move enhanced-diagram strategy works at orders at least three; a five-move strategy works at orders at least four. Its two critical geometric bounds are verified directly: off-line fresh points exist despite at most four selected lines for orders at least four, and remaining singleton-incidence types have at least \(q-2\) witnesses. Multi-line types are fixed by the unique line-intersection axiom and selected-triple concurrency flags. The three classes and sharp 42-element representative then follow. The finite verifier checks orders two through five, with exhaustive rank-one extension verification at order four, but the proof is not inferred from samples.
+## correctness
 
-## Originality — PASS, qualified
-Venema's two-sorted projective-plane modal logic is a different, propositional modal fragment; its completeness, decidability and complexity theorems do not provide unrestricted first-order five-round equivalence. Generic quantifier-structure hierarchy results do not imply this specific geometric cutoff. Earlier rank-four first-order coverage is strictly weaker and cannot establish rank-five equivalence for all larger, potentially non-Desarguesian planes. Direct literature and research-index searches did not uncover an equivalent or stronger rank-five classification. This is a best-knowledge literature assessment, not a mathematical proof of priority; equivalent work in unindexed sources remains possible.
+PASS
 
-## Value — PASS
-The exact rank-five classes and the four-line covering separator isolate the next change in the bounded-depth incidence logic of finite projective planes. Uniformity across all non-Desarguesian as well as Desarguesian planes and the sharp finite representative bound give a structural finite-model-theoretic result, not merely a computation on small examples. The claim is a genuine rank-five refinement of the coarser four-round partition.
+The two-sorted five-round EF proof correctly maintains equality, incidence and auxiliary triple-collinearity/concurrency for tuples of length at most three. At most three distinguished lines determine all needed fresh singleton/intersection/complement patterns uniformly for q>=4: the conservative complement q^2-2q-5 is positive there. On the final move with four prior variables, only atomic patterns are required, and the bound q^2-3q-3>0, plus q-2>0, supplies fresh realizations. Duality handles lines. The rank-four analogous bound works for q>=3. Three-line and four-line pencil-cover sentences Θ3 (rank four) and Θ4 (rank five) distinguish orders 2 and 3 from the stabilized larger orders. The concluding 42-element minimum is q=4 with 21 points and 21 lines. The separate C++ checker encodes normalized ternary projective coordinates and exact tuple-signature recursion, not a substitute for the infinite EF proof.
 
-## Scope and limits
-The result concerns finite nondegenerate projective planes in a named two-sorted incidence language; it does not classify higher ranks or unnamed-sort Levi graphs. The computer tests cover Desarguesian planes of orders two, three, four, and five only. Historical literature coverage is necessarily incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact quantifier rank five incidence-only classification beyond generic classical EF machinery and separate modal logic; the proof supplies genuine uniform numerical thresholds.
+
+## value
+
+PASS
+
+A complete rank-five classification for all finite projective planes, including non-Desarguesian, isolates the first new threshold after rank four and a sharp minimum 42-element model. Natural finite-model-theoretic invariant, not a relabeling or isolated tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
