@@ -1,19 +1,21 @@
-# Review: sharp weighted-cycle \(p\)-heat gradient criterion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim and proof agree on finite cycles \(n\ge3\), all positive masses and conductances and \(1<p<\infty\), with metric edge lengths one. The signed edge-flow equation and the zero-sum condition jointly generate the four exact feasible-region maxima. Explicit normalized configurations attain each edge extremum; the finite-maximum Dini rule converts them into a sharp semigroup coefficient. Global well-posedness uses energy monotonicity and the maximum principle. For cycles of at least six vertices, summing the local rates and telescoping the mass-weighted conductance differences forces uniform conductance. For the pentagon example the monotone \(\ell_r\) profile has one subquadratic crossing. Rational and numerical checker diagnostics were replayed from the actual standalone file; they support, but do not prove, the universal formula.
+PASS
 
-## Originality — PASS (qualified)
+Read pinned RESULT.md and checker. Subtracting nonlinear weighted vertex equations gives edge equation with neighbors a_i=c_{i-1}/m_i, b_i=c_{i+1}/m_{i+1}, diagonal d_i=c_i(1/m_i+1/m_{i+1}). A max absolute edge has normalized value 1; cyclic closure sum e_j=0 yields four feasible neighbor regions. n=3 neighbors sum -1 (strict p>2 minimization or concave p<=2 endpoint); n=4 neighbor sum in [-2,0] (H=|a-b|); n=5 neighbor sum<=1 and monotonic optimum x+y=1 (concave p<2 power norm / max for p>=2); n>=6 neighbors can both be 1 using remaining -3/(n-3). Every scalar optimum is integrated to real cyclic vertex slopes, giving an attained instantaneous K=max(H-d), not merely an upper bound. Dini max rule + convex flow well-posedness proves L nonincrease iff K<=0. For n>=6 sum_i(a_i+b_i-d_i)=0; K<=0 forces equality of mass-weighted differences and then all c_i equal. Pentagon c=(1,1,1,1,3/2) yields unique p≈1.336485730165 transition via strictly decreasing ℓ_r norm. Independent 500 exact rational p=3 witnesses and root check corroborated finite cases; general proof is analytic and includes p=2 method as antecedent.
 
-Closest primary antecedents are Mugnolo (arXiv:1207.1996, nonlinear graph heat and vertex-norm contractivity), Hua–Mugnolo (arXiv:1410.1584, time regularity and extinction), and Münch–Wojciechowski (arXiv:1712.00875, general weighted *linear* graph heat Lipschitz decay). The latter covers the \(p=2\) method and is expressly prior art. An earlier unit-conductance cycle statement treats only homogeneous edges; the tree, multipartite, and product cases have different closure and adjacency constraints. The searched literature and published mathematical statements did not identify the all-exponent weighted-cycle coefficient. Unindexed equivalent nonlinear gradient theory remains a nonzero priority risk; database absence alone is not a novelty proof. Detailed implication comparisons, source material inspected and residual risks are in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp coefficient solves the whole positive-weight continuous-parameter family rather than one sampled instance. Six vertices mark an exact mass-independent rigidity boundary, while five vertices permit a genuine nonlinear phase transition below \(p=2\). This is a motivated distinction between the evolution of individual edge gradients and vertex function norms. The evaluated derivative gives an immediately applicable smoothing/expansion test and quantitative decay when negative.
+Best-of-knowledge PASS for the nonlinear all-positive-weights, all-cycle-length *sharp one-input* gradient coefficient and long-cycle rigidity, not the p=2 curvature-based criterion. Mugnolo's graph p-Laplace semigroup is vertex-space contractive, which does not generally imply unit-edge Lipschitz contraction. Hua–Mugnolo addresses time/long-time behavior; Münch–Wojciechowski characterizes general *linear* p=2 Lipschitz gradient decay through Ollivier curvature. Earlier homogeneous cycles and weighted trees lack arbitrary cycle conductance closure. No covering nonlinear weighted-cycle statement identified; full extended graph-gradient literature not exhausted.
 
-## Limitations
+## value
 
-The result concerns one-input edge-Lipschitz contraction on unit metric edges, not two-input stability, edge-length-weighted Lipschitz norms, or infinite graphs. Strictly positive initial gradient decay coefficient need not remain attained for later times. Independent scientific audit is outstanding. The linear limit is not separately presented as novel.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp necessary-and-sufficient edge gradient contraction test is a natural regularity question for a nonlinear diffusion on weighted graphs. The four qualitatively different cycle-length regimes, exact p-sensitive five-cycle threshold and rigid six-edge conductor obstruction are substantive structural boundaries rather than routine parameter substitutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

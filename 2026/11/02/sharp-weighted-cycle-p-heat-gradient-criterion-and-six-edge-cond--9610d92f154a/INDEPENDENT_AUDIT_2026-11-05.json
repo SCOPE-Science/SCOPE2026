@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:03:47.409091Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read pinned RESULT.md and checker. Subtracting nonlinear weighted vertex equations gives edge equation with neighbors a_i=c_{i-1}/m_i, b_i=c_{i+1}/m_{i+1}, diagonal d_i=c_i(1/m_i+1/m_{i+1}). A max absolute edge has normalized value 1; cyclic closure sum e_j=0 yields four feasible neighbor regions. n=3 neighbors sum -1 (strict p>2 minimization or concave p<=2 endpoint); n=4 neighbor sum in [-2,0] (H=|a-b|); n=5 neighbor sum<=1 and monotonic optimum x+y=1 (concave p<2 power norm / max for p>=2); n>=6 neighbors can both be 1 using remaining -3/(n-3). Every scalar optimum is integrated to real cyclic vertex slopes, giving an attained instantaneous K=max(H-d), not merely an upper bound. Dini max rule + convex flow well-posedness proves L nonincrease iff K<=0. For n>=6 sum_i(a_i+b_i-d_i)=0; K<=0 forces equality of mass-weighted differences and then all c_i equal. Pentagon c=(1,1,1,1,3/2) yields unique p≈1.336485730165 transition via strictly decreasing ℓ_r norm. Independent 500 exact rational p=3 witnesses and root check corroborated finite cases; general proof is analytic and includes p=2 method as antecedent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mugnolo arXiv:1207.1996 proves nonlinear discrete p-Laplace theory/contractivity in vertex function spaces.",
+          "Hua–Mugnolo arXiv:1410.1584 concerns time regularity and asymptotics; arXiv:1712.00875 p=2 linear gradient contractivity."
+        ],
+        "reasoning": "Broad vertex-space semigroup bounds do not dominate the edge seminorm quantity; the p=2 linear subcase is acknowledged prior-method coverage, but for nonlinear p the power dependence matters.",
+        "searches": [
+          "Resultary: nonlinear weighted graph p heat cycle edge Lipschitz contraction conductance",
+          "Mugnolo 1207.1996 parabolic discrete p Laplace contractive semigroup",
+          "1712.00875 weighted heat Ollivier Ricci Lipschitz gradient"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.1996 full HTML",
+        "arXiv:1410.1584 abstract/scope",
+        "arXiv:1712.00875 abstract/scope",
+        "Resultary search Resultary: nonlinear weighted graph p heat cycle edge Lipschitz contraction conductance",
+        "Pinned RESULT.md blob a0648e42c14e4b0b4844ea79bf88d2a2ee23650f and verify_weighted_cycle_pheat.py blob b1da353e4ffcbc134c56acd4510d1a6d288c947b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear Ollivier curvature criterion treats p=2, which the new text explicitly does not claim as independent novelty.",
+          "The n=5 coefficient changes with p through (a^(1/(2-p))+b^(1/(2-p)))^(2-p)."
+        ],
+        "reasoning": "The fixed linear curvature theorem does not imply this nonlinear p-dependent ℓ_r transition or exact long-cycle all-exponent conductance rigidity. Nonlinear results concern vertex norms, not the quantified edge seminorm.",
+        "searches": [
+          "Resultary: nonlinear weighted graph p heat cycle edge Lipschitz contraction conductance",
+          "p heat edge gradient Ollivier curvature implications p=2 weighted cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinned edge-slope quantity L(u)=max_i |u_{i+1}-u_i| is graph unit-metric Lipschitz seminorm, not vertex ℓq norm.",
+          "Münch–Wojciechowski arXiv:1712.00875 characterizes linear weighted-graph Lipschitz gradient via Ollivier Ricci curvature."
+        ],
+        "reasoning": "Alias is invariance of edge-Lipschitz unit ball under the nonlinear p-Laplace semigroup; linear coarse-Ricci theory covers p=2, but cannot directly give the p≠2 flux-dependent cyclic polytope maxima.",
+        "searches": [
+          "Resultary: nonlinear weighted graph p heat cycle edge Lipschitz contraction conductance",
+          "nonlinear p Laplacian gradient maximum principle Lipschitz edge cycle Ollivier curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search hit weighted odd-cycle fourth-power energy convergence to a Sturm–Liouville eigenvalue, 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af, a different variational energy.",
+          "No matching all-conductance p-heat cycle table returned."
+        ],
+        "reasoning": "Four cycle-size regimes arise from exact closure constraints, not from known finite-cycle spectra or a small numerical table.",
+        "searches": [
+          "Resultary: nonlinear weighted graph p heat cycle edge Lipschitz contraction conductance",
+          "cycle conductances p heat sharp edge gradient coefficient H n p closed form"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the nonlinear all-positive-weights, all-cycle-length *sharp one-input* gradient coefficient and long-cycle rigidity, not the p=2 curvature-based criterion. Mugnolo's graph p-Laplace semigroup is vertex-space contractive, which does not generally imply unit-edge Lipschitz contraction. Hua–Mugnolo addresses time/long-time behavior; Münch–Wojciechowski characterizes general *linear* p=2 Lipschitz gradient decay through Ollivier curvature. Earlier homogeneous cycles and weighted trees lack arbitrary cycle conductance closure. No covering nonlinear weighted-cycle statement identified; full extended graph-gradient literature not exhausted.",
+      "residual_risks": [
+        "A previously published nonlinear edge-gradient maximum principle for positive weighted cycles might contain an equivalent n,p-dependent coefficient.",
+        "Some broad nonlinearly diffusive graph literature was surveyed only at abstract level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found foundational well-posedness and vertex contraction, not explicit arbitrary-conductance cycle edge-gradient K",
+          "evidence": [
+            "Vertex function ℓq contractivity, nonlinear p-Laplacian flow framework."
+          ],
+          "identifier_or_url": "arXiv:1207.1996",
+          "material_read": "Full accessible arXiv HTML, including energy and semigroup contractivity theorems",
+          "method": "Read primary sections on graph p-heat and compared controlled norms",
+          "title": "Parabolic theory of the discrete p-Laplace operator",
+          "trigger": "Identical nonlinear discrete weighted graph p-Laplacian"
+        },
+        {
+          "assessment": "Covers linear gradient via curvature; noncoverage of entire article not claimed",
+          "evidence": [
+            "Graph Laplacian, linear heat equation, Ollivier curvature and Lipschitz decay."
+          ],
+          "identifier_or_url": "arXiv:1712.00875",
+          "material_read": "Abstract and public theorem summary (full text not confirmed)",
+          "method": "Compared precise linear p=2 scope",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Potential dominating linear gradient contraction theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp necessary-and-sufficient edge gradient contraction test is a natural regularity question for a nonlinear diffusion on weighted graphs. The four qualitatively different cycle-length regimes, exact p-sensitive five-cycle threshold and rigid six-edge conductor obstruction are substantive structural boundaries rather than routine parameter substitutions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1207.1996 full HTML",
+    "arXiv:1410.1584 abstract/scope",
+    "arXiv:1712.00875 abstract/scope",
+    "Resultary search Resultary: nonlinear weighted graph p heat cycle edge Lipschitz contraction conductance",
+    "Pinned RESULT.md blob a0648e42c14e4b0b4844ea79bf88d2a2ee23650f and verify_weighted_cycle_pheat.py blob b1da353e4ffcbc134c56acd4510d1a6d288c947b"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite cycles, unit metric edge lengths, positive conductance/mass, p>1, one-input nonlinear semigroup; not a difference-of-solutions contraction.",
+    "Instantaneous bound integrated by comparison; equality of integrated rate for positive times not asserted.",
+    "Independent finite checking supports but does not prove universal n,p,weights.",
+    "Publication transport issue is not a scientific rejection; no private provenance was written into public source files."
+  ],
+  "schema_version": 1
+}
