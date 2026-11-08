@@ -1,11 +1,21 @@
-# Scientific review: central triangular-prism section law
+# Independent mathematical audit
 
-**Correctness (PASS).** For every positive prism height, the six vertex signs are explicitly encoded by three horizontal scores summing to zero and one vertical threshold. Counting mixed vertical edges classifies every generic plane: one, zero/two, and three crossed vertical edges give pentagon, quadrilateral, and triangle, respectively. The triangular-section event is exactly a regular-hexagonal cone; six equal spherical triangles evaluated by the determinant solid-angle identity give its elementary probability. The exact expected edge crossing count follows from the spherical sign-disagreement probability between any two position vectors. Since only three counts occur, its expectation and triangular probability determine the other two probabilities. Independently implemented nine-edge sign counting passed 900,000 random directions across five heights, including the limiting regimes. Sampling supports but does not prove the continuum argument.
+## correctness
 
-**Originality (PASS, with priority limits).** Wendel's 1962 foundational paper studies independent random points on a sphere, not the correlated six fixed vertices of a sliced prism. Its full primary text was accessed and relevant early statements examined. Published research-result queries for random central polytope sections returned exact laws for rectangular boxes, four-cubes, and icosahedra, but not this equilateral triangular-prism three-type probability law. The generic edge-crossing identity and spherical-cone area formula are old and are not presented as new. The exact evaluated height-dependent complete distribution remains unmatched in examined statements; unindexed prior work is an explicit risk. The distinction from a plane through three independently sampled surface points was checked.
+PASS
 
-**Value (PASS).** A triangular prism is the simplest three-dimensional right prism that is not centrally symmetric; its random central planar slices exhibit a nontrivial three-point face-number distribution. A complete closed-form law over every height, including both singular aspect-ratio limits, is a natural, self-contained benchmark for orientation-averaged polyhedral section combinatorics and a useful complement to formulas for centrally symmetric boxes. It is not a mere restatement of the general expected-edge-count identity: the triangular-section solid angle and exact three-type classification are also essential.
+The six prism-vertex signs are s_j±t with Σs_j=0 and t=h|n_z|/2. Classifying k=0,1,2,3 crossed vertical edges yields N=4,5,4,3 for all generic normals, excluding measure-zero vertex/edge coincidences. N=3 corresponds exactly to a centered hexagonal cone. The six congruent spherical triangle solid angles give T(h)=6 arctan[h²/(sqrt(3)(4+h²+4sqrt(1+h²/3)))]/π. Each of nine spatial edges is sign-separated with chance θ/π; summing 6 horizontal and 3 vertical contributions proves L(h)=E[N]. The three-point support and two moments yield the remaining probabilities and both height limits. Independently sampled 30,000 random normals at each of h=0.2,1,2,5 and enumerated actual nine edge crossings; results agree with the evaluated probability triple within sampling error. Monte Carlo only corroborates, not proves, the all-height continuum identity.
 
-**Limitations.** Only equilateral bases, central uniform plane orientation, and positive heights are proved; historical uniqueness and independent audit are not established. No global probability-maximizing height theorem is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete three-type all-height central-prism law, not for standard spherical solid-angle or angular edge-separation identities. Wendel proves a distribution for independent random spherical points, and related published exact laws concern other polytopes. No source checked gives this particular complete correlated-prism section law; unindexed older calculations remain a residual priority risk.
+
+## value
+
+PASS
+
+A regular triangular prism is the simplest non-centrally-symmetric right prism, and central sections have three genuinely competing polygon types. Exact probabilities for every positive aspect ratio, including thin/tall limits, give a natural geometric-probability benchmark not determined by an expectation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
