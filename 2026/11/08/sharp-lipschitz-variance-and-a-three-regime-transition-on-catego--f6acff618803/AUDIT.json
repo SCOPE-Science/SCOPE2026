@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "After anchoring, variance is strictly convex; perturbing an untight connected component forces every maximizing tight-edge graph to span, hence all values are integral. The categorical product has diameter two. For three-level functions, exact variance is [N(s+t)-(s-t)^2]/N^2; all mutually row/column-compatible extreme sets are classified into a common line, singleton-versus-cross, or alternating 2-by-2 rectangle. Each category is optimized, checkerboard is bounded by the cross-star candidate, and elementary sign/monotonicity arguments give the full phase diagram including ties. Candidates are feasible. Independent exact enumerations on small grids and a large integer-phase comparison corroborate, but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon--Boppana--Spencer Theorem 2.1 yields integral optimizers on any graph, but not sharp values or equality families. Their Theorem 3.6 is for the sum metric, explicitly defined as a sum of factor distances.",
+        "Addario-Berry--Janson--McDiarmid arXiv:0902.1156 studies random graph models; its deterministic graph facts do not give this exact grid formula.",
+        "Yancey 2017 introduces Cartesian products via the sum of graph distances and studies variance optimality and concentration, not categorical products."
+      ],
+      "reasoning": "General graph integrality is an ingredient, not a broader quantitative bound implying our formula. The Cartesian product of cliques has the rook adjacency (one coordinate changes), whereas our edges require both to change. Earlier Kneser-pair graph calculations concern all two-subsets and cannot transfer sharp uniform-variance values to an induced cross-edge subgraph, whose vertex measure and constraints differ.",
+      "searches": [
+        "arxiv:0902.1156 full text: spread; product; tensor",
+        "Alon Boppana Spencer 1998 Theorems 2.1, 3.6",
+        "Yancey arXiv:1705.09725 sections 1, 2 and 3.2",
+        "web: \"tensor product\" \"spread\" \"Lipschitz\" graph"
+      ]
+    },
+    "checked_sources": [
+      "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+      "https://arxiv.org/abs/0902.1156",
+      "https://arxiv.org/pdf/1705.09725",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1998 results give integrality and Cartesian product log-moment tensorization. A 3-by-3 categorical clique product is accidentally isomorphic to the 3-by-3 Cartesian rook graph, so its numerical spread is previously implied; its special case is not claimed independently new.",
+        "The full rectangular parameters a,b>=3 and their sharp cross-star, full-line, binary phases are not statements in inspected primary sources.",
+        "Prior complete-graph-pair Kneser results are not inherited by restricted bipartite-edge disjointness graphs because the sampled vertex set and graph constraints change."
+      ],
+      "reasoning": "The new assertion is a global exact result and full optimizer classification for a categorical family. Prior general principles are used in the proof, and a single small numerical case is previously implied; those implications do not cover the general regime transitions or equality-location classification.",
+      "searches": [
+        "Alon--Boppana--Spencer Theorems 2.1 and 3.6",
+        "arxiv:0902.1156 introduction, sections 2 and 4",
+        "Yancey arXiv:1705.09725 introduction and section 2.1",
+        "published-finding corpus: exact spread Lipschitz variance of direct tensor categorical product of two cliques K_m times K_n; complement of rectangular rook graph; equality classifications",
+        "published-finding corpus: sharp centered Lipschitz to L2 embedding for complements of rook graphs regular categorical products of cliques"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The categorical product is the complement of the rectangular rook graph and the graph of disjoint pairs of edges of a complete bipartite graph.",
+        "Yancey arXiv:1705.09725, introduction and §2.1, studies the Cartesian product, which imposes a different edge/metric rule.",
+        "Alon--Boppana--Spencer (1998), Theorem 3.6, treats the L1/sum-metric Cartesian product."
+      ],
+      "reasoning": "Searched aliases of the same grid graph, not only the proposed title. The exact three-envelope spread formula and parameter/equality classification were not found in the inspected sources. The known Cartesian-product tensorization cannot apply to the categorical product except for a special small accidental isomorphism. Search incompleteness is residual risk.",
+      "searches": [
+        "published-finding corpus: exact spread Lipschitz variance of direct tensor categorical product of two cliques K_m times K_n; complement of rectangular rook graph; equality classifications",
+        "web: \"K_m × K_n\" \"spread\" \"variance\" graph",
+        "web: \"complement of the rook graph\" Lipschitz variance spread",
+        "web: \"disjointness graph\" \"K_{m,n}\" \"spread\" Lipschitz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest rook-related IDs: 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f and 2026/10/11/SCOPE-full-rook-graph-ech-homology-character-under-coordinate-permutat--3db3b8efc98c (topological invariants, not Lipschitz variance).",
+        "Accessible prior exact claim a839faad-e874-44ce-932a-045810f42628 concerns triangular Johnson graphs; claim 1bc11f18-70e7-4af9-8a59-41a413a342c5 concerns full Kneser pair graphs. Neither implies this induced rectangular disjointness graph spread."
+      ],
+      "reasoning": "Looked for a graph invariant table under both complement-rook and direct-clique-product descriptions and inspected accessible historical claim statements. No exact table or theorem matching the computed three-regime family was identified. This is evidence of a gap, not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: exact spread Lipschitz variance of direct tensor categorical product of two cliques K_m times K_n; complement of rectangular rook graph; equality classifications",
+        "published-finding corpus: cross intersecting family of grid cells sharing row or column paired sets minimum graph metric diameter two sharp variance",
+        "published-finding corpus: sharp centered Lipschitz to L2 embedding for complements of rook graphs regular categorical products of cliques",
+        "published-finding corpus: sharp Lipschitz spread variance graph blowups lexicographic product complete graph factors exact extremizers",
+        "web: \"spread\" \"complement of rook\" graph variance"
+      ]
+    },
+    "rationale": "Actual published search and accessible historical claims were compared by implications using categorical product, complement-rook, disjointness graph and induced Kneser aliases. The 1998 integral-extremizer theorem and Cartesian sum-product tensorization do not imply the all-parameter categorical three-envelope formula. The numerical 3-by-3 case is already obtainable by an isomorphism to the Cartesian product and is expressly not claimed separately as original. No broader exact classification identified; residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "No publication search can exhaust unindexed literature or inaccessible notes.",
+      "Indexed rook-graph summaries are not full-document inspections; their topics are not close to this spread invariant.",
+      "The 3-by-3 numerical special case follows from known Cartesian tensorization through an accidental isomorphism, but the full family does not."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior integral-extremizer and sum-metric product facts; not a general categorical-product solution",
+        "evidence": "Theorem 2.1 proves an integral optimizer for all graphs. Theorem 3.6 specifies the L1 metric rho_G+rho_H. This differs from direct graph product adjacency.",
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "material_read": "Full-paper accessible PDF; pages 1--5 and 14--15, specifically Theorem 2.1 and Theorem 3.6, were inspected as text and rendered page images; term searches for rook and categorical product",
+        "method": "Extracted mathematical text and page screenshots",
+        "title": "An Asymptotic Isoperimetric Inequality",
+        "trigger": "Introduces spread and integral-extremizer theorem and potentially broader product result"
+      },
+      {
+        "assessment": "Defines the invariant and derives probabilistic graph results; no explicit deterministic categorical-clique-product exact formula in checked material",
+        "evidence": "First posted February 6, 2009. Introduction quotes known integrality theorem; main results concern random regular, Erdős--Rényi and small-world graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+        "material_read": "Full accessible HTML with abstract, introduction, main theorem and section headings, random-regular and supercritical construction portions, and whole-document searches for product/tensor",
+        "method": "Primary arXiv full-text page",
+        "title": "On the spread of random graphs",
+        "trigger": "Archive-dated motivating source for graph Lipschitz variance"
+      },
+      {
+        "assessment": "Cartesian-product and concentration framework, not the categorical rectangular family or its exact spread and equality types",
+        "evidence": "The introduction explicitly defines Cartesian product via sum of factor distances; Theorem 2.2 concerns its subgaussian constant.",
+        "identifier_or_url": "https://arxiv.org/pdf/1705.09725",
+        "material_read": "Full 62-page PDF available; inspected introduction, first-half theorems and Cartesian-product discussion, including section 3.2, via text and page images, and searched rook/categorical/tensor",
+        "method": "Primary arXiv text and rendered PDF page",
+        "title": "Probabilistic and Geometrical Applications to Graph Theory",
+        "trigger": "Plausibly broad work on maximum-variance graph functions and graph products"
+      },
+      {
+        "assessment": "Computes homology of a rook-graph complex, a different invariant; abstract alone cannot exclude hidden full-text implications",
+        "evidence": "Abstract supplies homology ranks and symmetric-group representation, not graph Lipschitz variances.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f",
+        "material_read": "Published search record title and abstract only",
+        "method": "Indexed mathematical-summary comparison",
+        "title": "Integral and equivariant homology of three-cut complexes of rook graphs",
+        "trigger": "Closest published indexed use of rectangular rook graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f6acff61-8803-4f09-8885-4e0dc3d34baf",
+  "value": {
+    "rationale": "This determines a natural Lipschitz-to-centered-L2 norm on an infinite family of connected categorical graph products, with a nontrivial exact transition among three qualitatively different optimizer geometries. It classifies every norming potential, all ties, and an exceptional checkerboard, beyond the known integrality principle; the distinction from Cartesian products makes the exact structure relevant to categorical metrics.",
+    "status": "PASS"
+  }
+}
