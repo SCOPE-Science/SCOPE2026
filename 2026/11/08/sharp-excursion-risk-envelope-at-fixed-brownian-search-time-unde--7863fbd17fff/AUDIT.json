@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For any iid spatial-reset distribution supported on a compact positive interval, the killed Brownian hitting-time transform proves a finite absorption mean \\( (1-s_0)/(rs) \\). The competing zero-hit, upper-threshold-hit and reset equations \\(Df''=rf\\) give exact hyperbolic-sine expressions; a regenerative first-cycle argument yields \\(\\Pr(M\\ge m)=t(1-s_0)(u+s/s_0)/[(1-t)(s+tu)]\\). Its derivative with respect to the positive exponential moment is strictly positive when the threshold exceeds the initial point and reset support. For \\(Y=e^{-kZ}\\), strict Jensen and secant-line inequalities give \\(u_{\\min}=1/s\\) and the unique upper two-endpoint extremizer. Mixtures attain the full interval; the positive exponential moment is invertible from one exceedance probability. All quantifiers, strictness and degenerate fixed-mean cases are handled. The standalone checker passed 8,276 formula and stochastic diagnostics, not substituted for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Evans–Majumdar, Diffusion with Optimal Resetting, arXiv:1107.4225, Section 4 (reset location and mean absorption).",
+        "Guo–Yan–Chen, Extremal statistics for a resetting Brownian motion before its first-passage time, arXiv:2306.15929, sections on one-site maximum.",
+        "Dȩbicki–Hashorva–Michna, Distributional and Extremal Behaviour of Brownian Motion with Exponential Resetting, DOI:10.1007/s11009-026-10316-4, model and supremum sections.",
+        "published-finding corpus search returned 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783: discrete-time duration envelope rather than spatial maximum."
+      ],
+      "reasoning": "The 2011 treatment addresses mean absorption and target distributions. The 2023 first-passage extreme result assumes a single fixed reset site. The 2026 general extremal paper uses a fixed reset level and finite time, not a law selected at constant mean absorption time over all bounded spatial reset distributions. General convexity and renewal arguments are acknowledged as possible routes to a broader unindexed theorem, but no inspected source supplies this precise implication.",
+      "searches": [
+        "Brownian motion Poisson resetting to a bounded distribution of positions, fixed mean first passage time, sharp upper and lower bounds for maximum before absorption, deterministic resetting point vs endpoint mixture",
+        "Brownian renewal stochastic resetting fixed first passage mean optimize extremes via convex order and endpoints",
+        "arxiv:1107.4225 spatial resetting distribution general MFPT",
+        "arxiv:2306.15929 resetting maximum before first passage",
+        "DOI:10.1007/s11009-026-10316-4 supremum Brownian resetting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1107.4225 (Evans–Majumdar 2011)",
+      "arxiv:2306.15929 (Guo–Yan–Chen 2023)",
+      "arxiv:2311.11897 (Julián-Salgado–Dagdug–Boyer 2023)",
+      "arxiv:2401.01125 (Méndez–Flaquer-Galmés–Campos 2024)",
+      "DOI:10.1007/s11009-026-10316-4 (Dȩbicki–Hashorva–Michna 2026)",
+      "Available earlier absorption-time Laplace/variance envelope claim acf0d7ce-781d-4f93-b97d-ff5befa8cd6a",
+      "Available earlier fixed-reset maximum/count claim c254f452-edd9-4ccd-b48d-8c73be1b0c9b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing absorption-time envelope identifies sharp Laplace and variance bounds at fixed MFPT and does not state threshold maximum probabilities.",
+        "The existing fixed-reset theorem identifies a joint maximum/reset-count distribution, where the reset destination is always the initial point.",
+        "Julián-Salgado–Dagdug–Boyer, Diffusion with two resetting points, arXiv:2311.11897, Sections III–V (mean search and rate transitions).",
+        "Méndez–Flaquer-Galmés–Campos, First-passage time of a Brownian searcher with stochastic resetting to random positions, arXiv:2401.01125, Sections II, V, VI–VIII and appendix.",
+        "Guo–Yan–Chen, Extremal statistics for a resetting Brownian motion before its first-passage time, arXiv:2306.15929, sections on one-site maximum."
+      ],
+      "reasoning": "Different identical extremizing measures do not alone imply identical claims; absorption-time marginal inequalities do not determine spatial overshoots. The fixed-reset first-passage maximum is a one-atom case and cannot by itself establish a strict total ordering for arbitrary compact reset-location laws of the same mean search time. The current two-moment exit formula and its equality classification require new exact boundary and moment reasoning.",
+      "searches": [
+        "Reset Brownian first passage equivalent reset position, heterogeneity amplifies maximum or rare excursions, stochastic ordering",
+        "Brownian under resetting to two points first passage joint path maxima resetting count distribution",
+        "local claim id acf0d7ce-781d-4f93-b97d-ff5befa8cd6a",
+        "local claim id c254f452-edd9-4ccd-b48d-8c73be1b0c9b",
+        "arxiv:2311.11897 Section III and optimal-rate sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Méndez–Flaquer-Galmés–Campos, First-passage time of a Brownian searcher with stochastic resetting to random positions, arXiv:2401.01125, Sections II, V, VI–VIII and appendix.",
+        "Julián-Salgado–Dagdug–Boyer, Diffusion with two resetting points, arXiv:2311.11897, Sections III–V (mean search and rate transitions).",
+        "Available same-model result on absorption-time Laplace and variance envelopes (claim id acf0d7ce-781d-4f93-b97d-ff5befa8cd6a) distinguishes different observable and fixed-mean constraint."
+      ],
+      "reasoning": "The fixed-mean constraint is equivalent to fixing the negative exponential reset-location moment \\(s=\\mathbb E[e^{-kZ}]\\), but the above-support path maximum solves a doubly killed interval problem and depends additionally on the positive exponential moment \\(u=\\mathbb E[e^{kZ}]\\). An effective resetting point for mean time is not equivalent for high-excursion risk. A one-site maximum law is a degenerate-support special case, not a complete law for distributed resetting.",
+      "searches": [
+        "Spatially distributed resetting Brownian search maximum excursion probability determined by Laplace exponential moments E exp(kZ) E exp(-kZ) and extremal two-point distribution",
+        "Reset Brownian first passage equivalent reset position, heterogeneity amplifies maximum or rare excursions, stochastic ordering",
+        "2024 arXiv random spatial resets equivalent resetting point first passage extremal statistics",
+        "arxiv:2401.01125 Sections II, VI, VIII"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned maximum-envelope record concerns expected maximum of iid samples with prescribed discrete atom probabilities, not a killed diffusive search.",
+        "No retrieved source provided a numerical table or exact two-moment exceedance envelope for this physical object.",
+        "Guo–Yan–Chen, Extremal statistics for a resetting Brownian motion before its first-passage time, arXiv:2306.15929, sections on one-site maximum."
+      ],
+      "reasoning": "Both exact keywords and physical aliases were checked against the published search record and the accessible local claim index. Matching words maximum/endpoint are insufficient: the stored tables refer to unrelated iid or renewal objects.",
+      "searches": [
+        "Brownian motion Poisson resetting to a bounded distribution of positions, fixed mean first passage time, sharp upper and lower bounds for maximum before absorption, deterministic resetting point vs endpoint mixture",
+        "Spatially distributed resetting Brownian search maximum excursion probability determined by Laplace exponential moments E exp(kZ) E exp(-kZ) and extremal two-point distribution",
+        "sharp bounds maximum position before absorption Brownian diffusion randomly distributed reset locations",
+        "published-finding corpus result id 2026/10/4/SCOPE-exact-lower-endpoint-and-full-fixed-profile-range-for-expected-m--20ffd25ed698"
+      ]
+    },
+    "rationale": "The contemporaneous primary literature gives distributed-reset MFPT and FPT laws, a two-site optimal reset-rate phase diagram, or the one-site path-maximum law; it does not visibly state the complete all-threshold fixed-MFPT maximum envelope for arbitrary compact reset-location distributions. A previously available same-model FPT-Laplace/variance envelope has matching endpoint/deterministic reset extremizers but does not logically bound a path maximum; the present proof requires a distinct upper-absorbing-boundary renewal. published-finding corpus and web statement/alias comparisons surfaced no direct stronger covering theorem, but publication priority remains subject to independent check.",
+    "residual_risks": [
+      "General killed-Markov-process or reset/restart convex-order results outside indexed sources may imply the sharp envelope without matching terminology.",
+      "A separate same-model fixed-mean absorption-time envelope shares optimizer shapes; an independent priority assessment should evaluate whether the new maximum theorem is judged a distinct contribution.",
+      "Index/search retrieval and inspected sources cannot establish universal novelty or independent publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Mean first-passage and resetting distribution optimization; no all-threshold pre-absorption maximum envelope stated",
+        "evidence": "Equations for spatial resetting distribution and mean first-passage time in Section 4; optimization concerns target distribution.",
+        "identifier_or_url": "https://arxiv.org/html/1107.4225v2",
+        "material_read": "Introduction, Section 2 boundary equations, Section 4 reset distributions and target distribution, Section 5 optimization, conclusion",
+        "method": "Accessible primary full-text HTML, relevant statements/equations and section structure inspected",
+        "title": "Diffusion with Optimal Resetting",
+        "trigger": "Oldest general spatial-reset distribution framework and possible dominating mean-time theorem"
+      },
+      {
+        "assessment": "Fixed reset-to-start location, maximum marginal and time of maximum; does not classify arbitrary random reset locations at fixed MFPT",
+        "evidence": "Model starts and resets to a common positive position; reported a fixed-site maximum marginal and joint maximum/arg-maximum law.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.15929",
+        "material_read": "Primary full-text HTML sections defining one-site reset model, maximum and arg-maximum, and key reported results",
+        "method": "Accessible primary article HTML with main text inspected",
+        "title": "Extremal statistics for a resetting Brownian motion before its first-passage time",
+        "trigger": "Closest exact excursion-maximum model"
+      },
+      {
+        "assessment": "Mean first-passage time and optimal-rate phase transitions for two reset sites; no path-maximum bounds across arbitrary spatial laws",
+        "evidence": "Eq. (4) depends on weighted exponential transforms of the reset locations; main optimization varies reset rate, not high excursions.",
+        "identifier_or_url": "https://arxiv.org/html/2311.11897v4",
+        "material_read": "Complete main sections I–VI including equations (1)–(12), coexistence and critical-point phase discussion; references",
+        "method": "Accessible original full-text HTML, mathematical setup and results inspected",
+        "title": "Diffusion with two resetting points",
+        "trigger": "Closest published multi-site Brownian search geometry"
+      },
+      {
+        "assessment": "First-passage-time distributions and mean/variance, no spatial maximum-before-absorption or fixed-MFPT stochastic envelope",
+        "evidence": "Eq. (6) Laplace survival and Eq. (13) MFPT; the study ends with first-passage fluctuations, not path maxima.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+        "material_read": "Sections I, II, V, VI, VII, VIII and appendix, including Laplace survival and equivalent-point discussions",
+        "method": "Accessible full original article text, equations and conclusions inspected",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Possible equivalent resetting-point theorem at same mean first passage time"
+      },
+      {
+        "assessment": "One fixed spatial reset level, finite-time supremum and stationary extrema; not the absorption-stopped maximum under arbitrary reset-location laws",
+        "evidence": "Definition fixes reset level x_R and studies supremum over [0,T], unlike the stopped maximum with variable reset sites.",
+        "identifier_or_url": "https://doi.org/10.1007/s11009-026-10316-4",
+        "material_read": "Open-access model definition, introduction and Sections 2–3 on finite-time supremum",
+        "method": "Publisher open-access full-text HTML, relevant definitions and theorem introduction inspected",
+        "title": "Distributional and Extremal Behaviour of Brownian Motion with Exponential Resetting",
+        "trigger": "Potentially stronger 2026 exact supremum statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7863fbd1-7fff-46a6-aaa6-dc811b82a58e",
+  "value": {
+    "rationale": "The pre-absorption path maximum is a physically motivated search-risk observable independent of merely minimizing mean completion time. The full attainable excursion-probability interval and simultaneous threshold order, with unique deterministic and endpoint-mixture extremizers, characterize an exact global design tradeoff at fixed search efficiency. A single extreme-event measurement recovers an otherwise hidden exponential reset-location moment. The illustrative equal-mean policies have exact risk 0.5 versus approximately 0.344453 at threshold 4, a substantial difference. This is a complete natural optimization classification, not an arbitrary finite calculation or numeric table.",
+    "status": "PASS"
+  }
+}
