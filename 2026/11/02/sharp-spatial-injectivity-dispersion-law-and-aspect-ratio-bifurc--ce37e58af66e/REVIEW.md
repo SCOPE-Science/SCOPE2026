@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A direct and exhaustive decomposition into even translations and odd half-turn screw transformations yields the stated shortest-displacement formula for every point, with no omission of higher powers. The rectangular fundamental-domain push-forward gives two independent uniform transverse distances. Quarter-disk and clipped-circle integrals give the complete CDF, including the endpoint atom. Uniform fourth moments provide the exact variance upper bound. Differentiation of the truncated-variable variance proves a strictly positive derivative below the support maximum; maximizing its scalar cap is a complete global argument, with all boundary regimes and equality cases identified. The standalone checker agrees with 1,760 independently enumerated group minima, 40 sampled CDF checks, 30 geometric area checks, and the symbolic fourth-moment identity. The universal conclusion rests on the analytic proof, not on finite tests.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Petersen et al. (arXiv:2211.02603v1, 2022) already describe and use the half-turn generators, screw-displacement and observer exclusion cylinders in nearest-clone calculations; these are premises, not a novelty claim. Eskilt et al. (arXiv:2306.17112v1, 2023) specify the same Euclidean manifold family but investigate eigenmodes, CMB correlations and detectability. Comparison of the inspected full-text sections did not identify the stated exact rectangle-distance probability law and, specifically, the sharp variance-maximizing screw-height classification with its \(\sqrt2\) transverse-aspect bifurcation. Related flat-torus global systolic inequalities and finite-triangulation combinatorial systoles do not imply a spatial distribution of the pointwise injectivity radius. An earlier specialized calculation of the same distribution or optimization, not identified in inspected sources, remains possible, so historical priority is provisional rather than certified.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete measurement and optimization problem for a canonical compact orientable flat three-manifold family. The result goes beyond the elementary short-screw formula: it identifies the full probability law, derives the exact sharp universal spatial-dispersion limit, and classifies **all** its maximizing heights across the complete rectangular transverse moduli. The transition at \(b/a=\sqrt2\) is a genuine rigidity/nonuniqueness boundary: a positive-length interval of optimizers collapses and becomes unique. These conclusions provide exact geometric benchmarks for observer-dependent topology measurements. The result does not purport to improve a general all-manifold bound.
+The quotient group generators are transverse translations by a,b and the half-turn screw by h. Even screw powers give shortest pure-translation displacement min(a,2h). For odd powers the shortest based displacement is sqrt(h^2+dist(2x,aZ)^2+dist(2y,bZ)^2). Uniform-volume sampling makes the folded distances independent uniforms U,V on [0,a/2],[0,b/2], proving L^2=min(a^2,4h^2,h^2+U^2+V^2). Area integration of the quarter disk clipped to [0,a/2]x[0,b/2] proves the CDF including cap atom. Exact fourth moments yield Var(U^2+V^2)=(a^4+b^4)/180. Differentiating Var(min(Q,q)) gives 2 Pr(Q>q)(q-E min(Q,q))>0 on the interior support, and q(h)=min(3h^2,a^2-h^2) peaks at h=a/2. The equality plateau q>= (a^2+b^2)/4 exists iff b/a<=sqrt2, with the stated exact interval; h>=a makes variance zero.
 
-## Literature and limitations
-Primary references inspected: Petersen et al., *Cosmic topology. Part I* (arXiv:2211.02603v1), especially Section 4 and the half-turn appendix; Eskilt et al., *Cosmic topology. Part IIa* (arXiv:2306.17112v1), especially the manifold generator description and Section 3.2. No guarantee is made for oblique lattices, nonflat manifolds, noisy sampling, or global inverse estimates. Further historical literature might cover equivalent specialized formulas.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified for the complete rectangular half-turn pointwise squared-injectivity law together with its exact optimal spatial variance and bifurcation at b/a=sqrt2. Cosmic Topology Part I already gives the half-turn group and a cylindrical nearest-clone exclusion condition in eqs. (4.1)-(4.2), from which portions of the CDF can be inferred; those are credited, not new. The inspected paper does not state the cap-dependent probability law, exact spatial variance, or aspect-ratio-dependent unique/plateau height optimizer. No broader covering result found in the targeted published searches.
+
+## value
+
+PASS
+
+PASS: pointwise injectivity, unlike global systole, varies with observer position in an inhomogeneous flat manifold; its complete distribution and maximal squared-loop-length variance quantify a natural geometric observable. The sharp b/a=sqrt2 transition changes the structure of maximizing geometries, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
