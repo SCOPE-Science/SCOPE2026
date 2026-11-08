@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T08:46:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From block multiplication, g(X,Y,Z)^2=g(0,0,XY) in characteristic two; therefore g^2=1 iff XY=0. A rank-r map X:F_q^b→F_q^a has [a r]_q[b r]_q|GL_r(q)| choices, and for each X the rank-s maps Y:F_q^c→ker X have [b−r s]_q[c s]_q|GL_s(q)| choices, exactly N_{r,s} with r+s≤b. Conjugation fixes X,Y and translates Z by A Y−X B. AY spans the a*s-dimensional space of maps killing ker Y; XB spans the c*r-dimensional space of maps with image in im X; the intersection has r*s dimensions. So each orbit has q^(as+cr−rs) elements and q^(ac−d) distinct classes for each (X,Y), yielding K(T). Since d=ac−(a−r)(c−s), d≤ac with equality iff r=a or s=c, feasible exactly for b≥min(a,c); otherwise d≤max(a,c)(r+s)−rs≤b max(a,c), with equality only at (0,b) or (b,0) as described. g^4=1, so the complementary element count is the order-four count. Independently enumerated literal multiplication, inverse, square-one elements and actual conjugacy orbits for 9 complete small groups over F2/F4; every class-size histogram agreed, e.g. (2,1,2,2) has 16 classes of size 1 and 24 of size 4, 112 square-one elements. These finite cases are corroboration, not proof for arbitrary dimensions/fields. The proof explicitly assumes all a,b,c>0, q=2^f≥2 and conjugacy inside G. No missing pole/normalization issue found.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/0901.0667: Theorem 1.2 proves polynomiality of the TOTAL class number for parabolic radicals with at most five flag steps; Corollary 3.1 controls general centralizer orders, not a square-one class-size coefficient.",
+          "https://arxiv.org/pdf/1411.5389: Theorem 1.2 and §5–6 bound total conjugacy class numbers in full unitriangular groups and lower central series.",
+          "https://arxiv.org/pdf/math/0610161: Corollary 5.1 gives the stronger conceptual assertion that all relevant algebra-group superclasses are ordinary classes."
+        ],
+        "reasoning": "Broader families and orbit principles substantially dominate the ambient theory, but the cited statements do not entail a numeric rank-by-rank conditional size spectrum without additional XY=0 and image/kernel counts. The conditional enumerator is therefore not merely a relabeling of the total class-number theorem; nevertheless the prior affine orbit is a significant part of its proof.",
+        "searches": [
+          "Web: Goodwin Röhrle counting conjugacy classes unipotent radical parabolic subgroups",
+          "Web: \"conjugacy\" \"square-zero\" \"parabolic\" \"unipotent radical\"",
+          "Web: \"unipotent radical\" \"involutions\" \"conjugacy classes\" q",
+          "Resultary: Unipotent radicals three block conjugacy orbit polynomial centralizer size square-zero restricted elements parabolic matrix algebra"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0610161",
+        "https://arxiv.org/pdf/0901.0667",
+        "https://arxiv.org/pdf/1411.5389",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sum-of-element-orders-in-ut-3-mathbf-f-2-m--5c48afc409b4",
+        "Resultary semantic published-finding searches (three explicit strings in check records)",
+        "GitHub pinned RESULT.md/SLOGAN.txt/REVIEW.md/AUDIT.json/VERIFICATION.md/verify.py/METADATA.json at inventory commit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/math/0610161 §5 Example 3 directly supplies corner orbit shifts; deriving d=as+cr-rs from their action is an elementary linear-rank step.",
+          "https://arxiv.org/pdf/0901.0667 §3 sums U-orbits over P-orbit representatives rather than applying the restriction XY=0 or retaining a class-size variable T.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sum-of-element-orders-in-ut-3-mathbf-f-2-m--5c48afc409b4: q=2^m, a=b=c=1 order count is already covered."
+        ],
+        "reasoning": "The known affine-orbit theorem implies each orbit at fixed X,Y has size q^{as+cr-rs} once ranks are computed. It does NOT by itself deliver the coefficient N_{r,s}q^{ac-d} on the square-zero locus, nor the sharp b cutoff and maximal coefficient without a distinct compatible-rank summation and optimization. This extra calculation is fairly short and could be regarded as a readily derived corollary of Diaconis–Thiem; no inspected work explicitly completes it, hence best-of-knowledge PASS with substantial implicit-prior-work risk.",
+        "searches": [
+          "Web: Diaconis Thiem supercharacter formulas pattern groups example 3 section 5 three block conjugacy",
+          "Web: Goodwin Röhrle counting conjugacy classes unipotent radical parabolic subgroups",
+          "Web: \"nilpotent radical\" \"square zero\" \"conjugacy classes\" finite fields",
+          "Resultary: order-two conjugacy classes spectrum finite Heisenberg three block unipotent radical characteristic two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/math/0610161 pp.21–23: same no-four-chain pattern group, and affine orbit u(A,C+AX+YB,B); Corollary 5.1 makes those superclasses genuine conjugacy classes.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sum-of-element-orders-in-ut-3-mathbf-f-2-m--5c48afc409b4: published UT_3(F_{2^m}) finding counts exactly 2q^2-q-1 nonidentity involutions, equal to specialization of total square-one count 2q^2-q."
+        ],
+        "reasoning": "The presentation is an algebra group associated to a three-level complete poset, equivalently a class-two block matrix Heisenberg-type group. The group and conjugation action are prior, and the 1×1×1 element-order count is prior. The statement under assessment is instead the entire rank-pair conditional distribution of conjugacy-class cardinalities and the exact extremal multiplicities for arbitrary positive a,b,c and every even q.",
+        "searches": [
+          "Web: \"three-block\" \"involutions\" \"conjugacy classes\" unipotent radicals",
+          "Web: \"conjugacy classes of involutions\" \"unitriangular\" even",
+          "Web: class sizes order two elements three block unitriangular F2",
+          "Resultary: Conjugacy class sizes of involutions square-one elements in three block upper unitriangular parabolic unipotent group F_{2^f}; rank pairs X Y zero Gaussian coefficients",
+          "Resultary: Order two conjugacy classes class-size spectrum finite Heisenberg three block unipotent radical characteristic two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sum-of-element-orders-in-ut-3-mathbf-f-2-m--5c48afc409b4: exact order-two counts only for smallest 3×3 scalar-block case, not full rank-pair size spectrum.",
+          "https://arxiv.org/pdf/0901.0667: no exact table by restricted involution order and class-size power in its total-class polynomiality result.",
+          "https://arxiv.org/pdf/math/0610161: no compatible-rank XY=0 enumerator in materially read Example 3 or Corollary 5.1."
+        ],
+        "reasoning": "No exact all-parameter database entry/table of these conditional class-size coefficients was found. This is a bounded search outcome, not a proof of nonexistence. Exhaustive independently enumerated nine groups (including F4) are checks only; a known published table of arbitrary parameters could still cover the claim.",
+        "searches": [
+          "Web: \"rank pairs\" \"conjugacy classes\" \"unipotent radical\"",
+          "Web: class sizes conjugacy 2-step nilpotent groups block matrices AB zero rank",
+          "Web: \"square-zero\" \"three-block\" \"conjugacy classes\"",
+          "Resultary semantic published findings: rank-one nilpotent involution factorization; sum of element orders in UT3(F_2^m); nilpotent unipotent conjugacy"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the full class-size enumerator on the square-one locus survives a statement-level comparison. Diaconis–Thiem (2006), Example 3 and Corollary 5.1, already gives precisely the same three-block group and affine corner-block orbit; the submitted orbit mechanism by itself is not new. Goodwin–Röhrle (2009/2010) treats total parabolic-radical conjugacy classes and centralizers. Neither inspected primary result gives the Gaussian compatible-rank multiplicity of conjugacy classes of EACH size subject to XY=0 or its sharp b=min(a,c) saturation threshold. The published UT_3(F_{2^f}) order-count is an existing (1,1,1) boundary case, and is excluded from the general novelty claim. Searching does not establish uniqueness, and the implicit-consequence risk from the older orbit description is material.",
+      "residual_risks": [
+        "Diaconis–Thiem already provides the exact same affine orbit under conjugacy: a rank-pair size distribution may appear implicitly or as a readily-derived corollary in other full treatments of three-level pattern groups or A3 quiver representations.",
+        "The bounded search has not exhaustively covered older theses, all finite group class-size tables, or alternate conventions for second nilpotent layers; historical priority cannot be guaranteed.",
+        "Published UT3 order-two count is a known special case and may limit claims of novelty at the lowest dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS same ambient group and affine orbit/superclass=class assertion; does not explicitly classify XY=0 rank-pair class-size coefficients or sharp central-block saturation in inspected material.",
+          "evidence": [
+            "PDF printed p.21 Example 3 writes the three-block radical and corner shift C+AX+YB",
+            "PDF printed p.23 Corollary 5.1 states no-4-chain superclasses are conjugacy classes"
+          ],
+          "identifier_or_url": "arxiv:math/0610161v1; https://arxiv.org/pdf/math/0610161",
+          "material_read": "Original PDF pp.21–23, §5 Example 3, the displayed block matrices/two-sided orbit, Proposition 5.1, Corollary 5.1, and their proofs; introduction to context; actual page images inspected.",
+          "method": "Open-access arXiv primary PDF text plus visual page inspection",
+          "title": "Supercharacter formulas for pattern groups",
+          "trigger": "Same three-block group and decisive possible covering affine conjugacy action"
+        },
+        {
+          "assessment": "Theorem 1.2 gives total k(U) polynomiality and Corollary 3.1 describes centralizer orders; neither asserts size-resolved conjugacy counts constrained to square-one elements.",
+          "evidence": [
+            "Printed p.1 Theorem 1.2 exactly concerns total k(U)",
+            "Printed p.6 Corollary 3.1 gives |C_U(x)|=q^delta and subsequent sum over P-orbits"
+          ],
+          "identifier_or_url": "arxiv:0901.0667v2; https://arxiv.org/pdf/0901.0667",
+          "material_read": "Eight-page full-text structure, theorem 1.2 p.1, centralizer/representation background pp.2–5, Corollary 3.1 and proof of total-class formula p.6, final examples p.7; original PDF pages 1 and 6 visually inspected.",
+          "method": "Open-access arXiv primary PDF text, targeted term searches, and page-image checks",
+          "title": "Counting conjugacy classes in the unipotent radical of parabolic subgroups of GL_n(q)",
+          "trigger": "Potentially dominating all-parabolic-radical class-count theorem"
+        },
+        {
+          "assessment": "Covers total class-number upper bounds, not exact order-two conditional rank-pair class spectrum; no general formula identified that dominates the submitted statement.",
+          "evidence": [
+            "Printed p.1 Theorem 1.2 is an upper bound on k(U_n(q))",
+            "Printed pp.13 and 24 analyze general gap arrays/lower-central-series class bounds"
+          ],
+          "identifier_or_url": "arxiv:1411.5389v2; https://arxiv.org/pdf/1411.5389",
+          "material_read": "Introduction and Theorem 1.2 p.1, §5 first main gap-array proof p.13, §6 lower central-series bounds and final remarks p.24; original PDF pages visually checked.",
+          "method": "Open-access arXiv original PDF text and page images",
+          "title": "Upper bounds on the number of conjugacy classes in unitriangular groups",
+          "trigger": "Possible stronger all-unitriangular class-size count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite class-two unipotent family contains elements of order 1,2 and 4 when q is even. Conditional centralizer-index/class-size statistics for the full square-one locus are independent of a total conjugacy-class count and are useful in finite p-group, orbit and representation statistics. The formula is a complete all-parameter size-resolved invariant and the exact b=min(a,c) saturation threshold is structurally motivated by the middle layer bottleneck; extremal multiplicities refine it. The work is short and uses known affine orbit machinery but is not simply a title/parameter renaming, arbitrary finite slice, or known-table recomputation under the inspected sources. It does not claim new orbit theory, general p-group classification, or a larger downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0610161",
+    "https://arxiv.org/pdf/0901.0667",
+    "https://arxiv.org/pdf/1411.5389",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sum-of-element-orders-in-ut-3-mathbf-f-2-m--5c48afc409b4",
+    "Resultary semantic published-finding searches (three explicit strings in check records)",
+    "GitHub pinned RESULT.md/SLOGAN.txt/REVIEW.md/AUDIT.json/VERIFICATION.md/verify.py/METADATA.json at inventory commit"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every positive a,b,c and q=2^f, the number of conjugacy classes of square-one elements in the three-block group G_{a,b,c}(q) whose class size is q^d equals the coefficient of T^d in K(T)=Σ_{0≤r≤min(a,b),0≤s≤min(c,b−r)} N_{r,s}q^{ac−(as+cr−rs)}T^{as+cr−rs}, with N_{r,s}=[a r]_q[b r]_q|GL_r(q)|[b−r s]_q[c s]_q|GL_s(q)|. The maximum class-size exponent is D=ac if b≥min(a,c), otherwise D=b max(a,c); for b<min(a,c), its coefficient is [c b]_q|GL_b(q)| if a>c, [a b]_q|GL_b(q)| if c>a, and twice [a b]_q|GL_b(q)| if a=c. There are q^{ac} singleton classes, q^{ac}ΣN_{r,s} square-one elements, and q^{ab+bc+ac}−q^{ac}ΣN_{r,s} elements of order four.",
+  "limitations": [
+    "a,b,c positive; q any even finite field; conjugation is only within the unipotent group, not ambient parabolic or general linear groups.",
+    "No size-refined classification for elements of order four or odd characteristic is claimed.",
+    "Existing affine orbit machinery is not novel; significant risk of the rank-census appearing as an older explicit corollary.",
+    "Exhaustive computational checks are for only nine finite configurations and are not an infinite-case certificate.",
+    "Source tree was audited at its returned pinned commit, and no GitHub changes/publications were made."
+  ],
+  "residual_risks": [
+    "Diaconis–Thiem already provides the exact same affine orbit under conjugacy: a rank-pair size distribution may appear implicitly or as a readily-derived corollary in other full treatments of three-level pattern groups or A3 quiver representations.",
+    "The bounded search has not exhaustively covered older theses, all finite group class-size tables, or alternate conventions for second nilpotent layers; historical priority cannot be guaranteed.",
+    "Published UT3 order-two count is a known special case and may limit claims of novelty at the lowest dimensions."
+  ],
+  "schema_version": 1
+}
