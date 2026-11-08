@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every outward rooted tree, the root-in-H case contributes u^N; root-outside-H and outside-W gives the child polynomial product; root-in-W requires exactly one child root outside H and gives v times the displayed sum. All cases partition the Wang pairs uniquely. Complete b-ary specialization gives C(0)=R(0)=2 and recurrences C_next=1+C^b+b(C-1), R_next=1+R^b. Logarithmic defects epsilon,delta are positive and tend to zero; the tail of the b-adic series is o(1) after multiplication by b^h. With C1=2^b+b+1 and R1=2^b+1, the positive explicit lower bound proves kappa_b>0. Independent finite direct semigroup congruence enumeration and a second bivariate polynomial checker both completed with VERIFY_OK; finite checks are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Luo–Wang–Wei arXiv:2303.15797, introduction and principal results, show equivalence of distributivity, modularity, and lower semimodularity for general graphs.",
+        "Anagnostopoulou-Merkouri–Mesyan–Mitchell arXiv:2108.08277, Section 2 and main theorem statements, treat lattice-order characteristics and generators."
+      ],
+      "reasoning": "Their general-graph theorems cover qualitative lattice features and the admissible triple parametrization, but not the specialized vertex-number exponential decay rate. The distinction rests on implication: structural classification plus original counting calculations is needed to reach the claimed quantitative asymptotic.",
+      "searches": [
+        "number of congruences for finite graph inverse semigroups of rooted regular trees b-ary trees asymptotic growth",
+        "Rees congruences exponentially rare among congruences on graph inverse semigroups of regular rooted trees; entropy constants",
+        "\"number of congruences\" \"graph inverse semigroup\" tree enumeration",
+        "enumeration congruence triples inverse semigroup graph finite tree Wang"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1806.10721 (Wang 2018)",
+      "arXiv:1409.4380 (Mesyan–Mitchell 2014)",
+      "arXiv:2303.15797 (Luo–Wang–Wei 2023)",
+      "arXiv:2108.08277 (Anagnostopoulou-Merkouri–Mesyan–Mitchell 2021)",
+      "Semigroups package documentation on finite graph-inverse-semigroup congruences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang arXiv:1806.10721, Theorem 1.4 is explicitly assumed in the proof.",
+        "Mesyan–Mitchell arXiv:1409.4380, Section 4, shows non-Rees congruences can exist and characterizes when they are absent.",
+        "A strict positive difference between the two rooted-tree logarithmic free energies follows here from a new explicit height-one gap bound and series tail estimates."
+      ],
+      "reasoning": "The prior triple classification supplies an exact combinatorial parametrization of every congruence. The claim does not rebrand that as new. Instead, full bivariate counts plus the sharp positive entropy constant require a nontrivial independent branching decomposition, recursively iterated logarithm estimates, and strict gap proof. None of the closely inspected results explicitly establishes those consequences.",
+      "searches": [
+        "graph inverse semigroup congruence lattice cardinality rooted binary trees exact recurrence hereditary W cycle triples",
+        "Rees congruences exponentially rare among congruences on graph inverse semigroups of regular rooted trees; entropy constants",
+        "graph inverse semigroup congruence count regular b ary tree rees probability",
+        "Congruences on graph inverse semigroups Theorem 1.4 Wang 2018",
+        "\"The Structure of a Graph Inverse Semigroup\" \"count\" \"congruences\" tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang 2018 arXiv:1806.10721, Theorem 1.4 states a congruence/triple bijection; cycle data vanish for a directed tree.",
+        "Mesyan–Mitchell arXiv:1409.4380, Section 4, characterizes non-Rees congruences rather than a bivariate enumeration or sharp entropy law."
+      ],
+      "reasoning": "An equivalent formulation would count the pairs (H,W) on outward arborescences and determine their positive complete-tree free-energy difference. The general triples theorem specifies admissible pairs, which is the essential prior premise, but does not compute their branch-recursive partition polynomial or exponential gap.",
+      "searches": [
+        "graph inverse semigroup congruence lattice cardinality rooted binary trees exact recurrence hereditary W cycle triples",
+        "number of congruences for finite graph inverse semigroups of rooted regular trees b-ary trees asymptotic growth",
+        "lattice of congruences graph inverse semigroup tree congruence triple enumeration",
+        "\"number of congruences\" \"graph inverse semigroup\" tree enumeration",
+        "graph inverse semigroup congruence count regular b ary tree rees probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Small exact values obtained by direct multiplication and the Wang-pair count are 2,7,62,3967 for binary heights 0–3; their Rees counterparts are 2,5,26,677.",
+        "The Semigroups package documents congruence-triple representations for finite graph inverse semigroups, not the stated infinite b-ary limiting rate."
+      ],
+      "reasoning": "Direct finite enumerations confirm initial terms, but a pre-existing finite congruence database or all-graphs implementation would not alone imply the displayed exact recurrence and positive asymptotic entropy. No matching table of constants was located.",
+      "searches": [
+        "graph inverse semigroup congruences enumeration rooted tree",
+        "bivariate enumerator hereditary sets and Wang sets for rooted outward trees graph inverse semigroup congruences",
+        "\"number of congruences\" \"graph inverse semigroup\" tree enumeration",
+        "GAP Semigroups graph inverse semigroup congruences Wang triples enumeration"
+      ]
+    },
+    "rationale": "Wang (2018, Theorem 1.4) establishes the bijection between graph congruences and triples; in a DAG, this becomes (H,W). The new contribution is an explicit bivariate branching enumerator for all outward trees together with a strict positive entropy gap and exp(-kappa_b*b^h+o(1)) Rees probability. Inspected structural and lattice-property papers do not state or imply these quantitative formulas without the additional branching and asymptotic arguments. Literature priority is provisional, as broader unpublished enumeration could cover the result.",
+    "residual_risks": [
+      "A nonlocated enumeration paper may explicitly supply the rooted-tree recursion or the free-energy limit.",
+      "The exact polynomial is a quantitative specialization of Wang’s established classification, so novelty depends especially on the strict sharp entropy-gap result.",
+      "Literature search and manuscript inspections do not establish universal publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PREMISE_NOT_NUMERICAL_RESULT",
+        "evidence": "Theorem 1.4 explicitly gives unique congruence triples (H,W,f); for acyclic trees f is vacuous. No displayed b-ary entropy.",
+        "identifier_or_url": "https://arxiv.org/abs/1806.10721",
+        "material_read": "Abstract, introduction, Definitions 1.1–1.2, Theorems 1.3–1.4 and proof preliminaries",
+        "method": "Full-text mathematical HTML passage inspection",
+        "title": "Congruences on graph inverse semigroups",
+        "trigger": "Direct general graph-congruence classification dominates the enumeration premises"
+      },
+      {
+        "assessment": "NON_REES_STRUCTURAL_NOT_RATE",
+        "evidence": "Theorem 10 characterizes graphs for which only Rees congruences exist, not fraction asymptotics among all congruences.",
+        "identifier_or_url": "https://arxiv.org/abs/1409.4380",
+        "material_read": "Introduction, Section 4 Congruences, Proposition 8, Lemma 9 and Theorem 10; searched numerical enumeration expressions",
+        "method": "Full-text arXiv HTML inspection",
+        "title": "The Structure of a Graph Inverse Semigroup",
+        "trigger": "Strongest earlier structural discussion of Rees versus non-Rees congruences"
+      },
+      {
+        "assessment": "LATTICE_PROPERTY_THEOREM_NOT_COUNT",
+        "evidence": "Focuses on modularity, distributivity and semimodularity, not a recursion enumerating congruences on regular trees.",
+        "identifier_or_url": "https://arxiv.org/abs/2303.15797",
+        "material_read": "Preprint full-text introduction and principal sections on equivalent lattice properties",
+        "method": "arXiv manuscript HTML inspection",
+        "title": "Distributivity in congruence lattices of graph inverse semigroups",
+        "trigger": "Motivating middle-cohort 2023 source and closest lattice theory comparison"
+      },
+      {
+        "assessment": "ORDER_STRUCTURE_NOT_ENUMERATIVE_ENTROPY",
+        "evidence": "Section 2.4 defines admissible triples and notes the absence of cycle data for acyclic graphs; Section 2.5 addresses lattice properties.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.08277",
+        "material_read": "Accepted author PDF, Section 2.4 and opening main-results section, with relevant theorem statements",
+        "method": "Full text-extracted PDF with visual inspection of page 5",
+        "title": "Properties of congruence lattices of graph inverse semigroups",
+        "trigger": "Related results and exact admissible Wang triples in published follow-up"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6273bbc0-e6f8-4456-a933-19a1cf096c18",
+  "value": {
+    "rationale": "Counting all congruences and distinguishing Rees congruences is an intrinsic semigroup-theoretic invariant, with structural relevance to ideal-generated quotients. For arbitrary finite out-trees the full two-variable distribution can now be generated locally. For an infinite natural family the strict, explicitly computable free-energy gap quantifies how rare the ideal-induced congruences become: exponentially in the graph vertex count. This is a motivated quantitative phenomenon rather than arbitrary table recomputation or merely the already known classification.",
+    "status": "PASS"
+  }
+}
