@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The main arithmetic-progression coefficient is derived directly by divisor convolution and a fixed-modulus congruence count. The residue-graph endpoint cover is a literal vertex cover and its complement gives the asserted spacing. The local Hellinger affinities factor by CRT, and the expansion of the exact prime factor plus the prime-reciprocal estimate gives the stated logarithmic rate. Each step is uniform in \(Y\) only after fixing the period before the \(X\)-limit. Exact-arithmetic finite checks are provided, but are not treated as an infinite proof.
+
+**Originality — PASS, qualified.** Chatterjee's 2026 paper already proves a much stronger *unrestricted* mass asymptotic for polylogarithmic gaps; the plain assertion about \(S(X,h)\) is therefore not new and is excluded. The reviewed Theorem 1.1, introduction, and last proof sections construct sets depending on the cutoff and do not give a fixed-period residue-pattern approximation or this Hellinger-affinity product. Classical divisor-sum results in progressions concern individual congruence classes rather than spacing-preserving unions with mass approaching one. Searches for periodic constructions and equivalent formulations found no covering statement. Priority risk remains for older periodic sieves not identified by indexing.
+
+**Mathematical value — PASS.** The main question is structurally different from the original maximum: can an arithmetic pattern fixed independently of scale capture essentially all divisor mass while forbidding nearby integers? The theorem answers this affirmatively for *every* fixed gap with explicit rate, but also proves that no finite period attains the supremum. It identifies the local prime separation mechanism and isolates the universal exponent \(3-2\sqrt2\) arising from the geometric-mean affinity; it is neither a renamed unrestricted result nor merely an arbitrary finite residue table.
+
+**Limits.** No claim of optimality for the rate, no uniform growing-period/cutoff estimate, and no improvement to Chatterjee's growing-gap theorem. Relevant primary full text was inspected in the introduction and theorem proof; the literature search does not certify historical uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.
