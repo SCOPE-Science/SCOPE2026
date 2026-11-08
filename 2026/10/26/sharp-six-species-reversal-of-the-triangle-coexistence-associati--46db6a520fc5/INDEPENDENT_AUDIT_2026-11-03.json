@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T16:52:56.419819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read RESULT.md, SLOGAN.txt, AUDIT.json, REVIEW.md, VERIFICATION.md and verify.py at the frozen source tree. For positive x, J=-diag(x)(I+tA) is similar to -diag(sqrt(x))(I+tA)diag(sqrt(x)), so strict linear stability iff I+tA positive definite. Independently rebuilt all six adjacency matrices from stated edge lists and used sympy exact determinants/Cramer inverses: G0 det=P Q, P=1-2t-t^2+t^3, Q=1+2t-t^2-t^3, with x=(1-t-t^2,1,1,1-t-t^2,1+t,1+t)/Q; first PD failure at rho~0.4450418679 while every coordinate is positive. For G1 det=(1-t)(1+t-5t^2-3t^3+4t^4), leading principal minors at 2/5 exactly 1,1,21/25,321/625,1281/3125,957/3125 >0; convexity gives PD on [0,2/5]. Cramer numerator of x0 has factor 1-t-4t^2, first zero sigma=(sqrt(17)-1)/8~0.3904 while all others stay positive. Edge swap removes 02,35 and inserts 05,23; degrees (1,1,2,2,3,3) fixed, triangles 0->1 and mean clustering 0->7/18. Independent enumeration of all 2^C(n,2) labeled graphs n=2..5 finds connected totals 1,4,38,728; only 2 five-vertex degree multisets have different triangle counts, with each of their four degree/triangle groups a unique isomorphism class (networkx independent isomorphism verification); exact five-vertex determinants/coordinates give threshold pairs (sqrt3-1)/2<1/2 and 1/3<1/2. Finite census proves sharp minimal n<=5; continuous thresholds follow from exact algebra and positive-definiteness reasoning rather than finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 theorem bounds threshold in [1/Delta,1] and Lemma 1 bounds above by -1/lambda_min(A), not a graph-by-graph degree-sequence ordering.",
+          "The 2024 degree bounds include stability/feasibility mechanisms but no degree-preserving triangle-increasing edge-switch minimum.",
+          "Both submitted critical values lie in (1/3,1), consistent with Delta=3; the universal inequalities do not compare their order."
+        ],
+        "reasoning": "Earlier general criteria supply the stability test and coarse bounds (prior art), yet do not logically imply the exact inequalities rho>sigma, the single triangle-forming switch, or the minimal n=6 classification without additional graph-specific calculation. No stronger exact theorem in the inspected primary papers covers the joint claim.",
+        "searches": [
+          "Mooij et al. 2026 DOI 10.1007/s11538-026-01726-z Sect. 2.1 Theorem 1 and Lemmas 1-3",
+          "Mooij et al. 2024 DOI 10.1098/rspa.2024.0290 Sections 1-2, CNR open PDF",
+          "Web: Stable coexistence in indefinitely large systems of competing species 2024 Mooij Kryven full text"
+        ]
+      },
+      "checked_sources": [
+        "Mooij et al. 2026, Bull Math Biol 88:156, DOI:10.1007/s11538-026-01726-z; relevant full HTML sections",
+        "Mooij et al. 2024, Proc R Soc A 480:20240290, DOI:10.1098/rspa.2024.0290; relevant PDF text and p4 screenshot",
+        "Mooij 2026 Utrecht thesis, DOI 10.33540/3866; public abstract only",
+        "Resultary two exact-switch targeted queries and one broad ecology query, all actual returned hits",
+        "Web targeted searches 2026 positive association, triangle switching counterexample and thesis metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 paper shows positive degree-controlled optimization correlations across random network ensembles, not pointwise monotonicity under every elementary edge swap; Figure 5 depicts a 14-node trajectory.",
+          "2024 sufficient degree/spectral conditions are compatible with both rho and sigma and do not impose a triangle monotonicity law.",
+          "2026 published source explicitly recognizes both boundary and interior linear-stability bifurcations; the proof first-encounter definition controls either, whereas its displayed equation for zero-coordinate threshold needs interpretive care."
+        ],
+        "reasoning": "The submitted opposite-trend switch does not contradict the published statistical association. Neither the population-level correlation nor the broad interval of coexistence thresholds implies any exact six-vertex pair or sharp minimal order. Claim must not be marketed as refuting a purported universal theorem, which prior authors did not claim.",
+        "searches": [
+          "Mooij et al. 2026, Figure 5/6, Sect. 2.2 optimization, Sect. 3 discussion",
+          "Mooij et al. 2024, Case 1 constant competition, Section 2",
+          "Web: degree-preserving triangle counterexample competitive network stability",
+          "Resultary: triangle coexistence association six species reversal Lotka Volterra ecological coexistence mutual invasibility stability network"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mooij et al., Bulletin of Mathematical Biology 88:156 (2026), Eq. (1) matches symmetric competition and Eq. (4) matches the feasible-branch Jacobian; Sect. 2.2 uses double-edge swaps conserving degrees; no six-vertex exact reversal or minimum-order statement occurs in the examined results and figures.",
+          "Resultary targeted query returns small-system ecological bifurcation and triangle topology records, but none with this graph model and exact switch; index absence is not novelty proof."
+        ],
+        "reasoning": "Equivalent forms include comparing first positive-definite/positive-solution loss for two graphs with identical degree multisets under a 2-switch, and negative local slope of critical pressure versus triangle count. The earlier article presents positive *ensemble-level correlations* and network-optimization trajectories, not per-switch monotonicity, so it does not contain this sharp small-order reversal. Caution: published Eq. (5) is written as a zero-coordinate event while its prose/Lemma 1 also discusses interior pitchfork/linear-instability events; this audit explicitly uses the claimed first-failure-of-stable-positive-branch invariant rather than silently equating the two literal formulas.",
+        "searches": [
+          "Resultary: six vertex graph edge swap creates triangle reduces coexistence threshold symmetric competitive Lotka Volterra rho sqrt17 1 divided 8",
+          "Resultary: small graph equal degree sequence triadic closure reverses stable coexistence pressure clustering positive correlations and negative local switch",
+          "Web: graph triangles decrease competition stability Lotka Volterra degree preserving switch counterexample six species",
+          "Mooij et al. 2026 DOI 10.1007/s11538-026-01726-z, full journal HTML Sections 2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent scan of all labeled connected graphs of orders 2..5 returned counts 1,4,38,728 and only two 5-vertex degree multisets with differing triangle counts; their 4 degree/triangle groups each have one isomorphism class.",
+          "Standard graph catalogs classify graph isomorphism, but do not themselves supply the competitive Lotka-Volterra threshold at each class. No exact table of the 6-vertex ecological switch was found in targeted searches."
+        ],
+        "reasoning": "The graph-enumeration component uses ordinary finite graph enumeration and is not original by itself. The novel potential is applying exact ecological critical pressure to the sharp minimal switch. Nonappearance in the searched databases is weak priority evidence only; hidden or unpublished exhaustive tables remain possible.",
+        "searches": [
+          "Resultary: six vertex graph edge swap creates triangle reduces coexistence threshold symmetric competitive Lotka Volterra rho sqrt17 1 divided 8",
+          "Web: competitive networks triangle clustering non-monotonic local edge swap reverse association",
+          "Graph atlas finite labeled-connected-graph census n<=5 independently recomputed"
+        ]
+      },
+      "rationale": "After fresh Resultary queries and primary-source comparison, the exact connected-six-vertex degree-preserving one-switch reversal and minimum-order theorem are not covered by the inspected broader literature. The 2026 paper supplies precisely the model and statistical positive association but no pointwise monotonicity theorem, while its 2024 predecessor establishes bounds/criteria without exact same-degree threshold ordering. The reported scientific novelty is the sharp local counterexample/minimum, not the stability criterion or ordinary graph enumeration. Qualified best-of-knowledge PASS notwithstanding inaccessible topical thesis and possible unindexed atlas; displayed source critical-coupling formula versus paper prose is carefully distinguished.",
+      "residual_risks": [
+        "The motivating journal paper operationally defines critical coupling via a zero-coordinate event in displayed Eq. (5), but explicitly discusses interior pitchfork/spectral stability loss in the surrounding text. The submitted invariant is first loss of *positive linearly stable* branch; do not state without qualification that its rho value is the first zero of the resolvent coordinates. At rho the G0 branch remains strictly positive but loses strict stability.",
+        "An inaccessible closely relevant 117-page thesis by Mooij (portal award date 2026-11-04, later than this UTC audit) might tabulate additional small-graph switching examples. The public abstract cannot establish noncoverage; the authorized institutional retrieval reported vpn_disconnected.",
+        "An unindexed small-graph adjacency-spectrum/ecological-threshold tabulation could imply the isolated six-vertex witness or bounded minimality; targeted index searches cannot exclude that possibility.",
+        "The exhaustive graph scan is only n<=5; the theorem makes no universal monotonicity, all-graph exact threshold, or post-instability global dynamics assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes universal range and statistical association, not a pointwise switch theorem or this exact order-6 minimum; wording of displayed zero-coordinate definition differs from full first-loss-of-stability definition.",
+          "evidence": [
+            "Eq. (1), Eq. (4), Eq. (5), Theorem 1, Sections 2.1–2.2, Figures 4–6, Section 3; DOI 10.1007/s11538-026-01726-z"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-026-01726-z",
+          "material_read": "Open-access full article HTML: model/Jacobian/critical-pressure discussion; Theorem 1 and Lemmas 1–3; network-optimization Section 2.2 and Figures 4–6; discussion Section 3; Methods on critical coupling and optimization. Not merely abstract.",
+          "method": "Read and compare mathematical statements, quantifiers, concrete degree-preserving swaps and definitions against the exact candidate",
+          "title": "A Dynamic Mechanism for Prevalence of Triangles in Competitive Networks",
+          "trigger": "Identical Lotka-Volterra model, triangle/clustering comparison and edge-switch protocol"
+        },
+        {
+          "assessment": "Provides framework and bounds, but no graph-pair exact threshold or six-vertex minimum classification in inspected relevant material.",
+          "evidence": [
+            "Proceedings of the Royal Society A 480 (2024), 20240290, pages 2–4, Eqs. (1.1),(2.1)–(2.4), DOI 10.1098/rspa.2024.0290"
+          ],
+          "identifier_or_url": "https://iris.cnr.it/retrieve/d689b2e4-3ef8-466e-b506-c315412056be/Mooij2024.pdf",
+          "material_read": "Open-access PDF parsed text: introduction, constant competition model and results Section 2 through the stability/feasibility bounds; inspected actual page-4 screenshot. Did not exhaust every appendix/reference.",
+          "method": "Read source equations and proof introduction; checked whether degree-only sufficient conditions imply switch ordering",
+          "title": "Stable coexistence in indefinitely large systems of competing species",
+          "trigger": "Same constant-competition ODE and stability and feasibility criteria; possible broader coverage of small-graph boundary"
+        },
+        {
+          "assessment": "Material historical-priority uncertainty; cannot assert that unread thesis does not cover the exact graph pair. Inaccessibility alone is not a science FAIL.",
+          "evidence": [
+            "Utrecht University DOI 10.33540/3866, thesis page abstract, 117 pages, displayed date Nov 4 2026 and embargo metadata"
+          ],
+          "identifier_or_url": "https://research-portal.uu.nl/en/publications/competitive-dynamics-on-sparse-networks-optimization-and-stabilit/",
+          "material_read": "Repository metadata and complete public abstract only; full 117-page text not obtained; as of audited UTC 2026-11-03 portal lists an award date of 2026-11-04 and an embargoed version despite an Oct-30 embargo-end field.",
+          "method": "Checked institutional repository and DOI open-access route (HTTP 403); authorized institutional retrieval responded vpn_disconnected; did not bypass login or assume content.",
+          "title": "Competitive Dynamics on Sparse Networks: Optimization and Stability",
+          "trigger": "Directly topical doctoral thesis by principal author of the motivating paper, possible extended computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A degree-preserving switch is precisely the local operation used in studying clustering versus competitive-network stability, and the first loss of strictly positive linearly stable equilibrium is a natural ecological dynamical invariant. A single elementary triangle creation causes the opposite local effect to a published ensemble association, distinguishing an interior spectral loss from boundary extinction. Proving six is the smallest possible connected order strengthens an otherwise isolated witness into a sharp structural boundary; all four five-vertex graph-family comparisons are nonvacuously classified. This is a motivated negative boundary result, not a claim of refuting the statistical study or of new general ecological dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mooij et al. 2026, Bull Math Biol 88:156, DOI:10.1007/s11538-026-01726-z; relevant full HTML sections",
+    "Mooij et al. 2024, Proc R Soc A 480:20240290, DOI:10.1098/rspa.2024.0290; relevant PDF text and p4 screenshot",
+    "Mooij 2026 Utrecht thesis, DOI 10.33540/3866; public abstract only",
+    "Resultary two exact-switch targeted queries and one broad ecology query, all actual returned hits",
+    "Web targeted searches 2026 positive association, triangle switching counterexample and thesis metadata"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only undirected connected simple graphs with homogeneous positive identical competition coefficient and unit self-regulation/forcing.",
+    "Threshold is the first strictly-positive linearly stable coexistence failure, which can be either feasibility loss or internal eigenvalue zero; do not equate it with a literal zero-coordinate-only formula in all cases.",
+    "Finite exhaustive census covers connected graphs n=2..5, not an infinite graph classification.",
+    "No claims about post-threshold basins, later restabilization, or causality of ecological field correlations."
+  ],
+  "residual_risks": [
+    "The motivating journal paper operationally defines critical coupling via a zero-coordinate event in displayed Eq. (5), but explicitly discusses interior pitchfork/spectral stability loss in the surrounding text. The submitted invariant is first loss of *positive linearly stable* branch; do not state without qualification that its rho value is the first zero of the resolvent coordinates. At rho the G0 branch remains strictly positive but loses strict stability.",
+    "An inaccessible closely relevant 117-page thesis by Mooij (portal award date 2026-11-04, later than this UTC audit) might tabulate additional small-graph switching examples. The public abstract cannot establish noncoverage; the authorized institutional retrieval reported vpn_disconnected.",
+    "An unindexed small-graph adjacency-spectrum/ecological-threshold tabulation could imply the isolated six-vertex witness or bounded minimality; targeted index searches cannot exclude that possibility.",
+    "The exhaustive graph scan is only n<=5; the theorem makes no universal monotonicity, all-graph exact threshold, or post-instability global dynamics assertion."
+  ],
+  "schema_version": 1
+}
