@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:53:13.701487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md full proof frozen blob efb874dfff610c2835f99eca487e6a5b546cb3df",
+        "Looi arXiv:2608.13550 source kernel and splitting in §§2-3",
+        "check_first_orthogonality.py inspected blob e00c18780e4cc313a25bd552922099acbc8cd7ca",
+        "Independent root and asymptotic tester R3"
+      ],
+      "rationale": "Under Gaussian measure (πα)^(-n)exp(-||z||²/α), the orthogonal splitting into holomorphic Fock plus conjugate vanishing-at-zero functions yields kernel Kph=2Re exp(<z,w>/α)-1. Put u=<z,w>/α, |u|≤R²/α. For r≤log2<1 the minimum of Re exp(u) over |u|≤r is e^(-r), uniquely at u=-r, proving nonvanishing below sqrt(α log2) and antipodal equality at it. For fixed t>log2 in one dimension, F(t,θ)=2exp(tcosθ)cos(t sinθ)-1 is positive at θ0 and negative at π; partition t∈(log2,1], (1,π/2), [π/2,∞) proves first root simple. Its phase q=θ+t sinθ lies in (π/2,π), giving Θ′(t)=cos q/(t sin q)<0. Expansion about π gives the sharp square-root onset; y=t sinΘ=π/2+O(exp(-t)) gives Θ=π/(2t)+π³/(48t³)+O(t^-5), and chord π/(2√t)+π³/(64t^(5/2))+O(t^-9/2). Independently calculated nine least roots and both limiting regimes; those finite tests support but do not prove the symbolic statements.",
+      "residual_risks": [
+        "The angular classification is only the *first* equal-radius zero in complex dimension one; other angular zeros may occur for larger t.",
+        "Numerical root checks at finitely many t cannot prove global uniqueness of least branch; symbolic sign analysis handles it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Looi Theorem 1.1 gives Schatten membership and sharp norm comparisons, not an exact kernel zero threshold.",
+          "Fulsche sources establish decomposition/bounded operators, not first-angle asymptotics."
+        ],
+        "reasoning": "A general kernel identity alone does not imply the global first-zero optimization without a further argument; no dominating theorem with the asserted ball radius and angular function was observed.",
+        "searches": [
+          "Looi positive Toeplitz pluriharmonic Fock 2026 Thm 1.1 §3",
+          "Fulsche 2019 Toeplitz pluriharmonic quantization",
+          "Fulsche Hagger 2024 polyanalytic zeros Section 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.13550",
+        "https://arxiv.org/abs/1901.02644",
+        "https://doi.org/10.1007/s00041-024-10124-9",
+        "Resultary 2026/9/19/SCOPE-zero-divisor-free-fock-toeplitz-exponential-polynomials--ea7c12552247"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Looi establishes Kph=Khol+conjugate(Khol)-1, which supplies a necessary premise.",
+          "Theorem 1.1 concerns Schatten classes of positive Toeplitz operators, logically distinct from orthogonality of kernel evaluations."
+        ],
+        "reasoning": "Exact known kernel gives a scalar equation; evaluating its first zero, monotonicity and near/far expansions is nontrivial further analysis and was not stated by inspected primary sections.",
+        "searches": [
+          "arXiv:2608.13550 Eq (11), Theorem 1.1",
+          "arXiv:1901.02644 Fulsche pluriharmonic splitting",
+          "DOI:10.1007/s00041-024-10124-9 polyanalytic Fock kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orthogonality is exactly the zero equation Re e^u=1/2 for u=<z,w>/α.",
+          "Polyanalytic kernel zeros depend on Laguerre polynomials of differences rather than Re e^u."
+        ],
+        "reasoning": "The equivalent scalar exponential real-part equation follows from a prior known kernel, but the sharp disk minimization and least-angle branch are additional propositions, not a renaming of Toeplitz Schatten results.",
+        "searches": [
+          "pluriharmonic Fock reproducing kernel zeros Lu Qi Keng first orthogonality",
+          "arXiv 2608.13550 kernel Eq (11)",
+          "Resultary Fock reproducing kernel orthogonality zero radius log2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published result supplies a closed kernel formula rather than a numerical table of contact radii or angles.",
+          "New derivative-based monotonicity and two asymptotic coefficients were separately established."
+        ],
+        "reasoning": "No exact table/database supplied or implied the claimed global first-angle monotonicity and critical constants; this is an analytic theorem rather than a finite catalogue.",
+        "searches": [
+          "pluriharmonic Fock zero contact radius log 2 table",
+          "least orthogonality angle theta(t) pluriharmonic Gaussian Fock"
+        ]
+      },
+      "rationale": "Looi and Fulsche establish the pluriharmonic kernel identity and holomorphic/antiholomorphic decomposition, which are credited premises. The new claim optimizes the first zero on a bounded origin ball, locates equality, proves one-dimensional first-angle monotonicity and sharp endpoint expansions. Retrieved primary Looi paper addresses Toeplitz Schatten classes, not zero location, and related polyanalytic Fock kernels have a different Laguerre zero structure. Published Resultary Fock kernels concern different Toeplitz/Gram invariants.",
+      "residual_risks": [
+        "Known explicit kernel identities permit a short independent zero calculation; equivalent earlier Lu Qi-Keng/zero-free disk statements may be unindexed.",
+        "The older Fulsche/polyanalytic papers were not fully reread, so no whole-document noncoverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING specific zero-geometry theorem in inspected relevant results",
+          "evidence": "Theorem 1.1 is Schatten membership/norm comparison; Gaussian kernel splitting provides premise Kph.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.13550",
+          "material_read": "Primary full-text sections 1-3 and theorem 1.1, formula around Eq (11); relevant source screenshot",
+          "method": "ArXiv HTML plus PDF text and screenshot",
+          "title": "Comparing positive Toeplitz operators on holomorphic and pluriharmonic Fock spaces",
+          "trigger": "Exact same Gaussian reproducing kernel and normalization"
+        },
+        {
+          "assessment": "UNCONFIRMED fuller coverage; known kernel identity is prior",
+          "evidence": "Do not infer whole-document absence from summary; exact prior kernel is credited.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.02644",
+          "material_read": "Abstract and reported kernel/splitting material; full document retrieval unavailable in this run",
+          "method": "Arxiv landing page and comparative primary references",
+          "title": "Toeplitz operators on pluriharmonic function spaces: deformation quantization and spectral theory",
+          "trigger": "Earlier splitting/kernel formulation"
+        },
+        {
+          "assessment": "DIFFERENT_KERNEL; residual full-text priority risk",
+          "evidence": "Polyanalytic reproducing kernel is not the pluriharmonic kernel 2Re exp(u)-1.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-024-10124-9",
+          "material_read": "Prior reported Section 3 Laguerre-polynomial zero formulation; no full reread this run",
+          "method": "Bibliographic/related-work comparison",
+          "title": "Quantum Harmonic Analysis for Polyanalytic Fock Spaces",
+          "trigger": "Potential stronger zero theory for related Fock kernels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Looi arXiv:2608.13550, standard kernel normalization",
+        "Analytical extremal and first-root proof in RESULT.md"
+      ],
+      "rationale": "The first orthogonality of evaluation kernels is a natural geometric invariant controlling how close strongly oscillatory reproducing-kernel vectors can be. The dimension-free sharp contact radius and one-dimensional full least-root motion with asymptotic chord length are motivated analytical boundary results, rather than a routine renamed operator norm. It distinguishes pluriharmonic from zero-free holomorphic kernels.",
+      "residual_risks": [
+        "Does not characterize all higher roots, unequal-radius pairs, or quantitative global sampling stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Radius bound all n≥1 under exact Gaussian normalization.",
+    "Angle and chord asymptotics only one complex dimension/equal-radius circles."
+  ]
+}
