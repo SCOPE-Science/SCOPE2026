@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite LP and its dual use distinct deletion outputs, not deletion positions with multiplicity. All fifteen equality partitions of length four give primal coverage at least one for the displayed four-type weights. The four center types give dual mass exactly one for all alphabet sizes at least three; independent counting establishes equal primal and dual objectives. The separate binary four-center cover and four-receiver dual prove the exceptional value. The standalone checker enumerates the actual incidence relations using exact fractions for alphabet sizes three through nine and checks the binary case. The infinite-domain assertion depends on the symbolic type analysis, not extrapolation from computations.
+PASS
 
-## Originality — PASS, with residual risk
+The primal weights on length-three constant, adjacent-repeat, and other patterns are 1,1/2,1/4; all fifteen equality patterns of length four have coverage at least one. The dual gives mass 1 to aaaa and aabb, 1/[2(q-2)] to abca, and 1/[4(q-2)] to four-distinct words; counting occurrences in each center type gives dual sums exactly one and matching objective q(q+1)^2/4 for all q>=3. Binary explicit primal and dual achieve four. Independent exact Fraction enumeration for q=2,3,4,5,6 checked every distinct deletion set and every dual inequality, with common objectives 4,12,25,45,147/2. For the integer covering I(q,3,1), published s(4,3)>1/3 makes the asymptotic gap liminf at least 4s>4/3; this is a conditional comparison using the published bound, not a calculation of s.
 
-The directly relevant June 2026 paper [3] presents bounds and constructions for insertion covering, without giving the exact fractional LP optimum; the 2025 integer-density result [2] proves a strict one-third lower bound for integer covers rather than a one-quarter fractional optimum. The original 2021 insertion-covering paper [1] develops sphere bounds and constructions. Grozea's integer table [4] covers small alphabets but not the all-alphabet fractional LP. Statement-level searches for ordered-triple subsequence hypergraphs, single-insertion fractional covering and an asymptotic integrality gap did not identify a covering result. No negative uniqueness assertion follows from this search: an equivalent unpublished or unindexed LP calculation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact all-alphabet fractional optimum is a natural benchmark for a covering problem with variable alphabet size. Its growth coefficient is \(1/4\), while known integer covering bounds give a strictly greater than \(1/3\) coefficient; thus the standard covering LP provably loses a constant factor in a regime where stronger methods are sought. The result is more than a numerical example or routine finite count: it gives matching symbolic dual certificates, a sharp exceptional binary boundary, and a structural obstruction to improving integer covering bounds by this LP alone.
+The fully specified fractional LP with distinct deletion descendants has an exact all-alphabet optimum that differs from known integer covering numbers and general sphere or LP lower bounds; best-of-knowledge new, with unindexed LP specializations a possible risk.
 
-## Sources and limitations
+## value
 
-Primary sources: [1] https://arxiv.org/abs/1911.09944, [2] https://arxiv.org/abs/2409.06425, [3] https://arxiv.org/abs/2606.15379; integer table [4] https://www.brainsignals.de/users/cristian.grozea/combinatorial.html. The main theorem covers only three-symbol centers and exactly one insertion. It does not determine the integer optimum or the strength of semidefinite programming. Priority risk remains from unindexed calculations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit all-alphabet primal-dual certificate exactly solves a natural insertion-cover relaxation and quantitatively separates it from its integer counterpart; the exact fractional bound is a reusable optimization benchmark, not merely a recomputation of known integer tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
