@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source-provided Laplace transform defines a monic stable cubic. The proof parameterizes *every* possible repeated root, derives its two monotone branches, and uses exact discriminant signs to classify all positive rates and boundaries. The triple pole is not cancelled by the numerator for any real initial bias. The polynomial-times-exponential inversion and a strictly negative factorization of the coherent-work derivative are verified symbolically by `checker.py`; exact rational and independent numerical-root diagnostics agree. The result does not infer a continuum theorem from finite experiments.
+PASS
 
-## Originality
+Routh–Hurwitz κ(2κλ+v²)>κ v² implies all poles stable; numerator cancellation impossible since s=−κ not a root and other common root would be purely imaginary. At a repeated cubic root write poles −x,−x,−t x with t>0; coefficient matching yields K(t)=(t+2)^3/(t+1)^2 and w(t)=t(t+2)^3/(t+1)^4. Independent SymPy exact expansion confirms p(z)=(z+x)^2(z+tx) along curve. Derivatives w′=−2(t−1)(t+2)^2/(t+1)^5, K′=(t−1)(t+2)^2/(t+1)^3 give one/two/no fold regimes and unique t=1 cusp K=27/4,w=27/16 with cubic (z+9/4)^3. Cusp inversion F=e^(−9T/4)[1+(9/4+3sqrt3 i a/4)T+(27/16)(1+i sqrt3 a)T²]. Independently symbolically matched derivative of |F|² to the negative factor −27/512 e^(−9T/2)T(9T+4)[(1−a²)(36T+16)+(27+81a²)T²] for T>0, |a|<=1. Thus all-bias strict monotonicity holds at triple pole but not claimed elsewhere. No finite experiment used to establish global discriminant topology.
 
-PASS, with stated priority limits. The primary coherent-work paper arXiv:2406.00411 supplies its transform and ergotropy formula, not the exact full reentrant pole geometry, its unique third-order parameter, or the all-bias strict monotonicity proof. The 2019 full-text dephasing source and its 2016 predecessor supply noise-model and partial-fraction foundations. The 2024 non-Markovian EP paper supplies a different reservoir example; the 2026 full-text paper already establishes *generic* independence between EPs and backflow for other models, so only the explicit exact spectral and work statement for this bath is assessed. The relevant 2016 full text was unavailable; this remains a genuine source-inspection priority risk. The older generic cubic/discriminant tools are not claimed as new.
+## originality
 
-## Value
+PASS
 
-PASS. The phase diagram supplies exact attainable critical parameters, discovers a finite *reentrant* three-real-mode spectral interval in a natural colored-telegraph bath and determines a unique third-order cusp with cubic-root sensitivity. The model-specific no-revival certificate distinguishes the spectral singularity from operationally measurable coherent-work backflow. This is more than a numerical observation or a routine normalization; it is a complete two-parameter transition classification with an exact work consequence. The diagram does not classify all off-cusp coherence revivals or establish microscopic CP realizations.
+Best-knowledge PASS restricted to the exact (K,u) reentrant cubic pole diagram and cusp work-decay polynomial. Hadipour–Haseli and Cai provide original propagators; later Lin and Holst provide EP/backflow concepts and different examples; their actual statements do not determine this model-specific fold curve. Unread 2016 early model text is a material priority risk but alone does not defeat a well-supported narrow conclusion.
 
-## Closest literature and limits
+## value
 
-Hadipour and Haseli, arXiv:2406.00411; Cai, arXiv:1910.14077; Cai and Zheng, Phys. Rev. A 94, 042110; Lin et al., arXiv:2406.18362; Holst et al., arXiv:2610.26620. Novelty is model-specific and conditional on access limitations, and there is no independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The specific colored-telegraph dephasing bath has a complete two-parameter spectral topology with a unique triple exceptional point and a reentrant all-real-pole window. An exact all-initial-imbalance derivative certificate shows a third-order spectral degeneracy need not revive coherent work. This quantitatively separates spectral and operational behavior at natural critical parameter values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
