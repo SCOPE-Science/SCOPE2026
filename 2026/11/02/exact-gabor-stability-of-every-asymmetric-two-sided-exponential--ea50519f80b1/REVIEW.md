@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric Zak identity is derived at the two unequal exponential tails. The scalar frame multiplier follows from Parseval; cosine monotonicity forces phases \(0\) and \(\pi\). Convexity yields the sharp upper endpoint and a sign-changing quadratic derivative gives the unique sharp lower spatial fiber. The strict positivity of the lower bound follows from strict monotonicity of its real Zak slice. A standard-library program checks nine parameter pairs, but the continuum proof is the argument in RESULT.md.
+## correctness
 
-**Originality — PASS under inspected sources.** de Dios Pont et al., arXiv:2608.04992, Theorem 1.1, prove qualitative frame existence, not these exact bounds. Kloos–Stöckler, arXiv:1311.7359, Section 5, and Faulhuber–Shafkulovska's 2022 poster cover the even exponential only. Relevant published-finding corpus comparisons include records 9587a4647148 (tent spline), c8f151d17e5c (hat spline), and acaeec402fe4 (translation sampling without Gabor modulation). The current prior claim ledger supplies no equivalent result. The 1996 Janssen calculation has only an accessible abstract in this review and remains a possible historical-priority risk; a negative full-text assessment is not claimed.
+PASS
 
-**Value — PASS.** Two unequal tails form a natural first quantitative extension beyond the well-known even exponential, in a regime where a general recent theorem guarantees a frame but not its stability. The theorem exactly determines both extremal frame constants, proves the unique location of the weakest fiber, and characterizes the reflection law, offering a complete sharp conditioning calculation for every positive pair.
+At lattice time step 1/2 and frequency step 1, integer-modulation Parseval and Zak fiberization reduce the frame form to S(x,theta)=|Zg(x,theta)|²+|Zg(x+1/2,theta)|². For y in [0,1], the geometric Zak transform equals [e^(-ay)-pr e^(by)+r(e^(by)-e^(-ay))e^(i theta)]/[(1-p e^(-i theta))(1-r e^(i theta))], with nonnegative numerator coefficients. Thus S is increasing in cos theta, with min at pi and max at zero. The zero-phase profile is strictly convex with equal endpoints, so maximum occurs at 0 modulo half-lattice. For theta=pi the profile F(x)=Acal e^(-2ax)-2Bcal e^((b-a)x)+Ccal e^(2bx); F prime has sign governed by an upward quadratic in t=e^((a+b)x) with strictly negative constant and one positive root, and equal endpoint values force unique interior minimizer. Two shifted H(y)=u e^(-ay)-v e^(by) cannot vanish simultaneously, giving strictly positive minimum. Independent phase/spatial numerical scans and exact-fiber evaluations for (a,b)=(1,1),(.5,2),(2,.5),(.01,3),(3,10) confirmed formulas for both extremal bounds, positivity, minimizing fiber and reflection symmetry. Numerical checks only corroborate continuous proof.
 
-**Limitations.** Only translation spacing \(1/2\), integer modulations, and these continuous exponential windows are covered. None of the finite spot checks establishes the proof in place of the analytic argument; historical implicit priority remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact optimal squared frame bounds for all positive unequal left and right slopes at fixed half translation, plus unique biased spatial minimizing fiber. General totally-positive frame-set characterization and symmetric-exponential bounds exist, but do not directly yield these explicit asymmetric extrema. Janssen 1996 full text inaccessible; this high-relevance comparison is a material unclosed priority risk, not a demonstrated prior theorem.
+
+## value
+
+PASS
+
+Sharp conditioning constants and the precise worst spatial fiber are natural frame-stability invariants for a two-rate signal window; these are independent of qualitative membership in the frame set and useful in rigorous sampling design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

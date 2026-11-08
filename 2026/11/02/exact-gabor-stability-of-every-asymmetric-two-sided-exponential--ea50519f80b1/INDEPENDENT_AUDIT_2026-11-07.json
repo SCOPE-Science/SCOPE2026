@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:00:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At lattice time step 1/2 and frequency step 1, integer-modulation Parseval and Zak fiberization reduce the frame form to S(x,theta)=|Zg(x,theta)|²+|Zg(x+1/2,theta)|². For y in [0,1], the geometric Zak transform equals [e^(-ay)-pr e^(by)+r(e^(by)-e^(-ay))e^(i theta)]/[(1-p e^(-i theta))(1-r e^(i theta))], with nonnegative numerator coefficients. Thus S is increasing in cos theta, with min at pi and max at zero. The zero-phase profile is strictly convex with equal endpoints, so maximum occurs at 0 modulo half-lattice. For theta=pi the profile F(x)=Acal e^(-2ax)-2Bcal e^((b-a)x)+Ccal e^(2bx); F prime has sign governed by an upward quadratic in t=e^((a+b)x) with strictly negative constant and one positive root, and equal endpoint values force unique interior minimizer. Two shifted H(y)=u e^(-ay)-v e^(by) cannot vanish simultaneously, giving strictly positive minimum. Independent phase/spatial numerical scans and exact-fiber evaluations for (a,b)=(1,1),(.5,2),(2,.5),(.01,3),(3,10) confirmed formulas for both extremal bounds, positivity, minimizing fiber and reflection symmetry. Numerical checks only corroborate continuous proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Dios Pont et al. prove frame-set iff lattice product<1, but not sharp bounds. Kloos–Stöckler Section 5 addresses even symmetric double exponential with bounds, a one-slope restriction and different general lattice parameters."
+        ],
+        "reasoning": "Qualitative frame existence does not imply exact conditioning constants; symmetric subfamily cannot determine the off-diagonal two-slope minimizer.",
+        "searches": [
+          "arxiv:2608.04992 continuous integrable totally positive windows frame iff alpha beta<1",
+          "arxiv:1311.7359 symmetric g(t) lambda/2 e^-lambda|t|"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen snapshot cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-gabor-stability-of-every-asymmetric-two-sided-exponential--ea50519f80b1/RESULT.md blob a1412c1172e761811be1bfe55cbf424baf1b1796",
+        "Exact complete record tree 37947fb53bcd417d0b1279e0425ff67b15584b5f with 7 Git blob entries, not truncated",
+        "Frozen METADATA.json complete text and AUDIT.json schema/provenance inspection",
+        "Zak transforms and Gabor frames of totally positive functions and exponential B-splines (arxiv:1311.7359v1)",
+        "Gabor Frames of Totally Positive Functions: A Complete Characterization (arxiv:2608.04992v1)",
+        "Some Weyl-Heisenberg frame bound calculations (doi:10.1016/0019-3577(96)85088-9)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kloos–Stöckler distinguish nonoptimal lower bounds from sharp extremal values and fix a=b for the exponential window; de Dios Pont et al. address only frame membership."
+        ],
+        "reasoning": "The present explicit two-dimensional fiber extremization and unique minimizer do not formally follow from cited theorem statements. Janssen detailed examples could still cover a specialization; the full text access gap is not proof of novelty.",
+        "searches": [
+          "arxiv:1311.7359 Theorem 5.6",
+          "arxiv:2608.04992 complete characterization",
+          "Janssen 1996 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arbitrary asymmetric decays are a two-parameter window with g(t)=exp(-at) for t>=0 and exp(bt) for t<0. Janssen 1996 studies several g and integer redundancy but full text was unavailable (author OA timed out, institutional VPN disconnected)."
+        ],
+        "reasoning": "Zak-transform normalization and optimal squared frame bounds were compared with the classic language of Weyl-Heisenberg frame bounds. No confident whole-paper noncoverage claim can be made about Janssen; the historical priority risk is expressly retained.",
+        "searches": [
+          "Zak fiber half-translation exact Gabor frame bounds two-sided different slope exponential",
+          "Janssen 1996 Weyl-Heisenberg frame bound calculations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest asymmetric exponential record concerns integer-grid translated sampling rather than half-density Gabor frame bounds; no equal table identified."
+        ],
+        "reasoning": "Sampling translate profiles are different operators from this modulation+translation frame inequality, even if the windows are identical.",
+        "searches": [
+          "Resultary: sharp shifted sampling asymmetric two-sided exponential",
+          "asymmetric exponential two slope gabor optimal lower frame bound tabulation"
+        ]
+      },
+      "rationale": "Exact optimal squared frame bounds for all positive unequal left and right slopes at fixed half translation, plus unique biased spatial minimizing fiber. General totally-positive frame-set characterization and symmetric-exponential bounds exist, but do not directly yield these explicit asymmetric extrema. Janssen 1996 full text inaccessible; this high-relevance comparison is a material unclosed priority risk, not a demonstrated prior theorem.",
+      "residual_risks": [
+        "Numerical fiber scans corroborate but are not continuous extremum proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SYMMETRIC_ONLY_AND_NONOPTIMAL_BOUNDS",
+          "evidence": "Explicit focus on even g(x)=lambda/2 exp(-lambda |x|) and lower bound estimates as lattice density approaches one; no asymmetric a != b sharp half-lattice formulas in inspected sections.",
+          "identifier_or_url": "arxiv:1311.7359v1",
+          "material_read": "Full 33-page PDF relevant sections: abstract and introduction, Section 5 pages 21-23 for even two-sided exponential, Theorem 5.6 discussion",
+          "method": "web PDF text and screenshots pages 1 and 21",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "most relevant prior two-sided exponential sharp/lower estimates"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_EXISTENCE_NOT_SHARP_EXTREMA",
+          "evidence": "Theorem frame iff alpha beta<1 for continuous integrable totally positive windows; no explicit sharp A(a,b), B(a,b) for this two-rate window in inspected central results.",
+          "identifier_or_url": "arxiv:2608.04992v1",
+          "material_read": "PDF abstract, introduction and frame-set theorem, with page 1 screenshot",
+          "method": "web primary PDF text and screenshot",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "stronger general frame-set theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_COVERAGE_RISK",
+          "evidence": "1996 paper computes exact frame bounds for several windows at integer inverse lattice products; whether it covers the asymmetric two-sided exponential remains unchecked.",
+          "identifier_or_url": "doi:10.1016/0019-3577(96)85088-9",
+          "material_read": "Author institutional landing-page full abstract and article metadata only; author PDF attempted but timed out; no full text obtained",
+          "method": "open bibliographic abstract; OA author PDF URL and Oxford authorized attempt",
+          "title": "Some Weyl-Heisenberg frame bound calculations",
+          "trigger": "directly relevant integer-oversampled Gabor bound formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp conditioning constants and the precise worst spatial fiber are natural frame-stability invariants for a two-rate signal window; these are independent of qualitative membership in the frame set and useful in rigorous sampling design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen snapshot cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-gabor-stability-of-every-asymmetric-two-sided-exponential--ea50519f80b1/RESULT.md blob a1412c1172e761811be1bfe55cbf424baf1b1796",
+    "Exact complete record tree 37947fb53bcd417d0b1279e0425ff67b15584b5f with 7 Git blob entries, not truncated",
+    "Frozen METADATA.json complete text and AUDIT.json schema/provenance inspection",
+    "Zak transforms and Gabor frames of totally positive functions and exponential B-splines (arxiv:1311.7359v1)",
+    "Gabor Frames of Totally Positive Functions: A Complete Characterization (arxiv:2608.04992v1)",
+    "Some Weyl-Heisenberg frame bound calculations (doi:10.1016/0019-3577(96)85088-9)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Precisely alpha=1/2 translations and beta=1 modulations with positive finite a,b and no L2 unit normalization.",
+    "A Jensen/Janssen 1996-style all-window exact formula may implicitly specialize to this case; full Janssen paper not accessed after author PDF timeout and Oxford VPN disconnection.",
+    "Numerical fiber scans corroborate but are not continuous extremum proofs."
+  ],
+  "residual_risks": [
+    "Numerical fiber scans corroborate but are not continuous extremum proofs."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SYMMETRIC_ONLY_AND_NONOPTIMAL_BOUNDS",
+      "evidence": "Explicit focus on even g(x)=lambda/2 exp(-lambda |x|) and lower bound estimates as lattice density approaches one; no asymmetric a != b sharp half-lattice formulas in inspected sections.",
+      "identifier_or_url": "arxiv:1311.7359v1",
+      "material_read": "Full 33-page PDF relevant sections: abstract and introduction, Section 5 pages 21-23 for even two-sided exponential, Theorem 5.6 discussion",
+      "method": "web PDF text and screenshots pages 1 and 21",
+      "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+      "trigger": "most relevant prior two-sided exponential sharp/lower estimates"
+    },
+    {
+      "assessment": "PRIOR_GENERAL_EXISTENCE_NOT_SHARP_EXTREMA",
+      "evidence": "Theorem frame iff alpha beta<1 for continuous integrable totally positive windows; no explicit sharp A(a,b), B(a,b) for this two-rate window in inspected central results.",
+      "identifier_or_url": "arxiv:2608.04992v1",
+      "material_read": "PDF abstract, introduction and frame-set theorem, with page 1 screenshot",
+      "method": "web primary PDF text and screenshot",
+      "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+      "trigger": "stronger general frame-set theorem"
+    },
+    {
+      "assessment": "ACCESS_LIMITED_PLAUSIBLE_COVERAGE_RISK",
+      "evidence": "1996 paper computes exact frame bounds for several windows at integer inverse lattice products; whether it covers the asymmetric two-sided exponential remains unchecked.",
+      "identifier_or_url": "doi:10.1016/0019-3577(96)85088-9",
+      "material_read": "Author institutional landing-page full abstract and article metadata only; author PDF attempted but timed out; no full text obtained",
+      "method": "open bibliographic abstract; OA author PDF URL and Oxford authorized attempt",
+      "title": "Some Weyl-Heisenberg frame bound calculations",
+      "trigger": "directly relevant integer-oversampled Gabor bound formulas"
+    }
+  ]
+}
