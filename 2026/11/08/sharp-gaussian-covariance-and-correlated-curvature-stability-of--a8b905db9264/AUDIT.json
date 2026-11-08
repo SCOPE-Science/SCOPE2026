@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Direct expansion gives the exact covariance transfer operator, energy drift, and constant-diagonal invariant covariance and sharp threshold in all dimensions. In dimension two, conjugation by the Hessian square root gives a self-adjoint positive-cone moment map; the Sylvester generalized eigenvalue reduces exactly to the stated K. The positive forcing proves divergence at and above the boundary. The gain is a Loewner-order comparison with an exact elementary supremum. Independently, 427 arithmetic assertions passed, not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "JMLR Theorem 3 proves a sufficient stepsize restriction and a Wasserstein error upper bound for strongly convex functions.",
+        "The two-dimensional exact threshold is larger than a diagonal-only bound for correlated unequal diagonals and excludes all above-threshold steps including the endpoint.",
+        "Published related Gaussian ULMC and UBU records use different methods and stationary covariance quantities."
+      ],
+      "reasoning": "General convergence guarantees on sufficiently small steps do not imply an exact sharp mean-square stability threshold or invariant covariance identity, especially where full-noise RCD-O-LMC remains stable beyond a diagonal bound. No inspected primary source gives a dominating all-step quadratic theorem.",
+      "searches": [
+        "stochastic coordinate gradient descent random diagonal stepsizes stability spectral radius moment recursion two dimensions",
+        "randomized coordinate Langevin 2x2 SPD Hessian exact mean-square stability radius K a c²/(a+b)",
+        "random coordinate gradient unbiased Gaussian Langevin stationary covariance exact sharp threshold",
+        "JMLR-22-205-2021",
+        "arxiv:2010.01405v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2006.06068v1 (2020-06-10; algorithm and variance-reduction motivation)",
+      "JMLR 22 (2021) paper 205, 51-page publisher full text, especially Algorithm 2, Theorem 3, Section 4.3",
+      "arxiv:2010.01405v1 (2020-10-03; Algorithm 1 and Theorems 4.2–4.3)",
+      "published-finding corpus published semantic findings (actual search queries recorded in the named checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The JMLR source defines the identical RCD-O-LMC but states weaker sufficient Wasserstein conditions; it does not derive the 2D Sylvester gain matrix or sharp threshold.",
+        "The 2020 NeurIPS/arXiv RCD paper establishes a qualitative cost/variance issue and develops variance reduction, not the two asserted exact laws.",
+        "The 2020 arXiv RC-LMC paper is distinct in its coordinate-local stochastic forcing."
+      ],
+      "reasoning": "The novelty comparison checks the actual algorithm, state-space moment operator, sharp critical step, and invariant-covariance identity. Qualitative warnings about random-coordinate variance, Gaussian examples for a different chain, and related stochastic optimization do not logically imply the precise all-correlation stationary covariance or anisotropic two-coordinate spectrum.",
+      "searches": [
+        "random coordinate Langevin Monte Carlo correlated Gaussian exact invariant covariance two dimensional sharp mean-square stability threshold",
+        "randomized coordinate Langevin 2x2 SPD Hessian exact mean-square stability radius K a c²/(a+b)",
+        "two-dimensional Hessian off diagonal correlation improves coordinate subsampled stochastic-gradient mean-square stability",
+        "JMLR-22-205-2021",
+        "arxiv:2006.06068v1",
+        "arxiv:2010.01405v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "JMLR Algorithm 2 is the same full-dimensional-noise RCD-O-LMC map, while arxiv:2010.01405v1 is an inequivalent coordinate-noise Markov chain.",
+        "The new moment transfer operator on Gaussian quadratics is specified in RESULT.md and compared on its exact covariance and stability implications."
+      ],
+      "reasoning": "Equivalent names RCD-LMC and RC-LMC were disambiguated by the actual noise support. The JMLR algorithm matches, but its Section 4 theorem bounds do not state the sharp necessary-and-sufficient covariance frontier. The alternate coordinate-noise result is not a stronger or equivalent theorem.",
+      "searches": [
+        "random coordinate Langevin Monte Carlo correlated Gaussian exact invariant covariance two dimensional sharp mean-square stability threshold",
+        "random-coordinate Euler Langevin sharp stochastic second moment threshold coupling covariance off diagonal",
+        "coordinate-subsampled gradient Langevin stationary bias exact Gaussian covariance 2x2",
+        "arxiv:2006.06068v1",
+        "arxiv:2010.01405v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches gave nearby but non-equivalent published records for underdamped ULMC, UBU noise, scalar STORM and PAGE.",
+        "The independent arithmetic checker treats several matrices and does not purport to enumerate all covariance matrices."
+      ],
+      "reasoning": "The result concerns a continuous positive-definite matrix parameter family, not a table lookup. Actual semantic searches did not reveal an exact RCD-O-LMC covariance/stability table; absence of hits is not treated as uniqueness proof.",
+      "searches": [
+        "exact Gaussian RCD-LMC covariance constant-diagonal target dimension d stationary inflation 1/(1-d ah/2)",
+        "random coordinate gradient unbiased Gaussian Langevin stationary covariance exact sharp threshold",
+        "two-dimensional Hessian off diagonal correlation improves coordinate subsampled stochastic-gradient mean-square stability"
+      ]
+    },
+    "rationale": "The closest primary full texts support the algorithm but report general Wasserstein bounds or inequivalent noise models, not the exact finite-variance stability thresholds and covariance identities. The matrix identities, sharp strict-gain threshold, and unattained global gain envelope are separate nontrivial claims. Historical literature not found by semantic or targeted searches remains a residual risk.",
+    "residual_risks": [
+      "A specialist quadratic random-affine-recursion or stochastic-coordinate-dynamics paper may independently contain the same spectral threshold under different terminology.",
+      "Absence of exact published-finding corpus matches does not demonstrate uniqueness; no independent audit or exhaustive bibliography is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines random-coordinate gradient approximation and supports qualitative variance concerns, not the exact arbitrary-correlation invariant-covariance multiplier or the 2D sharp anisotropic mean-square frontier.",
+        "evidence": [
+          "arxiv:2006.06068v1 dated 2020-06-10",
+          "Abstract describes general variance penalty and new RCAD method; analyzed RCD target has quadratic Hessian and exact covariance rather than method improvement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.06068",
+        "material_read": "HTML abstract, introduction, random-coordinate method sections, source counterexample and contextual references, including its overdamped versus underdamped distinctions.",
+        "method": "Readable arXiv HTML body, followed by comparison of gradient noise, quadratic objects and strength of error conclusions.",
+        "title": "Variance reduction for Random Coordinate Descent-Langevin Monte Carlo",
+        "trigger": "First publicly dated primary work on the RCD-LMC gradient surrogate and variance-reduction motivation."
+      },
+      {
+        "assessment": "Algorithm 2 equations (16)–(17) exactly match our full-noise update. Theorem 3 gives sufficient small-step Wasserstein bounds, and the explicit lower-bound example is underdamped. Neither establishes the displayed constant-diagonal covariance equality nor the necessary-and-sufficient two-dimensional correlated stability boundary.",
+        "evidence": [
+          "JMLR 22 (2021), paper 205, Section 4, Algorithm 2, equations (16)–(17), Theorem 3",
+          "Section 4.3 states its explicit example is RCD-U-LMC and focuses on Wasserstein complexity, not stationary covariance."
+        ],
+        "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf",
+        "material_read": "Full accessible 51-page source text searched for quadratic, covariance and stability; read introduction, Section 4.1 and 4.2.1, Algorithm 2 on PDF page 13, Theorem 3, Section 4.3 counterexample and relevant adjacent pages. Viewed page 13 screenshot directly.",
+        "method": "Publisher open-access PDF parsed text, targeted search and visual page verification.",
+        "title": "Langevin Monte Carlo: random coordinate descent and variance reduction",
+        "trigger": "Exact matching RCD-O-LMC algorithm, its general convergence theory, and strongest plausible source coverage."
+      },
+      {
+        "assessment": "Algorithm 1 changes only one coordinate and adds noise only to that coordinate. It is a different Markov chain from RCD-O-LMC full-dimensional Gaussian noise at each step; its sufficient complexity bounds and Gaussian lower-bound result do not imply the exact sharp full-noise frontier.",
+        "evidence": [
+          "arxiv:2010.01405v1 first public 2020-10-03, Algorithm 1 equation (5)",
+          "Algorithm 1 explicitly keeps nonselected coordinates unchanged, including the stochastic perturbation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.01405",
+        "material_read": "Complete readable source page accessed; inspected abstract, Section 2 Algorithm 1, Theorems 4.2 and 4.3, Section 4.4 Gaussian counterexample and related method discussion.",
+        "method": "ArXiv HTML full text with inspection of exact per-coordinate update equation (5) and support.",
+        "title": "Random Coordinate Langevin Monte Carlo",
+        "trigger": "Highly similar naming and quadratic Gaussian numerical examples; a plausible alternative formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a8b905db-9264-4e68-9526-a52a2cc8232a",
+  "value": {
+    "rationale": "The exact unconditional Gaussian covariance inflation and the sharp, coupling-dependent 2D mean-square stepsize frontier answer a motivated accuracy/stability gap for a published randomized-gradient Langevin sampler. Off-diagonal coupling provides a sharp and previously unquantified increase of as much as 20.71% in the admissible step. The result is not merely a renamed one-dimensional scalar law: the 2D Sylvester eigenvalue and sharp correlated curvature gain control noncommuting random coordinate propagation.",
+    "status": "PASS"
+  }
+}
