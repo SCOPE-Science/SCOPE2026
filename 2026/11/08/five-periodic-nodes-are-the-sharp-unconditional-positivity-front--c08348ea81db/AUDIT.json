@@ -1,0 +1,177 @@
+{
+  "correctness": {
+    "rationale": "An exact rational matrix identity proves entrywise-nonnegative kernels at n=3,4,5 for every h>=0. On every n-cycle the explicitly verified zero-mean discrete Green kernel gives A_n-dagger adjacent entry (n-1)(n-5)/(12n). Eigenmode expansion r(-h lambda)=1-12/(h lambda)+O(h^-2) gives a strictly negative adjacent entry for every n>=6 at sufficiently large h. At n=6, h=8 the entry is exactly -6584/580537. All eigenvalues stay positive and <=1, and constants are preserved. Standalone symbolic verification passed 16391 assertions; finite checks do not substitute for the all-n proof. No internal-stage or floating-point conclusion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2102.11939: high-order unconditional SSP construction explicitly relies on backward-second-derivative assumptions and methods distinct from ordinary Gauss–Legendre.",
+        "https://doi.org/10.1016/j.laa.2011.12.021: an obstruction for some Metzler generators does not force failure for every cycle of size >=6, nor establish nonnegativity of all small cycles.",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac: a backward-Euler-filtered Crank–Nicolson composite has unconditional periodic lattice positivity, which applies a different stability function."
+      ],
+      "reasoning": "Broad absolute-monotonicity/SSP nonexistence for unrestricted systems does not dominate the restricted structured-cycle theorem; conversely SSP multi-derivative constructions or filtered Crank–Nicolson do not determine signs of the unfixed Gauss–Legendre map. Published generic asymptotic stability is weaker than matrix nonnegativity. The special-case sharp dimension cutoff requires independent exact kernel and Green-function calculations.",
+      "searches": [
+        "fourth order implicit Gauss Runge Kutta high timestep positivity graph heat n=6 threshold",
+        "Periodic cycle graph Laplacian Gauss Legendre [2/2] Padé heat timestep entrywise positivity exactly 3 4 5 nodes, adjacent Green pseudoinverse (n-1)(n-5)",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "Gauss Legendre periodic positivity heat equation positive step matrix"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.11939",
+      "https://doi.org/10.1016/j.laa.2011.12.021",
+      "https://davidetorlo.it/files/publications/Torlo2021StabilityPatankar.pdf",
+      "https://doi.org/10.1002/num.20039",
+      "https://arxiv.org/abs/2608.22703",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "Prior mathematical claims on periodic explicit RK4 and Crank–Nicolson, opaque identifiers 0fa0ba72-5afe-453c-b0c2-cec397954280, 1102c3b3-899f-419b-9bac-ed675ef53d43"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://davidetorlo.it/files/publications/Torlo2021StabilityPatankar.pdf: R(-h)>0 for all h is only a scalar condition; the present six-cycle has a negative matrix entry despite all positive eigenvalues.",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: its universal n<=7 small-h Markov statement gives no all-h property at n<=5 and no failure at large h for n>=6.",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac: positivity of 2R^2-R for a backward-Euler resolvent says nothing about the [2/2] Padé map.",
+        "0fa0ba72-5afe-453c-b0c2-cec397954280: the explicit RK4 classification cannot imply the implicit Gauss classification without an unproved positivity dominance relation, which is absent."
+      ],
+      "reasoning": "The earlier statements use different quantifiers, functions of the generator, or spatial operators; the present classification is not a numerical relabeling of their existing thresholds. Its n>=6 obstruction comes from the sign of the adjacent entry of the cycle Laplacian pseudoinverse, whereas its n<=5 sufficiency uses complete rational kernels. No available prior claim has both pieces or implies them by specialization.",
+      "searches": [
+        "periodic heat equation Padé [2/2] implicit Runge Kutta positivity preserving sharp timestep circulant ring",
+        "exact numerical positivity 2-stage Gauss Legendre periodic heat n=3 4 5 6",
+        "A stable positive scalar fourth order Gauss Legendre heat integrator negative off diagonal entry for n>=6 at large steps",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: fully inspected exact same [2/2] Padé end-step r(z), but a conservative eight-state pure-birth chain and an arbitrarily-small-step failure theorem.",
+        "https://davidetorlo.it/files/publications/Torlo2021StabilityPatankar.pdf: Table 1 and Proposition 4.4 analyze the fourth-order Gauss–Legendre scalar stability function and a two-state test system, not all cyclic heat matrices.",
+        "https://doi.org/10.1016/j.laa.2011.12.021: full-text Section 4 concerns general Metzler/positive-system Padé maps and provides nonconservative examples."
+      ],
+      "reasoning": "The scalar [2/2] Padé rational function and the classical two-stage fourth-order Gauss–Legendre Runge–Kutta matrix end-step are exactly equivalent. The result is not a new integrator. It fixes the uniform nearest-neighbor periodic generator and classifies entrywise positivity for every step; scalar positivity, general counterexamples and pure-birth small-step phenomena neither imply the positive n<=5 half nor the universal n>=6 adjacent Green-kernel sign. No dual graph or reverse-time formulation found that covers both quantifiers.",
+      "searches": [
+        "periodic heat equation Padé [2/2] implicit Runge Kutta positivity preserving sharp timestep circulant ring",
+        "Two-stage Gauss Legendre [2/2] Pade Runge Kutta heat equation cycle graph C_n unconditionally positive n<=5 and loses positivity at n>=6",
+        "Gauss Legendre RK4 matrix positivity circulant 5-cycle graph Laplacian pseudoinverse large timestep negative adjacent kernel",
+        "exact numerical positivity 2-stage Gauss Legendre periodic heat n=3 4 5 6",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: its theorem and complete exact positivity window are for an eight-state pure-birth generator, with different edge structure.",
+        "0fa0ba72-5afe-453c-b0c2-cec397954280: accessible owned claim gives exact periodic-cycle cutoffs for *explicit classical RK4* P_4(hQ), not implicit Padé r(hQ).",
+        "1102c3b3-899f-419b-9bac-ed675ef53d43: accessible owned claim gives exact periodic Crank–Nicolson cutoffs, another stability function.",
+        "https://davidetorlo.it/files/publications/Torlo2021StabilityPatankar.pdf: tabulates scalar R(-h)>0 for Gauss–Legendre 4, not a spatial cycle-size table."
+      ],
+      "reasoning": "No inspected source or available table supplies the exact three-through-five all-step positivity formulas or the negative neighboring coefficient for every n>=6. A negative database search alone is not proof; the conclusion is based on comparing the actual mathematical statements and their different maps and quantifiers. A complete specialist database search is not guaranteed.",
+      "searches": [
+        "Two-stage Gauss Legendre [2/2] Pade Runge Kutta heat equation cycle graph C_n unconditionally positive n<=5 and loses positivity at n>=6",
+        "Gauss Legendre RK4 matrix positivity circulant 5-cycle graph Laplacian pseudoinverse large timestep negative adjacent kernel",
+        "Periodic cycle graph Laplacian Gauss Legendre [2/2] Padé heat timestep entrywise positivity exactly 3 4 5 nodes, adjacent Green pseudoinverse (n-1)(n-5)",
+        "A stable positive scalar fourth order Gauss Legendre heat integrator negative off diagonal entry for n>=6 at large steps",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "rationale": "Best-knowledge novelty limited to the sharp periodic heat-cycle size frontier for unsmoothed classical two-stage Gauss–Legendre, full n<=5 rational kernels and n>=6 adjacent Green asymptotic. Fully inspected generic Padé positivity obstructions, the related pure-birth eight-state result, a different filtered-CN method, and scalar Gauss positivity do not imply this exact classification. 2005 historical smoothing paper and 2026 recent related preprint were not fully inspected and remain explicit risks.",
+    "residual_risks": [
+      "Full theorem-level text of Wade et al (2005) was not inspected and could contain a cycle-specific observation.",
+      "Full text of the 2026 Itkin–Kazbek rational positivity preprint was not available for a decisive theorem-by-theorem comparison.",
+      "Historical specialist literature not indexed by the queries may have the same graph-specific theorem; absence of search hits is not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Develops different unconditionally SSP multi-derivative schemes under a backward-derivative condition; does not establish positivity of the ordinary two-stage Gauss end-step on cycle graphs.",
+        "evidence": [
+          "arxiv:2102.11939v1, introduction and scheme definitions; explicitly distinguishes higher-order SSP under additional conditions from classical RK."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.11939",
+        "material_read": "arXiv HTML, February 23 2021 version, introduction, SSP conditions, multi-derivative construction",
+        "method": "Read public arXiv HTML",
+        "title": "High order strong stability preserving multi-derivative implicit and IMEX Runge–Kutta methods with asymptotic preserving properties",
+        "trigger": "Motivating primary literature on high-order positivity and implicit time stepping"
+      },
+      {
+        "assessment": "Strongest direct general Padé-positive-system comparison. Provides generic non-preservation and conditions for Metzler systems but no symmetric periodic heat-cycle unconditional positivity classification; conservative cycle operator has a zero eigenvalue unlike the paper’s main Hurwitz formulation.",
+        "evidence": [
+          "Author manuscript January 3 2012, Introduction and Section 4; positive-system examples, general conditions, and conclusion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.12.021",
+        "material_read": "Lawful OA PDF, introduction, diagonal Padé definition, Section 4 positivity counterexamples and results, conclusion; page images inspected",
+        "method": "Read public full-text PDF including its mathematical statements",
+        "title": "Essentially negative news about positive systems",
+        "trigger": "Direct earlier primary work on positivity of diagonal Padé approximations to matrix exponentials"
+      },
+      {
+        "assessment": "Table says R(-step)>0 always for Gauss–Legendre order 4 on their scalar mode; remark explicitly warns positivity concepts differ. Positive eigenvalues do not entail entrywise-positive heat cycle matrices.",
+        "evidence": [
+          "Table 1, Proposition 4.4 and Remark 4.5 at PDF page 11."
+        ],
+        "identifier_or_url": "https://davidetorlo.it/files/publications/Torlo2021StabilityPatankar.pdf",
+        "material_read": "PDF Section 4, Table 1, Proposition 4.4 and Remark 4.5, with page images inspected",
+        "method": "Read primary PDF table and adjacent text; distinguished scalar positivity and full endpoint matrix positivity",
+        "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+        "trigger": "Fourth-order Gauss–Legendre table might imply unconditional positivity"
+      },
+      {
+        "assessment": "Eight-state minimum for arbitrarily-small h failures and exact window for a pure-birth CTMC; not an all-h classification of undirected cycle generators.",
+        "evidence": [
+          "Result theorem: every CTMC n<=7 is positive for all sufficiently small steps; eight-state pure-birth has nonpositive small-step window."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Full published RESULT.md theorem, proof, context, references",
+        "method": "Retrieved full source file from the published source repository",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Exact matching Padé/Gauss–Legendre stability function"
+      },
+      {
+        "assessment": "The method is C_sR_s=2R_s^2-R_s (CN with backward-Euler startup), not the classical two-stage Gauss [2/2] map. Its unconditional positivity neither subsumes nor contradicts the new sharp finite-size barrier.",
+        "evidence": [
+          "Published exact positive convolution kernel for the filtered composite on infinite and periodic lattices."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Full published RESULT.md theorem, kernel proof, references",
+        "method": "Retrieved full source file from the published source repository",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "Same periodic heat lattice, apparently unconditional positivity"
+      },
+      {
+        "assessment": "Explains diagonal Padé *combined* with positivity-preserving smoothing; no full-text exclusion is made, and possible related bare-step statements remain a novelty risk.",
+        "evidence": [
+          "Publisher abstract reports combined diagonal/positivity-preserving schemes and convergence rather than an unsmoothed cycle-size table."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/num.20039",
+        "material_read": "Publisher page, published abstract and reference list only; complete theorem-level PDF unavailable",
+        "method": "Searched OA and publisher versions, inspected abstract and metadata",
+        "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+        "trigger": "Historical direct Padé heat-equation positivity literature"
+      },
+      {
+        "assessment": "Its stated stiff-limit criterion treats r(infinity) between zero and one, or negative; here r(infinity)=1 and a conservative zero mode; complete implications cannot be excluded from the accessible abstract alone.",
+        "evidence": [
+          "arxiv:2608.22703 abstract dated August 24 2026 describes large-step sign criteria for other stiff limits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22703",
+        "material_read": "arXiv abstract and description only; not full theorem text",
+        "method": "Opened public arXiv abstract and compared stated assumptions",
+        "title": "Diagonal Frog meets ADI: trading matrix exponentials for rational maps in the Fokker–Planck equation",
+        "trigger": "Current rational positivity theory for Markov/diffusion operators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c08348ea-81db-440a-bb6a-9a7d7842b928",
+  "value": {
+    "rationale": "The precise last lattice size having all-step positivity for an A-stable fourth-order implicit rule is a natural complete maximum-principle classification, not an arbitrary numeric sample. The all-size adjacent Green-function coefficient identifies a structural obstruction and supplies a sharp asymptotic; even strictly positive scalar stability factors cannot ensure the physically relevant matrix property. These are useful reproducible benchmarks for deciding when positivity correction is needed.",
+    "status": "PASS"
+  }
+}
