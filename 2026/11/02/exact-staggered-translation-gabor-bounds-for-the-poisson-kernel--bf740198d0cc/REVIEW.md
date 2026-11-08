@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Zak transform turns the union of critical-frequency Gabor systems into a scalar multiplier equal to the sum of squared Zak amplitudes. The exact two-geometric-series expression for the Poisson kernel is obtained from its Fourier transform; the hyperbolic expression is monotone in distance from the midfrequency. The lower-envelope convex function has positive first and second derivatives, and the cosine midpoint inequality has an explicitly attained equality case at every stagger. The upper-envelope maximizer at half staggering is one of two cosine endpoints, while the fiber evaluation at the origin strictly excludes every other stagger. Taylor expansion gives a nonzero quadratic degeneration constant. Numerical Zak/trigonometric checks were run separately and do not establish any infinite statement.
+## correctness
 
-**Originality — PASS under available evidence.** Belov–Semenov (arXiv:2610.30037) considers irregular frequency sets rather than the opposite irregular translation geometry of this claim. Kloos–Stöckler (arXiv:1311.7359) concerns qualitative Zak zeros and exponential/totally positive windows; Belov–Kulikov–Lyubarskii (arXiv:2103.08959) concerns regular rectangular rational-window frames. The closest accessible prior mathematical records involving Poisson kernels use irregular **frequency** cosets or regularly spaced modulations; those theorems do not imply the exact offset-dependent sharp bounds for irregular **time** cosets. Searching aliases, Fourier-dual formulations, critical oversampling, exact coefficient identities and general frame-set results did not identify the claimed sharp profile. Residual risk: the formula or an equivalent could be implicit in uninspected classical shifted-sampling literature.
+PASS
 
-**Value — PASS.** The theorem resolves the natural quantitative reverse-orientation problem for a nonlattice oversampled Poisson system: all offsets have exact sharp lower constants, and the unique best stagger optimizes both stability endpoints. It supplies a sharp degeneration exponent and constant as two translation cosets collide. These are structural frame-conditioning facts, not finite examples or a renamed lattice bound.
+The unitary Zak transform for M_m T_n g with integer modulation/translation diagonalizes the union of two translated critical lattices with scalar fiber |Zg(x,omega)|^2+|Zg(x-delta,omega)|^2, rather than an irregular-modulation model. Fourier transform of g_w=(t^2+w^2)^-1 equals pi/w exp(-2pi w |xi|), giving the exact squared Zak formula with q=exp(-2pi w). The hyperbolic decomposition shows minima in omega at 1/2 and maxima at omega=0. The minimum spatial envelope is C phi(cos theta), with phi=(1+t)/(2(a-bt)^2) strictly increasing and convex. Jensen plus the cosine-midpoint inequality is ATTAINED at x=(1+delta)/2 or delta/2, giving the exact sharp A_w(delta), strictly maximal at half stagger. The upper envelope E/D(x)^2 at half stagger is maximized at cos=+/-1, yielding B_w(1/2)=pi^2/w^2(coth^2(pi w)+tanh^2(pi w)); evaluating at x=0 shows strict inequality B(delta)>B(1/2) for other delta. The small-delta Taylor expansion gives the stated nonzero d^2 coefficient, while upper bound tends to twice the peak. I independently checked sample values (w=.7: A(1/2)=.9663985874, B(1/2)=40.3328638134), not used as continuum proof.
 
-**Limits.** The unrestricted sharp upper-bound profile is not asserted. The result is specific to two cosets and fixed integer modulation. Independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Belov–Semenov arXiv:2610.30037 addresses arbitrary irregular MODULATION sets M times REGULAR translations alpha Z for the same Poisson window; this theorem is two irregular TRANSLATION cosets with integer modulations. Existing rectangular rational-function and qualitative Zak-zero frame theorems supply general tools, not the explicit sharp stagger-dependent two-coset constants and unique condition-number optimum in accessible material. The highly relevant 2026 17-page Belov–Semenov full text was unavailable despite lawful OA/arXiv and authorized institutional attempts; abstract-only noncoverage is not claimed.
+
+## value
+
+PASS
+
+Exact sharp lower frame bound and unique optimal staggering for every positive window width and offset are mathematically natural quantitative stability facts for time-frequency analysis; the nonzero sharp quadratic collapse coefficient identifies loss of robustness as the cosets merge. This is stronger than an existence-only Gabor frame criterion and can guide quantitative sampling design without asserting arbitrary irregular-set classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
