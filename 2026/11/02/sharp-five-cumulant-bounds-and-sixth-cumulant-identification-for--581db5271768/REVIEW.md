@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The compound-Poisson waiting-time construction gives the exact cumulant generating function: a deterministic mobile-time contribution, two exponential compound-Poisson terms, and an additive quadratic Gaussian term. Cumulants three through six are consecutive positive two-atom power moments. The first three fix the normalized total mass, mean and positive variance. Every admissible two-atom representation is parameterized by one \(d\in(0,\mu)\); the displayed capture and return rates reconstruct all original physical parameters. Both reciprocal-moment functions are strictly increasing by explicitly factored positive derivatives; the five-cumulant feasible domain and clock-variance interval therefore have no missing boundary cases. The sixth cumulant is a strictly decreasing bijection from the admissible \(d\)-interval onto its stated open ray. Exact-rational reproduction covers 729 diverse admissible parameter combinations plus a distinct same-five-moment example. Those tests supplement, rather than substitute for, the universal proof.
+## correctness
 
-## Originality — PASS, with explicit priority risk
-The relevant original transport constructions and moment relationships are in Marion–Zaramella–Bottacin-Busolin (2008), DOI 10.1029/2008WR007037, and Luo–Cirpka–Dentz–Carrera (2008), DOI 10.1029/2007WR006262. Day-Lewis–Singha (2008), DOI 10.1029/2007WR006750, uses joint geoelectrical and mobile-concentration moments, whereas Kelleher et al. (2013), DOI 10.1002/wrcr.20413, gives empirical sensitivity/identifiability findings, not the same single-distribution partial-identification interval. Classical two-exponential Prony reconstruction and Gaussian cumulant cancellation are already known and are not themselves asserted to be novel. The new assessed object is the *complete first-five-cumulant physical feasibility test, precise noise-variance interval and sharp attainable sixth-cumulant lower edge* under unknown mobile time and unknown blur variance; no exact equivalent was located in examined material and searches. A general truncated-moment theorem may subsume this specialized result and historical priority is therefore provisional, not independently certified. Some source sections were read as web-accessible full text, while original complete PDFs were not exhaustively verified.
+PASS
 
-## Mathematical value — PASS
-Temporally summarized breakthrough data are used in transport calibration, yet multiple storage mechanisms and sensor uncertainty can confound exchange rates. An exact sharp interval for unknown clock variance from only five cumulants, plus a constructive sixth-cumulant threshold distinguishing physically realizable from impossible six-number summaries, answers a natural model-identification question rather than only furnishing a numerical example. The construction proves the precise endpoint obstruction and explains why exceptionally weak but slow exchange can make the sixth cumulant arbitrarily high. This is a structural theoretical result; high-order empirical cumulants may be unstable.
+The stated population cumulants follow from the compound-Poisson exponential log-mgf plus independent zero-mean Gaussian clock error. With x_i=1/beta_i and w_i=m alpha_i x_i^3 the normalized third through fifth cumulants give a positive two-atom distribution of mass c, mean mu and variance v. Positivity and node distinction yield the exhaustive one-dimensional d in (0,mu) representation. The submitted rational S1 and S2 have strictly positive derivatives (independently differentiated symbolically) and boundary values c/mu and c/mu^2, so strictly positive m and clock variance cut out exactly (0,d*). k6=720c[mu^3+3mu v+v(v/d-d)] has strictly negative derivative and invertible range (K6*,infinity); this proves the exact compatibility, sharp open noise-variance interval and six-cumulant identification up to zone swapping. Independent exact-rational example and four node families checked; no extrapolation from those finite cases is used. The Gaussian is zero mean and dispersion absent; finite-sample data do not inherit exact identification.
 
-## Closest literature and limitations
-The forward model is an idealized zero-dispersion, two-exponential specialization of more general solute-storage models. Both transport moment theory and Prony-type inverse moment reconstruction are substantial antecedents; parts of the proof are standard in isolation. No inference is asserted for arbitrary residence-time laws, more than two zones, unknown clock bias, general sensor noise, finite-sample uncertainty, or hydrodynamic dispersion. Accessible sections of highly relevant full-text primary papers were considered, but exhaustive historical coverage and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precisely scoped sharp theorem survives comparisons to primary antecedents; generic tools, original model/method and known broad phenomena are explicitly credited. Detailed four implications below distinguish genuinely new claimed conclusions from prior theory; remaining literature-access/priority risk is material but not in itself a known covering theorem.
+
+## value
+
+PASS
+
+An exact feasible-noise interval and minimal extra cumulant needed for identifiability in a natural two-storage-zone tracer model answer a substantive inverse-problem question; the strict sixth-cumulant cutoff is needed to reject physically impossible parameter sets. The two-node positive-moment reduction is a useful structural lemma rather than simple restatement of generic Prony recovery. Not a claim of numerically stable estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

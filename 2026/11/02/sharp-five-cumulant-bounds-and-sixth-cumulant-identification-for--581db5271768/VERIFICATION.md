@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python3 checks/reproduce.py` from this package's extracted root. The checker uses only Python standard-library exact rational arithmetic. Its tests independently reconstruct the two exponential return rates, both capture rates, mobile travel time and independent Gaussian timing variance from six theoretical cumulants for 729 positive distinct-rate parameter sets. It also checks the five-moment shape identities, positivity preconditions, and an explicit distinct positive model having exactly the same first five but not the same sixth cumulant.
+# Independent mathematical audit
 
-The sample input has cumulants \((7/2,31/12,19/3,220/9,3260/27,19480/27)\). It reconstructs mobile time \(2\), capture rates \((1/2,3/4)\), return rates \((1,3)\), and clock variance \(1/4\). The strict five-cumulant upper bound on clock variance is \(87/220\).
+## correctness
 
-The universal claims are established in `RESULT.md` by exact cumulant identities, exhaustive positive two-node moment parameterization, strictly signed derivatives, and a bijective sixth-moment formula. Neither finite computations nor sample data constitute an infinite proof. The verification is not independent validation, and no external certificate has been issued.
+PASS
+
+The stated population cumulants follow from the compound-Poisson exponential log-mgf plus independent zero-mean Gaussian clock error. With x_i=1/beta_i and w_i=m alpha_i x_i^3 the normalized third through fifth cumulants give a positive two-atom distribution of mass c, mean mu and variance v. Positivity and node distinction yield the exhaustive one-dimensional d in (0,mu) representation. The submitted rational S1 and S2 have strictly positive derivatives (independently differentiated symbolically) and boundary values c/mu and c/mu^2, so strictly positive m and clock variance cut out exactly (0,d*). k6=720c[mu^3+3mu v+v(v/d-d)] has strictly negative derivative and invertible range (K6*,infinity); this proves the exact compatibility, sharp open noise-variance interval and six-cumulant identification up to zone swapping. Independent exact-rational example and four node families checked; no extrapolation from those finite cases is used. The Gaussian is zero mean and dispersion absent; finite-sample data do not inherit exact identification.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precisely scoped sharp theorem survives comparisons to primary antecedents; generic tools, original model/method and known broad phenomena are explicitly credited. Detailed four implications below distinguish genuinely new claimed conclusions from prior theory; remaining literature-access/priority risk is material but not in itself a known covering theorem.
+
+## value
+
+PASS
+
+An exact feasible-noise interval and minimal extra cumulant needed for identifiability in a natural two-storage-zone tracer model answer a substantive inverse-problem question; the strict sixth-cumulant cutoff is needed to reject physically impossible parameter sets. The two-node positive-moment reduction is a useful structural lemma rather than simple restatement of generic Prony recovery. Not a claim of numerically stable estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
