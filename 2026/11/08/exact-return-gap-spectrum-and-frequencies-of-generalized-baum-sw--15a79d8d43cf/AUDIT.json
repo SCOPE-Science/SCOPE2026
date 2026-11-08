@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The digit language partitions all accepted indices. The exact least-lexicographic valid carry proves the successor formula for all inputs, including the all-ones boundary. Exact tiling bijections count every terminal class. Primitivity of the tiling automaton and prefix-subtree decomposition prove relative frequencies for arbitrary cutoffs; modular wraparound establishes the sole duplicate gap. Standalone finite checker reproduces predicted small cases; no finite tests serve as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merta proves unbounded zero runs and at most two adjacent ones, without classifying individual zero-run lengths.",
+        "Merta Theorem 5.10 calculates gaps of the formal-inverse index sequence, which is not the same sequence."
+      ],
+      "reasoning": "The structurally strongest same-family prior results have nonidentical claims and do not imply exact return-gap frequencies of one-positions. The present all-r distribution cannot be obtained just from the cited upper run bound, parity, or nonregularity results.",
+      "searches": [
+        "\"Baum–Sweet\" \"return time\" frequency",
+        "\"Baum Sweet\" \"Fibonacci\" \"gap lengths\"",
+        "arXiv:1803.00292v1 Theorems 5.1,5.2,5.10"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1803.00292v1",
+      "https://arxiv.org/abs/2404.13601",
+      "https://oeis.org/A060142"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.1 of Merta supplies only coarse run information; Theorems 2.5/5.2 supply parity or regularity statements.",
+        "Theorem 5.10 of Merta has a superficially similar gap formula for formal-inverse sequence u, not one-index sequence l.",
+        "Allouche–Yao Example 9 provides opacity complexity but no return-time statistics."
+      ],
+      "reasoning": "Neither the same-family lower-level statements nor the other invariant results entail the complete successor, exact multiplicity and all-cutoff limiting-frequency assertions. A formal calculation is given rather than claiming novelty from unsuccessful searches.",
+      "searches": [
+        "arXiv:1803.00292v1",
+        "arXiv:2404.13601v1",
+        "\"Baum-Sweet\" \"return words\" \"one\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A060142 defines the same base-two one-index sequence through 0, 2x+1 and 4x.",
+        "Merta Section 5 characterizes the same generalized digit-language accepted set."
+      ],
+      "reasoning": "The equivalent enumerator and regular digit-language descriptions have been examined, not merely their titles. They specify the indices but do not themselves state the exact successor gap-spectrum, all-r shell multiplicities or normalized limiting frequencies. A derivation from the language is supplied as the new result.",
+      "searches": [
+        "\"A060142\" \"differences\" Fibonacci word",
+        "\"Baum-Sweet\" \"consecutive terms\" distance",
+        "https://oeis.org/A060142"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A060142 provides initial terms and recursive generation, including their relation to the ordinary Baum–Sweet sequence."
+      ],
+      "reasoning": "The inspected entry is a table of index values, not a table or exact formula of the all-order gaps and frequency measures. No direct exact target invariant was located. An unindexed or distinct entry remains a risk.",
+      "searches": [
+        "OEIS:A060142",
+        "\"A060142\" \"differences\" Fibonacci word",
+        "\"Baum-Sweet\" \"gaps between\" nonzero"
+      ]
+    },
+    "rationale": "Theorem statements and implications were compared to the source that defines the exact generalized word family and proves closest run/one-index properties. In particular, Merta’s apparent gap theorem concerns formal-inverse positions rather than one-positions. The other direct same-word article computes opacity, while the OEIS entry gives an index table but not the exact all-r return-gap spectrum or law. An unindexed equivalent remains a stated risk, not proof of absolute uniqueness.",
+    "residual_risks": [
+      "An equivalent result might appear in an unindexed combinatorics-on-words or integer-sequences source.",
+      "The OEIS database could have a different sequence entry for special-case gaps not linked from the inspected one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not assert the exact gap set or relative gap probabilities for the original one-index sequence. Its Theorem 5.10 concerns a different series-inverse index sequence.",
+        "evidence": [
+          "Section 5 definition and recurrence (13) explicitly identify the family.",
+          "Theorem 5.1 states unbounded zero runs and maximum two consecutive ones.",
+          "Theorems 2.5, 5.2 give parity/regularity facts about one-indices.",
+          "Theorem 5.10 uses notation for formal-inverse positions, not original ones."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.00292v1",
+        "material_read": "Full accessible arXiv HTML: introduction, Section 2, Section 5, including definitions and Theorems 2.1, 2.5, 2.6, 5.1, 5.2, 5.10 and relevant proof portions.",
+        "method": "Read original HTML text and compare theorem objects, sequences and quantifiers.",
+        "title": "Composition inverses of the variations of the Baum–Sweet sequence",
+        "trigger": "Defines exactly this generalized family and analyzes enumeration of indices with symbol one; plausible strongest overlap."
+      },
+      {
+        "assessment": "Computes opacity complexity, not gaps between consecutive marked positions or their counts and frequencies.",
+        "evidence": [
+          "Example 9 computes Baum–Sweet opacity complexity as one half using a four-state automaton."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.13601",
+        "material_read": "Full accessible arXiv HTML exposition with Example 9.",
+        "method": "Read definition, applications, and Baum–Sweet example and inspect what parameter is computed.",
+        "title": "Opacity complexity of automatic sequences. The general case",
+        "trigger": "Same ordinary Baum–Sweet word and a numerical automata invariant."
+      },
+      {
+        "assessment": "Defines the accepted index set and cites Merta and Kimberling, but does not state the all-r return-gap distribution or the exact shell counts.",
+        "evidence": [
+          "Entry states recursive generation via 2x+1 and 4x.",
+          "Entry explicitly identifies the numbers as Baum–Sweet one-indices."
+        ],
+        "identifier_or_url": "https://oeis.org/A060142",
+        "material_read": "Definition, initial 60 terms, comments, linked references, examples and programs from the displayed entry.",
+        "method": "Read full rendered entry for consecutive-gap and distribution information.",
+        "title": "OEIS A060142",
+        "trigger": "Exact index set of ones for the ordinary Baum–Sweet word; might contain known difference tables."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15a79d8d-43cf-447c-853d-2b14ef282b53",
+  "value": {
+    "rationale": "For every generalized Baum–Sweet family member, the theorem determines a natural complete recurrence-time invariant (all attainable gaps), exact counts in every binary shell, and a nondegenerate probabilistic return law despite the one-symbol density being zero. This information is not a routine reformulation of an upper bound on consecutive symbols; it is a full structural classification valuable for automatic-word recurrence statistics.",
+    "status": "PASS"
+  }
+}
