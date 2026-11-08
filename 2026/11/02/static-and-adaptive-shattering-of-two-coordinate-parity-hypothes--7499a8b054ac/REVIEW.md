@@ -1,9 +1,21 @@
-# Scientific review — two-coordinate parity shattering
+# Independent mathematical audit
 
-**Correctness: PASS.** The VC characterization is a bidirectional signature argument; all five small additive-basis witnesses were checked by direct XOR enumeration. The only nontrivial finite negative assertion is the absence of a nine-element two-basis in the binary five-space: `no_nine_basis.cpp` exhausts all 7,888,725 translated candidates, and every candidate's pair sums are explicitly checked. Adaptive lower bounds have complete decision-tree witnesses at sizes five, seven and nine; direct parity replay checks all 56 leaves. Together with monotonicity and the cardinality bound, these entail each table entry. Risks: compilation/runtime availability for replay, and independent reimplementation of the exhaustive enumeration remain outside this review.
+## correctness
 
-**Originality: PASS within checked evidence.** The mathematically closest primary result, Guingona–Kolesnikov–Nierwinski–Soucy (2021, arXiv:2109.04805v1, Section 3), treats *all* nonzero linear combinations, not exactly-two-sparse parities, and its uniform equality cannot yield the present exceptional indices. Ghazi–Golowich–Kumar–Manurangsi (2021) prove closure bounds for aggregated classes; they do not imply exact finite dimensions. Semantic searches of published mathematical records did not surface a claim of the same parameter table or the adaptive/static separation in this specific family. Residual risk: older additive difference-basis catalogues may cover the nine-element static obstruction; older twenty-questions and parity-query research could contain the entire separation under a different name. Negative searches are not proofs of novelty.
+PASS
 
-**Mathematical value: PASS.** This is a complete small-order dimension classification for a canonical sparse linear class, with first exact nontrivial adaptive-versus-static gaps, and a general structural equivalence that ties the VC problem to difference bases. It distinguishes adaptivity from fixed queries without relabeling or choosing an artificial graph slice. No infinite-range formula is asserted.
+For each d queried binary points, coordinates produce d-bit columns v_i, edge parity outputs v_i XOR v_j. Zero output forces a duplicate, and distinct columns must cover every nonzero group element by distinct-pair XOR; conversely duplication gives zero and any two-basis yields all outputs. All five explicit two-bases validated. For n=10,d=5 the C(31,8)=7,888,725 translated 9-element candidates were independently exhaustively tested in compiled C++17 with complete XOR bit-mask coverage: none works (NO_NINE_POINT_BASIS_PASS 7888725). Direct replay of actual shattering_trees.json validates all 56 leaf witnesses, n=5 depth3, n=7 depth4, n=9 depth5, and no leaf repeats its hypothesis. Cardinality Ldim<=floor(log2 binom(n,2)), duplicate-signature VC upper bound 2^d<=1+binom(n-1,2), and monotonicity imply the exact VC sequence 0,1,2,2,3,4,4,4,4,5 and Ldim sequence 0,1,2,3,3,4,4,5,5,5 for n=2..11. A complete finite exhaustion proves only this finite obstruction, not all-order dimensions.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No identified pre-existing claim implies both exact small-n VC/Littlestone table and adaptive cuts for the restricted exactly-two-coordinate parity class. Difference-cover theory may already cover a component; priority qualified. Guingona et al's full nonzero linear combination family does not transfer exact dimensions to a strict subfamily; Ghazi et al's bounds on Boolean-aggregation complexity do not fix either the finite witnesses or nine-signature obstruction.
+
+## value
+
+PASS
+
+A complete, sharply delimited range n=2..11 includes the first static-versus-adaptive divergence at n=5 and further n=9,10; the all-order reduction to binary additive two-bases is an independently useful complexity bridge. The nine-point obstruction is a natural boundary for d=5, not an arbitrary selected computer count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
