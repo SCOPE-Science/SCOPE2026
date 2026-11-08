@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every parameter, the unwrapped process and variance normalization are defined. Brownian exponential stopping gives an exact bilateral-Laplace law, whose geometric tails produce exact first/second cycle moments. The renewal-reward variance law correctly centers by the clock-correlated velocity, with the last partial cycle negligible at order time. Exponential differentiation gives the mixed moment; a monotonic hyperbolic-ratio argument proves strict sign. A Taylor expansion proves the positive uniform-in-rate first correction for every fixed interior asymmetry, and an exponential bound proves strong-rate collapse. A packaged standard-library checker passed 262 deterministic assertions by independently evaluating sums and mixed moments; finite computation is not offered as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alston–Bertrand, arxiv:2401.12772: nearest-site projector and symmetric array formula; no free asymmetric attraction-cell threshold in this model.",
+        "Ghosh et al., arxiv:2307.06202: ratchet potential persists during Brownian diffusion, with numerical effective-diffusion characterization."
+      ],
+      "reasoning": "An arbitrary nearest-site array is not the periodic asymmetric basin map used here: a regular lattice has equal half-width Voronoi cells; an irregular nearest-site array cannot produce the same uniform unequal offset in every translational cell. The comparator’s 1.169 bound concerns the nearest-site model and is not a general domination of this asymmetrically biased ratchet. An arbitrary renewal-reward theorem is an input rather than the explicit evaluated quantitative claim.",
+      "searches": [
+        "Boosting macroscopic diffusion with local resetting (arxiv:2401.12772), main text Eq. (17) and Supplement IV",
+        "Autonomous Ratcheting by Stochastic Resetting (arxiv:2307.06202), diffusion under resetting",
+        "Asymmetric periodic quantizer of bilateral exponential Brownian displacement exact diffusivity correction quadratic in barrier displacement"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2405.10698",
+      "https://arxiv.org/abs/2401.12772",
+      "https://arxiv.org/abs/2307.06202",
+      "https://doi.org/10.1002/cphc.202400313"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source current corresponds exactly to the formula for M, a strict proper subset of the new two-parameter dispersion theorem.",
+        "At threshold symmetry, the present formula reduces to Alston–Bertrand’s csch–coth nearest-site law; for every nonsymmetric threshold, the correction is strictly negative and the model is not a geometric Voronoi projector.",
+        "Liu et al. discuss diffusion numerically and fat-tailed clocks, not the explicit Poisson covariance correction."
+      ],
+      "reasoning": "The current plus diffusivity of an independent-mark compound Poisson process would not yield the correct answer: cycle duration and displacement are correlated. The source current does not determine their mixed moment without differentiating its rate dependence and applying a regenerative variance argument; the pre-existing symmetric specialization is fully attributed. Prior related general methods do not provide the stated evaluated strict asymmetry-dependent coefficient.",
+      "searches": [
+        "arxiv:2405.10698 instantaneous ratchet current Eq. (24)",
+        "arxiv:2401.12772 symmetric array diffusion Eq. (17)",
+        "Ratcheting by Stochastic Resetting With Fat-Tailed Time Distributions, doi:10.1002/cphc.202400313, sections 4–5",
+        "arxiv:2307.06202 Sections on diffusion",
+        "Local resetting asymmetric lattice threshold effective diffusivity and transport current Brownian ratchet"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Roberts–Sezik–Lardet, arxiv:2405.10698, Eq. (24): exact instantaneous current M, not a centered variance or clock-displacement formula.",
+        "The regenerative identity Var(J-vT)/E[T] is standard, but the specific asymmetric geometric-jump moments and signed clock-jump derivative are absent from the source model analysis."
+      ],
+      "reasoning": "An equivalent claim would provide both the asymmetric all-rate centered diffusivity and its strictly negative bias-dependent clock correlation, not just a current, Gaussian propagator or symmetric diffusivity. The inspected source gives the current alone and therefore does not directly imply the entire evaluated formula without additional work; no equivalent statement was found.",
+      "searches": [
+        "\"ratchet-mediated resetting\" \"diffusion coefficient\" \"instantaneous\" \"variance\"",
+        "\"asymmetric\" \"instantaneous\" \"resetting\" \"effective diffusion\" \"sawtooth\"",
+        "Poisson ratchet resetting asymmetric sawtooth barrier free Brownian diffusion exact centered effective diffusivity with interarrival time displacement covariance and weak-reset enhancement",
+        "arxiv:2405.10698 Section IV Eq. (24) and Appendix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The scientific-record search returned an unrelated result entitled “A hidden Jacobi diffusion in centered Leibenson radial dynamics”, studies of resetting in different oscillators, and generic covariance laws. None supplies an exact asymmetric Brownian-projection diffusion table.",
+        "The four inspected primary papers do not contain a tabulated exact all-asymmetry dispersion formula for the stated projected free-Brownian model."
+      ],
+      "reasoning": "Searched exact process, alternative names (instantaneous ratchet, asymmetric projection, nearest-site reset), renewal-reward variance, and parameterized weak-resetting coefficient. No exact covering table was found in accessible records; absence of indexed search hits is not a proof of novelty.",
+      "searches": [
+        "Instantaneous asymmetric ratchet-reset Brownian particle diffusion variance time correlation exact clock-jump correction to renewal reward diffusivity",
+        "Exact effective diffusion coefficient, Brownian particle reset to an asymmetric periodic nearest-well lattice at Poisson times, quantized Brownian displacement and correlated cycle duration, weak resetting diffusion enhancement",
+        "\"ratchet-mediated resetting\" \"diffusion coefficient\" \"instantaneous\" \"variance\""
+      ]
+    },
+    "rationale": "The 2024 ratchet paper computes exact instantaneous projected current, not the centered macroscopic displacement variance. The 2024 local-resetting paper computes exact nearest-site diffusivity, with which this theorem agrees only at the symmetric-basin specialization; asymmetric basins are not nearest-site projections. Earlier autonomous ratchet and heavy-tail papers analyze physically different substrates or mostly numerical dispersion. Current searches of published research and accessible earlier mathematical claims did not identify a formula equivalent to the asymmetric Poisson clock–jump covariance dispersion or its explicit all-asymmetry weak-rate law. Classical regenerative variance theory is acknowledged and not claimed as new. Inaccessible or unindexed coverage remains a priority risk.",
+    "residual_risks": [
+      "An unindexed or unpublished result may already evaluate the same renewal-reward expression for the asymmetric periodic projector.",
+      "No independent literature-priority or expert audit has been performed.",
+      "The renewal-reward method itself is classical; only the evaluated model-specific law and asymmetry consequences are asserted as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Matches the instantaneous projector and supplies current, but not centered all-rate long-time dispersion or clock-displacement covariance",
+        "evidence": [
+          "First public posting 2024-05-17",
+          "Eq. (24) gives the instantaneous current as a hyperbolic ratio",
+          "Sections IV and V study current and energetic efficiency"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.10698",
+        "material_read": "Abstract; model construction; Sec. III probability densities; Sec. IV current including Eq. (24); Sec. V efficiency; appendix outlines",
+        "method": "Open-access full HTML text inspected, including formula-level comparison",
+        "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+        "trigger": "Exact motivating asymmetric sawtooth model; current could dominate the candidate"
+      },
+      {
+        "assessment": "Covers symmetrical nearest-site specialization only; the new asymmetric-basin model is not the nearest-site projector",
+        "evidence": [
+          "First public posting 2024-01-23",
+          "Nearest-site rule expressly central",
+          "Eq. (17) exact csch–coth regular-array diffusivity and bound (20)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.12772",
+        "material_read": "Full accessible PDF page 1 image; main-text model and equations (3), (17), (20); Supplemental Sec. IV on arbitrary site arrays",
+        "method": "Open-access primary PDF text and page-image inspection; direct model and implication comparison",
+        "title": "Boosting macroscopic diffusion with local resetting",
+        "trigger": "Closest exact symmetric nearest-site diffusion theorem and 1.169 optimal benchmark"
+      },
+      {
+        "assessment": "The 2023 substrate potential acts during diffusion and diffusivity is numerically characterized; no exact expression for the free-Brownian asymmetric attraction projector",
+        "evidence": [
+          "First public posting 2023-07-12",
+          "Equation (1) retains the substrate force during Brownian transport",
+          "Diffusivity discussed via numerical fits and Kramers-time estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.06202",
+        "material_read": "Open-access full HTML sections on model, simulations, effective diffusion and asymptotic estimates",
+        "method": "Primary preprint read and compared on process state and kinetic assumptions",
+        "title": "Autonomous Ratcheting by Stochastic Resetting",
+        "trigger": "Earlier ratchet with Poisson resets and effective diffusion measurements"
+      },
+      {
+        "assessment": "Addresses heavy-tailed reset clocks, substrate-on Brownian dynamics and primarily numerical diffusion; does not cover the stated exponential-clock exact free-diffusion evaluation",
+        "evidence": [
+          "First published 2024-08-12",
+          "Section 5 treats fitted diffusion constants and superdiffusion under fat-tailed clocks"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/cphc.202400313",
+        "material_read": "Open-access full HTML introduction and Secs. 4, 5, 6 including dispersion discussion",
+        "method": "Primary open-access article examined; comparison by model and exact observable",
+        "title": "Ratcheting by Stochastic Resetting With Fat-Tailed Time Distributions",
+        "trigger": "Asymmetric reset-ratchet dispersion possibly covering general clock laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1be33cfa-05c2-41b8-a052-09cc64c349cf",
+  "value": {
+    "rationale": "The physical gap is the transport dispersion at a nonzero ratchet current, beyond an already computed mean current. The explicit exact biased-projection diffusivity shows a strictly negative covariance correction to a naive independent-mark Poisson model, proves universal weak-rate enhancement with asymmetry-dependent leading coefficient and reveals a finite positive optimal rate (without claiming uniqueness). At asymmetry one quarter and scaled rate eight, diffusivity is about 1.9348 times bare diffusion, beyond the nearest-site lattice benchmark for a mathematically different projector. These are structural quantitative predictions relevant to controlling stochastic transport, not routine restatement of the known symmetric formula.",
+    "status": "PASS"
+  }
+}
