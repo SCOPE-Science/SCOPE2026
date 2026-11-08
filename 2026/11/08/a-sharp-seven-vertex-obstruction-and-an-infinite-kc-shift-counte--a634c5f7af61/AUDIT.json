@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For any graph, conditioning on the first uniformly feasible edge gives an exact deletion recurrence. Path and spider edge classifications give the stated difference recurrence, with exact forcing b_L of alternating sign and strictly decreasing magnitude. Pairwise induction proves every d_L>0 for all L>=2, independent of finite tests. The seven-vertex values are exact. Sharpness below seven is an exhaustive Prüfer-word census with an exact Fraction recurrence for every proper KC shift, plus independent full edge-order enumeration of the witnesses. The verifier was executed from its current included source.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer–Frieze 1991 publisher abstract: universal 0.7690... forest matching approximation ratio.",
+        "Dyer–Frieze–Pittel 1993 accessible manuscript: greedy matching on sparse random graphs and uniformly random labeled trees, with asymptotic means/CLTs.",
+        "Krivelevich et al., sections 1.1.3 and 8: path minimum for vertex greedy independent sets, a different statistic."
+      ],
+      "reasoning": "A universal approximation bound, a random-input averaged result, or a global vertex-MIS extremum cannot imply the sign of an individual shift between two fixed unweighted trees. Full 1991 coverage remains uncertain.",
+      "searches": [
+        "random greedy matching expected value tree extremal path spiders comparison",
+        "random edge greedy matching trees extremal graph path versus spider KC",
+        "https://doi.org/10.1002/rsa.3240020104",
+        "https://doi.org/10.1214/aoap/1177005436"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1907.07216",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+      "https://doi.org/10.1002/rsa.3240020104",
+      "https://www.researchgate.net/publication/2271307_The_Average_Performance_Of_The_Greedy_Matching_Algorithm",
+      "https://doi.org/10.1002/rsa.3240060107",
+      "https://dspace.mit.edu/entities/publication/36eae796-81ba-4fbd-980d-445c69cd9f2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 work proves a global path-minimum for greedy independent sets on trees, with KC monotonicity presented as a separate open question for that vertex statistic.",
+        "The 1991 forest result bounds matching quality relative to optimum and does not state a fixed local shift ordering in the available abstract.",
+        "The 1993 paper studies random input graph ensembles, not fixed KC-related shapes."
+      ],
+      "reasoning": "Neither the hypotheses nor the conclusions of the identified works imply the exact infinite strict matching inequality or its sharp seven-vertex threshold. The 1991 full text has not been fully excluded as historical precedent.",
+      "searches": [
+        "\"randomized greedy matching\" \"KC\" transformation",
+        "\"greedy matching\" tree path caterpillar expected number \"spider\"",
+        "\"random greedy matching\" \"shift\" \"path\" \"tree\" exact expected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krivelevich–Mészáros–Michaeli–Shikhelman 2019/2024: KC operations on vertex greedy MIS; random greedy matching is greedy MIS on a line graph.",
+        "Dyer–Frieze 1991 explicitly studies random uniform feasible-edge matching, establishing the exact algorithmic equivalence."
+      ],
+      "reasoning": "Vertex-greedy MIS in a tree is not the same invariant as edge-greedy matching in its line graph; a tree line graph may contain triangles. No inspected theorem equates their KC-shift differences. The adsorption terminology describes the same edge process, but the checked sources do not give this spider-versus-path inequality.",
+      "searches": [
+        "KC-transformation Kelmans-Csíkvári transformation expected size random greedy matching edge order tree path spider",
+        "random sequential adsorption dimers tree transformations path matching expectation",
+        "\"random greedy matching\" \"Kelmans\" \"tree\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prüfer enumeration and exact edge-deletion recurrence yield no positive proper shifts for every labeled tree of orders at most six.",
+        "The witness has exact values 26/9 and 3, with independent edge-order enumeration.",
+        "Targeted published result searches found no cited finite extremal table for this KC comparison."
+      ],
+      "reasoning": "The finite witness is not a recomputation of an identified published table. Search absence is not proof of novelty; the analytic infinite inequality and exact first-failure result carry the new claim.",
+      "searches": [
+        "random greedy maximal matching seven vertex tree P7 spider 2 2 2 26/9",
+        "random edge greedy maximal matching path seven spider S(2,2,2) 26/9 3",
+        "\"random greedy matching\" \"P7\" \"spider\""
+      ]
+    },
+    "rationale": "Primary accessible literature distinguishes vertex greedy independent sets, worst-case forest approximation ratios, and random-graph expected behavior from a fixed-tree local KC-shift sign classification. Searches under KC/GTS, random edge greedy matching, dimer adsorption, path/spider aliases, and exact small-n witness returned no equivalent theorem. Full Dyer–Frieze 1991 material is not available and remains a genuine priority risk, not a negative search certificate.",
+    "residual_risks": [
+      "The Dyer–Frieze 1991 fixed-forest analysis was not available in full; the abstract does not exclude an uncited finite example.",
+      "Other unindexed dimer adsorption or tree-shift literature might contain equivalent identities; independent historical verification remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: theorem is for vertex greedy independent sets on trees, not uniform feasible-edge matching",
+        "evidence": "Theorems 1.4 and 8.1 KC definition; model treated on line graphs.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Full-text HTML including sections 1.1.3, 1.1.4, 8.1 and the closing monotonicity discussion",
+        "method": "Read mathematical statement, hypotheses, KC definition and model conversion",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "KC transformation on trees and explicit relation to greedy matching"
+      },
+      {
+        "assessment": "PRIORITY_RISK: universal forest approximation result does not alone imply an exact fixed-tree shift inequality",
+        "evidence": "Abstract states performance ratio at least approximately 0.7690 for forests; makes no exact spider/path claim.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and bibliographic details; original full text unavailable",
+        "method": "Read accessible publisher summary and compare claim hypotheses and implications",
+        "title": "Randomized greedy matching",
+        "trigger": "Same stochastic algorithm on fixed forests, strongest direct historical comparison"
+      },
+      {
+        "assessment": "NOT_COVERING: averages across random graph input laws, no local fixed KC shift comparison",
+        "evidence": "Theorem 2 gives mean, variance and asymptotic normal law for matching size on a uniform random labeled tree.",
+        "identifier_or_url": "https://www.researchgate.net/publication/2271307_The_Average_Performance_Of_The_Greedy_Matching_Algorithm",
+        "material_read": "Author-uploaded manuscript OCR, introduction and main theorem statements, plus tree-model discussion",
+        "method": "Read source sections for fixed-versus-random graph assumptions and main results",
+        "title": "The average performance of the greedy matching algorithm",
+        "trigger": "Same greedy algorithm and random tree statistics"
+      },
+      {
+        "assessment": "NOT_COVERING: selects a random vertex and then random neighbor, a different algorithm",
+        "evidence": "The abstract specifies vertex-first selection rather than uniform feasible-edge selection.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240060107",
+        "material_read": "Publisher abstract and algorithm description",
+        "method": "Check actual selection rule",
+        "title": "Randomized greedy matching. II",
+        "trigger": "Closest titled sequel from original authors"
+      },
+      {
+        "assessment": "NOT_COVERING: regular graph/high-girth asymptotics do not classify finite nonregular KC shifts",
+        "evidence": "Abstract states r-regular graph expected-size and girth-correction formulas.",
+        "identifier_or_url": "https://dspace.mit.edu/entities/publication/36eae796-81ba-4fbd-980d-445c69cd9f2a",
+        "material_read": "Institutional landing-page abstract and stated regular-graph/girth hypotheses",
+        "method": "Check graph assumptions and conclusions",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs",
+        "trigger": "Potential stronger general matching formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a634c5f7-af61-4d38-8dc4-b06499c3cc29",
+  "value": {
+    "rationale": "KC/GTS tree shifting is a natural structural order used to establish exact tree extremal results. This finding provides both sign directions for a natural stochastic matching invariant, a rigorous infinite family of positive shifts, and an exhaustive sharp first-failure boundary at seven vertices. It is neither a purely finite arbitrary slice nor a restatement of a global approximation bound.",
+    "status": "PASS"
+  }
+}
