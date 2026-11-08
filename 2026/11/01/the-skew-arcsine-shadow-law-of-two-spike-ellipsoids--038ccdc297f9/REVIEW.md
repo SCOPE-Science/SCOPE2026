@@ -1,15 +1,21 @@
-# Mathematical review: the skew-arcsine shadow law
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact rank-two support-compression identity reduces the projected radius to a two-by-two real symmetric eigenproblem; its determinant threshold and the Haar \(\operatorname{Beta}(1,(d-2)/2)\) radial distribution yield the all-dimensional formula. The four-dimensional radial exponent is one, so an elementary \(\operatorname{artanh}\) primitive gives an affine-tilted arcsine density with strictly positive beta-mixture weights. The same integral establishes strict dimension ordering, and smooth spectral perturbation gives the high-dimensional \(\chi^2_1\) limit under a fixed positive gap. Independent rational identities, matrix compressions, quadrature comparisons, and simulations passed, supplementing rather than replacing the proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The 2026 random-diameter paper and the earlier 2019/2021 random-information paper concern random **sections**, while the present result concerns orthogonal **projections** of a two-exceptional-axis ellipsoid. The closest accessible exact one-spike section theorem reduces to a single beta transform; its stated claim does not imply the coupled two-spike shadow CDF. Searches using shadow, projected diameter, double-spike and spectral-compression equivalents located no stronger exact statement. Older statistics and tomography literature remains a priority risk, explicitly acknowledged rather than treated as ruled out.
+PASS
 
-## Mathematical value — PASS
-A maximal projected semiaxis is an intrinsic geometric statistic of Haar shadows. The first coupled two-spike model exhibits the unexpected exact two-beta mixture in four dimensions; it also has an explicit all-dimensional integral law, strict stochastic dimension ordering and a limiting \(\chi^2\) scale. These provide a complete, motivated family-level result beyond a routine one-spike substitution.
+PASS. For centrally symmetric ellipsoid Q=b²I+A e1e1^T+B e2e2^T, the orthogonal-shadow squared half-diameter is the top eigenvalue of compression to U-perp, equivalently b² plus top eigenvalue of T=[[A(1−U1²),−sqrt(AB)U1U2],[-sqrt(AB)U1U2,B(1−U2²)]]. Since the lower eigenvalue<=B and t in(B,A), the condition for Lambda<=t reduces exactly to A(t−B)U1²−B(A−t)U2² >= (A−t)(t−B). With S=U1²+U2²~Beta(1,(d−2)/2), independent uniform angle, angular integration gives the all-d CDF and strict monotonic decrease in d. In d=4 exponent1 integrates as an elementary arctanh term; differentiation yields tilted arcsine f_W(w)=(1−k+2kw)/(pi sqrt(w(1−w))) with valid 0<k<1, hence beta mixture weights (1−k)/2 and (1+k)/2. Fixed A>B perturbation Lambda=A−A U1²+O(U1^4+U2^4+U1²U2²) and dU1²=>chi1² imply the limit. Source verify_projection.py checks exact rational determinant identities, independent matrix eigenspectra, numerical quadratures and sampling, not replacing analytic proof.
 
-## Closest literature and limits
-Guedon–Litvak–Tatarko–Vritsiou (arXiv:2609.24131v1), Hinrichs–Krieg–Novak–Prochno–Ullrich (arXiv:1901.06639v2), and the accessible public one-spike section theorem are the nearest inspected comparators. A tilted-ellipsoid height-distribution paper does not compute a Haar shadow-major-radius law. Only the dimension-four member is asserted to have the stated elementary beta mixture; all dimensions have the integral law. No independent audit or definitive historical-priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for exact Haar hyperplane ORTHOGONAL PROJECTION maximum-radius two-spike law and especially evaluated d=4 skew-arcsine beta mixture. Hinrichs et al arXiv:1901.06639 analyzes random SECTIONS and information recovery, not this maximum of projected quadratic form; published Resultary one-spike exact beta SECTION law also differs in rank and statistic. General random eigenvalue compression/interlacing theory may be stronger and could imply a distribution by integration, but inspected statements did not supply this two-spike explicit mixture; targeted searches under projection, shadow, spectral compression and arcsine aliases found no exact equivalent. Residual priority risk includes Dixon–Anderson/orbital eigenvalue laws.
+
+## value
+
+PASS
+
+PASS. The rank-two anisotropic ellipsoid is a natural first genuinely two-spike case after the classical one-spike beta reduction. Its exact all-dimensional distribution, dimension stochastic ordering, and unexpected skew-arcsine two-beta mixture in d=4 are motivated geometric probability facts beyond trivial single-eigenvalue compression.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

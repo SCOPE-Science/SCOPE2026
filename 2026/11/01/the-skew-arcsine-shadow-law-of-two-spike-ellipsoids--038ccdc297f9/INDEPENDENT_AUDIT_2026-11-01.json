@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:11:45.880012Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For centrally symmetric ellipsoid Q=b²I+A e1e1^T+B e2e2^T, the orthogonal-shadow squared half-diameter is the top eigenvalue of compression to U-perp, equivalently b² plus top eigenvalue of T=[[A(1−U1²),−sqrt(AB)U1U2],[-sqrt(AB)U1U2,B(1−U2²)]]. Since the lower eigenvalue<=B and t in(B,A), the condition for Lambda<=t reduces exactly to A(t−B)U1²−B(A−t)U2² >= (A−t)(t−B). With S=U1²+U2²~Beta(1,(d−2)/2), independent uniform angle, angular integration gives the all-d CDF and strict monotonic decrease in d. In d=4 exponent1 integrates as an elementary arctanh term; differentiation yields tilted arcsine f_W(w)=(1−k+2kw)/(pi sqrt(w(1−w))) with valid 0<k<1, hence beta mixture weights (1−k)/2 and (1+k)/2. Fixed A>B perturbation Lambda=A−A U1²+O(U1^4+U2^4+U1²U2²) and dU1²=>chi1² imply the limit. Source verify_projection.py checks exact rational determinant identities, independent matrix eigenspectra, numerical quadratures and sampling, not replacing analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1901.06639 discusses random sections of ellipsoids, Gelfand numbers and radius estimates; section vs projection differ.",
+          "General eigenvalue-compression theory potentially dominates the CDF integral abstractly but no checked theorem computes this d4 skew tilt."
+        ],
+        "reasoning": "Generic interlacing and beta coordinate laws are valid premises; explicit CDF integral and special dimension-four mixture require evaluated integration and conditional distribution.",
+        "searches": [
+          "Hinrichs Krieg Novak Prochno Ullrich arXiv:1901.06639 sections of ellipsoids",
+          "Dixon Anderson random compression eigenvalue interlacing general spectrum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.06639 full HTML",
+        "Resultary e99f37d3b7ae one-spike section full proof",
+        "arXiv:2609.24131 convex body random diameter abstract",
+        "Haar compressions/section versus projection terminology searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projection compression of Q=diag(a²,c²,b²,...) has two coupled positive eigenvalues; rank-one section formula does not specify this top eigenvalue.",
+          "Even a general spectral pushforward law could cover the distribution abstractly but not necessarily the evaluated tilted-arcsine representation; source comparisons remain qualified."
+        ],
+        "reasoning": "The explicit mix coefficient k=(A−B)/sqrt(AB) artanh sqrt(B/A), monotone dimension CDF, and Gaussian endpoint coefficient are nontrivial evaluated facts, not quoted from checked published source.",
+        "searches": [
+          "Rank-one section beta law comparison",
+          "Hinrichs 2019/2021 section estimates",
+          "Haar rank-two matrix compression density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projection radius uses lambda_max(P_{U-perp} Q P_{U-perp}); section radius uses reciprocal of lambda_min of compressed Q^{-1}.",
+          "Resultary one-spike section full theorem Resultary/2026 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae/RESULT.md (Git blob c01f71e964d0cfd3621c3eb709b63c3f18e684de)"
+        ],
+        "reasoning": "The spectral-compression formulation is equivalent; rank-one section beta law is not the same random object or distribution as this rank-two projection law.",
+        "searches": [
+          "Haar random projection two spike ellipsoid orthogonal hyperplane shadow max diameter arcsine beta mixture d=4",
+          "random Haar hyperplane compression rank two covariance matrix eigenvalue",
+          "two-spike ellipsoid shadow vs section radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae/RESULT.md (Git blob c01f71e964d0cfd3621c3eb709b63c3f18e684de)",
+          "Resultary exact one-spike random SECTION radius expressed as beta monotone transform, not two-spike projection law."
+        ],
+        "reasoning": "No exact two-spike shadow d4 tilted-arcsine table found in result corpus and searches. Negative search is not exhaustive bibliographic proof.",
+        "searches": [
+          "Haar random projection two spike ellipsoid orthogonal hyperplane shadow max diameter arcsine beta mixture d=4",
+          "Resultary one spike ellipsoid 2026/10/11 e99f37d3b7ae",
+          "double-spike affine arcsine density random ellipsoid orthogonal shadow"
+        ]
+      },
+      "rationale": "PASS best of knowledge for exact Haar hyperplane ORTHOGONAL PROJECTION maximum-radius two-spike law and especially evaluated d=4 skew-arcsine beta mixture. Hinrichs et al arXiv:1901.06639 analyzes random SECTIONS and information recovery, not this maximum of projected quadratic form; published Resultary one-spike exact beta SECTION law also differs in rank and statistic. General random eigenvalue compression/interlacing theory may be stronger and could imply a distribution by integration, but inspected statements did not supply this two-spike explicit mixture; targeted searches under projection, shadow, spectral compression and arcsine aliases found no exact equivalent. Residual priority risk includes Dixon–Anderson/orbital eigenvalue laws.",
+      "residual_risks": [
+        "An older general Dixon–Anderson/Grassmannian orbital compression eigenvalue density theorem could imply a stronger CDF statement after specialization; no full equivalence checked.",
+        "Some claims of originality for raw beta law and eigenvalue interlacing are excluded; novelty is evaluated two-spike distribution and special explicit mixture.",
+        "Fixed positive spectral gap A>B is essential for high-d endpoint limit; no higher-codimension or section claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains section radii/information estimates but no displayed two-spike orthogonal projection skew-arcsine mixture",
+          "evidence": "General section radius from inverse quadratic form, not shadow support-function max of Q",
+          "identifier_or_url": "arXiv:1901.06639 https://arxiv.org/html/1901.06639v2",
+          "material_read": "full open-access HTML mathematical formulation, theorem statements and random section estimates",
+          "method": "read primary arXiv full HTML",
+          "title": "Random sections of ellipsoids and the power of random information",
+          "trigger": "same ellipsoids and Haar random subspace but section rather than shadow"
+        },
+        {
+          "assessment": "One long axis, random sections with rank-one beta transform; not the two-exceptional-axis orthogonal projection claim",
+          "evidence": "T~Beta(n/2,(N−n)/2), section radius=(a^-2+(b^-2−a^-2)T)^-1/2",
+          "identifier_or_url": "Resultary/2026 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae/RESULT.md (Git blob c01f71e964d0cfd3621c3eb709b63c3f18e684de)",
+          "material_read": "complete RESULT.md including distribution, proof, limitations, and sources",
+          "method": "GitHub connector full published record",
+          "title": "Exact random-radius law for one-spike ellipsoids in every codimension",
+          "trigger": "Resultary related exact ellipsoid law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The rank-two anisotropic ellipsoid is a natural first genuinely two-spike case after the classical one-spike beta reduction. Its exact all-dimensional distribution, dimension stochastic ordering, and unexpected skew-arcsine two-beta mixture in d=4 are motivated geometric probability facts beyond trivial single-eigenvalue compression.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1901.06639 full HTML",
+    "Resultary e99f37d3b7ae one-spike section full proof",
+    "arXiv:2609.24131 convex body random diameter abstract",
+    "Haar compressions/section versus projection terminology searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older general Dixon–Anderson/Grassmannian orbital compression eigenvalue density theorem could imply a stronger CDF statement after specialization; no full equivalence checked.",
+    "Some claims of originality for raw beta law and eigenvalue interlacing are excluded; novelty is evaluated two-spike distribution and special explicit mixture.",
+    "Fixed positive spectral gap A>B is essential for high-d endpoint limit; no higher-codimension or section claim.",
+    "Read-only assessment only: no repository or dispatcher write; status-file publication not ready until confidentiality-safe metadata correction."
+  ],
+  "schema_version": 1
+}
