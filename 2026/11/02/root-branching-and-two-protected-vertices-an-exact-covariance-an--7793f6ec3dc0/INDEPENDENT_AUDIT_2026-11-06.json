@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:07:55.401343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The random-recursive-tree parent-choice construction has (n-1)! equiprobable trees. Reconstructing the increasing-tree EGF T'(z,q)=exp(T)+(q-1)(exp(T-z)-1) gives T(z,1)=-log(1-z) and A(z)=partial_q T|_1=F(z)/(1-z), F=1-exp(-z)-z+z^2/2. Marking only ORIGINAL-root child degree with u gives mixed derivative (1+L)F/(1-z)^2+(L-z)exp(-z)/(1-z), and subtraction of H_(n-1)*E[P_n] proves the claimed exact coefficient covariance for n>=3. Singularity extraction at z=1 yields constant 1/2-3/e and 1/(n-1) coefficient (1+e^-1)/2; the remaining entire coefficients and (1-z)log correction yield O(n^-2). Independent exhaustive parent-array enumeration for n=3,...,8 gave exact covariances -1/4,-5/12,-31/72,-683/1440,-3547/7200,-51263/100800, matching formula. Finite enumeration does not prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fringe subtree asymptotic count theorems give general fluctuation machinery, while this covariance couples a root statistic to a global total and evaluates exact finite n"
+        ],
+        "reasoning": "No inspected broad statement directly gives the coefficient or its negative asymptotic, but a hidden specialization of general generating-function theory is a genuine risk.",
+        "searches": [
+          "Holmgren Janson 2015 DOI:10.1214/EJP.v20-3627; Devroye Janson arXiv:1310.0665"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1239/jap/1429282623",
+        "Resultary/2026/10/4/...ab0acf44833f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing E[P_n], Var(P_n), and Cov(D_n,L_n) does not determine Cov(D_n,P_n). A marked joint root/total calculation is required."
+        ],
+        "reasoning": "The prior stated results do not imply the claimed exact covariance without new mixed marking; older implicit formula could.",
+        "searches": [
+          "Mahmoud-Ward 2015 full PDF, protected-node first mean/variance; Resultary ab0acf44833f full RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mahmoud-Ward 2015 DOI:10.1239/jap/1429282623; distinguish original-root degree from arbitrary vertex-degree fringe counts"
+        ],
+        "reasoning": "Marking the distinguished root by u is essential; prior protected-node EGF and total fringe covariance do not identify the mixed derivative or constant.",
+        "searches": [
+          "Resultary semantic query: random recursive tree root outdegree covariance number of two protected nodes negative limiting constant rooted labeled increasing trees; root-marked increasing-tree EGF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published leaf covariance limit +1/2 involves total leaves, not P_n; direct parent-array n=3..8 covariance sequence agrees with new formula"
+        ],
+        "reasoning": "No found matching protected-root covariance table; unsuccessful search is not novelty proof.",
+        "searches": [
+          "Resultary search root outdegree protected nodes; Resultary/2026 root-degree leaves ab0acf44833f"
+        ]
+      },
+      "rationale": "The assessed original claim is the exact mixed moment of ONE DISTINGUISHED ROOT degree and total two-protected count, including a strictly negative limiting covariance; the protected-node mean, its variance, and generic increasing-tree EGFs are prior work. Mahmoud-Ward 2015 determines the first two moments of P_n, not the D_n cross moment. Holmgren-Janson 2015 treats broad fringe-subtree count limits but does not explicitly evaluate this root-fixed cross. Resultary root-degree/LEAF count gives a positive different covariance; it neither implies nor contradicts the two-protected result.",
+      "residual_risks": [
+        "Holmgren-Janson generalized fringe function theory or earlier root-marked increasing-tree work may encode an equivalent cross-moment without naming it; no absolute priority certification.",
+        "Finite tree checks through n=8 do not establish the asymptotic theorem; analytic singularity calculation is required."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers protected count marginal expectation/variance; not the root-degree/two-protected covariance",
+          "evidence": "Theorem of E[P_n] and Var(P_n) and page 292 recurrence",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1429282623",
+          "material_read": "Full lawfully accessible 2015 paper PDF, including recurrence, mean, variance, introduction and conclusions; page image inspected",
+          "method": "Cambridge open PDF and text search",
+          "title": "Asymptotic properties of protected nodes in random recursive trees",
+          "trigger": "Exact P_n moments and possible covariance overlap"
+        },
+        {
+          "assessment": "Positive root-degree/LEAF covariance; not cross with protected vertices",
+          "evidence": "Cov(D_n,L_n)=(n-2)/(2(n-1)) distinct from claimed 1/2-3/e",
+          "identifier_or_url": "Resultary/2026/10/4/...ab0acf44833f",
+          "material_read": "Full RESULT.md from published Git tree, proof, scope, references",
+          "method": "GitHub read-only file fetch",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Published same-model alternate statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Root degree and a depth-two local structural statistic form a motivated joint invariant of random recursive growth. The exact all-n covariance and negative limit distinguish protective structure from the positive leaf-count correlation and quantify weak root/whole-tree dependence. This is substantially more than a textbook substitution, without claiming a full joint distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite uniform random recursive trees, n>=3; excludes uniform Cayley/plane/preferential trees. Asymptotic sign does not independently prove all-n sign.",
+    "Holmgren-Janson generalized fringe function theory or earlier root-marked increasing-tree work may encode an equivalent cross-moment without naming it; no absolute priority certification.",
+    "Finite tree checks through n=8 do not establish the asymptotic theorem; analytic singularity calculation is required."
+  ],
+  "schema_version": 1
+}
