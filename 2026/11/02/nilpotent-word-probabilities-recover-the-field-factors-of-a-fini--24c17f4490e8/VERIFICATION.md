@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The two bundled Python 3 programs were executed directly and their exact printed results captured in `CHECK.out` and `CHECK_INVERSION.out`. Each program exited successfully and printed `VERIFY_OK`.
+## correctness
 
-`CHECK.py` constructs multiplication in five finite rings without relying on the probability formula: a radical extension, two semisimple examples, a noncommutative upper-triangular ring, and a mixed-characteristic product of fields. Complete multiplication distributions were evolved exactly for every word length from one through six and nilpotent outputs were counted. The resulting rational probabilities match the formula at every tested length. It also verifies the published \(15/64\) two-factor collision and its length-three separation.
+PASS
 
-`CHECK_INVERSION.py` expands the exact finite exponential spectrum of \(1-P_k\), checks dominant-base inversion on 329 field-factor multisets with up to four factors, and checks a finite Vandermonde horizon in all pairwise comparisons among 28 two-factor samples. It also checks the sharpness example \(\mathbb F_4\) versus \(\mathbb F_2^2\).
+For finite Artinian R the Jacobson radical J is nilpotent and reduced quotient product of fields has no nonzero nilpotent, so nilpotence exactly equals membership in J; uniform quotient coordinates are independent. For a_i=1-1/q_i, direct multiplication yields product (1-a_i^k). Largest exponential base in 1-Pk is max a_i with multiplicity, allowing exact recursive spectral recovery; the Vandermonde determinant over distinct nonzero subset-product bases proves finite initial identifiability with at most 2^s+2^t-2 terms. P1=1/Q gives number of factors <=log2 Q and bound 2Q-2. With 1 or 2 factors P2 algebraically identifies the sum and product of the field orders; independent exact 44-multiset check shows no two-factor prefix collisions and confirms the F8 vs F2^3 x F3 length-two collision broken at k=3. Finite examples do not prove the all-ring theorem.
 
-# Mathematical limits
+## originality
 
-The tests are exhaustive only for the specific finite rings and field-size multisets identified. The general theorem, the asymptotic reconstruction step, and the universal finite bounds rely on the complete algebraic proofs in `RESULT.md`; experimental agreement is not used as an infinite proof. Exact asymptotic limits are mathematical, not noise-stable numerical methods. No independent mathematical review or external certification has been performed.
+PASS
+
+Published Sarma-Subedi nilpotent ring product study provides explicit P2 formulas and F8 vs product collision, and earlier zero-product work already implies elementary field forward laws. Novel claim is inverse recovery of the entire multiset from all k and explicit uniform finite identification horizons, including sharp k=2 for at most two field factors; not a claim to rediscover the forward law or the P2 collision. Resultary trace-graph reconstruction concerns different degree data and matrix-ring factors.
+
+## value
+
+PASS
+
+This gives a complete identifiability theorem for a natural probability invariant and quantifies exactly how long product words must be sampled to infer a semisimple quotient; it also isolates the information loss for arbitrary radicals. The sharp two-factor threshold adds a useful bounded reconstruction guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
