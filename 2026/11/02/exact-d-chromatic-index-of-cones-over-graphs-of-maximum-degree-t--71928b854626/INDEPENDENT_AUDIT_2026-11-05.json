@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:54:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/verify.py",
+        "independent_checks.py, independent_checks_output.txt"
+      ],
+      "rationale": "All diamonds require the universal apex as their degree-three vertex, so their rim triples are paths of length two or triangles. The apex gives n distinct spoke colors, an edge needs at least three in its local triangle, an apex-plus-P3 diamond forces five, and C3 or C4 requires six (for C4 two fresh rim colors beyond four spoke colors). A matching construction arranges spoke colors consecutively along every path/cycle component; on paths use j+3 modulo the palette (or a third color for isolated edges), on long cycles use vertex j+3, and on C3/C4 use separate three/two outside colors. All diamonds are intra-component, hence no cross-component conflicts; exceptions n=1..5 are covered. An independent conflict graph generator and exact coloring solver tested all 305 labeled maximum-degree-two graphs on <=5 vertices; the finite checks supplement this unrestricted proof.",
+      "residual_risks": [
+        "Does not extend to links with degree>=3; prior wheel and K4 subfamilies explicitly acknowledged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Verma gives 2Delta−1 planar upper bounds and treats K2 join P_m (two apices); published complete multipartite exact formula covers only special cones, not general path/cycle rims."
+        ],
+        "reasoning": "A broad upper bound need not equal this optimal n and does not imply exact small-rim exceptions; the K2-apex object is different.",
+        "searches": [
+          "Verma A proof of Wang planar D-coloring conjecture arXiv 2610.33322 Lemma 3.3",
+          "Hu Kong Wang D-coloring planar graphs",
+          "Resultary complete multipartite D chromatic index 2026/10/4 SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 00544b552d196ef98f83030c147ed1ec00077399",
+        "Wang arXiv:2606.06831",
+        "Hu–Kong–Wang arXiv:2607.14837",
+        "Verma arXiv:2610.33322",
+        "Resultary D-index complete multipartite record",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/verify.py",
+        "Independent private standard-library checker: independent_checks.py; diamond CHECKED 305"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>=6 planar 2n−1 does not entail n; K4 and long wheels are covered as special prior cases."
+        ],
+        "reasoning": "The new theorem is not a corollary of those bounds, though it contains recognized earlier cases. Full all-degree-two cone assertion survives comparison.",
+        "searches": [
+          "arXiv 2610.33322 general 2Delta−1 bound",
+          "arXiv 2607.14837 D-coloring degree bounds",
+          "SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All sources use rainbow five-edge diamonds/noninduced subgraphs as the constraint. Conflict-graph and fan/wheel vocabulary are equivalent formulations, but no full mixed-component cone equality was found in inspected theorem statements."
+        ],
+        "reasoning": "There is genuine overlap for wheels, stars, K4 and special complete multipartite cones; those subcases are not independently original. Full arbitrary mixtures require a common construction.",
+        "searches": [
+          "rainbow diamond coloring cones fan wheel joins degree two",
+          "Wang Proper edge coloring with rainbow diamonds arXiv 2606.06831",
+          "Hu Kong Wang D-coloring of planar graphs arXiv 2607.14837"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known wheel and complete multipartite special cases surfaced; no exact table for all disconnected mixed degree-two links in examined records."
+        ],
+        "reasoning": "Any earlier covering table would defeat novelty; searched hits show only proper subfamilies.",
+        "searches": [
+          "D-chromatic index K1 join C4 six colors",
+          "D-coloring fan graph exact",
+          "Resultary query rainbow diamond proper edge coloring cones wheels graphs maximum degree 2 exact D chromatic index"
+        ]
+      },
+      "rationale": "Same-claim comparison: There is genuine overlap for wheels, stars, K4 and special complete multipartite cones; those subcases are not independently original. Full arbitrary mixtures require a common construction. A broad upper bound need not equal this optimal n and does not imply exact small-rim exceptions; the K2-apex object is different. The new theorem is not a corollary of those bounds, though it contains recognized earlier cases. Full all-degree-two cone assertion survives comparison. Historical-priority risks are retained.",
+      "residual_risks": [
+        "Exact fan/B-coloring cases may appear under older equivalent terminology; no exhaustive historical-priority certificate.",
+        "Does not extend to links with degree>=3; prior wheel and K4 subfamilies explicitly acknowledged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound, different two-apex construction; no decisive all-cones coverage in material read",
+          "evidence": [
+            "General planar bound 2Delta−1; K2 join path differs from K1 join arbitrary degree-two H"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.33322",
+          "material_read": "Accessible abstract and described theorem/Lemma 3.3; complete article download was not available in this pass",
+          "method": "Primary arXiv abstract and reported theorem comparison",
+          "title": "A proof of Wang’s planar D-coloring conjecture",
+          "trigger": "Strongest planar bounds and potentially conflicting K2 join path lemma"
+        },
+        {
+          "assessment": "Broad planar results do not imply exact all-cones optimum",
+          "evidence": [
+            "Rainbow diamond coloring and book-number lower bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.14837",
+          "material_read": "Introductory definitions and reported bounds from retrieved primary-source material",
+          "method": "Primary theorem/definition comparison",
+          "title": "D-coloring of planar graphs",
+          "trigger": "Same D-coloring and fan terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 00544b552d196ef98f83030c147ed1ec00077399",
+        "Wang arXiv:2606.06831",
+        "Hu–Kong–Wang arXiv:2607.14837",
+        "Verma arXiv:2610.33322",
+        "Resultary D-index complete multipartite record",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/verify.py",
+        "Independent private standard-library checker: independent_checks.py; diamond CHECKED 305"
+      ],
+      "rationale": "An exact sharp D-coloring formula for arbitrary disjoint unions of paths and cycles under one apex, including the nontrivial four-cycle exceptional obstruction, is a motivated class-wide graph-coloring classification, substantially sharper than generic planar bounds.",
+      "residual_risks": [
+        "Exact fan/B-coloring cases may appear under older equivalent terminology; no exhaustive historical-priority certificate.",
+        "Does not extend to links with degree>=3; prior wheel and K4 subfamilies explicitly acknowledged."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 00544b552d196ef98f83030c147ed1ec00077399",
+    "Wang arXiv:2606.06831",
+    "Hu–Kong–Wang arXiv:2607.14837",
+    "Verma arXiv:2610.33322",
+    "Resultary D-index complete multipartite record",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626/verify.py",
+    "Independent private standard-library checker: independent_checks.py; diamond CHECKED 305"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Exact fan/B-coloring cases may appear under older equivalent terminology; no exhaustive historical-priority certificate.",
+    "Does not extend to links with degree>=3; prior wheel and K4 subfamilies explicitly acknowledged."
+  ],
+  "schema_version": 1
+}

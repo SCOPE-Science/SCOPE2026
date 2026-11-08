@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-The standalone `verify.py` uses only the Python standard library. Execute `python3 verify.py` to enumerate all labeled graphs of maximum degree at most two on one through five vertices, canonicalize their components, reconstruct every diamond conflict from the original edge set, test the explicit coloring and use exact backtracking to refute a smaller palette. It additionally tests 295 nonisomorphic path/cycle component profiles of orders one through ten, including backtracking lower checks through order seven.
+## correctness
 
-The expected last line is `VERIFY_OK`. The checked output is:
+PASS
 
-```
-ALL_LABELED_DEGREE_TWO_GRAPHS_N_LE_5_OK 305
-UNLABELED_COMPONENT_PROFILES_N_LE_10_OK 295
-VERIFY_OK
-```
+All diamonds require the universal apex as their degree-three vertex, so their rim triples are paths of length two or triangles. The apex gives n distinct spoke colors, an edge needs at least three in its local triangle, an apex-plus-P3 diamond forces five, and C3 or C4 requires six (for C4 two fresh rim colors beyond four spoke colors). A matching construction arranges spoke colors consecutively along every path/cycle component; on paths use j+3 modulo the palette (or a third color for isolated edges), on long cycles use vertex j+3, and on C3/C4 use separate three/two outside colors. All diamonds are intra-component, hence no cross-component conflicts; exceptions n=1..5 are covered. An independent conflict graph generator and exact coloring solver tested all 305 labeled maximum-degree-two graphs on <=5 vertices; the finite checks supplement this unrestricted proof.
 
-The all-order proof is the constructive case analysis in `RESULT.md`. Finite tests are not treated as proof for arbitrarily many vertices. No independent audit, external certification or machine-checked formal proof is represented by these checks.
+## originality
+
+PASS
+
+Same-claim comparison: There is genuine overlap for wheels, stars, K4 and special complete multipartite cones; those subcases are not independently original. Full arbitrary mixtures require a common construction. A broad upper bound need not equal this optimal n and does not imply exact small-rim exceptions; the K2-apex object is different. The new theorem is not a corollary of those bounds, though it contains recognized earlier cases. Full all-degree-two cone assertion survives comparison. Historical-priority risks are retained.
+
+## value
+
+PASS
+
+An exact sharp D-coloring formula for arbitrary disjoint unions of paths and cycles under one apex, including the nontrivial four-cycle exceptional obstruction, is a motivated class-wide graph-coloring classification, substantially sharper than generic planar bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
