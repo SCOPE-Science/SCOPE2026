@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Every tree edge increment is saturated because the variance is strictly convex in each coordinate with positive quadratic coefficient \\(r(N-r)/N^2\\). With hub values zero and one, and leaf counts \\(k,j\\), one has \\(S=a+1-2k+2j\\), \\(Q=a+1+4j\\). Along a diagonal increment of both counts, \\(S\\) is constant and \\(Q\\) increases. On the face \\(k=a\\), increasing \\(j\\) raises the numerator by \\(4(2a+b-2j)>0\\) for \\(a\\ge b\\), hence all maximizers have \\(j=b\\). Then maximizing \\(N(a+4b+1)-(a+2b+1-2k)^2\\) solves the exact formula and equality cases. The fixed-total envelope decreases strictly with leaf imbalance; the parity correction cannot reverse an integer step. The packaged exact checker independently tested signed edge configurations for 64 parameter pairs, all count optimizations for 6400 pairs, and the fixed-order envelope through 300 leaves. Universal claims have complete symbolic proofs independent of finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon–Boppana–Spencer full text §2 offers universal integrality and an extremizer construction, but no tree-specific norm formula.",
+        "Addario-Berry–Janson–McDiarmid full text discusses sharp complete-graph/path examples, product additivity and random-graph bounds, but not all diameter-three trees."
+      ],
+      "reasoning": "Checked whether stronger all-graph or all-tree theorems directly imply the formula and strict balancing. General extreme-point existence does not supply the optimal signed pattern, the transition threshold, or parity-corrected fixed-order constant; the present proof performs that optimization explicitly.",
+      "searches": [
+        "diameter three trees extremal Lipschitz variance complete classification leaf imbalance",
+        "graph spread trees diameter three variance",
+        "optimal Lipschitz variance trees with two branching vertices, integer edge increments",
+        "An Asymptotic Isoperimetric Inequality Theorem 2.1",
+        "On the spread of random graphs Section 1"
+      ]
+    },
+    "checked_sources": [
+      "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf §1–§2.1, Theorem 2.1",
+      "https://arxiv.org/pdf/0902.1156 §1 and full-document term search",
+      "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/concentration-on-the-discrete-torus-using-transportation/4277A507ADA84C80717B3F679233AD89 abstract",
+      "https://dmtcs.episciences.org/439/pdf abstract/extract: spectral Laplacian spread of trees, distinct invariant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alon–Boppana–Spencer Theorem 2.1 covers existence of an integer-valued optimizer for all graphs but does not identify which signed pattern maximizes on double stars.",
+        "Addario-Berry–Janson–McDiarmid §1 gives a product identity for spread but no explicit bistar base value.",
+        "Publicly indexed double-star fractional zero-forcing work concerns a different extremal object."
+      ],
+      "reasoning": "The prior theorems may justify searching integer edge potentials, but deriving the exact squared inclusion norm still requires the diagonal saturation argument and nearest-even-integer optimization. The product theorem yields consequences after inserting the new exact value, not vice versa. The nearest double-star source does not imply the Lipschitz variance formula.",
+      "searches": [
+        "Lipschitz spread of double-star trees exact variance extremizers a b pendant leaves",
+        "spread of double-star graph sharp variance at balanced stars and mixed leaf signs",
+        "Alon Boppana Spencer 1998 An asymptotic isoperimetric inequality pdf",
+        "On the spread of random graphs arxiv 0902.1156"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alon–Boppana–Spencer (1998), §2, Theorem 2.1: existence of integer-valued extremizers, not the norm of the centered Lipschitz-to-L² inclusion for double stars.",
+        "Addario-Berry–Janson–McDiarmid (arXiv:0902.1156), §1: spread is the largest variance of a graph-Lipschitz function; hence the centered embedding squared norm is an equivalent formulation."
+      ],
+      "reasoning": "Translated the claimed invariant into graph spread, Lipschitz-to-L² embedding norm, bistar/double-star labels, and diameter-three-tree cases. The cited general equivalence defines the objective but does not calculate its two-parameter value or equality cases.",
+      "searches": [
+        "Lipschitz spread of double-star trees exact variance extremizers a b pendant leaves",
+        "diameter three trees extremal Lipschitz variance complete classification leaf imbalance",
+        "spread double star extremal Lipschitz max variance tree graph",
+        "arxiv:0902.1156",
+        "DOI:10.1007/s000390050062"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published double-star item concerned fractional zero forcing of \\(D_{a,b}\\), not Lipschitz variance.",
+        "The closest graph-spread papers addressed general integrality or random-graph estimates; no exact matching two-parameter numerical table was found."
+      ],
+      "reasoning": "Compared actual indexed result summaries and primary text for graph-spread tables, aliases and the explicit threshold \\(A=2B+2\\). No existing exact table with these values was located. An unsuccessful search is treated as residual risk, not as a mathematical uniqueness proof.",
+      "searches": [
+        "exact graph spread two-hub tree bistar double-star formula (a+4b+1)/(a+b+2)",
+        "spread double star variance Lipschitz tree graph",
+        "Lipschitz spread of complete bipartite graph exact variance",
+        "spread double star exact variance formula graph"
+      ]
+    },
+    "rationale": "The general graph-spread and integer-extremizer theorem of Alon–Boppana–Spencer is not a double-star closed-form or optimizer classification. Addario-Berry–Janson–McDiarmid concerns random graph spread and basic examples. No directly implying published exact double-star variance formula was located in the actual primary-text and indexed-record comparisons. This supports qualified best-knowledge originality, not certified global novelty.",
+    "residual_risks": [
+      "A mathematically equivalent diameter-three-tree graph-spread computation in unindexed or differently titled literature could exist.",
+      "Publisher-only literature not accessible in full is not excluded as a potential stronger source; the discrete-torus paper is low-risk but abstract-only.",
+      "No independent expert validation or independent originality certification is provided."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERAL_REDUCTION_NOT_EXACT_DOUBLE_STAR",
+        "evidence": "§2.1 Theorem 2.1 proves integer-valued optimal potentials for arbitrary graph metrics; no double-star classification or two-parameter variance norm is stated.",
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "material_read": "Full text §1 and §2.1 including Theorem 2.1 and its perturbation proof; full-document searched for star, double, tree.",
+        "method": "Opened author-hosted full text, inspected the graph-spread theorem and adjoining proof and source-wide term search.",
+        "title": "An Asymptotic Isoperimetric Inequality",
+        "trigger": "Original introduction and integer-extremizer theorem for graph spread, plausible dominating general result."
+      },
+      {
+        "assessment": "NO_MATCH_IN_INSPECTED_RELEVANT_SECTIONS",
+        "evidence": "§1 states complete-graph and path formulas and Cartesian-product additivity, then focuses on random and small-world graphs; no double-star theorem found.",
+        "identifier_or_url": "https://arxiv.org/pdf/0902.1156",
+        "material_read": "Pages 1–4, definitions, sharp examples and theorems; inspected section roadmap and searched full text for double star/double-star/tree.",
+        "method": "Opened primary arXiv PDF, read its mathematical definition and examples and checked full-text searches for exact same graph class.",
+        "title": "On the spread of random graphs",
+        "trigger": "Archival public source defining graph spread and giving natural sharp examples and product additivity."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_NO_DECISIVE_COMPARISON",
+        "evidence": "Abstract studies sub-Gaussian transport and discrete-torus concentration; does not disclose any double-star formula. Full text not claimed inspected.",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548309990319",
+        "material_read": "Publisher abstract and publication metadata only; no full text inspected.",
+        "method": "Publisher abstract review, with limited material noted.",
+        "title": "Concentration on the Discrete Torus Using Transportation",
+        "trigger": "Contemporary spread/concentration literature that might dominate the value claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "72df3d7d-8284-4c52-b1c3-024c8d19a91f",
+  "value": {
+    "rationale": "Diameter-three trees are the first entire non-star tree diameter class. Sharp centered Lipschitz-to-\\(L^2\\) embedding norms are the graph-spread constants controlling product isoperimetry. The theorem gives the complete norm and all equality patterns, a genuine polarized-to-mixed optimizer phase transition at \\(A=2B+2\\), strict balanced-tree extremality for a fixed vertex count, and the parity-corrected sharp upper envelope tending to \\(9/4\\) with deficit \\(4/N\\). This is a motivated structural classification, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
