@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "A bijection for partitions containing a fixed adjacent arc yields an exact increment h_i in nesting-minus-crossing pair count. Equidistribution removes the unmarked term; summing h_i gives the nonnegative dimension statistic. The aggregate dimension identity is independently proved by cut double-counting and Bell recurrence. Strict positivity is witnessed by block {1,3}; Bell-ratio asymptotics show linear growth. Finite exact verification passed 13,141 checks but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chern et al (2013), Theorem 2.4: aggregates of polynomial pattern statistics are shifted Bell expressions; introductory equation gives dimension sum, but not particular L(N-C) coefficients.",
+        "Poznanović–Yan (2007), Theorem 1.1: preservation of crossing/nesting two-edge distributions along extension subtrees; not a global level-count cross moment.",
+        "Chern et al (2015): marginal normal limits for levels, crossings, dimension, not this mixed difference."
+      ],
+      "reasoning": "The broader moment machinery ensures form, not the asserted coefficients or sign. Even with Chern dimension identity and Kasraoui equidistribution, an additional nontrivial local contraction calculation is needed. No inspected stronger theorem explicitly provides that calculation or the claimed mixed moment.",
+      "searches": [
+        "For a uniform random set partition, joint distribution of number of adjacent same-block pairs (levels) and number of crossing arc pairs, inverse binomial transform of crossing polynomials",
+        "random set partition levels crossings nestings joint moments covariance difference dimension index contraction identity",
+        "arxiv:1304.4309",
+        "arxiv:0710.1816",
+        "arxiv:1502.00938"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0601081",
+      "arxiv:0710.1816",
+      "arxiv:1304.4309",
+      "arxiv:1502.00938",
+      "published-finding corpus search for level arcs and 2-edge crossing/nesting covariances",
+      "Accessible prior ledger claims including IDs 30ad1913-f7a5-4e94-9ed2-2574f7b46735, d171c360-9fd9-41ef-b5ff-ed2f4298fcbe and 4a4c011f-df6b-46fd-94b9-27075dc27d80"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equidistribution from Kasraoui–Zeng only gives E[N-C]=0.",
+        "Published identity D_m=(m+4)B_(m+1)-2B_(m+2) from Chern et al alone does not relate D to E[L(N-C)].",
+        "Marked-level contraction gives E[L(N-C)]=D_(n-1)/B_n, a separate implication proved here."
+      ],
+      "reasoning": "The result is implied by the conjunction of prior equidistribution, prior dimension aggregate, and the newly proved contraction lemma. None of the inspected sources establishes the lemma or explicitly states this consequence. This comparison is substantive but cannot rule out unstated equivalent formulas in other historical work.",
+      "searches": [
+        "Crossing count of a uniform set partition conditioned on number of levels equals crossing count of uniformly level-free partition after contraction.",
+        "Set partitions crossing nesting marginal symmetry broken by level count adjacent consecutive elements, dimension exponent exact covariance gap",
+        "arxiv:math/0601081",
+        "arxiv:1304.4309",
+        "arxiv:0710.1816"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kasraoui–Zeng arXiv:math/0601081 proves equality of pair-count distributions; target concerns distinct mixed moments with level count.",
+        "Chern et al arXiv:1304.4309 §2 identifies levels and two-crossing counts as statistics but not a displayed mixed covariance with nesting."
+      ],
+      "reasoning": "The equivalent expectation formulation is E[L(N-C)]=D_(n-1)/B_n; E[N-C]=0 alone does not imply this. No explicitly equivalent mixed-moment formula was located; arXiv general pattern algebra is not an exact evaluation.",
+      "searches": [
+        "For random uniform set partitions, covariance of adjacent same-block level count with nesting pairs minus covariance with crossing pairs equals n+3-2 Bell(n+1)/Bell(n)",
+        "Set partitions crossing nesting marginal symmetry broken by level count adjacent consecutive elements, dimension exponent exact covariance gap",
+        "set partition covariance of number of levels and number of nestings crossings",
+        "arxiv:math/0601081"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The highest relevant published-finding corpus hit, 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad, studies the covariance of block-size and block-count statistics, not level/nesting/crossing pair moments.",
+        "Accessible own record 4a4c011f-df6b-46fd-94b9-27075dc27d80 concerns cyclic chord matchings and their pair statistics, not uniform all-block-size set partitions."
+      ],
+      "reasoning": "No exact table or archived identity matching the mixed covariance gap or contraction analogue was located in the actual searches. The available table of Bell numbers and the published dimension sum are ingredients, not a table of this joint statistic.",
+      "searches": [
+        "random set partition crossing number and singleton blocks covariance Bell numbers",
+        "uniform random set partition dimension index sum block spans covariance singleton blocks",
+        "For random uniform set partitions, covariance of adjacent same-block level count with nesting pairs minus covariance with crossing pairs equals n+3-2 Bell(n+1)/Bell(n)",
+        "uniform set partitions covariance level arcs adjacent consecutive elements with two-edge nesting count crossing count exact Bell ratio",
+        "Bell numbers nesting crossing level arcs covariance"
+      ]
+    },
+    "rationale": "Literature and database searches identified the exact prior dimension aggregate and pair-count marginal equidistribution, but not the claimed difference of mixed covariances. Those prior claims do not logically determine dependence on levels; the new marked-contraction identity supplies the missing step. Coverage by implicit results in more general crossing/nesting enumerators remains a stated historical-priority risk.",
+    "residual_risks": [
+      "A more general unpublished or older enumerative identity may determine the same mixed moments implicitly.",
+      "Broad historical textbooks and restricted statistics tables were not exhaustively inspected; absence in a search cannot establish uniqueness.",
+      "The reference equidistribution of pair counts is used; it is not claimed that maximal crossing and nesting sizes are the same variables."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies necessary equality of means, not a level-arc mixed covariance or their difference",
+        "evidence": [
+          "arxiv:math/0601081; Theorem 1.2 and Corollary 1.4, equidistribution of two-edge statistics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0601081",
+        "material_read": "ArXiv primary PDF, statements about equidistribution of crossing and nesting pair counts and graph representation; rendered page 3",
+        "method": "Primary PDF full-text access, selected theorem/definition reading and rendered page inspection",
+        "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+        "trigger": "Exact same two-edge pair-count statistics and crossing/nesting symmetry"
+      },
+      {
+        "assessment": "Precisely supplies dimension sum and general form of moments; not specific mixed covariance difference or contraction identity",
+        "evidence": [
+          "arxiv:1304.4309, introduction dimension index identity",
+          "arxiv:1304.4309 §§2.1–2.4, levels/crossings and shifted Bell theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1304.4309",
+        "material_read": "PDF first four pages including exact dimension sum, level and crossing definitions and Theorems 2.2, 2.4; targeted extracted sections",
+        "method": "Primary arXiv PDF retrieved; rendered page 4 and reviewed math statements",
+        "title": "Closed expressions for averages of set partition statistics",
+        "trigger": "Defines level arcs, dimension exponent and crossing pair statistics; potentially dominating moment algebra"
+      },
+      {
+        "assessment": "Refined crossing/nesting distribution extension results; no located exact adjacent-arc mixed covariance",
+        "evidence": [
+          "arxiv:0710.1816 pp.1–3 and Theorem 1.1",
+          "arxiv:0710.1816 §4: Motzkin/Charlier coding"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0710.1816",
+        "material_read": "Introduction pp.1–3, Theorem 1.1, definitions and later type-encoding descriptions; searched the 19-page text for covariance, adjacent and levels",
+        "method": "Primary arXiv full-text PDF retrieval and rendered page 2; targeted full-PDF word search",
+        "title": "Crossings and Nestings of Two Edges in Set Partitions",
+        "trigger": "Same pair-statistics, tree extension may encode refined joint moments"
+      },
+      {
+        "assessment": "Marginal limit theorems, not covariance difference against nesting pair count",
+        "evidence": [
+          "arxiv:1502.00938, abstract and introductory statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.00938",
+        "material_read": "Abstract and PDF introductory theorem material, rendered page 3",
+        "method": "ArXiv primary paper full-text retrieval and targeted statement inspection",
+        "title": "Central Limit Theorems for some Set Partition Statistics",
+        "trigger": "Marginal distribution of level and crossing statistics under uniform partitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "445f68fc-f49f-411e-8aa7-4b288bbc1848",
+  "value": {
+    "rationale": "This motivated mixed statistic distinguishes two equidistributed pair counts in a canonical probability space. The exact all-n covariance contrast, sharp zero/positive transition and asymptotic slope one give nontrivial dependence information and a useful contraction bridge to the dimension index relevant in set-partition representation theory.",
+    "status": "PASS"
+  }
+}
