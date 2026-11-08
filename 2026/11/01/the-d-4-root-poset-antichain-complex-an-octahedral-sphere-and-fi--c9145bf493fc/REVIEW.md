@@ -1,15 +1,21 @@
-# Scientific review of the type-\(D_4\) antichain-complex homotopy result
+# Independent mathematical audit
 
-## Correctness — PASS
-The root coordinates, exact enumeration of seventeen maximal faces and five legitimate free-face/coface collapses are reproducible in `verify_d4.py`. The residue contains the eight triangles of a suspended four-cycle, hence a literal octahedral two-sphere, together with eight additional edges and exactly three new vertices. The displayed spanning tree reduces the nontrivial component to that sphere with five freely attached one-cells. Two roots are isolated. This is a full integral homotopy proof, not an extrapolation from field homology. The independent mod-two boundary ranks \((9,10,1)\) corroborate the predicted reduced ranks \((2,5,1)\).
+## correctness
 
-## Originality — PASS, with residual risk
-Mu and Welker's arXiv:2609.14054v1 (12 September 2026), Section 5 and Figure 6, establishes nonshellability and reports the reduced integral Betti groups for the exact same rank-four complex. It does not present the five-collapse octahedral core, the free-group identification of the fundamental group, or the complete homotopy splitting. Those facts are not implied by the Betti table. Literature and published-findings-index searches for root-poset antichain homotopy, nonnesting terminology, the \(D_4\) case, and equivalent sphere-plus-graph formulations produced no identifiable covering result. Since searches are not exhaustive proof of uniqueness, equivalent unindexed work remains a residual risk.
+PASS
 
-## Value — PASS
-Rank four is the first nonshellable member of the type-\(D\) family singled out in the primary paper. This concrete classification resolves whether nonshellability at the boundary case hides nonfree fundamental groups or nontrivial two-cell attaching phenomena: here it does not. The octahedral subcomplex and collapse sequence explain geometrically why the known homology ranks arise. It is a natural complete classification of the canonical first obstructed case, not an arbitrary parameter slice. No conclusion for all higher ranks is claimed.
+Using the stated simple-root basis in D4, an independent exact rational/integer root-coordinate reconstruction built all twelve positive roots, the comparability relation and full antichain face vector (12,24,12,1), including exactly 17 facets. Independently checked all five explicit free-face/codimension-one-coface collapses in order; the residue has exactly eight triangles forming the suspension of a four-cycle (octahedral S²), eight extra graph edges with three new vertices, plus two isolated roots. A spanning tree containing five sphere-core edges and three new edges contracts the connected component to S²∨(∨⁵S¹); π₁ is free F5, and homotopy is integral. The mod-two Betti table is a corroborating invariant, not the proof of π₁ or torsion.
 
-## Closest literature and limitations
-The closest source is Mu–Welker (2026), Section 5/Figure 6: its homology calculation is consistent with the result but does not imply it. Classical shellability-to-wedge results in Wachs's poset-topology survey cannot be applied to this nonshellable complex. Higher-rank type-\(D\) homotopy types remain outside the scope, and independent scientific validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exceptionally close 2026 Mu–Welker source studies the SAME D4 root antichain complex, proves nonshellability, and supplies reduced integral ranks (2,5,1). These homology ranks alone cannot force a free fundamental group or homotopy type. The new five-collapse octahedral-sphere-plus-graph classification is strictly stronger unless the unread same-object full article already supplies it. Full article access was blocked after both OA and authorized Oxford attempts; under the user’s best-knowledge standard this genuine risk is documented without converting lack of access alone into scientific FAIL.
+
+## value
+
+PASS
+
+The first nonshellable rank-four type-D root antichain complex is canonical. Its exact connected-component homotopy type and free fundamental group are not recovered from already tabulated homology; an explicit five-collapse octahedral-core model is a meaningful structural upgrade and a useful anchor for higher-rank nonnesting topology. It is an exact natural complete classification, not just a routine Betti-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
