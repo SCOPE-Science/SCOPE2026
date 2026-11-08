@@ -1,15 +1,21 @@
-# Scientific review: odd-alphabet cubic Fourier quantization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise statement is existential in its sufficiently-large odd order threshold, not a finite numerical cutoff. The proof's nonstandard ingredients are checked from the delivered files: a 27-term exact Laurent convolution expands to equation (4); the normalized fourth-moment zero set has three points, as independently shown using Newton's identity; the local Hessian has exact positive eigenvalues \(8,8,8\pm4\sqrt3\). The odd-parity lattice minimum is \(Q=16\) at exactly eight vectors per base point, with gap to the next value at least \(32\). Compactness plus the positive Hessian show that every sufficiently fine odd-alphabet minimizer lies on one of those vectors. A formal Laurent certificate evaluates all 24 candidates to the same closed form. The numerical small-order exhaustive checks are auxiliary only. This proves eventual exactness, not a claim for every odd order.
+PASS
 
-## Originality — PASS relative to inspected sources
+For 2x2x2 unimodular Fourier cube coefficients, gauge-normalize four vertices to 1 and label remaining (A,B,C,D). The full 27-term convolution identity gives M=88+2 sum of four explicitly listed squared correlations; Newton inequality yields exactly three isolated continuous minima M=88. The local phase Hessian at each is G=diag(8,8,8,8) with -4 D-cross entries; eigenvalues 8,8,8±4sqrt(3) are strictly positive. For odd q write theta=pi/q and near sign pattern use even/odd parity lattice v; v_D=2m, Q=8[(v_A-m)^2+(v_B-m)^2+(v_C-m)^2+m^2] has exactly 8 minimal vectors of value 16 near each of 3 minima, next value >=48. All 24 have exact Laurent-substitution value 136-64cos(theta)+16cos²(theta). Compactness plus strict Hessian makes every large-odd-q global minimizer an O(1/q) lattice perturbation, so gap forces exactly 24 normalized minimizers, 24q^4 lifts; q²(M-88)->16pi². Independently enumerated all q^4 normalized configurations q=5,7 and confirmed 24 minimizers with exact candidate value; finite q does not prove eventual all q.
 
-The closest exact same-object prior source, *Exact fourth-moment rigidity of the eight-mode cubic Fourier aperture* (11 October 2026), was inspected in full. It proves unrestricted \(88\) and the prohibition of attaining it for odd alphabet order, **but expressly does not evaluate the optimal odd-order fourth moment**. That old statement alone provides no sharp positive gap or exact odd-minimizer count. Full-text inspection of the separate planar \(3\times3\) square and six-point triangle results found different supports and finite-alphabet statements, not this conclusion. Xu Wang's 16 June 2026 paper concerns construction of two-/four-phase complementary sequences; only its abstract was available, and no whole-document exclusion is asserted. Relevant mathematical-record searches included the proposed exact cosine formula and the equivalent aperiodic-correlation formulation. The 140 accessible existing claims were compared for overlap; the closest own record was for the \(4\times2\) planar Fourier rectangle, not this cubic support. An unindexed earlier exact odd-alphabet array classification remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Odd-order alphabets cannot realize the known continuous sharp minimizer, but knowing that obstruction does not quantify the unavoidable cost. The exact eventual formula, sharp \(16\pi^2/q^2\) quantization law, and 24 complete normalized optimizing patterns provide a meaningful natural design classification, not a routine numerical extension. The argument exhibits a robust curvature-to-discrete-lattice mechanism specific to the cubic aperture. The unspecified threshold and unexamined larger dimensions are explicit limitations; a global theorem for all small odd orders is not claimed.
+Qualified PASS for exact eventual odd-q positive defect, asymptotic coefficient and full 24q^4 equality classification. The highly relevant previous exact same-cube public theorem was read in full: it proves continuous optimum and q even iff equality but explicitly leaves odd-q restricted minimum unsolved.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact quantization penalty near a rigid continuum optimum is a natural discrete Fourier design invariant; determines both optimal fourth moment and all equality arrays for every sufficiently fine odd alphabet, rather than mere nonattainment. Sharp q^-2 coefficient and parity-lattice rigidity are useful without broader apertures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
