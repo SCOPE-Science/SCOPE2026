@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** For the exact ordered smooth locus over \(\mathbb F_9\), the explicit three genus-one quotient maps yield the Frobenius factorization of the genus-three zeta numerator. The 21-row exhaustive coefficient certificate is checked twice with separately implemented finite-field models; the second verifier also counts points independently over extensions of degrees two and three. Every accepted numerical claim is finite and exactly exhaustible; there is no inference from a finite test to an infinite field-size assertion.
+## correctness
 
-**Originality (O): PASS on available evidence, with residual priority risk.** Ohashi (arXiv:2112.11152, Section 3 and Theorem 1.1) supplies the standard model and quotient structure, and Moriya–Kudo (arXiv:2209.02926, Sections 1 and 5) supplies broader isogeny methods and superspecial enumeration. Neither inspected source states the five \(\mathbb F_9\) zeta-polynomial multiplicities or the sharp model-specific rational-point maximum. Earlier coefficient-family \(p\)-rank strata are explicitly treated as prior work rather than claimed as new: they do not determine these five distinct polynomials. The possibility of an unindexed numerical census is not excluded.
+PASS
 
-**Mathematical value (V): PASS.** The invariant is motivated by the arithmetic of the canonical elliptic quotient decomposition: the complete zeta numerator determines point counts over every extension and the resulting \(\mathbb F_9\)-Jacobian isogeny class. This is the first field size supporting distinct smooth coefficient pairs in the normal form. The complete five-type spectrum distinguishes multiple arithmetic Frobenius types even within the same prior \(p\)-rank stratum, and establishes the exact rational-point maximum for all marked models at this first nonempty field size. Its use is a complete, reproducible small-field benchmark, not an arbitrary sampled slice or an unsourced claim of broader impact.
+All admissible ordered pairs equal 7*6=42, with 21 unordered enumerated in spectrum_21.csv. Explicit three quotient maps x+1/x, x-1/x, x^2 induce Klein-four H1 splitting into three elliptic factors, giving L_C(T)=product(1-t_i T+9T^2) and #C(F9)=10-sum(t_i). Independently implemented F9 arithmetic (a+3b, i^2=2) enumerated every one of the 42 coefficient pairs, reproduced five exact trace-triplet frequencies and all point counts. The 21-row source CSV agrees, and independent source verify_extensions.py models F9,F81,F729; no extrapolation to unbounded base fields.
 
-**Scope and risk.** All multiplicities are for ordered normal-form coefficients, not abstract isomorphism classes; the point bound applies only to that family. A numerical table appearing outside indexed or inspected sources remains a residual priority risk. The principal method of splitting into elliptic quotients is previously established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ohashi 2021 establishes the genus-three Howe model, elliptic splitting and superspecial maximality conditions; Moriya-Kudo 2022 develops broader Richelot isogeny algorithms and superspecial enumeration. Neither read passage gives the five polynomial multiplicities across all 42 marked models. Preexisting p-rank strata do not determine these Weil polynomial classes. Possible unindexed finite arithmetic table remains.
+
+## value
+
+PASS
+
+A complete exact zeta census for the natural marked F9 Howe normal form yields all extension point counts and the Jacobian isogeny classes, not just a small sample or p-rank. The finite field/family is natural from genus-three elliptic splitting; value restricted to that marked family, not all genus-three moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

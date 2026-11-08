@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run the two standalone programs in this directory:
+## correctness
 
-```sh
-python3 verify_formula.py
-python3 verify_extensions.py
-```
+PASS
 
-The first program exhausts all \(42\) admissible ordered pairs in \(\mathbb F_9\), derives all three quotient traces, checks the complete five-row distribution, and compares the resulting rational-point counts with the original genus-three curve. The separate `spectrum_21.csv` certificate lists the \(21\) unordered pairs exhaustively with their exact traces.
+All admissible ordered pairs equal 7*6=42, with 21 unordered enumerated in spectrum_21.csv. Explicit three quotient maps x+1/x, x-1/x, x^2 induce Klein-four H1 splitting into three elliptic factors, giving L_C(T)=product(1-t_i T+9T^2) and #C(F9)=10-sum(t_i). Independently implemented F9 arithmetic (a+3b, i^2=2) enumerated every one of the 42 coefficient pairs, reproduced five exact trace-triplet frequencies and all point counts. The 21-row source CSV agrees, and independent source verify_extensions.py models F9,F81,F729; no extrapolation to unbounded base fields.
 
-The second program models the base field independently and enumerates points of every curve over \(\mathbb F_9\), \(\mathbb F_{81}\), and \(\mathbb F_{729}\), checking the predicted power sums and hence the zeta numerator. Its extension constructions assert the field-defining polynomials are irreducible. Both programs completed successfully in the recorded computation.
+## originality
 
-The analytic justification of the zeta factorization is the explicit quotient-involution argument in `RESULT.md`. The computations are exact finite exhaustions; they do not prove any claim about arbitrary finite fields or abstract isomorphism classes. No independent external validation has been performed.
+PASS
+
+Ohashi 2021 establishes the genus-three Howe model, elliptic splitting and superspecial maximality conditions; Moriya-Kudo 2022 develops broader Richelot isogeny algorithms and superspecial enumeration. Neither read passage gives the five polynomial multiplicities across all 42 marked models. Preexisting p-rank strata do not determine these Weil polynomial classes. Possible unindexed finite arithmetic table remains.
+
+## value
+
+PASS
+
+A complete exact zeta census for the natural marked F9 Howe normal form yields all extension point counts and the Jacobian isogeny classes, not just a small sample or p-rank. The finite field/family is natural from genus-three elliptic splitting; value restricted to that marked family, not all genus-three moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
