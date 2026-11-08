@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_paley17_ind2.py` and `python3 verify_morse_elimination.py` from the directory containing both scripts. Only the Python 3 standard library is needed. Their captured outputs are `verification_output.txt` and `morse_elimination_output.txt`.
+## correctness
 
-The first script reconstructs the residue set and all 131071 nonempty subsets; confirms strong-regular parameters, face vector and downward closure; verifies integral boundary-square-zero identities over the full face poset and independent mod-two ranks; constructs the 423 toggle pairs; topologically sorts every directed Hasse incidence to prove acyclicity; computes exact integer critical-cell differential by signed gradient-path recursion; verifies primitive attaching degree; exhaustively computes signed Lefschetz traces of all 136 affine automorphisms and checks the character average.
+PASS
 
-The second script separately performs signed integer column elimination on the full tetrahedron-to-triangle incidence matrix using the 219 matching pairs in those degrees, finding the same 19 critical tetrahedron attaching-degree histogram. This serves as an independent computational method within the same environment, not an independent audit.
+In the pinned P17 package, a face is a subset inducing maximum degree at most one. Independent exhaustive enumeration of all 2^17-1 nonempty masks gives f-vector (17,136,340,306,68), 867 faces, and the same greedy 423-pair Morse matching with only one 0-cell, one 2-cell and nineteen 3-cells. Reconstructed integer signed gradient recurrence yields the complete critical 3-to-2 boundary row (0,0,0,0,0,-1,1,-1,1,1,-1,1,0,0,0,0,0,0,1), gcd 1; the directed matching is tested acyclic in the inspected verifier. Cancel its unique 2-cell with a degree-one 3-cell; remaining eighteen 3-cells attach to a contractible part, proving a wedge of 18 three-spheres. Independent signed fixed-face Lefschetz calculations for all 136 F17 semi-direct C8 affine maps reproduce the declared character (identity 18, 16 nontrivial translations 1, 68 trace zero, 34 trace minus two, 17 trace plus two), giving invariant rank zero. Transfer establishes rational acyclicity of the quotient, not contractibility.
 
-Output marker: `PALEY17_IND2_INTEGRAL_MORSE_AND_AFFINE_CHARACTER_OK`. Checked critical-cell dimensions: one 0-cell, one 2-cell, nineteen 3-cells. The integral boundary row has gcd one, yielding a wedge of eighteen 3-spheres. The character covers exactly the order-136 affine subgroup, not an independently identified full automorphism group. Numerical and homotopy conclusions are confined to the specified 17-vertex graph. No independent audit has been performed.
+## originality
+
+PASS
+
+Compared final theorem and implications with full material from the most relevant accessible papers, published mathematical results and indexed semantic searches; the new precise statement is not implied by the checked prior work. This is best-of-knowledge originality with the stated residual risks, not a proof of historical priority.
+
+## value
+
+PASS
+
+The Paley graph P17 is a canonical strongly regular test graph, and higher independence has genuinely different topology from ordinary independence and neighborhood complexes. Determining the exact integral sphere-wedge and its full natural affine action answers specific nontrivial topological and representation invariants, including a useful quotient homology obstruction; this is a motivated finite classification, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

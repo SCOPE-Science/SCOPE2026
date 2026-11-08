@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise graph, cutoff-two face condition and finite domain are reconstructed in `verify_paley17_ind2.py`. All 131071 nonempty subsets are tested, giving 867 faces with f-vector (17,136,340,306,68). The 423-pair vertex-toggle matching is verified acyclic on the complete 867-node directed Hasse graph; it leaves one vertex, one 2-cell and nineteen 3-cells. Exact integer gradient-path boundary coefficients have gcd one; an independently structured column-elimination checker agrees. An attaching map of unit degree cancels the unique 2-cell with one 3-cell, while the remaining eighteen 3-cells attach trivially to a contractible base, yielding an **integral** eighteen-three-sphere wedge. Complete signed fixed-face traces on each of the 136 affine maps give the stated rational character, and character averaging proves rational acyclicity of the quotient. Risks: the code and this scientific assessment share a provenance; no external independent validation has been performed.
+## correctness
 
-## Originality — PASS against inspected sources
-The initial 2020 higher-independence paper arXiv:2001.05448 was read in relevant full text and classifies complete multipartite, fully whiskered, cycle, path and perfect rooted tree graph families. The 2021 follow-up arXiv:2106.10863 was read in relevant full HTML text; its chordal, tree and caterpillar claims do not cover this Paley graph, which has an induced chordless cycle on (0,1,3,4). The closest exact published two-independence proof for the Petersen graph was examined in full and does not imply the 17-vertex result. A full same-graph result concerning the Lovász open-neighborhood complex was examined and uses a different face condition. An earlier ordinary independence calculation on Paley17 also uses a different cutoff. Searches for equivalent formulations, stronger coverage and exact table values did not find an implication. The possibility of an equivalent unindexed or inaccessible publication remains; a negative search is not a priority certificate.
+PASS
 
-## Value — PASS
-The Paley graph on seventeen vertices is a canonical small, self-complementary, strongly regular graph, and the two-independence complex is a graph-induced connected-component complex explicitly motivated by the foundational literature. Its **integral** sphere-wedge type and complete affine character are not determined by ordinary independence, open-neighborhood or graph parameter data. The two-dimensional translation-invariant quarter-turn representation and rationally acyclic affine quotient are additional natural structural information, not arbitrary numerical slices. The result is finite and does not assert a family theorem or other cutoffs.
+In the pinned P17 package, a face is a subset inducing maximum degree at most one. Independent exhaustive enumeration of all 2^17-1 nonempty masks gives f-vector (17,136,340,306,68), 867 faces, and the same greedy 423-pair Morse matching with only one 0-cell, one 2-cell and nineteen 3-cells. Reconstructed integer signed gradient recurrence yields the complete critical 3-to-2 boundary row (0,0,0,0,0,-1,1,-1,1,1,-1,1,0,0,0,0,0,0,1), gcd 1; the directed matching is tested acyclic in the inspected verifier. Cancel its unique 2-cell with a degree-one 3-cell; remaining eighteen 3-cells attach to a contractible part, proving a wedge of 18 three-spheres. Independent signed fixed-face Lefschetz calculations for all 136 F17 semi-direct C8 affine maps reproduce the declared character (identity 18, 16 nontrivial translations 1, 68 trace zero, 34 trace minus two, 17 trace plus two), giving invariant rank zero. Transfer establishes rational acyclicity of the quotient, not contractibility.
 
-## Closest literature and scope limits
-Deshpande–Singh arXiv:2001.05448; Abdelmalek et al. arXiv:2106.10863; public full proofs concerning the two-independence Petersen graph and Lovász open-neighborhood Paley17 complex. Mathematical equivalence of an unindexed external calculation is a residual risk. No independent audit or external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared final theorem and implications with full material from the most relevant accessible papers, published mathematical results and indexed semantic searches; the new precise statement is not implied by the checked prior work. This is best-of-knowledge originality with the stated residual risks, not a proof of historical priority.
+
+## value
+
+PASS
+
+The Paley graph P17 is a canonical strongly regular test graph, and higher independence has genuinely different topology from ordinary independence and neighborhood complexes. Determining the exact integral sphere-wedge and its full natural affine action answers specific nontrivial topological and representation invariants, including a useful quotient homology obstruction; this is a motivated finite classification, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

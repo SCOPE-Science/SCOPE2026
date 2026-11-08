@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T05:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md (blob e27e86d8b71a9b5237072c176979e4df827f88d8)",
+        "pinned verify_paley17_ind2.py (blob 77044248a8524516ae8a3168251165d45ab559d8)",
+        "independently computed 867 faces, Morse signed row and all 136 signed affine Lefschetz values"
+      ],
+      "rationale": "In the pinned P17 package, a face is a subset inducing maximum degree at most one. Independent exhaustive enumeration of all 2^17-1 nonempty masks gives f-vector (17,136,340,306,68), 867 faces, and the same greedy 423-pair Morse matching with only one 0-cell, one 2-cell and nineteen 3-cells. Reconstructed integer signed gradient recurrence yields the complete critical 3-to-2 boundary row (0,0,0,0,0,-1,1,-1,1,1,-1,1,0,0,0,0,0,0,1), gcd 1; the directed matching is tested acyclic in the inspected verifier. Cancel its unique 2-cell with a degree-one 3-cell; remaining eighteen 3-cells attach to a contractible part, proving a wedge of 18 three-spheres. Independent signed fixed-face Lefschetz calculations for all 136 F17 semi-direct C8 affine maps reproduce the declared character (identity 18, 16 nontrivial translations 1, 68 trace zero, 34 trace minus two, 17 trace plus two), giving invariant rank zero. Transfer establishes rational acyclicity of the quotient, not contractibility.",
+      "residual_risks": [
+        "Exact conclusion is only P17 and cutoff 2; numerical all-vertex finite proof is not an arbitrary-prime theorem.",
+        "Independent local gradient test reproduced the signed critical row; verifier source contains full gradient acyclicity test, but no new formal proof or external attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande–Singh arxiv:2001.05448 proves results for complete multipartite, paths/cycles, whiskered and rooted tree families; P17 has induced chordless 4-cycles (0,1,3,4)."
+        ],
+        "reasoning": "Those broad theorems have restrictive graph hypotheses violated by P17. A structural theorem in a different graph family does not imply the 18-sphere count or affine character.",
+        "searches": [
+          "Paley graph order 17 two independence complex Ind_2 integral homotopy affine character",
+          "arxiv:2106.10863 higher independence chordal graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2001.05448",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-torsion-in-the-neighborhood-complex-of-the-paley-graph-of--3bbd3a54ace8",
+        "Paley graph order 17 two independence complex Ind_2 integral homotopy affine character"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ind_2(P17) has 867 faces by direct graph definition; published P17 neighborhood complex 3468 faces and 3-torsion, so no isomorphism/implication of its integral homotopy or affine representation."
+        ],
+        "reasoning": "Neither cited general families nor unrelated functors imply the claimed wedge and complete 136-element character; possible unindexed equivalent calculation remains a priority risk.",
+        "searches": [
+          "Paley graph order 17 two independence complex Ind_2 integral homotopy affine character",
+          "arxiv:2001.05448 theorem for higher independence",
+          "Resultary: P17 open-neighborhood and Paley29 ordinary independence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph defined by quadratic-residue differences on F17; cutoff 2 excludes induced vertex degree at least 2. Deshpande-Singh sections 2–5 treat other named graph families."
+        ],
+        "reasoning": "This is an induced maximum-degree-one face complex, not the ordinary independence complex Ind_1(P17), open-neighborhood complex, or graph clique complex. No equivalent exact Ind_2(P17) homotopy plus order-136 affine character found in the inspected material.",
+        "searches": [
+          "Paley graph order 17 two independence complex Ind_2 integral homotopy affine character",
+          "Deshpande Singh arxiv:2001.05448 higher independence Ind_r Paley graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary P17 open-neighborhood complex has Z/3 torsion and 35 S3 summands, versus different Ind_2(P17) wedge18 S3; Resultary P29 ordinary independence is another graph/order."
+        ],
+        "reasoning": "Checked exact graph/invariant matches by definition. The accessible P17 result counts sets lying inside one open neighborhood, not subsets whose induced maximum degree is at most one. No equal exact published table was found; absence from search is not proof of priority.",
+        "searches": [
+          "Paley graph order 17 two independence complex Ind_2 integral homotopy affine character",
+          "Resultary Paley17 neighborhood complex three torsion exact table"
+        ]
+      },
+      "rationale": "Compared final theorem and implications with full material from the most relevant accessible papers, published mathematical results and indexed semantic searches; the new precise statement is not implied by the checked prior work. This is best-of-knowledge originality with the stated residual risks, not a proof of historical priority.",
+      "residual_risks": [
+        "An unindexed exact Ind_2(P17) calculation could exist; searches do not certify global publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: graph families not the Paley-17 strongly regular graph",
+          "evidence": "Complete multipartite, whiskered, path/cycle and perfect rooted tree families are addressed; none is P17.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.05448",
+          "material_read": "Abstract, graph-class hypotheses and central classification statements in sections 2–5",
+          "method": "arXiv primary PDF, section-level reading",
+          "title": "Higher Independence Complexes of graphs and their homotopy types",
+          "trigger": "Closest higher-independence classification"
+        },
+        {
+          "assessment": "NOT_COVERING: different open-neighborhood complex",
+          "evidence": "17 open-neighborhood facets, 3468 faces, Moore Z/3 versus higher-independence max-degree-one 867 faces.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-torsion-in-the-neighborhood-complex-of-the-paley-graph-of--3bbd3a54ace8",
+          "material_read": "Entire published RESULT.md including definitions, proof and limitations",
+          "method": "GitHub pinned published primary research result",
+          "title": "Three-torsion in the neighborhood complex of the Paley graph of order seventeen",
+          "trigger": "Exact same graph order and strong prior possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "P17 strongly regular parameters (17,8,3,4) checked from defining residues",
+        "independent integral Morse boundary and affine character computations"
+      ],
+      "rationale": "The Paley graph P17 is a canonical strongly regular test graph, and higher independence has genuinely different topology from ordinary independence and neighborhood complexes. Determining the exact integral sphere-wedge and its full natural affine action answers specific nontrivial topological and representation invariants, including a useful quotient homology obstruction; this is a motivated finite classification, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "No paper-sized downstream theorem is required for an independently motivated exact invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md (blob e27e86d8b71a9b5237072c176979e4df827f88d8)",
+    "pinned verify_paley17_ind2.py (blob 77044248a8524516ae8a3168251165d45ab559d8)",
+    "independently computed 867 faces, Morse signed row and all 136 signed affine Lefschetz values",
+    "https://arxiv.org/pdf/2001.05448",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-torsion-in-the-neighborhood-complex-of-the-paley-graph-of--3bbd3a54ace8"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claim for other primes or higher cutoffs.",
+    "Quotient rationally acyclic, not claimed contractible.",
+    "New review is scientific acceptance only; publication plan remains not_ready due unsanitized potentially public operational provenance."
+  ],
+  "residual_risks": [
+    "Exact conclusion is only P17 and cutoff 2; numerical all-vertex finite proof is not an arbitrary-prime theorem.",
+    "Independent local gradient test reproduced the signed critical row; verifier source contains full gradient acyclicity test, but no new formal proof or external attestation is claimed.",
+    "An unindexed exact Ind_2(P17) calculation could exist; searches do not certify global publication priority."
+  ],
+  "schema_version": 1
+}
