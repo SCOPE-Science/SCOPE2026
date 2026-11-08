@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each n=2..7 the binary source/output incidence matrix is independently rebuilt. The package contains feasible word sets of sizes 3,4,7,12,19,33 and complete exhaustive integer-decision branch trees with nonnegative exact scaled-rational dual inequalities at each viable leaf. For n=7 the tree has 103 nodes/52 leaves; every upper bound is strictly below the next integer. Standard-library exact checker replay succeeded. This proves only the stated finite domain. The package also checks a 25-node dual-branch proof of the known unique-decoding maximum 16 at n=7, so the non-decomposability conclusion is self-contained.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin 2026 Theorem 1.1 is an asymptotic lower bound for list-decodable deletion codes, not a finite sharp bound at n=7.",
+        "Kiah–Wei–Zeng 2026 discuss constant-list rate bounds and a length-two three-word example, not an all-n exact optimum that specializes to 33."
+      ],
+      "reasoning": "Any stronger exact general finite bound would dominate the claimed short-blocklength values, but the inspected theorems address asymptotics or general bounds without saturation at these six lengths. No such dominating finite theorem was identified.",
+      "searches": [
+        "arxiv:2609.26650 main theorem and introduction",
+        "arxiv:2609.21395 Sections 1, 7, 8",
+        "published-finding corpus: short blocklength t=2 list decodable one deletion codes finite maximum value length seven",
+        "web: binary deletion codes list decoding small n two fold packing hypergraph exact"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.26650 (relevant full-text HTML parts)",
+      "arxiv:2609.21395 (relevant full-text HTML parts)",
+      "doi:10.3390/e21121202 (open full article sections)",
+      "arxiv:2007.10592 (abstract; two deletions)",
+      "published-finding corpus published record 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814 (indexed summary only)",
+      "published-finding corpus published record 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c (indexed summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin provides asymptotic lower bounds and a general model; these do not determine an exact n=7 maximum.",
+        "No 2019 concerns unique-decoding code size 16 at n=7; the fact that 33 > 2*16 supplies a comparison but neither proves existence of a feasible 33-word two-list code nor an upper bound of 33.",
+        "The current package supplies explicit length-seven codewords and an exact 103-node upper-proof tree independently checked under the same incidence constraints."
+      ],
+      "reasoning": "The new implication is that a two-list one-deletion optimum at length seven is 33 and cannot be split into two unique-deletion codes. Existing list-one results provide the 16 benchmark but no list-two optima; general asymptotic list-two theorems do not imply exact cardinality.",
+      "searches": [
+        "arxiv:2609.26650 Theorem 1.1, Defs 2.1-2.2",
+        "arxiv:2609.21395 finite-length list bound, Example 4",
+        "doi:10.3390/e21121202 Sections 2-3",
+        "published-finding corpus: binary deletion hypergraph triple packing independence number 128 vertices 64 subsequences capacity 2 length seven"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin arXiv:2609.26650 Definition 2.1 defines t-list decoding by bounds on the number of source codewords containing each output as a subsequence; Definition 2.2 gives the corresponding forbidden (t+1)-uniform hyperedges.",
+        "The present n=7 certificate proves a maximum independent set of size 33 for that exact k=1,t=2 deletion hypergraph, with 128 vertices and 64 possible outputs."
+      ],
+      "reasoning": "The incidence-matrix packing, independence number of the triples-sharing-an-output hypergraph, and two-list deletion condition are equivalent, and all were searched. No equivalent length-seven optimum appeared in inspected evidence; this is not a claim of comprehensive absence.",
+      "searches": [
+        "published-finding corpus: maximum binary single deletion list size two length six 19 length seven 33",
+        "published-finding corpus: binary deletion hypergraph triple packing independence number 128 vertices 64 subsequences capacity 2 length seven",
+        "web: \"2-list\" \"one deletion\" \"n=7\" codes",
+        "arxiv:2609.26650 Section 2, deletion hypergraph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus result 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814 concerns two deletions and optimum 7 at length six.",
+        "Published published-finding corpus result 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c concerns list-one deletion correction and maximum cardinality 10 at length six.",
+        "Kiah–Wei–Zeng arXiv:2609.21395 Section 3.1 Example 4 gives a length-two capacity-two example, which is acknowledged as prior art."
+      ],
+      "reasoning": "A number or codeword list for a different deletion count or list capacity does not imply this exact capacity-two single-deletion optimum. No covering table with n=7, list=2, one deletion appeared in searched results. The previously known n=2 entry is not claimed novel.",
+      "searches": [
+        "published-finding corpus: exact single deletion binary two-list code optimum n 7 equals 33 and 2 Varshamov Tenengolts classes union 32",
+        "published-finding corpus: Varshamov Tenengolts union of two classes not optimal list decoding single deletion n=7",
+        "web: \"33\" \"two-list\" \"deletion\" length 7 code",
+        "web: binary one deletion list decoding two short blocklength maximum 33"
+      ]
+    },
+    "rationale": "The relevant 2026 publications establish general/asymptotic list-decoding bounds and model equivalences, not the exact n=7 list-two single-deletion optimum 33 or its separation from unions of uniquely decodable codebooks. The 2019 exact n=7 size 16 applies to list size 1 only. Related published-finding corpus records concern two deletions or mixed substitution-deletion constraints, not this claim. Residual risk is an unindexed equivalent finite packing census.",
+    "residual_risks": [
+      "A finite list-two one-deletion table may exist in unindexed or non-English sources.",
+      "Indexed published-finding corpus summaries do not permit whole-document noncoverage assertions; relevant titles with only summary were not taken as fully inspected.",
+      "The numeric finite 33 claim is proved by supplied certificates but independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The model coincides but stated results are asymptotic and do not give the exact n=7 optimum 33.",
+        "evidence": [
+          "Definition 2.1 explicitly bounds number of codewords sharing a length-(n-k) subsequence; Theorem 1.1 gives asymptotic lower bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+        "material_read": "arXiv accessible full HTML, introduction, Definitions 2.1-2.2, Theorems 1.1 and 1.4, and stated result sections",
+        "method": "Direct primary-source HTML reading and finite-parameter claim comparison",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Same deletion-list model with t=2 and k=1"
+      },
+      {
+        "assessment": "n=2 example already covers that initial entry; the presented bounds/tables do not state the n=7 optimum or nondecomposable two-list gain.",
+        "evidence": [
+          "Example 4 discusses n=2 code {00,01,11}; Table 2 concerns asymptotic achievable rates at fixed deletion fractions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.21395",
+        "material_read": "Accessible full-text HTML; introductory model, Example 4 for n=2, finite-length converse section, Section 8 comparison tables",
+        "method": "Read primary HTML and compare n=7 exact one-deletion list-two parameters with scope of bounds",
+        "title": "Constant-List Insertion--Deletion Codes: New Bounds and an Improvement of Levenshtein's Lower Bound",
+        "trigger": "Recent constant-list deletion bounds and possible finite-table dominance"
+      },
+      {
+        "assessment": "Establishes previous size-16 unique single-deletion benchmark at n=7; the optimization has output incidence capacity one, not two.",
+        "evidence": [
+          "Abstract establishes VT optimum for n<=10; Section 3 MILP constraints use right-hand side 1 for each output."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/e21121202",
+        "material_read": "Open-access article abstract, introduction, hypergraph and MILP formulations, and stated results",
+        "method": "Direct primary article HTML reading, with emphasis on parameter t=1 versus t=2",
+        "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+        "trigger": "Possible exact short-blocklength table and known n=7 unique-decoding optimum"
+      },
+      {
+        "assessment": "Two deletions instead of one; its size seven neither proves nor bounds the one-deletion size-33 result. Full content was not used for a NOT_COVERING inference.",
+        "evidence": [
+          "Indexed title and summary specify n=6 and two deletions with list size two."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "material_read": "published-finding corpus indexed published title and abstract only; not complete underlying paper",
+        "method": "Semantic published-finding corpus search and exact claims/parameter comparison",
+        "title": "Exact length-six binary two-list two-deletion code size (published published-finding corpus record)",
+        "trigger": "Closest indexed published claim by list size and finite blocklength"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8e45da1-96c6-4a56-88d5-bc2a5506ea90",
+  "value": {
+    "rationale": "The length-7 optimum 33 exceeds the 32 codewords available from any union of two binary unique single-deletion correcting codes, as each has size at most 16 (No 2019). This demonstrates non-decomposable list-decoding gain at the first such length in the complete n=2..7 profile; the exact finite optimum is a natural benchmark with portable rational proofs. The known unique-decoding size-16 benchmark is independently certified by a supporting 25-node proof tree.",
+    "status": "PASS"
+  }
+}
