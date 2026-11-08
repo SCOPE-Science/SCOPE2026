@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verification/check.py` from the package root. The standard-library program uses rational arithmetic for all comparison constants, directly checks row/column sums and square counts of the explicit extremizers in all 576 dimension pairs from 2 through 25, and checks the projected-coordinate norm identity. It additionally performs a complete ternary search in size 3 by 3; this is **not** a complete search over every real matrix in the cube section.
+# Independent mathematical audit
 
-Expected output: `VERIFY_OK witness_and_projection_checks=4033 exhaustive_ternary_3x3_maximum=6`.
+## correctness
 
-The unbounded-dimensional conclusion depends on the invariant-quadratic-form and odd-length zero-sum cube-section proofs in `RESULT.md`, not on finite enumeration. No external mathematical review was performed.
+PASS
+
+Averaging an arbitrary feasible Hilbert quadratic comparison over S_n×S_m preserves both bounding inequalities; on the zero-margin matrix tensor H_n⊗H_m all invariant bilinear forms reduce to a scalar multiple of Frobenius, so no tilted ellipsoid improves the distance. Orthogonal row/column demeaning gives projected E_ij squared norm κ=(n−1)(m−1)/(nm), exactly the maximal infinity norm on Frobenius unit sphere. The maximum Frobenius² under |a_ij|<=1 is ≤ each row/column zero-sum cube parity bound, giving M case-by-case; explicit all-even checkerboards, an odd zero row/column, and odd-odd circulant plus opposite paired columns attain each bound. Therefore squared distance κM. Independently checked rational margins and energies on n,m=2..14 for all parity cases, corroborating all-dimensional proof.
+
+## originality
+
+PASS
+
+Available one-index real parity and general BM estimates do not mechanically yield two-index optimum; primary full text materially inspected where particularly relevant, with remaining classical tensor geometry risk.
+
+## value
+
+PASS
+
+Two-index zero-margin cube sections form the natural pure interaction/flow-circulation component of a rectangular factorial grid. The full parity-by-parity sharp Hilbert distortion and proof of global Frobenius optimality quantify a structural obstruction to simultaneously saturating capacities, extending an adjacent one-index zero-sum hyperplane calculation rather than repeating it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
