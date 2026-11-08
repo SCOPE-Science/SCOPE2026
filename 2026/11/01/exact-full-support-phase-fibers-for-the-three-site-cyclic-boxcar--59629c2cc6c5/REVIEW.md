@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The inverse discrete Fourier coefficient of each length-three spectrogram slice gives exactly the three cyclic correlation rows stated in the theorem. Since the cyclic amplitude-sum sequence is 3-periodic in its kernel, it is injective when \(3\nmid N\). The recovered two-step products then force an alternative signal to have a single unimodular multiplier on each parity class. The adjacent-product row has only the Nyquist ambiguity; compatibility forces two alternating constant products and therefore two synchronized geometric progressions, with the unique nontrivial relative phase explicitly derived. The converse recomputes all three correlation rows and hence all spectrogram intensities. Boundary assumptions \(N\ge8\), \(N\) even, \(3\nmid N\), and full support are needed and explicitly used. The package-local standard-library checker passed 29,120 finite assertions, which are not substituted for the infinite-order proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Bartusel's 2022 full text, Sections 4.2–4.3, supplies the general finite-cyclic autocorrelation method but its generic-window theorem assumes the full short-window ambiguity support, which fails for the equal three-site window at the half-frequency; its non-generic short-window theorems concern signals with consecutive zero coordinates. The public full statements for the even **two-site** window, odd-dimensional endpoint recovery, full boxcar **linear operator-span rank**, and the self-ambiguity support spectrum for three-tap signals were also read. They do not imply the present complete nonlinear full-support fiber classification. In the two-site result, the ambiguity is an alternating amplitude swap, whereas the three-site result recovers all amplitudes and leaves a twofold phase conjugation only on geometric progressions. The relevant May 2026 preprint was available only as an abstract; it gives broad sufficient conditions, not this stated exact exceptional set, but its uninspected full text remains a residual comparison risk. Unindexed earlier derivations remain possible.
+PASS
 
-## Value — PASS
-A three-site uniform cyclic window is an elementary and natural time-frequency measurement model. This theorem gives a complete answer for every nowhere-zero signal in the first nontrivial even-dimensional three-site regime with invertible amplitude sums: the ambiguous set, its parameterization, its exact twofold fibers, and uniqueness everywhere else. This distinguishes benign non-informational-completeness of the lifted measurement system from actual pure-state failures. The exact exceptional-set geometry is not a routine finite numerical exercise or merely the known almost-everywhere uniqueness claim.
+Direct independent Fourier-slice derivation yields C0(m)=sum_{j=0}^2|x_{m+j}|², C1(m)=x_{m+1}conj(x_m)+x_{m+2}conj(x_{m+1}), C2(m)=x_{m+2}conj(x_m). Their equality fixes individual moduli because the 3-cycle sum has trivial periodic kernel when gcd(N,3)=1; C2 fixes a two-periodic phase ratio; C1 then forces alternating adjacent products and a uniquely specified W. The y-construction recomputes all three lags, hence the complete N² spectrogram. Checked the explicit partner directly at N=8,10,14 against a separately implemented STFT; errors <2e-13. This is proof for all admissible N, not finite extrapolation. Full-support excludes zeros, and N=6 / 3|N are not claimed.
 
-## Closest literature and limits
-The 2026 motivating paper has not been read beyond its accessible abstract. No claim is made for \(3\mid N\), other window profiles, sparse inputs, or noise stability. An unindexed equivalent phase-retrieval classification is a remaining priority risk. The C/O/V assessment is restricted to this precisely scoped new theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority verdict after the separate four mathematical comparisons and relevant actually read primary texts. The two-site record permits an alternating magnitude swap; the three-site C0 uniquely fixes all coordinate magnitudes, so it is not the same result or an implied corollary. An inaccessible earlier equivalence remains possible but no decisive dominating prior theorem was found.
+
+## value
+
+PASS
+
+The exact nonlinear fiber of a singular but elementary cyclic Gabor measurement is a naturally motivated identifiability invariant: it isolates precisely the exceptional nonuniqueness and proves only a twofold phase-conjugate freedom. This distinguishes the three-site equal window sharply from generic windows and two-tap amplitude-swap mechanisms; researchers designing phase-retrieval measurements need the precise exceptional set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

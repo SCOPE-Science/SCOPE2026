@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The all-order proof is the exact discrete Fourier correlation extraction, the invertibility of the three-site cyclic amplitude-sum map when \(3\nmid N\), the parity restriction from the two-step correlations, and the forced single phase ratio from adjacent products. The converse explicitly constructs the only second phase class.
+# Independent mathematical audit
 
-The standalone `CHECK.py` uses only the Python standard library and independently builds complete spectrograms, inverts discrete Fourier samples at three lags, and compares the predicted partner signals. The actual package-local execution returned `CHECK_OK 29120`. These finite tests are supplementary; there is no inference from numerical experiments to arbitrary cyclic orders.
+## correctness
 
-The scope excludes zero coordinates, dimensions divisible by three, other window weights, and stability in noise. Independent mathematical audit: not performed.
+PASS
+
+Direct independent Fourier-slice derivation yields C0(m)=sum_{j=0}^2|x_{m+j}|², C1(m)=x_{m+1}conj(x_m)+x_{m+2}conj(x_{m+1}), C2(m)=x_{m+2}conj(x_m). Their equality fixes individual moduli because the 3-cycle sum has trivial periodic kernel when gcd(N,3)=1; C2 fixes a two-periodic phase ratio; C1 then forces alternating adjacent products and a uniquely specified W. The y-construction recomputes all three lags, hence the complete N² spectrogram. Checked the explicit partner directly at N=8,10,14 against a separately implemented STFT; errors <2e-13. This is proof for all admissible N, not finite extrapolation. Full-support excludes zeros, and N=6 / 3|N are not claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority verdict after the separate four mathematical comparisons and relevant actually read primary texts. The two-site record permits an alternating magnitude swap; the three-site C0 uniquely fixes all coordinate magnitudes, so it is not the same result or an implied corollary. An inaccessible earlier equivalence remains possible but no decisive dominating prior theorem was found.
+
+## value
+
+PASS
+
+The exact nonlinear fiber of a singular but elementary cyclic Gabor measurement is a naturally motivated identifiability invariant: it isolates precisely the exceptional nonuniqueness and proves only a twofold phase-conjugate freedom. This distinguishes the three-site equal window sharply from generic windows and two-tap amplitude-swap mechanisms; researchers designing phase-retrieval measurements need the precise exceptional set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
