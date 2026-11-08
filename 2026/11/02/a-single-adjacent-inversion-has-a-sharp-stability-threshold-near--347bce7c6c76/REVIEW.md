@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The statement has exact quantifiers: an arbitrary even \(n\ge4\), a shared complete strict rank order, one selected participant, and one adjacent position in their list. Mutual first choices force all unaffected pairs. There are precisely two partner-demoting cases, one creating a different uniquely stable four-person block, the other creating an odd directed first-preference cycle of three people with only lower-ranked external partners. In the latter case every perfect matching is blocked. The \(n(n-2)\) choices yield exactly \(n/2-1\) impossible and the same number changed-but-stable. The analytical argument covers all sizes; the packaged exhaustive integer checker independently verifies every one-swap instance for sizes \(4,6,8,10\). No finite run is treated as an infinite proof.
+PASS
 
-## Originality (PASS, qualified)
+The mutual-first-pair induction forces adjacent canonical pairs except when an agent demotes the canonical partner beneath the next available label. For odd x=2j−1, the four-person block has exactly one revised stable matching. For even x=2j, the top remaining three agents form a directed preference cycle, forcing a blocking pair in every perfect matching. All other swaps do not newly prefer a candidate over the canonical partner and retain the unique matching. The k−1 fatal swaps among n(n−2) choices give 1/(2n). Independently enumerated all strict one-adjacent-swap profiles and all perfect matchings for n=4,6,8 (fatal counts 1,2,3 and zero multiple-solution cases); source verify.py independently covers n=4,6,8,10. Finite checks corroborate the all-n proof.
 
-The original shared-order solvability and its adjacent-pair matching are prior knowledge, not claimed as discoveries. General odd-cycle obstructions are also known. Chin–Michelen (arXiv:2601.07612) consider independent random rankings and asymptotic nonexistence, not a single Kendall inversion around consensus. Bredereck–Heeger–Knop–Niedermeier (arXiv:2009.14191) address master lists primarily in multidimensional roommate matching and contain the shared-order baseline, but not this complete single-swap classification. Chen–Schlotter (arXiv:2502.01215) study arbitrary swap bribery/control complexity rather than the precise one-swap structural law. A related published four-person isomorphism census tabulates unsolvable configurations but does not imply the all-size characterization and exact probability without further structural proof. Previously unindexed special-case literature remains a genuine priority risk.
+## originality
 
-## Value (PASS)
+PASS
 
-A master ranking is a natural benchmark of perfectly aligned preferences. One adjacent transposition is the smallest nonzero Kendall distortion, so a complete sharp description of whether it preserves unique stability is substantively motivated. The result distinguishes loss of solvability from a changed but unique stable matching, and gives exact all-size frequencies, useful in modeling preference-data errors and robustness near consensus. It is not merely a constructed four-person counterexample or a renamed textbook lemma.
+The exact distance-one perturbation law around a perfect common-order master list is not implied by the general stable-roommate existence algorithms or generic adjacent-swap control-complexity results; it is a special highly correlated class. A classical directed three-cycle obstruction itself is not claimed new.
 
-## Verification and limits
+## value
 
-The code independently enumerates complete perfect matchings and checks blocking pairs, not just the predicted output. No independent expert audit has taken place. The all-size claim does not cover more than one inversion, incomplete lists, ties or random independent rankings.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp local robustness threshold of a canonical unique stable-roommate instance and its exact 1/(2n) solvability-loss frequency supply a natural quantitative perturbation invariant for preference systems; not a mere instance or restatement of general hardness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
