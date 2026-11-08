@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For sample size n-1 the hypergeometric count takes j-1,j with probabilities p=j/n,q. The binomial comparator has equal mass at those two points b=binom(n,j)p^j q^(n-j), so D_n(j)=-log(b)-h(p) exactly. Uniform Stirling away from p=0,1 yields F_n=0.5 log(2 pi n)+G(p)+A(p)/n+O(n^-3), G=0.5log(pq)-h(p), A=(1/p+1/q-1)/12. Endpoint exclusion plus unique maximizer G(1/2) localizes all integer argmax. At p=1/2+delta, G-G0=-(8/3)delta^4+..., A-A0=(4/3)delta²+..., giving δ=O(n^-1/2) and rescaled f(x)=4x²/3-8x⁴/3 with maxima x=±1/2, gain 1/6. Direct high-precision enumerations at n=100,400,1600 verify displacement and gain trends; no finite-n uniqueness claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The main cited upper-bound comparisons require sampling fraction k/n≤1/2 or fixed interior fractions; here k=n-1 and maximizing j is within sqrt(n) of half."
+        ],
+        "reasoning": "General hypergeometric KL inequalities may bound size, not force the particular quartic asymptotic optimizer; no proof of prior noncoverage of all general lemmas.",
+        "searches": [
+          "arXiv:2404.06632 relative entropy bounds sampling with without replacement",
+          "Harremoës Matúš arXiv:2002.03002"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.06632 full HTML",
+        "arXiv:2002.03002 abstract/summary",
+        "Resultary query: hypergeometric binomial relative entropy sample n minus 1 urn maximizer square-root unbalanced binary composition",
+        "Frozen RESULT.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assignment samples n-1 balls, beyond k≤n/2 in the named theorem. Fixed-fraction limit bounds do not have the uniform quartic saddlepoint needed when k/n→1."
+        ],
+        "reasoning": "Neither stated result directly implies x=±1/2 and 1/6; note possible implicit derivations from known Stirling expansions.",
+        "searches": [
+          "arXiv:2404.06632 theorem hypotheses for k≤n/2",
+          "arXiv:2002.03002 fixed-fraction hypergeometric KL bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count-law KL is a special k=n-1 case of hypergeometric-to-binomial relative entropy. Formula simplifies to binomial point-mass surprisal minus Bernoulli entropy."
+        ],
+        "reasoning": "Earlier generic KL bounds do not automatically identify maximizing j or n^-2 advantage over balanced j at this near-census endpoint.",
+        "searches": [
+          "hypergeometric binomial relative entropy sample n minus 1 urn maximizer square-root unbalanced binary composition",
+          "near census hypergeometric binomial KL missing one ball",
+          "Johnson Gavalakis Kontoyiannis arXiv:2404.06632"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same exact table of argmax j or 1/6 asymptotic gain among inspected published Resultary hits; finite witness D4(1)-D4(2)=log(256/243)/4 is exact."
+        ],
+        "reasoning": "This is an asymptotic optimization, not a lookup of known hypergeometric tables. Search nonhits cannot establish absolute novelty.",
+        "searches": [
+          "Resultary semantic search: hypergeometric binomial relative entropy sample n minus 1 urn maximizer square-root unbalanced binary composition",
+          "binomial mass at its own mean relative entropy optimization n-1 sample"
+        ]
+      },
+      "rationale": "Comparison literature develops KL inequalities and fixed-fraction hypergeometric/binomial divergence, but the sample size here is n-1 and the target is maximizing composition with a square-root imbalance. Checked relevant primary Johnson–Gavalakis–Kontoyiannis full HTML; no direct implication of this near-census exact extremum from quoted existing theorems. Priority risk for unnoticed saddlepoint tables remains.",
+      "residual_risks": [
+        "Broad sharp Stirling approximations could contain an equivalent argmax calculation as an unstated corollary.",
+        "Endpoint exclusion and uniform remainder are essential; finite numerical optimization alone proves no limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main reported k≤n/2 and fixed-fraction comparisons do not cover k=n-1 composition optimizer directly.",
+          "evidence": [
+            "Same KL model but different sampling fraction and optimization statement."
+          ],
+          "identifier_or_url": "arXiv:2404.06632; doi:10.1017/jpr.2025.27",
+          "material_read": "Accessible full arXiv HTML through theorem hypotheses, composition bounds and asymptotic discussion",
+          "method": "Primary HTML comparison of sample size and optimization objective",
+          "title": "Relative entropy bounds for sampling with and without replacement",
+          "trigger": "Closest same count-law KL problem"
+        },
+        {
+          "assessment": "Priority unresolved for a possible general bound implication, but no decisive coverage evidence found.",
+          "evidence": [
+            "Studies finite sample divergence and fixed-fraction asymptotics."
+          ],
+          "identifier_or_url": "arXiv:2002.03002; doi:10.14736/kyb-2020-6-1111",
+          "material_read": "Accessible abstract, bibliographic theorem summary and published bounds overview; not full article",
+          "method": "Publisher/arXiv abstract review",
+          "title": "Bounds on the information divergence for hypergeometric distributions",
+          "trigger": "Potential stronger hypergeometric relative-entropy bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extremal composition of a canonical information divergence is unexpectedly not balanced; the degenerate quartic saddle plus 1/n correction produces an exact universal square-root displacement and second-order gain. A natural exact near-census invariant useful for finite population comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Broad sharp Stirling approximations could contain an equivalent argmax calculation as an unstated corollary.",
+    "Endpoint exclusion and uniform remainder are essential; finite numerical optimization alone proves no limit.",
+    "Only the frozen assigned source-tree package was assessed; no repository edits, external expert attestation or Lean certification are claimed.",
+    "All finite computations are diagnostic; analytical arguments support all limiting conclusions."
+  ],
+  "schema_version": 1
+}

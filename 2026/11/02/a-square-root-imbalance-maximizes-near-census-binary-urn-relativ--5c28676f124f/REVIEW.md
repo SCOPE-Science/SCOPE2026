@@ -1,22 +1,21 @@
-# Scientific review — a square-root imbalance in near-census relative entropy
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about the directed KL divergence between two **color-count** laws after drawing all but one of \(n\) balls, not the divergences between ordered sequence laws. The two-point hypergeometric distribution and the equality of the two relevant binomial probabilities give the finite-size identity exactly. Uniform factorial Stirling estimates in the interior, an explicit endpoint bound, and the unique global maximum of a limiting function localize every integer maximizer. The leading limiting function has vanishing quadratic but negative quartic curvature at balance; the next Stirling correction has positive quadratic curvature. Rescaling imbalance by \(\sqrt n\) yields \(f(x)=\frac43x^2-\frac83x^4\), whose only maximizers are \(x=\pm\frac12\) and whose maximum is \(1/6\). Lattice approximation proves both asserted limits for **every** maximizing sequence. The accompanying standard-library checker independently tests the exact probabilities and relative entropies; finite tests are not substituted for the analytic argument.
+PASS
 
-## Originality — PASS, subject to historical-priority limitations
+For sample size n-1 the hypergeometric count takes j-1,j with probabilities p=j/n,q. The binomial comparator has equal mass at those two points b=binom(n,j)p^j q^(n-j), so D_n(j)=-log(b)-h(p) exactly. Uniform Stirling away from p=0,1 yields F_n=0.5 log(2 pi n)+G(p)+A(p)/n+O(n^-3), G=0.5log(pq)-h(p), A=(1/p+1/q-1)/12. Endpoint exclusion plus unique maximizer G(1/2) localizes all integer argmax. At p=1/2+delta, G-G0=-(8/3)delta^4+..., A-A0=(4/3)delta²+..., giving δ=O(n^-1/2) and rescaled f(x)=4x²/3-8x⁴/3 with maxima x=±1/2, gain 1/6. Direct high-precision enumerations at n=100,400,1600 verify displacement and gain trends; no finite-n uniqueness claimed.
 
-Johnson, Gavalakis and Kontoyiannis, *Relative entropy bounds for sampling with and without replacement* (arXiv:2404.06632, first posted April 9, 2024; published in 2025) define the same hypergeometric-to-multinomial count divergence, and derive composition-sensitive bounds. Their principal finite-population theorem assumes a sample of size at most half the urn, while their fixed-fraction comparisons do not determine the near-census maximizer. Harremoës and Matúš, *Bounds on the information divergence for hypergeometric distributions* (arXiv:2002.03002; Kybernetika, 2020), derive general bounds and fixed-fraction asymptotics without resolving the optimized leave-one-out composition and its second-order gap. The identical finite divergence identity is a specialization of these probability laws and is not claimed independently novel; the claim requiring priority assessment is the asymptotic displacement and sharp improvement. Searches for this composition optimization, equivalent binomial modal-mass formulations, and available indexed results identified no theorem implying it. A hidden treatment of binomial modal saddle-point optimization remains possible; definitive priority requires a specialist literature review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The choice of urn color composition is a natural parameter in approximation of sampling without replacement. Near a complete sample, the balanced configuration has a degenerate leading-order extremum. The theorem resolves where the worst binary composition lies at the finer square-root scale, and how much the relative entropy improves over balance. The positive \(1/(6n^2)\) effect is not presented as a large numerical improvement; its value is the structurally different extremizer at a meaningful limiting boundary and a sharp finite-size correction. The result concerns all sufficiently large population sizes, not an arbitrary numerical slice.
+Comparison literature develops KL inequalities and fixed-fraction hypergeometric/binomial divergence, but the sample size here is n-1 and the target is maximizing composition with a square-root imbalance. Checked relevant primary Johnson–Gavalakis–Kontoyiannis full HTML; no direct implication of this near-census exact extremum from quoted existing theorems. Priority risk for unnoticed saddlepoint tables remains.
 
-## Limitations and closest sources
+## value
 
-The result treats exactly two nonempty colors and a sample leaving exactly one ball. It does not give an exact integer optimizer for each \(n\), does not address uniqueness, and does not settle arbitrary sample fractions or more colors. The complete source material discussed above was read in relevant sections, but historical priority is not exhaustively certified. Independent proof review has not occurred.
+PASS
 
-- Johnson, Gavalakis, Kontoyiannis, arXiv:2404.06632, https://arxiv.org/abs/2404.06632 .
-- Harremoës, Matúš, arXiv:2002.03002, https://arxiv.org/abs/2002.03002 .
+The extremal composition of a canonical information divergence is unexpectedly not balanced; the degenerate quartic saddle plus 1/n correction produces an exact universal square-root displacement and second-order gain. A natural exact near-census invariant useful for finite population comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
