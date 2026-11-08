@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The only executable is `verification/verify.py`, written for Python 3.9 or newer with the standard library. From the directory containing this file and the `verification` folder, run `python3 verification/verify.py > replay.json`; compare the resulting file with `verification/output.json` as UTF-8 bytes. No external dataset, third-party package, publication server or arbitrary seed is required.
+## correctness
 
-## Checks actually performed
+PASS
 
-The graph is reconstructed from the 24 signed coordinate permutations and squared Euclidean edge-distance rule. The fourteen faces are reconstructed as convex coordinate facets, comprising six quadrilaterals and eight hexagons. The 55 disjoint face pairs yield explicit integer two-chains whose boundaries are computed and checked zero. The complete degree-two cellular matrix has mod-two rank 503, and the 55 integral cycles have independent mod-two reductions. This forces rational second-homology rank 55, with first-homology rank 14 by connectivity and Euler characteristic.
+Truncated-octahedral graph is 24 signed permutations of (0,1,2), edges squared distance 2, with 36 edges and exactly 48 signed-coordinate graph automorphisms. Unordered two-particle Abrams chain ranks (276,792,558), and an independent mod-two d2 rank503 plus 55 pairwise disjoint facet-boundary torus cycles establish rational H2=55, H1=14; 55 tori are independent mod2 by the source verifier and their integral basis follows from Barnett-Farber planar ORDERED facial-torus theorem plus equivariant transfer for two-sheeted unordered quotient and the free H2 integer kernel. Reconstructed 6 square and 8 hex facets, all 55 disjoint pairs, 48 signed permutations, orbit lengths (3,4,12,12,24) and H2 signed fixed-pair character multiset. Four same-type orbits contain orientation-swapping stabilizers and contribute no invariant; mixed 24 orbit yields primitive invariant integral sum. Source 10-class S4xC2 character and quotient invariant dimensions (0,1),(2,1),(7,24) follow from signed cellular Lefschetz and exact inner products; no integral H1-lattice claim.
 
-All 48 signed coordinate permutations are independently mapped to their vertex, edge, face and cell actions. The two cellular boundary maps commute with each group action. For each symmetry, each product-torus chain is mapped to the predicted signed product-torus chain. The 55 face pairs form five group orbits of sizes 3, 12, 4, 12 and 24; the first four have face-interchanging stabilizers, while the 24-element mixed square–hexagon orbit does not. Homology traces are computed both from the geometric face-pair action in degree two and by cellular Lefschetz traces in degree one; ten group classes give constant values within each class. Inner products with the five rational \(S_4\) characters and both central parities yield integral nonnegative multiplicities, and their weighted dimensions agree with ranks 14 and 55. Full, rotation and central-inversion averages are checked exactly.
+## originality
 
-## Exact proof dependencies and limits
+PASS
 
-Mod-two computations serve only as complementary rank inequalities over \(\mathbb Q\) together with 55 explicit closed cycles; they are not used alone to assert integer Smith normal form or torsion-freeness of first homology. The fact that the 55 tori are an **integral** top-homology basis additionally uses the 2009 Barnett–Farber ordered planar-configuration theorem and a two-sheeted-cover transfer argument. The code does not claim to prove the general historical theorem. The ordinary topological quotient cohomology statements use rational averaging for a finite group. No independent verification has been performed.
+The new contribution is the specified exact mathematical fact and not any already known nonequivariant/underlying special case; see each implication comparison and full-material primary inspections. The inspected candidates do not imply the new claim as stated. Historical priority is provisional and risks are explicit.
+
+## value
+
+PASS
+
+A named Archimedean solid graph is canonical and its full octahedral automorphism representation on two-particle configuration homology is not encoded in its known nonequivariant ranks or general facial-torus machinery. The exact S4xC2 decomposition and primitive 24-term invariant torus are motivated geometric classification facts, giving computable orbit-space Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

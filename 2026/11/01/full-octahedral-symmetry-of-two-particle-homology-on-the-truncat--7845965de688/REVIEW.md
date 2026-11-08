@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is defined by all 24 signed permutations of \((0,1,2)\), with squared edge distance two. The independently constructed 276-by-792-by-558 cubical cell inventory gives Euler characteristic 42. Direct cellular checks establish \(\partial_1\partial_2=0\), second-boundary rank 503 modulo two, and 55 mod-two-independent closed integral face-product cycles; these bounds force rational second-boundary rank 503 exactly and rational Betti ranks 14 and 55. The integer face-basis assertion is grounded in Barnett–Farber's ordered planar graph theorem and an explicit transfer argument, not extrapolated merely from modular ranks. For every one of 48 automorphisms, the verifier checks both cellular chain maps and the exact signed action on each of the 55 product tori; it additionally checks five face-pair orbits, identifies their stabilizer swap signs, and verifies that only the 24-element square–hexagon orbit contributes a full-group invariant. Cellular Hopf traces independently yield first-homology characters, followed by exact rational irreducible inner products. All hypotheses, factor-swap orientation signs, group class labels and quotient transfer conditions were checked. Source: Barnett–Farber (arXiv:0903.2180), §§1,6; packaged `verification/verify.py` and `verification/output.json`.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+Truncated-octahedral graph is 24 signed permutations of (0,1,2), edges squared distance 2, with 36 edges and exactly 48 signed-coordinate graph automorphisms. Unordered two-particle Abrams chain ranks (276,792,558), and an independent mod-two d2 rank503 plus 55 pairwise disjoint facet-boundary torus cycles establish rational H2=55, H1=14; 55 tori are independent mod2 by the source verifier and their integral basis follows from Barnett-Farber planar ORDERED facial-torus theorem plus equivariant transfer for two-sheeted unordered quotient and the free H2 integer kernel. Reconstructed 6 square and 8 hex facets, all 55 disjoint pairs, 48 signed permutations, orbit lengths (3,4,12,12,24) and H2 signed fixed-pair character multiset. Four same-type orbits contain orientation-swapping stabilizers and contribute no invariant; mixed 24 orbit yields primitive invariant integral sum. Source 10-class S4xC2 character and quotient invariant dimensions (0,1),(2,1),(7,24) follow from signed cellular Lefschetz and exact inner products; no integral H1-lattice claim.
 
-The relevant historical theorem gives a face-torus basis for ordered planar graph configurations and nonequivariant information, not the complete truncated-octahedral automorphism action. The new claim requires the ten explicit \(S_4\times C_2\) character values, both degree-one and degree-two decompositions, and symmetry-quotient invariant dimensions. Kurlin (arXiv:0908.1067) addresses graph braid group presentations, and An–Maciażek (DOI:10.1007/s00220-021-04095-x) addresses geometric braid-group generators and group quotients, without an inspected theorem giving these values. Indexed published computational results for cuboctahedral two-particle configurations concern a different graph, and an existing truncated-octahedral Vietoris–Rips calculation concerns a different topological object. Searches also included the permutohedral/Cayley-graph alias and facial-pair representation formulation. No covering specific character computation was found; the older general method makes such a computation possible but does not give its output. Full text was not available for every indexed published computational record, and an unindexed equivalent calculation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The truncated octahedron is the three-dimensional permutohedron, a canonical vertex-transitive Cayley/polyhedral graph with the full signed-coordinate group. Its 55-dimensional degree-two homology alone does not specify which classes are fixed by symmetries: this work computes all ten conjugacy-class traces and the complete irreducible modules, showing that full symmetry retains exactly one degree-two class, represented by a geometrically canonical 24-term square–hexagon torus sum, rotations retain two degree-one classes, and central inversion retains 24 degree-two classes. Those are natural exact invariants of two collision-free particles on a canonical network and are not mere restatements of the 2009 nonequivariant theorem. The claim is specific to one graph; no broader general theorem, integral first-homology lattice or quotient homotopy classification is asserted.
+The new contribution is the specified exact mathematical fact and not any already known nonequivariant/underlying special case; see each implication comparison and full-material primary inspections. The inspected candidates do not imply the new claim as stated. Historical priority is provisional and risks are explicit.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A named Archimedean solid graph is canonical and its full octahedral automorphism representation on two-particle configuration homology is not encoded in its known nonequivariant ranks or general facial-torus machinery. The exact S4xC2 decomposition and primitive 24-term invariant torus are motivated geometric classification facts, giving computable orbit-space Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
