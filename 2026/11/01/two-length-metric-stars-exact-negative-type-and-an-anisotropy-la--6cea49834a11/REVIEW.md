@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(m,n\ge2\) and every positive length pair \(a,b\), the leaf-mean and internal-fluctuation decomposition gives identity (3) in `RESULT.md`. The two fluctuation blocks are strictly negative; the sole remaining radial block has determinant (4). The normalized cross term is strictly increasing in exponent above \(1\), while both diagonal factors decrease to their first zeros, proving existence and uniqueness of the threshold and precise sign changes. Strict \(1\)-negative type holds by an exact edge-cut identity; the standard downward-inheritance result extends strictness to smaller exponents. The critical block has nullity exactly one. The length-ratio monotonicity is proved independently using the strict concavity of the log-hyperbolic-sine function, and the limit uses a fixed-exponent asymptotic with exponent below \(2\). Gram ranks follow from the centered quadratic form. Exact rational and independent eigensolver tests on the package verifier corroborate, but cannot establish, infinite-parameter claims.
+PASS
 
-## Originality — PASS, qualified
+Independently rebuilt the zero-sum powered-distance quadratic form on the hub, two leaf-population means and within-class zero-mean fluctuations. Two strictly negative fluctuation sectors and the 2x2 mean block M_p yield det(M_p)=mn(ab)^p[F_mF_n-mn Δ_p²]. For 1<p<min(P_m,P_n), F_m,F_n decrease and Δ_p>0 strictly increases (numerator 1-u^p-(1-u)^p grows and denominator falls). The determinant changes from positive at 1 to negative at min P, giving a unique root. Weighted tree strict 1-negative type and strict lower-exponent inheritance cover p<=1; at root nullity one and above it the form fails, giving snowflake ranks m+n and m+n-1. For contrast, log-sinh concavity proves Δ_p(e^s,e^-s) decreases as s grows for 1<p<2, so the root rises to P_max, whereas equal lengths give P_{m+n}. A direct independent full metric distance-matrix and centered Gram calculation verified roots and ranks for (m,n,a,b)=(2,2,1,3),(3,6,1,1),(4,7,0.12,10): roots 1.427217382226, 1.169925001442, 1.184975971877, each endpoint corank1. The proof covers arbitrary finite positive ratio, unlike numeric samples.
 
-Doust and Weston, arXiv:0705.0411 (first posted 2007-05-03), give weighted-tree strict negative-type bounds and evaluate the *equal-length* star exponent in their Theorem 38. This equals the uniform-length endpoint here. Li and Weston, arXiv:0901.0695, give the downward-inheritance theorem, not the present two-length evaluation. Sánchez, arXiv:1108.0451, gives a general distance-matrix method and an explicit **unweighted complete-bipartite** classification, but neither the exact two-length star threshold nor its monotonic contrast law is stated in the inspected text. The numerical and analytic contrast laws are not implied by those evaluated equal-length or unweighted classifications without an additional computation and inequality.
+## originality
 
-The relevant mathematical research-record searches and accessible earlier claim statements did not identify the same claim. A record about bounded-Lipschitz Dudley norms on equiradial stars concerns a different functional; a spider-tree curvature-distortion calculation concerns a different invariant; the earlier balanced double-star finding concerns two adjacent hubs with unit lengths, not a single hub with unequal arm lengths. A later full-text comparison with Doust and Weston, arXiv:2404.06684, also distinguishes their weighted-Hamming-cube strict \(1\)-negative-type equivalences and four-point-star illustration from the present all-exponent two-length-star evaluation. A 1990 metric-transform article by Deza and Maehara may contain related general embedding techniques, but its full text could not be inspected; bibliographic uniqueness is not certified.
+PASS
 
-## Mathematical value — PASS
+Doust–Weston proves the metric-tree negative-type theorem and explicitly evaluates the equal-arm star; Li–Weston proves exponent inheritance; Sánchez provides a general matrix criterion and unweighted complete-bipartite examples. None of the inspected primary statements evaluates the two-length star root or proves strict monotonicity under fixed-count arm contrast. The 1990 Deza–Maehara metric transform paper remains a primary full-text access risk, not an automatic rejection.
 
-The parameter family is the first natural heterogeneous refinement of the classical uniform star appearing in enhanced negative-type theory. It admits a **complete** real-exponent classification, a one-dimensional critical equality-space description, and a genuine structural anisotropy law: heterogeneity strictly raises the generalized-roundness exponent, despite keeping the underlying tree combinatorics fixed. Swapping the long- and short-arm assignments does not change the exponent even with unequal class sizes. A four-leaf example approaches exponent \(2\) without ever attaining it at finite length ratio. This goes beyond a numerical lookup or an isolated finite case and can inform the stability of Hilbert snowflake embeddings under edge-length perturbations.
+## value
 
-## Risks and limitations
+PASS
 
-Only the stated two-class stars are covered. The limit is not achieved for any positive finite ratio. Source comparison is best knowledge rather than exhaustive: an equivalent result might occur in the inaccessible Deza--Maehara article or other unindexed literature. The supplied verifier does not independently certify the full proof. No independent audit has been performed.
+This is an exact threshold for a natural two-parameter weighted tree family and reveals a counterintuitive anisotropy monotonicity: stretching one class of arms eventually improves negative type, with a nonattained limiting critical exponent. It refines an important equal-arm exemplar into a structural weighted-family law; not a mere substitution into an existing table.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
