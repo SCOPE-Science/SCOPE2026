@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite reproducibility checks
+# Independent mathematical audit
 
-Compile `verify.cpp` with `c++ -std=c++17 -O3 verify.cpp -o verify` and run `./verify`. The program independently enumerates all 0/1/2 singleton assignments at weights \(2n-3\) and \(2n-2\) for \(2\le n\le5\), evaluates row and column neighbourhood constraints, identifies the four sets of missing-colour rows/columns, compares each optimal configuration to the two-bar/disjoint-matching theorem, and checks exact enumerations for every interior size.
+## correctness
 
-Observed minimum placement counts: \(M_2=4\), \(M_3=18\), \(M_4=320\), \(M_5=8450\). The exhaustive scanner reports `EXHAUSTIVE_OPTIMA_OK` for each of four orders and finishes with `CLASSIFICATION_AND_DERANGEMENT_CENSUS_OK n=2..5` and `VERIFY_OK`.
+PASS
 
-The verification enumerates finite cases only. Its execution does not establish the infinite classification, which follows from the written proof; no independent mathematical audit is claimed.
+If a colour occurs in all rows or columns then elementary cover bounds force at least 2n-1 labels; at weight 2n-2 each colour misses at least one row/column. Missing-row/column intersections A×B, C×D force the opposite colour, with A∩C=B∩D=empty. If remaining U,V sizes are u,v, w>=ab+cd+2max(u,v)>=2n-2+|u-v|. Equality gives u=v, ab=a+b-1, cd=c+d-1 and thus the two orientations with bar dimensions (1,s-1,s-1,1) or its complementary orientation; remaining u red and u blue occupied cells form disjoint U-to-V perfect matchings. !u counts the second after choosing the first (u!), and s=2 orientations coincide. Independently computed M_n for n=2..6 as 4,18,320,8450,295272 and brute-checked n=2,3 placements; verified source C++ checker by reading it without treating reported VERIFY_OK as proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.
+
+## value
+
+PASS
+
+The natural exact minimizer classification and enumerator refine the previously known minimum two-colour domination number on a standard graph family, with a genuinely nontrivial derangement structure and meaningful all-n boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
