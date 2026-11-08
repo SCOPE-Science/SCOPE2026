@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:52:19Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Reconstructed actual frozen Git RESULT.md and source-tree byte identities.",
+        "Independent symbolic, quadrature, finite-spectrum, or exhaustive quality checks in scope_worker07_independent_20261105T0841.py; finite checks are not universal proof."
+      ],
+      "rationale": "For a 3-of-4 committee omitting x, a JR-violating unrepresented group must be singleton-x voters, yielding iff condition 3 h_x e_x < n (equality violates). Sort h_a>=h_b>=h_c>=h_d. If omitting d violates, its singleton mass e_d>=n/(3 h_d) while e_d<=n-r, so h_d>=q=n/[3(n-r)]. If omitting c is safe, drop at most (1-q)/3 relative quality; otherwise e_c+e_d<=n-r forces 1/h_c+1/h_d<=1/q, giving h_c>=2q,h_d>=q/(1-q) for q<=1/2. Omitting b is then necessarily safe, and the final bound follows from nonnegative polynomial 2q^3-2q^2+4q-1 for q>=1/3 (value 5/27 and positive derivative). If 3r>=2n, top-three is safe except all-unit tie at equality, when some alternative full-quality omission is safe. Construct r joint top-three voters and n-r singleton-low voters with minimal supplemental approvals to saturate h_d=q and attain (2+q)/3. Independent exact rational exhaustive check of 200,000+ small electorate/grid ballot-quality instances n=2,3 passed, plus analytic boundary-polynomial verification; finite grid does not prove real-quality quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boehmer et al. 2026 Theorem 5.5 gives general >=3/4 reciprocal-JR quality retention and Appendix G a two-seat near-tight example. The claimed 4-candidate/3-seat frontier has lower endpoint approaching 7/9>3/4 and exact n,r dependence."
+        ],
+        "reasoning": "The general 3/4 lower bound is strictly weaker, and the two-seat tight construction cannot imply the three-seat support-density formula.",
+        "searches": [
+          "Resultary: reciprocal justified representation candidate quality committee 3 of 4 minimum approval support retention guarantee",
+          "arxiv:2609.08830 Theorem 5.5 and Appendix G"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob b10455b4cc962fe27d6865bee23b9d30ebccd42b",
+        "arxiv:2609.08830 full primary accessible Sections 2/5/G",
+        "arxiv:2112.05994",
+        "Resultary: reciprocal justified representation candidate quality committee 3 of 4 minimum approval support retention guarantee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original rJR definition and general 3/4 proof do not classify when two different single-candidate omissions are unsafe, nor derive the 3r=2n threshold or the exact sharp witness at every integer (n,r)."
+        ],
+        "reasoning": "The singleton-count and reciprocal-sum inequalities create a new sharp fixed-size conclusion beyond the older general welfare guarantee.",
+        "searches": [
+          "Resultary: reciprocal justified representation candidate quality committee 3 of 4 minimum approval support retention guarantee",
+          "arxiv:2609.08830"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For 3 out of 4, rJR feasibility reduces to deleting one candidate with singleton approval count e_x<n/(3 h_x). The quality optimization is an exact four-choice exclusion problem with minimum candidate supporter count r."
+        ],
+        "reasoning": "This equivalent singleton formulation follows from the specific rJR definition, but the lower-bound sharp frontier and all-r witness still require a two-unsafe-omission case split.",
+        "searches": [
+          "Resultary: reciprocal justified representation candidate quality committee 3 of 4 minimum approval support retention guarantee",
+          "arxiv:2609.08830"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query for rJR three-seat, four-candidate quality retention returned unrelated election rules (IRV, apportionment), not a table for the rJR support-density frontier."
+        ],
+        "reasoning": "This is a parameterized rational quality optimum across all n,r and arbitrary real qualities rather than an existing finite election-profile table.",
+        "searches": [
+          "Resultary: reciprocal justified representation candidate quality committee 3 of 4 minimum approval support retention guarantee",
+          "Resultary: reciprocal justified representation candidate quality committee 3 of 4 minimum approval support retention guarantee"
+        ]
+      },
+      "rationale": "Boehmer–Dong–Kreisel–Utke 2026 establish a general reciprocal JR quality guarantee, tight examples and related two-seat constructions. The primary manuscript Sections 2/5/Appendix G were read: no exact 3-seat 4-candidate n,r support-density frontier identified. The older ordinary-JR welfare-price theorem treats another axiom/objective. The new result is a complete constrained rJR quality frontier, not a claim to invent rJR or its 3/4 guarantee.",
+      "residual_risks": [
+        "Original general rJR paper or subsequent unindexed three-seat corollaries could implicitly contain the same singleton support frontier.",
+        "The special four-candidate, three-seat scope is essential; no conclusion for higher seat counts, rPJR/rEJR or unbounded qualities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRIOR_BASELINE_NO_IDENTIFIED_EXACT_FRONTIER",
+          "evidence": [
+            "Theorem 5.5 states a general 3/4 retention guarantee, Appendix G constructs two-seat near-tight examples; inspected sections do not state the n,r-dependent 3-seat four-candidate formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.08830",
+          "material_read": "Lawful open full primary manuscript accessed through https://pdfs.assets.alphaxiv.org/2609.08830v1.pdf; inspected definitions in Section 2, rJR Theorem 5.5/Proposition 5.6 and detailed Appendix G construction, not every page read.",
+          "method": "Primary full-text PDF theorem and appendix examination",
+          "title": "Approval-Based Multiwinner Voting with Candidate Qualities",
+          "trigger": "Introduces the identical quality-dependent reciprocal JR objective and strongest nearby theorem"
+        },
+        {
+          "assessment": "DIFFERENT_AXIOM_AND_OBJECTIVE",
+          "evidence": [
+            "Standard JR approval welfare is not reciprocal JR quality objective; cannot automatically imply the new ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.05994",
+          "material_read": "Primary abstract and contextual statement of traditional JR welfare/coverage objective; full paper not reread for this run.",
+          "method": "Primary abstract and available literature context",
+          "title": "The Price of Justified Representation",
+          "trigger": "Potential earlier price-of-JR dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp parametric price of the first nontrivial rJR exclusion among four quality-scored candidates, including a support-density phase transition at 3r=2n and exact elections attaining the loss. It substantially strengthens a coarse universal 3/4 retention bound under natural support assumptions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob b10455b4cc962fe27d6865bee23b9d30ebccd42b",
+    "arxiv:2609.08830 full primary accessible Sections 2/5/G",
+    "arxiv:2112.05994",
+    "Resultary: reciprocal justified representation candidate quality committee 3 of 4 minimum approval support retention guarantee"
+  ],
+  "disposition": "passed",
+  "final_claim": "For rJR approval elections with four quality-scored candidates, three seats, and each candidate supported by at least r of n voters, the exact worst retained optimal quality is 2/3+n/[9(n-r)] when 3r<2n and 1 otherwise; all pairs n>=2,1<=r<=n are covered with attained witnesses in first regime.",
+  "residual_risks": [
+    "Original general rJR paper or subsequent unindexed three-seat corollaries could implicitly contain the same singleton support frontier.",
+    "The special four-candidate, three-seat scope is essential; no conclusion for higher seat counts, rPJR/rEJR or unbounded qualities."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Exactly four candidates, three seats, rJR (not rEJR/rPJR), all h in (0,1], minimum support integer r, any finite approval profiles. Real-quality universal result based on proof, not exhaustive finite grid."
+}
