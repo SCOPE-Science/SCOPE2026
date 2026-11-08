@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:56:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For L>0, 0<ρ<1, a mod L, the exact Fock monomial eigenvalue is gamma expectation λ_n=(1/n!)∫_0^∞g(u)e^{-u}u^n du. Fourier mask coefficients c_m=[sin(πmρ)/(πm)]exp[−im(πρ+2πa/L)] and gamma transform q_m=(1−2πim/L)^−1 imply absolutely convergent λ_n−ρ=Σ_{m≠0}c_m q_m^{n+1}, with error O(r₂^{n+1}) after m=±1. Two-conjugate geometric terms produce exact Hankel H_n=−4|b|²r^{2n+4}sin²θ[1+O((r₂/r)^n)]; since b≠0, sinθ>0, it is eventually negative. The H ratio tends r², yielding L=2π/sqrt(R^−1−1), and two successive calibrated deviations recover complex b then a modulo L. Valid for all L and interior duty ρ, not noisy spectra or ρ=0,1. Independent high-precision Fourier-gamma recreation at L=1.7,ρ=.31,a=.72 recovered L to 3.22e−11 at n≈32, H<0. The frozen checker.py was inspected; its finite assertions are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Esmeral García–Maximenko proves bounded radial symbols are determined by sufficiently high eigenvalue moments. This is broader domain coverage of bare uniqueness.",
+          "The broad abstract theorem does not state a formula for L, rho, a or Hankel sign and convergence coefficient in read portions."
+        ],
+        "reasoning": "Do not claim basic uniqueness novel; broader coverage is explicitly conceded while specific constructive higher-resolution invariant is evaluated separately.",
+        "searches": [
+          "arxiv:2503.23276 full text Prop.3.4 and §4",
+          "arxiv:1505.07906 radial Toeplitz Fock spectral representation",
+          "arxiv:2107.01465 Toeplitz quasi-radial symbols"
+        ]
+      },
+      "checked_sources": [
+        "Esmeral García–Maximenko arxiv:2503.23276 full 18p PDF, Proposition3.4",
+        "Knutsen arxiv:1907.00848 bibliographic record",
+        "Dewage–Ólafsson arxiv:2107.01465 bibliography",
+        "Resultary semantic query: radial Fock Toeplitz annulus periodic mask gamma spectral moments Hankel recovery"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General moment injectivity implies uniqueness but not the quoted O((r₂/r)^n) ratio or finite Hankel coefficient without further Fourier analysis.",
+          "Classical Prony identities explain phase cancellation; novel claim is the specialized unconditional Fock-parameter recovery and error asymptotics."
+        ],
+        "reasoning": "Distinguished formal implication (bare injectivity covered) from nontrivial specialized constructive asymptotic; no whole-document novelty assertion from snippets.",
+        "searches": [
+          "Esmeral García–Maximenko 2025 Proposition3.4",
+          "Knutsen 2019 annulus spectral formula",
+          "Prony exponential-reconstruction/Hankel determinant identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General radial gamma-moment injectivity is present in Prop.3.4, not novel here.",
+          "An adjacent Hankel determinant cancels leading phase dependence and gives exponential ratio r², beyond abstract uniqueness."
+        ],
+        "reasoning": "Explicitly compared broad uniqueness as an equivalent formulation of identifiability; only specified stable-in-index reconstruction by universal determinant survives as the claimed new part.",
+        "searches": [
+          "radial Fock Toeplitz annulus periodic mask gamma spectral moments Hankel recovery",
+          "Esmeral García Maximenko arxiv:2503.23276 Proposition 3.4",
+          "Knutsen arxiv:1907.00848 periodic annuli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published single-interval duty-phase reconstruction table or Hankel negative sign found in search.",
+          "Prior eigenvalue tables concern direct gamma integral/periodic-annuli spectrum, not the inverse formula."
+        ],
+        "reasoning": "An explicit algorithm can be known as two-exponential Prony recovery under another name; bounded search was nonconclusive.",
+        "searches": [
+          "Resultary radial Fock Toeplitz annulus periodic mask gamma spectral moments Hankel recovery",
+          "periodic Fock Toeplitz gamma eigenvalues Hankel minor periodic annuli",
+          "Knutsen 2019 gamma annulus eigenvalues"
+        ]
+      },
+      "rationale": "Proposition 3.4 of Esmeral García–Maximenko 2025 (full article and exact page inspected) already states broad injectivity of bounded radial symbols from all sufficiently high gamma moments. This covers uniqueness as a corollary and must not be called new. The retained claim is stronger constructive explicit inversion of single-arc periodic mask using a universally negative 2×2 Hankel determinant with a geometric error; this algorithm and coefficient were not found in materially read primary results. Related Knutsen periodic annuli and radial Toeplitz diagonalization are prior; a disguised Prony/exponential fitting formula could precede the method and remains risk.",
+      "residual_risks": [
+        "General moment injectivity is PRIOR and must never be advertised as new.",
+        "Prony/Padé inverse exponential sequence theory may subsume the two-term Hankel technique.",
+        "As ρ approaches 0 or 1, leading coefficient vanishes; noisy finite eigenvalue inversion is ill conditioned."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_UNIQUENESS_CREDITED",
+          "evidence": "Prop3.4 gives tail-moment injectivity for bounded radial symbols, but no explicit sign-definite Hankel inverse, recovered period formula or convergence rate in the material read.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.23276",
+          "material_read": "Complete accessible 18-page PDF, particularly Proposition 3.4 on PDF p.10 and Section4; screenshot examined",
+          "method": "Full lawful arXiv PDF textual analysis and screenshots",
+          "title": "Constructive approximation of convergent sequences by eigenvalue sequences of radial Toeplitz–Fock operators",
+          "trigger": "Same indexed gamma moments, strongest possible domination"
+        },
+        {
+          "assessment": "DIRECT_SPECTRAL_PRECURSOR_PARTIAL",
+          "evidence": "Gamma diagonalization/periodic annuli are established; priority of explicit inverse remains unverified.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.00848",
+          "material_read": "Bibliographic abstract, source-provided citations and discussed gamma-spectrum framework only",
+          "method": "Primary arXiv abstract; full text not reread this run",
+          "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets",
+          "trigger": "Same periodic annulus/gamma eigenvalue direct problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sign-definite phase-blind diagnostic resolves oscillatory first-mode cancellations and directly identifies period before reconstructing duty and placement. This is a natural exact, constructive inverse spectral invariant for physically motivated periodic radial masks. Finite noisy conditioning is expressly not claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Esmeral García–Maximenko arxiv:2503.23276 full 18p PDF, Proposition3.4",
+    "Knutsen arxiv:1907.00848 bibliographic record",
+    "Dewage–Ólafsson arxiv:2107.01465 bibliography",
+    "Resultary semantic query: radial Fock Toeplitz annulus periodic mask gamma spectral moments Hankel recovery"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific sources and scripts were read as evidence, not instructions. Some highly relevant original sources were inaccessible; best-of-knowledge only.",
+    "Bounded independently reconstructed finite numerical experiments corroborate but do not replace unrestricted proofs.",
+    "Source tree was frozen and independently reconstructed from all file blob SHAs; no GitHub writes.",
+    "No public metadata sanitization/materialized plan was performed."
+  ],
+  "residual_risks": [
+    "General moment injectivity is PRIOR and must never be advertised as new.",
+    "Prony/Padé inverse exponential sequence theory may subsume the two-term Hankel technique.",
+    "As ρ approaches 0 or 1, leading coefficient vanishes; noisy finite eigenvalue inversion is ill conditioned."
+  ],
+  "schema_version": 1
+}

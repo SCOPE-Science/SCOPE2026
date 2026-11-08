@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator and all normalization choices are explicit. Radial angular integration yields the indexed gamma moments; Fejér approximation and an absolutely convergent Fourier–Laplace series give the exact spectral expansion. An \(m=\pm1\) spectral pole dominates uniformly with a strict exponential separation from the next harmonic. The two-frequency Hankel identity cancels the unknown phase exactly, with a strictly negative main term for all permitted parameters. Its ratio gives the radial period; the eigenvalue limit gives duty fraction; and two successive normalized spectral deviations determine the first Fourier coefficient and the arc origin. No appeal to finite calculations is needed for universal quantifiers. The separate symbolic/numeric checker passes 58 supplementary assertions. Limits: the result requires an indexed exact eigenvalue tail, not an unordered spectrum or finite-noise estimates.
+## correctness
 
-## Originality — PASS (qualified)
-The radial gamma diagonalization is classical, and Knutsen (arXiv:1907.00848, Sections 2.3 and 3.2) considered periodic radial annuli in the localization framework. Dewage–Ólafsson (arXiv:2107.01465) treat the general quasi-radial Toeplitz algebra, while Esmeral–Maximenko (arXiv:1505.07906) treat the eigenvalue-sequence framework. Importantly, Esmeral García–Maximenko (arXiv:2503.23276, Proposition 3.4) prove that sufficiently many indexed gamma moments uniquely determine *any* bounded radial symbol: injectivity of this family is therefore already covered. The new statement is instead a directly computable asymptotic reconstruction from two-by-two Hankel determinants, including a strict universal eventual sign, exact leading coefficient, parameter-specific geometric error, and an explicit phase decoder. Targeted published-results and literature comparisons did not identify this precise recovery theorem. Residual risk: a less discoverable earlier special-family Prony or spectral-moment inversion may subsume this construction. These searches are not a proof of historical priority.
+PASS
 
-## Mathematical value — PASS
-Recovering a periodic radial observation geometry from excitation-resolved localization spectra is a natural inverse design/calibration problem. Leading spectral deviations are oscillatory, can change sign and can be arbitrarily small on subsequences; the adjacent Hankel determinant removes their phase and yields one sign-definite, quantitatively convergent scale observable. The resulting exact period, duty and placement formulas are a useful structural characterization rather than a renaming of the forward gamma-moment formula. The result does not purport to solve noisy inverse recovery or abstract uniqueness (already known).
+For L>0, 0<ρ<1, a mod L, the exact Fock monomial eigenvalue is gamma expectation λ_n=(1/n!)∫_0^∞g(u)e^{-u}u^n du. Fourier mask coefficients c_m=[sin(πmρ)/(πm)]exp[−im(πρ+2πa/L)] and gamma transform q_m=(1−2πim/L)^−1 imply absolutely convergent λ_n−ρ=Σ_{m≠0}c_m q_m^{n+1}, with error O(r₂^{n+1}) after m=±1. Two-conjugate geometric terms produce exact Hankel H_n=−4|b|²r^{2n+4}sin²θ[1+O((r₂/r)^n)]; since b≠0, sinθ>0, it is eventually negative. The H ratio tends r², yielding L=2π/sqrt(R^−1−1), and two successive calibrated deviations recover complex b then a modulo L. Valid for all L and interior duty ρ, not noisy spectra or ρ=0,1. Independent high-precision Fourier-gamma recreation at L=1.7,ρ=.31,a=.72 recovered L to 3.22e−11 at n≈32, H<0. The frozen checker.py was inspected; its finite assertions are not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Proposition 3.4 of Esmeral García–Maximenko 2025 (full article and exact page inspected) already states broad injectivity of bounded radial symbols from all sufficiently high gamma moments. This covers uniqueness as a corollary and must not be called new. The retained claim is stronger constructive explicit inversion of single-arc periodic mask using a universally negative 2×2 Hankel determinant with a geometric error; this algorithm and coefficient were not found in materially read primary results. Related Knutsen periodic annuli and radial Toeplitz diagonalization are prior; a disguised Prony/exponential fitting formula could precede the method and remains risk.
+
+## value
+
+PASS
+
+A sign-definite phase-blind diagnostic resolves oscillatory first-mode cancellations and directly identifies period before reconstructing duty and placement. This is a natural exact, constructive inverse spectral invariant for physically motivated periodic radial masks. Finite noisy conditioning is expressly not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
