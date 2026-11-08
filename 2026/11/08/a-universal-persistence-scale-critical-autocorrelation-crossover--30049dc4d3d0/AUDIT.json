@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The stationary triangular OU equations yield the exact single-mode covariance with a removable resonance; the critical normalization makes the integrated covariance C_tau(0)=1. A positive integral representation is exact. Multiplying by tau^((d-4)/2) gives an integrable 4<d<6 kernel and controlled limit dTc/tau->d-4. Independent scaled-variable estimates establish the small-s and large-s exact gamma coefficients. Gaussian principal-value identities give the closed d=5 error-function profile. The included Python standard-library checker passed 38 finite assertions; those are auxiliary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest 2022 source covers static critical variance, 2025 covers hyperuniform spectral driving, and classical kinetic spherical-model literature covers a different quenched-aging setting."
+      ],
+      "reasoning": "Checked whether existing static spherical results, long-range kinetic spherical aging results, or later colored-noise phase-transition papers imply the same stationary, critically normalized persistence-clock correction. Their model/noise/time setup differs or their statements lack this conclusion; general unindexed results remain a priority risk.",
+      "searches": [
+        "finite persistence time active spherical model random-field Ising crossover dynamical correlations correlation function time separation",
+        "spherical model colored noise autocorrelation stationary",
+        "spherical model Ornstein-Uhlenbeck noise stationary correlations 2023 2024",
+        "active spherical model dynamics autocorrelation critical persistence time",
+        "interaction-free ergodicity breaking spherical temporally hyperuniform noise"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2208.10200",
+      "https://arxiv.org/html/2208.10200v2",
+      "https://arxiv.org/abs/2503.06590",
+      "https://arxiv.org/abs/cond-mat/0703445"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source equation (27) provides T/[a(1+tau a)] and equation (29) critical normalization, both explicitly credited.",
+        "The newer result derives the integrated positive crossover by using the exact two-time mode covariance, a variable-change scaling limit and two distinct singular integral asymptotics; these claims are not direct quoted conclusions of the source."
+      ],
+      "reasoning": "The pre-existing stationary variance is a premise, not our finding. The novel assertion is a full temporal scaling limit and two sharp constants in the critical dimension band. Broader generic convolution techniques make the calculation possible but do not state the model-specific conclusion. Overlap of objects and premises is acknowledged, not treated as equivalent result coverage.",
+      "searches": [
+        "Active Spherical Model arxiv 2208.10200 Section III VI dynamic behavior",
+        "spherical colored-noise mode variance and temporal autocorrelation scaling",
+        "active spherical model Ornstein Uhlenbeck persistent force Debye critical two-time stationary autocorrelation persistence scaling function dimension 4 to 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact OU mode correlation has an equivalent positive-integral representation but available searches find no article asserting the critical integrated persistence-scale correction as a theorem.",
+        "The 2022 primary full text analyzes static covariance rather than this two-time asymptotic."
+      ],
+      "reasoning": "Covariance, spectral-density, colored-noise, and critical Debye aliases were compared. The statement requires the leading exp(-s) limit, a nonzero sharp correction throughout 4<d<6, and two endpoint powers; a generic OU covariance identity alone does not imply the required critical integral asymptotics without analysis.",
+      "searches": [
+        "Ikeda 2208.10200 Active Spherical Model critical Debye time correlation persistent OU noise",
+        "active spherical model Ornstein Uhlenbeck persistent force Debye critical two-time stationary autocorrelation persistence scaling function dimension 4 to 6",
+        "critical active spherical Debye stationary autocovariance e^-s erfi erfc persistence",
+        "active spherical model two-time colored-noise spectral critical response stationary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches did not return a matched coefficient table or exact error-function stationary persistence scaling profile for the named model."
+      ],
+      "reasoning": "The specific natural invariant is the critically normalized two-time autocovariance, not a pretabulated finite object. No exact entry or stronger table was located; absence from a finite index does not guarantee novelty.",
+      "searches": [
+        "Ikeda 2208.10200 Active Spherical Model critical Debye time correlation persistent OU noise",
+        "critical active spherical Debye stationary autocovariance e^-s erfi erfc persistence",
+        "A universal persistence-scale critical autocorrelation crossover in active spherical Debye model",
+        "Phi_5 erfi erfc active spherical critical autocorrelation"
+      ]
+    },
+    "rationale": "Full-text comparison with the first 2022 active spherical Debye source finds a static-critical analysis rather than the stationary persistence-time autocorrelation correction and both sharp temporal exponents. A later 2025 spherical paper uses temporally hyperuniform, not OU, noise. Related generic Gaussian-filter formulas are credited; indexed searches did not reveal a covering result, with residual priority risk explicitly retained.",
+    "residual_risks": [
+      "A prior Gaussian colored-noise spectral mixture result may imply the same scaling after an unstated specialization; exhaustive literature coverage has not been certified.",
+      "The accessible 2007 kinetic-spherical-model listing was abstract-level and describes quenched aging, not this stationarity, so no whole-document noncoverage is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives static variance and critical dimensions but not the persistence-clock stationary two-time autocorrelation correction, dimension-band scaling function or its dual power-law asymptotics.",
+        "evidence": [
+          "Equations (21)–(29) fix OU active-mode dynamics and variance; (30) defines Tc; Sections IV–V analyze static critical dimension; Section VI explicitly presents dynamics as further work."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.10200v2",
+        "material_read": "Full HTML text, particularly model definitions in Sections II–III, critical limits in IV–V, conclusions in VI and critical-exponent appendix A",
+        "method": "Full-text section-by-section scientific implication comparison",
+        "title": "Active Spherical Model",
+        "trigger": "Identical Gaussian active spherical Debye model and its stationary mode variance and critical temperature"
+      },
+      {
+        "assessment": "Different temporally hyperuniform driving and global norm model; its stated fluctuation scaling cannot specialize to the OU-colored Debye spectral stationary persistence correction.",
+        "evidence": [
+          "Introduction defines low-frequency spectral suppression and describes an interaction-free norm-constrained dynamics; not the positive-Lorentzian OU drive used here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.06590",
+        "material_read": "Accessible full-text HTML introduction, model and abstract, including noise spectral hypotheses and problem statement",
+        "method": "Compare stochastic forcing spectrum and phase-transition statements",
+        "title": "Interaction-free ergodicity-breaking driven by temporally hyperuniform noise",
+        "trigger": "Later similarly titled spherical nonequilibrium model might have a broader temporal-correlation result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30049dc4-d3d0-44db-b573-8302df9aaed3",
+  "value": {
+    "rationale": "The 2022 model leaves its dynamics open: this gives a natural complete leading persistence-clock correction for all 4<d<6, not an arbitrary slice. Its positive universal scaling function has rigorously different short and long scaled-time exponents with sharp constants and an exact d=5 closed form, quantifying how quasistatic random-field memory coexists with critical diffusive relaxation. The restriction to a thermodynamic stationary Debye model is meaningful and explicit.",
+    "status": "PASS"
+  }
+}
