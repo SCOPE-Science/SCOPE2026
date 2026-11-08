@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "One marked occurrence splits the composition exactly into a left composition, the prescribed block, and a right composition, regardless of possible overlaps between multiple occurrences. The generating function u^r z^w C(z,u)^2 and derivative give exact first mixed moments. Explicit coefficients and the binomial mean of the part count yield the stated piecewise identity; a complete four-case integer sign analysis and conditional part-count argument prove the zero classifications. A standalone exhaustive finite checker passed 24,558 exact arithmetic assertions through composition size 12. Infinite ranges follow from algebra, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bender–Canfield, DOI 10.37236/197, Theorem 4 establishes asymptotic joint normality of recurrent event counts; it does not explicitly compute finite covariance with the unrestricted-composition part count.",
+        "Gafni, arXiv:0907.5553, analyzes the longest equal-part run, including its mean and variance, not this mixed covariance.",
+        "Shabani–Gjergji, DOI 10.46298/dmtcs.2156, works with order-isomorphic patterns of length three and generating functions of occurrence counts and first-letter sums, not arbitrary exact words or the claimed universal mixed covariance."
+      ],
+      "reasoning": "General joint limit and pattern-refined generating-function results are relevant but do not give the finite-N universal sign classification or the zero-covariance/non-independence cases. No stronger all-word mixed-moment theorem was found in the inspected texts.",
+      "searches": [
+        "uniform composition subword pattern count covariance with part count; average part size two threshold; overlapping words",
+        "arxiv:0907.5553",
+        "doi:10.37236/197",
+        "doi:10.46298/dmtcs.2156"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0903.5135",
+      "arxiv:0906.5196",
+      "arxiv:0907.5553",
+      "doi:10.37236/197",
+      "doi:10.46298/dmtcs.2156",
+      "OEIS:A379836 (different complete-composition space)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior fixed-part-frequency covariance formulas address one-part counts only; the new theorem is for words containing at least two parts.",
+        "Heubach–Kitaev and Wilf count forbidden-pattern avoidance with specified weight and part length. A new marked-occurrence decomposition is used here to compute the mixed moment directly without ignoring overlaps.",
+        "The exact phase boundaries at weights one below and at twice the pattern length, and the non-independent zero cases, are not given by the identified prior statements.",
+        "Fresh semantic comparisons of all-word covariance/uncorrelated occurrence descriptions return the published part-count/maximum result 2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31 and the different fixed-binary-composition transition result 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d as closest, not as equivalents."
+      ],
+      "reasoning": "A single-letter occurrence is a known part-frequency observable and deliberately excluded. For length at least two, no direct reduction to those marginal part counts, to longest-run avoidance, or to the general local-event central limit theorem provides the all-N identity and sign results without further work. We do not claim a new generic generating-function method or that earlier literature could not yield this result as a corollary.",
+      "searches": [
+        "composition part count adjacent equal parts covariance generating function",
+        "Wilf Gafni Sills adjacent equal parts random composition number parts covariance sign",
+        "arxiv:0903.5135 Theorem 2.1; arxiv:0906.5196 Theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Heubach–Kitaev, arXiv:0903.5135, Theorem 2.1, gives weight/length generating functions of substring-avoiding compositions, rather than mixed moments of occurrence counts.",
+        "Wilf, arXiv:0906.5196, Theorems 1–3, study forbidden words and longest repeated runs conditioned on length; the inspected statements do not identify this sign diagram."
+      ],
+      "reasoning": "Avoidance counts and first occurrence-count moments are distinct statistics. The new statement holds for every exact consecutive word of length at least two; neither published theorem states that all words of equal length and weight share the same covariance with part count, nor determines all zero cases. The methods may be adaptable, which remains a priority risk.",
+      "searches": [
+        "\"pattern occurrences\" \"number of parts\" \"covariance\" compositions",
+        "\"subword patterns\" \"composition\" covariance number summands",
+        "arxiv:0903.5135",
+        "arxiv:0906.5196",
+        "all composition patterns same length and sum have equal covariance number of parts exact occurrences",
+        "integer compositions covariance number of summands and pattern occurrence count zero uncorrelated",
+        "random integer compositions local consecutive subword occurrences part count covariance universal weight length sign"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A379836 tabulates adjacent-equal-pair totals only for complete compositions, a different sampling space.",
+        "Accessible prior records concern Gaussian precision for counts of individual part sizes, singleton-count/maximum covariance, and boundary–bulk variation covariance. Those are distinct observables from arbitrary fixed consecutive-word occurrences."
+      ],
+      "reasoning": "The searched tabulation changes the probability space and neither records mixed covariance with part count nor covers all exact words. The inspected related prior scientific claims do not tabulate or imply the new full sign classification.",
+      "searches": [
+        "\"adjacent equal\" \"compositions\" \"number of parts\" correlation",
+        "\"uniform random composition\" \"equal parts\" \"covariance\" number parts",
+        "OEIS A379836 pairs of adjacent equal parts in complete compositions"
+      ]
+    },
+    "rationale": "The exact all-pattern covariance and complete integer-valued sign/zero phase diagram were not identified in inspected full texts or the accessible prior scientific records. The core structural surprise is that equal word length and weight force equal mixed covariance despite differing self-overlap. General generating-function literature provides tools, not an identified published equivalent result. Historical implicit coverage remains a real risk.",
+    "residual_risks": [
+      "The identity might be a recoverable but unpublished explicit corollary of general avoidance or occurrence generating-function machinery; historical priority remains provisional.",
+      "The 2015 Sills presentation on parts and subword patterns was accessible by abstract only and might point to a more detailed unpublished source.",
+      "Claims are restricted to exact consecutive words, uniform unrestricted compositions, and length at least two."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_EXPLICIT_COVERAGE: proves avoidance generating functions, not mixed occurrence-count covariance and full signs",
+        "evidence": [
+          "Theorem 2.1 is a determinant generating function for compositions avoiding a prescribed set of words.",
+          "It tracks weight and composition length, not a marked count of occurrences of one word."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0903.5135",
+        "material_read": "Full-text introduction, Theorem 2.1 and its hypotheses, example/ending sections",
+        "method": "Read parsed full text and visually checked theorem page",
+        "title": "Avoiding substrings in compositons",
+        "trigger": "Exact fixed-word, weight-and-part-length generating-function literature"
+      },
+      {
+        "assessment": "NOT_EXPLICIT_COVERAGE: restricted-run avoidance and distribution rather than all-pattern mixed covariance",
+        "evidence": [
+          "Theorems provide number-of-parts and weight generating functions for avoidance and longest equal runs.",
+          "No covariance with the total part count or exact sign boundary is stated in the inspected results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0906.5196",
+        "material_read": "Six-page paper: introduction, Theorems 1–3, formulas for Carlitz and longest-run avoidance",
+        "method": "Parsed PDF pages and visually inspected Theorem 2/application page",
+        "title": "The distribution of longest run lengths in integer compositions",
+        "trigger": "Runs with repeated equal parts and number-of-parts-refined generating functions"
+      },
+      {
+        "assessment": "NOT_EXPLICIT_COVERAGE: a different random variable (longest run), not occurrence-count covariance",
+        "evidence": [
+          "Proposition 1 constructs avoidance generating functions for runs.",
+          "Theorem 2 and Theorem 3 discuss the mean and variance of the maximum run length."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0907.5553",
+        "material_read": "Introduction, composition and run generating functions, final mean/variance results and concluding discussion",
+        "method": "Parsed PDF sections, checked section and proposition page visually, searched full text for covariance",
+        "title": "Longest Run of Equal Parts in a Random Integer Composition",
+        "trigger": "Random-composition equal-run statistic and finite/asymptotic fluctuations"
+      },
+      {
+        "assessment": "NOT_EXPLICIT_COVERAGE: asymptotic normality and general existence of covariance coefficients, no exact all-N sign diagram",
+        "evidence": [
+          "Theorem 4 concerns asymptotic joint normality of recurrent event counts.",
+          "Section 8 explains covariance behaves as a linear term with coefficients not explicitly computed in their general setting."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v16i1r108/pdf/",
+        "material_read": "Abstract, introduction, Theorems 1–5, local event discussion and section 8 asymptotic covariance argument",
+        "method": "Parsed PDF theorem text, visually inspected Theorem 5 page",
+        "title": "Locally Restricted Compositions II. General Restrictions and Infinite Matrices",
+        "trigger": "Potential stronger general joint covariance theorem"
+      },
+      {
+        "assessment": "NOT_EXPLICIT_COVERAGE: order-isomorphic three-letter families and specific means; no all-exact-word covariance sign theorem",
+        "evidence": [
+          "Their occurrence concept is order-isomorphism, not literal equality to a fixed integer word.",
+          "The specific formulas treated are for length-three repeated-letter patterns and first-letter-weighted sums."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2156/download",
+        "material_read": "Introduction, definition of order-isomorphic patterns, Theorem development and concluding pattern-specific mean formulas",
+        "method": "Parsed full-text sections and visually inspected introduction page",
+        "title": "Statistics for 3-letter patterns with repetitions in compositions",
+        "trigger": "Possible domination by joint pattern-occurrence and part-count generating functions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d92df0df-777d-4dcb-a6a3-3cc4cd805bc5",
+  "value": {
+    "rationale": "Dependence between a global complexity count (total parts) and local exact-word occurrences is a natural statistic in uniform random compositions. The universal collapse to just length and weight, despite radically different autocorrelations of words, is a structural identity. It yields a complete sharp sign and zero diagram, proves both covariance-zero cases remain dependent, and isolates a family of nonzero covariance constants independent of sample size; these go beyond routine first-moment enumeration.",
+    "status": "PASS"
+  }
+}
