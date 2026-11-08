@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python check.py` with a standard-library Python 3 interpreter in the same directory as this file. The command performs complete enumeration of \(s^{{s^2}}\) equally likely edge labelings for \(s=2\) and \(s=3\), counting directed cycles using depth-first search and the resulting missing-color counts. `check_output.txt` contains the resulting exact distribution, exact first two moments, pairwise covariance assertions, exact loop-occupancy lower bounds, and sample moment-generating inequalities. The executed checker completed successfully with its final `VERIFICATION_OK` line.
+## correctness
 
-The two-neighbor digraph is the complete directed graph on \(s\) vertices, including self-loops; every ordered pair is a separate directed edge. For \(s=2\), the computed missing-count variance is \(15/64\) and the loop conditional lower bound is \(9/64\). For \(s=3\), the respective values are \(14396210/43046721\) and \(6396416/43046721\).
+PASS
 
-**Analytical checks.** The general statements rest on the explicit one-hot negative-association argument, independent-block closure, shared-monotonicity of the missing-color maps, exact conditioning on self-loop labels, and the published one-color asymptotic \(q_s\sim c_*s^{-1/3}\). The occupancy count's variance follows by two-bin joint vacancy probabilities. The almost-sure assertion follows from a summable Chernoff upper bound and Borel--Cantelli, without assumptions on coupling across sizes.
+The exact package defines s^r independent uniform edge colors and missing colors as acyclic monochromatic subgraphs. One-hot vectors are negatively associated; disjoint color-coordinate blocks and common monotone-decreasing maps preserve negative association. Product MGF bounds give the stated Chernoff estimate. Conditioning on s independent self-loop colors gives E[M|L]=(q/a_s)Z_s, where Z_s is classical empty-box occupancy; total variance then yields the exact lower inequality and its asymptotic (e-2)c_*^2 with a_s->e^-1 and V_s/s->e^-1-2e^-2. The r=2 mean s q~c_*s^(2/3) is cited to Gravner–Kulhanek, not re-proved. Summable Chernoff tails via Borel-Cantelli establish the strong law for any coupling, and upper variance gives L2. Independently enumerated all 16 colorings for s=2 and 19683 for s=3, obtaining exact variance/lower bounds 15/64 vs 9/64, and 14396210/43046721 vs 6396416/43046721. The finite tests cannot establish all s,r.
 
-**Limits.** Exhaustive checking of two finite state sizes does not certify any statement quantified over all sizes. The numeric Airy constant is cited, not independently evaluated or rigorously enclosed by the checker. No exact variance asymptotic, central limit theorem, or independent expert review is asserted.
+## originality
+
+PASS
+
+Original contribution assessed as the exact self-loop-occupancy lower variance bound and its positive s^(1/3) coefficient in the specific random de Bruijn model, not the classical negative-association closure, binomial Chernoff, nor the one-color asymptotic. The closely matching 2026 cellular-automata paper is the main historical risk because full primary text was not re-read this run; no decisive prior implication identified.
+
+## value
+
+PASS
+
+Natural missing-constant-count fluctuations in random cellular automata. Quantifies a rigorous positive fluctuation obstruction due only to self-loop labels, complements an optimal binomial-type concentration upper tail, and gives almost sure scaling at the correct deficit scale. Neither the lower nor upper variance exponent is asserted sharp; this is useful two-sided information for an intrinsic observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

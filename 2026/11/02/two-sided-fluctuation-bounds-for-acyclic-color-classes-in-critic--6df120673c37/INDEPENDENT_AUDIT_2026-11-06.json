@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:50:51.296301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 483e733575c5af03f81841f6f38604b64cc074d8",
+        "Independent check CASE1_OK s=2,3; independent_checks_output.txt"
+      ],
+      "rationale": "The exact package defines s^r independent uniform edge colors and missing colors as acyclic monochromatic subgraphs. One-hot vectors are negatively associated; disjoint color-coordinate blocks and common monotone-decreasing maps preserve negative association. Product MGF bounds give the stated Chernoff estimate. Conditioning on s independent self-loop colors gives E[M|L]=(q/a_s)Z_s, where Z_s is classical empty-box occupancy; total variance then yields the exact lower inequality and its asymptotic (e-2)c_*^2 with a_s->e^-1 and V_s/s->e^-1-2e^-2. The r=2 mean s q~c_*s^(2/3) is cited to Gravner–Kulhanek, not re-proved. Summable Chernoff tails via Borel-Cantelli establish the strong law for any coupling, and upper variance gives L2. Independently enumerated all 16 colorings for s=2 and 19683 for s=3, obtaining exact variance/lower bounds 15/64 vs 9/64, and 14396210/43046721 vs 6396416/43046721. The finite tests cannot establish all s,r.",
+      "residual_risks": [
+        "Variance exponents remain separated; the result does not prove a CLT, exact exponent or corresponding lower tail."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Kulhanek supply the r=2 one-color probability q~c_*s^(-1/3) and mean scaling. Joag-Dev–Proschan establish NA for multinomial variables and closure, but neither premise computes E[M|loop labels]."
+        ],
+        "reasoning": "The cited one-color result plus classical upper dependence control do not alone supply the sharp explicit loop-occupancy lower coefficient; this requires the conditional identity. An inaccessible full competing document is recorded as risk, not categorically ruled out.",
+        "searches": [
+          "Resultary semantic: Random cellular automata de Bruijn edge colors acyclic monochromatic cycles missing constants concentration negative association loop occupancy variance",
+          "Gravner–Kulhanek arxiv:2610.31764v1 Theorem 3 Proposition 48",
+          "Joag-Dev–Proschan DOI 10.1214/aos/1176346079"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 483e733575c5af03f81841f6f38604b64cc074d8",
+        "Independent check CASE1_OK s=2,3; independent_checks_output.txt",
+        "Joag-Dev–Proschan (1983) DOI 10.1214/aos/1176346079",
+        "Gravner–Kulhanek arxiv:2610.31764v1",
+        "Resultary semantic de Bruijn variance query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-color q asymptotic determines E M but not Cov(B_c,B_d) or the conditional self-loop variance lower bound; NA implies covariance upper bounds and concentration only."
+        ],
+        "reasoning": "Neither cited premise mathematically forces the exact lower constant without additional conditioning; the candidate provides that step, with disclosure of uninspected full primary appendix.",
+        "searches": [
+          "arxiv:2610.31764v1",
+          "DOI 10.1214/aos/1176346079",
+          "Resultary semantic: Random cellular automata de Bruijn edge colors acyclic monochromatic cycles missing constants concentration negative association loop occupancy variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Color-class cycle absence is a decreasing function of disjoint one-hot color-coordinate blocks; standard NA yields the upper tail but does not itself provide the exact conditional self-loop lower bound."
+        ],
+        "reasoning": "Aliases random cellular automaton missing constant configurations, monochromatic de Bruijn cycles, and empty-color bins were compared. Classical NA is subsumed and expressly excluded as novel; the new claim concerns the model-specific lower bound.",
+        "searches": [
+          "Resultary semantic: Random cellular automata de Bruijn edge colors acyclic monochromatic cycles missing constants concentration negative association loop occupancy variance",
+          "Joag-Dev–Proschan (1983) negative association one-hot multinomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full enumeration for s=2,3 reproduces the special variances but is not a general table of exact r=2 variance orders or the loop-obstruction formula."
+        ],
+        "reasoning": "No exact all-s model-specific variance table appeared in examined search returns; finite numbers are corroborative, not proof of novelty.",
+        "searches": [
+          "Resultary semantic: Random cellular automata de Bruijn edge colors acyclic monochromatic cycles missing constants concentration negative association loop occupancy variance",
+          "Frozen check.py and check_output.txt s=2,3"
+        ]
+      },
+      "rationale": "Original contribution assessed as the exact self-loop-occupancy lower variance bound and its positive s^(1/3) coefficient in the specific random de Bruijn model, not the classical negative-association closure, binomial Chernoff, nor the one-color asymptotic. The closely matching 2026 cellular-automata paper is the main historical risk because full primary text was not re-read this run; no decisive prior implication identified.",
+      "residual_risks": [
+        "The highly relevant Gravner–Kulhanek primary full text and appendices were not independently read completely during this run: both arXiv HTML and PDF fetches were disabled and authorized institutional retrieval returned vpn_disconnected. A stronger bound or matching lower obstruction could be present.",
+        "Variance exponents remain separated; the result does not prove a CLT, exact exponent or corresponding lower tail."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical mechanism supplies NA/concentration, no inspected source statement of model-specific loop variance lower bound.",
+          "evidence": [
+            "Joag-Dev and Proschan, Ann. Stat. 11(1):286-295 (1983), abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176346079",
+          "material_read": "Published journal abstract detailing multinomial negative association, closure of increasing maps of disjoint subsets, dependence inequalities",
+          "method": "Project Euclid abstract and bibliographic/statement page",
+          "title": "Negative Association of Random Variables with Applications",
+          "trigger": "Classical method potentially covers all inequalities"
+        },
+        {
+          "assessment": "Strongest plausible coverage risk remains; source provides the r=2 one-color ingredient as stated and is not asserted globally noncovering.",
+          "evidence": [
+            "arxiv:2610.31764; candidate RESULT.md References and literature comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31764",
+          "material_read": "Bibliographic abstract and candidate package discussion of its Theorem 3/Proposition 48; complete primary full text was not successfully read in this execution",
+          "method": "arXiv metadata/abstract, OA/arXiv HTML/PDF fetch attempts failed, institutional full-text retrieval returned vpn_disconnected; no claim of complete full-text reading",
+          "title": "Random Cellular Automata and deBruijn Graphs",
+          "trigger": "Same random cellular automaton object and Airy constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 483e733575c5af03f81841f6f38604b64cc074d8",
+        "Independent check CASE1_OK s=2,3; independent_checks_output.txt",
+        "Joag-Dev–Proschan (1983) DOI 10.1214/aos/1176346079",
+        "Gravner–Kulhanek arxiv:2610.31764v1",
+        "Resultary semantic de Bruijn variance query"
+      ],
+      "rationale": "Natural missing-constant-count fluctuations in random cellular automata. Quantifies a rigorous positive fluctuation obstruction due only to self-loop labels, complements an optimal binomial-type concentration upper tail, and gives almost sure scaling at the correct deficit scale. Neither the lower nor upper variance exponent is asserted sharp; this is useful two-sided information for an intrinsic observable.",
+      "residual_risks": [
+        "The highly relevant Gravner–Kulhanek primary full text and appendices were not independently read completely during this run: both arXiv HTML and PDF fetches were disabled and authorized institutional retrieval returned vpn_disconnected. A stronger bound or matching lower obstruction could be present.",
+        "Variance exponents remain separated; the result does not prove a CLT, exact exponent or corresponding lower tail."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 483e733575c5af03f81841f6f38604b64cc074d8",
+    "Independent check CASE1_OK s=2,3; independent_checks_output.txt",
+    "Joag-Dev–Proschan (1983) DOI 10.1214/aos/1176346079",
+    "Gravner–Kulhanek arxiv:2610.31764v1",
+    "Resultary semantic de Bruijn variance query"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The highly relevant Gravner–Kulhanek primary full text and appendices were not independently read completely during this run: both arXiv HTML and PDF fetches were disabled and authorized institutional retrieval returned vpn_disconnected. A stronger bound or matching lower obstruction could be present.",
+    "Variance exponents remain separated; the result does not prove a CLT, exact exponent or corresponding lower tail."
+  ],
+  "schema_version": 1
+}
