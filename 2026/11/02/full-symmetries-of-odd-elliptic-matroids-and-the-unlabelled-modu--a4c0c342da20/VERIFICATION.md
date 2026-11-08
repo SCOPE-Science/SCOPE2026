@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification report
 
-The embedded `verify.py` uses only the Python standard library. Its exhaustive backtracker respects incidence *and nonincidence* of all distinct-element triples, and it verifies every candidate permutation rather than sampling automorphisms.
+# Independent mathematical audit
 
-Successful exact check: all odd levels \(11\le n\le33\), with full automorphism orders \(10,12,24,16,18,36,22,20,54,28,30,60\) for \(n=11,13,15,17,19,21,23,25,27,29,31,33\), respectively. Each equals \(\gcd(n,3)\varphi(n)\). The checker also verifies preservation of all circuit triples for all affine candidates at odd levels five through thirty-three, tests availability of the doubling auxiliary through level 151, and confirms the nonaffine automorphism witness at level nine, where the full count is 36 rather than 18.
+## correctness
 
-The source-code proof in `RESULT.md` supplies the infinite argument and explains the use of known smooth modular realization correspondences. No finite exhaustive check establishes an infinite theorem by itself. No independent mathematical audit has been performed.
+PASS
+
+For odd n>=11, zero-sum nonbasis incidence gives f(t)+f(-t)=-f(0) on all nonzero pairs. The images of the two valid triples {1,2,-3} and {-1,-2,3} force 3f(0)=0. Translation normalization then yields g(0)=0 and g(-t)=-g(t). For each x choose t outside at most nine forbidden residues (possible since n>=11); the three distinct zero-sum triples force g(2x)=2g(x). The distinct-triple relation and the three doubling exceptions imply g(x+y)=g(x)+g(y) for all x,y, so g(i)=ai, a unit. The converse preserves incidence. For smooth cubic configurations, n>=11 points determine the cubic uniquely by Bezout, and projective translations preserve |3O| iff 3Q=O. This establishes the stated Y1(n) to Y0(n) unlabelled quotient, generic degree phi(n)/2 and generic stabilizer order 2gcd(n,3); the n=9 exceptional order36 prevents extrapolation.
+
+## originality
+
+PASS
+
+The known Y1(n) realization correspondence and standard Y1(n)->Y0(n) diamond quotient are credited antecedents. The independent claim is the full incidence-automorphism group Aff(n) with precisely the 3-torsion translations, excluding other relabellings, and the resulting exact smooth unlabelled and projective symmetry classification.
+
+## value
+
+PASS
+
+The complete infinite-family full automorphism group removes an actual ambiguity in passing from labelled elliptic configurations to unlabelled moduli, computes stabilizers, and identifies a sharp small-level exceptional boundary; this is a structural classification, not a renamed modular quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
