@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The physical generator is explicitly normalized, the stationary athermal law follows from two-state zero-current balance, and the thermal component is an independent Gaussian of variance \(s\). For \(0<a,b<1\) the athermal law has exactly two boundary singularities and one valley. Gaussian variation diminution bounds the number of modes by two; the strict parabolic zero-number theorem, the small-noise sign pattern and strict log-concavity for \(s>1\) give a single global transition. The symmetric Kummer root is unique, the quartic spatial coefficient is strictly negative and the asymmetry derivative strictly negative. A nonzero rescaled Jacobian yields the \(1/3\) fold-location and \(2/3\) thermal-threshold laws. The standalone checker passed 101 deterministic numerical identities and fold consistency tests. Infinite-parameter conclusions come from the mathematical proof, not the grid.
+
+## Originality — PASS (qualified)
+The exact beta law for unequal rates is already covered by the general two-state Dirichlet framework of Guéneau–Majumdar–Schehr; the thermal Gaussian convolution and symmetric bimodality temperature are also established there and independently by Sevilla–Meléndez Mora. The exact new comparison target is the **asymmetric cusp coefficient and global one-fold mode classification**, not the model, stationary law, Gaussian convolution or generic cusp normal form. Primary article sections on generalized finite-state laws, thermal shape transitions and symmetric convolution were inspected; no matching \(|\varepsilon|^{2/3}\) threshold or \(|\varepsilon|^{1/3}\) fold-location theorem was found. Actual semantic research searches also returned no covering result. The search is not a guarantee of priority; inaccessible or unindexed sources remain possible.
+
+## Value — PASS
+Bimodality of the stationary position distribution is a central measurable signature of persistent motion in harmonic confinement. The result identifies a sharp and non-linear fragility of that signature to biased direction changes, quantifies which side loses its peak, and supplies an explicit physically computable cusp coefficient. This is a structural stability boundary rather than a routine restatement of the known stationary density.
+
+## Closest prior literature and limitations
+The strongest adjacent result is Guéneau–Majumdar–Schehr, arXiv:2602.08436, especially its Dirichlet representation for arbitrary discrete velocity weights and its one-dimensional thermal shape transition. Sevilla–Meléndez Mora, arXiv:2608.21781, similarly supplies the Gaussian-convolution framework and symmetric-rate analysis. Angenent's classical zero-number theorem is essential for the global uniqueness argument. The theorem is restricted to positive rates below one, fixed positive trap and propulsion, Gaussian thermal forcing, and near-symmetric asymptotics; it makes no experimental-resolution claim.
+
+Self-review: passed. Independent audit: not yet performed.
