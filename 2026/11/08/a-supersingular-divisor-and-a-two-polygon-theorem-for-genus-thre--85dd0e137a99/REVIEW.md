@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The smoothness criterion is the squarefreeness condition for \(x h(x^2)\), and the order-four symmetry is explicit. The characteristic-three Cartier coefficient matrix and semilinear Frobenius formulas give the complete stable-rank alternatives; in particular \(F^2\) has rank two when \(a^3c+b^3\ne0\), but rank one and \(F^3=0\) on the jumping locus. The unramified quadratic automorphism action interchanges the two eigenspaces under Frobenius, forcing even multiplicities for all Newton slopes. With total height six, polarization and the computed \(3\)-ranks yield precisely the claimed Newton polygons. The jumping locus is an explicit smooth torus in coefficient space and is nonempty. Exact field computations test the algebra independently but are not used to extrapolate.
+
+## Originality — PASS, with residual risks
+Achter–Glass–Pries (arXiv:0708.2199v1, Lemma 3.6) already characterize the broader order-four hyperelliptic locus and show positive generic \(p\)-rank. They do not present an exact characteristic-three supersingular coefficient divisor or full Cartier-rank / Newton-polygon classification. Vollaard–Wedhorn (arXiv:0804.1522v1) analyze supersingular unitary Shimura loci rather than the exact genus-three curve family. Lercier–Ritzenthaler (arXiv:1111.4152v1) and Gutierrez–Sevilla–Shaska (arXiv:1209.2938v1) examine hyperelliptic invariants and symmetries, but do not imply the given positive-characteristic equation and stratification. Targeted semantic and published-literature comparisons have not identified a statement implying the complete claim. The coefficient recipe itself is classical; historical priority for the full two-polygon stratification is not independently certified, and deeper specialist sources might bear on it.
+
+## Mathematical value — PASS
+The supersingular and almost-ordinary Newton polygons of Jacobians are intrinsic invariants, not arbitrary computations. The result supplies a complete stratification of a natural two-dimensional moduli family (the genus-three order-four hyperelliptic locus) in the smallest odd characteristic where the unramified quadratic action is inert, with an explicit reduced irreducible jumping divisor and a uniform \(a\)-number. It distinguishes Newton polygon jumps from the constant first Cartier rank and describes the nilpotent-iterate jump, producing useful geometric moduli data.
+
+Self-review: passed. Independent audit: not yet performed.
