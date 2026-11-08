@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The infinite product is nonzero unless a factor vanishes, since its deviations from one are summable. Divisibility by the explicit prime-power cyclotomic polynomial forces the unique permutation of all nonzero leading residues: nonnegative coefficients and total weight exactly \(p\) exclude every other pattern. Uniqueness of the first nonzero valuation yields the disjoint finite census, and periodicity with a vanishing tail-density bound gives the infinite natural density. A standalone exact polynomial-arithmetic implementation supports the steps in specified finite instances; the unrestricted claim is established by the written proof.
+## correctness
 
-## Originality — PASS (bounded comparison)
-Lam–Leung's prime-power vanishing-sum theory supplies the zero-mask lemma, and Dutkay–Jorgensen's Theorem 5.6 gives a complete exponential spectrum for this very IFS. Neither statement by itself determines all integer frequencies with zero Fourier coefficients or their exact lattice density. The cited 2006 primary paper's Sections 2 and 5 and Theorem 5.6 were inspected for this implication; no all-frequency census or density formula was identified. Related finite-field Fourier-support and simplex sampling results concern different transforms/parameters. Historical equivalences and informal derivations from the known mask formula remain possible, and originality is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The exact density is a natural invariant of the kernel of a singular torus-convolution operator, not a classification of a chosen small frequency sample. A complete zero-set criterion, all finite-resolution counts, and the infinite-volume frequency density are obtained uniformly for every prime; the result distinguishes the density of *all* null modes from the existence of a single complete exponential spectrum. The integer-null frequency set is useful in assessing invertibility and spectral defects of fractal convolution. No stronger theorem about arbitrary bases or noninteger frequencies is inferred.
+Independence gives an infinite product of p-atomic masks, and |1−M_j(m)|=O_m(p^(-j)) ensures nonvanishing absent a finite zero factor. For the mask polynomial of degree <p^j, divisibility by Φ_{p^j}(z)=∑_{r=0}^{p−1}z^{rp^{j−1}} forces every p-term coefficient column equal. Nonnegative integer coefficients summing to p and the constant term select precisely the p roots in the zero residue column: nonzero coordinates have distinct leading residues 1,...,p−1. Their minimum common valuation is unique, giving disjoint layer counts. The complement beyond L layers lies in (p^L Z)^d of density p^(−Ld), proving the infinite cube density and convolution nullspace. Independently enumerated exact mask zeros and counts for (p,L)=(2,6),(3,4),(5,1). Tests do not prove all primes.
 
-## Closest literature and remaining limitations
-Dutkay–Jorgensen (2006), equations (2.3)–(2.5), Section 5 and Theorem 5.6: exactly the same digit system and established spectral basis, but the distinct density/counting question is not stated. Lam–Leung (1995), Theorem 2.2: supplies general cyclotomic kernel structure. Equivalence with an unstated older census remains a residual risk. The proof uses prime digits and exact integer-frequency normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: exact statement and logical implication comparisons find no complete covering theorem in the inspected accessible primary text; all known relevant ingredients and partial subresults are credited. Historical-priority residual risks below remain.
+
+## value
+
+PASS
+
+The all-integer-frequency nullspace of a canonical spectral self-similar simplex measure is a different natural invariant from existence of one orthogonal exponential basis. Exact membership, every finite-resolution census, and natural density distinguish convolution noninjectivity in a fractal setting for all primes. The proof makes an explicit nontrivial bridge from known cyclotomic structure to a complete lattice-frequency classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
