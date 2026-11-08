@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain is every forbidden word of exactly four bits, all orders \(4\le n\le15\), and one circular covering word with unconstrained extra windows. The proof converts a candidate cover into a balanced augmentation of the complete binary de Bruijn graph. In each of 72 cases, `certificates.json` contains explicit nonnegative integer arc multiplicities and integer vertex potentials. `verify.py` reconstructs every mandatory edge, checks all vertex-balance equations, all dual inequalities, exact primal/dual equality, strong connectivity, and Eulerian witness coverage. It reported `VERIFY_OK 72 exact optima`. Independent brute-force indexed-circle enumeration at order four reported `CROSSCHECK_OK`. No all-order extrapolation is involved.
+PASS
 
-## Originality — PASS, with priority qualification
+PASS. For each of 72 representative cases (six forbidden-four patterns, n=4,...,15), independently parsed the actual 1,146,591-byte certificates.json blob and generated every mandatory n-bit word by ordinary nonwrapping forbidden-factor testing. Independently reconstructed required de Bruijn arc imbalances, all supplementary integer flow changes and cost, verified every vertex balance is zero, every directed arc satisfies potential(head)-potential(tail)<=1, exact primal-dual objective equality, strong connectivity of active directed graph in both orientations, and every printed table value. The 72 distinct certificates had 193,330 required arcs, 89,657 supplementary multiplicities and maximum 16,384 vertices; zero validation errors. Euler existence and one-circle coverage follow from balanced strongly connected directed multigraph containing each required arc. Reversal/complementation gives all 16 forbidden patterns. This proves only orders n<=15.
 
-The closest inspected works are Moreno–Matamala (arXiv:0711.1695v1), which handles exactly-once periodic subshift words and lexicographically minimum sequences, and Cazaux–Rivals (2016), whose general shortest-cyclic-cover algorithm optimizes sets of circles and supplies criteria for equality with one-circle solutions. Neither inspected text supplies the 72 integer values or the finite balance/connectivity certifications for the six forbidden-four-factor symmetry types. General Chinese-postman theory gives algorithms, not this explicit numerical classification. Searches of accessible prior claims and the indexed research database identified no implication that fixes these particular table entries; unindexed tables and specializations remain risks. Failure to find an entry is not treated as a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The six classes exhaust all sixteen binary forbidden length-four factors. Their exact single-circle covering lengths through order fifteen provide a coherent suite of natural constrained-string benchmarks and show nontrivial changes in relative extremality: `0000` yields the unique fifteen-window optimum at order four but is the largest of the six minima by order fifteen. Determining the mandatory overhead beyond the simple count of avoiding words requires the global balancing optimization, not a textbook enumeration or renaming. Exact small-order optima are useful as benchmarks for restricted-string constructions and generalization attempts.
+PASS, best of knowledge. A complete 72-value optimum table for one cyclic word covering every ordinary finite forbidden-factor-avoiding n-word is neither the exactly-once restricted-language de Bruijn construction of Moreno–Matamala nor directly the optimal collection of cycles of Cazaux–Rivals. The integer Chinese-postman reduction is classical; the explicit certified enumerative optima are the claimed addition. Primary Cazaux–Rivals accepted manuscript and Moreno–Matamala paper formulations were inspected; historical unindexed computed tables and algorithm specializations remain risks.
 
-## Closest literature and remaining limitations
+## value
 
-The 2007 preprint was inspected in full, with attention to its definition of periodic admissibility and lexicographic objective. The 2016 accepted manuscript was inspected in its introduction, problem definitions and Section 4.2, including the distinction between a collection of cyclic strings and a single circle. Related bidirected postman work was checked at the abstract level only, not used to assert whole-document exclusion. No exact formula for orders beyond fifteen, no census of all optimum circles and no independent external audit are claimed. Historical priority remains qualified by potentially unindexed tables or published applications of general algorithms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A natural finite but extensive, fully specified covering optimization with 72 independently certifiable optima, contrasting forbidden-subword language size with supplementary Eulerian augmentation. The exact nonmonotone class ordering and certificates support reuse as benchmarks. No infinite-order formula or full census of optimal circles is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
