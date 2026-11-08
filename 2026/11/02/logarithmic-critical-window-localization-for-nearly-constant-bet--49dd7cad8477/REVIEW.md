@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final claim is a simultaneous two-parameter critical-window theorem for \(n\ge2\) fixed, with shapes \((n-1)/n+\lambda/L\) and \((n-1)/n+\mu/L\), \(L=\log(1/\varepsilon)\). The proof uses an exact \(\sqrt n\) diagonal-coordinate Jacobian, uniformly valid intermediate-tube asymptotics, and separate \(O(\varepsilon^{(n-1)/2})\) corner and bulk bounds. The resulting measure-level limit gives not only the normalizing constant but also both endpoint weights, the logarithmic position law and uniform orthogonal residuals. An exact \(n=3\) normalization bridge matches the preexisting fixed-shape Beta coefficient, and the standalone two-observation check probes the leading constant independently. Numerical calculations are explicitly not used to prove infinite limits.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-Relevant mathematical sections were inspected in the accessible full texts of Benhamou (2018), Papadatos (2022), Royen (2008), and the complete closest published fixed-Beta three-observation research file. Royen's one-sided fixed-exponent phase transition and the later two-endpoint three-observation fixed-parameter coefficient are acknowledged, rather than claimed. A fixed-shape theorem alone does not imply the stated drift-uniform scaling and conditional joint distribution: its remainder may depend on the shape parameters. Targeted mathematical-record searches for drift, aliases, lower-tail formulations and conditional endpoint localization did not uncover a covering theorem. Absence from those searches cannot establish definitive historical novelty; a hidden uniform Tauberian theorem remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The rare-event question concerns where a finite sample lies when its observed variance is exceptionally small, a meaningful joint mean/variance dependence statistic for nonnormal Beta parents. The critical window of width \(1/\log(1/\varepsilon)\) interpolates the competing endpoint mechanisms exactly: it yields smooth explicit selection probabilities, tilted logarithmic localization, and independent transverse shape. These facts are not determined by the fixed-parameter tail exponent or sample mean/variance moments. The result has intrinsic structural statistical meaning without asserting an application or error bound not established here.
+Read the complete proof: x=t1+sqrt(ε)v on the zero-sum hyperplane H has Jacobian sqrt(n) ε^{(n−1)/2}, not n or 1. Since n(c−1)=−1, the endpoint density is t^{−1+nλ/L}; substitution t=ε^{u/2} produces (L/2)e^{−nλu/2}du, and similarly near 1 with μ. For t≫sqrt(ε), the residual density is asymptotically independent of v; corner t≲sqrt(ε) contributes O(ε^{(n−1)/2}) without the leading logarithm, and fixed interior contributes the same smaller order. The two endpoint terms give the probability constant and conditional independence/uniform unit-ball law. Independently computed Φ_n tilt integrals for n=2,...,9 and direct arcsine n=2 probabilities via conditional exact CDF quadrature at 10^−4,10^−6,10^−8; ratios to the stated leading formula decreased toward one. The quantitative corner estimates, not finite ratios, justify limits.
 
-## Prior coverage and limits
-The older pure-power theorem and the published fixed-Beta three-observation result share the critical exponent but not the parameter-drifting or conditional joint conclusions. The work is limited to iid Beta data, fixed \(n\), fixed drift values and first-order asymptotics. Historical-priority uncertainty and lack of independent external validation remain explicit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Royen’s primary theorem already gives fixed-parameter sample-variance distribution and critical logarithmic lower tails for bounded supports. The published three-sample Beta phase diagram similarly handles fixed shapes and includes the equal-critical coefficient. A fixed-shape pointwise asymptotic cannot automatically be substituted into α,β moving at 1/log(1/ε), and neither source supplies the conditional joint endpoint/log-location/transverse law. The particular two-drift crossover is the surviving novelty claim.
+
+## value
+
+PASS
+
+A critical moving-parameter window is mathematically natural where two boundary singularities tie; its exact crossover probabilities and an entire conditional geometric limit distinguish how rare, nearly constant Beta samples form. It is not merely re-evaluating the fixed-shape logarithmic coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

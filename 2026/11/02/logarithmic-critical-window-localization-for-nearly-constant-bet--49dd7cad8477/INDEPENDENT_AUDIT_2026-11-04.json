@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:38:03.128679Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the complete proof: x=t1+sqrt(ε)v on the zero-sum hyperplane H has Jacobian sqrt(n) ε^{(n−1)/2}, not n or 1. Since n(c−1)=−1, the endpoint density is t^{−1+nλ/L}; substitution t=ε^{u/2} produces (L/2)e^{−nλu/2}du, and similarly near 1 with μ. For t≫sqrt(ε), the residual density is asymptotically independent of v; corner t≲sqrt(ε) contributes O(ε^{(n−1)/2}) without the leading logarithm, and fixed interior contributes the same smaller order. The two endpoint terms give the probability constant and conditional independence/uniform unit-ball law. Independently computed Φ_n tilt integrals for n=2,...,9 and direct arcsine n=2 probabilities via conditional exact CDF quadrature at 10^−4,10^−6,10^−8; ratios to the stated leading formula decreased toward one. The quantitative corner estimates, not finite ratios, justify limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen allows general bounded densities but states parameter-wise fixed-distribution analysis; a Fourier expansion for each ε in principle encodes all finite probabilities."
+        ],
+        "reasoning": "An exact transform or broad fixed-parameter distribution is not alone a uniform-in-shape saddle point expansion or joint conditional location limit; no derived prior theorem with the required moving-parameter uniformity was identified.",
+        "searches": [
+          "Royen, The exact distribution of the sample variance from bounded continuous random variables, arXiv:0810.1572",
+          "Resultary fixed n=3 Beta variance phase diagram"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0810.1572",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1",
+        "https://arxiv.org/abs/1809.03774",
+        "https://arxiv.org/abs/2205.10799"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise fixed exponent asymptotics at exponent c give log enhancement, but may have constants/error bounds blowing up as α−c=O(1/log ε)."
+        ],
+        "reasoning": "A separate uniform two-parameter tube argument plus corner tightness is necessary; the claimed limits cannot be read off by formal parameter substitution in nonuniform fixed-shape formulas.",
+        "searches": [
+          "Royen arXiv:0810.1572 Theorem 3",
+          "Resultary fixed-shape three-sample Beta variance 2026/10/4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Royen derives a Fourier-series distribution and critical lower-tail regimes; the Resultary record supplies n=3 fixed-shape Beta lower-tail constants."
+        ],
+        "reasoning": "The event Q≤ε differs from unbiased variance normalization, explicitly corrected by Q=(n−1)S²; after normalization the n=3 critical coefficient matches prior work, while moving β shapes and conditional law remain outside those formulations.",
+        "searches": [
+          "Royen arXiv:0810.1572 Theorem 3",
+          "Resultary 2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior fixed-shape n=3 coefficient agrees with λ=μ=0 after Q normalization; tested n=2 arcsine case also follows known exact Beta(1/2,1/2) density."
+        ],
+        "reasoning": "Those exact formulas are acknowledged; neither is an explicit table of two-drift crossover or the conditional U and W limit for all n.",
+        "searches": [
+          "Royen arXiv:0810.1572 sample variance distribution series",
+          "Resultary 2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1"
+        ]
+      },
+      "rationale": "Royen’s primary theorem already gives fixed-parameter sample-variance distribution and critical logarithmic lower tails for bounded supports. The published three-sample Beta phase diagram similarly handles fixed shapes and includes the equal-critical coefficient. A fixed-shape pointwise asymptotic cannot automatically be substituted into α,β moving at 1/log(1/ε), and neither source supplies the conditional joint endpoint/log-location/transverse law. The particular two-drift crossover is the surviving novelty claim.",
+      "residual_risks": [
+        "An exact transform of Royen might imply a crossover by nontrivial but unpublished asymptotic analysis; fixed-parameter theorems do not themselves prove the moving-window claim.",
+        "No uniform convergence rate is established; fixed n, drifts λ,μ and independent Beta assumptions are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed critical log regime and general exact transform are earlier work; moving critical Beta shapes and the conditional triple are not established by that theorem.",
+          "evidence": "Theorem 3 treats a fixed endpoint exponent p and critical n p=n−1, not two exponents drifting by λ/L and μ/L.",
+          "identifier_or_url": "https://arxiv.org/abs/0810.1572",
+          "material_read": "Accessible full arXiv PDF, especially Theorem 3 and its fixed-density/asymptotic framework; evaluated distribution and scope.",
+          "method": "primary full-text PDF including equation/theorem sections",
+          "title": "The exact distribution of the sample variance from bounded continuous random variables",
+          "trigger": "same sample-variance lower tail and critical singularity"
+        },
+        {
+          "assessment": "The fixed-shape n=3 critical coefficient is covered and credited; full same-family generalization is not asserted absent from unread contents.",
+          "evidence": "Its stated n=3 fixed-shape three-regime tail matches n=3, λ=μ=0 after Q↔S² normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1",
+          "material_read": "Published finding summary and mathematical coefficient comparison, not a full reading of every research file.",
+          "method": "Resultary search and accessible record summary",
+          "title": "Exact lower-tail phase diagram for the three-sample Beta variance",
+          "trigger": "same Beta tails and critical exponent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A critical moving-parameter window is mathematically natural where two boundary singularities tie; its exact crossover probabilities and an entire conditional geometric limit distinguish how rare, nearly constant Beta samples form. It is not merely re-evaluating the fixed-shape logarithmic coefficient.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/0810.1572",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1",
+    "https://arxiv.org/abs/1809.03774",
+    "https://arxiv.org/abs/2205.10799"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n≥2 independent Beta((n−1)/n+λ/L,(n−1)/n+μ/L) observations with L=log(1/ε), P(∑(Xi−mean)²≤ε)~sqrt(n)V_{n−1} ε^{(n−1)/2}L[Φ_n(λ)+Φ_n(μ)]/[2 B(c,c)^n], and conditionally the selected endpoint and logarithmic location have explicit exponential-tilt weights while the residual vector is independent uniform on the Euclidean unit ball of the zero-sum hyperplane.",
+  "limitations": {
+    "actual_independent_work": [
+      "Read frozen Git RESULT.md, verification script, METADATA.json, AUDIT.json and SLOGAN.txt; verified source tree object and original blob identities.",
+      "Ran independent bounded computational crosschecks from inspectable self-written script without running repository code."
+    ],
+    "finite_tests_are_not_infinite_proofs": true,
+    "literature_priority_provisional": true,
+    "publication_privacy_clearance": false,
+    "source_program_executed": false
+  },
+  "residual_risks": [
+    "An exact transform of Royen might imply a crossover by nontrivial but unpublished asymptotic analysis; fixed-parameter theorems do not themselves prove the moving-window claim.",
+    "No uniform convergence rate is established; fixed n, drifts λ,μ and independent Beta assumptions are essential."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Fixed critical log regime and general exact transform are earlier work; moving critical Beta shapes and the conditional triple are not established by that theorem.",
+      "evidence": "Theorem 3 treats a fixed endpoint exponent p and critical n p=n−1, not two exponents drifting by λ/L and μ/L.",
+      "identifier_or_url": "https://arxiv.org/abs/0810.1572",
+      "material_read": "Accessible full arXiv PDF, especially Theorem 3 and its fixed-density/asymptotic framework; evaluated distribution and scope.",
+      "method": "primary full-text PDF including equation/theorem sections",
+      "title": "The exact distribution of the sample variance from bounded continuous random variables",
+      "trigger": "same sample-variance lower tail and critical singularity"
+    },
+    {
+      "assessment": "The fixed-shape n=3 critical coefficient is covered and credited; full same-family generalization is not asserted absent from unread contents.",
+      "evidence": "Its stated n=3 fixed-shape three-regime tail matches n=3, λ=μ=0 after Q↔S² normalization.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1",
+      "material_read": "Published finding summary and mathematical coefficient comparison, not a full reading of every research file.",
+      "method": "Resultary search and accessible record summary",
+      "title": "Exact lower-tail phase diagram for the three-sample Beta variance",
+      "trigger": "same Beta tails and critical exponent"
+    }
+  ]
+}
