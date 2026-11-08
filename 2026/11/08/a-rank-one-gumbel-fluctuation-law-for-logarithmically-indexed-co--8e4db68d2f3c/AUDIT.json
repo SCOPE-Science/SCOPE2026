@@ -1,0 +1,192 @@
+{
+  "correctness": {
+    "rationale": "Exact continuous/discrete coupon-process coupling, DKW applied to each Gamma jth-arrival empirical CDF followed by an O(sqrt(log N))-index union bound, uniform Poisson local-limit linearization around log N, uniform fourth moments of the exponential maximum, and optional-stopping isometry E[(T/N-C)^2]=H_N/N together prove the stated compact-uniform mean-square approximation. Ordinary Poisson CLT and L2 moment convergence give the other displayed assertions. The standalone checker passes 87 finite assertions; it is not a proof of the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 5 of arXiv:2606.29635 fixes J, and Remark 3 explicitly disclaims growing j.",
+        "A result for the higher multiplicity coupon-collection completion time concerns a different stopping time and does not imply the first-cover stopped profile.",
+        "Known DKW and local CLT tools bound fluctuations at deterministic times but do not directly state this functional mixed Gumbel law.",
+        "Ilienko (2026), Theorem 1 and Section 5: R^infinity product-topology convergence for fixed indices, not a moving-index compact-uniform result.",
+        "Mahmoud–Smythe (2012) Theorems 1–2: deterministic sampling phases and fixed finite frequency categories; does not cover stopping at main completion with a growing category threshold."
+      ],
+      "reasoning": "A genuinely more general occupancy empirical-process random-time theorem could imply this result if its conditions include the log-growing threshold and extreme-value stopping. Searches and inspected primary texts did not identify such covering theorem; broad classical literature is a real residual risk, not ruled out by terminology differences. The seemingly stronger infinite-dimensional Ilienko result is only coordinatewise in the product topology; it cannot be specialized to an N-dependent sibling rank growing like log N without additional uniform estimates. The full Mahmoud–Smythe article was inspected and its fixed-k, deterministic-time Gaussian occupancy laws do not imply the first-cover stopped log-threshold Gumbel process.",
+      "searches": [
+        "uniform occupancy at complete coupon collection logarithmic count threshold Gumbel empirical count fluctuations",
+        "U_j^N number of missing sibling coupons at main cover time j proportional to log N",
+        "arxiv:2606.29635 Sections 6-7",
+        "arxiv:1412.4346",
+        "classical Poissonized occupancy empirical CDF random stopping at coupon cover time",
+        "Ilienko 2026 Limit theorems extended coupon collectors R infinity infinite dimensional fixed sibling indices growing logarithm n",
+        "Mahmoud Smythe 2012 On the Joint Behavior of Types of Coupons Theorems 1-2 full PDF"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.29635",
+      "https://www.vmsta.org/journal/VMSTA/article/358/read",
+      "https://arxiv.org/abs/2606.31391",
+      "https://arxiv.org/abs/1412.4346",
+      "https://arxiv.org/abs/2005.05270",
+      "https://doi.org/10.1239/aap/1339878719"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 arXiv:2606.29635 assumes fixed J; applying it to J=floor(log N+x sqrt(log N)) violates its quantifier and its normalization is nonuniform in J.",
+        "The finite-N PGF orders of arXiv:2606.31391 do not determine this stopped empirical-process limit.",
+        "The first-sibling result fixes j=2 rather than logarithmically growing j.",
+        "Ilienko (2026), Theorem 1 and Section 5: R^infinity product-topology convergence for fixed indices, not a moving-index compact-uniform result.",
+        "Mahmoud–Smythe (2012) Theorems 1–2: deterministic sampling phases and fixed finite frequency categories; does not cover stopping at main completion with a growing category threshold."
+      ],
+      "reasoning": "The closest inspected claims do not logically imply the new compact-uniform rank-one Gumbel approximation: the fixed-index theorem cannot be substituted with J increasing, and expectation/PGF inequalities do not yield centered process limits. The open historical risk is a stronger unlocated general occupancy theorem. The seemingly stronger infinite-dimensional Ilienko result is only coordinatewise in the product topology; it cannot be specialized to an N-dependent sibling rank growing like log N without additional uniform estimates. The full Mahmoud–Smythe article was inspected and its fixed-k, deterministic-time Gaussian occupancy laws do not imply the first-cover stopped log-threshold Gumbel process.",
+      "searches": [
+        "Gumbel fluctuations of empirical occupancy profile at classical coupon collector completion time for multiplicities j_n=log n+x sqrt log n",
+        "U_j^N number of missing sibling coupons at main cover time j proportional to log N",
+        "arxiv:2606.29635 Theorem 5 Remark 3",
+        "arxiv:2606.31391 Theorems 1.1 and 2.2",
+        "arxiv:2005.05270 first sibling",
+        "Ilienko 2026 Limit theorems extended coupon collectors R infinity infinite dimensional fixed sibling indices growing logarithm n",
+        "Mahmoud Smythe 2012 On the Joint Behavior of Types of Coupons Theorems 1-2 full PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same statement is equivalently the uniform-in-x fluctuation of the fraction of coupon types with fewer than floor(log N + x sqrt(log N)) occurrences at the first complete cover.",
+        "The arXiv:2606.29635 fixed-J theorem instead gives an exponential factor for each fixed j.",
+        "Ilienko (2026), Theorem 1 and Section 5: R^infinity product-topology convergence for fixed indices, not a moving-index compact-uniform result.",
+        "Mahmoud–Smythe (2012) Theorems 1–2: deterministic sampling phases and fixed finite frequency categories; does not cover stopping at main completion with a growing category threshold."
+      ],
+      "reasoning": "Uniform Poisson centering makes the new process a random-time delta-method limit, not a pointwise fixed-sibling normalization or a finite-N transform order. No inspected statement yields the Gumbel rank-one process for log-growing indices. The classical general empirical-process formulation remains a risk. The seemingly stronger infinite-dimensional Ilienko result is only coordinatewise in the product topology; it cannot be specialized to an N-dependent sibling rank growing like log N without additional uniform estimates. The full Mahmoud–Smythe article was inspected and its fixed-k, deterministic-time Gaussian occupancy laws do not imply the first-cover stopped log-threshold Gumbel process.",
+      "searches": [
+        "siblings coupon collector album index grows logarithm N Gumbel fluctuation poisson count empirical distribution at coupon collector cover time",
+        "Gumbel fluctuations of empirical occupancy profile at classical coupon collector completion time for multiplicities j_n=log n+x sqrt log n",
+        "Poisson local CLT coupon siblings growing album index rank one process negative Gaussian density times Gumbel",
+        "arxiv:2606.29635 Theorem 5 and Remark 3",
+        "arxiv:2606.31391 Theorem 1.1",
+        "Ilienko 2026 Limit theorems extended coupon collectors R infinity infinite dimensional fixed sibling indices growing logarithm n",
+        "Mahmoud Smythe 2012 On the Joint Behavior of Types of Coupons Theorems 1-2 full PDF"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finding concerns weak convergence and covariance kernels indexed by a continuum, rather than a finite tabulated invariant.",
+        "Relevant published mathematical records found a nonuniform reset coupon asymptotic and finite occupancy covariance statements, but not the log-index sibling Gumbel process.",
+        "Ilienko (2026), Theorem 1 and Section 5: R^infinity product-topology convergence for fixed indices, not a moving-index compact-uniform result."
+      ],
+      "reasoning": "An exact database/table duplicate is structurally inapplicable to this process-level limit. Searches for semantically equivalent claims returned no exact match; this does not by itself establish historical originality. The seemingly stronger infinite-dimensional Ilienko result is only coordinatewise in the product topology; it cannot be specialized to an N-dependent sibling rank growing like log N without additional uniform estimates.",
+      "searches": [
+        "siblings coupon collector album index grows logarithm N Gumbel fluctuation poisson count empirical distribution at coupon collector cover time",
+        "coupon collector brother j log n mesoscopic empty spaces Gumbel shift central limit",
+        "uniform occupancy at complete coupon collection logarithmic count threshold Gumbel empirical count fluctuations",
+        "Poisson local CLT coupon siblings growing album index rank one process negative Gaussian density times Gumbel",
+        "arxiv:2606.29635 sibling U_j^N fixed vs growing",
+        "Ilienko 2026 Limit theorems extended coupon collectors R infinity infinite dimensional fixed sibling indices growing logarithm n"
+      ]
+    },
+    "rationale": "The motivating same-model paper arXiv:2606.29635 fixes all album indices and explicitly states it does not cover growing j. Full-text comparison with Ilienko (2026) in the infinite-dimensional product topology and with arXiv:2606.31391 and the accessible earlier sibling work reveals no implication of a uniform log-index Gumbel process; six distinct semantic database queries found no directly covering recorded statement. This remains best-knowledge, provisional historical originality because the general occupancy/empirical-process literature is broad and the 2020 first-sibling paper could not be fully examined (while the 2012 Mahmoud–Smythe primary text was inspected and found noncovering).",
+    "residual_risks": [
+      "Classical or obscure empirical-process results for uniform occupancy stopped at an extreme order statistic might subsume the theorem in a more general form.",
+      "Full manuscript of arXiv:2005.05270 could not be conclusively compared section by section; abstract-level review indicates first-sibling focus only.",
+      "Literature searches and available manuscript inspections cannot establish worldwide uniqueness or completeness of the literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the growing-index claim: Theorem 5 fixes J; Remark 3 expressly says j growing with N is not addressed; the limiting amplitude is exponential under different normalization.",
+        "evidence": [
+          "Theorem 5 fixes J≥2 and normalizes U_j by (log N)^(j-1)/(j-1)! for j≤J.",
+          "Remark 3: does not address regimes in which the album index grows with N.",
+          "The conclusion calls growing album index a natural open direction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+        "material_read": "Abstract, full available HTML including Introduction, Sections 2, 6, 7, Theorem 5 and Remark 3 (pages not applicable).",
+        "method": "Direct primary-source full-text theorem and proof comparison.",
+        "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+        "trigger": "Same stochastic object and explicit gap concerning growing sibling index."
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem 1 gives R^infinity product-topology convergence of normalized fixed-index sibling deficits; convergence is proved using every fixed finite coordinate block, which cannot imply the moving j_N=floor(log N+x sqrt(log N)) supremum limit.",
+        "evidence": [
+          "Theorem 1: (r! U_r^(n)/(ln n)^r, r in N) converges in R^infinity with product topology to a common Exp(1) vector.",
+          "Section 5 proves convergence of fixed finite-dimensional projections; Section 8 discusses convergence rates for each fixed r.",
+          "The present theorem uses Poisson-CDF centering with log-growing r, Gumbel amplitude, and compact-uniform control; these are not covered by product-topology fixed-coordinate convergence."
+        ],
+        "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/358/read",
+        "material_read": "Full open-access HTML article: introduction, Theorems 1–3, Section 5 proof, Section 8 conclusion and limitations.",
+        "method": "Read primary open-access article and compare process topology and quantifiers: fixed coordinates in product topology versus moving log-index and compact supremum.",
+        "title": "Limit theorems in the extended coupon collector’s problem",
+        "trigger": "Contemporary 2026 same-model infinite-dimensional theorem potentially stronger than any finite sibling limit."
+      },
+      {
+        "assessment": "NOT_COVERING: transform/majorization orders over finite coupon probability vectors; no centered log-index process or Gumbel fluctuations.",
+        "evidence": [
+          "Theorem 1.1 assumes N,j fixed and a radial path in the finite probability simplex.",
+          "Theorem 2.2 is a Laplace-transform order, not a joint growing-index functional convergence theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.31391",
+        "material_read": "Available full HTML Sections 1-2 and main Theorems 1.1 and 2.2, methodological comparison throughout.",
+        "method": "Read theorem hypotheses and exact PGF representation in primary full text.",
+        "title": "Radial Transform Extremality for the Siblings of the Coupon Collector",
+        "trigger": "Same sibling counts with finite-size distributional claims."
+      },
+      {
+        "assessment": "NOT_COVERING within inspected material: fixed-index deficit expectation asymptotics do not imply the stopped growing-index empirical profile in the central logarithmic window.",
+        "evidence": [
+          "Its object matches the sibling model but the inspected results give expectation formulas and fixed j asymptotics, not compact-uniform Gumbel fluctuations at j≈log N."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.4346",
+        "material_read": "Accessible full primary manuscript, including introductory model and main expectation-asymptotic statements.",
+        "method": "Compared variables and fixed-album-index asymptotic regimes with the present process-valued theorem.",
+        "title": "The Siblings of the Coupon Collector",
+        "trigger": "Earlier foundational work on sibling count expectations and asymptotics."
+      },
+      {
+        "assessment": "LIKELY_DIFFERENT but residual access risk: first sibling j=2 only versus j increasing near log N; priority not conclusively ruled out from full text.",
+        "evidence": [
+          "The indexed abstract and Long (2026) cite a first-sibling limit for j=2.",
+          "A larger result hidden in inaccessible sections has not been excluded."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.05270",
+        "material_read": "Title, abstract and its characterization in arXiv:2606.29635; primary full manuscript not reliably retrievable for the present comparison.",
+        "method": "Abstract-level and citing-source scope comparison; no whole-document noncoverage assertion.",
+        "title": "The Coupon Collector's Brother",
+        "trigger": "Classic first-sibling random limit which is a possible special case of related models."
+      },
+      {
+        "assessment": "Standard Gumbel maximum, DKW, and Poisson local CLT are individual input lemmas. The result about the random stopped growing-index deficit profile does not appear as their own statement, but an unlocated general empirical-process theorem could subsume the combination.",
+        "evidence": [
+          "Gumbel concerns the last first-arrival time; DKW bounds empirical functions at deterministic j; the theorem requires a continuum of growing j and random stopping, with a sharp second-order normalization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+        "material_read": "Classical Gumbel and exponential-spacing facts as explicitly used and attributed in the source; DKW cited as a known theorem.",
+        "method": "Logical-implication comparison of standard hypotheses to the stopped, process-valued claim.",
+        "title": "Classical coupon-collector and Dvoretzky–Kiefer–Wolfowitz asymptotic tools",
+        "trigger": "Assess whether the proof only restates a standard limit."
+      },
+      {
+        "assessment": "NOT_COVERING: Theorems 1–2 use an arbitrary deterministic number of samples and fixed finite occupancy categories r=0,...,k. No theorem about random first-completion stopping or categories increasing around log n; these cannot follow from its fixed-k Gaussian limits.",
+        "evidence": [
+          "Theorem 1 studies sublinear draws j_n=o(n/mu_S(n)) and k in {1,2}; Theorem 2 studies linear draws j_n~lambda n/mu_S(n) for fixed k.",
+          "Section 2 defines X_{j,r} as count of types seen exactly r times after j sampling stages, with r≤fixed k.",
+          "The present limit concerns the cumulative count below a moving threshold near log n at first-cover stopping time of order n log n, with a Gumbel rather than Gaussian fluctuation amplitude."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1339878719",
+        "material_read": "Lawfully accessible full publisher PDF, 23 pages; inspected introduction and model, Theorems 1–2, assumptions on fixed frequency categories and sampling phases, proofs/limitations.",
+        "method": "Read full primary PDF, including its theorem hypotheses, with first-page screenshot confirmation; compared deterministically sampled fixed-category Gaussian CLTs against first-cover stopped moving-threshold Gumbel law.",
+        "title": "On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+        "trigger": "Potentially broader occupancy count joint central limit theorems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e4db68d-2f3c-4eac-8734-6c1a51ab28c4",
+  "value": {
+    "rationale": "The source identifies growing sibling index as an open regime. The window j≈log N is the natural transition from a vanishing fraction of empty places to a macroscopic Gaussian-CDF profile. The theorem provides the full compact-uniform first fluctuation with explicit non-Gaussian Gumbel amplitude and rank-one covariance, which cannot be inferred by substituting a growing index into the published fixed-J limit. It is structurally informative for higher-order and heterogeneous extensions, beyond a pointwise Poisson approximation. Ilienko (2026) treats all fixed ranks in a product topology but still leaves the moving-rank critical-window question distinct.",
+    "status": "PASS"
+  }
+}
