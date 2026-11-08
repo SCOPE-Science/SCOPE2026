@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:52:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The neighbor-one counts are k-z at a nonbridge clique vertex and k-u+v at its bridge vertex. For odd m=2q+1 the nonbridges settle to clique majority in one step and an exceptional bridge (k,u,v)=(q+1,1,0) or (q,0,1) settles on step 2; inclusion-exclusion gives s2=2H(2^m-H). For even m=2q, the k=q class flips nonbridge colors and transports the opposite bridge bit; all unbalanced classes collapse to uniform. The both-balanced opposite-bridge subset is the complete primitive two-cycle class (C^2/2 states); exactly-one-balanced classes split into 2-,3-,4-step cases and yield s0=4+C^2/2,s1=U^2-4,s2=CU+C^2/2,s3=C 2^{m-1},s4=C(2^{m-1}-C). The m=2 path is separately (6,6,4). Independent direct neighbor-list bit simulation exhausted all 4^m states for m=2..6 and checked histograms and 2-cycle orbits; universal proof is by exhaustive clique case split, not simulation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaaser et al. prove upper bounds for deterministic-majority voting time on graph classes; no exact B_m labelled first-entry class is given in their inspected full text.",
+          "Masuda two-clique topology uses a stochastic voter process rather than simultaneous strict majority."
+        ],
+        "reasoning": "A general bound on eventual period <=2 does not imply exact labeled multiplicities, and sequential voter dynamics is not a reduction of this deterministic map.",
+        "searches": [
+          "Kaaser Mallmann-Trenn Natale arxiv:1508.03519v1 Sections 1.1 and 3; Goles Olivos 1980 generalized threshold functions",
+          "Masuda arxiv:1403.4763 voter model two-clique"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1508.03519v1",
+        "https://arxiv.org/abs/1403.4763",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kaaser et al. state convergence time O(|E|) and other graph-family upper bounds, but the present sharp bound is 4 on this topology and includes exact time-fiber populations.",
+          "Stochastic voter copying of Masuda is a different Markov chain, so its absorption-time results cannot imply the deterministic 2-cycle population."
+        ],
+        "reasoning": "Neither earlier theorem entails C^2/4 four? (two-cycle) count, absence of preperiodic entries into cycles, or each s_t(m).",
+        "searches": [
+          "https://arxiv.org/html/1508.03519v1 Section 3 voting time",
+          "arxiv:1403.4763v1 voter model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent terms lazy-tie synchronous majority, deterministic binary threshold network, two-clique bridge/barbell graph and voting time. Closest published bridge-barbell result https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2 computes zero forcing, not majority dynamics."
+        ],
+        "reasoning": "Zero-forcing polynomial or generic period-two convergence is not the identical transition-count distribution.",
+        "searches": [
+          "Resultary: synchronous deterministic majority with tie stay two complete cliques connected one bridge exact transient basin counts period two",
+          "Resultary: deterministic majority bridge barbell two cliques first-entry histogram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published identical fixed-graph exact entry histogram was identified by indexed searches; zero forcing of bridge barbells is a different combinatorial invariant."
+        ],
+        "reasoning": "Formula is complete in m rather than a known finite table; no-hit is retained as risk, not novelty proof.",
+        "searches": [
+          "Resultary: synchronous deterministic majority with tie stay two complete cliques connected one bridge exact transient basin counts period two",
+          "Resultary: exact barbell majority voting time time-fiber two cycles bridge"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge originality after comparing equivalent mathematical statements, stronger-coverage implications and relevant primary material. No inspected source is shown to imply the target exact statement; incomplete historical coverage is retained as a risk.",
+      "residual_risks": [
+        "Unindexed exact majority census of one-bridge clique barbell may exist; bounded literature search does not certify priority.",
+        "Any change from lazy ties to random ties invalidates formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General majority convergence/voting time, not exact B_m barbell counts",
+          "evidence": [
+            "Their voting-time results concern global graph bounds, without a labeled two-clique bridge histogram."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1508.03519v1",
+          "material_read": "Full online preprint: definitions, introduction, Section 3 and theorem/appendix context",
+          "method": "Primary arXiv HTML, sections inspected",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Same synchronous majority with tie retention and time to period-two convergence"
+        },
+        {
+          "assessment": "Stochastic copying rule differs; whole-document not-covering not asserted",
+          "evidence": [
+            "Stochastic voter evolution cannot be equated to deterministic synchronous majority transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.4763",
+          "material_read": "ArXiv abstract and bibliographic description only; no full manuscript read",
+          "method": "arXiv public abstract",
+          "title": "Voter model on the two-clique graph",
+          "trigger": "Identical broad two-clique topology with one intercommunity link"
+        },
+        {
+          "assessment": "Studies zero-forcing sets rather than update-orbit dynamics",
+          "evidence": [
+            "Exact forcing polynomial of bridge-barbell graph counts static sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+          "material_read": "Title and Resultary summary only",
+          "method": "Resultary record summary",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "Published SCOPE with identical graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single bridge between two highly connected communities is a canonical network bottleneck. Exact parity-dependent recurrent oscillation population, complete basin entry histogram, and sharp four-round delay refine broad convergence bounds in a mathematically motivated family; separate recurrence probability and long-delay probability are genuine dynamical invariants.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1508.03519v1",
+    "https://arxiv.org/abs/1403.4763",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Equal-size cliques, exactly one bridge, synchronous binary strict-neighbor majority with tie retention; no unequal cliques or stochastic variants.",
+    "Unindexed exact majority census of one-bridge clique barbell may exist; bounded literature search does not certify priority.",
+    "Any change from lazy ties to random ties invalidates formulas."
+  ]
+}

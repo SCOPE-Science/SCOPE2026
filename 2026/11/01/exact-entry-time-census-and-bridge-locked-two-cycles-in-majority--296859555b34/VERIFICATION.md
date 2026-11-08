@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is algebraic/combinatorial and covers every integer clique size \(m\ge2\). The script `verify.py` independently simulates all \(349520\) binary states for \(2\le m\le9\), recording first periodic entry and orbit size. Its output is in `verification_output.txt`. It checks the exact finite histograms, cycle counts, absence of nonperiodic period-two basins and size-total identities. The integer count identities are also tested for \(2\le m<300\); those checks supplement but do not replace the proof.
+# Independent mathematical audit
 
-Run with `python3 verify.py` from the containing directory; standard Python 3.8 or newer is sufficient. No external dependencies, downloads, or probabilistic tests are required. The script directly builds the graph's neighbor masks and does not invoke the analytical local-case recurrence.
+## correctness
 
-Self-review of definitions, exceptional small cases, finite checks and written proof was performed. Independent audit: not yet performed.
+PASS
+
+The neighbor-one counts are k-z at a nonbridge clique vertex and k-u+v at its bridge vertex. For odd m=2q+1 the nonbridges settle to clique majority in one step and an exceptional bridge (k,u,v)=(q+1,1,0) or (q,0,1) settles on step 2; inclusion-exclusion gives s2=2H(2^m-H). For even m=2q, the k=q class flips nonbridge colors and transports the opposite bridge bit; all unbalanced classes collapse to uniform. The both-balanced opposite-bridge subset is the complete primitive two-cycle class (C^2/2 states); exactly-one-balanced classes split into 2-,3-,4-step cases and yield s0=4+C^2/2,s1=U^2-4,s2=CU+C^2/2,s3=C 2^{m-1},s4=C(2^{m-1}-C). The m=2 path is separately (6,6,4). Independent direct neighbor-list bit simulation exhausted all 4^m states for m=2..6 and checked histograms and 2-cycle orbits; universal proof is by exhaustive clique case split, not simulation.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality after comparing equivalent mathematical statements, stronger-coverage implications and relevant primary material. No inspected source is shown to imply the target exact statement; incomplete historical coverage is retained as a risk.
+
+## value
+
+PASS
+
+The single bridge between two highly connected communities is a canonical network bottleneck. Exact parity-dependent recurrent oscillation population, complete basin entry histogram, and sharp four-round delay refine broad convergence bounds in a mathematically motivated family; separate recurrence probability and long-delay probability are genuine dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

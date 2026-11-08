@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The one-clique update is obtained directly from \(k-z\) and \(k-u+v\) neighbor-one counts, so the proof covers every possible initial configuration and includes lazy ties. For odd \(m\), each clique becomes uniform by the second step and the exceptional weak-majority cases are counted by inclusion-exclusion. For even \(m\), the balanced/unbalanced dichotomy gives exhaustive first-entry cases with exact multiplicities. The \(m=2\) exception is handled separately. Exhaustive microscopic verification covers all \(349520\) labelled states on sizes \(2\) through \(9\), independently confirming the entry-time histograms, orbit counts and basin exclusion. Finite checks do not substitute for the all-size proof.
+PASS
 
-## Originality
+The neighbor-one counts are k-z at a nonbridge clique vertex and k-u+v at its bridge vertex. For odd m=2q+1 the nonbridges settle to clique majority in one step and an exceptional bridge (k,u,v)=(q+1,1,0) or (q,0,1) settles on step 2; inclusion-exclusion gives s2=2H(2^m-H). For even m=2q, the k=q class flips nonbridge colors and transports the opposite bridge bit; all unbalanced classes collapse to uniform. The both-balanced opposite-bridge subset is the complete primitive two-cycle class (C^2/2 states); exactly-one-balanced classes split into 2-,3-,4-step cases and yield s0=4+C^2/2,s1=U^2-4,s2=CU+C^2/2,s3=C 2^{m-1},s4=C(2^{m-1}-C). The m=2 path is separately (6,6,4). Independent direct neighbor-list bit simulation exhausted all 4^m states for m=2..6 and checked histograms and 2-cycle orbits; universal proof is by exhaustive clique case split, not simulation.
 
-PASS with historical-equivalence risk. The closest directly inspected primary work on deterministic majority (Kaaser–Mallmann-Trenn–Natale, arXiv:1508.03519v1, especially definitions, Section 3 and appendices) gives period-two convergence and general upper bounds but not a barbell-specific exact time histogram or bridge-locked orbit census. Benjamini et al., arXiv:1405.2486, give broad eventual-period results and random-graph questions, not the stated formula. Masuda, arXiv:1403.4763, examines the same broad two-clique topology but uses stochastic link-based copying rather than synchronous majority. The classic Goles–Olivos period theorem is strictly weaker. A related census on matching-coupled cliques cannot be transferred by edge deletion: the neighbor majorities and bridge constraints differ. No exact matching public statement was located, but incomplete historical indexing remains a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A natural minimal bridge between two densely internally connected communities generates a parity bifurcation: odd cliques always settle, whereas even cliques support a large, exactly enumerable synchronized two-cycle class. Unlike a mere period upper bound, the theorem resolves the entire finite-time basin distribution, proves nonperiodic states cannot feed that oscillatory class, and identifies a sharp four-step exceptional delay. It also distinguishes order \(m^{-1}\) recurrent oscillation probability from order \(m^{-1/2}\) maximal-delay probability in uniform initial states. These are intrinsic dynamical invariants of a standard modular network, not arbitrary sampled parameters.
+Bounded best-of-knowledge originality after comparing equivalent mathematical statements, stronger-coverage implications and relevant primary material. No inspected source is shown to imply the target exact statement; incomplete historical coverage is retained as a risk.
 
-## Sources and limits
+## value
 
-Primary sources: Goles–Olivos (1980); Kaaser–Mallmann-Trenn–Natale (2015, full HTML inspected); Benjamini et al. (2014, accessible text inspected); Masuda (2014, full preprint text inspected). Direct independent scholarly validation remains outstanding. All claims apply only to equal cliques with a single bridge, synchronous lazy-tie majority, and labelled states.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The single bridge between two highly connected communities is a canonical network bottleneck. Exact parity-dependent recurrent oscillation population, complete basin entry histogram, and sharp four-round delay refine broad convergence bounds in a mathematically motivated family; separate recurrence probability and long-delay probability are genuine dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
