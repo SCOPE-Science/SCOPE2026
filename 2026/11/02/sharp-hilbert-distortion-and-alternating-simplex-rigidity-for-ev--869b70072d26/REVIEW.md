@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The centroid identity on either of the two distance-two alternating rim sets gives the dimension-free bound \(c_2^2\ge2-2/m\); equality forces all hub distances to saturate and both parity sets to be centered regular simplices. The proposed rational Gram matrix has diagonal blocks \(2I-2J/m\) and explicitly defined cross blocks. Fourier diagonalization gives nonzero-mode eigenvalues \(2\pm2u(1+4(1-u^2)/m)\), which are positive for \(m\ge8\) by monotonicity and for \(m=7\) by a rational cosine bound. All metric pair classes meet the sharp distortion inequalities. The exact rational checker, run on `check_wheel.py`, passed 12 orders and all corresponding pairs. The proof, not enumeration, establishes the infinite family. Unproved: smaller orders and the minimal dimension of an optimal embedding.
+PASS
 
-## Originality
+For any noncontracting real Hilbert embedding of wheel K1∨C_{2m}, m even-parity rim vectors have hub squared norm ≤T and mutual squared distances ≥4. The exact centroid identity mΣ||x_i||²−||Σx_i||²=Σ_{i<j}||x_i−x_j||² yields T≥2−2/m; equality forces each parity class to be a regular m-simplex of side 2 centered at the hub. Explicit 2m×2m rational Gram G with same-parity H=2I−2J/m and cross C=(1+1/m)(I+S^-1)−(S+S^-2)/m−2J/m is positive semidefinite: nonzero Fourier eigenvalues 2±2u[1+4(1−u²)/m], u=|cos(pi k/m)|; for m≥8 monotonicity bounds by 2, and m=7 uses a separate strict cosine rational bound. Rank=2m−2, and every graph pair is within squared factors [1,T] of its original shortest-path squared distance. This realizes exact c2=sqrt(2−2/m) for m≥7, including equality rigidity for all embeddings. Independent reconstructed numerical Gram spectra and all pairs for m=7,8,9,12,20,30,50 satisfy constraints; numerical tests are supplementary to Fourier positivity proof.
 
-**PASS, with priority risk.** Full-text sections of Balaji–Bapat–Goel's wheel distance-matrix paper (arXiv:2006.03289) concern a distance-matrix pseudoinverse and the square-root-metric Hilbert representation, not sharp Euclidean distortion of the original wheel metric. Vallentin (arXiv:math/0509716) and Cioabă–Gupta–Ihringer–Kurihara (arXiv:2109.09708) analyze distance-regular graph embeddings, whereas the wheel is nonregular. General shortest-path decomposition bounds (arXiv:1708.04073) do not imply the finite-size constant. The closest accessible research records concern wheel symmetric-edge-polytope inradii/ellipsoids, circulation projection constants, and snowflake negative type; these are different invariants. Exact aliases, graph joins, and possible implied stronger formulas were searched. An overlooked wheel-specific embedding computation remains a residual historical-priority risk; no claim of exhaustive literature coverage is made.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This gives an exact distortion law across an infinite, natural nonregular planar graph family, with a genuine \(1/m\) correction below the generic \(\sqrt2\) snowflake-based upper bound. The dimension-free obstruction has an **all-optimizer rigidity** conclusion, and the matching constructive Gram certificate is explicitly positive semidefinite in every dimension covered. These geometric facts are not simply a distance-matrix inverse, a finite experiment, or a substitution into a distance-regular theorem. The result may guide exact distortion analysis of other apexed graphs; no downstream theorem is asserted.
+Balaji–Bapat–Goel study exactly the wheel family but characterize the Moore–Penrose inverse/distance-matrix Euclidean representation, yielding a Euclidean embedding of the square-root graph metric, not sharp distortion of the original graph metric. Vallentin and Cioabă et al. cover distance-regular graphs, whereas nonregular wheels fall outside their hypotheses. Nearby Resultary wheel symmetric edge polytope ellipsoid work is on Banach or polytope geometry, not the optimal finite metric embedding.
 
-The finite checks were performed only for explicitly stated sizes. No external independent mathematical audit has been conducted.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Hilbert distortion of the infinite natural wheel family and rigidity of every optimal embedding give a sharp global geometric invariant, with an explicit cutoff for the Gram construction and a natural alternating-simplex extremal pattern. This is not a routine substitution of a distance-regular formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

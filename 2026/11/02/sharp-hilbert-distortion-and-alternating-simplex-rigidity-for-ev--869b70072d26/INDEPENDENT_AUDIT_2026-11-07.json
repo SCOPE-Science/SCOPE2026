@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:15:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/sharp-hilbert-distortion-and-alternating-simplex-rigidity-for-ev--869b70072d26/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/sharp-hilbert-distortion-and-alternating-simplex-rigidity-for-ev--869b70072d26/check_wheel.py",
+        "Independent scope_worker01_current_checks.py and .log"
+      ],
+      "rationale": "For any noncontracting real Hilbert embedding of wheel K1∨C_{2m}, m even-parity rim vectors have hub squared norm ≤T and mutual squared distances ≥4. The exact centroid identity mΣ||x_i||²−||Σx_i||²=Σ_{i<j}||x_i−x_j||² yields T≥2−2/m; equality forces each parity class to be a regular m-simplex of side 2 centered at the hub. Explicit 2m×2m rational Gram G with same-parity H=2I−2J/m and cross C=(1+1/m)(I+S^-1)−(S+S^-2)/m−2J/m is positive semidefinite: nonzero Fourier eigenvalues 2±2u[1+4(1−u²)/m], u=|cos(pi k/m)|; for m≥8 monotonicity bounds by 2, and m=7 uses a separate strict cosine rational bound. Rank=2m−2, and every graph pair is within squared factors [1,T] of its original shortest-path squared distance. This realizes exact c2=sqrt(2−2/m) for m≥7, including equality rigidity for all embeddings. Independent reconstructed numerical Gram spectra and all pairs for m=7,8,9,12,20,30,50 satisfy constraints; numerical tests are supplementary to Fourier positivity proof.",
+      "residual_risks": [
+        "The separate m=7 cosine estimate is essential; the monotonic derivative argument is alone valid only m≥8.",
+        "Numerical Gram eigenvalues are not an exact certificate for every m, but the Fourier eigenvalue bound is analytical."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distance-regular graph distortion formulas do not apply to hub–rim nonregular wheels. General shortest-path decomposition bounds are nonsharp in m."
+        ],
+        "reasoning": "These more general-looking titles do not imply the exact wheel graph result because their hypotheses or strength differ.",
+        "searches": [
+          "Vallentin arXiv:math/0509716",
+          "Cioabă–Gupta–Ihringer–Kurihara arXiv:2109.09708",
+          "Abraham et al. arXiv:1708.04073"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.03289",
+        "arXiv:math/0509716",
+        "arXiv:2109.09708",
+        "arXiv:1708.04073",
+        "Resultary search wheel graph Hilbert distortion and wheel ellipsoids",
+        "Published Resultary 2026/10/11 exact wheel Löwner ellipsoid full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An isometric Euclidean embedding of sqrt(d) yields a nonsharp generic sqrt(2) distortion for d, but the claimed strict finite-m sharp sqrt(2−2/m) and necessity of two alternating simplices require a new centroid lower bound plus Fourier Gram construction."
+        ],
+        "reasoning": "The sharp finite-size constant and equality rigidity are not direct corollaries of the different embedding results inspected.",
+        "searches": [
+          "Balaji–Bapat–Goel arXiv:2006.03289 full distance matrix theorem",
+          "Vallentin arXiv:math/0509716"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Balaji–Bapat–Goel distance matrix theorem concerns squared Euclidean representations of graph distance and pseudoinverses, corresponding to square-root rather than original distances."
+        ],
+        "reasoning": "Same wheel names but different metric operation (distance vs square root), so not an equivalent sharp c2 embedding theorem.",
+        "searches": [
+          "Resultary actual semantic query: Euclidean Hilbert distortion even wheel graph K1 join C2m regular simplex sharp m",
+          "Balaji–Bapat–Goel arXiv:2006.03289"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary near-hits calculate Löwner ellipsoid of wheel symmetric edge polytope and Hilbert Banach–Mazur constants of transportation spaces, not wheel shortest-path metric c2."
+        ],
+        "reasoning": "Different norms and polytopes cannot be used as a table of the specific finite metric embedding distortion.",
+        "searches": [
+          "Resultary actual semantic query: Euclidean Hilbert distortion even wheel graph K1 join C2m regular simplex sharp m",
+          "Resultary wheel Lowner ellipsoid, Euclidean Banach–Mazur of cycle transportation"
+        ]
+      },
+      "rationale": "Balaji–Bapat–Goel study exactly the wheel family but characterize the Moore–Penrose inverse/distance-matrix Euclidean representation, yielding a Euclidean embedding of the square-root graph metric, not sharp distortion of the original graph metric. Vallentin and Cioabă et al. cover distance-regular graphs, whereas nonregular wheels fall outside their hypotheses. Nearby Resultary wheel symmetric edge polytope ellipsoid work is on Banach or polytope geometry, not the optimal finite metric embedding.",
+      "residual_risks": [
+        "A specialist sharp wheel metric embedding formula under spectral graph methods might be unindexed; negative Resultary search is not novelty proof.",
+        "No claim about smaller even-rim or odd-rim wheels, or minimal dimension for an optimum is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Euclidean distance-matrix theory and sqrt metric, not sharp Hilbert distortion for the graph metric d.",
+          "evidence": [
+            "arXiv:2006.03289, principal distance-matrix theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.03289",
+          "material_read": "Full 33-page primary PDF, introduction, Moore–Penrose inverse/distance matrix theorem and end discussion",
+          "method": "arXiv PDF text, theorem search and pages 4 and 31–32 screenshots",
+          "title": "On distance matrices of wheel graphs with odd number of vertices",
+          "trigger": "Exact same hub plus even rim wheel family"
+        },
+        {
+          "assessment": "Optimizes ellipsoid of symmetric edge polytope; gives a shape matrix rather than optimal metric map preserving graph pair distances, so no direct c2 implication.",
+          "evidence": [
+            "Resultary 2026/10/11 exact wheel Löwner ellipsoid RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0/RESULT.md",
+          "material_read": "Full RESULT.md, wheel edge-root polytope definition, unique min-volume ellipsoid, spectral and asymptotic proofs",
+          "method": "Primary GitHub raw scientific full text",
+          "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+          "trigger": "Same wheel graph and Euclidean spectral language: plausible alternate distortion invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/sharp-hilbert-distortion-and-alternating-simplex-rigidity-for-ev--869b70072d26/RESULT.md",
+        "arXiv:2006.03289",
+        "arXiv:math/0509716"
+      ],
+      "rationale": "The exact Hilbert distortion of the infinite natural wheel family and rigidity of every optimal embedding give a sharp global geometric invariant, with an explicit cutoff for the Gram construction and a natural alternating-simplex extremal pattern. This is not a routine substitution of a distance-regular formula.",
+      "residual_risks": [
+        "Only m≥7, unweighted even-rim wheels; missing low-rim classification and minimum embedding dimension are genuine open boundaries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No statement on m≤6, odd-rim wheel graphs, weighted wheels, or minimum target Hilbert dimension among optimizers."
+  ]
+}
