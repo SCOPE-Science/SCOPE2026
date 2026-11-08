@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:05:01.558265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary telegraph coherence solves Gʺ+2ξGʹ+4ν²G=0 with G(0)=1,Gʹ(0)=0, giving e^{−ξt}[cos δt+(ξ/δ)sin δt], δ=sqrt(4ν²−ξ²). An x-pulse converts the pre-pulse Bloch y component G(t)sin ωt to conserved z, while conditional transverse modes decay, giving terminal ensemble capacity 2ε|E[G(T)sin(ωT)sin2θ(T)]|. Fixed θ optimizes outside expectation; informed θ(T) can select the sign inside, not the telegraph state. A globally Lipschitz slow envelope h(t)=e^{−ξt}sin ωt1_{t>=0}, maximized at t_H, and Gaussian characteristic filtering yield uniformly B/(2ε)=H e^{−(δσ)²/2}+O(σ+δ^−2) for σ→0; analogous F/(2ε)=H b(δσ)+O(σ+δ^−2). Fourier |cos| gives b(s)→2/π as s→∞, while uniform integration-by-parts for fixed σ yields blind zero and informed positive smoothed-envelope limit. Independently checked exact slow envelope and nearest rapid-phase peaks for ν=10,30,100 at ξ=ω=1; deterministic tests only corroborate analytic bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RTN quantum channels and pulse scheduling cover coherence/deterministic capacity and error-correction performance, not the joint δσ asymptotic or the informed/blind capacity separation for the specified ensemble-averaged battery."
+        ],
+        "reasoning": "General stochastic dephasing and pulse-clock control methods are broader machinery but do not imply the exact claimed frontier without the new optimization and uniform error estimates.",
+        "searches": [
+          "arXiv:2504.15808 Hadipour, RTN dephasing",
+          "arXiv:2505.08670 Udupa et al., RTN errors",
+          "arXiv:2610.38527 Jiang et al."
+        ]
+      },
+      "checked_sources": [
+        "Jiang et al., Harnessing Non-Markovian Memory for Quantum-Battery Capacity (2026), arXiv:2610.38527, section III.1",
+        "Hadipour, Quantum Speed Limits in Qubit Dynamics Driven by Bistable Random Telegraph Noise (2025), arXiv:2504.15808",
+        "arXiv:2505.08670 Udupa et al.",
+        "Resultary random telegraph noise quantum battery capacity one x pulse timing jitter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For σ=0, the optimized capacity reduces to the known deterministic formula. With σν=a/ν and ν→∞, e^(−2a²) is not a consequence of a fixed-ν deterministic maximization; informed timing instead retains b(2a), strictly larger for a>0."
+        ],
+        "reasoning": "Prior exact deterministic identity is treated as known; the joint noise–clock precision limit, order of averaging, and information-class comparison distinguish the final theorem.",
+        "searches": [
+          "Jiang et al. arXiv:2610.38527, deterministic pulse capacity",
+          "Hadipour arXiv:2504.15808",
+          "general Gaussian characteristic filtering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The new quantities B_ν and F_ν are different optimizations of E[Gν(T)sin ωT]: |E f| versus E|f|. This information-class distinction disappears for deterministic clocks, so deterministic pulse theorem is not equivalent."
+        ],
+        "reasoning": "Identified equivalent characteristic-function dephasing but found no identical capacity-after-mixing, Gaussian timing-informed/unknown control theorem.",
+        "searches": [
+          "arXiv:2610.38527 Jiang et al., section III.1",
+          "Resultary: random telegraph noise quantum battery capacity one x pulse timing jitter strong coupling adaptive timing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related hits include Gaussian readout jitter in perfect-state-transfer chains and RTN discord transitions, mathematically different observables; no same-model closed table of b(s) found."
+        ],
+        "reasoning": "No indexed exact battery-capacity timing-precision table found. The database comparison is qualified by index scope.",
+        "searches": [
+          "Resultary: random telegraph noise quantum battery capacity one x pulse timing jitter strong coupling adaptive timing",
+          "arXiv:2610.38527 full text"
+        ]
+      },
+      "rationale": "Jiang et al. 2026 already give the deterministic one-pulse retained capacity expression. Classical RTN coherence and Gaussian Fourier suppression are prior. The assessed result adds independent clipped Gaussian pulse-time jitter with capacity calculated after ensemble mixing, and compares blind fixed-angle versus time-informed sign feedback under sharp high-coupling precision scaling; these comparative limits were absent from inspected close literature.",
+      "residual_risks": [
+        "Possible generic control-precision theorem could subsume the Gaussian scaling, but exact capacity-after-mixing model was not found.",
+        "Time-informed optimal angles require unbounded switching speed; experimentally restricted timing feedback may not retain 2H/π."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong direct prior coverage for σ=0. No Gaussian clock-jitter/controller-information limit in inspected article; present claim extends it.",
+          "evidence": "Section III.1 deterministic one-pulse retained-capacity equation",
+          "identifier_or_url": "arXiv:2610.38527 (2026-10-28)",
+          "material_read": "Full available HTML article including Section III.1 deterministic pulse formula and scope",
+          "method": "ArXiv HTML full-text rendering and targeted section reading",
+          "title": "Harnessing Non-Markovian Memory for Quantum-Battery Capacity",
+          "trigger": "Same qubit, telegraph noise, one x pulse, retained capacity"
+        },
+        {
+          "assessment": "Related dephasing, not evidence of same Gaussian clock frontier",
+          "evidence": "Telegraph coherence ODE and related speed limit setting",
+          "identifier_or_url": "arXiv:2504.15808",
+          "material_read": "Accessible abstract and model/technical descriptions; no assertion of complete full-text inspection",
+          "method": "Preprint search and model-level passages",
+          "title": "Quantum Speed Limits in Qubit Dynamics Driven by Bistable Random Telegraph Noise",
+          "trigger": "Same stationary telegraph coherence dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp δσ resolution transition quantifies when a physically motivated decoherence-mitigation protocol survives timing uncertainty. The strict informed-vs-blind split, including survival 2H/π where blind capacity vanishes, is a nontrivial information-constraint boundary, not merely another deterministic pulse optimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jiang et al., Harnessing Non-Markovian Memory for Quantum-Battery Capacity (2026), arXiv:2610.38527, section III.1",
+    "Hadipour, Quantum Speed Limits in Qubit Dynamics Driven by Bistable Random Telegraph Noise (2025), arXiv:2504.15808",
+    "arXiv:2505.08670 Udupa et al.",
+    "Resultary random telegraph noise quantum battery capacity one x pulse timing jitter"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only ideal instantaneous x pulses, symmetric stationary RTN, Gaussian independent time error and infinite terminal time considered.",
+    "The limiting capacity of averaged state must not be conflated with averaged individual-shot capacities or energetic work accounting.",
+    "Possible generic control-precision theorem could subsume the Gaussian scaling, but exact capacity-after-mixing model was not found.",
+    "Time-informed optimal angles require unbounded switching speed; experimentally restricted timing feedback may not retain 2H/π."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For symmetric stationary telegraph noise with rate \(\xi>0\), amplitude \(\nu>\xi/2\), and qubit splitting \(\omega=2\varepsilon\), the exact coherence is \(G(t)=e^{-\xi t}[\cos(\delta t)+(\xi/\delta)\sin(\delta t)]\) with \(\delta=\sqrt{4\nu^2-\xi^2}\). An \(x\)-rotation at an independent Gaussian-jittered clock time converts its pre-pulse transverse component into the conserved longitudinal population. Conditional coherences decay afterward, producing the stated exact mixed-output objective. Uniform Lipschitz replacement of the slow envelope, the Gaussian characteristic identity, phase-dense peak scheduling, and the absolutely convergent Fourier expansion of \(|\cos|\) prove both controller limits. For fixed positive jitter, uniform oscillatory-integral bounds prove blind decay, while Fourier averaging proves the positive informed limit. The standalone numerical program passed 559 bounded checks; it is supporting evidence rather than proof of the asymptotics.
+PASS
 
-## Originality — PASS, qualified
+The stationary telegraph coherence solves Gʺ+2ξGʹ+4ν²G=0 with G(0)=1,Gʹ(0)=0, giving e^{−ξt}[cos δt+(ξ/δ)sin δt], δ=sqrt(4ν²−ξ²). An x-pulse converts the pre-pulse Bloch y component G(t)sin ωt to conserved z, while conditional transverse modes decay, giving terminal ensemble capacity 2ε|E[G(T)sin(ωT)sin2θ(T)]|. Fixed θ optimizes outside expectation; informed θ(T) can select the sign inside, not the telegraph state. A globally Lipschitz slow envelope h(t)=e^{−ξt}sin ωt1_{t>=0}, maximized at t_H, and Gaussian characteristic filtering yield uniformly B/(2ε)=H e^{−(δσ)²/2}+O(σ+δ^−2) for σ→0; analogous F/(2ε)=H b(δσ)+O(σ+δ^−2). Fourier |cos| gives b(s)→2/π as s→∞, while uniform integration-by-parts for fixed σ yields blind zero and informed positive smoothed-envelope limit. Independently checked exact slow envelope and nearest rapid-phase peaks for ν=10,30,100 at ξ=ω=1; deterministic tests only corroborate analytic bounds.
 
-The Hadipour 2025 work studies a symmetric bistable telegraph dephasing qubit, and Udupa et al. 2025 discuss telegraph-noise-aware control scheduling, but neither accessible account states the joint strong-coupling Gaussian pulse-clock precision frontier for the **capacity of the ensemble-mixed terminal state**. Jiang et al., publicly posted 2026-10-28, already give the ideal deterministic one-pulse retained-capacity identity: that calculation is acknowledged and not proposed as new. Its accessible full text in Section III and Appendix B develops fixed-time rotation and finite-time RTN propagation, but does not analyze random pulse times, the strongly coupled Gaussian \(\nu\sigma\) crossover, or blind-versus-time-informed terminal capacities. published-finding corpus semantic research records on Gaussian readout jitter in an \(XX\) transfer chain and on telegraph Bell-diagonal discord transitions concern different objectives and cannot imply this theorem without new reductions. A generalized pulse-jitter control theorem outside the inspected literature remains a residual publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Fast telegraph revivals create nominally large retained qubit capacity, but practical pulse-time precision can destroy that effect. The sharp \(1/\nu\) timing scale and the exact Gaussian profile quantify the device-calibration threshold. More importantly, the control-information distinction is mathematically substantive: if timing errors are observed, a sign-conditioned pulse retains the nonzero universal \(2/\pi\) fraction of the ideal envelope even when the fixed-angle protocol loses all asymptotic capacity. This isolates a meaningful information-versus-resolution boundary for non-Markovian capacity retention, not an arbitrary parameter evaluation.
+Jiang et al. 2026 already give the deterministic one-pulse retained capacity expression. Classical RTN coherence and Gaussian Fourier suppression are prior. The assessed result adds independent clipped Gaussian pulse-time jitter with capacity calculated after ensemble mixing, and compares blind fixed-angle versus time-informed sign feedback under sharp high-coupling precision scaling; these comparative limits were absent from inspected close literature.
 
-## Closest literature and limitations
+## value
 
-The closest primary text is J.-L. Jiang et al., *Harnessing Non-Markovian Memory for Quantum-Battery Capacity*, arXiv:2610.38527, Section III.1 and Appendix B, with exact fixed-pulse formulas. The originating dephasing paper is M. Hadipour, arXiv:2504.15808, first public 2025-04-22; A. Udupa et al., arXiv:2505.08670, addresses RTN-sensitive bosonic control. Timing-sensitive spin-echo and dynamical decoupling references have different pulse/control observables. Several adjacent primary texts were accessible only by abstract or partial text, and the mathematical-record comparisons relied on available summaries; originality is therefore qualified, not certified. Physical controls with bandwidth, noisy timing readout, nonstationary telegraph processes and finite horizons lie outside the claim. The numerical program does not establish the continuum or infinite-coupling assertions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp δσ resolution transition quantifies when a physically motivated decoherence-mitigation protocol survives timing uncertainty. The strict informed-vs-blind split, including survival 2H/π where blind capacity vanishes, is a nontrivial information-constraint boundary, not merely another deterministic pulse optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
