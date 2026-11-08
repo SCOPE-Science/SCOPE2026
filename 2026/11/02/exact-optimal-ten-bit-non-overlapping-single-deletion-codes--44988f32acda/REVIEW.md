@@ -1,13 +1,21 @@
-# Scientific review: exact non-overlapping single-deletion codes
+# Independent mathematical audit
 
-**Correctness — PASS.** The binary orientation lemma reduces the full search to unbordered words beginning with zero and ending with one. Pair compatibility is exactly the conjunction of cross-bifix freedom and disjoint one-deletion outputs. A complete increasing-index clique enumeration proves the full initial size profile, gives six oriented nine-word codebooks at length ten, and confirms the twelve total codebooks and three four-element symmetry orbits. The final files `verify.py`, `census.tsv`, and `optima.tsv` were executed and rechecked; the output was `VERIFY_OK`. A separate integer-programming formulation gives the same length-ten optimum. The finite claim does not depend on an asymptotic extrapolation.
+## correctness
 
-**Originality — PASS, with historical risk.** The closest primary works are Blackburn's analysis of non-overlapping codes (arXiv:1303.1026), Chee–Kiah–Purkayastha–Wang's exact unconstrained binary non-overlap sizes (2013), Sloane's deletion-code survey (arXiv:math/0207197), and No's 2019 exact deletion-code optimality account. Their one-constraint results do not imply the intersection's code size, its twelve equality cases, or the symmetry orbit count. Heymann–Ferreira–Swart (2012) combine synchronization and deletion correction, but for permutation codes, not binary cross-bifix-free codes. Searches of available indexed research records found nearby separate-constraint finite classifications, not an equivalent joint ten-bit result. An older uncatalogued construction or classification cannot be excluded; the historical-priority conclusion requires independent scholarly inspection.
+PASS
 
-**Value — PASS.** Single-deletion correctness and non-overlap address different synchronization failures. Their simultaneous finite optimum is not determined by the previously known separate optima: the largest binary ten-bit non-overlapping code has twenty-four words, and the largest ten-bit deletion-correcting code has ninety-four, while their exact intersection maximum is nine. Enumerating all twelve optimizers gives a complete small-block benchmark for designing and comparing joint constraints. This is a natural extremal code problem and complete classification, not a claim of new communication performance or an arbitrary code selected after finding an attractive value.
+Every nonempty cross-bifix-free binary code has uniform leading bit and opposite trailing bit, allowing orientation 0..1. Eligible unbordered words constitute vertices of an exact compatibility graph, with edges iff all cross-overlaps and deletion descendants are disjoint. Recursion on increasing vertex indices with intersection of later-neighbor masks enumerates every clique exactly once; this is an exhaustive finite certificate, not extrapolation. An independently written enumeration regenerated vertex counts (1,2,3,6,10,20,37,74,142), maxima (1,1,1,1,2,2,4,6,9), and complete n=10 clique census (1,142,4566,51196,216875,347859,200412,37440,1800,6); six oriented size-nine optima, twelve labeled via complement, three four-element reversal/complement orbits. No n>10 conclusion is claimed.
 
-**Limitations.** Scope is binary words of lengths two through ten, with exact single deletion within an already delimited word and strict all-length prefix–suffix non-overlap. No all-length formula, automatic stream decoder, or stochastic channel claim is supplied. Finite exhaustive code and a self-review are not independent validation.
+## originality
 
-**Closest literature inspected.** Sloane (2002), https://arxiv.org/pdf/math/0207197; Blackburn (2013), https://arxiv.org/pdf/1303.1026; Chee et al. (2013), https://ymchee66.github.io/home/PDF/crossbifixjournal.pdf; Heymann et al. (2012), https://ujcontent.uj.ac.za/esploro/outputs/conferencePaper/Combined-permutation-codes-for-synchronization/9910785307691; No (2019), https://pmc.ncbi.nlm.nih.gov/articles/PMC7514547/.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS for the precise complete statement, after distinguishing prior objects, scope and implications. Relevant primary mathematical results were inspected, and none of the materially read theorems supplies the same whole claim. Earlier components are explicitly credited; unsuccessful indexing alone is not proof of priority. See four structured checks, primary reading and residual risks.
+
+## value
+
+PASS
+
+Simultaneous synchronization via cross-bifix-freeness and adversarial one-deletion correction is a natural joint code-design constraint. A certified exact n<=10 capacity profile, complete n=10 optimizer list, and symmetry orbit count are a meaningful finite cutoff; no asymptotic or end-to-end streaming promise is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
