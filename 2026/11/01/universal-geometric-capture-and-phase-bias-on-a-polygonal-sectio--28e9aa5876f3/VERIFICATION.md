@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and precise scope
+# Independent mathematical audit
 
-Run `python3 check_exact.py` using Python 3.8+ and its standard library. The observed successful output was:
+## correctness
 
-`EXACT_POLYGONAL_PHASE_LAW_OK: 3636 rational branch tests, 36 parameter pairs, 14 distribution levels`
+PASS
 
-The executable constructs the original planar map with rational absolute values, iterates it three times, checks the finite graph parametrization and the saturated slope-four conjugacy at each critical branch boundary and at interior rational samples, and checks the two period-three phase points and finite-step probability identities. It uses 36 exact rational pairs with \(a>0\) and \(b>2a\), including ratios very near the boundary.
+Read entire RESULT.md/check_exact.py and rederived the graph parametrization X(r), 0<=r<=2b, d=b-2a>0 and exact S=T|K: S(r)=0 for r<=d/2, 4r-2d for d/2<=r<=d, and 2d for r>=d. Independently computed F cubed with exact rational fractions at 404 interior/breakpoint samples over 4 parameter pairs; checked the prime-three orbit and endpoint r=0,2d. The middle interval is exactly a 1/4 uniform return branch on J=[0,2d], with absorbing masses 1/4 and 1/2, so (T_*u_J)=(δP)/4+(δR)/2+u_J/4. For initial arclength on K, masses w,w,1-2w give closed mixture (α−w/(3*4^{m-1}))δP+(β−2w/(3*4^{m-1}))δR+(w/4^{m-1})σ. Nonatomic σ proves exact TV w4^{-(m-1)}; tail differentiation yields capture P(τ=1)=1−w and P(τ=m>=2)=3w4^{-(m-1)}. The unique nonabsorbing r=2d/3 is a zero-mass repeller. Symbolic piecewise branch proof, not 404 finite points, supports all parameters/time.
 
-The **infinite-parameter and all-time proof** is the sign-branch calculation (4)–(5) plus measure pushforward equations (6)–(7) in RESULT.md. The exact total-variation formula follows because arclength on a segment is nonatomic and the limiting phase law is atomic. The finite checker cannot establish any universal or literature-priority claim on its own.
+## originality
 
-The initial measure is normalized arclength on the two canonical bounded edges, not area on the plane. The time variable \(m\) counts three-step returns. The unique indefinitely uncaptured point is a repelling fixed point of the three-step return, which has zero initial probability. No independent mathematical audit has been performed.
+PASS
+
+Cima–Gasull–Mañosa–Mañosas (2024 preprint/2025 article), original Proposition 12 and Figure 1, already present the polygon/invariant-graph and third-iterate branch dynamics; those are explicitly prior. The assessed claim is the exact arclength pushforward, nontrivial parameter-dependent atomic phase weights, TV coefficient and full capture-clock law. They are immediate derivable transfer calculations from existing branch map but not located as a stated probability theorem in inspected relevant sections; this closeness is the chief priority and valuation risk, not concealed.
+
+## value
+
+PASS
+
+For a geometrically specified natural bounded section, the law gives the full time-dependent distribution for every m, not just an attractor/periodic orbit: exact phase bias, sharp TV relaxation factor, exceptional repeller and complete hitting-time generating function. These are motivated observables in piecewise-affine dynamics even though their derivation uses a known simple Markov branch mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
