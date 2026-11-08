@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification summary
+# Independent mathematical audit
 
-The self-contained Python 3 program `verify_counting.py` supplies an independently written direct quota-JR predicate (`is_qjr`), the gap construction, the suffix-count recurrence, exact brute-force committee enumeration, and an exact suffix-count-weighted sampler.
+## correctness
 
-Running `python3 verify_counting.py` checks 23,370 exhaustive DR-derived cases and 12,000 deterministic-seed generalized cases; all comparisons passed. Separately, all candidate-interval ballot profiles with four voters and one through five candidates, over all valid committee sizes, supplied 297,176 additional passing comparisons. The combined exhaustive DR verification comprises 320,546 distinct ballot-profile/committee-size cases. This second exhaustive extension was run during the mathematical examination; it is not part of the default script execution. The embedded script itself can reproduce the first two sets.
+PASS
 
-The example with eight ballots and six candidates yields exactly three DR committees, matching direct enumeration.
+For provided candidate order and interval approvals, an unrepresented voter approving an unselected candidate c strictly between two consecutive selected positions a<b has its entire ballot strictly inside (a,b), and conversely: this is an exact if-and-only-if, including first/last sentinel gaps and empty ballots. The good-gap predicate G(a,b) therefore characterizes all q-JR committees by increasing paths. The suffix recurrence F_0(a)=G(a,m+1) and F_t(a)=sum_{b∈E,b>a} G(a,b)F_(t-1)(b) counts each size-k eligible committee exactly once. The O(m²(n+m)+km²) cost and ≤2^m integer counts are correct; conditional path weights telescope to uniform sampling, with exact bounded random integers. DR is JR restricted to candidates whose approval count equals ceil(n/k). An independently written brute candidate-level predicate matched gap DP in 15,885 exhaustive interval/size/quota cases (m≤4,n≤3), separate from package claims of larger test sweeps.
 
-These are finite tests; the proof for arbitrary finite input sizes is the gap-equivalence and path-bijection argument in `RESULT.md`. There is no independent audit and no formal proof assistant certificate.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.
+
+## value
+
+PASS
+
+Counting justified-representation committees is a natural hard counting problem on general approval profiles, and the number and uniform distribution of feasible committees quantify representation flexibility, not merely existence. The supplied dynamic program and exact sampler close a substantial tractable candidate-interval case with arbitrary candidate eligibility and quota. The exact sampling result has independent use and is not a routine consequence of knowing a single feasible committee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

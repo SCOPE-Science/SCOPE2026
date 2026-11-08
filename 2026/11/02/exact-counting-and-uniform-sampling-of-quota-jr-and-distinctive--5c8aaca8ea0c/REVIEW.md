@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every unrepresented ballot approving a candidate strictly between consecutive winners must be wholly inside that gap, and conversely every such wholly contained ballot is unrepresented. This exactly proves the quota-JR gap criterion and the bijection to increasing paths. Integer suffix counts and telescoping sampling probabilities are correct, including zero counts, empty approvals and arbitrary candidate eligibility. The standalone checker was directly compared against brute-force independent quota-JR definitions in 320,546 exhaustive candidate-interval DR cases and 12,000 randomized generalized instances; these tests support, not replace, the proof.
+## correctness
 
-**Originality — PASS, qualified by priority uncertainty.** Chingoma et al.'s paper supplies the DR definition and an analogous gap DP for optimizing semi-strong JR; it does not count all quota-JR/DR committees or sample them uniformly. Becker–Frank solve an existence/optimization problem, Elkind et al. construct a smallest justifying group, and Bredereck et al. prove general-domain counting hardness. Targeted original-source and mathematical-database comparisons did not find the full exact counting/sampling statement; the recurrence is structurally related to standard interval-path methods, so an unpublished equivalent remains possible.
+PASS
 
-**Value — PASS.** Counting JR committees is a natural independently investigated \(\#\mathrm{P}\)-hard problem on general profiles, while the size of the feasible committee family is important for quantifying how restrictive JR and DR are. The theorem gives exact polynomial-time census and unbiased random samples for an established single-peaked-like structural domain and for arbitrary allowed subsets, substantially beyond merely finding a single feasible committee.
+For provided candidate order and interval approvals, an unrepresented voter approving an unselected candidate c strictly between two consecutive selected positions a<b has its entire ballot strictly inside (a,b), and conversely: this is an exact if-and-only-if, including first/last sentinel gaps and empty ballots. The good-gap predicate G(a,b) therefore characterizes all q-JR committees by increasing paths. The suffix recurrence F_0(a)=G(a,m+1) and F_t(a)=sum_{b∈E,b>a} G(a,b)F_(t-1)(b) counts each size-k eligible committee exactly once. The O(m²(n+m)+km²) cost and ≤2^m integer counts are correct; conditional path weights telescope to uniform sampling, with exact bounded random integers. DR is JR restricted to candidates whose approval count equals ceil(n/k). An independently written brute candidate-level predicate matched gap DP in 15,885 exhaustive interval/size/quota cases (m≤4,n≤3), separate from package claims of larger test sweeps.
 
-**Closest literature and limits.** Bredereck et al. (IJCAI 2019, Section 3); Elkind et al. (2022, Theorem 6); Becker–Frank (2025, Section 6.3); Chingoma et al. (2026, DR Definition 25 and the candidate-interval semi-strong JR optimization appendix). Assumes contiguous candidate approvals in a provided order. No extension to general ballot domains, EJR, or PJR is claimed. Independent reproduction and full priority verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.
+
+## value
+
+PASS
+
+Counting justified-representation committees is a natural hard counting problem on general approval profiles, and the number and uniform distribution of feasible committees quantify representation flexibility, not merely existence. The supplied dynamic program and exact sampler close a substantial tractable candidate-interval case with arbitrary candidate eligibility and quota. The exact sampling result has independent use and is not a routine consequence of knowing a single feasible committee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

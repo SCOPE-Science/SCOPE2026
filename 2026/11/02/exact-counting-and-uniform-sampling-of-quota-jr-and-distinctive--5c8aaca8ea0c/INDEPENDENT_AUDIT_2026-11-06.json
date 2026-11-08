@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:53.317924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For provided candidate order and interval approvals, an unrepresented voter approving an unselected candidate c strictly between two consecutive selected positions a<b has its entire ballot strictly inside (a,b), and conversely: this is an exact if-and-only-if, including first/last sentinel gaps and empty ballots. The good-gap predicate G(a,b) therefore characterizes all q-JR committees by increasing paths. The suffix recurrence F_0(a)=G(a,m+1) and F_t(a)=sum_{b∈E,b>a} G(a,b)F_(t-1)(b) counts each size-k eligible committee exactly once. The O(m²(n+m)+km²) cost and ≤2^m integer counts are correct; conditional path weights telescope to uniform sampling, with exact bounded random integers. DR is JR restricted to candidates whose approval count equals ceil(n/k). An independently written brute candidate-level predicate matched gap DP in 15,885 exhaustive interval/size/quota cases (m≤4,n≤3), separate from package claims of larger test sweeps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkind et al. find smallest justifying groups in tree-representable profiles, a broader structural domain, but not exact counts of all q-JR committees.",
+          "Becker–Frank treat optimization and quotas, not the entire committee census."
+        ],
+        "reasoning": "A broader *existence* domain does not dominate the exact counting and unbiased sampling claim; no supplied prior stronger counting algorithm for candidate-interval q-JR was located.",
+        "searches": [
+          "arXiv:2108.12949",
+          "arXiv:2510.19620",
+          "IJCAI-2019-0016"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29332",
+        "IJCAI-2019-0016",
+        "arXiv:2510.19620",
+        "arXiv:2108.12949",
+        "frozen RESULT.md tree 71c2c3c4e4c4a6b95073129e8e5a93947e074314"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chingoma et al. use an interval dynamic program with a different score; the theorem to compute an optimum does not imply exact enumerative recurrence and unbiased distribution.",
+          "The classic JR and DR definitions are prior inputs, not novel objects."
+        ],
+        "reasoning": "Source feasibility and optimization theorems do not mathematically yield exact number of committees or uniform sampling without an additional all-gap equivalence and exact count recurrence.",
+        "searches": [
+          "arXiv:2609.29332",
+          "arXiv:2510.19620",
+          "arXiv:2108.12949"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chingoma–Grossi–Lindeboom–Maly define DR and give candidate-interval gap optimization for semi-strong JR; their state score differs from counting every feasible JR committee.",
+          "No matching exact counting and uniform sampling theorem was identified in published SCOPE semantic results."
+        ],
+        "reasoning": "The source gap-DP can be rephrased as counting directed paths in an interval DAG, but optimization of a best path does not determine the full path count or uniform sampler unless the additional recurrence and weights are established.",
+        "searches": [
+          "arXiv:2609.29332",
+          "Resultary: candidate interval approval justified representation JR counting committees quota exact dynamic program uniform sampling distinctive representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bredereck et al. provide general counting hardness and empirical committee frequencies, not a finite universal enumeration table for candidate-interval profiles.",
+          "DP determines an instance-specific count for arbitrary m,n,k, not a small precomputed table."
+        ],
+        "reasoning": "Exact committee counts are not obtained merely by recomputing a known database; arbitrary ballot multiplicities and eligible sets are inputs.",
+        "searches": [
+          "IJCAI-2019-0016",
+          "arXiv:2609.29332"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.",
+      "residual_risks": [
+        "An unindexed prior interval path-counting treatment might already give the same all-committee recurrence.",
+        "Requires a supplied contiguous candidate order; arbitrary approval ballots, PJR and EJR are outside the theorem.",
+        "Original enlarged verifier’s claimed 320,546 cases were inspected as code, not independently rerun at full scale; independent smaller exhaustive test supports the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological precursor; inspected optimization theorem differs from exact enumeration/sampling of all quota-JR and DR committees.",
+          "evidence": [
+            "arXiv:2609.29332, Definition 25 and candidate-interval semi-strong JR dynamic programming appendix."
+          ],
+          "identifier_or_url": "arXiv:2609.29332",
+          "material_read": "Primary full PDF including DR Definition 25, candidate-interval semi-strong JR optimization and discussion; definition checked around the paper’s page 17.",
+          "method": "arXiv full PDF and page-image inspection",
+          "title": "Diverse Representation in Approval-Based Committee Voting",
+          "trigger": "same DR definition and interval-ballot dynamic programming"
+        },
+        {
+          "assessment": "General-domain counting hardness; does not directly solve contiguous candidate-interval exact DP.",
+          "evidence": [
+            "Bredereck et al., IJCAI 2019, Section 3 on counting JR committees."
+          ],
+          "identifier_or_url": "https://www.ijcai.org/proceedings/2019/0016.pdf",
+          "material_read": "Accessible IJCAI full text, Section 3 and problem formulation.",
+          "method": "primary open-access paper",
+          "title": "An Experimental View on Committees Providing Justified Representation",
+          "trigger": "counting JR hardness in unrestricted approval elections"
+        },
+        {
+          "assessment": "Finds a smallest group on tree-representable profiles; no demonstrated exact all-committee count; full-text omission is residual risk.",
+          "evidence": [
+            "Elkind et al. arXiv:2108.12949, Theorem 6 as quoted in inspected source package."
+          ],
+          "identifier_or_url": "arXiv:2108.12949",
+          "material_read": "Abstract and accessible cited theorem statement (Theorem 6); full proof not treated as material read.",
+          "method": "arXiv abstract / referenced theorem excerpt",
+          "title": "Justifying Groups in Multiwinner Approval Voting",
+          "trigger": "more general structured ballot class could imply result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting justified-representation committees is a natural hard counting problem on general approval profiles, and the number and uniform distribution of feasible committees quantify representation flexibility, not merely existence. The supplied dynamic program and exact sampler close a substantial tractable candidate-interval case with arbitrary candidate eligibility and quota. The exact sampling result has independent use and is not a routine consequence of knowing a single feasible committee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed prior interval path-counting treatment might already give the same all-committee recurrence.",
+    "Requires a supplied contiguous candidate order; arbitrary approval ballots, PJR and EJR are outside the theorem.",
+    "Original enlarged verifier’s claimed 320,546 cases were inspected as code, not independently rerun at full scale; independent smaller exhaustive test supports the proof."
+  ],
+  "schema_version": 1
+}
