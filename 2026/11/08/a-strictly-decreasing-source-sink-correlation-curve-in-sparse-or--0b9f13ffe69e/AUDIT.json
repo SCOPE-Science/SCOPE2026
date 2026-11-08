@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 and p in (0,1), independent edge-absence products yield exact source and sink probabilities, triangular site cross-covariance and the finite total covariance. Under p=c/n, target-column exposure produces explicit martingale increments; their conditional quadratic variations concentrate in L2 by independent outgoing-row factors, while uniformly bounded fourth moments imply Lindeberg. The limiting covariance entries are A(c) and B(c); strict decay of rho follows by differentiating and using tanh(x)<x. The packaged verifier passed 1319 exact assertions and controlled numerical checks, including independent enumeration of all DAG edge subsets through order six and direct checks of martingale increment formulas. The general proof does not rely on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ralaivaosaona (2022), DOI 10.4230/LIPIcs.AofA.2022.17, PDF pp.1–3 and introduction, uses the independent two-direction binomial digraph conditioned on acyclicity, not the fixed-total-order Bernoulli DAG; its limiting source fraction is e^{-c} for c<1, otherwise 1/(ec), unlike (1-e^{-c})/c.",
+        "Bollobás–Brightwell (1997), DOI 10.1137/S0895480194281215, available abstract lists posts, height, linear extensions and incomparable pairs; complete manuscript could not be inspected.",
+        "General random-graph degree-count CLT techniques may yield asymptotic normality but do not by themselves determine this cross-covariance and monotone correlation formula."
+      ],
+      "reasoning": "The conditioned-DAG theorem cannot imply the ordered-model coefficients because the models have different first moments. Broader random graph order results would cover this claim only if they contained the relevant joint law or a sufficiently explicit dominating theorem; their accessible statements do not demonstrate such coverage. The inaccessible 1997 paper is retained as an explicit unresolved priority risk, not incorrectly certified not-covering.",
+      "searches": [
+        "random graph order minimal maximal elements jointly central limit p=c/n",
+        "The Number of Sources and Isolated Vertices in Random Directed Acyclic Graphs 2022",
+        "The Structure of Random Graph Orders Bollobas Brightwell 1997",
+        "stochastic ordered graph number minimal elements maximal elements covariance normal"
+      ]
+    },
+    "checked_sources": [
+      "Barak–Erdős 1984, https://www.renyi.hu/~p_erdos/1984-14.pdf",
+      "Denisov–Foss–Konstantopoulos 2010, https://arxiv.org/abs/1005.4806",
+      "Ralaivaosaona 2022, https://doi.org/10.4230/LIPIcs.AofA.2022.17",
+      "Bollobás–Brightwell 1997, https://doi.org/10.1137/S0895480194281215 (abstract-level only)",
+      "Prior accessible mathematical findings on fixed-tree source–sink covariance (different model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barak–Erdős (1984) proves bounds for maximal pairwise path-incomparable sets, which do not determine marginal degree-zero counts or the joint law.",
+        "Denisov–Foss–Konstantopoulos (2010) studies maximum path lengths and regenerative skeletons; those named results supply no explicit source–sink mixed covariance.",
+        "Ralaivaosaona (2022) studies a nonequivalent conditioned-DAG probability measure, ruling out direct transfer of its source-count normal law.",
+        "Bollobás–Brightwell (1997) is a same-model source but its accessible abstract does not settle the exact comparison, as recorded in residual risks."
+      ],
+      "reasoning": "The new statement includes exact finite covariance, a joint nondegenerate Gaussian limit with both entries specified, and the strictly decreasing one-parameter correlation curve. Prior longest-path and antichain bounds do not imply it. Separate source marginal CLTs under other probability laws do not imply cross-covariances. Full-text access to the 1997 random-order paper remains unresolved and is not hidden by a novelty certification.",
+      "searches": [
+        "Barak Erdos random graph order ordered DAG number of source vertices and sink vertices exact covariance covariance q^(n-1) (n p - 1 + (1-p)^n)/p",
+        "random graph orders number of sources and sinks central limit theorem",
+        "The Structure of Random Graph Orders 1997 PDF repository"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barak and Erdős (1984), DOI 10.1137/0605049, defines the homogeneous ordered-edge DAG (orientation reversed) but its theorems are on strongly independent vertex sets.",
+        "Denisov–Foss–Konstantopoulos arXiv:1005.4806, §1 and §2, explicitly identifies the same homogeneous ordered DAG model, treating paths, regeneration and longest-path limits.",
+        "Transitive closure preserves source and sink identities in a DAG, so the random graph order P(n,p) is an equivalent formulation for these statistics."
+      ],
+      "reasoning": "The ordered Bernoulli DAG, random graph order (via transitive closure), and reversed-orientation Barak–Erdős DAG share source/sink count laws. Direct searches and inspected texts did not reveal an equation for their joint covariance, a corresponding bivariate Gaussian covariance matrix, or its strict density monotonicity. A title match alone was not used as a negative determination.",
+      "searches": [
+        "Barak Erdos random graph order ordered DAG number of source vertices and sink vertices exact covariance covariance q^(n-1) (n p - 1 + (1-p)^n)/p",
+        "random graph orders number of sources and sinks central limit theorem",
+        "random ordered DAG source sink counts normal distribution",
+        "Barak Erdos graph sources sinks covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of the published mathematical-result index returned results on acyclic orientations of specific bipartite graphs and unrelated covariance structures, without a matching ordered-DAG source/sink law.",
+        "The directly accessible previous findings for the same research collection include source–sink dependence for random orientations of fixed trees, but not an independently percolated transitive ordered DAG; the objects and limiting regimes differ.",
+        "No matching exact tabulation of the A(c), B(c) limiting matrix or its rho(c) curve was found in the checked bibliographic results."
+      ],
+      "reasoning": "Neither an identical finite covariance formula nor an implicitly stronger table encoding the sparse correlation function was found. Absence of search results is not treated as mathematical proof of novelty; inspected same-model primary literature and model distinctions supply the substantive comparison.",
+      "searches": [
+        "Exact bivariate probability generating function for number of sources and sinks in random ordered DAG with Bernoulli edges",
+        "positive correlation source count sink count in Barak Erdős acyclic random graph, sparse Gaussian limit",
+        "joint CLT source sink counts random ordered DAG p=c/n correlation 2 exp(-c)(c-1+exp(-c))/(1-exp(-c))^2 monotonic decreasing",
+        "Barak-Erdos random graph source vertices sink vertices joint distribution"
+      ]
+    },
+    "rationale": "The exact joint Gaussian law and strictly decreasing sparse-density correlation have no identified stronger published implication after targeted searches of the same ordered-DAG model, graph orders, and source/sink laws, with explicit contrasts to the full texts examined. The earliest selected literature anchor was made public on 2010-05-26. The residual risk is implicit coverage in inaccessible older random-graph-order work, especially Bollobás–Brightwell (1997); this is not treated as proof of uniqueness.",
+    "residual_risks": [
+      "Full text of Bollobás–Brightwell (1997) could not be examined; it may include an implicit joint-degree-zero moment result.",
+      "Generic multivariate degree-count theorems or older random-order tables may implicitly encode the stated covariance even without the same wording.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same probability object, different statistic; no source/sink joint law identified in inspected text.",
+        "evidence": [
+          "Abstract and section 1 define independent ordered edge indicators; theorems 1–3 estimate maximal strongly independent set size."
+        ],
+        "identifier_or_url": "https://www.renyi.hu/~p_erdos/1984-14.pdf",
+        "material_read": "Scanned full seven-page PDF text, first-page screenshot and main theorem sections on strongly independent sets",
+        "method": "Author-accessible full-text PDF with text and page-image inspection",
+        "title": "On the Maximal Number of Strongly Independent Vertices in a Random Acyclic Directed Graph",
+        "trigger": "Original same ordered edge model, up to reversing directions"
+      },
+      {
+        "assessment": "The analyzed quantities are maximal path lengths and skeleton regeneration, not source/sink count covariance.",
+        "evidence": [
+          "2010 arXiv introduction explicitly identifies equal-probability edges as a directed Erdős–Rényi graph and states its longest-path objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.4806",
+        "material_read": "Full-text HTML introduction, line-model definitions, central limit theorem discussion, and searched complete text for source/sink",
+        "method": "Lawful author arXiv full-text HTML examination",
+        "title": "Limit theorems for a random directed slab graph",
+        "trigger": "Selected 2010 literature anchor; same Bernoulli directed-edge construction"
+      },
+      {
+        "assessment": "Different conditioned-DAG ensemble; cannot imply ordered-DAG joint constants, even at marginal mean level.",
+        "evidence": [
+          "Definition on page 1 uses all independent directed edges conditional on acyclicity; Theorem 1 on page 2 gives source-density limit different from ordered model."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol225-aofa2022/LIPIcs.AofA.2022.17/LIPIcs.AofA.2022.17.pdf",
+        "material_read": "PDF pp.1–3 model definitions, results, discussion and generating-function description, with screenshots of pages 1–2",
+        "method": "Lawfully open PDF, extracted primary text and page screenshots",
+        "title": "The Number of Sources and Isolated Vertices in Random Directed Acyclic Graphs",
+        "trigger": "Plausible stronger source-count CLT"
+      },
+      {
+        "assessment": "Plausible implicit coverage risk left open; no full-document not-covering verdict claimed.",
+        "evidence": [
+          "Accessible abstract names posts, height, number of incomparable pairs, and logarithm of linear extensions, not source/sink covariance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895480194281215",
+        "material_read": "Publisher and University of Memphis abstracts and bibliographic record only; full text not obtained",
+        "method": "ArXiv/OA search, institutional journal landing and authorized library access attempt without access to full text",
+        "title": "The Structure of Random Graph Orders",
+        "trigger": "Same transitive-closure model and broader normal-limit results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0b9f13ff-e69e-4d70-b58f-7b6bbce73e66",
+  "value": {
+    "rationale": "Counts of indegree-zero and outdegree-zero vertices are natural entry/exit bottleneck statistics in ordered random networks. The exact site-dependence law and joint CLT quantify their simultaneous uncertainty, which is not recovered from two marginal laws. The explicit correlation has a strict density response from nearly perfect coupling to asymptotic decorrelation; its proof requires a nontrivial martingale CLT and precise cross-moment calculation rather than a renamed elementary identity.",
+    "status": "PASS"
+  }
+}
