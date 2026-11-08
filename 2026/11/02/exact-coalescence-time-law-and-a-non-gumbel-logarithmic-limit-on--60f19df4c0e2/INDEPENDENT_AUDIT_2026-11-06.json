@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:17:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob ae5d136bacb68ddafc72d5bee549ccdd9337a4df",
+        "Checker source blob 295eb018e779fa7a1f58c5e1ce26cb9cf9d8a252",
+        "Exact rational full subset-state continuous-time generator solved independently for n=1..4, means 1/2,4/3,15/8,34/15 agree with formula",
+        "Partial fraction decomposition verified cumulants and infinite-series convergence argument reviewed"
+      ],
+      "rationale": "With r occupied particles and hub occupied, total jump rate r and collision success probability p=(r−1)(n+1)/(nr), while a failed hub-to-empty-leaf move empties the hub and is followed by one Exp(r) return without a collision. Thus a successful stage has 2J+1 independent Exp(r) waits, J geometric(q), q=(n−r+1)/(nr). Conditional success at hub-to-occupied leaf occurs with probability 1/(n+1) independent of holding times; each such success introduces a Bernoulli(1/(n+1)) Exp(r−1) hub-vacancy delay. Independent stages and delays yield the exact finite product Laplace transform and Eτ=H_n+1−(H_n+2)/(n+1). Coupling q_{n,r}≤1/r by shared geometric trials yields L1 difference <=(3H_n−1)/(n+1) from sum of limiting independent S_r. Since their variances sum, the centered series converges almost surely/L2; finite gamma-product telescoping establishes the Laplace transform Γ(1+s)∏_{r≥2}[(r+s)(r+s−1)/((r+s)^2−r)]. Summing exact second and third cumulants gives variance π²/2−1 and κ3=14+14ζ(3)−2π², excluding affinely scaled Gumbel. Independent exact rational full-subset Markov generator solutions reproduced means for n=1..4 (1/2,4/3,15/8,34/15); sympy partial fractions cross-check cumulant summations. Finite checks do not certify infinite limit.",
+      "residual_risks": [
+        "The model requires independent rate-one clocks per occupied particle and reset after collision, not uniform global jumps or per-edge rates; the one-level failure/return decomposition is unique to star topology.",
+        "Limit proof must use independent stage coupling and exponential-moment control for Laplace convergence, not just convergence in distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Durrett, Voter Models, Coalescing RWs, Chapter 7 Example 7.6.1: same rate-one star coalescing model gives a logarithmic lower bound, not a centered law in that example.",
+          "Cristali et al., Two-type annihilating systems on complete and star graph, arxiv:1908.03218, primary full text: particles annihilate A+A→0 and use different model time/interaction from coalescence A+A→A.",
+          "Hermon et al., Mean Field Behavior during the Big Bang Regime for Coalescing Random Walks, arxiv:2105.11585: general early-time-density setting, not the exact deterministic-star τ transform."
+        ],
+        "reasoning": "Broad coalescence/voter duality theorems motivate but do not automatically evaluate finite star first-passage law and its explicit centered limit. The full source comparison did not reveal a stronger directly implying result; searches are not priority certification.",
+        "searches": [
+          "coalescing random walks star graph per-particle rate one full occupancy Laplace transform",
+          "Durrett Voter Models Coalescing RWs Chapter 7 Example 7.6.1 star logarithmic lower bound",
+          "two type annihilating systems on complete and star graph Cristali Jiang Junge Kassem",
+          "non Gumbel logarithmic coalescence time star exact cumulants"
+        ]
+      },
+      "checked_sources": [
+        "Durrett Chapter 7 Section 7.6 and Example 7.6.1 original PDF",
+        "Cristali et al arxiv:1908.03218 original PDF",
+        "arxiv:2105.11585 main scope",
+        "arxiv:1911.13187 subcritical voter graphs context",
+        "Resultary star coalescence semantic query",
+        "Independent subset-generator rational mean checks n=1..4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Durrett, Voter Models, Coalescing RWs, Chapter 7 Example 7.6.1: same rate-one star coalescing model gives a logarithmic lower bound, not a centered law in that example.",
+          "Cristali et al., Two-type annihilating systems on complete and star graph, arxiv:1908.03218, primary full text: particles annihilate A+A→0 and use different model time/interaction from coalescence A+A→A.",
+          "Hermon et al., Mean Field Behavior during the Big Bang Regime for Coalescing Random Walks, arxiv:2105.11585: general early-time-density setting, not the exact deterministic-star τ transform."
+        ],
+        "reasoning": "Ω(log n) cannot determine the additive mean constant, variance or skewness; annihilating-particle calculations change particle counts by two per collision and do not imply coalescence stage probabilities. Thus known source statements do not imply this exact law.",
+        "searches": [
+          "coalescing random walks star graph per-particle rate one full occupancy Laplace transform",
+          "Durrett Voter Models Coalescing RWs Chapter 7 Example 7.6.1 star logarithmic lower bound",
+          "two type annihilating systems on complete and star graph Cristali Jiang Junge Kassem",
+          "non Gumbel logarithmic coalescence time star exact cumulants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Durrett, Voter Models, Coalescing RWs, Chapter 7 Example 7.6.1: same rate-one star coalescing model gives a logarithmic lower bound, not a centered law in that example.",
+          "Cristali et al., Two-type annihilating systems on complete and star graph, arxiv:1908.03218, primary full text: particles annihilate A+A→0 and use different model time/interaction from coalescence A+A→A.",
+          "Hermon et al., Mean Field Behavior during the Big Bang Regime for Coalescing Random Walks, arxiv:2105.11585: general early-time-density setting, not the exact deterministic-star τ transform."
+        ],
+        "reasoning": "The voter/coalescing-walk dual uses the same coalescence mechanism; Durrett explicitly identifies star and logarithmic order, but the reported statement does not give the exact transform or non-Gumbel limit. Annihilation involves removing both colliders and is not equivalent.",
+        "searches": [
+          "coalescing random walks star graph per-particle rate one full occupancy Laplace transform",
+          "Durrett Voter Models Coalescing RWs Chapter 7 Example 7.6.1 star logarithmic lower bound",
+          "two type annihilating systems on complete and star graph Cristali Jiang Junge Kassem",
+          "non Gumbel logarithmic coalescence time star exact cumulants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Durrett has order/log lower bound rather than full finite-n transform.",
+          "Resultary semantic results concern different coalescing coupling/diffusion, not the star τ_n distribution."
+        ],
+        "reasoning": "An entire family of exact transforms and nondegenerate limit is not a small numerically known-table value; no database of same law was identified.",
+        "searches": [
+          "coalescing random walk K1n star exact finite Laplace mean moments table",
+          "Resultary coalescing random walks rate one star exact coalescence time Laplace transform logarithm limit"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.",
+      "residual_risks": [
+        "Unindexed exact star coalescence literature (possibly under voter consensus-time or voter duality aliases) could provide the same centered law.",
+        "Laplace convergence requires uniform exponential moments beyond the finite-stage L1 coupling; stated proof provides the independent-stage exponential bounds but a full analytic source review is still a consideration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS logarithmic lower bound, not identified as covering finite transform",
+          "evidence": "Example 7.6.1 uses coalescing random walks on n-leaf star, gives order log lower bound.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/DoG/Chapter7.pdf",
+          "material_read": "Original chapter full PDF, Section 7.6 and Example 7.6.1 plus surrounding coalescing-walk discussion",
+          "method": "PDF main text read; screenshot inspected star example page",
+          "title": "Voter Models, Coalescing RWs (Chapter 7)",
+          "trigger": "exact same star and clock scaling"
+        },
+        {
+          "assessment": "DIFFERENT_REACTION A+A→0",
+          "evidence": "Annihilation is not pairwise coalescence A+A→A, so per-stage count change differs.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.03218",
+          "material_read": "Full primary article including model definition and Proposition 1",
+          "method": "PDF full body, model and proposition, screenshot",
+          "title": "Two-type annihilating systems on the complete and star graph",
+          "trigger": "nearby exact geometric-stage calculation on stars"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE early-time density vs full star coalescence",
+          "evidence": "Do not infer whole-document noncoverage from scope alone.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.11585",
+          "material_read": "Abstract, introduction and theorem scope available; full body not comprehensively read",
+          "method": "limited primary source comparison",
+          "title": "Mean Field Behavior during the Big Bang Regime for Coalescing Random Walks",
+          "trigger": "possible broader coalescence law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact coalescence-time law and a non-Gumbel logarithmic limit on the star",
+        "Frozen RESULT.md at actual verified Git tree 018217464a20bc9005bc65691da02e86afbd8cdf"
+      ],
+      "rationale": "The exact all-n coalescence-time transform and centered non-Gumbel limit solve a natural quantitative benchmark left open by the known logarithmic lower bound for star coalescence. The explicit cumulants distinguish it from coupon-collector/Gumbel heuristics and give reusable insight into coalescence on highly inhomogeneous graphs.",
+      "residual_risks": [
+        "Applies to fully occupied deterministic stars only; not general random graphs or arbitrary initial subsets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The model requires independent rate-one clocks per occupied particle and reset after collision, not uniform global jumps or per-edge rates; the one-level failure/return decomposition is unique to star topology.",
+    "Limit proof must use independent stage coupling and exponential-moment control for Laplace convergence, not just convergence in distribution.",
+    "Unindexed exact star coalescence literature (possibly under voter consensus-time or voter duality aliases) could provide the same centered law.",
+    "Laplace convergence requires uniform exponential moments beyond the finite-stage L1 coupling; stated proof provides the independent-stage exponential bounds but a full analytic source review is still a consideration."
+  ]
+}

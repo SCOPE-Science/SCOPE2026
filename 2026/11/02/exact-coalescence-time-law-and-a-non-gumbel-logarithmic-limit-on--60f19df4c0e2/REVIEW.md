@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** An occupied-hub stage at level \(r\) succeeds with probability \((r-1)(n+1)/(nr)\), with exactly two exponential waits per unsuccessful excursion. Its successful hub-vacancy mark is Bernoulli with probability \(1/(n+1)\), independent of the stage time. This yields an independent-stage decomposition, the exact finite Laplace product, and exact mean. A monotone geometric coupling gives \(L^1\) error at most \((3H_n-1)/(n+1)\) against limiting stages, and their centered variance series is summable. The infinite Laplace product and cumulants follow by explicit factorization. Direct finite-state rational calculations independently passed 467 checks. Residual risk: finite computations cannot independently validate the full limiting argument; the proof must be inspected for clock and coalescence normalization.
+## correctness
 
-**Originality — PASS, qualified.** Durrett's Chapter 7 Example 7.6.1 treats the same rate-one star process and establishes a logarithmic lower bound, but not the finite transform, exact expected time, or non-Gumbel centered law. Cristali et al., arXiv:1908.03218, study a superficially similar geometric decomposition for annihilating rather than coalescing walkers; the collision rules and time normalization are different. Fernley–Ortgiese, arXiv:1911.13187, treat voter models on random graph classes rather than an exact full-star coalescence law. Searches for equivalent finite transforms and stronger coalescence-time statements yielded no covering comparison in the accessed material. Residual risk: classical or unindexed star-coalescent results could exist elsewhere; no global uniqueness is claimed.
+PASS
 
-**Value — PASS.** A known \(\Omega(\log n)\) lower bound conceals the exact law, additive mean correction, and fluctuation shape. The explicit product determines every finite-order time distribution; the centered limit reveals a non-Gumbel universality class caused by repeated hub excursions, answering a motivated structural question in coalescing interacting particle systems. These are substantive time-distribution results, not relabeling of a known bound.
+With r occupied particles and hub occupied, total jump rate r and collision success probability p=(r−1)(n+1)/(nr), while a failed hub-to-empty-leaf move empties the hub and is followed by one Exp(r) return without a collision. Thus a successful stage has 2J+1 independent Exp(r) waits, J geometric(q), q=(n−r+1)/(nr). Conditional success at hub-to-occupied leaf occurs with probability 1/(n+1) independent of holding times; each such success introduces a Bernoulli(1/(n+1)) Exp(r−1) hub-vacancy delay. Independent stages and delays yield the exact finite product Laplace transform and Eτ=H_n+1−(H_n+2)/(n+1). Coupling q_{n,r}≤1/r by shared geometric trials yields L1 difference <=(3H_n−1)/(n+1) from sum of limiting independent S_r. Since their variances sum, the centered series converges almost surely/L2; finite gamma-product telescoping establishes the Laplace transform Γ(1+s)∏_{r≥2}[(r+s)(r+s−1)/((r+s)^2−r)]. Summing exact second and third cumulants gives variance π²/2−1 and κ3=14+14ζ(3)−2π², excluding affinely scaled Gumbel. Independent exact rational full-subset Markov generator solutions reproduced means for n=1..4 (1/2,4/3,15/8,34/15); sympy partial fractions cross-check cumulant summations. Finite checks do not certify infinite limit.
 
-**Limitations.** All vertices initially occupied; a star; one rate-one clock per particle; merger, not annihilation. The claim does not cover arbitrary graphs or per-edge rate-one dynamics. Priority assessment is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+The exact all-n coalescence-time transform and centered non-Gumbel limit solve a natural quantitative benchmark left open by the known logarithmic lower bound for star coalescence. The explicit cumulants distinguish it from coupon-collector/Gumbel heuristics and give reusable insight into coalescence on highly inhomogeneous graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
