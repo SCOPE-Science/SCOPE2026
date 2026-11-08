@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Greedy simultaneous embeddings are deterministic; in a shortest output no letter can be unused in both. Common steps require consumed-position sum congruent to q-1 mod q, so at most k+ell-1 can occur. An explicit forced-step skeleton attains this when A,B are nonnegative, and its A/B solo-choice bijection gives the count without overcounting. Outside that range one source embeds in the other and the longer is unique. q=2, singleton exponents and boundary A=0 or B=0 are included. The verifier independently checked 448 dynamic-programming configurations, 2592 constructions and 38 exact output languages. Computations are supporting evidence, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bulteau and Zhang, arXiv:2307.04335, Section 5, Theorem 3: NP-hardness for SCS on sets of permutation strings, each letter occurring once per input.",
+        "Sopp et al., arXiv:2603.22591, Theorem 5.1 and conclusion: generic inclusion-minimal supersequence representations and enumeration.",
+        "Hirota and Sakai, arXiv:2307.10552: algorithms for maximal common subsequences, not output enumeration of shortest common supersequences."
+      ],
+      "reasoning": "A generic algorithm that can enumerate a solution class after input-specific work does not assert the closed binomial count or the bijection for infinitely many opposite permutation powers. The 2023 permutation-string hardness result has a variable number of non-repeated input permutations, and the present statement concerns exactly two periodic powers. The newest general paper is a close conceptual comparison, but addresses inclusion-minimal outputs as a superset of shortest outputs rather than the exact family formula.",
+      "searches": [
+        "The tree-child network problem for line trees and the shortest common supersequences for permutations arXiv:2307.04335",
+        "Computing and Enumerating Minimal Common Supersequences Between Two Strings arXiv:2603.22591",
+        "Efficient algorithms for enumerating maximal common subsequences of two strings arXiv:2307.10552"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.04335",
+      "arxiv:2307.10552",
+      "arxiv:2603.22591",
+      "OEIS:A000984",
+      "Primary-literature keyword searches on SCS, reverse permutations, periodic powers and binomial enumeration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A pre-existing reverse-power maximal-common-subsequence characterization for equal exponents gives longest-common-subsequence length 2k-1, which by the standard duality implies SCS optimum length in that special case.",
+        "Neither the maximal-common-subsequence language nor its cardinality is a count of shortest common supersequence outputs. Different LCS embeddings may produce the same or different shortest supersequence words.",
+        "Theorem here also covers unequal exponents and proves output uniqueness in the strongly imbalanced regime."
+      ],
+      "reasoning": "Equal-exponent length is not original by itself and is explicitly treated as prior coverage. The new count concerns distinct outputs rather than LCS strings, and obtains an injective coding by the X-only/Y-only slots. The unequal-exponent extension is not a specialization of the equal-power prior result. The SCS-for-permutations and generic minimal-supersequence algorithms do not explicitly entail this closed family formula without new structural analysis.",
+      "searches": [
+        "\"maximal common subsequences\" \"opposite permutation powers\"",
+        "\"shortest common supersequences\" \"permutation\" \"binomial\"",
+        "arxiv:2307.04335 Sections 2, 5 and 6",
+        "arxiv:2603.22591 Sections 1, 5 and conclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.04335 studies shortest common supersequences for permutation strings, with NP-hardness for a variable set of strings.",
+        "arXiv:2603.22591 defines inclusion-minimal common supersequences and enumerates them via general algorithms; it does not state the present parameterization in the inspected theorems."
+      ],
+      "reasoning": "Searches used the synonyms reverse-order/oppose-order, shortest common supersequence, enumeration, powers and binomial. The relevant papers describe different or broader computational tasks; no statement equivalent to the all-parameter closed count and forced-match skeleton was identified in their inspected theorem statements and relevant sections. These searches cannot rule out an unindexed equivalent.",
+      "searches": [
+        "\"shortest common supersequences\" \"permutation\" \"binomial\"",
+        "\"reverse permutations\" \"shortest common supersequence\" count",
+        "\"opposite permutation\" \"supersequence\" \"binomial\"",
+        "\"permutation powers\" \"shortest common supersequences\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000984 (https://oeis.org/A000984) is the known sequence of central binomial coefficients, and it is equal to the numbers for equal exponents under a parameter substitution.",
+        "No inspected indexed interpretation of A000984 as the distinct shortest-common-supersequence language of opposite permutation powers was found."
+      ],
+      "reasoning": "The integer sequence itself is not claimed as new. Equality with a known combinatorial sequence does not by itself imply the exact SCS counting interpretation, the unequal-exponent piecewise law, or the constructive output classification. Failure of an interpretation search is not proof of uniqueness.",
+      "searches": [
+        "OEIS central binomial coefficients A000984 1 2 6 20 70 252",
+        "\"shortest common supersequence\" \"opposite powers\" sequence",
+        "\"permutation powers\" shortest common supersequence count"
+      ]
+    },
+    "rationale": "The closest primary SCS-for-permutations work addresses varying collections of ordinary permutations and NP-hardness, not two opposite-order periodic powers. Recent general minimal-supersequence algorithms do not state this family formula. An existing equal-power maximal-subsequence classification covers the LCS length and hence SCS length, but not distinct shortest output enumeration or unequal-exponent behavior. The classic central binomial sequence itself is not claimed as original. An unindexed equivalent remains possible.",
+    "residual_risks": [
+      "Other terminology may hide an exact count in unindexed earlier work or in a specialized appendix not recognized by these searches.",
+      "Generic shortest-supersequence dynamic programming computes each finite instance; the comparison is about a new uniform closed form and complete output encoding, not the computability of finite cases.",
+      "No independent literature expert has assessed the novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Permutation inputs are single-symbol-occurrence permutations, with variable-size input collection; no exact count of shortest outputs for two reverse-order powers in the inspected material.",
+        "evidence": "Section 5 Theorem 3 proves NP-hardness of SCS for permutation strings; Section 2 defines |SCS(S)| as optimum length rather than the number of distinct SCS strings.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.04335",
+        "material_read": "Open-access PDF: abstract, Sections 2.2-2.3, 4-5 (including NP-hardness proof and Theorem 3), and Section 6 including the all-permutation comparison; inspected relevant page images and extracted text.",
+        "method": "Primary full-text sections and statement/assumption comparison.",
+        "title": "The tree-child network inference for line trees and the shortest common supersequences for permutations",
+        "trigger": "Direct title match to SCS and permutation strings, the closest topical primary result."
+      },
+      {
+        "assessment": "Enumerates maximal common subsequences; does not state a count for shortest common supersequences of reverse permutation powers.",
+        "evidence": "Abstract states output all maximal common subsequences with algorithmic preprocessing and delay bounds.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.10552",
+        "material_read": "Open-access PDF: abstract, introduction, mathematical problem definitions, algorithmic theorem and later algorithm discussion; relevant page image and extracted sections inspected.",
+        "method": "Primary theorem/definition and output-object comparison.",
+        "title": "Efficient algorithms for enumerating maximal common subsequences of two strings",
+        "trigger": "Potentially dominating common-sequence classification on the same pair of strings."
+      },
+      {
+        "assessment": "Provides generic enumeration of inclusion-minimal common supersequences; the relevant statements do not give the all-parameter binomial formula for shortest outputs of opposite permutation powers.",
+        "evidence": "Theorem 5.1 gives an interval-partition characterization of minimal outputs; the conclusion gives O(n)-delay enumeration after O(n^3) preprocessing.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.22591",
+        "material_read": "Open-access PDF: abstract, introduction, characterizations and Theorem 5.1, generic enumeration discussion and concluding section; checked text for permutation, periodic, binomial terminology and inspected page image.",
+        "method": "Primary theorem/definition comparison and searches within full indexed text.",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "Most directly related general result about enumerating supersequence outputs."
+      },
+      {
+        "assessment": "Confirms the central binomial sequence is classical; the novelty claim does not concern discovery of those numbers.",
+        "evidence": "A000984 states a(n)=binomial(2n,n) and lists 1,2,6,20,70,252,...",
+        "identifier_or_url": "https://oeis.org/A000984",
+        "material_read": "Sequence formula, initial terms, descriptions and selected combinatorial interpretations.",
+        "method": "Exact table and interpretation comparison.",
+        "title": "OEIS A000984, Central binomial coefficients",
+        "trigger": "Equal-exponent output counts match a familiar sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "980cf845-dba3-48da-a1aa-48c7db0515a9",
+  "value": {
+    "rationale": "Distinct optimal outputs, rather than only the optimal length, are a natural combinatorial and alignment-enumeration statistic. A complete two-parameter classification across arbitrary alphabet size yields an explicit bijection, binomial growth with equal powers, and a sharp transition to a single output when one input embeds in the other. This is an exact infinite-family language classification and not a small numerical improvement, generic DP restatement, or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
