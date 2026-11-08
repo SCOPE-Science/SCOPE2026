@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Every factor and boundary is explicit. The one-column Nyström trace is a quotient of quadratic forms; the Gaussian direction ratio is Cauchy. Strict monotonicity yields the exact CDF and quantiles. A proved logarithmic angular integral gives the exact mean; the reciprocal quadratic integral gives the direct estimator mean. Exact rational identities and 6,020 numerical/analytic consistency assertions were replayed; they do not substitute for the infinite proof. Fixed-Gaussian coupling and elementary asymptotic expansions establish the sharp almost-sure and mean limits. No dimensions beyond two, moving smaller eigenvalue or additional probes are claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2209.11023, Theorem 3.9: k,p at least 2 for the nuclear/trace expectation bound.",
+        "arxiv:1605.04893, Sections 2–4: compressed subspace Q and log det(I+Q^T A Q), not the two Nyström transforms in the theorem.",
+        "The function-after-Nyström CDF is exact at one column, a regime not bounded by the cited oversampled theorem."
+      ],
+      "reasoning": "Broad trace and matrix-function error bounds are not equivalent to a specified exact CDF. The direct comparator is not new, and any broader theorem specifying the same entire distribution would dominate; relevant primary material was inspected to check that risk.",
+      "searches": [
+        "Randomized low-rank approximation of monotone matrix functions Persson Kressner Theorem 3.9 rank oversampling",
+        "Randomized matrix-free trace and log-determinant estimators 1605.04893 Gaussian sample bounds",
+        "funNyström one column unoversampled expectation logarithm matrix functions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2209.11023",
+      "https://arxiv.org/abs/1605.04893",
+      "https://jmlr.org/beta/papers/v17/gittens16a.html",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=65-00"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2209.11023, Sections 2, 3.3 and 5: algorithm and expectation/error bounds, but no sharp one-column CDF/quantile comparison.",
+        "arxiv:1605.04893, Theorem 8 and Section 4: high-probability compressed-subspace logdet bounds, not exact law of f(N(A,g)).",
+        "Generic rank-one Nyström formulas subsume E[E_D]=sqrt(log(1+a)log(1+b)); this component is explicitly excluded from originality."
+      ],
+      "reasoning": "A prior theorem about f(N(A,g)) with its exact planar law would subsume the claimed contribution, but none appears in inspected close sources. A general bound on the expectation does not logically specify a CDF or the sharp two-scale limit. The direct mean is already covered and is employed solely for context.",
+      "searches": [
+        "\"funNyström\" \"2x2\" Gaussian expected log trace error",
+        "\"Nyström\" logarithm rank one \"Cauchy\" trace expectation",
+        "Randomized Matrix-free Trace and Log-Determinant Estimators Saibaba Alexanderian Ipsen"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2209.11023, Section 2, equation (3): function applied to a Gaussian Nyström matrix, including q=1.",
+        "arxiv:2209.11023, Section 5.1: the relevant matrix-log trace objective.",
+        "The exact one-column CDF here is a monotone transform of the square of a standard Cauchy ratio; this equivalent form is explicitly checked."
+      ],
+      "reasoning": "Searches addressed both the funNyström name and the ratio-of-Gaussians formulation. The source-defined estimator matches the object, whereas the inspected source results do not state the finite-sample distribution or the nonuniform-integrability limits. The transformed-Cauchy description does not evade stronger general results; none was located in relevant inspected primary sections.",
+      "searches": [
+        "\"funNyström\" \"2x2\" Gaussian expected log trace error",
+        "\"Nyström\" logarithm rank one \"Cauchy\" trace expectation",
+        "rank-one Gaussian Nyström matrix function log(I+A) exact finite-sample trace residual CDF spike asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected arXiv paper includes algorithm definitions, concentration results and numerical plots, not an exact tabulated planar one-probe logarithmic error CDF.",
+        "The 2017 paper gives probabilistic upper bounds and experiments; it does not tabulate this different estimator.",
+        "The finite-parameter formulas are derived algebraically from the one Gaussian sketch, not inferred from a known numerical table."
+      ],
+      "reasoning": "Exact parameter and function searches did not locate a prior full CDF or table. This is negative search evidence, not proof of absence; the source-inspection limits and residual risk are recorded.",
+      "searches": [
+        "Gaussian rank-one Nyström matrix logarithm exact trace expectation planar diagonal eigenvalues convexity",
+        "funNyström versus direct Nyström on logarithm two eigenvalues Gaussian sketch, diverging expected risk",
+        "Nyström approximation of positive definite matrix planar exact trace error and sketch distribution"
+      ]
+    },
+    "rationale": "Persson and Kressner define function-after-Nyström and bound larger sketches, but their inspected Theorem 3.9 requires target and oversampling counts at least two; it does not imply an exact no-oversampling two-dimensional CDF or its sharp distinct mean and fixed-quantile scales. The earlier Saibaba–Alexanderian–Ipsen estimator is a different Gaussian compressed-subspace algorithm. Classical planar Gaussian Nyström trace-residual formulas already subsume the direct comparator mean, and the direct mean is not claimed as original. Exact function-after-Nyström CDF and asymptotic comparison are the bounded novelty claim, with recognized specialist-precedence risk.",
+    "residual_risks": [
+      "The planar special-case distribution may be implicit or explicitly stated in a classical Gaussian-ratio, matrix-function or Nyström reference not found by these searches.",
+      "The associated direct Nyström expectation formula is already covered by general rank-one trace-residual work; it is not a novel subclaim.",
+      "The source paper was searched and its key algorithm, estimates and trace sections examined, but no exhaustive journal-by-journal priority review has been performed.",
+      "Independent expert or archival precedence validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Matching algorithm, not a matching full CDF or exact two-scale one-column theorem in the material examined. The published higher-column results are acknowledged.",
+        "evidence": [
+          "First arXiv posting 2022-09-22.",
+          "Section 2, equation (3), q=1 gives the same Nyström approximation.",
+          "Theorem 3.9 assumes k,p >=2.",
+          "Section 5 discusses log-trace approximation with funNyström."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11023",
+        "material_read": "Original freely accessible paper: abstract; algorithm and Nyström definition in Section 2; Theorem 3.9 and its hypotheses; major results in Sections 3.2–3.4; log trace comparison and experiments in Sections 4–5; relevant PDF page images checked.",
+        "method": "Primary preprint PDF and the arXiv text version, searched for Gaussian, rank-one, logarithm, exact, and theorem statements.",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Names and defines the exact function-after-Nyström method and studies trace(log(I+A))."
+      },
+      {
+        "assessment": "Different subspace-projection estimator and probabilistic spectral bounds; does not establish the exact function-after-Nyström transform distribution.",
+        "evidence": [
+          "First arXiv posting 2016-05-16.",
+          "Theorem 8 concerns logdet(I+Q^T A Q) error.",
+          "Section 4 analyzes probabilistic bounds for Gaussian subspace sketches."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.04893",
+        "material_read": "Original freely accessible PDF: abstract, algorithm and structural comparison, log-determinant error Theorems 1 and 8, Sections 3–4 Gaussian probabilistic error material; relevant PDF page image checked.",
+        "method": "Primary arXiv PDF with text examination of theorem statements and formula searches.",
+        "title": "Randomized Matrix-free Trace and Log-Determinant Estimators",
+        "trigger": "Close Gaussian spectral-gap and trace/log-determinant bounds, with two-dimensional numerical relevance."
+      },
+      {
+        "assessment": "General low-rank matrix approximation context; no whole-document noncoverage conclusion is drawn from the abstract.",
+        "evidence": [
+          "JMLR 17 (2016), paper 117.",
+          "The abstract centers randomized low-rank approximation, sampling and projection bounds."
+        ],
+        "identifier_or_url": "https://jmlr.org/beta/papers/v17/gittens16a.html",
+        "material_read": "Official journal landing page and abstract only, not the entire paper.",
+        "method": "Publisher-authorized official abstract review.",
+        "title": "Revisiting the Nyström Method for Improved Large-scale Machine Learning",
+        "trigger": "Broad earlier low-rank Nyström coverage potentially dominating elementary special cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "001de748-82eb-45c0-bde2-9cb7e9dc9564",
+  "value": {
+    "rationale": "The primary 2022 algorithm seeks economical matrix-function and trace approximation, and its oversampling theory leaves the one-column failure regime open to exact diagnostics. The CDF gives reproducible finite-sample quantiles; the sharp asymptotic separation shows that typical extra log-trace loss is order \\(a^{-1}\\) although mean extra loss is order \\(a^{-1/2}\\), while direct matrix-function Nyström has diverging mean despite a tight nonintegrable limiting law. These explicit distinctions matter for uncertainty quantification and benchmark calibration rather than merely checking a negative or a normalization. The scope is natural but intentionally narrow.",
+    "status": "PASS"
+  }
+}
