@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The uniform-priority Cartesian-tree representation correctly characterizes leaves as strict local maxima and root–descendant pairs by endpoint interval minima. Conditioning on a leaf event yields two elementary beta-polynomial neighbor densities, and all potentially affected intervals are exhausted by their intersection with the local three-key neighborhood. The one-sided finite sums telescope, giving the full finite-size rank profile, exceptional small sizes, phase signs, and global covariance. A direct permutation enumerator through eight keys, a separate root-split mixed-moment recurrence through 120 keys, and exact finite identities check critical computations without being substituted for the proof. Limit: this is only for unbalanced uniform BSTs, no ties.
+## correctness
 
-## Originality — PASS (historical-priority uncertainty)
-The exact statement is the covariance of an *inorder-key-specific leaf indicator* with *total internal path length*, including the unexpected positive-only-at-near-endpoints sign reversal. In Bóna–Pittel 2014, the term rank denotes distance to leaves, not key order. In Chern–Fuchs–Hwang–Neininger 2016, the closely related mixed analysis is global and asymptotic, and does not give the exact position profile or sign boundaries in the inspected material. Neininger–Straub 2020 concerns joint node-type counts rather than total path length. Published research-record searches for equivalent rank-specific covariance, conditional priority-time formulations, and global coverage found no implication of this precise statement. Some relevant full-text sections and historical specialized work remain a residual risk; a search failure does not establish historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-A locally determined leaf event can correlate in *opposite directions* with global insertion cost at neighboring inorder ranks. The sharp phase separation, exact all-size profile, and recovery of a nontrivial global dependence law provide useful structural joint information for unbalanced BST analysis and distinguish boundary effects from bulk behavior. The statement is not merely an elementary renaming of a known marginal expectation or a routine finite evaluation.
+PASS: Checked priority Cartesian tree equivalence, leaf event U_r greater than adjacent sorted-rank priorities, and P_n=∑_{i<j} 1{minimum U_i..U_j occurs at endpoint}. Conditional three-priority beta integrations give the stated one-sided shifts and telescoping B(ℓ)=−1/3+2/[(ℓ+1)(ℓ+2)], yielding exact interior covariance −1/9+2/[3r(r+1)]+2/[3(n-r+1)(n-r+2)]. Endpoint beta integrals yield −(n−2)/(2n); all-n sign and total covariance follow by inequalities and telescoping. Independently reconstructed all BSTs for every insertion order n=2..7 with rational covariances and matched each rank; finite enumeration corroborates the unconditional all-n proof, not a replacement.
 
-## Closest prior research and limits
-See the sources and comparison in `RESULT.md`. The strongest overlap concern is the general joint subtree-count/path-length framework of Chern et al.; the new localized position-dependent sign law is not an immediate stated corollary of its inspected global results. The result is analytical and exact under uniform-permutation insertion but does not claim new algorithms, tail laws, or universality across other tree models.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): the exact finite-n inorder key-rank covariance and unique near-endpoint positive sign pattern is not implied by the inspected random BST papers. Bóna–Pittel use rank to mean distance from leaves, a different statistic; Chern et al. study global path-length relationships and phase limits. The global covariance follows from the local formula and is not separately claimed as original.
+
+## value
+
+PASS
+
+PASS: An individual inorder rank’s leaf indicator and total path length are natural correlated BST statistics. The exact sign reversal confined to r=2,n−1 for all n≥6 reveals spatial heterogeneity obscured by a negative global covariance and is a useful complete all-size profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
