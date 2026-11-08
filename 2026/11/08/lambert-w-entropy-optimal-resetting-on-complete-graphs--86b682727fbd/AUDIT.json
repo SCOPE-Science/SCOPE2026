@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For all integers m>=2 and real gamma in [0,1], detailed balance yields pi_r=u/d and pi_i=p/d, row entropies give the exact formula and continuity at endpoints. The KL comparison shows positive gain only for gamma<e/m and localizes every maximizer to gamma=O(log m/m^2); a uniform O((log m)^4/m) scaled Taylor remainder on this interval and the strong concavity f_m<=-1 yield m^2 gamma*=W(m)+o(1) and the exact scaled gain for any maximizing selection. Separately coded transition-matrix calculations passed 126 combinations; finite tests are not substituted for the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 survey gives general entropy as stationary row-entropy average and maximal-entropy random-walk formulas.",
+        "The 2022 paper gives a general resetting kernel and stationary-resolvent formula for finite networks but states a different optimum on regular networks.",
+        "The 2023 centrality-reset paper treats first-passage optimization, not clique entropy-rate optimization."
+      ],
+      "reasoning": "General transition-matrix/entropy formulas cover computation of each fixed finite case, so exact finite expression is used as a premise, not a stand-alone originality claim. The theorem requires a new all-maximizer localization and uniform large-size variational analysis yielding a different order of optimal parameter and exact first-order gain, not a direct parameter substitution or a special-case bound from the inspected sources.",
+      "searches": [
+        "complete graph entropy rate resetting Markov chain 2022 Wang Chen optimal rate logarithmic squared gap",
+        "https://academic.oup.com/comnet/article/9/5/cnab032/6386451 (section 3.4)",
+        "https://arxiv.org/html/2208.05665v1 (sections II-IV)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2208.05665",
+      "https://academic.oup.com/comnet/article/9/5/cnab032/6386451",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9955709/",
+      "https://doi.org/10.1088/1742-5468/adde3f (only search excerpts available)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang--Chen 2022 states reset probability 1/(m+1) and peak log(m+1) for m-regular networks using a disjoint-arrival entropy expression; these are not attained by the observed-vertex entropy of K_(m+1).",
+        "The present theorem gives m^2 gamma_opt=W(m)+o(1) and m^3(max h-log m)=W(m)^2/2+W(m)+o(1).",
+        "Zelenkovski and collaborators 2023 study centrality and global mean first-passage time, a different objective."
+      ],
+      "reasoning": "The main asymptotic is not implied by the prior 1/(m+1) optimizer: their rates differ by an unbounded factor asymptotically. The generic matrix framework does imply the exact finite expression by routine calculation, but does not directly imply optimization asymptotics; these depend on a localization estimate and uniform expansion. No stronger explicit entropy-optimality theorem with the same limit was seen.",
+      "searches": [
+        "\"Entropy rate of random walks on complex networks under stochastic resetting\" correction overlap",
+        "\"complete graph\" \"entropy rate\" \"resetting\" stationary \"optimal\" Markov",
+        "https://arxiv.org/html/2208.05665v1 (Eq. 19 and regular graph claim)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9955709/ (Eq. 1 and conclusions)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang--Chen 2022 Eq. (4) is observed-state entropy and Eq. (5) defines mixed arrival probabilities; Eq. (17) instead separates ordinary and reset alternatives.",
+        "The 2023 centrality-reset paper Eq. (1) explicitly combines ordinary and reset arrivals at one destination."
+      ],
+      "reasoning": "Entropy of an augmented trajectory recording the reset indicator differs from entropy of the observed vertex sequence. The general Markov entropy definition is equivalent to the exact finite-clique formula after calculation, but neither that tautology nor an augmented-process formula supplies the optimized Lambert-W scaling. Distinction is in the observation sigma-field, not mere notation.",
+      "searches": [
+        "entropy rate resetting random walks complete graph local reset probability optimal Lambert W n squared overlapping transitions",
+        "stochastic resetting entropy rate Wang Chen correction equation overlap original transition reset target neighbor",
+        "https://arxiv.org/html/2208.05665v1 (equations 4, 5, 17, 19, 22)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9955709/ (section 2.1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source 2022 article tables/figures concern regular random graphs, a Cayley tree, and a preferential-attachment network; they do not tabulate exact clique entropy optima.",
+        "A search of 53 accessible earlier own claim statements found reset-hitting-time and multi-searcher-reset results but no entropy-rate resetting on cliques.",
+        "The retrieved indexed results concern e.g. balanced reset coupon collectors and unrelated entropy processes, not the same exact optimizer."
+      ],
+      "reasoning": "No exact table or indexed formula matching the Lambert-W clique entropy asymptotic was identified. Unsuccessful search is not proof of uniqueness; published priority is a stated residual risk.",
+      "searches": [
+        "\"entropy rate\" \"stochastic resetting\" \"complete graph\" \"optimal\"",
+        "\"random walks\" \"resetting\" \"entropy rate\" \"complete graphs\"",
+        "\"resetting\" \"random walk\" \"entropy rate\" \"Lambert W\" complete graph",
+        "complete graph entropy rate resetting Markov chain 2022 Wang Chen optimal rate logarithmic squared gap",
+        "entropy rate resetting random walks complete graph local reset probability optimal Lambert W n squared overlapping transitions"
+      ]
+    },
+    "rationale": "The selected result is the optimized all-size asymptotic entropy gain and Lambert-W reset scale on cliques, not merely substitution into a general entropy formula. The closest 2022 source derives general transition and stationary laws, but its disjoint-event regular-network optimizer is not the observed-vertex optimizer when reset and ordinary transitions have identical destinations. Full accessible primary text, two related works, targeted research-index queries, web queries, and all 53 recoverable prior own claims were compared. Historical priority remains an independent-review risk.",
+    "residual_risks": [
+      "Published mathematical treatments of entropy-rate optimization under resetting that were not indexed or accessible could cover the all-maximizer asymptotic.",
+      "The 2025 density-dependent resetting/complete-graph source was not fully accessible; its search extract does not resolve its relation to path-entropy optimization.",
+      "General stationary-entropy formulas precede the theorem and algebraically imply the finite clique formula; only the asymptotic optimized conclusion is asserted as the substantive original result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General setting and stationary formulas overlap; disjoint reset/ordinary branch entropy does not equal the observed-vertex entropy when destinations overlap. No clique Lambert-W optimizer or gain profile found.",
+        "evidence": [
+          "Submitted 2022-08-11 (arXiv v1)",
+          "Eq. (5): W^R=(1-gamma)W+gamma delta_to_r",
+          "Eq. (17) separates gamma log gamma from ordinary-move entropy, whereas Eq. (4) requires entropy of merged transition probabilities",
+          "Eq. (19)/(22) give regular-network optimum gamma=1/(k+1) and max entropy log(k+1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.05665v1",
+        "material_read": "Entire available HTML article, particularly §§II–IV, Eqs. (4),(5),(15),(17),(19),(22), regular-network figures and conclusion",
+        "method": "Full-text HTML inspection of v1, cross-comparing definitions, destination probabilities and optimization statements",
+        "title": "Entropy rate of random walks on complex networks under stochastic resetting",
+        "trigger": "Exact same discrete-time resetting model and entropy-rate optimization"
+      },
+      {
+        "assessment": "Provides standard stationary Shannon entropy rate and maximal-entropy walking, not the fixed-target reset entropy optimizer on growing cliques.",
+        "evidence": [
+          "Section 3.4 Eq. (3.8) is general entropy rate -sum stationary mass times row probabilities times logs",
+          "Section 3.4 discusses MERW without a reset parameter"
+        ],
+        "identifier_or_url": "https://academic.oup.com/comnet/article/9/5/cnab032/6386451",
+        "material_read": "Abstract, section 3.4 and reference context concerning resetting",
+        "method": "Lawful open-access HTML subsection and context inspection",
+        "title": "Random walks on weighted networks: a survey of local and non-local dynamics",
+        "trigger": "Broader spectral/random-walk entropy coverage"
+      },
+      {
+        "assessment": "Explicitly merges ordinary and reset transitions to the same vertex; studies first-passage search, not entropy-rate optimizer or Lambert-W scaling. A different convention about self-reset appears in one displayed formulation, so no equivalence to our chain is assumed.",
+        "evidence": [
+          "Section 2.1 Eq. (1) adds gamma to already present probability of a normal step to reset site",
+          "Section 2.2 optimizes global mean first-passage time",
+          "Published 2023-02-04"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9955709/",
+        "material_read": "Section 2 model, resetting transition Eq. (1), first-passage objective Eqs. (3)–(5), and conclusion",
+        "method": "Full-text HTML inspection of model and results sections",
+        "title": "Random Walks on Networks with Centrality-Based Stochastic Resetting",
+        "trigger": "Same resetting kernel and possible overlapping destinations"
+      },
+      {
+        "assessment": "Not classified as noncovering on snippets alone; residual historical priority risk retained. Observable appears local-time large deviations rather than stationary path entropy.",
+        "evidence": [
+          "Search extract discusses complete three-vertex graph and rate function of local-time distribution",
+          "Full article could not be inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1742-5468/adde3f",
+        "material_read": "Web search result snippets, including local-time large-deviation discussions; full text inaccessible",
+        "method": "Bounded title and content search; full source request denied by robots control",
+        "title": "Density-dependent stochastic resetting: a large deviations framework for achieving target distributions over networks",
+        "trigger": "Complete-graph resetting processes might conceal broader entropy conclusions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86b68272-7fbd-426b-bdb6-81cff769429f",
+  "value": {
+    "rationale": "On the natural complete-graph test family, optimal fixed-target reset scales as W(m)/m^2 rather than the order-1/m rate suggested by treating reset outcomes as separate observations. The exact maximal benefit decays as (log m)^2/(2m^3). This supplies a structural entropy-accounting explanation plus a quantitatively sharp asymptotic optimization law, not only an elementary normalization correction or a small counterexample.",
+    "status": "PASS"
+  }
+}
