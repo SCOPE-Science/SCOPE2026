@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T23:15:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md@55d5b783cc48a74fd662a57691ebc99ecff2f563",
+        "verify.py@8b2ff08cb3a8f3e5043c12933ee9228ed9541903",
+        "METADATA.json@2774cb5a259d00c8aed826128cff3714fd45330a",
+        "AUDIT.json@101f8ed076103609f55519022341a7a79e877325",
+        "VERIFICATION.md@e66207b28c878b1978a8b2e522451dfed4e72623",
+        "Reconstructed the labeled icosahedral graph independently",
+        "Enumerated 5887 nonempty matchings and exact face vector",
+        "Independently recomputed mod101 boundary ranks and reduced Euler characteristic"
+      ],
+      "rationale": "The precisely labeled icosahedral graph has 30 edges and all matchings are enumerated, giving face vector (30,315,1400,2535,1482,125). Independently reconstructed mod-101 boundary ranks (29,286,1114,1357,125) give only 64-dimensional degree-three reduced homology over F_101. Each rational boundary rank is at least the mod-101 rank, so all rational Betti dimensions are bounded above degreewise by these mod-101 Betti ranks; exact reduced Euler characteristic -64 forces rational H3 dimension exactly 64 and all others zero. A full 120-element automorphism count splits as rotations A5 and central inversion C2; oriented fixed-simplex Lefschetz traces coincide with compatible edge-orbit alternating sums. Class characters on rotation orders (1,2,3,5) are (64,0,-2,-1) and their inversion products (16,0,-2,1). Rational A5 character tables decompose the half-sum into 2V6+2V4+4V5 (40 dimensions) and half-difference into V6+2V4+2V5 (24 dimensions), with no trivial rotation constituent. Rational transfer after subdivision gives the quotient invariant claims. No integral torsion action was claimed.",
+      "residual_risks": [
+        "Finite graph and rational homology only; no claim on Z/3 torsion action or integral equivariance.",
+        "Signed character algorithms in verifier were inspected; independent check directly repeated Betti-rank portion, not all 120 class traces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engström develops independence complexes of claw-free graphs generally, and Bayer–Jelić Milutinović–Vega study outerplanar matching complexes; the icosahedral graph is not outerplanar."
+        ],
+        "reasoning": "Generic claw-free/matching-complex results and the exact nonequivariant theorem do not imply the representation character or fixed rational invariants.",
+        "searches": [
+          "Full icosahedral A5 times C2 representation on rational homology of matching complex of icosahedron, inversion character, third homology",
+          "arXiv:math/0409054",
+          "arXiv:math/0512420",
+          "arXiv:2411.04601"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify.py, AUDIT.json, METADATA.json, VERIFICATION.md",
+        "Independent 30-edge matching face count, mod-101 signed boundary ranks, Euler calculation",
+        "Full exact same-object Resultary RESULT.md",
+        "Resultary semantic query: Full icosahedral A5 times C2 representation on rational homology of matching complex of icosahedron, inversion character, third homology",
+        "arXiv:math/0409054",
+        "arXiv:math/0512420",
+        "arXiv:2411.04601"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonequivariant H3 dimension 64 and Z/3 torsion permit many inequivalent rational A5×C2 modules; the newly measured class traces and 40/24 eigenspaces distinguish one."
+        ],
+        "reasoning": "Prior homotopy type is stronger for ordinary homotopy, but not for the topological group action; the old claim cannot imply the new irreducible decomposition by dimension alone.",
+        "searches": [
+          "2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a/RESULT.md",
+          "Full icosahedral A5 times C2 representation on rational homology of matching complex of icosahedron, inversion character, third homology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching complex M(I) is the independence complex of the line graph L(I); Shareshian–Wachs concern complete/chessboard matching complexes."
+        ],
+        "reasoning": "The equivalent line-graph formulation changes vocabulary only; none of the inspected material supplies the precise A5×C2 character.",
+        "searches": [
+          "Full icosahedral A5 times C2 representation on rational homology of matching complex of icosahedron, inversion character, third homology",
+          "line graph independence complex of icosahedron automorphism rational homology A5 C2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected original Resultary RESULT.md states M(I) ≃ wedge 64 S3 ∨ M(Z/3,3) and no A5×C2 character table."
+        ],
+        "reasoning": "No exact character table was located; absence from a finite search is not a general novelty proof.",
+        "searches": [
+          "Full icosahedral A5 times C2 representation on rational homology of matching complex of icosahedron, inversion character, third homology",
+          "Resultary 2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a"
+        ]
+      },
+      "rationale": "The previously published full integral homotopy calculation of this exact matching complex determines 64 rational degree-three classes and 3-torsion but no automorphism action. Related complete/chessboard matching-complex results and general claw-free independence theory give conceptual machinery, not these 120 group traces or the 40/24 split; actual Resultary search yielded the prior exact-object homotopy finding, not an equivalent character table. Best-of-knowledge originality survives with unindexed-literature risk.",
+      "residual_risks": [
+        "Unindexed equivalent icosahedral character computation cannot be excluded.",
+        "The arXiv general matching-complex papers were not all read in full and are treated as residual literature comparison risk.",
+        "The explicit program verifies rational group characters, not integral torsion or integral representation lattices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS nonequivariant homotopy and rational dimension but NOT full equivariant representation",
+          "evidence": [
+            "Wedge of 64 three-spheres and mod-three Moore space, with no graph automorphism character."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a",
+          "material_read": "Full RESULT.md: graph definition, Morse proof, integral homotopy, limitations",
+          "method": "GitHub pinned file read; theorem statement and proof comparison",
+          "title": "Three-torsion in the icosahedral matching complex: a planar counterexample",
+          "trigger": "Exact same matching complex"
+        },
+        {
+          "assessment": "Different graph families; residual possibility of general character methods",
+          "evidence": [
+            "Studies matching/chessboard complexes of complete or complete bipartite graphs, not icosahedral graph."
+          ],
+          "identifier_or_url": "arXiv:math/0409054",
+          "material_read": "Available indexed abstract/description and relevant objects; not a complete full-text review",
+          "method": "Compare objects and hypotheses",
+          "title": "Torsion in the Matching Complex and Chessboard Complex",
+          "trigger": "Matching-complex torsion and representations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md, verify.py, AUDIT.json, METADATA.json, VERIFICATION.md",
+        "Independent 30-edge matching face count, mod-101 signed boundary ranks, Euler calculation",
+        "Full exact same-object Resultary RESULT.md",
+        "Resultary semantic query: Full icosahedral A5 times C2 representation on rational homology of matching complex of icosahedron, inversion character, third homology",
+        "arXiv:math/0409054",
+        "arXiv:math/0512420",
+        "arXiv:2411.04601"
+      ],
+      "rationale": "The complete natural A5×C2 rational representation on an explicitly defined, highly symmetric planar graph matching complex is a motivated topological invariant. Its 40/24 inversion eigenspaces and rational quotient-vanishing are not determined by known Betti number 64; this resolves the natural exact equivariant classification for this finite object, not an arbitrary sample or a mere renaming.",
+      "residual_risks": [
+        "Unindexed equivalent icosahedral character computation cannot be excluded.",
+        "The arXiv general matching-complex papers were not all read in full and are treated as residual literature comparison risk.",
+        "The explicit program verifies rational group characters, not integral torsion or integral representation lattices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite graph and rational homology only; no claim on Z/3 torsion action or integral equivariance.",
+    "Signed character algorithms in verifier were inspected; independent check directly repeated Betti-rank portion, not all 120 class traces."
+  ],
+  "schema_version": 1
+}

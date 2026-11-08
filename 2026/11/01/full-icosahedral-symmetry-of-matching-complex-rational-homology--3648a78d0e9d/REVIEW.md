@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matching complex is reconstructed from the explicit thirty graph edges; all 5887 nonempty faces and signed boundary ranks are checked. The rank inequalities over \(\mathbb Q\) and \(\mathbb F_{101}\) plus reduced Euler characteristic prove rational concentration in degree three. The graph automorphism enumeration contains exactly 120 elements. Two independent traces agree on all elements, and the class character is decomposed into the standard rational irreducible \(A_5\) characters; finite-group rational averaging justifies quotient homology assertions. Finite exact computations concern only this specified complex, not any infinite extrapolation.
+## correctness
 
-## Originality — PASS with residual risk
-The closest exact prior calculation determines \(\mathcal M(I)\simeq\bigvee^{64}S^3\vee M(\mathbb Z/3,3)\), so neither the rank nor the torsion is new. Its published result does not provide the \(A_5\times C_2\) action. Shareshian–Wachs study complete graph and chessboard matching complexes, and Engström studies general claw-free independence complexes. The full new character formula and quotient conclusions were not found in the relevant inspected results or matching aliases. An unindexed equivalent remains a genuine risk; no publication-priority certification is asserted.
+PASS
 
-## Value — PASS
-The icosahedron is a canonical highly symmetric planar graph and its matching complex has noteworthy integral torsion. A full representation classification of its rational homology distinguishes inversion-even and inversion-odd generators, gives exact equivariant information not implied by dimension 64, and determines rational homology of natural symmetry quotients.
+The precisely labeled icosahedral graph has 30 edges and all matchings are enumerated, giving face vector (30,315,1400,2535,1482,125). Independently reconstructed mod-101 boundary ranks (29,286,1114,1357,125) give only 64-dimensional degree-three reduced homology over F_101. Each rational boundary rank is at least the mod-101 rank, so all rational Betti dimensions are bounded above degreewise by these mod-101 Betti ranks; exact reduced Euler characteristic -64 forces rational H3 dimension exactly 64 and all others zero. A full 120-element automorphism count splits as rotations A5 and central inversion C2; oriented fixed-simplex Lefschetz traces coincide with compatible edge-orbit alternating sums. Class characters on rotation orders (1,2,3,5) are (64,0,-2,-1) and their inversion products (16,0,-2,1). Rational A5 character tables decompose the half-sum into 2V6+2V4+4V5 (40 dimensions) and half-difference into V6+2V4+2V5 (24 dimensions), with no trivial rotation constituent. Rational transfer after subdivision gives the quotient invariant claims. No integral torsion action was claimed.
 
-## Scope and limitations
-No action on integral three-torsion, integral representation lattice, quotient fundamental group or homotopy type is claimed. The supplied finite programs are reproducible but not independently audited; the literature search is finite.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published full integral homotopy calculation of this exact matching complex determines 64 rational degree-three classes and 3-torsion but no automorphism action. Related complete/chessboard matching-complex results and general claw-free independence theory give conceptual machinery, not these 120 group traces or the 40/24 split; actual Resultary search yielded the prior exact-object homotopy finding, not an equivalent character table. Best-of-knowledge originality survives with unindexed-literature risk.
+
+## value
+
+PASS
+
+The complete natural A5×C2 rational representation on an explicitly defined, highly symmetric planar graph matching complex is a motivated topological invariant. Its 40/24 inversion eigenspaces and rational quotient-vanishing are not determined by known Betti number 64; this resolves the natural exact equivariant classification for this finite object, not an arbitrary sample or a mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
