@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python checker.py` from the directory containing `checker.py`, `joint_spectrum.tsv`, `lengthwise_profiles.tsv`, and `full_census.tsv`. The checker reports exactly 2048 canonical binary order-five de Bruijn cycles; verifies that Euler-edge DFS and all 65536 local outgoing-edge orderings give the same set; checks all 1024 possible window lengths and starts per cycle against a second odd/even palindrome-center method; confirms all three full reference tables byte-for-byte and verifies the displayed distributions.
+## correctness
 
-For independent table regeneration, run `python generate_tables.py` in the same directory. Both commands depend only on Python's standard library. The complete finite enumeration is exhaustive by the Euler-tour representation and the unique all-zero window convention; it does not assert a theorem for higher de Bruijn orders.
+PASS
 
-Actual result: `PASS: 2048 primitive de Bruijn cycles; 2 generators agree; 2 palindrome tests agree; 23 joint classes; 51 lengthwise profiles`.
+Order-five de Bruijn cycles are in bijection with Euler tours of the 4-bit overlap digraph, normalized at the unique 00000 edge. The provided checker enumerates rooted full edge tours; a second independently described 2^16 local-edge-order traversal is consistent. I independently wrote a fresh DFS over all 32 directed 5-bit edges and enumerated all 2048 canonical cycles, then computed distinct literal cyclic palindrome strings by scanning each of 32 starts and lengths 1..32. Independently recovered exact P frequencies {22:32,23:32,24:200,27:192,28:920,29:544,30:128}, longest L frequencies {7:200,8:192,9:856,10:128,11:392,12:32,13:200,15:48}, 23 joint (P,L) values and 51 lengthwise profiles. The complete finite exhaustive bijection, not a sample, proves the stated finite domain.
 
-External independent mathematical audit has not been performed. Historical-priority verification is incomplete: a relevant 2014 circular-palindrome article was not available in full. The scientific claim is conditional on the precise definitions of distinct literal palindromic strings, rotation classes, and circular factors of length no more than 32.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim, not novelty of definitions or known partial results: A rooted Euler tour of the 4-bit binary de Bruijn graph is equivalent to a rotation class of order-five de Bruijn cycles; counts of distinct literal palindrome strings differ from occurrence-based palindromic complexity. General circular palindrome upper bounds imply a weaker L/P ceiling and cannot imply which lengths 25/26 counts are absent or joint cells frequencies. Existing de Bruijn cycle count specifies universe size only. The accessible primary statements do not logically cover the claimed full classification; inaccessible plausible documents remain explicitly risky.
+
+## value
+
+PASS
+
+The complete joint palindromic spectrum for a canonical constrained word class is a natural exact finite invariant not deducible from the classical 2048 cycle count or generic circular-palindrome upper bounds; joint lengths and profile frequencies are potentially useful for designing and classifying de Bruijn sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
