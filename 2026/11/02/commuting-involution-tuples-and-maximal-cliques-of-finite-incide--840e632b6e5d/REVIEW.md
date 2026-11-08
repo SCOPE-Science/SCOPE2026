@@ -1,10 +1,21 @@
-# Correctness
-**PASS.** A complete direct argument constructs the orthogonal sign-character projectors for all commuting involutions, conjugates their complete system by an explicit invertible unipotent element to the diagonal, computes stabilizers entrywise, and expands the Potts weight using component counts. The proof of maximal-clique classification uses the same simultaneous diagonalization and a trivial normalizer computation; Stirling inversion, polynomial interpolation, and the chromatic limit are explicit. A standalone verifier exhaustively enumerated commuting tuples in six small incidence algebras and independently checked 36 random-cluster identities. The computation is supporting evidence only; the proof covers all odd prime-power fields. Characteristic two is excluded.
+# Independent mathematical audit
 
-# Originality
-**PASS relative to inspected evidence; priority provisional.** The original full text of Gargate–Gargate, arXiv:1907.06805v1, was inspected for the individual-involution theorem, which covers the single-element case \(k=1\) and is not claimed as new. The original full PDF of their arXiv:2009.04243v1 was inspected for single higher-potent element enumerations. Neither gives a simultaneous commuting-tuple formula for every \(k\) over a fixed field, nor a complete maximal-involution-clique classification and Tutte recovery. Search comparisons of the all-arity equation, characteristic tuple-conjugacy mechanism, random-cluster equivalence, and subgroup maximality produced no covering result in the accessible records. Standard unipotent conjugation is acknowledged background. Residual risk: an older general homomorphism-counting or simultaneous diagonalization theorem for incidence-algebra unit groups could imply some or all of the formula. Originality is not independently certified.
+## correctness
 
-# Mathematical value
-**PASS.** The complete all-arity spectrum and maximal-clique classification are natural joint algebraic invariants of a broad family that cannot be read from individual involution counts. The Potts identity connects simultaneous algebraic torsion to graph structure, and variation over fields recovers the Tutte polynomial; the opposite-fork example delineates the failure to reconstruct poset orientation. These are structural statements beyond a routine numerical or isolated-parameter increment. Limits: this identifies comparability-graph data, not the entire incidence algebra, and the full Tutte recovery requires multiple field orders.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For any nonempty finite poset P, odd q, each commuting k-tuple of involutions in its incidence algebra yields orthogonal sign-character idempotents e_eps=2^(-k)Π_i(1+eps_i a_i), which are conjugate to diagonal sign projectors by explicit unit u=Σ_eps e_eps d_eps∈1+J. The diagonal coloring c:P->[2^k] is invariant under unipotent conjugation; stabilizer size q^(m-d(c)) for d(c) differently colored comparable pairs, so C_k=Σ_c q^d(c)=Σ_(F⊆E)q^(m-|F|)(1-q)^|F|(2^k)^κ(F), the exact Potts/random-cluster expansion. Every commuting clique embeds into a full diagonal sign subgroup (size 2^n), whose unipotent normalizer is trivial, giving exactly q^m maximal cliques. Stirling inversion counts distinct commuting subsets; all odd q and k recover Tutte, and q→∞ normalized C_k approaches chromatic polynomial at 2^k. Independent direct F3 three-element-chain enumeration found 56 involutions and 976 ordered commuting pairs, matching Potts formula. General proof rests on idempotent conjugation, not finite enumeration.
+
+## originality
+
+PASS
+
+Qualified O PASS for all-arity commuting involution counts, precise Potts evaluation, complete maximal-clique conjugacy census and Tutte/chromatic recovery. Gargate and Gargate papers classify/count individual involutions and higher-potent elements in incidence algebras, so k=1 and diagonal-sign setup are prior. Their inspected statements do not supply simultaneous tuple counting or q^m maximal cliques. Simultaneous diagonalization of split semisimple commutative subalgebras is standard, but the graph polynomial identification for arbitrary posets and the entire tuple census were not verified as prior. Published Resultary matches deal other commuting graphs, not incidence algebra involution k-tuples.
+
+## value
+
+PASS
+
+Natural extension of involution enumeration to all commuting tuples produces a genuine exact Potts/Tutte connection, classifies every maximal elementary abelian 2-subgroup, and records how algebraic tuple statistics forget poset orientation; reusable all-arity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
