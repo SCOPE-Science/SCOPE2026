@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact averaging of Rayleigh quotients on the even and odd (n−1)-dimensional paired subspaces bounds λ2 for arbitrary W; maximizing the resulting two affine functions proves the optimal value. Symmetric Laplacian eigenactions attain this bound; equality forces the entire odd subspace into the Fiedler eigenspace, and row-column constraints force every offmatching and matching weight to be constant for n≥3. Rational checker replay gives 498 exact supplementary checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006), §§3,5.2–5.3, addresses generic SDP, paths and cycles.",
+        "Boyd et al. (2009), §5.4.2 addresses discrete-time complete bipartite with one uniform probability."
+      ],
+      "reasoning": "Generic SDP solution methodology is more general in allowed graphs but is not an explicit threshold formula or classification of all optimal rate arrays. The discrete-time uniform design has a different feasible set/objective and cannot directly subsume the claimed cost transition.",
+      "searches": [
+        "fastest mixing Markov process graph matching",
+        "optimal conductances algebraic connectivity crown graph adding matching cost threshold",
+        "\"fastest mixing\" \"matching\" \"complete bipartite\" \"edge weights\""
+      ]
+    },
+    "checked_sources": [
+      "Sun–Boyd–Xiao–Diaconis (2006), DOI 10.1137/S0036144504443821, relevant full-text sections",
+      "Boyd–Diaconis–Parrilo–Xiao (2009), arXiv:0709.0955, relevant full-text section",
+      "Klee–Stamps (2020), arXiv:2008.01669, relevant full-text sections",
+      "Published indexed material and accessible scientific claim summaries on graph spectral gap and resistance design"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing continuous-time general theory allows arbitrary prices but does not state the parameter-dependent optimum.",
+        "The known crown spectrum proves only the boundary objective with the whole matching deleted.",
+        "Prior effective-resistance allocation theorems on matched bipartite networks optimize different functionals."
+      ],
+      "reasoning": "The matching-discard threshold is not a direct corollary of the crown-spectrum endpoint, since a global comparison with all positive matching investments is needed. The proof gives new subspace-average upper bounds sharp simultaneously and deduces nonsymmetric rigidity. A general existence of an SDP optimizer is not an explicit classification.",
+      "searches": [
+        "spectral gap maximizing on balanced bipartite graphs matching edge costs threshold",
+        "\"matching\" \"algebraic connectivity\" \"price\" \"complete bipartite\" \"optimal\"",
+        "\"algebraic connectivity\" \"perfect matching\" \"weights\" optimization complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J. Sun et al., DOI 10.1137/S0036144504443821, §3 defines a general spectral-gap optimization and its SDP.",
+        "S. Klee and M. Stamps, arXiv:2008.01669, §3.3 computes the crown-spectrum endpoint."
+      ],
+      "reasoning": "The continuous-time algebraic-connectivity maximization is equivalent to fastest-mixing Markov process design, but the inspected specialized source formulations have no two-price matching allocation or statement about nonsymmetric uniqueness. Crown eigenvalues alone are one boundary case and do not determine optimizer support for all positive price ratios.",
+      "searches": [
+        "\"algebraic connectivity\" \"perfect matching\" \"weights\" optimization complete bipartite",
+        "\"fastest mixing Markov process\" \"matching\" \"bipartite\" \"conductance\"",
+        "algebraic connectivity optimal edge weights complete bipartite matching special expensive edges budget phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Klee–Stamps, arXiv:2008.01669, Proposition 8: known crown eigenvalues are 0, n−2 (mult n−1), n (mult n−1), and 2n−2."
+      ],
+      "reasoning": "The endpoint x=0 is explicitly known and is not asserted to be new. It gives no global cost-dependent optimizer classification and does not establish classwise rigidity of all optima.",
+      "searches": [
+        "\"optimal\" \"algebraic connectivity\" \"crown graph\" weights",
+        "crown graph Laplacian eigenvalues algebraic connectivity n-2 complete bipartite minus matching"
+      ]
+    },
+    "rationale": "A costed second-eigenvalue design theorem with an explicit sharp price, all-optimizer rigidity and a critical interval is not supplied by the examined primary continuous-time formulation, uniform discrete-time decomposition or crown-spectrum formula. These stronger/special-case implication checks distinguish the new exact optimization statement from already established endpoints. Search incompleteness remains a priority risk.",
+    "residual_risks": [
+      "Equivalent price-support threshold or full optimizer classification could exist in unindexed optimization or control literature.",
+      "Only the cited sections of the long primary papers were materially inspected rather than claiming a page-by-page inspection of all appendices.",
+      "The classification assumes completely free conductance magnitudes with a single linear budget; other normalization regimes can differ."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general optimization formulation but does not directly supply the specific matching price cutoff or complete optimal designs in material inspected",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821; p.683 equation (1) is the generic λ2 cost program.",
+          "Section 5 examples address a finite graph, paths, and cycles."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "PDF pages 681–683 and sections 3, 5.1–5.3 (definitions, SDP, geometric dual and explicit examples)",
+        "method": "Full-text PDF sections and rendered page comparisons",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Identical continuous-time spectral objective and arbitrary positive edge prices"
+      },
+      {
+        "assessment": "Uniform-probability discrete-time problem; does not cover priced-matching continuous-time program in section inspected",
+        "evidence": [
+          "DOI 10.1137/070689413; §5.4.2 gives one uniform transition probability for K_{m,n}."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "PDF title/introduction and section 5.4.2, printed pp.812–813",
+        "method": "Full-text PDF section, including rendered page 813",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Complete bipartite spectral decomposition and possible stronger symmetric optimization"
+      },
+      {
+        "assessment": "COVERS the unweighted crown spectrum exactly; does not derive the cost optimum or rigidity theorem",
+        "evidence": [
+          "arXiv:2008.01669, Proposition 8: exact characteristic polynomial for K_{n,n} minus a perfect matching."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.01669",
+        "material_read": "Full text sections 1 and 3.3, especially Proposition 8, printed page 6",
+        "method": "Author preprint PDF with rendered section page",
+        "title": "Eigenvalues of graph Laplacians via rank-one perturbations",
+        "trigger": "Known crown graph spectrum could cover the expensive-matching boundary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41ef7112-5655-4cab-b38f-96cf698f4eb8",
+  "value": {
+    "rationale": "A sharp graph-size-dependent price rule and a first-order support transition, including a complete critical interval and rigidity of all nonsymmetric optimizers, are directly usable in budgeted consensus/diffusion design. The phenomenon is neither the known crown spectrum alone nor a generic statement about concavity of the SDP.",
+    "status": "PASS"
+  }
+}
