@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T03:03:20.288666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥5 the real moment-angle polyhedral product X_n=(D¹,S⁰)^{C_n} is a connected closed orientable surface with cubical cells 2^n,n2^{n−1},n2^{n−2} and χ=(4−n)2^{n−2}. Coordinate rotations preserve the coherent square-orientation cycle; reflections reverse it. No nontrivial rotation can preserve a nonempty face of C_n, so rotation-fixed sets are precisely 2^{gcd(n,a)} periodic sign vectors. Each reflection fixed set consists of disjoint circles (boundary squares in two nonadjacent exceptional coordinate orbits), hence has χ=0 and supplies mirror arcs. Finite local stabilizers act on a circle link as rotation/reflection: ordinary quotient is a compact connected surface with boundary. Burnside χ=(1/(2n))[(4−n)2^{n−2}+∑_{k=1}^{n−1}2^{gcd(n,k)}] yields wedge of r=1+2^{n−3}−(1/(2n))∑_{d|n}φ(d)2^{n/d} circles. For odd n, rotation conjugacy makes X^s→(X/C_n)^{sbar} a bijection (because 2 invertible mod n), giving 2^{(n−3)/2} boundary circles. Independently counted full equivariantly diagonally triangulated cell orbit Euler for n5…10, obtaining χ=0,−1,−6,−14,−34,−74 and corresponding ranks 1,2,7,15,35,75.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das explicitly calculates the rotation quotient. Limonchenko–Solomadin quotients act by coordinatewise torus subgroup, whereas D_n permutes indices; Grujić–Welker study homotopy types of polyhedral products."
+        ],
+        "reasoning": "The broader polyhedral-product methods do not directly state the ordinary coordinate-permuting D_n orbit surface or its reflection-fixed boundary components.",
+        "searches": [
+          "arXiv:1806.10220 Section3.1",
+          "arXiv:2202.13899 moment-angle quotient",
+          "arXiv:1212.2028 polyhedral products"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md aa9d956d541ae2bccbe128459a50a5bfcf404654",
+        "SCOPE verify.py 721495df5da75f2e5e2cd06284d85885d3a53629",
+        "S. Das arXiv:1806.10220 Section3.1",
+        "Grujić–Welker arXiv:1212.2028",
+        "Limonchenko–Solomadin arXiv:2202.13899",
+        "Resultary dihedral real moment-angle semantic queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The genus computation plus knowledge that reflections reverse orientation would not determine fixed-locus component number; this proof classifies point stabilizers and mirror circles."
+        ],
+        "reasoning": "The current claim requires a new fixed-set and local-quotient analysis; it is not merely an immediate substitution into the earlier genus formula.",
+        "searches": [
+          "arXiv:1806.10220 cyclic quotient genus",
+          "arXiv:1212.2028",
+          "arXiv:2202.13899"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das studies X_n/C_n, not X_n/D_n. Both have a numerical parameter r but the former is a closed orientable surface and the latter is a bordered surface with free group."
+        ],
+        "reasoning": "The equality r=genus of cyclic quotient is a consequence of doubling/burnside, not a homeomorphism or equivariant equivalence; the new boundary-circle theorem adds topological data.",
+        "searches": [
+          "polygon real moment-angle surface dihedral quotient topology genus boundaries orbifold",
+          "real moment-angle polygon dihedral quotient genus mirror circle free group",
+          "arXiv:1806.10220 Section3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously known cyclic genus r agrees with the numerical free rank; exact odd-n reflection boundary count b=2^{(n−3)/2} is separate and no matching dihedral quotient table was found."
+        ],
+        "reasoning": "A table of binary necklaces or cyclic genus is insufficient for the topology of the quotient by additional reflections.",
+        "searches": [
+          "polygon real moment-angle surface dihedral quotient topology genus boundaries orbifold",
+          "real moment-angle polygon dihedral quotient genus mirror circle free group",
+          "arXiv:1806.10220 necklace genus formula"
+        ]
+      },
+      "rationale": "Das Section3.1 already gives cyclic quotient genus equal to the present free rank. This equality is not claimed novel; the new full-dihedral quotient boundary mechanism and odd boundary count are not supplied by the cyclic quotient theorem, because an orientation-reversing involution quotient depends on its fixed curves and their gluing.",
+      "residual_risks": [
+        "Unindexed papers on permutation quotients of polygonal real moment-angle manifolds may already identify this bordered surface.",
+        "Orientability and number of components for even n are not claimed; local orbifold structures are not classified by the homotopy statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS cyclic closed-surface genus matching numerical r, but NOT full dihedral quotient topology or odd reflection mirror circles.",
+          "evidence": "The genus formula for X_n/C_n is numerically equal to 1+2^{n−3}−(1/2n)∑φ(d)2^{n/d}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.10220",
+          "material_read": "Section3.1 cyclic rotation quotient and binary necklace genus, associated lemma/formula",
+          "method": "Primary arXiv PDF text, inspected page image",
+          "title": "Genus of the Hypercube Graph and Real Moment-Angle Complexes",
+          "trigger": "Exact underlying real moment-angle polygon surface and rotation quotient"
+        },
+        {
+          "assessment": "Studies polyhedral-product homotopy; does not assert coordinate dihedral orbit quotient.",
+          "evidence": "No action-permuted reflection fixed-circle quotient asserted.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.2028",
+          "material_read": "Introduction and topology construction comparison",
+          "method": "Primary work bibliographic/theorem comparison",
+          "title": "Discrete Morse theory for moment-angle complexes of pairs (D^n,S^{n−1})",
+          "trigger": "Broader polyhedral products and possible quotient coverage"
+        },
+        {
+          "assessment": "Closed subgroups of coordinatewise torus action, not dihedral coordinate permutation; hypothesis inapplicable.",
+          "evidence": "Action type is different; no direct result for D_n acting on real moment-angle polygon surface.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.13899",
+          "material_read": "Abstract, group-action type and main statement comparison",
+          "method": "Primary arXiv theorem scope comparison",
+          "title": "On the homotopy decomposition for the quotient of a moment-angle complex and its applications",
+          "trigger": "Possible stronger general quotient theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full polygon symmetry converts a genus-r closed cyclic quotient into a bordered surface with free fundamental group rank r, and identifies the reflection-fixed mirror topology with an exact odd-n boundary-component number. The previously known genus number is acknowledged: novelty and utility are the all-n geometric quotient classification and odd mirror structure, not numerical renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md aa9d956d541ae2bccbe128459a50a5bfcf404654",
+    "SCOPE verify.py 721495df5da75f2e5e2cd06284d85885d3a53629",
+    "S. Das arXiv:1806.10220 Section3.1",
+    "Grujić–Welker arXiv:1212.2028",
+    "Limonchenko–Solomadin arXiv:2202.13899",
+    "Resultary dihedral real moment-angle semantic queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n≥5, ordinary topological quotient; no even-n exact boundary count, no full even-n homeomorphism classification, no Borel quotient assertion.",
+    "Unindexed papers on permutation quotients of polygonal real moment-angle manifolds may already identify this bordered surface.",
+    "Orientability and number of components for even n are not claimed; local orbifold structures are not classified by the homotopy statement."
+  ],
+  "schema_version": 1
+}

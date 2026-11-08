@@ -1,15 +1,21 @@
-# Scientific review: dihedral quotients of polygonal real moment-angle surfaces
+# Independent mathematical audit
 
-## Correctness
-PASS. The defined cubical polyhedral product is a connected closed surface. Nonidentity rotations have only periodic sign-vector fixed points. Each reflection has disjoint fixed circles, so the Euler characteristic of every reflection-fixed set vanishes. Local finite isometry quotients are disk or half-disk neighborhoods, and generic reflection-fixed points yield nonempty boundary. The admissible triangulation and the Burnside Euler identity give the stated rank, and a compact bordered surface retracts to a graph. For odd length, conjugacy of all reflections and the explicit injectivity argument identify the involution-fixed locus with the original mirror circles and prove the boundary count. The standalone finite check agrees for every n from 5 through 10. Risk: the local surface-quotient argument is topological rather than a displayed global homeomorphism model; it follows from standard finite local cone actions.
+## correctness
 
-## Originality
-PASS on the inspected comparisons, with the explicit risk of unindexed equivalent sources. Das (arXiv:1806.10220), Section 3.1, determines the rotation-only quotient's genus, not the full dihedral quotient or its mirror components. Grujić–Welker (arXiv:1212.2028) study polyhedral products and their homotopy types but not this permutation quotient. Limonchenko–Solomadin (arXiv:2202.13899) consider closed subgroups of the *coordinatewise* torus action, which does not include the coordinate-permuting dihedral action. Topical records for bounded-independence cycle spheres and polygon multipath complexes concern different spaces and therefore do not imply the claim. The inherited cyclic quotient genus is explicitly credited rather than presented as new.
+PASS
 
-## Value
-PASS. The same surface family has a closed genus-\(r_n\) cyclic quotient, whereas the full dihedral quotient has boundary and free fundamental group of rank \(r_n\), so the symmetry change eliminates second homology and turns a surface-group calculation into a free-group classification. The explicit mirror-circle structure, with an odd-length boundary count, provides the geometric mechanism rather than merely reusing the earlier genus number. This uniform distinction is natural in polyhedral-product topology and is not a reparametrized textbook calculation of the cyclic quotient.
+For n≥5 the real moment-angle polyhedral product X_n=(D¹,S⁰)^{C_n} is a connected closed orientable surface with cubical cells 2^n,n2^{n−1},n2^{n−2} and χ=(4−n)2^{n−2}. Coordinate rotations preserve the coherent square-orientation cycle; reflections reverse it. No nontrivial rotation can preserve a nonempty face of C_n, so rotation-fixed sets are precisely 2^{gcd(n,a)} periodic sign vectors. Each reflection fixed set consists of disjoint circles (boundary squares in two nonadjacent exceptional coordinate orbits), hence has χ=0 and supplies mirror arcs. Finite local stabilizers act on a circle link as rotation/reflection: ordinary quotient is a compact connected surface with boundary. Burnside χ=(1/(2n))[(4−n)2^{n−2}+∑_{k=1}^{n−1}2^{gcd(n,k)}] yields wedge of r=1+2^{n−3}−(1/(2n))∑_{d|n}φ(d)2^{n/d} circles. For odd n, rotation conjugacy makes X^s→(X/C_n)^{sbar} a bijection (because 2 invertible mod n), giving 2^{(n−3)/2} boundary circles. Independently counted full equivariantly diagonally triangulated cell orbit Euler for n5…10, obtaining χ=0,−1,−6,−14,−34,−74 and corresponding ranks 1,2,7,15,35,75.
 
-## Limits
-No even-length quotient homeomorphism classification is asserted. An independent mathematical audit remains outstanding. The inspectable primary comparison is strongest for arXiv:1806.10220 and the direct cited constructions; a differently formulated unindexed result may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Das Section3.1 already gives cyclic quotient genus equal to the present free rank. This equality is not claimed novel; the new full-dihedral quotient boundary mechanism and odd boundary count are not supplied by the cyclic quotient theorem, because an orientation-reversing involution quotient depends on its fixed curves and their gluing.
+
+## value
+
+PASS
+
+Full polygon symmetry converts a genus-r closed cyclic quotient into a bordered surface with free fundamental group rank r, and identifies the reflection-fixed mirror topology with an exact odd-n boundary-component number. The previously known genus number is acknowledged: novelty and utility are the all-n geometric quotient classification and odd mirror structure, not numerical renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
