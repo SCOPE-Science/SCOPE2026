@@ -1,11 +1,21 @@
-# Mathematical review: antipodal vertex clipping
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact area identity follows by removing two disjoint triangular caps. The polar of an intersection is the convex hull of the polars, and the restricted cut range ensures exactly two added polar triangles. Independent facet-based polygon calculations verified the two areas and product at 200 interior examples; direct derivative algebra, endpoint signs, and a strictly decreasing derivative numerator prove the unique maximizer for every even order. The optimizer equation and asymptotic expansions follow from the same exact formula. No finite experiment is used as an all-order proof.
+## correctness
 
-**Originality (PASS, best-knowledge assessment).** The nearest primary paper by Meyer and Reisner (2011) identifies global maximal products among polygons with bounded vertex number; it does not specify this restricted moving-facet optimum. Lin and Leng (2010) study vertex removal toward minimal volume product but do not give the nonmonotone intermediate profile or its sharp asymptotics. The shadow-system paper of Meyer and Reisner (2006) and the polytope-extremum paper of Alexander, Fradelizi, and Zvavitch (2017) likewise give different general results. Targeted searches for strip clipping, antipodal vertex cuts, polarity equivalences, and exact formulas did not reveal an equivalent statement. An unindexed historical formula remains possible; absence of a database hit is not a proof of worldwide priority.
+PASS
 
-**Value (PASS).** The operation introduces two facets while reducing primal area and increasing polar area. The competing terms produce a natural, nontrivial, unique interior optimum instead of monotone improvement. The analytic optimum is available for every even order; the square-to-affine-regular-hexagon case is exact, and the universal \(3/8\) limiting fraction compares the restricted optimum with the sharp unrestricted polygonal vertex-count benchmark. This is a motivated classification, not a standalone numerical coincidence.
+The strip removes two congruent triangular caps of Euclidean area (1-h)^2 cot(pi/n) each. The polar is conv(P_n^circ,(±1/h,0)), replacing two polar edges by triangles of area (1/h-1)tan(pi/n), yielding A_n=n sin(pi/n)cos(pi/n)-2(1-h)^2 cot(pi/n) and B_n=(n-2+2/h)tan(pi/n), hence the claimed product. Differentiation gives M_n′(h)=2 G_n(h)/h², with G_n(h)=2+(2n-6)h²+(4-2n)h³-nq and G_n′(h)=-2h[3(n-2)h-2(n-3)]. For even n>=6, G is strictly decreasing on [cos(2pi/n),1], with positive lower endpoint and negative upper endpoint; n=4 has direct quadratic M_4=8+4h-4h². Thus a unique interior maximum follows. Inserting w=1-h_n=q/2+O(q²) into the exact difference yields gain pi^4/(2n³)+O(n^-5); the regular polygon benchmark increment is 4pi^4/(3n³)+O(n^-4), giving 3/8. Independent geometric polygon/polar area and root checks corroborate several even n. No finite check is substituted for the general polar and derivative proof.
 
-**Scope and risks.** Only an origin-symmetric pair of cuts through selected vertex caps is covered. The product uses the origin as the Santaló point, justified by central symmetry. General truncated shapes and historical priority outside the inspected texts are not resolved. The standalone code corroborates the proof but is not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Meyer–Reisner’s optimal-volume-product regular polygon result provides the external at-most-(n+2)-vertices benchmark, and shadow-system theory gives qualitative deformation framework, but neither readily supplies this exact one-strip polar-area profile and unique interior maximizer. Lin–Leng studies product-reducing vertex removal in a planar symmetric minimum setting, not the strict interior max along a prescribed clipping family. Related published 3D cube–cross-polytope Mahler interpolation and simplex difference-body profiles use other bodies. The constrained even-polygon formula and 3/8 efficiency limit remain original by checked statements, with a direct 2011 source full-text access risk.
+
+## value
+
+PASS
+
+The two-corner clipping deformation is canonical, low-dimensional and motivated by known polygonal upper extremals and symmetric Mahler volume products. An exact optimum shows maximal Mahler gain is achieved by partial rather than complete corner deletion and quantifies its share of the ideal extra-vertices gain. This is not an arbitrary slice of a table or a mere endpoint computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

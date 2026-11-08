@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:52:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strip removes two congruent triangular caps of Euclidean area (1-h)^2 cot(pi/n) each. The polar is conv(P_n^circ,(±1/h,0)), replacing two polar edges by triangles of area (1/h-1)tan(pi/n), yielding A_n=n sin(pi/n)cos(pi/n)-2(1-h)^2 cot(pi/n) and B_n=(n-2+2/h)tan(pi/n), hence the claimed product. Differentiation gives M_n′(h)=2 G_n(h)/h², with G_n(h)=2+(2n-6)h²+(4-2n)h³-nq and G_n′(h)=-2h[3(n-2)h-2(n-3)]. For even n>=6, G is strictly decreasing on [cos(2pi/n),1], with positive lower endpoint and negative upper endpoint; n=4 has direct quadratic M_4=8+4h-4h². Thus a unique interior maximum follows. Inserting w=1-h_n=q/2+O(q²) into the exact difference yields gain pi^4/(2n³)+O(n^-5); the regular polygon benchmark increment is 4pi^4/(3n³)+O(n^-4), giving 3/8. Independent geometric polygon/polar area and root checks corroborate several even n. No finite check is substituted for the general polar and derivative proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General shadow-system convexity and optimality need explicit specialization and cannot yield the cubic optimum or its n-asymptotic fraction without the two-cap area calculation.",
+          "Resultary cube/cross-polytope finding concerns 3D intersections, not a regular 2D n-gon with two fixed opposite clipping planes."
+        ],
+        "reasoning": "General bounds dominate upper benchmarks, not the location of this restricted profile’s extremum. The accepted statement supplies nontrivial exact analytical deformation data.",
+        "searches": [
+          "Meyer Reisner 2006 Shadow systems and volumes of polar convex bodies",
+          "Alexander Fradelizi Zvavitch 2017 Polytopes of Maximal Volume Product",
+          "Resultary:Exact Mahler products for cube-cross-polytope intersections"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026:RESULT.md (blob 5c56fc0a9054f6b84cfd7a1044a97f6d8be5907d)",
+        "SCOPE2026:clip_polygon_checker.py (blob 6f0bd1bb07e1eec49edb5f270d56b087ebf62604)",
+        "arxiv:math/0606305",
+        "doi:10.1007/s12188-011-0054-3",
+        "doi:10.1016/j.disc.2010.07.008",
+        "arxiv:1708.07914",
+        "Resultary:Exact Mahler products for cube–cross-polytope intersections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular n+2 polygon optimality implies M_n(h_n)<=R_{n+2}, but does not imply the exact attained proportion (M_n(h_n)-R_n)/(R_{n+2}-R_n)→3/8.",
+          "Polarity gives two added axial vertices, and the exact cap calculation is needed to find G_n(h) and its unique root."
+        ],
+        "reasoning": "No verified theorem in inspected source material mechanically implies this one-parameter optimization and asymptotic efficiency. Direct 2011 whole-paper comparison was blocked, so priority remains best-of-knowledge.",
+        "searches": [
+          "Meyer Reisner 2011 polygon maximal volume product",
+          "Meyer Reisner 2006 polar shadow system",
+          "Alexander Fradelizi Zvavitch 1708.07914"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the prescribed strip, polar is convex hull with two axis vertices and exact area profile, unlike general polygon extremality.",
+          "Meyer–Reisner regular m-gon optimality gives the upper benchmark only and contains no identified one-parameter formula in accessible material."
+        ],
+        "reasoning": "A general theorem that regular polygons maximize for a vertex budget does not imply the optimum of a specific constrained family occurs strictly inside its clipping range. Existing vertex-removal minimization is a different extremal problem.",
+        "searches": [
+          "Resultary:Mahler volume product strip clipped regular even polygon antipodal corners",
+          "Meyer Reisner On the volume product of polygons 2011",
+          "Lin Leng Convex bodies with minimal volume product R2 vertex removal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For n=4, the formula gives h=.5 and affine regular hexagon product9, consistent with the global 6-vertex optimum.",
+          "No independently available table was found containing the whole h continuum, cubic root characterization or the asymptotic 3/8 ratio."
+        ],
+        "reasoning": "The square/hexagon equality is classical, not the asserted novelty. The infinite even-n family and strict optimization are not a finite known-table recomputation.",
+        "searches": [
+          "regular n gon strip clipping Mahler product exact expression",
+          "SCOPE Mahler polygon two opposite caps cubic optimizer",
+          "Resultary regular even polygon clipped volume product"
+        ]
+      },
+      "rationale": "Meyer–Reisner’s optimal-volume-product regular polygon result provides the external at-most-(n+2)-vertices benchmark, and shadow-system theory gives qualitative deformation framework, but neither readily supplies this exact one-strip polar-area profile and unique interior maximizer. Lin–Leng studies product-reducing vertex removal in a planar symmetric minimum setting, not the strict interior max along a prescribed clipping family. Related published 3D cube–cross-polytope Mahler interpolation and simplex difference-body profiles use other bodies. The constrained even-polygon formula and 3/8 efficiency limit remain original by checked statements, with a direct 2011 source full-text access risk.",
+      "residual_risks": [
+        "Full text of Meyer–Reisner 2011 On the volume product of polygons remained inaccessible, including Oxford VPN disconnected; it may contain related explicit calculations beyond the inspected abstract.",
+        "The result is only for the prescribed strip range and even polygon orders; it is not a global theorem for arbitrary clipping, odd polygons or higher dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitatively related shadow-system convexity, no verified explicit two-cap regular-polygon optimum",
+          "evidence": "General polar-volume deformation principles do not specify the exact A_n(h)B_n(h) expression.",
+          "identifier_or_url": "arxiv:math/0606305; doi:10.1112/S0025579300000061",
+          "material_read": "Accessible search summary and source relationship discussion; no complete publisher paper was read",
+          "method": "Literature/OA lookup and assigned full proof",
+          "title": "Shadow systems and volumes of polar convex bodies",
+          "trigger": "General polar-volume behavior of convex shadow deformations"
+        },
+        {
+          "assessment": "Potential implicit coverage not excluded without full text; global vertex-count extremal theorem alone does not entail the family-specific optimum",
+          "evidence": "Provides benchmark R_m but no exact truncated polygon formula in inspected material.",
+          "identifier_or_url": "doi:10.1007/s12188-011-0054-3",
+          "material_read": "Publication metadata and abstract-level result that regular polygons maximize product for fixed vertex budget, not full text",
+          "method": "OA search followed by authorized Oxford retrieval; VPN disconnected",
+          "title": "On the volume product of polygons",
+          "trigger": "Most directly plausible prior theorem about polygon Mahler extremality"
+        },
+        {
+          "assessment": "General upper extremality not equivalent to constrained clipping optimum",
+          "evidence": "The outcome compares M_n(h_n) to regular (n+2)-gon benchmark.",
+          "identifier_or_url": "arxiv:1708.07914",
+          "material_read": "Abstract and source reference context, not full text",
+          "method": "ArXiv OA search",
+          "title": "Polytopes of Maximal Volume Product",
+          "trigger": "Possibly dominating regular polygon extremal theorem"
+        },
+        {
+          "assessment": "Different dimension, bodies and parameter; cannot cover planar clipped regular n-gons",
+          "evidence": "3D phase diagram with cube/cross-polytope has distinct volumes and not the two-cap strip profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mahler-products-for-cube-cross-polytope-intersections-and--afc1f44d4eb2",
+          "material_read": "Record title and substantive mathematical summary (3D cube/cross-polytope), not full RESULT.md",
+          "method": "Resultary semantic search",
+          "title": "Exact Mahler products for cube–cross-polytope intersections and their three-dimensional phase diagram",
+          "trigger": "Resultary related constrained Mahler interpolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-corner clipping deformation is canonical, low-dimensional and motivated by known polygonal upper extremals and symmetric Mahler volume products. An exact optimum shows maximal Mahler gain is achieved by partial rather than complete corner deletion and quantifies its share of the ideal extra-vertices gain. This is not an arbitrary slice of a table or a mere endpoint computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026:RESULT.md (blob 5c56fc0a9054f6b84cfd7a1044a97f6d8be5907d)",
+    "SCOPE2026:clip_polygon_checker.py (blob 6f0bd1bb07e1eec49edb5f270d56b087ebf62604)",
+    "arxiv:math/0606305",
+    "doi:10.1007/s12188-011-0054-3",
+    "doi:10.1016/j.disc.2010.07.008",
+    "arxiv:1708.07914",
+    "Resultary:Exact Mahler products for cube–cross-polytope intersections"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every regular even n-gon (n>=4), symmetric antipodal vertex clipping with |x|<=h over the prescribed two-cap range has exact area-product M_n(h)=(n-2+2/h)(n sin²(pi/n)-2(1-h)²), a unique strict interior optimum h_n, sharp n→infinity gain pi^4/(2n³)+O(n^-5), and a 3/8 asymptotic fraction of the optimal regular-(n+2)-gon Mahler-product increment.",
+  "limitations": [
+    "Full text of Meyer–Reisner 2011 On the volume product of polygons remained inaccessible, including Oxford VPN disconnected; it may contain related explicit calculations beyond the inspected abstract.",
+    "The result is only for the prescribed strip range and even polygon orders; it is not a global theorem for arbitrary clipping, odd polygons or higher dimensions."
+  ],
+  "residual_risks": [
+    "Full text of Meyer–Reisner 2011 On the volume product of polygons remained inaccessible, including Oxford VPN disconnected; it may contain related explicit calculations beyond the inspected abstract.",
+    "The result is only for the prescribed strip range and even polygon orders; it is not a global theorem for arbitrary clipping, odd polygons or higher dimensions."
+  ],
+  "schema_version": 1
+}
