@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:00:23.096028Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let q=2^m with m odd and 1<=k<=q pairwise distinct constant shifts. Translation of monic cubic T³+aT²+bT+c by T↦T+a gives T³+uT+d with u=a²+b, d=ab+c; each (u,d) has q lifts. The depressed cubic is nonsquarefree iff d=0 (with shifts d+c_i=0); for squarefree cubics Carmon’s Berlekamp expression 1+u³/(d+c_i)² and characteristic-two Pellet sign yield mu=ψ(u³/(d+c_i)²) since Tr(1)=1. Multiplication over shifts gives additive character at u³(P’(d)/P(d))². Since gcd(3,q-1)=1 the cube map permutes K, making the u-sum q when P’(d)=0 and 0 otherwise. P separable excludes shift roots; summing gives exactly q² times number of K-roots of P’, whose square-polynomial structure bounds it by floor((k-1)/2). Checks k=1,2,3,4 and q=2 apply. Independent direct root-factor-sign enumeration over GF(8) for five representative shift subsets agrees: totals 0,64,0,64,0; the square-root counts match. Finite tests do not establish all odd m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carmon Theorem 1.1 assumes general degree >2 and gives a magnitude bound, not values for all shift subsets.",
+          "Carmon–Rudnick work has odd-characteristic hypotheses."
+        ],
+        "reasoning": "General asymptotic bounds and different characteristic do not imply exact integer identity, sign, or divisibility.",
+        "searches": [
+          "Carmon characteristic 2 Theorem 1.1 2015 rsta.2014.0311",
+          "Carmon Rudnick characteristic odd 2012 arxiv:1205.1599"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 811c416948bbe47636ad36ac8170c7759111e5ad and verify_cubic_mobius.py blob 441d53454c083b2c4810a062cbe2d308ab1c7e52",
+        "Carmon full primary journal HTML https://pmc.ncbi.nlm.nih.gov/articles/PMC4375379/",
+        "arxiv:1205.1599 abstract / characteristic scope",
+        "Resultary targeted binary characteristic cubic Möbius query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berlekamp/Pellet identities plus elementary cube-map permutation yield the new exact expression, but the latter summation is not a stated corollary in Carmon.",
+          "The source proof directly credits the 2015 discriminant identities and does not claim them as new."
+        ],
+        "reasoning": "The new theorem is a nontrivial (though short) evaluation using older ingredients; unknown implicit equivalent is residual risk.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4375379/ §§2–3",
+          "https://arxiv.org/abs/1205.1599"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carmon Section 2 supplies Berl cubic and Pellet formula; Section 3 uses global Weil bounds, with no explicit all-order cubic critical-root equality stated.",
+          "No matching exact cubic formula appeared in Resultary; nearby characteristic-two finite field records concern different invariants."
+        ],
+        "reasoning": "Equivalent statements would include a critical-point count of the shift polynomial, not only a Chowla-type cancellation rate; none found in inspected text.",
+        "searches": [
+          "binary finite fields characteristic two cubic Möbius correlation constant shifts derivative roots Carmon Chowla [Resultary]",
+          "\"Möbius\" \"P'\" \"degree 3\" characteristic two shifts correlation [web]",
+          "Carmon PMC4375379 section 2 degree<=3, section 3 correlations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source result is an all-fields formula, not a fixed-q lookup; Carmon gives polynomial discriminant templates, not a table of these correlations."
+        ],
+        "reasoning": "Finite exact low-field tables would not cover odd m in general. The q² critical-point identity is the target.",
+        "searches": [
+          "GF(2^m) monic cubic Möbius correlations table shifts characteristic two [web]",
+          "Carmon characteristic two cubic correlations exact small q [PMC]"
+        ]
+      },
+      "rationale": "PASS for exact all-constant-shift cubic correlations in odd-degree binary extensions. Carmon (2015) provides both the precise cubic Berlekamp/Pellet identities and Chowla-type q→∞ estimates; these ingredients are prior, but its stated theorem is a bound rather than the exact nonnegative integer correlation for every fixed field and shift set. Carmon–Rudnick addresses odd characteristic. The derivative-root reduction and four-shift dichotomy are a motivated arithmetic classification. A hidden specialization of Carmon’s counting machinery could imply the identity, so priority remains conditional.",
+      "residual_risks": [
+        "Earlier exact cubic special case may be implicit in discriminant calculations and unindexed",
+        "Carmon–Rudnick primary full text not independently read; explicitly odd characteristic nonetheless"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies key lemma but no located universal exact derivative-root theorem",
+          "evidence": [
+            "Theorem 1.1 is a degree>2 q-asymptotic bound; §2(a,c) provides discriminants and Pellet."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4375379/",
+          "material_read": "Full accessible 2015 journal HTML: introduction and Theorem 1.1, §2 definitions, cubic discriminant templates, Pellet formula, §3 character sum reduction, §4 examples and limits",
+          "method": "web HTML lines 66–185, 270–312 and remainder checked by article outline",
+          "title": "The autocorrelation of the Möbius function and Chowla’s conjecture for the rational function field in characteristic 2",
+          "trigger": "same degree-three discriminant and multi-shift character sum"
+        },
+        {
+          "assessment": "Odd-characteristic setting cannot cover binary theorem; material limitation noted",
+          "evidence": [
+            "Odd characteristic is an explicit assumption."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1599",
+          "material_read": "Abstract and indexed description read, not full text",
+          "method": "web search and abstract",
+          "title": "The autocorrelation of the Mobius function and Chowla’s conjecture for the rational function field",
+          "trigger": "potential broader correlation bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an all-k fixed-degree exact evaluation of Chowla-type correlations, not a generic restatement of the underlying discriminant identity. Positivity and divisibility by q² plus a four-shift vanishing criterion are precise natural arithmetic invariants; the odd-extension boundary is sharp and GF(4) obstructs naive extension.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 811c416948bbe47636ad36ac8170c7759111e5ad and verify_cubic_mobius.py blob 441d53454c083b2c4810a062cbe2d308ab1c7e52",
+    "Carmon full primary journal HTML https://pmc.ncbi.nlm.nih.gov/articles/PMC4375379/",
+    "arxiv:1205.1599 abstract / characteristic scope",
+    "Resultary targeted binary characteristic cubic Möbius query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Odd extension degree essential; q=4 two-shift claimed equality does not apply",
+    "No statements on even extension degree or degree>3",
+    "Priority best-of-knowledge, not absolute"
+  ],
+  "schema_version": 1
+}
