@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The graph is defined by a public eleven-element difference set; all 55 incidences, 79 scale-two maximal facets and 34 independent graph cycles are reconstructed. The 34-by-34 integral four-cycle attaching-map minor has determinant \(-1\), so the scale-two CW complex is a wedge of 21 three-spheres, without assuming a finite-field calculation proves an integral result. The exact dihedral group relations and all 22 Lefschetz traces follow from explicit signed chain permutations and independent analytic fixed-simplex counts. The proof and standalone verifier specify every normalization and index convention.
+
+**Originality — PASS relative to inspected evidence.** The prior point-only block complex on the same design has 21 second-sphere summands and a point-preserving group action. This is close and acknowledged, but it does not determine the point–block exchanging action: that involution does not act on the old eleven-point complex. The new 11-versus-10 duality eigenspace split and full 22-element dihedral character are not statements or corollaries of the inspected prior claim. Kawamura's graph-square theory, the earlier projective and affine incidence-Rips classifications, and biplane surface embeddings were compared by actual mathematical hypotheses and consequences. Main residual risk: an unindexed general equivariant suspension theorem could relate the two actions more directly.
+
+**Value — PASS.** The eleven-point biplane is a canonical symmetric design, and incidence duality is an intrinsic combinatorial symmetry absent from its ordinary point-only simplicial realization. The exact integral Rips homotopy classification combined with the complete rational character of its natural dihedral group distinguishes two inequivalent duality eigenspaces that no Betti table can detect. The result is finite but is a natural exact equivariant invariant, not a parameter-chosen recomputation or a cosmetic renaming.
+
+The result is not a classification for other biplanes, and it does not determine the full graph-automorphism representation. Publication priority and every mathematical step remain subject to independent assessment.
+
+Self-review: passed. Independent audit: not yet performed.
