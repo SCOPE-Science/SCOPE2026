@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:04:09.237729Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "RESULT.md complete composition and four positivity factorizations; actual verify.py SymPy symbolic tests and exact enumeration; independently enumerated binary words for 1<=a,b<=8",
+      "rationale": "Uniform positive color-run compositions yield E[X]=(a/p)1, Cov(X)=a(a-p)(pI-J)/(p^2(p+1)), analogously for b and q. Writing inversion U=X^T M Y gives a bilinear variance depending on incidence statistics t,h,j. Even 2r run start orientations mix means ab(r±1)/(2r), adding between-orientation variance, while odd 2r+1 run orientations have equal means and probabilities (a-r)/(a+b-2r),(b-r)/(a+b-2r). Formula (1) and exact positive-numerator difference identities (2)–(5) establish both within-parity decreases and strict odd troughs, with feasibility boundaries a,b>=1. Reversal gives E[U|R]=ab/2. Independent exact Fraction enumeration checked 400 conditional strata for a,b<=8; infinite proof is the displayed symbolic identities and positive-coefficient polynomials.",
+      "residual_risks": [
+        "Historical joint run/inversion generating functions may supply these moments, see originality risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahonian paper treats unconditional inversion distribution, 2026 run enumeration treats counts and run arrangements, 2014 order-statistic paper is about run-extrema and order statistics."
+        ],
+        "reasoning": "Marginal inversion and run enumerations do not determine Var(U|R=k); a general joint-generating function might, but no exact completed implication located.",
+        "searches": [
+          "Canfield–Janson–Zeilberger arXiv:0908.2089",
+          "Balado–Silvestre arXiv:2602.10005",
+          "Kazemi–Jafari arXiv:1410.8167"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0908.2089",
+        "arXiv:2602.10005",
+        "arXiv:1410.8167 abstract",
+        "Resultary fixed-composition runs query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A joint rank-inversion/run generating polynomial could imply the conditional variances by derivatives, but available checked primary text did not state an accessible closed form that immediately yields all four strict inequalities."
+        ],
+        "reasoning": "Verified existing unconditional variance ab(a+b+1)/12 does not imply the entire V_k profile and general run-count enumeration alone is insufficient; a stronger uninspected joint polynomial remains the principal historical risk.",
+        "searches": [
+          "arXiv:0908.2089",
+          "arXiv:2602.10005",
+          "q-Mahonian joint run statistics query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "U is one orientation of binary multiset inversion count, hence centered Wilcoxon statistic; R is a fixed-composition run count."
+        ],
+        "reasoning": "Two-sample Wilcoxon and binary inversion are equivalent, so searched joint run/inversion and Mahonian aliases, not only rank-sum title matching.",
+        "searches": [
+          "conditional variance Mann Whitney Wilcoxon inversion statistic conditioned on number runs fixed binary composition parity",
+          "run inversion q generating function binary fixed weight",
+          "Canfield Janson Zeilberger arXiv:0908.2089"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE result on fixed-composition run transitions evaluates indicator covariances, not rank-sum conditional dispersion."
+        ],
+        "reasoning": "No exact table of V_{2r}, V_{2r+1} or parity troughs located. Search silence is not a priority theorem.",
+        "searches": [
+          "Resultary conditional Wilcoxon variance runs query",
+          "Resultary fixed-composition run transition dependencies 2026/10/4",
+          "conditional variance Mann Whitney Wilcoxon inversion statistic conditioned on number runs fixed binary composition parity"
+        ]
+      },
+      "rationale": "Classical unconditional Wilcoxon variance and fixed-weight run-count distributions are established. The fully conditioned, exact all-composition variance sawtooth and strict ordering identities were not found directly in the relevant inspected primary sources; originality is qualified by possible implicit derivatives of historical joint distributions.",
+      "residual_risks": [
+        "Historical exact joint distribution of multiset inversions and runs may mechanically imply the formulas, even if no matching title or explicit variance text.",
+        "2014 plausible paper full text not read; residual priority check remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_UNCONDITIONAL_ONLY",
+          "evidence": "No run-conditioned second moment identified in inspected theorem statements.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2089",
+          "material_read": "Accessible full arXiv HTML, inversion definition and unconditional distribution/variance sections",
+          "method": "arXiv HTML primary reading",
+          "title": "The Mahonian probability distribution on words is asymptotically normal",
+          "trigger": "multiset inversion/Wilcoxon prior"
+        },
+        {
+          "assessment": "PRIOR_RUN_ENUMERATION",
+          "evidence": "Enumerates run patterns and statistics; targeted searched sections do not supply V_k sawtooth theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.10005",
+          "material_read": "Accessible long-form arXiv HTML; fixed-weight run sections and targeted inversion/Wilcoxon term search",
+          "method": "arXiv primary full-text targeted section reading",
+          "title": "Systematic Enumeration of Fundamental Quantities Involving Runs in Binary Strings",
+          "trigger": "fixed-weight runs formula could dominate"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_RISK",
+          "evidence": "Discusses color run order statistics rather than identified inversion-conditioned variance; cannot assert full-text noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.8167",
+          "material_read": "Abstract/metadata and related theorem summary; full text not retrieved",
+          "method": "open abstract and bibliography comparison",
+          "title": "Characterization of Order Statistics in Two Runs Using Conditional Expectation",
+          "trigger": "plausible run-conditioned rank statistic alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": "Exact null distribution of fixed-composition words, bilinear run-length moment structure",
+      "rationale": "Wilcoxon inversion rank statistic and Wald–Wolfowitz run count are natural joint statistics under a fixed-composition permutation null. Conditional variance has strict nonmonotone sawtooth despite zero covariance, giving a meaningful exact second-order dependence classification and potential stratified finite-sample methodology without asserting power claims.",
+      "residual_risks": [
+        "No conditional tail or stochastic-order assertions; no ties or nonexchangeable alternatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical joint run/inversion generating functions may supply these moments, see originality risk.",
+    "Historical exact joint distribution of multiset inversions and runs may mechanically imply the formulas, even if no matching title or explicit variance text.",
+    "2014 plausible paper full text not read; residual priority check remains.",
+    "No conditional tail or stochastic-order assertions; no ties or nonexchangeable alternatives."
+  ],
+  "schema_version": 1
+}

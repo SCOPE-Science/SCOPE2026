@@ -1,19 +1,21 @@
-# Scientific review: parity-sawtooth conditional Wilcoxon variance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact all-integer conditional distributional moment statement for \(a,b\geq1\), with feasible run-count boundaries explicitly specified. Uniform positive compositions yield the run-length covariance matrices, and the bilinear inversion count gives the stated even/odd conditional variance formulas. The proof's four difference identities reduce to strictly positive polynomials on precisely the feasible domains. The standalone verifier reproduces the symbolic identities and independent finite word enumeration (87,811 exact checks); finite enumeration is not used as the universal proof.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+Uniform positive color-run compositions yield E[X]=(a/p)1, Cov(X)=a(a-p)(pI-J)/(p^2(p+1)), analogously for b and q. Writing inversion U=X^T M Y gives a bilinear variance depending on incidence statistics t,h,j. Even 2r run start orientations mix means ab(r±1)/(2r), adding between-orientation variance, while odd 2r+1 run orientations have equal means and probabilities (a-r)/(a+b-2r),(b-r)/(a+b-2r). Formula (1) and exact positive-numerator difference identities (2)–(5) establish both within-parity decreases and strict odd troughs, with feasibility boundaries a,b>=1. Reversal gives E[U|R]=ab/2. Independent exact Fraction enumeration checked 400 conditional strata for a,b<=8; infinite proof is the displayed symbolic identities and positive-coefficient polynomials.
 
-The 2009 multiset Mahonian work gives unconditioned inversion laws. The 2014 two-run order-statistic work gives fixed-composition run counts and moments of the extrema of color-specific run counts, not inversion count conditional on total runs. The 2026 systematic study includes fixed-weight run enumeration, but no direct run-conditioned rank-sum variance formula was found in its inspected relevant sections. The earlier marginal covariance between squared rank sum and runs is only a weighted aggregate and cannot determine the complete conditional variance profile or its strict run-parity oscillation. A possible older full joint rank/run enumeration remains a priority risk; a failed literature search alone does not prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Both statistics arise naturally from the same two-sample permutation null. Their uncorrelatedness obscures a deterministic, strict sawtooth of conditional dispersion: the even and odd subsequences each shrink, but an odd run count is a strict local minimum whenever both adjacent even counts exist. This structural finite-sample dependence can inform exact joint/stratified testing; no assertion is made about test power, entire conditional tails or distributional alternatives.
+Classical unconditional Wilcoxon variance and fixed-weight run-count distributions are established. The fully conditioned, exact all-composition variance sawtooth and strict ordering identities were not found directly in the relevant inspected primary sources; originality is qualified by possible implicit derivatives of historical joint distributions.
 
-## Limits and verification
+## value
 
-The assumptions exclude ties, alternative sampling laws and nonuniform word weights. The computational checker has a SymPy dependency; its exact finite outputs corroborate an independent symbolic identity and positive-polynomial proof. Historical coverage may be incomplete, and no external mathematical certification has been obtained.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wilcoxon inversion rank statistic and Wald–Wolfowitz run count are natural joint statistics under a fixed-composition permutation null. Conditional variance has strict nonmonotone sawtooth despite zero covariance, giving a meaningful exact second-order dependence classification and potential stratified finite-sample methodology without asserting power claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
