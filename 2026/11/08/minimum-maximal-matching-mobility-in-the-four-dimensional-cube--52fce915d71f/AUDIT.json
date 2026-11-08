@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "PASS: Maximality is equivalent to unmatched independence. The independent-set bound excludes matchings with at most four edges. Two distinct exhaustive enumerators independently exclude all five-edge maximal matchings, enumerate exactly 192 six-edge minima, and reconstruct the same exchange graph. Exhaustive all-source BFS establishes connectivity, radius and diameter, while full 384-element group action verifies orbit counts and edge types; both programs were run and their outputs recorded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baste et al. arXiv:1905.12241 Theorems 1-3 give regular-graph bounds and approximation ratios rather than optimum reconfiguration graphs.",
+        "Vandenbussche and West DOI 10.1137/080732687 gives extension conditions for perfect matchings in hypercubes, not exchange paths among nonperfect minimum maximal matchings."
+      ],
+      "reasoning": "A general scalar bound cannot imply the exact number and adjacency of all minimizers, and extendability to a perfect matching is not reachability between minimum maximal matchings. No stronger covering theorem was identified.",
+      "searches": [
+        "regular graph minimum maximal matching bounds arxiv 1905.12241",
+        "hypercube matching extendability 10.1137/080732687",
+        "minimum maximal matching reconfiguration token swapping hypercube"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.1137/0138030, accessible abstract",
+      "DOI 10.1137/0406030, accessible abstract",
+      "DOI 10.1137/080732687, accessible abstract and date",
+      "arXiv:1412.3881, inspected primary full text",
+      "arXiv:1905.12241, inspected primary full text",
+      "DOI 10.1080/00207160.2013.818668, accessible abstract",
+      "Indexed cube matching results on prescribed difference perfect matchings and matching complexes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hibi et al. arXiv:1412.3881 define induced matching with stricter nonadjacency between edges; they do not classify all ordinary maximal matchings of Q4.",
+        "Horton–Kilakos and Yannakakis–Gavril concern minimum edge domination and algorithms; available abstract-level material gives no configuration network.",
+        "Vandenbussche–West uses perfect matching extendability, a distinct property."
+      ],
+      "reasoning": "The final claim requires a complete optimizer census and exactly prescribed two-edge adjacency, symmetry orbit counts and all-source distance distribution. None of the compared premises implies those facts. Some older texts were accessible only as abstracts, leaving historical-priority risk.",
+      "searches": [
+        "Hibi arXiv 1412.3881 dominating induced matchings",
+        "Horton Kilakos minimum edge dominating sets 10.1137/0406030",
+        "Vandenbussche West hypercube matchings extension 2009",
+        "maximal matching complete multipartite graph 10.1080/00207160.2013.818668"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minimum maximal matching and edge domination number have equal optimum scalar value, but arbitrary minimum edge dominating sets need not be matchings. Baste et al., arXiv:1905.12241, introduction, defines the minimum maximal matching parameter.",
+        "The claimed graph uses only size-six maximal matchings and set differences of size one or two; perfect matching, induced matching and edge dominating sets without the matching constraint are not equivalent configuration spaces."
+      ],
+      "reasoning": "We tested alternate names minimum maximal matching, edge-domination number, minimum edge-dominating matching, saturation matching, independent edge domination, hypercube/binary cube and edge exchange. The scalar edge domination equivalence does not entail any all-optima exchange graph, especially because its set of minimizers need not equal the set of maximal matchings.",
+      "searches": [
+        "four-dimensional hypercube Q4 minimum maximal matchings 192 six edges reconfiguration two-edge replacement diameter six 528 transitions",
+        "independent edge domination of Q4 hypercube minimum maximal matchings matching saturation reconfiguration exchange graph",
+        "binary 4-cube maximal matchings minimum cardinality 6 edge switch two edge swaps",
+        "minimum maximal matching reconfiguration edge exchanges two edges frozen local search",
+        "independent edge dominating sets Q4 matching exchange"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed four-cube matching records address prescribed difference counts of perfect matchings, not the 192 nonperfect minimum maximal matching configurations.",
+        "The two independent local enumerators produce exactly the same new counts and reconfiguration invariants."
+      ],
+      "reasoning": "No retrieved exact table or database giving the full two-edge-exchange graph, orbit split, and metric was found. A previously tabulated scalar minimum, even if it exists, would not subsume the graph classification. Searches are not an exhaustive test of every offline database.",
+      "searches": [
+        "four-dimensional hypercube Q4 minimum maximal matchings 192 six edges reconfiguration two-edge replacement diameter six 528 transitions",
+        "minimum maximal matching hypercube dimensions four enumerate 192",
+        "matching complex four-dimensional hypercube minimum maximal matchings"
+      ]
+    },
+    "rationale": "PASS relative to checked literature: general edge-domination bounds, induced-matching papers, and hypercube perfect-matching results concern different optimization criteria or only the scalar minimum. No inspected theorem implies the exact 192-configuration exchange graph, its two-edge reachability threshold, orbit-by-degree structure, or diameter. Search misses do not prove priority; older paywalled abstracts and unindexed computations are residual risks.",
+    "residual_risks": [
+      "Unindexed historical exact enumerations may exist.",
+      "Older directly related minimum-edge-domination papers were available at abstract level only.",
+      "Index search failure does not prove original priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General regular-graph bounds and approximation algorithms; does not enumerate Q4 minimizers or their exchange graph.",
+        "evidence": [
+          "arXiv:1905.12241, Abstract, Introduction and Theorems 1-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.12241",
+        "material_read": "Full available PDF searched for hypercube and Q4 and main results/intro/selected proof passages inspected (pages 1-3, theorem statements).",
+        "method": "Read available full text and inspect main theorems and graph family constraints.",
+        "title": "Bounding and approximating minimum maximal matchings in regular graphs",
+        "trigger": "Same optimization parameter in regular graphs, potentially dominating our numerical result"
+      },
+      {
+        "assessment": "Induced-matching and algebraic regularity scope, not the Q4 optimum exchange graph.",
+        "evidence": [
+          "arXiv:1412.3881, Introduction, definitions of maximal/induced matching"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.3881",
+        "material_read": "Accessible PDF introduction/definitions and early main mathematics (pages 1-4); page 1 visually inspected.",
+        "method": "Read primary source sections and distinguish induced from arbitrary maximal matchings.",
+        "title": "Dominating Induced Matchings of Finite Graphs and Regularity of Edge Ideals",
+        "trigger": "Same matching language and minimum matching parameter; could imply a special classification"
+      },
+      {
+        "assessment": "Extension of a matching to a perfect matching under conditions; not minimum maximal matching reconfiguration.",
+        "evidence": [
+          "Official publisher abstract, DOI:10.1137/080732687, published online 2009-10-09"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/080732687",
+        "material_read": "Official publisher abstract, theorem overview, metadata and keywords; full article not accessible in this access route.",
+        "method": "Primary publisher abstract and stated theorem matched against claimed configurations and moves.",
+        "title": "Matching Extendability in Hypercubes",
+        "trigger": "Hypercube matching theorem that might give stronger structural coverage"
+      },
+      {
+        "assessment": "General edge domination results; no implication for the explicitly constructed 192-vertex exchange graph shown in available material.",
+        "evidence": [
+          "Primary DOI abstract and metadata, 10.1137/0406030"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0406030",
+        "material_read": "Official abstract/metadata; full paper not accessible.",
+        "method": "Read primary abstract and scope.",
+        "title": "Minimum Edge Dominating Sets",
+        "trigger": "Foundational close scalar parameter, possible exact specialization"
+      },
+      {
+        "assessment": "Computational complexity of edge domination; no presented claim about the exact four-cube exchange network.",
+        "evidence": [
+          "Primary DOI abstract and metadata, 10.1137/0138030"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0138030",
+        "material_read": "Official abstract/metadata; full text inaccessible in this access route.",
+        "method": "Read abstract and compare graph classes, problem, and asserted statements.",
+        "title": "Edge Dominating Sets in Graphs",
+        "trigger": "Original edge domination and minimum maximal matching literature"
+      },
+      {
+        "assessment": "Exact minimum cardinality for complete multipartite graphs; Q4 is not a complete multipartite graph.",
+        "evidence": [
+          "Publisher abstract DOI:10.1080/00207160.2013.818668"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00207160.2013.818668",
+        "material_read": "Publisher abstract and title; full article not accessible.",
+        "method": "Compare ambient graph family and invariants.",
+        "title": "Maximal matching and edge domination in complete multipartite graphs",
+        "trigger": "Direct exact minimum maximal matching classification in another family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "52fce915-d71f-4405-ac97-4ac1dd9f5a09",
+  "value": {
+    "rationale": "PASS: The target is the natural entire set of optimal edge-dominating matchings in a classical small regular graph, not an arbitrary selection. The one-to-two simultaneous exchange threshold quantifies how many resources must be rerouted at once to retain optimality, and the exact orbit and metric data identify nontrivial asymmetry and transport cost. These facts do not follow from the optimum cardinality or known approximation bounds.",
+    "status": "PASS"
+  }
+}
