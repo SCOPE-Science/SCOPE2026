@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The code/acyclic digraph bijection follows from the two possible cyclic framings. Strand closure is an arc-reversing complement involution. All valid graphs are exactly the acyclic assignments in nine independent three-state undirected-pair orbits, so the DFS search examines all 3^9 possibilities. A separately proven source/sink induction embeds each valid graph into one of 48 complement-symmetric orders; enumerating their 2^9 closed subsets reproduces all 8,383 graphs. Orbit counts 220 are obtained both from explicit group-orbit enumeration and independently by Burnside fixed points. Code lists of all 220 representatives are embedded and verified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pellegrini–Pirillo (2014) describes maximum-cardinality dinucleotide circular codes for every finite alphabet size.",
+        "Michel–Pellegrini–Pirillo (2015) studies four-letter maximal circular codes.",
+        "Fimmel–Michel–Strüngmann (2016), Lemma 3.8, embeds circular dinucleotide codes in maximal ones for four symbols."
+      ],
+      "reasoning": "Maximum-size or maximal-by-inclusion classification cannot by itself determine all smaller size coefficients or each complement-preserving orbit count; the current result counts every size for six symbols.",
+      "searches": [
+        "self complementary dinucleotide circular codes general alphabet size formula reverse complement 2^m m! transitive tournament ordering",
+        "maximal dinucleotide comma free codes reverse-complement involution general alphabet count exact",
+        "dinucleotide circular codes arbitrary alphabet fixed-point-free involution general formula",
+        "Fimmel Strüngmann 2015 Maximal dinucleotide comma-free codes theorem number partition binomial abstract pdf"
+      ]
+    },
+    "checked_sources": [
+      "Michel–Pirillo, Dinucleotide Circular Codes (2013), https://doi.org/10.1155/2013/538631",
+      "Pellegrini–Pirillo, On the dinucleotide circular codes of maximum cardinality (2014), abstract-level material",
+      "Michel–Pellegrini–Pirillo, Maximal dinucleotide and trinucleotide circular codes (2015/2016), https://doi.org/10.1016/j.jtbi.2015.08.029",
+      "Fimmel–Michel–Strüngmann, n-Nucleotide circular codes in graph theory (2016), https://doi.org/10.1098/rsta.2015.0058",
+      "Fimmel et al., Self-complementary circular codes in coding theory (2018), abstract-level material"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 paper limits all direct enumerations to four nucleotides and calls larger alphabets a future direction.",
+        "The 2016 graph theorem establishes a criterion, not the spectrum or finite exhaustive count.",
+        "The 2014 article abstract states maximum-cardinality determination, not lower-rank classes."
+      ],
+      "reasoning": "The claim explicitly excludes the already known graph criterion and the general max-size theorem from its novelty assertion. The coefficient profile and Burnside orbit spectrum are not consequences reported in the accessible prior sources; their exact evaluation is the new content.",
+      "searches": [
+        "self complementary dinucleotide circular codes general alphabet size formula reverse complement 2^m m! transitive tournament ordering",
+        "complete six-letter Watson Crick reverse complement invariant circular dinucleotide code size enumerator 1 6 24 80 192 420 704 1032 1290 1334 1248 936 612 336 120 48 8383",
+        "symmetry-invariant acyclic directed graph pair reverse involution enumerated rank 8383",
+        "2016 n-Nucleotide circular codes in graph theory full text graph acyclic tournament"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fimmel–Michel–Strüngmann (2016), Theorem 2.6, translates dinucleotide circularity to graph acyclicity.",
+        "Reverse complement is an arc-reversing involution; the new finite enumerator is equivalently one for anti-invariant acyclic six-vertex digraphs."
+      ],
+      "reasoning": "The graph reformulation was explicitly searched, as were B3 signed orderings and involution-invariant acyclic digraphs. The published graph criterion identifies the admissible objects but is not an enumeration of their six-vertex size-and-orbit spectrum.",
+      "searches": [
+        "type B3 signed permutation partial orders compatible inequality systems count 8383 65 3",
+        "symmetry-invariant acyclic directed graph pair reverse involution enumerated rank 8383",
+        "8383 65 acyclic involution digraph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Michel–Pirillo (2013) Table 1 lists 24 four-symbol maxima including eight self-complementary; no six-symbol count table was located.",
+        "The exact two generating polynomials and 220 representatives were recomputed twice."
+      ],
+      "reasoning": "Searched numerical fingerprint 8383, 220, and characteristic histogram coefficients as well as the mathematical names; no matching table was identified. Absence from search is not conclusive historical novelty evidence.",
+      "searches": [
+        "complete six-letter Watson Crick reverse complement invariant circular dinucleotide code size enumerator 1 6 24 80 192 420 704 1032 1290 1334 1248 936 612 336 120 48 8383",
+        "type B3 signed permutation partial orders compatible inequality systems count 8383 65 3",
+        "self complementary dinucleotide circular code six letters three complementary pairs all cardinalities generating polynomial",
+        "six-letter dinucleotide circular codes self-complementary",
+        "8383 65 acyclic involution digraph"
+      ]
+    },
+    "rationale": "Closest full-text results cover maximal four-letter dinucleotide circular codes, arbitrary-alphabet maxima only, or the graph/acyclicity criterion; none inspected supplies the sixteen six-symbol all-size counts or the 220 symmetry-class refinement. The strongest general structural results are premises, not recast as new. Targeted published-record and bibliographic searches found no implication that determines the new census. Historical priority remains qualified because some plausible full texts were not accessible.",
+    "residual_risks": [
+      "The complete 2014 arbitrary-alphabet maximum-code article could not be read; its abstract strongly scopes it to maxima, but unindexed additional enumerations cannot be excluded.",
+      "The two author-hosted PDF page-image retrieval attempts timed out; relevant theorem and scope text were available, not a complete verified visual read.",
+      "A historical census under different terminology (self-dual signed partial orientations/type-B weak orderings) might exist outside indexed sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers 24 maximal four-letter circular codes and 8 complement-invariant maxima, but not the size-refined six-symbol census or its 220 symmetry classes.",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/10.1155/2013/538631"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/538631",
+        "material_read": "HTML abstract, definitions, results including Proposition 36/Table 1, and conclusion (including proposed larger-alphabet generalization)",
+        "method": "Public full-text HTML inspection",
+        "title": "Dinucleotide Circular Codes",
+        "trigger": "Direct foundational source and nearest four-symbol alphabet result"
+      },
+      {
+        "assessment": "Its stated theorem covers unrestricted maxima for general alphabets, not a full all-sizes six-symbol strand-closed enumerator. Residual priority risk disclosed.",
+        "evidence": [
+          "https://www.researchgate.net/publication/275834814_On_the_dinucleotide_circular_codes_of_maximum_cardinality"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/275834814_On_the_dinucleotide_circular_codes_of_maximum_cardinality",
+        "material_read": "Abstract and summary describing exact numbers and structure only for maximum-cardinality codes; complete article was unavailable (rate-limit on full-text retrieval)",
+        "method": "Public search snippet/abstract; full-text fetch attempted but rate-limited",
+        "title": "On the dinucleotide circular codes of maximum cardinality",
+        "trigger": "Plausible arbitrary finite-alphabet classification of maximal sets"
+      },
+      {
+        "assessment": "Restricts dinucleotide treatment to the four-letter genetic alphabet; does not state the six-letter all-sizes spectrum.",
+        "evidence": [
+          "https://dpt-info.di.unistra.fr/~c.michel/Michel_Article70.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/26382231/"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2015.08.029",
+        "material_read": "Accessible PDF text sections: abstract, four-letter alphabet definitions, maximal-code results; page-image retrieval was unsuccessful",
+        "method": "Author-hosted PDF parsed text; publication metadata independently checked",
+        "title": "Maximal dinucleotide and trinucleotide circular codes",
+        "trigger": "Closest maximality and self-complementarity classification"
+      },
+      {
+        "assessment": "Proves equivalence with directed acyclicity and gives four-letter tournaments and extension. The new census explicitly uses these known structural facts and contributes the six-symbol rank and orbit enumerators.",
+        "evidence": [
+          "https://dpt-info.di.unistra.fr/~c.michel/Michel_Article71.pdf"
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rsta.2015.0058",
+        "material_read": "Accessible PDF text including Theorem 2.6, Theorem 3.4, Theorems 3.5–3.6, Lemma 3.8, and Appendix F; page-image retrieval timed out",
+        "method": "Author-hosted PDF parsed text and section-level comparison",
+        "title": "n-Nucleotide circular codes in graph theory",
+        "trigger": "Graph-theoretic equivalent formulation and likely strongest structural predecessor"
+      },
+      {
+        "assessment": "Studies trinucleotide strand-complement structures, not the six-symbol dinucleotide codebook census.",
+        "evidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/29532441/"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12064-018-0259-4",
+        "material_read": "Accessible abstract, principally trinucleotide graph criteria",
+        "method": "PubMed abstract and accessible publication preview",
+        "title": "Self-complementary circular codes in coding theory",
+        "trigger": "Later research on complement symmetry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23f02320-4e2a-496b-ad9c-10f1c09d96ad",
+  "value": {
+    "rationale": "The first larger even complement-pair alphabet beyond the classic four-letter case admits a complete size-refined classification, not just an easily anticipated maximum. Its nine orbit-choice dimensions yield 8,383 feasible labeled codebooks and 220 mathematically distinct classes. Michel–Pirillo 2013 expressly motivates larger alphabets; the precise finite enumeration and explicit full catalog are reusable natural invariants, without suggesting unsupported biological performance.",
+    "status": "PASS"
+  }
+}
