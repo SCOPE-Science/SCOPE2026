@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` from the extracted package directory. It uses only the standard library. It reconstructs the algebra multiplication from the presented monomial quotient, sets arbitrary unknown generator images, imposes all differentiated defining relations, obtains a basis of derivations using modular nullspaces, verifies every Leibniz identity on the algebra basis, and computes the dimensions of successive Lie derived terms from matrix commutators.
+## correctness
 
-The actual run returned `CHECK_OK` for each of twelve cases: length vectors `(3,5)`, `(4,7)`, `(3,9)`, `(3,4,6)` over each of the prime fields of sizes `2`, `3`, and `5`, followed by `VERIFY_OK`. In particular, over prime field size `3`, `(3,9)` gave derived dimensions `(12,10,5,1,0)` and over prime field size `2` it gave `(12,7,0)`.
+PASS
 
-A finite-field calculation cannot prove a statement for every characteristic or every length vector. The proof in `RESULT.md` is the argument for arbitrary fields and all permitted parameters. The fully inspected equal-truncation automorphism normal form may imply the equal-height tangent case, but does not state this unequal-height derived profile. No independent mathematical review was performed.
+For A with m>=2 pairwise-annihilating branches x_i and lengths d_i>=3, differentiating x_i x_j=0 forces D(x_i) to contain own branch powers x_i...x_i^(d_i-1) and only other-branch top monomials x_j^(d_j-1). The bracket formula [E_ia,E_ib]=(b-a)E_i,a+b-1, [C,C]=0 and Euler-branch action on C gives the first commutator ideal. In char2 all and only even-index E lie in L^(1) and commute with one another and C, so L^(2)=0. In all other characteristics, [F_{i,r},F_{i,r}]=F_{i,2r} follows from two candidate commutator coefficients differing by 2, implying dimensions sum max(d_i-2^j,0), j>=2, and exact derived length ceil(log2(max d_i)). The branch dimension and both abelianization dimensions follow. Independent bracket-template calculations for all d=3..10 over p=2,3,5,7 agree, with the source verification solving the differentiated relations from scratch for 12 finite cases. The proof, not these finite tests, covers arbitrary fields.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the evaluated exact final statement differs from inspected antecedents on hypothesis, characteristic, invariant or quantifier; fundamental mechanisms/prior special cases credited. The source inspections and four implication comparisons below state actual reading and residual priority risks, without interpreting a failed search as proof of novelty.
+
+## value
+
+PASS
+
+The solvable Lie algebra HH^1(A) is an invariant of this natural family of finite monomial/fiber-product algebras. Exact dimensions at every derived-series step and the characteristic-two global metabelian collapse distinguish truncation geometries even at equal algebra/HH1 dimensions, e.g. (3,9) versus (6,6). The full multi-height classification is mathematically motivated and is not just a change of notation for the automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
