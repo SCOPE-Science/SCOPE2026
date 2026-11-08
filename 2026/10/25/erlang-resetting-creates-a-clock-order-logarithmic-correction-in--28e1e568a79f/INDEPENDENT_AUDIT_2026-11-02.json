@@ -1,0 +1,208 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:51:26.569269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x,D,r>0, v real and integer l≥2, solving D f″+v f′=r f with absorbing data at 0,m gives the stated F0 and Fm. The Erlang survival is exactly the finite sum of (-r)^j/j! derivatives of the exit Laplace transforms, so p_m and q_m are genuine mutually exclusive excursion probabilities, 0<p_m<p<1 and 0<q_m<q<1. IID renewal gives P(M<m,N=k)=p_m q_m^k, and p+q=1 ensures almost-sure finite N. Exact differences between the two-boundary and half-line transforms yield δp=T[C e^(-kappa m)/(1-e^(-kappa m))] and δq=T[C(e^(-alpha m)-e^(-kappa m))/(1-e^(-kappa m))]. The l−1 derivative dominates with alpha′=1/omega and kappa′=2/omega, yielding K and K0, while all subleading derivative terms are polynomially or exponentially smaller. Dividing the fixed-count joint tail by p q^k yields distinct k=0 vs k≥1 rates; summing all counts first gives the unconditional tail and tight size-biased geometric mass p² k q^(k−1). At m=(log k+(l−1)loglog k+log(K/[q alpha^(l−1)])+s)/alpha, k δq/q→e^(−s) and k(δq/q)²→0, proving the conditional Gumbel law for every real s. Independent stage-wise finite-difference boundary-value calculations at 12 configurations compared first-exit probabilities to exact transformed formulas with worst abs error 2.52e−6; 24 90-digit tail-ratio checks show convergence, 36 high-k CDF checks support Gumbel. Finite checks are corroborative only; no all-parameter conclusion is inferred from them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley arXiv:2302.05409 eqs(1)-(2) asymptote the first-passage TIME as reset frequency r→∞, including Gamma shape 2 in §3.6, but not spatial max M.",
+          "Radice arXiv:2201.01829 studies Gamma resets with non-instantaneous return and MFPT; no maximum/count joint law.",
+          "Dębicki–Hashorva–Michna 2026 assumes a Poisson reset process and deterministic finite observation interval rather than absorption stopping."
+        ],
+        "reasoning": "Resetting distribution and spatial-max terminology in broad papers were checked for implication rather than title. Neither r→∞ FPT-time limit nor Poisson fixed-time extrema yields a fixed-r, arbitrary integer l≥2 absorption-stopped maximum conditional on N=k; their hypotheses/observables differ. A generic renewal lemma is an input but not the explicit clock-dependent sharp coefficient or index.",
+        "searches": [
+          "renewal resetting absorption Brownian maximum stopping time Erlang shape l polynomial exponential tail log log centering high reset number",
+          "arXiv:2302.05409 §§2,3.6,5.3.6",
+          "arXiv:2201.01829 §§2,5,6",
+          "doi:10.1007/s11009-026-10316-4 §§2-4",
+          "arXiv:2102.07111 complete"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2311.14714v2",
+        "https://arxiv.org/abs/2306.15929",
+        "https://arxiv.org/html/2102.07111v1",
+        "https://arxiv.org/html/2201.01829v3",
+        "https://arxiv.org/abs/2302.05409",
+        "https://doi.org/10.1007/s11009-026-10316-4",
+        "https://arxiv.org/abs/2304.09348",
+        "https://doi.org/10.1098/rspa.2025.0716",
+        "Resultary published-finding semantic searches: Brownian motion with Erlang Gamma renewal resetting first passage maximum conditional completed reset count rare high excursion size biased geometric Gumbel logarithmic shift",
+        "Resultary published-finding semantic searches: renewal resetting absorption Brownian maximum stopping time Erlang shape l polynomial exponential tail log log centering high reset number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical killed-diffusion Laplace transform provides F0,Fm but does not by itself specify Erlang survival derivative or dominate m asymptotics.",
+          "The geometric N law and generic Gumbel domain of attraction are established pre-existing tools, not independently new contributions.",
+          "Explicit high-count centering b_k includes (l−1)loglog k from calculating l−1 differentiations of the r Laplace transform."
+        ],
+        "reasoning": "Prior Poisson formulas solve a l=1 special case; that special case cannot logically imply the polynomial factor for l≥2 without new computation. More general statements on FPT-time regimes do not dominate maxima conditioned on N. The present sharp fixed-r constants and n-dependent maximum law require a nontrivial exact passage from the Erlang killed-exit transform to two competing exponents and Gumbel normalization, though generic renewal/extreme-value tools are acknowledged.",
+        "searches": [
+          "arXiv:2311.14714v2 §V and §VI",
+          "arXiv:2302.05409 Theorem 1 and §3.6",
+          "arXiv:2304.09348 §2 Eq.(11)",
+          "doi:10.1098/rspa.2025.0716 §4(c)",
+          "arXiv:2102.07111 fixed-time extreme laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson pre-absorption maxima of Guo et al. use memoryless rate and do not condition on completed Erlang reset count.",
+          "Royal Society 2026 §4(c) computes N=n interval exit splitting for a Poisson rate r (known geometric factor).",
+          "Sunil et al. §2 eq(11) already gives the geometric reset-count component, which is acknowledged as prior."
+        ],
+        "reasoning": "An equivalent formulation could be via joint splitting probabilities at an upper barrier m and n failed reset attempts. Existing inspected equations do encompass the Poisson count-geometric renewal mechanism, but the new fixed-r stage-l finite derivative is needed to establish the precise m^(l-1) e^(-alpha m) and e^(-kappa m) rates, size-biased limit in the M>m event, and order-l high-k centering. No exact equivalent l>=2 theorem was found in the accessed source text.",
+        "searches": [
+          "Brownian motion with Erlang Gamma renewal resetting first passage maximum conditional completed reset count rare high excursion size biased geometric Gumbel logarithmic shift",
+          "arXiv:2311.14714 Sections II–VII",
+          "arXiv:2306.15929 sections II–VI",
+          "doi:10.1098/rspa.2025.0716 §4(c)",
+          "arXiv:2304.09348 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned related renewal, Poisson catastrophe, and unrelated Gumbel extrema but no published l-stage stopped-Brownian result with the four claimed formula families.",
+          "Closest formula databases in inspected literature contain Poisson barrier splitting and FPT-time distributions, not Erlang l≥2 joint count/extreme coefficients."
+        ],
+        "reasoning": "The target is a continuously parameterized analytic stochastic theorem, not an entry in a natural finite atlas. Exact probabilistic formulas were still compared; none inspected tabulates the l-dependent polynomial power and conditional Gumbel centering. Search absence alone cannot establish historical priority.",
+        "searches": [
+          "Brownian motion with Erlang Gamma renewal resetting first passage maximum conditional completed reset count rare high excursion size biased geometric Gumbel logarithmic shift",
+          "renewal resetting absorption Brownian maximum stopping time Erlang shape l polynomial exponential tail log log centering high reset number",
+          "arXiv:2311.14714v2 §VI explicit Poisson maximum formula",
+          "doi:10.1098/rspa.2025.0716 Eqs.(4.30)-(4.43)"
+        ]
+      },
+      "rationale": "The prior constant-rate stopped Brownian maximum results and count/splitting probability papers provide killed-hitting transforms and geometric restart identities but not the order-l≥2 joint barrier/count polynomial-times-exponential asymptotics. Fully read broad Gamma reset papers study FPT times or noninstantaneous return rather than the conditioned maximum; the 2026 Poisson fixed-window extremal analysis has a different horizon. The published 2026 count-conditioned splitting work is a close precursor but uses Poisson resets and does not visibly imply the Gamma polynomial factor. No matched published Resultary result or exact table surfaced. This is best-of-knowledge originality, not a guarantee that other derivations do not exist.",
+      "residual_risks": [
+        "Searches of semantic indexes and primary works are bounded; an unindexed renewal/extrema calculation may already give identical formulas under another naming convention.",
+        "2026 Royal Society source §4(c) was inspected through long original text indexed in search, but direct publisher access did not expose all equations; possible extensions elsewhere in the paper remain a residual, not proven exclusion.",
+        "Classical renewal and extremal theorems supply much of the method, so the exact model-specific theorem may be a consequence of an unlocated general all-parameter result.",
+        "Newer revisions and non-indexed preprints after the search cutoff may change priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poisson exponential inter-reset times with fixed rate; computes unconditioned maximum and maximum-attainment time, not Erlang order >=2 nor high-count N-conditioned centering.",
+          "evidence": [
+            "arXiv:2311.14714v2 §II specifies constant Poisson reset hazard",
+            "§V killed-exit solution and §VI pre-absorption maximum",
+            "§VII conditions on attainment time rather than completed reset count"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.14714v2",
+          "material_read": "Open original full-text sections II-VIII, including killed two-barrier exit transforms, marginal maximum and joint maximum/time of maximum.",
+          "method": "Direct model/quantifier/formula comparison with fixed Erlang waiting laws and count-conditioned extremes.",
+          "title": "Extremal statistics for first-passage trajectories of drifted Brownian motion under stochastic resetting",
+          "trigger": "Same drifted stopped Brownian model and pre-absorption maximum under resetting; closest prior."
+        },
+        {
+          "assessment": "Gives drift-free Poisson-reset maximum distribution but not Gamma/Erlang shape parameter, conditional reset count, or order-specific loglog shift.",
+          "evidence": [
+            "arXiv:2306.15929 §§II-VI model and spatial maximum formulas"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.15929",
+          "material_read": "Original accessible full preprint sections II-VI on Poisson reset model, maximum and joint maxima/time.",
+          "method": "Read main formulas and conditioning variable; compared against Erlang multi-stage count law.",
+          "title": "Extremal statistics for a resetting Brownian motion before its first-passage time",
+          "trigger": "Same absorption-terminated maximum, in drift-free case."
+        },
+        {
+          "assessment": "Analyzes extremes over fixed observation time under Poisson resetting, not stopping at first target hit or conditioning on N.",
+          "evidence": [
+            "arXiv:2102.07111v1 model fixes observation horizon t and exponential resetting"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2102.07111v1",
+          "material_read": "Full original accessible HTML manuscript, main renewal equations and conclusion.",
+          "method": "Compared stopping horizon and clock type with absorption-first Erlang process.",
+          "title": "Extremal statistics for stochastic resetting systems",
+          "trigger": "General reset extrema and potential earlier Gumbel limit."
+        },
+        {
+          "assessment": "Studies Gamma waiting laws with noninstantaneous return and stationary distributions/mean FPT, not a pre-absorption maximum conditional on completed reset count.",
+          "evidence": [
+            "arXiv:2201.01829v3 abstract, §2 two-phase return model",
+            "§§5-6 explicit mean first passage formula, not maximum or Gumbel"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.01829v3",
+          "material_read": "Accessible full HTML, §§2,5,6,7 and introduction; noninstantaneous ballistic-return model, stationary and MFPT formulas.",
+          "method": "Compared return protocol, observables, and analytic output against M,N maximum and k→∞ conditional theorem.",
+          "title": "Diffusion processes with Gamma-distributed resetting and non-instantaneous returns",
+          "trigger": "Explicit Gamma/Erlang reset clock on diffusive search; plausible same-clock broader result."
+        },
+        {
+          "assessment": "Proves exponential distribution and moments for total first-passage TIME in frequent-reset limit, including gamma example, not spatial-maximum tail at m→∞ or k→∞.",
+          "evidence": [
+            "arXiv:2302.05409 §1 eqs(1)-(2) T distribution as r→∞",
+            "§3.6 eq(43) Gamma shape 2 example and appendix FPT success p"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.05409",
+          "material_read": "Full arXiv-hosted parsed preprint with theorem statements and appendices; §§2,3.6,5.3.6 inspected, including Gamma shape-two reset example.",
+          "method": "Compared limiting regime r→∞ and first-passage time T against fixed-r spatial maximum M and reset count N, including gamma Eq.(43).",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Broad reset-clock first-passage theorem with Gamma shape 2; possible stronger implication."
+        },
+        {
+          "assessment": "Poisson reset process N_t and supremum over deterministic finite T, including stationary variants; no Erlang resetting or absorption-terminated count conditional loglog theorem.",
+          "evidence": [
+            "Article published 19 August 2026",
+            "§2 defines Poisson process N_t with rate λ",
+            "§§3-4 study finite-time supremum and stationary analogue"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11009-026-10316-4",
+          "material_read": "Open-access full Springer article with introduction, §2 model, §§3-4 extrema results and appendix discussion.",
+          "method": "Compared reset interval, stopping time and conditioned observables; distinguished count N_t before fixed T from completed resets N before absorption.",
+          "title": "Distributional and Extremal Behaviour of Brownian Motion with Exponential Resetting",
+          "trigger": "Very recent 2026 paper on drifted Brownian supremum under resets; same maximum type."
+        },
+        {
+          "assessment": "Indeed provides geometric reset count law and restart-cost distributions, a known component; Poisson clock, no spatial-overreach M tail and high-k Erlang order correction.",
+          "evidence": [
+            "arXiv:2304.09348 §2 eq(11) geometric count law before absorption",
+            "No reported Erlang pre-absorption maximum law in inspected analysis"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.09348",
+          "material_read": "Full original accessible preprint, focus §2 renewal/count distribution equations and cost statistic.",
+          "method": "Separated classical geometric count/renewal component from Erlang model-specific extreme joint asymptotics.",
+          "title": "The cost of stochastic resetting",
+          "trigger": "Exact geometric completed-reset count under target absorption, may cover size-biased claim."
+        },
+        {
+          "assessment": "Its §4(c) assumes constant reset rate r, obtains Poisson count-conditioned splitting probabilities for interval exits and geometric factor; this is a close precursor but accessible text does not state an Erlang polynomial barrier tail or order-specific loglog centering. Residual risk from inaccessible rest.",
+          "evidence": [
+            "§4(c) Eq.(4.29) specifies Brownian resetting at constant rate r, hidden state n counts resets",
+            "Eqs.(4.30)-(4.43) exact n-conditioned splitting probabilities",
+            "§5 describes fixed-rate resetting as one of three paradigms"
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2025.0716",
+          "material_read": "Search-indexed primary text of §4(c) Stochastic resetting and §5 conclusion plus paper overview; publisher direct open denied, so not a claimed full-document exclusion.",
+          "method": "Read accessible original section on one-dimensional Brownian splitting and exact n-reset exit counts; contrasted Poisson rate and upper-boundary killing with Erlang stage survival and high-count limit.",
+          "title": "Conditional splitting probabilities for hidden-state inference in drift-diffusive processes",
+          "trigger": "2026 count-conditioned interval-exit probability with hidden reset number; potentially directly covering event P(M<m,N=k)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stopped spatial maximum (overshoot/overreach risk) and number of completed resets (restart budget) are jointly natural physical observables for search with non-memoryless Erlang clocks. The theorem supplies a single exact excursion kernel valid for every k and nontrivial separation between zero-reset and positive-reset barrier hazards, with explicit clock-shape dependent coefficients. It identifies how stage count l enters an order-(l−1) polynomial prefactor and thus a necessary (l−1) loglog k correction to conditional high-count extreme thresholds. These exact self-contained predictions are not a generic no-content normalization check, although renewal factorization and the Gumbel mechanism individually are classical. No claims beyond independent fresh clocks, fixed restart location, integer Erlang shape and one-dimensional drift diffusion are made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2311.14714v2",
+    "https://arxiv.org/abs/2306.15929",
+    "https://arxiv.org/html/2102.07111v1",
+    "https://arxiv.org/html/2201.01829v3",
+    "https://arxiv.org/abs/2302.05409",
+    "https://doi.org/10.1007/s11009-026-10316-4",
+    "https://arxiv.org/abs/2304.09348",
+    "https://doi.org/10.1098/rspa.2025.0716",
+    "Resultary published-finding semantic searches: Brownian motion with Erlang Gamma renewal resetting first passage maximum conditional completed reset count rare high excursion size biased geometric Gumbel logarithmic shift",
+    "Resultary published-finding semantic searches: renewal resetting absorption Brownian maximum stopping time Erlang shape l polynomial exponential tail log log centering high reset number"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "x,D,r>0, v real, integer Erlang l>=2, fresh IID clocks and independent Brownian excursions, reset to same x, absorption at 0. High-k is conditioned on rare N=k; fixed N=k tail asymptotics are m→∞. No results for fractional Gamma shape, state-dependent resets, moving targets or multiple dimensions; no formal proof/expert certification. Finite numerical discrepancies reflect finite difference and slow extreme-value convergence."
+}
