@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The exact positive equilibrium and descending nullcline are solved algebraically; continuous trace -3/4, determinant 3/8, and discriminant -15/16 establish stable focus. At h=2 the map has nonresonant unit-multiplier pair (1±i sqrt(15))/4 and outward modulus derivative 3/8. The checker reconstructs the exact second-derivative form, resolvents, complex normal-form coefficient 23/6-25i sqrt(15)/18 and radial sign -17/4; the standard local Neimark-Sacker theorem then yields a stable small invariant Jordan curve for h>2 and leading radius sqrt(3(h-2)/34). Nonlinear local existence is analytically supported; finite samples are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.24418v1 theorem 15 and remark 16 constrain the location of spectral crossings, without supplying a nonlinear attraction result for the current vector field.",
+        "Khan 2019 theorem 1 gives a first Lyapunov criterion only for a different recurrence."
+      ],
+      "reasoning": "The 2026 broader spectral theorem implies the h=2 crossing from our Jacobian but not the supercritical character or locally attracting invariant circle. Standard NS theory supplies the implication once one proves d<0; the exact sign is the substantive new computation. Khan 2016/2019 are model-specific, not universal theorems covering arbitrary y-squared predator regulation.",
+      "searches": [
+        "published-finding corpus: discretized predator prey Euler x prime x+h x(1-x-y), y prime y+h y(x-d-sigma y) Neimark Sacker bifurcation normal form invariant circle",
+        "web: \"predator self-limitation\" \"forward Euler\" \"Neimark Sacker\" polynomial",
+        "web: \"Euler\" \"predator competition\" \"Neimark-Sacker\" \"logistic\" self regulation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.24418v1:sections 2 and 6",
+      "doi:10.1186/s40064-015-1618-y:full text",
+      "doi:10.1186/s13662-019-1995-6:full text",
+      "scholarpedia:Neimark-Sacker_bifurcation:search excerpt",
+      "published-finding corpus mathematical records: targeted search hits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv 2603.24418 Theorem 15 imposes a spectral sign, but specifies no first Lyapunov coefficient and no nonlinear invariant-circle existence for this simple self-damped model.",
+        "Khan 2016, 2019 have y_next proportional to x*y, so their Taylor quadratic form omits the -v^2 term that alters the normal-form coefficient.",
+        "The new exact calculation gives Re(conjugate(lambda)c)=-17/4<0, a hypothesis not supplied by the closest spectral localization statement."
+      ],
+      "reasoning": "The prior implications cover why the unit-circle spectral crossing is possible and provide general methods for determining criticality. They do not determine this model’s cubic sign. The nonlinear stable-circle conclusion is therefore not a mere restatement of the cited spectral threshold.",
+      "searches": [
+        "primary full text arXiv:2603.24418v1 sections 2 and 6, Theorems 14 and 15 and Remark 16",
+        "primary full text Khan 2016 SpringerPlus 5:126, model equation (1) and NS sections",
+        "primary full text Khan 2019 Advances in Difference Equations 56, model equation (4) and theorem 1",
+        "published-finding corpus: forward Euler logistic Lotka-Volterra predator prey self limiting 2D Neimark Sacker supercritical first Lyapunov coefficient 17/4 step 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.24418v1 §§2,6 treats the forward-Euler spectral identity and descending-branch crossing, not the full polynomial normal-form coefficient.",
+        "Khan 2016 and 2019 full-text equations x_next=alpha x(1-x)-xy, y_next=beta xy lack quadratic predator crowding."
+      ],
+      "reasoning": "These are the closest structural equivalences found. Matching the spectral determinant threshold is insufficient to imply the negative nonlinear cubic coefficient: the invariant-circle criticality depends on second and third derivatives. The older polynomial map does not retain the y-squared derivative tensor of this example. No exact normal-form equivalence or covering coefficient was identified.",
+      "searches": [
+        "published-finding corpus: forward Euler logistic Lotka-Volterra predator prey self limiting 2D Neimark Sacker supercritical first Lyapunov coefficient 17/4 step 2",
+        "web: \"x(1-x-y)\" \"y(x\" \"Neimark Sacker\"",
+        "web: forward Euler Lotka Volterra logistic predator self regulation invariant circle supercritical Neimark Sacker coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top matches were predator–prey discrete stability or nullcline average laws, not an exact -17/4 Euler NS coefficient.",
+        "The exact value -17/4 is recovered from explicit symbolic homological identities in the current checker, rather than copied from an identified table."
+      ],
+      "reasoning": "No exact same-map parameter table or existing -17/4 coefficient was found in the targeted public mathematical-research searches or inspected primary sources. This is bounded evidence, not a guarantee that all possible tables have been indexed.",
+      "searches": [
+        "published-finding corpus: nullcline geometry spectral rigidity predator prey Euler descending branch supercritical Neimark Sacker exact lyapunov",
+        "web: \"x_n(1-x_n-y_n)\" \"y_n\" \"Neimark\"",
+        "web: \"Euler\" \"predator competition\" \"Neimark-Sacker\" \"logistic\" self regulation"
+      ]
+    },
+    "rationale": "Motivating 2026 full text treats spectral Euler crossing including descending branches but does not obtain the self-damped quadratic model’s first cubic coefficient or a supercritical attracting circle; 2016/2019 full text analyze different quadratic predator updates without y^2 crowding. Targeted mathematical-research searches disclose no equivalent, dominated or tabulated exact -17/4 statement. Risk: research index and full literature searches cannot prove absolute historical priority.",
+    "residual_risks": [
+      "Historical priority remains provisional; no database search proves global novelty.",
+      "Scholarpedia standard-formula page full-text fetch intermittently unavailable; exact computation independently checked.",
+      "Related publisher paper on a different predator-prey map (2010, DOI:10.1080/17513750903528192) returned access denied; accessible snippet describes a different parameterized map, but complete equivalence comparison could not be made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: spectral mechanism and location fully prior, exact cubic coefficient and attracting invariant circle for the current polynomial example not covered in inspected text.",
+        "evidence": [
+          "At theorem 15/Remark 16, the paper states trace(J)+h det(J)=0, and that descending branches permit coarse-step NS spectral crossings.",
+          "No supercritical coefficient for this particular self-regulated logistic map is given in section 6."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.24418",
+        "material_read": "Accessible full HTML-transcription body, especially theorem 4 (general localization), section 6 (Theorems 14–15 and Remark 16), plus introduction and references.",
+        "method": "Read parsed primary article sections and compared assumptions, Jacobian condition and stated nonlinear conclusions.",
+        "title": "Spectral Rigidity and Geometric Localization of Hopf Bifurcations in Planar Predator-Prey Systems",
+        "trigger": "Same Gause family and forward-Euler descending-nullcline NS spectral crossing."
+      },
+      {
+        "assessment": "NOT_COVERING: predator update is proportional to prey times predator and has no self-limitation term, so published model-specific coefficient does not apply.",
+        "evidence": [
+          "Original equation x_next=alpha x(1-x)-xy and y_next=x*y/beta, section Background.",
+          "Present map has y_next=y+h*y*(x-1/4-y/2), with essential -h*y^2/2 term."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s40064-015-1618-y",
+        "material_read": "Full accessible HTML body, including original recurrence, equilibrium conditions, and Neimark–Sacker analysis.",
+        "method": "Compared original recurrence and second-derivative tensors to current polynomial Euler map.",
+        "title": "Neimark-Sacker bifurcation of a two-dimensional discrete-time predator-prey model",
+        "trigger": "Older full-text polynomial-map Neimark–Sacker theorem could imply candidate after parameter reduction."
+      },
+      {
+        "assessment": "NOT_COVERING: standard coefficient formula is prior, but model is different and lacks predator crowding; this paper does not state a model-independent negative sign.",
+        "evidence": [
+          "2019 model x_next=alpha1*x*(1-x)-x*y, y_next=alpha2*x*y; theorem 1 sign criterion is model-specific."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13662-019-1995-6",
+        "material_read": "Full accessible HTML body, including model equation (4), section 4.1, equation (12), and Theorem 1.",
+        "method": "Compared exact polynomial map, cubic-sign criterion and quantifiers of the result.",
+        "title": "Bifurcations of a two-dimensional discrete-time predator–prey model",
+        "trigger": "Published attracting-circle normal form for apparently similar quadratic map."
+      },
+      {
+        "assessment": "GENERAL_METHOD: standard local theorem, not a model-specific result; limited full-text access is a historical-search risk.",
+        "evidence": [
+          "Source excerpt specifies the critical multipliers must avoid strong resonances of orders 1 to 4 and the cubic coefficient governs super/subcritical classification."
+        ],
+        "identifier_or_url": "https://www.scholarpedia.org/article/Neimark-Sacker_bifurcation",
+        "material_read": "Retrieved source excerpt of first Lyapunov coefficient section and multidimensional generic resonance conditions; direct full-text page fetch intermittently failed.",
+        "method": "Used retrieved academic summary together with independently written multilinear symbolic checker; did not treat inaccessible text as fully inspected.",
+        "title": "Neimark–Sacker bifurcation (Scholarpedia)",
+        "trigger": "Check standard local bifurcation nonresonance and first Lyapunov formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "78117fca-c753-4f87-a289-d1db4dc50d6a",
+  "value": {
+    "rationale": "The cited spectral-rigidity framework distinguishes where discrete unit-circle crossings can occur but leaves their nonlinear outcome undetermined; this natural minimal polynomial self-damping model has an exact attracting rather than repelling invariant circle, with computed nonzero first Lyapunov sign and leading amplitude. It provides a concrete analytical distinction between stable continuous ecology and oscillations artificially introduced by coarse Euler discretization, useful for interpreting numerical bifurcation diagnostics. Does not claim a broad theorem beyond this motivated realization.",
+    "status": "PASS"
+  }
+}
