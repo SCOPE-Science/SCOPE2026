@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact edge-pair integrations give \(\mathbb ED=\mathbb EX+1/(3m)\) and \(\mathbb ED^2=\mathbb EX^2+1/6\). The decomposition \(X=B+Z\), with \(B=\mathbf1_{E\ne F}\) and \(Z\ge0\), gives exactly \(\operatorname{Var}(D)-V_\star=\operatorname{Var}(Z)+4\mathbb EZ/(3m)\). For a nonstar, degree convexity forces \(p=\Pr(Z>0)\ge 2(m-2)/m^2\); basic edge-pair incidence also forces \(p\le (m-1)(m-2)/m^2<1-2(m-2)/m^2\). The conditional variance identity implies \(\operatorname{Var}(Z)\ge p(1-p)\), while \(\mathbb EZ\ge p\). Equality is unique to the once-subdivided star. No unproved computational extrapolation is needed. The included standalone program passed 19,544 exact finite tree checks, four direct shortest-route quadratures, and symbolic simplifications were separately checked.
+PASS
 
-## Originality — PASS, provisional historical priority
+For m>=3 unit edges and two independent arclength-uniform points, conditional edge-pair integration gives E D=E X+1/(3m), E D²=E X²+1/6. Writing X=1_{E != F}+Z gives the exact surplus Var(D)-Vstar=Var(Z)+4 EZ/(3m), Z>=0. Degree-sequence majorization bounds p=P(Z>0) below by 2(m-2)/m² (equality only once-subdivided (m-1)-arm star) and above by (m-1)(m-2)/m²<1-q. Conditional total-variance then yields Var Z>=p(1-p)>=q(1-q), EZ>=p>=q and sharp gap G=2(m-2)(3m²-2m+12)/(3m^4). Direct independent exhaustive Prüfer-tree checks through 7 vertices (18,244 labeled trees for sizes n=4..7) corroborate; universal proof comes from incidence/variance bounds, not enumeration. m=3 is 3-edge path as nonstar equality.
 
-López de los Mozos–Mesa (2000; publicly dated electronic issue 2002-08-15) optimize variance from one *chosen facility* to a continuous-demand distribution, not variance between two independent random points. Puerto–Ricca–Scozzari (2009) optimize positions of path-shaped facilities, also a different problem. Garijo–Márquez–Silveira (2023, Proposition 4.4) prove star/path extremality for *mean* continuous distance. Prior explicit unit-tree distance laws and sharp first-moment gaps for nonstars provide strong related structure but do not give the variance-extremal claim merely by stochastic dominance: variance is not a stochastically increasing functional. The sharp conditional-variance lower bound using both incidence endpoints, and the unique second-minimum variance classification, require a new implication argument. No exact matching result was identified from the actual scientific searches. A previously unindexed equivalent extremal statement remains a priority risk. The 2009 publisher full text was not available in the inspected sources; its available abstract describes a different objective.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Variance of point-to-point travel distance measures dispersion of pairwise route lengths rather than network compactness as measured by their average. This classification finds the optimal topology and the *unique nearest competitor* across every size, with an exact positive second-place gap and an identity that measures the surplus by line-graph distance fluctuations. It answers a natural topology-optimization question and distinguishes genuine dispersion control from first-order stochastic or mean-distance control. No weighted-network or maximum-variance theorem is claimed.
+The nearest cited primary network papers optimize one-facility variance or mean pairwise distance, whereas this theorem optimizes the variance of two independent uniform-arclength points, determines the global second extremizer and exact excess identity. Stochastic first-order ordering of distances is insufficient for variance ordering. No equivalent second-minimum result identified in bounded Resultary/published and primary searches.
 
-## Limits and literature comparison
+## value
 
-The equal-length assumption is essential to the edge-uniform decomposition; extending it to weighted trees is not justified. The numerical checks are finite. The first electronically day-verified historical source is 2002-08-15, while the paper's print issue is designated 2000; no more precise earlier public day was established. Relevant full text was inspected for the 2000 one-facility variance article and for the 2023 continuous mean-distance article, and an abstract was inspected for the 2009 path-facility variance work. There is no independent originality or correctness certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Mean-distance tree extremizers are known, but variance is a distinct natural measure of typical pair-distance dispersion and is not monotone under stochastic dominance. The exact gap, unique second-optimal topology for every m, and positive surplus formula give a complete motivated extremal classification, useful as a sharp stability benchmark for nearly star-shaped metric trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

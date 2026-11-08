@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:58:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 3390649fe283c63b4a000152272b37e3e6a7f4e1",
+        "Frozen verify_tree_variance.py blob 931e7ca66f143e0eba3e733cd6fa4d6a8acdde57",
+        "Independent exact arithmetic Prüfer enumeration, independent_checks.py: TREE 18244"
+      ],
+      "rationale": "For m>=3 unit edges and two independent arclength-uniform points, conditional edge-pair integration gives E D=E X+1/(3m), E D²=E X²+1/6. Writing X=1_{E != F}+Z gives the exact surplus Var(D)-Vstar=Var(Z)+4 EZ/(3m), Z>=0. Degree-sequence majorization bounds p=P(Z>0) below by 2(m-2)/m² (equality only once-subdivided (m-1)-arm star) and above by (m-1)(m-2)/m²<1-q. Conditional total-variance then yields Var Z>=p(1-p)>=q(1-q), EZ>=p>=q and sharp gap G=2(m-2)(3m²-2m+12)/(3m^4). Direct independent exhaustive Prüfer-tree checks through 7 vertices (18,244 labeled trees for sizes n=4..7) corroborate; universal proof comes from incidence/variance bounds, not enumeration. m=3 is 3-edge path as nonstar equality.",
+      "residual_risks": [
+        "No claim for weighted edges, cycles, leaf sampling, maximum variance; numerical quadrature is corroborative only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garijo–Márquez–Silveira, Results in Mathematics 78 (2023) 139, Proposition 4.4, star/path sharp first-moment bound.",
+          "The additional variance surplus requires a separate conditional variance and nonincident edge probability upper bound."
+        ],
+        "reasoning": "Broader mean-distance or ordered-law results do not logically give the sharp second minimum of a variance; variance is not monotone under stochastic dominance.",
+        "searches": [
+          "Garijo Marquez Silveira Continuous Mean Distance of a Weighted Graph Proposition 4.4",
+          "tree pairwise continuous arclength distances stochastic dominance variance"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verification script actual frozen Git blobs",
+        "Resultary semantic search: variance of geodesic distance between two independent uniformly distributed points on unit-edge trees second minimizing star subdivision",
+        "Garijo–Márquez–Silveira 2023, DOI 10.1007/s00025-023-01902-w",
+        "López de los Mozos–Mesa 2000, DOI 10.1051/ro:2000109",
+        "Puerto–Ricca–Scozzari 2009 DOI 10.1002/net.20284"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A star minimizes mean continuous tree distances, but second minimum of variance and sharp gap require the nonnegative Z identity and p interval.",
+          "Network variance location fixes facility and varies its location, not tree topology for two i.i.d. points."
+        ],
+        "reasoning": "Neither prior result implies the displayed sharp variance gap or unique once-subdivided-star equality.",
+        "searches": [
+          "DOI 10.1007/s00025-023-01902-w Proposition 4.4 star continuous mean distance",
+          "DOI 10.1051/ro:2000109 variance location network"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garijo–Márquez–Silveira 2023 studies continuous mean distance; López de los Mozos–Mesa 2000 optimizes one fixed facility.",
+          "RESULT.md exact identity Var(D)-Vstar=Var(Z)+4 E Z/(3m) has different quantifier and variance functional."
+        ],
+        "reasoning": "A one-source facility variance, a tree Wiener index mean, and pairwise arclength variance are distinct functionals; neither first moment nor stochastic ordering determines second centered moment. No exact same theorem located.",
+        "searches": [
+          "variance of geodesic distance between two independent uniformly distributed points on unit-edge trees second minimizing star subdivision",
+          "metric graph pairwise network distance variance second minimizing tree, line-graph edge distance excess"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest ranked finding concerns directional widths of graphical zonotopes, not distance of two points on a metric tree.",
+          "Exact finite enumerations are corroboration, not a known general database entry."
+        ],
+        "reasoning": "No matching all-m tree-distance-variance second-minimum table was identified; related finite tree data are not the present continuous sampling functional.",
+        "searches": [
+          "variance of geodesic distance between two independent uniformly distributed points on unit-edge trees second minimizing star subdivision",
+          "unit edge tree pair distance variance tables enumerations second star"
+        ]
+      },
+      "rationale": "The nearest cited primary network papers optimize one-facility variance or mean pairwise distance, whereas this theorem optimizes the variance of two independent uniform-arclength points, determines the global second extremizer and exact excess identity. Stochastic first-order ordering of distances is insufficient for variance ordering. No equivalent second-minimum result identified in bounded Resultary/published and primary searches.",
+      "residual_risks": [
+        "Unindexed older moment/covariance extremal formula for pairwise network distances could subsume the gap; bounded searches are not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematical reconstruction supports C; prior-work assertions checked against scoped comparison",
+          "evidence": [
+            "Steps 1–4, p bounds and equality cases in assigned RESULT.md."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-second-minimum-geodesic-distance-variance-on-unit-edge-met--d84810868262",
+          "material_read": "Complete frozen RESULT.md proof, hypotheses, equations and references, and actual verifier source code",
+          "method": "Read Git blob objects by SHA",
+          "title": "Sharp second-minimum geodesic distance variance on unit-edge metric trees",
+          "trigger": "Assigned final claim"
+        },
+        {
+          "assessment": "Mean rather than centered variance; no whole-document noncoverage assertion",
+          "evidence": [
+            "Proposition 4.4 gives mean-distance star/path extremality, unlike the current variance surplus."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-023-01902-w",
+          "material_read": "Relevant Proposition 4.4 and mean-distance claim as exposed in primary citation and research summaries; full complete document not certified as read",
+          "method": "Primary-source citation/abstract and targeted theorem comparison",
+          "title": "Continuous Mean Distance of a Weighted Graph",
+          "trigger": "Closest same two-point metric-tree model"
+        },
+        {
+          "assessment": "Different fixed-facility objective; residual undiscovered corollary possible",
+          "evidence": [
+            "One-point facility variance contrasts two independent random points."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/RO_2000__34_2_155_0/",
+          "material_read": "Cited facility-objective characterization and available bibliographic/primary description; no full-body reading claimed",
+          "method": "Primary-page targeted comparison",
+          "title": "The variance location problem on a network with continuously distributed demand",
+          "trigger": "Same variance and continuous-network vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual formula and equality cases in frozen RESULT.md",
+        "Related prior mean-distance theorem"
+      ],
+      "rationale": "Mean-distance tree extremizers are known, but variance is a distinct natural measure of typical pair-distance dispersion and is not monotone under stochastic dominance. The exact gap, unique second-optimal topology for every m, and positive surplus formula give a complete motivated extremal classification, useful as a sharp stability benchmark for nearly star-shaped metric trees.",
+      "residual_risks": [
+        "Unit-edge and tree conditions essential; no generalization to arbitrary edge weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for weighted edges, cycles, leaf sampling, maximum variance; numerical quadrature is corroborative only.",
+    "Unindexed older moment/covariance extremal formula for pairwise network distances could subsume the gap; bounded searches are not proof of novelty.",
+    "Unit-edge and tree conditions essential; no generalization to arbitrary edge weights."
+  ],
+  "schema_version": 1
+}
