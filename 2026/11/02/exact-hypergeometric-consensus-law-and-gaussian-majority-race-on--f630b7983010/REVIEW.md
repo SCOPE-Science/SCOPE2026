@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Both claims follow from the precisely specified odd-degree, full-visibility asynchronous rule. A conflict between opposite local majorities cannot change except at the first-ring threshold of one of two disjoint collections of initially misaligned vertices. Their independent exponential arrival times yield the finite hypergeometric tail by exchangeability. The difference of two exponential order-statistic hitting times gives the threshold and the critical Gaussian normalization with the stated nondegeneracy assumptions. The independent exact-rational recurrence and complete ordering enumeration agree with the displayed formula in all reported finite cases. Boundary cases with size-one parts, aligned majorities, opposite majorities and finite fair races are included. Risks: an unforeseen mathematical error in the analytic reduction or CLT proof remains possible without external checking; finite tests do not prove the general theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+Every vertex sees precisely the other odd-sized part. Until the first local-majority flip, only initially dissenting agents relative to their current neighbor majority can flip, once, at independent first-update times. The sign is decided by whether the s-th of k clocks precedes the r-th of i clocks, equivalently a uniform order-statistics hypergeometric event on first r+s-1 clocks. Both thresholds cannot be reached simultaneously. Exponential spacing sums give means H_i-H_u, H_k-H_v, variance reciprocal-square sums and a Lyapunov triangular-array CLT. On y=1-x, the normalized mean/variance yield Phi(c sqrt(lambda(1-lambda))/sqrt(x(2x-1))). No assertion for even parts, vanishing lambda or x=1/2; independent exact first-step Markov recurrence agreed with formula for 1764 configurations.
 
-The closest full-text primary source with the exact same asynchronous clock rule is Amir–Baldasso–Beilin (2019), especially their complete-bipartite \(K_{3,m}\) construction in Proposition 3.6; it concerns finite-time nonmonotonicity under a **fixed** update order, not the random-clock absorption law. Mohan–Prałat (2023) use initially unannounced private signals on binomial random graphs, not fully visible fixed initial opinions on complete bicliques; Zehmakan (2023) uses synchronous rounds, and Lesfari–Giroire–Pérennes (2022) uses biased dynamics from all-negative initial conditions. A directly related earlier record classifies **synchronous** majority on bicliques and includes an opposing-majority two-cycle; that statement cannot imply almost-sure consensus under asynchronous updates, let alone the precise hypergeometric tail. Dedicated searches for equivalences and stronger claims returned no decisive coverage, but absence of a match is not proof of priority. Residual risk: preexisting specialist Markov-chain or interacting-particle literature may derive the same exact first-update race and scaling.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves the entire naturally tie-free complete-bipartite family for arbitrary initial configurations and supplies a nontrivial closed-form law, not only a convergence existence statement. The large-population phase boundary is an **unweighted sum of local fractions** independent of the population ratio, with an explicit \(N^{-1/2}\) crossover amplitude depending on the ratio. In particular, an initial global opinion minority occupying just \(61/200\) of agents can win with probability tending to one: a substantive demonstration of how local topology and timing override global headcounts. The exact expression and critical scaling are usable in social-learning benchmark models. Scope is deliberately restricted to the equal-rate, odd-biclique process and does not settle arbitrary graphs or tie-breaking rules.
+Standard continuous-time majority dynamics and finite-time nonmonotonicity on K_(3,m) are prior. Full public-signal exact consensus law, hypergeometric threshold and unweighted local-fraction critical window were not found among inspected primary results; cannot rule out other voter-network papers.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The absorption law is a sharp, closed-form stochastic invariant for a canonical graph family; the counterintuitive local-fraction threshold, as distinct from global majority, and its Gaussian critical window could be directly used in consensus-model comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

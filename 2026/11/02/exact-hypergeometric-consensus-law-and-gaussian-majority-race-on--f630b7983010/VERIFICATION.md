@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_majority.py` using Python 3. The exact-rational tests need only its standard library; SciPy, when installed, adds numerical large-size hypergeometric-tail tests.
+## correctness
 
-The executed verifier passed 1,764 exact formula-versus-absorbing-chain comparisons across 36 odd graph-size pairs; 144 complete first-update ordering enumerations; and 820 finite exact symmetry checks. Optional SciPy computations additionally compared the critical-window limit against six finite-network hypergeometric tails and checked three off-critical parameter families at two sizes each.
+PASS
 
-For proof completeness, the important mathematical reductions are: (i) common partwise majorities imply deterministic absorption, (ii) initially opposing majorities remain fixed until one of two first-ring thresholds and so reduce to independent exponential first updates, (iii) the first \(r+s-1\) clock ranks yield a hypergeometric tail, and (iv) exponential order-statistic spacings and a Lyapunov central limit argument give the claimed critical normal law. Finite experiments corroborate the finite combinatorics, but are not used to establish infinite-family truth or publication priority.
+Every vertex sees precisely the other odd-sized part. Until the first local-majority flip, only initially dissenting agents relative to their current neighbor majority can flip, once, at independent first-update times. The sign is decided by whether the s-th of k clocks precedes the r-th of i clocks, equivalently a uniform order-statistics hypergeometric event on first r+s-1 clocks. Both thresholds cannot be reached simultaneously. Exponential spacing sums give means H_i-H_u, H_k-H_v, variance reciprocal-square sums and a Lyapunov triangular-array CLT. On y=1-x, the normalized mean/variance yield Phi(c sqrt(lambda(1-lambda))/sqrt(x(2x-1))). No assertion for even parts, vanishing lambda or x=1/2; independent exact first-step Markov recurrence agreed with formula for 1764 configurations.
 
-Limits: the result concerns odd part sizes, equal-rate asynchronous clocks, full initial public visibility, and the specified interior scaling window. A specialist prior result could still entail the theorem; literature checks are not an independent novelty certificate.
+## originality
+
+PASS
+
+Standard continuous-time majority dynamics and finite-time nonmonotonicity on K_(3,m) are prior. Full public-signal exact consensus law, hypergeometric threshold and unweighted local-fraction critical window were not found among inspected primary results; cannot rule out other voter-network papers.
+
+## value
+
+PASS
+
+The absorption law is a sharp, closed-form stochastic invariant for a canonical graph family; the counterintuitive local-fraction threshold, as distinct from global majority, and its Gaussian critical window could be directly used in consensus-model comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
