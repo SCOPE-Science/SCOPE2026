@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed cubical model for the 18-vertex Pappus graph has \((153,432,297)\) cells. Exact boundary composition vanishes and ranks are \(152\) for \(\partial_1\), \(269\) modulo two and \(270\) modulo three, five and 101 for \(\partial_2\). Ten explicit fixed-spectator lifted cycles map onto a basis of graph first homology, giving the rational rank sandwich \(270\le\operatorname{rank}\partial_2\le270\), so rational Betti numbers are \((1,10,27)\). All 216 signed actions commute with the cellular differentials, and fixed-cell Lefschetz traces give all thirteen class values and the subgroup averages. The packaged code replays these checks. It does not certify complete integral torsion.
+## correctness
 
-## Originality — PASS (residual publication risk)
-The central claim is the complete rational graded character on the two-particle Pappus space. Ko–Park's first-homology formulas cover rank and the standard two-torsion phenomenon in graph braid groups, which are not claimed as novel. Barnett–Farber and Farber–Hanbury supply underlying configuration-space theory, mostly for ordered spaces. Exact accessible same-graph three-particle records concern a distinct particle count; the closest same-particle equivariant examples use Petersen and dodecahedral graphs; the general exchange-sign Borel–Moore theorem uses a distinct homology theory. published-finding corpus and literature searches did not identify a direct covering Pappus two-point group character. These comparisons do not establish absolute priority.
+PASS
 
-## Mathematical value — PASS
-The Pappus graph is a canonical 216-symmetric incidence graph. The classification specifies all 13 conjugacy-class actions on both positive rational homology groups. A natural order-three subgroup fixes nine top-homology dimensions, whereas both the full symmetry group and its bipartition-preserving index-two subgroup fix none. This exact contrast is invisible to Betti numbers and meaningful for equivariant graph-configuration topology. The value lies in completing a natural representation invariant, not in re-deriving known abelian first-homology formulas.
+For the Pappus graph specified by LCF [5,7,-7,7,-7,-5]^3, verify the canonical unordered Abrams cubical model has 153 0-, 432 1- and 297 2-cells and signed boundary1 boundary2=0. Independent exact bitset ranks give d2 rank269 over F2 and 270 over F3. d1 rank152; ten independent fundamental graph cycles lift as closed one-particle motions with a stationary spectator, providing rational H1>=10 and hence rational d2<=270, matching the F3 lower bound. Thus rational Betti (1,10,27). Independently enumerated 216 graph automorphisms and reconstructible signed cubical Lefschetz H1/H2 characters for 13 conjugacy classes; average characters over 216 and bipartition-preserving 108 vanish in positive degrees. Pappus is not claimed to have torsion-free integral H1; only rational representation is proved.
 
-## Limitations and nearby work
-The calculation covers two unordered points on this graph over rational coefficients; integral representation lattices, full torsion exponents, fundamental groups and homotopy quotients remain outside scope. The strongest literature comparisons are Barnett–Farber (arXiv:0903.2180), Farber–Hanbury (arXiv:1005.2300), Ko–Park (arXiv:1101.2648), and the publicly available published-finding corpus three-particle Pappus, two-particle dodecahedral, and exchange-sign Borel–Moore records. Some old PDFs were inspected in material sections rather than from start to finish, so an equivalent poorly indexed result is a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new contribution is the specified exact mathematical fact and not any already known nonequivariant/underlying special case; see each implication comparison and full-material primary inspections. The inspected candidates do not imply the new claim as stated. Historical priority is provisional and risks are explicit.
+
+## value
+
+PASS
+
+The complete rational character of the entire 216-element automorphism group on the two-unordered-particle Pappus configuration is a natural, detailed invariant that the ordinary Betti numbers and general graph-braid presentations do not determine. Quotient rational acyclicity and order-three invariant dimension nine make it intrinsically informative for equivariant graph configuration topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

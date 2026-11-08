@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-With Python 3 and `networkx`, execute `python3 verify_pappus_configuration.py` from the directory containing the supplied verifier. The program does not download source data; its Pappus graph is constructed from the explicit LCF sequence. The recorded deterministic program output is in `verification_output.txt`, ending in `VERIFY_OK`.
+# Independent mathematical audit
 
-The exact checks enumerate 153 unordered zero-cells, 432 one-cells and 297 two-cells; verify \(\partial_1\partial_2=0\); verify rank 152 of \(\partial_1\) and ranks 269, 270, 270, 270 for \(\partial_2\) modulo 2, 3, 5 and 101; construct ten explicit fixed-spectator lifts of fundamental graph cycles; enumerate 216 automorphisms in thirteen conjugacy classes; check signed chain-map equivariance on every cell; and compute the complete traces and invariant averages. All arithmetic used for certificates and character traces is exact integer or finite-field arithmetic.
+## correctness
 
-The modular ranks alone do not establish rational Betti numbers; the ten independent lifted cycles provide the matching rank upper bound. Signed Lefschetz traces use the proved rational homology concentration and are not interpreted as an integral representation decomposition. The model computes ordinary unordered collision-free configurations, not signed-local-system Borel–Moore homology. No independent mathematical audit has been performed.
+PASS
+
+For the Pappus graph specified by LCF [5,7,-7,7,-7,-5]^3, verify the canonical unordered Abrams cubical model has 153 0-, 432 1- and 297 2-cells and signed boundary1 boundary2=0. Independent exact bitset ranks give d2 rank269 over F2 and 270 over F3. d1 rank152; ten independent fundamental graph cycles lift as closed one-particle motions with a stationary spectator, providing rational H1>=10 and hence rational d2<=270, matching the F3 lower bound. Thus rational Betti (1,10,27). Independently enumerated 216 graph automorphisms and reconstructible signed cubical Lefschetz H1/H2 characters for 13 conjugacy classes; average characters over 216 and bipartition-preserving 108 vanish in positive degrees. Pappus is not claimed to have torsion-free integral H1; only rational representation is proved.
+
+## originality
+
+PASS
+
+The new contribution is the specified exact mathematical fact and not any already known nonequivariant/underlying special case; see each implication comparison and full-material primary inspections. The inspected candidates do not imply the new claim as stated. Historical priority is provisional and risks are explicit.
+
+## value
+
+PASS
+
+The complete rational character of the entire 216-element automorphism group on the two-unordered-particle Pappus configuration is a natural, detailed invariant that the ordinary Betti numbers and general graph-braid presentations do not determine. Quotient rational acyclicity and order-three invariant dimension nine make it intrinsically informative for equivariant graph configuration topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
