@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:55:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each integer n>=3 the hat Gram matrix is G=(4I+S+S^{-1})/6. Its inverse row is the periodic sum of b_j=sqrt(3)(-(2-sqrt(3)))^abs(j), solving the tridiagonal Green equation. Each continuous evaluation kernel is affine on cells and a convex combination of knot kernels; integrating its absolute value yields the stated F(a_j,a_{j+1}) and an attaining sign input. The infinite-line kernel has L1 norm exactly 2. Periodization cannot increase that norm, and specified opposite-sign overlapping translates cancel on a positive-measure interval for every finite odd/even n, making L_n<2. The reverse triangle inequality with geometric tails gives 0<2-L_n<=4sqrt(3)r^floor(n/2)/(1-r). Reproduction of constants and nontrivial sign changes yields L_n>1 and negativity defect (L_n-1)/2. An independently written exact rational cyclic-matrix computation recovered the n=3..12 values, including 16/9,17/9,257/132,2923/1485, all strictly below 2. The all-n statements follow from analytic Green-function/periodization proofs, not the finite experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shadrin 2001 proves uniform L-infinity boundedness for interval splines.",
+          "Passenbrunner 2016 Theorem 1.4 bounds all periodic projections by an unspecified order-dependent constant.",
+          "Stable kernel bases prove boundedness, not a sharp finite cyclic constant."
+        ],
+        "reasoning": "Broader knot/degree hypotheses do not mean the conclusions dominate a quantified exact norm: no sharp constant 2 or rational L_n is provided by those theorems.",
+        "searches": [
+          "doi:10.1007/BF02392832",
+          "arxiv:1608.06720",
+          "arxiv:1005.2424"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1608.06720",
+        "arxiv:1308.4824",
+        "doi:10.1007/BF02392832",
+        "arxiv:math/0611573",
+        "arxiv:1005.2424",
+        "https://foucart.github.io/publi/OpenPb.pdf",
+        "arxiv:math/0408418",
+        "Resultary published-record semantic query: exact L infinity norms orthogonal projector uniform periodic degree one linear splines inverse circulant mass matrix sup norm 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General upper bounds allow many possible values below their constants, so do not determine L_n nor its attained sign extremizer.",
+          "The arbitrary-mesh 3 benchmark concerns a larger nonperiodic class; 2 for uniform periodic meshes needs a special argument."
+        ],
+        "reasoning": "Prior results are genuinely weaker or concern different operators/boundaries; the exact finite formulas and strict alias cancellation are additional statements.",
+        "searches": [
+          "arxiv:1608.06720 Theorem 1.4",
+          "doi:10.1007/BF02392832 Theorem I",
+          "arxiv:math/0408418"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Passenbrunner 2016 Theorem 1.4 states a knot-independent bound c_k, not a finite equispaced cyclic L_n formula.",
+          "The Gram inverse solves a periodic circulant system; an exact inverse identity alone does not give the L1 norm of the sign-changing continuous interpolation."
+        ],
+        "reasoning": "The equivalent uniform B-spline Lebesgue constant and cyclic finite-element mass-matrix formulations still require cellwise absolute integration and strict alias cancellation; no inspected primary statement implies the full claim.",
+        "searches": [
+          "Resultary published-record semantic query: exact L infinity norms orthogonal projector uniform periodic degree one linear splines inverse circulant mass matrix sup norm 2",
+          "arxiv:1608.06720",
+          "arxiv:math/0408418"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Foucart discusses a distinct interval variable-knot extremal optimization; no finite cyclic list of L_n was identified in inspected relevant sections.",
+          "Independent exact n=3..12 values corroborate but do not constitute literature priority evidence."
+        ],
+        "reasoning": "No known database/table covering finite uniform periodic norms found; unindexed tables cannot be ruled out.",
+        "searches": [
+          "Resultary published-record semantic query: exact L infinity norms orthogonal projector uniform periodic degree one linear splines inverse circulant mass matrix sup norm 2",
+          "https://foucart.github.io/publi/OpenPb.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact finite cyclic uniform spline L_n, finite strict inequality, sharp supremum 2 and quantitative limit. Classical periodic arbitrary-knot bounds, nonperiodic unrestricted-knot extremal constant 3 and generic stable-basis inequalities are credited prior and do not imply this exact finite norm without nonstandard kernel evaluation. Search misses are not novelty proofs; older cardinal B-spline mass-matrix computations are a residual historical risk.",
+      "residual_risks": [
+        "Older specialized cardinal/uniform periodic B-spline Lebesgue-constant or mass-matrix literature may contain an equivalent exact value.",
+        "Kayumov 2004 full text was not read; only the available abstract described the unrestricted constant 3.",
+        "Historical priority is qualified, not mathematically certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_NOT_EXACT",
+          "evidence": [
+            "Theorem 1.4 asserts a universal c_k and does not evaluate any finite uniform-mesh L_n."
+          ],
+          "identifier_or_url": "arxiv:1608.06720",
+          "material_read": "Full primary 11-page PDF: introduction, Theorems 1.3--1.4, periodic boundedness method, relevant inverse-Gram argument",
+          "method": "Read full source text, theorem section and PDF page screenshot",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "Identical periodic orthogonal-projector setting"
+        },
+        {
+          "assessment": "GENERAL_DECAY_NOT_EXACT",
+          "evidence": [
+            "Exponential decay is not a sharp signed-kernel L1 formula."
+          ],
+          "identifier_or_url": "arxiv:1308.4824",
+          "material_read": "Full source theorem 1.2 and related inverse-Gram decay treatment in primary PDF",
+          "method": "Read the theorem and relevant PDF pages",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "Stronger inverse-Gram estimate might imply sharp norm"
+        },
+        {
+          "assessment": "DIFFERENT_CLASS",
+          "evidence": [
+            "The known 1D constant 3 applies to unrestricted intervals rather than uniform periodic knot rings."
+          ],
+          "identifier_or_url": "arxiv:math/0611573",
+          "material_read": "Primary 7-page PDF abstract and introduction plus page screenshot",
+          "method": "Read primary relevant introduction",
+          "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+          "trigger": "Potential dominating sharp interval spline bound"
+        },
+        {
+          "assessment": "DIFFERENT_BOUNDARY",
+          "evidence": [
+            "Variable-knot interval extremum differs from the periodic finite-size family."
+          ],
+          "identifier_or_url": "https://foucart.github.io/publi/OpenPb.pdf",
+          "material_read": "Relevant introduction and problem discussion from author-hosted original",
+          "method": "Primary source reading of quoted problem context",
+          "title": "Open questions around the spline orthoprojector",
+          "trigger": "Exact degree-one precedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp operator endpoint norm is the natural stability constant of a fundamental L2 spline orthoprojector. Complete rational norms for every mesh size, the finite strictness and exponential approach to a sharp constant, and exact positivity defect are useful independently of general nonsharp boundedness. This is a meaningful natural all-size classification rather than an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-n bound derived analytically; finite checks only n=3..12.",
+    "No statement for nonuniform periodic splines or higher-order splines.",
+    "Specialist exact spline literature may overlap."
+  ],
+  "schema_version": 1
+}
