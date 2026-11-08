@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:50:10.915448Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The conditional common-clock no-hit probability U=product of q0(reset gaps) makes the three hits a Bernoulli mixture, while independent clocks give h(1-E U). f0(t)=erfc(d/sqrt(4Dt)) has strictly positive second derivative for 0<t<d^2/(6D), so for any common-clock partition 0<1-U<=f0(t)<1/2; strict convexity of h(p)=3p^2-2p^3 gives the early inequality. Joint-survival renewal S_j(t)=exp(-rt)q0(t)^j + (r exp(-r.)q0(.)^j)*S_j admits unique tilted poles. Cauchy--Schwarz for Z=exp(theta1 E)q0(E) (Exp rate r) proves theta2<2theta1; the key renewal theorem yields positive c1,c2, and weighted integrability makes S3=o(S2). This yields reversed late tails and the correct strict extremes via Jensen. Independent numerical quadrature at three (d,D,r) triples verifies strict pole order; no finite computation is used as the large-t proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General exchangeable Bernoulli mixtures yield convexity of extreme ranks but not automatically the middle sign inversion.",
+          "General scalar renewal theory gives exponential decay when the kernel has a simple tilted root, but the strict exponent nonadditivity and short-time convexity remain model-specific."
+        ],
+        "reasoning": "A theorem about all ranks and all times would dominate this claim; no such result is established from the material actually read. Unread supplementary 2026 material remains a priority risk.",
+        "searches": [
+          "common Poisson reset clock first passage joint survival N Brownian particles all k-th ordered arrival exact Laplace inclusion-exclusion",
+          "Rank-dependent optimal resetting in multiparticle search 2026",
+          "Critical number of walkers for diffusive search processes with resetting 2023"
+        ]
+      },
+      "checked_sources": [
+        "Vatash et al. arxiv:2609.23542 (abstract and partial public material only)",
+        "Biroli--Majumdar--Schehr arxiv:2303.18012 (full accessible PDF)",
+        "Belan arxiv:1906.05619",
+        "Resultary semantic search of shared reset and middle first passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biroli et al. explicitly focus on the earliest hit under global vs independent resetting, a rank-one event.",
+          "Belan studies quantile/median for a single first-passage restart time, not the order-2 statistic among three searchers.",
+          "Vatash et al. accessible abstract addresses rank-dependent optimal mean objectives; neither optimal means nor individual marginals imply middle-rank stochastic CDF crossings."
+        ],
+        "reasoning": "Proving the stated crossing requires two- and three-label joint survival and strict exponent separation. A general formula for ordered times could implicitly contain but not directly imply the sign unless those comparisons have been derived; the full 2026 supplement remains uninspected.",
+        "searches": [
+          "Vatash Goldfarb Rudyak Roichman arxiv:2609.23542 rank dependent optimal resetting",
+          "Biroli Majumdar Schehr arxiv:2303.18012",
+          "Belan arxiv:1906.05619"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent forms are the crossing of P(#hits>=2 by t), sign change in 3S2-2S3 versus 3S1²-2S1³, or failure of stochastic dominance for the second order statistic.",
+          "Closest accessible descriptions concern mean ordered arrival/optimal rate, and fastest first passage rather than this exact crossing."
+        ],
+        "reasoning": "The probability-level crossing and asymptotic tail comparison distinguish this statement from quantile-optimization or mean comparisons with the same protocol names.",
+        "searches": [
+          "global versus independent Poisson resetting three Brownian walkers middle ordered first passage arrival early late reversal",
+          "arxiv:2609.23542",
+          "arxiv:2303.18012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated dependence and rare-event records, no explicit Brownian common-clock middle-arrival CDF crossing.",
+          "The evaluated pole values at D=d=r=1 (theta1 0.489409173..., theta2 0.874957794...) are finite numerical examples, not the all-parameter theorem."
+        ],
+        "reasoning": "A table of finite-time comparisons would not imply the universally valid early bound and late pole separation. None was found with the stated analytical coverage.",
+        "searches": [
+          "global versus independent Poisson resetting three Brownian walkers middle ordered first passage arrival early late reversal",
+          "Resultary semantic query: global versus independent Poisson resetting three Brownian walkers middle ordered first passage arrival early late reversal"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge: closest 2026 work treats rank-dependent resetting/optimal passage times, not the inspected theorem of early-vs-late middle-arrival CDF inversion with explicit spectral tail. Biroli--Majumdar--Schehr treats first arrival, and Belan treats median of a single variable. The 2026 supplement could not be examined completely.",
+      "residual_risks": [
+        "The complete 2026 Vatash et al. supplemental derivation and broader common-reset renewal literature were not available to inspect; a stronger implication there could change originality.",
+        "Exact crossing time and uniqueness are not established; short window is sufficient but not sharp."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different order statistic: first (minimum) arrival and its critical number",
+          "evidence": "Comparison can motivate correlations but does not contain second-arrival reversal theorem in inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.18012",
+          "material_read": "Full primary paper PDF and passages identifying fastest first-arrival observable; representative pages inspected",
+          "method": "arXiv lawful full-text PDF and theorem-level inspection",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "same independent versus simultaneous reset protocols and Brownian searchers"
+        },
+        {
+          "assessment": "Plausible coverage risk: no claim that its complete contents were noncovering",
+          "evidence": "Abstract concerns rank-dependent optimization and protocol comparisons; a CDF crossing may lie in inaccessible parts.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23542",
+          "material_read": "Abstract and accessible result descriptions only; attempted primary full text and supplement unavailable",
+          "method": "arXiv public abstract and available metadata",
+          "title": "Rank-dependent optimal resetting in multiparticle search",
+          "trigger": "closest contemporary same rank-related setting"
+        },
+        {
+          "assessment": "Quantile of one variable, not second of three independently driven searchers",
+          "evidence": "Single-variable median can change with rate without a three-label CDF ordering claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.05619",
+          "material_read": "Abstract and visible definition of median quantile of one restarted duration",
+          "method": "arXiv abstract and publication metadata",
+          "title": "Median and mode in first passage under restart",
+          "trigger": "possible confusion of median with order statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Middle of three first-arrival events is the smallest nonextreme rank. It displays a rigorous temporal inversion between otherwise marginally identical reset protocols, contradicting any universal stochastic ranking and giving a sharp exponential late-time rate. This bears directly on rank-dependent search/time-risk decisions, not just a generic Jensen restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vatash et al. arxiv:2609.23542 (abstract and partial public material only)",
+    "Biroli--Majumdar--Schehr arxiv:2303.18012 (full accessible PDF)",
+    "Belan arxiv:1906.05619",
+    "Resultary semantic search of shared reset and middle first passage"
+  ],
+  "disposition": "passed",
+  "final_claim": "For three identical independent Brownian searchers at d>0 with diffusion D>0, reset per-label rate r>0 independently versus one shared Poisson clock of rate r, P(T_(2)^G<=t)>P(T_(2)^I<=t) for 0<t<d^2/(6D), but the strict inequality is reversed eventually; the survival tails are 3c2 exp(-theta2 t) and 3c1^2 exp(-2theta1 t) with 0<theta1<theta2<min(r,2theta1). Extreme arrival ranks have strict all-time comparisons.",
+  "limitations": [
+    "Brownian noises independent, zero-time full resets, identical d,D,r; first hits remain recorded, no median-quantile comparison or number of crossings beyond existence."
+  ],
+  "residual_risks": [
+    "The complete 2026 Vatash et al. supplemental derivation and broader common-reset renewal literature were not available to inspect; a stronger implication there could change originality.",
+    "Exact crossing time and uniqueness are not established; short window is sufficient but not sharp."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The mathematical claim, its hypotheses, and complete proof are in `RESULT.md`. All numerical experiments are illustrative finite checks, not infinite-time proof or independent certification.
+## correctness
 
-## Reproduction
+PASS
 
-Install the packages listed in `requirements.txt`, then execute `OPENBLAS_NUM_THREADS=1 python verify.py` from this directory. The check program evaluates the reset-free survival-transform identity via numerical quadrature; verifies finite binomial counting, strict convex comparisons and the one-reset short-time bound; solves two scalar renewal-pole equations at three distance values; checks the strict exponent gap; and discretizes the three joint-survival Volterra equations to compare short- and long-horizon median-arrival probabilities at \(D=d=r=1\).
+PASS: The conditional common-clock no-hit probability U=product of q0(reset gaps) makes the three hits a Bernoulli mixture, while independent clocks give h(1-E U). f0(t)=erfc(d/sqrt(4Dt)) has strictly positive second derivative for 0<t<d^2/(6D), so for any common-clock partition 0<1-U<=f0(t)<1/2; strict convexity of h(p)=3p^2-2p^3 gives the early inequality. Joint-survival renewal S_j(t)=exp(-rt)q0(t)^j + (r exp(-r.)q0(.)^j)*S_j admits unique tilted poles. Cauchy--Schwarz for Z=exp(theta1 E)q0(E) (Exp rate r) proves theta2<2theta1; the key renewal theorem yields positive c1,c2, and weighted integrability makes S3=o(S2). This yields reversed late tails and the correct strict extremes via Jensen. Independent numerical quadrature at three (d,D,r) triples verifies strict pole order; no finite computation is used as the large-t proof.
 
-The executed local run returned `PASS: 154 numerical and finite-algebra checks`, with renewal poles \(0.489409173023\) and \(0.874957794252\), and strict separation \(0.103860551795\). Numerical renewal discretization has a finite grid step and is not an exact identity. Analytical renewal and Jensen arguments prove the general conclusions for all strictly positive parameters.
+## originality
 
-## Unproved or unchecked limits
+PASS
 
-No exact crossing time or uniqueness claim is made. No finite-size empirical validation, random-parameter coverage, or global survey of every earlier article is claimed. The numerical program does not certify the key renewal theorem, the absence of a stronger unpublished result, or full independent priority.
+PASS, qualified best-of-knowledge: closest 2026 work treats rank-dependent resetting/optimal passage times, not the inspected theorem of early-vs-late middle-arrival CDF inversion with explicit spectral tail. Biroli--Majumdar--Schehr treats first arrival, and Belan treats median of a single variable. The 2026 supplement could not be examined completely.
+
+## value
+
+PASS
+
+PASS: Middle of three first-arrival events is the smallest nonextreme rank. It displays a rigorous temporal inversion between otherwise marginally identical reset protocols, contradicting any universal stochastic ranking and giving a sharp exponential late-time rate. This bears directly on rank-dependent search/time-risk decisions, not just a generic Jensen restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

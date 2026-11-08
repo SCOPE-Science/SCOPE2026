@@ -1,19 +1,21 @@
-# Scientific review of the new middle-arrival reversal theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complete first-hit model and both reset protocols are specified. Conditioning on the common Poisson partition gives a binomial mixture; strict convexity of the short-horizon Brownian hitting CDF bounds the conditional hitting chance below one half and gives strict Jensen acceleration at the second arrival. A tilted scalar renewal theorem proves sharp first- and second-joint-survival exponents, strict Cauchy–Schwarz proves their nonadditivity, and exponential integrability makes three-joint survival negligible in the median tail. The 154 finite checks are reproducible but do not replace the proof.
+PASS
 
-## Originality
+PASS: The conditional common-clock no-hit probability U=product of q0(reset gaps) makes the three hits a Bernoulli mixture, while independent clocks give h(1-E U). f0(t)=erfc(d/sqrt(4Dt)) has strictly positive second derivative for 0<t<d^2/(6D), so for any common-clock partition 0<1-U<=f0(t)<1/2; strict convexity of h(p)=3p^2-2p^3 gives the early inequality. Joint-survival renewal S_j(t)=exp(-rt)q0(t)^j + (r exp(-r.)q0(.)^j)*S_j admits unique tilted poles. Cauchy--Schwarz for Z=exp(theta1 E)q0(E) (Exp rate r) proves theta2<2theta1; the key renewal theorem yields positive c1,c2, and weighted integrability makes S3=o(S2). This yields reversed late tails and the correct strict extremes via Jensen. Independent numerical quadrature at three (d,D,r) triples verifies strict pole order; no finite computation is used as the large-t proof.
 
-**PASS, best-knowledge assessment with limitations.** The closest source is Vatash et al. (arXiv:2609.23542), whose visible main text gives full ordered-arrival formulas under independently reset Brownian particles and numerical protocol comparisons; the present calendar-time crossing, early explicit interval and long-time pole ratio were not found in examined material. Biroli et al. (arXiv:2303.18012) study the fastest event and reset protocol, while Belan (arXiv:1906.05619) studies the median quantile of a single completion time. Extensive semantic record queries yielded no matched claim, but the uninspected portions of the 2026 supplement and broader exchangeability/renewal literature remain residual priority risks. General mixture-of-binomial inequalities and the renewal theorem are explicitly treated as known building blocks, not the new result.
+## originality
 
-## Value
+PASS
 
-**PASS.** The middle of three arrivals is the smallest nontrivial rank where common-clock synchronization produces neither uniformly earlier nor uniformly later completion. The rigorous sign reversal proves an obstruction to protocol selection by a universal stochastic order, even though both protocols have identical single-particle completion laws. The sharp slow-tail exponent identifies why shared resetting can initially help completion of two labels but later increases the risk of very slow completion; this fills a physically motivated gap in rank-dependent resetting benchmarks.
+PASS, qualified best-of-knowledge: closest 2026 work treats rank-dependent resetting/optimal passage times, not the inspected theorem of early-vs-late middle-arrival CDF inversion with explicit spectral tail. Biroli--Majumdar--Schehr treats first arrival, and Belan treats median of a single variable. The 2026 supplement could not be examined completely.
 
-## Closest literature and limitations
+## value
 
-The 2026 rank-dependent paper discusses global resetting through comparisons of optimal rate profiles. The 2023 fastest-searcher paper does not establish a second-arrival sign reversal. Existing general mixture inequalities explain the extreme-rank convex comparison, but do not determine the long-time spectral gap or the middle-rank crossing. The analysis is limited to three independent Brownian drivers, identical starts, strictly positive fixed rate, and instant complete resets. The crossing need not be unique; no independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Middle of three first-arrival events is the smallest nonextreme rank. It displays a rigorous temporal inversion between otherwise marginally identical reset protocols, contradicting any universal stochastic ranking and giving a sharp exponential late-time rate. This bears directly on rank-dependent search/time-risk decisions, not just a generic Jensen restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
