@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Symmetry averaging applies to unrestricted symmetric stochastic kernels; internal representations can be set to eigenvalue zero for every feasible pair of interclass edge probabilities. The quotient eigenvalue sum/product are derived directly. The universal column-omission bound proves the first phase. Beyond that, exact fixed-w norm minimization, row-capacity saturation, a concave boundary eigenvalue, and a sharp Rayleigh test-vector certificate prove both remaining phases. Regime feasibility and quotient spectra are explicitly computed. Exact-rational checker replay covers 1,462 instances but is not invoked as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2007 paper’s explicit Theorem 3.1 assumes edge-transitivity; the claimed graph for a,b positive and b>=2 is not edge-transitive.",
+        "The 2004 paper gives the general convex SDP and a worked complete-bipartite example; no closed-form evaluation for deleting an incident star was found in inspected relevant sections."
+      ],
+      "reasoning": "The strongest applicable published general theorem guarantees a solvable SDP and symmetry reduction, not the minimum value as a function of a,b, row saturation threshold b=a², or the further one-sided spectral threshold H=0. Its cited special classes have different support or symmetry hypotheses. This distinguishes general algorithmic coverage from an explicit solved classification.",
+      "searches": [
+        "fastest mixing Markov chain near-complete graph missing edges sharing a common endpoint exact formula",
+        "\"near-complete graph\" \"fastest mixing\" \"eigenvalue\"",
+        "https://arxiv.org/pdf/0709.0955 §§3,4,5; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf §§1,2,7"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://arxiv.org/pdf/0709.0955",
+      "https://web.stanford.edu/~boyd/papers/fast_mix_symm.html",
+      "https://statistics.stanford.edu/technical-reports/fastest-mixing-markov-chain-graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd--Diaconis--Xiao identifies the same norm objective and general convexity, and offers computable but unevaluated instances.",
+        "The earlier matching-deletion result gives the complete-graph one-edge case b=1; here the claim requires b>=2 and derives additional transitions not in that statement.",
+        "The earlier universal nonneighbor bound equals the new optimum only in the first regime; it does not imply either later optimum or the exact constructions."
+      ],
+      "reasoning": "This mathematical implication test excludes prior matching-edge b=1 as a novelty claim and uses the existing nonneighbor bound solely as a proof ingredient. Neither it nor the general SDP method determines the saturated balanced or positive-gap-limited regimes without new optimization. No stronger precise result covering all claimed b>=2 instances was established in inspected source material.",
+      "searches": [
+        "Boyd Diaconis Xiao 2004 FMMC convex semidefinite programming complete bipartite",
+        "Boyd Diaconis Parrilo Xiao 2007 symmetry fastest mixing complete graph graph orbit classes",
+        "fastest mixing symmetric stochastic K_n edge deletion star neighborhood two eigenvalues transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd--Diaconis--Xiao (2004), §2 and §7.1, formulates the exact centered spectral norm and automorphism averaging, but evaluates complete bipartite rather than the one-exceptional-vertex graph.",
+        "Boyd--Diaconis--Parrilo--Xiao (2007), §§2--4, develops orbit chains; the inspected examples include edge-transitive families and two cliques with a bridge."
+      ],
+      "reasoning": "The objective can equivalently be stated as smallest SLEM of a doubly stochastic symmetric matrix, or a 2x2 centered quotient SDP after symmetry averaging. These equivalent formulations were explicitly compared. General SDP computability does not entail the evaluated three-regime expression; a comparison of the two primary papers’ analytic families and example hypotheses reveals no direct evaluated special case of the exact missing-incident-star family. Residual unindexed-source risk remains.",
+      "searches": [
+        "\"complete graph minus a star\" \"fastest mixing\" Markov",
+        "\"almost complete\" \"fastest mixing\" \"Markov chain\" exact",
+        "FMMC one exceptional vertex connected to a neighbors of clique of a+b nodes missing b edges SLEM graph K_n minus K_1,b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved source and research-record searches contained no evaluated b>=2 incident-star SLEM table or exact three-regime formula.",
+        "Actual accessible mathematical records include a universal missing-neighbor lower bound and a matching-deletion equality classification, but not an optimization over all b>=2 incident deletions."
+      ],
+      "reasoning": "The current result is an infinite parametric formula, not a recomputation of a finite indexed table. Negative table/database searches cannot establish novelty, and remaining retrieval limitations are reported in residual_risks.",
+      "searches": [
+        "\"star deleted\" \"fastest mixing Markov\"",
+        "\"complete graph minus a star\" \"fastest mixing\" Markov",
+        "sharp fastest mixing Markov chain on near complete graph missing star edges three phase exact optimization"
+      ]
+    },
+    "rationale": "Qualified best-knowledge originality: an explicit closed-form global optimum for complete graphs with two or more edges deleted at a common vertex and two sharp phase boundaries was not found in inspected appropriate primary sources or retrieved related records. General SDP/orbit theory is not itself an evaluated solution for these hypotheses; the known single-missing-edge and general nonneighbor-bound statements are excluded from novelty. Publication-priority risk from unindexed literature is disclosed.",
+    "residual_risks": [
+      "Unindexed specialist work on nearly complete or threshold graphs could have an equivalent formula.",
+      "Not every paragraph of every cited historical paper was materially read; conclusions are limited to relevant inspected statements/sections, document-wide indexed searches and the actual retrieved evidence.",
+      "The 2003 technical report has only month-level public chronology evidence; the metadata source date uses the earliest verified full day in a listed primary source, the electronically published 2004 paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general convex SDP and a complete-bipartite evaluated example. No evaluated incident-star deletion three-phase formula in the inspected relevant theory and examples. Other sections were not treated as exhaustive exclusions.",
+        "evidence": "§II gives centered spectral-norm/SDP formulation; §VII.1 evaluates K_{m,n} and explains orbit averaging; §VII.2 gives graph-comparison spectral bounds.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full-text sections I.1, II.1--II.3 and VII.1--VII.2, including mathematical statements and complete-bipartite example; first page visually inspected",
+        "method": "Open-access primary PDF parsed by section and visually checked",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original SLEM optimization and symmetry convexity, possible broader covering theorem"
+      },
+      {
+        "assessment": "The edge-transitive/distance-transitive closed forms and other inspected examples do not evaluate K_N minus an incident star. The general orbit SDP remains applicable but requires the present additional minimax computation.",
+        "evidence": "§3.1 Theorem 3.1 assumes edge-transitivity; §3.3 enumerates distance-transitive examples; §4.3 treats two cliques joined by a bridge and a complete binary tree.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Primary arXiv full text, introduction and sections 2--4 through both example families; §5 block-diagonalization framework and statement references; first page visually inspected",
+        "method": "Open-access primary PDF searched for graph families and section formulas, with relevant passages read and first page visually checked",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Most plausible explicit structured-graph results and orbit reductions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2adb1152-791f-40ba-9753-3706dc834e32",
+  "value": {
+    "rationale": "The graph is a canonical perturbation of the perfectly mixing complete graph, with a concentrated set of missing edges. The theorem computes the exact best spectral mixing performance and explicit feasible optimal kernels for every size of that deletion, exhibits a sharp capacity threshold b=a², and gives a second spectral-balance transition H=0. It is a full natural infinite classification not an arbitrary finite enumeration; it distinguishes structural damage concentration from previously solved disjoint-edge deletions.",
+    "status": "PASS"
+  }
+}
