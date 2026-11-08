@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:41:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With the rightmost occupied site exiting in one update, parallel internal 10-to-01 swaps all act on disjoint adjacent pairs. An internal maximal pre-upstep-height particle must move and drop its preheight by one; if maximizers sit at the exit, a blocked penultimate occupied site provides the survivor at H-1. Every survivor has new preheight at most H-1; the only nonempty state that empties next is 0^(n-1)1 with H=1-n. Thus T=n+H for every nonempty state, including n=1 and all occupied. Reflection of Bernoulli ±1 paths under the running-height barrier gives the stated Q_p binomial formula; telescoping at p=1/2 gives the shells. Negative drift gives finite supremum and geometric gambler ruin law; zero drift Donsker/reflection gives |Z|; positive drift gives M_n-S_n=O_P(1) and binomial CLT. Fresh independent exhaustive synchronous states n=1..12 (8190 total) matched T, shell counts and weighted CDF at odds 1:2 and 2:1; finite tests support but do not replace the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1997 source §2 uses deterministic parallel bulk with stochastic reservoirs; focus stationary correlation and travel-time averages.",
+          "2013 work introduces stochastic boundary injection and domain-wall dynamics; 2023 TASEP Exit Times uses a continuous-time random generator."
+        ],
+        "reasoning": "The broader model classes may contain limiting parameter choices but studied theorems do not specialize to the exact arbitrary Bernoulli no-inflow last-empty-time CDF or the three fixed-bias asymptotic laws.",
+        "searches": [
+          "rule 184 deterministic parallel exclusion finite path no inflow evacuation time distribution ballot reflection Bernoulli density",
+          "arxiv:cond-mat/9712237",
+          "arxiv:1310.2090",
+          "arxiv:2310.08477"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/cond-mat/9712237v1",
+        "https://arxiv.org/abs/1310.2090",
+        "https://arxiv.org/abs/2310.08477",
+        "Resultary semantic search: rule 184 deterministic parallel exclusion finite path no inflow evacuation time distribution ballot reflection Bernoulli density"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1997 §5.4 computes mean travel times in reservoir-driven stationary traffic, not a full no-inflow extinction CDF.",
+          "2023 paper has stochastic continuous-time exclusion with step initial state, not a deterministic synchronous update from independent Bernoulli bits."
+        ],
+        "reasoning": "Existing models share exclusion terminology and part of the dynamics but do not imply the specific last-exit distribution as published statements; new derivation by a descending walk maximum is necessary.",
+        "searches": [
+          "rule 184 deterministic parallel exclusion finite path no inflow evacuation time distribution ballot reflection Bernoulli density",
+          "Tilstra Ernst 1997 section 5.4 travel times",
+          "Dorignac Geniet Pitard TASEP Exit Times arxiv:2310.08477"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rule 184/parallel TASEP gives the same local deterministic update; reflection and tandem-queue representations are plausible aliases.",
+          "Tilstra–Ernst 1997 analyzes particle travel time under nonzero reservoir input rather than maximum evacuation time over an initially random zero-input road."
+        ],
+        "reasoning": "The exact process requires simultaneous hopping and immediate right exit with zero inflow; a generic ASEP or travel-time result does not imply distribution of the maximum clearing time. Queueing aliases remain a priority risk.",
+        "searches": [
+          "rule 184 deterministic parallel exclusion finite path no inflow evacuation time distribution ballot reflection Bernoulli density",
+          "TASEP parallel update last particle exit time zero inflow",
+          "Rule 184 ballot height last passage queue clearance time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Unweighted early-time shells are central binomial coefficients, individually classical, and finite n can be tabulated.",
+          "The theorem unifies exact weighted Bernoulli laws for all n,p and three drift regimes, with a pathwise height statistic."
+        ],
+        "reasoning": "Known binomial rows or individual walks cannot be mistaken for publication of the exact joint finite family and density crossover. No direct table coverage identified.",
+        "searches": [
+          "rule 184 deterministic parallel exclusion finite path no inflow evacuation time distribution ballot reflection Bernoulli density",
+          "OEIS Rule 184 evacuation time ballot numbers finite path binary strings"
+        ]
+      },
+      "rationale": "PASS, qualified: The exclusion update is classical cellular automaton Rule 184, and ballot reflections, gambler ruin and Donsker CLT are prior tools. Tilstra–Ernst (1997) materially inspected in full arXiv HTML, especially §2 and §5.4, concerns stochastic-reservoir open-boundary steady-state profiles and mean travel times, not the last non-inflow Bernoulli particle departure distribution. Cividini et al (2013) study injected/extracted open TASEP shock walls, while Dorignac et al (2023) study continuous-time stochastic step-initial exit times. No directly covering finite zero-inflow clearance-time CDF and all-density crossover identified, but unindexed queueing/last-passage encodings remain possible.",
+      "residual_risks": [
+        "Unindexed deterministic traffic, finite queue, or ballot-path paper may give an equivalent pathwise time law.",
+        "Fixed initial Bernoulli p only in limit; p(n) critical windows and stochastic hopping are unproved.",
+        "Independent enumeration covers n<=12; infinite law rests on analytic descent/reflection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same parallel update bulk; stochastic reservoirs and stationary travel-time averages, not fixed random initial zero-inflow evacuation",
+          "evidence": [
+            "§2 fluxes \\hat j_0=\\hat\\alpha \\sigma_1 and \\hat j_L=\\hat\\beta \\tau_L; §5.4 travel times"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/9712237v1",
+          "material_read": "Full arXiv HTML: introduction, §2 model and reservoir boundary fluxes, §5.4 travel times and conclusion",
+          "method": "Primary full HTML theorem/observable comparison",
+          "title": "Analytic profiles and correlation functions in synchronous asymmetric exclusion processes",
+          "trigger": "Closest same deterministic synchronous bulk exclusion and open boundaries"
+        },
+        {
+          "assessment": "Boundary-driven domain walls rather than full finite no-inflow last-empty-time law",
+          "evidence": [
+            "arXiv:1310.2090, abstract and dynamical model"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.2090",
+          "material_read": "ArXiv primary paper title, abstract, initial setup and domain-wall objective",
+          "method": "Primary abstract and available main-text comparison",
+          "title": "Exact domain wall theory for deterministic TASEP with parallel update",
+          "trigger": "Same synchronous deterministic bulk traffic"
+        },
+        {
+          "assessment": "Stochastic continuous-time step-initial exits, not deterministic parallel Bernoulli evacuation",
+          "evidence": [
+            "arXiv:2310.08477, model and exit-time observable"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.08477",
+          "material_read": "ArXiv primary abstract and introduction/model statements including continuous-time stochastic generator",
+          "method": "Primary article abstract/model comparison",
+          "title": "TASEP Exit Times",
+          "trigger": "Exact same exit-time phrase but potentially dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Evacuation duration is the natural transient invariant of absorbing deterministic traffic. The exact probability law at every road length and arbitrary Bernoulli bias, integer shells independent of road length for early times, and sharp p=1/2 tight/diffusive/ballistic fluctuation transition are substantial mathematical structures; not simply a routine enumeration of small roads.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/cond-mat/9712237v1",
+    "https://arxiv.org/abs/1310.2090",
+    "https://arxiv.org/abs/2310.08477",
+    "Resultary semantic search: rule 184 deterministic parallel exclusion finite path no inflow evacuation time distribution ballot reflection Bernoulli density"
+  ],
+  "disposition": "passed",
+  "final_claim": "For zero-inflow open finite path with fully synchronous right-moving deterministic exclusion, first empty time T_n=n+max_{i:x_i=1}S_{i-1} on nonzero words and zero on empty; exact all-n Bernoulli(p) ballot CDF, all binary shell counts, and a p<1/2 tight, p=1/2 half-normal, p>1/2 Gaussian fixed-density crossover.",
+  "limitations": [
+    "Zero inflow, immediate deterministic right exit, synchronous one-lane particles only.",
+    "Asymptotic CLTs assume fixed p in (0,1); no assertion about stochastic traffic."
+  ],
+  "residual_risks": [
+    "Unindexed deterministic traffic, finite queue, or ballot-path paper may give an equivalent pathwise time law.",
+    "Fixed initial Bernoulli p only in limit; p(n) critical windows and stochastic hopping are unproved.",
+    "Independent enumeration covers n<=12; infinite law rests on analytic descent/reflection."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Same parallel update bulk; stochastic reservoirs and stationary travel-time averages, not fixed random initial zero-inflow evacuation",
+      "evidence": [
+        "§2 fluxes \\hat j_0=\\hat\\alpha \\sigma_1 and \\hat j_L=\\hat\\beta \\tau_L; §5.4 travel times"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/cond-mat/9712237v1",
+      "material_read": "Full arXiv HTML: introduction, §2 model and reservoir boundary fluxes, §5.4 travel times and conclusion",
+      "method": "Primary full HTML theorem/observable comparison",
+      "title": "Analytic profiles and correlation functions in synchronous asymmetric exclusion processes",
+      "trigger": "Closest same deterministic synchronous bulk exclusion and open boundaries"
+    },
+    {
+      "assessment": "Boundary-driven domain walls rather than full finite no-inflow last-empty-time law",
+      "evidence": [
+        "arXiv:1310.2090, abstract and dynamical model"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1310.2090",
+      "material_read": "ArXiv primary paper title, abstract, initial setup and domain-wall objective",
+      "method": "Primary abstract and available main-text comparison",
+      "title": "Exact domain wall theory for deterministic TASEP with parallel update",
+      "trigger": "Same synchronous deterministic bulk traffic"
+    },
+    {
+      "assessment": "Stochastic continuous-time step-initial exits, not deterministic parallel Bernoulli evacuation",
+      "evidence": [
+        "arXiv:2310.08477, model and exit-time observable"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2310.08477",
+      "material_read": "ArXiv primary abstract and introduction/model statements including continuous-time stochastic generator",
+      "method": "Primary article abstract/model comparison",
+      "title": "TASEP Exit Times",
+      "trigger": "Exact same exit-time phrase but potentially dominating theorem"
+    }
+  ]
+}

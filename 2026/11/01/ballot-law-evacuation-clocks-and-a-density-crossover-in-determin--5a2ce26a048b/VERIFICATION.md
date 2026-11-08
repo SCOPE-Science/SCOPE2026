@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and boundaries
 
-Run `python3 check_python.py` with Python 3 and run `c++ -O2 -std=c++17 check_cpp.cpp -o check_cpp && ./check_cpp` with a C++17 compiler. Both scripts are standalone and use only standard libraries. Outputs from these runs are included under `check_python.out` and `check_cpp.out`.
+# Independent mathematical audit
 
-The Python implementation advances each particle based on the full old state, checks first-empty times and the height formula for every word through \(n=15\), and cross-checks exact integer-weighted Bernoulli CDFs at three ratios of initial occupancy and vacancy probabilities. The C++ implementation independently represents states as bit fields, computes updates with a different code path, and checks the time law and every integer shell through \(n=20\). Both programs are exhaustive **only for the explicitly enumerated finite sizes**.
+## correctness
 
-The universal identity follows mathematically from height descent on each update, including the right-edge exit. The finite CDF follows from a standard lattice-walk reflection count, and the limit laws from gambler's ruin, the reflection/invariance principle and the classical central limit theorem. Programs do not establish novelty or mathematical priority, and no independent audit has been performed.
+PASS
+
+PASS: With the rightmost occupied site exiting in one update, parallel internal 10-to-01 swaps all act on disjoint adjacent pairs. An internal maximal pre-upstep-height particle must move and drop its preheight by one; if maximizers sit at the exit, a blocked penultimate occupied site provides the survivor at H-1. Every survivor has new preheight at most H-1; the only nonempty state that empties next is 0^(n-1)1 with H=1-n. Thus T=n+H for every nonempty state, including n=1 and all occupied. Reflection of Bernoulli ±1 paths under the running-height barrier gives the stated Q_p binomial formula; telescoping at p=1/2 gives the shells. Negative drift gives finite supremum and geometric gambler ruin law; zero drift Donsker/reflection gives |Z|; positive drift gives M_n-S_n=O_P(1) and binomial CLT. Fresh independent exhaustive synchronous states n=1..12 (8190 total) matched T, shell counts and weighted CDF at odds 1:2 and 2:1; finite tests support but do not replace the all-n proof.
+
+## originality
+
+PASS
+
+PASS, qualified: The exclusion update is classical cellular automaton Rule 184, and ballot reflections, gambler ruin and Donsker CLT are prior tools. Tilstra–Ernst (1997) materially inspected in full arXiv HTML, especially §2 and §5.4, concerns stochastic-reservoir open-boundary steady-state profiles and mean travel times, not the last non-inflow Bernoulli particle departure distribution. Cividini et al (2013) study injected/extracted open TASEP shock walls, while Dorignac et al (2023) study continuous-time stochastic step-initial exit times. No directly covering finite zero-inflow clearance-time CDF and all-density crossover identified, but unindexed queueing/last-passage encodings remain possible.
+
+## value
+
+PASS
+
+PASS: Evacuation duration is the natural transient invariant of absorbing deterministic traffic. The exact probability law at every road length and arbitrary Bernoulli bias, integer shells independent of road length for early times, and sharp p=1/2 tight/diffusive/ballistic fluctuation transition are substantial mathematical structures; not simply a routine enumeration of small roads.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
