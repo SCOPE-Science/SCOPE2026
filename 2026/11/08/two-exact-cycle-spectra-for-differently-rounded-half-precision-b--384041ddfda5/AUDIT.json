@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every nonnegative binary16 value on [0,1) has a unique bit pattern in 0..15359; exact binary16 values have integer representations n(b)/2^24. The two successor formulas use only exact integer operations and nearest-even comparisons. The script enumerates 30,720 edges and rigorously partitions both finite functional graphs by exhaustive cycle detection, checking all 15,360 state labels and distance recurrences, all distinct minimal cycles, the exact basin dictionary, maxima and 512 differing edges. Independently executed NumPy float16 arithmetic produced 0 of 15,360 successor mismatches per map. A finite complete domain is proved, not an infinite dynamics extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klöwer et al. (2023) analyzes period spectra and numerical invariant measures across many precisions but provides no theorem/classification logically determining both exact binary16 graphs in the inspected main text.",
+        "Boghosian et al. (2019) enumerates the binary32 period spectrum and its associated numerical invariant measure; different precision and rounding convention preclude implication of binary16 counts."
+      ],
+      "reasoning": "The broader phenomenon of eventual cycling at finite precision and approximate invariant-measure distortion is already established and is excluded from the novelty claim. Neither broader study gives a formula from which this exact two-map census follows.",
+      "searches": [
+        "\"finite-precision Renyi beta transformation rounding evaluation order full 16-bit cycle graph invariant measure basin\"",
+        "\"low precision floating point Bernoulli multiplication round modulo 3/2 distinct cycles\"",
+        "\"beta shift\" \"16-bit\" \"12197\" \"5705\""
+      ]
+    },
+    "checked_sources": [
+      "Boghosian, Coveney, Wang (2019), DOI 10.1002/adts.201900125, open primary PDF pp. 1-5.",
+      "Klöwer, Coveney, Paxton, Palmer (2023), DOI 10.1038/s41598-023-37004-4, open main PDF relevant pp. 4-5, 10.",
+      "Klöwer et al. public BernoulliMap repository overview (read only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klöwer et al. (2023), page 4 specifically contrasts their low-precision multiply/subtract with earlier Float64-first arithmetic, but the complete joint beta=3/2 binary16 cycle and basin classification is not stated there.",
+        "Boghosian et al. (2019), pp. 4-5, reports ten **binary32** periodic cycles at beta=3/2, not the two five-cycle binary16 spectra."
+      ],
+      "reasoning": "Neither prior count for binary32 logically determines a single one of the new binary16 basin values. The observation that order of operations matters motivates the question but does not imply the precise cycle spectra or exact 512-edge difference.",
+      "searches": [
+        "\"Periodic orbits in chaotic systems simulated at low precision\" multiplication subtraction Float16 Float64",
+        "\"A New Pathology in the Simulation of Chaotic Dynamical Systems on Digital Computers\" beta=3/2 Float32"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klöwer et al. (2023), DOI 10.1038/s41598-023-37004-4, calls the same beta-shift the Renyi map and explicitly distinguishes rounded multiplication from Float64-first multiplication (page 4).",
+        "Boghosian et al. (2019), DOI 10.1002/adts.201900125, studies beta-shift or generalized Bernoulli map in binary32 (pages 1-5)."
+      ],
+      "reasoning": "Aliases Bernoulli map, beta-shift, Renyi map, float16 and binary16 were included. The authors use both order conventions, but no inspected statement provides their joint period and basin spectrum for beta=3/2 at binary16.",
+      "searches": [
+        "\"generalized Bernoulli beta-shift 3/2 float16 all 15360 states complete periodic orbit period lengths 164 18 8 and basins versus rounded multiplication 41 24 4\"",
+        "\"IEEE 754 binary16 Renyi map beta 3/2 cycle basin enumeration rounding order\"",
+        "\"low precision generalized Bernoulli map two arithmetic evaluation routes exact finite state graphs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2019 study has a table of **binary32** odd-integer-beta periods and binary32 fractional-beta plots, not the present binary16 two-order table.",
+        "Klöwer et al. (2023) Figure 2 and supplementary Figure S1 concern invariant measures; its inspected main text does not list the ten exact period/basin pairs."
+      ],
+      "reasoning": "No exact matching tabulation located. This is a best-knowledge conclusion, not a proof of uniqueness; supplementary numerical datasets or scripts might contain one of the individual tables.",
+      "searches": [
+        "\"Bernoulli\" \"float16\" \"164\" \"41\" \"cycle\"",
+        "\"Bernoulli\" \"beta=1.5\" \"binary16\" basin 5705",
+        "\"beta shift\" \"16-bit\" \"12197\" \"5705\""
+      ]
+    },
+    "rationale": "The two-rounding-order, binary16-specific joint complete beta=3/2 cycle/basin census (ten period/basin entries, both transient maxima, and 512 immediate-edge disagreements) was not stated or implied by the examined sources. The 2019 study concerns binary32 and analyzes beta=3/2; the 2023 study explicitly compares rounding implementations and examines binary16 measures but does not supply this joint numerical enumeration in its inspected main text. Supplementary materials and unindexed work remain residual risks.",
+    "residual_risks": [
+      "The 2023 paper refers to supplementary Figure S1 for exact low-precision invariant measures, and the companion archive may contain computed data for one map; a complete inspection of these materials was not possible.",
+      "Equivalent results could exist in unpublished or unindexed computer arithmetic literature; no claim of database completeness is made.",
+      "Different floating evaluation semantics could yield different cycle census, and the present claim is deliberately restricted to explicit maps A and B."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes two evaluation conventions and finite-state exact-orbit methodology; the joint exact counts for both specified binary16 conventions were not found in the main text.",
+        "evidence": [
+          "DOI 10.1038/s41598-023-37004-4, p. 4 contrasts low-precision product with Float64-first product",
+          "p. 10 discusses exact orbits/invariant measure and supplementary Figure S1"
+        ],
+        "identifier_or_url": "https://pure.uva.nl/ws/files/187636674/Periodic_orbits_in_chaotic_systems_simulated_at_low_precision.pdf",
+        "material_read": "Main article, abstract, relevant methods and generalized Bernoulli sections including pages 4-5 and 10; the PDF page images were inspected. Supplementary figures referenced by the main article were not fully retrieved.",
+        "method": "Direct PDF textual inspection plus visual page review and comparison of exact numerical claims.",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Same beta-shift map, finite precision, binary16, and direct discussion of two rounding conventions."
+      },
+      {
+        "assessment": "Its beta=3/2 full graph runs binary32 and does not imply binary16 two-order results.",
+        "evidence": [
+          "DOI 10.1002/adts.201900125, pp. 2-5",
+          "Figure 3 analyzes beta=3/2 observables and text lists 10 binary32 cycles."
+        ],
+        "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10090503/1/Boghosian_et_al-2019-Advanced_Theory_and_Simulations.pdf",
+        "material_read": "Open-access primary PDF pages 1-5 including beta=3/2 discussion, Figure 3, finite-state methodology and period descriptions; page images inspected.",
+        "method": "Direct primary full-text inspection and comparison of datatype, equations and reported cycle periods.",
+        "title": "A New Pathology in the Simulation of Chaotic Dynamical Systems on Digital Computers",
+        "trigger": "Earlier direct analysis of beta=3/2 and full periodic orbits for floating point Bernoulli maps."
+      },
+      {
+        "assessment": "Repository may contain reproducible numerical material for the published simulations, but no matching two-order census was confirmed.",
+        "evidence": [
+          "Project archive associated with DOI 10.1038/s41598-023-37004-4."
+        ],
+        "identifier_or_url": "https://github.com/milankl/BernoulliMap",
+        "material_read": "Public repository overview and high-level listed materials; individual notebooks and datasets were not all examined.",
+        "method": "Read-only public repository landing-page inspection.",
+        "title": "BernoulliMap research code archive",
+        "trigger": "Code availability noted as companion to the Klöwer et al. study."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "384041dd-fda5-4e05-beae-8b44624ab649",
+  "value": {
+    "rationale": "Beta=3/2 is a canonical simple noninteger beta shift, and IEEE binary16 rounding-order sensitivity is specifically raised by the principal published study. The exact complete comparison shows a fourfold change in longest cycle, a twelvefold change in the fixed-point basin count, and 512 local edge changes that profoundly reorganize the global basins. This is an interpretable natural finite-state invariant with a clear numerical-dynamics motivation, rather than an unmotivated parameter slice or routine restatement of eventual periodicity. Exact numbers and an exhaustive certificate are not implied by prior general qualitative conclusions.",
+    "status": "PASS"
+  }
+}
