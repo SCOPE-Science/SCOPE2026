@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md`. It establishes the almost-everywhere Bernoulli representation, the exact bounded difference of the quantile sum and a reversal-odd block sum, a complete four-bit graph coboundary potential, and the finite-dependence central limit theorem with an explicit positive variance. The exceptional four thresholds are obtained from a displayed indicator formula; the proof does not infer an infinite-time result from numerical experiments.
+## correctness
 
-Run `python verify.py` with Python 3 and its standard library. The code exhaustively checks all binary blocks of lengths one to four using integers and exact rational fractions. It establishes:
+PASS
 
-- Every short reversal-odd basis function is a de Bruijn graph gradient.
-- The complete bilinear Green–Kubo matrix on the six reversal-pair basis functions is exactly \(vv^{\mathsf T}/32\), for \(v=(0,1,-1,1,0,1)\).
-- The displayed four covariance values of the one noncoboundary representative are exact.
-- Five independent generators of the zero-obstruction subspace are actual gradients on all sixteen four-bit edges.
-- Exactly the four threshold indices \(k\in\{3,5,11,13\}\) have nonzero obstruction, each of magnitude one; all other fourth-level indices are gradients.
+The two-sided fair-bit coding of the area-preserving baker map and exact bounded endpoint identity reduce a paired-quantile sum to the reversal-odd m-bit de Bruijn observable. For m<=3 each reverse-odd basis function is an edge gradient. For m=4, a displayed 3-bit vertex potential identifies exactly the kernel of L(h)=h(0010)-h(0011)+h(0101)+h(1011); subtracting L(h)e gives a bounded coboundary. Independently reconstructed all 36 Green-Kubo matrix entries over six basis vectors exactly as vv^T/32, checked the lag covariances (1/8,-1/32,-1/64,0) and all 15 fourth-level cuts. Finite dependence gives the CLT and the gradient yields deterministic bounded sums; the independent tent sampler has iid half-cut differences of variance 1/2. The results are for stationary initialization and exclude binary-expansion branch boundaries.
 
-Observed execution produced four PASS messages. No floating-point calculations, external packages or stochastic sampling are required.
+## originality
 
-Limits: exact rational finite enumeration checks the finite symbol calculus, not the target-density transport theorem or a self-contained proof of the standard finite-dependent Gaussian theorem. Those follow analytically from the hypotheses and classical probability. It does not validate publication priority, nonstationary behavior, or levels beyond four bits. An independent mathematical audit has not been performed.
+PASS
+
+The fundamental 2021 Fox-Hsiao-Lee theorem establishes Rosenblatt conjugacy and the baker and product uniform-map examples, not the inspected exact six-dimensional reversal-odd Green-Kubo operator or quantile threshold census. General Bernoulli CLTs do not calculate the variance kernel or the first nonzero cut. Semantic published-record searches found random beta-map zero-variance results, but their stochastic switching model does not imply the deterministic two-coordinate result. Historical equivalence in older symbolic de Bruijn cohomology remains possible.
+
+## value
+
+PASS
+
+For a natural prescribed-density sampler, one-time invariant statistics do not fix temporal sampling error. Classifying the entire six-dimensional reversal-odd four-bit subspace as five coboundary directions plus one diffusive direction and identifying the first dyadic noise threshold answers that motivated statistical issue, rather than a selected numerical covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

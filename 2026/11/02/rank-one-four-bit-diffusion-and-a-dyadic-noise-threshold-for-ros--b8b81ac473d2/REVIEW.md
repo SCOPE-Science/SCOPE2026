@@ -1,19 +1,21 @@
-# Scientific review — rank-one four-bit diffusion and dyadic noise threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement has an explicit probability space: a stationary positive-density Rosenblatt-conjugate baker map, with binary branch-boundary exceptions of measure zero. The proof reduces every paired quantile discrepancy to a reversal-odd finite-bit window plus at most eight endpoint terms. For lengths up to three, all such windows are graph coboundaries; for length four, an explicit eight-vertex potential proves that the obstruction space is one-dimensional. The sole noncoboundary basis vector has exact autocovariances \((1/8,-1/32,-1/64,0)\), giving the limiting variance \(1/32\). Its finite dependence yields the normal law; all zero-obstruction cases have bounded sums. A second argument using independent tent branch cylinders proves the same-target sampler contrast. The finite exact-rational program confirms every edge and covariance calculation, but the indefinite-time conclusions follow from the explicit proof and standard finite-dependent limit theory, not the finite checks alone.
+PASS
 
-## Originality — PASS within inspected evidence
+The two-sided fair-bit coding of the area-preserving baker map and exact bounded endpoint identity reduce a paired-quantile sum to the reversal-odd m-bit de Bruijn observable. For m<=3 each reverse-odd basis function is an edge gradient. For m=4, a displayed 3-bit vertex potential identifies exactly the kernel of L(h)=h(0010)-h(0011)+h(0101)+h(1011); subtracting L(h)e gives a bounded coboundary. Independently reconstructed all 36 Green-Kubo matrix entries over six basis vectors exactly as vv^T/32, checked the lag covariances (1/8,-1/32,-1/64,0) and all 15 fourth-level cuts. Finite dependence gives the CLT and the gradient yields deterministic bounded sums; the independent tent sampler has iid half-cut differences of variance 1/2. The results are for stationary initialization and exclude binary-expansion branch boundaries.
 
-Fox, Hsiao and Lee, *Solutions of the Multivariate Inverse Frobenius–Perron Problem* (arXiv:2106.00177; DOI 10.3390/e23070838), give the conjugacy, baker map and componentwise triangle maps, which are prior ingredients. The inspected source sections establish preservation, mixing and numerical examples but do not state a classification of reversal-odd four-bit Green–Kubo forms or the four exceptional paired thresholds. The classical two-sided symbolic baker model is also prior background. Searches of mathematical research records for paired Rosenblatt quantile noise, four-bit reversal coboundaries and de Bruijn variance formulas did not retrieve an implication covering this specific rank-one formula. The nearest variance/coboundary record concerns a randomly switched pair of expanding circle maps and does not treat stationary two-coordinate baker discrepancies. Searches cannot establish exhaustive novelty: equivalent symbolic computations in unpublished notes, older coarse-graining literature or unindexed sources remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural unresolved statistical question after choosing a map with a prescribed target distribution is which observables have sampling fluctuations. The theorem proves that for a whole six-dimensional, mathematically canonical time-reversal-odd class, only one degree of freedom produces diffusive noise. It sharpens this invariant into the first binary-resolution threshold for paired quantiles, with a complete classification of all fifteen fourth-level cuts, and shows that a different sampler with exactly the same stationary density has genuinely independent half-quantile noise. The finding is more than a selected covariance entry or a zero-variance normalization check: it identifies the entire coboundary quotient and a sharp onset of nonzero variance.
+The fundamental 2021 Fox-Hsiao-Lee theorem establishes Rosenblatt conjugacy and the baker and product uniform-map examples, not the inspected exact six-dimensional reversal-odd Green-Kubo operator or quantile threshold census. General Bernoulli CLTs do not calculate the variance kernel or the first nonzero cut. Semantic published-record searches found random beta-map zero-variance results, but their stochastic switching model does not imply the deterministic two-coordinate result. Historical equivalence in older symbolic de Bruijn cohomology remains possible.
 
-## Closest literature and limitations
+## value
 
-The defining 2021 article's Sections 4 and 6 were read in full relevant part through both arXiv HTML and the open full text at https://pmc.ncbi.nlm.nih.gov/articles/PMC8306100/. Section 6.1 already defines the same baker map; Section 6.2 already compares alternative invariant-density samplers. The rank-one temporal classification is the separated contribution. The normal law is for stationary starts only, and the threshold census is restricted to dyadic words of length at most four. A broader unindexed time-reversal-coboundary theorem might imply this computation, which is a residual originality risk. Independent verification by another researcher has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural prescribed-density sampler, one-time invariant statistics do not fix temporal sampling error. Classifying the entire six-dimensional reversal-odd four-bit subspace as five coboundary directions plus one diffusive direction and identifying the first dyadic noise threshold answers that motivated statistical issue, rather than a selected numerical covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
