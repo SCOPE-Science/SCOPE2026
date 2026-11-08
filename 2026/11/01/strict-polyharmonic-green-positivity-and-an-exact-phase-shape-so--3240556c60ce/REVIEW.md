@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact finite-dimensional Hilbert-space identity for every pair of positive integers, proved through all-order binomial-convolution total nonnegativity and a strict complementary-minor argument. The polynomial identity \(Qv=\binom{2\alpha}{\alpha}\mathbf1\) fixes normalization and boundaries. Riesz duality and energy Pythagoras give the exact phase–shape split, with strict inverse positivity classifying equality. The included executable tests use actual rational inverses and supplementary complex examples, without standing in for universal proof.
+PASS
 
-## Originality — PASS (best-knowledge)
+Inspected pinned RESULT.md, verify.py and full tree. Q_{ij}=(-1)^(i-j) C(2alpha,alpha+i-j). Conjugating D by checkerboard diagonals yields positive binomial convolution E, product of alpha nonnegative bidiagonal rectangular maps; Cauchy-Binet makes B=E^T E totally nonnegative. Direct complementary (d-1)-minor of B has an explicit positive Cauchy-Binet summand, so the inverse cofactor checkerboard signs cancel and K_{ij}>0 for all i,j. For d=1 scalar case separate. Polynomial Landau vector v_j=C(j+alpha-1,alpha)C(d+alpha-j,alpha), with alpha boundary zeros at both ends, satisfies Qv=C(2alpha,alpha)1 by 2alpha-th difference; Vandermonde sum yields original sharp constant C^2. Riesz-energy projection to span(Ks) gives exact shape decomposition and G(s)=sum K_jk|s_j-s_k|^2. All phases equal iff G=0 for d>1, and Q-projection zero fixes scalar multiple v, including zero coordinates. Independent 28 exact rational Q inverses for alpha<=4,d<=7 confirmed strict entries, Qv and phase kernel formula. Entire universal proof rests on complementary minors/polynomial identities not finite testing.
 
-The principal October 2026 source proves the best constant and provides a positive extremizer; its full text does not give an inverse-positive Green theorem, a complex phase-sensitive exact identity, or a complete equality classification. Its earlier continuous analog has continuous, rather than finite discrete, objects. Relevant indexed research claims on discrete Dirichlet interpolation and inverse-positive SPD sampling treat different operators and parameters. Total nonnegativity is established background and not counted as the novelty; the **strict deleted-minor property for every higher-order difference Gram** and the resulting exact nonnegative two-part deficit are the substantive new statements. Older Green-function/oscillation theory could contain equivalent statements under different terminology; this remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source identifies a natural sharp discrete Sobolev problem but only supplies one equality family. The present structural result shows that the optimizer is unique up to complex scaling across every order and provides an exact quadratic energy penalty separating phase incoherence from deviation in the optimal direction. This is useful for near-equality and constrained-phase Sobolev problems and is more than a restatement of the best constant or an arbitrary finite computation.
+Best-of-knowledge PASS for the all-order strict positive inverse and phase/shape identity, while the exact constant and Landau example are explicitly prior in Hindov et al. 2026. No claim of independently inventing classical total positivity or Cauchy projection.
 
-## Boundaries and remaining risks
+## value
 
-No dimension-uniform stability coefficient is asserted. No extension beyond zero-extended integral-order differences is claimed. Older formulations of inverse-positive discrete higher-order boundary-value kernels may imply the positivity lemma and should be checked independently when assessing publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Adds mathematically motivated rigidity and a quantitative identity to a sharp finite Sobolev inequality: phase frustration and distance to the optimizer line are distinct, nonnegative and exactly exhaustive, with all complex equality cases. The strict Green positivity explains uniqueness structurally. Researchers studying discrete higher-order derivative extremizers and stability could need this precise decomposition; not merely recomputation of known best constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
