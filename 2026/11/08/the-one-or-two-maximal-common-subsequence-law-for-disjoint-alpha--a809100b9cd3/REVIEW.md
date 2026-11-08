@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof compares the two linear strings exactly, without treating rotations as allowable embeddings. In the unequal-power case the shorter word is a contiguous factor of the longer. In the equal-power case the identities \(X=AU=VB\) and \(Y=UA=BV\), together with alphabet disjointness, imply that every common subsequence is a subsequence of \(U\) or \(V\). Letter-count inequalities prove their incomparability. The exhaustive finite checker directly evaluates the actual MCS set and whole-language identity on 1,144 input configurations, while the proof establishes all unbounded cases.
+
+**Originality — PASS, with residual risk.** The verified primary literature on MCS algorithms (Sakai 2018; Conte et al. 2022 and 2023) provides general enumeration, recognition, and compact representation, but no identified theorem giving the two maximal elements for disjoint-alphabet conjugate powers. Searches considered equivalent cyclic-conjugate wording, same-block-power parameters, full common-subsequence language coverage, general algorithms that might dominate the formula, and indexed tables. The result is not an immediate corollary of any stated closed formula in inspected sources; an unindexed identical lemma remains possible.
+
+**Value — PASS.** The complete two-generator description of the common-subsequence downset gives a sharp infinite-family solution to both MCS enumeration and the shortest-maximal-versus-longest gap, independent of block complexity or power. In contrast with general instances having exponentially many MCSs, this broad structured family always has at most two. Even on a fixed two-symbol alphabet the gap between the two maximal lengths is unbounded, which demonstrates why longest-only alignment can lose an alternative maximal pattern.
+
+**Source limitations.** Relevant passages, theorem statements, algorithms and conclusions were examined in the primary full-text manuscripts, while global term searches checked for directly matching periodic or conjugate classes; this is not a claim of exhaustive bibliographic coverage. The mathematical novelty assessment may change if an equivalent theorem is found outside these sources.
+
+Self-review: passed. Independent audit: not yet performed.

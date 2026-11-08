@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For unequal exponents the shorter input is a factor of the longer. For equal exponents, the two common overlap factors generate the whole common-subsequence downset: a common word absent from the first overlap necessarily starts and ends with an A-alphabet symbol, hence embeds in the second overlap by disjointness. A-symbol and B-symbol multiplicities respectively force the two overlaps to be incomparable. This proves the one/two classification for all nonempty disjoint-alphabet words and positive exponents. The actual packaged standalone checker verifies 1,144 finite instances and 92,735 common words; these tests support rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conte et al. 2023, Theorem 13, DOI:10.4230/LIPIcs.ISAAC.2023.21: general MCS compact DAG with polynomial construction and counting, not explicit symbolic MCS for conjugate powers",
+        "Nicolas–Rivals 2007, DOI:10.1016/j.tcs.2006.10.002, section 2 defines C-subsequences allowing cyclic shifts before matching, unlike fixed linear inputs",
+        "Buzzega et al. 2025, arxiv:2504.04757, introduction: complexity of general and multiple-string MCS enumeration"
+      ],
+      "reasoning": "Algorithmic results can in principle compute the two instances but do not state nor immediately imply a two-generator identity for all block lengths and exponent pairs. Cyclic-LCS formulations optimize over rotations, so they do not imply the claimed MCS classification for two fixed conjugate representatives.",
+      "searches": [
+        "\"common subsequences\" \"uv\" \"vu\" concatenation cyclic",
+        "site:arxiv.org \"maximal common subsequences\" \"cyclic\" sequences",
+        "longest common subsequence of cyclic rotations of periodic binary strings a^p b^q and b^q a^p including shortest maximal common subsequence",
+        "2025 The Complexity of Maximal Common Subsequence Enumeration arxiv:2504.04757"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.13695",
+      "DOI:10.1007/s00453-021-00898-5",
+      "DOI:10.4230/LIPIcs.CPM.2018.1",
+      "DOI:10.1016/j.tcs.2006.10.002",
+      "arxiv:2504.04757"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conte et al. 2023, arxiv:2307.13695, theorem on general MDAG, no stated algebraic formula for block-conjugate powers",
+        "Conte et al. 2022, author manuscript at arpi.unipi.it/retrieve/bdbfd69d-6f35-448b-9ecc-2aea1e8b05c5/MCS_AAM.pdf, Lemma 1 interspace criterion, used for general tests rather than exact two-MCS theorem",
+        "Nicolas–Rivals 2007, DOI:10.1016/j.tcs.2006.10.002: cyclic LCS permits rotation in matching, and does not specify fixed-pair MCSs."
+      ],
+      "reasoning": "General algorithms can enumerate a chosen instance but do not themselves state or immediately imply the exact one/two law for every disjoint A,B and all positive exponents. The general cyclic-LCS formulation uses a different equivalence since rotations are permitted during matching. The present theorem is a special structural language equality and exact maximal-element classification, not a claim to improve general MCS algorithms.",
+      "searches": [
+        "\"cyclic shift\" \"maximal common subsequence\" two",
+        "\"conjugate words\" \"maximal common subsequences\"",
+        "\"maximal common subsequences\" \"periodic strings\" characterization",
+        "2023 Conte Grossi Punzi Uno compact DAG maximal common subsequences Theorem 13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conte et al. 2023, arxiv:2307.13695, sections 1–4: general MCS DAG, no case-specific two-block formula identified",
+        "Conte et al. 2022, DOI:10.1007/s00453-021-00898-5, sections 1–3: general polynomial-delay enumeration and interspace characterizations",
+        "Sakai 2018, DOI:10.4230/LIPIcs.CPM.2018.1, sections 1–3: algorithms for one MCS and recognition"
+      ],
+      "reasoning": "Checked naming variants: conjugacy of finite words, block-swapping, periodic powers, fixed cyclic shifts, and downward-closed common-subsequence languages. The cited MCS theory is algorithmic and does not state the entire common-language decomposition for a disjoint-alphabet block pair; this is not proof of universal absence.",
+      "searches": [
+        "\"maximal common subsequences\" \"conjugates\"",
+        "\"maximal common subsequences\" \"powers\"",
+        "\"maximal common subsequences\" \"rotation\"",
+        "\"(uv)^n\" \"(vu)^n\" \"common subsequences\"",
+        "Exact maximal common subsequences of two block-conjugate periodic strings (AB)^r and (BA)^s, blocks on disjoint symbol alphabets, with exactly two maximal words for equal powers."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published table with the same disjoint-block conjugate-power inputs was located in the checked public MCS literature.",
+        "Indexed mathematical research searches returned records on distinct invariants, including insertion distances to subsequence universality, rather than the MCS downset of two block-conjugate powers."
+      ],
+      "reasoning": "No exact same input family or parameters was retrieved from the checked research records. The compared records are not tables of maximal common subsequences for two-block cyclic conjugates. Nonretrieval is not a mathematical uniqueness certificate.",
+      "searches": [
+        "All common scattered subsequences of (AB)^n and (BA)^n are contained in the two length n(|A|+|B|)-|A| and n(|A|+|B|)-|B| common overlap factors.",
+        "MCS of two conjugate powers XYXY and YXYX: common subsequence downset exactly union of two contiguous overlap subsequences; two-maximal-elements theorem",
+        "Exact enumeration of maximal common subsequences (not just longest) between powers of cyclically shifted permutations, e.g. (abc)^r and (bca)^s, including maximality equals longest"
+      ]
+    },
+    "rationale": "The published general MCS algorithms handle arbitrary inputs but state no fixed-block conjugate-power two-element classification; inspected general cyclic-string papers allow rotations in matching and address a different problem. Searches did not identify equivalent published coverage. Residual risk: an unindexed specialized lemma about conjugate powers or disjoint-block alphabets might be equivalent.",
+    "residual_risks": [
+      "Specialized work on conjugate powers, cyclic phase alignments, or disjoint-alphabet subsequences not indexed by the checked searches could contain an equivalent lemma.",
+      "Although the cited general MCS algorithms can calculate an instance, their applicability alone is not a mathematical statement of the present symbolic infinite-family result.",
+      "No independent mathematical or bibliographic review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General polynomial-size compact DAG and operations for all pairs, not an explicit family classification",
+        "evidence": [
+          "Theorem 13 gives O(n^3 sigma) space and O(n^3 sigma log n) construction and supports MCS listing, rank, select",
+          "The paper introduction distinguishes MCS and LCS and gives a specific unrelated example; no two-block conjugate-power case identified"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol283-isaac2023/LIPIcs.ISAAC.2023.21/LIPIcs.ISAAC.2023.21.pdf",
+        "material_read": "PDF sections 1, 3, 4, Theorem 13 and conclusion, including pages 1, 2, 7, 8, 12, 13 and global searches for periodic/conjugate/power",
+        "method": "Primary full text, page renderings, text passages and theorem/term comparison",
+        "title": "A Compact DAG for Storing and Searching Maximal Common Subsequences",
+        "trigger": "The guiding 2023 MCS-DAG result may dominate arbitrary-instance enumeration"
+      },
+      {
+        "assessment": "General MCS definition, interspace criterion and polynomial-delay algorithm; no stated fixed-block periodic two-element theorem identified",
+        "evidence": [
+          "Lemma 1: MCS iff each interspace pair is alphabet-disjoint",
+          "Theorem 1: polynomial-delay MCS enumeration for arbitrary two strings"
+        ],
+        "identifier_or_url": "https://arpi.unipi.it/retrieve/bdbfd69d-6f35-448b-9ecc-2aea1e8b05c5/MCS_AAM.pdf",
+        "material_read": "Accepted manuscript sections 1–3, Lemma 1, algorithm development and sections around its general proof; searched for cyclic/periodic terms",
+        "method": "Lawful open-access full-text PDF with page renderings and text review",
+        "title": "Enumeration of Maximal Common Subsequences Between Two Strings",
+        "trigger": "Earlier primary general enumerator could state a dominating special-case formula"
+      },
+      {
+        "assessment": "Find-one / maximality-testing algorithms only; no periodic conjugate family theorem identified",
+        "evidence": [
+          "Abstract promises sublinearithmic-to-linearithmic find-one algorithm and linear-time maximality test"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.1/LIPIcs.CPM.2018.1.pdf",
+        "material_read": "Pages 1–2 and preliminary definitions, with page rendering",
+        "method": "Open primary conference PDF text and page inspection",
+        "title": "Maximal Common Subsequence Algorithms",
+        "trigger": "Classical MCS algorithm and definition"
+      },
+      {
+        "assessment": "Not covering because it optimizes over rotations and treats cyclic LCS, rather than fixed-rotation inclusion-maximal strings",
+        "evidence": [
+          "Section 2 defines cyclic subsequence by allowing a conjugate of a word before testing containment"
+        ],
+        "identifier_or_url": "https://www.lirmm.fr/~rivals/PUBLI/FILES/NR-TCS-2007.pdf",
+        "material_read": "PDF abstract, introduction and formal cyclic-comparison definitions, with page rendering",
+        "method": "Primary full-text sections and page screenshot",
+        "title": "Longest Common Subsequence Problem for Unoriented and Cyclic Strings",
+        "trigger": "Potential equivalent cyclic string formulation"
+      },
+      {
+        "assessment": "Complexity and parameterized hardness, no case-specific exact one-or-two law found in inspected material",
+        "evidence": [
+          "The paper investigates output-polynomial enumeration across multiple strings and parameters"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.04757",
+        "material_read": "Open-access full-text introduction and problem statements",
+        "method": "arXiv HTML first sections",
+        "title": "The Complexity of Maximal Common Subsequence Enumeration",
+        "trigger": "Later general results could supersede the special symbolic classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a809100b-9cd3-41f3-ba59-30234b03a3d2",
+  "value": {
+    "rationale": "A complete natural infinite-family classification of an inclusion-maximal string-alignment invariant, covering arbitrary internal symbol repetitions and all two-power parameters. It exhibits a common-subsequence language generated by only two maximal words and an arbitrarily large shortest-maximal versus longest gap even on a binary alphabet, giving an exact benchmark distinct from general MCS algorithms.",
+    "status": "PASS"
+  }
+}
