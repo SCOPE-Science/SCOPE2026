@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The derivative-family description of the dual gives an exact quotient of the arcwise \(L^1\) sum; its kernel is precisely the balanced constant families. The key minimizer argument handles coefficient mass escaping through infinitely many arcs by recovering it on an attained shortest arc. Dyadic signs are weakly null in the entire \(\ell_1\)-sum, and the zero-integral Lipschitz dual witnesses show their quotient norms do not collapse. When the infimum is missing, the endpoint molecule's norm-one supporting functional has positive finite-arc slack; the \(\ell_1\)-sum weak-null uniform-tail lemma forces every almost-square perturbation to converge in norm to zero. The proof covers all arc lengths with positive infimum, without bounding their supremum.
+## correctness
 
-**Originality — PASS (self-review).** The closest inspected primary source, Kaasik–Veeorg arXiv:2210.09158v2, exhibits a different nongeodesic length space with failure of WASQ and proves its geodesic result only for finitely supported points. It does not present a full if-and-only-if for countable parallel-arc networks. Haller–Kaasik–Ostrak arXiv:2205.02685 establishes LASQ for complete length spaces but not WASQ, while Abrahamsen et al. (2024) treats \(\Delta\)-molecules rather than WASQ. Semantic searches for parallel intervals, minimum path length and weak almost squareness returned related but non-covering results. Residual risk: undiscovered equivalent network-specific arguments or wider proximinal quotient theorems.
+PASS
 
-**Mathematical value — PASS.** This is a natural model family for a live metric characterization problem: it decides all-vector WASQ, not merely finite-support points or the existence of one counterexample. The sharp transition depends on actual attainment of the shortest terminal path, and the proof distinguishes weakly-null asymptotic mass distribution from merely almost-square local perturbations. In particular it supplies explicit complete length spaces that are LASQ but not WASQ, with an exact boundary for restoring WASQ by adding a shortest arc.
+The precise claim is for countably infinitely many genuine closed real arcs of positive lengths with L=inf ell_n>0. The edge-derivative dual consists exactly of uniformly bounded L-infinity families with common integral; its annihilator inside the ell1 sum of L1(I_n) is constant densities with coefficients summing to zero, giving E/K isometrically. If an L-arc exists, diagonal limits of norm-minimizing corrections may lose scalar mass; depositing precisely that mass on the L-arc recovers a minimal lift. Dyadic signs on all arc components tend weakly to zero by the Rademacher lemma and dominated ell1 summation, while admissible mean-zero derivative tests force quotient perturbation norm to 1; signed norms tend to 1. If no L-arc exists, endpoint molecule has finite-coordinate dual slack, which forces every finitely truncated zero-mean projection of a hypothetical almost-square weak-null sequence to vanish. Uniform tails for weak-null ell1-sum sequences plus the scalar endpoint coordinate then force its entire norm to vanish, contradiction. All-vector/unbounded lengths and metric boundaries covered; analytic proof, no finite tests.
 
-**Scope and limitations.** No statement about uncountable parallel families, vanishing length infima, general graphs, or arbitrary length spaces. The positive direction uses actual quotient-norm attainment and cannot be deduced from finite-support perturbations without additional argument. The literature comparison is substantive but not proof of global uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct statement-level primary comparisons and Resultary semantic searches support best-of-knowledge originality: Potential equivalent characterizations of proximinal subspaces of countable L1 sums or prior metric-theta graph WASQ studies remain unindexed; no claim for all geodesic spaces. Published finite-dimensional quotient and mixed L1 profiles do not automatically subsume the infinite-codimension balanced-constants quotient.
+
+## value
+
+PASS
+
+A sharp iff separating WASQ from mere LASQ in a canonical complete length-space network family; the attained-shortest-path threshold is geometrically intrinsic. The positive direction is for all vectors, not just finite molecules, using a nontrivial proximinality/escape-of-mass mechanism. Not a renaming of the older example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
