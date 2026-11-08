@@ -1,19 +1,21 @@
-# Scientific review of the incidence-network distance law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-plane axioms alone give \(1,2q,2q^2,q^3\) ordered partner-edge counts for a fixed incidence edge. The four geodesic distributions follow by minimizing exact endpoint routes, including the same-edge direct path. The distributions integrate to probability one and produce the claimed piecewise density and moments. The likelihood ratio is continuous across both interfaces and strictly increasing on each open unit interval, proving its global strict order; the mean derivative and integral Wasserstein identity establish the remaining comparison. The total-variation bound follows directly from the universal generic-edge mixture component. The exact-rational finite checker independently verified the path formulas for every ordered pair of edges of three prime-order planes. Its finite coverage is corroboration and not an infinite proof.
+PASS
 
-## Originality — PASS with bounded historical risk
+A fixed incidence edge has exactly (1,2q,2q²,q³) ordered partner edge counts. By the projective plane axioms the four geodesic laws are |U-V|, U+V, 1+U+V and 3−|U+V−1|, with no missed shorter endpoint route because incidence girth is six. Their triangular densities yield the three formula pieces and integrate to 1; polynomials give the moments. For q<r the density ratio on j+u is (m_q/m_r)(r/q)^j (1+(r−1)u)/(1+(q−1)u), strictly increasing and matching at t=1,2; CDF and W1 consequences follow. Independent q=2,3 direct edge-pair enumeration and moment integral tests pass; the plane-axiom proof is what covers non-Desarguesian planes.
 
-The most relevant identified same-object paper, *Projective Networks: Topologies for Large Parallel Computer Systems* (arXiv:1512.07574v1, §3.1), gives a distribution over vertex-to-vertex path lengths, not edge-arclength samples. *Notes on topological indices of graph and its complement* (2013) computes discrete topological/Wiener indices, not this continuous law. The general framework in *Continuous Mean Distance of a Weighted Graph* (arXiv:2103.11676) provides continuous mean-distance methods but no full plane-specific density or order-by-order likelihood-ratio theorem. published-finding corpus and literature comparisons found no equivalent law or implication from a stated stronger distributional result. *Mean Distance for Shapes* (Doyle–Graver, 1982) is relevant but its full text was unavailable; priority therefore remains historically uncertain.
+## originality
 
-## Value — PASS
+PASS
 
-The exact distribution is a natural transport-distance invariant, and its strict likelihood-ratio ordering controls *all* increasing observables, not only the mean. Universality over Desarguesian and non-Desarguesian planes demonstrates that the distribution depends only on incidence axioms, while the sharp small-distance/near-diameter tails and total-variation limit characterize global metric behavior in a growing, highly symmetric family. These structural consequences are not just a numerical census or a known discrete vertex-distance formula.
+Qualified PASS: discrete incidence-graph distance enumerators and general metric-graph mean-distance algorithms do not supply this complete continuous law, strict all-order likelihood-ratio comparison, or exact W1. Doyle–Graver 1982 remains a plausible inaccessible historical source, not a basis for false negative whole-paper claim.
 
-## Scientific limitations
+## value
 
-The result assumes unit edge lengths, independent uniform arclength sampling, and orders for which a finite projective plane exists. Finite numerical checks cover three Desarguesian instances only. One historical full text remained inaccessible; no worldwide priority guarantee is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full exact probability distribution and stochastic ordering for a major canonical incidence-network family, uniform even over non-Desarguesian planes, is a natural continuous metric-graph invariant useful for network comparisons and probabilistic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
