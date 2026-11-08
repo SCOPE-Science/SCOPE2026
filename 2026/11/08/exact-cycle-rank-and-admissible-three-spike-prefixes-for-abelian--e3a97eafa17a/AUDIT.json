@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Every triple 0<=a<b<c is handled. Contracting the sum-c matching gives an interval graph with steps s=c-b and t=c-a and equal cycle rank. The permutation x->x+s mod s+t has gcd(s,t) cycles; removing their final one-per-class vertices leaves a forest. For larger intervals all gcd classes are connected and counting edges gives beta=max(0,N+1-(s+t)+g), hence the displayed formula. Adding successively more than twice the largest old support gives leaf-only matching extensions. The actual checker was replayed at the package path and independently confirmed 13,750 triples, 6,635 extensions and 1,000 random larger cases; these finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fine--Wilf 1965 establishes the sharp two-period connectivity threshold; Rankin 2009 defines and treats Fine--Wilf graphs on finite intervals.",
+        "Contraction of the incidence graph is required before these results apply; graph connectivity alone does not state the full incidence cycle-space count."
+      ],
+      "reasoning": "The graph-side connectivity threshold is pre-existing and not claimed. Exact Betti count follows from connected-component and edge counting after an explicit new modeling transfer. This may be viewed as an implicit consequence of classical graph results; the absence of an indexed exact three-support transfer, rather than unfamiliar terminology, is the originality basis and historical risk.",
+      "searches": [
+        "published-finding corpus: two-distance graph on interval 0 to N edges differences s and t, first cycle at s+t-gcd(s,t), cyclomatic number exact",
+        "published-finding corpus: Fine Wilf period graph two periods exact cycle rank difference graph and modular permutation path threshold",
+        "web: \"distance graph\" \"s+t\" \"gcd\" forest induced interval graph cycle",
+        "arXiv:0906.1780v1 Introduction, p.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28059v3 Theorem E and Sections 7.1--7.3",
+      "arXiv:0906.1780v1 introduction and period-graph discussion",
+      "Fine and Wilf 1965 sharp two-period theorem (historical statement via Rankin)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem E and Proposition 7.12 imply the general forest-extension context and a strict superlacunary sufficient criterion; they do not decide every three-point prefix.",
+        "Fine--Wilf implies period-graph connectivity after a graph identification absent from the inspected 2026 incidence-forest argument.",
+        "Accessible earlier special cases include a prescribed four-1 prefix with positions 0,1,M,M+t and shifted geometric supports; neither implies the all-triple classification."
+      ],
+      "reasoning": "No single inspected prior statement entails the full three-support formula as a special case without an additional contraction and Betti-number computation. The novel claim explicitly excludes independent ownership of the global forest theorem and Fine--Wilf connectivity; possibility of an unindexed implicit consequence is reported.",
+      "searches": [
+        "published-finding corpus: Abelian pattern Sturmian binary words with prescribed first three ones positions extendibility forest additive incidence graph",
+        "published-finding corpus: binary words finite prefix forest extension, sum graph three elements gcd",
+        "published-finding corpus: 2026 abelian maximal pattern complexity finite forest graph characterization additive sets",
+        "published-finding corpus: 2026 factor-balancedness substitutions exact factor discrepancy and abelian complexity",
+        "arXiv:2609.28059v3 Theorem E and Proposition 7.12",
+        "arXiv:0906.1780v1 Introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 primary paper Theorem E states forest iff Abelian pattern Sturmian after relabeling, without an arithmetic classification of arbitrary three-element E; full HTML Sections 7.1--7.3 inspected.",
+        "Search results did not supply an exact three-element additive-incidence rank formula."
+      ],
+      "reasoning": "Equivalent formulations include the first-three canonical sparse support extendibility criterion, the forest condition, and the cycle-rank formula. The nontrivial bridge contracts the maximal-sum perfect matching to a two-distance Fine--Wilf graph; no examined source presents this bridge as an all-parameter three-support classification.",
+      "searches": [
+        "published-finding corpus: Three-point support E={a,b,c}, bipartite additive incidence graph L_i-R_j with i+j in E, exact cycle rank max(0,a+b-c+gcd(b-a,c-b)+1), forest threshold and prefix completion",
+        "published-finding corpus: Abelian pattern Sturmian prescribed three initial 1 positions (a,b,c) exact condition c-b > a+gcd(b-a,c-b), cycle rank finite additive graph",
+        "web: \"three-element\" \"Gamma\" forest additive incidence Sidon Sturmian prefix",
+        "arXiv:2609.28059v3 Section 7.1 and 7.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper has specific powers-of-two and superlacunary examples, not an all-triple arithmetic table.",
+        "No exact table found among relevant published-finding corpus results for the same support invariant."
+      ],
+      "reasoning": "An exact closed classification over all triples is not a lookup of an existing finite census. No database search is interpreted as proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: Three-point support E={a,b,c}, bipartite additive incidence graph L_i-R_j with i+j in E, exact cycle rank max(0,a+b-c+gcd(b-a,c-b)+1), forest threshold and prefix completion",
+        "published-finding corpus: Abelian pattern Sturmian prescribed three initial 1 positions (a,b,c) exact condition c-b > a+gcd(b-a,c-b), cycle rank finite additive graph",
+        "web: \"gcd\" \"Abelian pattern Sturmian\" forest first positions",
+        "arXiv:2609.28059v3 Section 7.3"
+      ]
+    },
+    "rationale": "The inspected 2026 primary source establishes an infinite-graph forest equivalence but not a complete arbitrary three-support first-Betti formula. Fine--Wilf period-graph connectivity is an essential prior ingredient and explicitly not claimed. The additive matching-contraction transfer and sharp forest-support prefix criterion are absent from the compared primary statements, and accessible closest historical claims concern special 4-position or geometric supports. The novelty conclusion is provisional against unindexed implicit period-graph specializations.",
+    "residual_risks": [
+      "Exact three-support graph contraction could occur in older Fine--Wilf graph literature not indexed by the queries.",
+      "The algebraic cycle-rank formula is elementary once contraction and component structure are known; novelty depends on the all-parameter incidence-word transfer, not on a new universal graph theorem.",
+      "One full relevant older period-graph treatise beyond Rankin was not inspected; historical priority is not definitively established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General forest equivalence, superlacunary criterion, Sidon obstruction and examples present; no arbitrary three-support arithmetic rank formula located",
+        "evidence": [
+          "Theorem E, HTML lines 189--196; proof lines 1488--1497",
+          "Proposition 7.12 and Example 7.13, HTML lines 1587--1603"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.28059v3",
+        "material_read": "Full relevant introduction and Sections 7.1--7.3; Theorem E, proof, Lemma 7.5, Proposition 7.12, and Example 7.13",
+        "method": "Read arXiv primary HTML (not only abstract); inspected definitions and implications and searched for three-point and gcd formula",
+        "title": "Abelian maximal pattern complexity and extremal words",
+        "trigger": "Same additive incidence graph, exact Abelian pattern Sturmian forest criterion and source of the new prefix problem"
+      },
+      {
+        "assessment": "Two-period connectivity result is prior, but no additive three-sum graph interpretation was found in inspected material",
+        "evidence": [
+          "PDF page 2 states period graph with edges |i-j| in period set",
+          "PDF page 2 discusses sharp Fine-Wilf bound r+s-gcd(r,s)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0906.1780",
+        "material_read": "Introductory pages 1--3 defining two-period threshold and finite period graph; screenshot inspected of PDF page 2 (zero-index 1)",
+        "method": "Read arXiv PDF text and web-rendered page image",
+        "title": "Fine-Wilf graphs and the generalized Fine-Wilf theorem",
+        "trigger": "Classical two-period graph potentially dominates the contracted graph calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e3a97eaf-a17a-4dbd-9dde-afd398070c09",
+  "value": {
+    "rationale": "A natural exact prefix-feasibility problem directly motivated by the 2026 forest characterization is solved for the first nontrivial triple support, with a sharp gcd-dependent obstruction and complete independent-cycle count. This distinguishes false positive Sidon-only and crude superlacunarity tests, and supplies explicit extensible binary word prefixes. The invariant is motivated independently of its computation; it is not an arbitrary finite slice or an isolated numerical experiment.",
+    "status": "PASS"
+  }
+}
