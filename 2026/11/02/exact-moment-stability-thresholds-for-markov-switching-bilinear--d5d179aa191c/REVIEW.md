@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated object is Algorithm 1's discrete feedback update on stationary two-state Markov-switching bilinear games with common saddle and equal feedback gains. The proof first reconstructs the update as conformal matrices and then obtains an exact scalar product formula for every orbit. Markov occupation frequencies give the almost-sure exponent, without silently replacing this by a moment assertion. For arbitrary real positive moment order, a strictly positive two-by-two transfer matrix computes each finite-time moment exactly. The Perron root and the rank-one derivative prove the unique critical switching threshold, and the hyperbolic-sine formula proves its strict increase in moment order. The explicit rational example and the endpoints are checked algebraically. A standalone script reproduces 711 symbolic and numerical consistency checks. The code does not constitute proof of the infinite-time classifications; those follow from occupation laws, Perron–Frobenius theory, and the proven monotonicity.
+PASS
 
-## Originality — PASS, with residual priority risk
+For λ>1, x=ηc>0, d=λ−1, u=xβ and v=x²(β²+d²), the actual discrete feedback update for scalar sign ξ becomes the conformal real matrix M_ξ=(1+ξu)I+ξxdJ (J skew-orthogonal), so ||z_n||²/||z_0||² is exactly the product of m_ξ=1+v+2ξu>0. The stationary symmetric sign chain (p in (0,1], including deterministic alternation) visits both equally, hence almost-sure norm log-rate (1/4)logΔ; Δ<1 is equivalent to β²>d² and 0<x<sqrt[2(β²−d²)]/(β²+d²). In this domain a<1<b with ab<1. For every real q>0, exact path summation gives E||z_n||^q/||z0||^q=πD_q(P_p D_q)^(n−1)1, Perron spectral radius classification with simple positive eigenvectors for 0<p<1. Symmetric similarity has derivative a negative rank-one form in p; its PF leading vector never lies in the zero direction because A≠B, proving unique strictly decreasing crossing p_q=(1−A)(B−1)/(A+B−2AB) in (0,1). Hyperbolic sine ratio proves p_q strictly increases from 0 to 1 with q. p=1 uses deterministic alternating two-step product. At p=1/2 moment q=2 growth factor 1+v>1; rational witness λ=2, β=−2, x=1/5 gives a=2/5,b=2, p2=3/4,p4=7/8, enabling p=4/5 stable second, unstable fourth. Independently recomputed transfer Perron values for multiple (a,b), q and p below/at/above each threshold; symbolic supplied checker was read but is not substitute for all-real-q proof.
 
-The motivating primary text introduces the fixed controller and a separate continuous-time local stability analysis; it does not give the exact Markov sign-switching all-order moment phase diagram. General Markov jump linear-system spectral criteria, specifically Ling and Deng (2012), already encompass mean-square spectral tests and their broader theoretical mechanism; these are explicitly treated as prior art. Tai (2026) establishes general moment/covariance spectral criteria for additively forced Markov-affine recurrences and illustrates the broader Lyapunov-versus-variance distinction. No finding has been identified in the checked indexed research records or the accessible prior ledger with the same controlled algorithm, explicit parameter-dependent almost-sure region, entire ordered family of exact moment thresholds, and simultaneous stable-second/unstable-fourth-moment example. That is a best-knowledge claim, not proof of uniqueness or independently adjudicated priority. The possibility of an unindexed earlier Markov-products specialization remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact thresholds distinguish sampling-independent signs from anti-persistent interaction changes and reveal that reliable convergence of typical controlled game trajectories is not enough to control their expected squared error or higher-order tail risk. The continuous, strictly increasing moment hierarchy is a structural result useful for specifying which moment-based guarantees a time-varying feedback design could support. The exact rational example places decay and growth of different moments on opposite sides of a single switching frequency. This is more informative than a generic application of a spectral-radius test, while making no claim about general nonlinear adversarial training.
+Best-of-knowledge PASS restricted to the explicit fixed-feedback discrete controlled bilinear game phase diagram for all real positive moments, p_q monotonic ordering and concrete 2nd/4th coexistence witness; the underlying Markov spectral stability theory is acknowledged established.
 
-## Limitations and closest literature
+## value
 
-Relevant primary works: Luo, Chen and Zhu, arXiv:2610.12915; Ling and Deng, DOI:10.1155/2012/642480; Tai, arXiv:2607.09994. The theorem assumes symmetric stationary two-state sign switching, scalar bilinear coupling, equal gains, fixed steps and no additive noise. General Markov jump-system theory supplies the spectral machinery; the new proposed contribution is the explicit method-specific full phase diagram. Priority requires independent scholarly review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-positive-moment phase diagram for an explicit minimax feedback discretization with correlated signs is a natural control and stochastic stability question. The strict threshold hierarchy, p2>1/2 anti-persistence boundary and concrete almost-sure stable/second stable/fourth unstable witness quantify a substantive risk/stability separation. General Perron method is routine prior mathematics, but its exact parameter optimization and all-order threshold here is a useful nontrivial closed classification, within explicitly limited model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
