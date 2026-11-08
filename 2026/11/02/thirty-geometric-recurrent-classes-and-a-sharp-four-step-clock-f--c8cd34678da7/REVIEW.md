@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite state space is exactly \(2^{2^n}\) masks for each \(1\le n\le4\). The transition is explicitly specified by neighbor popcounts and persistent state on ties. The C++ enumerator directly computes all states, fixed points, two-periodic pairs, entrance layers and basins; the independently implemented Python code constructs the complete functional digraph by indegree pruning and reproduces every count. For \(Q_4\) it also verifies that all 702 fixed configurations and 885 primitive temporal two-cycles split without overlap into 14 and 16 orbits under all 384 spatial automorphisms. A time-four initial witness is \(1972\to1377\to276\to1\to0\). Exhaustive finite enumeration is conclusive for the stated dimensions only; it is not an infinite-dimensional proof.
+PASS
 
-## Originality — PASS, qualified
+For tie-retaining synchronous majority on Q_n, n<=4, the transition is an exact bitmask map. Independent exhaustive recalculation of all 65,536 Q4 states with functional-digraph indegree pruning found exactly 702 fixed states, 885 primitive two-cycle orbits, and no cycles longer than 2; entry shells by period (0:702/1770, 1:9336/8000, 2:25344/9600, 3:8864/0, 4:1920/0) sum to 65536. It directly verified F^6=F^4 on every state and max entrance time 4. Source Python explicitly enumerates all 384 spatial affine automorphisms and partitions recurrent masks into 14 fixed and 16 two-cycle classes; source C++ independently exhausts all 65536 states. The finite enumeration is exhaustive, not induction to n>=5.
 
-The nearest historical theorem, Goles–Olivos (1980), proves eventual periods of at most two but does not imply exact periodic populations, first-entry shells, or the 30 spatial classes for \(Q_4\). Benjamini et al. (2014) study unimodular/random graphs and the general period-two property; Kaaser et al. (2016) address voting-time bounds; their inspected accessible texts give no four-cube census. Zehmakan (2024) counts stable configurations on cycles, not the sixteen-vertex cube. Relevant indexed searches for “majority Q4”, “4x4 toroidal majority”, the exact counts, and equivalent descriptions identified no dominating statement. Close but noncovering research concerns neighbor-XOR or three-color excitation, which are not the present Boolean threshold update. Residual risk: an unpublished or unindexed cube computation may coincide with the exact numbers and symmetry classes. Search absence is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-cube is the first 4-regular Boolean cube and is isomorphic to a \(4\times4\) nearest-neighbor toroidal grid, so both exact geometric attractor types and temporal relaxation are naturally motivated invariants. The result gives a complete 30-class quotient description, exact attractor and basin populations, and a sharp jump in maximal entrance time from one on \(Q_3\) to four on \(Q_4\), with longer transients only in fixed-point basins. This is a complete natural finite cutoff rather than an arbitrary restricted enumeration. No general claim about all cubes is required for this value.
+Goles–Olivos general period-at-most-two theorem is prior work; Benjamini–Chan–O’Donnell–Tamuz–Tan discuss unimodular/random graph majority convergence, not this exact sixteen-vertex state-orbit census. Resultary query surfaced a different parity automaton on a distance-two hypercube, not synchronous neighbor-majority. An earlier unindexed Q4 census is possible.
 
-## Literature and scientific limits
+## value
 
-Primary references: Goles–Olivos (1980), DOI 10.1016/0012-365X(80)90121-1; Benjamini et al., arXiv:1405.2486, first public 2014-05-11; Kaaser et al. (2016), DOI 10.4230/LIPIcs.MFCS.2016.55; Zehmakan (2024), DOI 10.1007/s10458-024-09651-y. The 1980 item was compared from bibliographic/abstract evidence rather than full text. The results are limited to exact finite-state computation on \(Q_1\)–\(Q_4\). No independent human audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete transient and recurrent classification for Q4 under its full 384-automorphism symmetry group, including the sharp first periodic entrance and exceptional two-cycle-basin cutoff, is a natural nonroutine finite dynamical invariant and a reproducible benchmark for majority dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

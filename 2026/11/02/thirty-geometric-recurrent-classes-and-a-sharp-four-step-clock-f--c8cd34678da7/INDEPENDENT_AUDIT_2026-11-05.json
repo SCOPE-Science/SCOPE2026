@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:09:00.572294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For tie-retaining synchronous majority on Q_n, n<=4, the transition is an exact bitmask map. Independent exhaustive recalculation of all 65,536 Q4 states with functional-digraph indegree pruning found exactly 702 fixed states, 885 primitive two-cycle orbits, and no cycles longer than 2; entry shells by period (0:702/1770, 1:9336/8000, 2:25344/9600, 3:8864/0, 4:1920/0) sum to 65536. It directly verified F^6=F^4 on every state and max entrance time 4. Source Python explicitly enumerates all 384 spatial affine automorphisms and partitions recurrent masks into 14 fixed and 16 two-cycle classes; source C++ independently exhausts all 65536 states. The finite enumeration is exhaustive, not induction to n>=5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior general eventual period at most two does not specify counts 702/885, 14/16, or entry time 4."
+        ],
+        "reasoning": "A general qualitative period theorem is strictly weaker than explicit finite basin and symmetry data; not an implication of the exact claim.",
+        "searches": [
+          "Benjamini et al arxiv:1405.2486 PDF",
+          "Goles–Olivos 1980 DOI:10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "checked_sources": [
+        "Pinned source RESULT.md, verify_independent.py, verify_hypercube.cpp at 2c8d98134d9930cd11887f086cc209007a54248d",
+        "Benjamini et al arXiv:1405.2486",
+        "Goles–Olivos 1980 DOI 10.1016/0012-365X(80)90121-1",
+        "Resultary semantic majority Q4 query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general two-cycle theorem does not determine when a trajectory enters the eventual period, nor symmetry orbits."
+        ],
+        "reasoning": "The exact distributions require new finite enumeration; only the bound on primitive period comes from general prior theory.",
+        "searches": [
+          "Goles–Olivos 1980 period-two theorem",
+          "Source verify_independent.py complete graph-pruning code"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General threshold periodicity ≤2 is recognized but no Q4 orbit census in read sources."
+        ],
+        "reasoning": "Equivalence under bit flips and coordinate permutations was included in checked class definitions; counts of labeled cycles versus geometric orbits carefully distinguished.",
+        "searches": [
+          "majority dynamics Q4 4-dimensional hypercube 702 fixed points 885 two cycles transient 4 under tie-retaining synchronous voting (Resultary semantic query)",
+          "Goles–Olivos 1980 symmetric threshold systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical table surfaced; a Resultary result on distance-two parity automata is a different graph and update law."
+        ],
+        "reasoning": "Existing finite-state tables might be unindexed and are a residual priority risk.",
+        "searches": [
+          "Resultary semantic search Q4 majority two-cycle exact 702 885",
+          "Source orbit_classes.csv inspected via GitHub directory listing and code",
+          "arxiv:1405.2486"
+        ]
+      },
+      "rationale": "Goles–Olivos general period-at-most-two theorem is prior work; Benjamini–Chan–O’Donnell–Tamuz–Tan discuss unimodular/random graph majority convergence, not this exact sixteen-vertex state-orbit census. Resultary query surfaced a different parity automaton on a distance-two hypercube, not synchronous neighbor-majority. An earlier unindexed Q4 census is possible.",
+      "residual_risks": [
+        "Previous unpublished or unindexed Q4 spatial orbit enumeration may exist.",
+        "Proof is exact for Q_n only n<=4; it does not extend to higher dimensional cubes or asynchronous models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General probabilistic and qualitative convergence, not the Q4 exact finite recurrence census",
+          "evidence": [
+            "Introduction discusses Goles–Olivos two-period behavior; no Q4 exact table in read material"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Abstract, introduction and relevant statements from accessible PDF including rendered first page",
+          "method": "Public full PDF reading and screenshot",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Same majority-update process, potential prior general coverage"
+        },
+        {
+          "assessment": "General eventual period at most 2; no reported 30-class Q4 enumeration",
+          "evidence": [
+            "Established threshold period-two theorem cited in Benjamini et al"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Published theorem statement and secondary description; full original article not inspected",
+          "method": "Primary bibliographic record and later primary discussion",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General symmetric threshold periodicity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete transient and recurrent classification for Q4 under its full 384-automorphism symmetry group, including the sharp first periodic entrance and exceptional two-cycle-basin cutoff, is a natural nonroutine finite dynamical invariant and a reproducible benchmark for majority dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned source RESULT.md, verify_independent.py, verify_hypercube.cpp at 2c8d98134d9930cd11887f086cc209007a54248d",
+    "Benjamini et al arXiv:1405.2486",
+    "Goles–Olivos 1980 DOI 10.1016/0012-365X(80)90121-1",
+    "Resultary semantic majority Q4 query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Previous unpublished or unindexed Q4 spatial orbit enumeration may exist.",
+    "Proof is exact for Q_n only n<=4; it does not extend to higher dimensional cubes or asynchronous models."
+  ],
+  "schema_version": 1
+}
