@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Every tree has a unique rung and omitted-rail cut decomposition. Boundary-aware 3-state scoring counts degree-three vertices, and the tree identity L=N3+2 yields the rational GF for all n. At z=1 its simple dominant pole is 2-sqrt(3); implicit derivatives give algebraic mean/positive variance and analytic quasi-powers prove the CLT. The included standalone exact checker exhaustively enumerates n<=7 and verifies recurrences through n=30.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klenke 2017 Theorem 1.3 / Remark 1.4 gives stronger structural coverage of the sample tree but no evaluated leaf PGF or leaf fluctuation variance.",
+        "Rapoport 2023 arXiv:2312.14992 Section 3-4 general degree-field formula applies abstractly to a ladder but is not an all-size enumerator in one variable.",
+        "Published 2026 finite-volume rung-kernel result evaluates rung indicator determinants, not total leaves."
+      ],
+      "reasoning": "General full-tree or finite-graph degree formula results logically determine statistics by further computation. They do not themselves state the all-n rational leaf generating function or its explicit limiting mean and variance. A competing independently evaluated leaf distribution would dominate; none was identified in inspected sources. This is the principal residual priority risk.",
+      "searches": [
+        "random spanning tree ladder leaves distribution exact",
+        "uniform spanning tree ladder exact leaf count distribution transfer matrix large deviations",
+        "arxiv:1704.00182",
+        "arxiv:2312.14992"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1704.00182",
+      "arxiv:2306.10497",
+      "arxiv:2312.14992",
+      "doi:10.1007/s10955-023-03091-w",
+      "Published 2026 finite-volume rung-kernel mathematical finding"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klenke 2017 Eq. (1.8), Remark 1.4: explicit renewal gaps and one uniformly missing horizontal edge.",
+        "New three-state boundary-aware transfer enumerates degree-three vertices and evaluates a cubic rational denominator.",
+        "Gantert-Klenke 2023 treats biased random walks on this tree, not its finite leaf distribution."
+      ],
+      "reasoning": "The source renewal description is a premise of the calculation and must be credited. The all-parameter leaf enumerator and algebraic variance and CLT are not literally asserted there; they require additional local degree scoring and matrix summation. Therefore the claim is narrower but quantitatively new, with explicit qualification that the known construction may imply it through nontrivial computation.",
+      "searches": [
+        "arxiv:1704.00182 ladder renewal gap deleted rail",
+        "arxiv:2306.10497 ladder spanning trees",
+        "arxiv:2312.14992 joint degrees",
+        "ladder leaf count rational generating function central limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klenke 2017 arXiv:1704.00182 Sec. 1.3 states a rung renewal law and conditional uniform gap cut; the mark-to-leaf transfer is a further global evaluation.",
+        "The full-text source contains no named leaf-count polynomial or CLT for this statistic."
+      ],
+      "reasoning": "The canonical alternative statistics are number of degree-three tree vertices and leaves minus two; the exact tree handshake identity establishes their equivalence. Klenke describes the whole ladder tree via rung and cut variables, so the leaf statistic is computable from prior theory; the new assertion is its explicit rational bivariate count and evaluated algebraic Gaussian constants, not a new probabilistic tree law.",
+      "searches": [
+        "ladder graph uniform spanning tree leaves distribution central limit mean variance 2sqrt3-3 92sqrt3/3-53",
+        "spanning trees of 2 x n ladder marked number of degree three vertices generating function bivariate",
+        "uniform spanning tree ladder exact leaf count distribution transfer matrix large deviations",
+        "\"ladder\" \"spanning trees\" \"leaves\" \"generating function\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Azimi and Farrokhi 2023 arXiv:2306.10497 Section 3 gives total ladder spanning-tree count and inverse matrices; no leaf-count coefficient table.",
+        "Direct finite counts for n=3,4 are 8+6z+z² and 14+28z+14z², validated by independent enumeration."
+      ],
+      "reasoning": "No matching evaluated all-n leaf-count table was found. Counts of all spanning trees or individual edge-inclusion marginals do not give the marked leaf distribution without joint-event calculation.",
+      "searches": [
+        "ladder graph spanning tree degree three generating function",
+        "ladder uniform spanning tree leaves variance algebraic constant",
+        "spanning tree ladder leaf number generating function 2020 2023"
+      ]
+    },
+    "rationale": "Three distinct comparisons were carried out: full-text prior rung-renewal law, ladder resistance/tree counts, and general degree-field methods. The prior renewal construction is strong and explicitly acknowledged; no inspected source states the evaluated rational global leaf PGF or both exact Gaussian constants. Novelty is limited to that quantitative evaluation, not the underlying tree construction. Priority may still be preempted by unindexed equivalent computations.",
+    "residual_risks": [
+      "The 2017 full-tree rung-gap construction implies this statistic in principle, so its quantitative evaluation may have appeared elsewhere.",
+      "Targeted search cannot establish absence of earlier equivalent marked enumerators.",
+      "Independently commissioned mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT STRUCTURAL PRIOR; not an evaluated terminal-leaf generating function",
+        "evidence": "Eq. (1.8), Theorem 1.3 and Remark 1.4 provide renewal gaps and uniform horizontal cut; no all-n P_n(z), Gaussian leaf theorem, or algebraic leaf variance identified.",
+        "identifier_or_url": "https://arxiv.org/html/1704.00182v1",
+        "material_read": "Abstract, Sections 1.1-1.3 including Theorem 1.3, Remark 1.4 and enumeration mechanism of Section 2, plus full-text searches for leaves and central limit",
+        "method": "Full text HTML; theorem and mark-gap claims compared",
+        "title": "The Random Spanning Tree on Ladder-like Graphs",
+        "trigger": "Same graph and full law; strongest potential prior implication"
+      },
+      {
+        "assessment": "Not covering marked leaf-count polynomial",
+        "evidence": "Section 3 gives total tree recurrence and Laplacian/resistance formulas, without branch-vertex statistic.",
+        "identifier_or_url": "https://arxiv.org/html/2306.10497v1",
+        "material_read": "Abstract, Sections 1-3 including theorem and spanning-tree count; resistance and pseudoinverse formulas",
+        "method": "Full-text HTML; read Section 3 finite ladder calculations",
+        "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Möbius ladder graphs",
+        "trigger": "Same finite ladder, exact enumerative theory"
+      },
+      {
+        "assessment": "General degree method; no evaluated ladder all-n marked count",
+        "evidence": "Introduction states general exact degree-field formulas and scaling-limit cumulants for lattices.",
+        "identifier_or_url": "https://arxiv.org/html/2312.14992v1",
+        "material_read": "Abstract, Introduction, theorem summaries and Section 3/4 contents",
+        "method": "Full-text HTML; inspected scope and theorem summaries",
+        "title": "Correlations in uniform spanning trees: a fermionic approach",
+        "trigger": "General joint local degree distribution could subsume aggregate leaf law"
+      },
+      {
+        "assessment": "Different observable (random walk position and speed), not tree leaves",
+        "evidence": "The central limit theorem concerns biased walk position, not number of leaves.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-023-03091-w",
+        "material_read": "Abstract, Section 1 and relevant Section 4 degree comments, searched leaf occurrence",
+        "method": "Full text HTML and scoped matches",
+        "title": "Biased Random Walk on Spanning Trees of the Ladder Graph",
+        "trigger": "Same ladder random environment and central limit terminology"
+      },
+      {
+        "assessment": "Only rung inclusion indicators and determinants, not global leaf-count distribution",
+        "evidence": "Explicit finite rung kernel, boundary and bulk inclusion probabilities and negative rung covariances; excludes leaf count.",
+        "identifier_or_url": "Published mathematical research record, 2026-10-04",
+        "material_read": "Complete RESULT.md scientific statement and proof",
+        "method": "Read published research-result source content",
+        "title": "Exact finite-volume rung kernel and boundary-bulk split for weighted ladder spanning trees",
+        "trigger": "Closest database hit on same ladder UST"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c86ea911-7bb1-4eb0-b2bf-df4b8d24f2ae",
+  "value": {
+    "rationale": "The total number of leaves is a natural global terminal-branching observable, and neither total tree-count recurrences nor rung marginals quantify it. The closed bivariate law yields all exact finite leaf probabilities; the explicit positive variance constant and Gaussian law give predictive fluctuation information for arbitrarily long strips. Nontrivial interaction of cut choices at successive rungs requires the three-state transfer.",
+    "status": "PASS"
+  }
+}
