@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-With Python 3 and NumPy installed, run `python verify.py` in a directory containing the supplied standalone verifier. It checks the normalized canonical and weak-exchange distributions on 240 independent nonconstant positive-weight instances with two through seven sites, the Boolean-square cross-product conditions, pair covariance signs for every pair and nontrivial canonical number, plus the exact two-site formula. It also builds and solves the full 64-state Markov generator on a two-by-three driven multi-lane strip and verifies stationarity, exact binomial particle-number marginals at four finite exchange rates, convergence to the proposed limiting law, and all-pairs positive covariance at the smallest tested rate.
+## correctness
 
-Proof of the all-size, all-parameter result is analytical: binomial birth–death projection, finite-state singular perturbation, strict Newton inequalities, FKG/MTP2, and exact weighted exclusion-generator stationarity. Numerical checks cannot certify the infinite parameter ranges and are not used as their proof. All computations are finite and reproducible; no independent scientific audit or third-party verification is claimed.
+PASS
+
+PASS. At finite L, uniform attachment/removal makes particle count an autonomous binomial birth-death chain for every positive epsilon. Sectorwise stationary uniqueness and finite-state compactness establish the claimed weak-exchange measure. Strict Newton log-concavity of normalized e_k/choose(L,k) produces strict local MTP2 cross-products when the weights are not all equal; Boolean lattice FKG and MTP2 monotone regression make all distinct pair covariances strictly positive. Fixed-k e_k inclusion/exclusion gives strict negative covariance at 1<=k<=L-1; equal weights give independent Bernoulli. Horizontal detailed balance and vertical ring telescoping prove the explicit genuinely driven subclass; finite-state continuity proves small-positive-rate persistence, not a uniform volume bound. Independently calculated exact rational measures and covariance signs for 20 distinct pairs across four unequal-weight systems; finite tests corroborate rather than prove unrestricted theorem.
+
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge. Ishiguro/Sato give the finite weak-Langmuir mixture and stationary sector weights, and classical Newton/FKG/MTP2 implications are older. The separately asserted strict all-site dependence classification, its homogeneous equality boundary, strict negative canonical contrast and small-finite-rate persistence for driven multi-lane systems were not located as conclusions in the materially inspected primary sections. The conclusion is a nontrivial motivated synthesis, not novelty of the known measure or correlation inequality. Unindexed dependent Bernoulli/ASEP MTP2 results remain possible.
+
+## value
+
+PASS
+
+PASS. Occupation-site sign reversal is a structural nonequilibrium phenomenon: the same product-weight canonical exclusion sectors have strict negative pair covariance, while weak uniform exchange produces positive correlations at arbitrary site separation and full MTP2. The sharp equal-weight boundary and rigorous finite-rate persistence are scientifically motivated, not a cosmetic reparametrization; all claims are finite-system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
