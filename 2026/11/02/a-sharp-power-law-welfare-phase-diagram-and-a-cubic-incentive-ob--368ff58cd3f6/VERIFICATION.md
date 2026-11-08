@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory as this file and `RESULT.md`. The deterministic verifier checks exactly 144 line configurations attaining the predicted bound (population sizes 3–20 and eight tested exponents), 18,000 seeded random profiles against the predicted upper bound, finite examples for \(q\le1\), and an exact rational successful deviation at exponent four. The observed output is:
+## correctness
 
-```
-VERIFY_OK sharp_constructed=144 random_profiles=18000 power4_manipulation_before=1/3 after=154668497/466849700 phase_q1_and_subcritical=checked
-```
+PASS
 
-The root comparisons use floating-point arithmetic; the explicit profitable deviation at exponent four is exact rational arithmetic. Finite testing cannot prove the sharp bound for arbitrary real exponents or metric profiles, nor a universal incentive violation for all \(q>3\). Those conclusions rely on the proof and one-sided derivative in `RESULT.md`. The previously known exponents one and two remain prior results; independent audit is not performed.
+For n≥3 distinct reports on any metric space with exactly n−1 open facilities, OPT is the closest-pair distance d*. Omission weighted by nearest-other distance^(−q) gives ratio (Σ y_i^(q−1))/(Σ y_i^q), y_i=d*/d_i, and a closest pair forces at least two y_i=1. For 0≤q<1 the real-line gap family 1,t,... gives unbounded ratio; q=1 approaches n/2. For q>1, maximizing g_R(y)=y^(q−1)−Ry^q at y=(q−1)/(qR) bounds Σg_R by 2(1−R)+(n−2)(q−1)^(q−1)/(q^q R^(q−1)), yielding the unique sharp root, attained by consecutive real-line gaps 1,t,t,... with t=qR/(q−1). The optimal root strictly decreases in q by a positive covariance/monotone weighted mean argument. On truthful (0,1,2) moving report 0 to −ε yields cost ε+(1−ε)/(1+2(1+ε)^q), with derivative 2(3−q)/9; all q>3 admit a profitable small deviation. The q=1 and q=2 theorems are explicitly treated as prior work. Finite program inspected, not used as universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS limited to the all-real-exponent sharp welfare law and the q>3 incentive obstruction, not the known q=1 Escoffier or q=2 Chan–Lin–Wang cases.
+
+## value
+
+PASS
+
+The distance-power exponent is a natural design choice trading aggregate facility cost against strategic robustness. A sharp full-exponent efficiency curve, q=1 unbounded/finite threshold, and explicit manipulation at q>3 resolve nontrivial infinite-family mechanism-design questions beyond the known q=1,2 instances; this does not solve incentives at 2<q≤3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
