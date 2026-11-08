@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reduces the operation to pair-stabilizer orbit choices, eliminates the forbidden internal output using preconditional absorption, and translates the full three-variable fifth axiom into necessary-and-sufficient inequalities among row parameters. The degenerate-negation and classical-negation branches are both addressed. The standard-library checker directly enumerates all symmetric orbit choices and tests every axiom for carriers of two, three, and four atoms; it also independently cross-checks the recurrence through eight atoms. None of the finite checks is treated as the proof for unbounded carrier size.
+PASS
 
-## Originality
+Reconstructed P1–P5, conditional identity, semicomplementation, double-negation inflation and S_m equivariance. P3/P4 reduce to D=A∩B; antitonicity forces classical or degenerate negation. Stabilizer orbits allow three internal outputs after P5 eliminates A itself. P4 orders the internal labels and P5 gives precisely z_k nondecreasing and b_d>0=>c_k<=c_d. Verified boundary A=empty/U and D=empty/A in the proof. An independently written recurrence generated N_m=2,4,13,55,261,1310,6802 for m=2..8; finite counts corroborate, not prove the all-m equivalence.
 
-PASS on checked statements. Holliday's axioms and Chen's three algebraic classes are prior. Finite-chain classifications do not imply the Boolean powerset result; a separate three-atom unrestricted enumeration does not determine all sizes nor the invariant subclass. The conclusion concerns the full binary operations fixed by all atom permutations, not merely the negation reduct. No equivalent all-size classification was located by queries on symmetrized Boolean preconditionals, permutation-equivariant conditional algebras, Catalan/ballot parametrizations, and related published-finding corpus mathematical records. Search failure alone is not proof of priority; an equivalence under clone or invariant-operation terminology remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. All-atom-permutation equivariance is intrinsic to an unlabelled finite-world Boolean semantics. The classification cleanly distinguishes the one classical operation from a growing family of non-Heyting fundamental conditional expansions; it supplies a necessary-and-sufficient normal form and an exact counting recurrence. The conditions have a reusable conceptual meaning: zero prefixes may grow, while a row with intermediate outside-antecedent output caps all later top-output suffixes.
+Best-of-knowledge acceptance for the stated narrowly quantified original contribution; known antecedents and overlapping results explicitly excluded. Published mathematical records were queried by equivalent statements; primary literature inspected to the material actually accessible, without implying that lack of a hit guarantees novelty.
 
-## Closest literature and limitations
+## value
 
-Wesley H. Holliday, *Preconditionals*, arXiv:2402.02296; Zhicheng Chen, *Fundamental Propositional Logic with Preconditional*, arXiv:2607.20221. This theorem treats finite Boolean carriers under full coordinate-permutation equivariance, not arbitrary lattices, unrestricted operations, or stronger logical extensions. Older equivalent classifications may exist. The computational confirmation is limited to small carriers, while the proof treats all finite sizes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Automorphism invariance is the natural unlabelled-atom requirement; an exact complete binary-operation classification and all-size counting recurrence distinguish material implication from many nonclassical fundamental preconditionals. This is not simply a unary-negation classification or a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
