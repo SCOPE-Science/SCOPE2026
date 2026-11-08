@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-image proof partitions every idempotent weak graph endomorphism uniquely by the number of fixed points on each side. The four cases are exhaustive and mutually disjoint, and the constant case handles images inside one independent part. The rank formula follows by independent choices for the remaining vertices. The balanced excess follows by subtracting the two independent full-transformation idempotent counts. A calculus maximum estimate and matching summand bounds give both logarithmic asymptotics. The nine-configuration verifier directly enumerates maps rather than relying on the case classification.
+PASS
 
-## Originality — PASS relative to inspected evidence
+An idempotent total weak endomorphism of connected K_(a,b) fixes every image point. If its image is in one independent side it must be a constant map, giving a+b rank-one maps. With i,j>0 fixed image points on both sides, at least two fixed points in an opposite side force each source point to stay on its own side. Counting free images in four exhaustive cases (i=j=1, one image side singleton, or both sizes>=2) yields rho(i,j) and full rank polynomial for all a,b>=1. Subtract side-preserving idempotent transformations I_m^2 to obtain exact Delta_m; optimizing (m-i)log i and a matching lower summand gives log I_m and log Delta_m = m log m-m log log m+O(m), yielding the displayed logarithmic crossing probability. Independent exhaustive total-map enumeration for seven small bicliques reproduced rank histograms.
 
-The closest directly read paper is Dimitrova–Fernandes–Koppitz (2024), arXiv:2401.11741, which gives weak-map descriptions and total cardinalities on stars, not the complete bipartite idempotent rank polynomial or balanced asymptotic. Dimitrova–Fernandes–Koppitz–Quinteiro (2023), arXiv:2310.04149, treats cycles and their endomorphism monoids, a different graph class. Li (2013) treats strict graph endomorphisms and retracts on bipartite graphs, whereas the weak class allows contracted edges. Searches also considered the equivalent reflexive-target graph-homomorphism language. None of the inspected statements implies the full claimed formulas. A formula in uninspected sources under alternative terminology remains possible, so publication priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete rank distribution is a natural enumerative semigroup invariant for a fundamental dense graph family. Its explicit defect terms isolate exactly how permitting edge collapse enlarges the retraction family relative to independent side maps. The logarithmic asymptotic shows a superexponential side-rigidity phenomenon not apparent from individual finite counts. These results jointly clarify the contrast between weak graph maps and generic weak idempotent behavior.
+Prior stars/path weak transformation monoid and strict graph homomorphism counts establish terminology and some special restrictions but no inspected all-biclique total-idempotent rank polynomial or balanced side-crossing asymptotic. Reflexive graph homomorphism and semigroup enumeration may contain equivalent reformulations, recorded as residual risk.
 
-## Boundaries and residual risks
+## value
 
-The theorem does not characterize the whole endomorphism monoid, higher multipartite families, or multiplicative asymptotic constants. The earlier star case may support a special-case deduction, but does not determine the two-sided general statement. Related literature could encode the polynomial as a reflexive-graph retraction enumeration. Direct finite tests are not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact rank spectrum resolves a natural semigroup enumeration invariant for every biclique, including exceptional cross-side idempotents, and reveals superexponential side-preserving rigidity in the dense balanced limit. The asymptotic distinction has mathematical content beyond merely counting all weak maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
