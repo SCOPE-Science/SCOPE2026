@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The lag reduction modulo the candidate period is exact, independently of how large the lag is. Counting the nonzero increments forces \(Z\) to be a multiple of three. For periods at most nine, the one-circuit case gives only the already-known four-cycles, while the two-circuit case reduces to precisely 21 and 56 six-run compositions. Each is checked against all residue lags in `verify.py`, alongside an independent exhaustive ternary-word enumeration. These finite checks exhaust the remaining finite proof obligation. The resulting period-nine representatives and uniqueness were checked directly.
+## correctness
 
-## Originality
-**PASS, subject to priority risk.** Finch, arXiv:2610.34300v1, Proposition 11 proves only the lower bound four, Proposition 12 classifies four-cycles, and the table reports one period-nine example for the special seed. The full Section 4 was examined. The new statement classifies all periodic solutions of least period at most nine, rules out the intervening lengths, and determines all lag residues and nine-orbits. Searches for equivalent period gap statements and published comparable recurrences did not reveal a covering statement. The superficially similar short-cycle result for Finch's recurrence (B) concerns a different noninvertible-versus-permutation update rule and does not imply this one. Unindexed prior direct enumerations remain a risk.
+PASS
 
-## Mathematical value
-**PASS.** The first possible cycle length following the paper's short four-cycle is a natural finite invariant of this nonlinear recurrence, not an arbitrary length slice. Establishing the sharp gap at nine converts the paper's sample entry into a universal no-intermediate-cycle statement for *all* lags, and gives a complete classification and uniqueness of the first two possible nontrivial periods. This constrains any future description of the system's cycle spectrum, although it says nothing about basins of attraction or longer periods.
+The mod-3 square is nonzero indicator, so d_i=b_{i-r}; sum around any period gives Z divisible by 3 and at least one zero per complete 0->1->2 circuit, leaving only Z=3 and Z=6 for m<=9. The one-circuit support forces m=4. Remaining 77 six-run compositions at lengths 8,9 are exhaustively testable. An independently written literal enumeration over all 3^m primitive words and m lag residues for m=1..9 produced only (1,0):1,(4,2):4,(4,3):4,(9,4):9,(9,6):9. Thus arbitrary k reduces rigorously to residues.
 
-## Limitations
-No claim of priority certification or of coverage of periods greater than nine. Published literature may contain a covering unindexed classification. A special prescribed initial condition need not visit an existent cycle.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-knowledge original contribution; prior tools and claimed antecedents are explicitly excluded. Finch addresses the distinguished initial orbit and four-periodic patterns; this theorem classifies all primitive short cycles regardless of initial state.
+
+## value
+
+PASS
+
+The finite cutoff nine is motivated by the gap after the known period four and a reported nine-cycle; excluding all intermediate lengths for every lag and finding exactly two lag residue families is a natural exact finite cycle classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
