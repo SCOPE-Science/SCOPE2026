@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T05:14:13Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned tree 1b436cfc1631817f4bea023e7597b4dfbb76d207, RESULT.md blob 8b08e88cd5849c07db0fe199fbaa83e77e97794d; complete result and exact hypotheses inspected.",
+        "Independent Fraction-based enumeration of 80 finite binary words/weighted-run instances compared with a separately written truncated-run transfer recurrence; identities hold.",
+        "Independent high-precision root bisection for several k and biases confirmed strict fair maximization and approach to asymptotic 4/3.",
+        "Read exact transfer proof and inspected checker implementation; finite tests corroborate, do not establish uniform all-k estimate."
+      ],
+      "rationale": "For each integer k>=3, binary iid hole selection yields exact finite word weight per all-zero/all-one k-block and a unique decomposition into alternating monochromatic runs. The generating function (1+R_p)(1+R_(1-p))/(1-R_p R_(1-p)) gives the Perron equation A_(k,p)(lambda)A_(k,1-p)(lambda)=1 and gamma=log(2/lambda). Each factor decreases with lambda. At fixed lambda>1 the product derivative with x=p(1-p) is c[(c-2S)(lambda^2-lambda)-S lambda]/(lambda^2-lambda+x)^2<0 because 0<c<=S; the root strictly decreases as x increases, so fair iid switching uniquely maximizes annealed escape. Uniform expansion near lambda=2 proves gamma=2^-k[p/(1+p)+(1-p)/(2-p)]+O(k4^-k), ratio 4/3. At p=0,1 one saturated self-loop remains positive: PF primitivity persists. Quenched rates are not claimed.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Georgiou et al (2012) covers general averaged transfer for random Markov holes, but no all-k strict spectral ordering as p varies.",
+          "Atnip et al (2021) covers random interval-hole thermodynamics using quenched pressure, different logarithm/expectation order."
+        ],
+        "reasoning": "Stronger prior statement comparison in the same objects and quantifiers: Georgiou et al (2012) covers general averaged transfer for random Markov holes, but no all-k strict spectral ordering as p varies. Atnip et al (2021) covers random interval-hole thermodynamics using quenched pressure, different logarithm/expectation order.",
+        "searches": [
+          "Resultary query: random doubling map iid choice complementary binary 0^k and 1^k holes annealed escape rate maximize fair bias rare hole 4/3",
+          "arXiv:1207.7000 (2012)",
+          "arXiv:1905.11767 (2019)",
+          "arXiv:2103.04712 (2021)"
+        ]
+      },
+      "checked_sources": [
+        "O. Georgiou, C. P. Dettmann and E. G. Altmann, Faster than expected escape for a class of fully chaotic maps, arXiv:1207.7000 (2012)",
+        "H. Cheriyath and N. Agarwal, Subshifts of Finite Type with a Hole, arXiv:1905.11767 (2019)",
+        "J. Atnip, G. Froyland, C. González-Tokman, S. Vaienti, Thermodynamic Formalism for Random Interval Maps with Holes, arXiv:2103.04712 (2021)",
+        "Resultary semantic query: random doubling map iid choice complementary binary 0^k and 1^k holes annealed escape rate maximize fair bias rare hole 4/3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general spectral-radius framework makes lambda computable for each k,p but supplies neither negative derivative with respect to p(1-p) nor uniform expansion and 4/3 ratio."
+        ],
+        "reasoning": "Claim versus prior implication comparison in the same objects and quantifiers: The general spectral-radius framework makes lambda computable for each k,p but supplies neither negative derivative with respect to p(1-p) nor uniform expansion and 4/3 ratio.",
+        "searches": [
+          "Resultary query: random doubling map iid choice complementary binary 0^k and 1^k holes annealed escape rate maximize fair bias rare hole 4/3",
+          "arXiv:1207.7000 (2012)",
+          "arXiv:1905.11767 (2019)",
+          "arXiv:2103.04712 (2021)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The random switching problem is an averaged transfer of symbolic k-run weights; its spectral equation can be written as run generating-function renewal denominator."
+        ],
+        "reasoning": "Equivalence/alias comparison in the same objects and quantifiers: The random switching problem is an averaged transfer of symbolic k-run weights; its spectral equation can be written as run generating-function renewal denominator.",
+        "searches": [
+          "Resultary query: random doubling map iid choice complementary binary 0^k and 1^k holes annealed escape rate maximize fair bias rare hole 4/3",
+          "arXiv:1207.7000 (2012)",
+          "arXiv:1905.11767 (2019)",
+          "arXiv:2103.04712 (2021)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary full semantic query returned unrelated symmetric Bernoulli selection and random expanding grid records, not an exact all-depth complementary-cylinder-hole table."
+        ],
+        "reasoning": "Existing exact table comparison in the same objects and quantifiers: Resultary full semantic query returned unrelated symmetric Bernoulli selection and random expanding grid records, not an exact all-depth complementary-cylinder-hole table.",
+        "searches": [
+          "Resultary query: random doubling map iid choice complementary binary 0^k and 1^k holes annealed escape rate maximize fair bias rare hole 4/3",
+          "arXiv:1207.7000 (2012)",
+          "arXiv:1905.11767 (2019)",
+          "arXiv:2103.04712 (2021)"
+        ]
+      },
+      "rationale": "The general principle of annealed escape as spectral radius of an averaged transfer matrix is prior art (Georgiou–Dettmann–Altmann 2012), and general random-hole quenched pressure is prior art (Atnip et al 2021). The best-of-knowledge new part is an all-depth comparison of iid bias p for complementary run holes, including uniqueness of fair choice and limiting strict 4/3 advantage. Existing fixed-hole / randomized-position formulas do not directly imply the bias derivative or sharp limit, though a weighted renewal analysis could contain it.",
+      "residual_risks": [
+        "Earlier renewal-process or weighted forbidden-pattern literature may derive the same strict p-optimality and constant under equivalent notation; search is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "randomized holes and averaged matrices prior; no stated two complementary depth-k run-hole bias maximizer or limiting 4/3 ratio",
+          "evidence": [
+            "Averaged transfer matrices already provide a broad annealed escape framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.7000",
+          "material_read": "author-posted full text relevant opening, §§II–III and closing; compared random hole placements",
+          "method": "primary full text reading of specified mathematics",
+          "title": "Faster than expected escape for a class of fully chaotic maps",
+          "trigger": "general averaged transfer for independently randomized Markov holes"
+        },
+        {
+          "assessment": "fixed forbidden set is not per-step iid weighted complementary selection",
+          "evidence": [
+            "Fixed-hole survivor entropy differs from this random switching annealed law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.11767",
+          "material_read": "abstract, theorem summary and paper-supplied description; no complete current full-text reading",
+          "method": "literature search and fixed-versus-weighted-cylinder comparison",
+          "title": "Subshifts of Finite Type with a Hole",
+          "trigger": "correlation polynomials and forbidden k-block escape"
+        },
+        {
+          "assessment": "quenched pressure does not imply optimization of averaged survival at every bias",
+          "evidence": [
+            "Quenched random-map pressure and annealed switching are different limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.04712",
+          "material_read": "abstract and cited §13/§15 topic-level material; no complete full text inspected this run",
+          "method": "search and quenched-versus-annealed comparison",
+          "title": "Thermodynamic Formalism for Random Interval Maps with Holes",
+          "trigger": "random holes and pressure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Optimization of escape-rate by controllable iid switching probability between two equally sized holes is a natural open-system design problem. A strict all-depth optimizer and nontrivial exact rare-hole advantage 4/3 quantify value of random switching; neither generic transfer computability nor selected numerics gives this statement."
+      ],
+      "rationale": "Optimization of escape-rate by controllable iid switching probability between two equally sized holes is a natural open-system design problem. A strict all-depth optimizer and nontrivial exact rare-hole advantage 4/3 quantify value of random switching; neither generic transfer computability nor selected numerics gives this statement.",
+      "residual_risks": [
+        "Earlier renewal-process or weighted forbidden-pattern literature may derive the same strict p-optimality and constant under equivalent notation; search is not proof of novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "O. Georgiou, C. P. Dettmann and E. G. Altmann, Faster than expected escape for a class of fully chaotic maps, arXiv:1207.7000 (2012)",
+    "H. Cheriyath and N. Agarwal, Subshifts of Finite Type with a Hole, arXiv:1905.11767 (2019)",
+    "J. Atnip, G. Froyland, C. González-Tokman, S. Vaienti, Thermodynamic Formalism for Random Interval Maps with Holes, arXiv:2103.04712 (2021)",
+    "Resultary semantic query: random doubling map iid choice complementary binary 0^k and 1^k holes annealed escape rate maximize fair bias rare hole 4/3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Annealed joint survival only, independent iid hole choices; no quenched escape or dependent/periodic scheduling optimization.",
+    "k>=3 and measure 2^-k cylinder holes; rare-hole remainder uniform in bias, not a claimed explicit constant."
+  ],
+  "residual_risks": [
+    "Earlier renewal-process or weighted forbidden-pattern literature may derive the same strict p-optimality and constant under equivalent notation; search is not proof of novelty."
+  ],
+  "schema_version": 1
+}
