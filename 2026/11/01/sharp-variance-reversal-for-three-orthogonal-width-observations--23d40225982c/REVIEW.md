@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The width formula follows from the support function of an axis-aligned box; all weights are strictly positive. The full exact moment table is proved by spherical Dirichlet integration and conditioning the second frame column onto the great circle perpendicular to the first. In particular the nontrivial different-row/different-column absolute moment is \(8/(3\pi^2)\), rather than the same-column value \(2/(3\pi)\). Expanding and centering gives the covariance and variance without an independence assumption. The shape statistic obeys \(1<s^2/q\le3\) with the upper equality exactly for cubes. A derivative of the exact variance ratio is positive throughout this interval, proving both universal extremal inequalities, their equality and nonattainment clauses, and the phase transition. A supplied checker evaluated the conditional spherical moment independently and simulated several box shapes and three-view estimator variances; all checks passed. Sampling is supplementary, not a replacement for the proof.
+PASS
 
-## Originality — PASS, historical priority provisional
+Width W(u)=a|u1|+b|u2|+c|u3|. Each Haar column is spherical: E|Oij|=1/2, E Oij²=1/3, same row/column absolute cross moment 2/(3pi). For distinct row and column, condition on the first column u and circle perpendicular to it to get E|O11 O22|=(4/pi²)E(1-u2²)=8/(3pi²). Sum weighted entries and subtract (s/2)² to obtain exact V and covariance C. Exchangeability gives Var(orth mean)=(V+2C)/3 and Var(iid mean)=V/3. R(r)=1+2(Ar-B)/(C0+D0 r), r=s²/q in (1,3]; numerator of derivative 2(AC0+BD0)>0, giving sharp upper at cube r=3 and unattained needle infimum r→1. Threshold B/A lies in (1,3); for (1,1,t), two stated positive roots. Verified pinned mathematical derivation and code; independently checked derivative symbolically and covariance for three seeded Haar samples of 80k matrices, finite simulation not general proof.
 
-The related published literature was compared at the level of its exact mathematical statements, couplings, variance estimators, and sharp shape-dependent sign and ratio bounds. Full research texts on same-direction orthotope width–brightness covariance, three-view worst-case surface-area cubature, and the cube's one-direction width distribution do not give this orthogonal paired-width covariance or estimator variance phase diagram. Ivanov's 2018 tight-frame paper treats deterministic frame geometry and zonotope projection volumes, while Kabluchko–Litvak–Zaporozhets (2015) calculate one-direction mean widths. A 2026 rectangular-box width paper and 2026 width–brightness density paper were accessible only in abstract and remain priority risks, as does unindexed stereological-design literature. The familiar Haar-entry moments are not themselves claimed as novel; the defended contribution is the complete sharp stochastic frame-efficiency classification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem arises naturally when estimating mean width from a fixed budget of three directional measurements, which is a standard stereological setting. An orthogonal frame is intuitively well spread, but it can be significantly inferior to independent directions for a cube while strongly superior for needle-like shapes. The result provides the exact design variance, a sharp and attainable/inattainable phase diagram valid for all positive side lengths, and a rigid worst-case equality shape. This is a structural design conclusion rather than a numerical recomputation of an isolated spherical moment.
+Joint orthogonal-Haar box-width covariance and sharp three-view estimator phase diagram are distinguished from single-direction cube widths and same-direction width-brightness or other cubature. Closely related broad 2026 weighted-width manuscripts inaccessible in full; best-of-knowledge original with explicit risk rather than automatic failure.
 
-## Scope and unresolved risks
+## value
 
-The theorem is for ordinary Euclidean widths of three-dimensional rectangular boxes sampled with Haar-orthogonal frames; it does not settle general convex bodies, arbitrary sampling designs or finite noisy width estimates. Later weighted-width manuscripts and possibly differently indexed design literature were not fully inspected. No independent mathematical audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural directional measurement design has a surprising shape-dependent efficiency reversal, quantitatively sharp for all positive 3D orthotope dimensions; determines exact best/worst shape classes and transition. Nontrivial Haar mixed-coordinate moment and universal monotone quotient provide a self-contained useful design invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
