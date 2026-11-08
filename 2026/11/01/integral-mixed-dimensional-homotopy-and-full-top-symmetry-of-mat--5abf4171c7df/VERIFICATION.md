@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Exact reproduction
-Run `python3 verify.py` in the directory containing the embedded verification source. It uses only standard Python 3 modules and performs deterministic integer operations. Compare its exact stdout to `verification_output.txt`.
+# Independent mathematical audit
 
-The verifier exhaustively constructs all 18,494 nonempty simplices by taking all nonempty subsets of every open neighborhood. It constructs 9,120 matched pairs, orients the full Hasse diagram (98,805 incidences) and topologically sorts it to certify acyclicity; no sample or randomized graph test substitutes for this check. The critical-cell counts are 1 in dimension zero, 246 in dimension three and 7 in dimension four.
+## correctness
 
-The only possible nonzero Morse differential is checked over the integers, with all 1,722 entries exactly zero. Seven integral simplicial four-cycles are constructed and independently checked by their full oriented boundaries. The integral module calculation projects the cycles through unit-pivot elimination, forms a unimodular signed-permutation basis, verifies six adjacent transposition matrices on all seven basis vectors, and computes the traces for all 15 conjugacy classes.
+PASS
 
-The wedge-of-spheres proof additionally uses the standard simplicial discrete-Morse theorem and the elementary fact that the Hurewicz map from the third homotopy group of a wedge of 3-spheres to its third homology is an isomorphism. This finite computation does not address the integral symmetry structure of degree-three homology, nor does it exhaustively search all mathematical literature.
+Constructed exact nonempty face set as the union of ten-neighborhood simplices for 21 edges of K7; independent enumeration reproduces 18,494 faces and f-vector (21,210,1190,3780,5187,4410,2520,945,210,21). Rebuilt greedy matching with 9,120 paired covers, 1 critical vertex, 246 critical 3-cells and 7 critical 4-cells; independently oriented all 98,805 Hasse covers and topologically sorted every nonempty face to establish acyclicity. Recursive signed unit-pivot elimination verifies the full 246x7 integral Morse boundary is zero. Since pi3(wedge S3)=Z^246, zero degrees imply nullhomotopic attaching maps and a wedge of S3/S4, not just Betti numbers. Independent construction of seven unimodular top cycles (supports 6,36x6) and their images under six adjacent permutations verifies H4=sgn tensor Z7_perm integrally; quotient rational invariants follow. Finite computation is exhaustive for this fixed finite T7, no infinite claim.
+
+## originality
+
+PASS
+
+The exact final theorem is not implied by the materially inspected same-object and broader theorems; individual prior components are credited. Priority is best-of-knowledge with named risks, not absolute novelty proof.
+
+## value
+
+PASS
+
+The first triangular graph exhibiting mixed-dimensional mod-two neighborhood homology is a canonical minimal transition case. Establishing its full integral homotopy wedge, identifying all attaching maps and the exact S7 integral top representation resolves the exact higher-dimensional invariant left unknown by prior mod-two computations; this is a natural finite classification with plausible downstream uses in equivariant graph topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
