@@ -1,15 +1,21 @@
-# Scientific review: parity-split Gaussian bandwidth on circular ladders
+# Independent mathematical audit
 
-## Correctness — PASS
-The block-circulant diagonalization, explicit Fourier multipliers, positivity of the symmetric sector, strict angular ordering and strict bandwidth monotonicity of the antisymmetric minimum were reconstructed. The exponential tail comparison at the critical root and its Taylor expansion give the parity-split finite-size law, while the endpoint frequency multiplicities give the nullities. The standalone checker reproduced the finite eigenvector equations and critical signs for ten graph orders. Those computations do not replace the all-order inequalities.
+## correctness
 
-## Originality — PASS (bounded literature comparison)
-Sánchez (arXiv:1108.0451) establishes a general powered-distance negative-type framework; Feragen–Lauze–Hauberg (arXiv:1411.0296) establish broad all-bandwidth geodesic Gaussian obstructions. Neither inspected full text gives the prism Gaussian root or parity coefficient. The closest same-graph study, Atik–Mondal–Parveen (DOI:10.1080/09728600.2022.2137443), gives ordinary distance spectra, not entrywise Gaussian transforms; accessible theorem excerpts were checked but the whole article was unavailable. Similarities to earlier isolated-cycle Gaussian and wheel Gaussian findings concern machinery and motivation, not claim implication. Hidden equivalent statements remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The object is the standard vertex metric of a circular ladder. The exact last-failure threshold allows admissibility decisions at high bandwidth, and the limiting positive constant sharply differs from the shrinking cycle threshold. An inverse-square correction for odd widths, Gaussian-fast convergence for even widths, and endpoint nullity parity expose the underlying Fourier sampling mechanism. This is structurally motivated, not an isolated numerical observation.
+On vertices (i,a) distance is min(|i-j|,n-|i-j|)+|a-b|. The matrix separates via layer parity into circulant A+B and A-B with Fourier coefficients h_r=e^(-tr²)+e^(-t(r+1)²) and g_r=e^(-tr²)-e^(-t(r+1)²). For t>=1, the symmetric-band spectrum has a uniform positive diagonal-dominance bound. For the antisymmetric band, g_1 dominates sum_{r>=2}r²g_r, so its trigonometric function decreases strictly on θ∈(0,π), and the worst sampled angle is exactly π for even n or π-π/n for odd n. An explicit derivative estimate gives strict increase F_n'(t)>0.5e^-t; its value at t=1 is negative n>=20 and its limit is 1, proving a unique t_n>1, all t>=t_n PSD and t>t_n PD, thus also last-failure supremum t_n without claims on t<1. Endpoint anti nullity is one even, two odd. Uniform Gaussian tails yield even t_n=t*+O(e^-n²/4); Taylor at π-π/n yields odd t_n=t*-(π²Q(t*)/F'(t*))/n²+O(n^-4). Independent Fourier eigenvalue and root checks for n=20,21,22,31,40,41,60,61 produced t*=1.0378840547056853, even roots indistinguishable at quoted precision and odd n=21 root=1.0302750, n=61 root=1.0369825. These are numerical corroboration, not the global monotonicity proof.
 
-## Scope and limitations
-The proof works for every integer \(n\ge20\). It deliberately does not characterize possible smaller admissibility islands below \(t=1\), which are unnecessary for the last-failure supremum. The constants are exactly defined by convergent series. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General negative-type criteria, all-bandwidth geodesic Gaussian obstructions, and prism ordinary-distance spectra are prior art. Here the exact squared-shortest-path kernel on a discrete circular ladder yields a specific unique last-failure threshold and parity-split asymptotics via rung-mode decomposition; the inspected primary papers do not directly cover this. Priority under older circulant-covariance spectral methods remains a real but bounded uncertainty.
+
+## value
+
+PASS
+
+An exact graph-Gaussian positive-semidefiniteness bandwidth cutoff is a natural non-Euclidean kernel invariant, and rung antisymmetry makes the limiting cutoff nonzero. The even/odd finite-size scale separation, endpoint rank defect, and explicit asymptotic constant provide useful sharp graph-kernel design benchmarks beyond a yes/no negative-type result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
