@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:14:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and rectangle_verify.py math",
+        "fresh quadrature and root bracketing in /mnt/data/scope05_fast_math.py"
+      ],
+      "rationale": "Direct four-side integration gives Fp/4=∫0^a(x²+b²)^{p/2}dx+∫0^b(a²+y²)^{p/2}dy. For p≥0 derivative is positive (p=0 handled). For p=−q, t=a/b, its sign is that of 1−Rq(t) with Rq=q(1+t²)^{q/2}∫0^t(1+u²)^{−1−q/2}du. Each factor is positive and strictly increasing in t; Rq(0)=0 and →∞, yielding a unique sign-change and global minimum. Rq increases with q at fixed t, giving strict t_q decrease; at q=1 the integral yields R1(t)=t. As q↓0, t_q→∞ and dominated convergence in the root equation gives t_q^{−q}/q→π/2. For q→∞, Rq(c/q)→c and squeezing gives qt_q→1. Independent high-precision four-exponent bisection and direct F(b) checks confirm minimizer ordering and q=1; finite checks are supplemental.",
+      "residual_risks": [
+        "No statement for degenerate b=0 or fixed perimeter over all shapes; neither limit licenses that extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2610.11677 Thm 1.3 assumes nonnegative nondecreasing radial weight and convex-body inclusion; p<0 violates it.",
+          "2608.19851 Thm 1.6 maximizes negative weighted perimeter at fixed standard perimeter by needle for 0<q<1; it is not the fixed-a minimization, and is not asserted for all q>0."
+        ],
+        "reasoning": "Neither stronger-looking convex body theorem dominates the exact negative exponent root/uniqueness or q↓0 essential singularity because the constraints and optimization directions differ.",
+        "searches": [
+          "Resultary: radial power weighted perimeter centered rectangle fixed width unique minimizing thickness negative exponent essential singularity",
+          "arXiv:2610.11677 Thm 1.2,1.3 full PDF",
+          "arXiv:2608.19851 Thm 1.2,1.4,1.6 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: radial power weighted perimeter centered rectangle fixed width unique minimizing thickness negative exponent essential singularity",
+        "arXiv:2610.11677 complete PDF relevant sections",
+        "arXiv:2608.19851 complete PDF relevant sections",
+        "Resultary sharp Hausdorff regularity record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A negative radial weight can decrease weighted perimeter when the rectangle broadens initially, opposite to the monotone inclusion theorem hypotheses.",
+          "Needle extremal at fixed ordinary perimeter does not force a unique positive b optimum with one side fixed."
+        ],
+        "reasoning": "The claimed q=1 square crossing, strict monotonicity in q and essential singularity require the actual Rq identity and root analysis, not a direct corollary of these earlier theorems.",
+        "searches": [
+          "Resultary: radial power weighted perimeter centered rectangle fixed width unique minimizing thickness negative exponent essential singularity",
+          "arXiv:2610.11677 Thm 1.3",
+          "arXiv:2608.19851 Thm 1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homogeneity reduces fixed half-width a to dimensionless t=a/b; root is Rq(t)=1.",
+          "The equation optimizes a one-dimensional family with one physical side length fixed, not the fixed-total-perimeter or inclusion order problem."
+        ],
+        "reasoning": "Equivalent reparameterizations through aspect ratio or q=−p have been checked; the claimed singular law is for transverse side thickness at fixed a.",
+        "searches": [
+          "Resultary: radial power weighted perimeter centered rectangle fixed width unique minimizing thickness negative exponent essential singularity",
+          "Csató–Giovagnoli arXiv:2610.11677",
+          "Csató–Giovagnoli–Roy arXiv:2608.19851"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record describes global Hausdorff regularity exponent p+1 for −1<p<0, not a b-minimizer equation.",
+          "2608.19851 treats rectangle p=2 energy under fixed total perimeter, a different scalar objective."
+        ],
+        "reasoning": "No identified exact table or parameterization gives t_q or q log(b/a) asymptotics; a historical fixed-width calculation may exist without indexing.",
+        "searches": [
+          "Resultary: radial power weighted perimeter centered rectangle fixed width unique minimizing thickness negative exponent essential singularity",
+          "Resultary: sharp Hausdorff regularity exponents of planar radial weighted perimeters",
+          "arXiv:2608.19851 Section 3.2 rectangle computation"
+        ]
+      },
+      "rationale": "Best-of-knowledge after comparing hypotheses and implications with two accessible full primary arXiv preprints: their Hausdorff continuity/inclusion monotonicity and fixed-standard-perimeter optimization do not yield the fixed-side-length negative-exponent minimizer, strict exponent monotonicity, square crossing or essential singularity.",
+      "residual_risks": [
+        "Unindexed older fixed-width weighted curve literature could contain an equivalent Euler equation.",
+        "Primary fulltexts inspected by relevant sections, not every paragraph of the 38-page paper; priority is qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact fixed-width negative-power optimizer: only Hausdorff continuity and increasing-weight inclusion monotonicity.",
+          "evidence": "Thm1.3 assumes increasing phi and phi(0)≥0; neither holds for r^(−q).",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11677",
+          "material_read": "Full PDF opened; abstract, Definition 1.1, Theorem 1.2/1.3 and proof of inclusion monotonicity in section 3 inspected, including exponent conditions.",
+          "method": "arXiv full-text PDF, theorem-text inspection and page screenshot.",
+          "title": "Continuity and monotonicity of weighted perimeters of convex bodies",
+          "trigger": "Recent same weighted radial perimeter functional."
+        },
+        {
+          "assessment": "Its ordinary-perimeter-constrained extremizers and needle maximization do not settle the positive-width fixed-side minimum.",
+          "evidence": "Thm1.6 E_{−α} ≤ 4^α/(1−α)|Γ|^(1−α), equality needle for 0<α<1; not the fixed-a infimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.19851",
+          "material_read": "Full 38-page PDF opened; introduction and Theorems 1.2, 1.4, 1.6, section 3.2 rectangle calculation inspected.",
+          "method": "arXiv full-text PDF with in-document find and page screenshot.",
+          "title": "Weighted Perimeters and pth Moments of Inertia of Convex Curves and Surfaces",
+          "trigger": "Very close optimization of radial power weighted perimeter."
+        },
+        {
+          "assessment": "No rate or exact optimizer for fixed-side rectangles in the indexed claim.",
+          "evidence": "The indexed theorem concerns Hausdorff modulus, not b-minimization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-hausdorff-regularity-exponents-of-planar-radial-weighted-p--840cdd1da1ee",
+          "material_read": "Indexed scientific statement and parameters.",
+          "method": "Resultary published semantic search, not whole article.",
+          "title": "Sharp Hausdorff regularity exponents of planar radial weighted perimeters",
+          "trigger": "Semantic nearest indexed weighted-perimeter result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "new analytic root-monotonicity and endpoint proofs",
+        "primary weighted perimeter optimization theorems"
+      ],
+      "rationale": "A fixed-width rectangle is a natural constrained convex shape, and radial negative-power weighting creates nontrivial competition between side length and distance to the singularity. The unique optimizer, exact square transition and essential singularity as p↑0 give a sharp phase profile that neither basic calculus monotonicity for p≥0 nor generic weighted-perimeter results imply. The boundary cases are explicit, making the result useful for shape-optimization examples.",
+      "residual_risks": [
+        "Claim is a sharply restricted rectangular family, not a new optimum among all convex bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only nondegenerate rectangles with first half-width a fixed; no area/perimeter constraint.",
+    "As q→0 the degenerate endpoint is not included."
+  ],
+  "schema_version": 1
+}
