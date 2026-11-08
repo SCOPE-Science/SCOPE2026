@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The difference of two independent uniform points in a Euclidean orthotope has the product triangular density (equation (4) of `RESULT.md`). On balls of radius no larger than the shortest side, every factor is unclipped, and the beta-gamma identity for product absolute coordinates gives the displayed finite polynomial exactly. The leading coefficient determines the volume and the next coefficients determine all elementary symmetric polynomials in reciprocal side lengths, with the highest-degree elementary symmetric function already known from the volume. Perturbation of the penultimate coefficient of a real-rooted polynomial with simple positive roots proves sharp generic insufficiency of the shorter prefix. The first positive post-threshold correction is an explicit sum of disjoint coordinate caps; the uniform first two cap terms establish the exponent, coefficient and error. The direct numerical slicing checks passed, but are not substituted for these all-dimensional arguments.
+PASS
 
-## Originality
+The Euclidean orthotope displacement density is (1/V) prod_i (1-|z_i|/a_i)_+. Integrating expanded factors over a radius-r ball for 0<=r<=min a_i gives the exact Gamma-normalized polynomial. c0 fixes V; c1..c_{d-1} fix elementary reciprocal-length symmetric functions and e_d=1/V, so recover all side lengths. Perturb e_{d-1} with simple positive roots while fixing earlier coefficients proves sharp generic d-coefficient prefix. For r=a+h, disjoint coordinate caps and beta integral show the first correction coefficient t*8*kappa_{d-1}*(2a)^((d-1)/2)/(V*a*(d+1)*(d+3)), exponent (d+3)/2; all d>=3. Independent verification: Independently derived the ball monomial integration constants and d=3 cap coefficient for orthotope (1,2,3): pi/9 h^3. Inspected verify.py including its slicing quadrature, coefficient inversion and near-threshold comparisons, without relying on its advertised exit status. Analytic integration supplies the universal result.
 
-PASS within the identified higher-dimensional scope, with residual historical-priority risk. The closest indexed record, *Sharp uniform angular stability for the short-pair distance coefficient of convex polygons* (2026), has a complete planar local quartic theorem and does not address dimensions at least three. Bonnet et al. (2020), primary MSC2020 52A22, study first mean distances and extremal inequalities, not high-dimensional local inversion. Pure et al. (2019) give general planar distance-distribution algorithms; Wang (2026) supplies the general covariogram identity and the first small-radius correction. These provide known forward machinery, not the sharp finite local inverse or first-break multiplicity. Holmin et al. (2017) invert a different billiard-chord observable. The old rectangle articles concern the plane; their existence and the elementary nature of the forward product-density method are not concealed. A historically overlooked high-dimensional exact-distance expansion or inverse theorem could still cover part of this result; the search is not exhaustive. See `AUDIT.json` for explicit source and implication comparisons.
+## originality
 
-## Value
+PASS
 
-PASS. Euclidean distance data between independent uniform points are intrinsic, direction-unlabeled geometric observations. The theorem reconstructs every side length from an arbitrarily small neighborhood of zero, identifies the smallest *number* of leading coefficients sufficient generically, and shows precisely where the local polynomial ceases to be valid. The leading nonpolynomial correction yields the shortest-side multiplicity, a discrete geometric feature not visible from the leading volume/perimeter coefficients alone. These exact reconstruction and threshold statements are meaningful for inverse stochastic geometry, despite using familiar covariogram ingredients and not implying statistical stability under noise.
+Best-of-knowledge: inspected accessible closely related primary PDFs, searched published mathematical records for aliases/stronger results, and compared implications. Generic covariogram formula explains the starting density integral but does not supply the explicit sharp d-jet inverse recoverability and first singular-cap multiplicity when specialized to d>=3 orthotopes. Residual priority limitations are explicit.
 
-## Boundaries and residual risks
+## value
 
-The theorem is specific to full-dimensional Euclidean orthotopes in dimensions at least three, and to exact population data. It does not provide finite-sample reconstruction guarantees or address later overlap thresholds. The complete texts of some older planar rectangle-distance studies were not accessible, but those sources do not claim the higher-dimensional setting. The priority search was substantial but not exhaustive and does not establish independence or external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact local small-distance jets of random uniform pairs recover any orthotope side lengths up to ordering, with a sharp generic d-coefficient cutoff, and the first cap singularity locates and counts shortest sides. The inverse geometric statistic and breakpoint law are natural, not arbitrary truncations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
