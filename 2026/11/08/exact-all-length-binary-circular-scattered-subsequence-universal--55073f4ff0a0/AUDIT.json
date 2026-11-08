@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "All n>=1, k>=0, zero and maximal index boundaries explicitly proved by greedy-arch/path matching, cyclic matching, even transition parity, trace correction on full even cycle, and Lucas coefficient extraction. Independent brute-force definitions, matching DP and formula agree for all 8190 words n=1..12; symbolic normalization and correction agree n=1..500. Finite evidence corroborates the all-n derivation, not replaces it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The regular-language paper supplies general counting algorithms for ordinary linear DFA languages, not a closed formula for circular index with n-dependent rotations.",
+        "The full 2020 circular section discusses definitions, computation and powers, but no evaluated all-n circular binary index spectrum was found."
+      ],
+      "reasoning": "General linear counting frameworks may in principle be adapted to cyclic rotations, but an unevaluated algorithm does not imply this explicit binomial closed form without additional reduction and solution. No explicit stronger all-length circular distribution was identified.",
+      "searches": [
+        "Binary circular universality index all lengths and count by index not just shortest words, transition edges matching cycle.",
+        "arxiv:2311.10658 full text §4 regular-language counting",
+        "arxiv:2304.04583 full text counting and arch factorization"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04629 (full arXiv HTML)",
+      "arxiv:2304.04583 (full arXiv rendered text)",
+      "arxiv:2311.10658 (full arXiv rendered text)",
+      "literature-index semantic searches for full length circular binomial counts and cycle matching",
+      "Accessible current-week ledger for semantic claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior minimum-length result only enumerates n=2k and cannot imply all larger n coefficients.",
+        "Prior adjacency-distinct linear-word enumeration excludes words with adjacent repeats and has a different invariant.",
+        "The new n=2k specialization is exactly 2^(k+1)-2, as a consistency check."
+      ],
+      "reasoning": "The older circular statement is a strict boundary specialization, while this result counts all binary words of every length by the maximal universality index across rotations. Matching the earlier boundary is necessary but not an overlap of full implication.",
+      "searches": [
+        "Own ledger claim 640a099a-3a6b-4bae-978e-9aa37c4d6f6e circular minimum-length count",
+        "Own ledger 4cd9e1de-10a7-4c1f-99ef-f121c980d453 adjacency-distinct linear words",
+        "Circular scattered-factor universality of binary words equals maximum matching in the cycle of adjacent unequal symbols; complete distribution Lucas polynomials."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Circular index is maximum rotation index in Barker et al. (2020), arxiv:2003.04629, §4. Ordinary linear binary universality generating-function records count a different index."
+      ],
+      "reasoning": "The proposed formula counts the distribution of the maximum index over cyclic rotations, not linear word index or binary minimum-length extremizers. The matching interpretation itself is a known-type binary reduction; the new claim is its complete all-length evaluated cyclic distribution.",
+      "searches": [
+        "Exact number of length n binary circular k-subsequence universal words for arbitrary n,k, maximum over rotations. Closed formula n/(n-k) binomial(n-k,k) 2^k minus two at n=2k.",
+        "Circular scattered-factor universality of binary words equals maximum matching in the cycle of adjacent unequal symbols; complete distribution Lucas polynomials.",
+        "arxiv:2003.04629 full HTML Definition 3, §4 circular universality; arxiv:2304.04583 full HTML greedy arch definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest prior recorded minimum-length statement gives 2^(k+1)-2 for length n=2k, which agrees with and is subsumed by the new formula.",
+        "literature-index close hits concerned ordinary linear universality index, insertion distances and minimum-length examples, not the whole circular spectrum."
+      ],
+      "reasoning": "No exact known table or database coverage for all n,k was identified. The previous boundary value is already known and excluded as a separate novelty claim; the new formula addresses every n,k.",
+      "searches": [
+        "Exact number of length n binary circular k-subsequence universal words for arbitrary n,k, maximum over rotations. Closed formula n/(n-k) binomial(n-k,k) 2^k minus two at n=2k.",
+        "literature-index semantic search: circular scattered-factor universality binary transition matching complete distribution",
+        "Review of recoverable own ledger claims, especially minimum-length circular word result"
+      ]
+    },
+    "rationale": "All-length rooted binary circular-index distribution not stated by inspected Barker (2020) circular work or Adamson linear counting papers; prior minimum-length n=2k formula is exactly a boundary special case and explicitly not claimed new. literature-index queries nearest linear universality and other structures; remaining unindexed equivalence risk acknowledged.",
+    "residual_risks": [
+      "Equivalent circle-index distribution in uncatalogued literature or a different terminology may be missed.",
+      "General counting algorithms might be specialized into the same binomial expression without stating it explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITIONS_AND_SPECIAL_RESULTS; no all-length binary circular-index histogram found in read material.",
+        "evidence": [
+          "Barker et al. (2020), §4, defines circular universality by existence of a universal rotation; the text addresses circular powers and related properties."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+        "material_read": "Full HTML first version: definitions and arch decomposition, circular-universality §4 and associated propositions and discussion.",
+        "method": "arXiv HTML full-text reading of definitions, circular section and count-related terms",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Primary definition of circular scattered-factor universality and obvious source that might already contain enumeration."
+      },
+      {
+        "assessment": "LINEAR_COUNTS; no explicit circular rotation-max index distribution identified.",
+        "evidence": [
+          "Adamson (2023) ranks and counts linear k-subsequence universal words, not the all-rotation maximum-index histogram."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Full arXiv rendered source, introduction and relevant greedy arch/counting material.",
+        "method": "Read primary arXiv full text and inspected universality-count statements",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Count/rank formulas for subsequence universal words could dominate proposed enumeration."
+      },
+      {
+        "assessment": "GENERAL_LINEAR_ALGORITHMS; not an evaluated closed cyclic distribution in inspected text.",
+        "evidence": [
+          "Adamson et al. (2023) analyze k-universality and counting for regular languages; their direct objects differ from maximizing over all rotations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Full arXiv rendered source, introduction, regular-language and counting discussions.",
+        "method": "Read primary full text focused on DFA and universality-count results",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "More general counting algorithm might imply current count without new mathematical work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "55073f4f-f0a0-4f92-bb19-2314a795c434",
+  "value": {
+    "rationale": "The theorem resolves the natural exact two-parameter distribution for every binary word length and every circular universality index. It identifies and explains the parity/cycle correction and gives explicit integer coefficients, enabling exact probabilities and asymptotic studies. This is substantially beyond the previously known minimum-length boundary count.",
+    "status": "PASS"
+  }
+}
