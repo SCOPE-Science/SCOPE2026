@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The exact homogeneous-degree radial moment quotient is diagonal and strictly decreasing by size-bias covariance. The phase \(h_k\) is uniformly strongly concave and has a unique saddle \(\rho_k\), with \(\rho_k^2\asymp k\). Gaussian localization yields a uniform relative \(O(k^{-1/2})\) eigenvalue approximation. The Hessian bounds imply \(|(\Phi'(r)/r)'|\le2M/r\) and saddle mesh \(O(k^{-1/2})\), making the spectral coefficient cluster set equal to the full radial-density cluster interval. Polynomial multiplicities and near-unity ratios of adjacent eigenvalues justify both singular-order and counting-function cluster formulas, including boundary thresholds. The oscillatory example's radial/tangential Hessian bounds follow from explicit derivatives, and its cluster extrema are attainable. The 188 finite assertions support algebraic and numerical normalization; they are not proofs of limiting statements.
+
+## Originality — PASS (qualified)
+Xu--Dong (arXiv:2609.16970v1, Theorem 5.2 and Proposition 5.3) provides a quadratic model constant and a radial example lacking a Weyl coefficient. Those cases do not give the asserted iff criterion for arbitrary radial uniformly Hessian-bounded weights or identify the complete spectral cluster intervals for all dimensions and positive probe exponents. Bdarneh (arXiv:2609.20652v1) gives radial operator diagonalization rather than the inverse spectral-coefficient theorem. The previously published logarithmic spectral filter treats Gaussian underlying weight with oscillating symbol and Dixmier traces, not weight-geometry reconstruction. Huang--Wang--Zeng (2026) is a plausible broad source on singular-value rearrangements: only its abstract was accessible, so indirect coverage remains a material residual originality risk. The review is best-knowledge, not an independently certified priority determination.
+
+## Mathematical value — PASS
+The motivating literature leaves the sufficient geometric asymptotics for Weyl constants open after demonstrating that uniform Hessian bounds alone are inadequate. The theorem gives a natural, necessary-and-sufficient asymptotic geometric criterion, not simply an extra divergent example. Its exact cluster range quantifies all possible failures, and a single probe recovers the radial density's asymptotic range; this is stable across every dimension and positive decay exponent. The hypotheses and probe are standard enough that the invariant is useful for identifying admissible weighted-Fock Weyl behavior.
+
+## Scientific scope and risks
+The proof and checker apply only under radial and uniformly bounded positive real-Hessian hypotheses, with a fixed decreasing power-law symbol. The broader 2026 article by Huang--Wang--Zeng was accessible only through its abstract and may contain a nontrivial implication deserving later comparison. No full-text noncoverage is asserted for that inaccessible source.
+
+Self-review: passed. Independent audit: not yet performed.
