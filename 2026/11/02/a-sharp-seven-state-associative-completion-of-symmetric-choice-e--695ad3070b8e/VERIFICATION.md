@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` in the directory containing the extracted files. No packages beyond Python 3's standard library are used.
+## correctness
 
-The test reconstructs and separately compares the source's five-state operation with the extension, evaluates **all** \(343\) ordered associativity instances, checks all \(49\) ordered coarse-projection constraints, verifies the four directed truth/error signatures, and checks that the optional involutive negation projects correctly. It also implements the six-state obstruction on the possible value of \(e\vee r\), and checks the generation closure of the seven-element algebra.
+PASS
 
-Expected output: `ALL_CHECKS_OK 343 associativity triples 49 projection pairs`.
+The specified exact five-element operation is preserved on the original subalgebra. A new r with coarse (k,1) signature has r∨1=1 and 1∨r error-projected; associativity forces (e∨r)∨1=e and 1∨(e∨r)=1∨r. No old element or r can satisfy both, proving necessity of a second new value x. The displayed complete seven-element table has 0 as identity and k as absorber, all 343 associativity triples and all 49 Nmatrix projection cases hold. Independent exact finite reconstruction agrees, and the four required ordered masking profiles occur. This establishes only the stated *error-only extension* minimum, not complete determinization of the Nmatrix.
 
-The theorem is a **finite algebra** statement, so checking the full finite table is exhaustive; the proof of minimality is also reproduced symbolically in `RESULT.md`. There is no asymptotic claim and no external formal verification or independent audit.
+## originality
+
+PASS
+
+The 2026 Aldini–Graziani–Mezzina–Vergottini paper proves properties of the symmetric three-valued Nmatrix and its five-valued deterministic disjunction. The minimal seven-state fixed-subalgebra completion with reverse error mask and forced composite state was not found as a prior theorem. Qualified because older McCarthy/semigroup algebraic constructions may be equivalent.
+
+## value
+
+PASS
+
+The source deterministic refinement misses one of the four natural ordered success/error masking signatures. Demanding all four while retaining associativity and the existing operation is a motivated algebraic minimal-completion problem. The extra forced composite error is a structural obstruction, not merely a tabulated tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

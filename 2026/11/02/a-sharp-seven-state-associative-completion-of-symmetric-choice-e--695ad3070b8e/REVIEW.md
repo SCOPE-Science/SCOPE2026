@@ -1,19 +1,21 @@
-# Review: sharp seven-state associative completion
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The original five-element input table is quoted precisely. Associativity and coarse projection compatibility of the displayed seven-element operation are proved by a complete finite case check, not by random examples. The necessity of a second added state follows from the two associativity identities for \(e\vee r\), together with the exact old multiplication table. The standalone checker independently verifies the complete table, all \(343\) associativity triples and all \(49\) projection pairs.
+PASS
 
-## Originality
+The specified exact five-element operation is preserved on the original subalgebra. A new r with coarse (k,1) signature has r∨1=1 and 1∨r error-projected; associativity forces (e∨r)∨1=e and 1∨(e∨r)=1∨r. No old element or r can satisfy both, proving necessity of a second new value x. The displayed complete seven-element table has 0 as identity and k as absorber, all 343 associativity triples and all 49 Nmatrix projection cases hold. Independent exact finite reconstruction agrees, and the four required ordered masking profiles occur. This establishes only the stated *error-only extension* minimum, not complete determinization of the Nmatrix.
 
-PASS within inspected evidence. Aldini et al. (arXiv:2607.20178), §§3, 5–6, define the five-valued operation and symmetric three-valued Nmatrix; they assert associativity and one-way projection but not a reverse error state or its sharp seven-state completion. The 2009 Avron–Konikowska precursor concerns a related four-valued system by its available abstract. Published discussions of non-characterizability by finite deterministic matrices concern full dynamic consequence, not the present exact small associative extension. Searches for equivalent algebraic presentations, broader subsumption and tables produced no decisive coverage. Older full texts may hide an equivalent operation or general result.
+## originality
 
-## Value
+PASS
 
-PASS. The four possible ordered responses to one Boolean success and one error are the natural complete directional error-masking spectrum of the source's symmetric Nmatrix. The published deterministic refinement has only three. The theorem shows a structural obstruction—associativity forces the extra composite error—and supplies an optimal finite algebraic remedy, directly serving the source's proposed study of its noncommutative algebraic semantics.
+The 2026 Aldini–Graziani–Mezzina–Vergottini paper proves properties of the symmetric three-valued Nmatrix and its five-valued deterministic disjunction. The minimal seven-state fixed-subalgebra completion with reverse error mask and forced composite state was not found as a prior theorem. Qualified because older McCarthy/semigroup algebraic constructions may be equivalent.
 
-## Scope and limitations
+## value
 
-Minimality is relative to an **unchanged** five-element subalgebra with only error-projected new values. Four one-step response profiles are not completeness for the nondeterministic consequence relation. No classification of all seven-element completions or independent audit is claimed. The earlier 2009 paper's full text was inaccessible and is a residual novelty risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source deterministic refinement misses one of the four natural ordered success/error masking signatures. Demanding all four while retaining associativity and the existing operation is a motivated algebraic minimal-completion problem. The extra forced composite error is a structural obstruction, not merely a tabulated tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
