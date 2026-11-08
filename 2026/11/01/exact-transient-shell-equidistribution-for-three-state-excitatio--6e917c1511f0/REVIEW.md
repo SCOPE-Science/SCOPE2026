@@ -1,19 +1,21 @@
-# Scientific review: exact book-graph excitation census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all labelled triangular books \(K_2\vee\overline K_m\) with \(m\ge1\), and the update conventions agree with the explicit local rules in the cited 2016 primary source. Each initial page color class has identical future behavior because all pages have the same two neighbors; retaining the original support and all its color images makes the compressed state an injective encoding of each complete labelled trajectory. The 126 entries of the exhaustive nine-hub-pair by seven-support by two-model transition tables are therefore sufficient for all positive page counts. Exact onto-function weights \(W_1,W_2,W_3\) yield the stated first-periodic-entry census by finite algebra. Every microscopic periodic orbit and its least period follows from these tables. Replaying the bundled checker confirms the finite table and a separate explicit-adjacency enumeration through eight pages. This is an exact all-parameter finite-state proof, not an extrapolation from a bounded sample.
+PASS
 
-## Originality — PASS, qualified
+All page vertices share exactly the same two hub neighbors. Partition initial pages by their original color and retain each original support label as it updates. This is an injective encoding of each particular complete labelled orbit even when classes merge; only 7 nonempty supports ×9 ordered hub-pair choices ×2 models=126 state evolutions need verification for all m. Examined exact update table and independently enumerated all microscopic colorings for m=1..6, reproducing each claimed (T,P) count. Exact onto-page weights W1=1,W2=2^m−2,W3=3^m−3·2^m+3 combine table multiplicities into claimed all-m formulas, including q=2(3^m−2^(m+1)+1) in three equal GHM oscillatory shells. Primitive 3-cycle classification and fixed-state list follow from same recurrent table. Finite microscopic enumeration is corroboration; the exhaustive original-support reduction proves the all-m assertion.
 
-Gravner–Lyu–Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs* (arXiv:1610.07320, initial version 2016-10-24), Theorem 3, supplies the general oscillation criterion and synchronization bound, which already cover the existence and eventual dichotomy. The proposed additional result is the **exact joint first-entry/least-period census on edge-sharing triangular books**, especially the exact equal cardinalities of the Greenberg–Hastings oscillatory shells at times one, two and three, contrasted with the single nonperiodic oscillation shell for the cyclic rule. General diameter or circulation assertions do not directly determine those counts. Previous results for vertex-sharing friendship graphs and for other families are not the same graph and provide no known parameter reduction for these exact numbers. Semantic research-record searches using book-graph aliases, model names, and first-entry/periodicity terminology disclosed no equivalent exact table or implication. Matamala–Goles (1995), *Cyclic Automata Networks on Finite Graphs*, is a relevant inaccessible older paper; its abstract mentions general bounds rather than the exact census, but its uninspected full text is explicitly retained as a residual originality risk. Search failure is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-An \(m\)-page book is the natural extreme in which triangles share an entire edge rather than only a vertex. Counting the **temporal shells of the same attraction basin** distinguishes recurrence from arrival-time statistics, a motivated issue in finite excitable media. The precise equality of three distinct Greenberg–Hastings transient-shell populations for every size, while the cyclic rule concentrates all nonperiodic oscillators in the first shell, is nontrivial and not an isolated small-parameter enumeration. The full census includes sharp uniform transient cutoffs and a different limiting distribution under random initial colors. This adds quantitative information beyond the known circulation criterion without claiming a new criterion.
+The general Gravner–Lyu–Sivakoff circulation theorem gives oscillation versus synchronization on arbitrary graphs, not the full joint first-entry-time and period counts. General network bounds, vertex-sharing friendship graph results and the book (edge-sharing triangular) graph differ. The new exact shell distribution and model contrast are not logical corollaries of the general existence criterion. 1995 Matamala–Goles full text remains uninspected.
 
-## Evidence and limitations
+## value
 
-A complete support-transition table, explicit onto-coloring weights, and the replayable checker support the precise claim. Independent validation is unperformed. The generic cyclic-network paper from 1995 was not available in full and might contain an unindexed equivalent. No claim is made for higher color counts, thresholds beyond one, or other graph families.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Temporal transient shells of a common attraction basin are a natural, precise invariant of a canonical family of edge-sharing triangles. The exact equality of three different GHM arrival-time populations for every graph size, while CCA puts its nonperiodic oscillators into a single shell, reveals different transient geometry despite identical recurrent skeletons and attraction-basin totals. This is an all-size census, not a trivial bounded simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
