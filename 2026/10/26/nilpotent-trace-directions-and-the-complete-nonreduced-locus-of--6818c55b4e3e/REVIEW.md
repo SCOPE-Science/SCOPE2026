@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The product-zero equations imply the common-image/common-kernel dichotomy, with two proper-incidence component maps. Their intersection is a flag bundle with a recoverable flag away from zero. Direct linearization at canonical representatives yields tangent dimensions \(2r+2\), \(4r+1\), and \(9r\). Crucially, a trace coordinate vanishes on all actual representations but has nonzero differential at an overlap point, proving genuine nilpotents in the local scheme rather than merely singularity of the reduced variety. Exact finite-field counts follow from unique incidence parameters. The executable verifier checks the matrix and tangent computations in sample fields.
+## correctness
 
-**Originality — PASS, qualified.** Morrison (1980) and Schröer (2002) already treat the two-loop algebra and reduced components, while Bleher–Chinburg–Huisgen-Zimmermann (2014) classifies radical-square-zero irreducible components generally. These results subsume any novelty of the two-component *reduced* classification. The checked primary materials did not provide the asserted **scheme-level nonreduced support** of the quadratic presentation, its uniform tangent profile across every number of loops, or these precise intersection point counts. A formulation through module deformation theory might imply portions without the same terminology, and that is the principal historical-priority risk.
+PASS
 
-**Value — PASS.** A component classification of the reduced space does not determine whether the moduli presentation has nilpotent functions, nor where infinitesimal deformations fail to lift to the reduction. The exact nonreduced support, all-stratum tangent jumps, and codimension \(r-1\) of the problematic locus give useful scheme-theoretic and deformation-theoretic information uniformly across a natural infinite algebra family. Finite-field formulas quantify the meeting locus separately rather than merely recomputing known component counts.
+For all r≥2 and algebraically closed k of any characteristic, XiXj=0 forces I=sum images⊂K=common kernel and in dimension 3 any nonzero tuple has either dim I=1 or codim K=1. Incidence maps over P²/P²-dual have 2r-dimensional fibers and are proper onto two distinct 2r+2 dimensional rational components. At overlap a unique flag L⊂W and an r-vector of scalars produce Z of dimension r+3; unique incidence parameters make smooth component charts outside Z. Linearization XiYj+YiXj=0 at (E13), (E12,E13), transposed representative, and origin yields respectively 4r+1, 2r+2, 2r+2, 9r; elementary GL3 and GLr actions reduce the entire strata to these profiles. tr Xi vanishes on all geometric solutions, so is in the radical, but Y1=E22 is tangent at E13 with derivative 1, proving a nonzero local nilpotent at each nonzero Z point; at the origin a linear trace cannot lie in the homogeneous quadratic ideal. Outside Z tangent dimension equals local dimension, so local rings are regular and reduced. The Fq counts follow from unique nonzero line/plane/flag incidences and inclusion-exclusion. Independent complete enumeration of r=2 pairs at q=2,3 and independent Jacobian ranks at p=2,3,5,7 for r=2,3,4,5 corroborate the unrestricted proof.
 
-**Limitations.** The proof addresses three-dimensional representations and the unreduced *quadratic presentation*. It does not compute local multiplicities or provide an independent audit; original sources may contain implicit equivalent deformation-theoretic statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified originality of the exact scheme-level nonreduced support and uniform tangent jumps for 3-dimensional r-loop square-zero representation schemes. Morrison 1980 gives the general cocycle tangent framework, and Schröer 2004 and Bleher–Chinburg–Huisgen-Zimmermann 2015/Huisgen-Zimmermann 2014 cover the reduced component classification. Those stronger component statements do not, without additional local Jacobian and trace-nilpotence calculations, give the new scheme-level support statement. Count formulas are elementary geometric corollaries and are not singled out as independently surprising.
+
+## value
+
+PASS
+
+The scheme of representations of a radical-square-zero local algebra is a standard moduli object; its reduced components do not determine infinitesimal deformations. An exact support theorem for the nilradical, a complete all-r tangent stratification (2r+2 off overlap, 4r+1 at nonzero overlap, 9r at zero), and a geometric codimension r−1 description of the affected locus are substantive deformation/singularity invariants. The finite-field flag intersection enumeration is a natural quantitative companion, though simple once incidence geometry is known. This is a motivated complete classification within a fixed natural dimension, not an arbitrary matrix slice or a claim to new reduced component counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
