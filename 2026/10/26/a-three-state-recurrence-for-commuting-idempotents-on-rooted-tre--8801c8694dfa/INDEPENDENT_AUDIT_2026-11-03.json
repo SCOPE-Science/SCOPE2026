@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T12:57:10.090319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite rooted-tree ancestor posets, every idempotent regressive order-preserving selfmap is the deepest-fixed-ancestor projection e_S for a unique subset S containing the root: order-preserving forces a fixed ancestor s<=x to lie below e(x), and idempotence fixes e(x). Hence 2^(n−1) idempotents exactly. For ordered pair (S,U), compare the two deepest fixed ancestors along each root path; disagreement occurs iff 10 and 01 both appear after a common 11 and before the next common 11 on some prefix. The finite automaton with inherited states 0,A,B and vertex labels 11 reset / 00 stay / 10 A / 01 B yields precisely F_v(0)=2P_0+P_A+P_B, F_v(A)=P_0+2P_A, F_v(B)=P_0+2P_B; root forced 11 gives c(T)=prod_children F_w(0). Leaf values (4,3,3), one-vertex count 1, stars 4^k and chain recurrence a_0=1,a_1=4,a_m=4a_(m−1)−2a_(m−2) are correct. Independent exhaustive pairwise-composition checks on every recursive labeled rooted tree of orders 1..7 (874 rooted trees, up to 2^12 ordered pairs each) agreed exactly with DP; chain 1,4,14,48,164,560,1912 and stars 1,4,16,64,256,1024,4096. Enumeration supports, but does not prove, the unrestricted theorem, which follows by unique paths and conditional subtree independence. O(n) arithmetic updates excludes big-integer bit complexity. No assertion for arbitrary posets or unordered pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Solomon, Semigroup Forum 53 (1996), abstract claims presentations for Catalan monoids of a tree but not a commuting-pair count.",
+          "Maxson, Colloquium Mathematicum 32 (1974), order-preserving partial endomorphisms on trees (full text unavailable).",
+          "Ganyushkin–Mazorchuk (2011), Theorem 1 and Section 5, concerns Hecke–Kiselman monoid structure and chain specialization."
+        ],
+        "reasoning": "An all-tree presentation theorem could dominate the recurrence only if it also supplied a commutation normal form/count or a direct usable theorem. The accessible Solomon abstract and other primary material do not establish that implication. Finite weak-order mapping counts and general idempotent existence do not compute ordered commuting ancestor-projection pairs. Source access limitation retained, not converted into a categorical noncoverage claim.",
+        "searches": [
+          "Resultary query: ordered commuting pairs of idempotents in order-preserving regressive transformations on a finite rooted tree, three-state recursion, ancestor projections",
+          "Resultary query: commutativity degree idempotent regressive isotone maps rooted forests tree semigroups, commuting retractions and fixed sets",
+          "web search: rooted tree order-preserving decreasing idempotent transformations commuting pairs enumeration retractions semigroup",
+          "web search: Andrew Solomon Catalan monoids monoids local endomorphisms trees presentations full text pdf"
+        ]
+      },
+      "checked_sources": [
+        "Ganyushkin–Mazorchuk, On Kiselman quotients of 0-Hecke monoids, arXiv:1006.0316v3, 2011; complete 16-page PDF, especially Theorem 1, §2.3 and §§2.7–2.8 (https://arxiv.org/pdf/1006.0316)",
+        "Solomon, Catalan monoids, monoids of local endomorphisms, and their presentations, Semigroup Forum 53 (1996) 351–368, DOI:10.1007/BF02574150; research report abstract/index https://www.maths.usyd.edu.au/u/ResearchReports/Algebra/Sol/cat-mon-end.html (full text not read)",
+        "Pantazi–Spircu, Relations between consecutive Catalan monoids, February 2016 updated 2017; ResearchGate full-text HTML, §§4 and later idempotent strata, https://www.researchgate.net/publication/330567006_Relations_between_consecutive_Catalan_monoids",
+        "Maxson, Semigroups of order-preserving partial endomorphisms on trees, I, Colloquium Mathematicum 32 (1974), 25–37, DOI:10.4064/cm-32-1-25-37 (bibliographic metadata only; full text inaccessible)",
+        "Resultary/2026, Exact cardinality recurrence for mapping spaces between finite weak orders, dated 2026-10-04; complete RESULT.md read",
+        "Resultary/2026, Singleton-gap criterion for retracts and eventual images of finite weak orders, dated 2026-10-04; complete RESULT.md read",
+        "GAP Semigroups manual, CatalanMonoid(n): standard chain object definition, https://semigroups.github.io/Semigroups/doc/chap7_mj.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ganyushkin–Mazorchuk Theorem 1(iii),(viii): idempotent cardinality and chain monoid equivalence, but no pairwise commutation distribution.",
+          "Pantazi–Spircu §4 and Proposition 5: chain idempotent forms and dominated-element direct products; mention of two commuting segment idempotents, no all-pair count statement.",
+          "Solomon tree presentation metadata is potentially stronger but its inaccessible full text prevents a definitive implication check."
+        ],
+        "reasoning": "Knowing every idempotent as a fixed-point subset and knowing the number 2^(n−1) does not determine which pairs commute. The submission proves a specific path compatibility condition and product-tree transfer with three states, supplying additional mathematical content. If Solomon/Maxson includes a stronger commutation theorem, priority may change; that unverified possibility is carried as a residual risk.",
+        "searches": [
+          "Resultary query: ordered commuting pairs of idempotents in order-preserving regressive transformations on a finite rooted tree, three-state recursion, ancestor projections",
+          "Resultary query: commuting idempotent pairs Catalan monoid order-preserving order-decreasing maps finite chain 4 14 48",
+          "web search: commuting idempotents Catalan monoid chain number 1 4 14 48",
+          "web search: Catalan monoids monoids of local endomorphisms trees Andrew Solomon 1995/1996 full text",
+          "web search: \"commuting idempotents\" \"order preserving\" \"tree\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ganyushkin–Mazorchuk, arXiv:1006.0316v3, Theorem 1(viii) presents chain Catalan monoids but no rooted-tree ordered-pair count.",
+          "Solomon (1996) title/abstract: tree Catalan monoids as extensive local endomorphisms of finite shift; text not fully accessible.",
+          "Published Resultary finite weak-order map recurrence and singleton-gap retract theorem: full RESULT.md read."
+        ],
+        "reasoning": "The submitted pair count can be rephrased as counting compatible pairs of rooted-tree fixed-point subsets/ancestor projections, or four-label tree colorings avoiding both exclusive colors between common fixed points. These aliases were searched. Neither the Catalan chain baseline nor the published weak-order map/retract results states that pair count. An equivalent result hidden in Solomon/Maxson remains an expressly acknowledged risk.",
+        "searches": [
+          "Resultary query: ordered commuting pairs of idempotents in order-preserving regressive transformations on a finite rooted tree, three-state recursion, ancestor projections",
+          "Resultary query: commutativity degree idempotent regressive isotone maps rooted forests tree semigroups, commuting retractions and fixed sets",
+          "web search: rooted tree order-preserving decreasing idempotent transformations commuting pairs enumeration retractions semigroup",
+          "web search: Catalan monoids monoids of local endomorphisms trees Andrew Solomon 1995/1996 full text",
+          "web search: idempotents commute order-preserving tree; commuting idempotents Catalan monoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent small-tree checks give chain c_n = 1,4,14,48,164,560,1912 for n=1..7, with characteristic recurrence a_m=4a_(m−1)−2a_(m−2).",
+          "GAP Semigroups CatalanMonoid(n) documentation specifies the underlying monoid but not this commuting pair table.",
+          "Resultary ranked hits closest: finite-weak-order mapping recurrence and singleton-gap retract theorem; no matching exact pair-count tables in those findings."
+        ],
+        "reasoning": "The chain numerical sequence is not the claimed general invariant; a matching pre-existing chain table alone would cover only the chain specialization, not the tree-shape dependent recurrence. No inspected exact database or published table supplied the arbitrary-tree invariant. Searches are non-exhaustive and not asserted as proof of absence.",
+        "searches": [
+          "Resultary query: commuting idempotent pairs Catalan monoid order-preserving order-decreasing maps finite chain 4 14 48",
+          "web search: \"1,4,14,48,164,560\" idempotents",
+          "web search: \"4,14,48,164,560\" commuting",
+          "web search: \"commuting idempotents\" \"Catalan monoid\""
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty for the exact arbitrary-rooted-tree ordered commuting-idempotent pair count and its three-state recursion. The 2011 Ganyushkin–Mazorchuk full primary paper proves the Catalan chain monoid identity and its 2^(n−1) idempotents; Pantazi–Spircu supplies further chain idempotent decompositions; these are prior inputs, not claimed new. A materially closer 1996 Solomon tree Catalan-monoid paper exists, but its full text could not be read; title/abstract concern local endomorphism presentations, not the exact ordered-pair count, and priority risk is explicit. The two complete published Resultary comparisons count different transformations or retraction images. Search noncoverage is not proof of novelty; no decisive dominating statement was found.",
+      "residual_risks": [
+        "Andrew Solomon, Catalan monoids, monoids of local endomorphisms, and their presentations (Semigroup Forum 53, 1996), explicitly treats tree Catalan monoids. Only abstract/index information could be inspected: full author PostScript and ResearchGate full text were not retrievable, and authorized institutional access was blocked by a safety check. An implicit commuting-pair formula has not been ruled out.",
+        "Carlton J. Maxson, Semigroups of order-preserving partial endomorphisms on trees, I (Colloquium Mathematicum 32, 1974), might contain related structural facts; only title and publication information were inspectable, the publisher PDF returned HTTP 403.",
+        "Classical Catalan-monoid descriptions (Ganyushkin–Mazorchuk 2011; Pantazi–Spircu 2016/2017) include idempotent subsets and products of commuting segment idempotents; an implicit chain-pair enumeration is possible although no identical ordered-pair count was located in inspected text.",
+        "Indexed published-result semantic searches and web queries cannot establish exhaustive historical novelty; a differently named count for ancestor projections or commuting retractions might be an equivalent earlier formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides pre-existing Catalan chain object, 2^(n-1) idempotents, general idempotent-algebra structure; does not assert the submitted all-rooted-tree ordered commuting-pair recurrence. Algebraic ingredients are prior art, not claimed new.",
+          "evidence": [
+            "Theorem 1(iii),(viii), §§2.3,2.7 and 5, https://arxiv.org/pdf/1006.0316; its idempotent enumeration is not an ordered-pair commutation count."
+          ],
+          "identifier_or_url": "arXiv:1006.0316v3; https://arxiv.org/pdf/1006.0316",
+          "material_read": "Accessible 16-page source PDF, including abstract, Theorem 1 (pp. 1–2), §2.3 idempotents, §2.7 chain realization, §3 representations, §4 Catalan combinatorics and §5 graph-monoid classification/open problems; key pages visually inspected.",
+          "method": "Compared Theorem 1(iii),(viii), Lemma 4 and stated invariants against the ordered pair commutation criterion and the tree-parameterized count.",
+          "title": "On Kiselman quotients of 0-Hecke monoids",
+          "trigger": "Contains the finite-chain order-preserving order-decreasing transformation monoid and a theorem enumerating its idempotents."
+        },
+        {
+          "assessment": "Confirms known chain idempotent subset normal forms; its brief reference to two commuting segment idempotents does not present a full ordered-pair count for arbitrary trees or the displayed three-state recurrence. Partial possible chain implication remains a risk.",
+          "evidence": [
+            "§4 description of 2^n chain idempotents, lines ~790–835; Lemma 3/Proposition 5 discussion of two commuting segment idempotents, lines ~1700–1744."
+          ],
+          "identifier_or_url": "Pantazi and Spircu, 2016/2017 preprint; https://www.researchgate.net/publication/330567006_Relations_between_consecutive_Catalan_monoids",
+          "material_read": "ResearchGate extracted full-text sections: abstract, §4 descriptions of all idempotents (lines around 790–986), later descriptions of dominated strata and direct products (around 1480–1744); whole page searched for commute/commuting.",
+          "method": "Checked whether the idempotent subset normalization or segment decomposition implied/presented the ordered-pair count or tree recurrence.",
+          "title": "Relations between consecutive Catalan monoids",
+          "trigger": "Highly relevant chain-specialization treatment specifically devoted to Catalan idempotents and decompositions."
+        },
+        {
+          "assessment": "Abstract emphasizes presentations of tree local-endomorphism monoids, not the exact ordered commuting-idempotent pair recurrence; insufficient full-text inspection to exclude indirect prior coverage. Substantial named priority risk, not asserted as whole-document noncoverage.",
+          "evidence": [
+            "Sydney research-report 95-6 abstract, https://www.maths.usyd.edu.au/u/ResearchReports/Algebra/Sol/cat-mon-end.html; DOI:10.1007/BF02574150."
+          ],
+          "identifier_or_url": "Solomon, Semigroup Forum 53 (1996), 351–368; DOI:10.1007/BF02574150; https://www.maths.usyd.edu.au/u/ResearchReports/Algebra/Sol/cat-mon-end.html",
+          "material_read": "Author research-report abstract and bibliographic HTML, plus publisher/repository metadata; full original PostScript was unavailable to the reader. Oxford authorized route blocked by safety validation; no retry/bypass.",
+          "method": "Compared source-defined extensive local endomorphisms of finite shift and presentation results with ancestor-order regressive maps and ordered commuting-idempotent counts.",
+          "title": "Catalan monoids, monoids of local endomorphisms, and their presentations",
+          "trigger": "Contains finite-tree Catalan monoids and could give a more general prior description."
+        },
+        {
+          "assessment": "Insufficient material for substantive noncoverage; retained as unresolved bibliographic comparison risk.",
+          "evidence": [
+            "Colloquium Mathematicum 32 (1974), 25–37, DOI:10.4064/cm-32-1-25-37."
+          ],
+          "identifier_or_url": "Maxson, Colloquium Mathematicum 32 (1974), 25–37; DOI:10.4064/cm-32-1-25-37",
+          "material_read": "Publisher bibliographic page and title only, not full text; download returned HTTP 403.",
+          "method": "Matched the published title and its partial-endomorphism scope against the defined full regressive maps and commuting-pair census.",
+          "title": "Semigroups of order-preserving partial endomorphisms on trees, I",
+          "trigger": "Same tree vocabulary and semigroup object may provide generalized structural results."
+        },
+        {
+          "assessment": "Different source object, invariant and transfer states; does not give the submitted rooted-tree ordered commuting-idempotent pair formula.",
+          "evidence": [
+            "Published RESULT.md contains O(hk^2) transfer for all weak-order maps, not idempotent-pair commutation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06",
+          "material_read": "Full published RESULT.md: finding, assumptions, proof, verification, prior work and limitations.",
+          "method": "Compared maps P->Q of antichain ordinal sums and top-occupied-target-level states with self-idempotent ancestor projections, pairwise commutativity and three inherited path states.",
+          "title": "Exact cardinality recurrence for mapping spaces between finite weak orders",
+          "trigger": "Published result also uses finite-state dynamic programming to count order-preserving maps."
+        },
+        {
+          "assessment": "Does not imply any ordered commutation-pair enumeration for this rooted-tree transformation monoid.",
+          "evidence": [
+            "Published RESULT.md, singleton-gap conditions 1–3 and proof; different object and invariant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-singleton-gap-criterion-for-retracts-and-eventual-images-of-fini--4d39f7ca58cd",
+          "material_read": "Complete published RESULT.md including necessary/sufficient singleton-gap theorem, constructive retraction, limitations.",
+          "method": "Compared image-subset existence and eventual images in weak-order endomorphisms to simultaneous commutation census of two regressive ancestor projections on rooted trees.",
+          "title": "Singleton-gap criterion for retracts and eventual images of finite weak orders",
+          "trigger": "Also treats idempotent maps and retractions on posets, a possible conceptual alias."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The commutation proportion among the natural idempotents of a finite poset transformation monoid is a meaningful semigroup invariant. The three-state recursion gives a uniform, shape-sensitive exact value for every finite rooted tree, rather than a table for chosen small trees or a presentation-only restatement. Star and chain extremes demonstrate distinct behavior: stars have full idempotent commutativity while the chain fraction follows a nontrivial second-order recurrence. Researchers comparing commutativity graphs/centralizers of tree transformation monoids can use the exact recurrence. The result does not claim asymptotics or maximal commuting families. Its value is a reusable classification of a natural invariant, not mere code correctness or novelty.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ganyushkin–Mazorchuk, On Kiselman quotients of 0-Hecke monoids, arXiv:1006.0316v3, 2011; complete 16-page PDF, especially Theorem 1, §2.3 and §§2.7–2.8 (https://arxiv.org/pdf/1006.0316)",
+    "Solomon, Catalan monoids, monoids of local endomorphisms, and their presentations, Semigroup Forum 53 (1996) 351–368, DOI:10.1007/BF02574150; research report abstract/index https://www.maths.usyd.edu.au/u/ResearchReports/Algebra/Sol/cat-mon-end.html (full text not read)",
+    "Pantazi–Spircu, Relations between consecutive Catalan monoids, February 2016 updated 2017; ResearchGate full-text HTML, §§4 and later idempotent strata, https://www.researchgate.net/publication/330567006_Relations_between_consecutive_Catalan_monoids",
+    "Maxson, Semigroups of order-preserving partial endomorphisms on trees, I, Colloquium Mathematicum 32 (1974), 25–37, DOI:10.4064/cm-32-1-25-37 (bibliographic metadata only; full text inaccessible)",
+    "Resultary/2026, Exact cardinality recurrence for mapping spaces between finite weak orders, dated 2026-10-04; complete RESULT.md read",
+    "Resultary/2026, Singleton-gap criterion for retracts and eventual images of finite weak orders, dated 2026-10-04; complete RESULT.md read",
+    "GAP Semigroups manual, CatalanMonoid(n): standard chain object definition, https://semigroups.github.io/Semigroups/doc/chap7_mj.html"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite rooted-tree ancestor-ordered posets and ordered idempotent pairs. No arbitrary-poset or asymptotic claims.",
+    "Independent finite computations are only corroboration; unrestricted proof follows the fixed-ancestor bijection and finite-state tree induction.",
+    "Full text of Solomon (1996) and Maxson (1974) inaccessible through permitted routes; risk of implicit or more general prior coverage retained. Authorized institutional request was blocked by safety check and not retried.",
+    "No independent Lean proof, expert attestation or external certification is claimed."
+  ],
+  "residual_risks": [
+    "Andrew Solomon, Catalan monoids, monoids of local endomorphisms, and their presentations (Semigroup Forum 53, 1996), explicitly treats tree Catalan monoids. Only abstract/index information could be inspected: full author PostScript and ResearchGate full text were not retrievable, and authorized institutional access was blocked by a safety check. An implicit commuting-pair formula has not been ruled out.",
+    "Carlton J. Maxson, Semigroups of order-preserving partial endomorphisms on trees, I (Colloquium Mathematicum 32, 1974), might contain related structural facts; only title and publication information were inspectable, the publisher PDF returned HTTP 403.",
+    "Classical Catalan-monoid descriptions (Ganyushkin–Mazorchuk 2011; Pantazi–Spircu 2016/2017) include idempotent subsets and products of commuting segment idempotents; an implicit chain-pair enumeration is possible although no identical ordered-pair count was located in inspected text.",
+    "Indexed published-result semantic searches and web queries cannot establish exhaustive historical novelty; a differently named count for ancestor projections or commuting retractions might be an equivalent earlier formulation."
+  ],
+  "schema_version": 1
+}
