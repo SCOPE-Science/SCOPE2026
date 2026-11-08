@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:16:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Steps 1-4, equations (1)-(6), Git blob e7b274fef7d8210047a0c58dcceb47cf2c93e447",
+        "Assigned CHECK.py, Git blob a7cb92d1fe7947ac455768214ac8c0019c752dae",
+        "Independent symbolic rank-one, boundary and exact witness calculations"
+      ],
+      "rationale": "Re-derived the zero-mean two-phase stationarity equations and potential U_K: Hessian/K=diag(w1 cos(alpha),w2 cos(beta))+a cos(alpha-beta)[[1,-1],[-1,1]]. For K>=K0, negative chord cosine at an interior stationary point implies the strict rank-one update bound cot(A+B)(tan(A/2)+tan(B/2))<1; thus Hessian positive definite even under frustration. At K>K0 all four boundary gradients point outwards and degree +1 counts the unique interior stable lock. At K=K0, all unsaturated faces admit inward descent; opposite-sign saturated corners have energy variation K0(w1+w2)(t-sin t)+K0 a(cos(2t)-1)<0 for small t, giving an interior strict lock and continuation below K0 unless leaf loads are aligned. In the aligned case summing leaf equations forces K>=K0 for every torus lock. Direct independent substitution at w1=w2=a=1 and Omega=(-1,0,1), alpha=-pi/4, beta=pi/4, K=2-sqrt(2) gives residuals at roundoff and positive Hessian diagonal. Checked CHECK.py source for 450 bounded tests; did not mistake its output for proof.",
+      "residual_risks": [
+        "The global threshold is an infimum of locally stable equilibria; nothing is proved about global basins or nonprincipal lock uniqueness. The finite 450-case program is supplementary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dekker–Taylor 2013 threshold analysis concerns trees without chord",
+          "Witthaut–Timme 2012 networks exhibit cycle constraints and Braess penalties, not a universal triangle no-go",
+          "Arches et al. 2026 sensitivity theorem covers local edge-addition response"
+        ],
+        "reasoning": "Broader network setting and a perturbative test do not dominate this exact all-parameter three-node comparison; known tree formula K0 is explicitly treated as prior.",
+        "searches": [
+          "arXiv:2608.03594",
+          "doi:10.1137/120899728",
+          "doi:10.1088/1367-2630/14/8/083036"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.03594 primary PDF theorem and examples",
+        "Dekker–Taylor 2013 SIAM JADS tree results",
+        "Witthaut–Timme 2012 New J Phys",
+        "Resultary hit fbd39164c275: exact reversal for four-oscillator cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree path threshold follows from independent edge differences; chord can introduce a frustrated cosine and requires separate Hessian estimate",
+          "Existing derivative result cannot guarantee sign for arbitrary closing weight"
+        ],
+        "reasoning": "The nonstandard Hessian rank-one inequality, degree argument and saturated-corner descent are additional steps not mechanically implied by prior tree thresholds or sensitivity.",
+        "searches": [
+          "arXiv:2608.03594 first-order sensitivity",
+          "doi:10.1137/120899728 tree threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arches et al., arXiv:2608.03594, first-order derivative of locking threshold with respect to an added link",
+          "Current theorem controls all a>=0 and exact normalized-leaf equality locus"
+        ],
+        "reasoning": "A first derivative at a=0 cannot entail global monotonic nonincrease for arbitrary a, nor equality for all added weights.",
+        "searches": [
+          "three oscillator Kuramoto path triangle Braess free edge completion threshold normalized leaf frequencies arbitrary positive weight",
+          "arXiv:2608.03594 sections on sensitivity and examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record fbd39164c275 calculates a four-node cycle threshold, not a three-node triangle table",
+          "No exact universal Kc(a) triangle table returned by targeted searches"
+        ],
+        "reasoning": "This is a continuous-parameter structural classification rather than a known finite database; negative search result is not definitive novelty evidence.",
+        "searches": [
+          "three oscillator Kuramoto path triangle Braess free edge completion threshold normalized leaf frequencies arbitrary positive weight",
+          "Resultary SCOPE exact reversal Braess locking penalty four oscillator"
+        ]
+      },
+      "rationale": "Arches et al. (2026) directly concerns Kuramoto edge-addition Braess effects and gives first-order sensitivity with larger examples. Full primary PDF inspected afresh; its perturbative criterion neither entails all-a nonincrease for every positively weighted three-vertex path nor the exact equality condition. Dekker–Taylor treat tree thresholds, and Witthaut–Timme show Braess inhibition on larger networks. The published four-node cycle reversal is a different graph and phenomenon. No dominating three-node full classification located.",
+      "residual_risks": [
+        "An unindexed earlier triangle-specific exact result or another formulation using effective cut inequalities could change priority; full primary 2026 PDF was inspected during this run, correcting original self-review access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related non-covering first-order threshold sensitivity and larger motifs; not same three-vertex all-weight equality classification",
+          "evidence": "arXiv:2608.03594, Theorem 1 and illustrative path examples",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.03594",
+          "material_read": "Primary PDF, main definitions, sensitivity theorem and illustrative network sections including larger path examples",
+          "method": "Full primary PDF opened; examined theorem and relevant sections/pages with PDF screenshots",
+          "title": "Predicting the occurrence of Braess paradox in the synchronization threshold of coupled oscillator systems",
+          "trigger": "Same exact physical problem: effect of adding an edge on Kuramoto locking threshold"
+        },
+        {
+          "assessment": "Covers initial path threshold but not the chord-added triangle, as graph no longer a tree",
+          "evidence": "Dekker–Taylor 2013, tree synchronization thresholds",
+          "identifier_or_url": "https://doi.org/10.1137/120899728",
+          "material_read": "Published tree-threshold statements and its scope (trees)",
+          "method": "Paper metadata, accessible theorem description and compared mathematical tree implication",
+          "title": "Synchronization Properties of Trees in the Kuramoto Model",
+          "trigger": "Exact tree-edge locking threshold is premise and potential broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "K0 and all-a equality condition in RESULT.md Theorem",
+        "Arches et al. 2026 studies same synchronization-threshold question with larger motifs"
+      ],
+      "rationale": "A positively coupled triangle is the first cycle where path completion might induce a Braess penalty; the theorem separates genuinely higher-network frustration from this minimal motif and gives the precise all-a equality criterion for arbitrary detunings, beyond a perturbative example.",
+      "residual_risks": [
+        "Value restricted to a three-oscillator local-locking threshold rather than a general large-network design principle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statements about inertial/phase-lag/directed/negative couplings, global basins or nonprincipal stable lock counts.",
+    "Novelty remains best-of-knowledge; stronger unknown literature remains possible."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact equations (1) and potential (2) are derived from the stated oscillator system. For every principal-square equilibrium above or at the original path threshold, the nonstandard bound (5) proves strict positive definiteness even when the new chord has a negative cosine. A degree-one homotopy counts exactly one equilibrium above that threshold. The boundary classification at the path threshold gives the precise aligned versus nonaligned alternative; the opposite-sign corner is removed by the explicit quadratic negative energy term (6). The saturated cut gives the converse impossibility. The exact example and executable finite checks support, but do not substitute for, this proof.
+## correctness
 
-**Originality — PASS on the available comparisons, with residual priority risk.** The 2013 tree result covers the original path but not adding a third edge. The 2012 multi-vertex paradox analysis and a separate four-oscillator result do not imply this all-weights three-vertex no-go or its sharp equality classification. The 2026 motivating paper provides a first-order sensitivity formula and discusses specific motifs; a local derivative does not imply a global result for arbitrary closing-edge weights. A 2024 three-oscillator paper concerns identical frequencies in its retrieved account. The 2026 paper's primary full text was inaccessible, so detailed appendix-level overlap remains a historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The three-node triangle is the smallest graph cycle, so classifying whether it can display edge-addition Braess inhibition separates an elementary cycle effect from larger-network geometric frustration. The theorem gives an all-parameter structural obstruction and a sharp equality criterion, not just a perturbative sign or one numerical example.
+Re-derived the zero-mean two-phase stationarity equations and potential U_K: Hessian/K=diag(w1 cos(alpha),w2 cos(beta))+a cos(alpha-beta)[[1,-1],[-1,1]]. For K>=K0, negative chord cosine at an interior stationary point implies the strict rank-one update bound cot(A+B)(tan(A/2)+tan(B/2))<1; thus Hessian positive definite even under frustration. At K>K0 all four boundary gradients point outwards and degree +1 counts the unique interior stable lock. At K=K0, all unsaturated faces admit inward descent; opposite-sign saturated corners have energy variation K0(w1+w2)(t-sin t)+K0 a(cos(2t)-1)<0 for small t, giving an interior strict lock and continuation below K0 unless leaf loads are aligned. In the aligned case summing leaf equations forces K>=K0 for every torus lock. Direct independent substitution at w1=w2=a=1 and Omega=(-1,0,1), alpha=-pi/4, beta=pi/4, K=2-sqrt(2) gives residuals at roundoff and positive Hessian diagonal. Checked CHECK.py source for 450 bounded tests; did not mistake its output for proof.
 
-**Limitations.** Only reciprocal positive sine coupling, no phase lags or inertia, exactly three vertices, and exponential phase-locking thresholds are covered. Global attraction and all possible phase classes are not classified. Novelty requires independent historical verification of the inaccessible 2026 primary full text.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Arches et al. (2026) directly concerns Kuramoto edge-addition Braess effects and gives first-order sensitivity with larger examples. Full primary PDF inspected afresh; its perturbative criterion neither entails all-a nonincrease for every positively weighted three-vertex path nor the exact equality condition. Dekker–Taylor treat tree thresholds, and Witthaut–Timme show Braess inhibition on larger networks. The published four-node cycle reversal is a different graph and phenomenon. No dominating three-node full classification located.
+
+## value
+
+PASS
+
+A positively coupled triangle is the first cycle where path completion might induce a Braess penalty; the theorem separates genuinely higher-network frustration from this minimal motif and gives the precise all-a equality criterion for arbitrary detunings, beyond a perturbative example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
