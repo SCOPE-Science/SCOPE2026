@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Reduction from each length-two ring gives a trace-zero additive congruence kernel of order \(q^3\). Cayley--Hamilton proves every square-one Witt matrix reduces to the identity. In the split extension the square-one equation is exactly a fixed-space equation for the adjoint action of an involutive reduction. Every nonidentity involution of \(\mathrm{SL}_2(\mathbb F_q)\) is a rank-one unipotent with a unique invariant line, and its fixed space in the trace-zero matrices is the two-plane spanned by the identity and that nilpotent. The proof then establishes the precise intersections, all commuting pairs, maximal cliques, and spectrum. No finite census is used in place of the general proof. The standalone verifier independently enumerated all determinant-one matrices and commuting pairs over the two pairs of length-two rings at \(q=2,4\), including maximal-clique checks.
+## correctness
 
-**Originality: PASS relative to inspected sources, with residual risk.** The closest work is Stasinski, arXiv:1907.09878, particularly Theorem 5.3 (identical character-degree multiplicities) and Remark 6.3 (no square-one lift of a nonidentity transvection to the Witt group). Both antecedents are credited; the latter must not be rebranded as the new result. The new structural content is a complete maximal elementary abelian subgroup classification and incidence geometry of \(q+2\) cliques in the split group, alongside an exact three-stratum involution-centralizer distribution and group-to-group comparison. Singla's work on length-two classical groups does not classify this even-characteristic subgroup geometry. The inspected commuting-involution-graph papers concern field-valued simple groups and selected conjugacy classes, not the present ring groups. Accessible published mathematical-record searches and available claim ledgers gave no equivalent statement. General uninspected 2-local subgroup literature may imply parts of the classification; independent priority validation is still necessary.
+PASS
 
-**Value: PASS.** The result completely determines a canonical finite-group 2-local incidence invariant for all even residue-field orders and proves it differs in groups already known to have identical complex irreducible-degree multiplicities. The projective-line pencil shows how the subgroup intersection geometry controls the graph and produces a nontrivial exact ordered-pair and centralizer spectrum, rather than merely finding a distinguishing element. The Frobenius--Schur indicator-weighted degree sums must consequently differ even though the degree multiplicities do not. This is a motivated representation-theoretic separation, not an arbitrary parameter slice.
+Reduction of either SL2 length-two ring to SL2(F_q) has elementary abelian congruence kernel of order q³. In Witt characteristic four, Cayley–Hamilton for A²=I, detA=1 gives tr(A)A=2I and mod 2 forces reduction A=I, so every involution lies in abelian kernel. In the split ring write (X,h) with X traceless; h²=1 implies h=1 or a nonidentity transvection belonging to a unique root group U_L. Fixed X for that U_L is the 2-plane kI+kN_L, giving E_L=K_L×U_L, |E_L|=q³, |K∩E_L|=q², |E_L∩E_M|=q and q+2 maximal elementary abelian groups/cliques. The commuting relation reduces two non-K involutions to the same line, so every clique lies in one E_L or in K. Counting yields split involution spectrum c_I: q elements of size q⁴+q³−q², q³−q of size 2q³−q², and q⁴−q² of size q³, and ordered pair total q⁷+2q⁶−q⁵−q⁴. Independent brute-force ring-matrix multiplication and graph maximal-clique enumeration confirmed BOTH q=2 and q=4 split/Witt cases and all centralizer strata; universal proof remains algebraic.
 
-**Scope/risk.** The result is proved only in matrix size two and ring length two; the computation checks only \(q=2,4\). Stasinski's no-lift claim is prior work, not an original part of the submission. Global publication priority and individual Frobenius--Schur indicators are not established. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Stasinski 2021 Theorem 5.3 already proves the equality of irreducible character-degree multiplicities for the two length-two rings, and Remark 6.3 already observes a nontrivial transvection has no Witt involutive lift. These facts cannot count as original. The new claim classifies all maximal elementary abelian subgroups (one in Witt, q+2 in split), their exact intersection pencil and the complete involution-commuting centralizer spectra, yielding a sharper representation-theoretic distinction. General 2-local subgroup literature may contain an equivalent classification, but no direct prior implication was identified in inspected sources.
+
+## value
+
+PASS
+
+This complete projective-line classification of 2-local clique geometry separates two natural finite group families whose entire complex character-degree multiplicity distributions are identical. It strengthens a known single no-lift distinction into exact maximal-subgroup structure, intersection sizes, induced graph centralizer census and a Frobenius–Schur indicator-weighted sum obstruction, a motivated invariant rather than an arbitrary special example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
