@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` derives the complete Jordan forms for every permitted order, matching size, and characteristic-two finite field. It uses an incidence-matrix reduction to an explicitly described finite-dimensional operator. Its central unbounded steps are the even-coordinate rank calculations and the implication of the polynomial identities for the periodic and nilpotent components.
+## correctness
 
-`rank_verifier.py` constructs each line-graph adjacency matrix independently and checks the formulas for ranks of its first three powers at every \(3\le n\le16\), for each \(0\le k\le\lfloor n/2\rfloor\). It also checks the characteristic-two polynomial identity and the additional rank controlling the two-cycles in the odd case. This covers 77 matrix instances. Run with `python3 rank_verifier.py`; expected output is in `rank_output.txt`.
+PASS
 
-`independent_enumeration.cpp` constructs the actual neighbor masks for every root-edge variable, then evolves **every** binary initial state for all \(3\le n\le7\) and allowed matching sizes. The independent census checks each exact first-entry and eventual-period total against the formulas. This covers 16 root-graph instances and 3,995,516 initial states. Compile with `g++ -std=c++17 -O3 independent_enumeration.cpp -o enumerate` and run `./enumerate`; expected output is in `brute_output.txt`.
+PASS: The loopless line-graph adjacency is F=B^T B in characteristic two; connected root graph gives im B=W (even-sum) and ker B^T=span(1). For odd n, on W, BB^T swaps each deleted matching pair and fixes unmatched vertices, yielding rank(I+R)=k, Jordan J2(1)^k, and E-n+1 semisimple zero modes; F^3=F. For even n, BB^T on W is nilpotent pair-block map R^2=0, rank F=n-2 and rank F²=k if k<n/2, otherwise n/2-1-1_{n/2 even}; this gives J3/J2/J1 multiplicities, extinction-time distribution, and last-deletion parity reversal. Independent GF(2) rank/polynomial checks on 60 n,k instances, n<=14, corroborate proof.
 
-These finite computations cannot establish the theorem for arbitrarily large graphs or nonbinary characteristic-two fields. The general proof is the algebraic incidence calculation. No outside formal proof certificate is claimed, and no independent audit has been performed.
+## originality
+
+PASS
+
+Qualified: incidence Gram identity and general finite-linear-map dynamics are classical. The explicit full matching-deleted clique char-2 Jordan stratification and perfect-matching parity threshold were not found in relevant inspected sources.
+
+## value
+
+PASS
+
+PASS: Matching deletions form a canonical perturbation of cliques. The exact all-parameter characteristic-two Jordan census provides complete evolution and basin counts and reveals parity-controlled oscillatory versus nilpotent dynamics and a genuine perfect-matching rank transition not visible in real line-graph adjacency ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
