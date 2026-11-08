@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The statement quantifies over all integers \(r\ge0\) and over every \(0\le n<2^r\); the polynomial coefficients count precise valuation fibers. Legendre's formula removes the odd denominator and makes the valuation the number of carries when adding \(n\) to \(2n\). The four-state weighted matrix in `RESULT.md` lists all digit/carry transitions; the terminal weight counts the final high-bit carry exactly once. Direct polynomial algebra gives the resolvent numerator and determinant. The absence of valuation one is forced by two successive carries; zero-carry digit words are counted by Fibonacci numbers; a carry bound and the explicit witnesses \(n=2^j-1\) give the exact support. The embedded verifier checks all dyadic blocks through \(r=16\) and directly reconstructs the first 384 integers independently of the transfer matrix. It is supporting computation, not the proof.
+
+## Originality — PASS (historical priority not independently certified)
+The earliest directly relevant verified publication is Barat and Grabner's general theory of binomial valuations and digital functions (online January 30, 2002). Its Lemma 1 gives general matrix recurrences and later sections study asymptotic distributions, but the inspected material does not state the exact specialization here. Zhao, Pan, and Sun treat congruence sums modulo odd primes. OEIS A085357 already identifies the exact parity condition, and OEIS A036556 identifies parity of the valuation; neither provides the complete dyadic histogram or the missing-valuation/support theorem. An earlier three-adic histogram for the same Fuss–Catalan sequence concerns a different local prime and base of the index block; it does not imply the two-adic four-state formula. The closest general digital-method paper is a significant residual priority risk: a previously unpublished or unindexed direct specialization may exist. Searches and source-inspection comparisons are detailed in `AUDIT.json`.
+
+## Mathematical value — PASS
+The full exact valuation-distribution polynomial is a natural invariant of numbers enumerating complete ternary trees. It determines the number of counts divisible by exactly each power of two, not just their parity or asymptotic valuation density. The missing level one and the support \(\{0,2,\ldots,r\}\) are structural, while the rational generating function supplies the entire distribution for arbitrary \(r\). These properties are not implied by the previously documented parity and three-adic cases. They are more substantive than an arbitrary finite census or a routine change of notation.
+
+## Scope and limits
+The transfer-matrix method and parity characterization are explicitly prior work; only the specialized exact histogram and its nontrivial consequences are claimed. Arbitrary index intervals, other primes, and other Fuss–Catalan orders are outside scope. Source searches and comparison cannot certify absolute historical priority, and the self-review is not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.

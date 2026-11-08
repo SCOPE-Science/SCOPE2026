@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Kummer and the odd denominator reduce valuations exactly to binary addition carries. Four states with two digit transitions and an exact terminal carry supply the matrix identity for all r. The computed determinant and adjugate numerator give the rational generating function, so the degree-three recurrence is exact. The first-carry argument rules out valuation one; carry bounds and witnesses \\(n=2^j-1\\) prove exact support. Complete independent dyadic digit enumerations through r=16 and 384 large-integer checks passed; these finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat–Grabner (2002), Lemma 1, supplies a general matrix method for block-multiplicative digit functions; Sections 1–4 focus on asymptotics and entire rows of Pascal’s triangle.",
+        "Kauers–Krattenthaler–Müller (2012) study modular behavior of other Fuss–Catalan families, including order six, not this two-adic block histogram."
+      ],
+      "reasoning": "A general digital transfer algorithm does not in itself state the specific explicit polynomial, exact support, and structural missing-valuation property; deriving them for this arithmetic sequence is an additional exact specialization. Such a specialization could conceivably be straightforward within the general theory and is recorded as a priority/value risk; the examined source does not supply a theorem whose conclusion immediately includes this result.",
+      "searches": [
+        "valuation generating polynomial for binomial 3n choose n over binary dyadic intervals no valuation one",
+        "binomial coefficient (3n choose n) 2-adic valuation distribution n < 2^r rational generating function",
+        "Distribution of binomial coefficients and digital functions Barat Grabner",
+        "A Method for Determining the Mod-2^k Behaviour of Recursive Sequences Fuss Catalan"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cambridge.org/core/journals/journal-of-the-london-mathematical-society/article/abs/distribution-of-binomial-coefficients-and-digital-functions/59BEA01A925CA294F5A691D50F634A75",
+      "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+      "https://arxiv.org/abs/0909.3733",
+      "https://oeis.org/A001764",
+      "https://oeis.org/A085357",
+      "https://oeis.org/A036556",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i2p37/pdf/",
+      "https://arxiv.org/html/0909.3733v2",
+      "https://oeis.org/A085357",
+      "https://oeis.org/A036556"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhao–Pan–Sun (2009), Theorem 1.1, proves weighted sums modulo odd primes and is not a statement about \\(\nu_2\\).",
+        "An earlier exact three-adic dyadic-style census of the same ternary Fuss–Catalan object uses valuations \\(\nu_3\\) and index intervals \\(n<3^r\\), not \\(\nu_2\\) and \\(n<2^r\\).",
+        "Barat–Grabner Lemma 1 is general technique rather than this explicit enumeration."
+      ],
+      "reasoning": "The earlier three-adic theorem shares the object and valuation-histogram motivation, but its precise hypotheses and conclusion concern base three and do not mathematically imply the base-two coefficients or the missing exact two-adic valuation one. The present claim is not a restriction or corollary of the known three-adic statement, nor of the published parity-only formulas. The digit-transfer principle is prior, not the claim.",
+      "searches": [
+        "https://arxiv.org/abs/0909.3733",
+        "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "previous three-adic histogram for ternary Fuss Catalan numbers",
+        "2-adic valuation distribution of ternary Fuss Catalan numbers binomial(3n,n)/(2n+1) over n less than powers of two rational generating function carry transducer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A085357 identifies the binary no-adjacent-ones indicator for the parity of the ternary Fuss–Catalan sequence, not the distribution of valuations above zero.",
+        "OEIS A036556 relates parity of the valuation of the binomial \\(\binom{3n}{n}\\) to the binary digit parity of \\(3n\\), not the exact valuation frequency polynomial."
+      ],
+      "reasoning": "The putative equivalent descriptions include carry counts in n+2n, the digit-sum statistic 2s_2(n)-s_2(3n), divisibility levels of ternary trees, and the binary dyadic valuation enumerator. The located sources yield the individual valuation formula or its parity alone, not the generating rational function for all finite dyadic blocks.",
+      "searches": [
+        "2-adic valuation distribution of ternary Fuss Catalan numbers binomial(3n,n)/(2n+1) over n less than powers of two rational generating function carry transducer",
+        "Fuss Catalan second order valuation distribution dyadic blocks 2^r polynomial exact two-adic Kummer carry full distribution",
+        "Fuss Catalan order 2 no exactly one 2-adic factor Fibonacci odd values carries",
+        "\"binomial(3n,n)\" \"2-adic valuation\" distribution generating function",
+        "https://oeis.org/A085357",
+        "https://oeis.org/A036556"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001764 tabulates the sequence itself.",
+        "OEIS A085357 tabulates its parity and gives the no-consecutive-ones characterization.",
+        "OEIS A036556 tabulates indices where the valuation parity is odd."
+      ],
+      "reasoning": "Neither these entries nor the checked search results state the bivariate dyadic histogram \\(P_r(t)\\), its rational denominator, or the exact classification of all attained valuation levels. A table of integers, parity, or indices with odd valuation is not an equivalent exact histogram.",
+      "searches": [
+        "https://oeis.org/A001764",
+        "https://oeis.org/A085357",
+        "https://oeis.org/A036556",
+        "site:oeis.org \"valuation\" \"binomial(3*n,n)\""
+      ]
+    },
+    "rationale": "Sources disclose parity, general valuation/digital transfer methods, and an earlier distinct three-adic histogram for the same object, but not the present complete two-adic dyadic polynomial, missing level one, and exact support. The prime/base change is mathematically substantive and not implied by the three-adic result. General digital technique and parity subcase are acknowledged as known; residual priority risk remains.",
+    "residual_risks": [
+      "Historical priority is not independently certified; a direct binary specialization may appear in unindexed literature or in a part of the broad digital-function literature not examined.",
+      "A general transfer-matrix algorithm for digit functions is classical. The mathematical value claimed concerns the exact arithmetic invariant and structural gap, not methodological novelty.",
+      "The earlier exact three-adic histogram of the same sequence is adjacent work but not equivalent to the binary two-adic result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_STATEMENT",
+        "evidence": "Lemma 1 gives block matrix recurrence; the displayed valuation results average over all binomial coefficients up to rows and are asymptotic, with no \\(\binom{3n}{n}\\) or ternary Fuss–Catalan exact block polynomial located.",
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Introduction, Lemma 1 and its matrix formula in Section 2, and the described Sections 3–5 objectives",
+        "method": "Lawful public author PDF text, with page screenshots of the opening and lemma pages",
+        "title": "Distribution of binomial coefficients and digital functions",
+        "trigger": "The strongest general digital-block valuation framework and a previously known closely related histogram"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 1.1 and associated theorems concern weighted sums of \\(C_n^{(2)}\\) and binomial expressions modulo odd primes, with no binary valuation histogram.",
+        "identifier_or_url": "https://arxiv.org/html/0909.3733v2",
+        "material_read": "Full HTML introduction, Theorems 1.1–1.3, proof sections 2–4, and PDF initial page",
+        "method": "Lawful arXiv HTML and PDF-page inspection",
+        "title": "Some congruences for the second-order Catalan numbers",
+        "trigger": "Same classical object and verified number-theory primary classification"
+      },
+      {
+        "assessment": "NOT_COVERING_SPECIFIC_OBJECT",
+        "evidence": "The inspected Fuss–Catalan congruence theorems have different orders/termwise modular characteristics and do not enumerate the valuations of \\(C_n^{(2)}\\) for binary blocks.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i2p37/pdf/",
+        "material_read": "Introduction and the Fuss–Catalan sections around the stated theorem for order six",
+        "method": "Open-access journal PDF text and page screenshots",
+        "title": "A method for determining the mod-2^k behaviour of recursive sequences",
+        "trigger": "Potential stronger source about modular Fuss–Catalan behavior"
+      },
+      {
+        "assessment": "PARITY_SUBCASE_ALREADY_KNOWN",
+        "evidence": "It states that \\(C_n^{(2)}\\) is odd precisely when the binary expansion of \\(n\\) has no consecutive ones; it does not contain the full valuation distribution.",
+        "identifier_or_url": "https://oeis.org/A085357",
+        "material_read": "Title, comments, equations, references, links and examples",
+        "method": "Open text record",
+        "title": "OEIS A085357",
+        "trigger": "Exact parity formula may dominate some corollaries"
+      },
+      {
+        "assessment": "PARITY_OF_VALUATION_ONLY",
+        "evidence": "It characterizes indices where \\(\nu_2\binom{3n}{n}\\) is odd, without exact values or block counts.",
+        "identifier_or_url": "https://oeis.org/A036556",
+        "material_read": "Definition, comments and formulas",
+        "method": "Open text record",
+        "title": "OEIS A036556",
+        "trigger": "Potential prior table of valuation information"
+      },
+      {
+        "assessment": "SEQUENCE_TABLE_NOT_HISTOGRAM",
+        "evidence": "Records the integer \\(\binom{3n}{n}/(2n+1)\\) and combinatorial meaning, not the claimed valuation histogram.",
+        "identifier_or_url": "https://oeis.org/A001764",
+        "material_read": "Sequence definition, comments, references and formulas",
+        "method": "Open text record",
+        "title": "OEIS A001764",
+        "trigger": "Official table of same integer sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f423ce9-ed57-4c54-b43b-075927e9b3ee",
+  "value": {
+    "rationale": "The exact polynomial determines every two-adic divisibility fiber among ternary-tree counting numbers over all dyadic index blocks, an intrinsically motivated complete arithmetic distribution invariant. A structural gap at valuation one, Fibonacci odd counts, and full support through the sharp bound r add information not supplied by the known parity or other-prime results. It is not a finite arbitrary slice or a restatement of a textbook identity.",
+    "status": "PASS"
+  }
+}
