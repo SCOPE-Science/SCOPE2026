@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The full unrestricted minimization is reduced by convex averaging over genuine graph automorphisms; the complete two-layer spectrum gives three endpoints; the loopless row constraint collapses the objective to intersecting affine functions. The bipartite boundary and the holding benchmark are proved separately from the original formulas. The attached standard-library verifier passed 1,177 exact assertions, with full characteristic-polynomial checks on representative families. These finite checks do not establish the all-graph theorem independently of the analytic proof.
+## correctness
 
-**Originality (PASS, with residual historical risk).** The closest published general source is Boyd–Diaconis–Parrilo–Xiao (arXiv:0709.0955v1), which gives convex symmetry methods, Cartesian spectra and a *single-bridge* two-clique example, but not the sharp loopless two-layer theorem. Olesker-Taylor–Zanetti (2024), section 1.3.4, discusses exactly two cliques joined by a matching but determines only the order of the optimal spectral gap. The holding-allowed Cartesian-product optimum and the loopless cyclic-prism subclass are pre-existing antecedents and are not independently claimed as new. The assessed contribution is the exact global no-holding formula and its nonzero quantitative penalty for the previously uncovered parameter branch, together with the matched-clique and Johnson consequences. The zero-penalty threshold itself is implied by the known holding-allowed result and is not presented as independently new. A specialized unindexed paper might still imply the result.
+PASS
 
-**Value (PASS).** Self-transition prohibitions are a natural operating constraint for Markov consensus. The theorem quantifies their exact spectral cost for an infinite family of network bases, including a sharp Johnson-graph transition at dimension parameter \(n=6\) and an exact \(4/[3(3m-4)]\) penalty on a matching of two \(m\)-cliques. It supplies implementable, globally optimal weights rather than an asymptotic order bound, and it identifies precisely when a holding-free optimum already exists.
+For finite connected vertex- and edge-transitive d-regular H, convex spectral-norm averaging over automorphisms reduces all symmetric admissible stochastic P to two edge orbits. The block matrix has modes 1−xλ and 1−xλ−2y. With zero diagonal, y=1−dx gives max{1−δx,2dx−1} where δ=min(α,2d−β), minimized by x=2/(2d+δ), y=δ/(2d+δ), SLEM=(2d−δ)/(2d+δ). At δ=0 bipartite parity enforces eigenvalue −1 for every P. Allowing holding, the three endpoint constraints and row budget reconstruct optimum 1−2α/max(β+2α,2d+α); subtraction yields strictly positive penalty iff α+β>2d. Direct independent block-matrix eigenvalue computations and 151-point feasible x-mesh agree for complete bases m=3,4,5,9; the all-H proof is analytic.
 
-**Limits.** Reversible uniform-stationary discrete-time dynamics only; no global uniqueness claim outside the invariant subclass, no finite-horizon mixing-time optimality or nonreversible optimization. Independent validation is not implied by the included computations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical FMMC SDP/orbit and holding benchmarks are credited. New exact universal loopless optimum, explicit optimizer and quantitative positive penalty were not found in the relevant primary full text; priority qualification remains.
+
+## value
+
+PASS
+
+Sharp global spectral mixing optimization for an entire natural family of two-layer reversible graphs, pinpointing exactly when self-loops help and by how much; it is not just the known existence of a semidefinite program.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:50:04.236199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite connected vertex- and edge-transitive d-regular H, convex spectral-norm averaging over automorphisms reduces all symmetric admissible stochastic P to two edge orbits. The block matrix has modes 1−xλ and 1−xλ−2y. With zero diagonal, y=1−dx gives max{1−δx,2dx−1} where δ=min(α,2d−β), minimized by x=2/(2d+δ), y=δ/(2d+δ), SLEM=(2d−δ)/(2d+δ). At δ=0 bipartite parity enforces eigenvalue −1 for every P. Allowing holding, the three endpoint constraints and row budget reconstruct optimum 1−2α/max(β+2α,2d+α); subtraction yields strictly positive penalty iff α+β>2d. Direct independent block-matrix eigenvalue computations and 151-point feasible x-mesh agree for complete bases m=3,4,5,9; the all-H proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. graph symmetry FMMC permits holding and establishes orbit-SDP method.",
+          "Olesker-Taylor–Zanetti 2024 §1.3.4 covers two n-cliques connected by a perfect matching only at order-one optimal spectral-gap granularity."
+        ],
+        "reasoning": "Exact loopless spectral modulus and penalty are stronger than the special-clique asymptotic result, and sharper than general convex-program existence.",
+        "searches": [
+          "fastest mixing Markov chain H Cartesian K2 transitive regular graph zero diagonal loopless matched two layers spectral gap exact"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0709.0955",
+        "https://link.springer.com/article/10.1007/s00440-023-01257-x",
+        "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "Resultary query: fastest mixing Markov chain H Cartesian K2 transitive regular graph zero diagonal loopless matched two layers spectral gap exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyd et al. orbit reduction does imply the symmetrization step; the remaining objective reduces to max{1−δx,2dx−1}, absent as a named zero-holding solution.",
+          "Olesker-Taylor–Zanetti show order-one spectral gap for H=K_n but not exact m/(3m−4) SLEM or the positive holding penalty."
+        ],
+        "reasoning": "The present universal formula is a nontrivial explicit solution of a restricted minimax, not a parameter substitution into published exact values.",
+        "searches": [
+          "fastest mixing Markov chain H Cartesian K2 transitive regular graph zero diagonal loopless matched two layers spectral gap exact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd–Diaconis–Parrilo–Xiao 2007 supplies orbit averaging and Cartesian-product spectral structure for FMMC.",
+          "Theirs is a framework; the complete zero-diagonal minimax on H□K2 for every edge-transitive H is not stated."
+        ],
+        "reasoning": "General SLEM SDP formulations are equivalent to the optimization setup, but no closed all-base loopless optimizer/holding penalty follows without solving the constrained two-orbit program.",
+        "searches": [
+          "fastest mixing Markov chain H Cartesian K2 transitive regular graph zero diagonal loopless matched two layers spectral gap exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned graph spectral and mixing records but no explicit table for H□K2 SLEM across all connected transitive regular bases."
+        ],
+        "reasoning": "No exact database table located; literature search incompleteness remains.",
+        "searches": [
+          "fastest mixing Markov chain H Cartesian K2 transitive regular graph zero diagonal loopless matched two layers spectral gap exact"
+        ]
+      },
+      "rationale": "Classical FMMC SDP/orbit and holding benchmarks are credited. New exact universal loopless optimum, explicit optimizer and quantitative positive penalty were not found in the relevant primary full text; priority qualification remains.",
+      "residual_risks": [
+        "A specialized zero-diagonal FMMC analysis or spectral optimization of matching prisms may already imply the closed expressions.",
+        "No uniqueness claimed among all unconstrained matrices; only unique invariant minimizer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_METHOD_NOT_EXACT_RESULT",
+          "evidence": [
+            "Orbit averaging and Cartesian spectrum are already proved, but not the sharp zero-diagonal H□K2 optimizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Full ar5iv HTML, convex symmetry reductions and product spectral examples, including two-clique single bridge",
+          "method": "Primary full-text HTML; relevant theorems and proofs inspected",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Strong general orbit symmetrization and product theorem"
+        },
+        {
+          "assessment": "PRIOR_ASYMPTOTIC_SPECIAL_CASE",
+          "evidence": [
+            "Matching graph discussed, but order-one spectral-gap conclusion via 3-regular expander, not exact no-holding chain or penalty."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00440-023-01257-x",
+          "material_read": "Open journal HTML, §1.3.4 and its supporting introduction on vertex conductance",
+          "method": "Primary open journal HTML; matching-clique special-case section materially read",
+          "title": "Geometric bounds on the fastest mixing Markov chain",
+          "trigger": "Exact same two cliques joined by perfect matching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp global spectral mixing optimization for an entire natural family of two-layer reversible graphs, pinpointing exactly when self-loops help and by how much; it is not just the known existence of a semidefinite program.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric zero-diagonal walks on H□K2 with vertex- and edge-transitive H; no nonreversible or finite-time TV mixing claim."
+  ],
+  "schema_version": 1
+}
