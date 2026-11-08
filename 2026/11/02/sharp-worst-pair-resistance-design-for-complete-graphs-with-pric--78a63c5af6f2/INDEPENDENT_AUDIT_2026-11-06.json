@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:06:18.492040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Effective resistance is a convex quadratic inverse form of the connected Laplacian, so price-preserving graph automorphism averaging maps any unrestricted connected feasible optimum to an orbit-constant optimum at the same or lower objective; positive full budget is used. For x matching weight, y other weight, the nonzero Laplacian eigenspaces have eigenvalues 2x+(2m-2)y and 2my. Matched and unmatched pair resistances are respectively 2/lambda_a and 1/lambda_a+1/lambda_b, exchanging maximality at t=x/y=1. Differentiating both scalar pieces gives thresholds r_-=2(m-1)/(2m-1), r=2 and t*=sqrt(m(m-1)(2/r-1))-(m-1) for r<r_-, t=1 for r_-<=r<2, t=0 for r>2 and continuum 0<=t<=1 at equality r=2. Substitution proves the three global minimum formulas; averaging and uniqueness within the symmetric scalar model prove universal matching-edge deletion for r>2 and forbid all-edge deletion for r<2, but do not assert unrestricted uniqueness. Independent exact rational full-matrix pseudoinverses for m=2..6 at several orbit weights agree with spectral resistance expressions; the lower critical-window expansion was checked symbolically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh et al. §2 proves each pair resistance convex in conductances and §8 says maximum-pair optimization is convex/SDP.",
+          "Their analytic case studies concern trees, wheels and barbells for the total-resistance objective, not price-matching clique minimax."
+        ],
+        "reasoning": "The general convex-SDP framework dominates method but neither numerically nor analytically dominates the specialized exact matching-price theorem; the claim acknowledges the framework as prior.",
+        "searches": [
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph 2008 DOI 10.1137/050645452",
+          "minimax maximum effective resistance complete graph distinguished perfect matching edges two costs optimal conductance threshold"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh, Boyd, Saberi, SIAM Review 50 (2008) 37–66, DOI 10.1137/050645452, author-hosted full PDF; §§2,5,8",
+        "Raghavan Unnithan, Kannan, Jathavedan (2014) cocktail-party graph betweenness DOI 10.1155/2014/241723, context only",
+        "Resultary query minimax maximum effective resistance complete graph distinguished perfect matching edges two costs optimal conductance threshold",
+        "Pinned Git RESULT.md and its complete verify.py plus all source blob guards and source tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2008 §8 establishes computational solvability by SDP; no analytic matching-orbit eigenvalue reduction is provided for this family.",
+          "The present proof uses the wreath-product symmetry, exact two-eigenvalue resistance types and piecewise scalar derivatives."
+        ],
+        "reasoning": "The prior general SDP is an algorithm for obtaining an optimum, but it does not state or mathematically entail the explicit price-insensitive interval, 2Q support threshold and universal support implications without nontrivial additional analysis.",
+        "searches": [
+          "SIAM Review 2008 §8 minimizing maximum effective resistance",
+          "optimal conductance cocktail-party graph priced matching edges"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi SIAM Review 50 (2008), §8 explicitly formulates the same max-over-pairs objective as convex optimization.",
+          "A cocktail-party graph is K_{2m} minus a matching, but that graph name alone does not imply the price-controlled minimax optimum."
+        ],
+        "reasoning": "The exact objective is called resistance diameter or max effective resistance and can be formulated as an SDP. A general algorithm is not the specific three-phase closed-form solution, and the prior sum-resistance optimum is a different functional.",
+        "searches": [
+          "minimax maximum effective resistance complete graph distinguished perfect matching edges two costs optimal conductance threshold",
+          "Ghosh Boyd Saberi minimizing maximum effective resistance semidefinite program",
+          "resistance diameter conductance allocation K_{2m} matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Ghosh et al. case studies and extensions do not supply a priced-matching clique formula.",
+          "Resultary closest links concern other bipartite/matching invariants, not electrical-resistance diameter."
+        ],
+        "reasoning": "No matching three-regime threshold table found; a missing search result is only supporting risk context, not novelty proof.",
+        "searches": [
+          "maximum resistance complete graph minus perfect matching two edge prices phase threshold",
+          "cocktail party graph effective resistance optimal edge conductance price"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi (2008) contains the crucial convexity of effective resistance and explicitly lists minimization of maximum pair resistance as a convex SDP. Their analyzed graph families optimize total effective resistance and do not state the complete graph with a distinguished priced perfect matching or its exact 3-regime resistance-diameter solution. This claim credits the general method and adds explicit network-specific optimization and threshold/support laws.",
+      "residual_risks": [
+        "An older network-specific minimax resistance analysis of complete graphs with a priced matching could express the same thresholds.",
+        "The theorem does not classify nonsymmetric minimizers and cannot be extended to edge caps or other price classes without new proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General convexity/minimax SDP prior; does not state the matching-price phase diagram.",
+          "evidence": [
+            "§8 explicitly states minimizing max_{i,j} R_ij is a convex SDP; §5 analytic examples optimize sum rather than the priced matching clique."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Author-hosted 30-page PDF: abstract, §2 convexity, §5 listed analytic graph families and §8 extension around lines 1577–1598; first-page screenshot inspected.",
+          "method": "Read extracted full-PDF relevant sections and visual first page",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Exact optimization criterion is named in paper; possible stronger minimax coverage"
+        },
+        {
+          "assessment": "Different invariant (shortest-path betweenness), not resistance-diameter design.",
+          "evidence": [
+            "Topology name is not itself an optimization theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2014/241723",
+          "material_read": "Title and bibliographic/secondary description only, not primary full text.",
+          "method": "Bibliographic contextual comparison",
+          "title": "Betweenness Centrality in Some Classes of Graphs",
+          "trigger": "Cocktail-party graph K_{2m} minus a matching appears as limiting topology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimax terminal-pair effective resistance is a natural robust electrical-network design objective under a linear budget. The complete analytical price phase diagram, equal-weight plateau despite unequal prices, deletion threshold P/Q=2 independent of graph size, and asymptotic scaling supply exact design guidance for an infinite family, not an arbitrary finite instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only even cliques with a distinguished matching and two positive price classes; no unrestricted uniqueness claim.",
+    "Random feasible-sample comparisons are not an unrestricted optimality proof; convexity + averaging are."
+  ],
+  "schema_version": 1
+}

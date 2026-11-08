@@ -1,19 +1,21 @@
-# Review of sharp worst-pair resistance design for priced matching cliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the even complete graph, the priced matching, an independently variable nonnegative conductance on every edge, full budget and resistance-diameter objective. The proof reduces the unrestricted convex minimax problem by a price-preserving automorphism average; writes its weighted Laplacian as a complete-graph component plus a matching component; computes the two nonzero eigenspaces and both types of pairwise resistance exactly; and minimizes the two active scalar expressions with all endpoint and equality cases. The support implications for *every* optimizer use equality under averaging and uniqueness only within the orbit-constant scalar model. The 2,497 finite and symbolic assertions passed, including exact full-matrix rational identities, but finite checks are not offered as an infinite proof. No unrestricted uniqueness is claimed.
+PASS
 
-## Originality — PASS, qualified
+Effective resistance is a convex quadratic inverse form of the connected Laplacian, so price-preserving graph automorphism averaging maps any unrestricted connected feasible optimum to an orbit-constant optimum at the same or lower objective; positive full budget is used. For x matching weight, y other weight, the nonzero Laplacian eigenspaces have eigenvalues 2x+(2m-2)y and 2my. Matched and unmatched pair resistances are respectively 2/lambda_a and 1/lambda_a+1/lambda_b, exchanging maximality at t=x/y=1. Differentiating both scalar pieces gives thresholds r_-=2(m-1)/(2m-1), r=2 and t*=sqrt(m(m-1)(2/r-1))-(m-1) for r<r_-, t=1 for r_-<=r<2, t=0 for r>2 and continuum 0<=t<=1 at equality r=2. Substitution proves the three global minimum formulas; averaging and uniqueness within the symmetric scalar model prove universal matching-edge deletion for r>2 and forbid all-edge deletion for r<2, but do not assert unrestricted uniqueness. Independent exact rational full-matrix pseudoinverses for m=2..6 at several orbit weights agree with spectral resistance expressions; the lower critical-window expansion was checked symbolically.
 
-The 2006 and 2008 work of Ghosh, Boyd and Saberi explicitly recognizes minimizing the maximum effective resistance as a convex program, but does not give the matching-price exact three-regime solution in the inspected graph families or the size-independent deletion threshold. The 2014 cocktail-party-graph article treats geodesic betweenness rather than optimal priced resistive design. The most relevant earlier local results concern sum-resistance on a complete graph with one distinguished link and sum-resistance/spanning-tree objectives on a complete bipartite graph with a distinguished matching, not the present worst-pair objective and complete-graph topology. Semantic searches of mathematical research records did not show an equivalent exact theorem. This is a best-knowledge priority judgment, not a proof that no unindexed or inaccessible source contains the result.
+## originality
 
-## Value — PASS
+PASS
 
-Worst-pair resistance is a natural adversarial terminal-pair electrical-design criterion. The exact price-insensitive interval, the coexistence of deletion and retention at the threshold, the dimension-independent support transition and its lower-window scaling reveal a nontrivial structural distinction from average-resistance design. These statements give a direct, sharp budget allocation rule across an infinite graph family, rather than a mere numeric improvement or arbitrary parameter slice.
+Ghosh–Boyd–Saberi (2008) contains the crucial convexity of effective resistance and explicitly lists minimization of maximum pair resistance as a convex SDP. Their analyzed graph families optimize total effective resistance and do not state the complete graph with a distinguished priced perfect matching or its exact 3-regime resistance-diameter solution. This claim credits the general method and adds explicit network-specific optimization and threshold/support laws.
 
-## Limitations and nearest literature
+## value
 
-Main reference: Ghosh, Boyd and Saberi, MTNS 2006 and SIAM Review 2008, for convex resistance design and the general minimax formulation. Structural graph comparison: Raghavan Unnithan, Kannan and Jathavedan (2014), §3.4, on cocktail-party graphs. The inspected literature and search results cannot exclude specialized historical coverage. The proof does not classify nonsymmetric optimum sets or address graphs without a perfect matching or nonuniform within-class prices.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimax terminal-pair effective resistance is a natural robust electrical-network design objective under a linear budget. The complete analytical price phase diagram, equal-weight plateau despite unequal prices, deletion threshold P/Q=2 independent of graph size, and asymptotic scaling supply exact design guidance for an infinite family, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
