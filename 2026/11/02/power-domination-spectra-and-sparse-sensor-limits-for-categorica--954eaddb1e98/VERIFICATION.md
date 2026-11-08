@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify_power_product.py` checks the exact graph-adjacency definition, simulates the closed-neighborhood and all simultaneous forcing rounds, and compares the outcomes to the claimed structural classification. It then checks every coefficient of the proposed power-domination polynomial directly against independent graph-level counts.
+## correctness
 
-All nonempty subsets were examined for dimensions \((3,3)\), \((3,4)\), \((3,5)\), \((4,4)\), \((4,5)\), and \((5,3)\): a total of \(1,184,250\) examined vertex sets. Every subset of sizes \(1\) through \(4\) was also checked for \((5,5)\), and sizes \(1\) through \(3\) for \((5,6)\) and \((6,6)\). Checks verify the maximum-one-forcing-round assertion and immediate-stalling of all failed sets. The executable prints `VERIFY_OK` on completion.
+PASS
 
-The program is independent of the symbolic counting argument but not an exhaustive proof for all graph orders. Proof for arbitrary \(m,n\ge3\) is supplied in `RESULT.md`, including all boundary cases and both Bernoulli limits. The independent audit status is not performed.
+For m,n>=3 the closed neighborhoods leave, for one sensor, an entire row and column and every other observed vertex has m+n-4>=2 missing neighbors; no force. A pair in distinct rows and columns leaves exactly two cross cells, each uniquely forced in one simultaneous round. A set with no nonattacking pair lies wholly in one row or one column; if t>=2 chosen cells in a row, exactly u=n-t cells remain, and forces occur iff u<=2. This proves the exhaustive success classification, disjoint subtractive polynomial, sharp universal threshold max(2,m-2,n-2), and one-step bound. Bernoulli counts give both asymptotic limits. Independent exhaustive adjacency simulation checked 70,141 nonempty sets for (3,3),(3,4),(4,4), including success and number of rounds; these finite cases are corroboration only.
+
+## originality
+
+PASS
+
+Qualified PASS for the entire size polynomial, forcing-time classification and aspect-ratio sparse-sensor limits; ordinary scalar minimum power-domination number two is prior work.
+
+## value
+
+PASS
+
+PASS: Complete sharp size spectrum and forcing-time dichotomy for a natural graph product, plus genuinely different random sparse-sensor regimes when one versus both factors grow. The scalar minimum two alone would not give this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
