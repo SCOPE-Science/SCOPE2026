@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:56:36.080987Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complementary Beatty membership is w(m)=floor((m+1)alpha)-floor(m alpha), alpha=1/phi and beta=1-alpha. The convolution r(n)=sum_{m=1}^{n-1}w(m)(1-w(n-m)) reduces to counting irrational rotation points in a moving interval of length g({n alpha}), with g(t)=beta-t on [0,beta], t-beta on [beta,2beta], beta on [2beta,1]. Every Fibonacci-convergent block has O(1) uniform interval discrepancy and Zeckendorf decomposition uses O(log n) blocks, yielding r(n)=n*g({n alpha})+O(log n) uniformly. Equidistribution and continuity of g give density 2 on (0,beta), plus endpoint atom 1-2beta=sqrt(5)-2; moments follow by integration. Counts ordered positive U+V representations only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shallit derives a stronger finite-state computational evaluation mechanism. Ashburn treats exact low multiplicities r(n)=0,1,2; neither inspected statement asserts the all-n uniform O(log n) profile and weak law."
+        ],
+        "reasoning": "A generic representation algorithm can potentially imply the asymptotic after extra work, but no inspected prior theorem immediately dominates the distributional result.",
+        "searches": [
+          "arXiv:2006.04177 Section 11.2",
+          "arXiv:2610.04842"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob e67291f1e09399ceacaff97407c1dec18f5f1ef6",
+        "verify.py frozen blob 37b141d5adbb504c984967d0f7d042a114c3edd7",
+        "arXiv:2006.04177 Section 11.2",
+        "arXiv:2610.04842",
+        "OEIS A259598",
+        "Mixed Wythoff representation normalized limit atomic distribution Beatty sequences Fibonacci representation count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shallit Section 11.2 gives a rank-19 Fibonacci-regular representation for the same r(n); Ashburn establishes low-count classification. The proof here invokes Beatty complementarity, irrational rotation discrepancy and pushforward density."
+        ],
+        "reasoning": "The precise quantitative limit is not among the inspected section statements; older analysis of that stronger representation could still imply an equivalent atomic law.",
+        "searches": [
+          "arXiv:2006.04177 Section 11.2",
+          "arXiv:2610.04842",
+          "OEIS A259598"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact representation count r(n) is the mixed lower-plus-upper Wythoff convolution and an existing Fibonacci-regular rank-19 sequence; a linear representation may encode r(n) but does not itself assert the limiting pushforward law."
+        ],
+        "reasoning": "Reviewed the same counted objects under Beatty/Wythoff and automatic-sequence aliases. The asymptotic profile and endpoint atom require additional rotation-discrepancy analysis, not just renaming.",
+        "searches": [
+          "Mixed Wythoff representation normalized limit atomic distribution Beatty sequences Fibonacci representation count",
+          "arXiv:2006.04177 Section 11.2",
+          "OEIS A259598"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records mixed Wythoff representation values; the claimed result is a limiting distribution including a continuous part and a closed-form atom."
+        ],
+        "reasoning": "Known sequence entries or a finite representation table do not imply the infinite weak law or a sharp uniform logarithmic discrepancy.",
+        "searches": [
+          "OEIS A259598",
+          "Mixed Wythoff representation normalized limit atomic distribution Beatty sequences Fibonacci representation count"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison: the inspected classical tools, records, and primary material do not establish this complete new specific claim. Originality is qualified by explicit risks and limited full text; a failed search is not itself novelty proof.",
+      "residual_risks": [
+        "A prior asymptotic derived from Shallit’s exact rank-19 representation or in unindexed Wythoff literature might already produce the endpoint atom.",
+        "No claim to sharper O(1) discrepancy or local statistics inside atom."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same r(n) has Fibonacci-regular rank-19 description; section does not itself display the normalized limit measure.",
+          "evidence": "Section 11.2 explicitly discusses mixed Wythoff representations and linear representation.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.04177",
+          "material_read": "full lawful ar5iv HTML Section 11.2 and surrounding theorem/description",
+          "method": "ar5iv rendered primary full text",
+          "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+          "trigger": "same mixed lower/upper count r(n)"
+        },
+        {
+          "assessment": "Classification r(n)=0,1,2; whole-document noncoverage is not established.",
+          "evidence": "Focus on low representation multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04842",
+          "material_read": "indexed abstract and described low-count results; full body not read",
+          "method": "arXiv public discovery",
+          "title": "Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words",
+          "trigger": "same exact r(n)"
+        },
+        {
+          "assessment": "Known exact count entries; no inspected limiting atomic law.",
+          "evidence": "Sequence database, not an infinite distributional proof.",
+          "identifier_or_url": "https://oeis.org/A259598",
+          "material_read": "sequence entry description and sample context",
+          "method": "OEIS web/record discovery",
+          "title": "OEIS A259598",
+          "trigger": "exact mixed Wythoff count sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The representation count is a natural classical Wythoff sumset invariant. Its full normalized limit law unexpectedly has a genuine maximal-value atom with explicit mass despite nontrivial continuous density, and the pointwise logarithmic error is uniform; neither is merely another low-count identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob e67291f1e09399ceacaff97407c1dec18f5f1ef6",
+    "verify.py frozen blob 37b141d5adbb504c984967d0f7d042a114c3edd7",
+    "arXiv:2006.04177 Section 11.2",
+    "arXiv:2610.04842",
+    "OEIS A259598"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A prior asymptotic derived from Shallit’s exact rank-19 representation or in unindexed Wythoff literature might already produce the endpoint atom.",
+    "No claim to sharper O(1) discrepancy or local statistics inside atom."
+  ],
+  "residual_risks": [
+    "A prior asymptotic derived from Shallit’s exact rank-19 representation or in unindexed Wythoff literature might already produce the endpoint atom.",
+    "No claim to sharper O(1) discrepancy or local statistics inside atom."
+  ],
+  "schema_version": 1
+}

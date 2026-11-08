@@ -1,15 +1,21 @@
-# Review: an atomic limit law for mixed Wythoff counts
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses ordered pairs from the positive lower and upper Wythoff sequences, so the convolution identity has no zero-index terms. Beatty complementarity yields the indicator \(w(m)\); the three inequalities for \(\{m\alpha\}\) have lengths \(\beta-t\), \(t-\beta\), or \(\beta\). Fibonacci-convergent blocks give a uniform, starting-phase-independent discrepancy bound \(O(\log n)\) for intervals whose endpoints depend on \(n\). Irrational equidistribution then produces both the continuous component and the endpoint atom; boundedness gives every fixed positive moment. Verified finite-range comparisons are supplementary, not a substitute for this proof.
+## correctness
 
-## Originality — PASS with priority risk
-Ashburn (arXiv:2610.04842v1, Sections 1 and 3) classifies counts zero, one and two; Shallit (arXiv:2006.04177, Section 11.2) gives an exact automatic linear-representation *procedure* for mixed counts. The latter is particularly close and can evaluate individual inputs, but the inspected paper does not state this uniform irrational-rotation profile, limit law, or nonzero endpoint atom. OEIS A259598 contains values and local conjectures. An earlier Fibonacci-interval maximum theorem for the same sequence does not yield its empirical distribution. Prior generic convolution/automatic-sequence theory might contain equivalent asymptotic deductions; no independent priority guarantee is asserted.
+PASS
 
-## Mathematical value — PASS
-The natural representation multiplicity has recently been studied through small exact values. Determining its entire macroscopic distribution, including a nontrivial atom at the extreme normalized density and every fixed moment, answers a different global statistical question, with a new explicit three-branch structural formula.
+Complementary Beatty membership is w(m)=floor((m+1)alpha)-floor(m alpha), alpha=1/phi and beta=1-alpha. The convolution r(n)=sum_{m=1}^{n-1}w(m)(1-w(n-m)) reduces to counting irrational rotation points in a moving interval of length g({n alpha}), with g(t)=beta-t on [0,beta], t-beta on [beta,2beta], beta on [2beta,1]. Every Fibonacci-convergent block has O(1) uniform interval discrepancy and Zeckendorf decomposition uses O(log n) blocks, yielding r(n)=n*g({n alpha})+O(log n) uniformly. Equidistribution and continuity of g give density 2 on (0,beta), plus endpoint atom 1-2beta=sqrt(5)-2; moments follow by integration. Counts ordered positive U+V representations only.
 
-## Limits
-The full arithmetic error term is logarithmic; precise fluctuations and convergence speeds are not determined. Literature comparison is best-knowledge; earlier equivalent formulations remain a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison: the inspected classical tools, records, and primary material do not establish this complete new specific claim. Originality is qualified by explicit risks and limited full text; a failed search is not itself novelty proof.
+
+## value
+
+PASS
+
+The representation count is a natural classical Wythoff sumset invariant. Its full normalized limit law unexpectedly has a genuine maximal-value atom with explicit mass despite nontrivial continuous density, and the pointwise logarithmic error is uniform; neither is merely another low-count identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
