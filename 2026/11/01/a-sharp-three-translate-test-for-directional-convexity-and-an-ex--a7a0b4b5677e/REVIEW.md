@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Three-set inclusion–exclusion yields the nonnegative missing-middle indicator exactly, and Tonelli with a unit-Jacobian substitution proves the integrated hole identity. Positivity on gaps between the essential extrema characterizes interval fibers. Interval union-length accounting gives the general neighbor formula; joint \(L^1\)-translation continuity proves the rational-test version. The lower bound follows by minimizing \(z(m-z)\) for \(\alpha m\le z\le(1-\alpha)m\); a two-interval fiber with gap after exactly \(\alpha m\) occupied length attains equality. The executable tests finite rational configurations but is supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS with residual historical risk
-The primary 2026 source treats the Voronoi-nerve reduction under strict convexity and general-position assumptions; it neither derives nor covers the collinear all-measurable-set hole identity. Rataj's 2004 original describes the existing three-point probe and its ability to determine compact sets, then focuses on surface-normal and curvature derivatives; that broad determinacy does not supply the displayed quantitative integrated identity or sharp coefficient. The 2010 nonconvex covariogram literature studies other reconstruction problems. Targeted published mathematical-record searches for collinear translate unions, missing-middle defects and weighted interquantile stability returned no implication-covering result. Generic Fubini/indicator arguments remain potential historical overlap risks.
+PASS
 
-## Value — PASS
-The exact, nonnegative observable \(\mathcal H_v(E)\) converts experimentally accessible three-translate union and two-translate overlap volumes into a scale-sensitive quantitative detector of gaps along chosen directions. Unlike the qualitative fiber test, the sharp stability inequality bounds the volume of centrally missing fiber segments, correctly weighted by available signal, for arbitrary nonsmooth measurable geometry. Its coefficient is realized by explicit two-component test bodies. It supplies a precise stability benchmark for translation-union geometry and morphological probing, independent of boundary regularity.
+Inclusion-exclusion gives δ(a,b)=g(a+b)−|E∩(E+av)∩(E+(a+b)v)|, whose integrand counts occupied endpoints and a missing intermediate point, hence δ≥0. Fubini/Tonelli and change (r,a,b)↦(ell,x,r) with unit Jacobian map positive gaps to ell<x<r; integrating occupied lower/upper endpoints gives exactly ∫_{R\E_y}L_y(x)R_y(x)dxdy. Finiteness follows from bounded directional extent. Vanishing forces fibers to contain their essential interval spans modulo null sets. For interval fibers the adjacent-gap union formula is elementary and integrates by slices; continuity of translated L1 indicators gives rational-gap sufficiency. Between α and 1−α quantiles, αm≤L≤(1−α)m, so LR≥α(1−α)m², and a two-interval separated-gap example saturates. No false implication to global convexity from one direction.
 
-## Closest literature and limitations
-Shelley–Tartakovsky (arXiv:2610.25841), Rataj (2004), and Benassi–Bianchi–D'Ercole (2010) are cited in RESULT.md. Priority of similar classical morphology formulas remains uncertain. The theorem does not prove global convexity from a single direction, control low-mass fibers without weighting, or establish independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The basic three-point intersection/covariogram observable is known in Rataj 2004 (full text inspected) and not claimed novel. Rataj examines determination and curvature derivatives, not this collinear integrated missing-midpoint functional or its sharp fiber-weighted quantile bound. Shelley–Tartakovsky concerns general-position translates of strictly convex bodies, whereas this holds for arbitrary bounded measurable sets along one direction; a direct stronger covering statement was not found, with full Shelley text inaccessible. Best-of-knowledge rather than absolute priority.
+
+## value
+
+PASS
+
+Exact directional hole-energy identity offers a tractable characterization of essential convexity along fibers for arbitrary measurable bodies and a dimension-free sharp quantitative central-hole inequality; motivated analytic observable, meaningful boundary/quantitative value, not just an inclusion-exclusion sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
