@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:13:43.941699Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The map on (R/Z)×R has yprime=y−b sin(2pi x) and xprime=x+a(1−y′²)(1−epsilon y′²) mod 1. For b>0 fixed action gives x∈{0,1/2}; angle return requires integer lift winding m, not only zero. Writing z=y² gives epsilon z²−(1+epsilon)z+1−m/a=0, discriminant (1−epsilon)²+4epsilon m/a. With 0<a<1, m≥1 has exactly one positive z hence 4 fixed points; m=0 has 8 except 4 at epsilon=1; negative m=−k gives 8,4,0 as k<B, k=B,k>B with B=a(1−epsilon)²/(4epsilon). For Y≥max(1,epsilon^(−1/2)), all negative/zero points lie inside and each m∈{1,...,floor omega(Y)} contributes four, yielding exact height census with quartic leading 4a epsilon Y^4. The determinant-one Jacobian residue at positive branch is ±b pi a sqrt(z_(m,+) D_m); two points elliptic strictly when b<1/(pi a sqrt(zD)) and the others hyperbolic. Monotone d_m gives exact ceiling staircase and cubic inversion yields two-term b^(−4/3), b^(−2/3) asymptotics. Independent small-m root tests and inspected symbolic verify.py corroborate critical discriminant, residue and sample counts; algebra proves the infinite range. Linear ellipticity does not prove nonlinear islands.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grime sequel studies breakup and transport on particular resonances, while generic Greene residue criteria determine stability once all fixed-point branches are enumerated.",
+          "Fonseca thesis writes integer winding for another gyro-averaged quartic map rather than this parameterized biquadratic map."
+        ],
+        "reasoning": "Generic symplectic trace criteria or a different quartic nontwist map do not imply all this map’s exact negative winding cutoff, height count and ordered ellipticity staircase. Broader outer-resonance catalogues may still cover part.",
+        "searches": [
+          "Grime et al Shearless curve breakup in the biquadratic nontwist map arXiv:2305.17538",
+          "Fonseca 2016 gyro-averaged quartic nontwist thesis integer winding",
+          "Meiss 1992 symplectic residues and transport"
+        ]
+      },
+      "checked_sources": [
+        "Grime et al., Biquadratic Nontwist Map: a model for shearless bifurcations, arXiv:2209.07408v1, Chaos Solitons Fractals 169 (2023), §3, https://fisica.ufpr.br/viana/artigos/2023/grime2023.pdf",
+        "Grime et al., Shearless curve breakup in the biquadratic nontwist map, arXiv:2305.17538",
+        "Grime et al., Effective transport barriers in the biquadratic nontwist map, arXiv:2409.00785",
+        "Fonseca 2016 thesis, gyro-averaged quartic nontwist map §2.4.1",
+        "Meiss 1992, Symplectic maps, variational principles, and transport, RMP 64, 795",
+        "Resultary query 5 top Bogdanov-map period two classification; different map/model."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source polynomial twist and symplectic residue are prior; the source discusses m=0 eight points and shearless bifurcations.",
+          "Current result adds a complete m-indexed root discriminant analysis, all positive/negative m cases, exact large-Y count and monotone threshold inversion via s²(s+1+epsilon)=2epsilon/(pi²a²b²)."
+        ],
+        "reasoning": "The global census and sharp cutoff do follow by elementary algebra from the model, but are not consequences explicitly resolved in cited main-resonance analysis. Their value is the natural all-period-one classification, not a claim to invent residue algebra.",
+        "searches": [
+          "Grime Roberto Viana Elskens Caldas, Biquadratic Nontwist Map a model for shearless bifurcations arXiv:2209.07408, Section 3",
+          "Fonseca 2016 gyro-averaged quartic nontwist thesis integer winding",
+          "Meiss 1992 standard residue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On cylinder x mod 1, fixed points satisfy sin(2pi x)=0 and integer winding omega(y)=m∈Z; the quartic in y becomes quadratic in z=y² with discriminant D_m.",
+          "Original Grime Sec. 3 states eight distinguished fixed points from omega(y)=0 (m=0), not the full integer-lift spectrum on unbounded cylinder."
+        ],
+        "reasoning": "The four/four/eight windings and global quartic height law concern cylinder fixed points rather than zero-displacement fixed points of a chosen real lift; these are distinct mathematical formulations.",
+        "searches": [
+          "Resultary: biquadratic nontwist map period one resonance all integer winding fixed point count elliptic residue thresholds Grime",
+          "Grime Roberto Viana Elskens Caldas, Biquadratic Nontwist Map a model for shearless bifurcations arXiv:2209.07408, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact census at a=1/2,epsilon=1/4 and Y=3 gives 28 cylinder fixed points, while the original eight are just m=0 branches.",
+          "The whole m≥1 ladder is infinite, so finite main-resonance tables cannot certify quartic height asymptotic or b^(−4/3) staircase."
+        ],
+        "reasoning": "A known table with eight main-island points is not coverage of global all-integer windings. The listed full winding asymptotic requires solving the quartic for all integer m.",
+        "searches": [
+          "Resultary: biquadratic nontwist map period one resonance all integer winding fixed point count elliptic residue thresholds Grime",
+          "Source Grime 2023 Eq (10) and Sec 3 fixed points",
+          "Resultary query 5 nontwist resonance"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for full unbounded-cylinder global integer-winding census and elliptic cutoff. Original Grime primary defines same quartic nontwist map, analyzes eight distinguished m=0 fixed points and their residues, and does not in inspected relevant Section 3 establish the infinite all-m classification; integer winding and Greene residue themselves are prior work. A same-model outer-resonance study could dominate, retained as risk.",
+      "residual_risks": [
+        "Same-model later work on outer resonances or hidden appendices could contain the complete count; checked primary Section 3 covers winding-zero in detail.",
+        "The unbounded mathematical cylinder may far exceed source plasma approximation validity; usefulness is mathematical, not a physical prediction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_WINDING_ZERO_ONLY",
+          "evidence": "The printed eight fixed points concern winding zero/principal resonance, not unbounded-cylinder all-integer shift count and positive-winding staircase.",
+          "identifier_or_url": "https://fisica.ufpr.br/viana/artigos/2023/grime2023.pdf",
+          "material_read": "Primary full-text PDF, Section 3.1 eight principal fixed points and symmetries; inspected page images and equations",
+          "method": "Source PDF text and screenshot examination",
+          "title": "Biquadratic Nontwist Map: a model for shearless bifurcations",
+          "trigger": "Exact same map Eq. 10, period-one fixed points and residue"
+        },
+        {
+          "assessment": "PRIORITY_RISK_PLAUSIBLE",
+          "evidence": "Breakup of shearless curves does not itself imply full fixed-point staircase; inaccessible details not declared noncovering.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.17538",
+          "material_read": "Accessible abstract/source overview, not entire proof/appendices",
+          "method": "ArXiv abstract inspection",
+          "title": "Shearless curve breakup in the biquadratic nontwist map",
+          "trigger": "Same BNM and possible additional outer resonance classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact all-winding count and sharp linear stability staircase for a natural area-preserving map can be needed to understand high-action resonances. The unbounded-cylinder mathematical distinction from a lift and noncommuting epsilon→0/large-height limits are substantive; physical relevance outside the approximation’s action range is explicitly limited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Grime et al., Biquadratic Nontwist Map: a model for shearless bifurcations, arXiv:2209.07408v1, Chaos Solitons Fractals 169 (2023), §3, https://fisica.ufpr.br/viana/artigos/2023/grime2023.pdf",
+    "Grime et al., Shearless curve breakup in the biquadratic nontwist map, arXiv:2305.17538",
+    "Grime et al., Effective transport barriers in the biquadratic nontwist map, arXiv:2409.00785",
+    "Fonseca 2016 thesis, gyro-averaged quartic nontwist map §2.4.1",
+    "Meiss 1992, Symplectic maps, variational principles, and transport, RMP 64, 795",
+    "Resultary query 5 top Bogdanov-map period two classification; different map/model."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "0<a<1,epsilon>0,b>0, cylinder full action R; elliptic = linear trace criterion only; m positive staircase; no KAM nonlinear stability or periods>1."
+  ],
+  "residual_risks": [
+    "Same-model later work on outer resonances or hidden appendices could contain the complete count; checked primary Section 3 covers winding-zero in detail.",
+    "The unbounded mathematical cylinder may far exceed source plasma approximation validity; usefulness is mathematical, not a physical prediction."
+  ],
+  "schema_version": 1
+}

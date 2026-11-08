@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the full cylinder with angle taken modulo one and nonzero forcing \(b\), not a real-lift fixed-point equation. The two fixed-angle classes and the integer-winding quadratic are necessary and sufficient. Because \(0<a<1\), no root occurs at \(y=0\); the positive/zero/negative winding cases are disjoint and fully counted, including the double-root fold and \(\epsilon=1\). Monotonicity of the outer branch yields an exact all-heights count and the bounded-error quartic law. Direct differentiation proves determinant one and the residue pattern; the monotone cubic threshold gives the strict ellipticity count and the two-term asymptotic. The reproduced checker passed 145 finite checks. Residue conditions establish **linear** ellipticity only.
+PASS
 
-## Originality — PASS in inspected evidence, not independently certified
+The map on (R/Z)×R has yprime=y−b sin(2pi x) and xprime=x+a(1−y′²)(1−epsilon y′²) mod 1. For b>0 fixed action gives x∈{0,1/2}; angle return requires integer lift winding m, not only zero. Writing z=y² gives epsilon z²−(1+epsilon)z+1−m/a=0, discriminant (1−epsilon)²+4epsilon m/a. With 0<a<1, m≥1 has exactly one positive z hence 4 fixed points; m=0 has 8 except 4 at epsilon=1; negative m=−k gives 8,4,0 as k<B, k=B,k>B with B=a(1−epsilon)²/(4epsilon). For Y≥max(1,epsilon^(−1/2)), all negative/zero points lie inside and each m∈{1,...,floor omega(Y)} contributes four, yielding exact height census with quartic leading 4a epsilon Y^4. The determinant-one Jacobian residue at positive branch is ±b pi a sqrt(z_(m,+) D_m); two points elliptic strictly when b<1/(pi a sqrt(zD)) and the others hyperbolic. Monotone d_m gives exact ceiling staircase and cubic inversion yields two-term b^(−4/3), b^(−2/3) asymptotics. Independent small-m root tests and inspected symbolic verify.py corroborate critical discriminant, residue and sample counts; algebra proves the infinite range. Linear ellipticity does not prove nonlinear islands.
 
-The 2022 original preprint and its journal version (Grime et al., arXiv:2209.07408; equations 10, 20–22 and §3), the complete 2023 follow-up (arXiv:2305.17538; §2 and Appendix), and the text of the 2024 transport paper (arXiv:2409.00785) were examined for the same domain, fixed points, integer lift winding, and stability. They describe the main winding-zero resonances and transport rather than the exact global winding spectrum and elliptic staircase. Fonseca's 2016 thesis, §2.4.1, already writes integer winding conditions for a **different quartic map**; no novelty is attributed to that method. Published-index and wider keyword searches disclosed no implication-equivalent prior exact classification, but similarity search is not exhaustive. A more general previously known resonance-counting theorem or later published specialist source remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full cylinder fixed-point set is countably infinite, unlike the small family of main islands typically depicted in the model, and the exact distribution of positive/negative windings and folds is an intrinsic dynamical invariant. The sharp \(Y^4\) global counting law and \(b^{-4/3}\) elliptic-index law quantify distinct asymptotic geometric and linear-stability regimes. Their explicit leading and correction coefficients and the zero-quartic-term degeneration at \(\epsilon=0\) make the classification useful beyond cataloguing example roots. The unrestricted action range can lie outside the derivation's physical accuracy; this is a mathematical result about the defined map, not a plasma-transport prediction.
+Best-of-knowledge PASS for full unbounded-cylinder global integer-winding census and elliptic cutoff. Original Grime primary defines same quartic nontwist map, analyzes eight distinguished m=0 fixed points and their residues, and does not in inspected relevant Section 3 establish the infinite all-m classification; integer winding and Greene residue themselves are prior work. A same-model outer-resonance study could dominate, retained as risk.
 
-## Literature comparisons and limits
+## value
 
-Primary materials: Grime et al. 2022/2023, *Biquadratic Nontwist Map* (arXiv:2209.07408v1); Grime et al. 2023, *Shearless curve breakup* (arXiv:2305.17538); Grime et al. 2024, *Effective transport barriers* (arXiv:2409.00785). Strong conceptual precedent: Fonseca, 2016 thesis §2.4.1 (integer winding for another quartic symplectic map). The exact fixed-point census and asymptotic are not explicitly reported in the inspected material; a prior derivation outside those sources cannot be excluded. Numerical tests are corroboration and are not sufficient for an infinite claim. No nonlinear stability or independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact all-winding count and sharp linear stability staircase for a natural area-preserving map can be needed to understand high-action resonances. The unbounded-cylinder mathematical distinction from a lift and noncommuting epsilon→0/large-height limits are substantive; physical relevance outside the approximation’s action range is explicitly limited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

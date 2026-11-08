@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy. The standalone checker executes 145 separate finite tests and reports `PASS`. It checks symbolic factorization of the integer-winding quadratic, determinant-one residue algebra, exact positive/zero/negative root classifications for rational parameters, height counts based on independently reconstructed quadratic roots, strict positive-winding elliptic-index thresholds, and the sharp small-perturbation two-term expansion at numerical samples.
+## correctness
 
-The full proof, including all integer windings, the monotonicity argument, the exact ceiling convention at a parabolic threshold, and the uniform bounded remainder, appears in RESULT.md. The checker tests representative finite instances and does not attempt an exhaustive parameter proof or mathematical independence certification. It does not check nonlinear ellipticity, measure-theoretic invariant islands, or model applicability at unbounded physical action. Relevant source comparisons and residual publication-priority risks are in REVIEW.md and AUDIT.json.
+PASS
+
+The map on (R/Z)×R has yprime=y−b sin(2pi x) and xprime=x+a(1−y′²)(1−epsilon y′²) mod 1. For b>0 fixed action gives x∈{0,1/2}; angle return requires integer lift winding m, not only zero. Writing z=y² gives epsilon z²−(1+epsilon)z+1−m/a=0, discriminant (1−epsilon)²+4epsilon m/a. With 0<a<1, m≥1 has exactly one positive z hence 4 fixed points; m=0 has 8 except 4 at epsilon=1; negative m=−k gives 8,4,0 as k<B, k=B,k>B with B=a(1−epsilon)²/(4epsilon). For Y≥max(1,epsilon^(−1/2)), all negative/zero points lie inside and each m∈{1,...,floor omega(Y)} contributes four, yielding exact height census with quartic leading 4a epsilon Y^4. The determinant-one Jacobian residue at positive branch is ±b pi a sqrt(z_(m,+) D_m); two points elliptic strictly when b<1/(pi a sqrt(zD)) and the others hyperbolic. Monotone d_m gives exact ceiling staircase and cubic inversion yields two-term b^(−4/3), b^(−2/3) asymptotics. Independent small-m root tests and inspected symbolic verify.py corroborate critical discriminant, residue and sample counts; algebra proves the infinite range. Linear ellipticity does not prove nonlinear islands.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for full unbounded-cylinder global integer-winding census and elliptic cutoff. Original Grime primary defines same quartic nontwist map, analyzes eight distinguished m=0 fixed points and their residues, and does not in inspected relevant Section 3 establish the infinite all-m classification; integer winding and Greene residue themselves are prior work. A same-model outer-resonance study could dominate, retained as risk.
+
+## value
+
+PASS
+
+A complete exact all-winding count and sharp linear stability staircase for a natural area-preserving map can be needed to understand high-action resonances. The unbounded-cylinder mathematical distinction from a lift and noncommuting epsilon→0/large-height limits are substantive; physical relevance outside the approximation’s action range is explicitly limited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
