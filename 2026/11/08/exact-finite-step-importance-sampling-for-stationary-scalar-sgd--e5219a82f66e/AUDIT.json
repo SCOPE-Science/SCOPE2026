@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Direct independent-affine recursion for every iid index yields Q=1-2ηā+η²m^{-2}Σa_i²/p_i and stationary variance (Σr_i²/p_i)/(2m²ā/η-Σa_i²/p_i). Existence and necessity of a finite-second-moment stationary law follow from contraction and nonzero centered innovations. A strictly decreasing root function establishes unique V*>0. Cauchy–Schwarz proves the global minimum and equality conditions establish unique full-support probabilities. Exact-rational verification independently confirms the triple V*=1/15 versus 1/3, 288 other covariance cases and 9053 finite-grid comparisons; the finite checks are not substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Ziyin–Ueda section 4.1 gives an exact covariance equation for quadratic SGD with additive noise and deterministic Hessian, excluding sampling-dependent random multiplicative curvature.",
+        "Défossez–Bach treats averaged LMS, not an exact full-support global stationary law for unaveraged iid weighted iterations.",
+        "The closest published results on Loopless SVRG and STORM analyze different recursive estimators and stability modes."
+      ],
+      "reasoning": "A more general theorem would cover this result if it supplied exact p-dependent invariant second moment and optimizer for noninterpolating scalar quadratics; no inspected primary source or closest published finding supplies both. Additive-noise covariance formulas alone do not imply the random-multiplier trade-off.",
+      "searches": [
+        "stochastic reweighted gradient descent finite step stationary non averaged optimum sampling variance",
+        "optimal sampling distribution for stochastic gradient descent minimizes stationary variance with heterogeneous component Hessians",
+        "https://arxiv.org/abs/1412.0156",
+        "https://arxiv.org/abs/2012.03636",
+        "https://arxiv.org/abs/2402.03113",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+        "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2103.12293",
+      "https://arxiv.org/abs/2103.12243",
+      "https://arxiv.org/abs/1412.0156",
+      "https://arxiv.org/abs/2012.03636",
+      "https://arxiv.org/abs/2402.03113",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "El Hanchi–Stephens (2021) proposes gradient-variance-minimizing importance sampling; minimization of its instantaneous variance would give zero probability to the third component of the example, while the exact finite-step optimum assigns probability 5/9.",
+        "Appendix D of arXiv:2103.12243 is empirical fixed-step adaptation, not an exact stationary theorem.",
+        "Défossez–Bach section 4 switches to γ→0, which cannot imply the exact all-step formula."
+      ],
+      "reasoning": "The third-component counterexample separates the implications: an instantaneous-gradient-variance minimum is incompatible with the exact stationary optimum, while an averaged-small-step guarantee does not specify any fixed-step stationary optimum. Therefore the inspected claims do not dominate or subsume the finding.",
+      "searches": [
+        "stochastic reweighted gradient descent finite step stationary non averaged optimum sampling variance",
+        "exact optimal importance sampling probabilities stationary mean square error finite learning rate stochastic gradient descent heterogeneous scalar strongly convex quadratic components rational Dinkelbach residual curvature",
+        "https://arxiv.org/abs/2103.12293",
+        "https://arxiv.org/abs/2103.12243",
+        "https://arxiv.org/abs/1412.0156",
+        "https://arxiv.org/abs/2012.03636"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new problem is a one-parameter fractional minimization of Σ r_i²/p_i divided by C_η-Σ a_i²/p_i; its root-equality formula is an equivalent scalar Cauchy certificate.",
+        "Défossez–Bach section 4 explicitly says optimizing sampling for arbitrary fixed γ is tricky and optimizes a small-step approximation for averaged least-mean-squares instead.",
+        "El Hanchi–Stephens section 2 equation (4) optimizes instantaneous gradient variance Σ∥gradient∥²/p_i, without a curvature-weighted stationary denominator."
+      ],
+      "reasoning": "The equivalent fractional and scalar-root formulations were searched against relevant full-text sampling results. The source optimization targets differ: stationary unaveraged risk versus gradient estimator variance or averaged finite-time risk. General fractional programming could independently recover the exact optimum, which is disclosed as residual risk.",
+      "searches": [
+        "finite step size stationary variance importance sampling SGD optimal probabilities formula sqrt gradient residual squared plus V Hessian squared scalar quadratic",
+        "stationary mean square error sampling distribution noninterpolating quadratic positive zero residual curvature importance weighted gradient oracle",
+        "exact optimal importance sampling probabilities stationary mean square error finite learning rate stochastic gradient descent heterogeneous scalar strongly convex quadratic components rational Dinkelbach residual curvature",
+        "https://arxiv.org/abs/2103.12293",
+        "https://arxiv.org/abs/1412.0156"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published inverse-positive coordinate sampling concerns expected Hessian-energy contraction for coordinate gradients, rather than importance-weighted component-gradient stationary risk.",
+        "Published curvature-clipping sampling under a stochastic Polyak step involves a different update.",
+        "The example requires all-m nonlinear optimizer, not a known finite table lookup."
+      ],
+      "reasoning": "No exact table among compared records contains the all-m scalar-root optimizer or the noninterpolating (1,1,10) triple. A similarity search without a match is not an exhaustive novelty proof.",
+      "searches": [
+        "finite step size stationary variance importance sampling SGD optimal probabilities formula sqrt gradient residual squared plus V Hessian squared scalar quadratic",
+        "stationary mean square error sampling distribution noninterpolating quadratic positive zero residual curvature importance weighted gradient oracle",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee"
+      ]
+    },
+    "rationale": "Claim-level comparison across fixed-step SGD sampling, averaged least-mean-square sampling, adaptive gradient-variance sampling, additive-noise stationary covariance, and previously published scalar stochastic optimization distinguishes exact stationary unaveraged risk optimization with importance-dependent curvature and its unique all-m step-dependent optimizer. A broad classical reduction or unlocated equivalent remains possible; this comparison is not an independent priority certificate.",
+    "residual_risks": [
+      "The exact root characterization might be equivalent to an older fractional-programming or random-affine-recursion theorem not identified by title/alias searches.",
+      "A specialist may find a stronger finite-step importance-sampling theorem outside accessible inspected literature.",
+      "Finite exact checks do not certify general-case proof or publication precedence independently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact static fixed-step unaveraged stationary risk optimizer; source minimizes instantaneous gradient estimator variance",
+        "evidence": "Section 2 equation (4) and surrounding text describe Σ||∇f_i(x)||²/p_i, with no p-dependent stationary covariance denominator.",
+        "identifier_or_url": "https://arxiv.org/abs/2103.12293",
+        "material_read": "Sections 1–2, definitions of unbiased importance sampling and gradient-estimator variance, contributions, convergence framing",
+        "method": "Full accessible arXiv HTML mathematical text",
+        "title": "Stochastic Reweighted Gradient Descent",
+        "trigger": "Primary importance-weighted finite-sum SGD comparison"
+      },
+      {
+        "assessment": "NOT_COVERING the exact stationary optimizer; constant-step appendix is experimental",
+        "evidence": "Appendix D proposes an exploration floor schedule for constant-step empirical experiments and notes no precise guarantees for its optimal floor.",
+        "identifier_or_url": "https://arxiv.org/abs/2103.12243",
+        "material_read": "Abstract, introduction, key results and complete Appendix D lines 780–790",
+        "method": "Full accessible arXiv HTML including appendix",
+        "title": "Adaptive Importance Sampling for Finite-Sum Optimization and Sampling with Decreasing Step-Sizes",
+        "trigger": "Same authors explicitly claim constant-step extension in appendix"
+      },
+      {
+        "assessment": "NOT_COVERING the unaveraged exact all-step optimizer; averaged algorithm and small-step approximation",
+        "evidence": "Section 4.1 states arbitrary-step sampling optimization is tricky and hence optimizes in the limit γ→0; invariant unaveraged risk is not its objective.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.0156",
+        "material_read": "Theorems context and full section 4.1–4.4 relevant sampling statements, especially lines 161–180",
+        "method": "Full accessible arXiv HTML mathematical text",
+        "title": "Constant Step Size Least-Mean-Square: Bias-Variance Trade-offs and Optimal Sampling Distributions",
+        "trigger": "Closest historical title about optimized constant-step sampling"
+      },
+      {
+        "assessment": "NOT_COVERING p-dependent component curvature optimization",
+        "evidence": "Their SGD gradient oracle is K w plus additive centered noise, with covariance identity ΣK+KΣ-λKΣK=λC, not a p-controlled random K_i.",
+        "identifier_or_url": "https://arxiv.org/abs/2012.03636",
+        "material_read": "Section 4.1 Theorem 1, model assumptions and finite-step covariance identities, plus application discussion",
+        "method": "Full accessible arXiv HTML mathematical text",
+        "title": "Noise and Fluctuation of Finite Learning Rate Stochastic Gradient Descent",
+        "trigger": "Exact stationary finite-step quadratic covariance potential dominating theorem"
+      },
+      {
+        "assessment": "NOT_COVERING unaveraged stationary scalar importance-weighted SGD optimum",
+        "evidence": "Their method samples projected gradients and analyzes convergence in function spaces with a different sampling operator and assumptions.",
+        "identifier_or_url": "https://arxiv.org/abs/2402.03113",
+        "material_read": "Sections 1–2 setup and sampling objective, applications and methodological scope",
+        "method": "Full accessible arXiv HTML mathematical text",
+        "title": "Optimal sampling for stochastic and natural gradient descent",
+        "trigger": "Potential general optimal sampling theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5219a82-f66e-488d-99cd-2bce7d90c8b7",
+  "value": {
+    "rationale": "The global design problem is naturally motivated by the gap between variance-minimizing gradient sampling and actual long-run constant-step optimization error. The theorem provides a unique computable optimum for every noninterpolating m-component scalar quadratic and entire admissible stepsize interval; a zero-residual yet high-curvature component gets majority optimal sampling mass, and the optimal design cuts stationary error by exactly a factor of five in a natural simple example. These are structural and quantitative, not a routine endpoint check.",
+    "status": "PASS"
+  }
+}
