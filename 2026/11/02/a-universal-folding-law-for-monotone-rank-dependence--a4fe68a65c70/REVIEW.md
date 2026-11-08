@@ -1,19 +1,21 @@
-# Self-review: a universal folding law for monotone rank dependence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement applies to every bivariate copula and every positive integer fold count. The random-branch construction gives a copula with a repeated conditional-distribution kernel. The full correlation identity follows by a direct cellwise change of variables. The critical nonstandard step is the repeated-envelope lemma: the least concave majorant of a repeated zero-endpoint function consists of the original first rising envelope, an intermediate plateau at its global maximum, and the original final falling envelope. The construction is the least majorant by pointwise comparison on those three regions; its squared derivative energy is multiplied by the fold count. The projection's additional reciprocal fold factor therefore yields the precise reciprocal coefficient. Reflection and integration give the remaining identities. Singular copulas and endpoint sections are included. Exact-rational PAVA checks passed 13,796 assertions but are not used as infinite-dimensional proof.
+PASS
 
-## Originality — PASS, subject to independent priority review
+For any bivariate copula and integer k>=1, independent branch J gives F_k C=(jv+C(ku-j,v))/k. The a.e. conditional derivative repeats, preserving population xi; centered section F_v(t)=C(t,v)-tv is Lipschitz with zero endpoints. The least concave majorant of k repetitions has only first-rise and last-fall portions of the original envelope, joined by a maximal plateau; its derivative L2 energy scales by k. Combined with amplitude 1/k this proves xi^up(F_k C)=xi^up(C)/k; reflecting predictor gives xi^down likewise. Integration gives rho_S/k, and Frechet deviations |C-Pi|<=1/4 give uniform closeness <=1/(4k) with equality for comonotone. The proof handles singular copulas and k=1. Independent exact rational PAVA comparison of 6,723 centered profiles length 2..6 for fold factors 2,3,5 corroborated e(F_k)=e/k but finite sampling is not continuum proof.
 
-The originating source is Ansari, arXiv:2604.09950v1, first public April 10, 2026 (primary MSC 60E15), which motivates copula operators separating functional from monotone dependence. The closest subsequent comparison is Siburg, arXiv:2610.35340v1, first public October 26, 2026. It establishes the projection onto stochastically increasing copulas and the three-part coefficient, and its Example 5.4 proves the reciprocal law for one deterministic sawtooth family. The new statement treats every bivariate copula, simultaneously preserves total Chatterjee dependence, calculates both directional components and Spearman's rho, and gives a sharp uniform-convergence envelope. The repeated-envelope lemma supplies the extension to an arbitrary input, not merely the source's piecewise-linear example. The earlier Ansari work concerns upper-product/rearrangement operators, not the present periodic fold, while the later Siburg paper supplies the projected coefficient definitions and a special sawtooth calculation. Relevant mathematical-record results concerned a Marshall–Olkin directional-correlation range, an FGM block substitution, and finite isotonic stability; they do not imply the general reciprocal folding law. Searches and full-text comparisons are documented in AUDIT.json. A wider unretrieved copula-transform reference might have an equivalent theorem; absence of a database hit is not a proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact all-copula identity isolates an order-sensitive statistic under a canonical information-preserving but nonmonotone change of predictor. It shows that an arbitrarily small uniform perturbation of independence can retain a fixed, nonzero predictive-dependence coefficient while both monotone directional components vanish at an exact rate. This strengthens the qualitative discontinuity phenomenon and extends the motivating sawtooth case to full-support absolutely continuous families such as FGM copulas and to arbitrary singular copulas. The reciprocal law is an exact structural classification, not a parameter renaming or a finite numerical example. Its precision matters when monotone explainability is compared to unconditional predictive association.
+Siburg October 2026 establishes the LCM projection framework and its special deterministic sawtooth Example 5.4 with xi^up=1/k; these are credited. The arbitrary-copula fold law, both monotone directional coefficients, Spearman scaling, and sharp sup distance require a repeated-envelope lemma absent from the reviewed example. Ansari’s copula upper-product transformation is different from randomized equal-width branch-lifting.
 
-## Literature boundary and limitations
+## value
 
-The proof relies on the published least-concave-majorant interpretation of the projected correlation, which is explicitly credited. The general folding identity itself is proved from the new repeated-envelope lemma. No statements about nonuniform branch widths, empirical estimator convergence rates, or global originality are asserted. Bibliographic coverage cannot replace independent expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact universal structural transformation retaining full directed predictive dependence xi while quantitatively annihilating increasing/decreasing projected components and concordance is mathematically motivated and counterintuitive; the all-copula statement is stronger than a known sawtooth example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

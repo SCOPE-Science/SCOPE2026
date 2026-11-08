@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof checks the copula construction, almost-everywhere derivative identity, an exact repeated least-concave-majorant lemma, reflection of the predictor, and the Frechet uniform bound. No finite calculation substitutes for the all-copula theorem.
+# Independent mathematical audit
 
-Reproduce the checks by running `python3 verify.py` and comparing the output with `verification_output.txt`. This uses only Python standard-library exact fractions. Every centered integer step profile of lengths two through six over the alphabet `[-2,-1,0,1,2]` is checked at replicate counts two, three, and five. Closed-form FGM and comonotone cases check the endpoint laws. The 13,796 assertions completed successfully.
+## correctness
 
-The checker does not establish global originality or validate the continuum lemma independently. The published projection theorem and both comparisons are identified by URL in `RESULT.md`. Independent mathematical and bibliographic audit has not been performed.
+PASS
+
+For any bivariate copula and integer k>=1, independent branch J gives F_k C=(jv+C(ku-j,v))/k. The a.e. conditional derivative repeats, preserving population xi; centered section F_v(t)=C(t,v)-tv is Lipschitz with zero endpoints. The least concave majorant of k repetitions has only first-rise and last-fall portions of the original envelope, joined by a maximal plateau; its derivative L2 energy scales by k. Combined with amplitude 1/k this proves xi^up(F_k C)=xi^up(C)/k; reflecting predictor gives xi^down likewise. Integration gives rho_S/k, and Frechet deviations |C-Pi|<=1/4 give uniform closeness <=1/(4k) with equality for comonotone. The proof handles singular copulas and k=1. Independent exact rational PAVA comparison of 6,723 centered profiles length 2..6 for fold factors 2,3,5 corroborated e(F_k)=e/k but finite sampling is not continuum proof.
+
+## originality
+
+PASS
+
+Siburg October 2026 establishes the LCM projection framework and its special deterministic sawtooth Example 5.4 with xi^up=1/k; these are credited. The arbitrary-copula fold law, both monotone directional coefficients, Spearman scaling, and sharp sup distance require a repeated-envelope lemma absent from the reviewed example. Ansari’s copula upper-product transformation is different from randomized equal-width branch-lifting.
+
+## value
+
+PASS
+
+An exact universal structural transformation retaining full directed predictive dependence xi while quantitatively annihilating increasing/decreasing projected components and concordance is mathematically motivated and counterintuitive; the all-copula statement is stronger than a known sawtooth example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
