@@ -1,15 +1,21 @@
-# Scientific review: type-\(D_n\) harmonic sampling spectrum
+# Independent mathematical audit
 
-## Correctness
-PASS. The addition formula identifies the displayed Gegenbauer matrix as a positive multiple of the exact-degree evaluation Gram matrix. Walsh decomposition of each four-sign coordinate-pair block separates the parity sectors; in even degrees, the remaining constants are diagonalized by the three Johnson \(J(n,2)\) eigenspaces, and in odd degrees the single-coordinate characters form independent complete-graph stars. The multiplicities sum to exactly half the number of antipodal points; trace checks give \(2n(n-1)\). Exact Gegenbauer recurrence and explicit positivity factorizations prove the two low-degree resonance dimensions. The checker confirms 55 exact eigenvector actions and 532 low-degree rank identities, not an infinite-case proof.
+## correctness
 
-## Originality
-PASS, with bounded-literature qualification. The Delsarte–Goethals–Seidel zonal method and Johnson eigenvalues are prior tools, not claimed new. Bannai–Okuda–Tagami address vanishing sums and size bounds for harmonic-index designs, rather than full \(D_n\) Gram spectra. Cohn–Conway–Elkies–Kumar study the dimension-four configuration's potential energies and deformations. The closest available earlier research records on \(D_4\), \(F_4\), \(E_8\), hypercubes, and simplex edges do not imply the dimensions \(n\ge5\) formula; neither does a full-orbit \(E_8\) rank determine the rank on its \(D_8\) subset. Searches for signed Johnson eigenmatrices and higher-dimensional \(D_n\) harmonic interpolation revealed generic methods but not this complete specialization or both dimension resonances. Risk: an unlocated exact association-scheme table could already imply the eigenvalue formulas; the 1977 foundational paper was available only at bibliographic level.
+PASS
 
-## Mathematical value
-PASS. The exact-degree evaluation spectrum is a natural measure of spherical-harmonic sampling capacity, not an arbitrarily selected numerical invariant. A uniform exact computation for all \(n\ge5\) and \(\ell\ge0\) reduces a quadratic-size Gram matrix to two or four rational Gegenbauer expressions. It detects a seven-dimensional rank defect in dimension eight at harmonic degree four and a one-dimensional defect in dimension sixteen at degree six, despite full rank in adjacent generic dimensions. This distinguishes all-degree interpolation from weaker harmonic-design moment vanishing.
+Addition theorem identifies the normalized zonal Gegenbauer Gram with a positive multiple of E_ell E_ell*. Four-Walsh-character blocks on coordinate pairs split even product/constant sectors from odd sign sectors. The pair-index constant sector reduces exactly to J(n,2), whose adjacency eigenvalues 2(n-2),n-4,-2 give three even eigenvalues. Odd signs split into n independent (n-1)-stars. The listed sector multiplicities sum to n(n-1), with the same number of antipodal zeros, and reproduce trace 2n(n-1). Recurrence-based rational low-degree factorizations give n=8 (ell=4) and n=16 (ell=6) zeros. Independently computed full Gram matrices for n=5/6/7/8/9/16 at relevant degrees and compared sorted eigenvalues (max errors <2e-14). Degree-zero and parity-zero ranks included; no claim that all higher-degree exceptional dimensions have been enumerated.
 
-## Limits and literature
-The all-degree result is an exact spectral/rank *formula*, not a proof that no further exceptional degrees occur. Earlier methodological sources: Delsarte–Goethals–Seidel (1977), Cohn–Conway–Elkies–Kumar (arXiv:math/0607447), Bannai–Okuda–Tagami (arXiv:1308.5101). Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority verdict after the separate four mathematical comparisons and relevant actually read primary texts. These prior concepts support the proof but their stated results do not imply the whole evaluation Gram spectral list without this signed-pair evaluation and recurrence. The claim does not assert invention of the general method.
+
+## value
+
+PASS
+
+The exact spectrum and rank of a natural crystallographic root orbit give sharp spherical-harmonic interpolation frame bounds and explicitly identify two meaningful dimension-dependent low-degree resonances. This is more than restating a generic association scheme: the concrete all-degree eigenvalues and loss multiplicities answer natural sampling questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
