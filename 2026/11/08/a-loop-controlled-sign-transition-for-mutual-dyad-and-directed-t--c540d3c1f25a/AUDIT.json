@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For n>=3, source rows are independent. Each reciprocal/triangle indicator pair is independent if vertex-disjoint; the only other classes share one vertex (n(n-1)(n-2)(n-3) pairs, joint mean p^3r) or two (n(n-1)(n-2) pairs, joint mean p^2r). Product of means p^5 in both cases. Using r-p^2=-p(1-p)/(s-1) gives the exact two formulas and all boundary signs; sparse and dense limits follow. The standalone verified package checker passed 952 rational identity tests and exhaustive exact graph enumeration of 218118 graphs in 27 settings.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1112.4677 randomizes directed networks under preserved in- and out-degrees; not the independent row-wise fixed-outdegree ensemble.",
+        "arxiv:1210.5288 uses Chung–Lu-inspired edge draws and removes self-links/duplicates, so its specified degrees do not yield the exact fixed-row simple-digraph law.",
+        "arxiv:1302.6220 provides approximate closure expectations for reciprocal degree-aware models, not joint motif moments."
+      ],
+      "reasoning": "A broader exact joint motif-moment theorem could imply this special case, but no such dominating theorem was located in the checked primary texts. Distinct graph ensembles must not be silently identified.",
+      "searches": [
+        "reciprocal arcs directed triads exact covariance sign when self loops allowed",
+        "random k-out digraph with or without loops cycle counts joint 2-cycle 3-cycle covariance",
+        "arxiv:1112.4677 bibliographic record and abstract",
+        "arxiv:1210.5288 full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1302.6220 original first submitted 2013-02-25; full accessible HTML inspected",
+      "arxiv:1210.5288 original first submitted 2012-10-19; full accessible HTML inspected",
+      "arxiv:1112.4677 original first submitted 2011-12-20; abstract and bibliographic record only",
+      "published semantic records about percolation component–triangle covariance and other covariance mechanisms; none exact same model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1302.6220 analyzes empirical proportions of induced cyclic triads and expected directed closure ratios under an approximate configuration model; neither fixes row cardinalities nor determines this covariance.",
+        "The existing reciprocity/indegree generating-polynomial statement concerns N_j vertex indegree-frequency counts; oriented three-cycles are not determined by indegree counts.",
+        "The present overlap expansion uses pair–triangle joint probabilities p²r and p³r; marginal first moments are insufficient."
+      ],
+      "reasoning": "The earlier indegree law is not a stronger theorem covering cyclic motif dependence; graph orientations with identical indegree profiles may have different three-cycle counts. The new exact sign transition arises from two distinct motif-overlap types, not from substituting a parameter into prior mean formulas.",
+      "searches": [
+        "arxiv:1302.6220 section III.5 and IV",
+        "arxiv:1210.5288 section III",
+        "owned-ledger 307b3010-be94-4546-8427-dbb25bb4deaf claim scan",
+        "independent fixed row out-degree random directed network directed 2-cycles 3-cycles joint covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1302.6220 identifies directed wedges, induced triad types and expected closure rates, but its quantities are not the covariance of non-induced simple three-cycle and mutual-dyad counts.",
+        "arxiv:1210.5288 constructs a distribution-matching directed network generator with edge samplings and duplicate removal, not exactly k distinct targets per source."
+      ],
+      "reasoning": "Treating reciprocal dyads as two-cycles and oriented triangles as three-cycles changes names, not the theorem. No inspected source states their exact cross covariance in independent fixed-size outgoing-row sampling. Same-row joint arc probability k(k-1)/(s(s-1)), essential to the sign, differs from independent-edge and degree-preserving null models.",
+      "searches": [
+        "random k-out digraph reciprocity mutual dyads directed triangles covariance loops permitted forbidden",
+        "independent fixed row out-degree random directed network directed 2-cycles 3-cycles joint covariance",
+        "arxiv:1302.6220 sections II, III.5, IV",
+        "arxiv:1210.5288 sections II–IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published semantic record or retrieved source provided a table or exact formula for these two simultaneous motif statistics under either fixed-outdegree convention.",
+        "The closest returned published result concerns component–triangle covariance in independent bond percolation, with a different motif and probability space."
+      ],
+      "reasoning": "No exact result-table coverage was identified in the actual searches. A failed search is not proof of absence, and historical tables of directed motif moments remain a residual risk.",
+      "searches": [
+        "random k-out digraph reciprocity mutual dyads directed triangles covariance loops permitted forbidden",
+        "random k-out directed graph count reciprocal arcs directed triangles covariance fixed out degree",
+        "joint distribution reciprocated edges 3 cycles directed network random fixed out degree"
+      ]
+    },
+    "rationale": "Reviewed the full primary texts of arxiv:1302.6220 and arxiv:1210.5288 and compared the exact probability spaces and claims; both study directed reciprocity/triads in different configuration models or empirical data, not the fixed-row exact cross covariance. Additional semantic searches and a prior-claim scan found no equivalent/dominating result. Strong historical priority is not certified; general motif-covariance tables could implicitly contain the theorem.",
+    "residual_risks": [
+      "Older subgraph-count joint-moment or triad-census formulas may implicitly yield the exact covariance; searches and selected full-text inspections cannot establish uniqueness.",
+      "The complete text of arxiv:1112.4677 was not inspected; its stated model is a different fixed-double-degree ensemble."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "not covering the exact joint covariance in a uniform fixed-outdegree simple digraph; related motivation and distinct approximate configuration-model analysis",
+        "evidence": [
+          "Section III.5 reports cyclic/reciprocal triad proportions in observed networks.",
+          "Section IV computes approximate expected directed closures using degree and reciprocal-degree inputs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1302.6220v3",
+        "material_read": "full accessible HTML including Abstract, Sections I–V and reference list, especially II, III.5, IV",
+        "method": "read primary full text and compare objects, null assumptions, counted induced versus non-induced motifs and covariance assertions",
+        "title": "Directed closure measures for networks with reciprocity",
+        "trigger": "same reciprocal/triangle statistics and plausible null-model comparison"
+      },
+      {
+        "assessment": "different Chung–Lu style generator and preserved distributions; it does not state this exact covariance",
+        "evidence": [
+          "Section III-A algorithm selects source and target endpoints and removes duplicate/self arcs.",
+          "Section III-B explicitly plants reciprocal edges in its generator; exact row cardinality is not preserved."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1210.5288v4",
+        "material_read": "full accessible HTML including algorithms in Section III, empirical Section IV, conclusions and references",
+        "method": "inspect source-row generation rules, self-link processing and statistical objects",
+        "title": "A Scalable Null Model for Directed Graphs Matching All Degree Distributions: In, Out, and Reciprocal",
+        "trigger": "possible stronger coverage from degree-preserving network null-model analysis"
+      },
+      {
+        "assessment": "preserves both in- and out-degree sequences, unlike the independent fixed-outdegree rows here; full-text historical overlap remains unchecked",
+        "evidence": [
+          "The arXiv abstract describes edge swaps conserving all in and out degrees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1112.4677",
+        "material_read": "arXiv record, submission history and abstract only; full source not inspected",
+        "method": "compare explicitly described degree-constraint ensemble and research target",
+        "title": "Unbiased degree-preserving randomisation of directed binary networks",
+        "trigger": "potential broader fixed-degree randomization comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c540d3c1-f25a-44e7-9b09-0e0e364f18c6",
+  "value": {
+    "rationale": "A natural dependence observable links mutual dyads to cyclic feedback, motivating joint motif tests in directed network null models. The complete finite-parameter sign classification reveals strict negativity without loops versus a sharp zero and positive dense phase with loops, plus distinct sparse/dense scaling. First moments or indegree profiles cannot supply the result. The precise model-convention sensitivity is substantive and not a mere known-table value.",
+    "status": "PASS"
+  }
+}
