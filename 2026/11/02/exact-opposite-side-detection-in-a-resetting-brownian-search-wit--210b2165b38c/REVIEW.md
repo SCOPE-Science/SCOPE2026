@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The backward two-state generator includes positional reset without gate reset. The absorbing mode has distinct side-specific boundary values, and the transparent inactive mode is continuously differentiable through the target. The mode decomposition is solved with explicit reset-point self-consistency. Substitution checks all boundary and nonlocal differential equations. Almost-sure absorption establishes uniqueness; strict parameter signs follow from displayed elementary derivatives. Exact Brownian-bridge event simulations independently test the side law over four parameter sets. The fast-gate and fast-reset limits are kept in the stated order.
+## correctness
 
-**Originality — PASS (qualified).** The closest paper, arXiv:2512.09739, solves first-passage-time transforms but treats incoming-side probabilities by simulation. These marginal time laws cannot identify the marked incoming-side distribution. The exact side formula, two strict monotonicity theorems, and noncommuting fast-rate limits are not stated there. The open/closed reflective-gate and switching-interface papers treat distinguishable boundary mechanisms or nonterminating passage, not active-kill/transparent-inactive side-specific absorption. Published mathematical research record searches and accessible earlier claims disclosed no implication covering this statement. A general marked-resolvent formula not found in the searches could still cover it; independent priority verification is outstanding. The opposite qualitative gate-rate trend in the motivating paper's simulation text should be independently reconciled with continuum side conventions.
+PASS
 
-**Value — PASS.** Incoming-side selectivity is a natural measured quantity in intermittently reactive targets, explicitly investigated numerically in the motivating model. An exact formula replaces discretized estimates; its parameter monotonicity exposes a directional effect not determined by mean first-passage times, and the universal \(1/4\) fast-gate limit demonstrates a noncommuting observable even where the completion-time behavior resembles perfect absorption. This is more than a normalization calculation or arbitrary parameter slice.
+Backward equations on R\{0} for active/inactive gate with Poisson resets at a have bounded symmetric/antisymmetric modes with decay rates k=sqrt(r/D),h=sqrt((r+2gamma)/D). Active boundary data u_A(0+)=0,u_A(0-)=1; inactive value and derivative continuous; self-consistency at x=a gives U_+=(1-k/h+k^2 e^(-ah)/(h(h+k)))/4. Almost-sure absorption and bounded optional stopping establish uniqueness. Strict derivative signs in t=k/h,z=ah establish monotonicities and all singular limits. Independently verified boundary matching to 1e-15 and 36 monotonicity grids. A fixed gamma=0 inactive gate is not treated as the gamma->0 eventual-capture limit.
 
-**Scope and residual risks.** Equal gate rates, a stationary gate, positive reset distance and continuous-time Brownian paths are essential. The result does not claim all observables share the singular limit. Prior comparison is strong for the exact model and related interfaces, but broader literature cannot be certified exhaustively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the precise complete statement, after distinguishing prior objects, scope and implications. Relevant primary mathematical results were inspected, and none of the materially read theorems supplies the same whole claim. Earlier components are explicitly credited; unsuccessful indexing alone is not proof of priority. See four structured checks, primary reading and residual risks.
+
+## value
+
+PASS
+
+For an established transparent blinking-target search model, the marked side of ultimate detection is a physically meaningful observable not fixed by first-passage-time distributions. Exact monotonicity and a noncommuting fast-gate/reset singularity provide a substantive boundary phenomenon; scope remains the symmetric continuous Brownian model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

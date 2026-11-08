@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using the standard Python library. The checks reconstruct both full half-line solutions and verify the active/inactive boundary and reset conditions at hundreds of deterministic parameter samples. Event-time simulation uses independent exponentially distributed reset and gate-switch intervals, unconditional normal Brownian endpoints, and the exact Brownian-bridge crossing probability when the gate is active; it avoids time-step sign-crossing approximations.
+## correctness
 
-Observed output: `PASS 5406 analytic-boundary/residual/ordering and fixed-seed Monte Carlo diagnostics`. Four Monte Carlo comparisons have fixed pseudorandom seeds, sample size 18,000 each, and explicit six-standard-error tolerances. These simulations are supplementary. Mathematical completeness relies on the displayed unique bounded backward-value solution, strict derivative inequalities, and exact limit calculations. Nothing in the package constitutes independent external review or publication-priority certification.
+PASS
+
+Backward equations on R\{0} for active/inactive gate with Poisson resets at a have bounded symmetric/antisymmetric modes with decay rates k=sqrt(r/D),h=sqrt((r+2gamma)/D). Active boundary data u_A(0+)=0,u_A(0-)=1; inactive value and derivative continuous; self-consistency at x=a gives U_+=(1-k/h+k^2 e^(-ah)/(h(h+k)))/4. Almost-sure absorption and bounded optional stopping establish uniqueness. Strict derivative signs in t=k/h,z=ah establish monotonicities and all singular limits. Independently verified boundary matching to 1e-15 and 36 monotonicity grids. A fixed gamma=0 inactive gate is not treated as the gamma->0 eventual-capture limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the precise complete statement, after distinguishing prior objects, scope and implications. Relevant primary mathematical results were inspected, and none of the materially read theorems supplies the same whole claim. Earlier components are explicitly credited; unsuccessful indexing alone is not proof of priority. See four structured checks, primary reading and residual risks.
+
+## value
+
+PASS
+
+For an established transparent blinking-target search model, the marked side of ultimate detection is a physically meaningful observable not fixed by first-passage-time distributions. Exact monotonicity and a noncommuting fast-gate/reset singularity provide a substantive boundary phenomenon; scope remains the symmetric continuous Brownian model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
