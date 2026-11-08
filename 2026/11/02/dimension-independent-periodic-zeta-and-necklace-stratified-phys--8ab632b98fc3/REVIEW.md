@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** On the lower interval the scalar map contracts affinely toward its boundary fixed point; on the upper interval it is the exact two-branch tent map. The identity \(F_n^n=g^{\times n}\) gives almost-everywhere basin classification and product entropy. Inverse-branch compositions possess a strict contracting power, giving exactly \(2^m\) period-dividing-\(m\) points for all \(n,m\); the random inverse-branch stationary measure gives their equidistribution. These claims have exact proofs. The executable bounded tests corroborate but do not establish them.
+## correctness
 
-**Originality — PASS under the inspected evidence.** The 2026 source already gives the scalar map and the two-dimensional positive-area L-shaped omega-limit set. It does not supply the higher-dimensional physical-measure necklace count, entropy spectrum, or dimension-independent zeta theorem. The earlier two-dimensional omega-limit paper and accessible cyclic-segment geometry do not imply the new statistical and periodic-point conclusions. Full-text access to one 2021 source was limited; historical priority remains provisional.
+PASS
 
-**Mathematical value — PASS.** The motivating 2026 paper explicitly asks for higher-dimensional cyclic Cournot analysis. A single explicit natural family now exhibits binary-necklace growth in the number of physical measures and varying entropies, even though periodic-point counts and their zeta function cannot detect the dimension; periodic points concentrate on the uniquely maximal-entropy physical component. The statement is exact for every dimension and not an extrapolation from finite enumeration. It does not classify arbitrary nonlinear links or null-set exceptional trajectories.
+Read RESULT.md from frozen Git tree. On [0,1/2) the first g branch contracts geometrically to 1/2, while J=[1/2,1] is a full slope ±2 tent with mixing normalized Lebesgue. F_n^n=g×⋯×g; each a.e. low/high word s has low coordinates tending to c=1/2 and k high coordinates generic for k-product tent measure, with n interleaved phases. Distinct rotating words yield μ_[s] average of product δ_c or λ over necklace; a.e. basin is union d(s) open cells of volume 2^-n, so exact mass d/2^n; ergodicity follows cyclic mixing components, entropy k/n log2 by power/product formulas. Burnside enumerates total and k-specific binary necklaces. Any periodic point must be in J^n; F_n restricted there has exactly two inverse branches, and each length-m inverse word composition has contracting n-th power with ratio≤2^-m, hence one fixed point. Critical tent preimages cannot yield distinct periodic symbolic duplicates since critical 3/4 goes to 1 then c; #Fix=2^m for any n,m. Uniform random inverse-branch contractions yield unique stationary λ^⊗n and weak equidistribution; h_top F_n=log2 and this is unique MME. Independent exact Burnside enumeration n=2..8 confirms necklace counts, not an all-n proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge claim-specific originality after actual Resultary semantic search and primary literature comparisons, rather than title-only matches. Known two-dimensional omega-limit results and general symbolic entropy tools do not logically assert uniqueness of the physical laws by necklace, exact basin masses or all n,m fixed point counts. The new proof uses the special one-link identity structure, not arbitrary Cournot maps and not the entire open problem. Inaccessible/nonexhaustively read sources are not asserted to be whole-document noncoverage; residual risks below.
+
+## value
+
+PASS
+
+The explicit cyclic extension of an established Cournot dynamical example yields a natural exactly solvable higher-dimensional system. The contrast between exponentially-many physical basins and dimension-free zeta / periodic-point equidistribution is a mathematically motivated dynamical/statistical classification; the special one-active-link restriction is candidly stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
