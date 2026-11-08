@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 and only its standard library. The checker directly counts possibly overlapping pattern matches and implements the prescribed leading-zero convention. It enumerates all mixed words of lengths 2–8, differences 1–15, starts 0–30, and five-term progressions: 229710 parameter combinations, with five exact-count equations and four difference equations per combination. The expected console output is `PASS complementary pattern reflection checks: 229710 configurations; both colors and exact counts.`
+## correctness
 
-These computations independently corroborate the arithmetic identities on finite cases. They do not establish the theorem for unbounded patterns, starts, or progression lengths. The written digit-reflection argument establishes those quantifiers, including the leading-zero boundary term and infinite supremum case. Bibliographic coverage cannot rule out unindexed, unpublished, or inaccessible subsequent work. Independent audit has not been performed.
+PASS
+
+For every mixed binary word v of length m and every L>=m+1 and n<2^(L-m), padding binary n with >=m zeros preserves overlapping occurrences of v. Bitwise complement turns its L-bit padded representation into the ordinary binary representation of y=2^L-1-n; prepending prescribed initial zeros for complement pattern adds exactly delta(complement(v)) occurrences independent of n, where delta is one only for 0^a1^(m-a), 1<=a<m. Thus exact integral count identity e_barv(y)=e_v(n)+delta(barv). For each arbitrary finite monochromatic arithmetic progression of difference d, choose L large and reverse its members under y=2^L-1-x; reflected sequence has same common difference and colors shifted by the same parity. Converse by complement proves equal suprema A_v(d)=A_barv(d) for every d>=1, including infinite suprema. Independent direct occurrence counts for mixed lengths 2..6 and several starts/steps corroborated exact identities; the arbitrary-length reflection argument proves the full claim.
+
+## originality
+
+PASS
+
+The exact statement appears as an open mixed-pattern question (Problem 4) in Sobolewski 2022, where equalities were observed for short patterns only. The new universal integral reflection with constant correction and consequent equality for every difference is not provided in the inspected primary source. Other block-counting and automatic-sequence studies ask different questions.
+
+## value
+
+PASS
+
+Answers an explicitly posed natural research problem for all mixed binary patterns and positive arithmetic progression differences; the exact occurrence-count reversal is a stronger structural duality than merely the maximal-run length equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

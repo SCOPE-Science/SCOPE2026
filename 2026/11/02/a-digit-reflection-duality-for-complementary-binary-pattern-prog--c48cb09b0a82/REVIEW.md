@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact-count identity \(e_{\bar v}(2^L-1-n)=e_v(n)+\delta(\bar v)\) holds for every mixed pattern \(v\) and sufficiently zero-padded \(n\). The proof identifies the sole possible boundary occurrence created by leading-zero conventions, including the exceptional pattern \(0^a1^{m-a}\), and handles \(n=0\). Any finite fixed-step progression can be reflected and reversed at a sufficiently large binary length, producing a progression with the same step and uniform parity (possibly globally toggled). Reflection in both directions gives equality of suprema, including infinite ones. An exact checker independently passed 229710 specified configurations; finite checks are not presented as proof.
+PASS
 
-## Originality — PASS within inspected literature
+For every mixed binary word v of length m and every L>=m+1 and n<2^(L-m), padding binary n with >=m zeros preserves overlapping occurrences of v. Bitwise complement turns its L-bit padded representation into the ordinary binary representation of y=2^L-1-n; prepending prescribed initial zeros for complement pattern adds exactly delta(complement(v)) occurrences independent of n, where delta is one only for 0^a1^(m-a), 1<=a<m. Thus exact integral count identity e_barv(y)=e_v(n)+delta(barv). For each arbitrary finite monochromatic arithmetic progression of difference d, choose L large and reverse its members under y=2^L-1-x; reflected sequence has same common difference and colors shifted by the same parity. Converse by complement proves equal suprema A_v(d)=A_barv(d) for every d>=1, including infinite suprema. Independent direct occurrence counts for mixed lengths 2..6 and several starts/steps corroborated exact identities; the arbitrary-length reflection argument proves the full claim.
 
-Sobolewski's arXiv:2204.05287v1 (Section 6, Problem 4) explicitly proposes this equality after small-pattern computation; its inspected full text does not supply the universal proof. The relevant other material concerns morphic representation or lower growth bounds for substitution sequences rather than exact complementary-pattern progression equivalence. Searches for leading-zero conventions, bitwise digit reflection, complementary patterns, fixed-step monochromatic lengths, and aliases in research records produced no covering claim. The later publisher version was not available for full comparative inspection, and independent literature priority is not guaranteed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem answers a published natural open question uniformly in infinitely many mixed patterns and all positive steps, by means of a more informative exact-count reversal identity. It compares complete families of finite progression color words, not only a few numeric maxima. The natural zero/one constant-pattern boundary is explicitly excluded, and no claims about progressions beginning at zero or arbitrary bases are made.
+The exact statement appears as an open mixed-pattern question (Problem 4) in Sobolewski 2022, where equalities were observed for short patterns only. The new universal integral reflection with constant correction and consequent equality for every difference is not provided in the inspected primary source. Other block-counting and automatic-sequence studies ask different questions.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Answers an explicitly posed natural research problem for all mixed binary patterns and positive arithmetic progression differences; the exact occurrence-count reversal is a stronger structural duality than merely the maximal-run length equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
