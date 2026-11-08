@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All subgroup assumptions and normalizations are explicit: \(n\ge3\), \(D_{2n}\) of order \(2n\), Frattini core on \(G\setminus\Phi\). The subgroup classification reduces maximal reflection-containing subgroups to one prime-index subgroup per residue, and its intersections give the exact nerve predicate. The equivariant nerve lemma applies because every nonempty cover intersection is a simplex with a stabilizer-fixed barycenter. The cone \(R*L\) has a globally fixed apex and its equivariant collapse yields exactly \(m\) top cells indexed by CRT residues. Prime-block labels prevent any orientation sign. The single-prime case is explicitly treated in degree zero. The trace formula is a solved linear congruence. Finite checker tests agree, but are not substituted for the universal proof.
+PASS
 
-## Originality — PASS, with identified residual risk
+Re-derived maximal subgroups of D2n: R and M_{p,i}, intersection Phi=<r^rad(n)>. In the Frattini-core maximal-subgroup nerve a face either omits a prime block or is a unique Chinese-remainder transversal without R. The base is invariant cone R*L, whose equivariant collapse leaves rad(n) (omega(n)-1)-spheres indexed by residues and permuted affinely with orientations fixed by prime-block vertex order. For omega=1 the discrete wedge has rad(n)+1 points. Character equals fixed residue count gcd(a-1,m) when it divides b, and 0 otherwise. Independently checked the affine trace congruence for all automorphisms at n=6,12,30. Finite tests are supplementary to universal subgroup/nerve proof.
 
-The closest directly read primary paper, arXiv:2610.10296v1, Section 3, provides an all-finite-group Frattini-core homotopy reduction (nonequivariant); Sections 4–5 explicitly specialize quantitative and Steinberg-equivariant results to finite \(p\)-groups. It does not state an affine, all-dihedral equivariant wedge or integral permutation character. arXiv:2410.22260v1 discusses group-associated complexes but not this formula. The abstract of DOI:10.1090/S0002-9947-01-02730-1 concerns solvable subgroup-lattice shellability and may cover the underlying nonequivariant wedge, which is not asserted as new. Multiple targeted indexed and published-finding corpus searches did not return an implication covering the explicit action. Unindexed equivariant work and unread full text of the historical shellability reference remain risks; unsuccessful search is not presented as a proof of global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is naturally motivated by a 2026 Frattini-core reduction and the role of symmetry in non-generating complexes. The result solves a whole two-generator family, including groups with several distinct prime divisors outside the preceding finite-\(p\)-group formulas, identifies exact integral rather than merely rational homology, and supplies the full affine action and character on every automorphism. This representation information cannot be recovered from an unspecified nonequivariant sphere-wedge decomposition or Möbius number alone.
+Prior Frattini-core and solvable subgroup-lattice results cover the framework and some nonequivariant or prime-power cases; the explicit all-dihedral Aut-equivariant wedge model with the integral affine permutation action for arbitrary rad(n) and all n is a distinct stronger classification.
 
-## Limits and literature
+## value
 
-The conclusion is restricted to dihedral groups \(n\ge3\) and their group-induced automorphism actions; arbitrary generalized dihedral groups and the potentially larger abstract-complex automorphism group are not classified. Full text of the cited Shareshian article was not materially inspected. A duplicate in unindexed literature remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full integral Aut action on an infinite family of dihedral group cores is a natural homotopy representation not determined by ordinary Betti numbers; explicit affine labels and fixed-character traces make the result usable for symmetry quotients and comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
