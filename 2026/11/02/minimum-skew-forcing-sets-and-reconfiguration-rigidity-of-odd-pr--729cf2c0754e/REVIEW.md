@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The complete proof reduces initial-force necessity to a common-neighbor criterion in a cubic graph, constructs a legal simultaneous two-front forcing schedule for one seed class, and reduces the other seed class to it by one legal skew force. Classification then identifies minimum sets with edges of the distance-two graph, leading to the exact exchange and sliding decompositions. The separate executable checker reimplements the original forcing rule and token moves for the odd orders five through nineteen, while the explicit force certificate is independently replayed through odd order 299. The checker does not establish the infinite theorem; that role belongs to the symbolic proof.
+PASS
 
-## Originality: PASS, with priority uncertainty
+Every prism vertex has degree three, so with at most one initial blue vertex no source has exactly one white neighbor. For exactly two initially blue vertices a first legal skew force requires the pair to share a neighbor; because the odd prism with n≥5 is triangle-free, this is precisely a distance-two pair. Up to rotation/reflection/layer exchange there are same-layer (0,0),(2,0) and cross-layer (0,0),(1,1) seed types. Explicit constructive forced stage alternates layers and advances in two directions, coloring all vertices; the cross-layer seed first forces a vertex yielding the successful same-layer seed. All 4n types succeed. They are edges of 4-regular connected distance-two graph H_n, giving line-graph exchange 6-regular with 12n edges. A slide fixing v requires an edge within its four distance-two neighbors; such a pair exists only for n=5, between the two same-layer distance-two neighbors, giving 2C₅ plus isolates. Independent skew-rule enumeration all blue pairs for odd n=5..17 reproduced the 4n classification, exchange/sliding edge counts, and n=5 exception. Finite enumeration corroborates the explicit all-odd-n proof.
 
-The full-text analysis of Chang (arXiv:2608.27804) identifies the preexisting scalar \(Z_-(P_2\square C_n)=2\) for odd \(n\) and one sufficient seed class in Lemma 5.4. The full-text analysis of Bong et al. (arXiv:2501.03642) identifies the reconfiguration framework and results for paths, cycles, trees, and complete graphs; text searches for circular ladders or prism graphs yielded no theorem covering this family. Brešar et al. (arXiv:1712.08780) motivate graph-product forcing via total domination but do not imply this complete seed-reconfiguration classification. Relevant semantic-record queries and the available previous-claim comparison did not identify stronger coverage. Failure to locate an earlier equivalent theorem is not proof that none exists; this residual uncertainty remains.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The classification provides every minimum robust-start placement and its precise count, and completely determines the two natural local reconfiguration graphs. The infinite connected-versus-frozen contrast, including the isolated \(n=5\) sliding exception, is structural information not contained in an extremal forcing number. It supplies explicit reachability and immobility certificates for this standard cubic graph family.
+Chang 2026 already proves the scalar Z_-(odd prism)=2 and exhibits a sufficient seed. Bong et al establish general minimum skew forcing reconfiguration, but not the complete prism seed list or its exact exchange/sliding graph. The new contribution is the full all-minima classification and rigidity transition, not the scalar threshold or reconfiguration definitions.
 
-## Limitations
+## value
 
-Only odd prism lengths at least five are proved. There is no claim of a newly discovered scalar skew forcing number. Publication priority remains subject to external expert evaluation. The checker tests finitely many cases and the symbolic proof covers all parameters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete classified family demonstrates strong divergence between token exchange connectivity and token sliding rigidity in a natural Cartesian product graph. The sharp n=5 exception and exact degree/count data are meaningful reconfiguration invariants, not a bare restatement of Z_-=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
