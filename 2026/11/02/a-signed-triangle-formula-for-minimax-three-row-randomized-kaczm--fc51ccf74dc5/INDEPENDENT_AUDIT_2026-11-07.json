@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:18:05.049980Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For invertible real unit-row A, maximizing lambda_min(A^T diag(p) A) is exactly minimizing T=sum w_i subject to diag(w)-C PSD with C=(AA^T)^-1 and p_i=w_i/T. On separating diagonal entries, minimization of sum q_i is dual to elliptope maximization 2sum c_ij X_ij. Balanced sign product yields weighted graph Laplacian primal with rank-one sign-vector dual; frustrated strict triangle uses a rank-one primal vv^T and rank-two correlation Gram of unit vectors whose weighted sum vanishes; frustrated weak reciprocal edge uses a signed Laplacian with PSD Schur complement. Matching certificates prove global optimality; dual complementary nullspaces fix all q_i and guarantee uniqueness, including equality boundary. Inverse Gram gives positive weights; explicit G(t) substitution yields kink at t=2/5 and minimum eigenspace dimension 1 before, 2 after. Independently checked five rational G(t) values using exact PSD principal minors/eigenvalues and branch weights. Finite SDP experiments are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:1402.2863",
+          "arxiv:1204.1220"
+        ],
+        "reasoning": "General semidefinite formulations numerically solve all dimensions, but do not automatically state a simple inverse-Gram three-row three-case formula or the geometry of a t=2/5 kink; general mathematical optimization is acknowledged rather than falsely claimed new.",
+        "searches": [
+          "three row randomized Kaczmarz E-optimal sampling inverse Gram elliptope SDP signed triangle exact probability formula",
+          "arxiv:1402.2863",
+          "arxiv:1204.1220"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1402.2863",
+        "https://arxiv.org/pdf/1204.1220",
+        "https://www.math.uni-augsburg.de/htdocs/emeriti/pukelsheim/1991d.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1402.2863",
+          "arxiv:1204.1220"
+        ],
+        "reasoning": "General SDP plus elliptope duality implies the candidate could be verified via PSD complementary certificates; the three sign/reciprocal-magnitude cases and unique rational transition require further explicit solution. A hidden 3-variable elliptope formula remains a potential prior implication.",
+        "searches": [
+          "three row randomized Kaczmarz E-optimal sampling inverse Gram elliptope SDP signed triangle exact probability formula",
+          "arxiv:1402.2863",
+          "arxiv:1204.1220"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:1402.2863",
+          "arxiv:1204.1220"
+        ],
+        "reasoning": "For unit-row square systems, the E-optimal row distribution is exactly the minimum-trace diagonal PSD majorant of C=(AA^T)^-1; dual is a 3x3 correlation elliptope. Both formulations already known in general.",
+        "searches": [
+          "three row randomized Kaczmarz E-optimal sampling inverse Gram elliptope SDP signed triangle exact probability formula",
+          "arxiv:1402.2863",
+          "arxiv:1204.1220"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arxiv:1402.2863"
+        ],
+        "reasoning": "Not a lookup from a finite Gram catalogue: formulas hold for uncountably many invertible real normalized matrices. Exact rational verification grids cannot establish originality or universality.",
+        "searches": [
+          "three row randomized Kaczmarz E-optimal sampling inverse Gram elliptope SDP signed triangle exact probability formula",
+          "arxiv:1402.2863"
+        ]
+      },
+      "rationale": "Dai–Soltanalian–Pelckmans established general row-probability SDP; Saunderson et al established minimum-trace diagonal PSD and elliptope framework, not new here. The specific inverse-Gram sign/reciprocal-triangle formula, uniqueness and 2/5 phase transition are not stated in these inspected primary sources. General elliptope/optimal-design literature could implicitly specialize to the formula; priority remains qualified.",
+      "residual_risks": [
+        "Specialized optimal-design/elliptope literature may already contain an algebraically equivalent three-vertex solution.",
+        "One-step fixed iid minimax only; no assertion about finite-horizon MSE or adaptive/randomly varying probabilities.",
+        "Exact Gram and finite numerical tests support but cannot replace the three-regime universal SDP proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General SDP stated, not a three-row sign/reciprocal-triangle closed form or the t=2/5 spectrum transition",
+          "evidence": "Equation (16) and sampling objective",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2863",
+          "material_read": "Full 11-page preprint including row-sampling objective and semidefinite formulation around Equation (16), algorithm and analysis",
+          "method": "full arXiv PDF text with visual page check",
+          "title": "Dai, Soltanalian and Pelckmans, On the Randomized Kaczmarz Algorithm",
+          "trigger": "same probability optimization and minimum eigenvalue objective"
+        },
+        {
+          "assessment": "Covers general diagonal/elliptope equivalences; no explicit normalized-row three-case formula identified in inspected passages",
+          "evidence": "Section 2.3 MTFA and Section 3 elliptope duality",
+          "identifier_or_url": "https://arxiv.org/pdf/1204.1220",
+          "material_read": "Accessible 20-page primary preprint: introduction, section 2.3 MTFA program, section 3 elliptope duality and section 5 overview, read with screenshot of program page",
+          "method": "targeted full-PDF text and section reading with visual page check",
+          "title": "Saunderson, Chandrasekaran, Parrilo and Willsky, Diagonal and Low-Rank Matrix Decompositions, Correlation Matrices, and Ellipsoid Fitting",
+          "trigger": "mathematically dual optimization and elliptope certificate framework"
+        },
+        {
+          "assessment": "Explicit A-optimal design weights solve a different criterion; whole-document noncoverage is not claimed",
+          "evidence": "A-optimality criterion",
+          "identifier_or_url": "https://www.math.uni-augsburg.de/htdocs/emeriti/pukelsheim/1991d.pdf",
+          "material_read": "Viewed the journal PDF first substantive page and full printed abstract identifying an explicit A-optimal formula for independent regression vectors; remaining article not read",
+          "method": "original journal PDF first-page screenshot",
+          "title": "Pukelsheim and Torsney, Optimal Weights for Experimental Designs on Linearly Independent Support Points",
+          "trigger": "alternative design-optimality duality and possible closed form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete closed-form minimax sampling law for all real invertible three-row normalized systems, with unique optimizer, distinct frustration geometry and a natural multiplicity-changing nonsmooth Gram family; more informative than a generic numerical three-variable SDP. This is a natural complete small-dimensional classification, not a one-point example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Specialized optimal-design/elliptope literature may already contain an algebraically equivalent three-vertex solution.",
+    "One-step fixed iid minimax only; no assertion about finite-horizon MSE or adaptive/randomly varying probabilities.",
+    "Exact Gram and finite numerical tests support but cannot replace the three-regime universal SDP proof."
+  ]
+}
