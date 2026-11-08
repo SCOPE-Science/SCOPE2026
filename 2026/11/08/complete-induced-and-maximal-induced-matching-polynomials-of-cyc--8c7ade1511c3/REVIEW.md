@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The clockwise short-arc representation is unique under \(n\ge2r+1\). The proof establishes the complete gap criterion \(g\ge r+1\) for inducedness and the stronger \(g\le2r+2\) criterion for inclusion-maximality, including singleton matchings. The distinguished-edge count \(n/k\) is justified by a reversible labeled-root bijection, not an unproved cyclic symmetry heuristic. The positive contiguous block support yields the full cardinality interval and rigid extremal coefficients. Independent graph-level and exact-arithmetic programs agree on 44 and 888 tested parameter pairs, respectively; finite tests are corroborative only.
+
+## Originality — PASS, provisionally
+The closest same-family work, Romeo (arXiv:1811.06409, Corollary 3.3), already determines the largest possible size \(\lfloor n/(r+2)\rfloor\); that value is not claimed as new. Full accessible texts of Romeo, Basavaraju et al. (arXiv:1312.5180), and Yuan et al. (arXiv:2410.11288) were compared against the precise two-polynomial, minimum-maximal-size, spectrum, and multiplicity statements. Romeo covers the scalar maximum for \(r<\lfloor n/2\rfloor\) (the complete boundary is elementary), Basavaraju et al. give bounds for triangle-free graphs, and Yuan et al. give global fixed-order extremal counts. None of those checked statements implies the complete distribution. The available abstracts of Chaudhary–Panda (DOI:10.1007/978-981-19-9582-8_4) and Orlovich–Zverovich (DIMACS 2004-26) address algorithmic hardness rather than the specific family; their full content was not accessible and is an explicit priority risk. Comparisons under the aliases strong matching, minimum maximal induced matching, independent domination of the squared line graph, and circular gap enumeration did not identify a dominating theorem. Absence from searches does not prove publication priority.
+
+## Mathematical value — PASS
+The problem of finding a minimum-size inclusion-maximal induced matching is a nontrivial matching parameter in general graphs. Here the entire labeled maximal-solution census for a natural two-parameter family is explicit, not just its minimum or maximum. The exact gap criterion supplies a structural bijection, the full support has no holes, and its two boundary cases admit rigid labeled counts. The paired all-solution polynomial makes the refinement usable for further enumerative and probabilistic comparisons, without presuming a general graph complexity consequence.
+
+## Limitations and remaining risks
+The family consists of consecutive-distance cycle powers only. Specialization \(r=1\) may be recoverable from older cycle recurrences. An unindexed equivalent general enumerator or squared-line-graph independence-domination formula could supersede the claimed novelty. Abstract-only comparisons of the 2004 DIMACS report and 2023 conference paper are weaker than full-document exclusions. Independent review has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

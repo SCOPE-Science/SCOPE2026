@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For n>=2r+1 every edge has a unique short clockwise arc. The proof gives inducedness exactly by cyclic gaps >=r+1 and maximality exactly by also bounding all gaps <=2r+2; inclusion of any further edge is equivalent to two adjacent eligible vertices in a gap of length >=2r+3. Rooted-block bijection justifies n/k, while contiguous block degrees prove exact support and divisibility multiplicities. Standalone graph-level tests agree in 44 cases (116874 candidate edge subsets), and 888 arithmetic cases corroborate integrality/support, but infinite quantification rests only on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al., Theorems 1.2 and 1.3, optimize total counts of maximal and maximum induced matchings over connected graphs of each order.",
+        "Basavaraju et al., Theorem 1.1, bounds counts in triangle-free graphs.",
+        "Chaudhary–Panda 2023 abstract gives hardness results for minimum maximal induced matching on specified graph classes."
+      ],
+      "reasoning": "A global upper bound or algorithm, without equality for each C_n^r and every coefficient, does not imply the exact labeled family polynomial. The triangle-free theorem is inapplicable for r>=2, and still only bounds total count at r=1.",
+      "searches": [
+        "\"maximum and minimum maximal induced matchings\" \"power of a cycle\"",
+        "arXiv:2410.11288",
+        "arXiv:1312.5180",
+        "DOI:10.1007/978-981-19-9582-8_4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1811.06409 Sections 1 and 3, Corollary 3.3 and Table 1",
+      "arXiv:2410.11288 Introduction and Theorems 1.2 and 1.3",
+      "arXiv:1312.5180 Introduction and Theorem 1.1",
+      "DOI:10.1007/978-981-19-9582-8_4 publisher accessible abstract",
+      "DIMACS:2004-26 official abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Romeo Corollary 3.3 establishes maximum size floor(n/(r+2)) for r<floor(n/2), agreeing with the upper support endpoint here; the complete-graph boundary is immediate.",
+        "Yuan et al. establish order-only extremal numbers over all connected graphs, with no cycle-power coefficient extraction.",
+        "Orlovich–Zverovich report abstract defines minimum/maximum maximal induced matching sizes and hardness, but contains no readable exact cycle-power claim."
+      ],
+      "reasoning": "The maximum-size scalar is covered by Romeo and excluded from any originality claim. Full polynomials, the minimum maximal size, gap-free cardinality support, and exact divisibility multiplicities do not follow from any compared statement without new cyclic decomposition. The inaccessible DIMACS full text remains a residual priority risk, not a proof of exclusion.",
+      "searches": [
+        "arXiv:1811.06409 Corollary 3.3",
+        "arXiv:2410.11288 Theorems 1.2 and 1.3",
+        "DIMACS:2004-26"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Induced matchings are independent sets in the square of the line graph; maximal induced matchings are independent dominating sets there (Basavaraju et al., introduction).",
+        "Romeo gives only the induced matching number, not independent-domination counts or matching cardinality polynomials."
+      ],
+      "reasoning": "Aliases strong matching and independent domination of the square-line graph were considered. A polynomial counting maximal independent sets in this specific derived graph could dominate the result, but no source inspected states such a formula. The conversion of names itself does not imply the cyclic block theorem.",
+      "searches": [
+        "\"maximal induced matchings\" \"power of a cycle\" enumerating",
+        "\"cycle powers\" \"minimum maximal induced matching\"",
+        "\"induced matching polynomial\" \"power of cycle\"",
+        "arXiv:1811.06409",
+        "arXiv:1312.5180"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Romeo Table 1 contains pairs of scalar matching number and regularity for n<=15, not all induced/maximal matching coefficients.",
+        "Graph-level computations give, for instance, M_{9,1}(z)=9z^2+3z^3 and M_{12,2}(z)=84z^2+4z^3."
+      ],
+      "reasoning": "Published scalar tables do not encode the distribution. Searches for coefficient sequences or a specialized family table found no matching complete enumeration. This negative outcome is only a priority-risk assessment.",
+      "searches": [
+        "\"induced matching polynomial\" \"power of cycle\"",
+        "Orlovich Zverovich Maximal induced matchings of minimum maximum size technical report 2004-26 pdf cycles powers",
+        "arXiv:1811.06409 Table 1"
+      ]
+    },
+    "rationale": "Relative to the inspected primary literature, the complete induced and maximal induced-matching cardinality polynomials of every consecutive cycle power are not covered. Romeo already proves the maximum size, so that scalar is specifically excluded as an originality claim. Publication priority is provisional because earlier specialized and full inaccessible papers may contain equivalent results.",
+    "residual_risks": [
+      "Unindexed cycle-power enumerators or independent domination polynomials of squared line graphs might imply the entire result.",
+      "The r=1 cyclic recurrence is classical in flavor, and originality is based on the full two-parameter enumeration rather than its cycle specialization.",
+      "The full text of the 2004 technical report and 2023 conference chapter was not inspected; available abstracts do not settle all special-case implications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the maximum cardinality, not two complete induced/maximal enumerators or minimum maximal size",
+        "evidence": [
+          "Corollary 3.3 gives the maximum size floor(n/(r+2)) for r<floor(n/2); the n=2r+1 boundary is complete and elementary.",
+          "The subsequent table compares scalar regularity and nu, not counts by matching cardinality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.06409",
+        "material_read": "Full accessible HTML text; especially introduction, Section 3 Theorem 3.2, Corollary 3.3 and its proof, and Table 1",
+        "method": "primary full-text HTML read and mathematical statement comparison",
+        "title": "Chordal circulant graphs and induced matching number",
+        "trigger": "Exact same cycle-power family and known maximum induced matching number"
+      },
+      {
+        "assessment": "Global fixed-order extremal counts over connected graphs; does not give cycle-power labeled coefficients",
+        "evidence": [
+          "Theorem 1.2 maximizes the total count of maximal induced matchings for connected graphs of order n.",
+          "Theorem 1.3 maximizes the number of maximum induced matchings, still over all connected graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.11288",
+        "material_read": "Accessible HTML introduction, definitions and statements of Theorems 1.2 and 1.3, plus the stated proof aim",
+        "method": "primary full-text HTML read of relevant substantive sections",
+        "title": "Maximal and maximum induced matchings in connected graphs",
+        "trigger": "Possible broader total-count result for maximal induced matchings"
+      },
+      {
+        "assessment": "A general total-count bound for triangle-free graphs; not a cycle-power polynomial, and r>=2 cases have triangles",
+        "evidence": [
+          "Theorem 1.1 bounds maximal induced matchings in a triangle-free graph by 3^(n/3).",
+          "Introduction credits Cameron for the line-graph-square independent-set equivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1312.5180",
+        "material_read": "Accessible full text introduction, definitions, Theorem 1.1 and discussion of its implications",
+        "method": "primary full-text HTML read and family comparison",
+        "title": "Maximal induced matchings in triangle-free graphs",
+        "trigger": "Enumerating maximal induced matchings and squared-line graph formulation"
+      },
+      {
+        "assessment": "Abstract describes NP-completeness in several graph classes and a saturated-matching algorithm; does not state exact cycle-power census in available portion",
+        "evidence": [
+          "Abstract defines Min-Max-Ind-Matching and lists hardness classes: perfect elimination bipartite, star-convex bipartite and dually chordal.",
+          "Publisher says subscription content; full-text comparison unresolved."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-981-19-9582-8_4",
+        "material_read": "Accessible publisher abstract, introduction preview, cited problem statement and reference list; full chapter not accessible",
+        "method": "publisher preview and author page, open-access and arXiv search attempted",
+        "title": "On Two Variants of Induced Matchings",
+        "trigger": "Direct study of minimum-cardinality maximal induced matchings"
+      },
+      {
+        "assessment": "Abstract proves hardness and forbidden-induced-subgraph algorithmic results, not an identified exact cycle-power polynomial; full paper not checked",
+        "evidence": [
+          "Abstract explicitly defines sigma(G), Sigma(G) and NP-completeness of minimum maximal induced matching.",
+          "No cycle-power polynomial appears in accessible abstract; the original report may contain uninspected specialized cases."
+        ],
+        "identifier_or_url": "https://archive.dimacs.rutgers.edu/TechnicalReports/abstracts/2004/2004-26.html",
+        "material_read": "DIMACS abstract and bibliographic entry; full original .ps.gz text unavailable in this environment",
+        "method": "official technical-report abstract and source discovery",
+        "title": "Maximal induced matchings of minimum/maximum size",
+        "trigger": "Original minimum-maximal induced-matching parameter and possible classical special cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8c7ade15-11c3-4928-91d5-0c118413346d",
+  "value": {
+    "rationale": "The two-parameter family C_n^r is canonical and a known scalar maximum (Romeo) leaves a genuine distributional gap. The complete labeled all-solution and minimal/maximal-solution polynomials, exact minimum maximal induced-matching size ceil(n/(3r+2)), no-hole support, and rigid multiplicities at two divisibility extremes are mathematically distinct, informative and likely reusable for enumeration and extremal comparison. The result does not depend on an unsupported general downstream theorem.",
+    "status": "PASS"
+  }
+}
