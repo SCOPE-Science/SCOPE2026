@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For unnormalized surface measure on the unit two-sphere, the angular Fourier–Bessel identity gives an exact nonnegative quadratic form in the squared masses of all spherical-harmonic projections. Legendre orthogonality, Fourier inversion at the endpoints of a supported self-convolution, and Plancherel give the all-order constant-to-degree moment \(M_{0k}=1/[\pi(2k+1)]\). The degree-one self-moment is computed exactly as \(M_{11}=7/(15\pi)\). Xu's Theorem 1.2 (arXiv:2610.19648) supplies the necessary strict all-degree diagonal order. Cauchy–Schwarz then bounds all positive-degree cross moments, with strictness for any degree at least two. The resulting mass-polynomial has equality exactly in degrees zero and one, and every fixed mass is realized. CHECK.py verifies the polynomial-convolution identities and 4,424 rational assertions, not the infinitely many strict modal inequalities. Normalization, the zero input, endpoints, complex values and the dependence on Xu's theorem are explicit.
+PASS
 
-## Originality: PASS relative to inspected evidence
+For unnormalized surface measure on S², exact Fourier--Bessel decomposition gives N(f)^4=(2pi)^6 sum_{k,l} a_k a_l M_{kl} with a_k=||P_k f||² and M_{kl}=integral J_{k+1/2}² J_{l+1/2}². Legendre self-convolution, Fourier inversion and Plancherel show M_{0k}=1/[pi(2k+1)] for every k>=0. Independently integrated F1’(x)²/2 over [0,2] to get pi M11=7/15. Xu arXiv:2610.19648 Theorem1.2 proves strict M00>M11>M22>... for d=3,q=4. Cauchy--Schwarz bounds every k,l>=1 by M11, strictly when any k>=2; collecting a0=(1-b)A gives (2pi)^6/pi*(1-4b/3+4b²/5)A². Equality iff only modes k=0,1; b endpoints and complex amplitudes covered. General theorem relies on Xu infinite-mode ordering, not finite CHECK.py.
 
-Xu, arXiv:2610.19648, first posted 2026-10-14, proves the sharp linear deficit for the squared mixed norm and strictly ordered diagonal modal moments. Its full HTML text, especially Theorems 1.2–1.3 and the Section 4 proof, was compared with the conditional fourth-power claim: it does not give the exact constant-to-arbitrary-mode mixed Bessel moment or the fixed-mass optimal quartic. The earlier full preprint arXiv:1710.10365 proves unrestricted constant-mode extremality and works with the same norm, but not the conditional profile. DLMF §10.59 supplies classical spherical-Bessel identities rather than the extremal inequality. Searches of published mathematical research records for conditional spherical Fourier extension fourth moments, first-mode cross moments, sharp stability, and algebraically equivalent profiles returned no equivalent result; the closest result on degree-two spherical harmonics concerns a different, ordinary sphere \(L^4\) norm. A published or unindexed equivalent conditional inequality remains a residual risk, and a negative semantic search does not prove originality.
+## originality
 
-## Value: PASS
+PASS
 
-The question of how the best radial–angular extension constant deteriorates when a specified fraction of input energy lies outside the constant spherical harmonic is a natural quantitative refinement of the newly sharp unrestricted extension and stability theorems. The exact nonlinear profile, all fixed-mass equality cases, and all-order cross-moment identity supply information not implied by the linear squared-norm deficit. In particular the positive first-harmonic energy is allowed in every equality case, giving a complete nontrivial family rather than an arbitrary finite cutoff.
+Qualified PASS: Carneiro--Oliveira e Silva--Sousa 2018 theorem gives unrestricted constant-mode optimality, Xu 2026 gives strict modal ordering and optimal squared-norm linear stability, all credited. Xu’s Minkowski-based squared-norm estimate has cross coefficient sqrt(7/15), larger than exact new 1/3; its square is strictly weaker for 0<b<1. The exact constant-to-any-mode integral and sharp fixed-b quartic are not in the inspected relevant source sections. Historical equivalent nonlinear stability refinements may exist.
 
-## Limits and closest prior literature
+## value
 
-The sharp all-degree diagonal order is a cited input from Xu (2026); it is not independently established here. The theorem is specific to dimension three, exponent four, and the radial–angular mixed norm. Independent external assessment and unindexed literature checks remain open. No claim is made for the ordinary full-space \(L^4\) norm.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact best extension norm under a prescribed nonconstant spherical-harmonic energy fraction is a natural stability refinement. The nonlinear sharp profile and rigid degree-one equality locus give quantitative information beyond the prior optimal linear squared-norm deficit, and include an all-order mixed Bessel moment identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
