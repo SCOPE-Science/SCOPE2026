@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:48:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every weight-two n-word is an edge of the order-(n-1) de Bruijn digraph. The mandatory edges partition into cyclic rotation orbits; each touches a singleton-one (n-1)-vertex. Subtracting one mandatory traversal from any cyclic cover leaves balanced residual cycles. If fewer than n-1 residual edges exist, each residual simple cycle has period <=n-2. Fine–Wilf plus p+q<=n-2 prohibits distinct such cycles sharing a vertex; a short residual cycle meeting the adjacent-one orbit C_* cannot meet any different mandatory orbit (each of its n-1 windows contains adjacent 11, while singleton-one endpoint vertices cannot have short period). Thus the full walk cannot connect C_* to a second orbit, contradiction. Conversely the n-2 weight-one edges v_j->v_{j-1} and one duplicated 10^(n-2)1 edge create a balanced cycle through every singleton-one vertex and join every mandatory orbit; an Eulerian circuit has exactly C(n,2)+n-1 cyclic factors, with precisely the proposed multiplicities. The n>=4 boundary is required; n=2,3 differ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ruskey–Sawada–Williams shorthand cycle uses n-1 bit windows with externally recovered last bit; Mitchell–Wild handles Eulerian connectivity/adjacent weight ranges, not minimum repeated-edge n-window cover."
+        ],
+        "reasoning": "A shorthand window is a different encoding and does not satisfy all indexed full n-window factors; a general existence theorem without minimality does not imply the optimization.",
+        "searches": [
+          "Ruskey–Sawada–Williams, DOI:10.1137/100808782",
+          "Mitchell–Wild arXiv:2607.22350"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1008.2251",
+        "https://doi.org/10.1007/s00373-016-1727-6",
+        "https://doi.org/10.1137/100808782",
+        "Resultary: minimum length cyclic binary covering word containing all length n Hamming weight two words de Bruijn covering rotation orbit fine wilf",
+        "arXiv:1008.2251",
+        "Ruskey–Sawada–Williams, DOI:10.1137/100808782",
+        "Mitchell–Wild arXiv:2607.22350",
+        "Resultary semantic fixed-weight binary circular covering length query",
+        "Dębski–Lonc DOI:10.1007/s00373-016-1727-6 Section 1.2",
+        "Blanca–Godbole arXiv:1008.2251 Theorem 4",
+        "Ruskey–Sawada–Williams fixed-weight de Bruijn construction",
+        "Dębski–Lonc Section 1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published same-notion upper bound C(n,2)+n is one greater, and shortcut n-1 windows cannot be turned into mandatory n-windows at the same length without adding bits."
+        ],
+        "reasoning": "The precise prior statements do not prove the strict lower bound or construction; fixed-weight shorthand cycles and subset-alphabet circles are not implication-equivalent.",
+        "searches": [
+          "Blanca–Godbole arXiv:1008.2251 Theorem 4",
+          "Ruskey–Sawada–Williams fixed-weight de Bruijn construction",
+          "Dębski–Lonc Section 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blanca–Godbole Section 2, Theorem 4 defines the SAME n-window binary covering and constructs length C(n,k)+C(n,k-1)."
+        ],
+        "reasoning": "Their universal-cycle-covering definition coincides, not just title; their construction yields C(n,2)+n for k=2 but does not imply the strict sharp lower-plus-upper n-1 result.",
+        "searches": [
+          "Resultary: minimum length cyclic binary covering word containing all length n Hamming weight two words de Bruijn covering rotation orbit fine wilf",
+          "arXiv:1008.2251"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary sampled hits were coding/string-attractor items without an exact same optimum; Dębski–Lonc uses k-element subset alphabet circles and explicitly separates the binary encoding."
+        ],
+        "reasoning": "No exact published table for this same notion identified in sampled sources; non-detection is NOT a novelty proof.",
+        "searches": [
+          "Resultary semantic fixed-weight binary circular covering length query",
+          "Dębski–Lonc DOI:10.1007/s00373-016-1727-6 Section 1.2"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact shortest n-window cyclic binary covering; earlier papers define the same covering and bound it by C(n,2)+n, or construct different shorthand (n-1)-window cycles. Exact shortest formula was not found; this is not priority certification.",
+      "residual_risks": [
+        "Unindexed exact covering constructions or hidden older equivalences remain historical-priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME object; previous C(n,2)+n upper bound, not the claimed sharp C(n,2)+n-1",
+          "evidence": "Section 2 Theorem 4: C(n,k)+C(n,k-1) construction.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2251",
+          "material_read": "Primary PDF Section 2 and Theorem 4 including the covering construction and bound",
+          "method": "Full PDF text, inspected theorem page with screenshot",
+          "title": "On Universal Cycles for new Classes of Combinatorial Structures (Blanca and Godbole)",
+          "trigger": "Same circular binary fixed-weight window definition"
+        },
+        {
+          "assessment": "Its element-alphabet length-k windows differ from the binary weight-two length-n requirement",
+          "evidence": "Section 1.2 explicit distinction of the binary encoding.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-016-1727-6",
+          "material_read": "Primary full-text HTML Section 1.2 contrasting two covering notions",
+          "method": "Full-text HTML read relevant definitions and comparison",
+          "title": "Universal Cycle Packings and Coverings for k-Subsets of an n-Set (Dębski and Lonc)",
+          "trigger": "Potential exact combinatorial covering prior"
+        },
+        {
+          "assessment": "Uses n-1-window shorthand; no whole-PDF noncoverage assertion",
+          "evidence": "Shortened n-1 window representation differs from n-window covering.",
+          "identifier_or_url": "https://doi.org/10.1137/100808782",
+          "material_read": "Public de Bruijn reference page and theorem-description text, not full journal PDF",
+          "method": "Accessible public reference, partial text",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings (Ruskey, Sawada, Williams)",
+          "trigger": "Shorthand covering potentially stronger"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact shortest cyclic superstring for the naturally defined fixed-Hamming-weight-two language resolves a tight structural covering question, improving the known constructive upper bound by one and explaining a nontrivial graph-connectivity/periodicity obstruction; it is not merely a small enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=4 indexed binary weight-two n-factors only; no uniqueness, higher weight, reversal or linear analogue.",
+    "Unindexed exact covering constructions or hidden older equivalences remain historical-priority risk.",
+    "Unchanged confidential public metadata/audit field prevents automatic publication; this is a transport/privacy blocker, not a scientific C/O/V failure.",
+    "This scientific review is neither expert attestation nor Lean verification and makes no invented certification claim."
+  ],
+  "schema_version": 1
+}
