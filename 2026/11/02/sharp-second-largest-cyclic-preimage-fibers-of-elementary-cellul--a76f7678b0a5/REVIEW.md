@@ -1,11 +1,21 @@
-# Scientific review: cyclic Rule-18 second-largest preimage fibers
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-matching zero-run decomposition is proved for all positive output weights, including the small ring cases. Independent Fibonacci corridor counts give the exact formula; strict inequalities prove the sharp modal ranking for every \(n\ge7\). The included `verify.py` reconstructs output fibers directly for \(1\le n\le16\), tests all \(131070\) possible outputs and checks independent transfer traces for \(n\le11\). This computational evidence corroborates, but does not replace, the general proof.
+## correctness
 
-**Originality — PASS (historical-priority qualification).** Jen (1989) supplies general finite-block preimage recurrence machinery and Powley (2009) establishes the same rule's all-zero cyclic count; Fukś (2003; posted to arXiv May 2013) treats sequences of preimage numbers. None of the inspected relevant statements gives the sharp all-nonzero second mode or its complete equality cases. The comparison explicitly acknowledges that broader recurrence methods might imply the theorem once additional arguments are supplied. The 2010 homogeneous-count article was accessible in bibliographic abstract only; an unseen historical equivalent remains a risk.
+PASS
 
-**Value — PASS.** The result identifies the exact runner-up likelihood and all maximizing nonzero outcomes in an inverse-image distribution for a standard deterministic cellular automaton. The new natural invariant and infinite family are motivated by inverse uncertainty and extend beyond the known homogeneous count.
+For Rule 18, one-step output 1 is generated exactly by neighborhoods 001 or 100. In mixed inputs every long zero run produces two output ones and determines one of two cyclic alternating matchings of positive sites; intervening corridors between long-zero runs must start/end with input 1 and avoid adjacent zeros, counted by Fibonacci F_t. This proves the exact two-matching product-sum formula; odd-weight outputs have no preimages. The zero-output fiber counts cyclic no-adjacent-zero inputs plus all zero: Lucas_n+1. A two-one output at cyclic distance d has F_{d-1}+F_{n-d-1}, sharply maximal at d=1 or n-1 for n>=7. For >=4 output ones, each matching contributes at most F_{n-3r+1}, so total <=2F_{n-5}<F_{n-2}. Independent direct full preimage enumeration for bounded rings confirms zero maximum and exactly n adjacent-pair runners-up; the inequalities supply the infinite proof.
 
-The theorem is restricted to one synchronous Rule-18 step on indexed cyclic binary rings, with ranking for \(n\ge7\). There is no independent validation or publication-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.
+
+## value
+
+PASS
+
+The second modal output of a one-step stochastic cellular-automaton image distribution is a natural exact measure-concentration invariant. Complete Fibonacci factorization and the unique n-member adjacent-pair runner-up class resolve a meaningful full-ring extremal problem, not a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

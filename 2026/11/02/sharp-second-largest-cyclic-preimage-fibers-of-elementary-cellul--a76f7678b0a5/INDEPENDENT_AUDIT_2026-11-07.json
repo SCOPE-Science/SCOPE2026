@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:47:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof sections 1–4 and verify.py (inspected)",
+        "Independent S3 enumeration for n=7..12"
+      ],
+      "rationale": "For Rule 18, one-step output 1 is generated exactly by neighborhoods 001 or 100. In mixed inputs every long zero run produces two output ones and determines one of two cyclic alternating matchings of positive sites; intervening corridors between long-zero runs must start/end with input 1 and avoid adjacent zeros, counted by Fibonacci F_t. This proves the exact two-matching product-sum formula; odd-weight outputs have no preimages. The zero-output fiber counts cyclic no-adjacent-zero inputs plus all zero: Lucas_n+1. A two-one output at cyclic distance d has F_{d-1}+F_{n-d-1}, sharply maximal at d=1 or n-1 for n>=7. For >=4 output ones, each matching contributes at most F_{n-3r+1}, so total <=2F_{n-5}<F_{n-2}. Independent direct full preimage enumeration for bounded rings confirms zero maximum and exactly n adjacent-pair runners-up; the inequalities supply the infinite proof.",
+      "residual_risks": [
+        "Only synchronous one-step indexed cyclic binary Rule-18 map, n>=7 for modal ranking; other rules and repeated updates not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen 1989 develops a general recursion for one-step arbitrary finite output blocks on infinite lattices.",
+          "Powley thesis Chapter 9 is cited as deriving the periodic homogeneous zero-output Lucas predecessor count; complete full thesis inaccessible for exhaustive check."
+        ],
+        "reasoning": "A technique covering many rules and output words can compute counts but is not a proven inequality ranking all nonzero periodic outputs; the homogeneous highest-mode count is only one ingredient.",
+        "searches": [
+          "Rule 18 elementary cellular automaton periodic cyclic ring second largest preimage count adjacent ones Fibonacci",
+          "Jen Enumeration of Preimages in Cellular Automata 1989",
+          "Powley Global Properties of Cellular Automata 2009 rule 18 chapter 9"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1305.6533",
+        "https://edpowley.com/academic/papers/thesis.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-irreversible-rule-54-rule-18-phase-filtration-in-a-normalized--ac12be561c8d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Fukś PDF introduces Jen one-step recurrences and studies n-step preimages of basic fixed blocks, and explicitly mentions Rule18 power-law relaxation (page 11).",
+          "Known zero-output formula only establishes the largest mode at zero, not the runner-up gap."
+        ],
+        "reasoning": "The result is neither the n-step fixed-block theorem nor an automatic corollary of the homogeneous Lucas count; it requires the alternating pairings and strict Fibonacci inequalities for all nonzero outputs.",
+        "searches": [
+          "arxiv:1305.6533 pages 1,10 and tables",
+          "Powley 2009 Rule 18 global properties thesis Chapter9",
+          "Jen 1989 recurrent preimage system"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every fixed output fiber equals a trace of the output-dependent product of 4x4 de Bruijn transfer matrices; the reviewed RESULT.md also gives a two-pairing product formula.",
+          "Fukś studies n-step finite-block preimage recurrences, rather than the cyclic one-step second-largest output fiber."
+        ],
+        "reasoning": "The transfer-matrix formulation is mathematically equivalent to the object counted, but general trace methods do not by themselves identify the second mode or exact equality class.",
+        "searches": [
+          "Rule 18 elementary cellular automaton periodic cyclic ring second largest preimage count adjacent ones Fibonacci",
+          "Rule18 predecessor count periodic output most likely nonzero pattern Fibonacci Lucas",
+          "Rule18 transfer matrix trace periodic preimage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source verifier exhausts rings up to n=16 but this is a new finite test, not an earlier published table.",
+          "Fukś 2003 tables concern fixed blocks and time-step preimage sequences; relevant full primary PDF discusses Rule18 slow convergence, not a cyclic runner-up table."
+        ],
+        "reasoning": "No inspected exact database or predecessor histogram gives all-n runner-up F_{n-2} with exactly n adjacent-pair maximizers. A hidden prior table remains possible.",
+        "searches": [
+          "Rule 18 elementary cellular automaton periodic cyclic ring second largest preimage count adjacent ones Fibonacci",
+          "Rule 18 output preimage mode adjacent pair n F(n-2) tabulation",
+          "Fukś sequences of preimages rule18 table"
+        ]
+      },
+      "rationale": "Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.",
+      "residual_risks": [
+        "Complete Powley thesis inaccessible owing PDF size; it might contain an overlapping cyclic nonzero modal theorem.",
+        "An older periodic transfer-matrix predecessor histogram might imply the exact adjacent-pair second mode."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_TIME_AND_BOUNDARY_SPECTRUM",
+          "evidence": "Fukś focuses on n-step preimage sequences and densities, and notes Rule18 power-law relaxation rather than a sharp ranking of one-step periodic output fibers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6533",
+          "material_read": "Full 16-page primary PDF text, particularly introduction and tables, elementary-block recurrence and Rule18 discussion; screenshot page 1",
+          "method": "arXiv PDF textual inspection and visual screenshot",
+          "title": "Sequences of preimages in elementary cellular automata",
+          "trigger": "Same preimage terminology and Rule18"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT",
+          "evidence": "The known zero-output Lucas count is acknowledged. No whole-thesis NONCOVERAGE claim; possible priority overlap explicitly retained.",
+          "identifier_or_url": "https://edpowley.com/academic/papers/thesis.pdf",
+          "material_read": "Only bibliographic/Chapter9 references and search metadata, NOT thesis full text (12MB refused by tool)",
+          "method": "Attempted lawful public PDF retrieval; blocked by size limit",
+          "title": "Global Properties of Cellular Automata",
+          "trigger": "Highly relevant Rule18 periodic homogeneous preimage count"
+        },
+        {
+          "assessment": "DIFFERENT_DYNAMICAL_INVARIANT",
+          "evidence": "Uses Rule18 as a subsystem after a phase switch; no enumeration/ranking of all output preimage fibers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-irreversible-rule-54-rule-18-phase-filtration-in-a-normalized--ac12be561c8d",
+          "material_read": "Full RESULT.md construction, hypotheses, 54-to-18 regime and limitations",
+          "method": "Read-only GitHub public RESULT.md",
+          "title": "An irreversible Rule-54/Rule-18 phase filtration in a normalized separable-field automaton",
+          "trigger": "Resultary Rule18 neighborhood match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Reviewed final mathematical claim and bounded verification program",
+        "RESULT.md proof sections 1–4 and verify.py (inspected)",
+        "Independent S3 enumeration for n=7..12"
+      ],
+      "rationale": "The second modal output of a one-step stochastic cellular-automaton image distribution is a natural exact measure-concentration invariant. Complete Fibonacci factorization and the unique n-member adjacent-pair runner-up class resolve a meaningful full-ring extremal problem, not a tiny numerical improvement.",
+      "residual_risks": [
+        "Only synchronous one-step indexed cyclic binary Rule-18 map, n>=7 for modal ranking; other rules and repeated updates not covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only synchronous one-step indexed cyclic binary Rule-18 map, n>=7 for modal ranking; other rules and repeated updates not covered.",
+    "Complete Powley thesis inaccessible owing PDF size; it might contain an overlapping cyclic nonzero modal theorem.",
+    "An older periodic transfer-matrix predecessor histogram might imply the exact adjacent-pair second mode."
+  ],
+  "schema_version": 1
+}

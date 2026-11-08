@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 using only the standard library. The direct Rule-18 update enumerates all \(2^n\) inputs for \(1\le n\le16\). For every one of the \(131070\) output words in those lengths, it checks exact agreement with the two-matching Fibonacci formula. It independently forms a four-state de Bruijn transition matrix and checks its trace for every output for \(1\le n\le11\). It also checks the unique zero-output global maximizer, second-largest fiber and equality cases for \(7\le n\le16\).
+## correctness
 
-Expected terminating marker: `VERIFY_OK 131070 outputs checked; direct enumeration + formula; transfer traces for n<=11`.
+PASS
 
-The unrestricted theorem for every \(n\ge7\) is justified by the complete zero-run bijection and elementary Fibonacci inequalities in `RESULT.md`. Finite exhaustive checks are not an infinite proof. No independent audit or external verification has been performed.
+For Rule 18, one-step output 1 is generated exactly by neighborhoods 001 or 100. In mixed inputs every long zero run produces two output ones and determines one of two cyclic alternating matchings of positive sites; intervening corridors between long-zero runs must start/end with input 1 and avoid adjacent zeros, counted by Fibonacci F_t. This proves the exact two-matching product-sum formula; odd-weight outputs have no preimages. The zero-output fiber counts cyclic no-adjacent-zero inputs plus all zero: Lucas_n+1. A two-one output at cyclic distance d has F_{d-1}+F_{n-d-1}, sharply maximal at d=1 or n-1 for n>=7. For >=4 output ones, each matching contributes at most F_{n-3r+1}, so total <=2F_{n-5}<F_{n-2}. Independent direct full preimage enumeration for bounded rings confirms zero maximum and exactly n adjacent-pair runners-up; the inequalities supply the infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.
+
+## value
+
+PASS
+
+The second modal output of a one-step stochastic cellular-automaton image distribution is a natural exact measure-concentration invariant. Complete Fibonacci factorization and the unique n-member adjacent-pair runner-up class resolve a meaningful full-ring extremal problem, not a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
