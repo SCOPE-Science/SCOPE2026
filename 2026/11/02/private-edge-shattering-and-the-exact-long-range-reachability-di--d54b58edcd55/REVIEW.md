@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique-path property of trees reduces each positive reachability query to a signed conjunction of edge directions. All-one and single-negative labelings force directional compatibility and a private edge for each query. A private-edge flipping construction proves sufficiency for *all* labelings. On a path, every shatterable interval system has increasing left and right endpoints, and the two-step endpoint inequality gives an all-parameter upper bound matched by explicitly constructed paired intervals. The standalone finite checker independently confirms the criterion on 22,332 support cases and the exact path value on all 28 cases with \(2\le d\le m\le8\). No finite test is used as an infinite proof.
+## correctness
 
-**Originality — PASS under documented comparisons, with residual risk.** Janardhanan–Reyzin (arXiv:2002.11541, text inspected) considers directed-graph reconstruction from path queries, not VC shattering of variable orientations of a known skeleton under distance restrictions. Wang–Honorio (arXiv:1606.05183, accessible abstract inspected) treats rooted directed-tree reconstruction; the limited full-text coverage is a historical-priority uncertainty, not affirmative evidence of the same theorem. Technical-report work on VC dimensions of path set systems changes which objects serve as hypotheses. An indexed search for the present private-edge criterion and exact path-threshold capacity did not surface equivalent or stronger coverage. Further historical review remains advisable.
+PASS
 
-**Value — PASS.** Restricting reachability experiments to longer vertex separations gives a natural capacity problem in graph-query learning. The sharp formula for every path length and every distance threshold quantitatively identifies the loss of independently configurable answers, while the general tree criterion explains the combinatorial obstruction without relying on brute-force enumeration. The interval-pair extremizers exhibit exactly two independent queries for each block of \(d+1\) edges, plus a precisely controlled remainder case.
+PASS. In a fixed undirected tree, an oriented reachability query equals conjunction of prescribed edge signs on its unique path. For a shattered set, all-one realizability forces orientation compatibility; one-negative/all-other-positive labeling forces a private edge of that query. Conversely, orient all positive paths consistently and reverse a distinct private edge of each negative query; other query paths cannot be affected, realizing every labeling. On a path, intervals each having private points form a strict two-sided antichain. A middle interval must contain a private point outside its predecessor and successor, forcing L_{i+2}>=R_i+2 and hence R_{i+2}>=R_i+d+1. Initial R1>=d,R2>=d+1 yield k<=2q+1_{r=d}; two overlapping length-d intervals per disjoint length-(d+1) block with last d-edge tail when r=d achieve equality. Independently brute-force maximized private-point interval systems for all 2<=d<=m<=8. This establishes the exact domain for all finite tree supports and for path m>=d>=1; finite brute force only corroborates.
 
-**Limits.** The exact numerical formula is for path skeletons; tree supports are characterized structurally. The result does not determine adaptive query complexity or Littlestone dimension. Independent scientific review and broad historical-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: known hidden-directed-graph path-query reconstruction complexity studies and Kozma–Moran orientation/VC connectivity duality are related but study different hypothesis/query domains. They do not state or directly imply the private-edge iff criterion for the concept class of all orientations with ordered-pair reachability coordinates nor its sharp distance-cutoff path VC dimension.
+
+## value
+
+PASS
+
+PASS. Exact shattering characterization for an arbitrary tree and closed VC dimension for a natural restricted query domain on a path quantify the sample/query capacity of orientation reachability, distinct from graph reconstruction. The threshold d and extremal interval construction are intrinsic and may guide learning-theoretic analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

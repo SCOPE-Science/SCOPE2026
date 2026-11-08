@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:06:52.392451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In a fixed undirected tree, an oriented reachability query equals conjunction of prescribed edge signs on its unique path. For a shattered set, all-one realizability forces orientation compatibility; one-negative/all-other-positive labeling forces a private edge of that query. Conversely, orient all positive paths consistently and reverse a distinct private edge of each negative query; other query paths cannot be affected, realizing every labeling. On a path, intervals each having private points form a strict two-sided antichain. A middle interval must contain a private point outside its predecessor and successor, forcing L_{i+2}>=R_i+2 and hence R_{i+2}>=R_i+d+1. Initial R1>=d,R2>=d+1 yield k<=2q+1_{r=d}; two overlapping length-d intervals per disjoint length-(d+1) block with last d-edge tail when r=d achieve equality. Independently brute-force maximized private-point interval systems for all 2<=d<=m<=8. This establishes the exact domain for all finite tree supports and for path m>=d>=1; finite brute force only corroborates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janardhanan–Reyzin analyze reconstructing an unknown directed graph via path queries; query complexity changes with unknown graph.",
+          "Kozma–Moran establish shattering-extremality of orientation families with connectivity, distance and flow constraints on a graph."
+        ],
+        "reasoning": "Different hypothesis classes and query-coordinate choices prevent direct implication of exact fixed-tree all-orientations path VC dimension. Broad orientation duality is relevant but not a domination proof.",
+        "searches": [
+          "Resultary: directed tree orientation reachability VC dimension distance threshold private edges intervals",
+          "arXiv:2002.11541",
+          "arXiv:1606.05183",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2002.11541",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf",
+        "https://arxiv.org/abs/1606.05183",
+        "Resultary: directed tree orientation reachability VC dimension distance threshold private edges intervals"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kozma–Moran Theorem 26 shows shattering-extremality of orientation systems admitting one s–t flow, not all ordered-pair reachability query shattering.",
+          "Janardhanan–Reyzin use Boolean path queries to reconstruct graph structure rather than optimize shattered query supports in a known tree."
+        ],
+        "reasoning": "Neither implication determines private-edge compatibility or the exact distance-limited interval packing formula; their graphs/query domains differ materially.",
+        "searches": [
+          "Resultary: directed tree orientation reachability VC dimension distance threshold private edges intervals",
+          "Kozma–Moran 2013 Theorem 26",
+          "Janardhanan–Reyzin 2020 Sections 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tree query positive sets are monotone conjunctions of path-edge directions with private-variable shattering criterion.",
+          "Kozma–Moran constructs orientation system shattering of edge subsets for fixed (s,t), not directed reachability predicates indexed by many vertex pairs."
+        ],
+        "reasoning": "The natural duality swaps orientation edge assignments and query coordinates; prior edge-set VC bounds are not isomorphic to the ordered-pair reachability VC dimension without additional transformation. A known monotone-conjunction shattering lemma may cover the iff part, but not necessarily this interval threshold.",
+        "searches": [
+          "Resultary: directed tree orientation reachability VC dimension distance threshold private edges intervals",
+          "Kozma–Moran 2013 connectivity shattering",
+          "arXiv:2002.11541"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact-dimension works on interval hypotheses concern intervals as the concept set, not paths as query predicates over orientation bits.",
+          "Independent finite brute-force pairs (m,d) checked, no prior all-m,d table located."
+        ],
+        "reasoning": "The formula 2q+1_{r=d} is not the standard interval VC dimension 2, because the variable/query roles are reversed and a private-point packing problem is solved.",
+        "searches": [
+          "Resultary: directed tree orientation reachability VC dimension distance threshold private edges intervals",
+          "\"VC dimension\" orientation reachability path distance threshold private edge",
+          "Resultary: directed tree orientation reachability VC dimension distance threshold private edges intervals"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: known hidden-directed-graph path-query reconstruction complexity studies and Kozma–Moran orientation/VC connectivity duality are related but study different hypothesis/query domains. They do not state or directly imply the private-edge iff criterion for the concept class of all orientations with ordered-pair reachability coordinates nor its sharp distance-cutoff path VC dimension.",
+      "residual_risks": [
+        "General VC results for conjunctions of signed tree-path literals may imply the private-edge criterion and could reduce novelty of that lemma.",
+        "A path-specific distance packing table may exist outside searched indexed material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines matching query semantics, but analyzes reconstruction of unknown graph rather than VC dimension over orientations of known fixed tree",
+          "evidence": [
+            "The model queries a hidden graph and recovers SCC structure/directed trees with query complexity, not shattered ordered-pair supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.11541",
+          "material_read": "Full accessible primary PDF, title/abstract/introduction and Sections 2–3 concerning hidden directed graph recovery, page screenshot examined.",
+          "method": "ArXiv primary PDF extracted text and screenshot",
+          "title": "On Learning a Hidden Directed Graph with Path Queries",
+          "trigger": "Same Boolean reachability query concept"
+        },
+        {
+          "assessment": "This work shatters edge variables among orientations satisfying fixed connectivity/flow predicates. It is not the same ordered query-domain concept class or distance VC formula.",
+          "evidence": [
+            "Theorem 26: system of orientations admitting an s–t flow is shattering-extremal; variable set there is edge orientations, not vertex-pair queries."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf",
+          "material_read": "Full journal PDF abstract, definitions and relevant connectivity/flow and shattering sections including Theorem 26, page screenshot examined.",
+          "method": "Lawful publisher primary PDF plus page screenshot",
+          "title": "Shattering, Graph Orientations, and Connectivity",
+          "trigger": "Highly relevant possible stronger orientation-shattering theorem"
+        },
+        {
+          "assessment": "Tree reconstruction query cost, not a confirmed exact VC classification",
+          "evidence": [
+            "Any direct implication would require translating its unknown-tree task to static orientation-reachability concept class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.05183",
+          "material_read": "Abstract and bibliographic theorem summary, full text not read.",
+          "method": "Public arXiv metadata",
+          "title": "Reconstructing a Bounded-Degree Directed Tree Using Path Queries",
+          "trigger": "Plausible earlier tree-path querying result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exact shattering characterization for an arbitrary tree and closed VC dimension for a natural restricted query domain on a path quantify the sample/query capacity of orientation reachability, distinct from graph reconstruction. The threshold d and extremal interval construction are intrinsic and may guide learning-theoretic analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2002.11541",
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf",
+    "https://arxiv.org/abs/1606.05183",
+    "Resultary: directed tree orientation reachability VC dimension distance threshold private edges intervals"
+  ],
+  "disposition": "passed",
+  "limitations": "General iff criterion holds for finite tree and distinct ordered vertex-pair reachability queries. Closed VC formula only for path P_{m+1}, m>=d>=1; static shattering, not adaptive Littlestone dimension or unknown graph reconstruction.",
+  "residual_risks": [
+    "General VC results for conjunctions of signed tree-path literals may imply the private-edge criterion and could reduce novelty of that lemma.",
+    "A path-specific distance packing table may exist outside searched indexed material."
+  ],
+  "schema_version": 1
+}
