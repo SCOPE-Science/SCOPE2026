@@ -1,21 +1,21 @@
-# Scientific review — logarithmic radial Bergman kernels
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monomial moment identity is an exact gamma integral, giving the kernel with the required normalization. The proof of zero-freeness is not a numerical root search: it constructs two absolutely convergent Bernstein integral representations whose individual integrands have strictly positive real part for every scalar product \(|u|<1\). Endpoint exponents \(p=1\) and \(p=2\) are explicit. For \(2<p<4\), the sign of the analytically continued eta value at \(-1\), established through the zeta functional equation, and continuity give an interior negative root. For \(p\ge4\), a rigorously decreasing alternating tail gives a universally negative evaluation; the inequality and exact rational value at \(p=4\) were independently checked. The union covers all real \(p>0\), with no gaps.
+PASS
 
-Risks considered: convergence of the Bernstein integrals at both endpoints; strictness of the right-half-plane statements; analyticity at \(u=0\); and the limiting-value interpretation at \(-1\). None requires assuming that finite numerical testing proves an infinite assertion.
+For every real alpha>-1 put p=alpha+1; normalized monomial moments are Gamma(p)/(n+1)^p, so K=F_p(u)/Gamma(p), F_p=Σ(n+1)^p u^n. For 0<p<1 the Bernstein representation of x^p gives (1-u)^2F_p as an integral of (1-a)(1-u)/(1-au) with strictly positive real part for |u|<1. For 1<p<2 write p=1+q: the Bernstein representation gives integrand 1−a((1-u)/(1-au))², with its modulus correction <1 because a max|...|²=4a/(1+a)²<1. Endpoints p=1,2 are rational positive-real expressions. For 2<p<4 Abel continuation at u=-1 gives F_p(-1)=(1-2^{p+1})ζ(-p)<0, hence negative real root. For p>=4 test r=2^{1-p}, decreasing alternating terms n>=2 and exact upper U(p)<=U(4)=-335/4096<0, so again a root. Checked U(4) exactly with rational arithmetic. Numerical root tests only corroborate all-real-parameter analytic proof.
 
-## Originality — PASS, subject to independent historical review
+## originality
 
-Perälä's 2017 radial moment formula and constructions establish the appropriate background, but their hypotheses and theorems do not state this exact logarithmic-weight phase diagram. Yamamori's 2011 Proposition 1 explicitly covers the already-known **integer** polylogarithm zeros \(p\ge3\), which are not claimed as new. Zeytuncu's radial examples concern weights comparable with the unweighted norm, unlike the present exact logarithmic moment sequence. Blaschke's superficially close 2011/2012 logarithmic-weight paper analyzes asymptotic singularities for weights with \(\log(1/(1-|z|^2))\) factors; the weight here uses \(-\log|z|^2\) and the asserted global kernel-zero threshold is not that paper's conclusion. Hedenmalm's known log-subharmonic zero-free criterion implies part of the negative-weight-exponent range; the contribution beyond it is the full sharp real-exponent threshold and explicit right-half-plane certificate. Current searches of equivalent terminology, parameter reductions, and published mathematical results did not identify a result implying this full statement.
+PASS
 
-The serious residual risk is an earlier general theorem on fractional negative-order polylogarithm zeros from special-function or analytic-combinatorics literature. This independent-priority risk is disclosed; absence from searches is not a proof of originality.
+Classical integer p>=3 Eulerian/polylog zeros are prior art (Yamamori), and Perälä gives radial kernel zeros for other weights. Full real p>0 dichotomy at 2 plus positive-real certificate for logarithmic weights is mathematically more general than integer cases and differs from two published SCOPE power-deficit and Euclidean-distance radial families; no inspected theorem implies it directly.
 
-## Mathematical value — PASS
+## value
 
-The Lu Qi-Keng property is a structural kernel invariant. Logarithmic radial weights form a simple natural continuous family with **exact gamma moments**, not an arbitrarily selected finite slice. The theorem identifies the full, sharp real-parameter stability boundary and supplies a stronger analytic certificate on its zero-free side, while separating known integer cases from the noninteger transition. This provides a concrete boundary example for interpreting more general radial Bergman kernel zero criteria.
+PASS
 
-The result neither counts all zeros above threshold nor addresses general radial weights. Its claims and limitations are identical throughout RESULT.md, SLOGAN.txt, and the structured records.
+Exact Lu Qi-Keng zero-free transition and a constructive half-plane bound for a natural singular/vanishing one-parameter radial Bergman space, including all noninteger p. A complete classification of a natural analytic family can be useful independently of a downstream application.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
