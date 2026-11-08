@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:06:30.109439Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For fixed R,c>0 and t↓0, radial Gaussian Fock Toeplitz compression is diagonal in monomials with exact eigenvalue λ_n=∫_(N-c√N)^(N+c√N) s^n exp(-s)/n! ds, N=R²/t. Gamma Berry–Esseen on |n-N|=O(√N) gives L_c((n-N)/√N)=Φ(x+c)-Φ(x-c), while Chernoff large-deviation bounds control the complete n≥0 tail for F(u)=O(u^p), p>0. The Riemann mesh 1/√N establishes √t tr F(Q_t)→R∫F(L_c); monotonic L_c gives the fixed nonzero threshold eigenvalue-count limit 2R x_c(η) and norm 2Φ(c)-1. Diagonal semi-commutator has eigenvalues λ_n(1-λ_n), including quasi-Schatten p<1. Independent numerical Gaussian convolution integration at c=0.35,0.75,1.8 confirmed B(c)=2c erfc(c)+2/√π(1-e^-c²) to <1e-9; the analytic derivative is 2erfc(c)>0. Supplementary finite computation is not a proof of uniform asymptotics. Domain excludes varying c and moving η.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oldfield Theorem 2.4 is r^{2d} bulk plus r^{2d-1} boundary asymptotics for a fixed Ω with smooth ∂Ω.",
+          "Qin treats fixed bounded symbols f and unnormalized Schatten limit for any fixed bounded g.",
+          "Nicola–Riccardi–Tilli analyze Schatten extremizers and partial eigenvalue sums for radial Ω."
+        ],
+        "reasoning": "None provides the whole normalized trace and counting law under t-dependent annular gap width O(√t); the operator family violates the fixed-geometry/fixed-symbol hypotheses.",
+        "searches": [
+          "arxiv:1404.2256 Theorem 2.4 Corollary 2.5",
+          "arxiv:2610.30787v1 abstract",
+          "arxiv:2503.07069"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1404.2256 (PDF Theorem 2.4 Corollary 2.5)",
+        "arxiv:2610.30787v1 (abstract; not full)",
+        "arxiv:2503.07069 (PDF Theorems 1.3 and 1.5 and annulus proof)",
+        "Resultary published-record semantic query Fock Toeplitz shrinking annulus Gaussian interface merging spectral Schatten crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking r→∞ with fixed Ω keeps two annulus boundaries macroscopically separated, whereas the audited annulus has width 2cR√t and λ_n→L_c.",
+          "The audited B(c) interpolates 0 to 2/√π and is not the sum of fixed-boundary terms at finite c."
+        ],
+        "reasoning": "Known fixed-symbol results imply neither B(c) nor this spectral counting law at a collapsing gap, even though the probabilistic proof uses standard Gamma CLT.",
+        "searches": [
+          "arxiv:1404.2256 Theorem 2.4",
+          "arxiv:2610.30787v1 abstract",
+          "Fock Toeplitz shrinking annulus Gaussian interface merging spectral Schatten crossover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fock radial diagonal entries are Gamma(n+1) interval probabilities; L_c is a Gaussian interval-occupancy profile.",
+          "Oldfield names the same anti-Wick/localization class but imposes a fixed C² Ω scaled by r."
+        ],
+        "reasoning": "The equivalence between Fock Toeplitz and Gaussian anti-Wick localization explains the spectral setting, but fixed-Ω Szegő asymptotics cannot be applied uniformly when Ω itself collapses at smoothing scale.",
+        "searches": [
+          "Fock Toeplitz shrinking annulus Gaussian interface merging spectral Schatten crossover",
+          "anti-Wick Gaussian localization operator two merging radial interfaces",
+          "arxiv:1404.2256 Theorem 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The present exact eigenvalues are incomplete Gamma masses over [N−c√N,N+c√N].",
+          "Inspected Fock eigenvalue-optimization abstracts concern partial sums and maximizers; not a moving-interface table."
+        ],
+        "reasoning": "No matching exact table or ready-to-specialize formula found; Gamma entry identity itself is classical and is not claimed as new.",
+        "searches": [
+          "Fock Toeplitz shrinking annulus Gaussian interface merging spectral Schatten crossover",
+          "Fock annulus Toeplitz eigenvalue table incomplete Gamma mesoscopic interval",
+          "arxiv:2503.07069"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Fixed-symbol unnormalized Schatten zero-limit conditions in Qin arXiv:2610.30787 do not evaluate a t-dependent collapsing annulus and its rescaled nonzero defect. Oldfield’s anti-Wick two-term Szegő trace theorem (Theorem 2.4) treats dilates of a fixed C² domain and separated interfaces, not two boundaries approaching at the coherent-state scale. Nicola–Riccardi–Tilli investigate extremizers of partial Toeplitz eigenvalue sums, not the complete moving-annulus spectral profile or explicit B(c). A general Gaussian boundary smoothing approach might implicitly yield this particular result, retained as risk.",
+      "residual_risks": [
+        "A specialized earlier mesoscopic moving-interface Szegő theorem might yield the same Gaussian profile.",
+        "Qin 2026 full source was not inspected; Nicola–Riccardi–Tilli relevant theorem and annulus proof were inspected, but no exhaustive whole-document priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING this moving annulus; Ω is fixed and has regular boundary, its dilation parameter does not force two boundaries to coalesce.",
+          "evidence": [
+            "Theorem 2.4 r^{2d}A0+r^{2d−1}A1; window/Ω fixed in assumptions."
+          ],
+          "identifier_or_url": "arxiv:1404.2256",
+          "material_read": "Full PDF Sections 2–3, especially Condition 2.1, Theorem 2.4 and Corollary 2.5, and scaling of χ_Ω.",
+          "method": "arXiv PDF text plus visual p4; compared geometric hypotheses and error scales.",
+          "title": "Two-term Szegő theorem for generalised anti-Wick operators",
+          "trigger": "Same Toeplitz/anti-Wick spectral trace family, potential dominating theorem."
+        },
+        {
+          "assessment": "POTENTIALLY RELATED, no full-text noncoverage assertion; stated limit fixes symbols f,g and targets unnormalized Schatten decay.",
+          "evidence": [
+            "Abstract explicitly says fixed bounded symbols, unnormalized Schatten norm as t→0; first posted 2026-10-22."
+          ],
+          "identifier_or_url": "arxiv:2610.30787v1",
+          "material_read": "Abstract and searchable theorem-scope summary; full 88-page PDF unavailable on this pass.",
+          "method": "arXiv indexed abstract and publication metadata.",
+          "title": "Schatten limits for semi-commutators in Toeplitz quantization on Fock space",
+          "trigger": "Same semicommutator and Schatten ideals."
+        },
+        {
+          "assessment": "NOT COVERING this moving-annulus law in the inspected relevant theorems: Theorem 1.3 optimizes the second eigenvalue for a fixed area, and Theorem 1.5 treats finite partial sums, not t-dependent critical geometry.",
+          "evidence": [
+            "Finds special optimal annulus for second eigenvalue among fixed radial sets."
+          ],
+          "identifier_or_url": "arxiv:2503.07069; DOI:10.1137/25M1804662",
+          "material_read": "Author arXiv PDF 25 pages, specifically introduction and Theorems 1.3 and 1.5 and proof of Theorem 1.3 on pp. 14–15; relevant pages inspected, not every page read.",
+          "method": "Original arXiv PDF text and p0 visual screenshot, with annulus-optimizer theorem and proof inspected.",
+          "title": "The Faber-Krahn inequality for partial sums of Toeplitz eigenvalues in the Fock space",
+          "trigger": "Annular radial Fock Toeplitz eigenvalue problems."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The critical interface-merger regime is a natural missing boundary case of semiclassical Fock/anti-Wick spectral theory: independent boundary corrections cease to add when separation is O(√t). The full spectral distribution, all p>0 quasi-Schatten behavior, and strict crossover from collapsed to separated interfaces quantify a physically meaningful geometry/operator transition, not a renamed fixed-domain theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1404.2256 (PDF Theorem 2.4 Corollary 2.5)",
+    "arxiv:2610.30787v1 (abstract; not full)",
+    "arxiv:2503.07069 (PDF Theorems 1.3 and 1.5 and annulus proof)",
+    "Resultary published-record semantic query Fock Toeplitz shrinking annulus Gaussian interface merging spectral Schatten crossover"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized earlier mesoscopic moving-interface Szegő theorem might yield the same Gaussian profile.",
+    "Qin 2026 full source was not inspected; Nicola–Riccardi–Tilli relevant theorem and annulus proof were inspected, but no exhaustive whole-document priority assertion.",
+    "No publication attempted; public-bound confidentiality sanitation not staged."
+  ],
+  "schema_version": 1
+}

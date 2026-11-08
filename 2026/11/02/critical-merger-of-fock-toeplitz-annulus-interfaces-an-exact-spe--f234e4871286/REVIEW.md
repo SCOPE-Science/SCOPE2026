@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact Fock monomial eigenvalues reduce the problem to Gamma probabilities. Uniform Berry--Esseen in the central index window and Chernoff tail control justify the trace limit for all continuous functions dominated near zero by a positive power; the eigenvalue counting law uses strict unimodality. The closed-form trace defect follows from a Gaussian overlap convolution. A standalone finite numerical verifier reproduces the normalization and constants; finite computations are not treated as proofs of infinite-dimensional limits.
+PASS
 
-## Originality
+PASS. For fixed R,c>0 and t↓0, radial Gaussian Fock Toeplitz compression is diagonal in monomials with exact eigenvalue λ_n=∫_(N-c√N)^(N+c√N) s^n exp(-s)/n! ds, N=R²/t. Gamma Berry–Esseen on |n-N|=O(√N) gives L_c((n-N)/√N)=Φ(x+c)-Φ(x-c), while Chernoff large-deviation bounds control the complete n≥0 tail for F(u)=O(u^p), p>0. The Riemann mesh 1/√N establishes √t tr F(Q_t)→R∫F(L_c); monotonic L_c gives the fixed nonzero threshold eigenvalue-count limit 2R x_c(η) and norm 2Φ(c)-1. Diagonal semi-commutator has eigenvalues λ_n(1-λ_n), including quasi-Schatten p<1. Independent numerical Gaussian convolution integration at c=0.35,0.75,1.8 confirmed B(c)=2c erfc(c)+2/√π(1-e^-c²) to <1e-9; the analytic derivative is 2erfc(c)>0. Supplementary finite computation is not a proof of uniform asymptotics. Domain excludes varying c and moving η.
 
-**PASS (with residual publication-priority uncertainty).** Qin (arXiv:2610.30787v1) proves fixed-symbol Schatten semi-commutator classifications, Nicola--Riccardi--Tilli (arXiv:2503.07069) study different radial Fock eigenvalue optimization, and Oldfield (arXiv:1404.2256) proves fixed-domain two-term anti-Wick trace asymptotics. Those inspected hypotheses and conclusions do not imply the moving-boundary scale interaction. Focused mathematical record searches produced no covering result, but an older, unindexed matched-annulus formulation remains a real priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result identifies the critical geometric regime where separate boundary corrections no longer add. It quantifies the interaction through a full eigenvalue distribution, all quasi-Schatten trace functionals, and a closed-form monotone interface-crossover constant. The domain and assumptions are natural in Fock localization and coherent-state quantization.
+PASS best of knowledge. Fixed-symbol unnormalized Schatten zero-limit conditions in Qin arXiv:2610.30787 do not evaluate a t-dependent collapsing annulus and its rescaled nonzero defect. Oldfield’s anti-Wick two-term Szegő trace theorem (Theorem 2.4) treats dilates of a fixed C² domain and separated interfaces, not two boundaries approaching at the coherent-state scale. Nicola–Riccardi–Tilli investigate extremizers of partial Toeplitz eigenvalue sums, not the complete moving-annulus spectral profile or explicit B(c). A general Gaussian boundary smoothing approach might implicitly yield this particular result, retained as risk.
 
-## Closest literature and limitations
+## value
 
-The main risk is pre-existing coalescing-boundary anti-Wick asymptotics under different names. The proof is restricted to Gaussian Fock space in one complex dimension and concentric shrinking annuli with fixed \(c>0\). No independent audit or publication-priority determination has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The critical interface-merger regime is a natural missing boundary case of semiclassical Fock/anti-Wick spectral theory: independent boundary corrections cease to add when separation is O(√t). The full spectral distribution, all p>0 quasi-Schatten behavior, and strict crossover from collapsed to separated interfaces quantify a physically meaningful geometry/operator transition, not a renamed fixed-domain theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
