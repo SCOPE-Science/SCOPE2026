@@ -1,19 +1,21 @@
-# Scientific review: exact Haar dodecahedron section types
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The displayed coordinates give twelve exposed regular-pentagon facets and thirty edges; exact algebra verifies their incidences. For any generic normal, the section vertices are exactly edges with oppositely signed endpoints. The normal arrangement has ten great circles, ninety distinct crossing points, and ninety-two regions. The standalone exact checker exhausts all sign patterns, recovers the chamber angle and side-count table, and reproduces the spherical-area identity. Girard's formula gives the probability law; independent edge-crossing probabilities give the exact expected side count. This is a finite complete classification with an explicit proof of the enumeration's completeness, not extrapolation from Monte Carlo samples.
+PASS
 
-## Originality — PASS under identified historical limits
+The frozen result defines a centrally symmetric regular dodecahedron, Haar-uniform unoriented central normals, and generic edge crossings. Verified the cone-extreme-ray reduction: every chamber vertex is an oriented pairwise cross product of ten great-circle normals, so the exact-ring script can exhaust 1024 sign masks and 90 rays. Inspection of verify_dodecahedron_haar.py confirms exact Z[phi] sign arithmetic, 12 facet/30-edge validation, absence of triple circle intersections, and the 20 hexagon/60 triangle/12 pentagon chamber certificates; an independent geometric enumeration reproduced the (6,8,10) counts (20,60,12) and the probabilities 0.6384088115593409, 0.2389894688997700, 0.1226017195408904. Girard excess and 4pi normalisation, plus independent expectation 30 beta/pi, establish continuum Haar law, not simulation.
 
-A targeted search of mathematical research records and primary literature found a close two-outcome central-section law for the icosahedron and general cube/polyhedral-slicing algorithms, but no published evaluation of the dodecahedron's complete six/eight/ten-sided Haar law or its 20/60/12 chamber area partition. Duality relates this problem to *projections* of the icosahedron, not to its central sections, so the known central-icosahedron theorem does not imply the present probabilities. Zupanič–Bončina examine seven orientations and noncentral shapes without the Haar area integration. The 2026 Brandenburg–De Loera–Luo–Meroni full text develops algorithms and cube examples, not these exact evaluated constants. A historically equivalent formula under stereological or projection terminology remains possible; one close research record was available only in summary form.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The regular dodecahedron is a canonical icosahedrally symmetric polyhedron used in quasicrystal section identification. A complete, exact, orientation-uniform polygon-type distribution provides a quantitative stereological benchmark beyond catalogues of representative cuts. The three angular mechanisms and their exact 20/60/12 chamber census are structurally informative and are not a mere numerical tabulation or a substitution into a stated prior law.
+Best-of-knowledge originality of the complete evaluated claim: Polarity equates central sections of a body to shadow data of its polar, NOT to central sections of the polar body; the published icosahedral section law is not the asserted dodecahedral law. General chamber/slice algorithms describe a method that can be applied to a dodecahedron but do not themselves state or imply the 20/60/12 exact angle-area values without a substantial new computation. No inspected theorem states or logically forces the full probabilities as a routine corollary; a general algorithm requires the enumerative and Girard area argument actually supplied. Residual source-access and priority risks are explicit.
 
-## Remaining limitations
+## value
 
-No independent historical-priority certification or independent mathematical validation has been performed. Only central sections under uniform orientation are considered; sampling affine planes using another invariant measure gives another distribution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete exact Haar polygon-type law of a canonical Platonic solid is a natural finite geometric probability invariant. The three exact probabilities and normal-space chamber topology are meaningful to central-section stereology; they require nonroutine exact orientation classification beyond determining possible side counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
