@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact Poisson-clock decomposition gives the two nonconstant tail probabilities. The full derivative identity is finite rational algebra, with a listed positive-coefficient numerator after ordering the three rates. The proof covers all strictly positive probabilities and all ray parameters; the numerical finite-state checks are independent diagnostics, not an infinite proof. The only strict thresholds are exactly those required for first-order stochastic dominance on the support \(\{1,2,3\}\).
+
+**Originality — PASS, provisional.** The cited 2026 papers establish expectation and factorial-moment/PGF/Laplace transform orders. Long's transform paper explicitly leaves ordinary stochastic order open in Remark 5.6, even though it gives all binomial moment inequalities. The result here concerns individual tail indicators and so is not a corollary of those positive transform combinations. Searches for three-type ordinary stochastic dominance and siblings/coupon aliases found no same claim. A differently phrased old exact small-case result cannot be ruled out.
+
+**Mathematical value — PASS.** This is the smallest nontrivial fixed-alphabet case of the expressly open strengthening from transform order to first-order stochastic order: for two coupon types only one threshold is nonconstant, while with three types two simultaneous tail inequalities are needed. Establishing these inequalities for the entire positive simplex and strictly along every uniform ray is more informative than computing a single expectation or isolated probability vector. It does not purport to solve the general conjectural order.
+
+**Closest literature and risks.** Doumas–Spektor, arXiv:2606.21591, expectation radial extremality; Long, arXiv:2606.29635, expectation plus a stochastic coupling across alphabet *sizes* under uniform rates; Long, arXiv:2606.31391, transforms and factorial moments, with ordinary stochastic order explicitly left open. The full body of the earlier 2018 siblings article was not examined; a hidden small-size identity remains a historical priority risk. No independent audit or external certification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
