@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For any pair at underlying cycle distance at most \\(2r\\), the interior midpoint is forced until a consecutive selected pair occurs; \\(r\\ge2\\) then grows the consecutive block around the circle. The converse follows from the metric triangle inequality. Cyclic gaps \\(\\ge2r+1\\) correspond bijectively to proper convex \\(k\\)-sets, with each unmarked k-set counted \\(k\\) times across \\(n\\) starting vertices, giving the exact \\(n/k\\) binomial coefficient. Full set is separate. A standard-library adjacency/propagation/composition checker confirms sample cases but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://ajc.maths.uq.edu.au/pdf/79/ajc_v79_p401.pdf (Theorem 3.2, Section 3.2)",
+        "https://arxiv.org/html/2603.04706v1 (Theorems 3,14,15)"
+      ],
+      "reasoning": "The 2021 work invokes a general 2-connected chordal-graph pair-hull theorem that covers path powers; the new claim was narrowed to cycle powers. Nonchordal \\(C_6^2\\) has induced four-cycles, so the chordal theorem cannot imply the claim there. The 2026 generic exact algorithms work on arbitrary inputs but provide no closed cycle-power characterization or polynomial. The present domain includes infinitely many such nonchordal graphs.",
+      "searches": [
+        "\"P3 convex\" \"unit interval\" graphs counting",
+        "\"P3\" \"power of a cycle\" hull",
+        "\"P_3\" \"circular arc graphs\" \"hull\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.04706v1",
+      "https://ajc.maths.uq.edu.au/pdf/79/ajc_v79_p401.pdf",
+      "https://arxiv.org/abs/2002.10598"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://ajc.maths.uq.edu.au/pdf/79/ajc_v79_p401.pdf (Theorem 3.2 and unit interval section)",
+        "https://arxiv.org/html/2603.04706v1 (Sections 2-4)"
+      ],
+      "reasoning": "A 2-connected chordal-graph theorem implies pair percolation on path powers, so no originality is asserted for path powers. It is inapplicable to nonchordal cycle powers. The 2026 tree/path recurrences and threshold-graph formulas do not imply this all-cardinality formula on cycle powers, and its general algorithms are not the asserted closed theorem.",
+      "searches": [
+        "\"P3-convex\" \"path power\" independent sets",
+        "\"P3 convexity\" \"power of cycle\"",
+        "\"P3 convex\" \"unit interval\" graphs counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2603.04706v1#S1",
+        "https://ajc.maths.uq.edu.au/pdf/79/ajc_v79_p401.pdf"
+      ],
+      "reasoning": "Ordinary P3 convexity is equivalent to threshold-two bootstrap stability. The exact cyclic-gap criterion implies all proper stable sets are independent sets of the higher cycle power. Searches for both original language and bootstrap/packing aliases did not locate a prior two-parameter full classification. The general neighbour-count definition alone does not supply the forcing and circle-counting argument.",
+      "searches": [
+        "\"P3-convex\" \"cycle power\" sets",
+        "\"P3 convexity\" \"power of cycle\"",
+        "\"bootstrap percolation\" \"powers of cycles\" \"2-neighbour\"",
+        "\"P3 convex sets\" \"cycle power\" enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dourado–Grippo–Lin–Protti (2026), Section 4: https://arxiv.org/html/2603.04706v1",
+        "González–Grippo–Safe (2021), Section 3.2: https://ajc.maths.uq.edu.au/pdf/79/ajc_v79_p401.pdf"
+      ],
+      "reasoning": "Related public mathematical search hits for cycle powers concern topological neighborhood/cut complexes, not P3-convexity enumerators. No exact precomputed convex-set table or database of these coefficients was identified. The absence of a matching search hit is not itself a novelty proof.",
+      "searches": [
+        "\"P3-convex\" \"cycle power\" sets",
+        "\"P3 convexity\" \"power of cycle\"",
+        "P3 convexity polynomial exact count all convex sets powers of cycles C_n^r r>=2, two-neighbour bootstrap packing formula with gap 2r+1"
+      ]
+    },
+    "rationale": "Inspected the full 2026 counting paper and relevant sections of a 2021 primary paper with a stronger hull theorem for 2-connected chordal graphs. The path-power implication is known and excluded. The present theorem covers nonchordal powers of cycles and their full cardinality polynomials, neither stated nor implied by the inspected sources. Mathematical-record queries returned closest graph-power results on unrelated topological complexes; priority remains provisional.",
+    "residual_risks": [
+      "Full text of indexed cycle-power topology papers not inspected; their visible results concern other invariants but unobserved connections cannot be excluded.",
+      "An older unpublished or differently titled cyclic-packing enumeration could give the same coefficient formula.",
+      "Independent literature priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines/counts convex sets generally and solves ordinary paths/threshold graphs; no cycle-power classification or closed polynomial in inspected full text",
+        "evidence": "Introduction questions; Theorems 3, 14, 15 and Sections 2.2, 4.1-4.3, https://arxiv.org/html/2603.04706v1",
+        "identifier_or_url": "arxiv:2603.04706v1; https://arxiv.org/html/2603.04706v1",
+        "material_read": "Full HTML paper: definitions, Section 2 tree and path recurrences, Section 3 complexity and threshold graphs, Section 4 general algorithms and proofs",
+        "method": "Read indexed full HTML sections and checked named results and search terms for cycle powers and structural gap classification",
+        "title": "Counting P3-convex sets in graphs",
+        "trigger": "Same exact convexity and novel counting motivation; plausible direct coverage"
+      },
+      {
+        "assessment": "Known 2-connected chordal pair-hull property subsumes path-power propagation. Cycle powers generally are not chordal; no all-set enumeration is asserted. This prompted explicit narrowing to cycles.",
+        "evidence": "Theorem 3.2, Section 3.2.1 and introductory statement of scope, https://ajc.maths.uq.edu.au/pdf/79/ajc_v79_p401.pdf",
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/79/ajc_v79_p401.pdf",
+        "material_read": "23-page primary PDF: abstract, introduction/definitions, Section 3.2 unit-interval graphs, Theorem 3.2 and corollaries on 2-connected chordal graphs",
+        "method": "PDF text analysis with visual page inspection; compared theorem hypotheses and mathematical implication",
+        "title": "Formulas in connection with parameters related to convexity of paths on three vertices: caterpillars and unit interval graphs",
+        "trigger": "Potential stronger P3-hull theorem for powers of paths and cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4988b765-ec45-4d13-9d1f-c15f676a8b0a",
+  "value": {
+    "rationale": "A recently studied #P-hard counting problem obtains a complete uniform structural solution for a two-parameter, generally nonchordal cycle-power family, beyond known tree/threshold and chordal pair-hull results. It computes every cardinality coefficient and the maximum proper convex size; the radius-two transition is sharp and mathematically motivated by threshold-two propagation.",
+    "status": "PASS"
+  }
+}
