@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility of the two-cycle calculation
 
-Run `python3 verify_period_two.py` using Python 3 and no external packages. The checker successfully executed from the packaged exact source. It uses `fractions.Fraction`, not floating-point evaluations, for the algebraic identities, orbit returns, branch Jacobians, root sign brackets and Jury witnesses. Its checks are supplemental: the proof of complete root counts comes from quadratic algebra, Descartes' rule of signs and the strict monotonicity of \(V(t)\).
+# Independent mathematical audit
 
-The five central identities to reproduce are: the period-two scalar equation \(Lt^2-2at+K=0\); the trace \(T=290/121-(W+H)^2\); the determinant \(D=169/121-(W-H)^2\); the Schur identity \(1-T+D=11(K-at)/5\); and the polynomial numerator \(P(t)\) for \(W^2+H^2-290/121\). The exact rational root brackets isolate the two \(-1\) spectral boundaries. Two additional rational brackets isolate the solutions of \(V(t)=\pm4\sqrt3/11\), compared by squaring with controlled signs. The four resulting amplitudes are strictly ordered.
+## correctness
 
-The displayed \(c\)-threshold decimals are numerical evaluations for illustration, not machine certificates. At a boundary eigenvalue of modulus one, nonlinear stability is not asserted. Neither the checker nor the analytic argument examines prime periods above two, global basins, or priority against unavailable literature. Independent mathematical audit has not been performed.
+PASS
+
+For c>0, the absence of fixed points follows from y=0 and b x^2+d=0 impossible. Any two-cycle necessarily has vertical states t,-t and center X=2/(1+b); direct independent symbolic substitution recovers L t^2-2at+K=0. Exact rational full-map return checks for six amplitudes confirm the parametrization. Positive root signs give 0/1/2/1 global cycle census around c_fold,c_infty, with far-root escape. Two-step trace, determinant and strict Jury inequalities reduce attraction to P(t)<0 and |K/t-a-11t/20|>4sqrt3/11. Descartes plus rational root brackets certify precisely two disjoint parameter bands, with -1 and unit-complex boundaries. No higher-period or critical-boundary nonlinear claims.
+
+## originality
+
+PASS
+
+The old map is fully credited; the precise two-band exact global algebraic classification is not present in the materially inspected earlier discussion.
+
+## value
+
+PASS
+
+Exact global count and distinct attracting bands for a published fixed-point-free chaotic map illuminate coexistence and stability invisible in a numerical bifurcation diagram; the phenomenon is motivated, not arbitrary tiny-instance work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
