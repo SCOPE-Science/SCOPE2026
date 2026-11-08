@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Use Python 3 and run `python3 checker.py` from the directory containing the embedded standalone files. The checker constructs \(C_8\) literally from the defining morphism and computes the earliest duplicated *string factor* by a dictionary of complete substrings, with no hash-only identity approximation. It checks every \(1\le n\le729\) against the piecewise formula. It separately checks both generic block distinctness statements for 256 combinations of block lengths and endpoint-one binary words, through length eight. The local execution reported:
+## correctness
 
-```
-PASS 729 full first-repeat scans; 256 generic block tests; word length 6561
-```
+PASS
 
-For hand verification, the first-repeat indices at \(n=1,2,3,4,7,9,10,27,28,81,82\) are, respectively, \(2,2,5,6,10,15,18,45,54,135,162\). Their matching earlier starts are \(0\) for the first short-block plateau, \(3m\) for the zero-plateau, and \(m\) for the isolated power-of-three endpoint.
+For Cantor fixed point 1->101,0->000, the support gap p_j-p_{j-1}=1+3^{nu_2(j)} and palindromic C_k restrict cross-block duplicates at m+1 (m=3^k); marker 1 0^m 1 and copy/suffix/prefix positions show all starts before 3m+1 and 5m distinct at n=2m+1 and n=3m. Exact witness pairs (0,2m),(3m,3m+1),(m,5m) establish upper bounds. Handles n=1 and empty interval m=1. Independently computed first repeat for every n=1..729 using literal factors in length-6561 Cantor iterate; all matched I(n)=2m,3m+1,5m by cases. The infinite statement rests on structural proof, not finite scan.
 
-The infinite result is proved in `RESULT.md`; these finite computations are only corroboration. No independent audit or formal proof certification is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim, not novelty of definitions or known partial results: The I(n) first-repeated length-n factor index is exactly initial non-repetitive complexity as Nicholson–Rampersad define, so the same invariant is known; exact Cantor specialization is not among their cited word families. This theorem sharpens the general bounds on initial non-repetitive complexity for one natural family; there is no implication from global distinct-factor counts to the origin-specific exact staircase without more information. The accessible primary statements do not logically cover the claimed full classification; inaccessible plausible documents remain explicitly risky.
+
+## value
+
+PASS
+
+Exact origin-anchored first-repeat complexity of the canonical binary Cantor substitution describes a genuinely order-sensitive statistic not recoverable from total factor complexity; its three-adic staircase and witness classes are useful for recurrence and combinatorics on words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
