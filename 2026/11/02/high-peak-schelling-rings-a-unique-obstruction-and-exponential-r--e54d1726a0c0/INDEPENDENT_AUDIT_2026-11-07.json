@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:50:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The specified utility symmetry and strict increase imply exact rank ordering for own-color counts k=0,1,2: utilities (1,2,0) up to ordinal rescaling. For nonadjacent opposite swaps, k↦2−k, so both gain exactly when both are color-block interiors; for adjacent opposite swaps each k↦1−k, so both gain exactly when each is isolated, equivalent to a cyclic 0101/1010 factor. Explicit run constructions cover all splits except balanced six, whose run cases exhaust the possibilities. Inclusion-exclusion on a three-bit de Bruijn transfer graph gives the exact E_nb coefficient traces. Independent direct payoff enumeration through n=13 matched forbidden patterns and all sample counts; separate exact sympy characteristic polynomials gave t²(t^6−t^5−2t³+1) and t²(t³−t−1)(t³+t−1) and the stated E_6,3, E_7,3, E_8,4, E_10,5, E_12,6. Perron–Frobenius primitivity/strict spectral radius inequality gives S_n~2λ^n and λ<2. The all-n existence and asymptotic claims rely on the proved run constructions and transfer matrix argument, not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilò et al. Theorem 1 gives finite improvement for peaks ≤1/2 on almost-regular graphs; Theorem 2 gives one no-equilibrium instance for peaks >1/2, not classification of all high-peak rings.",
+          "Jump Schelling models allow relocations/vacancies, unlike fully occupied strict bilateral exchange."
+        ],
+        "reasoning": "General welfare, existence or convergence theorems with different peak/deviation ranges do not imply this exact forbidden-factor and enumerative result.",
+        "searches": [
+          "arXiv:2204.12599 Theorems 1-4",
+          "arXiv:2005.02752 topological influence swap Schelling",
+          "arXiv:2302.12107 single-peaked jump Schelling",
+          "Schelling swap games single-peaked high tolerance cycle stable placements forbidden alternating patterns"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 53da5c5cb6036bf55b13ed9a834a3966fe81965a, tree 247dc2edf27851ea5e82c67aaee1a21bdb86b6bf",
+        "Bilò et al arXiv:2204.12599 full PDF Section 3 Theorem 2",
+        "Independent direct payoff and forbidden-pattern enumeration for n=3..13",
+        "additional_checks.py exact 8×8 transfer characteristic polynomials and sample coefficients",
+        "Resultary search Schelling swap games single-peaked high tolerance cycle stable placements forbidden alternating patterns"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From one no-equilibrium six-ring split one cannot infer equilibrium for all other splits.",
+          "Theorem 2 does not establish forbidding 0101/1010 and simultaneous 000/111 as both necessary and sufficient; it therefore cannot supply coefficient trace or rarity law."
+        ],
+        "reasoning": "The final claim is strictly stronger than the known obstruction; that known negative case is separated as supporting context, not presented as new.",
+        "searches": [
+          "arXiv:2204.12599 Theorem 2",
+          "Schelling swap games single-peaked high tolerance cycle stable placements forbidden alternating patterns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same high-peak 6-cycle counterexample is Theorem 2 in Bilò et al. and is NOT new.",
+          "The assessed model is closed-neighborhood fractions {1/3,2/3,1} and mutually strictly improving swaps of opposite types, not vacancy jumps."
+        ],
+        "reasoning": "Same-parameter novelty must exclude the known six-ring obstruction and focus only on all-other-splits existence, complete word classification and asymptotic enumeration.",
+        "searches": [
+          "Schelling swap games single-peaked high tolerance cycle stable placements forbidden alternating patterns",
+          "arXiv:2204.12599 Theorem 2 ring six blue three red three",
+          "cycle single peaked swap Schelling stable color sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independently enumerated labeled colorings give E7,3=7, E8,4=20, E10,5=10, E12,6=76.",
+          "Exact 8×8 characteristic polynomials were recomputed symbolically and yield the stated sextic root λ and smaller subtraction spectral radius."
+        ],
+        "reasoning": "Counts are for fixed labeled circular placements, not rotation classes; a standard regular-language transfer construction yields numbers but the game-specific forbidden-factor equivalence is the substantive step. No exact known Schelling count table found.",
+        "searches": [
+          "ring Schelling equilibrium 7 3 7 8 4 20 10 5 10 transfer matrix",
+          "cyclic binary words avoiding 0101 1010 000 111 asymptotic",
+          "Schelling swap games single-peaked high tolerance cycle stable placements forbidden alternating patterns"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Bilò–Bilò–Lenzner–Molitor 2022 Theorem 2 already exhibits the balanced six-ring at Λ>1/2 as a no-equilibrium counterexample, explicitly credited here. Its inspected primary proof is an existence counterexample and does not present the necessary-and-sufficient forbidden-factor criterion, classification of every other split, coefficient enumerator, or Perron rarity law. Different vacancy-based or monotone Schelling games have non-equivalent deviation rules. Unindexed specialist cyclic classifications remain a priority risk.",
+      "residual_risks": [
+        "An unindexed specialist cycle transfer enumeration could contain equivalent forbidden-word characterization and exponential base.",
+        "The known (6,3,3) obstruction is expressly not new; originality is limited to full classification/existence and asymptotics.",
+        "Payoff ordering requires 1/2<Λ<1 and strictly bilateral swaps; no claim for vacancies, other graphs or dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_SIX_RING_ONLY_IN_INSPECTED_RESULTS",
+          "evidence": "Theorem 2 explicitly proves no equilibrium for b=r=3 on a 6-cycle with Λ>1/2; it does not state all-other-splits existence or complete enumeration in examined theorem statements.",
+          "identifier_or_url": "arXiv:2204.12599; https://arxiv.org/pdf/2204.12599",
+          "material_read": "Primary full PDF downloaded/available; model definitions, Section 3 Theorems 1–4 especially Theorem 2 balanced six-vertex ring on PDF page 6, and conclusions inspected",
+          "method": "Searchable full-text PDF and screenshot of Theorem 2",
+          "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+          "trigger": "Precisely same high-peak payoff and ring obstruction"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE_OR_PAYOFF_FAMILY",
+          "evidence": "Locality/topology of swap Schelling does not by itself imply a high-peak fixed-cycle word enumeration; an uninspected stronger statement remains a general risk.",
+          "identifier_or_url": "arXiv:2005.02752",
+          "material_read": "Search metadata and relevant abstract scope, no complete full-text inspection",
+          "method": "Public summary/search",
+          "title": "Topological Influence and Locality in Swap Schelling Games",
+          "trigger": "Nearby same swap-game research"
+        },
+        {
+          "assessment": "MOVE_SET_MISMATCH",
+          "evidence": "Allowing jumps and vacancies changes equilibrium condition; such general conclusions cannot simply transfer to strictly bilateral full occupancy.",
+          "identifier_or_url": "arXiv:2302.12107",
+          "material_read": "Abstract/theorem framing from accessible metadata only",
+          "method": "Public search summary",
+          "title": "Single-Peaked Jump Schelling Games",
+          "trigger": "Closest peak utility but jump move model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural exact question about game equilibria on a basic graph family is resolved: one unique split obstruction despite exponentially sparse stable labeled configurations. The forbidden-word characterization connects bilateral incentives to regular languages, supplies usable exact counts and an asymptotic density; unlike an isolated negative example, it characterizes every admissible split and placement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In fully occupied two-color cycle swap games with single-peaked utility maximum Λ in (1/2,1), bilateral strict stable configurations are exactly circular binary words excluding alternating length-4 factors and simultaneous 000/111 triples; only the balanced six-cycle lacks equilibrium, with exact weighted transfer counts and S_n~2λ^n.",
+  "limitations": [
+    "An unindexed specialist cycle transfer enumeration could contain equivalent forbidden-word characterization and exponential base.",
+    "The known (6,3,3) obstruction is expressly not new; originality is limited to full classification/existence and asymptotics.",
+    "Payoff ordering requires 1/2<Λ<1 and strictly bilateral swaps; no claim for vacancies, other graphs or dynamics."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification protocol and limits
+# Independent mathematical audit
 
-The standalone verifier `verify.py` has no external dependencies. Run `python3 verify.py` in the same directory. The direct oracle builds every binary word on \(3\le n\le15\), excludes the two monochromatic words, evaluates every pair of opposite-type positions, and recomputes both participants' payoffs after the exchange. It uses ordinal ranks \((1,2,0)\) indexed by the numbers of same-type neighbors \(0,1,2\), which are equivalent to the specified payoff function when \(\Lambda>1/2\). A separate structural oracle checks the two forbidden-factor conditions. A third oracle computes coefficient lists of traces of three transfer matrices using order-three binary states.
+## correctness
 
-There are 65,502 complete mixed binary words across those cycle lengths and 3,014,652 eligible distinct-color pairs checked by the direct oracle; every direct stability decision equals the forbidden-factor oracle, and every labeled count matches the transfer trace. The same script independently forms the integer transfer matrices, calculates eight traces and recovers both characteristic polynomials by the Newton identities, checking the two stated factors exactly.
+PASS
 
-This executable finite test cannot prove statements for all \(n\), exclude an unsearched equivalent publication, or certify every detail of the Perron argument. The universal theorem follows from the explicit neighbor-count identities, run constructions, regular-language bijection, and strict Perron–Frobenius comparison given in `RESULT.md`. Independent audit has not been performed.
+PASS: The specified utility symmetry and strict increase imply exact rank ordering for own-color counts k=0,1,2: utilities (1,2,0) up to ordinal rescaling. For nonadjacent opposite swaps, k↦2−k, so both gain exactly when both are color-block interiors; for adjacent opposite swaps each k↦1−k, so both gain exactly when each is isolated, equivalent to a cyclic 0101/1010 factor. Explicit run constructions cover all splits except balanced six, whose run cases exhaust the possibilities. Inclusion-exclusion on a three-bit de Bruijn transfer graph gives the exact E_nb coefficient traces. Independent direct payoff enumeration through n=13 matched forbidden patterns and all sample counts; separate exact sympy characteristic polynomials gave t²(t^6−t^5−2t³+1) and t²(t³−t−1)(t³+t−1) and the stated E_6,3, E_7,3, E_8,4, E_10,5, E_12,6. Perron–Frobenius primitivity/strict spectral radius inequality gives S_n~2λ^n and λ<2. The all-n existence and asymptotic claims rely on the proved run constructions and transfer matrix argument, not finite checks.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Bilò–Bilò–Lenzner–Molitor 2022 Theorem 2 already exhibits the balanced six-ring at Λ>1/2 as a no-equilibrium counterexample, explicitly credited here. Its inspected primary proof is an existence counterexample and does not present the necessary-and-sufficient forbidden-factor criterion, classification of every other split, coefficient enumerator, or Perron rarity law. Different vacancy-based or monotone Schelling games have non-equivalent deviation rules. Unindexed specialist cyclic classifications remain a priority risk.
+
+## value
+
+PASS
+
+PASS: A natural exact question about game equilibria on a basic graph family is resolved: one unique split obstruction despite exponentially sparse stable labeled configurations. The forbidden-word characterization connects bilateral incentives to regular languages, supplies usable exact counts and an asymptotic density; unlike an isolated negative example, it characterizes every admissible split and placement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
