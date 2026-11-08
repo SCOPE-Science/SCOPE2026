@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Direct block inversion gives T=[[I,0,0],[X,-I,0],[0,EZ,I-E]]. The base identity I-T^2 is an exact last-block-row expression, and multiplication by I-T proves its formula for all m>=2. Positive definiteness of H(S1) and full row rank of B imply H(S2)>0; the accretive resolvent yields ||E||<=alpha/(mu+alpha)<1. GMRES minimizes over polynomials normalized at zero, proving its residual estimate and per-restart contraction. The exact scalar Gram determinant yields ||r2||^2=2 alpha^2/(1+alpha+alpha^2), validating the O(alpha) sharp order. Finite numerical and symbolic checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Southworth et al 2020 proves 2-by-2 Schur/GMRES convergence equivalences",
+        "Beik–Benzi 2022 DOI:10.1007/s00211-021-01267-8 studies distinct Stokes–Darcy preconditioners"
+      ],
+      "reasoning": "A general polynomial-minimization theorem is used but does not itself yield the displayed E-power formula or sharp scalar witness without extra derivation. A sufficiently broad reblocking theorem could overlap; no direct instantiation identified.",
+      "searches": [
+        "preconditioned saddle point GMRES second iteration O(alpha) two cluster eigenvalues plus minus one",
+        "right preconditioned double saddle point GMRES polynomial residual hierarchy alpha Schur",
+        "arxiv:1911.02664"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.34692v1",
+      "arxiv:1911.02664",
+      "doi:10.1007/s00211-021-01267-8",
+      "doi:10.1137/22M1518384 (abstract)",
+      "doi:10.1137/15M1032156 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chao–Li block identity explicitly precedes and motivates this work, but its nonnormality discussion expressly declines a rigorous GMRES rate",
+        "Southworth–Sivas–Rhebergen 2020 treats a general 2-block polynomial framework",
+        "Greif–He 2023 has different MAC preconditioners"
+      ],
+      "reasoning": "The prior block identity alone does not state the quantitative m-dependent residual result; the new induction, resolvent estimate, and scalar obstruction are required. Generic GMRES polynomial theory is standard and not claimed new. No direct stronger result is documented in inspected sources.",
+      "searches": [
+        "two step GMRES residual bound coupled block preconditioner Stokes Darcy Mobius Schur alpha",
+        "Stokes Darcy coupled preconditioner residual polynomial (1-z^2)(1-z)^k",
+        "arxiv:2610.34692v1 Theorem 8",
+        "arxiv:1911.02664"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.34692v1 Theorem 8 contains T block form, not polynomial family",
+        "arxiv:1911.02664 section 2/3 concerns two-by-two block polynomial/Schur bounds"
+      ],
+      "reasoning": "The exact matrix identity is invariant under changing notation; no retrieved preconditioner has the same three-block operator and exact polynomial last row. General 2x2 reblocking remains a residual implication risk.",
+      "searches": [
+        "two step GMRES residual bound coupled block preconditioner Stokes Darcy Mobius Schur alpha",
+        "two step right preconditioned GMRES O(alpha) coupled Stokes Darcy Q alpha polynomial residual",
+        "two cluster plus minus one nonnormal block triangular preconditioner restarted GMRES(2) residual polynomial",
+        "arxiv:1911.02664"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Results returned unrelated second-iterate positivity, Richardson, GMRES(1) and Gauss–Seidel findings including listed closest IDs; no exact Stokes–Darcy coupled-preconditioner formula",
+        "arxiv:2610.34692 first submitted 2026-10-26"
+      ],
+      "reasoning": "No exact polynomial identity, coefficient table, or sharp two-step scalar obstruction found in the queried mathematical record; absence from search results is not proof of uniqueness.",
+      "searches": [
+        "Chao Li Stokes Darcy Q_alpha ideal coupled preconditioner polynomial I minus T squared residual bound",
+        "Chao Li 2610.34692 GMRES finite two steps residual sharp alpha",
+        "2610.34692 Chao Li exact GMRES convergence bounds power of regularization"
+      ]
+    },
+    "rationale": "The 2026 Chao–Li Theorem 8 supplies the block form and spectra but expressly declines to derive a GMRES rate because the matrix is nonnormal. The new statement uses that given form to derive a degree-by-degree last-row polynomial identity, an all-m right-preconditioned GMRES bound, a restarted-cycle guarantee, and a sharp two-step order example. Southworth–Sivas–Rhebergen 2020 prove broad two-block GMRES/Schur-complement relationships, but inspected relevant sections do not state this explicit three-block polynomial identity. Greif–He 2023 and Beik–Benzi 2022 treat different exact preconditioner families. Published mathematical-record searches produced no statement implying the exact formula. Novelty remains provisional against unindexed equivalents and alternative block regroupings.",
+    "residual_risks": [
+      "Unindexed equivalent polynomial bound or a nonobvious special case of a broader block-GMRES theorem could predate this calculation.",
+      "2023 MAC and 2016 constraint-preconditioning full texts not independently inspected; no whole-document NOT_COVERING claim is made.",
+      "Strong regularity or mesh-uniformity claims require additional hypotheses not established here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the central block form; states that nonnormality prevents inferring a rigorous GMRES rate from the spectrum. No m-step residual-polynomial hierarchy in inspected theorem and discussion.",
+        "evidence": [
+          "arxiv:2610.34692v1 Theorem 8 and surrounding discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34692",
+        "material_read": "Preprint HTML version, definitions of three-block preconditioner, Theorem 8 spectral block identity, and adjacent convergence discussion",
+        "method": "Read relevant full-text theorem, block definitions and adjacent explanatory paragraphs",
+        "title": "An efficient coupled block preconditioner for the Marker-and-Cell discretization of the Stokes-Darcy equations",
+        "trigger": "Same block system and exact coupled ideal preconditioner"
+      },
+      {
+        "assessment": "Generic two-by-two block GMRES/Schur-equivalence; no exact same three-block regularized operator identity identified.",
+        "evidence": [
+          "arxiv:1911.02664 introduction, sections 2–3, general 2-block residual polynomial analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1911.02664",
+        "material_read": "PDF pages 1–5 and relevant theorem/Schur-complement and polynomial sections searched in the 30-page full text",
+        "method": "Inspected PDF full text, page image, and theorem searches",
+        "title": "On fixed-point, Krylov, and 2 × 2 block preconditioners for nonsymmetric problems",
+        "trigger": "Potential general theorem implying the proposed residual bounds"
+      },
+      {
+        "assessment": "Different augmented-Lagrangian/constraint and block-triangular structures; no equivalent exact regularized three-block residual identity identified in material read.",
+        "evidence": [
+          "Beik–Benzi (2022), block preconditioner equations and section 5"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00211-021-01267-8",
+        "material_read": "Publisher full-text HTML, selected displayed preconditioner matrices, exact spectral/FOV analyses and conclusions",
+        "method": "Read HTML treatment of preconditioner families and conclusions",
+        "title": "Preconditioning techniques for the coupled Stokes–Darcy problem: spectral and field-of-values analysis",
+        "trigger": "Same PDE and three-by-three block preconditioning may contain stronger coverage"
+      },
+      {
+        "assessment": "Different Schur-complement preconditioners, no direct equivalent established; full-text gap remains",
+        "evidence": [
+          "Greif–He (2023) abstract and Chao–Li related-work discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1518384",
+        "material_read": "Abstract and precise discussion/citation in 2026 source; not full text",
+        "method": "Publisher abstract and referencing source comparison",
+        "title": "Block Preconditioners for the Marker-and-Cell Discretization of the Stokes–Darcy Equations",
+        "trigger": "Same MAC discretization with ideal exact preconditioners"
+      },
+      {
+        "assessment": "Constraint rather than coupled regularization preconditioner; potential uninspected deeper overlap is a residual risk.",
+        "evidence": [
+          "Chidyagwai–Ladenheim–Szyld (2016) publisher abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M1032156",
+        "material_read": "Publisher abstract, not full text",
+        "method": "Read published abstract and methods description",
+        "title": "Constraint Preconditioning for the Coupled Stokes–Darcy System",
+        "trigger": "Similar fluid interface preconditioning analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf6e3609-56f1-44d7-83f0-860f12972e72",
+  "value": {
+    "rationale": "For a nonsymmetric coupled Stokes–Darcy matrix, eigenvalue clustering alone gives no quantitative GMRES residual bound, a gap explicitly flagged in the 2026 motivating work. The exact polynomial hierarchy turns the regularization parameter into a provable rate after two iterations, supplies a rigorous restarted GMRES criterion for the ideal preconditioner, and quantifies a nonremovable first-order obstruction at two steps. The constants are not asserted uniform over mesh or physical parameters, and no inexact-preconditioner conclusions are made.",
+    "status": "PASS"
+  }
+}
