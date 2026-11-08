@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:17:01.864250Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under identical valuations, pairwise envy inequalities force all effective utilities equal. Budget balance forces each net receipt p_i=W/n-w_i; individual payment constraint is w_i<=C_i=floor(W/n+B_i). Necessity of sum C_i>=W and sum floor(C_i/r)>=k follows by item counts. Sufficiency is an explicit two-pass greedy capacity filling: first all k r-valued goods, then all m unit goods in residual capacity. For common B, the least capacity is max(ceil(W/n),r*ceil(k/n)), giving the stated B_min. Independently exhaustively enumerated small n<=3,r<=4,m,k<=3 and rational budgets from {0,1/2,2}; all predictions matched allocation feasibility, which supplements the universal packing proof. Counterexample goods 2,2,2,3 at capacity 3 shows necessity of unit filler.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2610.09610 Theorem 16 and Lemma 17 give a general DP and polynomial-time fixed-goods-type algorithms",
+          "An algorithm can decide existence without exhibiting a closed-form iff or exact B_min"
+        ],
+        "reasoning": "General fixed-type algorithms cover decision complexity but do not logically provide the two-sum closed characterization. The result is a structural refinement; it cannot claim novelty for polynomial decidability itself.",
+        "searches": [
+          "envy free allocations identical additive valuations payment budgets heterogeneous budgets two item sizes unit r bin packing greedy capacity",
+          "arxiv:2610.09610 Lemma 17",
+          "two denomination heterogeneous bin capacities perfect packing theorem"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, verify.py, source metadata and self-review at frozen commit",
+        "envy free allocations identical additive valuations payment budgets heterogeneous budgets two item sizes unit r bin packing greedy capacity",
+        "arxiv:2610.09610 primary Lemmas 15,17 and Theorem 16",
+        "Resultary semantic search: two-size individual-payment capacities",
+        "Discrete-size packing theorem DOI"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identical valuation, balanced-transfer payment formula is prior art",
+          "General type-DP theorem applies to two sizes but not analytically the displayed two inequalities"
+        ],
+        "reasoning": "The prior lemma supplies Step 1 of the present proof; the strict contribution is the denomination-specific exact two-obstruction packing characterization and uniform budget formula. If a prior complete-packing theorem gives this, originality would narrow or fail.",
+        "searches": [
+          "envy free allocations identical additive valuations payment budgets heterogeneous budgets two item sizes unit r bin packing greedy capacity",
+          "arxiv:2610.09610 Lemma 15 Theorem 16 Lemma 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bredereck et al., arxiv:2610.09610, Lemma 15: effective equal utility / unique payments for a fixed allocation",
+          "Current proposition: capacities and two exact inequalities"
+        ],
+        "reasoning": "The payment-equality reduction is NOT new and is credited. The new statement uses the special arithmetic of denominations 1 and r to turn general feasibility into two closed capacity inequalities.",
+        "searches": [
+          "envy free allocations identical additive valuations payment budgets heterogeneous budgets two item sizes unit r bin packing greedy capacity",
+          "arxiv:2610.09610",
+          "two-size identical valuations budget-balanced envy-free bin packing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual independent brute test of small rational-budget profiles",
+          "Resultary nearby one-dimensional packing benchmark concerns a different packing objective"
+        ],
+        "reasoning": "An existing packing lemma for unit fillers and fixed integer large items could mechanically imply these inequalities; no exact closed liquidity region table was identified, but search failure alone is insufficient.",
+        "searches": [
+          "envy free allocations identical additive valuations payment budgets heterogeneous budgets two item sizes unit r bin packing greedy capacity",
+          "two item sizes 1 r bin packing heterogeneous capacities exact necessary sufficient"
+        ]
+      },
+      "rationale": "Closely related full primary Bredereck–Deltl–Inamdar–Jain–Pandey work ALREADY establishes equal-effective-utility reduction under identical valuations and general fixed-type algorithms (Lemma 15, Theorem 16 and Lemma 17). These are explicitly prior, not independent novelty. The proposed special-case two-scalar iff liquidity region, arbitrary-budget greedy construction, and exact uniform threshold are not their stated general algorithmic outputs, so qualified priority passes for that explicit closed characterization only.",
+      "residual_risks": [
+        "Equivalent unit-plus-r heterogeneous bin-capacity lemma in existing packing literature",
+        "The full general fixed-type algorithm of Bredereck et al. already subsumes the polynomial decision, so novelty must remain at closed-form feasibility and frontier"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OVERLAP_MODEL_NOT_EXACT_FORMULA",
+          "evidence": "Lemma 15 establishes forced payment equality; Theorem 16/17 give dynamic-programming and fixed-type algorithmic coverage, not the claimed two-sum closed if-and-only-if statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09610",
+          "material_read": "Primary full accessible arXiv HTML/text: identical valuations Lemma 15, Theorem 16, Lemma 17, type algorithms",
+          "method": "read primary text and compared named results",
+          "title": "Envy-free Allocations with Individual Payments",
+          "trigger": "Same identical valuation and individual-budget internal-payment model; strongest direct prior work"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNINSPECTED",
+          "evidence": "Packing theorem could contain an equivalent special denomination capacity lemma; no whole-document exclusion asserted.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895480197325936",
+          "material_read": "Bibliographic record and identified scope; complete text not inspected",
+          "method": "bibliographic/abstract-level review",
+          "title": "Bin Packing with Discrete Item Sizes, Part I: Perfect Packing Theorems and the Average Case Behavior of Optimal Packings",
+          "trigger": "Potential dominating discrete-size packing lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact feasibility region for an economically meaningful restricted fair-division problem is decided by two transparent scalar capacity inequalities, including heterogeneous payment limits. That removes large-state dynamic programming for this case and returns a constructive allocation and sharp liquidity frontier, a natural complete classification rather than a superficial special case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only identical valuations, exactly sizes 1 and integer r, no assignment constraints",
+    "Budget computation assumes exact numeric input and floor operations."
+  ],
+  "schema_version": 1
+}

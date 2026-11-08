@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The checker `verify.py` computes the proposed feasibility conditions with exact rational arithmetic and independently enumerates every final load vector obtained by distributing all goods in the test profiles. It validates the constructive large-first/unit-second allocation, internal budget balance, all pairwise envy inequalities and individual payment limits. It also tests a boundary profile in which the unit-good assumption is removed.
+## correctness
 
-Executed with Python 3, exit status 0:
+PASS
 
-```
-VERIFY_OK cases= 40800 load_vectors_checked= 5069616 constructive_allocations= 26145
-BOUNDARY_OK 2+2+2+3 / capacities 3,3,3
-```
+Under identical valuations, pairwise envy inequalities force all effective utilities equal. Budget balance forces each net receipt p_i=W/n-w_i; individual payment constraint is w_i<=C_i=floor(W/n+B_i). Necessity of sum C_i>=W and sum floor(C_i/r)>=k follows by item counts. Sufficiency is an explicit two-pass greedy capacity filling: first all k r-valued goods, then all m unit goods in residual capacity. For common B, the least capacity is max(ceil(W/n),r*ceil(k/n)), giving the stated B_min. Independently exhaustively enumerated small n<=3,r<=4,m,k<=3 and rational budgets from {0,1/2,2}; all predictions matched allocation feasibility, which supplements the universal packing proof. Counterexample goods 2,2,2,3 at capacity 3 shows necessity of unit filler.
 
-The finite parameter suite uses `n` from 1 through 4, `r` from 2 through 5, item multiplicities from 0 through 5 with combined count at most 7, and independent budgets in `{0,1/3,1,2}`. This is not exhaustive over all real budgets or arbitrarily large numbers. The general conclusion follows from the analytic proof in `RESULT.md`, not from these finite checks. No independent assessment has been performed.
+## originality
+
+PASS
+
+Closely related full primary Bredereck–Deltl–Inamdar–Jain–Pandey work ALREADY establishes equal-effective-utility reduction under identical valuations and general fixed-type algorithms (Lemma 15, Theorem 16 and Lemma 17). These are explicitly prior, not independent novelty. The proposed special-case two-scalar iff liquidity region, arbitrary-budget greedy construction, and exact uniform threshold are not their stated general algorithmic outputs, so qualified priority passes for that explicit closed characterization only.
+
+## value
+
+PASS
+
+The exact feasibility region for an economically meaningful restricted fair-division problem is decided by two transparent scalar capacity inequalities, including heterogeneous payment limits. That removes large-state dynamic programming for this case and returns a constructive allocation and sharp liquidity frontier, a natural complete classification rather than a superficial special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
