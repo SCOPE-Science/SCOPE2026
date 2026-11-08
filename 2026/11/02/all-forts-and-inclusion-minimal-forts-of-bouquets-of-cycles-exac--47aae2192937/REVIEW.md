@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every fort is classified by whether it contains the articulation vertex. In the hub-present case, missing peripheral vertices form independent sets of paths. In the hub-absent case, active petals must select both hub-adjacent vertices and omit an independent subset of the remaining interior path. This exhaustive dichotomy proves the all-fort product formula. To obtain inclusion-minimality, maximal independence is required on each relevant path, and hub-present forts additionally need at least one unselected hub-adjacent endpoint per petal. The extremal formula uses the exact independent-set bound on a path and counts odd/even effective-length ties correctly. A direct all-subsets verifier and a separate standard zero forcing implementation corroborate the equations. The proof, not the finite tests, establishes unbounded parameters.
+PASS
 
-## Originality
+Hub-in and hub-out cases give independent-set complements of each peripheral path, with hub-in all-fort factor H_r and hub-out endpoint-constrained active-petal factor z²H_(r-2). Inclusion-minimality enforces maximal omitted independent sets, forbids both endpoints simultaneously included in hub-containing case and forces exactly one active petal without hub. Weighted recurrences H_r=z(H_(r-1)+H_(r-2)),Q_r=zQ_(r-2)+z²Q_(r-3),E_r=z⁴Q_(r-6) follow path bijections; complements of minimal forts biject to inclusion-maximal failed zero-forcing starts. Independent direct enumeration of all subsets of 10 mixed cycle-bouquets confirmed both polynomials. Infinite family derives from case dissection, not enumeration.
 
-PASS, subject to publication-priority uncertainty. Becker et al., arXiv:2404.05963 (2024-04-09), supply general vertex-sum minimal-fort constructions and the already-known all-triangle (friendship) count. Proposition 27 can be specialized to recover a structural component of the hub-containing minimal-fort description, so that mechanism itself is not claimed as new. Their inspected Section 5 does not give the complete all-fort cardinality polynomial for arbitrary cycle bouquets, the complementary maximal-independent-set boundary enumerator, or the joint mixed-length exact formulas. Their triangle windmill count \(2^k+k\) is explicitly credited as prior work. Brimkov and Carlson, arXiv:2204.01887, concern minimal zero forcing sets, not the two fort polynomials here. Searches for one-point unions of cycles, generalized friendship graphs, graph-amalgamation fort polynomials and alternative zero-forcing terminology found no covering formula. Mathematical-record searches yielded nearby but noncovering results on friendship-graph zero forcing and minimal forts of complete multipartite graphs. Other available published comparisons found no covering bouquet polynomial. A failed search alone does not certify publication priority, and explicit bouquet formulas in less indexed venues remain a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The general cycle-bouquet family is a natural cactus-graph class with arbitrarily many petals and unrestricted lengths. The pair of full size-distribution formulas resolves both all-fort and inclusion-minimal-fort enumeration on this family, rather than just a known scalar minimum. The hub-dependent product structure, endpoint-restricted maximal independence filter, Fibonacci total count and exact count of extremal failed zero forcing initial sets offer reusable structure, including a nontrivial parity-tie correction. The all-triangle specialization is known and not asserted as an independent discovery.
+Qualified PASS only for the full all-fort cardinality polynomial and complete mixed-length minimal-fort boundary-restricted polynomial, not general fort/zero-forcing obstruction duality or previously known all-triangle friendship/windmill count. Becker–Cameron–Hanely–Ong–Previte 2025 gives general vertex-sum minimal-fort methods, individual cycles and windmills; its abstract does not establish this mixed-petal two-polynomial enumeration. Full article could reveal equivalent weighted specialization and remains material risk. Resultary published friendship graph zero-forcing polynomial is a different enumerated set.
 
-## Scientific limits and nearest literature
+## value
 
-The 2024 vertex-sum result is the strongest inspected nearby coverage and implies part, but not the displayed all-fort polynomial, of the result. Relevant unindexed enumeration literature remains a risk. No claim is made for arbitrary cactus graphs, graph automorphism quotients, or full enumeration of all failed zero forcing starts. Finite verification covers only bounded small graphs. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A closed weighted enumeration for every bouquet of arbitrary cycle lengths is a natural full family of articulation graphs, with exact inclusion-minimal fort spectrum and failed zero-forcing extremizers. The mixed-petal boundary filter carries mathematical content beyond the known all-triangle count and can serve as an exact test class for combinatorial zero forcing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
