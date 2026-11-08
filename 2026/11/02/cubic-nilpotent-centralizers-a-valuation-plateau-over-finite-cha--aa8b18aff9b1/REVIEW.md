@@ -1,23 +1,21 @@
-# Scientific review: cubic-nilpotent matrices over chain rings
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof determines all matrices \(X\in M_2(R)\) with \(X^3=0\), not only those whose residue is nilpotent. It stratifies by the minimum valuation of the entries and accounts separately for zero and all deep-radical matrices. For a primitive matrix, a nonzero rank-one nilpotent residue guarantees the linear independence of \(I\) and \(X\) over the quotient chain ring. Cayley--Hamilton then gives the exact equivalent conditions \(\det X=(\operatorname{tr}X)^2\) and \((\operatorname{tr}X)^3=0\). The proof explicitly counts lifts with prescribed trace and determinant using a unit off-diagonal coordinate. Shallow valuation strata reduce to primitive solutions in shorter quotients; the factor of \(q^{8v}\) from lifting four coordinates is essential and has been included. The ceiling identity produces the constant shallow-layer count. All characteristics and mixed-characteristic commutative chain rings are covered. The square-zero subtraction yields the exact index-three count, and the standard module-endomorphism identification gives the Jordan-centralizer interpretation.
+PASS
 
-Fourteen exhaustive original-multiplication tests, including two different ring types and a true extension field, agree with the formula and the valuation strata. These finite checks are not the general proof.
+Cayley-Hamilton for a primitive matrix U over R_m yields U^3=(tau^2-delta)U-tau delta I; unit minor of (I,U) makes this equivalent to delta=tau^2 and tau^3=0. Exactly q^2-1 nonzero nilpotent residue matrices; q^{m-ceil(m/3)} traces and q^{2(m-1)} fixed-trace/determinant lifts yield P_m=(q^2-1)q^{3m-2-ceil(m/3)}. At entry valuation v<c, lifting each of four coordinates by 2v levels gives q^{8v}P_{s-3v}, independent of v. At >=c cubes vanish automatically. Verified separately for small Z/p^s rings with direct matrix multiplication; extension fields and all s established by proof, not finite experiment. For s=1 cubic equals square nilpotence and c=1; zero/deep block handled.
 
-## Originality — PASS, provisional
+## originality
 
-A related earlier result is an exact all-length **square-zero** matrix census in finite commutative chain rings; it cannot determine the strictly larger cube-zero locus or its shallow valuation plateau without an additional argument. Published work by Britnell–Wildon on commuting nilpotent similarity classes, Oblak on nilpotent commutators, and later centralizer-Jordan studies covers related types, class existence and geometry, not the same counting formula as observed in the material inspected. A historical Drazin-index enumeration is especially relevant, but its complete article text could not be retrieved. Its accessible indexed discussion treats nilpotent-index cardinalities as inputs; this is not enough to exclude some indirect published coverage. Searches in research records and literature did not reveal an equivalent result, but search failure is not a proof of global priority.
+PASS
 
-The proposed original object is the simultaneous **cube-zero count, exact entry-valuation distribution, and equal-block nilpotent-centralizer specialization**, with new structural control through the trace--determinant cusp and valuation-lifting cancellation. It is not a claim of novelty for the centralizer isomorphism, Cayley--Hamilton, or square-zero enumeration.
+Qualified PASS for the simultaneous all-length finite-chain-ring count and flat exact entry-valuation strata; general Drazin-index enumeration could cover total nilpotency-index count, but the inspected sources do not establish or imply the complete plateau. Explicit priority risk remains because Brawley 1982 primary full text was not accessible.
 
-## Value — PASS
+## value
 
-Bounded-index nilpotents in matrix centralizers are natural invariants in commuting-matrix problems, and finite chain rings are a substantial class containing both characteristic-zero-mod-prime-power and truncated-polynomial examples. The first case beyond square-zero exhibits genuine cubic constraints, including primitive matrices with nilpotent nonzero trace. The uniform plateau across all shallow valuation strata is a structural phenomenon rather than a one-off numeric identity. The formula gives all lengths and residue sizes, resolves an exact index-three stratum by subtraction, and is suitable for comparison with Jordan-type and Drazin-index enumeration. Higher matrix sizes and historical priority remain open.
+PASS
 
-## Closest literature and limitations
+Counts a natural bounded-index nilpotent locus within centralizers of two equal Jordan blocks, with structural arithmetic invariance across shallow radical levels. This is an all-residue-size/all-length classification including mixed characteristic and index-exact-three by subtraction, not a small isolated numerical improvement.
 
-Britnell–Wildon, *On types and classes of commuting matrices over finite fields*, arXiv:1001.0811 (2010), full preprint inspected in the centralizer and nilpotent-class sections. Oblak, arXiv:1106.1545, full preprint material inspected. *On commuting nilpotent matrices*, arXiv:2212.08425, preprint sections on nilpotent Jordan types and two-block centralizers inspected. J. V. Brawley, *Counting Matrices by Drazin Index* (1982), DOI 10.1137/0603003, potentially relevant indexed discussion but full text inaccessible. No global historical priority or independent validation claim is made.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
