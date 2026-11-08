@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:17:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A_L=diag(L,1,1), L>1 and a 3x2 real Gaussian sketch, the orthogonal plane normal has t=n_1^2 with CDF sqrt(t). The rank-one Nyström residual N=A−nn^T/(n^T A^-1 n) gives active nonzero eigenvalues tau=[L^2(1-t)+t]/[L(1-t)+t] and 1; on the active plane preconditioned eigenvalue trace T=L+1−L(L−1)(1-t)[L^3(1-t)+t]/[L^2(1-t)+t]^2 and product D=L[L(1-t)+t]/[L^2(1-t)+t]. One eigenvalue exceeds one and the other lies below one except null endpoints, allowing comparison K_L>L by T²/D>(L+1)²/L. The exact sign factorization is negative a positive prefactor times the bracket L^5(1-t)^2−L^3t(1-t)−(L+1)t². Its unique positive ratio root yields t_c=2L²/(2L²+1+sqrt(5+4/L)); integrating the exact Haar coordinate law proves Pr(K_L>L)=1−sqrt(t_c) and asymptotic (1+sqrt5)/(4L²)+O(L^-3). A sketch rank one in dimension two gives P=I; full rank makes P proportional A, so n=3 rank2 is minimal. Independent Gaussian-sketch direct numerical samples (360) matched the threshold event and eigenvalue condition number. Finite checks corroborate only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frangella-Tropp-Udell gives favorable rank/effective-dimension expected condition bounds, with additional assumptions.",
+          "General approximate eigenspace perturbation and mixed-precision bounds are upper bounds/error controls, not exact distribution of worsening for the fixed 3x3 rank2 sketch."
+        ],
+        "reasoning": "A general performance guarantee cannot dominate an event probability whose exact parameters may violate the guarantee hypotheses, and expected bounds do not determine the strict-worsening probability.",
+        "searches": [
+          "arxiv:2110.02820 Section 5 randomized Nyström PCG guarantee",
+          "arxiv:2002.01387 randomized matrix computations spectral preconditioning",
+          "doi:10.1137/22M154079X mixed precision Nyström"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify_nystrom.py, METADATA.json, AUDIT.json",
+        "Frangella-Tropp-Udell arxiv:2110.02820 primary PDF Eq.17/§5",
+        "Martinsson-Tropp arxiv:2002.01387 survey background",
+        "Resultary spectral conditioning semantic query",
+        "Independent 360 Gaussian sketches compared to exact threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation 17 directly supplies P; the sign factorization and Haar integration add a model-specific probability not stated in the cited theorem.",
+          "Known sensitivity results allow detrimental approximate eigenspaces, but do not derive Pr(K_L>L)=1−sqrt(t_c)."
+        ],
+        "reasoning": "Existing method definitions and qualitative risk are acknowledged. The exact event law and sharp spike-scale asymptotics require additional derivation not implied by inspected broad bounds.",
+        "searches": [
+          "arxiv:2110.02820 Eq.17 and Proposition 5.3",
+          "Martinsson-Tropp arxiv:2002.01387 §17.3",
+          "Giraud-Gratton spectral preconditioning sensitivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frangella-Tropp-Udell Eq. 17 defines this exact preconditioner and its rank-dependent eigenvalue scaling.",
+          "The exact Gaussian event is equivalently a threshold on squared first coordinate of the sketch-plane normal, Haar beta(1/2,1) CDF sqrt t."
+        ],
+        "reasoning": "Spectral sensitivity examples and this threshold share mechanisms, but source algorithm or qualitative harmfulness does not imply the closed-form probability and minimality.",
+        "searches": [
+          "Resultary Gaussian Nystrom preconditioner condition-number deterioration rank-two dimension-three query",
+          "arxiv:2110.02820 Eq.17 Nyström PCG preconditioner",
+          "random spectral preconditioner harmful conditioning eigenvector misalignment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits were Gauss-Seidel/Adam conditioning and broad randomized pivoting risks rather than this closed-form Nyström threshold.",
+          "The inspected primary Nyström paper provides formulas and conditioning plots, but no exact t_c probability table for this 3x3 spike in the reviewed sections."
+        ],
+        "reasoning": "A preexisting special exact matrix threshold table is possible; none verified to cover the precise claim.",
+        "searches": [
+          "Resultary Nyström exact probability rank two spiked A query",
+          "Frangella-Tropp-Udell arxiv:2110.02820 figures/tables",
+          "spectral preconditioner Giraud Gratton 2006"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.",
+      "residual_risks": [
+        "Specialized inverse iteration / spectral-preconditioner sensitivity literature may already include a mathematically equivalent t-threshold formula.",
+        "No full treatment of positive-regularization or finite-precision performance; restricted scope deliberate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS algorithmic setup, not exact low-dimensional worsening event in read portions",
+          "evidence": "Large-rank effective-dimension performance conditions do not imply three-by-three unregularized tail probability.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.02820",
+          "material_read": "Original PDF including definition Eq.17 and §5 condition-number theorem (Proposition 5.3), relevant page rendered",
+          "method": "arXiv full PDF with visual page inspection",
+          "title": "Randomized Nyström Preconditioning",
+          "trigger": "Defines exact zero-regularization preconditioner and closest probability/performance theorems"
+        },
+        {
+          "assessment": "Background on randomized low-rank/spectral preconditioning without verified exact event law",
+          "evidence": "The broad survey supplies context; no full-document negative claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.01387",
+          "material_read": "Relevant summary and spectral preconditioning section descriptions, not full entire review",
+          "method": "arXiv primary background comparison",
+          "title": "Randomized Numerical Linear Algebra: Foundations and Algorithms",
+          "trigger": "Broad spectral preconditioning/low-rank Nyström potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Randomized Nyström preconditioning is a natural large-scale SPD solver operation. At its smallest nontrivial intermediate rank the finding gives the exact probability of an adverse condition-number event, a sharp rare-event rate and a minimal-dimensional boundary, thereby identifying a reproducible quantitative risk omitted by expectation or high-probability favorable bounds. It does not pretend to imply more Krylov iterations or numerical failure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, verify_nystrom.py, METADATA.json, AUDIT.json",
+    "Frangella-Tropp-Udell arxiv:2110.02820 primary PDF Eq.17/§5",
+    "Martinsson-Tropp arxiv:2002.01387 survey background",
+    "Resultary spectral conditioning semantic query",
+    "Independent 360 Gaussian sketches compared to exact threshold"
+  ],
+  "disposition": "passed",
+  "limitations": "Exact arithmetic, unregularized (mu=0) three-by-three SPD one-spike family and rank two. Does not extend automatically to positive regularization, finite precision, PCG iteration counts, other spectra or sketch heights.",
+  "residual_risks": [
+    "Specialized inverse iteration / spectral-preconditioner sensitivity literature may already include a mathematically equivalent t-threshold formula.",
+    "No full treatment of positive-regularization or finite-precision performance; restricted scope deliberate."
+  ],
+  "schema_version": 1
+}
