@@ -1,21 +1,21 @@
-# Mathematical review: higher-leg spider deformation characters
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(r\ge4\) and each tuple of lengths \(a_i\ge2\), the monomial basis of the quotient is exactly \(1,x_i^s\), with \(1\le s<a_i\). Pairwise least-common-multiple syzygies generate all relations of the monomial ideal. Syzygies between a pure-power generator and a mixed quadratic force images into the subspaces \(V_i\) written in RESULT.md. Mixed-quadratic syzygies sharing one variable force images into the spaces \(W_{ij}\). Remaining pairwise syzygies vanish automatically. Thus every coefficient listed by the full torus character corresponds to an actual tangent homomorphism, not just a numerical upper bound. The standard cotangent-complex five-term sequence and the explicit derivation kernel establish the first-order abstract deformation character; its dimension is the stated specialization.
+PASS
 
-The independent verifier generates the syzygy matrices from the monomial ideal without using the claimed character, computes exact finite-field nullspaces weight by weight, and calculates the coordinate-derivation image rank. It returns VERIFY_OK in seven cases, including four and five legs. These examples corroborate, but do not prove, the all-parameter claim. No higher obstruction or smoothing dimension follows.
+The finite algebra basis is {1,x_i^s:1<=s<a_i}. Pairwise least-common-multiple monomial syzygies constrain each pure power P_i to images V_i comprising nonconstant x_i-powers and top x_j^{a_j-1} on other axes; each mixed Q_ij maps to W_ij comprising nonconstant i/j powers and top powers on other axes. The remaining syzygies impose no further constraints. Shifting generator weights gives the complete Hilbert tangent character H. The cotangent exact sequence Der(A)->Der(S,A)->Hom_S(I,A)->T1->0, with explicit Der(A) character D and Der(S,A) character B sum t_i^-1, yields T1=H-B sum t_i^-1+D. Dimensions rd+r(r-2)(r+1)/2 and d-1+r(r^2+r-4)/2. Independent rational pair-lcm linear-system calculations at all-two exponents recovered r=4: d=5, tangent=40, derivation-image rank=4, T1=36; r=5: d=6, tangent=75, derivation-image rank=5, T1=70.
 
-## Originality — PASS, with limits
+## originality
 
-Turturean (arXiv:2603.00886v1, Sections 2 and 9.4) provides a motivating family and specifically points to deformation-theoretic \(T^1\) and \(T^2\) as further questions. Hu (arXiv:2101.05236, Section 4.5.2) and Jelisiejew–Ramkumar–Sammartano (arXiv:2409.17009, Examples 5.9–5.10) already establish the three-leg tangent excess of six, which is excluded from the claimed novelty. Proposition 2.5 in the latter paper gives a general algorithm to calculate monomial tangent weights; the present work instead evaluates a complete symbolic closed character uniformly for all \(r\ge4\), and also gives the abstract \(T^1\) character by identifying coordinate-change derivations. The inspected relevant portions do not state either universal higher-leg formula. Existing general methods may imply it after nontrivial specialization; absolute literature priority is not certified.
+PASS
 
-## Value — PASS
+The three-leg tangent excess 6 and general monomial-ideal tangent-weight algorithms are prior results. Best-of-knowledge the all higher-leg closed equivariant Hilbert tangent character AND abstract T1 character are not stated by those sources, nor implied without nontrivial syzygy simplification and derivation analysis. The assertion does not cover obstruction T2 or smoothing.
 
-The result answers a deformation-theoretic question posed in the motivating higher-leg spider setting and gives explicit multigraded data usable for local Hilbert-scheme and deformation-theory computations. The constant \(r\)-dependent tangent excess is structurally informative across infinitely many lengths, and the distinction between embedded and intrinsic \(T^1\) tangent characters is mathematically substantive. This is not a renaming of the previously known three-leg count or a single arbitrary numerical test.
+## value
 
-## Risks and boundaries
+PASS
 
-The prime-field checks cannot establish formulas for all parameters; that follows from the symbolic syzygy argument. No calculation of \(\mathbb T^2\), formal deformation bases, component multiplicities or smoothability dimension is claimed. Priority could be affected by a general monomial-Hilbert tangent character formula in related literature. No independent audit has occurred.
+The length-independent tangent excess and full weights refine scalar tangent dimensions and determine equivariant infinitesimal deformation directions for a natural family of nonreduced monomial schemes. These exact characters are independently useful for Hilbert-scheme local geometry and deformation calculations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

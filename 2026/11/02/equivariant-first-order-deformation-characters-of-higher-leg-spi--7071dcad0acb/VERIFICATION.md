@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The standalone program `spider_character_verify.py` uses Python's standard library, and can be run as `python3 spider_character_verify.py`. Its prescribed output ends with `VERIFY_OK` only if all sample character and dimension comparisons pass.
+# Independent mathematical audit
 
-The checker constructs the quotient monomial basis and monomial ideal generators directly from each exponent tuple; it forms every pair-lcm syzygy, performs sparse modular row reduction separately in each coordinate-torus weight, and obtains the complete embedded tangent character. It computes the coordinate-derivation map independently to obtain the intrinsic \(\mathbb T^1\) character. The cases include \((2,3,4,5)\), for which \((d,\dim T,\dim\mathbb T^1)=(11,64,42)\), and \((2,3,2,4,2)\), for which the tuple is \((9,90,73)\). Three-leg inputs serve only as previously known calibrations.
+## correctness
 
-These are exact finite-field computations for finitely many exponent tuples. They are **not** universal proofs. The all-parameter characteristic-zero theorem instead follows from the complete lcm-syzygy characterization and cotangent-complex exact sequence in RESULT.md. Higher obstruction groups and smoothing or formal deformation spaces have not been computed. Independent validation and definitive bibliographic priority have not been established.
+PASS
+
+The finite algebra basis is {1,x_i^s:1<=s<a_i}. Pairwise least-common-multiple monomial syzygies constrain each pure power P_i to images V_i comprising nonconstant x_i-powers and top x_j^{a_j-1} on other axes; each mixed Q_ij maps to W_ij comprising nonconstant i/j powers and top powers on other axes. The remaining syzygies impose no further constraints. Shifting generator weights gives the complete Hilbert tangent character H. The cotangent exact sequence Der(A)->Der(S,A)->Hom_S(I,A)->T1->0, with explicit Der(A) character D and Der(S,A) character B sum t_i^-1, yields T1=H-B sum t_i^-1+D. Dimensions rd+r(r-2)(r+1)/2 and d-1+r(r^2+r-4)/2. Independent rational pair-lcm linear-system calculations at all-two exponents recovered r=4: d=5, tangent=40, derivation-image rank=4, T1=36; r=5: d=6, tangent=75, derivation-image rank=5, T1=70.
+
+## originality
+
+PASS
+
+The three-leg tangent excess 6 and general monomial-ideal tangent-weight algorithms are prior results. Best-of-knowledge the all higher-leg closed equivariant Hilbert tangent character AND abstract T1 character are not stated by those sources, nor implied without nontrivial syzygy simplification and derivation analysis. The assertion does not cover obstruction T2 or smoothing.
+
+## value
+
+PASS
+
+The length-independent tangent excess and full weights refine scalar tangent dimensions and determine equivariant infinitesimal deformation directions for a natural family of nonreduced monomial schemes. These exact characters are independently useful for Hilbert-scheme local geometry and deformation calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
