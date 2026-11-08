@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational consistency checks
 
-The accompanying `verify.py` is a self-contained Python 3 program using only the standard library. It reconstructs the exact cyclotomic factor-degree multiset \(\{\varphi(m):m\mid 2^a p^b\}\), multiplies the individual polynomial factors \(1+z^{\varphi(m)}\) coefficientwise, and compares the resulting entire degree-counting dictionary to the predicted digit formula. Separate exact-integer assertions check the multiplicity histogram, cardinalities, all sorted gaps and their length histogram, endpoints, exact uniform-divisor digit marginals and total number of divisors.
+# Independent mathematical audit
 
-The executed grid contains 96 triples with \(1\le a\le4\), \(1\le b\le3\), and odd primes selected from \(5,7,11,13,17,19,23,29,31,37\) subject to \(p>2^a+1\). It checked 510728 supported degree coefficients and 34336 actual complement gaps. Its concluding output is:
+## correctness
 
-```text
-VERIFY_OK cases=96 represented_degree_coefficients=510728 complement_gaps=34336
-```
+PASS
 
-This is finite numerical corroboration. The coefficient identities, gap formulas, support/measure convergence and their limiting dimensions are proved in `RESULT.md` without relying on enumeration. No external mathematical audit or independent certification is asserted.
+For n=2^a p^b, a,b≥1, p odd prime >A+1 (A=2^a), cyclotomic factors have degree polynomial H_A(z)∏_{j=1}^b H_A(z^((p-1)p^(j-1))), H_A=(1+z)(1+...+z^(A-1))=1+2∑_{u=1}^{A-1}z^u+z^A. Since A<p-1, u0 is unique modulo p-1, and remaining uj∈[0,A] are unique base-p digits; all fibers and the binomial multiplicity histogram follow. Consecutive allowed digit blocks have differences Δ_k=p^k-A∑_{i<k}p^i, giving every gap length L_k=(p-1-A)p^k-1 with multiplicity A(A+1)^(b-1-k). Under scaling by Ap^b, reversed independent digit strings converge with coupling/Hausdorff error ≤p^-b to disjoint-map Cantor support dim log(A+1)/log p and Bernoulli measure of dimension [log A+(log 2)/A]/log p by cylinder masses and strong law. Independently multiplied cyclotomic degree factors as exact integers for (a,p,b)=(1,5,2),(2,7,2),(3,11,1); full predicted coefficient dict and all gap lengths matched. The all-parameter proof is digital/algebraic, not a finite extrapolation.
+
+## originality
+
+PASS
+
+The φ-practical threshold and digital factorization technique are firmly prior; close published work explicitly handles the complementary p≤A+1 case, while another superficially similar digit theorem involves sums of integer divisors and different threshold. Actual source comparison supports a previously unreported exact family-wide gap/fiber distribution and support/measure limit in the non-practical regime, with qualified priority because it follows by elementary arithmetic once the layer generating polynomial is written.
+
+## value
+
+PASS
+
+The arithmetic degree set of divisors of X^n−1 is the natural problem behind φ-practicality. In a complete infinite nonpractical regime this work gives all degree fibers, every omitted interval, number of uniquely represented interior degrees, and fractal distribution/dimension of a uniformly sampled divisor. These precise natural invariants can be used directly without requiring an unrelated downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

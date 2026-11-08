@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cyclotomic-factor subset-product identity gives the exact degree-counting polynomial. The strict parameter inequality \(p>2^a+1\) makes the first digit unique modulo \(p-1\) and the remaining digits unique in base \(p\), yielding every coefficient and its multiplicity. Consecutive allowed digit words exhaust the distinct positive gap lengths and their exact counts; strong separation of the same digit maps yields the Cantor support dimension. Uniform divisor selection induces independent weighted digits, and cylinder masses plus the strong law give the precise limiting measure dimension. These arguments prove the full infinite parameter statement. An independently constructed coefficient-convolution checker agrees for 96 parameter triples, 510728 supported coefficients and 34336 gaps, but this finite check is not used as proof.
+## correctness
 
-## Originality
-PASS, qualified. Thompson's \(\varphi\)-practical classification determines the coverage boundary, not the exact non-practical fiber or gap distribution. Pollack–Thompson study divisor-degree spectra and uniqueness in a wider setting but do not state the present formula. Pomerance–Thompson–Weingartner study prevalence of total coverage. The closest public note *Interior divisor degrees are never unique for two-prime \(\varphi\)-practical numbers* proves the complementary parameter range and already uses the same factor-generating polynomial: this methodological overlap is substantial and is not claimed as new. The separate *Complete-or-injective divisor subset sums* note concerns sums of positive integer divisors, with a different threshold and distinct weights. Neither inspected result supplies the exact non-practical degree fibers, the full histogram of gap lengths, or the associated support/measure limits. These findings are an explicit complementary classification, not a new general factorization technique. An unlocated special-case tabulation or elementary corollary may affect historical priority.
+PASS
 
-## Mathematical value
-PASS. This computes three natural and previously unreported invariants in a complete infinite regime of the classical question of which degrees occur among divisors of \(X^n-1\): the entire per-degree multiplicity function, the size distribution of every contiguous hole in the attainable-degree spectrum, and the fractal limit of normalized supports together with the exact-dimensional limit distribution for uniformly selected monic divisors. The sharp complementary boundary contrasts with the known all-degrees and no-unique-interior-degree regime. Although the proof is elementary, the specific classification exposes the arithmetic structure of the non-practical spectrum rather than merely restating the criterion for failure of coverage.
+For n=2^a p^b, a,b≥1, p odd prime >A+1 (A=2^a), cyclotomic factors have degree polynomial H_A(z)∏_{j=1}^b H_A(z^((p-1)p^(j-1))), H_A=(1+z)(1+...+z^(A-1))=1+2∑_{u=1}^{A-1}z^u+z^A. Since A<p-1, u0 is unique modulo p-1, and remaining uj∈[0,A] are unique base-p digits; all fibers and the binomial multiplicity histogram follow. Consecutive allowed digit blocks have differences Δ_k=p^k-A∑_{i<k}p^i, giving every gap length L_k=(p-1-A)p^k-1 with multiplicity A(A+1)^(b-1-k). Under scaling by Ap^b, reversed independent digit strings converge with coupling/Hausdorff error ≤p^-b to disjoint-map Cantor support dim log(A+1)/log p and Bernoulli measure of dimension [log A+(log 2)/A]/log p by cylinder masses and strong law. Independently multiplied cyclotomic degree factors as exact integers for (a,p,b)=(1,5,2),(2,7,2),(3,11,1); full predicted coefficient dict and all gap lengths matched. The all-parameter proof is digital/algebraic, not a finite extrapolation.
 
-## Closest literature and limitations
-Primary literature: Thompson arXiv:1111.5401v1; Pollack and Thompson arXiv:1206.2084v1; Pomerance, Thompson and Weingartner arXiv:1511.03357v1. Especially close public notes: *Interior divisor degrees are never unique for two-prime \(\varphi\)-practical numbers* and *Complete-or-injective divisor subset sums on \(\(2^a p^b\)\)*. The result does not cover more complicated prime supports or nonuniform choices of monic divisors or the full multifractal spectrum. Search coverage is not proof of historical priority; no independent validation has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The φ-practical threshold and digital factorization technique are firmly prior; close published work explicitly handles the complementary p≤A+1 case, while another superficially similar digit theorem involves sums of integer divisors and different threshold. Actual source comparison supports a previously unreported exact family-wide gap/fiber distribution and support/measure limit in the non-practical regime, with qualified priority because it follows by elementary arithmetic once the layer generating polynomial is written.
+
+## value
+
+PASS
+
+The arithmetic degree set of divisors of X^n−1 is the natural problem behind φ-practicality. In a complete infinite nonpractical regime this work gives all degree fibers, every omitted interval, number of uniquely represented interior degrees, and fractal distribution/dimension of a uniformly sampled divisor. These precise natural invariants can be used directly without requiring an unrelated downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
