@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The lower bound follows from one chosen word per length-(n-1) prefix class: two words of the same prefix have identical positive-step predecessor sets. Two explicit hexadecimal selector integers define complete attaining codebooks, one per prefix class. Exhaustive standard-library Python checks computed 128 and 512 nonempty, pairwise unique incoming-ball signatures using the exact suffix-prefix formula; a separate C++ reverse-BFS graph traversal independently reconstructed them. No evidence is extrapolated past the two stated parameter pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.5: lower bound (d-1)d^(n-1). Theorems 3.6-3.7 construct minima when n>=2t. Theorem 3.9 constructs a potentially larger code for n=2t-1 and explicitly calls the optimum an open problem. Corollary 4.7 asserts equality only when 2t<=n."
+      ],
+      "reasoning": "For (7,4) and (9,5), 2t=n+1, so the optimal-construction theorem does not apply; the lower bound alone cannot assert its attainment. The new explicit certificates close that logical gap at these two parameter pairs.",
+      "searches": [
+        "arXiv:1412.5842 PDF Theorems 3.5-3.10 and Corollary 4.7",
+        "Web: \"n=2t-1\" \"identifying codes\" \"de Bruijn\" optimal",
+        "Web: minimum directed identifying codes de Bruijn graphs n equals 2t minus 1 binary exceptions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1412.5842",
+      "doi:10.1016/j.dam.2019.02.005",
+      "arxiv:1508.00403",
+      "published published-finding corpus semantic search results for exact directed radius-4/5 codes",
+      "accessible finite-claim ledger through the latest part"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The only direct general lower bound is 64 or 256; it gives no witness. The prior boundary construction has a larger bound. The undirected paper uses a different adjacency convention. The own (5,3) result has smaller graph length and radius."
+      ],
+      "reasoning": "Neither a lower bound, a nonsharp upper bound, nor optimality at other (n,t) logically entails equality at (7,4) and (9,5). The new literal witnesses with exhaustive verified signatures supply exactly the missing implication.",
+      "searches": [
+        "arXiv:1412.5842 section 3, especially pp. 7-16",
+        "arXiv:1508.00403 abstract and problem statement",
+        "Own prior n5,t3 claim 7fc1e6ec-2106-4dd6-b11b-f2a1b282ba28"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Own prior finite case 7fc1e6ec-2106-4dd6-b11b-f2a1b282ba28 covers (n,t)=(5,3) only; arXiv:1412.5842 Definition 3.4 gives equivalent incoming-ball formulation."
+      ],
+      "reasoning": "Equivalent terms include closed directed in-ball signatures and radius-t identifying sets; the new pairs (7,4) and (9,5) are strictly distinct from the previously solved (5,3). No searched equivalence converts a result for radius three into these two higher radii.",
+      "searches": [
+        "published-finding corpus: directed binary de Bruijn B(2,5) 3 identifying code minimal exact radius three exceptional boundary",
+        "published-finding corpus: Binary de Bruijn digraph radius-three in-ball identifying codes B(2,5) sixteen sensors, optimal selectors all four",
+        "Web: \"B(2, 7)\" \"identifying code\" \"radius\"",
+        "Web: \"B(2, 9)\" \"identifying\" \"radius\" code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published records include *Near-extremal identifying open codes from twice-subdivided skeletons* (2026) and *All identifying codes of thick chain graphs* (2026); these treat different graph families and do not determine directed de Bruijn incoming-ball optima."
+      ],
+      "reasoning": "No located exact table or result covers the two parameter pairs. Absence of a returned record alone is not a proof of historical uniqueness; this check is combined with primary-document implication comparisons.",
+      "searches": [
+        "published-finding corpus: Exact minimum t-identifying codes directed binary de Bruijn graph at n=2t-1, t=3 4 5. Optimal sizes 16 64 256 and four minimal codes at n5",
+        "published-finding corpus: Binary directed de Bruijn graphs extremal boundary n=5 radius 3, n=7 radius 4, n=9 radius 5, lower bound achieved",
+        "Web: optimal radius 4 identifying code directed de Bruijn 128 vertices",
+        "Web: radius 5 identifying code directed binary de Bruijn 512 optimal 256"
+      ]
+    },
+    "rationale": "The full relevant primary preprint arXiv:1412.5842 explicitly confines its minimum-size constructions to n>=2t and leaves n=2t-1 unresolved. The present size-64 and size-256 certificates resolve two distinct later boundary instances not implied by its general lower bound. The earlier own finite (n,t)=(5,3) result is excluded from the new claim. Broad semantic and parameter searches in published records and literature did not reveal a dominating statement. Unindexed priority remains a real residual risk.",
+    "residual_risks": [
+      "Unindexed subsequent work, theses, or independent unpublished computations could already contain one or both finite optima.",
+      "The undirected comparison source was inspected by abstract rather than full text; it has a different graph model.",
+      "Scientific review and code replay are same-model, not independent peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.9 leaves boundary optimum open, and n>=2t results do not cover (7,4) or (9,5).",
+        "evidence": [
+          "arXiv:1412.5842 Definition 3.4, Theorems 3.5-3.10, specifically text on page 16 identifying boundary optimum as open"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.5842",
+        "material_read": "27-page full preprint PDF text; examined graph definitions in section 3, all relevant identifying-code statements and constructions through Theorem 3.11, and remaining sections for possibly stronger implications, with page-image check.",
+        "method": "Primary arXiv PDF, text and page inspection, exact theorem and section searches",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "Exact same graph, code notion and sharp boundary n=2t-1"
+      },
+      {
+        "assessment": "Its graph is undirected, so its existence theorems do not determine directed incoming-ball optimum sizes.",
+        "evidence": [
+          "ArXiv:1508.00403 abstract explicitly specifies undirected de Bruijn graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00403",
+        "material_read": "ArXiv abstract; PDF full text unavailable to the available retrieval route.",
+        "method": "ArXiv abstract and attempted primary PDF retrieval",
+        "title": "On the Existence of t-Identifying Codes in Undirected De Bruijn Graphs",
+        "trigger": "Possible equivalent identifying codes after forgetting orientation"
+      },
+      {
+        "assessment": "The journal abstract reports the same open boundary construction, with no contrary exact result apparent.",
+        "evidence": [
+          "Discrete Applied Mathematics 262 (2019), pp.29-41 bibliographic abstract; arXiv:1412.5842 preprint"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2019.02.005",
+        "material_read": "Public journal bibliographic entry and abstract; the lawful preprint of the same work was examined in full separately.",
+        "method": "Journal metadata and abstract compared to primary arXiv manuscript",
+        "title": "Identifying codes on directed de Bruijn graphs",
+        "trigger": "Later journal version of the central primary paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1b7429e-cf73-4eba-878f-0bab1762ad81",
+  "value": {
+    "rationale": "The exact optimum at the sharp identifiability boundary n=2t-1 is identified as open in the 2014 primary paper. These first two next higher binary radii after the previously resolved (5,3) case provide meaningful exact 128- and 512-vertex sensor-placement solutions, attaining a bound that was not known sharp at this boundary, and supply independently checkable finite witnesses. The value is the motivated cutoff, not generalization beyond the two proved parameters.",
+    "status": "PASS"
+  }
+}
