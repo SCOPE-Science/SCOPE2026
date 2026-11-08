@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:59:47Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "alpha>-1",
+        "periodic positive h with continuous extension",
+        "complex Re zeta>0",
+        "nonconstant h must have a least T>0",
+        "scalar-normalized analytic functions, not arbitrary boundary traces"
+      ],
+      "proof_sources": [
+        "RESULT.md, sections 1–5 and verification; Git blob c1a75496fb904a40bc9612ac318668d506bed35b",
+        "verify.py finite check implementation, blob 98e46bf399dbbae218a2662199aba6d7591ef81b",
+        "Independent Gaussian/Gamma-integral and phase quadrature, alpha=.25, eps=.4, omega=1.25"
+      ],
+      "rationale": "From exact monomial moment m_n, substitute v=n(1-u); uniform comparison with Gamma-Laplace profile A(log n) has O(n^-1) absolute error, and A bounded away from zero. Reciprocal moments produce a phase-uniform Riemann sum for H_theta(zeta) on compact Re zeta>0 with controlled t=0 and infinity tails. Fourier multiplier Gamma(alpha+1-ik omega) has no zero, so A and h share minimal period; same holds for Q=1/A. Laplace uniqueness, period-average normalization and compactness prove no two distinct projective phases coincide. Integer floor(exp(theta+jT)) realizes every phase; constant h reproduces the standard power kernel. Independent quadrature for alpha=.25, eps=.4, omega=1.25 yields H_0(1.5)/H_0(1)=.389235400725 and opposite-phase ratio .415057878462. Finite quadrature checks one profile only; the analytic arguments prove all continuous positive periodic h.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pennanen et al. (2026) covers doubling estimates for a broader weight family, but controls scales rather than determining the complete normalized subsequential limit set.",
+          "Blaschke (2012) evaluates logarithmic powers with asymptotic expansions, not persistent periodic profiles in logarithmic boundary scale."
+        ],
+        "reasoning": "Broader hypotheses in prior estimates do not imply this sharper phase-circle conclusion as a supplied corollary; no old all-period theorem was found.",
+        "searches": [
+          "radial weighted Bergman kernel boundary asymptotics doubling oscillating slowly varying weights",
+          "arxiv:2607.19959",
+          "doi:10.1016/j.jmaa.2011.06.044"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lu-qi-keng-transitions-for-euclidean-boundary-distance-wei--b68d363f03d0",
+        "arxiv:2607.19959",
+        "doi:10.1016/j.jmaa.2011.06.044"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform kernel bounds plus moment doubling do not determine a limit without a slowly varying factor; the nonconstant h here is bounded oscillatory with the same doubling.",
+          "Classical Mellin smoothing and Gamma zero-freeness supply methods, not a cited theorem asserting all normalized phases are distinct."
+        ],
+        "reasoning": "The exact phase-dependent law and iff-rigidity are not logical consequences of the stated prior theorems without additional analysis.",
+        "searches": [
+          "radial Bergman kernel logarithmic periodic oscillating weight discrete scale invariant boundary scaling tangent limits Mellin",
+          "arxiv:2607.19959",
+          "doi:10.1016/j.jmaa.2011.06.044"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact statement is a Tauberian/Mellin phase-profile boundary tangent law, also a Laplace-transform family for reciprocal monomial moments.",
+          "Pennanen et al., Theorem 1 and radial moment doubling gives off-diagonal comparability but not projectively injective phase limits."
+        ],
+        "reasoning": "No inspected equivalent boundary-tangent classification; standard Mellin/Fourier formulas themselves are old.",
+        "searches": [
+          "radial Bergman kernel logarithmic periodic oscillating weight discrete scale invariant boundary scaling tangent limits Mellin",
+          "arxiv:2607.19959",
+          "doi:10.1016/j.jmaa.2011.06.044"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest sharp Bergman zero/weight records concern zero sets and norms, not this oscillatory limit family."
+        ],
+        "reasoning": "A complete set of normalized analytic boundary tangents is a continuum rather than a finite table; no same-object phase catalogue was retrieved.",
+        "searches": [
+          "radial Bergman kernel logarithmic periodic oscillating weight discrete scale invariant boundary scaling tangent limits Mellin",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lu-qi-keng-transitions-for-euclidean-boundary-distance-wei--b68d363f03d0"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison, not conclusive historical priority. The exact phase-dependent law and iff-rigidity are not logical consequences of the stated prior theorems without additional analysis.",
+      "residual_risks": [
+        "A general older Mellin–Tauberian discrete-scale theorem might imply the full phase-circle statement after specialization; historic priority not guaranteed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state phase-dependent rescaled boundary tangent limits",
+          "evidence": [
+            "Theorem 1 concerns offdiagonal comparability / sharp estimates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.19959",
+          "material_read": "Open HTML: introduction, Theorem 1, equation (1.2), radial doubling criterion and discussion of kernel estimates",
+          "method": "public arXiv HTML reading",
+          "title": "Optimal off-diagonal upper estimates for Bergman reproducing kernels",
+          "trigger": "Same radial moment-doubling property and monomial kernels"
+        },
+        {
+          "assessment": "Logarithmic-power weights and expansions; not persistent nonconstant periodic log oscillation",
+          "evidence": [
+            "weight is power-logarithmic and asymptotic coefficients stabilize"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2011.06.044",
+          "material_read": "Accessible full text in lawful web rendering: theorem statements 1–2, weight profiles and Section 3 expansions",
+          "method": "full-text web inspection",
+          "title": "Asymptotic behavior of Bergman kernels with logarithmic weight",
+          "trigger": "Potential original/log-periodic equivalent"
+        },
+        {
+          "assessment": "Different exact invariant (zeros) and different nonoscillating weight",
+          "evidence": [
+            "summary concerns threshold for zeros of radial power boundary-distance kernels"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lu-qi-keng-transitions-for-euclidean-boundary-distance-wei--b68d363f03d0",
+          "material_read": "Resultary matched summary; no full paper read",
+          "method": "semantic Resultary record retrieval",
+          "title": "Sharp Lu Qi-Keng transitions for Euclidean boundary-distance weighted disk kernels",
+          "trigger": "Nearest published radial Bergman record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, sections 1–5 and verification; Git blob c1a75496fb904a40bc9612ac318668d506bed35b",
+        "Uniform kernel bounds plus moment doubling do not determine a limit without a slowly varying factor; the nonconstant h here is bounded oscillatory with the same doubling."
+      ],
+      "rationale": "Complete structural phase-limit classification for a natural family of radial doubling weights: shows norm comparability does not imply unique tangent, with a precise iff condition and projective injectivity. The object and invariant precede the computation; not simply a routine one-coefficient asymptotic.",
+      "residual_risks": [
+        "The contribution is restricted to continuous periodic weights; no nonperiodic/discontinuous or zero-set conclusions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "alpha>-1",
+    "periodic positive h with continuous extension",
+    "complex Re zeta>0",
+    "nonconstant h must have a least T>0",
+    "scalar-normalized analytic functions, not arbitrary boundary traces",
+    "A general older Mellin–Tauberian discrete-scale theorem might imply the full phase-circle statement after specialization; historic priority not guaranteed.",
+    "The contribution is restricted to continuous periodic weights; no nonperiodic/discontinuous or zero-set conclusions."
+  ],
+  "schema_version": 1
+}

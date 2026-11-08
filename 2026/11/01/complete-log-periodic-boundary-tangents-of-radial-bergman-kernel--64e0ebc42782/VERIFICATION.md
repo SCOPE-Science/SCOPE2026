@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic proof gives a uniform moment expansion, a phase-uniform Riemann-sum limit, Fourier preservation of the profile's period group, and injectivity after scalar normalization by uniqueness of Laplace transforms. These four steps prove the infinite-dimensional statements. No finite truncation is treated as a proof of a full-kernel identity.
+## correctness
 
-Run `python3 verify.py` in an environment with the version of `mpmath` specified by `requirements.txt`. The script checks an exact sinusoidal specialization, including beta moments and phase-dependent finite kernel sums. It reports the numerical approximation errors and exits with a nonzero status if any consistency tolerance fails. This is a numerical supplement, not an independent audit or a formal certificate.
+PASS
 
-Scientific limits: fixed positive continuous periodic profile, fixed exponent above minus one, right-half-plane scaling, and usual normalized planar area. No claims are made about arbitrary measurable nonperiodic weights, zero distributions, or extensions to several complex variables. Independent audit has not been performed.
+From exact monomial moment m_n, substitute v=n(1-u); uniform comparison with Gamma-Laplace profile A(log n) has O(n^-1) absolute error, and A bounded away from zero. Reciprocal moments produce a phase-uniform Riemann sum for H_theta(zeta) on compact Re zeta>0 with controlled t=0 and infinity tails. Fourier multiplier Gamma(alpha+1-ik omega) has no zero, so A and h share minimal period; same holds for Q=1/A. Laplace uniqueness, period-average normalization and compactness prove no two distinct projective phases coincide. Integer floor(exp(theta+jT)) realizes every phase; constant h reproduces the standard power kernel. Independent quadrature for alpha=.25, eps=.4, omega=1.25 yields H_0(1.5)/H_0(1)=.389235400725 and opposite-phase ratio .415057878462. Finite quadrature checks one profile only; the analytic arguments prove all continuous positive periodic h.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical comparison, not conclusive historical priority. The exact phase-dependent law and iff-rigidity are not logical consequences of the stated prior theorems without additional analysis.
+
+## value
+
+PASS
+
+Complete structural phase-limit classification for a natural family of radial doubling weights: shows norm comparability does not imply unique tangent, with a precise iff condition and projective injectivity. The object and invariant precede the computation; not simply a routine one-coefficient asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
