@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Mean-unbiasedness uses exponential survival integration and conditional uniform sampling. Expanding errors through h-prime, memorylessness gives the endpoint kernel eta^2 exp(-max/eta) and Bernoulli covariance gives interior kernel eta min(u,v)exp(-max/eta). Both kernels have total mass 2 eta^4; constant vector derivatives attain it; smooth positive bumps on either side of eta give opposite signs in the exact kernel difference; smooth test-function separation proves uniqueness. A packaged checker verifies 19,525 polynomial coefficient configurations using exact rational arithmetic. Finite experiments do not establish the infinite-dimensional proof, which is given analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "One Sample Stochastic Frank-Wolfe, Zhang et al., PMLR 108 (2020), Section 3.2: one uniformly sampled interior Hessian-vector evaluation of a fixed-step integral",
+        "Better SGD Using Second-Order Momentum, Tran and Cutkosky, NeurIPS 2022, Section 2: endpoint Hessian correction under second-order smoothness"
+      ],
+      "reasoning": "Uniform interior sampling and endpoint Hessian-based variance reduction are known at broader algorithmic level, but their inspected theorems do not give a sharp exponential random-step comparison against the realized path or this uniqueness classification. Generic Stein-control-variate or quadrature literature might subsume the specific identity, so no exhaustive priority claim is made.",
+      "searches": [
+        "randomized uniform intermediate Hessian path estimator versus endpoint exponential integration variance",
+        "exponential randomized integration by parts gradient change variance reduction two endpoint Hessian vector control variate",
+        "web: \"exponential\" \"randomized\" \"quadrature\" \"control variate\" \"sharp\" \"Lipschitz\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.06824 (full HTML: Sections 3.1/B.10)",
+      "Zhang et al., PMLR108 (2020), One Sample Stochastic Frank-Wolfe (full PDF, Section 3.2)",
+      "Tran and Cutkosky, NeurIPS 2022, Better SGD Using Second-Order Momentum (full PDF, Section 2)",
+      "published-finding corpus searches in four named check categories, including three nearest non-dominating IDs",
+      "Relevant previously published mathematical findings, compared by their scientific statements rather than title matching"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "RanSOM arXiv:2602.06824: one-endpoint Stein correction, not quadratic-exact path transport",
+        "Zhang et al. PMLR108 Section 3.2: exact fixed-step conditional mean via independent uniform interior point, not an exponentially weighted endpoint correction",
+        "Tran–Cutkosky NeurIPS 2022 Section 2: endpoint momentum oracle correction, but not the same exponential sampling law or two risk kernels"
+      ],
+      "reasoning": "The exact quadratic baseline distinguishes the proposed correction from RanSOM and the two competing variance formulas distinguish its stochastic analysis from a generic unbiased quadrature prescription. Source principles help construct the estimator but the inspected statements do not logically imply both sharp kernels or strict variance nonordering without further calculation.",
+      "searches": [
+        "Stein exponential HVP correction gradient path quadratic exact start-end two Hessians uniform interior sharp Lipschitz constant comparison",
+        "randomized uniform intermediate Hessian path estimator versus endpoint exponential integration variance",
+        "RanSOM-E randomized step momentum correction control variate quadratic exact path residual",
+        "web: \"exponential\" \"Hessian\" \"path\" \"control variate\" random step gradient change"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "RanSOM arXiv:2602.06824 Sections 3.1 and B.10: exponential Stein identity and noisy quadratic path for its single-endpoint correction",
+        "published-finding corpus nearest 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73 is a different stationary-variance optimization model"
+      ],
+      "reasoning": "Compared exponential Stein/integration-by-parts, quadratic-exact control-variate and random-interior quadrature formulations; the source correction eta*h(S) is biased pathwise even for constant h, while the proposed eta*h(S)+(S-eta)*h(0) equals S*h(0) exactly. No searched published-finding corpus entry stated both covariance kernels or endpoint uniqueness. Historical equivalents remain a risk.",
+      "searches": [
+        "Stein exponential HVP correction gradient path quadratic exact start-end two Hessians uniform interior sharp Lipschitz constant comparison",
+        "random exponential step gradient change control variate eta h(S)+(S-eta) h(0) exact kernel variance",
+        "exponential Stein random step Hessian vector path noise control variate initial Hessian eta H at endpoint plus (s-eta) H at start sharp variance",
+        "web: \"random step\" \"Hessian\" \"initial\" \"endpoint\" unbiased gradient change"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus related IDs: 2026/9/18/SCOPE-hellmann-feynman-hermite-penalty-extrapolation--a3a87ccd7379; 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "Published mathematical research records checked for exact exponential-step curvature path and the named risk constants"
+      ],
+      "reasoning": "This is a functional infinite-class sharp bound rather than a finite invariant in a known database or table. Actual published-finding corpus/own-ledger matches were not equivalent and did not imply both kernels, the affine extremal constant and the sign-reversal comparison.",
+      "searches": [
+        "sharp sqrt2 Lipschitz Hessian path quadrature variance endpoint correction exponential distribution",
+        "momentum gradient Hessian exponential step antithetic correction sharp variance eta fourth order",
+        "published-finding corpus: RanSOM-E randomized step momentum correction control variate quadratic exact path residual"
+      ]
+    },
+    "rationale": "The source provides exponential Stein endpoint unbiasedness and observes quadratic path noise; earlier papers provide uniform interior Hessian evaluation and second-order endpoint correction. The checked primary results and actual published-finding corpus/own-ledger queries did not state the proposed quadratic-exact exponential rule with both exact kernels, shared sharp minimax constant, strict nonordering, and uniqueness. Broad generic quadrature or control-variate literature might cover a specialization, so historical priority is not claimed absolutely.",
+    "residual_risks": [
+      "Generic Stein control variates, randomized quadrature, or an older unpublished/less discoverable result might already imply one or more sharp kernels or the uniqueness statement.",
+      "The proof compares realized path-risk under ideal exact Hessian-vector products, not stochastic-oracle or wall-clock convergence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Stein correction and identifies noise floor; does not state the quadratic-exact two-endpoint rule, exact sharp risk kernels, or variance nonordering",
+        "evidence": [
+          "arXiv:2602.06824, Sections 3.1 and B.10"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.06824",
+        "material_read": "arXiv HTML full-text Sections 3.1 and Appendix B.10, including displayed correction and discussion of residual noise on quadratic problems",
+        "method": "Read source HTML, reconstruct step-law and compare exact estimator with source equation and appendix interpretation",
+        "title": "RanSOM: Second-Order Momentum with Randomized Scaling for Constrained and Unconstrained Optimization",
+        "trigger": "Direct 2026 motivating paper: exponential step and endpoint Hessian correction"
+      },
+      {
+        "assessment": "General uniform-inner-point Hessian rule is prior art, but inspected material does not derive exponential-step second-order risk-kernel comparison or strict nonordering",
+        "evidence": [
+          "Zhang et al., PMLR108 (2020), Section 3.2"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v108/zhang20i/zhang20i.pdf",
+        "material_read": "Full primary PDF, especially Section 3.2 and its equation for uniform interpolation Hessian-vector products",
+        "method": "Read PDF text and visually inspect the relevant PDF page; compare conditional sampling law and claimed variance bound",
+        "title": "One Sample Stochastic Frank-Wolfe",
+        "trigger": "Most relevant earlier uniform random-interior Hessian-gradient integration"
+      },
+      {
+        "assessment": "Second-order endpoint Hessian control is prior art, but not the exponential path random-integral comparison and exact sharp kernels here",
+        "evidence": [
+          "Tran and Cutkosky, NeurIPS 2022, Section 2"
+        ],
+        "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2022/hash/1704fe7aaff33a54802b83a016050ab8-Paper-Conference.pdf",
+        "material_read": "Full available paper, especially Section 2 on Hessian momentum correction and Lipschitz Hessians",
+        "method": "Read PDF text and visually inspect relevant PDF page; compare estimator normalization and underlying step distribution",
+        "title": "Better SGD Using Second-Order Momentum",
+        "trigger": "Closest established endpoint Hessian correction and second-order smoothness precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5adce3c9-8fe3-4eea-8c86-9ba3dff413be",
+  "value": {
+    "rationale": "The baseline single-endpoint rule has nonzero quadratic path RMS error eta*||h(0)||; exactly quadratic-exact corrections remove this and have sharp curvature-dependent RMS sqrt(2)*L*eta^2. Two concrete oracle designs have the same minimax bound but opposite risk ordering for smooth low- versus high-position curvature, making a meaningful evaluation-cost/error and sampling-location boundary; no full-optimizer-rate claim is made.",
+    "status": "PASS"
+  }
+}
