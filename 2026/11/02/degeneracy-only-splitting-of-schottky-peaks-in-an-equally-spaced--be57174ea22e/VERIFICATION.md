@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducing the mathematical checks
+# Independent mathematical audit
 
-The accompanying `verify.py` is self-contained Python 3 code requiring only the standard library. Run `python verify.py` from the extracted file directory. The executable independently implements the three-level Gibbs moments, the factored variance and third-cumulant formulas, and central finite-difference derivatives. It also tests the rational uniform sign bounds, stationary branches and exact inter-peak value.
+## correctness
 
-At packaging time the checker reported 256 successful arithmetic, moment, derivative and branch checks, and printed the exact lower bounds \(294424/789173\) and \(1341440000/2975509823\). Replay after extraction is required to establish that this accompanying code, not a stale local file, runs. These computations are **not** a proof of the infinitely many cases \(M\ge256\); the uniform proof is in `RESULT.md`. Numerical examples do not certify that the system has exactly two peaks. The proof treats at least two maxima with the asymptotic locations stated, not a complete mode count.
+PASS
+
+For Gibbs weights 1,b,c with J in {0,1,2}, exact moment algebra yields variance P/Z^2 with P=b+4c+bc and third cumulant Q/Z^3 where Q=(c-1)(b^2-bc-b-8c). Independent symbolic reduction reproduced both identities, and for sampled M≥256 confirmed derivative signs +,-,+,- at x=L,L+1,3L/2,2L+1. The proof bounds Q/(PZ)>1/3 at the negative checkpoints uniformly for M≥256; positive checkpoints use Q≤0. Continuity and analyticity force two strict local maxima separated by a minimum. Near hot/cold scales two adjacent levels dominate, giving x=L+4/L+O(L^-2) and 2L+2/L+O(L^-2), heights L²/4 and L². The midpoint is exactly 9L²/[2(sqrt M+2)]. Domain is integer M≥256 and strictly positive temperatures; at least two maxima, not an assertion of exactly two or of phase transitions.
+
+## originality
+
+PASS
+
+Qualified PASS: de Souza et al. 2015 gives general three-level canonical formula and demonstrates two-peak effects from widely separated gaps and degeneracies. The present quantitatively bounded equal-adjacent-gap family (1,M²,M³), uniform M≥256 four-sign certificate, peak-location and valley scaling is not stated in the inspected primary discussion. Formula-level dependence is acknowledged, and older multilevel Schottky works may contain an equivalent equal-gap degeneracy construction.
+
+## value
+
+PASS
+
+It is physically and mathematically motivated to separate gap-induced from degeneracy-only thermal anomalies. The explicit all-M cutoff and asymptotic two-scale peak positions show a rigorous mechanism for two maxima even at equal excitation gaps; not a mere temperature rescaling or a small sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
