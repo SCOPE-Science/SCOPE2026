@@ -1,0 +1,11 @@
+# Supported review of the octahedral Orlicz contact theorem
+
+**Correctness — PASS.** The facet normal and weight normalization was recalculated from the eight equilateral faces. Exact polynomial expansion of the four Euler factors, the two elementary symmetric inequalities including the boundary case, and the strict positivity of the comparisons for every \(0<\lambda\le1/2\) reconstruct the full proof. Since the body-diagonal radius is below two, no extrapolation beyond the proven domain enters the ellipsoid conclusions. Strict convexity and uniqueness of the John and Löwner ellipsoids make the contact classification complete. A deterministic exact-rational checker supplied 5,000 supplementary finite checks; these are not substituted for the infinite proof.
+
+**Originality — PASS, with historical-priority risk.** The defining Orlicz functional and critical-level motivation are established in Haddad–Jiménez–Resende, arXiv:2610.11700v1, whose complete accessible HTML theorem, Section 5 proof, and Orlicz remarks were examined. They establish a smooth-boundary limit and a general functional, not the stated polyhedral radius or contact classification. Searches by regular-octahedron, log-cosh, Orlicz, Rademacher and ellipsoid terminology did not identify a covering equality. General 2010 Orlicz projection-body literature is a plausible wider framework; its publicly accessible abstract does not determine the example and the author-hosted full text establishes only the general theory and leaves nonzero historical-priority risk. The distinct separable parallelotope calculation does not imply the coupled four-factor comparison.
+
+**Mathematical value — PASS.** The theorem provides complete sharp inner and outer ellipsoid geometry of the simplest nonseparable three-dimensional polyhedral example of a new Orlicz transition functional, including the exact rigidity and reversed axis/diagonal contact orbits. The nontrivial degree-four symmetric-polynomial inequality supplies a reusable radial comparison, rather than a single numerical evaluation. The statement does not claim an unsupported nonsmooth covariogram convergence theorem.
+
+Independent external review and certification have not been performed; full historical exhaustiveness cannot be guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.
