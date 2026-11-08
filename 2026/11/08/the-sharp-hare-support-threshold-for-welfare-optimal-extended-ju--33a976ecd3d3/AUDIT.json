@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each JR violation an unelected candidate has q uncovered supporters. Optimal welfare and max column degree imply each selected candidate has precisely q supporters. Since kq>=n but the q uncovered supporters leave at most n-q represented vertices, one selected candidate has overlapping support, so a degree-neutral swap improves coverage by at least one. No 2-cohesive group exists at maximum support q, hence JR implies EJR. There are at most n swaps. The explicit q+1 family gives a unique welfare maximizer with a JR violation and exact one-welfare-unit remedy; all q>=1. Exhaustive verifier checked 1,803,670 small election-size instances and 100 sharpness parameters, supporting but not replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schünke arXiv:2605.30490 proves EJR+ plus PO on candidate/voter interval domains, not unconstrained approval profiles with bounded candidate degree.",
+        "Dong arXiv:2609.08357 proves global hardness and its reduction has degree 3 and 4 candidates with n/k=3; a degree≤3 algorithm is compatible with that hardness.",
+        "Earlier 72ab8933-f8ac-465e-97b8-0a1f5ef55264 handles row support at most two and k=3, which is not stronger on unrestricted ballots/k."
+      ],
+      "reasoning": "A positive algorithm on interval domains does not dominate the unrestricted-order, low-column-degree domain. General hardness has counterexamples outside the degree bound. Row-degree restrictions do not include column-degree restrictions; the two proofs address different input classes.",
+      "searches": [
+        "multiwinner voting approval rule Pareto optimal JR candidates low approval degree sparse each candidate at most n/k",
+        "approval EJR welfare-optimal committee candidate approval degree no more than ceiling n over k; score preserving exchanges",
+        "\"justified representation\" \"approval score\" \"Pareto optimal\" candidate support",
+        "\"JR\" \"Pareto\" \"bounded\" approval degrees candidates",
+        "arxiv:2605.30490"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.08357",
+      "https://pure.tue.nl/ws/portalfiles/portal/354222551/3676953.pdf",
+      "https://arxiv.org/abs/2605.30490",
+      "https://doi.org/10.1007/s00355-016-1019-3",
+      "Previously documented relevant theorem identified by opaque finding ID 72ab8933-f8ac-465e-97b8-0a1f5ef55264"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest prior theorem requires ballots of size≤2 and exactly three winners, while the new theorem permits unlimited ballot size, every 1≤k≤n, but bounds support per candidate.",
+        "The closest 2024 price-of-JR general theorem states a loss bound rather than a zero-loss threshold under maximum column support.",
+        "The 2026 NP-hardness construction explicitly mixes support counts 3 and 4 at quota 3, so it does not refute a degree≤3 positive claim."
+      ],
+      "reasoning": "The new theorem is not an instance of the row-sparse fixed-k result: let n large, k=2 and every voter approve many distinct privately supported candidates; degrees are ≤q but ballots may be arbitrarily long. Conversely many row-sparse election profiles have a candidate with degree much greater than q. Prior generic bounds do not force equality of optima, and interval-domain existence/PO does not imply maximum additive welfare here.",
+      "searches": [
+        "sharp quota-arithmetic threshold for welfare-maximal justified representation under two approvals",
+        "approval-based multiwinner voting JR and PO hardness support q+1 versus support q",
+        "\"justified representation\" \"maximum social welfare\" \"approval\" committee",
+        "Elkind et al 2024 theorem welfare loss",
+        "Dong 2026 full-domain JR PO hardness",
+        "prior scientific item 72ab8933-f8ac-465e-97b8-0a1f5ef55264"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.08357v1 defines JR/PJR and proves full-domain JR+PO hardness, but no welfare=optimal degree≤q guarantee in inspected statement/proof.",
+        "DOI:10.1145/3676953 studies JR price and welfare optimization, no stated per-candidate q cutoff in inspected main theorems/appendix."
+      ],
+      "reasoning": "Equivalent language would describe score-maximizing approval voting, column support frequency ≤ceil(n/k), zero JR/EJR price, or coverage-based tie-breaking. Actual queries on each language found no exact matching theorem; this does not establish universal novelty.",
+      "searches": [
+        "approval voting maximum approval score justified representation when each candidate approved by at most Hare quota voters sharp support threshold",
+        "justified representation utilitarian optimum approval voting quota degree condition exchange algorithm",
+        "\"justified representation\" \"utilitarian\" \"maximum approval\" committee sparse approvals",
+        "\"candidate support\" \"justified representation\" \"social welfare\" approval committee",
+        "\"approval\" \"EJR\" \"support at most\" \"quota\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed published findings on apportionment and assignment have different objects and do not provide a maximum-approval-support EJR theorem.",
+        "The 2024 price-of-JR paper gives an illustrative n=6,k=3 welfare conflict where top candidates have support 4 and the rejected candidate has support 3, above the q=2 threshold, not the present q+1 witness with top support 3."
+      ],
+      "reasoning": "This is an infinite structural theorem with a uniform tight counterexample family, not a previously tabulated finite count. No relevant table or indexed record matched the column-degree threshold. Published search coverage is not complete.",
+      "searches": [
+        "JR and Pareto optimality on bounded candidate approval frequency per candidate",
+        "sharp quota-arithmetic threshold for welfare-maximal justified representation under two approvals",
+        "approval EJR welfare-optimal committee candidate approval degree no more than ceiling n over k; score preserving exchanges",
+        "approval-based multiwinner voting JR and PO hardness support q+1 versus support q",
+        "candidate support bounded Hare quota utilitarian optimal extended justified representation",
+        "\"approval\" \"Hare quota\" \"social welfare\" \"Pareto\" sparse candidate support",
+        "\"candidate support\" \"justified representation\" \"social welfare\" approval committee"
+      ]
+    },
+    "rationale": "A column-degree bound at the Hare quota ensures that a lexicographically welfare/coverage optimal committee satisfies EJR, with a strictly coverage-improving welfare-neutral swap and an exactly sharp q+1 counterexample family. The nearest inspected papers establish unrestricted hardness (Dong 2026), generic welfare-loss bounds (Elkind et al. 2024), or interval-domain algorithms (Schünke 2026), not the sharp column-degree boundary. A prior result assumes at most two approvals per voter and fixed k=3, an incomparable row-degree domain. Equivalence cannot be ruled out globally; searchable literature did not reveal the claim.",
+    "residual_risks": [
+      "Unindexed or differently worded low-frequency set-cover/maximum-coverage exchange lemmas may imply the result.",
+      "Foundational Aziz et al. (2017) article was not independently inspected in complete full text; only definitions and citations were checked via other full papers.",
+      "Semantic retrieval does not exhaust all published findings or guarantee novelty.",
+      "The result is restricted to standard EJR and dichotomous additive welfare; stronger EJR+ and instance-specific behavior above the cutoff remain open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General JR plus Pareto hardness; degree 4 at quota 3 in reduction, not the sharp degree≤q EJR welfare optimum theorem.",
+        "evidence": [
+          "Theorem 1 states full-domain NP-hardness; reduction constructs X3C candidates supported by three element voters and one answer voter, fill-up candidates by three voters, and quota exactly 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.08357",
+        "material_read": "Open full HTML/arXiv article: abstract, introduction, definitions 1–3, theorem 1, supporting construction in section 3 including degree 3/4 candidate types.",
+        "method": "Full accessible HTML text, theorem/definition and proof comparison",
+        "title": "Jointly Satisfying Pareto Optimality and Justified Representation is NP-Hard in Approval-Based Multiwinner Voting",
+        "trigger": "Direct motivating hardness problem; reduction uses candidates with near-quota support"
+      },
+      {
+        "assessment": "General price and optimization bounds, not the zero-price maximum candidate support threshold; its motivating n=6,k=3 profile uses selected support degree 4, beyond q=2.",
+        "evidence": [
+          "Introduction gives n=6,k=3 example welfare 12 vs JR welfare 11 with top scores 4 and lesser scores 3.",
+          "Appendix D treats hardness of maximizing welfare under JR with n=k, without maximum-column-degree≤1 assumption."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/3676953",
+        "material_read": "Accessible 2024 full 27-page PDF: abstract/introduction, formal JR/EJR model, core welfare and coverage results, main computational algorithms, conclusion and relevant appendix including n=k. Page image inspected.",
+        "method": "Primary full PDF textual sections and page screenshot",
+        "title": "The Price of Justified Representation",
+        "trigger": "Direct prior on welfare price of JR and EJR"
+      },
+      {
+        "assessment": "It obtains EJR+ and Pareto on interval restrictions, not a welfare-optimal EJR outcome under arbitrary row patterns and bounded candidate support.",
+        "evidence": [
+          "Introduction and section 3 characterize Pareto optimality and present interval-domain EJR+ algorithms using single-dominance-only property."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.30490",
+        "material_read": "Full accessible HTML article: abstract, introduction/related work, definitions and section 3 contribution synopsis, interval-domain algorithm statements.",
+        "method": "Primary public full HTML text, structural theorem and algorithm comparison",
+        "title": "Pareto Optimality in Approval-Based Multiwinner Voting",
+        "trigger": "Closest positive algorithm on restricted domains noted by Dong"
+      },
+      {
+        "assessment": "Introduces JR and EJR, does not by the inspected material establish this degree support bound. No full-text absence claim is made.",
+        "evidence": [
+          "Dong 2026 Section 2 attributes JR to Aziz et al.; Elkind et al. 2024 develops standard JR and EJR definitions and cites the foundational paper."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00355-016-1019-3",
+        "material_read": "Definitions and classic EJR/JR attribution in the fully inspected primary papers above, plus bibliographic abstract/reference; not a full text inspection of this foundational article.",
+        "method": "Cited core definitions and abstract-level cross-reference",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Foundational JR and EJR definitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "33a976ec-d3d3-4c7a-b8f9-190617ad19de",
+  "value": {
+    "rationale": "Sharp, structurally motivated zero-price EJR condition in a generally computationally hard welfare/representation problem. It holds over all committee sizes, arbitrary ballot lengths and all finite profiles under one natural maximum-candidate-support cap, and has a constructive polynomial-time tie-breaking algorithm. The q+1 examples prove exact uniform sharpness and give a meaningful first failure just outside the tractable domain, beyond mere reparametrization of bounded-per-voter approvals.",
+    "status": "PASS"
+  }
+}
