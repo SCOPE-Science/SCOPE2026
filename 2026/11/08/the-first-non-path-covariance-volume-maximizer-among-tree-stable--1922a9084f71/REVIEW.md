@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The proof derives the covariance determinant using orthogonal centered innovations on a rooted tree. It evaluates path and broom marginals using independent-set recurrences, checks the enumeration of all tree shapes through five vertices, and establishes the strictly positive limiting gap with an exact rational lower-bound certificate implemented in `verify.py`. Finite enumeration is corroborative, not an infinite proof.
+
+**Originality: PASS, with priority risk.** Earlier tree graphical-model literature already establishes inverse-covariance support and explicit marginal-based precision identities, so those are credited background and **not** novelty claims. The proposed new statement instead identifies the first dimension in which a path loses a natural covariance-volume extremal comparison, derives the exact all-size broom/path determinant formulas, and proves the effect survives asymptotically. Direct primary-literature and semantic-result searches found no equivalent claim; the possibility of unlocated tree-covariance determinant optimizations remains.
+
+**Value: PASS.** Covariance ellipsoid volume is an intrinsic Euclidean summary of the vertex cloud of a stable-set polytope. The five-vertex transition is the smallest possible violation of path maximization, not an arbitrary sampled counterexample, and the explicit positive limiting ratio makes the phenomenon stable under increasing dimension. This distinguishes geometry of uniform vertex distributions from the more familiar independent-set counting order on trees.
+
+The closest literature includes Aliniaeifard et al., arXiv:1804.00360 (polytope structure); Kadrawi et al., arXiv:2201.00432 (tree independence recursion); Loh and Wainwright, arXiv:1212.0478 (tree precision sparsity); and Nguyen and Berg, arXiv:1112.3501 (general tree-model precision). Those sources imply the background determinant decomposition, not the verified path/broom shape comparison. A previously published special-case extremal determinant under another term remains a residual priority risk. No universal maximizing-tree classification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
