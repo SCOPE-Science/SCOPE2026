@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every palindrome embedding, termwise minima of each left and reflected partner form a strictly increasing left-half embedding. Reflection moves any off-axis center to the left, giving exactly the stated necessary-and-sufficient half-word conditions. Reverse completion proves sufficiency. Unique output parity and centers prove disjointness. The verified program compared the full output languages, all length coefficients, and totals for 2,713 exhaustive half-word choices, 11,962 host cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hasan et al. (2013), Definition 1 and Algorithm 1, represent all palindromic subsequences of arbitrary strings; this is broader algorithmic input scope.",
+        "Holub–Saari, Theorem 2, prove a binary input-reconstruction theorem from the full set of scattered palindromes, rather than a graded counting identity."
+      ],
+      "reasoning": "An arbitrary-host generator can enumerate spectra for palindrome inputs but does not itself state the exact two-polynomial reflection law; it is broader in decision/generation scope but not a closed-form resolution of the proposed parameterized counting question. The reflection theorem narrows hosts while strengthening the explicit algebraic and output-language description. Residual risk is that this is a direct, unrecorded specialization of automaton results.",
+      "searches": [
+        "DOI:10.1007/978-3-642-39274-0_15",
+        "arXiv:2108.02729v1",
+        "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2108.02729",
+      "https://cs.smu.ca/~stavros/papers/CIAA-2013.PROCEEDINGS.pdf",
+      "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 result bounds any word with two copies of each symbol and evaluates the mirror of a permutation half; its special-case value agrees with twice the number of nonempty half subsequences.",
+        "The 2013 algorithm is mathematically capable of producing all palindromic outputs for a given host but requires constructing the full automaton; it does not assert the two displayed universal reflection polynomial identities."
+      ],
+      "reasoning": "The 2021 bounds imply the identity only for the distinct-letter mirror extremizer, not for arbitrary repetitions and center positions. The generic 2013 PSA implies computability of this output language, and its weights strongly suggest the reflection argument, but the explicit parametric equality and central correction are additional statements rather than a previously stated complete classification. This distinction may not survive all formulations of equivalence; it is a disclosed originality risk.",
+      "searches": [
+        "arXiv:2108.02729v1 §5 Proposition 5.1 and Theorem 5.4",
+        "DOI:10.1007/978-3-642-39274-0_15 §2 Lemma 1 Algorithm 1",
+        "Holub-Saari (2009) §4 Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahalingam–Pandoh (2021), Proposition 5.1, gives the binomial count for a distinct-letter mirrored word, while §4–5 give general bounds.",
+        "Hasan et al. (2013), §2.1, use weighted automata to generate all palindromic subsequences of general hosts using matched halves; no specialized left-half generating-polynomial formula is stated in the inspected §2–3."
+      ],
+      "reasoning": "The theorem can be restated as a disjoint language bijection: for each nonempty subsequence of the left half there is one even and one off-axis-centered palindrome, and the optional central letter contributes a controlled extra layer. The generic palindromic-subsequence automaton is a substantive nearby mechanism that could yield these identities upon specialization; the explicit two parity cases and exact center correction were not located verbatim or as a stated corollary in the inspected material.",
+      "searches": [
+        "distinct palindromic subsequences palindrome word u reverse(u) count half word subsequences center",
+        "palindromic scattered subsequences of a palindrome number twice nonempty subsequences of half",
+        "palindromic word palindrome w w reversed distinct palindromic subsequences twice distinct subsequences w",
+        "palindrome A reverse(A) exactly twice number distinct subsequences of A, even odd palindromic subsequences",
+        "arXiv:2108.02729v1",
+        "DOI:10.1007/978-3-642-39274-0_15"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mahalingam–Pandoh (2021), Proposition 5.1 lists the distinct-letter mirrored case, with binomial counts for each parity.",
+        "The inspected automaton paper provides examples such as abba and abca, not an all-half-word coefficient table."
+      ],
+      "reasoning": "A binomial example is exactly recovered when letters in the half are all different, but it does not determine spectra for repeated-letter half-words or the odd central-letter correction. No exact tabulation of this unrestricted family was located in the inspected primary papers.",
+      "searches": [
+        "palindromic subsequences mirrored word w wR formula distinct lengths",
+        "arXiv:2108.02729v1 Proposition 5.1",
+        "distinct palindrome subsequence length distribution symmetric host"
+      ]
+    },
+    "rationale": "The inspected 2021 scattered-palindrome work proves general bounds and a mirrored distinct-letter extremizer, not the repeated-letter/odd-center graded identities. The 2013 palindrome automata give broader generic language recognition and suggest the argument, but do not explicitly state the two-polynomial all-palindrome classification. All reported searches and comparisons are actual; residual equivalence/specialization risk is disclosed.",
+    "residual_risks": [
+      "The generic 2013 palindromic-subsequence automaton may make this a directly derivable special case; an equivalent formula could be unindexed.",
+      "The 2021 paper states a special-case mirrored-word binomial spectrum; this special case is not claimed independently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest bound and special mirrored permutation; does not state arbitrary-half reflection laws",
+        "evidence": [
+          "v1 public 2021-08-05",
+          "Proposition 5.1 and its sharpness example count binomial spectra for an all-distinct half",
+          "Theorem 5.4 is an upper bound controlled by alphabet size"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+        "material_read": "Abstract, definitions, §§3–5 including Proposition 5.1 and Theorem 5.4",
+        "method": "Inspected the lawful full-text PDF and relevant statements/examples",
+        "title": "Counting Scattered Palindromes in a Finite Word",
+        "trigger": "Same statistic: distinct scattered palindromic subsequences"
+      },
+      {
+        "assessment": "Broad palindrome-language generator; no explicit mirror host half-polynomial spectrum; high relevance and residual specialization risk",
+        "evidence": [
+          "2013 paper represents general palindrome-subsequence language with weighted automata",
+          "§2.1 splits even and odd outputs from accepted paths"
+        ],
+        "identifier_or_url": "https://cs.smu.ca/~stavros/papers/CIAA-2013.PROCEEDINGS.pdf",
+        "material_read": "Contribution, §2 Definition 1 and Lemma 1, Algorithm 1, §2.1 examples, §2.2 complexity and §3 application",
+        "method": "Inspected the lawful proceedings PDF full text for the relevant paper",
+        "title": "On Palindromic Sequence Automata and Applications",
+        "trigger": "Potentially broader exact representation of the same palindrome language"
+      },
+      {
+        "assessment": "Binary reconstruction from palindrome subsequence language, not length-by-length reflection counts",
+        "evidence": [
+          "Theorem 2: two binary words with identical subpalindrome languages are equal up to reversal"
+        ],
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+        "material_read": "Abstract, §§1–2 and §4 Theorem 2 plus the main paper outline",
+        "method": "Inspected accessible original PDF",
+        "title": "On Highly Palindromic Words",
+        "trigger": "Binary palindromic scattered-subsequence languages and recovery"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1fcd9e1d-b0eb-4ae4-9f82-7ea97257dda3",
+  "value": {
+    "rationale": "A complete all-length classification for every palindromic host on any finite alphabet, including arbitrary repeated letters and an exact odd-center correction. This resolves a natural family singled out by existing scattered-palindrome bounds, directly relates distinct output languages to elementary half-word subsequence polynomials, and avoids counting embeddings. The general language identities offer exact enumeration and a reusable representation, not a small ad hoc cutoff.",
+    "status": "PASS"
+  }
+}
