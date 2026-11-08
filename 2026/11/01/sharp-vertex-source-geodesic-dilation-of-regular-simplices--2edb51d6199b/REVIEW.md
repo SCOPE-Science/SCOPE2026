@@ -1,15 +1,21 @@
-# Review of vertex-source chord--arc distortion
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof supplies exact simplex altitude/inradius formulas, a direct two-facet path to each opposite-facet point, a global quadratic majorant derived from zero-sum facet normals, and a matching lower bound at the opposite centroid obtained from first contact with that facet. Its uniqueness argument treats both incident and opposite facets and all dimensions at least two. The standalone checker passed symbolic identities and 22,000 reproducible random barycentric tests. Those tests do not substitute for the proof.
+## correctness
 
-## Originality
-PASS under best-knowledge literature comparison. Source-unfolding theorems and tetrahedral geodesic enumeration do not state or directly imply the sharp all-dimensional fixed-vertex distortion constant with unique equality at the opposite facet centroid. Semantic research-record searches for chord--arc and bilipschitz aliases returned no equivalent or dominating claim. Residual risk: older literature on simplex intrinsic metrics or surface stretch factors may contain an unindexed equivalent calculation; independent priority review is outstanding.
+PASS
 
-## Mathematical value
-PASS. The distortion between an intrinsic shortest path on a convex polyhedral boundary and its ambient chord is a natural metric-geometry quantity; the theorem gives a sharp, dimension-dependent, nontrivial constant across an entire regular simplex family and uniquely identifies the worst target. The stronger facetwise inequality provides pointwise control beyond the scalar extremum. It is not a restatement of the simplex altitude formula or the already known tetrahedral vertex eccentricity.
+Unit-edge simplex has source-to-opposite-facet altitude H²=(n+1)/(2n), facet altitude h_f²=n/(2(n-1)), inradius r_f²=1/(2n(n-1)), and R=h_f+r_f. Unfold each adjacent facet across opposite ridge to a source at G-Ru_i; its straight path to p∈F crosses that ridge inside its convex hull and folds to an admissible two-facet path. Hence d²<=R²+|p-G|²+2R min_i<p-G,u_i><=R²+|p-G|², strictly away from G because facet normals span and sum zero. Ambient chord squared is H²+|p-G|², giving sharp constant sqrt((n+1)/(n-1)). For G, every path first enters opposite F at boundary q with |q-G|>=r_f, so its length >=sqrt(H²+r_f²)+r_f=R; path via ridge centroid attains R. Points in source-incident facets have intrinsic distance equal Euclidean chord. Direct verification of proof and pinned verifier, independent canonical-coordinate unfoldings for n=2,3,5,10,20 and 500 barycentric points. Finite samples corroborate rather than prove all dimensions.
 
-## Limits
-No assertion concerns arbitrary source points, arbitrary convex bodies, or the unrestricted two-point distortion of the whole simplex boundary. C/O/V assessments are internal self-review rather than independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All-dimensional sharp fixed-vertex chord-arc ratio with uniqueness is a finer geometric invariant than general unfolding algorithms or low-dimensional regular-polyhedron geodesic trajectory classifications; Resultary simplex metric queries found no identical result. Best-of-knowledge original; possible classical all-dimensional geodesic distortion formula not ruled out.
+
+## value
+
+PASS
+
+A natural exact quasi-isometry/chord–arc constant for polyhedral surfaces, with its unique worst point and high-dimensional asymptotics. The nontrivial equality proof combines two-facet unfolding and geodesic first-contact and is a useful sharp estimate, not just a simplex altitude identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
