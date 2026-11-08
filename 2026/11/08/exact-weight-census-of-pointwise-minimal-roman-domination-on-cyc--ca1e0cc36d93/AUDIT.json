@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "evidence": [
+      "Complete self-contained proof in RESULT.md sections 1–6",
+      "Executed verify.py for 265707 labelings, 524280 defender subsets, and 1075 exact coefficient checks"
+    ],
+    "rationale": "Pointwise single-coordinate decrement criterion gives unique labeling for each defender set and requires an adjacent private zero for every 2. On a cycle this is exactly the cyclic no-consecutive-short-gaps rule. Two-state transfer matrix trace-log yields the rational bivariate generating function, with n/k accounting exactly for labeled cycles and periodic patterns. Marked block counts prove the binomial coefficient formula; n<=3|S|+|V1| and all-long j-gap constructions prove exact full support. Direct full 3^n brute force n=3..11, independent full 2^n defender sets n=3..18, exact coefficient n=3..45 and support n=3..65 agree. Boundary n=3, single defender and all-one configurations addressed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2022 general polynomial-delay enumeration algorithm lists minimal RDFs for arbitrary graphs but does not give this closed count; it could mechanically enumerate cycle functions, not precompute the theorem.",
+        "2021 cycle polynomial counts all RDFs and covers their minimum-weight coefficient, not the minimal-only bivariate distribution.",
+        "2022 Roman Census derives a path recurrence."
+      ],
+      "reasoning": "General enumeration capability and all-RDF counting are broader computational settings but do not logically supply the minimal-only cycle polynomial in a closed expression. Minimum weight \\(\\lceil2n/3\rceil\\) and its coefficient are previously covered and therefore not asserted as independently original. No explicit stronger published minimal-only cycle enumeration was located.",
+      "searches": [
+        "Roman Census counting minimal Roman dominating functions paths cycles 2022 Abu-Khzam Fernau Mann",
+        "minimal Roman dominating function cycle vertex labeling 0 1 2 private neighbor weight enumeration",
+        "Roman domination polynomial of cycles 2021 Deepak Alwardi Indiramma all RDF versus minimal RDF",
+        "arXiv:2208.05261 Sections 4 and conclusion",
+        "2021 Roman Domination Polynomial of Cycles Theorem 2.3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.04765",
+      "https://arxiv.org/abs/2208.05261",
+      "https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+      "https://oeis.org/A000051/a000051_2.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General minimality private-neighbor lemma is a known premise, not the new theorem.",
+        "All-RDF polynomial only sums a larger set; its weight-minimum part agrees but higher coefficients do not.",
+        "The univariate sequence cannot determine a two-variable weighted enumerator; many inequivalent bivariate specializations share it."
+      ],
+      "reasoning": "The theorem presents and proves the missing cyclic legal-gap classification, explicit all-weight coefficient formula, and contiguous weight spectrum. Prior materials imply some boundary cases and the aggregated numeric sequence, not the specific complete polynomial. We reserve publication-priority uncertainty for any unindexed same-object theorem.",
+      "searches": [
+        "minimal Roman dominating functions cycle graph exact counting generating polynomial cyclic gaps weight distribution",
+        "minimal roman domination polynomial C_n pointwise order private neighbors 2022 Roman Census",
+        "Roman domination polynomial of cycles 2021 Deepak Alwardi Indiramma all RDF versus minimal RDF",
+        "2022 general private-neighbor theorem",
+        "2021 all-RDF cycle polynomial",
+        "Plouffe A.178"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minimal RDF pointwise order agrees with Abu-Khzam–Fernau–Mann 2022; unique 2-support/private-neighbor criterion is explicitly credited.",
+        "Our weight polynomial distinguishes nonminimum minimal functions; Roman Census enumerates paths without cycles."
+      ],
+      "reasoning": "The new cyclic gap language is equivalent to the earlier general private-neighbor characterization only at the feasibility level, not to a published cycle-wide enumeration. Taking all weights of this specialization and counting legal cyclic gap arrangements derives a new two-variable polynomial; equivalent terminology searches found no stated covering coefficient formula.",
+      "searches": [
+        "minimal Roman dominating functions cycle graph exact counting generating polynomial cyclic gaps weight distribution",
+        "minimal roman dominating functions on cycle C_n cyclic gap composition 0 1 2 minimality generating function",
+        "minimal roman domination polynomial C_n pointwise order private neighbors 2022 Roman Census",
+        "arXiv:2204.04765 Theorems 3.1–3.3",
+        "arXiv:2208.05261 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete univariate totals \\(4,9,16,22,36,\\ldots\\) match the old A.178 sequence after two initial terms, and A.178 has exactly denominator \\(1-x-x³-x⁴-x⁵\\).",
+        "The C5 total \\(16\\) is explicitly known in 2022."
+      ],
+      "reasoning": "This is a genuine prior exact sequence match. Those integers, their univariate recurrence and rational generating function, and the C5 total are excluded from novelty. The entry lacks a cycle Roman-function interpretation or z-weight variable; the new polynomial contains full weight-by-weight counts. A potential unindexed bivariate version remains a stated risk.",
+      "searches": [
+        "cycles C_n pointwise-minimal Roman dominating function number recurrence t(n)=t(n-1)+t(n-3)+t(n-4)+t(n-5)",
+        "Fielder sequence 1 1 4 9 16 22 36 65 112 minimal Roman domination cycles",
+        "Plouffe Appendix A.178 rational sequence",
+        "2022 arXiv:2204.04765 C5 lemma"
+      ]
+    },
+    "rationale": "Full-text primary comparison establishes the 2022 general private-neighbor theorem and path enumeration as precursor results; a 2021 cycle Roman polynomial enumerates ALL RDFs, not pointwise-minimal ones. Exact A.178 Fielder sequence in a 1992 thesis matches the TOTAL count and univariate GF; both are explicitly excluded from novelty. After published-finding corpus semantic searches of minimal/roman/cycles/weight/gap synonyms and comparison with accessible own ledger, no same-object bivariate minimal-RDF cycle polynomial or all-weight coefficient classification was identified. Genuine risk: unindexed bivariate result, primary 2021 PDF image unavailable.",
+    "residual_risks": [
+      "An unindexed article or subsequent paper may already contain this full pointwise-minimal cycle weight distribution.",
+      "Primary 2021 all-RDF PDF page image retrieval returned HTTP 403; indexed text includes its theorem but not full visual inspection.",
+      "The unweighted Fielder numbers are known: only the weight refinement, structural correspondence, and explicit spectrum are considered original.",
+      "No independent mathematical audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General minimality/private-neighbor criterion already proved there; C5 total 16 prior. Does not state rational bivariate cycle-minimal polynomial or full weight spectrum. Current proof uses and credits precursor structure but derives complete cycle-specific count.",
+        "evidence": [
+          "arXiv:2204.04765 initial posted 2022-04-10",
+          "Theorem 3.1–3.3 general minimal RDF; Lemma C5 exactly 16 minimal functions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.04765",
+        "material_read": "Definitions and pointwise order, Theorems 3.1–3.3, the C5 counting lemma and surrounding enumeration discussion; full open arXiv text inspected where relevant",
+        "method": "open arXiv full HTML/text, inspect main theorems and C5 lemma",
+        "title": "Minimal Roman Dominating Functions: Extensions and Enumeration",
+        "trigger": "Exact minimal-RDF object and private-neighbor equivalence; possible stronger covering theorem"
+      },
+      {
+        "assessment": "Counts pointwise-minimal RDFs on paths and path forests, not a complete weight polynomial on cycles; conclusion explicitly states simple other classes not examined. A general minimality lemma can support but not directly imply exact bivariate result.",
+        "evidence": [
+          "arXiv:2208.05261 2022-08-10",
+          "Section 4: Counting Minimal Roman Dominating Functions on Paths",
+          "Conclusion states other seemingly simple graph classes not studied"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05261",
+        "material_read": "Abstract, introduction, Section 4 path enumeration and conclusion (including last open-class sentence)",
+        "method": "read open arXiv full HTML/text sections",
+        "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
+        "trigger": "Closest paper on actual counting of minimal Roman functions"
+      },
+      {
+        "assessment": "Counts all Roman dominating functions, including nonminimal ones, not the restricted pointwise-minimal polynomial. Its minimum-weight values already imply minimum-weight coefficients of new polynomial; explicitly not claimed new.",
+        "evidence": [
+          "International J. Math. Combin. 2021(3), 86–97",
+          "Theorem 2.3 recurrence for R(C_n,x) of all Roman dominating functions"
+        ],
+        "identifier_or_url": "https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+        "material_read": "Indexed full-text abstract, Section 2, Theorem 2.3 formula and scope, tables and stated minima; PDF page-image screenshot unavailable (HTTP 403)",
+        "method": "read indexed text extracted from primary PDF; attempted screenshot of first page, 403",
+        "title": "Roman Domination Polynomial of Cycles",
+        "trigger": "Same graph family and same word Roman domination polynomial; strongest candidate coverage"
+      },
+      {
+        "assessment": "Entry A.178 already contains EXACT univariate denominator and sequence (offset), so numeric totals and univariate rational generating function are NOT novel; entry supplies no Roman minimal-cycle interpretation or z-weight refinement.",
+        "evidence": [
+          "Simon Plouffe, August 1992 thesis",
+          "Appendix A entry A.178 1,1,4,9,16,22,36,65,112...; (1+3x²+4x³+5x⁴)/(1-x-x³-x⁴-x⁵)"
+        ],
+        "identifier_or_url": "https://oeis.org/A000051/a000051_2.pdf",
+        "material_read": "1992 thesis title page via screenshot and Appendix A around entry A.178 from indexed full PDF text",
+        "method": "web PDF screenshot first page plus full text entry A.178",
+        "title": "Approximations de séries génératrices et quelques conjectures",
+        "trigger": "Exact match of total-count coefficients and rational univariate generating function; database/table equivalence check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ca1e0cc3-6d93-44f4-a0cf-9f3c4cb3b56f",
+  "value": {
+    "evidence": [
+      "2022 Roman Census explicitly left other simple graph classes outside its path enumeration",
+      "RESULT.md structural gap classification and formula",
+      "Plouffe 1992 explains prior total sequence without subsuming multivariate count"
+    ],
+    "rationale": "A complete weighted enumeration of all pointwise-minimal Roman dominating functions is a natural refinement of active minimal-RDF enumeration research and of the earlier all-RDF Roman cycle polynomial. It specifies every possible weight, exact nonnegative coefficients and labelled multiplicities, not just an extremal value or arbitrary slice. The private-neighbor cyclic composition gives reusable structural insight. It also identifies which scalar numerical sequence was known long before, preventing an artificial novelty claim; bivariate coefficients encode strictly more than this known total.",
+    "status": "PASS"
+  }
+}
