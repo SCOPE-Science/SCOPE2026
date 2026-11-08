@@ -16,9 +16,9 @@ This is a finite, strictly positive constant. The three exact regimes are
 0<\Delta<\delta:&\displaystyle s\ge\sqrt{1-\cos\Delta}\quad\text{for every realization}.
 \end{array}
 \]
-For every \(p>0\), the negative moments of \(s\) and of the spectral condition number \(\kappa_2(H)\) are finite precisely when \(p<m-1\) in the overlap regime, precisely when \(p<m\) at contact, and for every \(p>0\) in the separated regime. Equality in either finite-moment threshold gives divergence.
+For every \(p>0\), the negative moments \(\mathbb E[s^{-p}]\) and the positive condition-number moments \(\mathbb E[\kappa_2(H)^p]\) are finite precisely when \(p<m-1\) in the overlap regime, precisely when \(p<m\) at contact, and for every \(p>0\) in the separated regime. Equality in either finite-moment threshold gives divergence.
 
-The constants at contact are explicit geometric integrals, with \(V_{1,1}=1\) and \(V_{1,2}=V_{2,1}=\sqrt{2/3}\). Hence three observations divided into one and two touching phase windows have finite expected least-squares squared error under independent finite-variance measurement noise, whereas three observations with overlapping windows have infinite expected squared error. Four observations suffice in the overlap regime.
+The constants at contact are explicit geometric integrals, with \(V_{1,1}=1\) and \(V_{1,2}=V_{2,1}=\sqrt{2/3}\). Hence three observations divided into one and two touching phase windows have finite expected least-squares squared error under independent, zero-mean measurement errors of a common strictly positive finite variance, whereas three observations with overlapping windows have infinite expected squared error under the same noise model. Four observations suffice in the overlap regime.
 
 ## Assumptions and scope
 

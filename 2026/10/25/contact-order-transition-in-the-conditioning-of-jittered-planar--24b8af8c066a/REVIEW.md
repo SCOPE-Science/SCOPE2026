@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The claim is restricted to independent uniform phases on two specified interval families. The exact two-dimensional Gramian spectrum, local normal-coordinate expansion, tube coefficient for interior overlap, bounded conical scaling at contact, PSD separation bound, and tail-to-negative-moment implication were reconstructed. In particular the constant at contact is an honest finite mixed-sign cone volume. The exact two-row formula and three-row constant were checked separately; finite checks are not substituted for proofs.
+## correctness
 
-**Originality (PASS, best knowledge).** The motivating full-text study arXiv:2204.06451 treats qualitative observability and pathological discrete sampling, not the fixed-horizon jittered inverse-moment phase transition. The full-text singular-value theory arXiv:1312.3580 treats probabilistic non-asymptotic matrix bounds, not this contact-support geometry. Published trigonometric random-sampling theory by Bass and Gröchenig is a pertinent comparator; a complete text was not available, so an equivalent specialized endpoint statement remains an explicit priority risk. Targeted prior-literature comparisons found no covering implication. None of these searches proves global novelty.
+PASS
 
-**Value (PASS).** The observable-almost-surely criterion misses infinite expected numerical sensitivity. The sharp exponent jump at touching jitter windows and the change from four to three measurements for finite mean squared estimation error are a meaningful sampling-design boundary. The result also identifies an explicit deterministic-safe regime. The theorem does not extend automatically to general time-varying systems, correlated jitters or non-uniform noise.
+Repaired final result correct for fixed integers a,b>=1, m=a+b, 0<delta<pi/12, -delta<Delta<delta and t downarrow 0. Gram eigenvalues are (m±|sum exp(2i theta_i)|)/2; compactness/no aliasing localizes low s to the rank-one diagonal, where s=||P theta|| (1+O(||P theta||²)). Overlap diagonal segment length sqrt(m)(-Delta) yields sqrt(m) v_(m-1)(-Delta)/(2delta)^m t^(m-1). At Delta=0, mixed-sign support meets diagonal at origin: bounded rescaling gives V_(a,b)/(2delta)^m t^m, V11=1 and V12=sqrt(2/3). Separation yields s²>=1-cos Delta by a two-row PSD sub-Gramian. Layer-cake proves E[s^-p], and bounded sigma_max proves E[kappa^p], finite precisely below those powers, divergent at equality; strictly positive common noise variance gives stated mean-squared error thresholds. The literal original claim incorrectly referred to negative powers of kappa, always <=1, and did not specify strictly positive noise variance in one sentence. Entire RESULT.md is corrected, with no increase of mathematical scope. Independent symbolic/numerical checks test specific consequences only; the unrestricted result rests on analytic arguments.
 
-The closest literature concerns qualitative irregular-sampling rank conditions and distributional conditioning of random trigonometric matrices, so human priority verification is warranted. The accessible full-text comparison does not state this three-regime theorem; the inaccessible original random-trigonometric sampling paper creates remaining overlap risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge claim-specific originality survives: the exact non-identically-distributed two-window fixed-m laws, interior-to-apex codimension transition, mixed-sign cone leading coefficient, and sharp inverse-risk thresholds do not follow from inspected qualitative observability, generic small-ball theory, or deterministic clustered-node conditioning. This is not a global novelty certificate; the inaccessible specialist Bass–Gröchenig full text and other unindexed special cases remain explicit risks.
+
+## value
+
+PASS
+
+The fixed-m design boundary has substantive mathematical and statistical motivation: almost-sure rank is insufficient for expected inverse-Gram accuracy, and a single support-contact changes codimension and the exact hard-edge exponent. For m=3 the positive-variance mean-squared risk flips from infinite (overlap) to finite (touch), while m=4 suffices in overlap; separation supplies a quantitative deterministic gap. This is a sharp motivated classification and explicit natural cone invariant, not a normalization or arbitrary table entry. The corrections preserve the original value rather than claiming a broader theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

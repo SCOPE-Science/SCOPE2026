@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:50:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Repaired final result correct for fixed integers a,b>=1, m=a+b, 0<delta<pi/12, -delta<Delta<delta and t downarrow 0. Gram eigenvalues are (m±|sum exp(2i theta_i)|)/2; compactness/no aliasing localizes low s to the rank-one diagonal, where s=||P theta|| (1+O(||P theta||²)). Overlap diagonal segment length sqrt(m)(-Delta) yields sqrt(m) v_(m-1)(-Delta)/(2delta)^m t^(m-1). At Delta=0, mixed-sign support meets diagonal at origin: bounded rescaling gives V_(a,b)/(2delta)^m t^m, V11=1 and V12=sqrt(2/3). Separation yields s²>=1-cos Delta by a two-row PSD sub-Gramian. Layer-cake proves E[s^-p], and bounded sigma_max proves E[kappa^p], finite precisely below those powers, divergent at equality; strictly positive common noise variance gives stated mean-squared error thresholds. The literal original claim incorrectly referred to negative powers of kappa, always <=1, and did not specify strictly positive noise variance in one sentence. Entire RESULT.md is corrected, with no increase of mathematical scope. Independent symbolic/numerical checks test specific consequences only; the unrestricted result rests on analytic arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koltchinskii–Mendelson arXiv:1312.3580, Theorems 1.3–1.4 and 2.1, gives high-probability lower bounds for normalized i.i.d. random-row matrices under isotropic or small-ball assumptions, not fixed-m exact vanishing tails for heterogeneous interval supports.",
+          "Kunis–Nagel arXiv:1907.07119, Theorem 4.1 and §5, derives deterministic singular-value bounds for Fourier/Vandermonde clustered nodes at substantial bandwidth; their node/frequency geometry and target parameters differ.",
+          "Bass–Gröchenig SIAM J. Math. Anal. 36 (2004/05) explicitly estimates random trigonometric sampling condition-number distributions, but full theorem-level comparison could not be performed."
+        ],
+        "reasoning": "Stronger general theory was checked for implications rather than titles. None of the full primary texts read gives both the exact overlap and contact coefficients for two independent half-interval families, nor the sharp p=2 sampling design boundary. Bass–Gröchenig remains a genuine possible overlapping predecessor, not claimed disproved from an abstract.",
+        "searches": [
+          "Geometric small-ball probability at rank deficient configurations under uniform box support; overlap to tangent contact transition tube coefficient",
+          "https://ar5iv.labs.arxiv.org/html/1312.3580",
+          "https://arxiv.org/abs/1907.07119",
+          "https://doi.org/10.1137/18M1212197",
+          "https://doi.org/10.1137/S0036141003432316"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.06451",
+        "https://ar5iv.labs.arxiv.org/html/1312.3580",
+        "https://arxiv.org/abs/1907.07119",
+        "https://doi.org/10.1137/18M1212197",
+        "https://doi.org/10.1137/S0036141003432316",
+        "https://doi.org/10.1137/0111033",
+        "Resultary semantic searches: Exact least singular value small-ball exponent for planar rotation observability matrix whose random sampling phases are uniform on two touching or overlapping intervals; conic endpoint volume and inverse moments",
+        "Resultary semantic searches: Random trigonometric feature matrix two columns singular value tail near diagonal rank deficiency, interval support contact, uniform jitter sampling",
+        "Resultary semantic searches: Geometric small-ball probability at rank deficient configurations under uniform box support; overlap to tangent contact transition tube coefficient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Krauss et al. Theorem 1/2 and conclusion concern observability rank and deterministic measurement schemes; full rank almost surely does not control E[s^-2].",
+          "Koltchinskii–Mendelson gives concentration/nonasymptotic lower singular-value estimates for isotropic identically distributed data, not endpoint cone law for heterogeneous supports.",
+          "Kunis–Nagel has a deterministic clustered-node lower bound with different node/frequency orientation; its fixed-bandwidth estimates cannot by themselves imply probabilities or mixed-orthant cone volumes.",
+          "Brown (1963) publisher abstract addresses read-in/read-out jitter interpolation MSE in spectral regimes; not a demonstrated same fixed-m Gramian statement."
+        ],
+        "reasoning": "Each prior result is compared at the implication level. None that was materially read forces the exact fixed-m tail constants and the overlap/contact exponent jump. Bass–Gröchenig is near enough that missing full text leaves priority uncertainty; absent decisive coverage evidence, this is a best-knowledge PASS with residual risk, not a full-document NOT_COVERING determination.",
+        "searches": [
+          "https://arxiv.org/abs/2204.06451",
+          "https://ar5iv.labs.arxiv.org/html/1312.3580",
+          "https://arxiv.org/abs/1907.07119",
+          "https://epubs.siam.org/doi/abs/10.1137/S0036141003432316",
+          "https://epubs.siam.org/doi/10.1137/0111033"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matrix is the real cosine–sine sampling frame / planar oscillator information matrix; its eigenvalue formula reduces small singular values to a projective-phase diagonal.",
+          "Krauss–Lopez–Müller, arXiv:2204.06451, Definition 2 and sections III–IV, studies rank recovery but not this two-window tail."
+        ],
+        "reasoning": "Aliases include two-frequency real Fourier design, planar rotation sampled Gramian, and a box-restricted tubular neighborhood of a rank-one diagonal. Generic tube calculus supplies the local mechanism but not, on its own, the specific split-support classification, coefficients and statistical consequences; direct searches found no covering specialized statement.",
+        "searches": [
+          "Exact least singular value small-ball exponent for planar rotation observability matrix whose random sampling phases are uniform on two touching or overlapping intervals; conic endpoint volume and inverse moments",
+          "Random trigonometric feature matrix two columns singular value tail near diagonal rank deficiency, interval support contact, uniform jitter sampling",
+          "random 2-column sine cosine regression design condition number inverse moments uniform observation points exact probability",
+          "https://arxiv.org/abs/2204.06451"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned unrelated geometric cone results, random-frame/Fourier spectrum results, and general small-threshold polytopal results, but not a matching exact two-window continuous sampling coefficient.",
+          "Public repository code searches found no separate matching outcome under those exact phrases."
+        ],
+        "reasoning": "A finite database lookup is not the natural form of this continuously parameterized probability law; no exact tabulated result discovered, and a negative search is never proof of novelty.",
+        "searches": [
+          "Exact least singular value small-ball exponent for planar rotation observability matrix whose random sampling phases are uniform on two touching or overlapping intervals; conic endpoint volume and inverse moments",
+          "Random trigonometric feature matrix two columns singular value tail near diagonal rank deficiency, interval support contact, uniform jitter sampling",
+          "Geometric small-ball probability at rank deficient configurations under uniform box support; overlap to tangent contact transition tube coefficient",
+          "jittered planar observability (SCOPE2026 public code search)",
+          "smallest singular value two interval (SCOPE2026 public code search)",
+          "random sampling contact cone (SCOPE2026 public code search)"
+        ]
+      },
+      "rationale": "Best-of-knowledge claim-specific originality survives: the exact non-identically-distributed two-window fixed-m laws, interior-to-apex codimension transition, mixed-sign cone leading coefficient, and sharp inverse-risk thresholds do not follow from inspected qualitative observability, generic small-ball theory, or deterministic clustered-node conditioning. This is not a global novelty certificate; the inaccessible specialist Bass–Gröchenig full text and other unindexed special cases remain explicit risks.",
+      "residual_risks": [
+        "Bass–Gröchenig 2004/05 full text not inspected; institutional request returned vpn_disconnected. A specialist theorem may cover the exact claim, and no negative entire-article inference is made.",
+        "Brown 1963 and Batenkov–Demanet–Goldman–Yomdin 2020 full articles not inspected; residual specialized overlap risk.",
+        "Ranked published-result and public-code search is not exhaustive; hidden stronger equivalent formulations could exist.",
+        "Generic tube-volume/coarea facts are established mathematics; originality lies, if anywhere, in the explicitly motivated support-contact sampling law, exact coefficients and estimation consequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not imply exact independent-two-window hard-edge exponents/leading constants",
+          "evidence": [
+            "Definition 2 uses rank-n sampled observability; Theorem 2 gives nonpathological regular periods; conclusion summarizes rank guarantees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.06451",
+          "material_read": "Complete accessible parsed arXiv article, especially Definition 2, §§II–IV, Theorems 1–2 and conclusion",
+          "method": "Compared exact hypothesis/object, quantitative probability target, finite-sample noise risk, and deterministic rank assertions",
+          "title": "Sample-based observability of linear discrete-time systems",
+          "trigger": "Direct sampled-observability and pathological sampling literature"
+        },
+        {
+          "assessment": "The general bounds do not imply the specialized exact contact coefficient or m-1 to m transition",
+          "evidence": [
+            "Theorem 1.3 controls normalized i.i.d. row singular values under moment conditions; Theorem 2.1 uses small-ball and empirical-process bounds."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1312.3580",
+          "material_read": "Full ar5iv text, introduction, Theorems 1.3, 1.4, 2.1 and proof strategy",
+          "method": "Compared i.i.d. isotropic setup, nonasymptotic probability level, dimensions, and exact fixed-m conical coefficient",
+          "title": "Bounding the smallest singular value of a random matrix without concentration",
+          "trigger": "Plausibly dominating random-matrix small-ball theory"
+        },
+        {
+          "assessment": "Deterministic clustered-node estimates at different bandwidth/nodes do not yield the exact random two-window probability laws",
+          "evidence": [
+            "Theorem 4.1 uses bandwidth N, cluster size/separation and deterministic lower bounds; Section 5 treats sharpness of node-cluster exponents."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.07119",
+          "material_read": "Full parsed arXiv article, introduction and Sections 4–5 including Theorem 4.1",
+          "method": "Matched row/column orientation, large-bandwidth assumptions, singular-value normalization and probabilistic versus deterministic target",
+          "title": "On the smallest singular value of multivariate Vandermonde matrices with clustered nodes",
+          "trigger": "Node-clustering singular-value theory as a potential stronger coverage"
+        },
+        {
+          "assessment": "Available abstract suggests different theorem; not an assertion about the unread full article",
+          "evidence": [
+            "Published 2020, SIAM J. Matrix Anal. Appl. 41:199–220, DOI 10.1137/18M1212197."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/18M1212197",
+          "material_read": "Publisher abstract and MIT repository public metadata; not full article",
+          "method": "Compared stated deterministic off-grid node-cluster lower bound with random two-column fixed-bandwidth support-contact result",
+          "title": "Conditioning of Partial Nonuniform Fourier Matrices with Clustered Nodes",
+          "trigger": "More recent potentially covering Fourier-cluster bounds"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING inference; substantial originality/priority risk persists",
+          "evidence": [
+            "SIAM J. Math. Anal. 36:773–795 (2004/05); abstract expressly mentions probability distribution of condition number for random Vandermonde/Toeplitz sampling matrices."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036141003432316",
+          "material_read": "Publisher abstract, ResearchGate SIAM authorized first-page preview, original introduction opening; full theorem/proofs inaccessible",
+          "method": "Searched arXiv/preprint/OA, checked university publication listing, and requested separately authorized institutional access; response was vpn_disconnected, requiring human reconnection",
+          "title": "Random Sampling of Multivariate Trigonometric Polynomials",
+          "trigger": "Highly relevant random Fourier condition-number law"
+        },
+        {
+          "assessment": "No covering theorem demonstrated; inaccessible specialist details remain unverified",
+          "evidence": [
+            "J. SIAM 11 (1963):460–473; abstract frames jitter as interpolation error under stochastic spectral models."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0111033",
+          "material_read": "SIAM abstract and bibliographic description only; no accessible full text",
+          "method": "Compared abstract interpolation read-in/read-out jitter mean-square error with fixed-m planar least-squares Gramian degeneration",
+          "title": "Sampling with Random Jitter",
+          "trigger": "Foundational random-jitter paper with possible statistical overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-m design boundary has substantive mathematical and statistical motivation: almost-sure rank is insufficient for expected inverse-Gram accuracy, and a single support-contact changes codimension and the exact hard-edge exponent. For m=3 the positive-variance mean-squared risk flips from infinite (overlap) to finite (touch), while m=4 suffices in overlap; separation supplies a quantitative deterministic gap. This is a sharp motivated classification and explicit natural cone invariant, not a normalization or arbitrary table entry. The corrections preserve the original value rather than claiming a broader theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2204.06451",
+    "https://ar5iv.labs.arxiv.org/html/1312.3580",
+    "https://arxiv.org/abs/1907.07119",
+    "https://doi.org/10.1137/18M1212197",
+    "https://doi.org/10.1137/S0036141003432316",
+    "https://doi.org/10.1137/0111033",
+    "Resultary semantic searches: Exact least singular value small-ball exponent for planar rotation observability matrix whose random sampling phases are uniform on two touching or overlapping intervals; conic endpoint volume and inverse moments",
+    "Resultary semantic searches: Random trigonometric feature matrix two columns singular value tail near diagonal rank deficiency, interval support contact, uniform jitter sampling",
+    "Resultary semantic searches: Geometric small-ball probability at rank deficient configurations under uniform box support; overlap to tangent contact transition tube coefficient",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/85b632e8559d70b4e99e58a25d96e0ddfa8645c4/2026/10/25/contact-order-transition-in-the-conditioning-of-jittered-planar--24b8af8c066a",
+    "Git tree b3dbd2ebba3e99d70cc5543a327c4d1870d929ad",
+    "Git blobs {'RESULT.md': 'fad87cafa11fab91ff9bc431daff55944cc10057', 'AUDIT.json': 'c0fed49d752d9db5347b95c458fd6e73969016e1', 'METADATA.json': 'cdcac8671e76fab7dfa386a0de0b665db2066148', 'REVIEW.md': '68417dbf48c2fed52af93e317e9126c79f602f8b', 'SLOGAN.txt': 'c920ea6f491bfbc7beb1b4ff600b59d1bcf7789b', 'VERIFICATION.md': 'dd2949b9591fb9809c2145a8816af9a43522cfd5', 'verify.py': 'c362dbc664a64bb860e48400bf6d61bf7cd4c761'}"
+  ],
+  "disposition": "repaired",
+  "final_claim": "For each fixed a,b>=1 and 0<delta<pi/12, -delta<Delta<delta, H with a iid phases uniform [-2delta,0] and b iid phases uniform [Delta,Delta+2delta] has P(s<t)~sqrt(m) v_(m-1)(-Delta)t^(m-1)/(2delta)^m when Delta<0 and P(s<t)~V_(a,b)t^m/(2delta)^m when Delta=0; when Delta>0, s>=sqrt(1-cos Delta). Here s=sigma_min(H) and V_(a,b) is the mixed-sign P-orthant volume. For p>0 the NEGATIVE moments of s and POSITIVE pth moments of kappa(H) are finite exactly at p<m-1 (overlap), p<m (contact), and all p (separated). V11=1, V12=V21=sqrt(2/3). For independent centered measurement noise of common strictly positive finite variance tau², m=3 has finite expected least-squares squared error at contact but not overlap; m=4 suffices in overlap.",
+  "limitations": [
+    "Fixed m,a,b,delta,Delta; no uniformity as Delta approaches zero, no exact general closed form for cone V_(a,b), and no claim that the separated lower bound is optimal for m>2.",
+    "Proof requires equal-width independent uniform phase windows entirely in a projective arc shorter than pi/2.",
+    "Noise risk corollary is for independent centered errors with common STRICTLY POSITIVE finite variance; zero-noise cases are excluded explicitly.",
+    "Mathematical source text/metadata are corrected in full, but no repository write and no external certification has occurred."
+  ],
+  "residual_risks": [
+    "Bass–Gröchenig 2004/05 full text not inspected; institutional request returned vpn_disconnected. A specialist theorem may cover the exact claim, and no negative entire-article inference is made.",
+    "Brown 1963 and Batenkov–Demanet–Goldman–Yomdin 2020 full articles not inspected; residual specialized overlap risk.",
+    "Ranked published-result and public-code search is not exhaustive; hidden stronger equivalent formulations could exist.",
+    "Generic tube-volume/coarea facts are established mathematics; originality lies, if anywhere, in the explicitly motivated support-contact sampling law, exact coefficients and estimation consequence.",
+    "The weak projective-arc restriction is essential to eliminate other rank-one projective diagonals; no general bounded-jitter theorem is asserted.",
+    "The correction of the condition-number moment sign is scientifically necessary and changes literal meaning of a prior erroneous sentence."
+  ],
+  "schema_version": 1
+}
