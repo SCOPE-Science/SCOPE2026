@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact Cayley-rooted-forest counting gives P(C_n=m)=m(n)_m/n^(m+1), and conditional restriction to cyclic vertices is a uniform permutation; fixed-point indicators give the exact Bin(n,1/n) marginal. Therefore conditional E(F_n|C_n)=1, exact covariance zero, and positive KL information for n>=2. The finite KL decomposition with Poisson(1) as reference is exact; a rencontres chi-square bound D(Q_m||P)<=(e*2^(m+1)+1)/(m+1)! and dominated convergence yield the candidate constant, while a uniform likelihood expansion establishes D(Bin(n,1/n)||P)=O(n^-2). A standard-library standalone checker passed 341 assertions including exhaustive enumeration of all maps through n=6, finite distribution identities, exact factorial moments, and entropy-chain comparisons. The numerical constant was computed from 30 terms with certified tail <1.5e-24; this does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hansen–Jaworski (2010), Theorems 1–5 and Section 3, analyze component-size and Poisson–Dirichlet regimes conditional on core size.",
+        "Soria (1996), Sections 1–5, develops generating functions and marginal mapping laws; it is not a mutual-information theorem.",
+        "Flajolet–Odlyzko 1990 broad framework is relevant but its full archival source was not readable."
+      ],
+      "reasoning": "The classical conditioned-permutation representation is a premise already covered. The precise information asymptotic is not directly implied by a named prior theorem without a separate nontrivial rare-core KL summability calculation. Broad analytic methods could nonetheless furnish an implicit derivation, left as priority risk.",
+      "searches": [
+        "published-finding corpus: random mapping number of cyclic vertices fixed points covariance uncorrelated number of components random functions",
+        "published-finding corpus: information leakage n inverse coefficient for random functional digraph fixed points given cycle core size",
+        "primary full-text: Hansen–Jaworski, Ars Combinatoria 94 (2010), pp. 341–359",
+        "primary HTML: Soria, Distribution of Image Points in Random Mappings (1996)"
+      ]
+    },
+    "checked_sources": [
+      "Hansen–Jaworski 2010 full text: https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+      "Soria 1996 full seminar: https://algo.inria.fr/seminars/sem96-97/soria.html",
+      "Flajolet–Odlyzko 1990 bibliography and abstract: https://doi.org/10.1007/3-540-46885-4_34",
+      "Diaconis–Fulman–Guralnick 2007 abstract: https://arxiv.org/abs/0708.2643",
+      "Related accessible mathematical claims on random mappings, compared by mathematical implication",
+      "published-finding corpus semantic searches: fixed-points/cyclic-points covariance, rencontres entropy, information leakage, mapping core mutual information"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uniform cyclic-core permutation yields Q_m, a key prior input; the new claim requires a KL chain identity, a factorially summable divergence series, and O(n^-2) binomial/Poisson KL control.",
+        "Earlier results concerning indegree-zero vertices do not concern the fixed-point count, and component-size-count covariance does not specify rencontres information.",
+        "Full Hansen–Jaworski paper states no entropy or information coefficient in Sections 1–3 or its displayed theorems."
+      ],
+      "reasoning": "Neither a corollary involving a different count nor a component-size limit dominates the entropy-law statement. The identical conditional law is not claimed new; the asymptotic KL coefficient is a distinct quantified result. Historical implicit coverage in broad random-mapping sources is a residual risk.",
+      "searches": [
+        "full PDF https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "https://algo.inria.fr/seminars/sem96-97/soria.html",
+        "related earlier functional-graph covariance results",
+        "published-finding corpus: fixed points of random mappings zero covariance with cyclic points but nonzero entropy dependence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact equality I(F;C)=H(B_n)-sum_m w(n,m)H(Q_m) is the entropy-gap formulation; the Poisson-referenced KL decomposition makes the rare-core contribution explicit.",
+        "Hansen–Jaworski (2010), Section 1, conditions the cyclic permutation; their theorems concern component sizes, not this entropy gap."
+      ],
+      "reasoning": "Searched both mutual-information and entropy-deficit wordings plus the rencontres conditional law. Classical conditional distributions are not identical to the asserted sharp universal 1/n coefficient; no inspected item states that equivalent result.",
+      "searches": [
+        "published-finding corpus: conditional rencontres entropy deficit of random mappings cyclic point count fixed point count",
+        "web: random mapping mutual information fixed points number of cyclic vertices",
+        "web: \"cyclic points\" \"fixed points\" \"mutual information\" random mapping"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related earlier mathematical claims address cyclic-point/indegree-zero covariance, cycle-length/indegree-zero covariance, and component-count/component-size covariance, all distinct from the proposed information law.",
+        "Closest indexed fixed-point statement: Boundary localization of fixed-point–descent dependence in a uniform permutation (permutation descents rather than mapping cyclic-core size)."
+      ],
+      "reasoning": "The compared prior mathematical statements and indexed published findings do not provide a numerical table or exact statement for the fixed-point/cyclic-core mutual-information constant. This is a bounded comparison, not an assertion of complete database uniqueness.",
+      "searches": [
+        "published-finding corpus: random mapping exact joint distribution of number of cyclic nodes and fixed points information theory divergence constant",
+        "published-finding corpus: conditional rencontres entropy deficit of random mappings cyclic point count fixed point count",
+        "previously available mathematical statements on functional-graph dependence",
+        "web: random mappings fixed points cyclic points independent uncorrelated mutual information"
+      ]
+    },
+    "rationale": "The exact conditional permutation law and classical random mapping enumerations are acknowledged prior work. A close full-text primary comparison (Hansen–Jaworski 2010, all 19 pages examined) covers conditional component sizes and Poisson–Dirichlet limits but not this fixed-point/cyclic-core mutual-information asymptotic. Soria 1996 treats marginal random-mapping limit laws rather than the sharp information constant. Actual published-finding corpus and own-ledger claim searches found related but non-dominating statements. The new quantitative n^-1 entropy deficit, including its nonzero exact coefficient despite identically zero covariance, has not been identified in the inspected material. Unavailable archival Flajolet–Odlyzko full text and implicit consequences of general combinatorial probability methods remain explicit risks.",
+    "residual_risks": [
+      "Flajolet–Odlyzko (1990) complete archival manuscript was not accessible for full-text inspection. Only bibliographic and abstract scope were checked; the source was not represented as non-covering.",
+      "The exact conditional mapping/permutation law is classical and general; an unlocated information-theoretic application or general entropy theorem could contain or imply the same coefficient.",
+      "Search and inspected-literature coverage is bounded and does not establish absolute historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Premise covered: conditional uniform permutation and rooted-forest mapping construction. Claimed novel asymptotic not stated: main results are component-size and Poisson–Dirichlet distribution laws, not mutual information for fixed-point counts.",
+        "evidence": [
+          "pp. 342–344 conditional permutation model",
+          "pp. 345–353 component-size probability formulas and limits",
+          "pp. 354–357 component order statistics and discussion"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "material_read": "All 19 PDF pages (journal pages 341–359), including introduction, Fact 1, Corollaries 1–2, Theorems 1–5, proofs, applications and references",
+        "method": "Visually inspected publisher PDF pages",
+        "title": "Random mappings with a given number of cyclical points",
+        "trigger": "Exact same conditioned cyclic-vertex model and uniform permutation on cyclic set"
+      },
+      {
+        "assessment": "Random-mapping counting and marginal limit laws covered; no examined statement on KL information between fixed points and cyclic-vertex total.",
+        "evidence": [
+          "Section 2 mapping decomposition",
+          "Sections 3–5 generating-function and marginal limit laws"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/seminars/sem96-97/soria.html",
+        "material_read": "Full accessible seminar summary, Sections 1–5 and references",
+        "method": "Read rendered HTML, including generating-function table, classification theorem and application descriptions",
+        "title": "Distribution of Image Points in Random Mappings",
+        "trigger": "Broad random functional-graph generating-function methods that might dominate a particular fixed-point statistic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "352d0cb7-e8ec-4dc3-ad9e-09534ef357f0",
+  "value": {
+    "rationale": "Both counts are natural intrinsic statistics of a uniform functional graph. Their exact covariance vanishes, but dependence remains and has a nonzero universal information coefficient of order n^-1. The precise constant is determined by rare small cyclic cores, while the typical cyclic core is of order sqrt(n); this identifies a mathematically meaningful hidden-dependence mechanism not visible in first and second moments. It supplies an exact and reproducible invariant useful for comparing information carried by coarse descriptions of random mappings. No grander downstream theorem is assumed.",
+    "status": "PASS"
+  }
+}
