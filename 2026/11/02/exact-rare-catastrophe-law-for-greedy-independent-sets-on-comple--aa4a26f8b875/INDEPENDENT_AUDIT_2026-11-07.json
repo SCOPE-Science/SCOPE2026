@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:00:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H d-regular balanced bipartite, C4-free, n≥d+2, the input G is its K_{n,n} CROSS-EDGE complement, not graph complement. Any mixed independent set corresponds to complete bipartite incidence in H, hence one side singleton (C4-free), and maximality forces a centered star of size d+1; other maximal sets are U,V size n. Conditional on first accepted u in U, the next feasible vertex is one of n+d−1: probability d/(n+d−1) of opposite-class star; d(d−1) same-class choices share unique neighbor v, which beats n−d outside U vertices with probability 1/(n−d+1). Sum p=dn/((n+d−1)(n−d+1)). Per-atom probability p/(2n) for d≥2; for d=1 each matching pair has 1/n². Counting neighbors without 4-cycles gives n≥1+d(d−1), so d=O(sqrt n), p~d/n and Var(X)~dn uniformly. Projective-plane incidence H attains limiting n^(3/2) variance coefficient one along prime-power orders. Independent exhaustive 8! order calculation for H=C8, n=4,d=2 yielded p=8/15 and each of 8 star atoms 1/15; n=3,d=1 yielded each of 3 matched-pair atoms 1/9.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary scientific source and inspected claim: Exact rare-catastrophe law for greedy independent sets on complements of four-cycle-free bipartite graphs",
+          "Their theorems are asymptotic expectations/concentration under local graph growth; audited G has degree n−d and many four-cycles."
+        ],
+        "reasoning": "Krivelevich et al. general local-limit bounds apply to different growth regime; Gamarnik--Goldberg concerns high-girth input, not high-girth deleted H. Shaikh generic triangle-free variance bound is weaker than the exact distribution on this family.",
+        "searches": [
+          "random greedy maximal independent set complete bipartite sparse regular C4-free deleted edges exact law",
+          "\"greedy maximal independent sets\" \"local limits\"",
+          "\"random greedy independent set\" \"chain graphs\" exact distribution",
+          "\"variance\" \"greedy independent sets\" triangle-free Shaikh"
+        ]
+      },
+      "checked_sources": [
+        "Krivelevich--Mészáros--Michaeli--Shikhelman, arXiv:1907.07216; Random Structures & Algorithms 64 (2024), DOI 10.1002/rsa.21200",
+        "Gamarnik--Goldberg, arXiv:0807.1277",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "Shaikh, arXiv:2609.14826"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary scientific source and inspected claim: Exact rare-catastrophe law for greedy independent sets on complements of four-cycle-free bipartite graphs",
+          "Their theorems are asymptotic expectations/concentration under local graph growth; audited G has degree n−d and many four-cycles."
+        ],
+        "reasoning": "A chain-graph exact law only covers nested neighborhoods. Even H=C8 gives nonnested cross-neighborhoods, defeating specialization, and complete multipartite exact laws lack partial deletion patterns.",
+        "searches": [
+          "random greedy maximal independent set complete bipartite sparse regular C4-free deleted edges exact law",
+          "\"greedy maximal independent sets\" \"local limits\"",
+          "\"random greedy independent set\" \"chain graphs\" exact distribution",
+          "\"variance\" \"greedy independent sets\" triangle-free Shaikh"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary scientific source and inspected claim: Exact rare-catastrophe law for greedy independent sets on complements of four-cycle-free bipartite graphs",
+          "Their theorems are asymptotic expectations/concentration under local graph growth; audited G has degree n−d and many four-cycles."
+        ],
+        "reasoning": "The greedy process is ordinary random sequential adsorption/random-order maximal independent set, but C4-free complement support and exact atom masses are not a renaming of a sparse-input high-girth result.",
+        "searches": [
+          "random greedy maximal independent set complete bipartite sparse regular C4-free deleted edges exact law",
+          "\"greedy maximal independent sets\" \"local limits\"",
+          "\"random greedy independent set\" \"chain graphs\" exact distribution",
+          "\"variance\" \"greedy independent sets\" triangle-free Shaikh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary scientific source and inspected claim: Exact rare-catastrophe law for greedy independent sets on complements of four-cycle-free bipartite graphs",
+          "Their theorems are asymptotic expectations/concentration under local graph growth; audited G has degree n−d and many four-cycles."
+        ],
+        "reasoning": "The n=4 deleted C8 and projective-plane examples are concrete tests; no published probability table or formula covers all balanced d-regular C4-free H and every maximal output atom.",
+        "searches": [
+          "random greedy maximal independent set complete bipartite sparse regular C4-free deleted edges exact law",
+          "\"greedy maximal independent sets\" \"local limits\"",
+          "\"random greedy independent set\" \"chain graphs\" exact distribution",
+          "\"variance\" \"greedy independent sets\" triangle-free Shaikh"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the specific final claim, excluding established background components; real Resultary searches and relevant primary-source statements did not show a dominating equivalent, with explicit primary access and unindexed-source residual risks. A chain-graph exact law only covers nested neighborhoods. Even H=C8 gives nonnested cross-neighborhoods, defeating specialization, and complete multipartite exact laws lack partial deletion patterns.",
+      "residual_risks": [
+        "Unindexed exact random-greedy distributions for dense near-complete bipartite graphs may exist.",
+        "Shaikh 2026 full text not read; abstract-only comparison leaves modest residual coverage risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local weak-limit and concentration conditions for graph sequences, no full finite support/atom law for dense bipartite cross-edge complements with C4-free deleted incidence graph.",
+          "evidence": [
+            "Their theorems are asymptotic expectations/concentration under local graph growth; audited G has degree n−d and many four-cycles."
+          ],
+          "identifier_or_url": "Krivelevich--Mészáros--Michaeli--Shikhelman, arXiv:1907.07216; Random Structures & Algorithms 64 (2024), DOI 10.1002/rsa.21200",
+          "material_read": "Primary PDF abstract, introduction and Theorem 1.2 / relevant hypotheses p4; full text searchable for complete bipartite.",
+          "method": "primary PDF text and p4 screenshot",
+          "title": "Greedy Maximal Independent Sets via Local Limits",
+          "trigger": "Same random-order greedy MIS algorithm with broad asymptotic graph results."
+        },
+        {
+          "assessment": "Finite-girth restrictions refer to the input G, whereas C4-free here is the deleted H; no exact distribution for G in inspected material.",
+          "evidence": [
+            "Input G is dense with many 4-cycles; H is sparse high-girth."
+          ],
+          "identifier_or_url": "Gamarnik--Goldberg, arXiv:0807.1277",
+          "material_read": "Abstract and hypotheses/result descriptions, not the full article.",
+          "method": "arXiv primary search",
+          "title": "Randomized Greedy Algorithms for Independent Sets and Matchings in Regular Graphs: Exact Results and Finite Girth Corrections",
+          "trigger": "General greedy MIS on regular graphs may dominate result."
+        },
+        {
+          "assessment": "Chain graphs have nested neighborhoods, unlike general complements of H=C8 or projective-plane incidences. The specialization does not cover the asserted family.",
+          "evidence": [
+            "Chain graph theorem factors output over Ferrers corners; deleted C8 exhibits nonnested cross-neighborhoods."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+          "material_read": "Indexed abstract with exact Ferrers-corner statement.",
+          "method": "Resultary semantic search",
+          "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+          "trigger": "Very similar published SCOPE full-law result."
+        },
+        {
+          "assessment": "Generic triangle-free bound uses input edge count and does not yield exact atom law or this sharp family-wise envelope.",
+          "evidence": [
+            "The audited bipartite G has Θ(n²) cross-edges; generic edge-count bound is of larger order."
+          ],
+          "identifier_or_url": "Shaikh, arXiv:2609.14826",
+          "material_read": "Public abstract only, full source not read.",
+          "method": "arXiv bibliographic/abstract search",
+          "title": "Variance of random greedy independent sets in triangle-free graphs",
+          "trigger": "New broad variance bound could dominate n^(3/2) envelope."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact complete probability distribution of random-order greedy MIS for a natural dense class with sparse incidence deletions, including uniformity of each rare small atom, all moments and a sharp variance-order envelope attained by projective-plane incidences. These are meaningful probabilistic graph invariants beyond density/concentration estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Krivelevich--Mészáros--Michaeli--Shikhelman, arXiv:1907.07216; Random Structures & Algorithms 64 (2024), DOI 10.1002/rsa.21200",
+    "Gamarnik--Goldberg, arXiv:0807.1277",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+    "Shaikh, arXiv:2609.14826"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The no-C4 hypothesis is on missing incidence graph H, not input G; dense G generally has C4.",
+    "No extension to nonregular deletions, adversarial orders or exact finite extremal n,d beyond valid admissible sequence.",
+    "Recursive Git tree object could not be independently rehashed."
+  ],
+  "residual_risks": [
+    "Unindexed exact random-greedy distributions for dense near-complete bipartite graphs may exist.",
+    "Shaikh 2026 full text not read; abstract-only comparison leaves modest residual coverage risk."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Local weak-limit and concentration conditions for graph sequences, no full finite support/atom law for dense bipartite cross-edge complements with C4-free deleted incidence graph.",
+      "evidence": [
+        "Their theorems are asymptotic expectations/concentration under local graph growth; audited G has degree n−d and many four-cycles."
+      ],
+      "identifier_or_url": "Krivelevich--Mészáros--Michaeli--Shikhelman, arXiv:1907.07216; Random Structures & Algorithms 64 (2024), DOI 10.1002/rsa.21200",
+      "material_read": "Primary PDF abstract, introduction and Theorem 1.2 / relevant hypotheses p4; full text searchable for complete bipartite.",
+      "method": "primary PDF text and p4 screenshot",
+      "title": "Greedy Maximal Independent Sets via Local Limits",
+      "trigger": "Same random-order greedy MIS algorithm with broad asymptotic graph results."
+    },
+    {
+      "assessment": "Finite-girth restrictions refer to the input G, whereas C4-free here is the deleted H; no exact distribution for G in inspected material.",
+      "evidence": [
+        "Input G is dense with many 4-cycles; H is sparse high-girth."
+      ],
+      "identifier_or_url": "Gamarnik--Goldberg, arXiv:0807.1277",
+      "material_read": "Abstract and hypotheses/result descriptions, not the full article.",
+      "method": "arXiv primary search",
+      "title": "Randomized Greedy Algorithms for Independent Sets and Matchings in Regular Graphs: Exact Results and Finite Girth Corrections",
+      "trigger": "General greedy MIS on regular graphs may dominate result."
+    },
+    {
+      "assessment": "Chain graphs have nested neighborhoods, unlike general complements of H=C8 or projective-plane incidences. The specialization does not cover the asserted family.",
+      "evidence": [
+        "Chain graph theorem factors output over Ferrers corners; deleted C8 exhibits nonnested cross-neighborhoods."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+      "material_read": "Indexed abstract with exact Ferrers-corner statement.",
+      "method": "Resultary semantic search",
+      "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+      "trigger": "Very similar published SCOPE full-law result."
+    },
+    {
+      "assessment": "Generic triangle-free bound uses input edge count and does not yield exact atom law or this sharp family-wise envelope.",
+      "evidence": [
+        "The audited bipartite G has Θ(n²) cross-edges; generic edge-count bound is of larger order."
+      ],
+      "identifier_or_url": "Shaikh, arXiv:2609.14826",
+      "material_read": "Public abstract only, full source not read.",
+      "method": "arXiv bibliographic/abstract search",
+      "title": "Variance of random greedy independent sets in triangle-free graphs",
+      "trigger": "New broad variance bound could dominate n^(3/2) envelope."
+    }
+  ]
+}

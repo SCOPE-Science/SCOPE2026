@@ -1,19 +1,21 @@
-# Scientific review: Exact rare-catastrophe law for greedy independent sets on complements of four-cycle-free bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise object is a fixed finite simple \(d\)-regular bipartite graph \(H\) without four-cycles, with \(n\) vertices in each part, \(d\ge1\), and \(n\ge d+2\). Only its bipartite cross-edge complement \(G\) is used as input to a uniformly random-order greedy maximal-independent-set algorithm. The support classification is exact: every mixed independent set corresponds to a biclique of \(H\), so the no-four-cycle condition forces a star. Conditional priority races compute the full-class versus mixed probability
-\[
-\frac{dn}{(n+d-1)(n-d+1)},
-\]
-with exact equal masses on all centered stars (or deleted pairs when \(d=1\)). The proof also reconstructs every moment, the four-cycle-free degree restriction, and the sharp asymptotic variance envelope using projective-plane incidence graphs. The standalone exact-rational dynamic-programming checker verified every atom, support and first two moments on multiple families; an eight-vertex brute-force ordering calculation and a no-four-cycle boundary test independently corroborated it. The executed checker returned `PASS 441 independent exact checks`. This finite verification is supportive, not a proof for unbounded size.
+## correctness
 
-## Originality — PASS, qualified
-The accessible complete texts of Krivelevich, Mészáros, Michaeli and Shikhelman, first public 16 July 2019 (arXiv:1907.07216; DOI: 10.1002/rsa.21200), study the same process using local limits and concentration, not exact finite output atoms on dense cross-edge complements of sparse incidence graphs. Gamarnik and Goldberg (arXiv:0807.1277) consider high girth and bounded degree of the *algorithm's input graph*, which differs from four-cycle-freeness of the *deleted-edge graph*; only that work's abstract was inspected. Shaikh’s 2026 triangle-free variance theorem (arXiv:2609.14826, abstract inspected) applies to the input graph but gives a general edge-count bound of order \(n^2\), not the exact law or sharper variance envelope for this family. Two publicly accessible exact stochastic records concern complete multipartite and nested-neighborhood chain graphs, whose structural hypotheses do not include the present family in general. Searches also included the aliases crown graph, random sequential adsorption, bipartite nonincidence graph and missing Hamilton cycle. Accessible historical claims concerned different random greedy matching/adsorption systems and did not imply the new two-point full-set law. Search absence is not a novelty proof; an unindexed specialist computation or a calculation in the uninspected full text remains a residual priority risk.
+PASS
 
-## Value — PASS
-This resolves a natural finite distribution question for random greedy independent sets on a structurally meaningful family of dense graphs. Rare minimal-star outputs create substantial fluctuations despite a high probability of selecting an entire independent vertex class; the complete probabilities are insensitive to the arrangement of the missing regular incidence graph. The asymptotic \(n^{{3/2}}\) variance envelope, with a sharp projective-plane witness, gives a parameter-uniform quantitative consequence. This is more than a basic expectation calculation or a single graph sample.
+For H d-regular balanced bipartite, C4-free, n≥d+2, the input G is its K_{n,n} CROSS-EDGE complement, not graph complement. Any mixed independent set corresponds to complete bipartite incidence in H, hence one side singleton (C4-free), and maximality forces a centered star of size d+1; other maximal sets are U,V size n. Conditional on first accepted u in U, the next feasible vertex is one of n+d−1: probability d/(n+d−1) of opposite-class star; d(d−1) same-class choices share unique neighbor v, which beats n−d outside U vertices with probability 1/(n−d+1). Sum p=dn/((n+d−1)(n−d+1)). Per-atom probability p/(2n) for d≥2; for d=1 each matching pair has 1/n². Counting neighbors without 4-cycles gives n≥1+d(d−1), so d=O(sqrt n), p~d/n and Var(X)~dn uniformly. Projective-plane incidence H attains limiting n^(3/2) variance coefficient one along prime-power orders. Independent exhaustive 8! order calculation for H=C8, n=4,d=2 yielded p=8/15 and each of 8 star atoms 1/15; n=3,d=1 yielded each of 3 matched-pair atoms 1/9.
 
-## Limitations and references
-The conclusion does not extend to arbitrary edge deletions containing four-cycles, nonregular missing graphs, or changing the random-priority rule. The prime-power construction proves asymptotic sharpness along a sequence, not a maximizer classification at each integer order. Historical priority has not been independently certified. Sources: https://arxiv.org/abs/1907.07216 ; https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200 ; https://arxiv.org/abs/0807.1277 ; https://arxiv.org/abs/2609.14826 ; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de ; https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f .
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the specific final claim, excluding established background components; real Resultary searches and relevant primary-source statements did not show a dominating equivalent, with explicit primary access and unindexed-source residual risks. A chain-graph exact law only covers nested neighborhoods. Even H=C8 gives nonnested cross-neighborhoods, defeating specialization, and complete multipartite exact laws lack partial deletion patterns.
+
+## value
+
+PASS
+
+Exact complete probability distribution of random-order greedy MIS for a natural dense class with sparse incidence deletions, including uniformity of each rare small atom, all moments and a sharp variance-order envelope attained by projective-plane incidences. These are meaningful probabilistic graph invariants beyond density/concentration estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
