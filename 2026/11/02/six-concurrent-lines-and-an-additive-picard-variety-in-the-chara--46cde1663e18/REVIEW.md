@@ -1,11 +1,21 @@
-# Scientific review of the characteristic-five Bring special fiber
+# Independent mathematical audit
 
-**Correctness: PASS.** Translating all five coordinates by the fifth is valid in characteristic five and gives an exact projective cone over a reduced \((2,3)\) intersection. The six directions are established by the affine-quotient permutation construction and the degree-six Bézout bound, so no additional geometric components occur. The Hilbert series gives the exact normalization defect and the local-conductor filtration. The unit-sheaf normalization sequence and truncated logarithm in characteristic five give a four-dimensional split unipotent connected Picard group. The standalone exact arithmetic program checks the six rational directions and all needed low-degree evaluation ranks. Finite enumeration does not substitute for the geometric completeness argument.
+## correctness
 
-**Originality: PASS (qualified by source scope).** Braden--Northover (2012), Section 1, provides the characteristic-zero power-sum canonical model and complex period geometry, but not a characteristic-five six-line calculation. Braden--Disney-Hogg (2022/2024) analyzes the classical smooth curve and does not supply the conductor or \(\operatorname{Pic}^0\) of this specified naive special fiber. Searches for Bring's curve modulo five, characteristic-five reduction, concurrent lines, normalization and generalized Jacobian found no materially dominating explicit result. The possible appearance as an unlabelled specialization in older modular-curve literature remains a bibliographic risk, not positive evidence of coverage. The mathematics of the reduction is a consequence of the classical equations, not a new description of the characteristic-zero Bring curve.
+PASS
 
-**Value: PASS.** This resolves the complete intrinsic geometry of a distinguished bad-prime fiber of a natural canonical arithmetic model, including its six components, permutation orbit, one singularity, conductor, delta invariant and precise nonreductive Picard group. The additive group and conductor cannot be read from the complex genus or the component count alone. It prevents conflation of the naive special fiber with stable or potentially good reduction. The exact all-component calculation is a motivated arithmetic degeneration rather than an arbitrary finite sample.
+PASS. Translation by X5 turns power-sum equations into a cone over smooth conic q2=0 and cubic q3=0 in P2(F5). Six permutation-derived F5 points saturate Bezout degree 6, proving reduced complete scheme. Hilbert series of (2,3) CI has degree ranks 1,3,5,6..., so normalization defect delta=5+3+1=9, conductor t_i^3, and 4-dimensional connected Picard unit quotient is split additive via characteristic-five truncated log. Script supplies finite direction/rank corroboration, not the general algebraic proof.
 
-**Source and scope limitation.** Historical priority has not been independently assessed. No stable-reduction theorem, Néron-model assertion or family-wide generalization is claimed. The local Picard calculation is for the reduced projective complete intersection specified in the finding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: power-sum Bring model is classical, but inspected complex papers do not provide the characteristic-five reduced cone, conductor (t_i^3), delta 9 and additive Picard G_a^4 in one complete theorem. A closely related record in this very snapshot proves six-line/S5 geometry but not the generalized Jacobian or conductor; the surviving extra package content remains nontrivial.
+
+## value
+
+PASS
+
+PASS. The singular conductor and split additive connected Picard group refine the entire bad-characteristic fiber geometry of a canonical genus-four curve; such an exact nonnodal generalized Jacobian is independently useful and avoids confusion with stable reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

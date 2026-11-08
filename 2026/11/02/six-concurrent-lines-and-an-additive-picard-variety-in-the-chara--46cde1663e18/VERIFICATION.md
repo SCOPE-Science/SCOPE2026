@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact checks and proof boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. The program enumerates 120 permutations of the five residues and verifies they produce six distinct projective directions. It separately enumerates the projective plane over \(\mathbf F_5\) to compare the six solutions, checks that the quadratic is nonsingular, and computes the evaluation ranks \(1,3,5,6,6\) for homogeneous degrees \(0\) through \(4\).
+## correctness
 
-The general geometric assertion over an algebraic closure is obtained from reducedness and the length-six plane complete intersection, not from sampling. The conductor and delta invariant use the homogeneous-coordinate Hilbert series and normalization along the six lines; the Picard scheme is computed through the normalization exact sequence for unit sheaves and truncated logarithm (valid because the relevant nilpotence is three and the characteristic is five). These geometric arguments, supplied in `RESULT.md`, are necessary in addition to the executable checks.
+PASS
 
-The check does not prove historical uniqueness or determine the stable reduction after base change. Such independent validation has not been performed.
+PASS. Translation by X5 turns power-sum equations into a cone over smooth conic q2=0 and cubic q3=0 in P2(F5). Six permutation-derived F5 points saturate Bezout degree 6, proving reduced complete scheme. Hilbert series of (2,3) CI has degree ranks 1,3,5,6..., so normalization defect delta=5+3+1=9, conductor t_i^3, and 4-dimensional connected Picard unit quotient is split additive via characteristic-five truncated log. Script supplies finite direction/rank corroboration, not the general algebraic proof.
+
+## originality
+
+PASS
+
+PASS, qualified: power-sum Bring model is classical, but inspected complex papers do not provide the characteristic-five reduced cone, conductor (t_i^3), delta 9 and additive Picard G_a^4 in one complete theorem. A closely related record in this very snapshot proves six-line/S5 geometry but not the generalized Jacobian or conductor; the surviving extra package content remains nontrivial.
+
+## value
+
+PASS
+
+PASS. The singular conductor and split additive connected Picard group refine the entire bad-characteristic fiber geometry of a canonical genus-four curve; such an exact nonnodal generalized Jacobian is independently useful and avoids confusion with stable reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
