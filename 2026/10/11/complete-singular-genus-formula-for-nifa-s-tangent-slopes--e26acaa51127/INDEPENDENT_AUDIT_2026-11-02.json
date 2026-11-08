@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:08:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Anass Nifa, Knotted tori in the four-sphere with diffeomorphic exteriors, 2026, DOI 10.5281/zenodo.22963510, https://anassnifa.com/papers/knotted-tori-diffeomorphic-exteriors/manuscript.pdf",
+        "Yi Liu, Yi Ni, Hongbin Sun, Shicheng Wang, On slope genera of knotted tori in 4-space, Pacific J. Math. 261 (2013), DOI 10.2140/pjm.2013.261.117, https://www.its.caltech.edu/~yini/Published/LNSW.pdf",
+        "Edward Bertram, Even permutations as a product of two conjugate cycles, J. Combin. Theory A 12 (1972), DOI 10.1016/0097-3165(72)90102-1",
+        "Pinned GitHub RESULT.md (blob 25fbbd4626a1edbcd43025d185d6a30c0fac1156) and VERIFICATION.md (blob 770f88e2e26e42a3cd34c834b3555257928bfbe8)",
+        "Independent exact permutation enumeration S_D for D=2,3,4,5,6,7",
+        "Independent integer arithmetic with N=2..80, |m|=1..1000 (79,000 cases)"
+      ],
+      "rationale": "At pinned RESULT.md the claim is: for N>=2 and all m not zero, write M=|m|=Na+r, 0<=r<N, and cl_Gamma_N(lambda^m)=1+ceil(a(N-1)/2) for r=0, otherwise 1+ceil((a(N-1)+r-1)/2), equivalently 1+floor((1+M(N-1)/N)/2), with cl(1)=0. Nifa Proposition 2.3 establishes the exact quotient and peripheral map. Reconstruct rho_N(lambda)=Q R_{pi(1-1/N)} Q^-1 using h= a^2=b^3 and mu=b^-1 a; its Mth power is conjugate to translation by e=M(N-1)/N. EHN strict criterion requires e<2g-1, so the least admissible g is exactly the floor formula. Upper bound: r=0 is Nifa Theorem 6.5; r>0 choose D=M boundary permutation C of cycle type N^a r, parity A=D-(a+1), and epsilon=A mod2, P0 identity/transposition. (CP0)^-1 even equals UV with U,V D-cycles (Bertram, plus all low degrees checked), so choose A0=U, B0 with [A0,B0] C P0=1. This transitive monodromy defines a connected D-fold cover of the two-boundary torus capped with epsilon simple branching; it has a+1 boundary components and Euler characteristic -D-epsilon, giving g=1+ceil((D-(a+1))/2). Centrality z=lambda^N makes the boundary product a conjugate of z^a lambda^r=lambda^M, yielding an actual g-commutator expression. M=1 has genus 1, M=0 is the identity, and inversion handles m<0. The peripheral loop b lambda_j+q s_j maps to lambda^{b-Nq}; singular genus equals cl by Nifa Lemma 6.6 and Liu--Ni--Sun--Wang Remark 3.3. The restriction gcd(N,6j-1)=1 is required for the related core torus to be in S^4, not for the group identity.",
+      "residual_risks": [
+        "Bertram full-text was inaccessible, but the needed theorem is explicitly stated in the accessible primary Nifa paper and separately corroborated by a later stated theorem; this is not treated as proof of an unread manuscript.",
+        "Finite permutation enumeration through D=7 and 79,000 arithmetic checks do not establish the universal factorization or cover construction; the all-degree proof invokes the published Bertram theorem and the explicit Nifa construction.",
+        "GitHub file blobs/commit were fetched at the frozen ref; connector did not expose an independent Git tree-object listing, so complete tree-SHA recomputation remains unverified and publication is withheld."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nifa Theorem 6.5 gives cl_Gamma_N((lambda^N)^q)=1+ceil(|q|(N-1)/2) but not residues m mod N.",
+          "Liu--Ni--Sun--Wang Remark 4.5 identifies induced seminorm with stable commutator length, a limit which loses finite offsets.",
+          "Bereznyuk--Klyachko 2022 published abstract concerns powers of elements in a free product; Gamma_N is a centralizing quotient of the trefoil group, not the asserted free-product class."
+        ],
+        "reasoning": "General stable length/slope theory and free-product results do not dominate the finite formula for this central quotient. The all-power result specializes to the published central-power formula and has additional residue-sensitive information. A general upper-bound construction via conjugate D-cycles is proof input, not an equality result for this group without the lower action bound.",
+        "searches": [
+          "exact slope seminorm same exterior family knotted tori Nifa stable commutator length [Resultary]",
+          "commutator length central power commutator general group exact formula product 2 cycles group [web]",
+          "Culler commutator length powers commutator floor n/2 plus 1 central power [web]",
+          "commutator length of powers in free products of groups [web: DOI 10.1017/S0013091521000808]"
+        ]
+      },
+      "checked_sources": [
+        "Anass Nifa, Knotted tori in the four-sphere with diffeomorphic exteriors, 2026, DOI 10.5281/zenodo.22963510, https://anassnifa.com/papers/knotted-tori-diffeomorphic-exteriors/manuscript.pdf",
+        "Yi Liu, Yi Ni, Hongbin Sun, Shicheng Wang, On slope genera of knotted tori in 4-space, Pacific J. Math. 261 (2013), DOI 10.2140/pjm.2013.261.117, https://www.its.caltech.edu/~yini/Published/LNSW.pdf",
+        "Edward Bertram, Even permutations as a product of two conjugate cycles, J. Combin. Theory A 12 (1972), DOI 10.1016/0097-3165(72)90102-1",
+        "Bereznyuk and Klyachko, Commutator length of powers in free products of groups (2022), DOI 10.1017/S0013091521000808",
+        "Resultary semantic search: three named searches (the first hit is the subject itself; not independent prior confirmation)",
+        "Repository at commit 3216b56cf13f3458b5353d1e118761f975adbcd9: RESULT.md and AUDIT.json, used as claim evidence not prior authority"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nifa Remark 6.8 literally states no formula for remaining primitive tangent slopes after covering m divisible by N and m=0.",
+          "For m=Na+r, 1<=r<N, the new upper-bound monodromy has cycle type N^a r and total a+1 boundary circles, unlike Nifa Lemma 6.3 which has a equal-degree N-cycle family.",
+          "The new formula tends to scl(lambda)=(N-1)/(2N) under division by m, but the converse has no finite-rounding implication."
+        ],
+        "reasoning": "Nifa supplies the quotient/representation and the central-power case, and the 2013 general framework supplies the genus dictionary. The mixed-cycle monodromy plus strict nonintegral translation lower bound is the additional argument; hence prior cited statements do not imply the exact nondivisible singular genus without an additional theorem.",
+        "searches": [
+          "Nifa \"singular-genus formula\" \"tangent slopes\" commutator length [web]",
+          "knotted tori Nifa \"lambda\" \"commutator length\" all powers [web]",
+          "even permutations as a product of two conjugate cycles Bertram 1972 [web: DOI 10.1016/0097-3165(72)90102-1]",
+          "Nifa knotted tori diffeomorphic exteriors commutator length singular genus [web]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nifa Proposition 2.3: Gamma_N=G/<<[lambda^N,G]>>, and peripheral lambda_j->lambda, s_j->lambda^{-N}; its Remark 6.8 identifies primitive slope b lambda_j+q s_j with lambda^{b-Nq}.",
+          "Liu--Ni--Sun--Wang, Remark 3.3, shows singular slope genus equals ordinary commutator length in the exterior.",
+          "Nifa Theorem 6.5 and Remark 6.8 distinguish central exponents Nq from arbitrary m."
+        ],
+        "reasoning": "Aliases checked were singular spanning genus, commutator length of preferred longitude powers, peripheral primitive slopes, and lift-circle translation number. The only exact all-power hit in targeted searches was this very finding, which is not counted as independent coverage; published primary sources state only the divisible powers and general correspondence.",
+        "searches": [
+          "Nifa knotted tori diffeomorphic exteriors commutator length all powers longitude mixed cycle primitive tangent slope exact singular genus [Resultary]",
+          "Nifa Gamma_N lambda^m exact commutator length nondivisible exponents [Resultary]",
+          "Nifa all primitive tangent slopes singular genus lambda power commutator length [web: primary DOI 10.5281/zenodo.22963510]",
+          "\"Nifa\" \"Theorem 6.5\" \"Remark 6.8\" knotted tori [web]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nifa preprint presents symbolic values for central-power exponents only, not a table for arbitrary m.",
+          "Targeted published/Resultary searches did not find an independent exact tabulation of cl_Gamma_N(lambda^m) for all N,m."
+        ],
+        "reasoning": "The claim is a uniform formula over all N>=2 and all integer m, not an evaluation of a pre-existing finite database. Negative search results are not a proof of priority.",
+        "searches": [
+          "Nifa Gamma_N lambda^m exact commutator length nondivisible exponents [Resultary]",
+          "knotted tori Nifa \"lambda\" \"commutator length\" all powers [web]",
+          "Nifa \"singular-genus formula\" \"tangent slopes\" commutator length [web]"
+        ]
+      },
+      "rationale": "The result provides exact ordinary (unstable) commutator lengths of all powers lambda^m, hence singular genus for every primitive tangent slope. In the full primary 2026 Nifa preprint, Theorem 6.5 proves only the N-divisible exponents (powers of z=lambda^N) while Remark 6.8 explicitly declines the other slopes. The 2013 Liu--Ni--Sun--Wang paper provides the genus/commutator interpretation, not this family. The prior stable formula cannot determine integer rounding/residue corrections. Resultary semantic searches returned the same October 11 published finding but no distinct stronger published SCOPE record. Best-of-knowledge PASS with indexing/priority risks, not a universal novelty certificate.",
+      "residual_risks": [
+        "Unindexed or contemporaneous group-theoretic notes might state the same all-power mixed-cycle formula. The independently referenced October 4 stable-seminorm SCOPE path was not present at the tested repository location, so it was not treated as inspected prior work.",
+        "The full 1972 Bertram article was inaccessible after OA/arXiv searches; the relevant factorization is explicitly stated in the accessible Nifa paper and restated in a 2023 survey, and all n<=7 cases were independently exhaustively checked. Oxford institutional request returned vpn_disconnected (job a74ff875ac74b74d5149c95001400442); no authentication bypass attempted.",
+        "Resultary is not an exhaustive index. No claim of proof of global priority or independence is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SPECIAL_CASE_AND_PROOF_INPUT; explicitly NOT asserting the all-power formula; Remark 6.8 leaves m nondivisible by N open at manuscript level.",
+          "evidence": "Proposition 2.3 equations (2.10)-(2.11); Proposition 6.1 equations (6.10)-(6.11); Lemma 6.3 equation (6.14); Theorem 6.5 equation (6.15); Remark 6.8 on page numbered 21.",
+          "identifier_or_url": "https://anassnifa.com/papers/knotted-tori-diffeomorphic-exteriors/manuscript.pdf",
+          "material_read": "22-page accessible primary PDF; materially reviewed Proposition 2.3, Proposition 6.1, Corollary 6.2, Lemmas 6.3, 6.4 and 6.6, Theorem 6.5, Remark 6.8 and nearby proof pages; PDF page images 17-21 inspected.",
+          "method": "Open access author manuscript; parsed full text and rendered PDF pages including pages numbered 17-21.",
+          "title": "Knotted tori in the four-sphere with diffeomorphic exteriors",
+          "trigger": "Exact group and central longitude, competing central-power theorem, directly stated missing primitive slopes, and monodromy/translation proof inputs."
+        },
+        {
+          "assessment": "FRAMEWORK_ONLY: no Nifa-specific group, which was introduced in 2026, and hence no exact all-power formula.",
+          "evidence": "Remark 3.3 (ordinary cl) and Remark 4.5 (stable cl) establish the interpretation and difference.",
+          "identifier_or_url": "https://www.its.caltech.edu/~yini/Published/LNSW.pdf",
+          "material_read": "Accessible 2013 journal PDF, sections 3A and 4A, Definition 3.2, Remark 3.3 and Remark 4.5; page image numbered 121 inspected.",
+          "method": "Author-hosted open journal PDF, text inspection and rendered page review.",
+          "title": "On slope genera of knotted tori in 4-space",
+          "trigger": "Foundational claim that slope genus is commutator length and stable seminorm is stable commutator length."
+        },
+        {
+          "assessment": "PROOF_INPUT; no claim of full-paper reading; the factorization theorem is not itself the claimed knotted-torus formula.",
+          "evidence": "Nifa p.18-19: any even permutation of D letters product of two D-cycles; small D=2,3,4 formulas; independently enumerated all even permutations through D=7.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(72)90102-1",
+          "material_read": "Original 1972 publication bibliographic record and abstract, and explicit n-cycle theorem as quoted in Nifa Section 6.2 and restated in a 2023 article; original full article not accessed.",
+          "method": "Primary abstract, public 2023 theorem restatement, exhaustive direct verification for n=2..7; separate lawful OA/arXiv searches, authorized Oxford returned vpn_disconnected.",
+          "title": "Even permutations as a product of two conjugate cycles",
+          "trigger": "Nonstandard permutation-factorization input needed for the monodromy construction."
+        },
+        {
+          "assessment": "ABSTRACT_SCOPE_ONLY: result concerns free products rather than the specified central quotient; no whole-document NOT_COVERING assertion.",
+          "evidence": "Abstract says the exhaustive answer for powers in free products is unknown and bounds possible minima; Gamma_N is not given as a free product.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091521000808",
+          "material_read": "Abstract and formal group-class description only, not whole paper.",
+          "method": "Publisher abstract review and comparison of group hypotheses to Gamma_N presentation.",
+          "title": "Commutator length of powers in free products of groups",
+          "trigger": "Plausible dominating parameter: powers of group commutators in a wider-looking class."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Anass Nifa, Knotted tori in the four-sphere with diffeomorphic exteriors, 2026, DOI 10.5281/zenodo.22963510, https://anassnifa.com/papers/knotted-tori-diffeomorphic-exteriors/manuscript.pdf",
+        "Yi Liu, Yi Ni, Hongbin Sun, Shicheng Wang, On slope genera of knotted tori in 4-space, Pacific J. Math. 261 (2013), DOI 10.2140/pjm.2013.261.117, https://www.its.caltech.edu/~yini/Published/LNSW.pdf",
+        "Pinned RESULT.md and REVIEW.md at assignment commit"
+      ],
+      "rationale": "The group and invariant arise from a natural geometric family of knotted tori with common exterior, not an arbitrary parameter slice. For primitive tangent slopes (b,q) with gcd=1, every m=b-Nq can occur (e.g., q=1, b=m+N), so exact cl(lambda^m) gives the complete singular-genus classification. Nifa explicitly left these nondivisible slopes without formula in Remark 6.8. The new integer correction distinguishes unstable genus from homogenized seminorm and can be used to compare exact slope bounds for this family. This is a motivated complete classification of a natural invariant; it does not require a novel four-manifold family or a general commutator theorem to be valuable.",
+      "residual_risks": [
+        "No embedded slope-genus formula follows; the output only computes singular genus.",
+        "The manuscript family is specialized, so transfer to arbitrary knotted torus groups is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No independent full record-tree SHA reconstruction or directory inventory from available GitHub connector, although the six named current blobs and frozen commit were read.",
+    "No complete access to original 1972 Bertram full text; relevant theorem corroborated with Nifa and a modern restatement; Oxford access stopped at vpn_disconnected.",
+    "Originality is best-of-knowledge and allows unindexed parallel observations.",
+    "Potentially public metadata has private operational provenance; plan intentionally not_ready; no writes performed.",
+    "This runtime lacks a direct connector-result-to-container byte transfer. Exact response identities were transcribed from the tool result and parsed programmatically for output; no fabricated IDs/signatures or assertion of automated end-to-end transfer."
+  ],
+  "schema_version": 1
+}

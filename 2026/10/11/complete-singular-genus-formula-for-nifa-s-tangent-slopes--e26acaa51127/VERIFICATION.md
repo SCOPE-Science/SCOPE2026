@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at the level of the exact source statements and its integer boundary cases.
+# Independent mathematical audit
 
-For the lower bound, Nifa's circle-action construction gives the images of \(\mu\) and the central trefoil element \(h\); substituting \(\lambda=h\mu^{-6}\) shows that \(\lambda^m\) is conjugate to a rigid translation of size \(|m|(N-1)/N\). The strict Eisenbud--Hirsch--Neumann inequality then gives the least possible number of commutators.
+## correctness
 
-For the upper bound, write \(|m|=Na+r\). The published case \(r=0\) is Nifa's Theorem 6.5. For \(r>0\), the boundary monodromy is chosen with cycle type \(N^a r^1\). Its parity exponent is \(A=a(N-1)+r-1\), so the minimal parity correction \(\varepsilon\in\{0,1\}\) gives a connected branched cover with
-\[
-2-2g-(a+1)=-(Na+r)-\varepsilon.
-\]
-Hence
-\[
-g=1+\left\lceil\frac{A}{2}\right\rceil,
-\]
-which agrees with the circle-action lower bound. Centrality of \(\lambda^N\) combines the degree-\(N\) boundary components with the residual degree-\(r\) component to give \(\lambda^{Na+r}\).
+PASS
 
-The low degrees \(D=2,3,4\) satisfy the needed elementary fact that every even permutation in \(S_D\) is a product of two \(D\)-cycles; the degree-one longitude is already one commutator in the source.
+At pinned RESULT.md the claim is: for N>=2 and all m not zero, write M=|m|=Na+r, 0<=r<N, and cl_Gamma_N(lambda^m)=1+ceil(a(N-1)/2) for r=0, otherwise 1+ceil((a(N-1)+r-1)/2), equivalently 1+floor((1+M(N-1)/N)/2), with cl(1)=0. Nifa Proposition 2.3 establishes the exact quotient and peripheral map. Reconstruct rho_N(lambda)=Q R_{pi(1-1/N)} Q^-1 using h= a^2=b^3 and mu=b^-1 a; its Mth power is conjugate to translation by e=M(N-1)/N. EHN strict criterion requires e<2g-1, so the least admissible g is exactly the floor formula. Upper bound: r=0 is Nifa Theorem 6.5; r>0 choose D=M boundary permutation C of cycle type N^a r, parity A=D-(a+1), and epsilon=A mod2, P0 identity/transposition. (CP0)^-1 even equals UV with U,V D-cycles (Bertram, plus all low degrees checked), so choose A0=U, B0 with [A0,B0] C P0=1. This transitive monodromy defines a connected D-fold cover of the two-boundary torus capped with epsilon simple branching; it has a+1 boundary components and Euler characteristic -D-epsilon, giving g=1+ceil((D-(a+1))/2). Centrality z=lambda^N makes the boundary product a conjugate of z^a lambda^r=lambda^M, yielding an actual g-commutator expression. M=1 has genus 1, M=0 is the identity, and inversion handles m<0. The peripheral loop b lambda_j+q s_j maps to lambda^{b-Nq}; singular genus equals cl by Nifa Lemma 6.6 and Liu--Ni--Sun--Wang Remark 3.3. The restriction gcd(N,6j-1)=1 is required for the related core torus to be in S^4, not for the group identity.
 
-The bundled standard-library checker verifies the residue formula, compact floor form, strict translation threshold, the central-power specialization, and the covering-genus arithmetic for representative ranges. Its output is recorded in the result package. Finite checking is not used as proof of the universal group-theoretic or covering statements.
+## originality
 
-No independent audit has been performed.
+PASS
+
+The result provides exact ordinary (unstable) commutator lengths of all powers lambda^m, hence singular genus for every primitive tangent slope. In the full primary 2026 Nifa preprint, Theorem 6.5 proves only the N-divisible exponents (powers of z=lambda^N) while Remark 6.8 explicitly declines the other slopes. The 2013 Liu--Ni--Sun--Wang paper provides the genus/commutator interpretation, not this family. The prior stable formula cannot determine integer rounding/residue corrections. Resultary semantic searches returned the same October 11 published finding but no distinct stronger published SCOPE record. Best-of-knowledge PASS with indexing/priority risks, not a universal novelty certificate.
+
+## value
+
+PASS
+
+The group and invariant arise from a natural geometric family of knotted tori with common exterior, not an arbitrary parameter slice. For primitive tangent slopes (b,q) with gcd=1, every m=b-Nq can occur (e.g., q=1, b=m+N), so exact cl(lambda^m) gives the complete singular-genus classification. Nifa explicitly left these nondivisible slopes without formula in Remark 6.8. The new integer correction distinguishes unstable genus from homogenized seminorm and can be used to compare exact slope bounds for this family. This is a motivated complete classification of a natural invariant; it does not require a novel four-manifold family or a general commutator theorem to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
