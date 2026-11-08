@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:42:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/critical-group-of-the-mcgee-3-7-cage--92a3da2c61d2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/critical-group-of-the-mcgee-3-7-cage--92a3da2c61d2/VERIFICATION.md",
+        "/mnt/data/scope_worker-06_20261106T1529Z/local_checks.log"
+      ],
+      "rationale": "For the explicitly defined 24-vertex LCF([-12,7,-7]^8) graph, forming the integral 23x23 reduced Laplacian and computing its Smith invariants gives exactly nineteen unit factors followed by 11,44,132,2640; these divide successively and multiply to 168,664,320. The package supplies 471 individual unimodular row/column operations in certificate.json, with complete diagonal [1]*19+[11,44,132,2640], and separately a prime-power valuation check. I reconstructed its LCF adjacency/Laplacian independently and computed the exact Smith normal form directly with SymPy, obtaining the same four nonunit factors and determinant; this is a complete finite calculation for the specified graph, not an inference from its eigenvalues or spanning-tree count. The 2,3,5,11 primary exponents recombine to that invariant-factor chain.",
+      "residual_risks": [
+        "Direct finite computations independently checked specific cases only; infinite assertions are supported by the reconstructed analytic proof, not computer output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bacher, de la Harpe, Nagnibeda (1997) gives general graph flow/cut lattice theory.",
+          "Jacobson–Niedermaier–Reiner (2003), Critical groups for complete multipartite graphs and Cartesian products of complete graphs, concerns distinct graph families.",
+          "Balasubramanian (2025), Spectral polynomials, graph descriptors, spectra, and entropies of cage graphs, accessible abstract centers spectral data."
+        ],
+        "reasoning": "Neither a universal graph-Jacobian definition nor multipartite/product-specific formulas imply the integral Smith form for this non-Cayley nonmultipartite cage. The plausible 2025 cage spectral paper could not be read in full; its abstract cannot exclude hidden Smith data.",
+        "searches": [
+          "McGee graph (3,7)-cage sandpile critical Jacobian group Smith normal form invariant factors 11 44 132 2640",
+          "critical groups for cubic cages McGee graph Laplacian invariant factor"
+        ]
+      },
+      "checked_sources": [
+        "https://mathworld.wolfram.com/McGeeGraph.html",
+        "https://houseofgraphs.org/graphs/1223",
+        "https://doi.org/10.24033/bsmf.2303",
+        "https://doi.org/10.1007/s10910-025-01747-4",
+        "Resultary semantic search query 0: McGee graph (3,7)-cage sandpile critical Jacobian group Smith normal form invariant factors 11 44 132 2640"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The number of spanning trees is the product of invariant factors; products cannot recover their multiplicities or prime-primary splitting.",
+          "The package computes (Z/11)⊕(Z/44)⊕(Z/132)⊕(Z/2640) by exact integer Smith operations."
+        ],
+        "reasoning": "The claim is strictly finer than known tree-number or spectrum statements, hence not a numerical restatement. Exact SNF is still a bounded individual computation, so record direct-table priority risk.",
+        "searches": [
+          "McGee graph (3,7)-cage sandpile critical Jacobian group Smith normal form invariant factors 11 44 132 2640",
+          "McGee graph known number spanning trees vs critical group smith"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld McGee graph reports graph identification/LCF and spectrum but not integral Jacobian; House of Graphs graph 1223 already supplies spanning-tree count 168,664,320.",
+          "Independent integral Smith factors (11,44,132,2640) determine noncyclic 11-primary part, whereas graph spectrum alone fixes only the product."
+        ],
+        "reasoning": "Integral cut/flow lattice Jacobian general theory and spectral invariant statements do not imply these specific invariant factors from the known tree count; no direct previously published factorization identified.",
+        "searches": [
+          "McGee graph (3,7)-cage sandpile critical Jacobian group Smith normal form invariant factors 11 44 132 2640",
+          "\"McGee\" \"Smith normal form\" graph Laplacian",
+          "\"McGee graph\" \"sandpile group\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "House of Graphs graph 1223 records the determinant/tree number 168,664,320, NOT verified to contain individual Smith factors.",
+          "MathWorld McGee graph lists the conventional graph data, LCF, eigenvalues and associated links."
+        ],
+        "reasoning": "The exact database matching the tree count is credited. It does not by itself cover the four invariant factors; absence from indexed search does not rule out an unpublished or obscure table.",
+        "searches": [
+          "McGee graph (3,7)-cage sandpile critical Jacobian group Smith normal form invariant factors 11 44 132 2640",
+          "site:houseofgraphs.org/graphs/1223 McGee graph spanning trees",
+          "McGee graph critical group invariant factors database"
+        ]
+      },
+      "rationale": "The exact Smith invariant factors, not the known 24-vertex cage, known LCF, 1960 girth extremum or existing spanning-tree count, form the candidate contribution. No equivalent published invariant-factor statement was identified among searched literature and known graph database entries; an unindexed table remains plausible.",
+      "residual_risks": [
+        "A pre-existing graph-invariant database or unindexed table may contain the identical four factors; absence of a hit is not proof of priority.",
+        "Balasubramanian 2025 full paper was unavailable; abstract alone cannot establish whole-document NOT_COVERING.",
+        "The local SymPy Smith form is a second exact computation, not an external certificate or an all-cage result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Graph identity and general invariants verified; no site statement of the asserted integral Jacobian.",
+          "evidence": "Graph described as 24-vertex 36-edge (3,7) cage with LCF [-12,7,-7]^8.",
+          "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+          "material_read": "Page describing graph order, girth, uniqueness, LCF and spectrum",
+          "method": "full accessible HTML entry",
+          "title": "McGee Graph (MathWorld)",
+          "trigger": "exact graph LCF and eigenvalue comparison"
+        },
+        {
+          "assessment": "Tree count previously known; cannot claim exhaustive absence of other invariants from inaccessible fields.",
+          "evidence": "168,664,320 spanning trees credited as prior.",
+          "identifier_or_url": "https://houseofgraphs.org/graphs/1223",
+          "material_read": "Graph identifier and reported spanning-tree count as cited by record; interactive data not completely accessible",
+          "method": "page/record reference and reported identifier, limited extraction",
+          "title": "House of Graphs: graph 1223",
+          "trigger": "exact graph invariant table"
+        },
+        {
+          "assessment": "Cage spectral-polynomial work is relevant but abstract does not resolve comparison of Smith factors.",
+          "evidence": "The 2025 J. Math. Chem. article covers cage spectral polynomials; full invariant tables not seen.",
+          "identifier_or_url": "https://doi.org/10.1007/s10910-025-01747-4",
+          "material_read": "Accessible publisher abstract only",
+          "method": "web publisher abstract; full text inaccessible",
+          "title": "Spectral polynomials, graph descriptors, spectra, and entropies of cage graphs",
+          "trigger": "possible stronger cage graph invariant coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://mathworld.wolfram.com/McGeeGraph.html",
+        "https://houseofgraphs.org/graphs/1223",
+        "https://doi.org/10.24033/bsmf.2303",
+        "https://doi.org/10.1007/s10910-025-01747-4",
+        "Resultary semantic search query 0: McGee graph (3,7)-cage sandpile critical Jacobian group Smith normal form invariant factors 11 44 132 2640"
+      ],
+      "rationale": "The McGee graph is the canonical unique (3,7) cubic cage. Its integral graph Jacobian (sandpile group), minimal number of generators, exponent, and 11-primary structure are natural exact invariants of the graph, sharper than the known spanning-tree count; exact values are relevant for chip-firing and integral lattice comparisons. This is a motivated, reproducible single-graph classification, not an inflated claim about all cages or a mere known-table recomputation.",
+      "residual_risks": [
+        "Natural exact result judged worthwhile independently of reproducibility or novelty alone; downstream generalization not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A pre-existing graph-invariant database or unindexed table may contain the identical four factors; absence of a hit is not proof of priority.",
+    "Balasubramanian 2025 full paper was unavailable; abstract alone cannot establish whole-document NOT_COVERING.",
+    "The local SymPy Smith form is a second exact computation, not an external certificate or an all-cage result."
+  ],
+  "schema_version": 1
+}

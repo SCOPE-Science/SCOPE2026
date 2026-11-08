@@ -1,19 +1,21 @@
-# Self-review: critical group of the McGee cage
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns one completely specified 24-vertex, 36-edge cubic graph and an integral Laplacian cokernel. An exact 471-step list of row/column operations in `certificate.json` reduces the 23-by-23 reduced Laplacian to nineteen units followed by invariant factors \(11,44,132,2640\). Each operation is unimodular, so replay establishes the integral group structure, not just a determinant or floating-point calculation. The independent edge-list verification produces the same prime-power elementary divisors and a Bareiss determinant of \(168{,}664{,}320\). Both checks passed. The conclusion is finite and does not assert a family theorem.
+PASS
 
-## Originality — PASS, qualified
+For the explicitly defined 24-vertex LCF([-12,7,-7]^8) graph, forming the integral 23x23 reduced Laplacian and computing its Smith invariants gives exactly nineteen unit factors followed by 11,44,132,2640; these divide successively and multiply to 168,664,320. The package supplies 471 individual unimodular row/column operations in certificate.json, with complete diagonal [1]*19+[11,44,132,2640], and separately a prime-power valuation check. I reconstructed its LCF adjacency/Laplacian independently and computed the exact Smith normal form directly with SymPy, obtaining the same four nonunit factors and determinant; this is a complete finite calculation for the specified graph, not an inference from its eigenvalues or spanning-tree count. The 2,3,5,11 primary exponents recombine to that invariant-factor chain.
 
-McGee (1960, DOI: 10.4153/CMB-1960-018-1) gives the classical graph, not its sandpile factors. MathWorld gives its LCF and adjacency spectrum. House of Graphs graph 1223 **already states the spanning-tree count** of \(168{,}664{,}320\), and that number is not asserted as a new finding. The new claim is the full four-factor integral critical group. General graph-Jacobian theory and results for complete multipartite, Cartesian-product and Cayley graphs do not imply these specific factors. Searches under critical/sandpile/Jacobian/Smith aliases and the exact numbers, as well as public research-record comparisons, revealed no covering statement. The complete text of Balasubramanian (2025, DOI: 10.1007/s10910-025-01747-4) was inaccessible; the abstract concerns spectra, but noncoverage of its full text is **not** claimed. Residual risk: an older or unindexed table may already have the factorization.
+## originality
 
-## Value — PASS
+PASS
 
-This group is the integral flow/cut discriminant and chip-firing class group of the canonical unique cubic \((3,7)\)-cage. Its four generators, exponent \(2640\), and four independent order-eleven directions are finer arithmetic data than the already-known spanning-tree product. They answer a natural exact graph-invariant question and enable modular-harmonic and chip-firing comparisons in an extremal regular graph. The contribution is narrow but self-contained; no unsupported general theorem is claimed.
+The exact Smith invariant factors, not the known 24-vertex cage, known LCF, 1960 girth extremum or existing spanning-tree count, form the candidate contribution. No equivalent published invariant-factor statement was identified among searched literature and known graph database entries; an unindexed table remains plausible.
 
-## Checked literature and limits
+## value
 
-The original McGee article was inspected throughout, including figures. The full accessible MathWorld entry, indexed House of Graphs invariant list, foundational graph-Jacobian abstract, and a publisher preview of the cage-spectral paper were compared. The potentially overlapping full publisher text remains unread; inaccessible content was not treated as confirmed noncoverage. Computations were exact and reproducible, but this review is not an independent scholarly examination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The McGee graph is the canonical unique (3,7) cubic cage. Its integral graph Jacobian (sandpile group), minimal number of generators, exponent, and 11-primary structure are natural exact invariants of the graph, sharper than the known spanning-tree count; exact values are relevant for chip-firing and integral lattice comparisons. This is a motivated, reproducible single-graph classification, not an inflated claim about all cages or a mere known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
