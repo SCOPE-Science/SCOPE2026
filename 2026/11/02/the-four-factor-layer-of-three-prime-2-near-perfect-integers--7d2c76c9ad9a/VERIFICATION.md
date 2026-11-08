@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Use `python3 verify.py` from this directory. No third-party dependencies, database, or network connection are needed. The checker reconstructs divisor sets with exact integer arithmetic and compares every unordered pair of *distinct* divisors against the exact deficit \(\sigma(n)-2n\). It enumerates only the prime pairs left by the explicit mathematical inequalities in `RESULT.md`.
+## correctness
 
-A completed check produced:
+PASS
 
-```text
-VERIFY_OK unique_examples=10 finite_4pq=32 finite_2p2q=6 finite_2pq2=4 p3_candidate_q=(5, 7, 11) sum_odd_bound=624/315
-```
+For omega(n)=3 and Omega(n)=4 the only exponent pattern is (2,1,1). Odd support cannot be 2-near-perfect: sigma(n)/n<= (13/9)(6/5)(8/7)=624/315<2. For even n, prime ordering reduces to 4pq,2p²q,2pq². Reconstructed sigma(n)-2n formulas (7-p)q+7(p+1), (3+3p-p²)q+3(p²+p+1), (3-p)q²+3(p+1)(q+1); positivity, q divisibility, and distinct-divisor sums bound candidates to a finite set. An independent exact divisor-pair enumeration of all numbers <=1000 satisfying omega=3 and Omega=4 reproduced precisely ten asserted n and unique omitted pairs; infinite exclusions follow from inequalities, not finite search. The candidate enumerator in verify.py checks every remaining finite prime pair and distinct omitted-divisor pair.
 
-It also reconstructs the algebraic candidate set for \(2\cdot3^2q\) by solving the linear divisor equations, checks the strict odd-case inequality exactly, and requires precisely one omitted pair for each of the ten accepted examples. The exact finite candidate counts are 32, 6 and 4, for 42 integer instances total.
+## originality
 
-These tests do not establish universal statements by extrapolation. The proof of completeness is conditional on the elementary global inequalities and divisor-form reductions in the accompanying `RESULT.md`, which must be assessed mathematically. No claims are made about larger prime-multiplicity layers, and no independent external mathematical validation has been performed.
+PASS
+
+Fearon et al. 2025/2026 full primary text Section 6.2 lists initial three-prime examples and poses families with three prime supports as future work; its theorems classify only two-prime support. Aryan et al. 2024 similarly handle 2^k p^m. Published SCOPE squarefree 2pq case has Omega=3 and is disjoint. An existing 2p²q classification does cover four of the ten examples but cannot imply the six 4pq cases or absence of 2pq² and odd forms. OEIS A341475 enumerates examples, not the unconditional exclusion theorem.
+
+## value
+
+PASS
+
+The smallest nonsquarefree three-prime-support layer is a motivated next classification after squarefree and two-prime-support work; exact ten-element solution with unique omitted pairs closes that natural exponent stratum rather than extracting arbitrary instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

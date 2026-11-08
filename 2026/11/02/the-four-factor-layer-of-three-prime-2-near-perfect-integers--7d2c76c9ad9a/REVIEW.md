@@ -1,21 +1,21 @@
-# Review of the four-factor three-prime \(2\)-near-perfect classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain decomposition is complete: every integer with \(\omega(n)=3\) and \(\Omega(n)=4\) is either an odd \(r^2st\), or one of \(4pq\), \(2p^2q\) and \(2pq^2\) for odd primes \(p<q\). The odd case is excluded by the strict sharp-support inequality \(\sigma(n)/n\le624/315<2\). The three even surplus formulas are derived directly from multiplicativity. Their algebraic inequalities bound the only possible prime pairs, rather than relying on arbitrary search cutoffs. The finite arithmetic enumerates every pair of distinct divisors of all 42 remaining candidate integers and finds the stated ten examples, each with exactly one unordered omitted pair.
+## correctness
 
-The `verify.py` file was executed successfully on the package inputs, reporting `VERIFY_OK unique_examples=10 finite_4pq=32 finite_2p2q=6 finite_2pq2=4 p3_candidate_q=(5, 7, 11) sum_odd_bound=624/315`. This checks the critical finite tables; the infinite exclusions are supplied in the proof itself. All allowed omissions are positive divisors, and the proof permits the whole number as an omitted divisor. No unstated primality or nontrivial external lemma is needed.
+PASS
 
-## Originality — PASS within inspected evidence
-Aryan–Madhavani–Parikh–Slattery–Zelinsky (arXiv:2310.01305, 2023; *Integers* 24 (2024), A61) and Fearon–Foushee–Porosoff–Skula–Zelinsky–Zhang (arXiv:2508.06651) classify **two-prime-support** \(2\)-near-perfect numbers. The latter explicitly identifies classification of **three-prime-support** families as a next direction and provides a non-exhaustive examples table. Neither theorem implies an answer when \(\omega(n)=3\) and \(\Omega(n)=4\).
+For omega(n)=3 and Omega(n)=4 the only exponent pattern is (2,1,1). Odd support cannot be 2-near-perfect: sigma(n)/n<= (13/9)(6/5)(8/7)=624/315<2. For even n, prime ordering reduces to 4pq,2p²q,2pq². Reconstructed sigma(n)-2n formulas (7-p)q+7(p+1), (3+3p-p²)q+3(p²+p+1), (3-p)q²+3(p+1)(q+1); positivity, q divisibility, and distinct-divisor sums bound candidates to a finite set. An independent exact divisor-pair enumeration of all numbers <=1000 satisfying omega=3 and Omega=4 reproduced precisely ten asserted n and unique omitted pairs; infinite exclusions follow from inequalities, not finite search. The candidate enumerator in verify.py checks every remaining finite prime pair and distinct omitted-divisor pair.
 
-A published squarefree \(2pq\) classification concerns \(\Omega(n)=3\), hence has disjoint scope. An existing \(2p^2q\) result covers four of the ten presently classified integers. This partial overlap is explicit; it does not imply the other six \(4pq\) cases, the \(2pq^2\) impossibility, the odd obstruction, or uniqueness across the entire stratum. OEIS A341475 records many numerical examples but does not state the complete infinite exclusion. The structured audit records actual search phrases, source material read, closest indexed IDs, four detailed implication comparisons and residual bibliographic risks.
+## originality
 
-The conclusion concerns best-known novelty, not a proof of absolute priority. An unindexed covering theorem cannot be excluded categorically.
+PASS
 
-## Mathematical value — PASS
-Exactly three distinct primes require at least three total prime factors. Thus \(\Omega(n)=4\) is the *first nonsquarefree multiplicity layer* of the three-prime-support classification explicitly identified as further work in the close literature. This is a natural full classification and not an arbitrary finite upper cutoff. The theorem determines every member of that layer and the uniqueness of the omitted pair, while proving substantive exclusion statements for two of the four exponent shapes. The finite work is mathematically motivated by the infinite case analysis and establishes an exact complete invariant for a natural class.
+Fearon et al. 2025/2026 full primary text Section 6.2 lists initial three-prime examples and poses families with three prime supports as future work; its theorems classify only two-prime support. Aryan et al. 2024 similarly handle 2^k p^m. Published SCOPE squarefree 2pq case has Omega=3 and is disjoint. An existing 2p²q classification does cover four of the ten examples but cannot imply the six 4pq cases or absence of 2pq² and odd forms. OEIS A341475 enumerates examples, not the unconditional exclusion theorem.
 
-## Scope and remaining risks
-The theorem has no implications claimed for \(\Omega(n)\ge5\) or for larger prime support. The checker is not an infinite proof without the preceding algebraic reductions. Full bibliographic priority and external proof audit remain unestablished.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The smallest nonsquarefree three-prime-support layer is a motivated next classification after squarefree and two-prime-support work; exact ten-element solution with unique omitted pairs closes that natural exponent stratum rather than extracting arbitrary instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
