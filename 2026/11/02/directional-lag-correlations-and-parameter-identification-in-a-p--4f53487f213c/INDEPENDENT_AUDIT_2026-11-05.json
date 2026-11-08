@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:14:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The generator of dX=(Q-X)dt+sqrt(2)dW, dQ=(X-Q)dt/gamma+sqrt(2/gamma)dB with reset (X,Q)->(0,Q) at rate r>0 has Lyapunov drift LV=4-2(X-Q)^2-rX^2. Strictly positive quadratic damping gives a unique finite-second-moment stationary law by same-noise/same-jump contraction. Reconstructed all three stationary covariance equations and solved C=[[a,b],[b,b+1]], then K(t)=exp(At)C where A=[[-1-r,1],[1/gamma,-1/gamma]]. Difference K12-K21 equals -2/[gamma(r+2)+1] times a positive two-exponential divided difference, with exactly one positive-lag absolute maximum. Its first two right derivatives give s=r+1+1/gamma and inverse gamma^{-1}=-(s+1)d1/2, r=s-1-gamma^{-1}. Independently verified the probe-only (H(0),H'(0+)) inverse, calibration and positivity domain. Numerical independent 9 positive (r,gamma) settings x 3 lags; the proof not the grid covers all r,gamma,t>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra–Das treat the exact same retained-bath model and compute equal-time moments, distribution tails and finite-speed return. Biswas et al treat two-time generalized-Langevin renewal correlations."
+        ],
+        "reasoning": "The primary full source does not supply opposite-time bath/probe covariance ordering; a renewed-probe two-time autocovariance is not a dominating implication for a selectively retained auxiliary bath coordinate.",
+        "searches": [
+          "arXiv:2603.17027 full HTML sections II–IV",
+          "arXiv:2412.09260 resetting embedded in viscoelastic bath"
+        ]
+      },
+      "checked_sources": [
+        "Santra and Das, arXiv:2603.17027 (full text relevant sections)",
+        "Goswami, arXiv:2412.19564 (abstract only, APS authentication)",
+        "Biswas et al., arXiv:2412.09260 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Static a,b,c0 and deterministic A imply the new lag result through semigroup algebra, but the source paper did not state the directional theorem or inverse two-jet uniqueness."
+        ],
+        "reasoning": "Published equal-time covariance and model dynamics supply premises for a short mathematical deduction, not an explicit proof of the waveform and identifiability; the final narrow claim is those exact facts, with mechanical components explicitly not novel.",
+        "searches": [
+          "arXiv:2603.17027 stationary moments equation (19); arXiv:2412.09260",
+          "arXiv:2412.19564"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary cross-lag asymmetry is K12(t)-K21(t) of the forward e^{At}C covariance; equivalently the anti-symmetric lagged response of the nonequilibrium stationary pair."
+        ],
+        "reasoning": "Generic linear OU semigroup covariance is established theory, but resetting only one coordinate changes the generator/covariance. The cited primary results do not state its full signed waveform or both two-jet inverse maps.",
+        "searches": [
+          "Resultary: probe bath partial stochastic resetting directional time lag covariance inverse viscoelastic Santra Das",
+          "arXiv:2603.17027; arXiv:2412.19564"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact directional cross-lag or explicit parameter-identification table surfaced in the inspected published-record results; Goswami has an overlapping selectively reset bath model."
+        ],
+        "reasoning": "No exact table was established as containing both inverse maps. Failure to locate one is not proof of priority; Goswami full text and unindexed model-identification literature remain specific risks.",
+        "searches": [
+          "Resultary same-model lag/asymmetry search; arXiv:2412.19564"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality: the exact published model/theorem comparisons below do not establish an earlier dominating theorem for the narrow stated new remainder. Related prior methods and components explicitly credited; uninspected specialized literature risks remain.",
+      "residual_risks": [
+        "Goswami 2025 has a closely related nonrenewing bath reset mechanism; relevant full sections were inaccessible.",
+        "The Lag/semigroup calculation is short once source model moments are known, so novelty is the specified combination of directional sign and two explicit inverse maps, not the generic linear Markov identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ESTABLISHES_MODEL_AND_STATIC_MOMENTS_NOT_CLAIMED_FULL_RESULT",
+          "evidence": "Stationary probe second moment given; no explicit asymmetric cross-time K12-K21 or inverse two-jet characterization in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.17027",
+          "material_read": "Accessible complete HTML main text: sections on instantaneous resetting, moment-generator hierarchy, stationary variance Eq. (19), conclusions; searched for lagged covariance/parameter identification.",
+          "method": "Read source arXiv full-text web extraction, relevant formulas and sections.",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Identical retained-bath reset dynamics"
+        },
+        {
+          "assessment": "PLAUSIBLE_UNRESOLVED_OVERLAP",
+          "evidence": "Same reset architecture, so possible hidden two-time formulas; never describe the unread article as completely noncovering.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.19564",
+          "material_read": "Abstract and publication metadata only: tracer coupled to harmonic bath, reset tracer without resetting medium, relaxation/first passage.",
+          "method": "Arxiv abstract and APS journal page; full article not accessible (authorization required).",
+          "title": "Stochastic resetting in a nonequilibrium environment",
+          "trigger": "Potentially same selectively retained coupled bath"
+        },
+        {
+          "assessment": "MODEL_DIFFERENCE_UNRESOLVED_FINE_DETAIL",
+          "evidence": "Renewal generalized Langevin setting is not plainly identical to retained auxiliary Markov coordinate; full paper should be revisited.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+          "material_read": "Model and two-time autocorrelation described in available abstract and scientific package comparison; no full detailed text read.",
+          "method": "Metadata/abstract-level comparison only.",
+          "title": "A resetting particle embedded in a viscoelastic bath",
+          "trigger": "Two-time viscoelastic resetting cross-check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An experimentally interpretable time-direction asymmetry and two separate structurally identifiable inverse maps for a physically motivated retained-bath resetting model; goes beyond the prior equal-time moment family and controls a concrete inverse problem under explicit scale calibration. It is not merely the general textbook matrix-exponential identity, since the exact nonrenewing reset covariance and injective formulas must be assembled.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Santra and Das, arXiv:2603.17027 (full text relevant sections)",
+    "Goswami, arXiv:2412.19564 (abstract only, APS authentication)",
+    "Biswas et al., arXiv:2412.09260 (abstract)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Accepted C/O/V judgment concerns the final claim and precise domain in the original RESULT.md, not generalizations beyond it.",
+    "Finite checks corroborate bounded cases only; analytical all-parameter proofs were reconstructed separately.",
+    "Best-of-knowledge originality is qualified by explicitly named source-inspection limitations; publication has an independent privacy/transport blocker."
+  ],
+  "residual_risks": [
+    "Goswami 2025 has a closely related nonrenewing bath reset mechanism; relevant full sections were inaccessible.",
+    "The Lag/semigroup calculation is short once source model moments are known, so novelty is the specified combination of directional sign and two explicit inverse maps, not the generic linear Markov identity."
+  ],
+  "schema_version": 1
+}
