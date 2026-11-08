@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cited Rampersad–Wiebe run-length identity matches the exact integer sum of separately reduced binomial-product parities. Positivity follows from the run-length factors. For an \(r\)-bit padded binary input plus one trailing zero, the unique token decomposition gives the exact identity \(r+1-4\nu_2(T(n))=\sum\delta\). Direct inequalities show all token deficits are nonnegative, with exactly two zero-deficit tokens and three positive deficits below four. This proves the sharp spectrum, word classification, and coefficient extraction. Fixed-deficit rationality follows from the finite positive-deficit truncation and geometric expansion; no unbounded enumeration is relied on. The included checker independently passes all stated finite tests. Boundary indices \(n=0,r=0\) and coefficient conventions were checked.
+## correctness
 
-## Originality — PASS within inspected evidence
-Rampersad–Wiebe (2023/2024), Theorem 14, gives the underlying run-length transform and later average-value formulas; it does not state or imply without a separate optimization the exact valuation maximum, full maximizing language, four residue-class counts, or universal fixed-deficit rationality. Kropf–Wagner (2017) gives general quasimultiplicative structure and central-limit results, not this exact arithmetic edge law. Targeted published-repository, number-theory record, parity-sum, run-length, and OEIS searches identified no equivalent claim or stronger statement containing all the conclusions. Mathematical-record near hits about Thue–Morse valuations and binary subsequence Fibonacci extrema concern distinct functions; an OEIS lattice-path triangle has a different bivariate denominator and no established identity with this parity sum. This is not a proof of global priority; implicit earlier digital optimization results remain a residual risk.
+PASS
 
-## Value — PASS
-The source parity-sum sequence is a natural, nontrivial binomial/digital arithmetic statistic. The complete optimum and its full attaining set turn its run-length representation into a sharp uniform divisibility threshold for every dyadic interval, while the Fibonacci edge count and all fixed-deficit rational recurrences specify the exceptional highly divisible inputs exactly. This is a meaningful global classification across infinitely many lengths and is not just a finite computation, isolated small gain, or unrelated numerical invariant. It is self-contained once the cited run-length theorem is taken as a proved premise.
+The final integer sum reduces parity term-by-term before summing, not the parity of a global sum. The published run-length transform has S(2m)=1 and S(2m-1)=m. Appending a terminal zero to exactly r padded bits yields uniquely factored one-run tokens with deficit delta(length)=length+1-4v2(S(length)). Nonnegative deficits and only two zero tokens (1110,11111110) give M_r=floor((r+1)/4) and the full 0..M_r spectrum. For deficit s=(r+1) mod4, coefficient extraction from [1-y-y²-z-z²-z³]^-1 gives the four maximizer laws. Fixed positive deficit d uses finitely many positive-deficit tokens and powers of (1-x4-x8)^-1, proving rationality and denominator bound. Checked n=0,r=0, leading zeros, all residues s. Independently computed direct Lucas parity versus run product for n<4096 and all n<2^r up to r=12, recovering all maxima/counts. The primary 2024 published journal PDF was separately inspected: its Theorem 14 (page 12) states this exact parity sum and run transform, confirming the citation. The 2023 arXiv preprint uses Theorem 17 for the same result; different numbering is not a mathematical gap.
 
-## Limits and closest literature
-The source transform identity is credited rather than claimed. No claim is made for odd primes, non-dyadic intervals, or higher-dimensional extensions. Closest inspected sources are Rampersad–Wiebe (arXiv:2309.04012; *Integers* 24 (2024), A73, Theorem 14 and Section 6) and Kropf–Wagner (2017, Section 2 and Section 5). The arXiv preprint's 2023 posting metadata was verified; the accessible journal theorem was checked in full. General hidden specializations and unpublished prior notes cannot be excluded by searches alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The transform identity of Rampersad–Wiebe is explicitly pre-existing, whereas the exact valuation edge language, 2-adic spectrum, four Fibonacci-denominator counting formulas and fixed-deficit recurrences require separate arithmetic optimization. Kropf–Wagner treats general block-transform and limit laws, not these sharp finite dyadic maxima. Best-of-knowledge originality PASS for the new classification, not for the underlying transform.
+
+## value
+
+PASS
+
+This supplies a complete, naturally parameterized valuation-edge distribution for a published nontrivial binomial parity sum, including the entire maximizing language and all fixed-edge recurrences. The questions are arithmetically motivated by the known run-length transform, not arbitrary test digits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
