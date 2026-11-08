@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** The one-dimensional triangular coordinate-difference law has density \(w^{-1/2}-1\) and exact first three moments. Independence gives additive cumulants \(1/6,7/180,11/945\), which recover the three power sums of squared edge lengths. Newton identities reconstruct the unique positive root multiset. The sharp volume range is not inferred from a numerical search: it follows from the positive intersection of a plane and sphere, an explicit two-value Lagrange classification, and analysis of the zero-coordinate boundary. All feasibility endpoints and the open lower boundary at dispersion \(q\ge1/2\) are proved.
+
+**Originality — PASS, with residual historical risk.** Philip's 2007 full text gives a complete *forward* box distance distribution and identifies its piecewise formula's geometric breakpoints, so neither the distance distribution nor full-histogram potential rigidity is claimed as new. The present claim requires only three population moments, gives a sharp feasible moment-volume region and establishes generic optimality of the finite cutoff. Clement's full text models random rays through boxes, while Holmin–Kurlberg–Månsson recover side lengths from different random chord/free-flight laws. published-finding corpus semantic searches for cuboid distance moment inverse, sharp volume interval, and moment region did not return an equivalent or dominating theorem; the closest geometry inverse results concern parallelograms, triangles, flat tori, or shadow-area and perimeter rather than volume-uniform box point pairs. An unindexed equivalent finite-moment statement remains possible.
+
+**Value — PASS.** Population distance moments can be estimated without resolving a full density, and the theorem states exactly how many such measurements identify a box. The sharp conditional squared-volume range is a meaningful feasibility and uncertainty certificate; its nonattained lower bound changes character at a distinguished anisotropy value. The cube and two-equal-edge equality classes explain what geometry saturates each bound. This is not presented as an improvement to the already-known forward distribution.
+
+Numerical checks do not establish priority or substitute for the analytic universal proof. No independent validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
