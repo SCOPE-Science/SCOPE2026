@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact independent phase geometric laws hold for every finite population and offer size. Product-factor comparison gives \\(a_{m,N}\\le q_N^m\\) and \\(q_N^m-a_{m,N}\\le q_N^m m(m-1)/(2r_N)\\), including when \\(m>r_N\\). Monotone geometric coupling, a summable geometric-mean difference, and the identity \\(\\sum_{m\\ge1}m(m-1)q^m=2q^2/(1-q)^3\\) yield the full TV bound. The Euler-law pmf follows from a self-contained coefficient recurrence, and dominated convergence proves strictly positive no-delay correction at rational fixed ratios, establishing sharp TV order. The standard-library checker passed 598 finite assertions, independently enumerating small histories. Infinite results are supported by proof, not finite testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu–Tang's Section 5 explicitly analyses fixed d and m in its leading asymptotic estimates; its general finite mean algorithm does not supply the growing-choice distributional approximation.",
+        "Berend–Sher's proportional package-size analysis retains every offered new coupon, unlike the one-retained-coupon policy: their completion time is logarithmic in the alphabet size, whereas the present model has minimum linear time."
+      ],
+      "reasoning": "No inspected theorem with a larger parameter domain is shown to give the present sharp total-variation statement. Even where the source's exact finite formula is logically sufficient as a starting point, a new uniform approximation and asymptotic lower bound are needed. Broad unlocated q-geometric limit theorems remain an explicit residual risk.",
+      "searches": [
+        "Web: coupon collector power choices linear fraction population coupon collector d=n/2 non Gumbel",
+        "Web: coupon collector least sampled among d uniform distinct d proportional n linear large fraction q Pochhammer Euler distribution",
+        "arxiv:2605.06953 Theorems 2.1–2.3",
+        "arxiv:1010.5608 author-hosted 2011 primary text Section 5"
+      ]
+    },
+    "checked_sources": [
+      "A. V. Doumas and S. Spektor, arXiv:2607.01463v1, public full text https://www.researchgate.net/publication/408403711_Two_Multi--Draw_Coupon_Collector_models_with_different_retention_rules",
+      "W. Xu and A. K. Tang, A Generalized Coupon Collector Problem, J. Appl. Probab. 48 (2011), 1081–1094, https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+      "D. Berend and T. Sher, arXiv:2605.06953, https://arxiv.org/abs/2605.06953",
+      "Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties (public scientific record, distinct reset model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact phases in the 2026 source are antecedents for the first step but involve finite N and offer size d; its Gumbel normalization assumes d fixed in the asymptotic expansions.",
+        "The 2011 paper's general exact mean is a first moment, not a bound on total variation or a first-order mass correction.",
+        "The 2026 retain-all package model has a different state transition: one round may discover multiple types."
+      ],
+      "reasoning": "The same-model finite identity and known Euler identity do imply the law after a specific new limiting argument, but not the proved uniform quantitative error nor the sharpness result without extra analysis. Neither source's stated limiting law dominates the one-retained-coupon proportional regime. The contribution is the new asymptotic connection and rate, not the exact finite phases themselves.",
+      "searches": [
+        "arxiv:2607.01463v1 Theorem 20 and equations (74)–(78)",
+        "arxiv:2605.06953 Theorem 2.2 and Section 3",
+        "arxiv:1010.5608 Theorem 4 and Section 5",
+        "published-finding corpus: multi-draw coupon collector least-collected coupon choose from d distinct coupons d proportional n q-Pochhammer excess time Lambert series limiting distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Doumas–Spektor identify independent phases with failure probabilities binom(N-j,d)/binom(N,d), giving an equivalent finite product representation; their Theorem 20 normalizes to a Gumbel law for fixed offer size.",
+        "The Euler q-law and its q-binomial mass formula are classical analytic identities, which are explicitly not assigned standalone novelty."
+      ],
+      "reasoning": "The new proposition is not a rephrasing of the finite geometric-stage decomposition: it specifies a growing offer-size limit in total variation, gives an explicit uniform rate, and establishes a positive matching first-order correction. The exact finite decomposition determines the distributions in principle but does not state these asymptotic statements. The limiting Euler distribution is a known q-distribution, not new outside this model.",
+      "searches": [
+        "published-finding corpus: For a coupon collector offered d_N uniformly distinct coupons per round, retaining one unseen coupon, with d_N/N->theta, total draws minus N converges to q-Pochhammer Euler distribution with P(S=k)=q^k product_{j>k}(1-q^j) and sharp O(1/N) total variation",
+        "Web: coupon collector d choices choose one new coupon d linear number coupons q Pochhammer distribution overshoot 2026",
+        "Web: q Pochhammer distribution overshoot coupon collector multiple choices",
+        "arxiv:2607.01463v1 equations (74)–(75)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published research record, Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties, treats resetting under nonuniform sampling, not one retention from distinct multi-offers.",
+        "An Euler distribution is catalogued in classical discrete q-distribution literature; it is not an exact database entry covering the coupon-model convergence rate."
+      ],
+      "reasoning": "Known q-series identities do cover the abstract limiting product, and are credited. A lookup of the specific model, parameter scaling, TV bound and first-order no-delay mass found no directly matching published research record. Absence from indexed results is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: linear-proportional coupon offer size, one-new-coupon retention, Euler distribution overshoot, zero-failure probability q-Pochhammer",
+        "published-finding corpus: Xu Tang Doumas Spektor Problem II least-collected coupon d/N positive q-geometric limit exact probability no failures",
+        "Web: Euler distribution sum independent geometric q^n q pochhammer",
+        "Web: q Pochhammer coupon collector choices collector"
+      ]
+    },
+    "rationale": "Best-knowledge distinct claim: the proportional-choice Euler limit, quantitative total-variation coupling and sharp no-delay correction were not located in the inspected same-model or broader coupon literature. Earlier exact independent-geometric phases and classical q-series facts are explicitly credited; the fixed-offer-size Gumbel limit does not encompass the linear-size offer regime. This is a provisional originality judgment, not proof of global uniqueness.",
+    "residual_risks": [
+      "The finite geometric representation is pre-existing; its implied but unstated proportional-d consequences might be regarded as known from broad q-geometric product theory.",
+      "Published-index coverage, cross-lingual literature, and older q-probability sources are incomplete; no independent global priority audit was performed.",
+      "Search hits do not establish uniqueness of a theorem; numerical checks cannot certify asymptotic statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source establishes finite independent geometric phases and a fixed-d Gumbel law; not the proportional-d Euler law or sharp TV/correction",
+        "evidence": "https://www.researchgate.net/publication/408403711_Two_Multi--Draw_Coupon_Collector_models_with_different_retention_rules",
+        "identifier_or_url": "https://arxiv.org/abs/2607.01463",
+        "material_read": "Public full-text mirror, Problem II setup, finite mean in Section 3.1, equations (74)–(78), Theorem 20 with proof and fixed-d expansions",
+        "method": "Read accessible HTML reproduction of public full text rather than inferring from the abstract",
+        "title": "Two Multi--Draw Coupon Collector models with different retention rules",
+        "trigger": "Same exact model, potentially dominating full distributional analysis"
+      },
+      {
+        "assessment": "Gives finite expectation and fixed-d asymptotic results; no proportional-offer distribution or quantitative TV claim located",
+        "evidence": "J. Appl. Probab. 48 (2011), pp.1081–1094, Section 5 fixed d and m",
+        "identifier_or_url": "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+        "material_read": "Full PDF text, first page and setup, Section 2, Section 5 and Theorems 4–5; examined rendered page 1",
+        "method": "Author-hosted original PDF with text and page inspection",
+        "title": "A Generalized Coupon Collector Problem",
+        "trigger": "Original least-collected multi-offer model, general exact mean and possible stronger result"
+      },
+      {
+        "assessment": "Different retain-all policy, logarithmic completion scales; does not cover the retain-one Euler law",
+        "evidence": "arXiv:2605.06953, Theorem 2.2",
+        "identifier_or_url": "https://arxiv.org/abs/2605.06953",
+        "material_read": "Arxiv HTML full article, definition and Theorems 2.1–2.3, Section 3, especially proportional package theorem",
+        "method": "Accessible full arXiv HTML",
+        "title": "Asymptotic Results for Uniform Group Drawing in the Coupon Collector's Problem",
+        "trigger": "Closest linear package-size scaling paper, possible broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f69ae244-f78b-45c4-9948-1e9c879d2cd5",
+  "value": {
+    "rationale": "The offer-size ratio \\(d_N/N\\) is a natural scheduling/resource parameter. The known fixed-size Gumbel regime has a macroscopic \\(N\\log N\\) completion time, whereas the proportional-choice policy has an \\(N+O_{\\Pr}(1)\\) completion time with non-Gumbel Euler-product fluctuations. The complete mass law, moments, uniform rate and sharp first-order correction give distribution-level planning information and identify a meaningful phase shift; it is not an unmotivated finite slice or simple reparameterization.",
+    "status": "PASS"
+  }
+}
