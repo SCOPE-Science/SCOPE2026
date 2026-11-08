@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite checker `checker.py`, run with Python 3's standard library, returned:
+# Independent mathematical audit
 
-`ALL_CHECKS_OK pure_sizes=1..6 directed_binary_models=530 undirected_4_models=64 finite_event_instances=490`
+## correctness
 
-The proof of the result has four independent steps: the effective search for uniquely definable constants, the finite-group orbit/definability correspondence, the measurable fiberwise automorphism with a noncomputable-measure event, and the pure-set stabilizer calculation. The checker corroborates only finite group and event identities; it does not prove noncomputability or any infinite computable-presentation assertion. An independent audit has not been performed.
+PASS
+
+For any presentation-computable external constants S, an element uniquely definable over a finite tuple from S is computable: formula-event probabilities evaluate distance 1-d(f,a), and an effective dense search approximates it. Finite elementary diagrams establish dcl_M(S)=Fix(Aut(M) pointwise stabilizing S). Conversely, from standard computable rational-interval presentation, twist fibers by each automorphism in the stabilizer on disjoint Borel intervals having one noncomputable relative measure alpha. Transporting the names preserves all computable abstract metric/formula/event data, while an original constant moved by any stabilizer element has a noncomputable preimage whose equality event reveals alpha; fixed constants remain computable. Therefore exactly definably closed S occur; the pure-set q cardinality gap and finite awareness/rigidity conclusions follow. Independent enumeration of pointwise stabilizers and fixed sets for q=1..6 corroborated finite group subclaim. No computable transport relative to a fixed standard presentation is asserted.
+
+## originality
+
+PASS
+
+Qualified PASS: Zhao explicitly constructs the q=2 pure-set nonaware example with neither original constant computable; Cuervo Ovalle–Goldbring develop awareness; Andrews–Goldbring–Keisler compute model-theoretic definable closure within randomizations. The new claim is an attainable-set spectrum across all presentations for arbitrary finite relational M using group-fixed definable closures, not a new isolated 2-element example. Earlier presentation-spectrum results under computable categoricity could cover it but were not identified.
+
+## value
+
+PASS
+
+The exact Galois-closed spectrum answers which external constants can remain individually computable under computably isomorphic presentations, naturally sharpening the motivating awareness/non-awareness problem. The missing q-1 case and rigidity equivalence are structural and independently useful, not just a finite toy calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
