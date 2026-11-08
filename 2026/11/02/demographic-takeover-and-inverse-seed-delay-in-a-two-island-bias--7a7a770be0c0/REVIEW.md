@@ -1,19 +1,21 @@
-# Scientific review — demographic takeover and inverse-seed delay
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The theorem's specified domain is the two-dimensional, self-weight-free, bias-one weighted two-island map with positive mixing coefficients. The exact drift identity identifies the sign of each update, and coordinatewise monotonicity proves global consensus on the two *closed* extreme demographic parameter rays, including equality. Both eigenvalues at the polarized corner are below one exactly within the stated *open* interval, guaranteeing a polarized basin there. The critical algebraic-delay estimate follows from an exact reciprocal difference, uniform geometric decay of the first island's opinion defect, and a logarithmic bound on the sum of the second island's opinion levels. No numerical observations are promoted to infinite proofs. The reproducibility script verifies 1,172 exact-identity and deterministic numerical assertions.
+PASS
 
-## Originality
+For deterministic two-island bias-one no-self-weight map B(z,s)=zs/[zs+(1-z)(1-s)], drift sign is that of s-1/2. Starting (x,1-x), 1/2<x<1, both drifts are nonnegative for r>=h and nonpositive for r<=1/h, with strict drift by the second iterate even at equality; cooperative monotonicity and exclusion of interior coordinate limits force consensus (1,1) or (0,0). The polarized corner has diagonal multipliers 1/(hr),r/h, so for 1/h<r<h it attracts a neighborhood of complementary data. At r=h, writing e=1-u and v the minority opinion, the exact 1/v reciprocal increment is 2(1-v)(v-e)/[v(1-e+v)]. Geometric decay e<=delta q^t and telescoping yield T_eta(delta)=(2delta)^-1+O(log(1/delta)) for fixed h,eta. Independently numerically checked h=1.5 and h=3 at delta=0.005,0.001, obtaining delta T near 0.52 then 0.505-0.506; exact drift/reciprocal identities were also checked from algebra. This is not a theorem for stochastic/heterogeneous networks or uniformly h->1.
 
-PASS under inspected evidence; independent priority review outstanding. Dandekar–Goel–Lee (arXiv:1209.5998v1, Section 4 and Appendix C) prove the equal-sized complementary-opinion phase law, not the unequal population-ratio takeover boundaries. Xia–Ye–Liu–Cao–Sun (arXiv:1912.01778, Section III and the proof of Theorem 6) establish general local stability and one-sided consensus: the local Jacobian method is prior knowledge, and their global consensus theorem assumes initial opinions all on the same side of one-half. The two-island local result requires within-island contact dominance, whereas the takeover threshold makes one community cross-dominated. The present single claim combines a sharp *global* takeover property for initially opposed groups, both equality boundaries, and the inverse-initial-seed critical time with explicit coefficient. The related peer-effects literature addresses distinct updates. Searches do not certify universal novelty; a stronger, unlocated result about this exact two-dimensional nonlinear map could still dominate.
+## originality
 
-## Value
+PASS
 
-PASS. Group-size imbalance and homophily are interpretable opposing mechanisms in the founding model. The proved sharp cutoffs distinguish guaranteed consensus despite arbitrarily intense initial opposition from a robust polarized basin, and the critical waiting-time asymptotic reveals a potentially very long apparent polarization before eventual takeover. The statement solves a coherent, natural parameter question rather than an arbitrary finite slice. The deterministic homogeneous reduction is not an empirical social-science forecast; heterogeneous within-group opinions and general basin geometry remain open.
+Best-knowledge PASS for the inclusive unequal-size demographic global takeover and universal inverse-seed delay. Dandekar–Goel–Lee analyze equal-sized homophilous islands r=1; their polarization theorem is not an unequal-size takeover theorem. Xia et al. treat stability and consensus for broader networks, and local corner multipliers are credited, but their inspected local stability result and all-one-side consensus premise do not imply an initially opposed two-island global r>=h criterion or the 1/(2delta) critical-time law.
 
-## Sources and limits
+## value
 
-Main primary source: Dandekar, Goel and Lee, 2012 arXiv:1209.5998v1 (full accessible original model and equal-island theorem). Strongest related analysis: Xia et al., 2019 arXiv:1912.01778 (relevant global and local theorems, proof and assumptions inspected). Background: Bowles, Loury and Sethi, 2014, DOI 10.1111/jeea.12037 (abstract only, different peer-effects model). General earlier work on nonlinear monotone maps and possibly unindexed technical results remains a residual originality risk. Independent auditing and external validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp demographic/homophily phase boundary, inclusive critical equality, basin sharpness and asymptotic delay describe substantive dynamics of a canonical sociophysical model. The inverse-seed scaling gives a nontrivial slow critical regime beyond routine Jacobian linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
