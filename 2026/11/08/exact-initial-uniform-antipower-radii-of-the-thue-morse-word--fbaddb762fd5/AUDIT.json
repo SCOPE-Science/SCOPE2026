@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For L<=130 every Thue--Morse L-factor appears in mu^11(0), as mu^3(0) includes all binary adjacent pairs and every L<=256 factor is inside mu^8(ab). Each candidate k=3,...,10 is therefore exhausted by an exact finite 2048-symbol prefix test. Every factor admits an antipower for some m<=R(k). Explicit starting positions j=0,16,16,10,0,0,64,53 respectively rule out all m<R(k). Both standalone implementations recompute the exact complete factor checks and witness obstructions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berger and Defant arXiv:1902.01291 Theorem 5 gives an unspecified constant C with gamma_j(k) <= C k for aperiodic uniformly recurrent binary morphic words.",
+        "Fici et al arXiv:1606.02868 Corollary on every-position antipower existence supplies finiteness, not the sharp finite values."
+      ],
+      "reasoning": "A uniform existence theorem with an unspecified C, and fixed-start asymptotic bounds, do not entail exact finite optimized radii. Neither gives equality nor lower witness start positions for k=3,...,10.",
+      "searches": [
+        "Thue-Morse k-antipowers worst case minimal equal block length over every starting point universal cutoff",
+        "anti-power j-fix Thue Morse exact uniform threshold finite k radius",
+        "https://arxiv.org/abs/1902.01291"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1606.02868 (first posted 2016-06-09)",
+      "arXiv:1607.05825",
+      "arXiv:1705.06310",
+      "arXiv:1808.01528",
+      "arXiv:1902.01291",
+      "published-finding corpus 2026/10/4/SCOPE-exact-first-two-nontrivial-fibonacci-antipower-radii--fbbdef91020e",
+      "published-finding corpus 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 source establishes existence and a prefix table; Gaetz 2018/2021 provides asymptotics for each fixed j; Berger--Defant 2019 gives all-j linear upper bounds; Fibonacci published-finding corpus has an analogous but different word."
+      ],
+      "reasoning": "All-j exact equality with attained maxima, for eight finite k, implies upper bounds and positive witnesses not present in the cited claims. Conversely, the cited prefix/asymptotic/existence results cannot determine those eight exact finite values. No all-parameter theorem or new asymptotic regime is asserted.",
+      "searches": [
+        "Thue Morse word exact uniform antipower radius all starting positions 3 4 5 6 7 8 9 10 blocks minimum 5 7 9 11 11 11 13 13",
+        "Thue-Morse k-antipowers worst case minimal equal block length over every starting point universal cutoff",
+        "uniform antipower radii Thue Morse 5 7 9 11 starting positions maximal minimal block length",
+        "arxiv 1606.02868 Fici Restivo Silva Zamboni anti powers infinite words Thue Morse table prefix",
+        "arxiv 1808.01528 Gaetz anti-power j fixes Thue Morse exact 3-antipower",
+        "https://arxiv.org/abs/1606.02868",
+        "https://arxiv.org/abs/1808.01528",
+        "https://arxiv.org/abs/1902.01291"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaetz, arXiv:1808.01528, Definition 1.2 sets gamma_j(k) for fixed j and studies fixed-j asymptotic inequalities; paper conclusion does not give max_j gamma_j(k).",
+        "2016 arXiv:1606.02868 table calculates only the shortest antipower PREFIX block length for j=0."
+      ],
+      "reasoning": "The new R(k) is sup over all starting positions j of the minimum m in AP_j(T,k), which is strictly stronger than gamma_0(k) and distinct from sup over forbidden odd m in Gaetz. For k=4, the uniform and prefix values are demonstrably different, 7 versus 5.",
+      "searches": [
+        "Thue Morse word exact uniform antipower radius all starting positions 3 4 5 6 7 8 9 10 blocks minimum 5 7 9 11 11 11 13 13",
+        "Thue-Morse k-antipowers worst case minimal equal block length over every starting point universal cutoff",
+        "arxiv 1808.01528 Gaetz anti-power j fixes Thue Morse exact 3-antipower",
+        "https://arxiv.org/abs/1808.01528"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fici--Restivo--Silva--Zamboni arXiv:1606.02868 p.2 Table 1 gives prefix radii 5,5,5,5,11,11,11,11 for k=3,...,10.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-exact-first-two-nontrivial-fibonacci-antipower-radii--fbbdef91020e computes k=3,4 uniform radii of the Fibonacci infinite word, not Thue--Morse.",
+        "published-finding corpus Thue--Morse result 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91 concerns smallest string attractors, a different object."
+      ],
+      "reasoning": "The numerical tuple queried verbatim did not lead to an indexed exact-table identity. The directly relevant published numerical table is for a different (prefix-only) quantifier. Different infinite words do not dominate the present Thue-Morse claim; absence of a hit alone does not establish priority.",
+      "searches": [
+        "Thue Morse word exact uniform antipower radius all starting positions 3 4 5 6 7 8 9 10 blocks minimum 5 7 9 11 11 11 13 13",
+        "uniform antipower radii Thue Morse 5 7 9 11 starting positions maximal minimal block length",
+        "arxiv 1606.02868 Fici Restivo Silva Zamboni anti powers infinite words Thue Morse table prefix",
+        "\"5,7,9,11,11,11,13,13\" Thue Morse",
+        "\"5, 7, 9, 11, 11, 11, 13, 13\" antipower"
+      ]
+    },
+    "rationale": "The exact supremum over ALL starting positions is not determined by the prefix-only 2016 numerical table, Gaetz fixed-j asymptotic results, or Berger--Defant existence of some linear bound uniformly over j. Actual exact-sequence searches and closest published-finding corpus records found no implication of the table, while priority remains necessarily provisional.",
+    "residual_risks": [
+      "Exact all-j small-k table could appear in unindexed literature, software or supplementary tables; the search and comparison are not an independent historical-priority certification.",
+      "Two narrowly relevant prefix-only papers were inspected through their abstracts, not full text, though their explicit prefix restrictions do not imply the present all-j table."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides j=0 prefix-only table and all-start existence, not exact worst-start first eight radii",
+        "evidence": [
+          "arXiv 1606.02868 p.2 Table 1: ratios 5,5,5,5,11,11,11,11 for k=3,...,10",
+          "Theorem 4/Corollary 5 concern antipower density and existence"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1606.02868",
+        "material_read": "Full-text introduction and Table 1 on page 2; existence theorems and corollaries in subsequent proof sections",
+        "method": "Open arXiv lawful PDF full text, inspect page images and extracted relevant paragraphs",
+        "title": "Anti-Powers in Infinite Words",
+        "trigger": "Foundational antipower definition and Thue--Morse numerical table"
+      },
+      {
+        "assessment": "Explicitly studies AP_0(T,k) and prefix asymptotic bounds, no apparent all-start exact enumeration",
+        "evidence": [
+          "arXiv:1607.05825 abstract defines AP(x,k) using a prefix",
+          "EJC DOI 10.37236/6321 describes fixed prefix"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.05825",
+        "material_read": "arXiv abstract and journal abstract, full text not inspected",
+        "method": "Read institutional public metadata/abstract and journal page",
+        "title": "Anti-Power Prefixes of the Thue-Morse Word",
+        "trigger": "2016 publication in the same Thue--Morse antipower line"
+      },
+      {
+        "assessment": "Asymptotic bounds for the first-prefix gamma and Gamma, rather than max over all start positions",
+        "evidence": [
+          "arXiv:1705.06310 abstract defines parameters for prefixes and asymptotic values"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.06310",
+        "material_read": "arXiv abstract only; full text not inspected",
+        "method": "Read source abstract and publication summary",
+        "title": "Functions on Antipower Prefix Lengths of the Thue-Morse Word",
+        "trigger": "Possible stronger sequel to prefix table"
+      },
+      {
+        "assessment": "Individual-j functions and their asymptotic bounds, not an optimized exact finite supremum over j",
+        "evidence": [
+          "arXiv:1808.01528 Definition 1.2 gamma_j(k), Theorem 3.14 and conclusion section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1808.01528",
+        "material_read": "Original full-text PDF introduction and definitions, middle technical lemmas, conclusion and references",
+        "method": "Open arXiv full PDF and inspect extracted text and page images",
+        "title": "Anti-power j-fixes of the Thue-Morse word",
+        "trigger": "Directly matches arbitrary starting positions j"
+      },
+      {
+        "assessment": "Theorem 5 gives existence of C such that gamma_j(k)<=Ck; it does not state exact small-k Thue--Morse radii",
+        "evidence": [
+          "arXiv:1902.01291 Theorem 5, and introduction explaining uniform bound versus fixed-j work"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.01291",
+        "material_read": "Full open HTML text, introduction, Theorem 5 and proof discussion",
+        "method": "Read publicly accessible arXiv HTML full text",
+        "title": "On Anti-Powers in Aperiodic Recurrent Words",
+        "trigger": "Strongest general all-start antipower bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbaddb76-2fd5-4e50-9d36-39a6e8982be6",
+  "value": {
+    "rationale": "The worst-start antipower radius is a natural quantitative refinement of all-start existence and sharply separates global uniform behavior from the classical prefix-only table. The first disparity k=4 (7 versus 5), the first two plateaus, and the complete smallest eight nontrivial exact radii supply a meaningful initial finite classification with reusable morphic factor-completeness method; no asymptotic novelty is claimed.",
+    "status": "PASS"
+  }
+}
