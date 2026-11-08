@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T11:52:39.557700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two identical additive agents max positive envy after each item equals d=|L1−L2|, so F_(w,W)(d)=min(|d−w|+F_W(|d−w|),d+w+F_W(d+w)). The analytical backward induction on every suffix W in {1,2} establishes (i) F_W(d+2)≥F_W(d) for d≥1, (ii) F_W(0)−2≤F_W(2)≤F_W(0), (iii) F_W(4)≥F_W(0). Verify w=1 base cases F(0)=F(2)=1+f(1), F(1)=f(0); w=2 cases F(0)=F(4)=2+f(2), F(2)=f(0), F(1)=F(3)=1+f(1); general d≥2 or ≥3 follows by shifted successor monotonicity. These imply greedy Bellman choice at every reachable d=0,1,2 and both weights, proving every finite length and tie handling. Scaling by a is valid. For (1,1,k,1) greedy path (1,0,k,k−1) costs 2k; alternate (1,2,k−2,k−3) costs 2k−2, and the only second-stage alternatives d=0,2 prove optimality using z+|z−1| nondecreasing. For any three positive goods, the optimal last-stage cost z+|z−c| is nondecreasing in second-stage d; greedy minimizes it. Independently implemented exact DP checked 8191 binary words lengths 0..12, all three inequalities for 2047 words lengths 0..10 at 0..32, 820 words lengths ≤3 over {1,...,9}, 98 witnesses k=3..100, and 6138 reachable-state Bellman inequalities. Exhaustive finite cases corroborate but do not prove unbounded quantifiers. One nonmathematical typo in RESULT says first two goods go to \"the self-review\" where the imbalances unambiguously require \"the same agent\"; the invariant proof and explicit witness remain correct. No claim for real-valued general ratios/zeros/more agents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberg et al. general exact DP solves instances with future knowledge but does not prove a memoryless myopic policy optimal for all {1,2} instances.",
+          "Their {0,1} greedy theorem is for unit-value arrivals (zeros may occur), not two unequal strictly positive weights.",
+          "Choi et al. 2026 TEF1 and Amanatidis et al. 2025 online MMS/EF1 criteria differ from globally minimizing sum of signed prefix loads."
+        ],
+        "reasoning": "A generic exponential/pseudopolynomial DP is not a structural policy certificate; two-item-type EF1 is neither a lower bound nor optimality for the cumulative envy objective. No inspected stronger theorem dominates this exact positive-ratio case.",
+        "searches": [
+          "minimizing cumulative envy allocation sequences Goldberg Robinson Teh results general DP",
+          "exact myopic cumulative envy minimization positive item values {1,2} optimal online greedy two agents",
+          "arXiv:2610.09843 §4 Theorem 4.1, Appendix 0.B.1",
+          "arXiv:2608.20033 §1.1",
+          "arXiv:2505.22174 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Goldberg, Robinson, Teh (2026), arXiv:2610.09843; full accessible original text, §§1–5 and Appendix 0.B.1, B.2",
+        "Halpern, Psomas, Verma, Xie (2025), arXiv:2502.14624; original full-text introduction and objectives",
+        "Choi, Li, Teh (2026), arXiv:2608.20033; primary full-text introduction and two-type result",
+        "Amanatidis et al. (2025), arXiv:2505.22174; original abstract, uninspected full text",
+        "Dobler, Nöllenburg, On Minimizing Wiggle in Stacked Area Charts, WADS 2025, DOI:10.4230/LIPIcs.WADS.2025.22; publisher abstract only",
+        "Resultary published findings searches on exact title, signed prefix discrepancy, fixed-order cumulative envy, positive binary weights: closest results have different objectives, retrieved top 12–20 per query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goldberg et al. obtain all-prefix minimum for {0,1}; for (1,1,2), greedy prefix imbalance is (1,0,2), while assignment of first two to same agent gives (1,2,0); summed costs tie at 3 but no common per-prefix minimum.",
+          "For (1,1,3,1), greedy cost 6 vs optimum 4, establishing a nontrivial alphabet frontier.",
+          "Halpern et al. bound maximum discrepancy, not total summed discrepancy. Dobler–Nöllenburg optimize permutations, not signs at fixed item order."
+        ],
+        "reasoning": "Earlier binary and max-discrepancy results do not imply strict-positive unequal weight greedy optimum; nor does solving the same optimization by DP establish that a specific online greedy solution works. No equivalent signed-prefix theorem recovered; the potential uninspected full WADS variant is retained as risk.",
+        "searches": [
+          "Goldberg–Robinson–Teh 2026 §4 Proposition 1 and Appendix 0.B.1",
+          "Halpern–Psomas–Verma–Xie 2025 §1",
+          "Dobler–Nöllenburg WADS 2025 abstract",
+          "On Minimizing Wiggle in Stacked Area Charts Dobler Nöllenburg pdf full text 2025 signed prefix sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two common additive agents give stage envy |L1-L2|=|Σ_{j≤t}ε_j w_j|; objective is sum_t |Σ_{j≤t}ε_j w_j|.",
+          "Goldberg et al. §2 defines precisely sum of max positive envy; Appendix 0.B.1 optimizes {0,1}, while the {1,2} path cannot attain all per-stage minima (1,1,2).",
+          "Halpern et al. vector balancing minimizes worst/final discrepancy rather than total absolute prefix area."
+        ],
+        "reasoning": "Signed prefix discrepancy and two-machine load imbalance are exact aliases and were searched; different end-state/sup discrepancy norms and reorderable-prefix objectives do not imply this fixed-order L1-sum theorem. Binary {0,1} cannot be converted by adding one to each good, because assignments change the accumulated discrepancy.",
+        "searches": [
+          "cumulative maximum envy two identical agents values 1 2 greedy myopic minimizing sum of prefix imbalances fixed arrival order Bellman",
+          "signed prefix discrepancy sequence weights 1 2 minimize sum absolute partial sums greedy assignment online optimal",
+          "online signed sequence 1 2 minimize sum of absolute prefix sums greedy optimal",
+          "arXiv:2610.09843 §2 and Appendix 0.B.1",
+          "arXiv:2502.14624 intro and vector balancing definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranked results primarily returned unrelated allocation/rank-maximality claims; the closest prefix-themed published result concerned a different minimax signed-coordinate permutation constant.",
+          "No retrieved indexed exact table states the all-length greedy rule and sharp four-good integer alphabet boundary.",
+          "The candidate CHECK.py finite counts are direct computations, not a cited preexisting exact table."
+        ],
+        "reasoning": "The main result quantifies over all finite words, not a finite database entry. Targeted exact-value and semantic searches found no relevant indexed table, which is bounded negative evidence only, not proof of novelty.",
+        "searches": [
+          "cumulative maximum envy two identical agents values 1 2 greedy myopic minimizing sum of prefix imbalances fixed arrival order Bellman",
+          "fixed order allocation cumulative maximum envy Goldberg Robinson Teh 1 2",
+          "Resultary published mathematical findings semantic searches for cumulative envy, fixed two-valued prefix loads and signed prefix discrepancy (top 12–20 hits each)",
+          "web exact quoted phrase variants for sum of absolute prefix sums and greedy 1,2"
+        ]
+      },
+      "rationale": "Best-of-knowledge original all-length myopic-optimality theorem at the strictly positive ratio {a,2a} for the fixed-order cumulative maximum-envy objective, plus sharp integer-alphabet and four-item boundaries. Closest full original source Goldberg–Robinson–Teh (2026) proves binary {0,1} greedy via simultaneous stage lower bounds and general DP, which do not imply greedy optimality for {1,2}. Independent proof supplies new two-step suffix Bellman invariants. Bounded published-results searches produced no same theorem; an unindexed signed-discrepancy/scheduling theorem remains a priority risk.",
+      "residual_risks": [
+        "A theorem under unindexed online load balancing, cumulative signed-prefix L1 discrepancy, or two-machine dynamic scheduling terminology could precede this result.",
+        "Dobler–Nöllenburg WADS 2025 proceedings full text was not materially read; the accessed abstract states permutation rather than sign optimization, so a variant theorem cannot be excluded from an abstract.",
+        "Amanatidis et al. two-value full proof was not read; its accessible statements give MMS and EF1/EF2, not summed envy optimality.",
+        "Published semantic search has finite coverage, so novelty is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 1 treats valuations {0,1}: greedy attains a per-stage parity lower bound; general DP is exact computation not a universal myopic-optimality theorem for {a,2a}. Fixed order distinguished from sequencing variant.",
+          "evidence": [
+            "Definition of cumulative maximum envy in §2, lines 69–79; §4 Proposition 1, lines 144–151",
+            "Appendix 0.B.1, lines 469–482, uses integer counts q_t of value-1 goods to establish per-stage lower bounds",
+            "§4 Theorem 4.1, lines 152–225, computes optimal allocations by DP for general inputs; makes no myopic universal claim"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09843 (open full-text extraction, 763 lines)",
+          "material_read": "Sections 1–2 setup and related work; Sections 3–5 statements and algorithm; Section 4 Proposition 1 and Algorithm 1; Appendix 0.B.1 proof of Proposition 1, and parts of Appendix 0.B.2.",
+          "method": "Read indexed full original arXiv HTML/text extraction, especially lines 29–41, 69–79, 144–225, 469–526; compare objective, quantifiers and binary normalization.",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Exact objective and fixed arrival order, authors give binary-case greedy and generic dynamic programming; strongest primary predecessor"
+        },
+        {
+          "assessment": "Minimizes a maximum/final discrepancy under adversarial arrivals; the present theorem minimizes sum of absolute prefix imbalances on a specified positive {1,2} sequence. No implication from the inspected results.",
+          "evidence": [
+            "Introduction lines 10–24 defines final and sup-over-time objectives, not the cumulative L1 area",
+            "Theorem synopsis lines 3–7 gives asymptotic minimax discrepancy guarantees rather than pathwise offline-optimal greedy choices"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.14624",
+          "material_read": "Full-text extraction introduction, definitions, summary of adversarial and stochastic results, lines 0–24.",
+          "method": "Read original primary-source definitions and introduction rather than rely on search snippets.",
+          "title": "Online Envy Minimization and Multicolor Discrepancy: Equivalences and Separations",
+          "trigger": "Potential alias via signed prefix discrepancy, two-agent online balancing"
+        },
+        {
+          "assessment": "Its two-type online guarantees maintain EF1 after each arrival; EF1 existence, even by greedy, does not imply the minimum sum of prefix maximum envies.",
+          "evidence": [
+            "Abstract lines 0–6 gives online TEF1 with at most two types, not cumulative max-envy optimality",
+            "§1.1 lines 24–33 details EF1 criteria and allocations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.20033",
+          "material_read": "Primary full-text extraction abstract, §1 Introduction and §1.1 results, lines 0–33.",
+          "method": "Compare TEF1 and MMS constraints against minimizing a sum of numerical envy magnitudes.",
+          "title": "Temporal Fair Division of Indivisible Mixed Manna: Tractable Settings",
+          "trigger": "Two item types and a greedy online rule could conceivably dominate the positivity condition."
+        },
+        {
+          "assessment": "Accessible statements concern MMS and EF1/EF2 approximation, no stated total prefix-envy minimization; full text not inspected so limited coverage claim.",
+          "evidence": [
+            "Abstract lines 16–20 lists MMS and EF1/EF2 results, not the integral envy objective"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.22174",
+          "material_read": "ArXiv abstract and bibliographic page, lines 6–20; full proof text not read.",
+          "method": "Compare claimed MMS, EF1 and EF2 quantitative objectives against exact cumulative maximum envy.",
+          "title": "Online Fair Division for Personalized 2-Value Instances",
+          "trigger": "Two-value alphabet and irrevocable online assignments"
+        },
+        {
+          "assessment": "Related prefix-absolute-sum objective but stated problem optimizes permutation of input numbers. No whole-paper noncoverage inference; possible uninspected variant remains a priority risk.",
+          "evidence": [
+            "WADS 2025 publisher abstract says the special problem is ordering a set of numbers to minimize sum of absolute prefix sums"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.WADS.2025.22",
+          "material_read": "Open-access publisher abstract and bibliographic summary; full proceedings PDF was not read.",
+          "method": "Compare choice variable: ordering given signed numbers versus signing arriving positive weights in an irrevocable given order.",
+          "title": "On Minimizing Wiggle in Stacked Area Charts",
+          "trigger": "Alias \"sum of absolute prefix sums\" could cover signed imbalance objective."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two strictly positive and unequal item values {a,2a} are a natural smallest heterogeneous positive integer alphabet, directly adjacent to binary {0,1} but not reducible by shifting valuations. The exact globally optimal zero-lookahead policy replaces full-future dynamic programming for every fixed sequence length. The dynamic-suffix invariant is nontrivial: a locally suboptimal prefix imbalance can tie in total even for (1,1,2). The four-good witness (1,1,3,1), sharp K=3 threshold and all-positive three-item minimality locate a meaningful structural frontier, not an arbitrary tiny-instance computation. No broad real-ratio or multiagent theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Goldberg, Robinson, Teh (2026), arXiv:2610.09843; full accessible original text, §§1–5 and Appendix 0.B.1, B.2",
+    "Halpern, Psomas, Verma, Xie (2025), arXiv:2502.14624; original full-text introduction and objectives",
+    "Choi, Li, Teh (2026), arXiv:2608.20033; primary full-text introduction and two-type result",
+    "Amanatidis et al. (2025), arXiv:2505.22174; original abstract, uninspected full text",
+    "Dobler, Nöllenburg, On Minimizing Wiggle in Stacked Area Charts, WADS 2025, DOI:10.4230/LIPIcs.WADS.2025.22; publisher abstract only",
+    "Resultary published findings searches on exact title, signed prefix discrepancy, fixed-order cumulative envy, positive binary weights: closest results have different objectives, retrieved top 12–20 per query"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A theorem under unindexed online load balancing, cumulative signed-prefix L1 discrepancy, or two-machine dynamic scheduling terminology could precede this result.",
+    "Dobler–Nöllenburg WADS 2025 proceedings full text was not materially read; the accessed abstract states permutation rather than sign optimization, so a variant theorem cannot be excluded from an abstract.",
+    "Amanatidis et al. two-value full proof was not read; its accessible statements give MMS and EF1/EF2, not summed envy optimality.",
+    "Published semantic search has finite coverage, so novelty is not certified."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No proof for arbitrary positive ratios other than exactly 2, nor for heterogeneous agents, reordering, zero-value arrivals, or alternative temporal objectives.",
+    "Finite verification is corroboration only; claims of originality remain best-of-knowledge.",
+    "The source contains an editorial \"self-review\" substitution inside an example sentence; the displayed imbalance path specifies the intended action."
+  ]
+}
