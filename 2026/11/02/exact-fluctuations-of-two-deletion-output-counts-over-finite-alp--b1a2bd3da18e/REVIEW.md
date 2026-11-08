@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The deterministic formula follows from an explicit one-symbol extension identity, whose intersection is computable in both equal- and unequal-last-letter cases. The conditional \(ABA\) law is justified for any alphabet by uniform independent increments and the fact that subsets of eligible adjacent edges form forests. Orthogonal squarefree centered Bernoulli monomials yield exact moments; substituting \(q=2\) matches the previously published binary variance. The local standard-library checker verifies exact deletion output sets, all conditional distributions for enumerated lengths, and rational moments. The proof covers the full infinite domain \(q\ge2\), \(n\ge2\). The checker is not mistaken for an infinite certificate.
+PASS
 
-## Originality — PASS (with residual literature risk)
+For uniform iid q-ary W (q>=2,n>=2), the deterministic two-deletion cardinality B_2(w)=binom(r,2)+k-t follows by appending one letter and checking the exact intersection of two deletion-output sets, including overlapping singleton runs. With Xi=1{Wi!=Wi+1}, S=sum Xi, Q=sum adjacent XiXi+1, E=X1+Xm and T=number of ABA interior singleton returns, get B2=binom(S+2,2)-E-Q-T. The initial letter and q-cyclic increments are independent uniform; Xi iid Bernoulli p=(q-1)/q; conditioning on Xi makes each ABA cancellation a constraint on independent nonzero increments. Every subset of the eligible adjacent constraints is a forest, so these indicators are mutually independent Bernoulli a=1/(q-1), proving T|X~Binomial(Q,a), including q=2 degeneracy. Squarefree centered-Bernoulli orthogonal expansion and law of total variance yield the displayed mean and three-term variance for every n, including n=2 zero variance. Independent full output-set enumeration over small q,n confirmed both conditional and moment statements.
 
-The published binary two-deletion variance and the Swart–Ferreira binary per-input run formula are known and explicitly not claimed as new. The present claim concerns a closed nonbinary variance for every alphabet size and the conditional independent-binomial law for return triples, including the fact that such randomness disappears only at \(q=2\). The complete available primary text of Swart–Ferreira was inspected in its binary derivation and does not state the nonbinary random-source variance. The Bar-Lev–Etzion–Yaakobi and Wang–Wang full-text radius-one studies address fixed-length Levenshtein balls, not the exact-two-deletion output count. Liron–Langberg concerns binary subsequence bounds and does not provide this conditional q-ary law. Multiple semantic research-record searches found the known binary case but not a dominating q-ary moments theorem. Undiscovered equivalent results remain possible; the priority assessment is not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact variance quantifies how strongly the size of a deletion observation set varies across codeword centers, a natural finite-block parameter for deletion-channel sphere packing and reconstruction. The nonbinary conditional law gives the entire combinatorial distribution after fixing run boundaries, rather than merely transferring a binary number. The q-ary extension is substantive: the return probability is a genuine alphabet-sensitive factor, and the cubic coefficient differs from the binary coefficient. The theorem supplies exact all-length moments for arbitrary alphabet sizes and a useful decomposition for future distributional analyses without claiming such analyses already exist.
+The q=2 case is entirely covered by the prior published exact binary two-deletion variance result and is expressly excluded as an original component. The q>2 exact variance and conditional binomial ABA count are the surviving novelty. Swart–Ferreira and Liron–Langberg provide binary run-based predecessors; generic Levenshtein radius-one ball sizes are different observables. Any stronger general alphabet moment formula, if found, could supersede this assessment.
 
-## Scope and risks
+## value
 
-The proof applies to independent uniform sources with exactly two deletions and counted distinct outputs. It makes no claim concerning general Levenshtein balls, arbitrary nonuniform distributions, or further deletion radii. An unlocated general q-ary deletion-sphere moment formula or an equivalent conditional-increment result is the outstanding priority risk. The archived primary sources' scope comparison is limited to the materials actually inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-deletion output-set size measures local degrees in a central deletion-channel reconstruction graph. Its exact nonbinary variance quantifies graph nonregularity on cubic n scale, while the conditional ABA law reveals a reusable independence mechanism with precise q-dependence; both are natural statistics rather than artificial slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

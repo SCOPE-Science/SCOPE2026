@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:53:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform iid q-ary W (q>=2,n>=2), the deterministic two-deletion cardinality B_2(w)=binom(r,2)+k-t follows by appending one letter and checking the exact intersection of two deletion-output sets, including overlapping singleton runs. With Xi=1{Wi!=Wi+1}, S=sum Xi, Q=sum adjacent XiXi+1, E=X1+Xm and T=number of ABA interior singleton returns, get B2=binom(S+2,2)-E-Q-T. The initial letter and q-cyclic increments are independent uniform; Xi iid Bernoulli p=(q-1)/q; conditioning on Xi makes each ABA cancellation a constraint on independent nonzero increments. Every subset of the eligible adjacent constraints is a forest, so these indicators are mutually independent Bernoulli a=1/(q-1), proving T|X~Binomial(Q,a), including q=2 degeneracy. Squarefree centered-Bernoulli orthogonal expansion and law of total variance yield the displayed mean and three-term variance for every n, including n=2 zero variance. Independent full output-set enumeration over small q,n confirmed both conditional and moment statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liron–Langberg focus on binary deletion cardinalities, radius-one Levenshtein models include insertions and/or different error radius; q>2 pure two-deletion variance not supplied by those inspected statements"
+        ],
+        "reasoning": "Broad enumerations of output set cardinality might allow computation of moments, but the checked cited sources do not state an all-q exact variance or conditional independent-forest law.",
+        "searches": [
+          "arxiv:1202.1644 Liron Langberg number of subsequences deletion channel",
+          "arxiv:2103.01681 Levenshtein balls radius one",
+          "general finite alphabet two deletion ball variance"
+        ]
+      },
+      "checked_sources": [
+        "Full published Resultary binary variance RESULT.md",
+        "Liron–Langberg arxiv 1202.1644 record",
+        "Bar-Lev–Etzion–Yaakobi arxiv 2103.01681 abstract",
+        "Resultary published semantic search",
+        "Actual RESULT.md and verify.py",
+        "Independent q=2,3,4 full word deletion output enumerations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary formula does not determine q>2 behavior: conditional inverse-increment probability 1/(q-1), nonzero conditional variance, and q-dependent cubic coefficient have no binary analogue"
+        ],
+        "reasoning": "Binary variance and per-word formulas do not logically yield all-q covariance without new conditional combinatorics. A fully general q-ary known result would change O, but no such direct implication was observed.",
+        "searches": [
+          "SCOPE exact variance of binary two-deletion sphere size published 2026/10/4",
+          "Swart Ferreira 2003 Proposition 3.1 binary run counting",
+          "Bar-Lev Etzion Yaakobi 2021 radius-one Levenshtein balls"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The q-ary run identity extends the binary structural count; conditional ABAs are inverse adjacent increments with forest constraints"
+        ],
+        "reasoning": "Aliases include number of descendants/outputs after two deletions, degree of deletion graph, two-deletion sphere and run-compression counts. The q-ary variance and conditional laws are stronger than the per-word run identity.",
+        "searches": [
+          "q-ary two-deletion sphere size second moment variance conditional ABA returns",
+          "Swart Ferreira 2003 double insertion deletion distinct subsequences run length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full published Resultary RESULT.md gives q=2 variance (n-1)(n-2)(2n-3)/32 exactly; substituting q=2 into the new formula reproduces it"
+        ],
+        "reasoning": "The binary exact table/formula is known and therefore not original. Searched published corpus contains no q>=3 exact variance among the returned relevant records, without implying exhaustive novelty.",
+        "searches": [
+          "Resultary semantic: variance number distinct two deletion subsequences finite alphabet q uniform word conditional binomial ABA returns",
+          "Resultary published SCOPE exact variance of binary two-deletion sphere size"
+        ]
+      },
+      "rationale": "The q=2 case is entirely covered by the prior published exact binary two-deletion variance result and is expressly excluded as an original component. The q>2 exact variance and conditional binomial ABA count are the surviving novelty. Swart–Ferreira and Liron–Langberg provide binary run-based predecessors; generic Levenshtein radius-one ball sizes are different observables. Any stronger general alphabet moment formula, if found, could supersede this assessment.",
+      "residual_risks": [
+        "An older nonbinary moment result under q-ary deletion sphere, run statistic or deletion graph degree terminology may exist.",
+        "q=2 variance and binary run count were published already and cannot be claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS binary boundary but not nonbinary q>2 or conditional binomial law",
+          "evidence": "2026/10/4 Resultary record RESULT.md, binary variance (n-1)(n-2)(2n-3)/32.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+          "material_read": "Entire published RESULT.md including theorem, proof, Walsh expansion and limitations",
+          "method": "Read entire source and algebraically substituted q=2 into the assessed variance",
+          "title": "Exact variance of binary two-deletion sphere size",
+          "trigger": "Direct same invariant q=2 prior"
+        },
+        {
+          "assessment": "Relevant precedent; no whole-document q-ary noncoverage claim made from abstract alone",
+          "evidence": "Liron & Langberg (2012), arxiv:1202.1644.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+          "material_read": "ArXiv abstract and bibliographic description, not complete full text",
+          "method": "Compared its binary per-word deletion characterization with random q-ary conditional variance",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "Earlier structural count for deletion descendants"
+        },
+        {
+          "assessment": "Different radius and operation; not an implication to this exact variance from stated scope",
+          "evidence": "Bar-Lev, Etzion & Yaakobi (2021), arxiv:2103.01681.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01681",
+          "material_read": "ArXiv abstract and radius-one model definition",
+          "method": "Compared radius-one insertion/deletion observation set against pure exactly-two-deletion output set",
+          "title": "On Levenshtein Balls with Radius One",
+          "trigger": "Possible more general output sphere enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-deletion output-set size measures local degrees in a central deletion-channel reconstruction graph. Its exact nonbinary variance quantifies graph nonregularity on cubic n scale, while the conditional ABA law reveals a reusable independence mechanism with precise q-dependence; both are natural statistics rather than artificial slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not handle biased/dependent letter sources, >=3 deletions or a central limit theorem.",
+    "Binary special case is prior-fully-covered and explicitly not counted toward original contribution."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the packaged files. It uses only the Python standard library, enumerates source words with direct two-position deletions, checks the full conditional distribution of the return count for all transition patterns, checks exact rational moments, and separately integrates over transition patterns for additional parameter choices. Successful execution prints `VERIFY_OK` followed by the exact counts.
+## correctness
 
-## Proof versus experiment
+PASS
 
-The general two-deletion counting identity is proved by an append-one-symbol induction; the independent-return statement follows from forest constraints on independent nonzero increments; and the variance follows from an orthogonal expansion in centered Bernoulli variables. Finite enumeration tests special parameters only, never serving as a substitute for those infinite proofs. The reported variance concerns *distinct exact-two-deletion outputs*, not the union of all deletion radii or fixed-length Levenshtein balls.
+For uniform iid q-ary W (q>=2,n>=2), the deterministic two-deletion cardinality B_2(w)=binom(r,2)+k-t follows by appending one letter and checking the exact intersection of two deletion-output sets, including overlapping singleton runs. With Xi=1{Wi!=Wi+1}, S=sum Xi, Q=sum adjacent XiXi+1, E=X1+Xm and T=number of ABA interior singleton returns, get B2=binom(S+2,2)-E-Q-T. The initial letter and q-cyclic increments are independent uniform; Xi iid Bernoulli p=(q-1)/q; conditioning on Xi makes each ABA cancellation a constraint on independent nonzero increments. Every subset of the eligible adjacent constraints is a forest, so these indicators are mutually independent Bernoulli a=1/(q-1), proving T|X~Binomial(Q,a), including q=2 degeneracy. Squarefree centered-Bernoulli orthogonal expansion and law of total variance yield the displayed mean and three-term variance for every n, including n=2 zero variance. Independent full output-set enumeration over small q,n confirmed both conditional and moment statements.
 
-## Limits
+## originality
 
-No formal proof assistant, external expert review, or independent audit is claimed. Reproduction is deterministic and requires no external data or network access.
+PASS
+
+The q=2 case is entirely covered by the prior published exact binary two-deletion variance result and is expressly excluded as an original component. The q>2 exact variance and conditional binomial ABA count are the surviving novelty. Swart–Ferreira and Liron–Langberg provide binary run-based predecessors; generic Levenshtein radius-one ball sizes are different observables. Any stronger general alphabet moment formula, if found, could supersede this assessment.
+
+## value
+
+PASS
+
+Two-deletion output-set size measures local degrees in a central deletion-channel reconstruction graph. Its exact nonbinary variance quantifies graph nonregularity on cubic n scale, while the conditional ABA law reveals a reusable independence mechanism with precise q-dependence; both are natural statistics rather than artificial slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
