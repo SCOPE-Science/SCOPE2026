@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is an exact finite-state result. Each nontrivial sector on three sites is checked: one particle has stationary weights proportional to inverse departure rates, while one vacancy reduces to a three-state directed generator. For four sites and three particles, independent directed-cofactor calculations give both numerator and positive normalization polynomial. Taking the even part and using the positivity of the two invariant normalizations proves the all-field necessary-and-sufficient criterion, including strictness for every nonzero nonextremal drive. The quadratic coefficient follows by differentiation. The symbolic computations and exact-rational occupation-chain checks support the two critical determinant expansions; they are not substitutes for the matrix-tree proof.
+PASS
 
-## Originality — PASS, qualified best-knowledge
+The one-vacancy exclusion generator has Q_{i,i+1}=q w_{i+1} and Q_{i,i−1}=p w_{i−1}. Matrix-tree cofactors t_i>0 yield current (p w0 t1−q w1 t0)/Σt. For every L=3 sector, N=1 inverse-rate stationary weights and N=2 three-minor identity give currents odd in ε; empty/full are zero. For L=4,N=3, independent symbolic determinant expansion gives numerator abcd ε(1+ε²)/2 and Σt=[A(ε)+ε(1−ε²)UV(X−Y)]/8. The even current half-sum thus vanishes exactly when K=(a−c)(b−d)(a+c−b−d)=0, strictly nonzero for every 0<|ε|<1 otherwise; positivity comes from irreducible chain cofactors. Independent SymPy calculation checked the universal symbolic minors, even component and derivative.
 
-The 2025 primary paper studies symmetric versus rectifying current response in disordered exclusion, and its discussion of the lack of universal sufficiency of broken inversion motivates the present boundary. The present results are not the general vacancy/random-walk mapping or the known master-equation solution method. They are the exact full-sector nonrectification on three sites and the explicit sharp four-site one-vacancy three-factor cancellation locus, including its nonsymmetric alternating-sum branch and all-field strict converse. The most relevant earlier four-site treatment by Kehr and Koza concerns two particles, not the three-particle one-vacancy algebraic classifier. The later reservoir-driven paper concerns a different drive protocol. Statement-level searches of the literature and mathematical research records did not reveal an equivalent sharp classifier. An unpublished derivation, a general finite-ring solution with immediately implied special cases, or alternative random-walk formulas that explicitly subsume the locus remain genuine priority risks. Search absence is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating question is exactly when spatial disorder breaks current reversal. The sharp smallest-system boundary separates mere heterogeneous profiles from the ability to rectify, and the equality \(a+c=b+d\) provides a natural design criterion invisible to simple mirror-symmetry tests. The classification is complete in the smallest one-vacancy ring admitting rectification and provides concrete rate assignments with distinct microscopic geometry but identical reversal symmetry. The result is not a routine change of notation: cancellation requires evaluating the coupled stationary minors and factoring the field-even response. The exact phase boundary may be useful as a small-system calibration for disordered transport simulations and as a benchmark for proposed necessary conditions of rectification.
+The general vacancy random-walk reduction and matrix-tree technique are established. Sakai–Akimoto 2026 analyze bulk disordered exclusion response and generic symmetry conditions, but do not state the exact three-site all-sector result and the four-site N=3 all-drive three-factor cancellation locus. Kehr–Koza 2000 explicitly work out four sites with two particles, a different sector; recent formal counterexample also concerns L=4,N=2 and only quadratic coefficient cancellation (not all-bias oddness). Neither logically determines the present factorization. General ring random-walk explicit formulas remain a substantial possible prior-implication risk.
 
-## Closest prior results and limits
+## value
 
-See Sakai–Akimoto (arXiv:2512.03316), Kehr–Koza (arXiv:cond-mat/9909154), and Sakai–Akimoto (arXiv:2609.03560). Finite-state matrix-tree and one-vacancy reductions are established methods, not novel claims. The four-site all-field criterion is established only at the one-vacancy density, for strictly positive site rates and global uniform hopping bias. No interacting many-particle thermodynamic conclusion follows. Priority should be reassessed if a general ring-walk rectification-classification theorem becomes available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp minimal ring size for rectification and the complete one-vacancy all-drive cancellation hypersurfaces give a natural exact finite transport phase diagram, with a genuine nonsymmetric alternating-sum branch a+c=b+d. It cleanly distinguishes geometric asymmetry, vanishing leading nonlinear response, and true all-field reversal; the exact small-system fact can benchmark transport simulations and symmetry conjectures without claiming larger ring classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

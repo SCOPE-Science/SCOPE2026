@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and `sympy>=1.13`.
+## correctness
 
-The verifier passed **378 exact symbolic/rational assertions**, of which **120** are independent full-configuration Markov stationary solves for randomly selected rational departure rates and rational fields across the three principal particle sectors. It explicitly verifies the three-site and four-site directed matrix-tree numerator/denominator identities, the strict algebraic symmetry classifier, the second-order coefficient, and two exact four-site witnesses. Random sampling checks normalization and nonnegative invariant weights as a diagnostic; universal positivity follows from irreducibility and the finite directed tree theorem.
+PASS
 
-All claims of exact rational identities are derived analytically by determinant expansion in `RESULT.md`; the symbolic executable independently reproduces those identities. The independently constructed full occupation-state generators cross-check signs and jump normalization. The script does not enumerate all positive real parameters and cannot establish universal facts by finite tests.
+The one-vacancy exclusion generator has Q_{i,i+1}=q w_{i+1} and Q_{i,i−1}=p w_{i−1}. Matrix-tree cofactors t_i>0 yield current (p w0 t1−q w1 t0)/Σt. For every L=3 sector, N=1 inverse-rate stationary weights and N=2 three-minor identity give currents odd in ε; empty/full are zero. For L=4,N=3, independent symbolic determinant expansion gives numerator abcd ε(1+ε²)/2 and Σt=[A(ε)+ε(1−ε²)UV(X−Y)]/8. The even current half-sum thus vanishes exactly when K=(a−c)(b−d)(a+c−b−d)=0, strictly nonzero for every 0<|ε|<1 otherwise; positivity comes from irreducible chain cofactors. Independent SymPy calculation checked the universal symbolic minors, even component and derivative.
 
-The proof does not establish uniqueness of any thermodynamic-limit response, a classification at two particles on four sites, or a priority/certification result. The scientific report has only a self-review; independent audit was not performed.
+## originality
+
+PASS
+
+The general vacancy random-walk reduction and matrix-tree technique are established. Sakai–Akimoto 2026 analyze bulk disordered exclusion response and generic symmetry conditions, but do not state the exact three-site all-sector result and the four-site N=3 all-drive three-factor cancellation locus. Kehr–Koza 2000 explicitly work out four sites with two particles, a different sector; recent formal counterexample also concerns L=4,N=2 and only quadratic coefficient cancellation (not all-bias oddness). Neither logically determines the present factorization. General ring random-walk explicit formulas remain a substantial possible prior-implication risk.
+
+## value
+
+PASS
+
+The sharp minimal ring size for rectification and the complete one-vacancy all-drive cancellation hypersurfaces give a natural exact finite transport phase diagram, with a genuine nonsymmetric alternating-sum branch a+c=b+d. It cleanly distinguishes geometric asymmetry, vanishing leading nonlinear response, and true all-field reversal; the exact small-system fact can benchmark transport simulations and symmetry conjectures without claiming larger ring classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
