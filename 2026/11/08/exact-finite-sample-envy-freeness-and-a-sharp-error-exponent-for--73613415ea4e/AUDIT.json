@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Exact domain: for every integer m≥1, two agents have independently sampled Uniform(0,1) cardinal additive marginal values for m indivisible goods, allocated to the larger-value agent. Both envy events are mutually exclusive since their utility differences sum to Σ|X−Y|>0, and exchangeability makes them equiprobable. The signed first-agent variable has density f(z)=1+z for -1<z<0 and f(z)=z for 0<z<1, MGF [e^t(t−1)+t+e^(−t)]/t². Expanding M(t)^m and using the explicit inverse bilateral Laplace transform proves the exact rational formula. Convexity gives a unique negative θ with M′(θ)=0; tilting at θ and the bounded nonlattice density local CLT gives the exact 2ρ^m/(|θ|σ√(2πm)) prefactor. The included checker passed six rational identities, independent two-item order statistics, six direct simulations and tilt-moment calculations; an independently discretized density convolution agreed through m=12. Numerical tests do not certify the infinite theorem; the stated proof supplies that argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dickerson et al. (2014), Theorem 2, establishes high-probability eventual EF for the welfare-maximizing assignment under generic sampling assumptions, not the exact uniform two-agent finite-m probability or its sharp large-deviation prefactor.",
+        "Zeng and Psomas (2019), Proposition 3.1 and §3.1, state a qualitative eventual-fairness result for iid online goods; no exact uniform two-agent reliability distribution or matching exponent is given in those inspected portions.",
+        "Bu and Tao (2026), §1 and Tables 1–2, classify decision-problem complexity rather than stochastic exact sample probabilities.",
+        "Manurangsi and Suksompong (2017), Theorem 1, addresses multiple voters per group and a high-probability threshold, not exact finite probabilities.",
+        "Bai and Gölz (2021), §4 and Appendix D, derive general concentration bounds and asymmetric multiplier allocation guarantees, not the sharp uniform two-agent error constant."
+      ],
+      "reasoning": "General eventual-EF and Chernoff concentration bounds cover only the limit property 1-F_m→0; without specifying the exact rate and prefactor they do not imply the present quantitative identities. The sample-wise greedy mechanism itself is already known.",
+      "searches": [
+        "stochastic envy freeness maximum utilitarian welfare uniform iid valuations random goods probabilistic exact moments",
+        "probability a maximum social welfare utilitarian allocation is envy free in independent uniform random valuations two agents; exponential rate large deviations",
+        "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+        "https://arxiv.org/abs/1706.08219",
+        "https://arxiv.org/abs/1907.11672",
+        "https://arxiv.org/abs/2109.08971"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.31849",
+      "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+      "https://arxiv.org/abs/1706.08219",
+      "https://arxiv.org/abs/1907.11672",
+      "https://arxiv.org/abs/2109.08971",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-four-agent-efficiency-census-for-random-priority-versus-pr--e8fb5c4f797c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dickerson et al. (2014), Theorem 2, establishes high-probability eventual EF for the welfare-maximizing assignment under generic sampling assumptions, not the exact uniform two-agent finite-m probability or its sharp large-deviation prefactor.",
+        "Zeng and Psomas (2019), Proposition 3.1 and §3.1, state a qualitative eventual-fairness result for iid online goods; no exact uniform two-agent reliability distribution or matching exponent is given in those inspected portions.",
+        "Bu and Tao (2026), §1 and Tables 1–2, classify decision-problem complexity rather than stochastic exact sample probabilities.",
+        "The new finite formula follows from the explicit density f(z)=1+z for -1<z<0 and f(z)=z for 0<z<1, and the new asymptotic constant comes from the unique negative stationary point of its exact MGF. No inspected source derives this specialization."
+      ],
+      "reasoning": "Known welfare-optimal EF with high probability implies merely F_m→1 for fixed two agents. The exact finite formula and the precise ρ^m/√m asymptotic cannot be inferred from those qualitative theorems. There is no known stronger published implication in the inspected material; independent prior derivations remain possible.",
+      "searches": [
+        "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+        "https://arxiv.org/abs/1706.08219",
+        "https://arxiv.org/abs/1907.11672",
+        "https://arxiv.org/abs/2109.08971",
+        "https://arxiv.org/abs/2609.31849",
+        "exact finite sample envy-freeness probability for two players when each independent Uniform(0,1) additive good assigned to agent valuing it more",
+        "probability a maximum social welfare utilitarian allocation is envy free in independent uniform random valuations two agents; exponential rate large deviations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact cardinal mechanism is an itemwise maximum-value assignment; the event is equivalently the positivity of both agents' signed own-minus-other sums. No examined published record states this law or the transform inversion.",
+        "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+        "https://arxiv.org/abs/1907.11672"
+      ],
+      "reasoning": "Synonyms considered include utilitarian winner allocation, social-welfare-maximizing allocation, greedy highest-value mechanism, independent random valuations, zero-envy probability, and large-deviation reliability. Qualitative eventually EF does not supply the finite rational law or saddlepoint prefactor.",
+      "searches": [
+        "exact finite sample envy-freeness probability for two players when each independent Uniform(0,1) additive good assigned to agent valuing it more",
+        "Two agents independent uniform additive item valuations allocate every good to higher value. Exact probability welfare maximizing allocation envy-free, large deviations saddlepoint exponential rate prefactor",
+        "probability a maximum social welfare utilitarian allocation is envy free in independent uniform random valuations two agents; exponential rate large deviations",
+        "probability utilitarian optimal allocation is envy free independent uniform 2 agents goods"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record hits closest in general fairness topic concern two preference types restoring stochastic-dominance envy-freeness for random priority (record 2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1), and four-agent probabilistic-serial versus random-priority efficiency (record 2026/10/4/SCOPE-exact-four-agent-efficiency-census-for-random-priority-versus-pr--e8fb5c4f797c). Both use one-object-per-agent ordinal matching lotteries, not independent cardinal values and utilitarian allocations.",
+        "Exact rational computed values for m=1..6 are 0, 1/3, 23/60, 55/126, 4927/10080, and 1762909/3326400; no covering numerical database was observed in the examined source results."
+      ],
+      "reasoning": "Neither the closest published-record objects nor the inspected primary papers contain a table or universal formula for the specific two-agent Uniform(0,1) cardinal welfare-optimal event. Absence from search is not proof of global uniqueness.",
+      "searches": [
+        "exact finite sample envy-freeness probability for two players when each independent Uniform(0,1) additive good assigned to agent valuing it more",
+        "probability a maximum social welfare utilitarian allocation is envy free in independent uniform random valuations two agents; exponential rate large deviations",
+        "Two agents independent uniform additive item valuations allocate every good to higher value. Exact probability welfare maximizing allocation envy-free, large deviations saddlepoint exponential rate prefactor",
+        "2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1",
+        "2026/10/4/SCOPE-exact-four-agent-efficiency-census-for-random-priority-versus-pr--e8fb5c4f797c"
+      ]
+    },
+    "rationale": "The inspected primary sources give qualitative asymptotic welfare-optimal fairness or worst-case complexity, but no exact rational probability formula for every m or sharp exponential rate/prefactor in the iid two-agent Uniform(0,1) model. Three focused searches of published research records yielded only adjacent ordinal-assignment and stochastic-invariant results. The known broader eventual-fairness theorem is acknowledged, and no novelty is claimed for the mechanism or convergence alone.",
+    "residual_risks": [
+      "No search can exclude unindexed, unpublished, or independently derived exact two-agent uniform convolution formulas.",
+      "Some published research-record comparisons were based on indexed summaries rather than repository full text; these were judged inapplicable at the level of objects/claims, not used for full-document noncoverage.",
+      "The existing high-probability welfare-optimal EF result is broad, so novelty rests strictly on exact finite probabilities and the sharp asymptotic prefactor, not on eventual envy-freeness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: worst-case existence/complexity, not iid sampling reliability or sharp large deviations",
+        "evidence": "Tables 1–2 classify EF+MSW and EF+PO computational complexity; §1.2 cites prior probabilistic existence only indirectly.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.31849",
+        "material_read": "Full arXiv-rendered introduction, §1.1 results tables, §1.2 related work, §2 assumptions; searched full rendered page for random-model claims",
+        "method": "Read primary arXiv full text (arxiv.org/abs/2609.31849)",
+        "title": "Fair and Efficient Allocations: Decision Problems in the Gap of Polynomial Hierarchy",
+        "trigger": "2026 literature-led motivation, identical EF+maximum-welfare objective"
+      },
+      {
+        "assessment": "COVERS qualitative eventual envy-freeness; DOES NOT COVER exact fixed-m uniform probability or sharp exponent/prefactor",
+        "evidence": "Theorem 2 and its proof allocate to the itemwise maximum and prove high-probability envy-freeness with a generic Chernoff bound.",
+        "identifier_or_url": "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+        "material_read": "Primary PDF introduction, model assumptions, Theorem 2 and complete Chernoff-bound proof (pp. 2–4), including page screenshots",
+        "method": "Read openly accessible author-hosted primary PDF and visually inspected theorem/proof pages",
+        "title": "The Computational Rise and Fall of Fairness",
+        "trigger": "Earliest strong theorem about the same winner-assigned welfare mechanism"
+      },
+      {
+        "assessment": "COVERS eventual high-probability EF in a group allocation model; not the new exact two-agent probability or prefactor",
+        "evidence": "Theorem 1 uses sufficient m>Cn log n and concentration arguments; Theorem 2 covers two groups.",
+        "identifier_or_url": "https://arxiv.org/abs/1706.08219",
+        "material_read": "ArXiv full-text introduction, §§2–3, Theorem 1 and Theorem 2, proof sketch and Appendix A overview",
+        "method": "Read primary arXiv rendered text",
+        "title": "Asymptotic Existence of Fair Divisions for Groups",
+        "trigger": "Generalization of welfare-maximizing EF under independent valuations"
+      },
+      {
+        "assessment": "COVERS qualitative eventual EF / EF1-or-EF guarantee and invokes Dickerson et al.; not exact fixed-m law or local limit prefactor",
+        "evidence": "Proposition 3.1 and Theorem 3.2 state high-probability claims.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.11672",
+        "material_read": "ArXiv full-text introduction, §3.1 Proposition 3.1, Theorem 3.2, and Appendix C.1",
+        "method": "Read primary arXiv rendered text",
+        "title": "Fairness-Efficiency Tradeoffs in Dynamic Fair Division",
+        "trigger": "Greedy allocation of iid arriving values with eventual EF"
+      },
+      {
+        "assessment": "COVERS high-probability existence under diverse value distributions, not the finite uniform cardinal model exact reliability law",
+        "evidence": "§4 multiplier mechanism and Appendix D use generic positive conditional gaps and Chernoff bounds.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.08971",
+        "material_read": "ArXiv full-text introduction, §§3–4 and Appendix D concentration/symmetric model discussion",
+        "method": "Read primary arXiv rendered text",
+        "title": "Envy-Free and Pareto-Optimal Allocations for Agents with Asymmetric Random Valuations",
+        "trigger": "Strongest directly relevant stochastic generalization to nonidentical value laws"
+      },
+      {
+        "assessment": "NOT_COMPARABLE IN DOMAIN: ordinal one-to-one assignment/random priority rather than cardinal iid maximum-utilitarian allocation",
+        "evidence": "The indexed summary asserts SD envy-freeness for at most two preference orders and a sharp 3-agent ordinal boundary.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1",
+        "material_read": "Search-provided title, indexed claim summary and source URL only, not full repository document",
+        "method": "Published-record semantic retrieval; compared returned statement and objects",
+        "title": "Two preference types restore stochastic-dominance envy-freeness of random priority",
+        "trigger": "Highest-ranked semantic published-record hit for stochastic envy-freeness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "73613415-ea4e-47d3-be57-38295a54752f",
+  "value": {
+    "rationale": "The exact finite-sample risk of envy under the canonical efficient greedy allocation is a natural, policy-relevant object that known high-probability existence statements do not quantify. The new rational formula determines the exact reliability for arbitrary m, and the sharp rate plus prefactor yields mathematically calibrated large-item confidence budgets. The result is an infinite-family quantitative classification rather than an arbitrary parameter slice; its significant mathematical content is the explicit inversion and tight local-limit asymptotic, not simply code or a generic Chernoff bound.",
+    "status": "PASS"
+  }
+}
