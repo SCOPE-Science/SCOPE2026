@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The ordinary proof, local-coordinate expansion, and symbolic manipulations are contained in `RESULT.md`. Execute `python3 verify_segre.py` with Python 3 and no external packages.
+## correctness
 
-The finite-field checker explicitly enumerates all projective lines of \(\mathbb P^3(\mathbb F_2)\), \(\mathbb P^3(\mathbb F_4)\), \(\mathbb P^4(\mathbb F_2)\), and \(\mathbb P^4(\mathbb F_4)\). It enforces all four coefficients of the restricted cubic, not simply pointwise vanishing on a short finite line. Its counts are respectively \(15\), \(27\), \(75\), and \(477\) lines on the relevant varieties. The 27 geometric lines on the cubic surface split into fifteen fixed lines and six Frobenius pairs.
+PASS
 
-An exact witness in \(\mathbb F_{32}\) provides a point of the smooth cubic at which the linear tangent form and square root of the quadratic tangent form are independent. A simultaneous transverse direction has cubic value \(19\ne0\), verifying that the coefficient of the surviving cubic normal variable is nonzero. Nonvanishing at one actual geometric point establishes a nonempty Zariski-open locus; the Hilbert-scheme equations and elimination in the written proof then establish the generic local algebra \(\overline{k(S)}[u,v]/(u^2,v^3)\).
+Characteristic-two coordinate change sends the symmetric six-coordinate cubic to a projective cone over S: F(y)=sum_i y_i^3+(sum_i y_i)^3. Its partial derivatives (y_i+sum y)^2 cannot vanish simultaneously projectively, so S is a smooth cubic surface. Projection from the cone vertex separates the S-family of lines through the vertex from 27 plane-dual families of nonvertex lines. A Grassmannian chart gives the base equation and transverse linear/quasilinear quadratic/cubic equations. Generic independence and nonvanishing of the cubic coefficient lead over algebraic closure of k(S) to the complete intersection Kbar[u,v]/(u²,v³) of length 6 and Hilbert function (1,2,2,1). Independently coded RREF projective-line enumeration found S-lines (15,27) and cone-lines (75,477) at q=2,4. Independent F32 arithmetic verified s=(1,2,6,16),w=(0,1,22,31): F(s)=A1=A2=0, F(w)=19 !=0, the two transverse linear forms independent. Frobenius line permutation yields 15 fixed+6 transpositions, Picard trace 5 and stated point counts/zeta for all n. Explicit genericity witness verifies open condition; finite tests alone do not prove general geometry.
 
-The checker does not compute all geometric points of the Fano scheme in arbitrary extensions, nor does it derive the local Artin algebra merely by brute force. The 28 components and all-power counting formula rely on the geometric projection argument, standard cubic-surface line theorem, and Frobenius action on the Picard group. The calculation does not determine the nonreduced global scheme or local structure at intersections of components.
+## originality
 
-Self-review were completed; independent audit and independent validation have not been performed.
+PASS
+
+Qualified best-of-knowledge novel component is the generic nonreduced line Hilbert-scheme local algebra (u²,v³); the cone reduction, smooth cubic surface, twenty-seven lines, Picard trace and extension-field arithmetic are classical/previously classified. Full-text Karaoglu study of smooth cubic surfaces in char2 does not include this Hilbert scheme local calculation; the related published Fano thickening is for a different plane variety.
+
+## value
+
+PASS
+
+The nonreduced generic component of a line-Fano Hilbert scheme is a meaningful scheme-theoretic phenomenon invisible in reduced support or rational point counts. A precise transverse Artin algebra of length 6, alongside exact 28 reduced components and arithmetic zeta information, gives a natural and independently useful geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
