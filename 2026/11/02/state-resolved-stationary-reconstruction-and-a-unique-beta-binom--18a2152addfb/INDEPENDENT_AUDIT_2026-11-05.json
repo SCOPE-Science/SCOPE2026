@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For dot X=-X+S, finite-state Markov chain gives unique invariant law by contraction. Zero stationary flux implies p_+-p_-=xp. Subtracting running-state transport equations yields derivative[(1-x²)p-p_0]=-axp, integrated from x to endpoint with vanishing endpoint current; evenness gives the integral over |x|. The mixed moment formula follows by Fubini; the total M_(2k) hypergeometric expression is credited to Sun–Ye–Podgornik. At t=a+1 the three explicit beta-profile densities satisfy all stationary forward equations with integrable zero boundary currents. Conversely the conditional binomial moment identities E[S|X]=X and E[S²|X]=(1+X²)/2 plus stationary X² and XS give E[X²]=1/(2a+1) and E[S²]=(a+1)/(2a+1), and stationary motor balance E[S²]=t/(a+t) forces t=a+1 (a>0). Includes a+t=1 without division by zero and both endpoint regimes. Independent rational stationary generator moment checks (168 cases) corroborated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Ye–Podgornik covers arbitrary a,t but for total density/moments; Basu treats a=t, which never equals t=a+1 for a>0."
+        ],
+        "reasoning": "Neither stated theorem supplies both unrestricted joint densities and unique conditional beta-binomial sector; generic stationary-PDMP theorems give existence but not these formulas.",
+        "searches": [
+          "arxiv:2409.00578v2 equations 38-43",
+          "arxiv:1910.10083 Sections 2–3",
+          "three state run and tumble oscillator resting state stationary joint position internal state beta binomial"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen Git blob cc256bdc0e8330eb966358a8df48b1ef2fcf5706",
+        "state_checker.py frozen blob 4915e71276e32ec1a244f379011c6b842d311639",
+        "arxiv:2409.00578v2",
+        "arxiv:1910.10083",
+        "three state run and tumble oscillator resting state stationary joint position internal state beta binomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun–Ye–Podgornik text states total distribution found and separate internal-state densities not resolved; Basu covers equal switching rates."
+        ],
+        "reasoning": "The prior total law is a premise for the reconstruction, not an implication of the new integral identity by itself; explicit stationary transport analysis is required.",
+        "searches": [
+          "arxiv:2409.00578v2 Section III",
+          "arxiv:1910.10083 Sections 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-state PDMP stationary equations provide equivalent balance-law formulations; Sun–Ye–Podgornik distinguish total and separate state densities."
+        ],
+        "reasoning": "The standard forward equations are antecedents, not an existing all-rate inversion formula. The explicit integral and exactly one binomial curve are materially additional.",
+        "searches": [
+          "three state run and tumble oscillator resting state stationary joint position internal state beta binomial",
+          "arxiv:2409.00578v2 Section III",
+          "arxiv:1910.10083 Sections 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The objects are continuous distributions and full moment identities, not a finite discrete integer sequence."
+        ],
+        "reasoning": "A numerical database of characteristic functions cannot substitute for an exact all-rate state-resolved identity; checked exact analytic sources show only partial coverage.",
+        "searches": [
+          "three state run and tumble oscillator resting state stationary joint position internal state beta binomial",
+          "Sun Ye Podgornik 2025 stationary moments table",
+          "Basu 2019 RTP three-state stationary formulas"
+        ]
+      },
+      "rationale": "Sun–Ye–Podgornik explicitly treat total positional law and mark distinct state densities as unresolved; Basu et al. solve a symmetric equal-rate subfamily a=t and do not imply the t=a+1 conditional-binomial characterization. Existing generator/PDMP principles could imply reconstruction, but no matching statement was identified.",
+      "residual_risks": [
+        "Another more general stationary PDMP identity may produce the same state-reconstruction operator implicitly.",
+        "No spatial noise, direct running-sign switches, or velocity asymmetry included."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP known total density and moment sequence",
+          "evidence": "Section III states total stationary position distribution is found, separate internal-state densities are left for future investigation.",
+          "identifier_or_url": "https://arxiv.org/html/2409.00578v2",
+          "material_read": "Full article HTML, Section III around equations (38)–(43), discussion of total versus state-resolved density",
+          "method": "OA arXiv full-text HTML",
+          "title": "Exact moments for a run and tumble particle with a finite tumble time in a harmonic trap",
+          "trigger": "Same active oscillator and arbitrary positive switching rates"
+        },
+        {
+          "assessment": "NOT_COVERING on compared parameter class",
+          "evidence": "Analytic solution imposes equal running/resting transition rates a=t; distinct from t=a+1 binomial curve.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1910.10083",
+          "material_read": "Primary full HTML Sections 2–3, model rate assumptions and stationary PDE solutions",
+          "method": "OA ar5iv full-text HTML",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Same three-state trapped RTP but different rate restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Recovering the hidden motor states from a single total marginal, including rate singular transitions, closes a concrete gap in an exactly solvable physical model. The unique binomial conditional law and exact mixed moments are independently useful to state estimation and stationary observable calculations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen Git blob cc256bdc0e8330eb966358a8df48b1ef2fcf5706",
+    "state_checker.py frozen blob 4915e71276e32ec1a244f379011c6b842d311639",
+    "arxiv:2409.00578v2",
+    "arxiv:1910.10083",
+    "three state run and tumble oscillator resting state stationary joint position internal state beta binomial"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a three-state active oscillator with run-to-rest rate a>0 and rest-to-each-run rate t/2, complete stationary joint densities p_s(x) follow from one integral of known total marginal p; the position-conditioned binomial law occurs exactly on t=a+1, giving explicit beta-binomial factorization.",
+  "limitations": [
+    "Joint-density identities hold almost everywhere in (-1,1), with weak interpretation at integrable singularities.",
+    "Rate a,t strictly positive, a+t=1 included.",
+    "Another more general stationary PDMP identity may produce the same state-reconstruction operator implicitly.",
+    "No spatial noise, direct running-sign switches, or velocity asymmetry included."
+  ],
+  "schema_version": 1
+}

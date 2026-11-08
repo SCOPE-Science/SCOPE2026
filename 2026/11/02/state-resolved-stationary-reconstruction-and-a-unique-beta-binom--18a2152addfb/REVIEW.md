@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The stationary flow equations yield zero total current, a signed-current identity, and an endpoint integral formula recovering the resting density without division by any rate-dependent expression. The remaining two state densities follow from their sum and difference. Fubini gives the exact all-order mixed-moment identities. On the distinguished curve, direct substitution verifies all three stationary equations for the beta–binomial density, while two stationary-generator moment identities prove the converse for every positive rate. The reproduced standalone checker passed 4,200 exact rational assertions. Potential singular centers are treated distributionally; endpoints are controlled by the positive run-exit exponent. No finite experiment substitutes for the arbitrary-rate proof.
+## correctness
 
-**Originality: PASS, qualified.** Sun–Ye–Podgornik (arXiv:2409.00578v1/v2) provides the total marginal and explicitly points to missing internal-state marginals. Basu et al. (arXiv:1910.10083) gives a full stationary solution in the equal-rate model, not the arbitrary-rate reconstruction nor the unique unequal-rate beta–binomial sector. Direct searches for equivalent all-rate reconstructions, beta–binomial conditional laws, and possible stronger PDMP identities found no covering statement, but the exact general marginal formula makes the new reconstruction analytically approachable. Priority against more general undiscovered stationary-flux formulas remains uncertain.
+PASS
 
-**Mathematical value: PASS.** This completes the genuinely state-resolved stationary statistics of a natural three-state active particle for arbitrary positive switching parameters, an extension explicitly raised in the motivating paper. The exact posterior law at one uniquely characterized parameter locus is a nontrivial hidden-state inference identity; the beta–binomial interpretation and all mixed moments give quantities that cannot be recovered as state labels from the total marginal alone. The main contribution is not a routine restatement of the total-density formula or an isolated normalized parameter substitution. Broader rates are covered by a uniform transform, and a sharp iff theorem characterizes the exceptional elementary joint law.
+For dot X=-X+S, finite-state Markov chain gives unique invariant law by contraction. Zero stationary flux implies p_+-p_-=xp. Subtracting running-state transport equations yields derivative[(1-x²)p-p_0]=-axp, integrated from x to endpoint with vanishing endpoint current; evenness gives the integral over |x|. The mixed moment formula follows by Fubini; the total M_(2k) hypergeometric expression is credited to Sun–Ye–Podgornik. At t=a+1 the three explicit beta-profile densities satisfy all stationary forward equations with integrable zero boundary currents. Conversely the conditional binomial moment identities E[S|X]=X and E[S²|X]=(1+X²)/2 plus stationary X² and XS give E[X²]=1/(2a+1) and E[S²]=(a+1)/(2a+1), and stationary motor balance E[S²]=t/(a+t) forces t=a+1 (a>0). Includes a+t=1 without division by zero and both endpoint regimes. Independent rational stationary generator moment checks (168 cases) corroborated.
 
-**Closest sources and limits.** Sun et al., arXiv:2409.00578v1 (2024-09-01), v2 (2025-04-16), particularly the full Section III and the stated Fokker–Planck follow-up; Basu et al., arXiv:1910.10083v1, Sections 2–3, which covers equal run/tumble rates. Residual risk: more general uncatalogued velocity-jump stationary reconstruction theorems may subsume the flux argument; no claim is made about diffusive, biased, or non-Markovian state dynamics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun–Ye–Podgornik explicitly treat total positional law and mark distinct state densities as unresolved; Basu et al. solve a symmetric equal-rate subfamily a=t and do not imply the t=a+1 conditional-binomial characterization. Existing generator/PDMP principles could imply reconstruction, but no matching statement was identified.
+
+## value
+
+PASS
+
+Recovering the hidden motor states from a single total marginal, including rate singular transitions, closes a concrete gap in an exactly solvable physical model. The unique binomial conditional law and exact mixed moments are independently useful to state estimation and stationary observable calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
