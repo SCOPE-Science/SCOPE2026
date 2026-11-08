@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly reduces the degree-truncated condition to the two hub fibers, proves both list-coloring inequalities, establishes the two-pair limit for all partial DP matchings on each degree-two fiber, and constructs an exact partition of the hub-choice grid into allowable one- and two-pair obstruction gadgets. The integer thresholds follow without asymptotic extrapolation. The finite script provides independent local matching enumeration, grid-cover dynamic programming, direct gadget verification, and arithmetic boundary checks. The proof handles every integer \(n\ge3\) and explains why the smaller exceptional graphs are excluded.
+PASS
 
-## Originality — PASS, with residual historical risk
+With hub fibers each of size h=min(k,n), each degree-two neighbor has a two-choice fiber and the hubs are nonadjacent. Ordinary lists: equal hub color if lists intersect; otherwise each leaf list forbids <=1 ordered pair. A complete h-by-h grid needs h² leaves. DP matching: two leaf choices fail only if separately blocked by different hub choices, forbidding <=2 coordinate-disjoint ordered pairs; concatenated cyclic perfect matchings partition the grid into ceil(h²/2) such admissible blocks. Explicit local cover gadgets exclude each block and establish necessity. h=n satisfies both inequalities for n>=3; boundary K2,2 twisted DP C4 cover and K2,1 forced-color obstruction are valid. Independent script constructed 510 sample block cases for h=2..14 and confirmed exactly two coordinate-disjoint forbidden hub pairs.
 
-The July 2025 primary source gives the ordinary-list noncolorable \(K_{2,k^2}\) construction, which is **not** asserted to be new. Its inspected theorems address planar and minor-closed graph families, not exact truncated choice parameters of every two-hub biclique. Earlier DP work on \(K_{2,4}\)-minor-free graphs gives only broader family bounds for graphs outside most of the present domain. An October 2026 class-wide DP manuscript reports square-root inequalities but no exact biclique threshold. The claim evaluated as new is the simultaneous exact list/DP classification and the sharp factor-two obstruction capacity for degree-two DP neighbors. Targeted bibliographic and semantic searches found no covering theorem, but cannot prove absence of an earlier equivalent formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural, explicitly motivated exceptional graph family underlying the nonuniformity examples in degree-truncated coloring. The result determines both finite parameters sharply throughout an infinite family, and quantifies an unbounded additive and sharp \(\sqrt2\) multiplicative separation between ordinary and correspondence-coloring variants. The coordinate-disjoint matching decomposition provides an extremal structural explanation, not merely computational values.
+Same-claim comparison: The already-known ordinary obstruction contributes no originality. Two-pair DP correspondence behavior differs because matchings at a leaf exclude two disjoint grid pairs rather than one ordinary pair. Class-wide square-root bounds and uniform-fold color numbers do not force the exact hub-vs-leaf two-cover threshold for every n. Existing stated theorems do not imply the simultaneous exact ordinary and DP thresholds; recognizes already covered obstruction. Historical-priority risks are retained.
 
-## Boundaries and outstanding verification
+## value
 
-No generalization to three or more hub vertices is claimed. A prior proof using different terminology may have been missed. Finite computations corroborate, but do not replace, the universal argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp separation by factor sqrt(2) of two natural degree-truncated coloring invariants for a canonical bipartite family is informative, with a substantive DP-cover gadget classification, not merely the previously known list obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

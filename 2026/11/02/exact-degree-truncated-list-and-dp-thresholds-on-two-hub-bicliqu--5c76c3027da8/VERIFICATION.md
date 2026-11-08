@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone file `verify.py` uses Python's standard library. Its checks are:
+## correctness
 
-- Exhaustive enumeration of all local two-color DP edge-matchings for hub-fiber sizes two through seven, verifying the upper bound of two excluded hub pairs and the matching condition on a pair of exclusions.
-- Construction and direct checking of the block partition and each common-neighbor DP gadget for the same sizes.
-- A separately implemented exact subset dynamic program for the minimum number of allowed blocked-pair blocks covering the full hub-pair grid at hub sizes two, three, and four.
-- Direct enumeration of the prescribed ordinary-list obstruction and integer threshold tests for every integer \(3\le n\le500\).
+PASS
 
-Command: `python verify.py`.
+With hub fibers each of size h=min(k,n), each degree-two neighbor has a two-choice fiber and the hubs are nonadjacent. Ordinary lists: equal hub color if lists intersect; otherwise each leaf list forbids <=1 ordered pair. A complete h-by-h grid needs h² leaves. DP matching: two leaf choices fail only if separately blocked by different hub choices, forbidding <=2 coordinate-disjoint ordered pairs; concatenated cyclic perfect matchings partition the grid into ceil(h²/2) such admissible blocks. Explicit local cover gadgets exclude each block and establish necessity. h=n satisfies both inequalities for n>=3; boundary K2,2 twisted DP C4 cover and K2,1 forced-color obstruction are valid. Independent script constructed 510 sample block cases for h=2..14 and confirmed exactly two coordinate-disjoint forbidden hub pairs.
 
-Expected terminal line: `VERIFY_OK`.
+## originality
 
-These are finite checks only. The written combinatorial proof establishes the universal statements. No independent audit or external certification is claimed.
+PASS
+
+Same-claim comparison: The already-known ordinary obstruction contributes no originality. Two-pair DP correspondence behavior differs because matchings at a leaf exclude two disjoint grid pairs rather than one ordinary pair. Class-wide square-root bounds and uniform-fold color numbers do not force the exact hub-vs-leaf two-cover threshold for every n. Existing stated theorems do not imply the simultaneous exact ordinary and DP thresholds; recognizes already covered obstruction. Historical-priority risks are retained.
+
+## value
+
+PASS
+
+A sharp separation by factor sqrt(2) of two natural degree-truncated coloring invariants for a canonical bipartite family is informative, with a substantive DP-cover gadget classification, not merely the previously known list obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

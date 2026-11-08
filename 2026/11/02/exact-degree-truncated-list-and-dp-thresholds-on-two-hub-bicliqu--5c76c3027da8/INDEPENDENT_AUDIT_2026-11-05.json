@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:54:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/verify.py",
+        "independent_checks.py, independent_checks_output.txt"
+      ],
+      "rationale": "With hub fibers each of size h=min(k,n), each degree-two neighbor has a two-choice fiber and the hubs are nonadjacent. Ordinary lists: equal hub color if lists intersect; otherwise each leaf list forbids <=1 ordered pair. A complete h-by-h grid needs h² leaves. DP matching: two leaf choices fail only if separately blocked by different hub choices, forbidding <=2 coordinate-disjoint ordered pairs; concatenated cyclic perfect matchings partition the grid into ceil(h²/2) such admissible blocks. Explicit local cover gadgets exclude each block and establish necessity. h=n satisfies both inequalities for n>=3; boundary K2,2 twisted DP C4 cover and K2,1 forced-color obstruction are valid. Independent script constructed 510 sample block cases for h=2..14 and confirmed exactly two coordinate-disjoint forbidden hub pairs.",
+      "residual_risks": [
+        "Statements confined to n>=3 with explicit n=1,2 exclusions and partial matching DP-cover convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 minor-free results give class estimates, and uniform-fold DP covering-family theorems impose equal fiber sizes, unlike this h/2 asymmetric degree-truncated cover."
+        ],
+        "reasoning": "Class-wide square-root bounds and uniform-fold color numbers do not force the exact hub-vs-leaf two-cover threshold for every n.",
+        "searches": [
+          "degree-truncated DP-colouring K4 K2t minor-free arXiv:2610.36586",
+          "DP coloring complete bipartite covering families arXiv:2609.33966"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob ffeca473631444788aebb84cd38d62157ea343fb",
+        "Zhou–Zhu–Zhu arXiv:2507.10453",
+        "Lo–Wang–Zhou–Zhu arXiv:2312.15962",
+        "Zhou arXiv:2610.36586",
+        "Kaul et al arXiv:2609.33966",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/verify.py",
+        "Independent private standard-library checker: independent_checks.py; DP CHECKED 510"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first implies ordinary non-choosability when n>=h², but not the upper converse or the DP sharp factor of two; K2,n for n>=4 is not K2,4-minor free, and uniform fold condition differs."
+        ],
+        "reasoning": "Existing stated theorems do not imply the simultaneous exact ordinary and DP thresholds; recognizes already covered obstruction.",
+        "searches": [
+          "Zhou Zhu Zhu 2025 K2,k² ordinary lists",
+          "Lo Wang Zhou Zhu 2023 K2,4 minor-free",
+          "Kaul et al 2026 uniform fold DP"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou–Zhu–Zhu (2025) expressly constructs the ordinary-list obstruction for K2,k²; its family-wide result is not the exact DP two-pair obstruction."
+        ],
+        "reasoning": "The already-known ordinary obstruction contributes no originality. Two-pair DP correspondence behavior differs because matchings at a leaf exclude two disjoint grid pairs rather than one ordinary pair.",
+        "searches": [
+          "degree-truncated choosability K2,k² Zhou Zhu Zhu arXiv:2507.10453",
+          "truncated degree DP K2,t minor free Lo Wang Zhou Zhu arXiv 2312.15962"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned unrelated biclique edge colorings and graph invariants, without a table for these exact two thresholds; direct finite cover gadgets provided new checks."
+        ],
+        "reasoning": "No database match is not proof of priority; exact all-n formulas extend beyond finite tables.",
+        "searches": [
+          "K2n degree truncated DP exact ceil h squared over two",
+          "Resultary degree truncated list DP correspondence coloring complete bipartite K2n exact threshold"
+        ]
+      },
+      "rationale": "Same-claim comparison: The already-known ordinary obstruction contributes no originality. Two-pair DP correspondence behavior differs because matchings at a leaf exclude two disjoint grid pairs rather than one ordinary pair. Class-wide square-root bounds and uniform-fold color numbers do not force the exact hub-vs-leaf two-cover threshold for every n. Existing stated theorems do not imply the simultaneous exact ordinary and DP thresholds; recognizes already covered obstruction. Historical-priority risks are retained.",
+      "residual_risks": [
+        "Older DP cover results with different terminology could imply the exact double-forbidden-pair obstruction.",
+        "Statements confined to n>=3 with explicit n=1,2 exclusions and partial matching DP-cover convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The ordinary lower bound is prior, but the DP h²/2 threshold not established in inspected section",
+          "evidence": [
+            "Explicit K2,k² ordinary list obstruction in 2025 text"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.10453",
+          "material_read": "Accessible full text introduction and theorem/obstruction section, with the K2,k² construction compared directly",
+          "method": "ArXiv primary HTML statement and proof-region reading",
+          "title": "Degree-truncated choosability of graphs",
+          "trigger": "Directly matching ordinary degree-truncated K2,k² obstruction"
+        },
+        {
+          "assessment": "K2,n for n>=4 has K2,4 minor and lies outside hypothesis",
+          "evidence": [
+            "K2,4-minor-free scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.15962",
+          "material_read": "Abstract and reported hypotheses; no claim of complete full-document reading",
+          "method": "Primary metadata and theorem-hypothesis comparison",
+          "title": "Truncated degree DP-colourability of K2,4-minor free graphs",
+          "trigger": "Close degree-truncated DP vocabulary and potential stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob ffeca473631444788aebb84cd38d62157ea343fb",
+        "Zhou–Zhu–Zhu arXiv:2507.10453",
+        "Lo–Wang–Zhou–Zhu arXiv:2312.15962",
+        "Zhou arXiv:2610.36586",
+        "Kaul et al arXiv:2609.33966",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/verify.py",
+        "Independent private standard-library checker: independent_checks.py; DP CHECKED 510"
+      ],
+      "rationale": "A sharp separation by factor sqrt(2) of two natural degree-truncated coloring invariants for a canonical bipartite family is informative, with a substantive DP-cover gadget classification, not merely the previously known list obstruction.",
+      "residual_risks": [
+        "Older DP cover results with different terminology could imply the exact double-forbidden-pair obstruction.",
+        "Statements confined to n>=3 with explicit n=1,2 exclusions and partial matching DP-cover convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob ffeca473631444788aebb84cd38d62157ea343fb",
+    "Zhou–Zhu–Zhu arXiv:2507.10453",
+    "Lo–Wang–Zhou–Zhu arXiv:2312.15962",
+    "Zhou arXiv:2610.36586",
+    "Kaul et al arXiv:2609.33966",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-degree-truncated-list-and-dp-thresholds-on-two-hub-bicliqu--5c76c3027da8/verify.py",
+    "Independent private standard-library checker: independent_checks.py; DP CHECKED 510"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Older DP cover results with different terminology could imply the exact double-forbidden-pair obstruction.",
+    "Statements confined to n>=3 with explicit n=1,2 exclusions and partial matching DP-cover convention."
+  ],
+  "schema_version": 1
+}
