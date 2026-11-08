@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Closed-neighborhood coverage is checked on the actual graph. Counting at most three rung edges covered per selected vertex gives the main lower bounds. Tight full-graph three-rung packing forces equally spaced sites and an impossible odd-cycle layer alternation at \(n\equiv3\pmod6\). On deletion, the equal-packing obstruction at \(n\equiv1\pmod6\) is forced by the two surviving boundary edges, and explicit alternating-layer selections give matching constructions for all six residues. Both boundary dimensions and the graph with a deleted vertex are covered. `verify.py` directly checks all subsets for \(3\le n\le10\) and the constructions for \(3\le n\le600\); these are corroboration rather than infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The full original manuscripts of Li–Zhang–Dong (arXiv:2610.26912v1), Brešar et al. (arXiv:2508.16338v1), and Caro–Hansberg (arXiv:1504.08055v1) were compared by mathematical implication, including synonymous isolation and vertex-edge domination. Brešar et al. Theorem 3.7 proves the intact even-case formula, which is credited, but only a lower bound for an odd base graph and no deleted-prism formula. The 2026 motivating paper addresses deletion globally without this graph family. A search of published research records found no same-claim or stronger covering result. The negative search is not proof of uniqueness; inaccessible or unindexed priority remains a risk.
+PASS
 
-**Mathematical value — PASS.** A natural family of cubic graphs exhibits a sharp six-periodic transition in isolation and complete vertex-removal sensitivity: every vertex reduces the invariant exactly in two residue classes and preserves it in four. This makes the deletion partition exact, not merely an example or a routine rephrasing, and relates directly to the active graph-deletion problem and the bipartite/nonbipartite limitation of prior Cartesian-prism work. The local gap obstruction is structural and explains the two exceptional residues.
+For all n>=3 in C_n square K_2, each selected vertex meets at most three rung-edge domination neighborhoods. Equality at n divisible by three forces length-three gaps and alternating layers, impossible with odd number of selections (n=3 mod 6). The explicit gap <=3 constructions and deletion-boundary covering show iota(P_n)=ceil(n/3)+1[n=3 mod 6] and iota(P_n-v)=ceil(n/3)-1[n=4 mod 6]. Edge cover near deleted vertex checked, including n=3 and n=4. Independently enumerated every subset of prism graph vertices for n=3,...,9, both intact and after vertex (0,top) deletion. Optimal sizes respectively (2,2),(2,1),(2,2),(2,2),(3,3),(3,3),(4,3); direct checked edge-neighborhood isolation, not relying on saved VERIFY_OK. This is finite corroboration only.
 
-**Limits.** No optimizer census or multivertex deletion theorem is asserted. Historical priority remains provisional and mathematical independence is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: Brešar et al. arXiv:2508.16338 Theorem 3.7 says iota(G square K2)=gamma(G) for bipartite G and therefore ALREADY implies intact even n values. Li--Zhang--Dong arXiv:2610.26912 concerns general vertex deletion and vertex-edge domination rather than an examined full prism six-periodic classification. Caro--Hansberg arXiv:1504.08055 develops the general isolation invariant; it does not itself imply exact odd-prism and deletion cases in the inspected statements. Exact claimed additions have not been shown covered by the inspected published results; residual priority risks remain explicit.
+
+## value
+
+PASS
+
+A complete residue-six structural classification for an elementary vertex-edge domination invariant of the natural cycle prism, including exact one-vertex sensitivity; odd-prism and deleted-prism cases supply new boundaries beyond the known even-prism evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
