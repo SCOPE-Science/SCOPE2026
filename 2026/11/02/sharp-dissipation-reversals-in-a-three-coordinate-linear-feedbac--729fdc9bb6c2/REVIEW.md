@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof specifies the diffusion convention, stationary current, covariance normalization and full parameter domain. Hurwitz stability follows for all positive feedback and nonnegative damping from the explicit cubic and positive Routh determinant. Rational symbolic solution of the full Lyapunov system yields the current matrix and entropy production, and the exact derivative and baseline-difference factorizations prove all sign assertions, crossings and endpoint claims. The packaged checker verifies the claimed algebra as polynomial identities rather than relying on a finite enumeration.
+PASS
 
-## Originality
+For h>0,k>=0 the cubic Routh–Hurwitz coefficients and determinant D=2h²+h+2k²+8k+8 are strictly positive, giving unique stationary covariance solving M S+S M^T=-2I. With Q=M S+I antisymmetric the conventional stationary overdamped EPR is tr(S^{-1}Q^TQ); exact symbolic covariance elimination yields the stated rational function. Independent symbolic differentiation verified derivative 4(h²-h+k+2)(2(h-1)k+2h-5)/D², hence damping monotonic trichotomy h<=1, 1<h<5/2, h>=5/2 and k* formula. Baseline subtraction factors with F(h)=2h³-4h²+8h-9, unique positive h_c, and k_eq. Independent stationary covariance solves at four rational sample values plus exact symbolic factor checks; the two-copy embedding is orthogonal Laplacian mode decomposition. The proof is an exact rational identity plus signs, not numerical extrapolation.
 
-PASS, qualified best-knowledge. The 2026 oscillatory/nonnormal OU decomposition gives the general entropy-production formalism, not the exact feedback-specific trichotomy. The later 2026 strong-coupling study establishes a general two-coordinate monotonicity theorem and higher-dimensional strong-coupling comparisons; its worked counterexample has four coordinates, and the inspected model and appendix do not state this three-coordinate drift or complete two-parameter boundary. Published search results concerning random OU sensors and sampling-lag behavior have different observables. General formulas imply solvability in principle, but no inspected primary claim states the sharp thresholds or exact reversal as a consequence. Doerries–Loos–Klapp (2020) investigate three-dimensional nonreciprocal memory and correlation models; their complete text was not accessible for claim-level exclusion. Risks: the formula could be implicitly available in less-accessible linear-response, feedback-control or Gaussian-process literature; publication priority requires independent investigation.
+## originality
 
-## Value
+PASS
 
-PASS. Whether damping or coupling increases nonequilibrium entropy production is a directly motivated design question. The result gives the exact optimizer, the sharp feedback phase boundaries and the crossing at which a coupling ceases to save dissipation, rather than a single parameter-dependent numerical example. Its three-coordinate structure illustrates the first naturally available residual two-dimensional irreversible loop beyond the monotone one-coordinate residual case. The two-node identical-copy construction translates the calculation into a measurable coupling response without adding asymmetric baths.
+Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.
 
-## Scope and open limits
+## value
 
-Only the specified linear, isotropic, stationary, overdamped Gaussian model and its exact two-copy embedding are proved. No universal result for all three-coordinate systems, non-Gaussian fluctuations or time-integrated entropy production is claimed. The latest relevant primary literature and the documented novelty risks require external priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The effect of increasing one damping strength on irreversible dissipation is a motivated nonequilibrium-design question. This explicit minimal three-coordinate feedback system shows sharp decrease, optimum and increase regimes, with a second exact baseline-reversal boundary, and supplies a two-copy physical embedding. Unlike a vague numerical counterexample the global phase diagram is exhaustive for a natural controlled linear family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

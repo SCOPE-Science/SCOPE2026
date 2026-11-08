@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy available. The program independently reconstructs the symmetric stationary covariance, checks every entry of the Lyapunov equation and the antisymmetric current identity, computes the EPR from its Gaussian definition, and verifies the closed rate, derivative, baseline difference, stability polynomial and limiting value as exact symbolic identities in both model parameters. It additionally checks the illustrative rational-parameter example. This checker was run on the packaged source and printed its PASS message.
+## correctness
 
-The all-parameter monotonicity and baseline-crossing results are proved analytically in `RESULT.md` using strict positivity and affine sign factors, not numerical sampling. The calculations assume \(h>0\) and \(k\ge0\); exact formulas also have formal extensions outside this physical domain which are **not** interpreted as stationary EPR when stability is absent.
+PASS
 
-The independent scientific and publication-priority audits are not performed.
+For h>0,k>=0 the cubic Routh–Hurwitz coefficients and determinant D=2h²+h+2k²+8k+8 are strictly positive, giving unique stationary covariance solving M S+S M^T=-2I. With Q=M S+I antisymmetric the conventional stationary overdamped EPR is tr(S^{-1}Q^TQ); exact symbolic covariance elimination yields the stated rational function. Independent symbolic differentiation verified derivative 4(h²-h+k+2)(2(h-1)k+2h-5)/D², hence damping monotonic trichotomy h<=1, 1<h<5/2, h>=5/2 and k* formula. Baseline subtraction factors with F(h)=2h³-4h²+8h-9, unique positive h_c, and k_eq. Independent stationary covariance solves at four rational sample values plus exact symbolic factor checks; the two-copy embedding is orthogonal Laplacian mode decomposition. The proof is an exact rational identity plus signs, not numerical extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.
+
+## value
+
+PASS
+
+The effect of increasing one damping strength on irreversible dissipation is a motivated nonequilibrium-design question. This explicit minimal three-coordinate feedback system shows sharp decrease, optimum and increase regimes, with a second exact baseline-reversal boundary, and supplies a two-copy physical embedding. Unlike a vague numerical counterexample the global phase diagram is exhaustive for a natural controlled linear family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

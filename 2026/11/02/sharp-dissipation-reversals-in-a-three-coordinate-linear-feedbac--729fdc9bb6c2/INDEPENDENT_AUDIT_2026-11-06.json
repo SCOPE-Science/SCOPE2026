@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:58:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For h>0,k>=0 the cubic Routh–Hurwitz coefficients and determinant D=2h²+h+2k²+8k+8 are strictly positive, giving unique stationary covariance solving M S+S M^T=-2I. With Q=M S+I antisymmetric the conventional stationary overdamped EPR is tr(S^{-1}Q^TQ); exact symbolic covariance elimination yields the stated rational function. Independent symbolic differentiation verified derivative 4(h²-h+k+2)(2(h-1)k+2h-5)/D², hence damping monotonic trichotomy h<=1, 1<h<5/2, h>=5/2 and k* formula. Baseline subtraction factors with F(h)=2h³-4h²+8h-9, unique positive h_c, and k_eq. Independent stationary covariance solves at four rational sample values plus exact symbolic factor checks; the two-copy embedding is orthogonal Laplacian mode decomposition. The proof is an exact rational identity plus signs, not numerical extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stationary OU EPR/covariance formulas enable computation for this drift but do not by themselves present its nontrivial h,k phase diagram.",
+          "The Kharbanda source analyzes a monotone two-coordinate theorem and higher-dimensional residual effects; present drift has three coordinates per copy."
+        ],
+        "reasoning": "Broader frameworks acknowledged. No primary inspected statement decisively covers this exact threshold, although a related 3-coordinate memory paper remained inaccessible.",
+        "searches": [
+          "Nagayama Kolchinsky Ito arxiv:2606.07263 oscillatory nonnormal OU dissipation",
+          "Kharbanda Burnet Sabass arxiv:2610.37030 residual dynamics strongly coupled systems",
+          "Doerries Loos Klapp arxiv:2010.12806"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py with full rational EPR formula",
+        "Nagayama–Kolchinsky–Ito arxiv:2606.07263 primary abstract",
+        "Kharbanda–Burnet–Sabass arxiv:2610.37030 full relevant Sections II–IV and Appendix D.4",
+        "Doerries–Loos–Klapp arxiv:2010.12806 abstract plus authorized access failure",
+        "Godrèche–Luck arxiv:1807.00694 generic OU stationary states",
+        "Resultary semantic query: three variable nonreciprocal Ornstein Uhlenbeck entropy production feedback damping nonmonotone threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General formulas imply rational calculability but not an automatic monotonicity theorem for this specific three-coordinate drift.",
+          "Monotonicity for identical two-coordinate modal systems cannot be transferred to this 3D nonreciprocal mode."
+        ],
+        "reasoning": "The conclusion has novel specific bifurcation boundaries relative to inspected general mechanisms; a computationally straightforward consequence is still a new exact motivated structural classification unless independently already stated.",
+        "searches": [
+          "arxiv:2606.07263 current entropy production decomposition",
+          "arxiv:2610.37030 strongly coupled Langevin EPR"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is equivalent to a three-dimensional OU steady current with covariance determined by a Lyapunov equation; generic matrix EPR expressions are classical.",
+          "Resultary query found unrelated OU sensor and stationary-flow results, not this M_h(k) derivative threshold."
+        ],
+        "reasoning": "Searched feedback-control, Lyapunov, housekeeping entropy production and identical-copy coupling formulations. Source comparison is about actual drift and EPR inequalities, not titles alone.",
+        "searches": [
+          "three variable nonreciprocal Ornstein Uhlenbeck entropy production feedback damping nonmonotone threshold",
+          "nonreciprocal linear Gaussian memory Onsager entropy production 3x3 feedback",
+          "coupled Langevin OU dissipation nonmonotonicity threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original SymPy script checks rational symbolic identities; independent calculation re-derived derivative and baseline factors and numerically verified covariance/EPR for four parameter points.",
+          "No established numerical table of these exact h thresholds was located."
+        ],
+        "reasoning": "Exact inequalities are a symbolic theorem not a known-table recomputation; parameter scans alone would not establish all h,k.",
+        "searches": [
+          "three variable nonreciprocal Ornstein Uhlenbeck entropy production feedback damping nonmonotone threshold",
+          "three dimensional Langevin EPR phase diagram h k parameter numerical"
+        ]
+      },
+      "rationale": "Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.",
+      "residual_risks": [
+        "The inaccessible Doerries–Loos–Klapp primary full text could contain an equivalent EPR reduction; access alone does not justify failure.",
+        "Generic OU formulas make deriving the specific matrix result possible, and independent bibliographic priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic decomposition is prior; no whole-document claim that model absent.",
+          "evidence": [
+            "General OU current and entropy-production matrix formalism."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.07263",
+          "material_read": "Abstract and primary description of matrix decomposition; full paper not completely inspected in this run.",
+          "method": "Primary search and scope comparison",
+          "title": "Oscillatory-nonnormal decomposition of dissipation in Ornstein–Uhlenbeck processes",
+          "trigger": "Exact same OU irreversible current observable"
+        },
+        {
+          "assessment": "Exact d=2 formula (Eq. 13), general residual asymptotics (Eqs. 27–28), d=4 model (Eq. 31), and the Appendix D.4 example were inspected. No three-variable M_h(k) all-parameter trichotomy occurs in these relevant passages; no whole-document negative proof is asserted.",
+          "evidence": [
+            "Theorem for identical 2-coordinate systems and a different 4-coordinate worked case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.37030",
+          "material_read": "Open-access primary full-text HTML, Sections II.1–II.3 on EPR/modal decomposition, III.1 exact d=2 formula, IV.1–IV.5 on residual modes and representative four-dimensional model, and Appendix D.4 example of asymptotic increase.",
+          "method": "Primary-literature source comparison",
+          "title": "Residual dynamics determine dissipation in strongly coupled linear Langevin systems",
+          "trigger": "Sharp monotonicity versus coupling and residual dissipation"
+        },
+        {
+          "assessment": "Exact EPR phase relation remains unresolved; inaccessible plausible source alone does not negate best-of-knowledge originality.",
+          "evidence": [
+            "Related three-coordinate OU models, memory and correlations; unavailable full paper risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.12806",
+          "material_read": "Article abstract and bibliographic data; lawful authorized institutional full-text attempt returned vpn_disconnected; no full material inspected.",
+          "method": "Search and authorized download request",
+          "title": "Correlation functions of non-Markovian systems out of equilibrium: analytical expressions beyond single-exponential memory",
+          "trigger": "Highly plausible 3-coordinate nonreciprocal Langevin precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The effect of increasing one damping strength on irreversible dissipation is a motivated nonequilibrium-design question. This explicit minimal three-coordinate feedback system shows sharp decrease, optimum and increase regimes, with a second exact baseline-reversal boundary, and supplies a two-copy physical embedding. Unlike a vague numerical counterexample the global phase diagram is exhaustive for a natural controlled linear family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only M_h(k), h>0,k>=0, isotropic noise sqrt2, all coordinates even under time reversal, stationary overdamped EPR; no arbitrary OU or nonlinear dynamics."
+  ],
+  "schema_version": 1
+}
