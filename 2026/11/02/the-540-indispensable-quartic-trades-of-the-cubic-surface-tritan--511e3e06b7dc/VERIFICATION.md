@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in a standard Python 3 environment. The script builds all objects afresh and reports five assertion-guarded statuses: TRITANGENTS_OK, CUBIC_OK, QUARTIC_OK, LIFTS_OK and WEYL_OK. It performs exact exhaustive signature enumeration for all multisets of 45 tritangents of sizes two, three and four, with no omitted cases. All 540 minimal quartic fibers are checked individually, as is their orbit closure. No floating-point computation, external library or downloaded dataset is needed.
+## correctness
 
-These finite checks concern an explicitly finite incidence configuration common to all smooth characteristic-zero cubic surfaces. Their application across that family rests on the classical blowup description and its exhaustive 27-line and 45-tritangent classification. They do not settle generators of degree five or higher, or establish independent priority review.
+PASS
+
+For the incidence monomial map of the 45 tritangent planes into 27 independent line variables, equality of 27-entry exponent signatures characterizes each binomial fiber. Exact independent integer enumeration of all multisets of tritangents finds degree-2: 1035 singleton; degree-3: 15975 singleton and 120 doubleton; degree-4: 182700 singleton and 5940 doubleton. Precisely 540 quartic doubletons are coprime; the other 5400 are distinct cubic-times-variable lifts. In a two-element coprime fiber, no lower-degree binomial multiples can connect the two monomials, so each is indispensable; all quartic relations of lower rank are cubic consequences. Independent Picard lattice reflection closure recovers one E6 orbit of size 540, seed ((0,6,12,15),(2,5,11,17)). The theorem is ONLY about minimal generators through degree 4, not full ideal generation.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge original contribution is The 540 indispensable quartic trades of the cubic-surface tritangent configuration; source inspections and four implication checks below separate its precise claim from prior theorems; earlier subresults are credited, and stated residual priority risks remain.
+
+## value
+
+PASS
+
+The first minimal Markov moves beyond the classical Steiner exchanges form a natural combinatorial invariant of the cubic-surface 45-by-27 tritangent incidence algebra. Determining the entire indispensable fourth-degree orbit rather than re-counting the known 120 pairs is mathematically useful for computations of toric Markov bases and degenerations; no arbitrary sliced parameter or unsourced downstream theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
