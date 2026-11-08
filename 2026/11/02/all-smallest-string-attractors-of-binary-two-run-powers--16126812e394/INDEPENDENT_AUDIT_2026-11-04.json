@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:13:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W=(0^a1^b)^k, a,b positive and k>=2, one selected 0 and one selected 1 are forced; the 01 and internal 10 boundary tests are necessary. For any factor of length >= p=a+b, shifting all occurrences by p gives an interval union spanning [p,N-p+1], hence any marked internal 10 position intersects an occurrence. Short factors are pure run factors (slide to chosen symbol), 10-crossing factors (periodic internal boundary), or 0^u1^v (01 boundary). This proves the four-factor certificate for all lengths, not merely brute-force cases. The boundary intersection sets imply exactly (k-1)(k max(a,b)+1) pairs if min(a,b)=1, otherwise 2k(k-1), with the two disjoint pair families and the listed distance enumerator. Independently enumerated literally all factors and pairs for 48 (a,b,k) triples a,b=1..4,k=2..4; exact counts agreed. Boundary a=b=1 yields k^2-1, already published. No general arbitrary-period claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mantaci et al. (2021) author-version PDF, Proposition 15, relates the minimum size of an attractor to powers for n>=2.",
+          "No reviewed broader result enumerates all minimum pairs or their distances over arbitrary positive run lengths."
+        ],
+        "reasoning": "Optimal cardinality stabilization does not imply a counting formula or a complete set of optimal position pairs; a broad theorem about γ*(w^k) is strictly weaker in the requisite invariant.",
+        "searches": [
+          "Mantaci et al. A combinatorial view on string attractors Proposition 15 periodic powers",
+          "Resultary semantic search: exact minimum attractor counting arbitrary binary periodic run lengths"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen package RESULT.md, REVIEW.md, VERIFICATION.md, verify.py and source tree 64e8a5bb465a2c83d94d8e5dc6becb94a0e4c243",
+        "Mantaci et al. 2021 Proposition 15 author manuscript",
+        "Resultary published exact (01)^k special case in 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+        "Prezza arXiv:1709.05314 (foundational scope)",
+        "Dvořáková–Hendrychová arXiv:2308.00850 (related sequence class)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published (01)^k n^2-1 formula equals one branch of this claim.",
+          "The full result gives 2k(k-1) for both a,b>=2 and a distance enumerator depending on a,b, absent from checked special case and size-only theorem."
+        ],
+        "reasoning": "The prior special case follows from this general formula, not conversely; minimum-size or sequence-specific theorems do not imply all-a,b optimal pair enumeration.",
+        "searches": [
+          "Mantaci et al. 2021 Prop 15 powers and size stabilization",
+          "Published Resultary/2026 special antipalindromic families exact (01)^k pairs",
+          "Dvořáková–Hendrychová arXiv:2308.00850 string attractors of Rote sequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary/2026 RESULT.md of the antipalindromic special family proves (01)^n has exactly n^2-1 smallest attractor pairs, with opposite-parity positions except endpoints.",
+          "This is the new theorem specialized to a=b=1; other antipalindromic family 0(1100)^(n-1)1 is not (0^a1^b)^k."
+        ],
+        "reasoning": "Identical special-case enumeration is already known and must not be counted as novelty. The all-a,b position and distance laws were not implied by that specific theorem.",
+        "searches": [
+          "Resultary semantic: string attractors minimum attractor positions binary runs powers (0^a1^b)^k enumeration 4 factors",
+          "Resultary exact: 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The length-12 binary census classifies words with attractor number four, not the infinitely parameterized pair multiplicities of these power words.",
+          "The exact alternating subcase appears in the Resultary pseudostandard-pair census."
+        ],
+        "reasoning": "The one parameter subcase is known; finite total-word or different-word tables cannot directly encode the full three-variable optimal-set classification.",
+        "searches": [
+          "Resultary semantic: string attractors minimum attractor positions binary runs powers (0^a1^b)^k enumeration 4 factors",
+          "Resultary 2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925"
+        ]
+      },
+      "rationale": "Qualified PASS for uniform four-factor exact certificate, both run-length regimes, all optimal pair positions and gap-spectrum polynomial; the alternating singleton-run special case is established prior art and is excluded from novelty. No inspected broader minimum-cardinality theorem logically determines all optimal pairs. Residual risk of an older general periodic-word or binary run-power optimal-set enumeration.",
+      "residual_risks": [
+        "An unindexed older exact enumeration of all minimum attractor sets for two-run periodic powers could dominate the general classification; absence from the bounded search is not a proof of novelty.",
+        "The a=b=1 n^2-1 count is explicitly old and excluded from the novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact new pair-count claim: stabilizes minimum cardinality, not multiplicities",
+          "evidence": "Proposition 15, author-version PDF, around text lines 438-455 and PDF rendered opening page.",
+          "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c92f-ec13-fcf8-e053-d805fe0aa794/MRRRS_TCS2021.pdf",
+          "material_read": "Author PDF proof and Proposition 15 on repeated powers",
+          "method": "Read full relevant proposition with PDF rendered page inspection",
+          "title": "A combinatorial view on string attractors",
+          "trigger": "Likely stronger result on periodic powers"
+        },
+        {
+          "assessment": "PARTIAL_COVERING: exact a=b=1 specialization; no arbitrary-a,b binary two-run-power theorem",
+          "evidence": "Exact n^2-1 opposite-parity pair theorem for (01)^n; second different period-four truncated word.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+          "material_read": "Full RESULT.md finding, constructive proof, enumeration, and limitations",
+          "method": "Read full published repository theorem and proof through GitHub connector",
+          "title": "All smallest attractors in two exceptional antipalindromic pseudostandard families",
+          "trigger": "Exact (01)^k prior overlap"
+        },
+        {
+          "assessment": "Background only; no assertion about uninspected full-document priority",
+          "evidence": "Prezza 2017 basic minimum-attractor setup.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.05314",
+          "material_read": "Definition/abstract and cited foundation, not full unrelated theorem inventory",
+          "method": "Bibliographic context and scope comparison",
+          "title": "String Attractors",
+          "trigger": "Foundational definition of attractor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest variable-run periodic binary words are a natural string-attractor benchmark; their minimum size is already uninformative (two), but multiplicities and possible locations reveal a nontrivial singleton-run phase boundary and run-length-independent 2k(k-1) count when a,b>=2. Complete witness and distance classification is a motivated exact infinite family, not arbitrary small-word tabulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen package RESULT.md, REVIEW.md, VERIFICATION.md, verify.py and source tree 64e8a5bb465a2c83d94d8e5dc6becb94a0e4c243",
+    "Mantaci et al. 2021 Proposition 15 author manuscript",
+    "Resultary published exact (01)^k special case in 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+    "Prezza arXiv:1709.05314 (foundational scope)",
+    "Dvořáková–Hendrychová arXiv:2308.00850 (related sequence class)"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite linear words of the two-run period with k>=2 only; distance enumerator only when a,b>=2; arbitrary periods or one-repeat cases not covered. Finite checks corroborate, not prove, universal quantifiers.",
+  "residual_risks": [
+    "An unindexed older exact enumeration of all minimum attractor sets for two-run periodic powers could dominate the general classification; absence from the bounded search is not a proof of novelty.",
+    "The a=b=1 n^2-1 count is explicitly old and excluded from the novelty claim."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a pair to attract every factor, its positions must hit both letters and an occurrence of both oriented transitions. Conversely, the selected interior \(10\) boundary hits every factor of length at least the period by overlapping periodic occurrences, and all shorter factors are either monochromatic, cross an interior \(10\), or have the form \(0^u1^v\) crossing \(01\). This establishes the exact four-factor certificate for every positive run length. Inclusion-exclusion over the two boundary types proves both branch counts and disjoint extremal-position families; the explicit pair coordinates give the gap polynomial and extrema. Boundaries \(k=2\), \(a=1\), \(b=1\), and \(a=b=1\) are included. Exhaustive coverage-mask and separately implemented literal checks support, but do not replace, the symbolic proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Prezza's introduction defines the measure but does not enumerate all optimal pairs for binary two-run powers. Mantaci et al. prove stabilization of minimum attractor cardinality in periodic powers, which is strictly weaker than the exact multiplicities, all-pair classification, local certificate, and span polynomial here. Restivo et al. address infinite words, and Dvořáková–Hendrychová address Rote/generalized-pseudostandard classes. A published exact enumeration of the alternating \((01)^k\) subfamily already exists and is specifically excluded from the novelty assessment. Its second family, \(0(1100)^{k-1}1\), is a different finite word, not a full two-run power. Later Fibonacci/period-doubling enumerations concern different families. Exact-claim and alias searches disclosed no broader covering theorem. A differently indexed general classification could exist; a negative search is not proof of novelty.
+PASS
 
-## Value — PASS
-The family is the natural simplest nonconstant periodic string with adjustable run lengths. The all-parameter attractor multiplicity reveals a sharp difference between a singleton run and two nontrivial runs, and remarkably becomes independent of both run lengths in the latter regime. The explicit witnesses and distance enumerator offer a complete baseline for positional attractor multiplicity, separate from known optimal-cardinality stabilization. This is a natural infinite structural classification, not an arbitrary small-instance table.
+For W=(0^a1^b)^k, a,b positive and k>=2, one selected 0 and one selected 1 are forced; the 01 and internal 10 boundary tests are necessary. For any factor of length >= p=a+b, shifting all occurrences by p gives an interval union spanning [p,N-p+1], hence any marked internal 10 position intersects an occurrence. Short factors are pure run factors (slide to chosen symbol), 10-crossing factors (periodic internal boundary), or 0^u1^v (01 boundary). This proves the four-factor certificate for all lengths, not merely brute-force cases. The boundary intersection sets imply exactly (k-1)(k max(a,b)+1) pairs if min(a,b)=1, otherwise 2k(k-1), with the two disjoint pair families and the listed distance enumerator. Independently enumerated literally all factors and pairs for 48 (a,b,k) triples a,b=1..4,k=2..4; exact counts agreed. Boundary a=b=1 yields k^2-1, already published. No general arbitrary-period claim.
 
-## Literature and limitations
-Closest sources: Prezza, arXiv:1709.05314; Mantaci et al., *A combinatorial view on string attractors*, Proposition 15; Restivo et al., arXiv:2206.00376; Dvořáková–Hendrychová, arXiv:2308.00850; the publicly accessible *All smallest attractors in two exceptional antipalindromic pseudostandard families*; Banbara et al., CPM 2026. No claim is made for arbitrary periods, for one repetition, or for a general attractor counting algorithm. Previously known alternating counts are not new. The novelty assessment may be incomplete if an unindexed general two-run-power census exists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for uniform four-factor exact certificate, both run-length regimes, all optimal pair positions and gap-spectrum polynomial; the alternating singleton-run special case is established prior art and is excluded from novelty. No inspected broader minimum-cardinality theorem logically determines all optimal pairs. Residual risk of an older general periodic-word or binary run-power optimal-set enumeration.
+
+## value
+
+PASS
+
+The simplest variable-run periodic binary words are a natural string-attractor benchmark; their minimum size is already uninformative (two), but multiplicities and possible locations reveal a nontrivial singleton-run phase boundary and run-length-independent 2k(k-1) count when a,b>=2. Complete witness and distance classification is a motivated exact infinite family, not arbitrary small-word tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
