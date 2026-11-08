@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:10:32.108384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Steps 1–4 blob 2dfe3caa0061343022db57e5f4cf89513a504f17",
+        "verify_random_w.py blob 465a83538d8c7cd95b2f901144fa4888372f5a6c",
+        "Independent_check_script_sha256=beb97032be09ee553ab8695378778f4d6be0ed7c28eda0279db40d8fcd4a2663"
+      ],
+      "rationale": "Both W maps have affine full-union cell branch images; uniform conditional positions within cells are preserved by independent map choices and arbitrary finite cell histories. Thus stationary symbolic itinerary is Markov with four-row kernel P=[E;C;C;E], E=(1/a,(a-2)/(2a),(a-2)/(2a),1/a), C=(1-p+p/(a-1),p(a-2)/(2(a-1)),p(a-2)/(2(a-1)),0). Its two-state outer/central factor has theta=(a-2)/a and eta=p(a-2)/(a-1), stationary center alpha=theta/(1-eta+theta) and r=eta-theta. Direct symbolic multiplication independently confirms P²=1pi+r(P-1pi); this implies P^n=1pi+r^(n-1)(P-1pi), r vanishes only when p=(a-1)/a. Then P²=1pi yet P≠1pi, ensuring strict one-dependence of whole past and future Markov blocks, while center/outer is iid Bernoulli theta. Otherwise Cov(H0,Hn)=alpha(1-alpha)r^n nonzero for all n, excluding any finite dependence radius. Symbolic identities are exact; the Markov conditional-history argument supplies the infinite-time conclusion.",
+      "residual_risks": [
+        "Statement is only for stationary four-cell code, not iid real-valued state, all initial distributions or quenched dynamics.",
+        "Source stationary law identified by explicit density; uniqueness of arbitrary full-state stationary measure not established for all parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Góra 2011 addresses deterministic W-map isolated spectral instability.",
+          "Góra–Boyarsky 2013 studies Ulam/stochastic perturbation of W map densities, not the exact annealed symbolic process in the cited abstract."
+        ],
+        "reasoning": "General Perron–Frobenius theory supplies methods, not the exact p=(a-1)/a cancellation in this specific random-branch family. No inspected broader theorem fixes this parametric temporal resonance.",
+        "searches": [
+          "Kalle Maggioni random W maps stationary four cell symbolic Markov chain finite one dependence mixing probability",
+          "arXiv:1110.3528",
+          "doi:10.3934/dcds.2013.33.1937"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.3528",
+        "arXiv:1805.11430",
+        "doi:10.3934/dcds.2013.33.1937"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier density establishes pi but not P²=1pi.",
+          "Deterministic spectral-instability eigenvalue near 1 is not equivalent to vanishing annealed random-coded eigenvalue."
+        ],
+        "reasoning": "The claimed new consequence is finite-time independence of separated symbols at a unique switching probability, which does not logically follow from previously known invariant marginal densities without explicit transition and recurrence derivation.",
+        "searches": [
+          "arXiv:1805.11430",
+          "arXiv:1110.3528",
+          "Kalle Maggioni random W maps stationary four cell symbolic Markov chain finite one dependence mixing probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kalle–Maggioni source Section 6.2 computes a stationary piecewise-constant density from a 4x3 matrix, not the temporal 4x4 transition P.",
+          "The property has equivalent forms P²=1pi, centered transition square zero, and strict one-dependence."
+        ],
+        "reasoning": "Stationary density does not alone imply temporal independence. Exact finite-memory resonance requires constructing temporal transition kernel, its polynomial relation and unique root r=0.",
+        "searches": [
+          "Kalle Maggioni random W maps stationary four cell symbolic Markov chain finite one dependence mixing probability",
+          "arXiv:1805.11430 finite memory stationary symbolic coding W map",
+          "random W transition two-step nilpotent centered Markov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original full Section 6.2 prints source invariant-density formula and a different 4x3 linear operator, not a 4x4 time-transition table.",
+          "Resultary semantic search for finite memory in random W returned distinct Markov systems, not this exact family."
+        ],
+        "reasoning": "No exact four-symbol temporal-table classification identified. Absence of an indexed table alone is not a novelty proof.",
+        "searches": [
+          "Kalle Maggioni random W maps stationary four cell symbolic Markov chain finite one dependence mixing probability",
+          "Kalle Maggioni random W 4x4 transition iid central indicator table",
+          "finite-dependent W shaped random interval map"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.",
+      "residual_risks": [
+        "Unindexed transition-matrix calculation for this exact W map might already supply resonance.",
+        "Some related W spectral papers not read in full here; best-of-knowledge priority only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines W family and stationary density; no temporal finite-dependence/resonance claim in checked section.",
+          "evidence": "Four-branch W maps, 4x3 invariant-density matrix M, and stationary heights.",
+          "identifier_or_url": "arXiv:1805.11430",
+          "material_read": "Full relevant primary Section 6.2, printed pages 21–22, actual figures and formulas, inspected on PDF page screenshots",
+          "method": "Open arXiv PDF text and page-image inspection",
+          "title": "Invariant densities for random systems of the interval",
+          "trigger": "Exact same pair of W-shaped maps and same stationary cell distribution"
+        },
+        {
+          "assessment": "Different deterministic instability model; do not claim whole-document negative coverage.",
+          "evidence": "Isolated spectrum/metastability for deterministic perturbations.",
+          "identifier_or_url": "arXiv:1110.3528",
+          "material_read": "Abstract and indexed main finding summary; full proof not read in this run",
+          "method": "Open preprint bibliographic/search view",
+          "title": "Instability of Isolated Spectrum for W-shaped Maps",
+          "trigger": "Related W map operator spectrum which might imply temporal mixing"
+        },
+        {
+          "assessment": "Addresses invariant densities/Ulam, no observed exact four-cell finite-dependence claim, but full text unread.",
+          "evidence": "Density perturbation and Ulam approximations in title and abstract.",
+          "identifier_or_url": "doi:10.3934/dcds.2013.33.1937",
+          "material_read": "Published abstract and institutional summary only",
+          "method": "Publisher/public abstract search",
+          "title": "Stochastic perturbations and Ulam's method for W-shaped maps",
+          "trigger": "Related stochastic W-map density literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Current-run Resultary query Kalle Maggioni random W maps stationary four cell symbolic Markov chain finite one dependence mixing probability",
+        "Named primary sources in originality/source_inspections"
+      ],
+      "rationale": "A complete and unique finite-memory switching curve of a naturally defined random interval system is a structural fact rather than a selected parameter check. At the curve a four-symbol code is still dependent at lag one while its coarse factor becomes iid, and away from it exact correlation signs distinguish two phases.",
+      "residual_risks": [
+        "Unindexed transition-matrix calculation for this exact W map might already supply resonance.",
+        "Some related W spectral papers not read in full here; best-of-knowledge priority only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Statement is only for stationary four-cell code, not iid real-valued state, all initial distributions or quenched dynamics.",
+    "Source stationary law identified by explicit density; uniqueness of arbitrary full-state stationary measure not established for all parameters.",
+    "Unindexed transition-matrix calculation for this exact W map might already supply resonance.",
+    "Some related W spectral papers not read in full here; best-of-knowledge priority only.",
+    "Literature comparison is best-of-knowledge and does not establish absolute historical priority."
+  ],
+  "schema_version": 1
+}
