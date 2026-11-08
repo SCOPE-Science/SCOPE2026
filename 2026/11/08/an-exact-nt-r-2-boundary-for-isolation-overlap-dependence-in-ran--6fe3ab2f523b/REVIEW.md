@@ -1,0 +1,17 @@
+# Scientific review
+
+## Correctness — PASS
+The variables, complete parameter domain, and degenerate exclusions are stated in RESULT.md. Pair counting gives the exact candidate-pair count, conditioning on an isolated vertex gives a uniform fixed-size hyperedge sample on one fewer vertex, and the ratio simplifies to a polynomial whose sign is proved with an explicit binomial inequality. The only equality candidate for that inequality does not satisfy the equality condition in the sign argument. The package's own exact verifier passed 110337 arithmetic assertions, including 29 exhaustive finite sample spaces. These computations check the formulas independently for finite parameters; they are not substituted for the all-order proof.
+
+## Originality — PASS, with material priority risk
+The standard fixed-edge model and its giant-component asymptotics are developed by Behrisch, Coja-Oghlan and Kang (arXiv:0706.0497, first version 2007-06-04), while López (arXiv:1302.2830, first version 2013-02-12) studies node-neighbor distributions for an independent-edge hypergraph model and accounts for overlap. Their inspected definitions, main theorems and relevant sections do not entail the finite covariance sign boundary for a vacancy count versus a fixed-overlap pair count under without-replacement fixed-edge sampling. Generic subgraph-moment expansions can recover the raw covariance, so the claim of additional content is confined to the sharp all-parameter sign dichotomy, independence from the selected-edge budget, strict boundary, and absence of zero covariance. Related independently chosen hyperedge-row models have a different finite-population correction: in the present model the normalized covariance is 1/165 at the first positive boundary for three-uniform one-vertex overlap, rather than zero.
+
+Semantic searches of published mathematical findings for the exact covariance, variants of pair overlap and isolated vertices, and the arithmetic threshold did not return a dominating implication. The closest items concern hypergraph orbit counts, isolate-free hypergraph constructions and random-graph component covariance; none asserts this claim. An unlocated broader hypergraph moment theorem could implicitly encompass it, and a comprehensive historical-priority certification has not been performed.
+
+## Value — PASS
+The two statistics measure noncoverage and local edge concentration in the canonical fixed-edge hypergraph ensemble. The theorem gives a complete finite-sample dependence classification over every uniformity, overlap size, vertex count, and admissible edge budget. The threshold is an integer geometrical quantity, not a numerical fit or an arbitrary selected instance. The fact that conditioning on the edge budget removes it from the sign, while the exact boundary differs from independent-row sampling, is a motivated structural distinction potentially useful in interpreting degree-zero and overlap-pair statistics jointly.
+
+## Scope and limitations
+This is not a result on nonuniform hypergraphs, on overlapping hyperedge pairs with unspecified or zero intersection, on higher-order motifs, or on independent Bernoulli hyperedges. No publication priority or independent verification has been certified. Full-text inspection was focused on model definitions and results most pertinent to the claim, not an exhaustive audit of every historical paper.
+
+Self-review: passed. Independent audit: not yet performed.
