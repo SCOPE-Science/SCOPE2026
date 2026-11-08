@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary state admits an explicitly defined, bounded Gaussian variance mixture. Its variance-deficit recursion reduces to a two-map affine iteration, with the first non-short step after a geometric run; the resulting two-sided endpoint small-ball bounds are proved without assuming a nonexistent small-ball limit. Uniform Gaussian Mills inequalities and an elementary Laplace-transform bound yield both tail exponents. The matched-mean and matched-variance step laws are checked by exact rational algebra. The included standalone verifier checks 50,315 exact-rational assertions and numerical-parameter conditions; finite checks are not used to justify the limit theorem.
+PASS
 
-## Originality — PASS (with publication-priority risk)
+For scalar OU with lambda,sigma>0, iid two-valued positive steps a<b, P(H=a)=rho in (0,1), stationary update-index state is a centered Gaussian with bounded random variance V obeying V=q_H Vprime+(1-q_H)v_H. Its upper endpoint v_a=sigma^2/[lambda(2+lambda a)] and deficit D=v_a-V satisfy D=alpha Dprime for short steps, D=beta Dprime+B for long steps; geometric initial short-run length yields P(D<=eps) between constants eps^kappa, kappa=log(1/rho)/log(1/alpha). Uniform Gaussian Mills bounds transfer this to P(X>t) asymptotic-equivalence up to constants t^(-1-2kappa)exp[-t^2/(2v_a)], not an asserted convergent prefactor. Exact independent rational calculations confirmed both step laws have EH=2, stationary variance 7/27 but Gaussian rates 3/2 and 7/4, producing log tail ratio/t^2 ->1/4. The infinite tail result follows analytically, not from finite tests.
 
-The closest broad backward Euler–Maruyama literature proves invariant-law existence and weak/strong convergence; a related randomly stepped stochastic-theta analysis already gives stationary moment and Gaussianity criteria. Neither compared scientific statement entails the sharp probability-tail \(\Theta\)-law with its geometric-run correction, nor the explicit equal-mean/equal-variance pair exhibiting exponential tail separation. Generic affine random-recursion endpoint laws and Gaussian mixture tail-transfer methods remain a specialized precedent risk; this review does not claim literature exhaustiveness.
+## originality
 
-## Value — PASS
+PASS
 
-This is a distribution-level reliability obstruction for a standard stochastic numerical integrator: two step-design strategies are indistinguishable by the natural mean-step and stationary quadratic-error summaries yet have exponentially separated extreme excursions. The exact polynomial factor additionally identifies how the frequency of shortest-step runs enters tail risk. This is not a restatement of a second-moment calculation and supplies a self-contained benchmark for interpreting invariant-measure numerical diagnostics.
+Best-of-knowledge mathematical comparison supports the scoped additional claim, not a discovery of the model, generic method or unconditioned antecedents. Actual published Resultary searches and primary sources reviewed; some historical sources were abstract-only, with named priority risks. The final theorem is not known from inspected stated prior implications; no global novelty certification.
 
-## Scope and remaining risks
+## value
 
-The claim concerns iid two-point positive steps, scalar OU dynamics, Gaussian Brownian increments, and update-index stationarity. It does not give a tail-limit prefactor, higher-dimensional extension, or physical-time-stationary law. Specialized prior affine perpetuity/mixture-tail literature may establish similar general results. Independent scholarly audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp stationary rare-event tails are natural numerical invariant-distribution statistics distinct from conventional mean-square error. The exact pair of random-step laws with matched mean step and invariant variance but exponentially separated tails demonstrates a consequential limitation of quadratic-error calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
