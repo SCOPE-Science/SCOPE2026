@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** All four boundary vector-field inequalities are polynomial identities, including the exact upper-left obstruction at the sharp threshold. The only equilibrium in the rectangle is a hyperbolic sink; the divergence is strictly negative everywhere within the region for all positive parameters, so planar recurrence cannot obstruct convergence. The exact-arithmetic checker independently re-evaluates the needed algebra. No finite experiment is used as a proof of an infinite statement.
+## correctness
 
-**Originality — PASS, with stated source-access risk.** The originating 2026 paper constructs the unusual pair of circular periodic orbits and reports local types. The new theorem identifies a concrete positive-volume, full-azimuth basin subset with a universal parameter bound and proves the optimal half-width for a motivated nullcline-balanced rectangle family. Available historical records and semantic searches yielded related generic trapping and Floquet results but no same-object implication or numerical threshold. Because the full originating paper was not accessible, the possibility of a matching basin certificate in its longer text cannot be excluded; no uninspected source is claimed not to cover the result.
+PASS
 
-**Value — PASS.** The key object is an attracting orbit of a polynomial field with an everywhere-Hurwitz Jacobian in a certified parameter region: local attraction does not identify a basin. The exact \(11/25\) cutoff identifies the largest symmetric, nullcline-adapted rectangular tube that is guaranteed invariant for every positive radial parameter. The nonlocal basin guarantee and explicit leakage beyond the cutoff are useful for rigorous initial-data certification; the result makes no claim about arbitrary shapes or optimality of the entire basin.
+The edge values P(4-delta,(4+delta)/10)=delta(25delta-11), P(4+delta,(4-delta)/10)=delta(25delta+11) show all four Nagumo signs. The only equilibrium in the box is (4,2/5) (q=1 outside); trace J=-344 mu-1, det J=600 mu. Divergence=-1-2mu E, E>=36957/625, so Bendixson and Poincare-Bendixson yield full convergence to the unique sink. At delta>11/25 the upper-left qdot<0. An independently recomputed exact polynomial check agrees. The primary 3D source writes mu_orig/21 for the coefficient; unrestricted positive mu makes this a harmless reparametrization, not identical original parameter notation.
 
-**Closest literature and limitations.** arXiv:2610.09176v1 establishes existence and local stability of the circles; numerical/variational basin estimation (Giesl–Wendland 2009) is general methodology. General topological planar criteria supply the framework but not the stated explicit parameter-independent certificate. The original full article was not accessible; detailed source overlap remains a historical-priority risk, not a mathematical uncertainty in the self-contained reduced-system proof. Angular dynamics and global Hurwitz parameter coverage are not re-established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source 2026 cyclic-field paper provides the underlying circular periodic orbit and its local attraction; the assessed addition is a positive-volume, mu-uniform explicit basin tube and sharp cutoff within a defined nullcline-balanced rectangle family. The primary Theorem 1 does not itself assert such a rectangle. Full-document priority remains qualified, including other trapping-region methods.
+
+## value
+
+PASS
+
+The motivating unusual attracting polynomial-field circle has local stability without an explicit nonlocal attraction region. The sharp 11/25 balanced, physically interpretable full-azimuth tube is a substantive natural family-wise certificate, not a general claim about the entire basin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
