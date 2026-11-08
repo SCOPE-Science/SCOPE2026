@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Binary adjacency parity gives exact two-child state recurrences. All eight states are reached in four steps from every state and each has two incoming transitions, implying uniform frequency 1/8 in a primitive 2-uniform substitution. The exact length-16 binary block identity reduces all length-1-to-16 factors to 128 state/residue cases, each of density 1/128. The complete finite table is replayed by a standalone no-dependency verifier; lengths 15 and 16 have no palindrome, proving every longer length empty by central-factor arguments. Counts, densities, and high-length start positions agree in all exact cases; large-prefix tests are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2009.02934 Section 4.2 analyzes prefix palindromic length and related difference automata; prefix decomposition is distinct from the natural frequency of a specified contiguous factor.",
+        "arXiv:math/0106121 treats generalized Rudin–Shapiro palindromic complexity, including the finite length cutoff."
+      ],
+      "reasoning": "No inspected stronger same-word or generalized-family theorem gave an arbitrary-factor occurrence-frequency formula that implies equal frequencies for the entire finite palindromic language. The general automaticity framework in arXiv:1508.02074 might permit calculating each density, but existence of an algorithmic technique does not itself imply this explicit table or uniformity assertion.",
+      "searches": [
+        "Rudin Shapiro sequence palindromic complexity frequencies all palindromes 36",
+        "Rudin Shapiro word palindrome exact frequency of factors palindromic occurrence density",
+        "arXiv:2009.02934 Section 4.2",
+        "arXiv:math/0106121 Section 4.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2009.02934",
+      "https://arxiv.org/pdf/1508.02074",
+      "https://arxiv.org/pdf/math/0106121",
+      "https://doi.org/10.1063/1.531916 (abstract only)",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v23i1p25"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known cutoff: Allouche–Baake–Cassaigne–Damanik, Theorem 4. Known automatic palindrome existence predicates and selected maximal factors: Schaeffer–Shallit Section 6. Prefix palindromic factorization: Frid–Laborde–Peltomäki Section 4.2.",
+        "New claim adds natural frequency and exact starting-position formulas for each of all \\(36\\) palindromic factors using a primitive eight-state substitution."
+      ],
+      "reasoning": "Each compared prior conclusion is compatible with palindromes of radically different occurrence densities, so none logically entails equal-density at fixed length or the explicit \\(1/128\\)-weighted occurrence sets. The availability of automata-based decidability is acknowledged but not presented as a new method. The 1997 historical manuscript was inspected at abstract level only, leaving a limited unresolved prior-source risk.",
+      "searches": [
+        "arXiv:2009.02934",
+        "arXiv:1508.02074",
+        "arXiv:math/0106121",
+        "Rudin Shapiro palindromic factor occurrence density exact frequencies maximal palindrome"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0106121 Theorem 4 proves nonexistence of palindromes of length 15 or more; this is an existence spectrum, not density data.",
+        "arXiv:1508.02074 Section 6 describes maximal palindromic factors and automatic factor-length properties, without the exact distribution of starts of every palindromic factor."
+      ],
+      "reasoning": "The assessed theorem concerns asymptotic starting frequencies of each distinct palindrome and their equality at each fixed length, plus an explicit complete start-set rule. Palindromic complexity, palindromic length spectra, maximal palindromes and first-order definability are not equivalent to these frequency claims. Searches also considered occurrence density and frequency aliases.",
+      "searches": [
+        "\"Rudin-Shapiro\" \"palindromic factors\" \"frequency\"",
+        "\"Rudin-Shapiro\" \"palindrome\" \"density\" word sequence",
+        "arXiv:1508.02074 Section 6",
+        "arXiv:math/0106121 Theorem 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorems on palindrome length spectrum and maximal-palindrome lists are prior: arXiv:1508.02074, arXiv:math/0106121.",
+        "The separately derived finite table has a column of per-factor natural densities, ranging from \\(1/2\\) to \\(1/128\\), that cannot be inferred from counts alone."
+      ],
+      "reasoning": "The distinct palindromic words and absence beyond length 14 may be derivable from earlier finite tables, so these are expressly not treated as independently novel. The searched literature and natural tabulation sources did not supply the per-factor occurrence frequencies, exact long start sets or same-length equal-density law. An omitted indexed table remains a residual risk.",
+      "searches": [
+        "\"Rudin-Shapiro\" \"palindromic factor\" density frequency",
+        "Rudin Shapiro palindrome occurrence density factor frequencies Rudin Shapiro longest length fourteen 14",
+        "arXiv:1508.02074 Theorem 3(b)",
+        "arXiv:math/0106121 Theorem 4"
+      ]
+    },
+    "rationale": "Comparison of full primary texts on generalized Rudin–Shapiro palindromic complexity, automatic palindrome recognition, and prefix palindromic length revealed known cutoff/count ingredients but no per-word natural-density or same-length equidistribution result. The assessed claim excludes the known cutoff as the contribution. Searches and inaccessible historical material leave a candid residual risk.",
+    "residual_risks": [
+      "Unindexed earlier equivalent exact per-palindrome frequency table may exist.",
+      "The 1997 historical full text was not readable in the consulted format; only its abstract and later-source discussion were available.",
+      "Pre-existing length-spectrum/count facts are background and not independent novelty assertions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its prefix palindromic length and difference sequence do not give palindromic factor starting densities or equal-frequency classifications.",
+        "evidence": [
+          "Section 4.2 is concerned with prefix palindromic-length differences; it cites the known length-14 cutoff as background."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2009.02934",
+        "material_read": "Full accessible preprint, especially Section 4.2 and its Rudin–Shapiro automaton, discussion and references.",
+        "method": "Read public full-text PDF and examined its relevant figures and pages.",
+        "title": "On prefix palindromic length of automatic words",
+        "trigger": "The guiding 2020 publication studies Rudin–Shapiro palindromic structures and uses finite automata."
+      },
+      {
+        "assessment": "Establishes decidability/automaticity and maximal-palindrome descriptions, not the exact natural frequency of each palindrome.",
+        "evidence": [
+          "Section 6 computes palindrome-related automata and selected maximal factors, without a per-palindrome frequency column or occurrence-residue table."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.02074",
+        "material_read": "Full accessible preprint, focusing on Section 6, Theorem 3 and the Rudin–Shapiro statements.",
+        "method": "Read the public full-text PDF and compared theorem conclusions and factor parameters.",
+        "title": "Closed, Palindromic, Rich, Privileged, Trapezoidal, and Balanced Words in Automatic Sequences",
+        "trigger": "Primary published automatic-word palindrome enumeration and maximal-factor result; plausible stronger coverage."
+      },
+      {
+        "assessment": "The known absence of length-15-and-longer palindromes is explicitly credited; a frequency-equidistribution theorem was not found in the relevant full text.",
+        "evidence": [
+          "Theorem 4 supplies a finite palindrome length cutoff, not an asymptotic measure of the occurrence set of each word."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0106121",
+        "material_read": "Full accessible preprint, Section 4.1 and Theorem 4 on generalized Rudin–Shapiro words.",
+        "method": "Read and compared theorem statement with the present densities and start sets.",
+        "title": "Palindrome complexity",
+        "trigger": "Generalized Rudin–Shapiro palindromic complexity could cover length-spectrum parts of the result."
+      },
+      {
+        "assessment": "Potential uninspected detailed discussion of palindromic occurrences; residual bibliographic uncertainty remains.",
+        "evidence": [
+          "The abstract concerns lack of long palindromes and spectral applications; direct statements about exact per-factor densities were not confirmed."
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/1.531916",
+        "material_read": "Bibliographic record and abstract only; a historical PostScript copy was not available as readable full text.",
+        "method": "Compared accessible abstract and citation context; did not treat the inaccessible complete work as checked.",
+        "title": "Schrödinger operators with Rudin-Shapiro potentials are not palindromic",
+        "trigger": "Historical original behind Rudin–Shapiro finite-palindrome arguments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "808558ac-e7f6-4d7d-9523-7fef4f32cc17",
+  "value": {
+    "rationale": "An exact natural frequency for every word in a complete palindromic factor language is a meaningful finite classification of an infinite automatic dynamical system, not a single arbitrarily chosen length. The equality of frequencies for all palindromes at the same length is a nontrivial structural property absent for general factors and not implied by their number or maximal length. Explicit start residues and eight-state conditions provide reproducible occurrence information for all 36 factors and can be used in weighted word sampling and combinatorial factor search.",
+    "status": "PASS"
+  }
+}
