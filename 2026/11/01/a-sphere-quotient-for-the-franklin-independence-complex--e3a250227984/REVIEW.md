@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is exactly the twelve-vertex LCF graph \([5,-5]^6\), with independent **vertex** sets. An exhaustive graph-isomorphism backtrack proves the full group order 48; independent-set enumeration gives 195 nonempty faces and an exact barycentric quotient with 630 chain orbits. A complete 299-pair certificate checks each geometrically free face against *every remaining supercell*, not only algebraic incidence, and leaves a \(\Delta\)-complex of 7 vertices, 15 edges and 10 triangles. Its 15 edges have two incident triangles, the connected vertex links are seven circles, and its Euler number is 2. The closed-surface classification then gives \(S^2\). A separate signed-Lefschetz average confirms Euler characteristic 2. The proof is finite exhaustive rather than numerical extrapolation.
+## correctness
 
-## Originality — PASS (best-knowledge, with risk)
-Exact searches used graph-name aliases (Franklin, six-crossed prism, Knödel and honeycomb toroidal), automorphism quotient, vertex-independence, barycentric quotient and two-sphere. Marietti–Testa's general core results treat forests and topological bounds; Barmak's full-text triangle-free theorem asserts that an independence complex is a suspension, not that its **ordinary full-symmetry quotient** is a sphere. The nearest indexed same-graph calculation concerns the edge-matching complex, a different simplicial complex. A related sphere quotient of another graph does not dominate this Franklin calculation. No covering statement was identified; nonindexed equivalent work is a residual possibility.
+PASS
 
-## Value — PASS
-This computes a complete homotopy invariant for the full noncyclic automorphism quotient of a historically canonical cubic graph connected to the Klein-bottle six-color exception. The quotient is provably a sphere, a considerably stronger conclusion than Euler characteristic or rational invariant Betti numbers. The 299 elementary collapses and the small surface core expose structural information that can be reused for independent verification and comparisons with other group actions. The precise graph and quotient were motivated before the finite computation; the result is not an arbitrary numerical slice.
+At the pinned Franklin LCF [5,-5]^6 labeling the 12-vertex cubic graph has 195 nonempty independent sets with face counts (12,48,76,45,12,2). Barycentric chains carry inversion-free automorphisms (ranks distinct), making the quotient a regular orbit Δ-complex. A separate JavaScript reconstruction of graph automorphisms (48), independent-set masks (195), all chain orbits (630 cells, vector 16,81,180,203,120,30), all 299 certificate free/coface pairs, residual face counts (7,15,10), triangle incidence degree 2 at every edge, connectedness, and circular vertex links lengths (2,2,2,4,4,6,10) independently agrees with the supplied certificate. The residual Δ-surface has chi=2 and is a sphere by closed-surface classification. This is a complete finite proof of the explicitly defined 12-vertex quotient, not a partial sample. Sources: Pinned Git tree d808f0080452e3ceffce30d3b64e8c07b1fd160a and certificate blob a5e4ff72bc7c5afd9d51713075f3092fc903f77a (299 pairs).; Independent JavaScript complete reconstruction: Aut=48, faces=195, orbit cells=630, 299/299 valid free pairs, residual (7,15,10), connected, edge degree=2, link lengths 2,2,2,4,4,6,10, Euler=2.
 
-## Scientific boundaries
-No claim about other subgroups, integral homology of the original complex, or Borel-equivariant topology is made. This review does not constitute independent mathematical certification, and an unindexed equivalent calculation may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No located same-object full-Aut quotient calculation for the Franklin vertex-independence complex. Published same-graph calculations are for edge matching complexes, and general triangle-free suspension/core theory lacks equivariant quotient information. The exact finite quotient sphere with a complete collapse certificate is a natural motivated invariant of a named symmetric cubic graph; PASS subject to unindexed priority risk.
+
+## value
+
+PASS
+
+Full automorphism quotients of graph independence complexes are meaningful equivariant invariants of natural symmetric graphs; ordinary homotopy or homology of Ind(F) cannot determine the orbit space. An exact 630-cell quotient and 299-step elementary collapse to a sphere is a self-contained nonroutine finite classification with a complete replayable certificate, even though no family theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
