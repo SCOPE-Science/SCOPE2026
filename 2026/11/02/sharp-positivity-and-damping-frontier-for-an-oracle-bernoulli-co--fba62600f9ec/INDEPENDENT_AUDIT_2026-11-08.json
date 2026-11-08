@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T00:07:49.309181Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four actual rank-one products sum to I_2, all scalar covariance denominators are positive for 0<eta<1, and Bernoulli independence gives oracle coefficients B_diag=(K+5)/6 and B_off=(K+1)/2. Substitution yields tildeY=I+(K-1)C, with C bounded below in Loewner order by (1/6-1/(4eta))I; the two positive-semidefinite summands of the scaled difference are explicit and the sample (1,1,0,1) attains equality. Thus the exact all-outcome positive-definiteness/semidefiniteness boundaries are K< / <=1+12eta/(3-2eta), and the optimal common semidefinite shift is max(0,(K-1)(1/(4eta)-1/6)-1). The raw sketch is positive definite on this counterevent. Exact Bernoulli covariance sums give raw Frobenius MSE ((1-eta)/eta)(K^2+3)/4 versus corrected MSE ((1-eta)/eta)(K-1)^2/6. The independently constructed audit_checks.py enumerated each of 16 outcomes at several rational eta,K values; finite enumerations corroborate, while the Loewner decomposition proves every real admissible parameter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maurais et al. arXiv:2307.12438 uses SPD-manifold regression, imposing a different estimator; Polydorides et al. use elementwise covariance-optimal coefficients."
+        ],
+        "reasoning": "General unbiased scalar variance minimization implies only MSE improvement. SPD by construction in the manifold estimator cannot dominate samplewise SPD of the unmodified elementwise Bernoulli estimator. Neither gives a higher-dimensional theorem specializing to the exact specified frame in the materials read.",
+        "searches": [
+          "Resultary: oracle entrywise control variate Bernoulli Gram sketch positivity PSD damping leverage-score finite element",
+          "arXiv:2307.12438 SPD multifidelity covariance regression"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git record/RESULT.md and verify_cv_frontier.py, verified source tree 6771b8cb9ab6142b4bb904b126673d41a6edc0f3",
+        "arXiv:2606.08817 abstract/access evidence",
+        "arXiv:2307.12438 abstract/method",
+        "Resultary 2026/10/11/SCOPE-an-indefinite-controller-can-hide-a-non-bessel-sequence-from-the--cb75ca99da53 title/summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general statement that CV can lose SPD permits either side of any particular samplewise K-threshold. The displayed rank-one decomposition determines when it actually occurs and the exact shift."
+        ],
+        "reasoning": "The prior qualitative non-SPD result neither forces the threshold in this frame nor computes its sharp diagonal damping. The source could nonetheless hide a specialty example not accessible in full and is explicitly retained as risk.",
+        "searches": [
+          "arXiv:2606.08817 original Bernoulli sketch",
+          "arXiv:2307.12438 independent SPD covariance estimator",
+          "Resultary: oracle entrywise control variate Bernoulli Gram sketch positivity PSD damping leverage-score finite element"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Polydorides et al. arXiv:2606.08817 introduces entrywise Bernoulli CV and warns correction can be indefinite; finite-model formula from the reviewed RESULT.md gives the exact low eigenvalue.",
+          "Resultary 2026/10/11/SCOPE-an-indefinite-controller-can-hide-a-non-bessel-sequence-from-the--cb75ca99da53 treats indefinite controlled Gram geometry for sequence diagnostics, not this stochastic estimator."
+        ],
+        "reasoning": "An equivalent version is the minimum over 16 Bernoulli outcomes of lambda_min(I+(K-1)C). A qualitative non-SPD warning or a different indefinite controlled Gram does not imply the calculated rational K,eta boundary; the estimator and quantifiers are compared, not the title.",
+        "searches": [
+          "Resultary: oracle entrywise control variate Bernoulli Gram sketch positivity PSD damping leverage-score finite element",
+          "arXiv:2606.08817 entrywise control variate Gram sketch positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parameter domain K>=1, 0<eta<1 is continuous; the original scheme discusses numerical experiments rather than a finite exact all-parameter table in its accessible portions."
+        ],
+        "reasoning": "No fixed numeric database could replace the stated universal two-parameter spectral formula; a symbolic prior equation could, but none was identified. Failed searches alone do not certify novelty.",
+        "searches": [
+          "Resultary: oracle entrywise control variate Bernoulli Gram sketch positivity PSD damping leverage-score finite element",
+          "Bernoulli matrix control variate exact 4-row Parseval frame 16 outcomes table"
+        ]
+      },
+      "rationale": "The underlying Bernoulli estimator, oracle entrywise control variates, and qualitative warning of loss of SPD are known from Polydorides et al.; the final claim is limited to an explicit balanced Parseval-frame all-outcome spectral boundary, attained negative event, minimal damping and MSE formula. Resultary analogous Gram-controller and Bernoulli-moment records address different operators. No examined statement directly implies the exact two-parameter frontier, but restricted access to the 2026 original leaves a specific priority risk.",
+      "residual_risks": [
+        "Closest original 2026 primary manuscript not fully read; authorized institutional retrieval returned vpn_disconnected.",
+        "The four-row two-column parameterized example may have appeared as an implicit specialization in less-accessible numerical linear algebra literature.",
+        "Coefficients are fixed population oracle values, not fitted data nor an inverse/fused sketch."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes original method and qualitative risk; NOT a whole-paper exclusion claim",
+          "evidence": [
+            "Original method and SPD-warning provenance; full-text check blocked; risk retained."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.08817",
+          "material_read": "Available abstract and bibliographic/accessible source characterization only; complete manuscript inaccessible",
+          "method": "Open arXiv/OA attempts followed by authorized institutional retrieval, which returned vpn_disconnected",
+          "title": "Low-Variance Randomised Numerical Linear Algebra for Finite Element Simulation",
+          "trigger": "Exact underlying Bernoulli sampling and CV formula"
+        },
+        {
+          "assessment": "Different estimator and target; abstract does not imply entrywise Bernoulli spectral cutoff",
+          "evidence": [
+            "SPD-manifold regression is positive by different construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.12438",
+          "material_read": "Accessible abstract identifying SPD-manifold regression",
+          "method": "Abstract and method comparison",
+          "title": "Multifidelity Covariance Estimation via Regression on the Manifold of Symmetric Positive Definite Matrices",
+          "trigger": "Possible stronger SPD estimator"
+        },
+        {
+          "assessment": "Indefinite Gram of controlled sequences is not a Bernoulli population CV estimator",
+          "evidence": [
+            "Resultary summary: indefinite controller can mask non-Bessel sequence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-indefinite-controller-can-hide-a-non-bessel-sequence-from-the--cb75ca99da53",
+          "material_read": "Resultary title and summary, NOT full source",
+          "method": "Semantic Resultary search result and object comparison",
+          "title": "An indefinite controller can hide a non-Bessel sequence from the controlled Gram matrix",
+          "trigger": "Similar Gram-controller wording in published database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete attained all-sample spectral reliability frontier, minimal scalar damping, and an exact MSE/positivity tradeoff are genuinely motivated by the entrywise control-variate Gram sketch introduced in finite-element computation. This is a narrow but nontrivial exact structural obstruction: lowering MSE can destroy SPD even where the raw sampled Gram is SPD. A researcher implementing that specific method can use these exact cutoffs as test/worst-case models. It does not pretend to solve arbitrary frames or fitted coefficients.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git record/RESULT.md and verify_cv_frontier.py, verified source tree 6771b8cb9ab6142b4bb904b126673d41a6edc0f3",
+    "arXiv:2606.08817 abstract/access evidence",
+    "arXiv:2307.12438 abstract/method",
+    "Resultary 2026/10/11/SCOPE-an-indefinite-controller-can-hide-a-non-bessel-sequence-from-the--cb75ca99da53 title/summary"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Four specified rows in R^(4x2), one diagonal contrast K>=1 and 0<eta<1 independent Bernoulli samples; population-known entrywise coefficients.",
+    "No general nonlinear FEM or probabilistic guarantee for fitted correction parameters."
+  ],
+  "residual_risks": [
+    "Closest original 2026 primary manuscript not fully read; authorized institutional retrieval returned vpn_disconnected.",
+    "The four-row two-column parameterized example may have appeared as an implicit specialization in less-accessible numerical linear algebra literature.",
+    "Coefficients are fixed population oracle values, not fitted data nor an inverse/fused sketch."
+  ],
+  "schema_version": 1
+}

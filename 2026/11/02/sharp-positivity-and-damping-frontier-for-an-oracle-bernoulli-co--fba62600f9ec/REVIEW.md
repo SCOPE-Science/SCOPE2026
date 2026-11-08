@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The row outer products sum to the identity, every control-variates covariance denominator is positive, and the corrected two-by-two matrix has an explicit samplewise formula. A positive-semidefinite decomposition of the shifted matrix proves the exact uniform minimum eigenvalue for all sixteen sampling configurations and all admissible real parameters. One configuration attains the bound with a positive-definite uncorrected Gram matrix. Independent variance expansions yield exact Frobenius mean-squared errors. The supplementary standard-library exact-rational checker reproduces the identities and boundary examples, but it is not substituted for the proof.
+## correctness
 
-**Originality — PASS under accessible-source comparison.** The motivating numerical-analysis preprint introduces the Bernoulli scheme and variance-minimizing matrix control variates and expressly recognizes possible loss of positive definiteness. Those established qualitative facts are excluded from the proposed novelty. The newly assessed statement is the necessary-and-sufficient universal positivity frontier for a specified balanced frame, its attained worst sample, its exact minimal uniform diagonal correction, and its simultaneous MSE reduction. The multifidelity positive-definite manifold-regression source addresses a different estimator; its construction is not a theorem about this discrete entrywise-corrected Gram sketch. Searches for aliases including entrywise control-variate PSD preservation, Bernoulli Gram correction, and sharp regularization thresholds did not reveal a directly dominating theorem. The second source's accessible publisher text was limited to abstract and references, so historical coverage is not exhaustively ruled out.
+PASS
 
-**Value — PASS.** Matrix-positive-definiteness matters when projected finite-element sketches serve as reduced operators. The all-sample frontier directly calibrates an inclusion budget against parameter contrast and quantifies the least scalar repair needed to guarantee nonnegative spectrum. The result identifies an exactly computable variance-versus-geometry trade-off even in a well-conditioned, equal-leverage frame, giving a natural benchmark for choosing between unbiased correction and conservative stabilization; it does not claim that rare events dominate average practical risk.
+The four actual rank-one products sum to I_2, all scalar covariance denominators are positive for 0<eta<1, and Bernoulli independence gives oracle coefficients B_diag=(K+5)/6 and B_off=(K+1)/2. Substitution yields tildeY=I+(K-1)C, with C bounded below in Loewner order by (1/6-1/(4eta))I; the two positive-semidefinite summands of the scaled difference are explicit and the sample (1,1,0,1) attains equality. Thus the exact all-outcome positive-definiteness/semidefiniteness boundaries are K< / <=1+12eta/(3-2eta), and the optimal common semidefinite shift is max(0,(K-1)(1/(4eta)-1/6)-1). The raw sketch is positive definite on this counterevent. Exact Bernoulli covariance sums give raw Frobenius MSE ((1-eta)/eta)(K^2+3)/4 versus corrected MSE ((1-eta)/eta)(K-1)^2/6. The independently constructed audit_checks.py enumerated each of 16 outcomes at several rational eta,K values; finite enumerations corroborate, while the Loewner decomposition proves every real admissible parameter.
 
-**Closest literature:** N. Polydorides et al., arXiv:2606.08817v1, especially the sampling and control-variate construction and its qualitative SPD caveat; A. Maurais et al., SIAM Journal on Mathematics of Data Science 7 (2025), 189–223, positive-definite-by-construction covariance regression. The latter's related scope is identified, not asserted to be fully searched beyond material available.
+## originality
 
-**Remaining risks:** An earlier specialized exact two-dimensional control-variate characterization could exist under other terminology. The oracle coefficients may differ from a finite-data fitted estimator. The minimum scalar PSD shift is an all-outcome guarantee, not a proof of minimal downstream error.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The underlying Bernoulli estimator, oracle entrywise control variates, and qualitative warning of loss of SPD are known from Polydorides et al.; the final claim is limited to an explicit balanced Parseval-frame all-outcome spectral boundary, attained negative event, minimal damping and MSE formula. Resultary analogous Gram-controller and Bernoulli-moment records address different operators. No examined statement directly implies the exact two-parameter frontier, but restricted access to the 2026 original leaves a specific priority risk.
+
+## value
+
+PASS
+
+A complete attained all-sample spectral reliability frontier, minimal scalar damping, and an exact MSE/positivity tradeoff are genuinely motivated by the entrywise control-variate Gram sketch introduced in finite-element computation. This is a narrow but nontrivial exact structural obstruction: lowering MSE can destroy SPD even where the raw sampled Gram is SPD. A researcher implementing that specific method can use these exact cutoffs as test/worst-case models. It does not pretend to solve arbitrary frames or fitted coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
