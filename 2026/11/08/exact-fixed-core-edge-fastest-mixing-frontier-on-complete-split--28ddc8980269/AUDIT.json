@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Convexity and invariance justify reducing every symmetric stochastic matrix with fixed core-core entries to one common cross-edge parameter. The orthogonal subspace decomposition gives eigenvalues 1-sa (m-1), 1-ma-st (s-1), 1-(m+s)a (1). The exact interval of feasible cross-edge parameters for a candidate spectral radius is nonempty iff all seven rational-affine lower bounds hold. Constructing a as its lower endpoint proves attainment, including both parameter boundaries. Independent exact Fraction vertex minimization matched 3332 cases, 180 exact matrix decompositions and 3001 checks of the four-regime witness; the all-real proof is symbolic, not an inference from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2004 source states a semidefinite program for arbitrary symmetric FMMC, not an analytic fixed-core probability formula.",
+        "The 2020 clique-lift theorem and star-topology closed forms calculate the unconstrained optimum on the same underlying split graph."
+      ],
+      "reasoning": "A general algorithmic optimization formulation formally includes this optimization instance but does not imply the exact upper envelope as a closed formula. Moreover the known unconstrained optimum does not determine the constrained frontier; for (s,m,t)=(5,2,0) the two objective values differ, 1/6 versus 3/5.",
+      "searches": [
+        "Complete split graph K_s join independent m vertices fastest mixing symmetric Markov chain exact SLEM phase transition core clique edges vanish",
+        "Complete multipartite graph parts (m,1,...,1) fastest mixing Markov chain Boyd Diaconis optimal transitions",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://ar5iv.labs.arxiv.org/html/0709.0955",
+      "https://www.researchgate.net/publication/334842673_Fastest_mixing_reversible_Markov_chain_on_friendship_graph_Trade-off_between_transition_probabilities_among_friends_and_convergence_rate",
+      "https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. (2007), Section 3.1.2, give exact FMMC on the complete bipartite graph K_{s,m}, corresponding to the boundary t=0.",
+        "Jafarizadeh (2019), Section 3, gives edge-weight trade-offs for friendship graphs, not complete split graphs.",
+        "Jafarizadeh (2020), Theorem 1 and star topology section, calculate unrestricted clique-lift FMMC."
+      ],
+      "reasoning": "The new theorem contains the 2007 bipartite boundary as a special case, so that boundary is not claimed to be new. The unrestricted clique-lift formula cannot imply a constrained parameter frontier, as a single unconstrained value fails to determine its full fixed-edge performance loss. The distinct friendship-graph formulas do not give an algebraic reduction to the present all-(s,m) claim.",
+      "searches": [
+        "Book graph K2 join m isolates optimal symmetric Markov transition spectral minimax with holding",
+        "Friendship graph book graph fastest mixing reversible chain global minimum uniform stationary",
+        "https://ar5iv.labs.arxiv.org/html/0709.0955",
+        "https://www.researchgate.net/publication/334842673_Fastest_mixing_reversible_Markov_chain_on_friendship_graph_Trade-off_between_transition_probabilities_among_friends_and_convergence_rate",
+        "https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full clique-lifting treatment selects clique-internal probabilities to eliminate within-fiber modes (2019/2020 publication, Theorem 1, equations (17)-(23)); it does not keep those entries prescribed.",
+        "The friendship graph with prescribed friend-friend weights has triangles sharing one vertex, not a complete clique joined to an independent set."
+      ],
+      "reasoning": "Block spectral reduction of the constrained split graph is a fixed-weight 1D affine minimax problem. The clique-lift solution is a different projection because it optimizes internal fiber weights. The friendship-graph edge-constraint formulation has analogous objectives but nonisomorphic graph structure and no parameter-identification reducing its theorem to this complete split graph for all s,m.",
+      "searches": [
+        "Fastest mixing complete split graph clique independent set fixed clique-clique edge probability constrained frontier",
+        "Fixed internal clique transition weight fastest mixing Markov chain on generalized star clique lifted graph eigenvalue",
+        "https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs",
+        "https://www.researchgate.net/publication/334842673_Fastest_mixing_reversible_Markov_chain_on_friendship_graph_Trade-off_between_transition_probabilities_among_friends_and_convergence_rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available search hits on tetrahedral orbit walks and complete split graph independent-set variance concern different invariants.",
+        "Accessible own ledger claim 2a148a4a-1936-404c-959f-a2bbc6af6a5f concerns a clique with private pendant leaves, not independent vertices adjacent to every clique vertex."
+      ],
+      "reasoning": "No inspected database/table entry supplies the fixed-core-edge SLEM envelope or the exact four-regime (5,2) frontier. This is non-exhaustive evidence, not a proof of unique discovery.",
+      "searches": [
+        "Fastest mixing complete split graph clique independent set fixed clique-clique edge probability constrained frontier",
+        "FMMC exact fixed core link weight join of clique and independent set 4-phase spectral radius",
+        "Complete split graph K_s join independent m vertices fastest mixing symmetric Markov chain exact SLEM phase transition core clique edges vanish",
+        "Fixed internal clique transition weight fastest mixing Markov chain on generalized star clique lifted graph eigenvalue"
+      ]
+    },
+    "rationale": "The novel object is the exact all-s,m closed-form SLEM envelope with individually prescribed clique-edge transitions. The 2004 SDP formulation is general but does not evaluate this envelope; the 2007 complete-bipartite theorem covers only the t=0 boundary; 2020 clique-lifting optimizes internal clique weights freely, which does not solve a fixed-edge constraint; 2019 friendship-graph frontier has different topology. Searches of research records found no equivalent or dominating constrained split-graph claim. Specialist publication priority remains a residual risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible mathematical paper might contain the same constrained full split-graph frontier or imply it by a more general explicit parameterized constrained theorem.",
+      "The 2004 SDP framework already establishes computability, so the contribution is the all-parameter analytic closed form and four-phase structural specialization, not existence of the convex program."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found the general SDP setup and MSC 90C22, not the explicit fixed-core split-graph frontier.",
+        "evidence": [
+          "https://doi.org/10.1137/S0036144503423264",
+          "Publication footnote on PDF page 1: 2004-10-29."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Page 1 (title, abstract, subject classes and electronic publication footnote); publisher project summary.",
+        "method": "Opened scholarly PDF and inspected page screenshot and parsed text",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general convex FMMC theorem and publication-date evidence"
+      },
+      {
+        "assessment": "The exact complete bipartite result covers t=0, not prescribed positive core weight.",
+        "evidence": [
+          "Section 3.1.2 equations (10)-(11) give the K_{m,n} baseline."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0709.0955",
+        "material_read": "Introduction; Section 3.1.2 complete bipartite graphs; Section 5.3.1 block model.",
+        "method": "Read open-access HTML full-text portions with spectral formulas",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible exact orbit-averaging or bipartite FMMC dominance"
+      },
+      {
+        "assessment": "Prescribed probabilities are on disjoint noncentral friendship edges, whereas complete split graphs have a clique fully joined to independent vertices; no covering formula was located.",
+        "evidence": [
+          "Section 3 treats friendship graphs consisting of triangles sharing one hub; equations (4) and surrounding discussion prescribe friend-friend weights."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/334842673_Fastest_mixing_reversible_Markov_chain_on_friendship_graph_Trade-off_between_transition_probabilities_among_friends_and_convergence_rate",
+        "material_read": "Abstract, sections 1-3 on fixed friend-edge probabilities, graph definition, equations and main frontier branches.",
+        "method": "Read lawfully available primary full text rendered as article text",
+        "title": "Fastest mixing reversible Markov chain on friendship graph: Trade-off between transition probabilities among friends and convergence rate",
+        "trigger": "Especially plausible prior on prescribed subset of edge probabilities and Pareto frontiers"
+      },
+      {
+        "assessment": "Unconstrained clique-lift theorem supplies a global unconstrained optimum and uses *free* internal clique probabilities. It does not impose their common fixed value or enumerate constrained four-regime frontiers.",
+        "evidence": [
+          "Theorem 1 and equations (17)-(23) select internal clique weights to achieve rank-one fiber blocks; star equations (52)-(55) optimize cross couplings."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs",
+        "material_read": "Sections II-III on FMMC and clique lifting (including (8) and (17)-(23)); star topology subsection VI.E (52)-(55); concluding discussion.",
+        "method": "Read author-uploaded primary full text as rendered HTML article",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Strongest possible competing result for an identical underlying complete split graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28ddc898-0269-4864-8c8b-e9224036a5e2",
+  "value": {
+    "rationale": "Prescribed core-edge interactions are a natural external constraint in consensus and reversible network design. The theorem gives a closed-form global constrained SLEM frontier for all complete split graphs and an exact four-stage transition for (s,m)=(5,2): first decreasing, then decreasing at a different rate, then exactly flat, then increasing. The plateau has two distinct rational endpoints 1/10 and 1/6 and does not follow from the known unconstrained optimum. These structural effects, not merely algorithmic reproducibility, motivate the precise invariant.",
+    "status": "PASS"
+  }
+}
