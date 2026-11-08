@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof reduces the original quadratic operator identity to a projective nondegenerate quadric equipped with rank-\((n-1)\) fibers. The additive-character formulas for the number of zeros and unit values of a nondegenerate quadratic form are standard, and supply the general infinite-family count independently of any finite computation.
+## correctness
 
-Run `python3 check.py` with Python 3 and no external dependencies. The standalone checker computes spin-factor multiplication over prime fields and over the genuine quadratic extension \(\mathbb F_9=\mathbb F_3[t]/(t^2+1)\). It evaluates the original weight-zero identity on every ordered pair of standard basis vectors, which is sufficient by bilinearity. For \(n=4,q=3\), it checks all \(29{,}282\) nonzero rank-one linear operators, finding exactly \(1{,}040\) solutions. It also performs two smaller exhaustive boundary tests at \(n=3,q=3\) (outside the claimed domain), and seven additional complete candidate-parameter enumerations with sampled direct identity checks. Both determinant types are tested where applicable. Exact output and marker appear in `check_output.txt`: `SPIN_FACTOR_RANK_ONE_RB_OK 10_CASES`.
+PASS
 
-The finite checks do not certify all field orders or dimensions. The geometry refers only to the reduced rank-one variety; the full equation scheme has not been examined for nilpotent structure. Independent mathematical review has not been performed.
+Writing R=f⊗w and polarizing RB yields w²=μw, fL_w=μf/2. For w=(a,u), nondegenerate bilinear form forces B(u,u)=a², f(1)=0, f(u)=0, u≠0, thus R²=R(1)=0. Projective w lies on smooth quadric and each line permits q^(n-1)-1 nonzero covectors orthogonal to u. Standard finite-field quadratic Gauss sums give the stated even/odd image-type counts and determinant η-dependence. I independently enumerated projective quadrics and nil/idempotent counts in six q,n,determinant configurations, and verified the number of allowed covectors for all q=3,n=4 quadric points. The rank-(n-1) annihilator bundle punctured at zero is smooth geometrically irreducible dimension 2n-2; the result only characterizes the reduced locus.
+
+## originality
+
+PASS
+
+Gubarev (2017), the nearest exact spin-factor Rota-Baxter source, gives rank/nilpotency constraints and n=2 quadratic dimension classification, not the all-n≥4 finite-field rank-one count by image type or vector-bundle geometry. Benito-Gubarev-Pozhidaev (2018), inspected actual full PDF Sections 2 and 4.1, treats simple Jordan bilinear forms primarily for nonzero weight and cites Gubarev for weight zero; it gives no refined finite-field count. The original statement may be a specialization of a general rank-one RB factorization lemma, but no inspected coverage of count pair was established.
+
+## value
+
+PASS
+
+The natural first nonzero-rank stratum of a nonlinear operator variety is classified geometrically and arithmetically. Refined image-type counts distinguish the two quadratic forms in all dimensions, whereas their sum fails in even dimensions; this is a meaningful exact discriminant-detection invariant and structural foundation for higher-rank classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
