@@ -1,11 +1,21 @@
-# Scientific review: Hamiltonian-cycle edge shattering
+# Independent mathematical audit
 
-**Correctness — PASS.** The lemma for arbitrary positive and negative adjacency labels along a spanning path is constructive, including the exceptional cases of two and three positive blocks. It establishes \(\operatorname{VCdim}=n-2\) for every \(n\ge5\) after one extra vertex closes the path. The upper bound follows because an almost-complete Hamiltonian cycle forces its missing endpoint edge, defeating an essential label. For \(n=3,4,5\), the small-class cardinality bounds match explicit VC witnesses. At \(n=6\), the 32 separate leaf-cycle witnesses of a depth-five tree have all been checked against their complete query histories; 60 hypotheses prohibit depth six. Additivity for separate query domains is proved with product labelings and componentwise online mistake algorithms. Risk: finite enumeration does not itself establish the unrestricted VC assertion, whose constructive proof is required.
+## correctness
 
-**Originality — PASS under available comparisons, with material residual risk.** Four actual meaning-based queries of published research records found no statement giving a depth-five shattered tree using only the 60 Hamiltonian cycles of \(K_6\), or the combined all-order edge-incidence VC formula and adaptive separation. Earlier records include the 70-element two-factor class on six vertices, with the same dimension pair; the earlier larger-class result cannot establish that the smaller connected-cycle class has depth five. Earlier Hamiltonian-path results concern spanning *paths*, not cycles. The inspected full primary texts of Manurangsi (2022) and Coudert–Csikós–Ducoffe–Viennot (2024) address general dimension hardness and closed-neighborhood graph set systems respectively. Kranakis et al. (1997) discuss graph-defined set systems with paths/cycles, but only its abstract was accessible; exact historical coverage of the all-order VC subresult could not be resolved. No claim of priority over that paper or other uninspected work is made. Absence of a search hit is not a uniqueness proof.
+PASS
 
-**Value — PASS.** The claim determines an exact natural learning invariant for every complete-graph order, isolates the first static/adaptive separation among genuine Hamiltonian cycles (as distinct from general two-factors), and supplies a concrete finite depth-five decision certificate that is indispensable for the lower bound. Its product family proves an unbounded gap under the clearly stated independent-component model, rather than claiming a Hamiltonian cycle spanning a disconnected graph. The broad formula and exact first threshold provide structural mathematical content beyond a small isolated numerical instance.
+For n>=5 queried edges of length n-2 lie along a Hamiltonian path on n-1 vertices. Partitioning forced-positive edges into consecutive blocks gives a Hamiltonian path satisfying arbitrary negatives, then append final vertex to close a cycle. For the upper bound, any n-1 shattered edges must be a spanning path under all-ones; removing one endpoint edge leaves a spanning path on n-1 vertices whose only completion forces that same edge, contradiction. n<=5 cardinalities and explicit checks agree. Own exhaustive enumeration of all 1,3,12,60 undirected cycles n=3..6 gives VC 0,1,3,4, with exactly 360 shattered four-query supports at n=6 and zero shattered five-query supports. Independently checked actual Git JSON certificate blob 106e252cd6cb0516212cd731452afe32e01b5ae4: 31 internal nodes, 32 distinct valid leaf cycle witnesses, all binary path histories and no repeated query; hence Ldim K6 >=5; 60<64 excludes 6. Product VC additivity and Littlestone mistake-bound subadditivity/appended witness trees yield exact 4s,5s.
 
-**Independent verification and limitations.** A direct exact verifier re-enumerates all cycles through six vertices and validates the witness tree without relying on an earlier recorded log. Full comparison with the plausible 1997 article is unresolved. The formulas for adaptive dimension above order six are not asserted. Independent scientific review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. The full 1994 graph VC report covers related but different path/cycle query systems; the connected Hamiltonian-cycle 60-witness adaptive certificate was separately validated.
+
+## value
+
+PASS
+
+A natural connected spanning-cycle edge concept class exhibits the first strict offline/online shattering gap on six vertices, and the componentwise model gives an unbounded linear amplification. This is a genuine exact structural learning-theoretic boundary, not merely a generic super-class bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

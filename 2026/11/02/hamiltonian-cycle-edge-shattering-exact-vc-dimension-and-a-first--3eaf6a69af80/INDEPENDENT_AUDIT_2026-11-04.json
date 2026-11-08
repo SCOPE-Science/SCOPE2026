@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:53:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5 queried edges of length n-2 lie along a Hamiltonian path on n-1 vertices. Partitioning forced-positive edges into consecutive blocks gives a Hamiltonian path satisfying arbitrary negatives, then append final vertex to close a cycle. For the upper bound, any n-1 shattered edges must be a spanning path under all-ones; removing one endpoint edge leaves a spanning path on n-1 vertices whose only completion forces that same edge, contradiction. n<=5 cardinalities and explicit checks agree. Own exhaustive enumeration of all 1,3,12,60 undirected cycles n=3..6 gives VC 0,1,3,4, with exactly 360 shattered four-query supports at n=6 and zero shattered five-query supports. Independently checked actual Git JSON certificate blob 106e252cd6cb0516212cd731452afe32e01b5ae4: 31 internal nodes, 32 distinct valid leaf cycle witnesses, all binary path histories and no repeated query; hence Ldim K6 >=5; 60<64 excludes 6. Product VC additivity and Littlestone mistake-bound subadditivity/appended witness trees yield exact 4s,5s.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kranakis et al. 1994 technical report full primary text studies several path/cycle and edge-based set systems, with different ground sets/allowed hypotheses.",
+          "Coudert et al. SEA 2024 focuses on closed vertex neighborhoods, and Manurangsi 2022 on general approximation hardness."
+        ],
+        "reasoning": "Neither inspected broad graph VC result logically supplies Hamiltonian-cycle edge-trace VC for all n plus this K6 adaptive certificate.",
+        "searches": [
+          "https://doi.org/10.1016/S0166-218X(96)00137-0",
+          "https://doi.org/10.4230/LIPIcs.SEA.2024.8"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/S0166-218X(96)00137-0",
+        "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+        "https://carleton.ca/scs/research/scs-technical-reports/technical-reports-1994/tr-255-vc-dimensions-for-graphs/",
+        "https://arxiv.org/abs/2211.01443"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Kranakis path/cycle vertex shattering and edge connected-set theorems use different hypothesis restrictions.",
+          "Manurangsi biclique hardness reduces general dimension approximation but does not give small-class numeric values."
+        ],
+        "reasoning": "The new all-order VC formula is a separate structural proof; the adaptive depth-five certified witness is not inherited from a broader class and the direct-product additivity must use independent query domains.",
+        "searches": [
+          "https://carleton.ca/scs/research/scs-technical-reports/technical-reports-1994/tr-255-vc-dimensions-for-graphs/",
+          "https://arxiv.org/abs/2211.01443"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant set system is all connected spanning 2-regular edge sets, not all paths, cycles as vertex subsets, or all 2-factors.",
+          "The 1994 primary preprint Section 6 treats vertex-based path/cycle shattering and Section 7 other edge systems; this particular K_n Hamilton-cycle edge-incidence theorem was not found."
+        ],
+        "reasoning": "The usual cycle VC parameter on vertex sets does not preserve the query domain; supersets such as all two-factors can share numerical dimensions without implying a witness inside Hamiltonian cycles.",
+        "searches": [
+          "Resultary: Hamiltonian cycle edge membership VC Littlestone shattering complete graph",
+          "Kranakis Krizanc Ruf Urrutia Woeginger 1994 VC dimensions graphs full preprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE/Resultary searches identified related Hamiltonian-path and all-two-factor assertions, but no complete 60-cycle depth-five witness among inspected results."
+        ],
+        "reasoning": "A 70-hypothesis 2-factor table on K6 cannot itself certify the 60-hypothesis connected-cycle class; own checked explicit leaves address this gap.",
+        "searches": [
+          "Resultary: Hamiltonian cycle edge membership VC Littlestone shattering complete graph",
+          "search: VC dimension Littlestone edge incidence of undirected Hamiltonian cycles K6"
+        ]
+      },
+      "rationale": "Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. The full 1994 graph VC report covers related but different path/cycle query systems; the connected Hamiltonian-cycle 60-witness adaptive certificate was separately validated.",
+      "residual_risks": [
+        "The 1994 report is the primary preprint of the 1997 journal paper; subtle journal-only additions were not independently confirmed to be verbatim identical, though report relevant sections were reviewed.",
+        "No Littlestone values are claimed for n>=7; the product family is not itself the set of all Hamilton cycles of a connected graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED GRAPH VC FAMILY; the particular spanning-Hamilton-cycle edge-membership classification not identified",
+          "evidence": [
+            "Section 6 considers vertex-set path and cycle shattering; Section 7 treats edge-based connected sets, paths/trees/stars; distinctions exclude direct prior implication for all Hamilton cycles of K_n."
+          ],
+          "identifier_or_url": "https://carleton.ca/scs/research/scs-technical-reports/technical-reports-1994/tr-255-vc-dimensions-for-graphs/",
+          "material_read": "1994 full preprint PDF, particularly Sections 6-7 (vertex-based path/cycle set systems, and edge systems for connected sets, stars/paths/trees); no exact Hamiltonian cycle edge-incidence or Littlestone theorem identified",
+          "method": "Full 1994 Carleton PDF read, relevant pages/Sections 6–7 visually checked",
+          "title": "VC-Dimensions for Graphs",
+          "trigger": "1997 journal paper possibly covers cycle VC; full 1994 author preprint located"
+        },
+        {
+          "assessment": "DIFFERENT NEIGHBORHOOD HYPOTHESIS CLASS",
+          "evidence": [
+            "Its graph set system uses closed neighborhoods of vertices, not connected Hamiltonian cycle edge sets."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+          "material_read": "Principal definitions and scope of graph vertex-neighborhood VC dimensions in accessible SEA paper",
+          "method": "Accessible 2024 SEA primary paper full text",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Graph VC possibly dominating special family"
+        },
+        {
+          "assessment": "COMPUTATIONAL HARDNESS, NOT AN EXACT NUMERIC FORMULA",
+          "evidence": [
+            "The reductions concern approximation/hardness rather than this fixed natural class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.01443",
+          "material_read": "Introduction and general hardness/reduction theorem statements; no specialized edge incidence of Hamilton cycles",
+          "method": "Accessible arXiv main theorem and introductory sections",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone Dimension via Biclique",
+          "trigger": "General VC/Littlestone hardness literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural connected spanning-cycle edge concept class exhibits the first strict offline/online shattering gap on six vertices, and the componentwise model gives an unbounded linear amplification. This is a genuine exact structural learning-theoretic boundary, not merely a generic super-class bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://carleton.ca/scs/research/scs-technical-reports/technical-reports-1994/tr-255-vc-dimensions-for-graphs/",
+      "material_read": "1994 full preprint PDF, particularly Sections 6-7 (vertex-based path/cycle set systems, and edge systems for connected sets, stars/paths/trees); no exact Hamiltonian cycle edge-incidence or Littlestone theorem identified",
+      "title": "VC-Dimensions for Graphs"
+    },
+    {
+      "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+      "material_read": "Principal definitions and scope of graph vertex-neighborhood VC dimensions in accessible SEA paper",
+      "title": "Practical Computation of Graph VC-Dimension"
+    },
+    {
+      "identifier_or_url": "https://arxiv.org/abs/2211.01443",
+      "material_read": "Introduction and general hardness/reduction theorem statements; no specialized edge incidence of Hamilton cycles",
+      "title": "Improved Inapproximability of VC Dimension and Littlestone Dimension via Biclique"
+    }
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The 1994 report is the primary preprint of the 1997 journal paper; subtle journal-only additions were not independently confirmed to be verbatim identical, though report relevant sections were reviewed.",
+    "No Littlestone values are claimed for n>=7; the product family is not itself the set of all Hamilton cycles of a connected graph."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exact Littlestone dimensions n=3,4,5,6 only.",
+    "Product amplification fixes s disjoint six-vertex groups; disconnected unions of chosen cycles are not one Hamiltonian cycle on 6s vertices."
+  ]
+}
