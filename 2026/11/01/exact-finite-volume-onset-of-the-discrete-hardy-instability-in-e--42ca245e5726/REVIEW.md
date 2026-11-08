@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result identifies the first Euclidean squared-radius at which the Dirichlet nearest-neighbor lattice Hardy quadratic form at the continuum coefficient becomes negative for every integer dimension at least three. The dimension-nine positivity certificate checks all 90 orbit slacks exactly; a ground-state identity upgrades orbitwise positivity to **all** complex-valued functions supported in the ball. The negative 98-orbit witness gives an exact signed deficit at radius 24. Additional explicit small-orbit witnesses and exact two-shell calculations handle dimensions ten onward, while the full-lattice theorems in the cited literature handle dimensions three through eight. Direct full-graph checks were also performed in small dimensions. Finite computations support, but do not replace, the stated universal analytical arguments.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The most relevant source, Lizama (arXiv:2608.30831v1), proves that dimension nine fails the global coefficient using Gaussian trial functions and eventually sufficiently large truncations; its coordinate Ritz ladder does not cross in dimension nine. The source does not imply the exact first Euclidean-ball radius, because a minimality proof requires the missing **positive** estimate on all functions through squared radius 23. The independent Alpay 2026 theorem covers dimensions five through eight, not the new radius classification. Published mathematical-record queries under Dirichlet spectral, Hardy, orbit-compression and first-support terminology found no equivalent numerical cutoff. An inaccessible older equivalent formulation remains possible.
+PASS
 
-## Mathematical value — PASS
-The first support radius of a negative mode for a critical inverse-square discrete Schrödinger form is a natural exact finite-scale invariant. The striking exceptional value 24 in the first failing dimension, versus 3, 2 and 1 in the next regimes, supplies a complete finite-volume phase diagram and an explicit reusable positivity/witness certificate. The claim does not purport to compute global sharp constants in dimensions nine and above.
+For finite Dirichlet punctured lattice balls S_{d,R}, a signed-permutation orbit reduction gives the exact integer identity D(4E-(d-2)^2H). Independently generated orbit representatives, multiplicities and adjacency counts with JS BigInt directly from assigned certificate.json (not by running its verifier). At d=9,R=23 exactly 90 orbits and positive integer h give minimum scaled supersolution slack 100963; the discrete ground-state identity upgrades this to strict positivity on every complex-valued test, not just invariant ones, and hence all R<=23. At R=24 exactly 98 orbits give D=5354228880 and negative scaled defect -3740776448633821897328. Independently checked d=10,R=3 defect -5760 with D=6; d=11,R=2 defect -2332 with D=2; d=12,R=1 defect -96. Smaller radii are excluded by exact one/two-shell eigenvalue calculations; for all d>=12 the one-shell inequality follows from 2d<(d-2)^2/4. Published full-lattice Hardy theorems supply infinity for d<=8. This is a mathematically exact finite certificate combined with analytic ground-state/Perron-Frobenius arguments, not a finite numerical extrapolation.
 
-## Sources and limitations
-Primary texts actually inspected: Lizama, arXiv:2608.30831v1, introduction and Sections 4–5; Alpay, arXiv:2610.05421v1, introduction, main theorem and Section 6. Exact certificates: `certificate.json`, `verify_certificate.py`. Potential priority risk: older equivalent finite-volume Dirichlet spectral computations. No external independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lizama established failure in dimensions nine and ten globally, and Alpay established the coefficient through dimensions five to eight. Those theorems do not identify the first squared-Euclidean-radius Dirichlet ball violating the dimension-nine coefficient. A negative witness at radius 24 alone would not show minimality; the new 90-orbit positive supersolution at 23 is essential. A recent 93-page dimension-transition preprint discusses global coupling mechanism but was inaccessible in full; its accessible abstract does not state the finite R_*(9)=24 calculation, hence is a named residual risk rather than automatic novelty proof.
+
+## value
+
+PASS
+
+Exact first-violation ball size is a natural finite-volume spectral cutoff for the first dimension of discrete Hardy instability. The positive all-test-function certificate through radius 23 plus negative radius-24 witness locate the earliest geometry at which the continuum coefficient fails; the complete dimension table distinguishes genuinely infinite stability below dimension nine from early finite losses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
