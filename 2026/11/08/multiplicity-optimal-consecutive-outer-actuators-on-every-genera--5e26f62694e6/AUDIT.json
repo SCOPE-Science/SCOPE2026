@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every stated n,k the two-dimensional Fourier block M_j has simple eigenvalues and all eigenvectors nonzero on the outer ring. Each lambda-eigenspace is spanned by distinct Fourier columns indexed by J_lambda. The first |J_lambda| outer rows are a nonsingular Vandermonde matrix; PBH gives controllability for r=max |J|, and eigenvalue multiplicity gives the matching lower bound. Chebyshev polynomial degree establishes 2k+2 cap. The n=11 resultant is recomputed exactly using integer operations, and squarefreeness follows from its derivative modulo 2; full finite Kalman ranks are checked over a prime field.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rashidi et al. (2020) Theorem 2.2: Z(GP(n,k))≤2k+2 via 2k+2 consecutive outer vertices.",
+        "Rashidi et al. Theorem 2.5: Z(GP(n,2))=6 for n≥10.",
+        "Dai (2022) focuses on minimum leader selection for scale-free networks and Cayley trees; no GP theorem in accessible full text."
+      ],
+      "reasoning": "The uniform 2k+2 zero-forcing construction is existing stronger structural-controllability coverage at that *larger* input count, and is credited; it does not assert or imply that a spectral-multiplicity-sized prefix works, which may have only two inputs. The GP(11,2) example is incompatible with reducing the new claim to the six-input zero-forcing construction.",
+      "searches": [
+        "\"generalized Petersen\" \"minimum\" \"control nodes\" adjacency",
+        "\"generalized Petersen\" zero forcing upper bound consecutive outer vertices",
+        "doi:10.1049/cth2.12385 minimum leaders undirected graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://ajc.maths.uq.edu.au/pdf/49/ajc_v49_p039.pdf",
+      "https://arxiv.org/pdf/1109.3556",
+      "https://jacodesmath.com/index.php/jacodesmath/article/download/133/109/244",
+      "https://doi.org/10.1049/cth2.12385"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gera--Stănică (2011): eigenvalues and Fourier blocks; no PBH actuator placement.",
+        "Parlangeli--Notarstefano (2011): paths and cycles only.",
+        "Rashidi et al. (2020): 2k+2 prefix and Z=6 for k=2, not exact minimum coordinate control.",
+        "Dai (2022): a general MPCS method and special tree examples."
+      ],
+      "reasoning": "The conclusion that a maximum-eigenvalue-multiplicity prefix controls every generalized Petersen graph requires the Fourier-column nonvanishing and Vandermonde proof; it is neither a special case of the cited cycle-only results nor a numerical corollary of the zero-forcing bound. Earlier general PBH statements provide the criterion, not the matching placement theorem.",
+      "searches": [
+        "\"On the reachability and observability of path and cycle graphs\" 2011",
+        "\"The spectrum of generalized Petersen graphs\" Theorem 2.4",
+        "\"Computing the zero forcing number for generalized Petersen graphs\" Theorem 2.2 2.5",
+        "\"Minimum leader selection for controllability of undirected graphs\" Dai"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact spectral formula of Gera--Stănică (2011), Theorem 2.4, is a prerequisite, not a statement of coordinate controllability.",
+        "Parlangeli--Notarstefano (arXiv:1109.3556v1), Section IV, treats path/cycle reachability."
+      ],
+      "reasoning": "The candidate is an exact PBH eigenvector-coordinate injection result for all generalized Petersen parameters; neither adjacency eigenvalues alone nor the cycle-only reachability statement implies its every-eigenspace Vandermonde restriction without an added proof.",
+      "searches": [
+        "\"generalized Petersen\" \"controllability\" \"eigenvalue\" leader",
+        "\"generalized Petersen\" \"optimal\" \"actuators\" Laplacian",
+        "Gera Stanica generalized Petersen eigenvectors Fourier spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The fully read Gera--Stănică (2011) article tabulates/characterizes adjacency eigenvalues but not minimum coordinate leader sets.",
+        "The 2020 zero-forcing article does not report the exact fixed-Laplacian two-input optimum for GP(11,2)."
+      ],
+      "reasoning": "Neither a table of eigenvalues nor a zero-forcing count records the all-n,k consecutive minimum-input controllability theorem. The n=11 squarefree resultant and exact minimality are independently derived here; related finite graph results do not dominate the all-parameter statement.",
+      "searches": [
+        "generalized Petersen graph Laplacian controllability minimum leaders eigenvalue multiplicity",
+        "GP(11,2) adjacent outer actuator pair controllability versus zero forcing six",
+        "2011 generalized Petersen graph spectrum tables multiplicities"
+      ]
+    },
+    "rationale": "Existing 2011 Fourier eigenvalues and 2020 2k+2 zero-forcing prefix are expressly attributed. The new assertion is the maximal-multiplicity, adaptive consecutive-outer optimal-coordinate input theorem for every GP(n,k); the zero-forcing construction cannot imply its generally much smaller actuator count. Inspected primary papers and searched research index reveal no equivalent claim, subject to stated residual priority risk.",
+    "residual_risks": [
+      "Unindexed specialist literature on I-graphs, block-circulant network sampling, or multi-input consensus control might contain an equivalent maximal-multiplicity placement theorem.",
+      "An accessible spectrum article already supplies all eigenvalues; its mathematical dependence is deliberately acknowledged and does not by itself certify publication novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers spectrum, not optimized coordinate-input controllability",
+        "evidence": [
+          "Theorem 2.4 characterizes the two roots for each Fourier frequency.",
+          "Full text does not state a leader-placement or PBH theorem."
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/49/ajc_v49_p039.pdf",
+        "material_read": "Full seven-page open journal PDF, including Theorem 2.4, its Fourier proof, Corollary 2.5, Theorem 3.1, and references",
+        "method": "Open publisher PDF; read sections 1–4 and inspect mathematical page",
+        "title": "The spectrum of generalized Petersen graphs",
+        "trigger": "Exact same graph family and Fourier eigenvalues"
+      },
+      {
+        "assessment": "Covers paths/cycles, not two-layer generalized Petersen graphs",
+        "evidence": [
+          "The paper explicitly restricts its main reachability treatment to paths and cycles.",
+          "No occurrence of Petersen in full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+        "material_read": "Accessible 26-page full preprint; introduction, assumptions, cycle statements, theorem descriptions and references; searched for generalized Petersen family",
+        "method": "Open full arXiv PDF and inspect relevant sections and page image",
+        "title": "On the reachability and observability of path and cycle graphs",
+        "trigger": "Same consensus-control problem and adjacent-cycle sampling mechanism"
+      },
+      {
+        "assessment": "Covers a larger zero-forcing construction and six-vertex zero-forcing number, not adaptive exact minimal fixed-Laplacian actuation",
+        "evidence": [
+          "Theorem 2.2 explicitly uses 2k+2 consecutive u-vertices.",
+          "Theorem 2.5 gives Z(GP(n,2))=6 for n≥10."
+        ],
+        "identifier_or_url": "https://jacodesmath.com/index.php/jacodesmath/article/download/133/109/244",
+        "material_read": "Full eleven-page publisher PDF: Theorem 2.1, Theorem 2.2 and proof, Theorem 2.5, lower bounds and references",
+        "method": "Open publisher PDF, read complete relevant theorem proofs and inspect the theorem page",
+        "title": "Computing the zero forcing number for generalized Petersen graphs",
+        "trigger": "Same graph, known uniform consecutive-outer construction and potential stronger coverage"
+      },
+      {
+        "assessment": "Generic PBH and critical-set approach; exact examples on other graph families, no GP family classification",
+        "evidence": [
+          "The article introduces minimal perfect critical sets and demonstrates them on deterministic scale-free networks and Cayley trees.",
+          "No generalized Petersen results appear in the accessible full text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+        "material_read": "Full accessible HTML article, including Proposition 1, Sections 2–5, examples and references",
+        "method": "Read full HTML and inspect subject-specific and graph-family search",
+        "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+        "trigger": "General minimum-leader framework that could dominate candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e26f626-94e6-4611-82ff-444deabd18e5",
+  "value": {
+    "rationale": "Provides an explicit globally minimum actuator count and placement throughout an infinite two-parameter family where the spectral lower bound is not automatically attainable for generic graphs. It is meaningful beyond code: GP(11,2) needs just two independent fixed-Laplacian inputs, contrasted with its known six-vertex zero-forcing requirement; the exact rule addresses the motivated gap between spectral and robust combinatorial placement.",
+    "status": "PASS"
+  }
+}
