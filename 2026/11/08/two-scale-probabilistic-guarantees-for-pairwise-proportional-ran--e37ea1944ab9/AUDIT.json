@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For matching unanimous graph, ordered 2-blocks reversed in order preserve every unanimous preference twice and orient all other pairs once in each direction. An arbitrary triple contains two unanimous edges with exact probability 6*3^(-n)-6*6^(-n), by six extreme events with complete-order overlap, so the union bound yields high-probability solvability. For unanimous-edge count X, disjoint candidate-pair orientation sigma-fields are independent, joint incident edge probability is 2*3^(-n)+2*6^(-n); explicit Arratia-Goldstein-Gordon neighborhood bound tends to zero when m/2^(n/2)->c, yielding Poisson(c²). The standalone checker exhaustively compares 14,652 ranking input profiles plus probability identities. Asymptotic claims are proved analytically, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Halpern et al. Theorem 3: existence fails for some arbitrary input profiles with two output rankings. Their Theorems 4-5 are positive only for single-peaked/single-crossing inputs. Section 6 explicitly leaves probabilistic existence open."
+      ],
+      "reasoning": "Worst-case impossibility does not entail high-probability existence under independent random rankings. Single-peaked and single-crossing properties do not hold for almost all independent uniform profiles of growing size, so those positive theorems do not dominate the new theorem.",
+      "searches": [
+        "Halpern Liu Micha Ng Suksompong probabilistic guarantees pairwise proportionality rankings random permutation",
+        "pairwise proportional ranking compression random impartial culture probabilistic guarantees reverse rankings"
+      ]
+    },
+    "checked_sources": [
+      "Halpern et al., arXiv:2610.23193, primary accessible PDF relevant text",
+      "Arratia, Goldstein and Gordon (1989), cited theorem and bibliographic metadata",
+      "Published research-index searches on reverse block, unanimous pairs, random preference rankings",
+      "Public web keyword searches on rank compression probabilistic guarantees and Poisson consensus comparisons",
+      "Accessible research statements on related probabilistic social-choice problems"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Halpern et al. arXiv:2610.23193, Sections 5-6: new compression definition, worst-case counterexample and probabilistic question.",
+        "Arratia, Goldstein and Gordon, Annals of Probability 17 (1989): the general dependency-neighborhood Poisson bound invoked here; it does not specialize to unanimous candidate pairs."
+      ],
+      "reasoning": "An application of the abstract Poisson method requires a newly identified valid dependency neighborhood, pair-event probabilities and the two-output block certificate; none of these is asserted in either prior source. The fresh theorem is not a corollary of the cited existence results without those new model-specific steps.",
+      "searches": [
+        "Halpern Liu Micha Ng Suksompong probabilistic guarantees pairwise proportionality rankings random permutation",
+        "random preference profiles unanimous pair comparisons Poisson threshold consensus graph dimension two random elections ranking compression",
+        "Arratia Goldstein Gordon 1989 two moments suffice for Poisson approximations Chen Stein dependency neighborhoods theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source formulates pairwise proportionality for two output rankings via strong (unanimous) and weak constraints, Section 5, Lemma 3.",
+        "Random-permutation comparison covariance literature discusses dependent pair orientations, but not the matching-block compression equivalence."
+      ],
+      "reasoning": "The claim can also be formulated as a randomized two-linear-order extension for a matching-valued unanimous poset, together with a random-consensus graph bound. An inversion covariance or random matching assignment result does not itself entail a two-order proportionality certificate.",
+      "searches": [
+        "impartial culture pairwise proportionality ranking compression two output rankings unanimous comparisons reverse block algorithm Poisson threshold 2^(n/2) 3^(n/3)",
+        "random consensus graph of unanimous preference pairwise comparisons matching sparse independent uniform rankings block reversal",
+        "random preference profiles unanimous pair comparisons Poisson threshold consensus graph dimension two random elections ranking compression"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible indexed findings about stochastic-dominance assignment, random order statistics and permutation inversion precision have different objects and parameters.",
+        "The original ranking-compression paper exhaustively covers adversarial n=4,k=2 cases through m=7 but does not provide an impartial-culture asymptotic table or the new probability formulas."
+      ],
+      "reasoning": "No covering exact census or probabilistic table was found; the new formula describes input-voter count tending to infinity with exponentially many alternatives, rather than a bounded finite search.",
+      "searches": [
+        "impartial culture pairwise proportionality ranking compression two output rankings unanimous comparisons reverse block algorithm Poisson threshold 2^(n/2) 3^(n/3)",
+        "random consensus graph of unanimous preference pairwise comparisons matching sparse independent uniform rankings block reversal",
+        "unanimous comparisons random permutations Poisson number of unanimous pairs order probability"
+      ]
+    },
+    "rationale": "The inspected primary paper defines pairwise proportionality and gives adversarial impossibility and structured-domain existence, while Section 6 explicitly asks for probabilistic existence; it does not derive this impartial-culture matching certificate or the two exponential scales. The published Chen--Stein theorem supplies a general analytic method but no ranking-compression conclusions. Targeted published-literature and semantic research searches found no statement implying the new bound or Poisson mirror window. Risk: hidden or unindexed analogues of unanimous-comparison random-order graphs.",
+    "residual_risks": [
+      "An unindexed publication could contain an equivalent random-unanimity comparison theorem or a stronger quantitative result.",
+      "Only relevant sections of the 2026 primary paper and bibliographic metadata of the 1989 probability theorem were inspected; the general Chen--Stein theorem is used as a standard published lemma.",
+      "The bounds do not determine the true maximal candidate growth rate for pairwise-proportional solvability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines pairwise compression and establishes worst-case impossibility and structured-domain positive theorems; does not provide random-impartial-culture matching-block method or Poisson transition.",
+        "evidence": [
+          "Theorem 3 and Lemma 3; Section 5, pages 7-9",
+          "Section 6, page 9 explicitly asks for probabilistic guarantees"
+        ],
+        "identifier_or_url": "arxiv:2610.23193; https://daniel-halpern.com/files/proportional-compression.pdf",
+        "material_read": "Primary paper Sections 5-6 including Theorem 3, Lemma 3, Theorems 4-5, the 24-candidate construction and the probabilistic-guarantees open direction; relevant Appendix D portions",
+        "method": "Opened accessible full-text PDF, searched theorem/probabilistic passages and inspected corresponding PDF page",
+        "title": "Proportionality in Ranking Compression",
+        "trigger": "Exact definition and strongest plausible coverage by the motivating paper"
+      },
+      {
+        "assessment": "Standard published dependency-neighborhood Poisson approximation result; no domain-specific ranking compression coverage. Full original article not read.",
+        "evidence": [
+          "Arratia, Goldstein, Gordon, Annals of Probability 17 (1989) 9-25, DOI 10.1214/aop/1176991491"
+        ],
+        "identifier_or_url": "doi:10.1214/aop/1176991491",
+        "material_read": "Bibliographic metadata and scholarly citation descriptions, not full journal text",
+        "method": "Cross-checked publication and authors in scholarly bibliographic records",
+        "title": "Two moments suffice for Poisson approximations: the Chen--Stein method",
+        "trigger": "Critical standard probability theorem supporting the distributional conclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e37ea194-4ab9-44fc-893a-0309f7840b78",
+  "value": {
+    "rationale": "The motivating paper explicitly asks for probability-model existence results after proving adversarial impossibility. The theorem supplies a constructive answer for an exponentially growing number of alternatives, plus a sharp nontrivial Poisson transition for the natural simplest mirror algorithm that a block method overcomes. This characterizes a meaningful structural mechanism (sparse unanimity graph), not an arbitrary small numerical statistic. Scope is restricted to impartial culture and two outputs, with no unsupported claim of an overall sharp representability threshold.",
+    "status": "PASS"
+  }
+}
