@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:07:26.153367Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n agents with one common strict ranking and uniform bistochastic matrix U=(1/n), Dec-EF of each ordered pair is equivalent to Pr(P(i)>P(j))=1/2. Marginals require at least n supported permutation matchings. If exactly n, all their weights=1/n and odd n cannot make an integral multiple of 1/n equal 1/2. The n+1 impossibility follows because every supported weight<=1/n and for each row exactly one rank is repeated, so exactly two globally sub-1/n weights must correspond to permutations agreeing in every row, contradicting their distinctness. For even n=2m, pair n cyclic shifts of q=(0,...,m-1,2m-1,...,m) through q(k+m)=n-1-q(k) to balance every pair with support n. For odd n>=3, forward cyclic shifts and their distinct rank reversals yield balanced uniform lottery on 2n supports. At n=3, direct six-column marginal equations leave one parameter, and fairness sets it to 1/6 on every permutation, giving unique s(3)=6. Independently recomputed exact 6-variable rational balance system rank 6 and unique uniform weights; boundary n2 and n3 verified. The unknown exact odd n>=5 minimum is explicitly NOT claimed; n+2<=s(n)<=2n only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kawase et al. establish Dec-EF existence for n<=3 and restricted preference diversity; their uniform n=3 example uses all six permutations.",
+          "Li et al. abstract announces broader agent counts and hardness, but full text inaccessible at authorized access."
+        ],
+        "reasoning": "General existence of a Dec-EF decomposition does not imply exact minimal positive support or uniqueness. The uninspected Li paper might nevertheless supply broader support results, retained as risk rather than declared not covering.",
+        "searches": [
+          "https://arxiv.org/abs/2604.16973",
+          "https://arxiv.org/abs/2609.35192"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.16973 full available primary PDF",
+        "arXiv:2609.35192 abstract only; full text inaccessible",
+        "Resultary semantic search: decomposition envy-free random uniform assignment parity minimum support",
+        "SCOPE published random-serial-dictatorship support-shape related records, different lottery/constraints"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 3-agent example offers one fair uniform six-allocation lottery while another three-allocation lottery is unfair.",
+          "The current proof forces every fair uniform 3-agent lottery to be uniform on all six; more generally parity determines exact optimum even n and a lower bound odd n."
+        ],
+        "reasoning": "The three-agent example establishes attainability of six, not minimum support without separate uniqueness; broad existence theorems do not imply the stated parity bounds. Missing Li full text is a material residual comparison risk.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.16973",
+          "https://arxiv.org/abs/2609.35192"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dec-EF under common strict preferences reduces to pairwise balanced permutation rankings at probability 1/2 for every ordered pair.",
+          "Minimum support asks for sparse Birkhoff–von Neumann representations of U subject to those balancing constraints."
+        ],
+        "reasoning": "Compared terminology of sparse Birkhoff decompositions, pairwise balanced random orders and Dec-EF. Basic Birkhoff theorem guarantees existence but does not enforce pairwise envy-balance or support optimum.",
+        "searches": [
+          "Resultary semantic: decomposition envy-free random uniform assignment parity minimum support permutation decompositions",
+          "https://arxiv.org/pdf/2604.16973",
+          "arXiv:2609.35192"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six permutations on 3 agents are explicitly listed in the prior paper; it does not by that alone prove their fairness probabilities are uniquely forced for U.",
+          "The all-even n support construction and uniform n+1 obstruction are universal, not enumerated tables."
+        ],
+        "reasoning": "The n=3 feasibility datum is prior; its uniqueness, plus all-n theorems, requires the new algebraic/structural proofs. No known table of sparse Dec-EF optima implied them from the material read.",
+        "searches": [
+          "Resultary semantic: decomposition envy-free random uniform assignment parity minimum support permutation decompositions",
+          "https://arxiv.org/abs/2604.16973"
+        ]
+      },
+      "rationale": "Kawase–Suksompong–Sumita–Yokoi (arXiv:2604.16973) introduced Dec-EF and exhibited six-way uniform decomposition for n=3, but their inspected existence theorems do not establish uniqueness of the six-way lottery, minimum n for every even size, or the impossibility of n+1 supports. Li–He–Li (arXiv:2609.35192) concerns larger-agent decomposition existence and computational hardness; only its abstract could be accessed, so the complete source remains a named priority risk, not a decisive rejection. Best-of-knowledge pass on identifiable support-optimality and parity structural statements.",
+      "residual_risks": [
+        "ArXiv:2609.35192 complete paper inaccessible after lawful OA and authorized institutional attempt; it could address equivalent sparsity or uniqueness.",
+        "Odd n>=5 optimum is not determined, only range; no inference from finite tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Example already establishes one six-support feasible distribution; new exact uniqueness and all-even optimum are not stated in inspected results",
+          "evidence": [
+            "Example 1 compares cyclic 3-permutation uniform implementation with all-six uniform lottery; the latter meets Dec-EF."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.16973",
+          "material_read": "Introduction, formal Dec-EF definition, Example 1 and stated existence results",
+          "method": "Primary PDF and screenshot reading",
+          "title": "Decomposition Envy-Freeness in Random Assignment",
+          "trigger": "Original Dec-EF definition and precisely uniform three-agent example"
+        },
+        {
+          "assessment": "Cannot assess whole-document support coverage; significant historical priority uncertainty remains",
+          "evidence": [
+            "Abstract announces agent-count existence and computational complexity; no full argument or appendix read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.35192",
+          "material_read": "Abstract/catalogue only; full PDF unavailable",
+          "method": "ArXiv OA attempted; institutional access returned VPN disconnected; no bypass",
+          "title": "Envy-Free Decompositions of Random Assignments: Settling Four Agents, and What Lies Beyond",
+          "trigger": "Recent closely related same-object larger-agent work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sparsity of lottery support is a natural operational complexity of implementing a fractional assignment. The exact even-size support optimum, impossible n+1 for uniform matrices, and uniquely forced n=3 fair lottery identify a nontrivial parity obstruction within the existing Dec-EF model, without overclaiming odd-size exact optima beyond n=3.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2604.16973 full available primary PDF",
+    "arXiv:2609.35192 abstract only; full text inaccessible",
+    "Resultary semantic search: decomposition envy-free random uniform assignment parity minimum support",
+    "SCOPE published random-serial-dictatorship support-shape related records, different lottery/constraints"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Same strict ranking, exactly uniform U, distinct permutations with strictly positive weights. Exact odd n>=5 support optimum NOT known in this result. Full Li–He–Li comparison blocked by disconnected institutional VPN, not treated as proof of novelty.",
+    "ArXiv:2609.35192 complete paper inaccessible after lawful OA and authorized institutional attempt; it could address equivalent sparsity or uniqueness.",
+    "Odd n>=5 optimum is not determined, only range; no inference from finite tests."
+  ],
+  "schema_version": 1
+}
