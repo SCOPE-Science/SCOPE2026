@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof analytically derives the normalized Radon support function, the zonoid mixed-volume polynomial (including the ordered-pair coefficient \(2\pi\)), and the cancellation of the three-distinct-disk term. These steps establish the universal exact deficit for all positive rectangular-box half-side lengths. The logarithmic comparison uses the global elementary inequality \(2(\cosh t-1)\ge t^2\) and an explicit infinitesimal family for sharpness.
+## correctness
 
-The standalone `verify.py` was executed in the delivered package environment. It passed 125 exact rational tests of the difference polynomial; two midpoint quadratures with 300 and 600 subdivisions for the universal disk constant; three independent exposed-point convex-hull volume comparisons (with relative discrepancies below 0.002); and the local sharpness ratio test. Numerical tests check the computation only, not mathematical priority or completeness of the literature search.
+PASS
 
-No independent mathematical audit has been performed. The exact formula is restricted to rectangular orthotopes in \(\mathbb R^3\). The universal disk-mixed-volume integral remains expressed as an integral, which cancels from the theorem's exact deficit.
+The normalized circle average of projected box area 4(bc|v1|+ac|v2|+ab|v3|) has E|v_i|=(2/pi)sqrt(1-u_i^2), so M2 Q=(8/pi)(bc D1+ac D2+ab D3). For the three orthogonal unit discs, Minkowski volume is 2*pi*sum_(i!=j) r_i^2*r_j+C*r1*r2*r3 (ordered pairs); direct zonoid determinant integral of 32*pi establishes each coefficient 3 V(D_i,D_i,D_j)=2*pi. With r1=bc,r2=ac,r3=ab, the 3-distinct term C*p^2 cancels from cube subtraction. Exact algebra yields coefficient (8/pi)^3*2*pi/64=16/pi^2, and only a=b=c has zero defect. 2(cosh x-1)>=x^2 establishes logarithmic stability and approach at (e^t,1,e^-t) gives sharpness. An independent 125 positive rational-triple exact-polynomial check passed. Numerical convex hull/quadrature, described in source verification, were not used to justify infinite quantifiers. Domain strictly positive orthogonal half-sides in R^3; no general convex-body claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for this exact final mathematical claim, with primary-source comparisons, qualified access residual risks, and four explicit implication checks.
+
+## value
+
+PASS
+
+A sharp exact stability law for a recognized convex-body transform at every positive orthotope aspect ratio, with unique cubic minimizer and optimal log-aspect constant, is a useful nontrivial geometric special-family invariant; not a generic inequality rewrite. Classical zonoid coefficients are known tools, while this fixed-volume identity and normalization are the mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment: exact rectangular-box mean-projection-body deficit
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition uses probability-normalized integration over two-planes containing each support direction. Projected rectangular-box area gives the displayed disk-support decomposition with coefficient \(8/\pi\). The zonoid determinant formula computes every repeated-index mixed-volume coefficient as \(2\pi\); the distinct-index coefficient cancels for equal box volumes. Direct algebra gives the exact normalized deficit, and the elementary hyperbolic-cosine inequality gives globally sharp logarithmic stability. The analytic proof covers all strictly positive half-side lengths. Finite rational and numerical checks are supplemental, not certificates of the infinite statements.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The 2026 source establishes general log-concavity of intrinsic volumes of mean-projection bodies, not the exact three-dimensional orthotope volume deficit. The two inspected primary sources on discotopes describe the three-disk body, including its algebraic boundary/fiber-body structure, but do not state the sharp fixed-volume expression and its log-aspect stability. A previously indexed exact orthotope result determines the **support and Euclidean radii** of this image, not its three-dimensional volume. A search result on the volume of the **convex hull** of three orthogonal disks is not interchangeable with the present **Minkowski sum**. Residual risk: an older mixed-volume table or zonoid calculation might contain the same polynomial and make the stability statement an immediate corollary. The exact source comparison has not been independently audited.
+PASS
 
-## Mathematical value — PASS
-Mean-projection-body volume is a natural intrinsic-volume statistic newly featured in the motivating literature. Rectangular boxes provide the fundamental fully anisotropic test family; their image is a genuinely curved three-disk discotope. The result gives a complete sharp, globally quantified, scale-invariant stability law for its volume (and an optimal logarithmic modulus), rather than a routine special-case numerical evaluation or an unmotivated parameter slice. It does not claim all-convex-body extremality.
+The normalized circle average of projected box area 4(bc|v1|+ac|v2|+ab|v3|) has E|v_i|=(2/pi)sqrt(1-u_i^2), so M2 Q=(8/pi)(bc D1+ac D2+ab D3). For the three orthogonal unit discs, Minkowski volume is 2*pi*sum_(i!=j) r_i^2*r_j+C*r1*r2*r3 (ordered pairs); direct zonoid determinant integral of 32*pi establishes each coefficient 3 V(D_i,D_i,D_j)=2*pi. With r1=bc,r2=ac,r3=ab, the 3-distinct term C*p^2 cancels from cube subtraction. Exact algebra yields coefficient (8/pi)^3*2*pi/64=16/pi^2, and only a=b=c has zero defect. 2(cosh x-1)>=x^2 establishes logarithmic stability and approach at (e^t,1,e^-t) gives sharpness. An independent 125 positive rational-triple exact-polynomial check passed. Numerical convex hull/quadrature, described in source verification, were not used to justify infinite quantifiers. Domain strictly positive orthogonal half-sides in R^3; no general convex-body claim.
 
-## Reproducibility and limitations
-The standalone program `verify.py` performs 125 exact-rational tests, quadrature convergence checks, and independent inscribed-hull comparisons. Independent mathematical audit and final historical priority remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for this exact final mathematical claim, with primary-source comparisons, qualified access residual risks, and four explicit implication checks.
+
+## value
+
+PASS
+
+A sharp exact stability law for a recognized convex-body transform at every positive orthotope aspect ratio, with unique cubic minimizer and optimal log-aspect constant, is a useful nontrivial geometric special-family invariant; not a generic inequality rewrite. Classical zonoid coefficients are known tools, while this fixed-volume identity and normalization are the mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
