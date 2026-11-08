@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:56:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob da5a8033cfc555e5dfbea1f5aab7785281c2feeb",
+        "verify.py blob e5b0819b8cbd0c604a97f9dbf168096b4eb6ea8f"
+      ],
+      "rationale": "An (m+1)×m full-spark evaluation matrix has a one-dimensional left-nullspace spanned by w with all w_j nonzero, so every leave-one-out residual equals (wᵀf)/w_j, fixing rankings for n=m+1. At n=m+2 the two specified adjacent m-node stencils with one outside point each admit opposite indicator pairs from impulses at the first and last nodes. For 1D degree d on d+2 equally spaced nodes, endpoint barycentric weights have equal magnitudes, forcing exact cancellation of nonlinear indicator factors for all sample vectors. Explicit Lagrange evaluation of step data at h/2 and the compact geometric-weight ratio yield (-1)^d C(2d,d)/(4^d[1+(2d+1)^{2μ}]); verified independently for d=1..8 with exact rational arithmetic. The proof extends to all full-spark real polynomial spaces, not just the checked grids.",
+      "residual_risks": [
+        "Algebraic possibility threshold is not a universal guarantee of edge or jump detection; compact-response formula applies only to specified two-stencil/radius geometry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dell’Accio et al. introduce data-dependent residual indicators and smoothness/separation bounds, using larger neighborhoods in actual implementation."
+        ],
+        "reasoning": "Generic smooth-region rates/conditional separation do not by themselves give the exact one-site, all-data cancellation and minimum-sample impossibility; inaccessible full text remains a significant priority risk.",
+        "searches": [
+          "multinode Shepard residual indicators leave one out polynomial interpolation nullspace rank one m+2 samples sharp jump detection",
+          "Data dependent Compact Multinode Shepard Method arxiv 2610.31026 residual indicator definition"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.31026",
+        "https://doi.org/10.1007/s11075-025-02141-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Other WENO/Shepard smoothness indicators use least-squares or derivative residuals; this claim explicitly assumes one-site outside-stencil interpolation residuals."
+        ],
+        "reasoning": "Results for broader indicator schemes are not automatically logical supersets of the single-outside-point rank-one obstruction; boundary assumptions were checked explicitly.",
+        "searches": [
+          "multinode Shepard residual indicators leave one out polynomial interpolation nullspace rank one m+2 samples sharp jump detection",
+          "Levin Ramon Ruiz Alvarez Yanez Weighted essentially non oscillatory Shepard method 2025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The left-kernel residual relation is a classical divided-difference identity in one variable and simple full-spark linear algebra in higher dimensions."
+        ],
+        "reasoning": "No originality claimed for barycentric weights alone; the sharp minimal two-way indicator discrimination and explicit compact nonlinear-stencil consequence are the assessed additional combined statements.",
+        "searches": [
+          "multinode Shepard residual indicators leave one out polynomial interpolation nullspace rank one m+2 samples sharp jump detection",
+          "barycentric interpolation leave one out residual nullspace divided difference"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of minimal n and alternating preferences was located; the claim is an algebraic sharpness statement uniform over m, not a computational enumeration."
+        ],
+        "reasoning": "Numerical WENO indicator comparisons cannot replace the left-nullspace proof or the sharp m+2 witness construction.",
+        "searches": [
+          "multinode Shepard residual indicators leave one out polynomial interpolation nullspace rank one m+2 samples sharp jump detection",
+          "minimum sampling residual stencil discrimination m+1 m+2 interpolation table"
+        ]
+      },
+      "rationale": "The 2026 Dell’Accio et al. Compact Multinode Shepard work introduces the residual indicator and conditional jump behavior, whereas the inspected accessible descriptions do not state the global rank-one rank-order obstruction, smallest m+2 two-sided discrimination threshold, or exact two-stencil jump profile. The primary arXiv text was not fully available and equivalent classical leave-one-out interpolation identities may imply the rank-one step; the exact application is assessed best-of-knowledge with residual risk.",
+      "residual_risks": [
+        "Complete contemporary Dell’Accio primary paper not read; a matching appendix/lemma may already include the rank-one observation.",
+        "Algebraic possibility threshold is not a universal guarantee of edge or jump detection; compact-response formula applies only to specified two-stencil/radius geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant highly plausible prior text; exact rank-one and m+2 statements cannot be ruled out from material read",
+          "evidence": [
+            "Dell’Accio et al. (Oct 22 2026) state data-dependent residual-weighted method and separation discussions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31026",
+          "material_read": "abstract and accessible result/definition descriptions, not complete original article",
+          "method": "arXiv/HTML/PDF public access attempts",
+          "title": "Data-dependent Compact Multinode Shepard Method",
+          "trigger": "Direct source introducing the specific residual-indicator design"
+        },
+        {
+          "assessment": "Alternative indicator design; not same exact interpolation leave-one-out nullspace premise",
+          "evidence": [
+            "Levin et al. (2025/2026) analyze WENO-modified Shepard interpolation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-025-02141-6",
+          "material_read": "abstract and method description, not complete full text",
+          "method": "primary bibliographic search",
+          "title": "Weighted essentially non-oscillatory Shepard method",
+          "trigger": "Prior nonoscillatory Shepard method with adaptive indicators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob da5a8033cfc555e5dfbea1f5aab7785281c2feeb"
+      ],
+      "rationale": "The exact minimal count of external samples needed for residual indicators to respond differently to data is a meaningful design limit for WENO/Shepard-type interpolation. The nonzero exact jump response demonstrates a persistent local limitation of a natural two-stencil selection, without unsupported claims about full automatic implementations.",
+      "residual_risks": [
+        "Algebraic possibility threshold is not a universal guarantee of edge or jump detection; compact-response formula applies only to specified two-stencil/radius geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m-dimensional full-spark real polynomial space with m-node stencils and one-site residual indicators; the exact compact jump formula uses equally spaced 1D two-endpoint stencils and specified supports.",
+    "Complete contemporary Dell’Accio primary paper not read; a matching appendix/lemma may already include the rank-one observation.",
+    "Algebraic possibility threshold is not a universal guarantee of edge or jump detection; compact-response formula applies only to specified two-stencil/radius geometry."
+  ],
+  "schema_version": 1
+}

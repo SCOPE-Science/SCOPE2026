@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Full-spark unisolvence makes the evaluation matrix of \(m+1\) samples have one-dimensional left kernel, with all nullvector coordinates nonzero. The leave-one-out residual identity follows exactly and forces fixed indicator ratios, and endpoint impulses at \(m+2\) sites prove the sharp reversal threshold. For equally spaced sites, equal absolute barycentric endpoint coefficients force complete cancellation of the nonlinear indicator factors. The compact-support ratio and the jump profile follow by exact Lagrange and geometric-weight products. The standalone standard-library checker reproduced 573 exact-rational identities; the proof, not a finite scan, covers all integers \(m\ge1\) and degrees \(d\ge1\) in the stated domains.
+## correctness
 
-**Originality — PASS, with priority risk.** Searches of contemporary mathematical records for leave-one-out residual-stencil collapse, WENO Shepard identical indicators, and a minimal oversampling threshold returned no matching classification. The primary full text establishes the method, conditional separation and a different single-straddling-stencil failure; the explicit two-sided rank threshold and compact two-stencil jump value are not stated there. Earlier WENO-Shepard literature uses least-squares smoothness indicators, not these interpolatory leave-one-out residuals. Standard barycentric interpolation and rank-nullity are accepted premises, not claimed discoveries. A more general historical result about leave-one-out errors might cover part or all of the classification, and cannot be excluded absolutely.
+PASS
 
-**Mathematical value — PASS.** The distinction between merely having an outside evaluation point and having enough independent information to select between stencils is a natural design question for discontinuity-adaptive interpolation. The theorem gives the exact sampling threshold and an unattenuated, scale-invariant jump-profile cost at the boundary, while an added site allows explicit complete preference reversal. These are useful sampling-design diagnostics and benchmark cases, not a claim of failure for the source's larger automatic neighborhoods.
+An (m+1)×m full-spark evaluation matrix has a one-dimensional left-nullspace spanned by w with all w_j nonzero, so every leave-one-out residual equals (wᵀf)/w_j, fixing rankings for n=m+1. At n=m+2 the two specified adjacent m-node stencils with one outside point each admit opposite indicator pairs from impulses at the first and last nodes. For 1D degree d on d+2 equally spaced nodes, endpoint barycentric weights have equal magnitudes, forcing exact cancellation of nonlinear indicator factors for all sample vectors. Explicit Lagrange evaluation of step data at h/2 and the compact geometric-weight ratio yield (-1)^d C(2d,d)/(4^d[1+(2d+1)^{2μ}]); verified independently for d=1..8 with exact rational arithmetic. The proof extends to all full-spark real polynomial spaces, not just the checked grids.
 
-**Closest literature and limitations.** Dell'Accio et al. (2026), Definition 4.1 and Remark 5.6, contains the residual indicator and one example of a missed contaminated stencil. Levin et al. (2025) use a different least-squares indicator. Full spark and one-site indicator assumptions are essential. The compact jump example is for precisely two selected stencils, and the minimum-site theorem concerns feasibility rather than universal detection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Dell’Accio et al. Compact Multinode Shepard work introduces the residual indicator and conditional jump behavior, whereas the inspected accessible descriptions do not state the global rank-one rank-order obstruction, smallest m+2 two-sided discrimination threshold, or exact two-stencil jump profile. The primary arXiv text was not fully available and equivalent classical leave-one-out interpolation identities may imply the rank-one step; the exact application is assessed best-of-knowledge with residual risk.
+
+## value
+
+PASS
+
+The exact minimal count of external samples needed for residual indicators to respond differently to data is a meaningful design limit for WENO/Shepard-type interpolation. The nonzero exact jump response demonstrates a persistent local limitation of a natural two-stencil selection, without unsupported claims about full automatic implementations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
