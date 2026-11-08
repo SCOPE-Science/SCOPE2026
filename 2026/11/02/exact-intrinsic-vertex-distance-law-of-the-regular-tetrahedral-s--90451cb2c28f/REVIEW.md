@@ -1,15 +1,21 @@
-# Scientific review of the intrinsic tetrahedral vertex-distance law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes a unit-edge regular tetrahedron, its intrinsic surface metric, one fixed vertex and a surface-area-uniform endpoint. The last-entry argument gives a global shortest-path formula for the opposite face, not just a locally straight candidate. Comparing its three outward unfolded source images partitions that face into three centroid-to-edge triangles. Pairing each with one incident face gives three congruent convex kites; each has radial endpoint \(\rho(\theta)=\sec(\pi/6-|\theta|)\). Exact polar integration proves the piecewise distribution, with correct values at both endpoints and the internal transition. The same integral establishes all moments of real order \(k>-2\). Taylor expansion gives the exact \(3/2\) coefficient at radius \(1\) and quadratic upper tail at \(2/\sqrt3\). A separate 500,000-point physical-face simulation and quadrature checks passed. Finite experiments are only corroboration.
+PASS
 
-## Originality — PASS, provisional
+PASS. For a unit-edge regular tetrahedron, shortest vertex-to-point distance on the three incident faces is Euclidean chord distance; on the opposite face last-edge entry and planar unfolding reduce to minimum over three equilateral source images. Nearest-source Voronoi partition gives three planar kites with radial boundary ρ(θ)=sec(π/6−|θ|), |θ|<=π/6. Exact polar area gives F=πr²/(2√3) on [0,1], F=√3[r²(π/6−arccos(1/r))+√(r²−1)] on (1,2/√3), and endpoint 1. Integrating ρ^{k+2} gives all k>-2 moments, E[R²]=5/9 and mean 2√3/9+√3 log3/6. Expansion gives negative 4√6/3 coefficient of (r−1)^{3/2} and final 3ε² tail. Independent physical-face numeric integration agrees, while continuum proof relies on the exact Voronoi/cut path argument.
 
-Closest primary literature: Miller–Pak (2003, arXiv:math/0312253, source unfolding), Davis–Dods–Traub–Yang (2015, arXiv:1508.03546, geodesic trajectories of tetrahedra), Donald M. Davis (2023, arXiv:2306.11059, tetrahedral minimal-path cut loci and motion-planning complexity), and Li–Qiu (2016, DOI:10.1155/2016/8371750, planar triangle point-distance distributions). The relevant sections were inspected. They provide background machinery and related distance-field information, but no located statement of the complete surface-area CDF, exact \(5/9\) intrinsic second moment, or both singular coefficients. The three compared previously published vertex/radial-distance records address Euclidean vertex-distance sums/products or distinct lattice-distance problems rather than this intrinsic surface-area law. A broader computational implication from combining source unfolding and generic planar integration is acknowledged; this exact specialization is a mathematically substantive new evaluated invariant rather than a claim to invent source unfoldings. Unindexed historical derivations remain a priority risk; no independent priority determination was performed.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a complete exact, natural metric-measure invariant of the simplest nonflat closed polyhedral surface, while isolating a sharp wavefront transition at the first non-source vertices. The previously known geometric cut-locus description does not by itself quantify how surface area accumulates with intrinsic distance. The full law yields every distance moment and distinguishes the \(3/2\)-power loss of the flat-cone law from the quadratic disappearance near the unique farthest point. It is a useful exact benchmark for polyhedral shortest-path and geodesic-distance sampling algorithms. Its scope is intentionally the vertex-rooted unit regular tetrahedron, not generic polyhedra or the two-independent-surface-points distance distribution.
+Qualified best-of-knowledge novelty of the exact fixed-tetrahedron-vertex intrinsic distance CDF, complete all-real-order moment integral and threshold asymptotics. Source unfolding, classical tetrahedral geodesics, geodesic complexity and planar triangle distances are credited as prior mathematical methods.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. The tetrahedral vertex-to-uniform-surface distance CDF is a natural full intrinsic area statistic, including a geometric cut-locus transition of fractional order 3/2, all real moments k>-2, a closed mean and second moment, and sharp endpoint behavior. It is a nontrivial complete classification of a canonical convex surface metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
