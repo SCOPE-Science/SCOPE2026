@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Install the declared `sympy==1.14.0` dependency from `requirements.txt` before running `python verify.py`. The standalone `verify.py` regenerates the seventh-power Cartier matrix for \(y^3=x^5+a x^2+b\), after reducing to \(b=1\) by weighted coordinate scaling, from exact multinomial coefficient extraction. It proves the crucial finite-degree polynomial identity over \(\mathbb F_7[u]\): the greatest common divisor of the nonzero \(2\times2\) minors of the semilinear second iterate is \(u^4(u^{10}-1)\). Since smoothness excludes \(u^5=-1\), this certifies the only rank-drop loci in the parameter line.
+# Independent mathematical audit
 
-Over \(\mathbb F_7\), the exact Cartier iterate ranks at \(u=0\) are \(2,1,0,0\) and at \(u=1\) are \(2,1,1,1\). Every \(u\) with \(u^5=1\) is algebraically equivalent by scaling to \(u=1\); all \(u=0\) models are identical after normalization. The proof of stable generic rank two uses stabilization of the second image, not finite-field sampling. Jacobian \(a\)-number two follows from rank two of Cartier on the regular differential basis throughout the smooth parameter locus.
+## correctness
 
-These checks establish the specified family, not every genus-four cyclic trigonal curve, and they are not an independent scientific audit.
+PASS
+
+Separability is equivalent to b(b^3+a^5) !=0 by derivative F_prime=x(5x^3+2a), and the 6 totally ramified branch points yield genus4. For basis dx/y, dx/y^2, x dx/y^2, x^2 dx/y^2, characteristic7 coefficient extraction gives displayed H with zero first row/column and rank2 lower block for every b!=0, giving a-number2. Normalizing b=1 with u^5=a^5/b^3, the semilinear second iterate uses H^(7)H for matrices of seventh powers; independently expanded every relevant coefficient and all twisted second-iterate 2x2 minors in F7[u]. Their gcd is u^4(u^10-1), and the excluded singular u^5=-1 leaves exceptional u=0 and u^5=1 only. Exceptional actual Cartier stable ranks are 0,1, generic stable rank2. The exact symbolic minor identity establishes geometric loci over F7bar, not just tested finite-field points.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the complete final claim after explicit statement/implication comparison; qualified by documented priority risks. The precise gcd u^4(u^10-1) of twisted minors and stable Cartier ranks are new computations relative to these sources, not a direct stated corollary.
+
+## value
+
+PASS
+
+A complete natural one-parameter-after-scaling arithmetic stratification of cyclic trigonal genus4 curves, showing constant a-number2 despite three distinct p-rank strata. The smooth intermediate rank-one stratum is a concrete nontrivial geometric locus. Those invariants are relevant to Jacobian isogeny/arithmetic geometry and are not asserted for the whole moduli space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

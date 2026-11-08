@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the smooth family \(y^3=x^5+a x^2+b\) in characteristic seven, the repeated-root criterion is \(b(b^3+a^5)=0\) and genus is four. On the standard regular-differential basis, coefficient extraction yields Cartier seventh-power matrix whose first row and column vanish and whose lower-right block is \(B=\begin{psmallmatrix}4a^3b&4b^3&6a^2b^2\\0&5ab&4a^3\\1&0&0\end{psmallmatrix}\). This block has rank exactly two for every smooth parameter, establishing constant Jacobian \(a\)-number two. After weighted normalization \(b=1\), the exact gcd of nonzero second-iterate \(2\times2\) minors is \(u^4(u^{10}-1)\). Smoothness excludes \(u^5=-1\); the remaining rank-drop strata have stable Cartier ranks zero (\(u=0\)) and one (\(u^5=1\)), whereas all other smooth points have stable rank two. The exact standalone script recomputed the symbolic identities and exceptional iterate ranks with modular linear algebra.
+## correctness
 
-## Originality — PASS, qualified
-Baldwin--Eilbeck--Gibbons--Ônishi arXiv:math/0612654v1 supplies the general cyclic genus-four model and holomorphic differential basis, not the characteristic-seven stratification. Kazemifard--Tafazolian, DOI 10.1016/j.ffa.2014.12.002, discusses arithmetic Newton polygons of different genus-three Picard curves. The novelty comparison distinguishes this quadratic-coefficient curve from different sparse specializations of the same general genus-four family. Broad published-record semantic searches found no exact or stronger covering classification. Hidden equivalent coordinates and unindexed literature remain a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete arithmetic stratification of a natural genus-four cyclic-trigonal family: its Jacobian \(a\)-number is identically two, yet its \(p\)-rank exhibits three distinct geometric strata (zero, one, two) with explicit equations in moduli parameters. Determining this sharp locus, not sampling arbitrary points or giving an isolated generic inequality, is the mathematical contribution. The one-rank intermediate locus lies in the smooth family and has a geometric fifth-root-of-unity description.
+Separability is equivalent to b(b^3+a^5) !=0 by derivative F_prime=x(5x^3+2a), and the 6 totally ramified branch points yield genus4. For basis dx/y, dx/y^2, x dx/y^2, x^2 dx/y^2, characteristic7 coefficient extraction gives displayed H with zero first row/column and rank2 lower block for every b!=0, giving a-number2. Normalizing b=1 with u^5=a^5/b^3, the semilinear second iterate uses H^(7)H for matrices of seventh powers; independently expanded every relevant coefficient and all twisted second-iterate 2x2 minors in F7[u]. Their gcd is u^4(u^10-1), and the excluded singular u^5=-1 leaves exceptional u=0 and u^5=1 only. Exceptional actual Cartier stable ranks are 0,1, generic stable rank2. The exact symbolic minor identity establishes geometric loci over F7bar, not just tested finite-field points.
 
-## Sources, limitations and status
-The earliest dated related family reference is the complete arXiv preprint of 21 December 2006. The finite-field comparison paper was read via accessible publisher text including its introduction and genus-three classifications; its downloadable PDF was not fully inspected. The result is specific to characteristic seven and does not determine full generic Newton polygons or all isomorphism classes over finite fields.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the complete final claim after explicit statement/implication comparison; qualified by documented priority risks. The precise gcd u^4(u^10-1) of twisted minors and stable Cartier ranks are new computations relative to these sources, not a direct stated corollary.
+
+## value
+
+PASS
+
+A complete natural one-parameter-after-scaling arithmetic stratification of cyclic trigonal genus4 curves, showing constant a-number2 despite three distinct p-rank strata. The smooth intermediate rank-one stratum is a concrete nontrivial geometric locus. Those invariants are relevant to Jacobian isogeny/arithmetic geometry and are not asserted for the whole moduli space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
