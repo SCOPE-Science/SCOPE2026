@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "On the event every edge has at least two samples, polygon-minus-hull area is exactly a sum of m disjoint corner triangle areas (sine angle times product of nearest-edge distances divided by two). The bad event is exponentially unlikely. Simultaneous short-arc avoidance probabilities give 2m independent Exp(1) corner limits; uniform exponential tails of truncated gaps and an exponential bad-event bound establish all fixed integer moment limits. Tail integration gives the exact (N+1)(N+2) mean denominator up to exponentially small terms. Heron, sine law, and the unique positive side-product root establish the inverse, and two noncongruent isosceles triangles of equal perimeter and circumradius establish minimality. VERIFY.py was executed from its actual supplied path; it checks 480 direct area identities and 6400 high-sample trials.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richardson–Vu–Wu DOI:10.46298/dmtcs.3459 describes variance/higher volume moments for smooth C² bodies (abstract only).",
+        "Böröczky–Fodor–Hug arXiv:1103.4978v1 requires a rolling ball for its principal intrinsic-volume theorem, which polygons with genuine vertices fail.",
+        "Reitzner–Schütt–Werner arXiv:1911.05917v1 addresses boundary-sampled simple polytopes and gives expected volume deficit N^{-n/(n-1)}, not the planar non-Gaussian distribution or triangle identification."
+      ],
+      "reasoning": "The smooth cases are not stronger theorems on polygons because their hypotheses exclude genuine vertices. The broader dimension result controls an expected volume deficit; without a distributional statement it cannot yield the variance or two-moment inverse. No stronger covering statement was located in material read.",
+      "searches": [
+        "random inscribing polytopes boundary smooth surface variance higher moments 2004",
+        "random inscribed convex polygons boundary asymptotic distribution missed area polygon 2005 2015",
+        "convex polygon random boundary samples circumscribed area convex hull missing area exact expectation"
+      ]
+    },
+    "checked_sources": [
+      "https://dmtcs.episciences.org/en/articles/3459",
+      "https://arxiv.org/abs/1103.4978",
+      "https://arxiv.org/abs/1911.05917",
+      "https://link.springer.com/article/10.1007/s00454-022-00460-2",
+      "https://arxiv.org/abs/1003.4209"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible preceding ledger claim 9af52e8c-a76d-42f4-9dbc-2180652b6108 concerns N-scaled perimeter loss and an inverse from its entire limiting law.",
+        "Accessible preceding ledger claim 7f674d23-77d7-4150-a89a-37326e52e982 concerns maximum area among sampled triples, with N-scaled normalized deficit.",
+        "Accessible preceding ledger claim 29f901c4-5c33-4d9e-927f-355303349da5 concerns area moments of exactly three random boundary points, not the N-point hull deficit.",
+        "Reitzner–Schütt–Werner arXiv:1911.05917v1 gives first-moment asymptotics for boundary-sampled polytope volumes."
+      ],
+      "reasoning": "Neither perimeter loss nor maximum sampled triangle area determines the N²-scaled total missed area directly. A perimeter law has different corner integrands (homogeneous degree one instead of the area product degree two); the N-scaled largest-triple-area deficit also differs from N²-scaled total hull area loss. An expected volume theorem does not identify the law or moment-minimal inverse. The present proof explicitly establishes a new exact corner-area decomposition and distributional convergence.",
+      "searches": [
+        "sharp shape reconstruction from joint area deficit and perimeter deficit for boundary-sampled polygons",
+        "two limiting moments mean variance missing area convex hull of N uniformly boundary points triangle uniquely recover triangle from perimeter",
+        "random polygon boundary points convex hull missed area asymptotic gamma exponential vertex independent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reitzner–Schütt–Werner arXiv:1911.05917v1, Introduction, Theorem 1.2, and relevant volume-difference decomposition (public HTML).",
+        "Böröczky–Fodor–Hug arXiv:1103.4978v1, Theorems 1.2 and 1.3 (public HTML)."
+      ],
+      "reasoning": "The exact corner-product probability law and two-moment inversion were not present in the inspected statements. Expected volume loss is a scalar first moment and does not imply the product law, its variance, or the inverse cubic. Alternate descriptions as Poisson corner gaps, triangular cut-outs, or local missing-area defects were explicitly searched.",
+      "searches": [
+        "random points uniformly on boundary of a fixed convex polygon sample convex hull missing area N squared converges sum independent products of exponentials corner angle sine",
+        "convex hull points uniformly boundary of polygon area missed n squared limiting distribution",
+        "product exponential area loss polygon hull random boundary point moments 3 sum squared sines triangles",
+        "asymptotic distribution of missing area random convex hull boundary points polygon corner product exponential laws"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research record 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1 concerns Hausdorff approximation of regular polygons.",
+        "Research record 2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6 concerns curvature-weighted sampling in ellipses.",
+        "Research record 2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8 concerns pairwise distance moments, not area deficits."
+      ],
+      "reasoning": "These concrete indexed records use different observables or sampling models; neither their stated conclusions nor corresponding tables contain the product-exponential boundary area-loss law. Indexed search does not establish absolute uniqueness.",
+      "searches": [
+        "random points uniformly on boundary of a fixed convex polygon sample convex hull missing area N squared converges sum independent products of exponentials corner angle sine",
+        "two limiting moments mean variance missing area convex hull of N uniformly boundary points triangle uniquely recover triangle from perimeter",
+        "probability limiting law area deficit sampled polygon boundary reconstruct triangle sides second moment variance",
+        "lim N^2 area of polygon minus random convex hull side lengths corner triangular cuts exponential"
+      ]
+    },
+    "rationale": "Direct comparisons of geometric functionals separate the new N²-scale product-exponential area loss and triangle inverse from known expected volume bounds, N-scale perimeter defects, N-scale maximal-triangle deficits, and interior-sampled hull distributions. Research-record and primary-text searches found no mathematical statement implying the complete claim. Priority is best-knowledge and remains non-independent; an inaccessible 2004 full text and possible unindexed work are explicit residual risks.",
+    "residual_risks": [
+      "The full text of Richardson–Vu–Wu (2004) was not inspected; its abstract specifies smooth bodies but unreported polygonal corollaries cannot be excluded absolutely.",
+      "Unindexed or unpublished exact polygonal missing-area distributions may exist; negative semantic-search results do not prove novelty.",
+      "A separate independent priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The abstract specifies convex bodies with C² boundaries; polygonal corners are excluded, so this does not settle the proposed polygonal law. The unread full paper remains a limited priority risk.",
+        "evidence": [
+          "Publisher abstract gives C² boundary hypothesis and variance/higher volume moments; listed public date 2004-12-31."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3459",
+        "material_read": "publisher abstract and bibliography/metadata, not full paper",
+        "method": "public publisher HTML",
+        "title": "Random Inscribing Polytopes",
+        "trigger": "Early published boundary-sampling volume and variance work potentially subsuming the new moments"
+      },
+      {
+        "assessment": "The primary theorem assumes a ball rolls freely in the body. That fails at genuine polygon vertices; the polygonal product law and triangle inversion are not provided.",
+        "evidence": [
+          "Theorem 1.2 rolling-ball hypothesis; Theorem 1.3 general order bounds; primary MSC 52A22; arXiv v1 dated 2011-03-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1103.4978",
+        "material_read": "full-text HTML introduction, hypotheses, Theorems 1.1–1.3, opening proof strategy and conclusion excerpts",
+        "method": "public arXiv HTML/full-text rendering",
+        "title": "Intrinsic volumes of random polytopes with vertices on the boundary of a convex body",
+        "trigger": "Same random boundary sampling scheme and intrinsic volumes, plausible strongest older comparator"
+      },
+      {
+        "assessment": "Theorem 1.2 establishes an expected missing-volume scale in general dimensions. No full limiting area-loss distribution, variance, or minimal two-moment triangle reconstruction appears in the inspected relevant material.",
+        "evidence": [
+          "ArXiv v1 posted 2019-11-14; journal Theorem 1.2 expected volume difference; Sections 3.2 and 3.5 volume decomposition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+        "material_read": "public HTML full text: introduction, Theorems 1.1 and 1.2, volume-loss discussion and relevant proof decomposition excerpts",
+        "method": "public arXiv full-text rendering and open-access journal HTML",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "Very close later full polytope boundary-sampling literature and expected missing-volume theorem"
+      },
+      {
+        "assessment": "Here the sample is uniform in the interior of the convex set, not on its boundary. It is therefore not a covering theorem for the corner-product law.",
+        "evidence": [
+          "Abstract explicitly studies uniformly sampled points in a planar convex set."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.4209",
+        "material_read": "arXiv abstract and bibliographic metadata",
+        "method": "public article abstract",
+        "title": "Central limit theorems for random polygons in an arbitrary convex set",
+        "trigger": "Possible stronger random polygon area distribution theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a62c3fb8-d9cd-4542-bbc8-b5e20df4dc2a",
+  "value": {
+    "rationale": "The full limiting law distinguishes stochastic area loss from expectation-only approximation theory; it gives a natural two-moment inverse to reconstruct any triangle from a single geometric random-hull observable when perimeter is known. The explicit two-solution isosceles counterexample proves one moment insufficient; a sharp variance-to-mean-square lower bound detects equilateral geometry. The exponentially accurate universal finite-sample mean correction adds a usable quantitative approximation. The precise N² scaling, non-Gaussian product law, and inverse map are all mathematically motivated rather than arbitrary numeric slices.",
+    "status": "PASS"
+  }
+}
