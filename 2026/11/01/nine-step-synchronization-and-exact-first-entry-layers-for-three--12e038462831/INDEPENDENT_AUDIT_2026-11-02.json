@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:53:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Interior vertices in a clique with the same initial color have identical trajectories: when such vertices have state 2, no self-vertex can contribute a state-1 signal, so the inhibition test depends only on bridge endpoint and set of other cohorts. Thus each interior has at most three coherent initial-color cohorts. With 3 endpoint states each, and 7 nonempty cohort subsets per interior, precisely 3²*7²=441 representative state templates exhaust all sizes a,b>=2. The four-block update uses I_u=(v=1 or 1 in P), I_v=(u=1 or 1 in Q), I_P=(u=1 or 1 in P), I_Q=(v=1 or 1 in Q), and advances 0->1,1->2,2->(2 if inhibited else0). Independent integer exhaustive calculation of all 441 templates gives the exact ten matrices of the theorem, with total template counts [3,24,128,24,6,50,42,18,74,72] and maximum first sync 9. The displayed example (u=v=A=0,B=2) first sync at 9 for all clique sizes. Weighting each support-size (i,j) template by exact surjection counts sigma_i(a-1)sigma_j(b-1) proves N_t for unbounded sizes and total 3^(a+b). Full-support/full-support templates have T=2, giving large-size concentration. The finite quotient is exact for all a,b, not finite-size extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 source abstract states arbitrary initial synchronization for paths and certain tree networks and randomized perturbations on general graphs, not deterministic all graph classes.",
+          "2016 source addresses recurrent tree states and tree diameter/degree worst-case time, not every bridged-clique initial coloring."
+        ],
+        "reasoning": "The only B_{a,b} with no triangles is a=b=2 (P4) and is correctly prior; cyclic members with arbitrary clique sizes are outside cited deterministic tree hypotheses.",
+        "searches": [
+          "arxiv:1407.1103 general finite-state oscillators paths trees",
+          "arxiv:1610.00837 synchronization time on trees",
+          "three color firefly universal graphs synchronization with no graph restriction"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md 6e0df0bbafecb0cff619100102a3a79bf26e563e",
+        "verify_symbolic.py 08e7fdbcc4673075d9f4315bc2f93b4848f330dd",
+        "verify_labeled.cpp ba129b496076659c5dd1c0367d7b329146822734",
+        "arxiv:1407.1103 abstract and linked author page",
+        "arxiv:1610.00837 abstract and published theorem scope",
+        "Resultary bridge barbell zero forcing 5431b532d7f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path P4 case is subsumed by known synchronization results; the exact general cutoff T=9 for all bridge-clique sizes is not a tree theorem consequence for a>=3 or b>=3.",
+          "Other graph family exact censuses concern different edge incidences and their quotient transitions cannot be directly reused."
+        ],
+        "reasoning": "The theorem is an infinite natural family result supported by an exact size-independent 441-template map, not a duplicate of the P4 special case or zero-forcing count.",
+        "searches": [
+          "2014 Lyu paths trees synchronization theorem",
+          "2016 Lyu tree synchronization time upper bound",
+          "Resultary zero forcing barbell exact polynomial",
+          "published split/biclique firefly counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local inhibited state-2 rule is the 3-color firefly automaton, but unlike paths or trees B_{a,b} has triangles if either clique size>=3.",
+          "The published barbell zero-forcing polynomial concerns zero-forcing vertex sets, not nonlinear synchronous color dynamics."
+        ],
+        "reasoning": "Same oscillator rule is used but graph hypotheses and enumerated invariant are different; no relabelling turns two cliques plus one bridge into bipartite or split graphs.",
+        "searches": [
+          "Lyu 2014 Synchronization of finite-state pulse-coupled oscillators arxiv:1407.1103",
+          "Lyu 2016 Time complexity of Synchronization of discrete pulse-coupled oscillators on trees arxiv:1610.00837",
+          "three-color inhibitory firefly barbell bridge joined cliques 9 steps",
+          "Resultary zero forcing polynomial bridge barbells 5431b532d7f2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table of ten 3x3 synchronization-time matrices for this inhibitory rule found in checked corpus.",
+          "Source self-supplied 441-case table was independently reconstructed from local equations."
+        ],
+        "reasoning": "The quotient enumeration is a finite *proof certificate*, not a previously known table; a prior independently published enumeration remains a bibliographic possibility.",
+        "searches": [
+          "Resultary three color firefly joined cliques nine step first entry 441 templates",
+          "Resultary 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+          "frozen verify_symbolic.py 441 exact templates"
+        ]
+      },
+      "rationale": "No decisive statement-equivalent or stronger-prior implication in the inspected comparisons; this is a bounded best-of-knowledge judgment rather than guaranteed priority. See four named check analyses and actual material-read logs. ",
+      "residual_risks": [
+        "Full primary Lyu 2014/2016 papers were not successfully read in full, so an exact time-nine corollary in uninspected appendices cannot be ruled out.",
+        "Unindexed direct computational firefly barbell census may predate the supplied table.",
+        "Independent check reproduced 441-template graph but not a formal external audit of C++ implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELEVANT_BUT_PARTIAL: graph-family hypotheses differ",
+          "evidence": [
+            "Abstract states arbitrary synchrony on paths and trees under degree/period hypotheses and randomized interventions on other graphs; not ten-layer B_{a,b} histogram."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+          "material_read": "Primary arXiv abstract, accessible author bibliography and source theorem description; full 23-page PDF not read",
+          "method": "Web arXiv and author publication pages",
+          "title": "Synchronization of finite-state pulse-coupled oscillators",
+          "trigger": "Original definition of same inhibitory rule and paths/trees theorem"
+        },
+        {
+          "assessment": "TREE_SCOPE; FULL_TEXT_RISK",
+          "evidence": [
+            "Gives tree complexity O(kappa*d) for kappa=3..5 under maximum degree constraints, not deterministic bridged-clique arbitrary initial census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+          "material_read": "Primary preprint abstract, published scope and dated arXiv version; complete PDF not read",
+          "method": "Web search arXiv/author publication listing",
+          "title": "Time complexity of Synchronization of discrete pulse-coupled oscillators on trees",
+          "trigger": "Sharp time bounds for same rule on trees"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Zero forcing controls marked forcing sets, not firefly first sync times."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+          "material_read": "Published mathematical index abstract summarizing its exact polynomial; full source not read",
+          "method": "Resultary published search",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "Identical family of underlying graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bridged-clique family is a natural bottleneck extension of all-to-all coupled oscillators. Uniform worst-case cutoff nine independent of clique sizes, an extremal initial condition and a complete ten-layer distribution are nontrivial all-size dynamical facts, whereas general graph or tree synchronization criteria give no such two-parameter census. The color-cohort reduction is a reusable structural argument.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md 6e0df0bbafecb0cff619100102a3a79bf26e563e",
+    "verify_symbolic.py 08e7fdbcc4673075d9f4315bc2f93b4848f330dd",
+    "verify_labeled.cpp ba129b496076659c5dd1c0367d7b329146822734",
+    "arxiv:1407.1103 abstract and linked author page",
+    "arxiv:1610.00837 abstract and published theorem scope",
+    "Resultary bridge barbell zero forcing 5431b532d7f2"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only two complete cliques a,b>=2 joined by one bridge, synchronous 3-state inhibitory rule, labelled vertices.",
+    "All-size proof is rigorous finite-quotient enumeration; no claim about arbitrary graph topology, asynchronous updates, or other numbers of colors."
+  ]
+}
