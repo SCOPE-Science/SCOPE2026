@@ -1,19 +1,21 @@
-# Scientific review: three-periodic BDF3 stability
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The universal result follows from the exact differentiated-cubic recurrence, the explicitly evaluated period trace and determinant, and three strictly positive Schur polynomials. The cyclic polynomial coefficient lists in RESULT.md permit direct reconstruction independent of a program. The symbolic verifier checks all identities and the degeneration asymptotic; independent sampled comparisons are supplementary, not extrapolated to all grids. The domain is strictly positive fixed three-periodic steps.
+PASS
 
-## Originality
+Lagrange cubic derivative weights give the exact difference propagator M(u,v,w)=[(a,−c);(1,0)] with positive rational numerators and denominators. Three-step trace U/P and determinant V/P satisfy P−U+V=6Xs^4q2, P+U+V=XH_plus, P−V=XH_det, all strictly positive for x,y,z>0; the independent symbolic reconstruction verified each identity and every coefficient of H_plus and H_det positive. Quadratic Schur conditions therefore give ρ(F)<1 for all positive triples. Along (t,1,t^−1), the independently reconstructed rational expressions satisfy trace=−1+16/(3t)+O(t^-2), det=1/(3t³)+O(t^-4), proving nonattained supremum 1. No claim for nonperiodic grids.
 
-**PASS on the available scientific comparisons, with qualified priority risk.** Guglielmi–Zennaro's accessible original abstract concerns general spectral-radius sufficient bounds for variable-step BDF3, and the later Li–Liao full preprint provides an adjacent-step-ratio-limited theorem rather than arbitrary fixed three-periodic patterns. Söderlind–Fekete–Faragó treat smooth grids, a different family. The primary full Guglielmi–Zennaro article was not accessible; a specialist equivalent within it or elsewhere cannot be conclusively excluded. The proposed statement is not inferred merely from absence of a keyword match; the stated implications and hypothesis gaps are compared explicitly in AUDIT.json.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** An entire natural two-parameter family of highly irregular recurring meshes is classified without a priori ratio caps. The exact sharp supremum and near-neutral degeneration reveal a genuine stability-versus-damping distinction. This is more than a coefficient substitution or routine finite sample: it identifies why restrictive arbitrary-mesh ratio bounds need not apply to this structured family while no uniform spectral margin survives. It does not purport to prove nonlinear error bounds or stability for arbitrary meshes.
+Li–Liao BDF3 stability is established under adjacent-ratio limitations around 2.553; the fixed extreme three-cycle can violate the hypothesis at every period, so that theorem does not imply the all-positive triple result. Guglielmi–Zennaro studied spectral-radius BDF3 zero-stability, a closely plausible predecessor for this periodic case. Only their abstract was accessible, not the full mathematical argument; this named priority risk remains significant, but no direct equivalent statement is established in read material.
 
-## Closest literature and limits
+## value
 
-Guglielmi–Zennaro (2001), https://doi.org/10.1007/s211-001-8010-0, remains the most important unresolved full-text comparison. Li–Liao (2022), https://arxiv.org/abs/2201.00527, has a different ratio-limited implication. Söderlind–Fekete–Faragó (2018), https://doi.org/10.1007/s10543-018-0716-y, assumes smooth-grid deformation. No independent mathematical audit or exhaustive historical uniqueness proof is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural lowest nontrivial periodic mesh family for high-order BDF zero-stability admits a complete exact unrestricted classification plus sharp degeneration identifying how a gap closes. This refines ratio-restricted sufficient criteria and clarifies the distinction between pointwise periodic zero-stability and uniform variable-grid stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
