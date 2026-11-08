@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_isolated.py` with Python 3 (standard library only). It computes 21 Apéry sets by Dijkstra's shortest-path algorithm, separately derives the proposed representatives, checks each representative and the isolated-gap count, and directly tests representability for the first three eligible parameters. It outputs `PASS` only after all assertions succeed.
+## correctness
 
-The symbolic proof uses three exact denomination identities and a full residue-by-residue height argument. No finite computation is used to infer the unrestricted \(n\equiv3\pmod4\) theorem. The checker establishes agreement for a specified finite range, not an infinite computational certificate. Independent scientific audit has not been conducted.
+PASS
+
+For n=4k+3, a=n^2,b=(n+1)^2,c=(n+2)^2, reduction identities create complete Apéry reps q b+r c with top q=0..L and lower r=1..k, q=0..L-1, L=4(n-1), giving exactly a distinct residues. Under t=q-Lr, x(t)=alpha*t mod a and alpha*(2n-1)=4a-1, exact gap heights h=q+9r+floor(alpha*t/a) identify only 2n-2 top-row cells each contributing 7(k+1) isolated gaps and k(2n-3) lower cells each contributing 2n+2. Their sum is n^3+1. Independently computed shortest-path Apéry representatives and neighbor gap counts for n=3,7,11,15,19,23,27, all matching the cubic.
+
+## originality
+
+PASS
+
+The isolated gap count is a numerical-semigroup invariant distinct from genus, conductor, Frobenius number and pseudo-Frobenius set. In principle existing Hilbert series can encode gaps, but no inspected result directly yields this isolated-gap cube.
+
+## value
+
+PASS
+
+The exact isolated-gap cubic is an unknown-in-inspected-sources natural numerical-semigroup invariant of three consecutive squares, measuring simultaneous representability of adjacent integers. It gives a sharp all-k law and decomposition rather than repeating a known Frobenius/genus computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

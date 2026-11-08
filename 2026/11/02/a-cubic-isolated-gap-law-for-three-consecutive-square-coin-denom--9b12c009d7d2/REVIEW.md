@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A proved finite positive-reduction system generates precisely \(n^2\) Apéry representatives; an explicit residue-height calculation and neighboring-residue analysis yield exactly \(n^3+1\) isolated gaps for every \(n\equiv3\pmod4\), \(n\ge3\). Boundary residues, row wrapping, and the degenerate initial case are included. An independent shortest-path Apéry verifier and three direct membership checks succeeded; these are cross-checks, not a substitute for proof.
+## correctness
 
-**Originality — PASS within inspected sources.** Fel's square semigroup analysis gives other invariants, the Moreno-Frías–Rosales isolated-gap theory concerns perfect-semigroup covarieties, and Singh–Ram focuses on embedding-dimension-two semigroups. None of the inspected statements implies the asserted \(n^3+1\) count for the embedding-dimension-three family. Direct searches for equivalent formulas did not identify one. Risk remains from unindexed or uninspected literature, and the 2016 Apéry theory could allow a derivation not explicitly given there.
+PASS
 
-**Mathematical value — PASS.** Isolated gaps are a natural obstruction statistic in the linear Diophantine coin problem, distinct from the Frobenius number and genus. An exact cubic law on an infinite square-denomination family and an explicit two-stratum contribution formula are substantive, and can support comparative study of gap isolation across other congruence classes.
+For n=4k+3, a=n^2,b=(n+1)^2,c=(n+2)^2, reduction identities create complete Apéry reps q b+r c with top q=0..L and lower r=1..k, q=0..L-1, L=4(n-1), giving exactly a distinct residues. Under t=q-Lr, x(t)=alpha*t mod a and alpha*(2n-1)=4a-1, exact gap heights h=q+9r+floor(alpha*t/a) identify only 2n-2 top-row cells each contributing 7(k+1) isolated gaps and k(2n-3) lower cells each contributing 2n+2. Their sum is n^3+1. Independently computed shortest-path Apéry representatives and neighbor gap counts for n=3,7,11,15,19,23,27, all matching the cubic.
 
-**Limits.** The theorem is restricted to \(n\equiv3\pmod4\); no independent scientific audit has been performed. No assertion of priority beyond checked sources is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The isolated gap count is a numerical-semigroup invariant distinct from genus, conductor, Frobenius number and pseudo-Frobenius set. In principle existing Hilbert series can encode gaps, but no inspected result directly yields this isolated-gap cube.
+
+## value
+
+PASS
+
+The exact isolated-gap cubic is an unknown-in-inspected-sources natural numerical-semigroup invariant of three consecutive squares, measuring simultaneous representability of adjacent integers. It gives a sharp all-k law and decomposition rather than repeating a known Frobenius/genus computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
