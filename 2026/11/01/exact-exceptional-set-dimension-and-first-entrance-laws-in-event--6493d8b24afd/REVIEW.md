@@ -1,11 +1,21 @@
-# Scientific review: Exact exceptional-set dimension and first-entrance laws in eventually periodic chaotic interval maps
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact affine map, cells and gap widths reconstruct the original hypotheses without extrapolating beyond the strict parameter range. Every noncaptured orbit returns infinitely often to the full-branch gap, whose inverse return maps are strict, disjoint similarities; the Moran equation gives the exact Hausdorff dimension. The dimension endpoint limits follow by implicit differentiation. The same gaps yield a compound-geometric first-hit distribution, uniform independent entrance location, and the critical exponential law. Exact-rational branch-itinerary checks passed at three parameter values. These finite computations supplement, rather than replace, the global analytic proof.
+## correctness
 
-**Originality — PASS subject to stated risks.** Khan and Rajan's full 2017 paper was inspected and provides the underlying map, periodic intervals, gap dynamics, and a finite Lebesgue survivor matrix. Its theorem gives almost-everywhere entrance, not the positive Hausdorff dimension or the two dimension boundary asymptotics. The first-hit law is naturally derived from its matrix and is acknowledged as such; the new substance is the explicit induced similarity geometry, precise dimension and endpoint laws, unified with the exact entrance phase/time data. Searches of published pages and mathematical research records showed related renewal and survivor results for distinct maps rather than direct coverage. Older coding and repeller literature may contain an equivalent formula; see AUDIT.json for source inspections and residual risks.
+PASS
 
-**Value — PASS.** A null noncaptured set in a map whose typical orbits become exactly periodic can nevertheless have every dimension between zero and one. The explicit root and endpoint coefficients quantify the mathematical size of unobservable chaos, while the entire absorption-time and phase distribution measure near-critical trapping. The invariant is natural to the motivating almost-everywhere periodicity question; no arbitrary numerical cutoff is introduced.
+For p>=3, m>1 and strict interior b, original Khan--Rajan affine map has disjoint periodic intervals C_j of lengths c m^j/B and gaps U_s of lengths delta/m^s=qv_s. Other gaps flow deterministically to U_0, and U_0 maps affinely onto (0,1). The explicit first-return inverse branches on U_0 are separated similarities phi_s(w)=L-(delta/m^s)(w-b sum_{j<s}m^j); their attractor has unique similarity dimension d with sum_s (delta/m^s)^d=1. Finite affine preimages and boundary points preserve the global survivor dimension. Writing q^d sum v_s^d=1 proves endpoint laws as q->0,1. Conditioned uniform points in each gap remain uniform under affine branches, so geometric renewal with success c gives PGF c/(1-q sum_s v_s z^(s+1)), independent uniform-on-C entrance, phase m^j/B and exponential scaling. Independent exact rational p=3,m=2,b=1/5 recurrence gave P(T=0..4)=7/10,7/50,49/500,21/625,413/25000. These checks are only corroborative; infinite itinerary/dimension conclusions use strong separation and renewal proof.
 
-Scientific limitations: this is a strict interior-parameter theorem for the specific continuous affine family, not a universality theorem for generic piecewise chaotic maps. The 1976 construction was inspected only through available excerpts, and comprehensive publication-priority verification remains unresolved. There is no claim of an exact Hausdorff measure or nonuniform-initial-law result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Khan--Rajan prove almost-everywhere eventual entry into periodic intervals using a finite transition matrix, but that measure-zero assertion cannot determine a survivor Hausdorff dimension or exact first-entry distribution and phase independence. Standard Moran and renewal theorems provide methodology rather than precomputed parameters for this particular expanding family. Related interval-IFS exceptional-parameter results concern different object and parameter spaces.
+
+## value
+
+PASS
+
+The singular exceptional set is a natural residual dynamical invariant of this exactly specified family, and its nonzero dimension and endpoint exponents are informative beyond almost-sure entry. The complete first-entrance law, critical exponential scaling and independent phase add explicit quantitative dynamical information rather than merely counting periodic points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
