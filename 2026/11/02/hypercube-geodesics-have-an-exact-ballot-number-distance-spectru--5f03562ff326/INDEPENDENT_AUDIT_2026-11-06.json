@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:06:40.996817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each k-step hypercube geodesic changes k distinct coordinates once; cube translations and permutations reduce it to a canonical initial-ones prefix chain with d-k untouched coordinates, yielding a factor (1+z)^(d-k). For a k-bit word with t ones and prefix ones u_j, distance to chain equals t-max_j(2u_j-j). Reflection principle for up/down walks gives a fixed-t shell count C(k,r)-C(k,r-1) for r<=t<=k-r, hence factor (k-2r+1). Leading coefficient positive through floor(k/2), so eccentricity d-ceil(k/2). For each pair of endpoints at Hamming distance k there are k! shortest paths, giving exactly 2^(d-1)d! (odd) or 2^d d! (even) minimizing unoriented paths; k=0/d=1 edges handled. Independent direct Hamming enumeration verified every (d,k) with 1<=d<=9 and 0<=k<=d, 54 complete shell comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babu et al. published abstract details parameter complexity, no cube closed distance shells; complete 74-page manuscript was not accessible.",
+          "Blass et al. abstract explicitly permits arbitrary adjacent-word paths with radius-1 domination, not necessarily shortest paths."
+        ],
+        "reasoning": "A more general existence/complexity result or non-geodesic domination theorem does not directly determine the per-shortest-path all-radius shell polynomial; full-text residual risk acknowledged.",
+        "searches": [
+          "Babu et al 2610.20769 Eccentricity Shortest Path complexity hypercube",
+          "Blass Honkala Karpovsky Litsyn short dominating paths cycles binary hypercube 2001"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.20769",
+        "https://doi.org/10.1007/PL00001292",
+        "https://doi.org/10.1016/S0012-365X(02)00524-1",
+        "https://doi.org/10.1016/j.tcs.2017.07.004",
+        "Resultary search: hypercube geodesic distance shells eccentricity ballot"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known minimum-eccentricity shortest-path decision problems specify existence of a low-eccentricity shortest path, not the exact distance-shell distribution for every such path.",
+          "The all-geodesics transitivity, ballot coefficients, parity-optimal lengths and enumerations require separate proof."
+        ],
+        "reasoning": "Standard general ESP optimization cannot logically supply all shell coefficients or all optimal path counts without added hypercube symmetry and reflection arguments.",
+        "searches": [
+          "On the minimum eccentricity shortest path problem Dragan Leitert 2017",
+          "hypercube dominating paths radius 1 Blass 2001"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distance from a word to any cube geodesic reduces to the maximum of a simple ballot walk; identical to Hamming distance to a nested-prefix chain.",
+          "Ballot-number factor (k-2r+1)(C(k,r)-C(k,r-1)) independently reproduced by exhaustive direct Hamming shells."
+        ],
+        "reasoning": "Exact ballot-walk enumerators may be classical, but a generic reflection-principle identity needs the geodesic-to-chain reduction and binomial convolution to yield the stated shortest-path metric invariant; prior embedding cannot be excluded.",
+        "searches": [
+          "hypercube binary monotone chain distance distribution ballot lattice path reflection principle",
+          "Resultary: hypercube geodesic distance shells eccentricity ballot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite shell tables for 54 (d,k) pairs independently checked are instances of a uniform polynomial formula.",
+          "No published exact matching sequence/table was confirmed."
+        ],
+        "reasoning": "Since this is an all-dimension symbolic identity, a known ballot triangle is not alone full coverage without an explicit identical object/metric reduction; no negative search proves originality.",
+        "searches": [
+          "hypercube prefix chain ballot distance enumerator polynomial coefficient",
+          "hypercube eccentricity minimizing shortest path counts 2^(d-1) d!"
+        ]
+      },
+      "rationale": "Babu–Jacob–Kumar–Sandeep (2026) study the general minimum-eccentricity shortest-path parameter complexity, not a fixed-geodesic hypercube ballot shell enumerator in accessible metadata; Blass–Honkala–Karpovsky–Litsyn (2001) and Dvořák–Havel–Mollard (2003) study dominating paths/cycles without requiring geodesicity. The exact all-shell and all-optimum-path formulas are a distinct more specialized quantitative theorem, not inferred just from domination or a complexity bound. The 74-page Babu full manuscript and older domination papers were not read fully, so coverage remains a named risk.",
+      "residual_risks": [
+        "Classical ballot-path formulas could imply the shell law through an unrecorded reduction; full historical priority cannot be certified.",
+        "2026 ESP primary is 74 pages and unavailable for reliable full-text inspection; older hypercube domination articles likewise not fully read.",
+        "Claim applies only to geodesics in unweighted binary cubes, not arbitrary paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_SOURCE_NOT_FULLY_READ",
+          "evidence": [
+            "Abstract gives FPT/XP/hardness/kernel results for graph classes rather than explicit cube ballot formula; 74-page full text remains a risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.20769",
+          "material_read": "ArXiv abstract, date and listed structural-parameter complexity results; attempts to open arXiv full HTML/PDF failed, alternative reader did not expose manuscript text",
+          "method": "Compare stated theorem scope and exact hypercube restrictions; no full-document noncoverage claim",
+          "title": "Eccentricity Shortest Path: the structural parameter landscape",
+          "trigger": "Closest 2026 full general ESP primary"
+        },
+        {
+          "assessment": "DIFFERENT_PATH_CLASS_PARTIAL",
+          "evidence": [
+            "Dominating path permits arbitrary adjacent binary words, and discusses minimum cardinality paths/cycles, not every fixed shortest path distance shells in the inspected abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/PL00001292",
+          "material_read": "Article abstract, historical bibliography and accessible public abstract; full primary not verified",
+          "method": "Compare abstract definition of dominating path with length-k geodesic restriction",
+          "title": "Short Dominating Paths and Cycles in the Binary Hypercube",
+          "trigger": "Potential dominating-path treatment of same ambient graph"
+        },
+        {
+          "assessment": "POSSIBLE_HISTORICAL_OVERLAP",
+          "evidence": [
+            "The 2003 article studies domination bounds and interpolation; full text not inspected for hidden exact special cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00524-1",
+          "material_read": "Bibliographic information and accessible abstract-level summaries, not full paper",
+          "method": "Compare general paths/cycles domination versus fixed geodesic shells",
+          "title": "On paths and cycles dominating hypercubes",
+          "trigger": "Potential earlier domination bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete intrinsic distance-shell distribution of every hypercube geodesic is a natural facility-location/radius invariant, stronger than the eccentricity alone. Exact parity-sensitive classification and counts of all optimum geodesics close a canonical infinite-family classification, not arbitrary low-dimensional table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No non-geodesic, weighted or multiple-route distance spectrum; published domination primary full texts were not accessible."
+  ],
+  "schema_version": 1
+}

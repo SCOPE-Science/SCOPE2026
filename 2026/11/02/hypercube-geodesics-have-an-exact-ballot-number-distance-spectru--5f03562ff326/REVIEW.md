@@ -1,24 +1,21 @@
-# Self-review: hypercube geodesic distance shells
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a length-\(k\) geodesic in the binary cube, coordinate permutation and binary translation reduce its vertices to a prefix chain. Every word with total number of ones \(t\) has minimum distance \(t-\max_j(2u_j-j)\) from that chain. The integer reflection principle yields exactly \(\binom{k}{r}-\binom{k}{r-1}\) words with \(t\) ones at distance \(r\), for each of the \(k-2r+1\) possible \(t\). Unchanged coordinates convolve with a binomial shell polynomial. Largest exponent and endpoint-pair enumeration give eccentricity and exact numbers of minimizing paths. The standalone checker directly enumerates canonical shells through dimension 12 and every oriented rooted geodesic through dimension 6. Its finite computations are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS (historical priority qualified)
+Each k-step hypercube geodesic changes k distinct coordinates once; cube translations and permutations reduce it to a canonical initial-ones prefix chain with d-k untouched coordinates, yielding a factor (1+z)^(d-k). For a k-bit word with t ones and prefix ones u_j, distance to chain equals t-max_j(2u_j-j). Reflection principle for up/down walks gives a fixed-t shell count C(k,r)-C(k,r-1) for r<=t<=k-r, hence factor (k-2r+1). Leading coefficient positive through floor(k/2), so eccentricity d-ceil(k/2). For each pair of endpoints at Hamming distance k there are k! shortest paths, giving exactly 2^(d-1)d! (odd) or 2^d d! (even) minimizing unoriented paths; k=0/d=1 edges handled. Independent direct Hamming enumeration verified every (d,k) with 1<=d<=9 and 0<=k<=d, 54 complete shell comparisons.
 
-The recent general minimum-eccentricity shortest-path primary source, Babu et al., arXiv:2610.20769 (2026-10-14), was inspected in its accessible HTML text for results and hypercube-specific claims. Its complexity and structural-parameter results are not the displayed all-shell polynomial or all-optimum-path count. Searches for equivalent chain-distance and ballot-enumerator formulations, together with six published-finding corpus semantic searches and comparison to indexed closest published findings, found no direct equivalent or dominating claim. The principal older domination literature, Blass–Honkala–Karpovsky–Litsyn (2001) and Dvořák–Havel–Mollard (2003), examines paths in hypercubes without the shortest-path restriction. Their full texts were inaccessible, so an implicit relevant formula cannot be excluded. Dragan–Leitert (2017) was also not accessible beyond its bibliographic description. Accordingly this is best-knowledge originality, not a certified priority assertion.
+## originality
 
-## Value — PASS
+PASS
 
-A complete hypercube geodesic distance-shell distribution is more informative than the single minimum eccentricity: it specifies how many vertices are within any facility-distance threshold from any shortest path, for all dimensions and lengths. The parity-dependent rigidity of optimal path lengths and the exact large combinatorial counts of all minimizers follow and are motivated by the general graph eccentricity-shortest-path problem. This is an infinite natural graph family with a complete enumeration, not a prescribed finite test case or small routine parameter improvement.
+Babu–Jacob–Kumar–Sandeep (2026) study the general minimum-eccentricity shortest-path parameter complexity, not a fixed-geodesic hypercube ballot shell enumerator in accessible metadata; Blass–Honkala–Karpovsky–Litsyn (2001) and Dvořák–Havel–Mollard (2003) study dominating paths/cycles without requiring geodesicity. The exact all-shell and all-optimum-path formulas are a distinct more specialized quantitative theorem, not inferred just from domination or a complexity bound. The 74-page Babu full manuscript and older domination papers were not read fully, so coverage remains a named risk.
 
-## Closest literature and limitations
+## value
 
-- Anand Babu et al. (2026), *Eccentricity Shortest Path: the structural parameter landscape*, arXiv:2610.20769, https://arxiv.org/abs/2610.20769 .
-- F. F. Dragan and A. Leitert (2017), *On the minimum eccentricity shortest path problem*, https://doi.org/10.1016/j.tcs.2017.07.004 .
-- U. Blass et al. (2001), *Short Dominating Paths and Cycles in the Binary Hypercube*, https://doi.org/10.1007/PL00001292 .
-- T. Dvořák, I. Havel and M. Mollard (2003), *On paths and cycles dominating hypercubes*, https://doi.org/10.1016/S0012-365X(02)00524-1 .
+PASS
 
-The theorem does not address nongeodesic paths, weighted metrics, or multiple-path placement. Inaccessible plausible prior full texts present a residual historical-priority risk; absent independent verification is not mathematical certification.
+The complete intrinsic distance-shell distribution of every hypercube geodesic is a natural facility-location/radius invariant, stronger than the eccentricity alone. Exact parity-sensitive classification and counts of all optimum geodesics close a canonical infinite-family classification, not arbitrary low-dimensional table recomputation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
