@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproduction of finite checks
+# Independent mathematical audit
 
-The two included programs are independent finite checks of the formulas, while the unrestricted proof is in `RESULT.md`.
+## correctness
 
-1. Compile `verify.cpp` with `g++ -O2 -std=c++17 -Wall -Wextra -pedantic verify.cpp -o verify` and execute `./verify`. It constructs each graph edge by edge and updates every state by the parity of bit-masked open neighborhoods, with no use of the symbolic proof's coordinate reduction. `verification_output.txt` gives the observed 24 graph parameter pairs and aggregate **827,208** configurations, evenly split between immediate-periodic and one-step entrants. It tests \(F^7=F\), the four iterate-fixed counts, and primitive-orbit integrality for every enumerated configuration.
-2. Execute `python3 rank_check.py`. It builds adjacency rows anew and computes binary matrix products and ranks by exact integer-bit elimination. `rank_output.txt` records checks across 168 parameter pairs \(0\le p,q\le12\), excluding the empty graph, reaching 73 vertices. This independently confirms \(\operatorname{rank}A=n-1\), \(A^7=A\), and \(\dim\ker(A^j-I)=d_j\) for \(j=1,2,3,6\).
+PASS
 
-Neither a finite enumeration nor a successful process exit proves the assertion for arbitrary \(p,q\); the symbolic invariant-subspace and fixed-space derivations are required for that conclusion. The code uses only local binaries and standard C++/Python facilities, and does not depend on external files other than those embedded alongside it.
+For p>=0,q>=0,p+q>=1 the undirected triangle/pentagon hub graph has n=1+2p+4q odd vertices with all degrees even. Over F2, the adjacency A has kernel exactly the all-ones line, so im A is the even-total-parity hyperplane; source local equations for triangle pair sums and pentagon (s,t) use an order-three base and show A^6=id on im A, equivalently A^7=A. Thus exactly 2^(n−1) states are periodic and the other 2^(n−1) enter at one step. Fixed-space dimensions for A^1,A^2,A^3,A^6 are d1=p+(p mod2),d2=2p,d3=p+2q+(p mod2)+2(q mod2),d6=2p+4q; Möbius inversion gives primitive-orbit counts Q1..Q6, all other periods zero, and exactly one transient predecessor per periodic state makes each orbit basin 2d. Independently built graph adjacency and enumerated all states for nine (p,q) cases up to n=13, including (1,1),(2,1),(0,2),(1,2), checking A^7=A and all fixed-point counts; no extension from finite enumeration is used as proof of all p,q.
+
+## originality
+
+PASS
+
+Qualified PASS for mixed-petal synchronous open-neighborhood parity map complete orbit/basin/entrance census, distinguished from asynchronous XOR-flower work, circulant parity systems and real Dutch windmill spectra.
+
+## value
+
+PASS
+
+The precise first-entry time, complete primitive periodic-orbit counts and uniform 2d basin formula for every configuration of a natural two-parameter graph gluing family are a nontrivial exact finite-state classification. Sharp six-cycle threshold isolates a genuine interaction of two natural petal types, rather than an arbitrary tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
