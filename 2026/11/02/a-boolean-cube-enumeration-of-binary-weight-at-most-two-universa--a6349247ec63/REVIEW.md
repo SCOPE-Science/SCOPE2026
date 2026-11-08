@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the word family, cyclic indexing and rotation equivalence unambiguously. The restricted graph is Eulerian, and its unique \(0^k\)-labeled loop canonically roots each circuit. The fixed-first-edge BEST formula has unit factorial factors. Forcing all weight-two edges reduces tree enumeration to the two singleton-index transitions \(j\mapsto j-1\) and \(j\mapsto m-1-j\); a low-index reflection traps an interval, whereas every allowed high-index choice decreases. Hence the exact count holds for all \(k\ge2\). The finite matrix-tree, exhaustive choice and direct cyclic tests all agree. The proof, not the tests, establishes the infinite theorem.
+PASS
 
-## Originality — PASS, qualified
+For all k>=2, build the overlap digraph on binary (k-1)-words of weight <=2, with a labeled edge for each k-word of weight <=2. The graph is balanced and strongly connected, and a unique zero-word self-loop fixes the starting rotation. The fixed-first-edge BEST/last-exit theorem counts cycles by rooted directed in-arborescences; since all outdegrees are 1 or 2, local factorials are 1. Weight-2 vertices have forced shift-plus-zero edges. Contracting their paths leaves each singleton index j=0..m-1 (m=k-1) with Z(j)=j-1 (0 maps to root) or O(j)=m-1-j. If low j<=floor((m-1)/2) selects O, the nonempty interval [j,m-1-j] is forward invariant, forbidding root access. If all lows select Z, either choice at every high j decreases index and reaches root; highs are independent. There are floor(m/2) high indices, giving U_k=2^floor((k-1)/2). Each cycle has k ones by double-counting the total factor weight k+2C(k,2)=k^2. Independent index-choice exhaustive calculation checked k=2..14, not the full theorem.
 
-Sawada–Williams–Wong (2013) explicitly cover existence and constructions for the same binary weight-range family. Gabrić–Sawada–Williams–Wong (manuscript July 24, 2018) provide a bounded-weight successor framework. Sawada–Gabrić (arXiv 2510.16545, 2025) provide general in-arborescence-based random generation. These are the closest inspected results; none of their examined statements gives the specialized number of all weight-at-most-two cycles, or the canonical reflection-interval characterization. A general Eulerian counting method is not an evaluated exact formula. An unindexed equivalent specialization remains a possible originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-This natural weight-range family has known efficient constructions, but determining **all** its cycles is a different enumeration problem. The sharp all-orders formula \(2^{\lfloor(k-1)/2\rfloor}\) and free Boolean-cube parameters give a structural classification and an efficient direct way to enumerate or uniformly select distinct cycles. No broader higher-weight claim is made.
+Best-of-knowledge O PASS for the precise assessed final statement. Reviewed the actual final package and compared statements/implications with primary literature and published SCOPE/Resultary semantic results, using aliases, broader cases, tables and corollary checks. A Boolean-cube enumeration of binary weight-at-most-two universal cycles: the cited prior results cover background tools, objects and/or weaker observables; no identified theorem implies the complete evaluated final statement. Negative search is not a novelty proof; primary-source limitations and risks are explicit.
 
-## Boundaries and sources
+## value
 
-The result is for the binary range of Hamming weights zero, one, and two, and counts oriented cycles up to rotation only. Standard BEST and matrix-tree arguments are used with a new special-graph evaluation. The relevant full texts are linked in `RESULT.md`; finite verification scripts accompany the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a complete all-k enumeration and canonical Boolean-cube bijection of the entire natural set of rotation classes of weight-[0,2] binary universal cycles. Existence and generic BEST machinery were known; evaluating and classifying every tour for a meaningful constrained language is a standalone nontrivial enumeration, useful as a benchmark for random generation and higher-weight work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

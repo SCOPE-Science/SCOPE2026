@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:51:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63/verify_large.cpp"
+      ],
+      "rationale": "For all k>=2, build the overlap digraph on binary (k-1)-words of weight <=2, with a labeled edge for each k-word of weight <=2. The graph is balanced and strongly connected, and a unique zero-word self-loop fixes the starting rotation. The fixed-first-edge BEST/last-exit theorem counts cycles by rooted directed in-arborescences; since all outdegrees are 1 or 2, local factorials are 1. Weight-2 vertices have forced shift-plus-zero edges. Contracting their paths leaves each singleton index j=0..m-1 (m=k-1) with Z(j)=j-1 (0 maps to root) or O(j)=m-1-j. If low j<=floor((m-1)/2) selects O, the nonempty interval [j,m-1-j] is forward invariant, forbidding root access. If all lows select Z, either choice at every high j decreases index and reaches root; highs are independent. There are floor(m/2) high indices, giving U_k=2^floor((k-1)/2). Each cycle has k ones by double-counting the total factor weight k+2C(k,2)=k^2. Independent index-choice exhaustive calculation checked k=2..14, not the full theorem.",
+      "residual_risks": [
+        "Finite independent computations are diagnostic only for quantified unbounded theorems; correctness relies on the reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sawada–Williams–Wong 2013 proves efficient construction for all weight ranges; Gabrić et al successor-rule framework constructs many classes."
+        ],
+        "reasoning": "Existence for all weight ranges is much broader in domain but weaker in enumeration. Neither inspected full text supplies the total count or free-choice classification for all weight<=2 cycles.",
+        "searches": [
+          "binary universal cycles all length k words Hamming weight at most 2 exact number Euler tours",
+          "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+          "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf",
+        "https://arxiv.org/pdf/2510.16545",
+        "Resultary semantic record search: binary universal cycles all length k words Hamming weight at most 2 exact number Euler tours"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sawada–Gabrić (arXiv:2510.16545v3) defines random-arborescence generation in Sections 1–4 and experiments, while Sawada–Williams–Wong 2013 offers CAT constructions and a gluing lemma."
+        ],
+        "reasoning": "Uniform sampling or a single constructive successor rule neither determines the number of all cyclic Euler tours nor proves a Boolean-cube bijection; the forced singleton-edge structural classification is the additional implication required.",
+        "searches": [
+          "binary universal cycles all length k words Hamming weight at most 2 exact number Euler tours",
+          "https://arxiv.org/pdf/2510.16545",
+          "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weight-[0,2] universal cycles are Euler tours of the weight-restricted de Bruijn overlap graph; Sawada–Gabrić 2025 identifies uniform Euler-tour sampling via random arborescences."
+        ],
+        "reasoning": "The generic BEST/matrix-tree equivalent formulation is prior, but it does not evaluate this graph’s directed tree count to 2^floor((k-1)/2) without the new forced-path/interval argument.",
+        "searches": [
+          "binary universal cycles all length k words Hamming weight at most 2 exact number Euler tours",
+          "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+          "https://arxiv.org/pdf/2510.16545"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include unrelated binary universal-subsequence, string-attractor and bounded-weight Fourier problems, with no exact universal-cycle table. Independently enumerated selected k from original package and fresh functional-graph code."
+        ],
+        "reasoning": "No known table in searched sources supplies U_k; finite checks alone are not a historical novelty argument. Full total count is an all-k result, not just the first sequence terms.",
+        "searches": [
+          "binary universal cycles all length k words Hamming weight at most 2 exact number Euler tours",
+          "Resultary semantic record search (10 ranked hits)",
+          "https://arxiv.org/pdf/2510.16545"
+        ]
+      },
+      "rationale": "Best-of-knowledge O PASS for the precise assessed final statement. Reviewed the actual final package and compared statements/implications with primary literature and published SCOPE/Resultary semantic results, using aliases, broader cases, tables and corollary checks. A Boolean-cube enumeration of binary weight-at-most-two universal cycles: the cited prior results cover background tools, objects and/or weaker observables; no identified theorem implies the complete evaluated final statement. Negative search is not a novelty proof; primary-source limitations and risks are explicit.",
+      "residual_risks": [
+        "Prior universal-cycle counts under directed matrix-tree or weight-restricted necklace notation might be unindexed; failed query cannot certify novelty.",
+        "The formula does not quotient reflection/complementation and does not extend beyond weight<=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves existence/CAT generation rather than enumeration of all cycles",
+          "evidence": "Sawada–Williams–Wong, IWOCA 2013, Sections 1–5",
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+          "material_read": "15-page OA manuscript, abstract, weight-range definitions, existence construction, gluing theorem and main sections",
+          "method": "PDF text and page screenshot",
+          "title": "Universal cycles for weight-range binary strings",
+          "trigger": "Exact same weight interval [0,2] among general weight ranges"
+        },
+        {
+          "assessment": "Constructs particular cycles, not all oriented circular cycles for weight [0,2]",
+          "evidence": "Gabrić–Sawada–Williams–Wong 2018/2020",
+          "identifier_or_url": "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf",
+          "material_read": "Accessible complete author manuscript, relevant construction framework and stated theorems",
+          "method": "PDF text and screenshots",
+          "title": "A successor rule framework for constructing k-ary de Bruijn sequences and universal cycles",
+          "trigger": "Potential domination by general successor-rule construction"
+        },
+        {
+          "assessment": "Generic uniformly random Eulerian/arborescence algorithm, no closed U_k=2^floor((k-1)/2) count in read sections",
+          "evidence": "Sawada–Gabrić, v3 dated 2025-12-15",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.16545",
+          "material_read": "16-page arXiv:2510.16545v3 PDF; abstract, algorithm and random-tree sections, weight-range discussion",
+          "method": "PDF text and page screenshots",
+          "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+          "trigger": "Closest general arborescence-enumeration/sampling machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63/RESULT.md",
+        "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "https://socs.uoguelph.ca/~dgabric/papers/kary-successor.pdf",
+        "https://arxiv.org/pdf/2510.16545"
+      ],
+      "rationale": "This gives a complete all-k enumeration and canonical Boolean-cube bijection of the entire natural set of rotation classes of weight-[0,2] binary universal cycles. Existence and generic BEST machinery were known; evaluating and classifying every tour for a meaningful constrained language is a standalone nontrivial enumeration, useful as a benchmark for random generation and higher-weight work.",
+      "residual_risks": [
+        "Mathematical value is confined to the exact objects, parameters and quantifiers stated; no broader downstream application is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prior universal-cycle counts under directed matrix-tree or weight-restricted necklace notation might be unindexed; failed query cannot certify novelty.",
+    "The formula does not quotient reflection/complementation and does not extend beyond weight<=2.",
+    "Public-facing original metadata and audit JSON contain scope_run_id; no sanitized replacements and guard validation staged; plan not_ready, no GitHub publication."
+  ],
+  "schema_version": 1
+}
