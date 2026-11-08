@@ -1,11 +1,21 @@
-# Review of the Bring theta-orbit triplicity model
+# Independent mathematical audit
 
-**Correctness — PASS.** The integral homology action and its block-diagonal conjugate are explicitly recorded in Riera–Rodríguez (1992, pp. 182–183). The displayed binary change of basis intertwines both named generators with permutation of even subsets. The parity form comes from the canonical symplectic theta formula. Multinomial orbits are exhaustive, and the complete commuting orthogonal group is proved using the stabilizer of a two-subset. Reproduction from `verify.py` matches all 14 classes and six orbit-bundles; no finite experiment is promoted to an infinite geometric theorem.
+## correctness
 
-**Originality — PASS, with priority qualification.** The orbit counts and the invariant theta characteristic were published by Braden–Disney-Hogg, while Riera–Rodríguez had already described a symplectic commutant. Those aspects are *not* claimed as independently new. The narrower contribution is the explicit even-subset-pair labeling respecting the geometric spin parity, and the commuting \(S_3\) permuting four triples of individual \(S_5\)-orbit classes. Relevant primary full text does not state this comparison; the 2023 Bring paper explicitly leaves the triplicity unexplained. An equivalent conceptual explanation may remain in unindexed work.
+PASS
 
-**Mathematical value — PASS.** This is a complete structural explanation of an expressly noted unexplained pattern in the spin geometry of a distinguished genus-four curve. The explicit finite quadratic-module action distinguishes a reason for the repeated orbit sizes from merely recomputing the numbers. It does not imply a lift to an automorphism of the curve or an analytic Scorza construction.
+For Bring’s genus-four complex curve, original homology generators a,b reduced mod2 are conjugate by the displayed invertible T to the four-dimensional even-subset representation W of S5; independently multiplied both 4x4 intertwining equalities for the 5-cycle and transposition. Alternating nondegenerate dot pairing W×W identifies the symplectic dual with W, giving all 256 theta characteristics as W⊕W with q(A,B)=|A∩B| mod2 based at unique invariant even characteristic. End_S5(W)=F2 follows from stabilizer of a 2-subset and its spanning orbit; hence orthogonal commutant on W⊕W is GL2(F2)=S3. S5 pairs of even subsets classified by (|A|,|B|,|A∩B|) yield 14 orbits: even 1 and 3 each of sizes 5,10,30; odd three of size20 and one of size60. The commuting S3 permutes each repeated triple, fixing singleton orbits. Independent combinatorial enumeration reproduces 136 even+120 odd spin characteristics, all orbit sizes and six S3 bundles. NOT an assertion of automorphisms of the curve or principally polarized Jacobian.
 
-**Closest literature and limits.** Riera–Rodríguez (1992) supplies the integral group action and symplectic centralizer; Braden–Northover (2012) proves uniqueness of invariant spin structure; Braden–Disney-Hogg (2023 and 2025) gives orbit tables and computational methodology. The precise relationship and remaining lift/priority limitations are in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known Braden–Disney-Hogg work tabulates theta orbit sizes (including triplicate sizes) and expressly notes lack of an explanation. Riera–Rodríguez already establishes a commuting symplectic group over the integers; group existence or representation matrices alone are NOT novel. The assessed additional result is the explicit parity-compatible W⊕W model and induced full S3 action permuting the 14 individual theta-orbit classes. Since integral centralizer may yield the mod2 group, mathematical implication from earlier generators was carefully checked; the six orbit-bundle calculation is extra.
+
+## value
+
+PASS
+
+The 14-orbit decomposition on a canonical algebraic curve has a natural unexplained repeated triplicity; an exact commuting-S3 structural explanation is a motivated finite representation-theoretic fact, not simply recounting orbit sizes or relabeling notation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
