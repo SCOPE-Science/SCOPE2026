@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:49:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every genuine side of a convex polygon lies on an exposed supporting line. Samples almost surely avoid original corners, and exactly min(C_i,2) extremal sampled points on side i become hull vertices, including singleton/segment degenerate hull cases; C follows Multinomial(n,p). Product exponential GF and binomial marginal give the exact PGF and mean. For any two side probabilities at fixed total, conditioning on other occupancy and the pair total s reduces each threshold of min(B,2)+min(s−B,2) to a symmetric central interval a≤B≤s−a for B~Bin(s,u); its derivative is s*binom(s−1,a−1)u^{a−1}(1−u)^{a−1}[(1−u)^{s−2a+1}−u^{s−2a+1}], positive for u<1/2. Pair-balancing therefore increases every upper tail, and standard majorization chains prove global stochastic order. The mean summands have f_n(p)=−n(n−1)(n−2)p(1−p)^{n−3}<0 for n≥3, giving strict mean Schur concavity. For q_i=1−p_i, deficits sum to a rational function with genuine order-two poles at t=1/q_i of coefficient multiplicity*(1−q_i)/q_i>0, so expectations recover unordered side proportions and m. Independent exact multinomial/GF and two balancing examples through n≤8 agree; the analytic proof handles all admissible polygons/n, unlike finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reitzner et al. establish facet supporting principle and expected asymptotic limit 2m, not all-n distribution or inverse reconstruction. Zubkov–Tatarenko theorem compares number of bins with at least r balls, separately, not necessarily their combined upper tails."
+        ],
+        "reasoning": "The general order theorem for a single threshold does not establish the combined capped count without joint dependence information; nor do the asymptotic polygon mean or uniform-bin occupied count imply the rational double-pole inverse theorem.",
+        "searches": [
+          "Resultary: random polygon boundary samples convex hull vertex count multinomial capped occupancy majorization stochastic order side lengths inverse determination",
+          "Reitzner Schütt Werner arXiv:1911.05917 planar polygon boundary vertex limit",
+          "Zubkov Tatarenko (2013) Russian full primary theorem",
+          "O’Neill (2023) extended occupancy DOI:10.1007/s11009-023-10053-y"
+        ]
+      },
+      "checked_sources": [
+        "Reitzner–Schütt–Werner, arXiv:1911.05917 and Discrete Comput Geom 69 (2023) relevant full text",
+        "Zubkov–Tatarenko, Math Notes 93 (2013) DOI:10.1134/S0001434613010070 Russian primary full theorem",
+        "O’Neill, Methodol Comput Appl Probab 25 (2023) DOI:10.1007/s11009-023-10053-y accessible abstract/model",
+        "Resultary: random polygon boundary samples convex hull vertex count multinomial capped occupancy majorization stochastic order side lengths inverse determination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2019 polygon model yields lim E V_n=2m, but this limit recovers only m, not individual side proportions. Fixed-r occupancy stochastic order is weaker than order of sum for correlated threshold counts."
+        ],
+        "reasoning": "Exact pgf and double-pole inverse proof supply stronger all-size information than the prior limiting mean; a separate central-binomial interval argument is needed for the combined stochastic inequality.",
+        "searches": [
+          "Resultary: random polygon boundary samples convex hull vertex count multinomial capped occupancy majorization stochastic order side lengths inverse determination",
+          "arXiv:1911.05917 full primary boundary polytope discussion",
+          "Zubkov–Tatarenko 2013 stochastic threshold count theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hull count equals the nonuniform multinomial capped occupancy statistic Σmin(C_i,2); the older 2013 source studies counts of cells above a FIXED occupancy threshold."
+        ],
+        "reasoning": "Stochastic domination of each marginal threshold count does not by itself imply domination of their correlated sum. The direct binomial central-interval proof supplies the missing implication.",
+        "searches": [
+          "Resultary: random polygon boundary samples convex hull vertex count multinomial capped occupancy majorization stochastic order side lengths inverse determination",
+          "arXiv:1911.05917 convex hull of random boundary points",
+          "DOI:10.1134/S0001434613010070 stochastic occupancy under Schur order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published records concern uniform occupancy distinct-cell laws or Hausdorff error and not finite nonuniform capped occupancy plus inverse side lengths."
+        ],
+        "reasoning": "No full law table for arbitrary n and polygonal side profiles was encountered; semantic search nonmatches cannot establish absence.",
+        "searches": [
+          "Resultary: random polygon boundary samples convex hull vertex count multinomial capped occupancy majorization stochastic order side lengths inverse determination",
+          "Resultary 2026/10/4 every uniform occupancy law exposed distinct count convex hull",
+          "Resultary random polygon Gumbel Hausdorff error 2026/10/11"
+        ]
+      },
+      "rationale": "The supporting-side reduction and asymptotic limit 2m already follow from boundary random-polytope literature; individually Schur-ordered occupancy threshold counts are also prior work. The new substantive combination is stochastic order of the correlated SUM of occupied-at-least-one and occupied-at-least-two cells for every threshold, together with full inverse side-length recovery. The 2013 occupancy source was read as an accessible Russian PDF (main theorem), but specialist equivalent results remain a qualified risk.",
+      "residual_risks": [
+        "A broader occupancy Schur-order theorem for nonuniform sums of capped counts may have been published under a different name; searched 2013 source establishes only individual threshold counts.",
+        "The inverse statement recovers only unordered normalized side lengths, not polygon angles, order, or shape; must not claim congruence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Facet support rule and large-n limit 2m known; not full finite law, stochastic balancing and inversion",
+          "evidence": [
+            "Supporting-side/facet contribution established at geometric level; no explicit all-threshold capped multinomial ordering."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Accessible published full-text HTML relevant discussion of supporting facets and planar mean limit; arXiv abstract",
+          "method": "Read source primary relevant mathematical text",
+          "title": "The convex hull of random points on the boundary of a simple polytope — Reitzner, Schütt and Werner (2019/2023)",
+          "trigger": "Exactly the same boundary sample convex hull process"
+        },
+        {
+          "assessment": "Theorem covers fixed occupancy threshold-bin counts; not a direct theorem for sum of thresholds 1 and 2, and no polygon side-length inversion",
+          "evidence": [
+            "Theorem 2 stochastic ordering for number of cells containing at least r particles separately; cap-two statistic combines two dependent counts."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S0001434613010070",
+          "material_read": "Accessible lawful Russian full PDF main statements, Theorem 2 and definitions of fixed-threshold occupied-cell counts; page screenshot verified",
+          "method": "Read relevant complete primary theorem and supporting setup from accessible Russian PDF",
+          "title": "The Equivalence between the Schur Order and the Stochastic Orders Generated by the Scheme of Allocation of Particles into Cells — Zubkov and Tatarenko (2013)",
+          "trigger": "Highly relevant possible stronger occupancy-majorization theorem"
+        },
+        {
+          "assessment": "Uniform occupancy and ordinary nonempty counts, distinct from nonuniform capped two-count sum",
+          "evidence": [
+            "The paper treats extended occupancy of uniform bins and ordinary occupied-bin count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11009-023-10053-y",
+          "material_read": "Accessible paper abstract and uniform-bin model description; not all proofs",
+          "method": "Compared model assumptions and statistics",
+          "title": "Three Distributions in the Extended Occupancy Problem — O’Neill (2023)",
+          "trigger": "General occupancy formulas could cover this special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statistic is directly observable in random boundary sampling; a complete finite-sample law, all-threshold shape-balancing extremality and inverse recovery of side probabilities are mathematically motivated, independently useful statements rather than mere occupancy bookkeeping.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only nondegenerate convex polygons with genuine positive side lengths and arclength sampling; no inference on angles or cyclic side order.",
+    "Strictness concerns means for n≥3, not every individual upper-tail threshold.",
+    "A broader occupancy Schur-order theorem for nonuniform sums of capped counts may have been published under a different name; searched 2013 source establishes only individual threshold counts.",
+    "The inverse statement recovers only unordered normalized side lengths, not polygon angles, order, or shape; must not claim congruence."
+  ],
+  "schema_version": 1
+}
