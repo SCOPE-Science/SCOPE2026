@@ -1,15 +1,21 @@
-# Scientific review of the snub 24-cell harmonic erasure spectrum
+# Independent mathematical audit
 
-## Correctness
-The claim fixes the vertices, normalization, degrees, matrix orientation, and multiplicities. The exact checker validates the pairwise inner-product association algebra on 120 points, each full-set tight-frame identity through degree five, and the 24-cell kernel eigenvalue polynomial and trace data. The proof then obtains the 96-vertex spectra by a precise Gram subtraction on the common harmonic space. The distinction between ordinary degree and low-pass bandwidth is explicit. No infinite extrapolation from finite degrees is claimed.
+## correctness
 
-## Originality
-The 2009 and 2011 Koca papers give the quaternionic polytope and subgroup-complement geometry, not this sampling-spectrum statement. Bannai–Okuda–Tagami develop harmonic-index spherical-design theory but do not explicitly give the six snub-24-cell Gram spectra or the contrasting degree-four and degree-five ranks. Kostant (1985) supplies a broad representation-theoretic multiplicity framework for finite subgroups of the unit quaternions; it does not directly analyze sampling on their 96-point complement. Nonetheless its theory can supply ingredients from which parts of this finite calculation may be reconstructed. Therefore the originality assessment is bounded; an equivalent older spectral or frame formulation remains a substantive residual risk.
+PASS
 
-## Value
-The 96 snub 24-cell vertices are a natural symmetry orbit arising by deleting a regular 24-cell from the tightly sampled 600-cell. The result determines the entire first six exact-degree Gram spectra, with an unexpected rank loss at degree four followed by injectivity at degree five, and gives exact condition numbers. It is an interpretable structural erasure phenomenon for spherical sampling, rather than an arbitrary numerical table.
+PASS: Frozen RESULT.md 4060c2f defines 120 normalized 600-cell vertices partitioned into T(24-cell) and Y(96-point snub). On S^3 with probability surface normalization, degree-l addition kernel is (l+1)U_l(x.y), harmonic dimension (l+1)^2. Independently constructed all 120 vertices in exact Z[phi] pairs, checked U_l 600-cell matrices satisfy U_l^2=(120/(l+1))U_l for l=0..5, and restricted first 24 rows to the integer 24-cell. Numerical diagonalization of that exact 24x24 integer matrix plus the proven kernel positivity yields spectra for Y by E_Y*E_Y=120I-E_T*E_T: l=0 96(1), l=1 96(4), l=2 96(9), l=3 72(8)+120(8), l=4 0(2)+80(9)+120(14), l=5 48(12)+120(24). Separate frozen CHECK.py verifies the stronger exact polynomial annihilators for T including K(K-8)(K-24)=0 in degree 4 and traces. Thus degree-four kernel dimension two and degree-five full rank with cond sqrt(5/2). Restriction is exact degree, not cumulative bandwidth.
 
-## Sources and remaining limits
-See the explicit literature list in `RESULT.md`; the directly relevant primary sections were compared at the level of objects, restrictions and implied claims. The theorem is limited to this orbit and to degrees zero through five. There is no higher-degree or global 96-point-optimality assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge for the precise six harmonic Gram spectra and degree-4-to-degree-5 injectivity recovery on the 96 snub vertices. Koca et al. provide the 600=24+96 vertex geometry and subgroup orbits. Bannai et al. provide harmonic-index design framework and 600-cell harmonic index 58 observation, which is not this multi-degree 96-point sampling spectral table. Group-representation and association scheme approaches could in principle yield these values but no inspected primary text stated them.
+
+## value
+
+PASS
+
+PASS: The snub 24-cell is a canonical highly symmetric chiral configuration and degree-specific harmonic sampling rank is a natural interpolation invariant. Exact nonmonotone 2-dimensional nullspace at degree 4 followed by full degree-5 recovery and an explicit condition number is a meaningful structural erasure phenomenon; verified exact algebra prevents a floating-point artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
