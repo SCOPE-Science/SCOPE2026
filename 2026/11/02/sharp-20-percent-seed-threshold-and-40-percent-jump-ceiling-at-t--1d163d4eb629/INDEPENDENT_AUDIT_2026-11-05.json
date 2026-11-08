@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:09:35.860668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-20-percent-seed-threshold-and-40-percent-jump-ceiling-at-t--1d163d4eb629/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-20-percent-seed-threshold-and-40-percent-jump-ceiling-at-t--1d163d4eb629/verify.py",
+        "Independent check: Independent exact-rational SIR witness and rational parameter grid: a=2/5, beta=4/3, gamma=28/75, I1=214/375, S1=7/25, jump=5992/28125, beta I1<1. Independently reproduced algebraic bound over 3× the checker parameter range; unrestricted argument read in RESULT.md."
+      ],
+      "rationale": "At I0=a,S0=1-a,R0=0, let r=(1-a)/a,u=beta*a. The I2=I1 condition is beta*S1=gamma, hence beta=u(1+r), gamma=u(1-u)r, I1=(1+u²r)/(1+r). Descending transversal derivative of beta*S1 at fixed a is (1-a)(1-2u)<0, so u>1/2; S1>0 implies u<1; all subsequent susceptible updates stay strictly positive iff at the crossing beta*I1=u(1+u²r)<1, equivalent to r<(1-u)/u³. Since max such r tends to 4 as u down to 1/2, a>1/5 is exactly necessary and sufficient. The jump S1-S2=gamma I1=u(1-u)r(1+u²r)/(1+r) increases in r, yielding J<(1-u)²/(1-u+u³)<2/5 by factor (2u-1)(u²-2u+3)>0. Boundary approach supplies unattained sharpness. At a=2/5, u=8/15, r=3/2, rational witness gives J=5992/28125. Off-crossing global peak placement follows S_t monotone and sign(I_{t+1}-I_t)=sign(beta S_t-gamma). Independent rational checks corroborate exact algebra.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1073/pnas.2106332118",
+          "https://doi.org/10.1098/rsif.2023.0322"
+        ],
+        "reasoning": "General renewal incidence and continuous postpeak overshoot are mathematically different; no inspected inequality dominates a discrete jump in 1-S_{p(beta)}.",
+        "searches": [
+          "discrete renewal Kermack McKendrick framework 2021",
+          "Nguyen Freedman Ozbay Levin 2023 fundamental overshoot"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2212.06995 Ozbay–Nielsen–Nguyen especially Figure 6 and Methods",
+        "https://doi.org/10.1073/pnas.2106332118 Diekmann et al. 2021 renewal discrete-time epidemic framework",
+        "https://arxiv.org/abs/2409.09157 Lemos-Silva et al. alternative scheme",
+        "Resultary query: discrete-time SIR forward Euler transmissibility peak day discontinuity sharp initial infection threshold jump"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Presence of jumps does not imply first-switch admissibility threshold or optimal ceiling",
+          "Different update laws preclude direct parameter substitution"
+        ],
+        "reasoning": "The final result is a sharp theorem about the earliest transversal descending branch and positivity, not a restatement of observed nonmonotonicity.",
+        "searches": [
+          "Ozbay 2212.06995 Figure 6 earliest peak switches",
+          "Lemos-Silva 2409.09157 exact discrete SIR"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen SIR crossing condition beta S1=gamma, u=beta a, r=S0/a",
+          "Ozbay et al. 2022 Figure 6 exhibits jumps qualitatively"
+        ],
+        "reasoning": "Equivalent optimization is over 1/2<u<1, r<(1-u)/u^3; prior figure gives branches, not the entire sharp feasible domain or extremum.",
+        "searches": [
+          "discrete-time Euler SIR I1=I2 peak index attack by peak day",
+          "Ozbay Nielsen Nguyen Figure 6 transmissibility peak switch"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary hits concern unrelated SIR disease-free cycle/pitchfork and other epidemic discretizations",
+          "Original Figure 6 is a qualitative numerical diagram without exact 1/5 or 2/5 entry"
+        ],
+        "reasoning": "No exact optimization table containing both universal constants identified; search omission is not historical certification.",
+        "searches": [
+          "Resultary discrete SIR forward Euler early peak discontinuity threshold",
+          "Ozbay Nielsen Nguyen numerical Figure 6"
+        ]
+      },
+      "rationale": "Ozbay–Nielsen–Nguyen already report nonmonotone cumulative attack at peak and discrete peak-day jumps, which are not asserted new. Their investigated Euler behavior and plotted bifurcations do not present the sharp strict-positive day-two-to-one feasibility threshold a>1/5 or supremum 2/5 as mathematical theorems. Broad discrete renewal frameworks, nonstandard SIR integrators, and continuous-time overshoot instead use different update laws or peak quantities; neither statement implies the inspected sharp pair. Published Resultary hits concerned other SIR transitions. Unindexed analysis of the same numerical example remains possible.",
+      "residual_risks": [
+        "No assertion for later peak-switches, nonzero initial removed fraction, stochastic contacts or alternative SIR updates.",
+        "Older analyses of the same Euler bifurcation diagram might contain an unindexed equivalent threshold or bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING precise sharp extremal result: establishes existence/qualitative peak-time bifurcation, not proved strict seed 1/5 and jump supremum 2/5",
+          "evidence": [
+            "Figure 6 demonstrates peak-day jump, not an all-parameter necessary-and-sufficient threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.06995",
+          "material_read": "Accessible full primary preprint, Figure 6 discussion, plotted peak jumps and comparison methods",
+          "method": "Read relevant full sections and visually inspected PDF pages",
+          "title": "Bifurcations in the Herd Immunity Threshold for Discrete-Time Models of Epidemic Spread",
+          "trigger": "Same peak-time cumulative attack quantity and modeled SIR forward Euler updates"
+        },
+        {
+          "assessment": "NOT_IDENTIFIED_AS_COVERING: renewal formulation differs and has no inspected sharp branch-switch inequality",
+          "evidence": [
+            "A general renewal-method result would need to imply exact constraints for the specified forward-Euler day-two-to-one branch."
+          ],
+          "identifier_or_url": "https://doi.org/10.1073/pnas.2106332118",
+          "material_read": "Primary abstract and framework/method descriptions",
+          "method": "Examined stated discrete renewal formulation and comparison with Euler scope",
+          "title": "The discrete-time Kermack–McKendrick model: A versatile and computationally attractive framework for modeling epidemics",
+          "trigger": "Broader epidemiological discrete-time model might imply constraints"
+        },
+        {
+          "assessment": "INAPPLICABLE: altered incidence denominator and positivity scheme, not the mass-action forward Euler map",
+          "evidence": [
+            "Update is different, so no direct substitution of exact finite-switch constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.09157",
+          "material_read": "Abstract and stated nonstandard update rule",
+          "method": "Compared actual mathematical update normalization",
+          "title": "Exact solution for a discrete-time SIR model",
+          "trigger": "Exact results for superficially same discrete SIR name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-20-percent-seed-threshold-and-40-percent-jump-ceiling-at-t--1d163d4eb629/RESULT.md",
+        "https://arxiv.org/abs/2212.06995 Ozbay–Nielsen–Nguyen especially Figure 6 and Methods",
+        "https://doi.org/10.1073/pnas.2106332118 Diekmann et al. 2021 renewal discrete-time epidemic framework"
+      ],
+      "rationale": "The early peak-switch is a natural singularity in peak-time epidemic metrics. The strict seed threshold and jump ceiling are nontrivial universal optimization constraints emerging from positivity and transversal dynamics, precisely sharpening a numerically known phenomenon, rather than replotting a known sawtooth.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No assertion for later peak-switches, nonzero initial removed fraction, stochastic contacts or alternative SIR updates.",
+    "Older analyses of the same Euler bifurcation diagram might contain an unindexed equivalent threshold or bound."
+  ],
+  "schema_version": 1
+}

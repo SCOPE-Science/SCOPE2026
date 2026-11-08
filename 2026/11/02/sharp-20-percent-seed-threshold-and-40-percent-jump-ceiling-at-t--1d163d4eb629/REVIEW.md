@@ -1,15 +1,21 @@
-# Review of the early-peak SIR jump theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the Euler SIR equations in the originating study and reconstructs the exact crossing manifold \(\gamma=u(1-u)r\), with \(u=\beta I_0\), \(r=S_0/I_0\). The strict descending-crossing and positivity conditions reduce precisely to \(1/2<u<1\), \(0<r<(1-u)/u^3\). The proof verifies that subsequent prevalence is decreasing and that these conditions provide a two-sided neighborhood of globally positive trajectories. Algebraic maximization establishes \(J<2/5\) and a limiting admissible family; exact rational computations independently check the concrete jump \(5992/28125\), 840 parameter pairs, and nearby peak indices. The limiting boundary is not mistaken for an admissible equality case.
+## correctness
 
-## Originality
-PASS under available evidence, not independent certification. The originating paper [1] explicitly explains and numerically shows peak-time attack jumps. That qualitative observation is credited, not claimed new. Its complete text does not give the first-downward-switch necessary-and-sufficient seed threshold \(1/5\), the algebraic admissibility domain, or the sharp supremum \(2/5\). Diekmann et al. [2] study a different broad renewal formulation, Lemos-Silva et al. [3] use a different discretization, and Nguyen et al. [4] bound continuous-time post-peak overshoot rather than a jump in attack at a peak-time switch. The mathematical-record and literature searches found no direct implication covering the exact extremal pair. Bibliographic incompleteness remains a genuine risk.
+PASS
 
-## Mathematical value
-PASS. In contrast to merely recomputing a known numerical sawtooth, the theorem gives exact universal restrictions on the **earliest** downward peak shift: an initial infected share of at most \(20\%\) makes this specific switch impossible in an admissible epidemic, and \(40\%\) is the sharp but unattained supremum of its attack jump. These constants arise from competing prevalence-growth and susceptible-positivity inequalities, and distinguish early from later peak-switch mechanisms. This resolves a natural finite-time extremal question motivated by the originating paper's peak-time bifurcations; it does not assert any bound for later switches.
+At I0=a,S0=1-a,R0=0, let r=(1-a)/a,u=beta*a. The I2=I1 condition is beta*S1=gamma, hence beta=u(1+r), gamma=u(1-u)r, I1=(1+u²r)/(1+r). Descending transversal derivative of beta*S1 at fixed a is (1-a)(1-2u)<0, so u>1/2; S1>0 implies u<1; all subsequent susceptible updates stay strictly positive iff at the crossing beta*I1=u(1+u²r)<1, equivalent to r<(1-u)/u³. Since max such r tends to 4 as u down to 1/2, a>1/5 is exactly necessary and sufficient. The jump S1-S2=gamma I1=u(1-u)r(1+u²r)/(1+r) increases in r, yielding J<(1-u)²/(1-u+u³)<2/5 by factor (2u-1)(u²-2u+3)>0. Boundary approach supplies unattained sharpness. At a=2/5, u=8/15, r=3/2, rational witness gives J=5992/28125. Off-crossing global peak placement follows S_t monotone and sign(I_{t+1}-I_t)=sign(beta S_t-gamma). Independent rational checks corroborate exact algebra.
 
-## Closest literature and limits
-[1] Ozbay, Nielsen, Nguyen, arXiv:2212.06995, numerical bifurcations and qualitative peak-shift explanation. [2] Diekmann et al., PNAS 2021, general renewal formulation and peak comparison. [3] Lemos-Silva et al., arXiv:2409.09157, nonstandard discretization. [4] Nguyen et al., J. R. Soc. Interface 2023, continuous-time overshoot bound. The result does not apply to stochastic graph contagion, all Euler schemes, arbitrary initial immunity, or later peak-day transitions. Strict positivity near switching is essential. Independent literature adjudication remains pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ozbay–Nielsen–Nguyen already report nonmonotone cumulative attack at peak and discrete peak-day jumps, which are not asserted new. Their investigated Euler behavior and plotted bifurcations do not present the sharp strict-positive day-two-to-one feasibility threshold a>1/5 or supremum 2/5 as mathematical theorems. Broad discrete renewal frameworks, nonstandard SIR integrators, and continuous-time overshoot instead use different update laws or peak quantities; neither statement implies the inspected sharp pair. Published Resultary hits concerned other SIR transitions. Unindexed analysis of the same numerical example remains possible.
+
+## value
+
+PASS
+
+The early peak-switch is a natural singularity in peak-time epidemic metrics. The strict seed threshold and jump ceiling are nontrivial universal optimization constraints emerging from positivity and transversal dynamics, precisely sharpening a numerically known phenomenon, rather than replotting a known sawtooth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
