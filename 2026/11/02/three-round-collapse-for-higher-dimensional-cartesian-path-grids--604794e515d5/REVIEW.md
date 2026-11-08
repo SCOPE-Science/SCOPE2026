@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-language three-round invariant records repeated vertices and all possible last-vertex atomic adjacency patterns. The local geometry lemma bounds common neighbours by two; minimum degree at least three forces exclusive witnesses, while the strict product-size inequality proves a nonneighbouring witness for every pair except the binary three-cube. Each vertex sees all relevant distance categories, so the invariant coincides with that of the seven-cycle. The antipodal two-vertex domination sentence distinguishes the cube, and a direct order argument proves the sharp twelve-vertex bound. Two dissimilar exact finite verification implementations independently reproduce the stated sample consequences; the unbounded result rests on the proof.
+## correctness
 
-**Originality — PASS, qualified.** Brown–Hoshino (2007) proves classifications for *individual paths and cycles*, not products of three or more paths. Previously recorded two-factor grid, hypercube, and Hamming-graph classifications concern strict subfamilies or distinct product types; none of their statements implies the mixed-factor universal equivalence with the seven-cycle. Searches of mathematical literature and the available research index found no exact statement or stronger published theorem directly yielding the present classification. Remaining priority risk includes older general Ehrenfeucht-game literature and sources that may not be indexed or accessible; search failure is not a guarantee of novelty.
+PASS
 
-**Value — PASS.** Higher-dimensional Cartesian path grids form a natural multi-parameter family encompassing cubical grids and hypercubes. Their complete two-class rank-three collapse, the single exceptional cube, and the sharp within-family twelve-vertex representative reveal a substantial expressivity limit: pure depth-three adjacency logic cannot distinguish arbitrary dimension, different path lengths, or even these bipartite graphs from an odd seven-cycle. This extends beyond a routine restatement of the two-factor classification.
+The complete three-round EF type is determined by ordered-pair extension masks and first-vertex profile sets. For each nonexceptional product N=∏ni>2+2Σ_i (1 if ni=2 else 2), so a 00 response exists for every pair. Triangle-free degree≥3 and Cartesian distances 1/2/≥3 yield exactly the C7 incidence profile; Q3 has a rank-three dominating-pair sentence and all other products fail it. The product representative order bound is 12. Independent exact triple types checked bounded grids, not used to infer infinity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: Brown–Hoshino classify individual paths and cycles, supplying the rank-three C7 reference but no classification for mixed ≥3 Cartesian path factors. The full triple-extension proof establishes the additional product/cycle equivalence and sharp order-12 representative. Semantic catalogue search did not reveal a dominating general product theorem; hidden rank3 product treatment remains a priority risk.
+
+## value
+
+PASS
+
+Classifying all d≥3 products at a fixed natural logical rank reveals an unexpected equivalence of bipartite high-dimensional grids with odd C7, and the sharp order-12 uniform model bound; a structural finite-rank boundary of an infinite graph family is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
