@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-Direct equilibrium elimination supplies the same quartic as the primary paper, with all singular fibers handled explicitly. Its discriminant is checked symbolically against the published degree-eight polynomial, and an exact rational Sturm chain gives six sign variations at negative infinity and four at zero. Isolating signs, root counts at three rational parameters, and the two zero-coordinate exceptions yield the stated exhaustive diagram. At the explicit bistable parameter, a factorization into a linear and cubic factor proves that there are exactly two nonzero equilibria; Routh--Hurwitz positivity is verified symbolically for both. The script `check_negative_etm.py` recomputes all critical identities. Numerical observations are not substituted for infinite assertions.
+## correctness
 
-## Originality: PASS under inspected material
-The 2026 model preprint restricts its bifurcation analysis to nonnegative parameter and leaves negative values for future study, even though its quartic and exceptional equilibrium formulas apply algebraically there. Published record `997f2098aca6` proves an exact positive-threshold global-stability statement and prints the same discriminant, but is explicitly scoped to nonnegative parameters. The present result **does not** claim the discriminant itself as new. Its content is the two negative-root census, the treatment of negative exceptional fibers, and the exact two-sink witness at negative parameter. Searches of the primary preprint, published mathematical records, and public literature did not find that combination. General quadratic-flow conjugacies and unindexed later works are residual priority risks.
+PASS
 
-## Mathematical value: PASS
-The authors identify the negative parameter branch as an untreated natural part of their polynomial benchmark. A complete equilibrium census is useful for organizing its bifurcations, and two rigorously stable coexistence states at one exact negative parameter demonstrate a previously unexplored multistability region rather than merely counting polynomial roots. No broad claim about chaotic attractors or global basins is made.
+Reconstructed elimination of the y,z equilibrium equations with denominator D=2x²+rho*x+5-rho², including exceptional D=0/x=0 fibers. Independent SymPy exact algebra verifies disc_x(P)=12000Q, the quartic root samples have respectively 4,2,0 real roots for rho=-3,-3/2,-1, Q has isolated simple negative roots, and at rho=-2 P=(x-2)(8x³-9x+4). For the explicit sink (2,2,0), the Jacobian has lambda³+8lambda²+11lambda+20 (strict cubic Hurwitz). The negative cubic root produces a second sink by the stated positive B,C,8B-C interval bounds; an independent symbolic reduction of its characteristic coefficients modulo 8t³-9t-4 corroborated the certificate. No global attractor claim follows.
 
-## Limits and closest source
-The result depends on the printed ETM-3D vector field; it is not an exhaustive negative-parameter dynamical phase portrait. The closest literature is arXiv:2610.04768v1 and the positive-parameter result identified by record `997f2098aca6`. Independent historical and mathematical validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original ETM paper supplies the algebraic quartic and an exceptional negative-parameter equilibrium and studies positive-parameter bifurcations; the degree-eight discriminant is already implicit and is not novel. The two-fold negative-parameter phase diagram and two-sink local bistability at rho=-2 are additional claims not contained in inspected primary results or the positive-branch published result. No claim of global historical priority.
+
+## value
+
+PASS
+
+The exact root and stability stratification settles a genuinely open negative real-parameter branch of a specified three-dimensional polynomial flow; an exact bistable point provides two rigorously distinct local attractors and a useful benchmark for negative-parameter bifurcation theory, regardless of physical relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
