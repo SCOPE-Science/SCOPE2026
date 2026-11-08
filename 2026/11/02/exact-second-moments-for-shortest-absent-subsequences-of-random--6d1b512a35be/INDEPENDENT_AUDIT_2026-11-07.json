@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:12:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 97dfda55bad46fcea21e47bd203c527e67baaf5d",
+        "source verifier blob 813b091b58c958ffee83228e0eae2da113dc7436",
+        "actual Git tree 946fb5f4c49a3b533ca8fb78fc22a6da105ae015",
+        "independent reconstruction: Separate local literal word/subsequence checks: (q,k)=(2,2) E=9/2 E2=41/2; (2,3) 27/4,187/4; (3,2) 12,146; (3,3) 24,1778/3; 264 permutation-arch words across these cases. Compared direct counts with an independently implemented H-product and recurrence. Source verify.py and entire proof inspected, but local script did not execute the repository verifier."
+      ],
+      "rationale": "For all q≥2 and k≥1 the length-qk k-universal words are precisely k permutation arches. An absent (k+1)-word has weakly nonincreasing ranks at every adjacent target pair in successive permutation blocks. Therefore S=1^T H_1...H_k 1, giving E S=q((q+1)/2)^k. On diagonal/off-diagonal ordered pair orbits the exact expected tensor transfer is T=[[ (q+1)/2,(q²−1)/3 ],[ (q+1)/3,(q+1)(3q−2)/12 ]]. Trace and determinant yield v_0=q², v_1=q²((q+1)/2)², v_{k+2}=((q+1)(3q+4)/12)v_{k+1}−((q+1)²(q+2)/72)v_k. Positive Perron eigenvector and sqrt(q(9q+16))>3q+2 imply lambda_+>((q+1)/2)² and exponential positive relative-variance growth. The rank strict/weak boundary, q=2, and formal k=0 were checked; finite tests are not the general proof.",
+      "residual_risks": [
+        "Uniform permutation-arch ensemble only, not arbitrary length-qk random words.",
+        "First two moments and relative-variance asymptotic only; no full law or tail claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. structural arches and combinatorial extreme counts; Adamson et al. maxima/minima of missing scattered factors over words"
+        ],
+        "reasoning": "The broader alphabet/universality parameter ranges in those papers do not dominate distributional second moments; maximum/minimum values cannot imply E[S²] under the specified random ensemble.",
+        "searches": [
+          "shortest absent subsequences random concatenation permutations universal word second moments variance distribution tensor transfer",
+          "arXiv:2108.13968",
+          "arXiv:2407.18599"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2108.13968v6",
+        "https://arxiv.org/html/2407.18599v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "Resultary query: shortest absent subsequences random concatenation permutations universal word second moments variance distribution tensor transfer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new K=E(H⊗H) is projected to diagonal/offdiagonal rank classes with explicit entries; prior arch characterization alone does not evaluate the rank-pair covariance"
+        ],
+        "reasoning": "Prior definitions supply the greedy framework but do not mathematically entail the exact random-ensemble recurrence without a substantive pair-transfer calculation.",
+        "searches": [
+          "arxiv:2108.13968 theorem arch criterion",
+          "arxiv:2407.18599 extreme absent factor bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al., arXiv:2108.13968, arch-based absent-subsequence criterion; Adamson et al., arXiv:2407.18599, extremal counts"
+        ],
+        "reasoning": "Transfer-matrix rephrasing is possible, but no inspected primary theorem states the second-moment recurrence or exponential variance for uniform permutation arches; existence of general transfer methods is credited, not a novelty claim.",
+        "searches": [
+          "shortest absent subsequences random concatenation permutations universal word second moments variance distribution tensor transfer",
+          "random permutation arches tensor transfer shortest absent subsequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Fibonacci record gives worst-case SAS counts; universality-law record concerns distribution of universality index, not of SAS counts under conditional minimal length"
+        ],
+        "reasoning": "Neither published table/database searched contains this all-q,k moment recurrence or its second-moment coefficients. An unsuccessful indexed search is not a priority proof.",
+        "searches": [
+          "shortest absent subsequences random concatenation permutations universal word second moments variance distribution tensor transfer",
+          "Resultary: Fibonacci extremals for shortest absent subsequences",
+          "Resultary: Closed-form law for binary subsequence universality"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is a statement/implication comparison, not a title-match test. The exact established object, parameters, finite tables and known stronger results were cross-checked against published Resultary findings and primary literature; no decisive prior coverage of the final claim was established. Highly plausible inaccessible sources and indirect possible corollaries are disclosed in residual_risks. Searches alone are not novel proof.",
+      "residual_risks": [
+        "First two moments and relative-variance asymptotic only; no full law or tail claim.",
+        "Possible unindexed moment-equivalent work remains a priority risk.",
+        "No exhaustive global literature priority or expert certification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_DISTRIBUTIONAL_MOMENTS",
+          "evidence": [
+            "Arch characterization and extremal properties, not exact second moments for random minimal universal permutation words."
+          ],
+          "identifier_or_url": "arXiv:2108.13968v6",
+          "material_read": "Accessible full HTML including structural characterization and arch sections, especially Theorem 3.5",
+          "method": "Read full-text HTML and relevant theorem/section passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Same shortest absent subsequences and arch factorization"
+        },
+        {
+          "assessment": "EXTREMAL_NOT_COVERING_RANDOM_MOMENT",
+          "evidence": [
+            "Extremal bounds do not give distributional E[S²] for independent random permutations."
+          ],
+          "identifier_or_url": "arXiv:2407.18599v1",
+          "material_read": "Accessible full HTML; definitions, extremal minimum and maximum count results and proof scope",
+          "method": "Read full-text HTML sections on extremal bounds",
+          "title": "Tight Bounds for the Number of Absent Scattered Factors",
+          "trigger": "Same shortest absent scattered factor counts and minimum-length universal words"
+        },
+        {
+          "assessment": "CLOSEST_INDEXED_DIFFERENT_STATISTIC",
+          "evidence": [
+            "Gives maximum counts in binary, not ensemble second moments; no full-record noncoverage asserted."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "material_read": "Resultary title and full returned summary only",
+          "method": "Semantic published-finding search; source not claimed read in full",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Exact matching SAS object in published corpus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2108.13968v6",
+        "https://arxiv.org/html/2407.18599v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ],
+      "rationale": "The random minimal-universal ensemble is canonical and differs sharply from extremal SAS counts: exact second moments and exponential relative fluctuations answer a nontrivial natural distributional invariant not mechanically supplied by arch factorizations. This provides a benchmark for probabilistic universality and subsequent concentration/tail work without asserting a central limit theorem.",
+      "residual_risks": [
+        "Correctness, novelty and reproducing code alone are not treated as value; motivation is the natural object and specific new exact invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform permutation-arch ensemble only, not arbitrary length-qk random words.",
+    "First two moments and relative-variance asymptotic only; no full law or tail claim.",
+    "Possible unindexed moment-equivalent work remains a priority risk."
+  ]
+}
