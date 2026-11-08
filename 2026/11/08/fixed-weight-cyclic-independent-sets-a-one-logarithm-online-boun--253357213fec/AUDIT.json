@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "PASS: Every independent k-subset of C_n has exactly r=n-2k cyclic 00 edges. Segment parity choices yield the upper bound min(k,r+1), and the support at positions 0,2,...,2(t-1) has explicit completions via short segments plus a length >=r+2 closing segment. Marked-vertex compositions count the concept class exactly. Concatenated independently movable zero-gap blocks realize the online threshold-product lower bound, and concept-counting gives the upper bound, proving r log2(k)+O_r(1). The analogous path bound follows from padded-endpoint parity and a block product with one terminal zero deleted. The extracted Python program checked 45 finite VC parameter cases, 32 exact online cases, 284 supporting assignment constructions and 203 threshold-block parameter cases; finite tests do not prove the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona et al. 2021 Theorem 3.10 concerns zero sets of nontrivial linear combinations and yields equality of VC and online ranks; our cycle class has a logarithmically increasing online rank at constant VC dimension.",
+        "The related fixed-weight path formula gives online coefficient r+1 at n=2k+r, which does not imply the cycle coefficient r; the cyclic closing edge removes a degree of freedom.",
+        "General closure bounds for online learning do not give this sharp family-specific exponent."
+      ],
+      "reasoning": "The strongest relevant previously checked adjacent families do not logically dominate the cycle all-defect result. Subclass monotonicity from paths only gives a non-sharp r+1 logarithmic upper bound on cycles, whereas a cyclic class count and an r-block adversarial tree meet at coefficient r.",
+      "searches": [
+        "published-finding corpus: fixed cardinality independent cycle sets VC rank r+1 and Littlestone r log k",
+        "Web: Littlestone dimension independent sets cycles fixed size exact",
+        "Web: 2020 2021 VC dimension of antichains posets downsets ideals and learning Littlestone"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.05317v1, complete relevant sections",
+      "arXiv:2109.04805v1, complete relevant theorem and conclusions",
+      "arXiv:2108.05569v1, abstract only",
+      "Accessible fixed-weight path and cyclic-window mathematical statements, implication comparison only",
+      "published-finding corpus semantic searches with returned closest result IDs; no exact hit",
+      "Web literature and OEIS query, no exact all-defect online table identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Path family of same n has all cyclic independent k-sets plus additional endpoint-violating sets; its larger online rank bound is insufficient to show the cycle lower and sharp upper.",
+        "At r=1 the cycle concepts are cyclic windows after relabeling, already covered; at r>=2 there are polynomially many independent defect placements of degree r and no fixed-width single-window equivalence.",
+        "Guingona et al. linear-zero-set Theorem 3.10 gives equal VC and online ranks in a different relation."
+      ],
+      "reasoning": "The two closest historical claims have strictly limited implications: fixed-weight paths prove only an upper bound on cycles with exponent r+1, and cyclic windows resolve only r=1. The new theorem for r>=2 is not a corollary or parameter substitution; it proves a strict reduction in the exponent from r+1 to r.",
+      "searches": [
+        "Accessible claim-statement comparison: fixed-cardinality independent sets of paths",
+        "Accessible claim-statement comparison: fixed-width cyclic-window concepts",
+        "published-finding corpus: maximum independent sets of odd cycles VC shattering polynomial and Littlestone dimension rotation thresholds",
+        "Web: Littlestone and VC-dimension of families of zero sets, arXiv:2109.04805"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cyclic binary words with exactly k ones and no adjacent ones are precisely independent k-subsets of C_n.",
+        "Beaton–Brown–Cameron 2018 discusses independence polynomials rather than membership-query shattering.",
+        "The known fixed-width cyclic-window representation is equivalent to the r=1 special case, not to arbitrary fixed r>=2."
+      ],
+      "reasoning": "Recast the class as fixed-weight cyclic Fibonacci words and as a single cyclic-coordinate-membership relation. Neither inspected external primary work nor published-finding corpus hits establish the online r log2 k coefficient for every fixed r>=2. The r=1 window case is explicitly excluded from the novelty claim.",
+      "searches": [
+        "published-finding corpus: Littlestone dimension VC dimension fixed-weight cyclic Fibonacci words no consecutive ones",
+        "published-finding corpus: online shattering exactly k independent vertices on cycle C_(2k+r) with fixed defect r",
+        "Web: fixed cardinality independent sets cycles Littlestone dimension VC dimension online learning",
+        "Web: 2022 Littlestone dimension fixed cardinality independent sets cycle VC dimension cyclic Fibonacci words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact number n/(n-k) * binomial(n-k,k) is classical and explicitly not asserted as novel.",
+        "Published cycle independence-polynomial tables enumerate concepts but do not determine finite Littlestone trees or their asymptotic depth coefficient."
+      ],
+      "reasoning": "A count alone supplies only the information upper bound, while the new assertion requires an independent r-parameter constructive lower bound and the exact VC identification. No checked database/table establishes these together.",
+      "searches": [
+        "Web: OEIS number k element subsets of n cycle with no two consecutive formula n/(n-k) binomial n-k k",
+        "Web: independent sets of cycles fixed size number n/(n-k) binomial n-k k 2019",
+        "Beaton–Brown–Cameron 2018 arXiv:1810.05317 full-text Section 3"
+      ]
+    },
+    "rationale": "PASS with residual priority risk: the complete fixed-defect cycle theorem for r>=2 is not implied by the inspected independence-polynomial literature, linear-zero-set VC theory, the known r=1 cyclic-window identity, or the fixed-weight path result. The latter has a different domain, a strictly larger online exponent r+1, and cannot establish the cycle exponent r; this new proof supplies the missing cyclic upper and matching lower bounds. Both the cycle independent-set count and r=1 specialization are identified as preexisting/contextual. published-finding corpus and open-literature searches did not find equivalent all-defect online results, but search absence is not a uniqueness proof.",
+    "residual_risks": [
+      "A prior result may use the terms cyclic hard-core strings, fixed-weight Fibonacci necklaces or thicket rank.",
+      "The Malliaris–Moran full text was not materially reviewed; its abstract does not suggest the same explicit family.",
+      "Source search and repository coverage do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state VC or Littlestone results for the fixed-weight vertex membership class.",
+        "evidence": [
+          "Section 3 classifies independence-equivalent graphs via polynomial coefficients and roots.",
+          "The coefficient counting identity is acknowledged as existing combinatorial knowledge."
+        ],
+        "identifier_or_url": "arXiv:1810.05317v1; https://ar5iv.labs.arxiv.org/html/1810.05317",
+        "material_read": "Full-text HTML introduction, Sections 2 and 3 including cycle theorems 3.1–3.10, and concluding section (opened line ranges 0–185, 224–277, 305–363).",
+        "method": "Primary full-text HTML reading and theorem/implication comparison.",
+        "title": "Independence Equivalence Classes of Paths and Cycles",
+        "trigger": "Directly treats the independence polynomial of the same cycle graphs and fixed-cardinality independent-set counts."
+      },
+      {
+        "assessment": "Not covering: the concept class consists of zero sets of nonzero linear combinations, not exactly k nonadjacent coordinate-one positions.",
+        "evidence": [
+          "Theorem 3.10 gives VCdim=Ldim=d-1 for linearly independent function tuples, unlike the separated ranks established here."
+        ],
+        "identifier_or_url": "arXiv:2109.04805v1; https://www.researchgate.net/publication/354542632_Littlestone_and_VC-dimension_of_families_of_zero_sets",
+        "material_read": "Full-text HTML transcription with introduction, Theorem 3.10 and its setup, and conclusion/examples, at lines 167–190, 621–786, 1402–1512.",
+        "method": "Primary text theorem/assumptions inspection.",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Primary mathematical-logic paper proving equal VC and Littlestone dimensions of some algebraically defined concept classes."
+      },
+      {
+        "assessment": "No directly covering statement visible from inspected material; full-text uninspected status is a residual priority risk rather than a negative priority certificate.",
+        "evidence": [
+          "Abstract studies excellent sets and stable classes, not a cycle independent-set dimension formula."
+        ],
+        "identifier_or_url": "arXiv:2108.05569v1; https://arxiv.org/abs/2108.05569",
+        "material_read": "Abstract and public bibliographic description only; full paper not established as inspected.",
+        "method": "ArXiv listing and abstract comparison.",
+        "title": "Agnostic Online Learning and Excellent Sets",
+        "trigger": "Provides 2021 model-theory/online-learning motivation for Littlestone rank and finite stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25335721-3fec-48db-a0a1-5b5a0a70f5f4",
+  "value": {
+    "rationale": "PASS: The cycle and path concept classes have identical VC dimension min(k,r+1) but fixed-defect online dimensions whose leading logarithmic coefficients differ by exactly one. Explicit constructions and matching information bounds explain the difference as a lost independently movable defect when the boundary is closed. This is a motivated structural separation across an entire natural family, rather than an arbitrary small-n computation or an unmotivated counting identity.",
+    "status": "PASS"
+  }
+}
