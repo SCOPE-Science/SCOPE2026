@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` is the source of the all-horizon classification. The program `checks/verify_fifth_resonance.py` uses Python 3 standard library and exact integer/rational arithmetic. From the package root, execute `python3 checks/verify_fifth_resonance.py`.
+## correctness
 
-The program checks signed zero-frequency relations of total degrees one through five on 17 successive Fourier vectors. Degree five has exactly the expected two opposite sign patterns per consecutive time triple. Degree four has only pair cancellations, and no odd relation below degree five is found. All first-five cosine moments are checked as exact rational numbers for 10 horizon lengths, together with 58 recurrence identities. The finite search is **not** an exhaustive proof for all times: the independent analytic eigenvalue/Lucas argument in `RESULT.md` supplies the infinite proof.
+PASS
 
-Further numerical two-dimensional Haar-grid integration was used as an auxiliary check for several phase shifts and horizons. Grid integration is not a proof and is not required to run the standalone program. The result applies only to the unforced Möbius parameter \(\varepsilon=0\), and no independent audit is claimed.
+For Haar-uniform z on the two-torus, t_j=v_j dot z with v_j=(A^T)^j e1, A=[[2,1],[1,1]], v_{j+2}=3v_{j+1}-v_j. Distinct vectors v_i,v_j are linearly independent so their torus phases are pairwise independent. The proof considers signed Fourier zero relations of length <=5; after cancelling pairs a one-vs-many relation is impossible by positivity and Cauchy--Schwarz of lambda^j and lambda^-j, and a 2-vs-2 relation forces equal multisets. The 2-vs-3 equation in Lucas sequence L_h−1=L_p+L_q+L_(p+q) isolates h=2,p=q=0 and v_j−3v_(j+1)+v_(j+2)=0. I independently enumerated all signed length<=5 integer frequency relations among sixteen consecutive v_j with repeated times: no new relation at degrees 1..4 and only 14 consecutive shifted five-term types, each with two sign choices. Exact Fourier coefficients yield E[X_j X_(j+1)^3 X_(j+2)]=sin(alpha)/16 and E[S_N^5]=5/4 (N−2)_+ sin(alpha), with lower moments and cumulants from cancellations. These finite checks corroborate; all-time classification depends on the analytic Lucas inequality, not enumeration.
+
+## originality
+
+PASS
+
+PASS qualified: original Chigarev--Kazakov--Pikovsky paper has the exact driving cat skew product but addresses attractor--repeller bifurcation, rotation and Lyapunov behavior, not exact Haar phase-kick fifth cumulants. Aistleitner--Berkes--Tichy survey supplies general arithmetic Fourier-relation machinery, not the exact minimum resonance for this cat trajectory. Related previously published arithmetic isolation of Möbius map periodic orbits concerns another observable. Exact specialized cumulants might exist under lacunary-statistics terminology.
+
+## value
+
+PASS
+
+The exact first nontrivial dependence degree is a natural diagnostic of apparently independent deterministic chaotic forcing. A nonzero fifth cumulant despite pairwise independence, zero third cumulant and iid-matching fourth moments gives a precise measurable phase-asymmetry coefficient for a physically motivated map, not a routine renaming of generic cumulant identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a mathematically complete result for the exact \(\varepsilon=0\) boundary. The cat matrix has distinct reciprocal positive eigenvalues, and the observed character has a nonzero projection onto both eigenspaces, validating the two simultaneous exponential-sum tests. Single-term-versus-multiple-term relations are impossible by a product Cauchy–Schwarz bound. Two-versus-two equalities have the same unordered eigenvalues, so they only represent cancellations. At order five a two-versus-three relation reduces exactly to the Lucas-sequence equality \(L_h-1=L_p+L_q+L_{p+q}\); the monotonicity inequalities exclude every case except \(h=2\), \(p=q=0\), which is precisely the shifted cat recurrence. Character orthogonality then proves the universal joint moment statement and the coefficient \(\sin\alpha/16\). Counting the \(20\) ordered permutations of each consecutive multiset gives the fifth moment and cumulant. The standalone exact-arithmetic checker passed on the actual packaged program. Finite enumerations are independent stress tests, not used as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For Haar-uniform z on the two-torus, t_j=v_j dot z with v_j=(A^T)^j e1, A=[[2,1],[1,1]], v_{j+2}=3v_{j+1}-v_j. Distinct vectors v_i,v_j are linearly independent so their torus phases are pairwise independent. The proof considers signed Fourier zero relations of length <=5; after cancelling pairs a one-vs-many relation is impossible by positivity and Cauchy--Schwarz of lambda^j and lambda^-j, and a 2-vs-2 relation forces equal multisets. The 2-vs-3 equation in Lucas sequence L_h−1=L_p+L_q+L_(p+q) isolates h=2,p=q=0 and v_j−3v_(j+1)+v_(j+2)=0. I independently enumerated all signed length<=5 integer frequency relations among sixteen consecutive v_j with repeated times: no new relation at degrees 1..4 and only 14 consecutive shifted five-term types, each with two sign choices. Exact Fourier coefficients yield E[X_j X_(j+1)^3 X_(j+2)]=sin(alpha)/16 and E[S_N^5]=5/4 (N−2)_+ sin(alpha), with lower moments and cumulants from cancellations. These finite checks corroborate; all-time classification depends on the analytic Lucas inequality, not enumeration.
 
-The primary model paper [1] was inspected in full via its open HTML, including the defining equations in Section II, its dynamical arguments in Sections III–VII and the Möbius appendix. It supplies the model, not the exact five-term resonance and all-horizon fifth phase cumulant. The relevant sections of the lacunary survey [2] were inspected: it provides the general Fourier/Diophantine framework rather than the explicit map-specific length-five obstruction and coefficient. The full published result on cat-driven Möbius primitive two-cycles was also inspected. It concerns identity resonances and periodic-point stability for \(\varepsilon>0\) on a symmetry slice, not Haar-distributed fifth moments at \(\varepsilon=0\). Related low-order toral-shear statistics use a different map. The 2003 perturbed-cat diffusion article [3] was compared at abstract level only; it concerns a different system and variance-focused diffusion. No equivalent exact formula was identified in the scientific searches; this is not proof of global uniqueness. The residual risk is an unindexed or unexamined earlier calculation of the same statistic.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first departure from independent statistics is pinned to a *provably minimal* arithmetic relation, rather than an arbitrarily chosen high moment. The exact formula gives a natural, explicitly parameter-sensitive finite-time diffusion diagnostic for the phase variable of the published model. Pairwise independence coexists with an extensive fifth-order cumulant that is nonzero for generic phase shift; the universal coefficient is potentially useful for checking simulations and statistical approximations beyond variance. The boundary condition \(\varepsilon=0\) and lack of a CLT or higher-order classification are explicit limits and do not alter the self-contained value of the minimal-resonance result.
+PASS qualified: original Chigarev--Kazakov--Pikovsky paper has the exact driving cat skew product but addresses attractor--repeller bifurcation, rotation and Lyapunov behavior, not exact Haar phase-kick fifth cumulants. Aistleitner--Berkes--Tichy survey supplies general arithmetic Fourier-relation machinery, not the exact minimum resonance for this cat trajectory. Related previously published arithmetic isolation of Möbius map periodic orbits concerns another observable. Exact specialized cumulants might exist under lacunary-statistics terminology.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact first nontrivial dependence degree is a natural diagnostic of apparently independent deterministic chaotic forcing. A nonzero fifth cumulant despite pairwise independence, zero third cumulant and iid-matching fourth moments gives a precise measurable phase-asymmetry coefficient for a physically motivated map, not a routine renaming of generic cumulant identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
