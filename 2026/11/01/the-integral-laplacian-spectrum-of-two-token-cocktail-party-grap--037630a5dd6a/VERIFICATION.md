@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The exact formula is proved by a complete invariant-space decomposition in RESULT.md. The proofs and programs refer to the same simple, unweighted, collision-free, two-token configuration graph on \(K_{2,\ldots,2}\).
+# Independent mathematical audit
 
-To replay, run `python3 verify_numeric.py` (requires NumPy and SymPy) and `c++ -std=c++17 -O2 verify_modular.cpp -o verify_modular && ./verify_modular` in a directory containing those files.
+## correctness
 
-The first method builds all allowable token steps and compares complete floating-point spectra to their *integer* predictions for \(2\le m\le9\), also checking exact reduced-Laplacian determinants for \(m=2,3,4\). The second independently constructs allowed exchanges, verifies exact nullities of \(L-\lambda I\) over two prime fields, and checks the spanning-tree identity modulo both primes for \(2\le m\le8\). Both separately test graph row sums and symmetry. Coincident theoretical eigenvalues are combined before comparison.
+PASS
 
-These tests are finite evidence and do not prove the infinite family by themselves. The all-parameter proof is the incidence/signed-square decomposition in RESULT.md; no external scholarly audit has been performed.
+For every m≥2, T_m=F_2(K_(2,...,2)) has N=m(2m−1) unordered two-token states. Let q=binom(m,2). Its unnormalized Laplacian polynomial is t(t−2m)^(m−1)(t−(2m−2))^m(t−(4m−4))^(m(m−2))(t−(4m−6))^q(t−(4m−2))^q, combining coincident roots (notably m=2). The identity L(T_m)=L(J(2m,2))−L(F_2(mK_2)) is valid edgewise. In the matching-token complement each cross-pair block is C4, with sign-character eigenspaces E0,E2,E4 of dimensions m+q, 2q, q. Using the unsigned configuration incidence matrix X, L(J)=(4m−2)I−X^T X and XX^T=(2m−2)I+11^T; X ranks m,m,0 on these invariant eigenspaces, yielding every eigenvalue/multiplicity and a simple zero. Matrix tree theorem then yields τ(T_m)=product positive eigenvalues / N; degrees give edge count 4m(m−1)^2. Independently built actual Laplacian matrices m=2..7 and recovered exact eigenvalue histograms, plus exact spanning-tree determinants m=2,3,4; all-m proof is linear-algebraic.
+
+## originality
+
+PASS
+
+Token/symmetric-square graphs and the complement-Laplacian identity are established; algebraic connectivity for two-token complete multipartite graphs is also known. The assessment concerns the entire six-branch spectrum with exact multiplicities and its spanning-tree product, not the known gap or complement relation. Comparison of the full Dalfó complement theorem and related primary abstracts did not locate this exact matching-complement joint decomposition. An unstated specialization of general association-scheme or SRG symmetric-square theory remains a meaningful priority risk.
+
+## value
+
+PASS
+
+The full integer spectrum of nonregular collision-free two-token configurations on a canonical matching-deleted complete graph is a natural spectral invariant. The explicit joint eigenspace pairing and exact spanning-tree complexity refine the previously known complement identity and scalar spectral gap, permitting study of dynamics and combinatorial complexity for every m; a meaningful full family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

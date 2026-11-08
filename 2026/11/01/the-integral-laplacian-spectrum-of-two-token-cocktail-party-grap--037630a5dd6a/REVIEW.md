@@ -1,12 +1,21 @@
-# Scientific review: integral two-token cocktail-party spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all integers \(m\ge2\), with two unordered noncolliding tokens and the unsigned graph Laplacian. The proof partitions configuration space into \(m\) within-part states and \(4\binom m2\) cross-part states, explicitly diagonalizes the flip-square Laplacian, and computes the rank of the vertex-configuration incidence map on each resulting invariant space. The eigenvalue and multiplicity sums account for all \(m(2m-1)\) states, with no missing subspace at \(m=2\). The spanning-tree formula follows from the matrix-tree theorem and one-dimensional zero eigenspace. Independently coded numerical and two-prime modular checks of the actual Laplacian corroborate the finite instances, including exact integer cofactors for \(m=2,3,4\). Risk: finite checks cannot certify all parameters, so validity rests on the stated linear-algebra argument; the coincident eigenvalues at \(m=2,3\) must be counted with added multiplicities.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2005 Audenaert–Godsil–Royle–Rudolph symmetric-square paper includes the strongly-regular **adjacency** spectral framework, not this full **Laplacian** spectrum. The 2020 Dalfó et al. theorem gives the general complementary-token-Laplacian identity and joint diagonalizability; this result uses that known identity and contributes the otherwise unspecified joint eigenvalue pairings for \(m\) deleted independent edges. The 2023 Reyes et al. complete-multipartite paper and 2024 Dalfó–Fiol paper already give the spectral-gap equality; that known scalar claim is not treated as new. Daoud (2012) computes spanning trees of the original cocktail-party graph, not of its token graph. The full six-factor multiplicity formula and derived exact matrix-tree product were not identified in the checked primary work, related full-text sources, exact-formula searches, or accessible earlier scientific records. Risk: a specialized computation may exist under signed Johnson, cross-polytope, Roberts, hyperoctahedral, or exclusion-process terminology; a general theorem could also give the special case after a computation equivalent to the one supplied here.
+PASS
 
-## Value — PASS
-The cocktail-party/Roberts graph is a standard dense, vertex-transitive complete multipartite family, but its two-token graph is nonregular and has quadratic order. The result resolves the complete integer Laplacian spectrum and the exact number of spanning trees for every parameter, refining a previously known spectral gap and supplying an explicit family for Laplacian integrality, configuration-space tree complexity, and finite-particle dynamics. This is a natural full-spectrum and complexity question with parameters directly tied to the object rather than an arbitrary restricted slice. It does not assert a theorem for all token numbers or multipartite part sizes.
+For every m≥2, T_m=F_2(K_(2,...,2)) has N=m(2m−1) unordered two-token states. Let q=binom(m,2). Its unnormalized Laplacian polynomial is t(t−2m)^(m−1)(t−(2m−2))^m(t−(4m−4))^(m(m−2))(t−(4m−6))^q(t−(4m−2))^q, combining coincident roots (notably m=2). The identity L(T_m)=L(J(2m,2))−L(F_2(mK_2)) is valid edgewise. In the matching-token complement each cross-pair block is C4, with sign-character eigenspaces E0,E2,E4 of dimensions m+q, 2q, q. Using the unsigned configuration incidence matrix X, L(J)=(4m−2)I−X^T X and XX^T=(2m−2)I+11^T; X ranks m,m,0 on these invariant eigenspaces, yielding every eigenvalue/multiplicity and a simple zero. Matrix tree theorem then yields τ(T_m)=product positive eigenvalues / N; degrees give edge count 4m(m−1)^2. Independently built actual Laplacian matrices m=2..7 and recovered exact eigenvalue histograms, plus exact spanning-tree determinants m=2,3,4; all-m proof is linear-algebraic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Token/symmetric-square graphs and the complement-Laplacian identity are established; algebraic connectivity for two-token complete multipartite graphs is also known. The assessment concerns the entire six-branch spectrum with exact multiplicities and its spanning-tree product, not the known gap or complement relation. Comparison of the full Dalfó complement theorem and related primary abstracts did not locate this exact matching-complement joint decomposition. An unstated specialization of general association-scheme or SRG symmetric-square theory remains a meaningful priority risk.
+
+## value
+
+PASS
+
+The full integer spectrum of nonregular collision-free two-token configurations on a canonical matching-deleted complete graph is a natural spectral invariant. The explicit joint eigenspace pairing and exact spanning-tree complexity refine the previously known complement identity and scalar spectral gap, permitting study of dynamics and combinatorial complexity for every m; a meaningful full family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

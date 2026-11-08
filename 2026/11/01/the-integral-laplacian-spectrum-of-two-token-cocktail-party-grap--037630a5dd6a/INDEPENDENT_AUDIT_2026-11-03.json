@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:02:24.304743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every m≥2, T_m=F_2(K_(2,...,2)) has N=m(2m−1) unordered two-token states. Let q=binom(m,2). Its unnormalized Laplacian polynomial is t(t−2m)^(m−1)(t−(2m−2))^m(t−(4m−4))^(m(m−2))(t−(4m−6))^q(t−(4m−2))^q, combining coincident roots (notably m=2). The identity L(T_m)=L(J(2m,2))−L(F_2(mK_2)) is valid edgewise. In the matching-token complement each cross-pair block is C4, with sign-character eigenspaces E0,E2,E4 of dimensions m+q, 2q, q. Using the unsigned configuration incidence matrix X, L(J)=(4m−2)I−X^T X and XX^T=(2m−2)I+11^T; X ranks m,m,0 on these invariant eigenspaces, yielding every eigenvalue/multiplicity and a simple zero. Matrix tree theorem then yields τ(T_m)=product positive eigenvalues / N; degrees give edge count 4m(m−1)^2. Independently built actual Laplacian matrices m=2..7 and recovered exact eigenvalue histograms, plus exact spanning-tree determinants m=2,3,4; all-m proof is linear-algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.2 proves L(F_k(G))+L(F_k(complement G))=L(Johnson), but does not automatically identify the joint eigenspaces and multiplicities.",
+          "Audenaert et al study strongly-regular graphs and adjacency cospectrality; algebraic connectivity equality in later multipartite work is only the least nonzero eigenvalue."
+        ],
+        "reasoning": "The submitted joint E0/E2/E4 rank decomposition yields five positive branches and multiplicities beyond these general statements; nonetheless an older full algebraic specialization may be implicit.",
+        "searches": [
+          "Dalfó et al On Laplacian spectra of token graphs arXiv:2012.00808 Theorem 6.2",
+          "Audenaert Godsil Royle Rudolph Symmetric Squares of Graphs math/0507251 strongly regular",
+          "Reyes Dalfó Fiol Messegué 2023 complete multipartite token graph algebraic connectivity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2012.00808",
+        "https://arxiv.org/abs/math/0507251",
+        "https://arxiv.org/abs/2309.07089",
+        "https://doi.org/10.1007/s10801-024-01323-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complement-Johnson identity determines a commuting pair but, without a matching-specific simultaneous eigenvalue pairing, does not determine a difference spectrum from the two unordered eigenvalue multisets.",
+          "Known algebraic connectivity 2m−2 does not determine remaining multiplicities or the matrix-tree product."
+        ],
+        "reasoning": "The new six-factor characteristic polynomial requires the explicit sign-character decomposition and restricted incidence ranks; it is not logically implied solely by the prior scalar gap claim.",
+        "searches": [
+          "arXiv:2012.00808 Theorem 6.2 complement token Laplacian",
+          "arXiv:2309.07089 token graph cycles complete multipartite algebraic connectivity",
+          "math/0507251 symmetric squares strongly regular"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is F_2(K_{2m} minus a perfect matching), equivalently the symmetric square of the cocktail-party graph.",
+          "The complete spectral polynomial must be distinguished from original cocktail-party graph spectra or symmetric-square adjacency spectrum."
+        ],
+        "reasoning": "Equivalence of names does not imply previous spectral factorization; the claimed object is the unweighted configuration-graph combinatorial Laplacian.",
+        "searches": [
+          "Resultary two token cocktail party Laplacian spectrum spanning tree exact 4m-6 4m-2",
+          "symmetric square matching deleted complete graph K_2,2 token Laplacian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest spectra concern unrelated complete-bipartite symmetric edge polytopes or rank-two matroid exchange graphs, not collision-free two-token cocktail-party states.",
+          "Exact small-m independent Laplacian tests m=2..7 and tree counts m=2..4 confirm predicted formula, not historical priority."
+        ],
+        "reasoning": "No located table covering all m and all multiplicities; an unindexed worked symmetric-square example remains possible.",
+        "searches": [
+          "two-token cocktail-party graph Laplacian integral eigenvalues tree complexity exact table",
+          "Resultary complete multipartite token graph Laplacian spectrum matching complement"
+        ]
+      },
+      "rationale": "Token/symmetric-square graphs and the complement-Laplacian identity are established; algebraic connectivity for two-token complete multipartite graphs is also known. The assessment concerns the entire six-branch spectrum with exact multiplicities and its spanning-tree product, not the known gap or complement relation. Comparison of the full Dalfó complement theorem and related primary abstracts did not locate this exact matching-complement joint decomposition. An unstated specialization of general association-scheme or SRG symmetric-square theory remains a meaningful priority risk.",
+      "residual_risks": [
+        "Known association-scheme/equitable-partition methods for strongly regular symmetric squares may already encode the exact polynomial without explicitly listing it.",
+        "Claim does not address unequal complete multipartite parts or configurations of more than two tokens."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes commuting complementary Laplacians and Johnson sum; checked theorem does not supply matching-complement six-branch pairing/multiplicity table.",
+          "evidence": [
+            "Theorem 6.2 complement-Laplacian identity and proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.00808",
+          "material_read": "Accessible full primary manuscript text, particularly Theorem 6.2, its proof and surrounding token-graph spectrum sections",
+          "method": "Public full-text HTML read",
+          "title": "On the Laplacian spectra of token graphs",
+          "trigger": "Direct same graph operation and complement Laplacian"
+        },
+        {
+          "assessment": "General strongly-regular adjacency-cospectrality does not give displayed token Laplacian eigenvalue multiplicities from accessible statement; priority risk retained.",
+          "evidence": [
+            "Statement on symmetric square adjacency cospectrality of strongly regular graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0507251",
+          "material_read": "Primary bibliographic abstract and theorem summary; full proof not claimed read",
+          "method": "ArXiv public abstract/literature comparison",
+          "title": "Symmetric Squares of Graphs",
+          "trigger": "Direct alias symmetric square and strongly regular cocktail-party source"
+        },
+        {
+          "assessment": "Known Fiedler equality includes current spectral gap but not demonstrably the whole polynomial.",
+          "evidence": [
+            "Known complete multipartite algebraic-connectivity result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.07089",
+          "material_read": "Public abstract and cited multipartite/algebraic-connectivity statements; full text not claimed read",
+          "method": "ArXiv bibliographic and known-theorem comparison",
+          "title": "On the spectra of token graphs of cycles and other graphs",
+          "trigger": "Potential stronger complete-multipartite token theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full integer spectrum of nonregular collision-free two-token configurations on a canonical matching-deleted complete graph is a natural spectral invariant. The explicit joint eigenspace pairing and exact spanning-tree complexity refine the previously known complement identity and scalar spectral gap, permitting study of dynamics and combinatorial complexity for every m; a meaningful full family classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2012.00808",
+    "https://arxiv.org/abs/math/0507251",
+    "https://arxiv.org/abs/2309.07089",
+    "https://doi.org/10.1007/s10801-024-01323-0"
+  ],
+  "disposition": "passed",
+  "limitations": "Only two indistinguishable noncolliding tokens, all parts of size 2, simple unweighted graph, unnormalized Laplacian. Known gap/complement identity not separately novel; finite tests do not prove all m.",
+  "residual_risks": [
+    "Known association-scheme/equitable-partition methods for strongly regular symmetric squares may already encode the exact polynomial without explicitly listing it.",
+    "Claim does not address unequal complete multipartite parts or configurations of more than two tokens."
+  ],
+  "schema_version": 1
+}
