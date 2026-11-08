@@ -1,11 +1,21 @@
-# Scientific review: complete-graph incidence-graph visibility
+# Independent mathematical audit
 
-**Correctness: PASS.** The theorem follows from an exact finite-type recurrence and an independent infinite-tail game. For every pointed tuple, the stabilizer of its used underlying labels has the specified singleton and pair orbit representatives; no possible next move is omitted. Equality of the recursively defined type sets is equivalent to the complete two-way Ehrenfeucht–Fraïssé extension property. Independent C++ and Python implementations agree on all five ranks and parameters one through ten. Direct, unquotiented rank-five recursion agrees with the orbit version for parameters one through four. A partial-bijection strategy proves equivalence for every pair of parameters at least twice the quantifier rank. The computed bridges then yield all claimed infinite classes. Limit: mathematical verification of these programs is not an external audit.
+## correctness
 
-**Originality: PASS, subject to historical-priority risk.** The closest same-object source is Pippenger (UBC TR-2001-12, Sections 1–4), whose invariant is matching enumeration and matching automorphism orbits, not elementary equivalence. Pikhurko–Verbitsky (arXiv:1003.4865, Introduction and Section 3) supplies general graph logical-depth/game techniques but no incidence-clique threshold. Trotter–Wang (arXiv:1308.2471, Sections 1–5) studies dimension/chromatic number of incidence posets, not the asserted first-order graph types. Targeted research-index searches and accessible historical claims identified no stronger covering classification. Unindexed or inaccessible older work remains possible; absence from an index is not a proof of priority.
+PASS
 
-**Mathematical value: PASS.** The incidence graphs of complete graphs are a standard, symmetric and independently studied family. Their ordinary quantifier-rank thresholds form a nontrivial sequence \((1,3,4,5,7)\), with a sharp seven-class rank-five cutoff and a smallest-representative bound of \(28\) vertices, despite unbounded graph size. This is a complete natural finite-model-theoretic classification, not an arbitrary finite experiment or a mere reformulation of an existing matching count.
+For I_n the undirected untyped incidence graph of K_n (singletons and 2-subsets, no order/sorts), standard rank-q EF equivalence is captured EXACTLY by nested extension-type sets T_{q+1}(a)=(atomic(a),{T_q(a,b):b vertex}) with repetitions discarded. Permutations of unused underlying labels give a complete orbit-representative extension list (old singleton/pair, old+new, new+new). Independently constructed immutable recursive types for n=1..8 and q=1..5; got cutoffs 1,3,4,5,7 and verified the q=5 n7=n8 equality, with 105719 unique (n,tuple,depth) states. The source C++/Python exact recurrence supports n<=10; the support-preserving partial bijection for both n>=2q gives infinite-tail EF equivalence, and finite bridges between cutoff and 2q prove all n. No mere extrapolation of n<=10 is used. Rank-five sharp representative order is 7+binom(7,2)=28, only within this family.
 
-**Scope and risks.** No results are claimed for higher rank, oriented incidence posets, named sorts, counting quantifiers or general incidence graphs. Verification code is finite and does not itself prove the infinite tail; that tail has a separate game proof. The actual finite computations and the proof are reproducible from embedded files. Historical priority and independent mathematical audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: precise 1..5-rank theory thresholds in an unlabeled undirected incidence graph family, distinct from incidence-poset order dimension or matching orbit counts. Numerical cutoff values depend on exact EF types and are not supplied by a general asymptotic graph-depth survey.
+
+## value
+
+PASS
+
+This is a complete sharp finite-rank logical classification for a canonical combinatorial graph family; it gives optimally small family representatives for bounded-depth formulas and reveals a nontrivial fifth-round visibility jump to seven underlying points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

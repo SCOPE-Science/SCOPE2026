@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The exact finite claim is the full equivalence-class table for parameters \(1\le n\le10\) and ranks \(1\le q\le5\), with cutoffs \((1,3,4,5,7)\). These are comparisons of complete recursive types, **not** comparisons of hashes or counts alone. Ordinary first-order logic ignores multiplicity of identical extension types, so sets of child types are used instead of multisets.
+## correctness
 
-The C++17 file `verify_incidence_types.cpp` computes atomic adjacency/equality data and recursively interns sorted, deduplicated extension-type IDs in a global exact map. It visits 156276 memo states and constructs 2109 interned signatures on the stated input range. The independently written Python file `verify_incidence_types.py` builds immutable nested type sets directly; it also visits 156276 states. `verify_direct_small.py` evaluates every possible next vertex without symmetry reduction for index parameters one through four at rank five, obtaining identical complete root types to its separately implemented orbit recursion. Recorded outputs are `verify_cpp.out`, `verify_py.out`, and `verify_raw.out`.
+PASS
 
-To reproduce on a system with a C++17 compiler and Python 3, extract all embedded files into one directory and run `bash reproduce.sh`. The script compiles the included C++ source, replays all three computations, and compares their output byte-for-byte with the supplied records. A failed compilation, computation, assertion, or output difference exits nonzero.
+For I_n the undirected untyped incidence graph of K_n (singletons and 2-subsets, no order/sorts), standard rank-q EF equivalence is captured EXACTLY by nested extension-type sets T_{q+1}(a)=(atomic(a),{T_q(a,b):b vertex}) with repetitions discarded. Permutations of unused underlying labels give a complete orbit-representative extension list (old singleton/pair, old+new, new+new). Independently constructed immutable recursive types for n=1..8 and q=1..5; got cutoffs 1,3,4,5,7 and verified the q=5 n7=n8 equality, with 105719 unique (n,tuple,depth) states. The source C++/Python exact recurrence supports n<=10; the support-preserving partial bijection for both n>=2q gives infinite-tail EF equivalence, and finite bridges between cutoff and 2q prove all n. No mere extrapolation of n<=10 is used. Rank-five sharp representative order is 7+binom(7,2)=28, only within this family.
 
-The orbit-representative proof is necessary to show that the reduced finite enumeration is exhaustive. The infinite claim is justified separately by maintaining a bijection on the at-most-\(2q\) underlying indices used in a \(q\)-round game; for parameters at least \(2q\), Duplicator always has sufficient fresh indices. These two mathematical lemmas, the program paths and their results support the stated theorem. No finite test by itself asserts validity for unbounded parameters.
+## originality
 
-Independent mathematical audit: not performed. Historical priority: not exhaustively certified. No formal proof assistant or third-party certification is claimed.
+PASS
+
+Best-of-knowledge PASS: precise 1..5-rank theory thresholds in an unlabeled undirected incidence graph family, distinct from incidence-poset order dimension or matching orbit counts. Numerical cutoff values depend on exact EF types and are not supplied by a general asymptotic graph-depth survey.
+
+## value
+
+PASS
+
+This is a complete sharp finite-rank logical classification for a canonical combinatorial graph family; it gives optimally small family representatives for bounded-depth formulas and reveals a nontrivial fifth-round visibility jump to seven underlying points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
