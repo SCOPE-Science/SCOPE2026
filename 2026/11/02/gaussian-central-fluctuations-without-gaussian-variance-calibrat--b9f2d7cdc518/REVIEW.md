@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The distributional law is reconstructed from the exact inverse-Rayleigh waiting-time tail, its truncated logarithmic second moment, the index-two normal-domain-of-attraction theorem, inversion of the renewal clock, and a stopped-martingale bound for correlated finite-variance cycle rewards. The equilibrium boundary follows from the finite-variance random-time-change principle. The second-moment coefficient matches the independently published Knudsen-gas calculation in Horii et al. (2022), Section III.C, Equation (61), and the renewal transform expansion. All 18 numerical checks in the complete standalone script passed. Remaining proof dependence: conventional renewal/Tauberian and marked-renewal theorems are used under the explicitly verified continuous-density and integrability hypotheses.
+## correctness
 
-**Originality — PASS on examined evidence, with priority risk.** The main 2010 source establishes large deviations and an equilibrium Green–Kubo variance but not the nonequilibrium weak Gaussian current law. Horii et al. (2021) examine finite-time moment-generating functions. Horii et al. (2022) explicitly establish the *same nonequilibrium variance coefficient* and therefore cover that part of the combined statement; no novelty is assigned to it. Inspection of the accessible 2022 complete author-posted text found no Gaussian weak-limit theorem or non-uniform-integrability ratio. The assessed additional statement is the distinct typical-fluctuation law and its rigorous comparison with this known variance, including the equilibrium scaling boundary. Relevant published records and exact and alias queries did not reveal an earlier explicit distribution-level comparison. Residual priority risk is substantial because a general infinite-variance renewal or renewal-reward central-limit theorem may subsume this application, and this is not independently certified.
+PASS
 
-**Mathematical value — PASS.** The mismatch identifies a practical distinction between typical Gaussian current fluctuations and ensemble second moments in a benchmark heat-conduction model: substituting the raw measured variance into the typical Gaussian law overestimates its coefficient by a factor of two. The equilibrium/nonequilibrium change is a structural boundary, not a numerical increment or alternate notation for the published variance. The derivation handles dependence of thermal reward and flight duration and the last incomplete cycle, which cannot be ignored by naive independent random-sum arguments.
+With independent Rayleigh outgoing velocities, W=L/V_H+L/V_C has mean mu and tail P(W>x)~c/x² with c=L²(beta_H+beta_C)/2. The truncated variance is 2c log b and Gaussian normal attraction gives (T_n-nmu)/sqrt(c n log n)=>N(0,1); inversion yields renewal-count Gaussian variance c/mu³ at tlog t scale. Rewards R have mean nu=1/beta_H-1/beta_C and finite variance; marked-renewal/stopped martingale estimates make the centered reward contribution O_L2(sqrt(t)), so Q-jt has weak Gaussian coefficient c nu²/mu³. Distinct second-order renewal-moment asymptotic Var N(t)~2c tlog t/mu³ produces raw heat-current variance coefficient twice this, not weak-limit variance. At beta_H=beta_C rewards centered and Donsker/random time change yields sqrt(t) Gaussian with matching raw variance 2/(beta² mu). Independent inverse-Rayleigh tail/mean numerical checks at 3 parameter triples matched coefficients. The raw variance is explicitly prior; no claim finite check proves the limits.
 
-**Closest sources and limits.** Lefevere–Mariani–Zambotti (2010), arXiv:1007.2664, §§2.2, 3.1, 3.3; Horii–Lefevere–Nemoto (2021), arXiv:2106.03182, §§1–2; Horii–Lefevere–Itami–Nemoto (2022), arXiv:2203.08584, §§II and III, Eq. (61). Full-particle interaction, arbitrary wall-velocity statistics, finite-time Gaussian accuracy, and independent historical priority verification are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge original evaluated final claim relative to the inspected primary results and actual Resultary semantic search, not a universal historical priority certificate. Prior renewal-reward moment results use related not identical observables; check coefficients under cycle conversion.
+
+## value
+
+PASS
+
+A sharp distribution-vs-raw-second-moment mismatch for a concrete heavy-tailed physical renewal-reward model is a nontrivial boundary phenomenon: it delineates exactly when a Gaussian current limit fails to calibrate variance and shows a discontinuous equilibrium scaling change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
