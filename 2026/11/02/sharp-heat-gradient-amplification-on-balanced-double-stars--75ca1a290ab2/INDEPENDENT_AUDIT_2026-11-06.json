@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:12:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md and check_bistar.py Git tree 07e133fd6c7d23538df40c3caa11b9630078e32f",
+        "independent_checks_6590.py: matrix exponential and independent graph edge-coordinate reconstruction, m=1..8; t=.02,.3,1.2"
+      ],
+      "rationale": "Tree edge gradients are independent coordinates modulo constants. Direct subtraction of the combinatorial heat equation gives one S decay and a 2x2 (D,c) system with eigenvalues alpha_m,beta_m. The hub-edge gradient row has absolute sum a(t)+2m b(t); each leaf-row sum is q+b+(m-1)/m max(0,2e^-t-e^(-(m+1)t)-q). Positive Green convolution shows the leaf row is strictly smaller for t>0, and hub-row sign alignment forces the unique potential profile up to affine scaling. The two-exponential exact norm has derivative at 0 equal 2m-2; for m>=2 a unique positive maximum occurs at t*, and norm approaches family supremum 3 as m grows, unattained. Duality gives hub W1 distance. Independently built full graph Laplacians and edge gradient matrices, checked norms and strict hub control at 24 (m,t) cases.",
+      "residual_risks": [
+        "The theorem is for balanced unit-weight diameter-three trees with combinatorial, not normalized, Laplacian."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Münch–Wojciechowski 2017 complete full-text primary author copy pp.2-19: general exponential curvature characterization",
+          "Lu–Liu double-star Laplacian spectra arXiv:1205.6027"
+        ],
+        "reasoning": "An all-graph curvature inequality can be applied here but is not sharp for all t and does not dictate extremizers. Spectral information alone does not fix signs of edge-gradient rows.",
+        "searches": [
+          "heat semigroup Lipschitz norm balanced double star graph exact amplification three Wasserstein heat kernels",
+          "Ollivier Ricci curvature general graphs heat semigroup theorem 3.8"
+        ]
+      },
+      "checked_sources": [
+        "Münch and Wojciechowski 2017 author-uploaded full text, Section 3",
+        "Lu–Liu arXiv:1205.6027",
+        "Ollivier arXiv:math/0701886",
+        "Resultary query heat semigroup Lipschitz norm balanced double star graph exact amplification three Wasserstein heat kernels"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Author-copy 2017 paper Section 3 theorem characterizes inequalities e^(-Kt)",
+          "The positive convolution in assigned Step 4 establishes strict hub dominance and gives exact attained extremizers"
+        ],
+        "reasoning": "General curvature lower bound does not imply this nonexponential sharp growth and return to zero; even matched initial derivative would not specify whole profile.",
+        "searches": [
+          "heat semigroup Lipschitz norm balanced double star graph exact amplification three Wasserstein heat kernels",
+          "Munch Wojciechowski 1712.00875 theorem 3.8 heat Lipschitz",
+          "double star Laplacian spectral characterization Lu Liu 2012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite-metric Kantorovich–Rubinstein duality identifies the computed hub row with W1(p_t^u,p_t^v)",
+          "Münch–Wojciechowski 2017 Theorem 3.8 gives Ricci curvature vs exponential Lipschitz estimate"
+        ],
+        "reasoning": "The equivalent transport statement is exact W1 between hub heat measures; the general curvature theorem supplies comparison bounds rather than this two-exponential equality.",
+        "searches": [
+          "heat semigroup Lipschitz norm balanced double star graph exact amplification three Wasserstein heat kernels",
+          "bistar double star graph Wasserstein heat kernel hub distance W1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Graph spectrum of double stars is known, but no exact time-dependent induced-Lipschitz norm table was recovered"
+        ],
+        "reasoning": "The precise envelope and unique potential cannot be read from spectral eigenvalues without proving row-sum domination, so this is not a known-table recomputation.",
+        "searches": [
+          "heat semigroup Lipschitz norm balanced double star graph exact amplification three Wasserstein heat kernels",
+          "double star S(m,m) heat kernel Wasserstein sharp 3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Ollivier curvature and Münch–Wojciechowski characterize generic exponential Lipschitz bounds, not the exact non-exponential two-mode profile or rigidity on this family. Lu–Liu spectral double-star characterization gives spectrum but not edge-row absolute signs. Previously published related graph-heat families are not this tree and/or use other norms; a general all-tree exact heat norm formula remains a residual risk.",
+      "residual_risks": [
+        "An all-tree exact heat-flow transport formula could implicitly cover this very special bistar; not ruled out by search.",
+        "Spectral-determination and other metric-tree papers were not entirely reread in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General curvature-to-exponential-gradient estimate, not an exact balanced-double-star family formula",
+          "evidence": [
+            "Author copy introduction states Theorem 3.8 equivalence of curvature and e^-Kt Lipschitz bound"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/321511155_Ollivier_Ricci_curvature_for_general_graph_Laplacians_Heat_equation_Laplacian_comparison_non-explosion_and_diameter_bounds",
+          "material_read": "Author-uploaded full text on ResearchGate introduction, Theorem 1.1 analogy and Section 3 gradient estimate framework and contents, targeted for double-star",
+          "method": "Full text HTML author manuscript text inspection",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Potentially general covering graph heat-gradient result"
+        },
+        {
+          "assessment": "Spectrum prior art; cannot claim the entire paper lacks a heat norm formula without full text",
+          "evidence": [
+            "Subject is spectral determination of double starlike trees"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.6027",
+          "material_read": "ArXiv indexed title/abstract and assigned reference, not complete paper",
+          "method": "Metadata and theorem-scope comparison",
+          "title": "Laplacian spectral characterization of some double starlike trees",
+          "trigger": "Exact same family of finite trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finite-tree graph-Lipschitz semigroup framework",
+        "Independent 24 matrix-exponential norm checks and graph cut duality"
+      ],
+      "rationale": "The balance of local graph curvature and global heat smoothing produces a striking sharp amplification factor three, an attained full-time two-exponential norm and a rigid optimal potential. Both W1 and Lipschitz transport are natural Markov semigroup invariants; the strict peak and its absence for m=1 are structurally motivated, not arbitrary small numeric improvements.",
+      "residual_risks": [
+        "Only balanced, unweighted double-star family studied; does not transfer automatically to general trees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is for balanced unit-weight diameter-three trees with combinatorial, not normalized, Laplacian.",
+    "An all-tree exact heat-flow transport formula could implicitly cover this very special bistar; not ruled out by search.",
+    "Spectral-determination and other metric-tree papers were not entirely reread in this execution.",
+    "Only balanced, unweighted double-star family studied; does not transfer automatically to general trees."
+  ],
+  "schema_version": 1
+}

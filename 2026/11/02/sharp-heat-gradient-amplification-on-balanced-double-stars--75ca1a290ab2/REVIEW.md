@@ -1,19 +1,21 @@
-# Scientific review: balanced double-star heat-gradient amplification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is supported by a complete linear-algebraic proof on independent tree-edge gradients, not finite extrapolation. The heat-gradient generator separates into a scalar mode and a positive two-dimensional system whose characteristic polynomial is \(z^2-(m+3)z+2\). A positive Green-kernel convolution proves that every leaf-edge row has strictly smaller absolute row sum than the hub-edge row for every \(m\ge1\), \(t>0\). The positive and negative hub-row coefficients yield the precise norm and the full equality classification. Direct differentiation proves the one-peak law for \(m\ge2\); a coefficient inequality plus an explicit time scaling proves that three is a sharp but unattained family-wide bound. The standard-library checker reproduces 81 independent finite heat-row/Wasserstein comparisons and degree-eight exact coefficient identities; these corroborate, rather than establish, the all-parameter theorem.
+PASS
 
-## Originality — PASS, qualified
+Tree edge gradients are independent coordinates modulo constants. Direct subtraction of the combinatorial heat equation gives one S decay and a 2x2 (D,c) system with eigenvalues alpha_m,beta_m. The hub-edge gradient row has absolute sum a(t)+2m b(t); each leaf-row sum is q+b+(m-1)/m max(0,2e^-t-e^(-(m+1)t)-q). Positive Green convolution shows the leaf row is strictly smaller for t>0, and hub-row sign alignment forces the unique potential profile up to affine scaling. The two-exponential exact norm has derivative at 0 equal 2m-2; for m>=2 a unique positive maximum occurs at t*, and norm approaches family supremum 3 as m grows, unattained. Duality gives hub W1 distance. Independently built full graph Laplacians and edge gradient matrices, checked norms and strict hub control at 24 (m,t) cases.
 
-The nearest inspected research is Ollivier (arXiv:math/0701886, metric-Markov transport contraction), Lu--Liu (arXiv:1205.6027, spectral determination of double-starlike trees), Frank--Kovařík (arXiv:1108.6145, differential heat kernels on metric trees), and Münch--Wojciechowski (arXiv:1712.00875, curvature/Lipschitz exponential estimates). The first and last supply general principles; the spectral result identifies graph invariants but not the full semigroup norm; the metric-tree work uses a different operator and domain. None of the inspected relevant statements gives the exact two-exponential envelope, rigid maximizing slope pattern, or asymptotic amplification of three. The closest accessible earlier claims treat graph edge-total variation or different graph families; those do not imply this all-time graph-Lipschitz result. Search noncoverage is not proof of absolute novelty; an unindexed equivalent computation remains the concrete priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A balanced double star is the first natural symmetric tree beyond a single star with two branching hubs; it already has diameter three. The result gives a complete sharp continuum-in-time stability law on an infinite family, identifies the precise threshold between contraction and transient amplification, and proves asymptotic saturation of the trivial diameter-three transport ceiling. The maximizing potential is rigid at every positive time. These statements describe how cooperative branching affects heat transport and cannot be replaced by a routine fixed-time numerical evaluation or a generic curvature bound.
+Best-of-knowledge PASS. Ollivier curvature and Münch–Wojciechowski characterize generic exponential Lipschitz bounds, not the exact non-exponential two-mode profile or rigidity on this family. Lu–Liu spectral double-star characterization gives spectrum but not edge-row absolute signs. Previously published related graph-heat families are not this tree and/or use other norms; a general all-tree exact heat norm formula remains a residual risk.
 
-## Scope and residual risks
+## value
 
-The unit-conductance, counting-measure combinatorial model and balanced leaf counts are essential. No conclusion is claimed for unequal double stars or metric-tree differential operators. An independent scientific assessment and fully exhaustive publication-priority search remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The balance of local graph curvature and global heat smoothing produces a striking sharp amplification factor three, an attained full-time two-exponential norm and a rigid optimal potential. Both W1 and Lipschitz transport are natural Markov semigroup invariants; the strict peak and its absence for m=1 are structurally motivated, not arbitrary small numeric improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
