@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes necessary linear-forest containment, handles the n-1 path obstruction, proves a complement-Hamiltonian lemma at b=5 explicitly and at b>=6 using Dirac, constructs every prescribed trace for b>=5, checks b=2,3,4 individually, and proves the short-path failures. The labeled-path exponential formula yields all coefficients. Independent exhaustive trace enumeration for n=3..7, 209087 nonempty supports, plus 50 component types for n=8,9 agrees. Finite verification is corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kranakis et al. (1994) Theorem 7.1 gives edge-VC of connected edge sets in K_n: binomial(n,2)-(n-2), whereas the current hypotheses are strictly fewer spanning tours.",
+        "Schaefer (2000) Theorem 1.1 is a complexity theorem for vertex path-VC dimension, not a coefficientwise edge trace result.",
+        "Coudert et al. (2024) concerns closed-neighborhood systems; direct reduction to graph VC algorithms supplies a computation framework, not an analytic classification."
+      ],
+      "reasoning": "A larger concept family may shatter more supports but does not imply the exact trace family for the restricted Hamiltonian-cycle class. Generic finite set-system algorithms can enumerate a fixed case but do not imply the uniform all-n theorem.",
+      "searches": [
+        "published-finding corpus: VC shattered edge subsets of Hamiltonian cycles complete graph perfect matching edge incidence cycle space",
+        "published-finding corpus: VC dimension TSP tours edge incidence shattered forests n-2",
+        "web: \"VC dimension\" \"Hamiltonian cycle\" \"complete graph\"",
+        "web: 2019 2020 graph set systems cycles paths edge VC dimension survey"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.07588, first public May 13, 2024, PDF first page, publisher abstract and specific text searches",
+      "Carleton SCS-TR-255 (1994), Sections 6–7 and relevant introduction",
+      "DePaul TR00-006 (2000), title, abstract, Sections 1–2",
+      "published-finding corpus 2026/9/19/SCOPE-longest-cycle-path-intersections-complete-multipartite--06a2cc28e00f (semantic record summary)",
+      "published-finding corpus 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 (semantic record summary)",
+      "published-finding corpus 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5 (semantic record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kranakis et al., Sec. 6 analyzes vertex sets shattered by cycles; Sec. 7 restricts edge set systems to connected sets, trees, paths, and stars, but not Hamiltonian cycles.",
+        "Schaefer Sec. 2 defines VCcycle for vertex subsets of subgraphs, not edge subsets of Hamiltonian tours.",
+        "Coudert et al. 2024 Section 1 defines graph VC by closed neighborhoods of vertices."
+      ],
+      "reasoning": "Their conclusions provide no equality for the trace family {E(C)∩S:C Hamiltonian in K_n}. The connected-edge bound is only a very weak upper bound for that strictly smaller hypothesis class; none distinguishes the two-path top-size supports with lengths at least three.",
+      "searches": [
+        "published-finding corpus: edge set systems Hamiltonian cycles Vapnik Chervonenkis dimension",
+        "web: \"VC dimension\" \"Hamiltonian cycles\" \"edges\" shattered",
+        "web: \"VC dimension\" \"tours\" edge incidence",
+        "web: 2019 2020 graph set systems cycles paths edge VC dimension survey"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "1994 edge-VC definition and connected-set result, Carleton SCS-TR-255, Sec. 7, https://carleton.ca/scs/wp-content/uploads/sites/260/TR255.pdf",
+        "Schaefer 2000 Section 2 studies vertex subsets of subpaths/cycles, https://ovid.cs.depaul.edu/documents/TR00-006.pdf",
+        "2024 Coudert et al. works with closed-neighborhood set systems, arXiv:2405.07588"
+      ],
+      "reasoning": "An equivalent name would be a Hamiltonian tour-incidence edge-projection shattering polynomial. The closest inspected formulations use different supports or different concept families; none implies the exact list of allowed two-path patterns.",
+      "searches": [
+        "published-finding corpus: shattering polynomial Hamiltonian cycles complete graph linear forests VC dimension",
+        "published-finding corpus: hamiltonian cycle edge projection all traces of linear forests",
+        "web: \"VC dimension\" \"Hamiltonian cycles\" \"edges\" shattered",
+        "web: \"shattered\" \"Hamiltonian cycles\" edge sets",
+        "web: \"VC dimension\" \"tours\" edge incidence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant result ID: 2026/9/19/SCOPE-longest-cycle-path-intersections-complete-multipartite--06a2cc28e00f, intersections of longest cycles and paths rather than Boolean edge-support traces.",
+        "Relevant result ID: 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2, graph cover-free-family numbers rather than Hamiltonian tour trace census.",
+        "No retrieved exact coefficient table or formula matched the claims."
+      ],
+      "reasoning": "The searched records and cited primary sources did not give the all-degree shattered-support polynomial or the maximal two-path cutoff. A negative search cannot prove uniqueness.",
+      "searches": [
+        "published-finding corpus: counting linear forests shattered by Hamiltonian cycle family all coefficients",
+        "published-finding corpus: shattered supports Hamilton cycle edge incidence on complete graphs linear forest path components",
+        "web: \"shattered edge sets\" \"Hamiltonian cycles\"",
+        "web: site:arxiv.org \"VC-dimension\" \"Hamiltonian\" cycles graph"
+      ]
+    },
+    "rationale": "The mathematical comparison distinguishes edge traces of spanning Hamiltonian cycles from vertex traces of arbitrary cycles and from edge traces of all connected subgraphs; no inspected source states or dominates the all-support classification and polynomial. Four targeted semantic database searches and several web searches yielded no equivalent record. Historical priority remains provisional.",
+    "residual_risks": [
+      "A classical or unindexed equivalent may exist under TSP-polytope Boolean projection terminology.",
+      "Some closest papers were read only in relevant sections, not comprehensively.",
+      "Older inaccessible private ledgers could contain overlap; currently available week ledger and published published-finding corpus results were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: cycles shatter vertices; edge shattering covers connected edge sets and other families but not only spanning Hamiltonian tours.",
+        "evidence": "Sections 6–7, in particular Definition 7.1 and Theorem 7.1 for EVC_con(K_n).",
+        "identifier_or_url": "Carleton SCS-TR-255 (1994), https://carleton.ca/scs/wp-content/uploads/sites/260/TR255.pdf",
+        "material_read": "Abstract, definitions and section summary, Sections 6 and 7 (especially pp. 21–24), including Theorems 6.2 and 7.1–7.5.",
+        "method": "Read PDF text and visually inspected its title page and Section 7 first page.",
+        "title": "VC-Dimensions for Graphs",
+        "trigger": "Mentions VC shattering of edge sets and cycles; potentially stronger statement."
+      },
+      {
+        "assessment": "Not covering in the inspected material: vertex-shattering by paths or cycles, not complete-graph edge shattering by spanning tours. Remaining sections not line-by-line inspected.",
+        "evidence": "Section 2 explicitly defines shattering a set of vertices W by subgraphs.",
+        "identifier_or_url": "DePaul TR00-006 (2000), https://ovid.cs.depaul.edu/documents/TR00-006.pdf",
+        "material_read": "Title/abstract and Sections 1–2 (definitions, discussion of vertex path and cycle VC); relevant text retrieved by search.",
+        "method": "Read PDF text and visually inspected first page.",
+        "title": "Deciding the VC Dimension is Sigma-3-p-complete, II",
+        "trigger": "Paper includes cycle VC-dimension and Hamiltonian-cycle gadgets."
+      },
+      {
+        "assessment": "Not covering the precise edge-incidence statement in inspected material: its graph VC concept family consists of closed neighborhoods of vertices. Full paper not read line by line.",
+        "evidence": "2024 abstract explicitly defines the concept family as the closed neighborhoods N[v].",
+        "identifier_or_url": "arXiv:2405.07588 (first public May 13, 2024); DOI 10.4230/LIPIcs.SEA.2024.8",
+        "material_read": "Publisher landing page and abstract; PDF first page and exact term searches for Hamiltonian and cycle.",
+        "method": "Read HTML and PDF text search and visually inspected PDF first page.",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Middle-cohort foundation on graph-set-system VC computations and structural bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c07672d-4c34-451c-918b-9511a9e7e8a2",
+  "value": {
+    "rationale": "The exact edge-shattering polynomial for all Hamiltonian tours is a natural complete invariant of their incidence class, sharper than a VC dimension. The length-three threshold for two spanning path components is a structural boundary, and the exact formula supports sampling calculations and distinguishes high-cardinality trace geometries; this is not a generic finite enumeration or routine renaming of earlier connected-edge bounds.",
+    "status": "PASS"
+  }
+}
