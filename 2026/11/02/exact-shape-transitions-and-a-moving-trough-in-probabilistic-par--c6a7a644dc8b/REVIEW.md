@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim concerns a fully specified conditional last-preference probability law. The initial parking-shuffle weights count successful first-stage preferences by the unique remaining vacancy; the final car's one-coin factor yields equation (1). Subtracting adjacent entries gives equation (2) exactly. Factorial cancellation proves the weight ratio (3), and differentiation of \((x-1)\log(1+1/x)\) establishes strict monotonicity without numerical assumptions. This proves the entire finite classification, ties, and endpoint behavior. A uniform interior Taylor expansion and monotone threshold squeezing justify the \(1/n\) scaling limit, not just pointwise numerical evidence. Direct enumeration of the parking process with rational coins for \(2\le n\le6\) independently reproduces the conditional mass formula; the checker passes 6,849 assertions. Boundary cases \(n=2\), \(p=0\), \(p=1\), and exact threshold ties are covered.
+PASS
 
-## Originality (PASS; material caveat)
+Use the known exact conditional last-preference law Q_{n,p}(j)=(c_{n,j}+p sum_{k>j}c_{n,k}+(1-p)sum_{k<j}c_{n,k})/(n+1)^(n-1), with c_{n,k}=binomial(n-1,k-1) k^(k-2)(n-k+1)^(n-k-1), empty street exponents convention. Its adjacent difference is ((1-p)c_{n,j+1}-p c_{n,j})/denominator. Algebra gives c_{n,j+1}/c_{n,j}=h_j/h_{n-j}, h_j=(1+1/j)^(j-1), strictly increasing to e. Hence ordered thresholds T_{n,j}=h_j/(h_j+h_{n-j}) produce all monotone, U-shaped and tied trough cases; the endpoint maximum is selected by sign(1-2p). For fixed p<1/2 minima stabilize near a boundary via tau_j=h_j/(h_j+e). For p_n=1/2+t/n, expansion log h_k=1-3/(2k)+O(1/k²) uniformly for interior fractions gives n(T_{n,j}-1/2)->(3/8)(1/(1-x)-1/x); invert to u(t)=1/2+t/(sqrt(9/4+4t²)+3/2). Inspected full independent verifier constructing weighted arrivals for n<=6 and exact thresholds through n=80; source has analytic proof for all n. Handles n=2, endpoints p=0,1 and two central minima.
 
-The primary 2022/2023 source already determines every finite probability mass and is explicitly credited. Its results concern that mass formula, the first moment, and total-variation rates, not the exact one-trough shape classification, strict ordering of all shape boundaries, countable boundary-layer transitions, or fine \(1/n\) location profile. A 2025 paper gives an even broader conditional mass formula for unequal numbers of cars and spaces, which likewise implicitly permits the equal-size calculation but does not articulate this structural threshold theorem in the text examined. The new result requires a separate strict log-convexity argument and an interior scaling inversion; it is not claimed that the underlying enumeration is original. Search comparisons with related published records did not locate an explicit covering shape-and-scaling theorem. Residual priority risk is substantial because the entire exact mass law is known, and an earlier analyst may have made the same deduction without indexing its conclusion.
+## originality
 
-## Value (PASS)
+PASS
 
-The object is the principal conditional statistic introduced to measure the effect of randomizing parking directions. The exact shape diagram explains a qualitative feature not resolved by the previously emphasized mean and total-variation estimates: the distribution can be globally increasing, globally decreasing, or have a unique trough. The two outer critical parameters converge to the universal logistic constants, yet infinitely many microscopic transition parameters accumulate at \(1/2\). A distinct \(1/n\) window transports the trough across a nontrivial fraction of the street, even while the marginal is close to uniform. This is a natural complete distribution-shape classification and a new finite-to-asymptotic boundary structure, not an arbitrarily selected value of a statistic.
+Durmić et al. (2022/2023) Theorem 3 already gives the full exact conditional last-preference distribution Q, so the marginal formula is prior and not claimed novel. The inspected primary PDF does not state the complete sharp threshold ordering, fixed-bias boundary-layer stabilization or critical p-1/2~1/n moving-trough profile. Harris/Ribeiro/Yin later extend the known law to unequal m,n, but no same sharp shape profile identified in material consulted. Best-of-knowledge original analytical classification despite derivability from prior formula.
 
-## Closest literature and limitations
+## value
 
-Most relevant: Durmić et al., arXiv:2211.00536v1, Theorem 3 and Section 2.4; Harris et al., arXiv:2502.00269, Theorem 2.7 and Section 3; Tian and Treviño, arXiv:2111.12850, Section 2. This theorem does not extend to excess spaces or nonuniform preferences. Independent mathematical audit and historical priority confirmation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact marginal of the parking process is a natural observable; classifying every possible shape and tie as p varies and the nontrivial macroscopic trough migration at 1/n bias gives a meaningful asymptotic transition that does not appear by inspection of the distribution formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

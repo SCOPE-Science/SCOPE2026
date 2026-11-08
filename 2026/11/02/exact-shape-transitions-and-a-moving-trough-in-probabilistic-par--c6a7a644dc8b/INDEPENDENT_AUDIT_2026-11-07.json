@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:05:13.609805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the known exact conditional last-preference law Q_{n,p}(j)=(c_{n,j}+p sum_{k>j}c_{n,k}+(1-p)sum_{k<j}c_{n,k})/(n+1)^(n-1), with c_{n,k}=binomial(n-1,k-1) k^(k-2)(n-k+1)^(n-k-1), empty street exponents convention. Its adjacent difference is ((1-p)c_{n,j+1}-p c_{n,j})/denominator. Algebra gives c_{n,j+1}/c_{n,j}=h_j/h_{n-j}, h_j=(1+1/j)^(j-1), strictly increasing to e. Hence ordered thresholds T_{n,j}=h_j/(h_j+h_{n-j}) produce all monotone, U-shaped and tied trough cases; the endpoint maximum is selected by sign(1-2p). For fixed p<1/2 minima stabilize near a boundary via tau_j=h_j/(h_j+e). For p_n=1/2+t/n, expansion log h_k=1-3/(2k)+O(1/k²) uniformly for interior fractions gives n(T_{n,j}-1/2)->(3/8)(1/(1-x)-1/x); invert to u(t)=1/2+t/(sqrt(9/4+4t²)+3/2). Inspected full independent verifier constructing weighted arrivals for n<=6 and exact thresholds through n=80; source has analytic proof for all n. Handles n=2, endpoints p=0,1 and two central minima.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 in Durmić et al. gives exact marginal for m=n, which implies shape after additional ratio and asymptotic analysis",
+          "The (m,n)-parking extension addresses a broader occupancy model but has no inspected critical 1/n location law"
+        ],
+        "reasoning": "Broader full-distribution formulas make the result derivable, but a formula alone does not establish the new monotonic threshold and uniform migration theorem without mathematical work.",
+        "searches": [
+          "Resultary: probabilistic parking functions last car preference conditional success shape U shaped trough parameter p n large",
+          "web: Harris Ribeiro Yin probabilistic m n parking functions last preference theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2211.00536",
+        "https://arxiv.org/abs/2502.00269",
+        "Git RESULT.md da12e62f734dda9a22966c431321de24b8a30765",
+        "Git verify_parking_shapes.py 036e074e88b9eab519099101213d0414054a8a70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Durmić et al. Theorem 3 provides Q; taking adjacent difference and proving h_j monotonicity yields new shape classification",
+          "The u(t) function requires a uniform near-1/2 asymptotic and inversion of a strictly increasing limit"
+        ],
+        "reasoning": "Unlike pure restatement of Q, the result proves a complete classification and the double-scaling limit. Implicit derivability remains a priority risk.",
+        "searches": [
+          "Resultary: probabilistic parking functions last car preference conditional success shape U shaped trough parameter p n large",
+          "web: probabilistic parking functions Durmic Han Harris Ribeiro Yin Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulations include monotonicity of successive conditional last-car masses and the location of minimal preference probability",
+          "Known 2022 conditional distribution provides c_{n,k}, not the threshold-theory statement itself"
+        ],
+        "reasoning": "Searches and material inspected did not identify an equivalent theorem on all threshold positions or u(t).",
+        "searches": [
+          "Resultary: probabilistic parking functions last car preference conditional success shape U shaped trough parameter p n large",
+          "web: last preference probabilistic parking functions unimodal U shape threshold p"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known 2022 paper has finite probability formulas/plots; no complete classification table across every n,p in inspected sections",
+          "Thresholds are symbolic infinite families, not merely a finite numerical census"
+        ],
+        "reasoning": "No exact table of all threshold boundaries or moving-window minima identified.",
+        "searches": [
+          "Resultary: probabilistic parking functions last car preference conditional success shape U shaped trough parameter p n large",
+          "web: parking functions last car preference monotonicity threshold t_nj"
+        ]
+      },
+      "rationale": "Durmić et al. (2022/2023) Theorem 3 already gives the full exact conditional last-preference distribution Q, so the marginal formula is prior and not claimed novel. The inspected primary PDF does not state the complete sharp threshold ordering, fixed-bias boundary-layer stabilization or critical p-1/2~1/n moving-trough profile. Harris/Ribeiro/Yin later extend the known law to unequal m,n, but no same sharp shape profile identified in material consulted. Best-of-knowledge original analytical classification despite derivability from prior formula.",
+      "residual_risks": [
+        "The conclusion may be implicit in known marginal formulas or buried in a source appendix; best-of-knowledge originality not guaranteed.",
+        "The theorem does not cover nonuniform preferences, multi-toss searches or unequal street size; moving-window result assumes fixed real t."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms formula Q is prior; no explicit sharp T_{n,j} order or 1/n trough law in inspected material",
+          "evidence": "Theorem 3 gives finite law from c_{n,j} and p.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00536",
+          "material_read": "Full primary PDF, including model definitions, Theorem 3 and surrounding asymptotics and figures",
+          "method": "public primary PDF text and page screenshots",
+          "title": "Probabilistic Parking Functions",
+          "trigger": "Exact same model/conditional distribution"
+        },
+        {
+          "assessment": "Unequal occupancy is broader but inspected material did not yield the claimed shape/migration theorem",
+          "evidence": "Extended marginal law may contain reductions.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.00269",
+          "material_read": "Public abstract and accessible theorem synopsis; full text not established",
+          "method": "arXiv source abstract/search",
+          "title": "Probabilistic (m,n)-Parking Functions",
+          "trigger": "Potential stronger same-model generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact marginal of the parking process is a natural observable; classifying every possible shape and tie as p varies and the nontrivial macroscopic trough migration at 1/n bias gives a meaningful asymptotic transition that does not appear by inspection of the distribution formula alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2211.00536",
+    "https://arxiv.org/abs/2502.00269",
+    "Git RESULT.md da12e62f734dda9a22966c431321de24b8a30765",
+    "Git verify_parking_shapes.py 036e074e88b9eab519099101213d0414054a8a70"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The conclusion may be implicit in known marginal formulas or buried in a source appendix; best-of-knowledge originality not guaranteed.",
+    "The theorem does not cover nonuniform preferences, multi-toss searches or unequal street size; moving-window result assumes fixed real t.",
+    "Finite computations support but do not replace any infinite proof; independent assessment is best-of-knowledge, not a claim of complete historical priority.",
+    "Public-bound files not confidentiality-sanitized and no GitHub changes or publication made."
+  ],
+  "residual_risks": [
+    "The conclusion may be implicit in known marginal formulas or buried in a source appendix; best-of-knowledge originality not guaranteed.",
+    "The theorem does not cover nonuniform preferences, multi-toss searches or unequal street size; moving-window result assumes fixed real t."
+  ],
+  "schema_version": 1
+}
