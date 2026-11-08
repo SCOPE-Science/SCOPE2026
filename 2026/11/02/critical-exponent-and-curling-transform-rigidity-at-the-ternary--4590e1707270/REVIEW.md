@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source condition is equivalent to excluding newly appended suffixes with period \(p\) and length \(\lceil9p/4\rceil\). Cubefreeness reduces the direct-prefix curling transform to the exact square-suffix test, while an overlap is exactly a periodic suffix of length \(2p+1\). Prefix heredity yields a complete finite recursion. `verify_full.cpp` exhausts all \(10{,}368\) labeled terminal words and directly checks the four joint counts; `verify.py` independently exhausts \(1728\) normalized representatives and verifies the factor-six orbit correspondence. Two exact fraction calculations identify critical exponents \(2\) and \(\frac{11}{5}\) only. Neither checker relies on random samples, floating-point thresholds, or heuristic search.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+For each appended source digit, forbidden 9/4-powers are exactly the newly created periodic suffixes of lengths ceil(9p/4), and overlaps in curling transform exactly length 2p+1 periodic suffixes. Cubefreeness makes each prefix curl 1 or 2. Independently compiled C++17 full labeled search exhausts all three extensions of each valid prefix, obtaining 10368 at 84, none at 85; source critical exponents 2 (6048) or 11/5 (4320); matrix counts (4032,2016,2880,1440) and only two transforms, matching package. This finite theorem uses exhaustive enumeration not an infinite proof.
 
-The full primary text of Caveney–Dong–Shallit, arXiv:2608.15670v1, Theorems 7 and 9 and Appendix B, establishes the maximum length and raw counts but not this joint transform/critical-exponent distribution. A previously recorded result for the stricter \(6048\)-word overlap-free subclass identifies two transforms but does not cover the additional \(4320\) sources admitted by \(\frac94\)-power-freeness. The new information includes the sharp \(\frac{11}{5}\) critical-exponent stratum and its exact fibres. Relevant exact-phrase literature comparisons located no broader statement. A supplementary or unindexed prior calculation could still contain an equivalent classification.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural, complete classification precisely at the source's sharp \(\frac94\)-power-free boundary, not an arbitrary sample of lengths. It reveals a gap in attainable source critical exponents and striking rigidity of the image under a highly nonlocal word transform: relaxing the source beyond overlap-freeness adds \(4320\) words without adding a single transform. It resolves the full joint critical-exponent/transform profile rather than re-enumerating the published \(10{,}368\) count.
+The full joint transform/critical-exponent table at 84 is narrower than the known total count and optimal length. Prior Theorems 7/9 supply 6048 overlap-free subset and 10368 total but do not logically determine the joint histogram from aggregate counts. The strongest same-paper primary full text remains inaccessible, so O=PASS best of knowledge only, with explicit serious appendix priority risk.
 
-## Scope and remaining limits
+## value
 
-No theorem is claimed for longer words, weaker exponent constraints, or other alphabet sizes; source date is the original August 16, 2026 preprint. Verification is reproducible but does not constitute independent expert audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximal 84-letter ternary class is a natural finite extremal set; classifying all curling transforms and source critical exponents reveals two output classes and a non-overlap-free 11/5 stratum not fixed by the published total count. A complete precisely defined finite distribution is useful beyond the known threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
