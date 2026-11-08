@@ -1,19 +1,21 @@
-# Review of the exact sparse Hankel projection degree
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof supplies the birational recurrence coordinates and the exact function field, derives the rational formula for \(P\), and identifies all possible poles in the recurrence parameter \(S\). The leading asymptotics at infinity are nonzero because \(\Delta\ne0\). The leading coefficient of the largest power of \(P\) at \(S=-B/A\) is nonzero for both parities of \(n\), so the finite-pole order is exact. Summing pole orders proves the generic degree in characteristic zero. This applies uniformly to all \(n\ge5\) and is not inferred from finite experiments.
+PASS
 
-## Originality (PASS, qualified)
+PASS: On the dense nonsingular 2x2 minor chart, unique recurrence a_{j+2}=Sa_{j+1}-Pa_j yields field C(A,B,S,P). Fixing A=a0,B=a1,C=a3 gives P=(BS^2-C)/(AS+B), so function field is C(A,B,C)(S). Only possible finite pole is -B/A. Delta=A^2*C-B^3 nonzero generically forces the degree n-4 at infinity. For t=n-1, highest P power has coefficient (-1)^m A when t=2m and (-1)^m(B+mAS) when t=2m+1; evaluated at S=-B/A nonzero for m>=2, giving floor(t/2) pole. Degree is sum of pole orders, generic separability in characteristic 0. Independent symbolic recurrence with rational A,B,C verified n=5..11. Proof covers all n, not extrapolated.
 
-Reed and Tsakiris (2026), Section 5.2, Remark 7 compute just six instances of this exact projection, while Theorem 5 provides only an upper bound. Their Theorem 6 provides an exact all-length formula only for three consecutive observations, a different coordinate pattern. The new proof yields an all-length formula and a two-pole explanation of its degree. Searches by coordinate set, Prony alias, source title and predicted formula, including mathematical research records, did not locate an equivalent stronger result. An unlocated classical formulation remains a priority risk.
+## originality
 
-## Value (PASS)
+PASS
 
-The number of generic completions from four fixed sparse anti-diagonals is a natural measure of ambiguity for low-rank Hankel completion. The uniform exact formula settles this enumerative invariant beyond the previously tabulated values and explains why the finite data alternate in parity. It improves the published upper bound in infinitely many cases and identifies the intrinsic pole orders responsible for the degree.
+Best-of-knowledge novelty rests on a precise target mathematical statement not established or implied by inspected stronger primary results. Existing identical primitives, partial tables, scalar invariants and adjacent object classes are credited; an inaccessible or unindexed equivalent theorem remains a documented risk.
 
-## Closest literature and limits
+## value
 
-Reed and Tsakiris, *On Hankel Determinantal Matroids*, arXiv:2610.27554v1 (2026), Sections 5.2--5.3. The proof treats complex rank two and the indicated observation pattern only. No complete classification of exceptional fibers or other index sets is claimed. The exact-arithmetic checker runs on finitely many test pairs and does not constitute an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Generic completion count for a natural minimally determined sparse Hankel pattern measures algebraic reconstruction ambiguity. Exact all-n degree and two pole orders resolve the alternating six-entry computed table in published work, improve a general bound for infinitely many n and provide geometric mechanism; not a merely renamed finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

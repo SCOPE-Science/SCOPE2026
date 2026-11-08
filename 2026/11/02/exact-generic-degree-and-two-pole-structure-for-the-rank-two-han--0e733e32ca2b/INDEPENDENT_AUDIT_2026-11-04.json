@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:52:59.764325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On the dense nonsingular 2x2 minor chart, unique recurrence a_{j+2}=Sa_{j+1}-Pa_j yields field C(A,B,S,P). Fixing A=a0,B=a1,C=a3 gives P=(BS^2-C)/(AS+B), so function field is C(A,B,C)(S). Only possible finite pole is -B/A. Delta=A^2*C-B^3 nonzero generically forces the degree n-4 at infinity. For t=n-1, highest P power has coefficient (-1)^m A when t=2m and (-1)^m(B+mAS) when t=2m+1; evaluated at S=-B/A nonzero for m>=2, giving floor(t/2) pole. Degree is sum of pole orders, generic separability in characteristic 0. Independent symbolic recurrence with rational A,B,C verified n=5..11. Proof covers all n, not extrapolated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 for {1,2,i,n} gives bound (i-2)max(i-2,n-i), which for i=4 is 2max(2,n-4), not the claimed exact expression.",
+          "Theorem 6 gives n-i-2 for {i,i+1,i+2,n}, not {1,2,4,n}."
+        ],
+        "reasoning": "Uniform matroid independence and nonsharp bounds do not determine degree; the exact theorem on three consecutive retained positions is not transferable to the nonconsecutive pattern.",
+        "searches": [
+          "Reed Tsakiris arXiv:2610.27554 Section 5.2 general bound",
+          "Reed Tsakiris arXiv:2610.27554 Section 5.3 exact degree consecutive",
+          "generic sparse Hankel Prony bounds"
+        ]
+      },
+      "checked_sources": [
+        "Reed and Tsakiris, On Hankel Determinantal Matroids, arXiv:2610.27554, abstract/full HTML content Sections 1, 5.2 Theorem 5 and Remark 7, Section 5.3 Theorem 6",
+        "Resultary semantic search: sparse rank two Hankel determinant matroid projection {1,2,4,n} generic degree two poles Prony"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 provides only a bound for this pattern; Remark 7 limited Macaulay2 output; Theorem 6 exact on {1,2,3,n}."
+        ],
+        "reasoning": "The bound and different-pattern theorem do not imply n-4+floor((n-1)/2). New pole orders do the missing work.",
+        "searches": [
+          "arXiv:2610.27554 Theorem 5, Remark 7, Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order-two Prony recurrences are generically equivalent to rank-two Hankel moments.",
+          "Source Remark 7 reports observed degrees 3,4,6,7,9,10 at n=5..10 for the exact indices but gives no all-n evaluation."
+        ],
+        "reasoning": "Recurrence/Pade aliases compared: the claimed all-n formula supplies missing exact values, not just coordinate renaming; an older unlocated formula remains possible.",
+        "searches": [
+          "sparse rank 2 Prony completion samples 0,1,3,n-1 exact degree",
+          "arXiv:2610.27554 Theorem 5 Remark 7 Theorem 6",
+          "Resultary semantic search: sparse rank two Hankel determinant matroid projection {1,2,4,n} generic degree two poles Prony"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper already tabulates exactly six small cases 3,4,6,7,9,10.",
+          "This finding extends to every n>=5 and identifies two poles, so the pre-existing six numbers are not claimed as new."
+        ],
+        "reasoning": "A six-entry numerical table cannot establish an infinite theorem and pole divisor without a structural argument.",
+        "searches": [
+          "arXiv:2610.27554 Remark 7 Macaulay2 table rank2 i4",
+          "Hankel degree 3 4 6 7 9 10 1 2 4 n"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty rests on a precise target mathematical statement not established or implied by inspected stronger primary results. Existing identical primitives, partial tables, scalar invariants and adjacent object classes are credited; an inaccessible or unindexed equivalent theorem remains a documented risk.",
+      "residual_risks": [
+        "A classical rank-two Prony reconstruction theorem or rational-map pole formula under a different terminology may imply the exact degree.",
+        "Authorized Oxford access was unavailable (VPN disconnected), but separately available arXiv HTML supplied relevant full-text primary theorems; a failed transport does not establish noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially covers same cases but not the all-n degree formula for nonconsecutive four-index pattern",
+          "evidence": [
+            "Remark 7 table i=4,n=5..10: 3,4,6,7,9,10; Theorem 5 bound; Theorem 6 {i,i+1,i+2,n}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.27554",
+          "material_read": "Accessible arXiv full-text HTML served on abstract URL: introductory theorem statements and Section 5.2 Theorem 5/Remark 7 and 5.3 Theorem 6 and proofs (relevant sections read)",
+          "method": "Compared exact observation sets, field-extension degree bounds, six Macaulay2 entries and consecutive-pattern theorem",
+          "title": "On Hankel Determinantal Matroids",
+          "trigger": "Identical variety and {1,2,4,n} sample, a decisive same-model source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Generic completion count for a natural minimally determined sparse Hankel pattern measures algebraic reconstruction ambiguity. Exact all-n degree and two pole orders resolve the alternating six-entry computed table in published work, improve a general bound for infinitely many n and provide geometric mechanism; not a merely renamed finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Reed and Tsakiris, On Hankel Determinantal Matroids, arXiv:2610.27554, abstract/full HTML content Sections 1, 5.2 Theorem 5 and Remark 7, Section 5.3 Theorem 6",
+    "Resultary semantic search: sparse rank two Hankel determinant matroid projection {1,2,4,n} generic degree two poles Prony"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every complex rank-two Hankel variety H_{2,n}, n>=5, the sparse coordinate projection retaining {1,2,4,n} has generic degree n-4+floor((n-1)/2), determined by poles of orders n-4 and floor((n-1)/2) in a rational recurrence parameter.",
+  "limitations": [
+    "Complex characteristic zero, rank <=2 and this exact four-index observation set only; singular and exceptional fibers not classified."
+  ],
+  "residual_risks": [
+    "A classical rank-two Prony reconstruction theorem or rational-map pole formula under a different terminology may imply the exact degree.",
+    "Authorized Oxford access was unavailable (VPN disconnected), but separately available arXiv HTML supplied relevant full-text primary theorems; a failed transport does not establish noncoverage."
+  ],
+  "schema_version": 1
+}
