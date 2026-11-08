@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T12:40:06.425412Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the exact seven-blob frozen Git tree 9a034ea3a9fe09f745d52d0dae73a6bdc13b4777 (all six root Git blob IDs and src/verify.py were fetched; recursively reconstructed Git tree SHA matches), the final claim counts exactly words 1^a0^b1^c0^d1^e with all a,b,c,d,e positive. The prefix-normal condition for all factor lengths is equivalent to the prefix having the minimal k-gap window sum for each k between successive ones. The only nonzero gaps are b at index a and d at index a+c. Windows of length k<a have zero prefix-gap sum; for a<=k<a+c, avoiding the first spike is possible iff c+e-1>=a, and all such windows include d since c,e<=a; for k>=a+c all windows contain b and d. Thus necessity and sufficiency is c<=a,e<=a and (c+e<=a or d>=b), with equality cases checked. Region c+e<=a has triple enumerator A(z)=z^4/[(1-z)(1-z^2)^2] and unrestricted (b,d) factor z^2/(1-z)^2. Region c,e<=a<c+e has triple enumerator T-A, with T=z^3(1+z^2)/[(1-z)^3(1+z)(1+z+z^2)], and (b,d) factor z^2/[(1-z)(1-z^2)]. Independent exact symbolic simplification gives the claimed P(z)=z^5(1+z+2z^2+2z^3+z^4)/[(1-z)^5(1+z)^3(1+z+z^2)]. The order-five pole at z=1 has coefficient 7/24 while other unit-circle poles have order at most three, so p_n=7n^4/576+O(n^3) and dividing by C(n-1,4) yields exactly 7/24. Independently, normalize five iid exponential lengths: A>=C+E has probability 1/4, and [A largest but A<C+E]∩[D>=B] contributes 1/24. The proof covers n>=5, n<5 gives zero, exact five nonempty maximal runs, no trailing zeros; it does NOT count all prefix-normal words. Finite checks alone would not prove any infinite identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burcsi et al. fixed-Hamming-weight generating functions f_d(z) d<=6; their rationality argument fixes total number d of ones, while here d=a+c+e varies with length.",
+          "Balister–Gerke Theorem 1 proves total number prefix-normal length n is 2^{n-Theta((log n)^2)}, not any fixed-run polynomial stratum.",
+          "Burcsi et al. 2020 Algorithm 7 uses run tests and generic membership fallback; open problem 2 is unrestricted enumeration, not this finite-run coefficient law."
+        ],
+        "reasoning": "No inspected stronger counting theorem with the same conditioning supplies the exact coefficient law as an immediate special case. Generic linear-Diophantine enumeration theory gives potential computability but no displayed five-run formula/leading constant. This risk is separately retained, rather than asserting absence is novelty proof.",
+        "searches": [
+          "arxiv:1611.09017 Section 4.2 Proposition 16 (PDF pp.10-11 printed)",
+          "arxiv:1903.07957 Theorems 1-2",
+          "arxiv:2003.03222 Sections 6-7",
+          "web slow: prefix normal words number of runs 3 5 rational generating function exact fixed runs 2024"
+        ]
+      },
+      "checked_sources": [
+        "Burcsi–Fici–Lipták–Ruskey–Sawada, Theoretical Computer Science 659 (2017), arxiv:1611.09017, Lemma 8 and Proposition 16",
+        "Burcsi–Fici–Lipták–Raman–Sawada, Theoretical Computer Science 842 (2020), arxiv:2003.03222, Algorithm 7 and conclusions",
+        "Balister–Gerke, Theoretical Computer Science 784 (2019), arxiv:1903.07957, Theorems 1–2",
+        "Fleischmann–Kulczynski–Nowotka–Poulsen, LATA 2020, arxiv:1905.11847, Introduction/Section 4",
+        "OEIS A194850 (unrestricted length counts)",
+        "Resultary searches 3 exact run/stratification query variants: closest SCOPE paperfolding defect record is different object",
+        "web fast and slow searches for five-run prefix normal GFs, 7/24 density and exact coefficient prefix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Universal prefix normal gap inequalities of Burcsi et al. logically imply the specialized feasibility condition; consequently it is explicitly excluded as a new general theorem.",
+          "Their Proposition 16 GFs fix the count of ones. Since exactly five runs admit any a+c+e>=3, summing all fixed-one-count series still includes other run strata; it does not directly imply this rational function.",
+          "Fleischmann et al. address prefix-normal palindromes and collapsing classes, rather than exact counts at five runs."
+        ],
+        "reasoning": "The prior characterization implies the finite system of admissible length inequalities, but a separate nontrivial integer-composition summation is needed to produce P(z). A generic possibility to compute is not a statement of the numerical formula. This distinguishes dependent lemma from accepted enumerative contribution; small-enumeration priority risk remains.",
+        "searches": [
+          "arxiv:1611.09017 pp.7,10-11, Lemma 8 and Proposition 16",
+          "arxiv:2003.03222 p.15 Algorithm 7, p.16 open problems",
+          "arxiv:1905.11847 Introduction/Section 4 contribution outline",
+          "Resultary: prefix normal words with three one-blocks run length restricted count rational generating function 7/24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burcsi et al. (2017), arxiv:1611.09017 Lemma 8 formulates position-gap inequalities for ALL prefix normal words, hence includes the word-class membership condition as a specialization.",
+          "Resultary relevant hit 2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3 concerns an infinite automatic word and has no five-run census; none of three queried Resultary rankings returned a mathematical equivalent of this exact enumerator."
+        ],
+        "reasoning": "Gap/position equivalence is stronger than the specific membership criterion and fully prior. Unlike the general test, neither the cited Lemma 8 nor the matching published-finding result gives the fixed-five-run rational length series; extracting it requires counting positive integer solutions in two regions with a d>=b coupling. Thus the accepted assertion must be limited to the count/density, not the membership characterization.",
+        "searches": [
+          "Resultary: prefix normal binary words exact enumeration with exactly five runs 1^a0^b1^c0^d1^e generating function density",
+          "Resultary: run-refined prefix-normal word enumeration gaps inequalities fixed runs rational series",
+          "web fast: prefix normal words five runs exact generating function 7/24 run length",
+          "arxiv:1611.09017 Proposition 7 and Lemma 8 (PDF p.7 printed)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A194850 enumerates ALL prefix-normal words, not exactly five runs; its length n=5 count is 14 whereas the restricted series begins at n=5 with 1.",
+          "Burcsi et al. 2017 enumerate overall pnw(n) and fixed number of 1s with different coefficients; no 1,2,7,13,27,44,75 restricted table found."
+        ],
+        "reasoning": "Exact table/series matching the run-conditioned counts was not found in the queried database and sources. Nonmatching OEIS A194850 cannot be taken as existing coverage; nonappearance cannot certify historical novelty.",
+        "searches": [
+          "web: site:oeis.org \"1,2,7,13,27,44,75\"",
+          "web: \"7/24\" \"prefix normal\"",
+          "web: \"five-run\" \"prefix normal\"",
+          "OEIS A194850 page and Burcsi et al. Table 5"
+        ]
+      },
+      "rationale": "The exact fixed-five-run length generating function and conditional density 7/24 are not asserted in the four relevant primary papers inspected. The universal prefix-normal gap inequalities and general run rejection/membership tests are established prior results; the special two-spike membership criterion is therefore only proof machinery, not an independent novelty claim. Burcsi et al. 2017 Proposition 16 tabulates GFs at fixed ONE COUNT (0..6), not variable one count and exactly five maximal alternating runs; the general rationality claim is also for fixed one count. Balister–Gerke counts ALL prefix-normal words at exponential order; Gray-code and collapsing papers deal with generation and classes, not the exact five-run coefficient series. The nontrivial unbounded run-composition sum and its limiting conditional probability are new to best knowledge after Resultary and targeted web/database searches. This is not a proof of priority and possible unindexed enumerations remain a risk.",
+      "residual_risks": [
+        "The general gap membership and the specialization c<=a,e<=a,(c+e<=a or d>=b) are consequences of established 2017 results; novelty is only the exact FIVE-RUN enumerator/density.",
+        "An unindexed thesis, appendix, code table or worked run-refined composition example might already contain the identical GF/density.",
+        "Absence in finite semantic search/online indexes is not proof of novelty, nor proof of independent priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Universal gap membership already known; fixed-Hamming-weight series and overall counts do not state the five-run length GF or 7/24 conditional density.",
+          "evidence": [
+            "PDF page 6 Lemma 8, all-gap inequality equivalence",
+            "PDF page 10 Proposition 16, f_d(z) for d=0..6 and comments on general rationality"
+          ],
+          "identifier_or_url": "arxiv:1611.09017; https://arxiv.org/pdf/1611.09017",
+          "material_read": "PDF abstract, full statement/proof of Proposition 7 and Lemma 8 on printed p.7, Section 4 enumeration and fixed-number-of-ones Proposition 16 printed pp.10-11, conclusion/open problems; full-text search for five, runs, run-length and generating function.",
+          "method": "Read original arXiv full PDF text via web PDF viewer and visually checked screenshots for PDF pages 6 and 10.",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "Same exact prefix normal object; Lemma 8 might cover membership and Section 4 might cover all counts"
+        },
+        {
+          "assessment": "Run-based necessary tests and fallback general tester, not an exact enumeration of five-run prefix-normal words.",
+          "evidence": [
+            "Algorithm 7, PDF page 14; phase II calls generic O(n^2) membership test",
+            "Open problem 2, PDF page 15, concerns unrestricted prefix-normal counting"
+          ],
+          "identifier_or_url": "arxiv:2003.03222; https://arxiv.org/pdf/2003.03222",
+          "material_read": "Introduction, Section 6 run-length rejection tester and Algorithm 7 printed pp.14-15, Section 7 conclusions/open problems printed pp.15-16; searched full PDF for run-length.",
+          "method": "Read arXiv PDF text and visually checked PDF page 14 screenshot",
+          "title": "Generating a Gray Code for Prefix Normal Words in Amortized Polylogarithmic Time per Word",
+          "trigger": "Uses run-length conditions that might imply an exact census"
+        },
+        {
+          "assessment": "Determines all-word exponential order and maximal prefix-normal-form class size; does not give polynomial exact run-conditioned count.",
+          "evidence": [
+            "Theorem 1, PDF page 1, total count 2^{n-Theta((log n)^2)}",
+            "Theorem 2, PDF page 1, equivalence-class multiplicity"
+          ],
+          "identifier_or_url": "arxiv:1903.07957; https://arxiv.org/pdf/1903.07957",
+          "material_read": "Abstract, Introduction, proof setup and statements of Theorems 1 and 2 and counting regimes in arXiv PDF.",
+          "method": "Read primary PDF text and screenshot of page 1",
+          "title": "The asymptotic number of prefix normal words",
+          "trigger": "Potential stronger global enumeration"
+        },
+        {
+          "assessment": "Palindromic/collapsing subclasses and equivalence classes, not the exact number of five-run prefix-normal words.",
+          "evidence": [
+            "Introduction p.2: contribution limited to palindromes, extension-critical and collapsing words; p.1 abstract"
+          ],
+          "identifier_or_url": "arxiv:1905.11847; https://arxiv.org/pdf/1905.11847",
+          "material_read": "Abstract, introduction pp.1-2, explicit contribution description and Section 4 scope, definitions of equivalence and collapsing words.",
+          "method": "Read original arXiv full-text PDF text, screenshot of PDF page 1",
+          "title": "On Collapsing Prefix Normal Words",
+          "trigger": "Possible counting via prefix-normal equivalence classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exactly-five-alternating-run stratum is a natural first nontrivial three-one-island class with interaction between TWO separating zero gaps: bounding later one-run lengths alone is not sufficient, since the comparison d>=b matters. The complete coefficient-generating function and limiting 7/24 share of all five-positive-run compositions measure prefix-normal frequency on this natural combinatorial slice. The result is independently useful for refined prefix-normal enumeration, generating witnesses and checking run-sensitive algorithms even though it does not solve unrestricted prefix-normal counting. It is not a mere parameter rename, an arbitrary tiny instance, or a recomputation of an identified known table. Its narrowness, standard gap-equivalence prerequisite and absence of a general all-run theorem are explicit limitations; neither code reproducibility nor novelty alone is used to justify value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The finite verification through n=22 is independent corroboration only, not an infinite proof; the symbolic derivation covers arbitrary lengths.",
+    "Prior Burcsi et al. general gap criterion already covers the membership component; only the explicit fixed-five-run count and conditional density are accepted as potentially new.",
+    "Originality remains best-of-knowledge with unindexed run-refined enumeration / specialized code tables as residual priority risks.",
+    "No general fixed-run classification, unrestricted prefix-normal generating function or full prefix-normal-form class census follows from this theorem."
+  ],
+  "schema_version": 1
+}
