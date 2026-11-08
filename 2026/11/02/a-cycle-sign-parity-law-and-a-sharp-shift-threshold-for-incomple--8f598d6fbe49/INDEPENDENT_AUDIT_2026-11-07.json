@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:15:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-cycle-sign-parity-law-and-a-sharp-shift-threshold-for-incomple--8f598d6fbe49/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-cycle-sign-parity-law-and-a-sharp-shift-threshold-for-incomple--8f598d6fbe49/verify_cycle_ic.py"
+      ],
+      "rationale": "Diagonal sign conjugation gauges each signed cycle to all negative edges if sigma=(-1)^n and to an antiperiodic positive closing edge otherwise. Spectra give SPD t<1/2 in first sign class and t<1/[2cos(pi/n)] in second. Exact natural-order zero-fill incomplete Cholesky has p1=1, pj=1-t²/p_{j-1} for 2<=j<n, pn=1-t²-t²/p_{n-1}; path continuants D0=D1=1, Dj=D_{j-1}-t²D_{j-2} give pj=Dj/D_{j-1} and pn=D_{n+1}/D_{n-1}. Path spectrum gives first positive root of D_{n+1} at tIC=1/[2cos(pi/(n+2))] and next after SPD boundary; hence the exact sign-class failure interval, earlier positive pivots, and sharp global diagonal shift alpha*>0 from t/(1+alpha)<tIC. Condition-number formulas use exact antiperiodic largest and smallest eigenvalues and yield asymptotic n³/pi², breakdown window pi²/n³. At n=4 signs +++- and t=3/5, eigenvalues 1±3sqrt2/5>0, pivots exactly (1,16/25,7/16,-32/175). Independently reconstructed direct sparse-pattern IC0 for 34 independent cycle/sign instances, including both parity classes; n4 witness verified in rationals. The recurrence, path root structure and asymptotic proof—not floating tests—cover all n>=4.",
+      "residual_risks": [
+        "Incomplete-factorization existence literature, particularly Eijkhout 1999, may contain an equivalent signed-cycle criterion.",
+        "Results are exact-arithmetic natural order IC0, not finite precision, arbitrary reordering or solver speed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Surveys distinguish M and non-M classes and motivate shifting, but no inspected theorem yields all uniformly weighted signed cycle pivot sequences or an exact minimal shift.",
+          "Eijkhout full text was not obtained; plausible stronger coverage is retained as risk."
+        ],
+        "reasoning": "General sufficient/necessary algorithmic criteria for arbitrary matrices do not evaluate this family without substantial continuant analysis; equivalence to older specialized formula is not excluded.",
+        "searches": [
+          "Ferronato 2012 DOI:10.5402/2012/127647",
+          "Eijkhout, LAPACK Working Note 144 (1999)",
+          "arXiv:2403.13123"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-cycle-sign-parity-law-and-a-sharp-shift-threshold-for-incomple--8f598d6fbe49/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-cycle-sign-parity-law-and-a-sharp-shift-threshold-for-incomple--8f598d6fbe49/verify_cycle_ic.py",
+        "https://arxiv.org/pdf/2403.13123",
+        "https://doi.org/10.5402/2012/127647",
+        "https://www.netlib.org/lapack/lawns/downloads/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M-matrix result directly gives safe all-negative gauge case for t<1/2; the opposite sign class has non-M sign frustration.",
+          "IC0 generic update implies a recurrence; determinant root analysis and condition-number formulas are not explicitly prior results."
+        ],
+        "reasoning": "The safe half is established classical corollary. Novelty and value rest on the exact sharp failure/shift/condition-number description of opposite sign parity, not on that safe half.",
+        "searches": [
+          "Meijerink–van der Vorst M-matrix theorem",
+          "Scott–Tuma IC(0) pivots/diagonal shifts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scott–Tuma discuss IC breakdown and shifts for SPD matrices, but the inspected full text does not state this signed-cycle sharp spectral classification.",
+          "Meijerink–van der Vorst prove existence for symmetric M-matrices, which covers the sigma=(-1)^n safe class only."
+        ],
+        "reasoning": "The failure class is not contradicted by generic SPD condition and the novel content is precise n-dependent cutoff, not existence of breakdown.",
+        "searches": [
+          "Resultary semantic search: signed cycle graph incomplete Cholesky zero fill breakdown exact positive definite threshold cos(pi/(n+2)) shift signed parity",
+          "GitHub repository search: cycle incomplete Cholesky signed parity shift threshold",
+          "arXiv:2403.13123",
+          "DOI:10.1090/S0025-5718-1977-0438681-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing examples and general threshold tables are not a parameterization of every signed cycle by n,sigma,t and alpha."
+        ],
+        "reasoning": "The claimed all-n closed form cannot be proven from finitely many numerical tables; no exact tabulation located, without treating absence as novelty proof.",
+        "searches": [
+          "Resultary semantic search: signed cycle graph incomplete Cholesky zero fill breakdown exact positive definite threshold cos(pi/(n+2)) shift signed parity",
+          "GitHub repository search: cycle incomplete Cholesky signed parity shift threshold",
+          "Scott–Tuma numerical breakdown tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS qualified: the M-matrix sufficient IC0 existence theorem, positive-definite non-M-matrix breakdown and global diagonal shifting are all classical. The specific **two sign-product classes of uniformly weighted cycles**, unexpected n+2 path threshold, exact all-size shift and condition-number boundary are a sharper classification not in primary Scott–Tuma or Ferronato material reviewed. Historic existence literature is extensive and Eijkhout 1999 full text not inspected.",
+      "residual_risks": [
+        "Incomplete-factorization existence literature, particularly Eijkhout 1999, may contain an equivalent signed-cycle criterion.",
+        "Results are exact-arithmetic natural order IC0, not finite precision, arbitrary reordering or solver speed.",
+        "A semantic search or repository code-search miss is not proof of global publication priority.",
+        "No public scientific certification, expert attestation or formal proof is inferred from the computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General robust factorization and breakdown, no stated signed-cycle two-class phase diagram",
+          "evidence": [
+            "Algorithm 1 / IC0 pivot mechanism and diagonal shifting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.13123",
+          "material_read": "Full PDF relevant problem statement, standard IC0 algorithm and breakdown/shift discussion",
+          "method": "open-access arXiv PDF with pages/screenshots inspected",
+          "title": "Developing robust incomplete Cholesky factorizations in half precision arithmetic",
+          "trigger": "Direct specialist IC0 breakdown and shifting literature"
+        },
+        {
+          "assessment": "Generic sufficient M-matrix mechanisms not exact signed-cycle threshold",
+          "evidence": [
+            "Historical symmetric M-matrix conditions and breakdown taxonomy."
+          ],
+          "identifier_or_url": "https://doi.org/10.5402/2012/127647",
+          "material_read": "Survey sections abstract and relevant M-matrix/IC breakdown discussion",
+          "method": "available paper/summary passages",
+          "title": "Preconditioning for Sparse Linear Systems at the Dawn of the 21st Century",
+          "trigger": "Broad survey with M-matrix breakdown results"
+        },
+        {
+          "assessment": "Not compared in full; material prior-coverage risk",
+          "evidence": [
+            "LAPACK Working Note 144, 1999."
+          ],
+          "identifier_or_url": "https://www.netlib.org/lapack/lawns/downloads/",
+          "material_read": "Bibliographic metadata and available index only; full paper not read",
+          "method": "bibliographic indexing; retrieval unsuccessful",
+          "title": "On the Existence Problem of Incomplete Factorisation Methods",
+          "trigger": "Highly plausible specialist existence paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-cycle-sign-parity-law-and-a-sharp-shift-threshold-for-incomple--8f598d6fbe49/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-cycle-sign-parity-law-and-a-sharp-shift-threshold-for-incomple--8f598d6fbe49/verify_cycle_ic.py"
+      ],
+      "rationale": "Provides an exact analyzable family of strictly SPD matrices for which basic IC(0) catastrophically fails and a sharp rescue shift, even at n=4 with rational pivots; the spectral condition-number boundary is a meaningful quantitative diagnostic and distinguishes safe M-matrix and unsafe frustration sign classes.",
+      "residual_risks": [
+        "Incomplete-factorization existence literature, particularly Eijkhout 1999, may contain an equivalent signed-cycle criterion.",
+        "Results are exact-arithmetic natural order IC0, not finite precision, arbitrary reordering or solver speed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "n>=4 uniform edge magnitudes, unit diagonal, exact unmodified zero-fill algorithm with natural vertex ordering; no guarantee for reordering, other graphs, modified algorithms or finite precision."
+}

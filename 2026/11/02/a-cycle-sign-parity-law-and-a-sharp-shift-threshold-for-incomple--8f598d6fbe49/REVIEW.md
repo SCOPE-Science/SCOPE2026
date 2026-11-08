@@ -1,21 +1,21 @@
-# Scientific review of signed-cycle incomplete Cholesky thresholds
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The statement fixes natural order, original-pattern zero fill, exact arithmetic, all signed simple cycles of size \(n\ge4\), and the two sign-product classes. A diagonal sign gauge proves the input eigenvalue extremes. The IC(0) recurrence has exactly two contributions to its final pivot, versus one to each intermediate pivot. The continuant identity \(p_n=D_{n+1}/D_{n-1}\) is reconstructed algebraically. The first two zeros of the path continuant, together with the input positive-definiteness endpoint, determine exactly when the final pivot vanishes or becomes negative. Rescaling gives the strict optimal shift condition. Extremal eigenvalue ratios and Taylor expansion establish the condition-number boundary and the cubic asymptotic. The exact four-vertex witness and 3,667 independent arithmetic checks are consistent with the proof. Numerical evidence is not treated as a proof for all sizes.
+PASS
 
-## Originality (PASS, with priority qualification)
+Diagonal sign conjugation gauges each signed cycle to all negative edges if sigma=(-1)^n and to an antiperiodic positive closing edge otherwise. Spectra give SPD t<1/2 in first sign class and t<1/[2cos(pi/n)] in second. Exact natural-order zero-fill incomplete Cholesky has p1=1, pj=1-t²/p_{j-1} for 2<=j<n, pn=1-t²-t²/p_{n-1}; path continuants D0=D1=1, Dj=D_{j-1}-t²D_{j-2} give pj=Dj/D_{j-1} and pn=D_{n+1}/D_{n-1}. Path spectrum gives first positive root of D_{n+1} at tIC=1/[2cos(pi/(n+2))] and next after SPD boundary; hence the exact sign-class failure interval, earlier positive pivots, and sharp global diagonal shift alpha*>0 from t/(1+alpha)<tIC. Condition-number formulas use exact antiperiodic largest and smallest eigenvalues and yield asymptotic n³/pi², breakdown window pi²/n³. At n=4 signs +++- and t=3/5, eigenvalues 1±3sqrt2/5>0, pivots exactly (1,16/25,7/16,-32/175). Independently reconstructed direct sparse-pattern IC0 for 34 independent cycle/sign instances, including both parity classes; n4 witness verified in rationals. The recurrence, path root structure and asymptotic proof—not floating tests—cover all n>=4.
 
-The inspected 2024 Scott–Tůma primary study already establishes the broad issue of IC(0) breakdown on positive-definite inputs and studies shifts, including exact-arithmetic examples. The 2012 Ferronato survey describes M-matrix safety, non-M-matrix breakdown, and stabilization. The present statement is not a claim to invent those general mechanisms. It is the exact simultaneous classification of **input positive definiteness by cycle-sign parity**, **the sign-blind zero-fill pivot threshold**, **the full breakdown interval**, and **the sharp global shift/condition-number boundaries** for all cycle lengths. Neither inspected full text states these precise formulas. Searches using signed-cycle, cyclic-tridiagonal, Chebyshev, and zero-fill terminology did not locate a directly covering published statement or table. Source lists, formulas and individual risks appear in `AUDIT.json`.
+## originality
 
-The older Eijkhout existence survey could be located and its abstract read, but the full archive PDF could not be retrieved. This is a publication-priority risk, not proof of absence. A further specialized literature check by another researcher could change the originality assessment; no independent audit is claimed.
+PASS
 
-## Value (PASS)
+Best-of-knowledge PASS qualified: the M-matrix sufficient IC0 existence theorem, positive-definite non-M-matrix breakdown and global diagonal shifting are all classical. The specific **two sign-product classes of uniformly weighted cycles**, unexpected n+2 path threshold, exact all-size shift and condition-number boundary are a sharper classification not in primary Scott–Tuma or Ferronato material reviewed. Historic existence literature is extensive and Eijkhout 1999 full text not inspected.
 
-The result supplies a natural all-size sparse numerical-linear-algebra boundary where incomplete-factor success and positive definiteness diverge. The input is a minimal nonchordal graph, the sign product is its switching invariant, and the required global shift is exactly computable rather than a heuristic. At four vertices a strictly positive-definite matrix of moderate condition number has a negative IC(0) pivot. For larger cycles, the quantitative boundary reveals the cubic conditioning scale at which failure first becomes possible. These facts can be used to verify implementations and reason about dropping and diagonal compensation, without implying performance for arbitrary sparse systems.
+## value
 
-## Closest literature and limitations
+PASS
 
-Relevant literature: Scott–Tůma (2024), arXiv:2403.13123; Ferronato (2012), DOI:10.5402/2012/127647; classical symmetric M-matrix guarantee (Meijerink–van der Vorst, 1977); Eijkhout's 1999 LAPACK Working Note 144 (only metadata/abstract accessible). The finding is limited to equal edge magnitudes, simple cycles, natural vertex order and exact unchanged-pattern IC(0). No statements about roundoff, alternate ordering, modified incomplete factorizations, or preconditioned solver iteration counts are made.
+Provides an exact analyzable family of strictly SPD matrices for which basic IC(0) catastrophically fails and a sharp rescue shift, even at n=4 with rational pivots; the spectral condition-number boundary is a meaningful quantitative diagnostic and distinguishes safe M-matrix and unsafe frustration sign classes.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
