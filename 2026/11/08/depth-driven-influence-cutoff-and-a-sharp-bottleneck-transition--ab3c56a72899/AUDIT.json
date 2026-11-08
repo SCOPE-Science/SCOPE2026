@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Uniform layer initial data is invariant because each W_j preserves ones; resulting recursion equals an absorbing pure-birth chain with independent geometric waiting times. Exact binomial-tail reduction yields Gaussian CLT window and law-of-large-numbers delay at homogeneous coupling. Uniform third-moment bounds and variance comparable to depth yield Lyapunov CLT for nondegenerate heterogeneous bridges. Block triangularity gives the stated characteristic polynomial and a length-d Jordan block. For a single exceptional bridge, the remaining sojourns satisfy LLN and the bridge satisfies an exponential geometric scaling law, proving critical profile and iff depth*b1 tends to infinity. Standalone check.py, rerun using Python 3 stdlib, passed exact rational finite checks for depths 1–5, agents n=2,3, times 0–15. Finite checks are not asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diaconis and Saloff-Coste, Separation cut-offs for birth and death chains, arxiv:math/0702411 (2007): separation mixing of birth-death chains.",
+        "Organisational Social Influence on Directed Hierarchical Graphs, from Tyranny to Anarchy (2020): stochastic influence/majority-rule and negative-binomial approximation.",
+        "The Impact of Community Structure on the Convergence Time of Opinion Dynamics (2017): network community effects on convergence rate.",
+        "The asynchronous DeGroot dynamics (2024): asynchronous gossip rather than synchronous acyclic multiplex layers."
+      ],
+      "reasoning": "Classical Markov hitting-time results cover the geometric waiting-time calculations and can imply CLTs in this special chain. They do not, without specifying and examining this multiplex opinion specialization, establish the combined first-topic opinion profile, exact block spectral obstruction and sharp 1/depth bridge regime. Broad unindexed transfer theorems remain a nonzero residual risk; no claim of new probabilistic technique is made.",
+      "searches": [
+        "fixed subdominant eigenvalue multiplex DeGroot hierarchical consensus Gaussian cutoff binomial tail Jordan block",
+        "\"opinion dynamics\" \"influence\" \"negative binomial\" layers",
+        "\"DeGroot\" \"hierarchical\" \"transient\" \"delay\" \"binomial\"",
+        "separation cutoffs for birth and death chains Diaconis Saloff-Coste"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.27198v1, relevant primary full-text sections",
+      "Published mathematical research-index queries on exact topic chains, Gaussian cutoff, negative-binomial propagation and Jordan spectral decay",
+      "doi:10.1155/2017/9396824, indexed literature",
+      "doi:10.1002/rsa.21248, indexed literature",
+      "doi:10.1038/s41598-020-61196-8, indexed literature",
+      "arxiv:math/0702411, indexed literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zender et al. 2026 prove eventual source-layer influence and convergence in acyclic multiplex networks; their convergence result does not imply a Gaussian cutoff window with constants by itself.",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-gain-optimization-for-consensus-with-exponential-fading-me--a3cf7ff47956 optimizes symmetric network fading-memory decay, without a growing topic-chain bottleneck."
+      ],
+      "reasoning": "The source and own earlier result imply eventual first-topic opinion one, but convergence for each fixed network gives no uniform-in-depth transient scale; e.g., constant-b chain retains eigenvalue 1-b while first-layer delay grows linearly. Generic stationary-equilibrium comparisons do not derive the finite-time one-way chain absorption or the one-bridge phase transition.",
+      "searches": [
+        "2610.27198 DeGroot topic layer equilibrium convex order variance stationary source",
+        "\"DeGroot Dynamics on Multiplex Networks with Directed and Acyclic Interlayer Connectivities\" transient source layer convergence rate chain depth",
+        "hierarchical DeGroot opinion layer chain binomial convergence cutoff Gaussian window linear depth",
+        "2026 DeGroot Dynamics Multiplex Networks Directed Acyclic Interlayer Connectivities chain depth cutoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.27198v1, §§5.3–5.4 and conclusion: discussion of convergence as time tends to infinity without a depth-uniform transient profile.",
+        "published-finding corpus relevant hierarchy query returned 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32, concerning a bounded-confidence changing-edge system rather than synchronous directed topic chains.",
+        "General negative-binomial representation follows directly from the one-way topic-chain Markov recursion and is classical probability."
+      ],
+      "reasoning": "The same statement may be rephrased as an absorption CDF, a discrete pure-birth hitting time, or the tail of a binomial count. Those are mathematically equivalent to the **first-topic response** under unanimous topic initial data. Searches examined the binomial, hierarchy, delay and cutoff aliases rather than relying only on matching titles. The model-specific integrated cutoff/bottleneck statement was not identified in the accessed sources; this is a provisional literature assessment, not a general originality certificate.",
+      "searches": [
+        "\"DeGroot Dynamics on Multiplex Networks with Directed and Acyclic Interlayer Connectivities\" transient source layer convergence rate chain depth",
+        "\"DeGroot\" \"hierarchical\" \"transient\" \"delay\" \"binomial\"",
+        "\"multilayer\" \"DeGroot\" \"cutoff\" convergence opinion",
+        "hierarchical DeGroot opinion layer chain binomial convergence cutoff Gaussian window linear depth",
+        "acyclic interlayer influence chain negative binomial propagation consensus time cutoff",
+        "\"DeGroot\" \"binomial\" \"cutoff\" \"layers\" opinion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus indexed closest 2026/10/11/SCOPE-sharp-gain-optimization-for-consensus-with-exponential-fading-me--a3cf7ff47956, concerned with symmetric fading-memory consensus.",
+        "published-finding corpus indexed closest 2026/10/4/SCOPE-a-missing-entry-amplitude-factor-in-wolbachia-qsd-convergence-ti--fd85595e5575, concerned with epidemic quasistationary convergence amplitude, not opinion multiplex chains.",
+        "No numerical table is needed: the new claim concerns all chain depths and bridge-rate arrays."
+      ],
+      "reasoning": "Searched mathematical research records for exact binomial absorption profiles, multiplex chain delay, and depth-related cutoff, and compared the content of nearest returned summaries. No matching exact table or stored result was found. Absence from a finite index is not proof of global uniqueness.",
+      "searches": [
+        "acyclic interlayer influence chain negative binomial propagation consensus time cutoff",
+        "source 2610.27198 chain layered topic influence path time-to-consensus binomial",
+        "\"opinion dynamics\" \"influence\" \"negative binomial\" layers"
+      ]
+    },
+    "rationale": "Model-specific theorem for the directed acyclic multiplex DeGroot chain: exact finite-time first-topic opinion response as a geometric convolution; a Gaussian transition of growing-chain depth despite fixed nontrivial eigenvalue modulus; and an if-and-only-if 1/depth bridge-bottleneck cutoff. The motivating source proves ultimate convergence, not these quantitative transient conclusions. Generic geometric/binomial/Markov-chain tools are acknowledged as established. Similar results outside the inspected literature remain possible.",
+    "residual_risks": [
+      "The exact binomial and geometric representations are elementary classical probability; an unindexed absorbing Markov chain or DeGroot specialization may imply all parts as a corollary.",
+      "Some plausible broader-literature texts were accessible only as abstracts/indexed descriptions, not fully inspected; no global NOT_COVERING conclusion is made for them.",
+      "No independent expert review has assessed the originality boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identified convergence and eventual opinion propagation but not the growing-depth finite-time binomial window, nonnormal spectral obstruction, or one-weak-bridge critical law. Remaining sections might conceal a rephrased special case.",
+        "evidence": [
+          "arxiv:2610.27198v1, §§5.3–5.4, 7, model and results",
+          "https://www.paperpeel.com/paper/2610.27198"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.27198",
+        "material_read": "Abstract, model equations and main statements in sections 2 and 5, source-network and acyclic-layer convergence in subsections 5.3–5.4, conclusions in section 7; full-text HTML and mirrored original relevant sections were read, not just abstract.",
+        "method": "Full-text HTML manual inspection and matching the upper block-triangular stochastic update to the source equations.",
+        "title": "DeGroot Dynamics on Multiplex Networks with Directed and Acyclic Interlayer Connectivities",
+        "trigger": "Identical model, primary motivation, possible dominating statement"
+      },
+      {
+        "assessment": "Addresses within-social-network community structures and spectral convergence rather than variable-depth directed intertopic chains; limited inspection means it cannot justify a categorical noncoverage conclusion.",
+        "evidence": [
+          "doi:10.1155/2017/9396824, indexed abstract and title"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2017/9396824",
+        "material_read": "Search-indexed description and abstract-level discussion only; full body not inspected.",
+        "method": "Bibliographic/web search comparison of mathematical objects and network geometry.",
+        "title": "The Impact of Community Structure on the Convergence Time of Opinion Dynamics",
+        "trigger": "Potential stronger general DeGroot convergence-time bounds"
+      },
+      {
+        "assessment": "Clock model differs; full-content equivalence is not excluded from abstract-level evidence.",
+        "evidence": [
+          "doi:10.1002/rsa.21248, indexed summary"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21248",
+        "material_read": "Bibliographic abstract and indexed summary; full text not inspected.",
+        "method": "Compared asynchronous updating rules with the present synchronous row-stochastic layer law.",
+        "title": "The asynchronous DeGroot dynamics",
+        "trigger": "General stochastic-clock convergence-time theory"
+      },
+      {
+        "assessment": "Not an identified dominating theorem for the deterministic synchronous multiplex claim; incomplete inspection leaves possible general analogy.",
+        "evidence": [
+          "doi:10.1038/s41598-020-61196-8, indexed evidence"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41598-020-61196-8",
+        "material_read": "Indexed original description and search-extracted material on negative-binomial approximation, not its entire full body.",
+        "method": "Compared majority-rule/social influence stochastic process with exact linear topic-layer transfer.",
+        "title": "Organisational Social Influence on Directed Hierarchical Graphs, from Tyranny to Anarchy",
+        "trigger": "Hierarchical influence and negative-binomial propagation alias"
+      },
+      {
+        "assessment": "Classical probability results are treated as background and may imply geometric hitting-time asymptotics; specific deterministic multiplex and spectral comparison were not identified.",
+        "evidence": [
+          "arxiv:math/0702411, indexed summary"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0702411",
+        "material_read": "ArXiv abstract and indexed summary, full theorem sections not inspected.",
+        "method": "Compared irreducible birth-death separation to the present one-way absorbing pure-birth response.",
+        "title": "Separation cut-offs for birth and death chains",
+        "trigger": "Classical Markov cutoff theory may cover the probability backbone"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab3c56a7-2899-4e4f-aa2c-4795bd85a925",
+  "value": {
+    "rationale": "The natural gap in the motivating directed acyclic multiplex DeGroot system is how far source information travels by a finite time as topic hierarchy depth grows. Exact influence response gives an O(depth) delay, sharp O(sqrt depth) Gaussian window and topology-independent transient for unanimous layer inputs. The fixed nontrivial spectral radius yet depth-diverging delay pinpoints a genuine limitation of a common convergence proxy; the 1/depth single-bridge phase boundary identifies when a slow cross-topic link dominates overall propagation. This structural distinction supplies a concrete benchmark for hierarchical opinion systems. Assumptions and limits are explicit; no empirical significance is claimed.",
+    "status": "PASS"
+  }
+}
