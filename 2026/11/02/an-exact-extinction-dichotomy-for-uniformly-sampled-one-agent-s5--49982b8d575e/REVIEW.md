@@ -1,19 +1,21 @@
-# Mathematical review: exact extinction dichotomy for one-agent S5 announcements
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Each pointed one-agent S5 formula is invariant under replacing the accessible class by its set of atomic valuation types, as proved by structural induction; conversely the explicit depth-one support-indicator formula realizes every anti-extensive Boolean-lattice map. A one-world-per-type model witnesses every type-support pair, establishing injectivity rather than merely a surjective encoding. Under uniform semantic-class sampling, distinct support-map outputs are independent uniform subsets. The proof establishes the fixed-support indicator factorization and exact generating function; the one-half extinction probability follows by conditional independence and induction. The logarithmic asymptotic follows from an absolutely convergent positive sum and a uniform bound on its tail. These are symbolic arguments for every finite vocabulary and arbitrary S5 carrier, not extrapolations from computation. The included checker exhaustively verifies all anti-extensive maps for type universes of sizes one, two and three. The random sample space is semantic formulas, not formula strings.
+PASS
 
-## Originality
+Single-agent S5 truth at a world is determined by its atom type t and the equivalence-class type support S; modal-depth-one support indicators χ_S and atom tests realize every map F(S)⊆S, and distinct maps are witnessed by finite S5 classes. Uniform semantic equivalence therefore gives independent uniform choices F(S) over 2^S and count 2^(m 2^(m−1)). Repeated truthful world-deletion follows monotone orbits; extinction of all classes iff no nonempty fixed support. Recursion e_n=2^(-n)∑_{U proper S}e_|U| gives 1/2 for each fixed S; independent fixed-support indicators give product P_m=∏_j(1−2^(-j))^C(m,j) and its PGF. Log series −∑_{r≥1}[(1+2^(−r))^m−1]/r gives first two terms and O((9/8)^m) remainder. Independently exhaustively enumerated m=1,2,3 (2,16,4096 maps), matching all probabilities and universal counts 1,3,189; k=2,m=4 exact count follows product, not exhaustive enumeration.
 
-PASS within the inspected literature, subject to explicit historical-priority risk. Holliday and Icard (2010, Proposition 5.7, Corollary 5.8) establish the qualitative one-agent S5 relationship between non-Cartesianness and eventual self-refutation and a syntax-dependent finite bound. Yamada's 2026 work develops eventual notions and their logical equivalences; the later paper primarily uses believed announcements, not world-deletion. Yamada's earlier paper (Theorem 2.3) analyzes epistemic unknowability through Moorean normal forms. These results do not **state** the uniform semantic-class law, the half-extinction probability for any fixed support, the exact global-extinction census, or its asymptotic. Previously known vocabulary-dependent bounds and S5 pointed-type classifications are treated as prior work, not new conclusions. The novelty question is therefore the specific quantitative probability theorem, not the basic support normal form or the fact that iterates stabilize. Searches for random regressive maps and exact counting aliases found no direct equivalent; nevertheless, an equivalent probabilistic lemma might have appeared in more general random finite-poset-map literature. Independent verification of priority has not been performed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A natural open-ended question in repeated-announcement epistemic dynamics is how frequently a randomly selected *semantically different* announcement eliminates a given information cell, versus eliminating every possible information cell. The exact answer is strikingly different under these two quantifiers: precisely one-half for any specified nonempty support, versus a product probability with doubly exponential smallness in the number of propositional letters. The complete fixed-point distribution and closed count supply reproducible quantitative benchmarks for finite epistemic-model analysis. The restriction to semantic rather than syntactic uniform sampling is essential and explicitly stated. The result is a self-contained theorem with a natural invariant and precise domain, not an unexplained finite census.
+Best-knowledge originality applies to the precise claimed combination, not generic background results: Qualitative eventual self-refutation corresponds to the fixed-support monotone dynamics but does not assign the counting measure on semantic equivalence classes or compute 1/2 and full-product rarity. The formulas are not asserted new as qualitative logical principles. Deriving the uniform semantic quotient and independent choices for every nonempty support, the 1/2 recursion, and two leading exponential terms requires a new counting/probability argument. If an earlier paper made those calculations, the claim would be covered; none identified.
 
-## Closest literature and limitations
+## value
 
-The qualitative fixed-point criterion overlaps the established non-Cartesian/eventual-self-refutation equivalence; the formula-class counting normal form is also standard in character. Neither ingredient alone supplies the stated quantitative distribution, but their closeness is a priority risk and is acknowledged. Further exact comparisons to all historical random-map papers are not exhaustive. The theorem does not address multiple knowledge agents, accessibility beyond S5, formula-string sampling, or arrow-deleting believed announcements. Finite checks do not independently certify the infinite-vocabulary claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantitative behavior under uniformly sampled semantic formulas is a natural finite quotient measure distinct from arbitrary syntax distributions. The exact per-class 1/2 law versus doubly exponentially rare all-model extinction, fixed-support census and asymptotics form a self-contained meaningful classification of iterated S5 announcements, beyond textbook qualitative self-refutation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The `checker.py` program uses Python 3 standard-library iteration over every anti-extensive map for \(m=1,2,3\) atomic types. It tests the exact total-class count, globally extinguishing count, the probability-one-half identity at **every** nonempty initial support, and the longest strict-update-chain census. It also independently evaluates the modal-depth-one support-indicator formula for a deterministic selection of maps. Execution command: `python3 checker.py`.
+## correctness
 
-Expected and observed output:
+PASS
 
-```
-m=1: maps=2, universal_extinguish=1, maximal_full_support_rounds=1; all nonempty starts extinct in exactly half
-m=2: maps=16, universal_extinguish=3, maximal_full_support_rounds=4; all nonempty starts extinct in exactly half
-m=3: maps=4096, universal_extinguish=189, maximal_full_support_rounds=384; all nonempty starts extinct in exactly half
-ALL_CHECKS_OK
-```
+Single-agent S5 truth at a world is determined by its atom type t and the equivalence-class type support S; modal-depth-one support indicators χ_S and atom tests realize every map F(S)⊆S, and distinct maps are witnessed by finite S5 classes. Uniform semantic equivalence therefore gives independent uniform choices F(S) over 2^S and count 2^(m 2^(m−1)). Repeated truthful world-deletion follows monotone orbits; extinction of all classes iff no nonempty fixed support. Recursion e_n=2^(-n)∑_{U proper S}e_|U| gives 1/2 for each fixed S; independent fixed-support indicators give product P_m=∏_j(1−2^(-j))^C(m,j) and its PGF. Log series −∑_{r≥1}[(1+2^(−r))^m−1]/r gives first two terms and O((9/8)^m) remainder. Independently exhaustively enumerated m=1,2,3 (2,16,4096 maps), matching all probabilities and universal counts 1,3,189; k=2,m=4 exact count follows product, not exhaustive enumeration.
 
-For \(m=4\), the value \(26{,}254{,}935\) is evaluated from the symbolic product, **not** from exhaustive enumeration of all \(2^{32}\) formula classes. The general proof uses type-support invariance, explicit definability, induction and an absolutely convergent expansion. The computation is a finite consistency check only. No independent mathematical audit or external certification is asserted.
+## originality
+
+PASS
+
+Best-knowledge originality applies to the precise claimed combination, not generic background results: Qualitative eventual self-refutation corresponds to the fixed-support monotone dynamics but does not assign the counting measure on semantic equivalence classes or compute 1/2 and full-product rarity. The formulas are not asserted new as qualitative logical principles. Deriving the uniform semantic quotient and independent choices for every nonempty support, the 1/2 recursion, and two leading exponential terms requires a new counting/probability argument. If an earlier paper made those calculations, the claim would be covered; none identified.
+
+## value
+
+PASS
+
+Quantitative behavior under uniformly sampled semantic formulas is a natural finite quotient measure distinct from arbitrary syntax distributions. The exact per-class 1/2 law versus doubly exponentially rare all-model extinction, fixed-support census and asymptotics form a self-contained meaningful classification of iterated S5 announcements, beyond textbook qualitative self-refutation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
