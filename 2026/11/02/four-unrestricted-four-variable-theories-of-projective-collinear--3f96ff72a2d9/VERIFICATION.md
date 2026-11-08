@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with no third-party dependencies. `verify_output.txt` is the actual output from the included program, not a theoretical prediction. The program enumerates normalized homogeneous coordinates over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\), and \(\mathbb F_5\), performs exact Gaussian elimination to decide inclusive collinearity, and exhaustively checks every stationary ordered triple and all its fourth-point atomic extension patterns.
+## correctness
 
-Executed projective dimensions/orders: \((d,q)=(1,2),(1,3),(1,4),(1,5),(2,2),(3,2),(2,3),(3,3),(2,4),(2,5)\), containing a total of 109,399 ordered stationary triples. The program reports exactly four distinct support templates, each invariant within its class, matching the two-bit classification. This checks the finite instances; all-orders and non-Desarguesian assertions instead follow from the separate proof using exact line counts and the geometric plane spanned by three noncollinear points. The five-variable skew-line separation is proved geometrically, not inferred from the script.
+PASS
 
-The logical validity additionally uses the standard noncounting pebble-game correspondence, whose source is Grohe and Otto, arXiv:1204.1990, §2. The verification makes no claim of external or independent mathematical certification.
+For ≤3 distinct anchored points, equality and ternary collinearity extension types are exhausted by collinear anchors (q-2 unused same-line points; off-line points iff dimension≥2), and noncollinear anchors (q-1 points on each joining side; (q-1)^2 off three sides). All counts hold in every projective plane, including non-Desarguesian, and in higher-dimensional spaces by working inside the generated plane; one moving pebble always has matching extension. The persistent four-pebble game proves unrestricted-depth equivalence. Four-variable formulas for noncollinear triples and four collinear distinct points separate the bits; 5-variable skew-line formula separates dimensions 2 and ≥3. Original source verify.py was inspected but not trusted as proof; independent PG(1,2/3), PG(2,2/3), PG(3,2/3) signatures matched four classes, with 15 and 40 higher-dimensional points.
+
+## originality
+
+PASS
+
+No inspected published statement implies the full point-only, unrestricted-depth four-class theorem or its sharp representative sizes; general pebble characterization and geometric covering results are proper antecedents. This is a qualified originality judgment, not exhaustive historical priority.
+
+## value
+
+PASS
+
+Classifies the expressive power of a natural geometric ternary signature for an infinite family including non-Desarguesian planes. The exact width 2/3/4 spectrum, 13-point bound and width-five dimension witness identify sharp logic/geometry boundaries beyond a routine algorithmic application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
