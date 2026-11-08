@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "A complete local center/leaf case split proves the 9-state transfer. The maximum count of (0,1) columns follows from excluding three consecutive ones. Exhaustive equality classifications use cyclic gap-deficits 3k-n=0,1,2 and force the only exceptional (0,2) center-zero columns when n=1 mod 3, with a correct distinguished-position count. Independent full-graph direct enumeration for n=3..6 and separate minimum-type enumeration for n=3..9 corroborate the proof; transfer coefficients were checked through n=16.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hernández-Ortiz et al., arXiv:2006.02124v1, Cor. 3.1: gamma_I(G odot K1)=|V(G)|+gamma(G).",
+        "Shao--Zhao arXiv:2610.00108v1, contributions §1.2 and conclusion §9: polynomial enumeration for paths/trees/cycles; future bounded-treewidth and cactus direction."
+      ],
+      "reasoning": "The 2020 parameter formula dominates the scalar part and that part is excluded from novelty; it does not imply coefficients or optimum assignments. The 2026 methods apply to trees/cycles, but the sunlet is neither a tree nor a cycle, and their statements do not yield the enumerator without this extra derivation.",
+      "searches": [
+        "Italian domination polynomial cycle corona pendant graph",
+        "corona product G odot K1 Italian domination minimum enumerator",
+        "arxiv:2006.02124v1 Corollary 3.1 one-leaf corona",
+        "arxiv:2610.00108v1 sections 4-9 general tree and cycle enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00108v1 (full accessible primary text)",
+      "arxiv:2006.02124v1 (full accessible primary text)",
+      "Published record: Minimum super dominating sets of one-leaf coronas (different invariant)",
+      "Published record: Weight enumerator of all Roman {2} dominating functions on complete multipartite graphs (different graph family)",
+      "Published record: Perfect Italian domination weight enumerator of complete multipartite graphs (different graph family and variant)",
+      "Published record: Strict log-concavity for complete-graph coronas (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published corona equality fixes only the least exponent n+ceil(n/3).",
+        "The new formula fixes [z^(n+ceil(n/3))]D_n and all higher coefficients via tr(T^n), and classifies special zero-center columns in the congruence-one case."
+      ],
+      "reasoning": "Equality of minimum exponents does not determine their coefficient or the full polynomial; a one-leaf corona formula for gamma does not imply multiplicities. The cycle polynomial alone likewise does not count pendant choices and their interaction with adjacent centers.",
+      "searches": [
+        "arxiv:2006.02124v1 §3 Corollary 3.1",
+        "arxiv:2610.00108v1 §1.2 §8 §9",
+        "Italian dominating functions generalized corona cycles local transfer matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shao--Zhao arXiv:2610.00108v1 defines Italian domination as Roman {2}, §1 and §2.",
+        "The result concerns a 9-state exact polynomial and all optimum label assignments; no equivalent sunlet census appeared among returned graph-class records."
+      ],
+      "reasoning": "The same Italian/Roman-{2} zero-vertex rule was checked under both names; neither alternate name nor replacing sunlet by cycle with private leaves yielded a covering claim.",
+      "searches": [
+        "\"Italian domination polynomial\" sunlet graph",
+        "\"Roman 2 domination\" sunlet graph count minimum functions",
+        "Italian domination polynomial sunlet graph C_n corona K_1 enumerator",
+        "Semantic published-mathematics record query: Italian domination number sunlet graph cycle corona pendant leaves exact minimum and all minimum functions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shao--Zhao §8 tables enumerate paths, stars, cycles and other trees, not sunlets.",
+        "Returned published record on one-leaf coronas concerns super domination, not Italian labelled-functions enumerators."
+      ],
+      "reasoning": "No exact sunlet table or general coefficient/multiplicity formula was identified; the returned tables are for different graph families or invariants. Nonappearance is not logically definitive novelty.",
+      "searches": [
+        "\"Italian domination polynomial\" sunlet graph",
+        "Italian domination polynomial sunlet graph C_n corona K_1 enumerator",
+        "Semantic published-mathematics record query: Italian domination polynomial sunlet graph C_n corona K_1 enumerator",
+        "Shao--Zhao arXiv:2610.00108v1 numerical tables section 8"
+      ]
+    },
+    "rationale": "The 2020 general corona result implies the scalar minimum but no function multiplicity or full polynomial. The recent 2026 paper explicitly confines full polynomial algorithms to paths/trees/cycles and suggests cactus graphs as a next direction. Actual scientific database and web queries for both Italian and Roman {2} aliases and sunlet/corona enumerations found no identical or stronger result; residual unindexed priority risk remains.",
+    "residual_risks": [
+      "Unindexed or inaccessible literature could have independently counted Italian sunlet labelings.",
+      "General transfer-state algorithms are known in domination enumeration; originality is of the concrete full sunlet formula and exact minimum-family census, not transfer matrices per se.",
+      "No independent validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover sunlets; explicit future direction is broader cactus and bounded-treewidth families. Its general counting framing motivates but does not imply the new sunlet formulas.",
+        "evidence": [
+          "arxiv:2610.00108v1, §1.2 enumerates paths, trees, cycles; §8 tables, §9 open broader cactus direction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.00108",
+        "material_read": "Full accessible HTML: definitions §§1-2, contribution descriptions §§1.2, algorithms §§4-6, numerical enumeration §8, conclusion and references §9.",
+        "method": "Read primary HTML, text-search for sunlet/corona/unicyclic and inspect graph families, algorithms, numerical tables, and future-work statement.",
+        "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+        "trigger": "Most directly relevant 2026 polynomial-counting paper for the same Roman-{2}/Italian invariant."
+      },
+      {
+        "assessment": "Covers scalar gamma_I(S_n)=n+ceil(n/3), which is explicitly prior. Does not give full polynomial or classify/enumerate all minimum labels.",
+        "evidence": [
+          "arxiv:2006.02124v1, §3 Corollary 3.1: gamma_I(G odot K1)=n(G)+gamma(G)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.02124v1",
+        "material_read": "Accessible HTML: statement, proof context and Corollary 3.1 in §3, relevant general rooted-product hypotheses and references.",
+        "method": "Read primary HTML and compare exact corona theorem with coefficient and optimizer-count claims.",
+        "title": "Italian domination in rooted product graphs",
+        "trigger": "Potentially dominating general one-leaf-corona theorem for the same Italian invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "54ece453-94cc-4963-9010-e26e80b03996",
+  "value": {
+    "rationale": "A recent paper explicitly highlights extension of Italian-domination polynomial enumeration from trees and cycles to cactus graphs; sunlets form an infinite unicyclic cactus family with interacting pendant and cycle constraints. This gives the full polynomial and a complete, unexpectedly residue-sensitive optimum count, including a special minimum-column type present only when n=1 mod 3. The known scalar minimum does not determine those counts or configurations, and all weights are reproducibly computable from one nine-state transfer.",
+    "status": "PASS"
+  }
+}
