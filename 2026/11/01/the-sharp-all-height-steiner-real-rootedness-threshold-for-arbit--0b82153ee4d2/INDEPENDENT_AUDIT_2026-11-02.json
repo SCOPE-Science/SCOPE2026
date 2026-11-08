@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:02:03.212479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any compact planar convex base of area A>0 and perimeter P, direct slicing the 3D outer parallel body gives Vol(K_h+t B_3)=hA+(hP+2A)t+(pi h+pi P/2)t²+(4pi/3)t³. Using ell=P/(2pi), u=h/ell, z=t/ell and q=4pi A/P² yields F=4z³/3+(u+pi)z²+2(u+q)z+qu, for 0<q<=1. Put r=3(pi-4)/2 and q*=-r²-2r=15pi-9pi²/4-24≈0.9172799013958417. For q<q*, Bq=z²+2z+q has negative roots beta1<r<beta2<0; evaluation F(beta_i)=-(2/3) beta_i² (beta_i-r) gives three strict sign changes in disjoint negative intervals for every u>0. At q=q*, exact factorization F=(z-r)[4z²/3+(u+3pi-8)z+u(3pi/2-4)] has two distinct negative quadratic roots and precisely one u=u*≈0.6537122861709328 where r coincides as a double root, never triple. At that same u*, independently derived cubic discriminant as delta=q-q*: C1 delta+C2 delta²-(128/3)delta³, C1,C2<0 using exact formulas and certified pi bounds, so every q>q* gives one negative real root plus conjugate nonreal pair. Independent SymPy reconstruction checked critical/discriminant identities and the q6<q*<q7 regular polygon crossover. No finite random root sample is used as a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General 3D Steiner-root cones include many shapes and are not an iff for right-prism shape quotient.",
+          "The circular cylinder q=1 lies supercritical; a special case cannot imply both sides of q=q* for arbitrary convex bases."
+        ],
+        "reasoning": "Broad root region restrictions and product principles are compatible with the result but do not dominate its exact one-parameter sharp universal classification.",
+        "searches": [
+          "right prism Steiner polynomial all heights real roots isoperimetric quotient circular cylinder regular polygon cutoff",
+          "arxiv:0803.2346",
+          "Saorin Gomez 2008 thesis Example 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify.py, verification/mathematical package and independent SymPy polynomial discriminant reconstruction.",
+        "Saorín Gómez 2008 thesis, full original Example1.3 and rendered page.",
+        "Katsnelson 2008 Section12; Henk–Hernández Cifre 2008; Henk–Hernández Cifre–Saorín 2012.",
+        "Resultary search right circular cones; different geometry."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General product formula already yields the cubic coefficient identities and is explicitly credited as known.",
+          "Primary Saorín Example1.3 treats only q=1.",
+          "General 2008/2012 root location bounds neither establish the exact discriminant polynomial for all q nor the all-height iff."
+        ],
+        "reasoning": "The classical coefficient formula alone does not imply the complete real-root property; a new sharp sign analysis is needed. The cylinder is a specialization at q=1 and cannot cover q≤q*.",
+        "searches": [
+          "right prism Steiner polynomial all heights real roots isoperimetric quotient circular cylinder regular polygon cutoff",
+          "arxiv:0803.2346",
+          "Saorin Gomez 2008 thesis Example 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Katsnelson arXiv:0803.2346 Section12 general product calculus.",
+          "Saorín Gómez 2008 thesis Example 1.3 circular cylinder threshold, q=1 special case.",
+          "Henk–Hernández Cifre (2008) general location, 2012 ultra-logconcavity root cone."
+        ],
+        "reasoning": "The exact prism threshold is a property of the cubic specialized to planar-base products; general product-calculus and cylinder results cannot be read as an all-convex-base q≤q* classification without the new discriminant/interlacing proof.",
+        "searches": [
+          "right prism Steiner polynomial all heights real roots isoperimetric quotient circular cylinder regular polygon cutoff",
+          "arxiv:0803.2346",
+          "Saorin Gomez 2008 thesis Example 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently calculated q6≈0.9069<q*<q7≈0.93194 and discriminant signs.",
+          "Resultary right circular cone threshold pertains to cone geometry and different Steiner coefficients."
+        ],
+        "reasoning": "No equivalent natural table for all regular m-gonal prisms or area–perimeter universal witness was found; hidden old specialized prism calculations remain possible.",
+        "searches": [
+          "right prism Steiner polynomial all heights real roots isoperimetric quotient circular cylinder regular polygon cutoff",
+          "arxiv:0803.2346",
+          "Saorin Gomez 2008 thesis Example 1.3"
+        ]
+      },
+      "rationale": "The general Steiner polynomial product formula is established prior work (Katsnelson 2008). Henk–Hernández Cifre 2008 and Henk–Hernández Cifre–Saorín 2012 give root-location/cone restrictions, but the inspected statements do not identify this exact prism-specific isoperimetric quotient frontier. Saorín Gómez (2008) thesis Example 1.3 is direct same-family specialization for circular cylinders (q=1): its root regimes do not imply the all-base all-height threshold and base-independent witness, or the regular six-to-seven polygon cutoff. Full primary thesis example and relevant source theorem pages were directly inspected. Resultary returned a theorem for right circular cones, an essentially different volume polynomial.",
+      "residual_risks": [
+        "Historical-priority uncertainty remains for unindexed specialized work on prism Steiner roots; no claim of publication priority or external certification.",
+        "The complete phase diagram of supercritical q at every u is not classified: only one explicit failing u is required/proved.",
+        "Any external root formula must use ordinary Euclidean parallel volume, not Ehrhart/relative Steiner normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes q=1 circular-cylinder phenomenon, not the arbitrary planar base q threshold.",
+          "evidence": [
+            "Saorín Gómez 2008 thesis Example 1.3."
+          ],
+          "identifier_or_url": "https://webs.um.es/beca/Investigacion/SaorinGomez.pdf",
+          "material_read": "Original thesis Chapter1, Example 1.3, printed p.25 with associated circle-cylinder roots/height phase; rendered PDF page visually inspected.",
+          "method": "Lawful author-hosted full PDF via public web text and screenshot of the actual page.",
+          "title": "On Inner Parallel Bodies: From the Steiner Polynomial to Poincaré Inequality",
+          "trigger": "Decisive right circular cylinder same-family specialization"
+        },
+        {
+          "assessment": "Product coefficient calculation prior; does not alone decide 3D root discriminant sharpness.",
+          "evidence": [
+            "Katsnelson 2008 arXiv:0803.2346 §12."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.2346",
+          "material_read": "Section 12 relevant Cartesian product formulas and introduction, identified from primary source research comparison.",
+          "method": "Lawful arXiv full-text citation/section comparison.",
+          "title": "On H. Weyl and J. Steiner Polynomials",
+          "trigger": "Potential general product theorem that might imply claim"
+        },
+        {
+          "assessment": "Not a planar-base prism q frontier; broad global bounds are distinct.",
+          "evidence": [
+            "Henk–Hernández Cifre 2008, Rev. Mat. Iberoam. 24 631–644."
+          ],
+          "identifier_or_url": "https://ems.press/content/serial-article-files/38249?nt=1",
+          "material_read": "Main stated 3D root-region theorems, definitions and examples as accessible in original article.",
+          "method": "Publisher open mathematical text and targeted original theorem comparison.",
+          "title": "Notes on the roots of Steiner polynomials",
+          "trigger": "Potentially dominating general root inequalities"
+        },
+        {
+          "assessment": "General relative Steiner-root cones, not this all-height prism iff.",
+          "evidence": [
+            "Henk, Hernández Cifre, Saorín 2012, Communications in Contemporary Mathematics 14."
+          ],
+          "identifier_or_url": "https://webs.um.es/mhcifre/preprints/henk_saorin%20steiner_log.pdf",
+          "material_read": "Original preprint abstract and main root-cone statements; detailed selected passages as available.",
+          "method": "Author-hosted text and publication comparison.",
+          "title": "Steiner Polynomials via Ultra-logconcave Sequences",
+          "trigger": "Could contain exact root-cone implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordinary Steiner cubic root geometry of 3D convex bodies is a standard structural problem. The result gives a complete all-positive-height real-rootedness classification simultaneously for every planar convex base using one natural isoperimetric invariant q, including a sharp universal normalized witness height for all excluded shapes. The regular m-gon threshold between six and seven sides supplies a clear natural family cutoff, not arbitrary computational slices. This theorem is nontrivial beyond the classical product-coefficient calculation or isolated circular-cylinder case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, verify.py, verification/mathematical package and independent SymPy polynomial discriminant reconstruction.",
+    "Saorín Gómez 2008 thesis, full original Example1.3 and rendered page.",
+    "Katsnelson 2008 Section12; Henk–Hernández Cifre 2008; Henk–Hernández Cifre–Saorín 2012.",
+    "Resultary search right circular cones; different geometry."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical-priority uncertainty remains for unindexed specialized work on prism Steiner roots; no claim of publication priority or external certification.",
+    "The complete phase diagram of supercritical q at every u is not classified: only one explicit failing u is required/proved.",
+    "Any external root formula must use ordinary Euclidean parallel volume, not Ehrhart/relative Steiner normalization."
+  ],
+  "residual_risks": [
+    "Historical-priority uncertainty remains for unindexed specialized work on prism Steiner roots; no claim of publication priority or external certification.",
+    "The complete phase diagram of supercritical q at every u is not classified: only one explicit failing u is required/proved.",
+    "Any external root formula must use ordinary Euclidean parallel volume, not Ehrhart/relative Steiner normalization."
+  ],
+  "schema_version": 1
+}
