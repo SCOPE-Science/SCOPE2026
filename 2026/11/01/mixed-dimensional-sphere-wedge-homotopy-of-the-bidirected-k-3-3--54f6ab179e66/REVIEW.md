@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The face predicate is precisely the multipath condition (indegree and outdegree at most one and no directed cycles). Two independent full face enumerators agree on all 714 nonempty simplices. The matching comprises 341 legal, disjoint codimension-one pairs, and the directed incidence graph obtained by reversing its 341 arrows is explicitly acyclic on all 714 faces. Exact integral recursive cancellation yields the zero 19-by-12 Morse differential. One zero-cell and no 1- or 2-cells make the Morse three-skeleton a wedge of 19 three-spheres; Hurewicz identifies the integer attaching degrees with the complete homotopy classes of the twelve four-cell attachments. All vanish. Separate binary simplicial boundary ranks agree. The proof applies to this precisely specified six-vertex digraph, not to an infinite family.
+## correctness
 
-## Originality (PASS, with residual uncertainty)
-The closest recent source is Caputi–Collari–Smith, arXiv:2601.05670v1 (2026-01-09), especially the introductory theorem statements, definitions, the acyclic-digraph matching theorem and the bidirectional-polygon arguments. Its homology results assume a polygon or a specified T-operation and do not imply the result for the 3-regular bidirected complete bipartite graph. Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1, Section 3.2, explicitly define their bipartite digraph with all arrows going one way, not with both arrows. Related indexed results on bidirected double-stars, ordinary discrete Morse complexes of the undirected graph, and undirected two-matching complexes concern different complexes. No searched statement implies this integral homotopy decomposition. Searches and indexing are incomplete: an equivalent unindexed or differently formulated result remains possible.
+PASS
 
-## Mathematical value (PASS)
-The bidirected \(K_{3,3}\) is the smallest balanced cubic complete bipartite example beyond bidirectional paths and cycles, and the classical six-vertex nonplanar obstruction graph underlies it. Its 18-arc multipath complex is a natural test for homotopy behavior when the acyclic-digraph blow-up theorem fails due to directed two-cycles. The exact mixed-dimensional wedge, the simultaneous 19/12 sphere counts and the zero integer attaching differential supply genuinely structural integral information, rather than a routine Euler characteristic or a single finite-field Betti table. The finite result does not purport to settle the general family.
+For D=bidirected K_{3,3} (18 arcs, six vertices), multipaths are exactly arc sets with indegree/outdegree <=1 and no directed cycles, including nine forbidden two-cycles. Independently enumerated all 2^18-1 masks: 714 nonempty faces, f=(18,108,264,252,72). Reconstructed the specified coordinate matching with 341 legal pairs, entire 2376-incidence oriented Hasse digraph acyclic, critical cells one 0-cell, 19 dimension-3 and 12 dimension-4. Independent exact signed integral gradient-path recursion yields the zero 19x12 degree-four Morse boundary; original result/verifier prove the same. Hurewicz pi_3(wedge^19 S^3)=Z^19 shows every 4-cell attachment null, giving wedge^19 S^3 vee wedge^12 S^4. Mod-2 ranks alone would not prove this integral homotopy.
 
-## Closest literature and limits
-Caputi–Collari–Smith (2026), Theorems 1.4, 2.8, 2.10, and Caputi–Collari–Di Trani–Smith (2022), Section 3.2, were compared at the level of graph orientation and theorem hypotheses. All numerical/acyclicity claims are independently reproducible with the included standard-library checker. Further independent examination and comparison with unindexed work would be valuable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assertion is about the bidirected complete bipartite multipath complex, not the bidirected polygon, unidirectional chessboard complex or undirected Morse/matching complex. Independent Resultary queries did not find the asserted 19/12 homotopy type. It does not follow by specialization of the inspected published general results; priority remains best-of-knowledge only.
+
+## value
+
+PASS
+
+The bidirected K3,3 is the smallest balanced cubic complete bipartite graph, with directed 2-cycles obstructing the usual acyclic blow-up theorem; the exact 19/12 wedge establishes a natural mixed-dimensional integral homotopy benchmark. It is not just an Euler-characteristic or field-Betti recomputation, and no family-wide extrapolation is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
