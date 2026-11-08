@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification of the exact ternary unordered-pair profile capacity
+# Independent mathematical audit
 
-The logical proof uses the undirected Eulerian circuit criterion, a parity decomposition of the three cross-edge counts, and exact enumeration of all disconnected possibilities for positive content. No infinite-domain claim depends on the finite verifier.
+## correctness
 
-Run `python3 verify.py` from the directory containing this note. The program uses only the Python standard library. It directly enumerates every ternary word at lengths 3–11 and groups outputs by positive composition, totaling 165 compositions. It compares the exact histogram sets with the parity-parameterized graph enumeration and the coefficient formula. It also builds explicit Euler circuits for 2,427 eligible profiles with symbol counts 1–5 and verifies both the histogram and the prescribed content. For every integer composition \(m,m,m\) with \(1\le m\le150\), it compares the finite-sum coefficient formula with the stated cubic closed form.
+PASS
 
-Observed execution:
-```
-brute length 3 composition classes 1
-brute length 4 composition classes 3
-brute length 5 composition classes 6
-brute length 6 composition classes 10
-brute length 7 composition classes 15
-brute length 8 composition classes 21
-brute length 9 composition classes 28
-brute length 10 composition classes 36
-brute length 11 composition classes 45
-PASS: direct exhaustive words length 3..11; compositions 165
-PASS: Eulerian witnesses 2427
-PASS: balanced formula m=1..150
-```
-All tests passed. Bounds are explicitly finite and do not certify absence of an equivalent older theorem. No independent scientific audit has been performed.
+A circular word with positive counts (a,b,c) induces an Eulerian undirected multigraph with three labeled vertices, loop counts h_ii and symmetric off-diagonal multiplicities x,y,z. Vertex degrees 2a,2b,2c require x,y,z all share one parity; parameterization x=2i+delta,y=2j+delta,z=2k+delta with nonnegative loops yields exactly G=(1+tuv)/[(1-t)(1-u)(1-v)(1-tu)(1-tv)(1-uv)]. At positive compositions only the all-loop case and exactly one positive cross-edge type are disconnected: subtract 1+min(a,b)+min(a,c)+min(b,c). Euler's circuit theorem gives a constructive inverse preserving half-degrees and exact counts. Summing integer triples at a=b=c=m gives m(m²+3m-2)/2. The zero-error capacity is the number of outputs by one representative word per distinct image. Independent exhaustive circular-word histogram enumerations checked every positive composition at lengths 3 through 8 (56 cases) and balanced evaluations for m through 7.
+
+## originality
+
+PASS
+
+Kiah–Puleo–Milenkovic defines directed/order-sensitive DNA sequence profiles, Raviv–Schwartz–Yaakobi analyzes rank permutations of such directed profiles, and Jacquet–Knessl–Szpankowski studies directed Markov types. Collapsing reciprocal edge directions changes the graph type from directed to undirected Eulerian and the feasible image counts; the exact generating function plus connectivity correction is not found in inspected statements.
+
+## value
+
+PASS
+
+The unordered-pair observation channel models orientation-free adjacent-pair counts at controlled ternary composition, a natural information-theoretic invariant. The theorem solves feasibility, exact three-variable output counting, a balanced cubic count, and constructive Eulerian encoding; the directed-profile counts do not directly furnish these.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

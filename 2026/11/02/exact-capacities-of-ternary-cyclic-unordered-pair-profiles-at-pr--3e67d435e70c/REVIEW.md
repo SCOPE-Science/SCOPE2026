@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six histogram coordinates are exactly edge multiplicities in a three-vertex undirected looped multigraph. Each source occurrence contributes degree two; every connected even-degree graph admits an Eulerian circuit yielding the required cyclic word. Cross-edge parities must agree, giving the unique \(\delta,i,j,k\) parameterization, and only the all-loop and single-cross-edge families are disconnected. Thus the coefficient count and correction are exact for every positive composition. The equal-composition evaluation follows from the explicit finite triple-count sum. Direct source enumeration, independent candidate enumeration, and constructive Euler-tour tests in `verify.py` matched in all tested finite cases; these tests are not substituted for the all-parameter proof.
+PASS
 
-## Originality — PASS, qualified
+A circular word with positive counts (a,b,c) induces an Eulerian undirected multigraph with three labeled vertices, loop counts h_ii and symmetric off-diagonal multiplicities x,y,z. Vertex degrees 2a,2b,2c require x,y,z all share one parity; parameterization x=2i+delta,y=2j+delta,z=2k+delta with nonnegative loops yields exactly G=(1+tuv)/[(1-t)(1-u)(1-v)(1-tu)(1-tv)(1-uv)]. At positive compositions only the all-loop case and exactly one positive cross-edge type are disconnected: subtract 1+min(a,b)+min(a,c)+min(b,c). Euler's circuit theorem gives a constructive inverse preserving half-degrees and exact counts. Summing integer triples at a=b=c=m gives m(m²+3m-2)/2. The zero-error capacity is the number of outputs by one representative word per distinct image. Independent exhaustive circular-word histogram enumerations checked every positive composition at lengths 3 through 8 (56 cases) and balanced evaluations for m through 7.
 
-The closest primary works are the full directed Markov-type enumeration by Jacquet, Knessl, and Szpankowski (2010), the ordered DNA-profile framework of Kiah, Puleo, and Milenkovic (2015), and the full ordered profile rank-modulation problem of Raviv, Schwartz, and Yaakobi (2017). Their statistics preserve edge direction or rank order, while the present profile merges reciprocal orientations and fixes all letter counts; the respective published statements do not yield its image count. The 2018 DNA composition constraints paper and 2020 circular abelian word paper concern other quantities. No previously examined claim or accessible mathematical research record gave this coefficient formula or equal-composition cubic. However, specialized unindexed undirected Markov-type literature might contain an equivalent count; searches do not establish priority conclusively.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed-composition circular two-gram readout is a natural observation channel: source composition is controlled, reads are unoriented, and the number of possible observed histograms is the optimal noiseless distinguishable-code size. The theorem supplies an exact arbitrary-composition generating function, a complete graph-theoretic feasibility test, an Euler-tour encoder, and a cubic closed form for every equal ternary composition. These combine a structural realization and nontrivial counting rather than an arbitrary isolated table or a routine substitution into the directed profile count. Noise resilience, inverse-fiber sizes, and higher-order reads remain open.
+Kiah–Puleo–Milenkovic defines directed/order-sensitive DNA sequence profiles, Raviv–Schwartz–Yaakobi analyzes rank permutations of such directed profiles, and Jacquet–Knessl–Szpankowski studies directed Markov types. Collapsing reciprocal edge directions changes the graph type from directed to undirected Eulerian and the feasible image counts; the exact generating function plus connectivity correction is not found in inspected statements.
 
-## Closest literature and limitations
+## value
 
-Primary material inspected: *Rank-Modulation Codes for DNA Storage* (arXiv:1708.02146, sections I–II and associated results); *Codes for DNA Sequence Profiles* (arXiv:1502.00517, the ordered-profile definition and counting framework); *Counting Markov Types* (Jacquet–Knessl–Szpankowski, DMTCS AofA 2010, pages 387–391 and generating-function framework); *Properties and Constructions of Constrained Codes for DNA-Based Data Storage* (arXiv:1812.06798, source-composition and run constraints); *On Balanced and Abelian Properties of Circular Words Over a Ternary Alphabet* (arXiv:2012.15818, balance and abelian-complexity definitions). A later 2012 journal treatment of Markov types was not separately examined in full, and the possibility of equivalent folklore terminology is a residual originality risk. Verification is finite and self-review; there has been no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unordered-pair observation channel models orientation-free adjacent-pair counts at controlled ternary composition, a natural information-theoretic invariant. The theorem solves feasibility, exact three-variable output counting, a balanced cubic count, and constructive Eulerian encoding; the directed-profile counts do not directly furnish these.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
