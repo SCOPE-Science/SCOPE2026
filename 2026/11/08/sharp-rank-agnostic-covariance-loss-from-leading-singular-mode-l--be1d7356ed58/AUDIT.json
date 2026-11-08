@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every finite real A, every K>=1 and 1<=r<n, the white-noise covariance is exactly sigma^2 omega f_K(omega A^T A). The derivative equation proves a unique interior maximum of f_K for K>=2. Unimodality proves f_K(t)<=M_K f_K(s) whenever t<=s; for each worst omitted mode this forces r retained and one omitted covariance eigenvalues to be >= its weight/M_K. The resulting eigenvalue counting yields the all-rank spectral bound by the best-rank theorem. The (r+1)-dimensional spectrum with r unit eigenvalues and one critical eigenvalue attains equality. Uniform compactness yields the sharp M_K/K asymptotic. The K=1, zero-eigenvalue and zero-best-error boundaries are covered. Extracted checker passed 24486 finite assertions, supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ito–Jin (2019), arXiv:1909.01947, Sections 3 and 4: approximation of regularized solutions and their perturbation/relative errors.",
+        "Gazzola–Sabaté Landman (2020), DOI:10.1002/gamm.202000017, Sections 1-3: spectral filters for reconstruction, iterative stopping, Krylov projection.",
+        "Classical Eckart–Young–Mirsky principle supplies only the best covariance rank-r error, not an upper bound for another, normal-eigenmode-selected rank-r space."
+      ],
+      "reasoning": "A source with a general theorem comparing the eigenvalue-order truncation of B against that of a nonmonotone f(B) could dominate the present proof if its assumptions yield the optimal factor. Neither inspected inverse-problem paper states that broader implication. Generic optimal-truncation theory alone does not rank the retained eigenmodes after applying f.",
+      "searches": [
+        "\"Landweber\" \"rank\" \"covariance\" \"spectral norm\" optimal",
+        "\"iterative regularization\" \"covariance\" \"singular values\" \"rank\" approximation",
+        "doi:10.1002/gamm.202000017 Sections 1-3",
+        "arxiv:1909.01947v1 Sections 3-4 and Appendix"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.00882v1",
+      "https://arxiv.org/abs/1909.01947",
+      "https://doi.org/10.1002/gamm.202000017",
+      "https://doi.org/10.1137/1.9781611975383.ch2 (metadata only)",
+      "Published mathematical record: Sharp Rayleigh-residual distortion under normal spectral filtering (2026; different quantity)",
+      "Previously available Landweber covariance Rademacher diagonal-probing result (different estimand and guarantee)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abhishek–Holman (2026) equation (3.26) defines a top-normal-rank covariance surrogate and Section 3.6.2 additionally estimates its residual, but does not bound spectral-rank competitiveness to the optimal covariance surrogate.",
+        "Ito–Jin (2019) Theorems 4.1–4.4 compare approximate and true inverse reconstructions under source assumptions; their claims do not imply an exact all-rank covariance spectral ratio.",
+        "Gazzola–Sabaté Landman (2020) reviews spectral filters and truncation for reconstructions, without the singular-mode covariance ranking comparison.",
+        "The best-approximation inequality and covariance filter together permit a short route to this new bound once the nonmonotone scalar ordered-filter envelope is established; the exact envelope, sharpness and asymptotic constant are not quoted from earlier sources."
+      ],
+      "reasoning": "Reversing implications: the new inequality is not a guarantee of confidence coverage or solver reconstruction error, so it cannot contradict or replace the prior statistical framework. Existing covariance formula alone does not state or logically imply the new numeric optimal factor without the additional scalar envelope and rank-counting argument; these computations may still be a corollary of an unknown general approximation theorem.",
+      "searches": [
+        "arxiv:2610.00882v1 equations (3.26)-(3.27), Section 3.6, Appendix 5.1",
+        "arxiv:1909.01947v1 Theorems 4.1-4.4",
+        "doi:10.1002/gamm.202000017 Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abhishek–Holman (2026) Sec. 3.6 computes covariance weights but does not compare normal-eigenmode truncation to optimal propagated-covariance rank truncation in inspected full-text sections.",
+        "Published 2026 mathematical record \"Sharp Rayleigh-residual distortion under normal spectral filtering\" concerns Rayleigh residuals of normalized vectors, not covariance compressions.",
+        "Available covariance-diagonal probing analysis concerns shared Rademacher probes and concentration, not spectral best-rank error."
+      ],
+      "reasoning": "Equivalent phrasing would state an all-rank quasi-optimality comparison for a nonmonotone spectral filter, perhaps as a subspace-selection theorem. Relevant listed works do not formulate that inequality with the Landweber covariance filter; any generic functional calculus theorem with a suitable spectral envelope could be stronger and would imply it, so that possibility is retained.",
+      "searches": [
+        "\"Landweber\" \"covariance\" \"rank-one\" \"truncation\" \"optimal\"",
+        "Landweber covariance spectral response maximum at t/K, e^t=1+2t, variance peak 0.407264 times K, ranking reversal between singular values and covariance",
+        "arxiv:2610.00882v1 Section 3.6.1 and 3.6.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Keyword, equation-shape and semantic published-record searches returned related low-rank and filtered-spectral approximation results but not the exact M_K constant or the r+1-dimensional equality construction.",
+        "In particular, a previously published covariance-diagonal Rademacher probing result treats different estimands and risk metrics."
+      ],
+      "reasoning": "The claim is a continuous sharp all-rank extremal value, not a tabulated finite instance. No exact indexed table or database entry was identified. Search absence is limited evidence, not proof of originality.",
+      "searches": [
+        "\"Landweber\" \"covariance\" \"rank approximation\" \"sharp\"",
+        "Nonmonotone Landweber variance spectral filter rank ordering reversal top singular values, worst-case rank selection gap",
+        "Exact eigenvalue filter f(t)=(1-(1-t)^k)^2/t has a unique interior maximum; sharp uniform ratio between rank-r TSVD of normal operator and rank-r of propagated covariance"
+      ]
+    },
+    "rationale": "The source supplies the Landweber covariance eigenvalues and leading-normal-eigenspace truncation. It does not, in the sections inspected, provide the all-rank best-covariance approximation ratio, its unique sharp adversarial spectrum, or the asymptotic 0.407264... K growth. Earlier inverse-problem RSVD and spectral-filtering literature inspected concerns reconstruction error or regularization parameters rather than this sharp covariance-rank competitiveness. Standard rank-r best approximation and the filter are explicitly acknowledged as prior. Searches are neither exhaustive nor proof of priority; an inaccessible spectral-filtering chapter and other unindexed sources are residual risk.",
+    "residual_risks": [
+      "Unindexed equivalent all-rank approximation results for nonmonotone spectral filters might imply the result despite no matching accessible statement.",
+      "Bardsley 2018 Chapter 2 full text unavailable: no assertion of absence of the specific result inside that chapter.",
+      "The motivating paper has a residual-corrected method; no evaluation of its total statistical or algorithmic guarantees follows from the raw top-r comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVARIANCE_FILTER_AND_TRUNCATION_PRIOR; NO_IDENTIFIED_SHARP_RANK_RATIO_IN_INSPECTED_MATERIAL",
+        "evidence": [
+          "Equations in Sections 3.3 and 3.6 give exact covariance eigenvalues and top-r truncation in normal-operator basis.",
+          "Section 3.6.2 explicitly models omitted covariance via stochastic residual estimate; the result here is not a statement about that full corrected estimator.",
+          "No inspected theorem gives an all-rank sharp spectral-norm ratio against optimally selected covariance eigenmodes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+        "material_read": "Full accessible article text, including introduction; Sections 3.1-3.6 with formulas (3.26)-(3.27); numerical discussion; and Appendix 5.1 covariance factorization.",
+        "method": "Primary arXiv rendered HTML full-text section comparison by definitions, covariance formula, rank selection and theorem statements.",
+        "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "trigger": "same object: exact Landweber propagated covariance, low-rank normal-operator approximation and stochastic residual correction"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_NOT_COVERING_IN_INSPECTED_FULL_TEXT",
+        "evidence": [
+          "Theorems 4.1–4.4 concern solution error and perturbation of RSVD-based regularized inversions.",
+          "The paper contains no Landweber propagated-covariance truncation formula or stated sharp rank competitiveness factor."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.01947",
+        "material_read": "Accessible arXiv full article text: introduction, Section 3 constructions, Section 4 error theorems, Sections 5 and 6 summaries, and appendix discussion.",
+        "method": "Read primary text, compare inverse reconstruction and its perturbation bounds to best-rank propagated covariance error.",
+        "title": "Regularized Linear Inversion with Randomized Singular Value Decomposition",
+        "trigger": "plausibly broader RSVD regularization and rank selection analysis"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_DIRECT_COVERAGE_IN_INSPECTED_SECTIONS",
+        "evidence": [
+          "Early-stopping spectral-filter descriptions concern inverse reconstruction and stopping criteria; only generic observational white-noise covariance appears, not the propagated-covariance rank-compression ratio."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/gamm.202000017",
+        "material_read": "Open-access article Sections 1-3, especially spectral filters, early stopping and projection method descriptions, with references and related sections.",
+        "method": "Primary full-text web access; searched for covariance and low-rank terms and inspected spectral filtering context.",
+        "title": "Krylov methods for inverse problems: Surveying classical, and introducing new, algorithmic approaches",
+        "trigger": "possible broader theorem on spectral filtering, iterative rank selection and variance amplification"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE; PRIORITY_RISK_NOT_DISMISSED",
+        "evidence": [
+          "Chapter title matches general spectral filtering but no exact formula or conflicting claim is established from available metadata alone."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1.9781611975383.ch2",
+        "material_read": "Publisher table of contents and chapter bibliographic abstract only; full chapter unavailable.",
+        "method": "Tried open and accessible copies; no full-text inspection possible within available access.",
+        "title": "Computational Uncertainty Quantification for Inverse Problems, Chapter 2: Regularization by Spectral Filtering",
+        "trigger": "plausible historical account of covariance under spectral-filtered inverse solvers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be1d7356-ed58-41e9-9435-15c9f8586da6",
+  "value": {
+    "rationale": "Low-rank normal-operator truncation is a motivated approximation used to accelerate propagated uncertainty evaluation. The natural rank-r operator-norm competitiveness loss against the best covariance rank-r approximation is determined exactly, uniformly over dimension and retained rank, with a sharp r+1 dimensional extremal family and a growth law approximately 0.407264 K. The result distinguishes singular-mode ranking for reconstruction from mode ranking for noise uncertainty. It does not claim improvements or degradation in coverage, bias, or randomized residual-corrected implementations.",
+    "status": "PASS"
+  }
+}
