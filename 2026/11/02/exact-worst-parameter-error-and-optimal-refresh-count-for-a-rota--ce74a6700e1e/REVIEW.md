@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The scalar pointwise residual follows from direct projection of a diagonal \(2\times2\) matrix. A uniform projective angle converts the simultaneous inequality into an exact intersection of circular arcs. This establishes the distribution, boundary atom and the mean through an elementary exact integral. Independence yields the partition product. AM-GM proves the unique positive equal-partition optimum; a strictly negative second derivative proves the unique continuous optimal sketch count and the lower-Lambert-branch formula. The standalone checker independently rebuilds the matrices and tests the critical identities. No finite experiment is used as a proof of an infinite-domain statement.
+PASS
 
-## Originality
+For a planar SPD eigenbasis orbit A_theta=R_theta diag(1,epsilon)R_theta^T, a single fixed projective-isotropic probe has relative squared Frobenius error E_theta=[cos^2(phi-theta)+epsilon^2 sin^2(phi-theta)]^-1. For 1<=x<epsilon^-2, the set of phi passing all theta on the arc has projective length (2 arccos(sqrt((1/x-eps^2)/(1-eps^2)))-Theta)_+; hence exact CDF (q_epsilon(x)-Theta/pi)_+, atom min(Theta/pi,1) at the worst value. Integration over projective angles gives E Z_Theta=Theta/(pi epsilon^2)+2/(pi epsilon) arctan(tan((pi-Theta)/2)/epsilon) when Theta<=pi and epsilon^-2 beyond. Independent preassigned probes on K blocks multiply independent probabilities; AM-GM gives equal-part optimum (q-t/K)_+^K. Strict negativity of f"(k) and Lambert-W root establish unique continuous optimizer and integer neighbors, with the t->infinity law. Independent angular quadrature, mean integral and optimization checks corroborated and treat Theta=0,pi boundaries.
 
-**PASS with residual publication-priority risk.** Kressner and Lam's parameter-dependent constant-sketch algorithm is the closest paper; its uniform-norm theorem has oversampling hypotheses and supplies bounds rather than the exact one-vector angular supremum distribution and the independent-renewal optimization. Classical HMT and more recent sharp single-matrix randomized-SVD analyses treat fixed matrices; the previously known planar pointwise Gaussian expected error does not determine the joint reuse supremum. Searches for arc-covering, rotating singular vectors, rank-one sketch uniform risk and independent renewal did not produce a dominating statement. Equivalent formulations in specialized literature remain possible and have not been independently ruled out.
+## originality
 
-## Value
+PASS
 
-**PASS.** Reusing a single sketch over a smooth family is computationally attractive, but the worst-parameter objective behaves qualitatively differently from pointwise error: even a short positive angular interval creates positive mass at maximal error, and a halfturn forces it. The exact law and finite optimal renewal density turn that failure mechanism into a precise preassigned refresh design rule. This is a motivated benchmark for continuous-parameter randomized range finding, not a generic high-dimensional or adaptive guarantee.
+Kressner and Lam investigate reused random dimension reduction for parameter-dependent matrices but their uniform estimates in the inspected theorem require oversampling and are not the exact one-probe planar worst-parameter distribution/atom. Halko-Martinsson-Tropp and Epperly-Webber bound or characterize fixed-matrix errors, not this joint shared-probe arc law or independent-refresh optimum.
 
-## Boundaries
+## value
 
-Only real \(2\times2\) positive-definite rotating matrices with fixed unequal eigenvalues, a single sketch direction and deterministic independent-renewal segments are covered. Neither full high-dimensional applicability nor publication priority is independently certified. The exact finite verifier is an additional check, not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact model isolates a real uniform-in-parameter instability of reusing a Gaussian sketch: mean factor of order epsilon^-2 for fixed positive angular sweep versus epsilon^-1 at a single parameter. Optimal nonadaptive refresh density quantifies a practically motivated tradeoff, even though dimension two and one probe are restrictive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
