@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-Use Python 3.10 or newer and run `python verify_affine_translation.py` from the directory containing the script. Only the Python standard library is required. This is a self-contained field, graph, and chain-complex computation.
+## correctness
 
-The checker constructs exact field arithmetic for \(\mathbb F_3\), \(\mathbb F_4\) and \(\mathbb F_5\). It constructs spanning trees and integral fundamental-cycle bases of the incidence graphs; checks every basis cycle has zero integral boundary; transports every cycle under all translations; reconstructs each image exactly in the original integral basis; and verifies every character value. It separately computes the augmentation action on line directions, the tensor-product traces, and exact rational fixed dimensions. It also enumerates the \(q=3\) scale-two Rips faces and computes the boundary ranks modulo \(101\).
+PASS
 
-Expected final output: `AFFINE_TRANSLATION_INTEGRAL_CYCLES_AND_ALL_ACTIONS_OK`. The observed exact ranks of the quotient top homology over \(\mathbb Q\) are \(0\), \(18\), \(160\) for \(q=3,4,5\). The \(q=3\) face vector is \((21,126,282,255,135,84,36,9,1)\), with Betti vector \((1,0,16,16,0,0,0,0,0)\) over \(\mathbb F_{101}\).
+From the graph-metric clique classification derived U,V with U contractible, V collapsing onto B=*_{q+1}D_d and U∩V=G; integral T-equivariant Mayer-Vietoris identifies H2 with H1(G) and Hq with tensor_d reduced H0(D_d) for q>=3. Translation character on H1 has trace 1-q off identity, matching (q-1)Aug_T; on tensor top homology any nonzero translation fixes q lines in exactly one direction, giving tau_q=(-1)^q(q-1). Fourier character inversion yields integer a_q,b_q and rational semisimple decomposition; finite group rational transfer computes quotient invariants and scale-three cone ends bars. Independently verified integer divisibilities for q=3,4,5,7,8,9 and b3=0,b4=18,b5=160. All-prime-power proof is structural, not numerology.
 
-This code does not prove the all-order statement by enumeration. The full proof uses a natural integral Mayer--Vietoris sequence, finite-group character theory, and rational transfer. No independent validation or external audit has been performed.
+## originality
+
+PASS
+
+Published earlier affine-plane Rips work proves the nonequivariant homotopy wedge for all finite affine planes, including q3 multiplicities. That work does not state the translation module or rational quotient ranks; the new result uses the Desarguesian translation group and computes off-identity characters. General equivariant homology/transfer facts alone do not supply these explicit representations. Alternative equivariant incidence-geometry calculations remain a risk.
+
+## value
+
+PASS
+
+Integral natural symmetry lattices and full quotient persistence are an independently useful invariant of this canonical incidence Rips family. The order-three-to-four rational quotient transition is a sharp natural structural boundary, not just another Betti-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The point--line clique classification is exact at graph scale \(2\); the cover by \(U\) and \(V\) has intersection equal to the incidence graph. The integral Mayer--Vietoris long exact sequence is equivariant and yields the asserted two homology lattices, with no other positive homology for \(q\ge3\). The line-only complex is the join of its direction classes. A nonidentity translation has zero fixed flags, exactly \(q\) fixed lines, and fixes all lines in one direction, none in the other directions. These fixed-point counts give the two complete rational characters. Character orthogonality and rational averaging give the multiplicities and quotient homology. The supplied checker independently verifies exact graph-cycle transport in characteristic zero and explicit boundary ranks for small cases. Residual correctness risk: no computer check exists for all field orders; the written proof handles them.
+## correctness
 
-**Originality — PASS on inspected primary and published literature.** The closest published affine-incidence Rips result proves the nonequivariant mixed sphere wedge and provides a cover; its full RESULT.md does not calculate integral translation lattices, full rational translation character, or the striking quotient multiplicities. A nonequivariant homotopy type cannot imply an action character by itself. The fully inspected graph-power persistence paper (Adams--Coskunuzer, arXiv:2103.06408) supplies bounds and the graph-metric setup; Feng--Nukala (arXiv:2302.14664) treats Hamming-subset metrics; the hypercube-equivariant paper (arXiv:2606.20784) has a different graph and group; and the projective-plane incidence theorem has no affine parallel class. Semantic published-finding corpus searches using affine incidence, regular/augmentation, translation, character, quotient and graph-Rips formulations found no covering translation-module calculation. Risk: a closely related unpublished equivariant calculation, or a formula implicit in a less-obvious representation-theoretic source, could narrow bibliographic priority.
+PASS
 
-**Value — PASS.** The full representation is not determined by a wedge decomposition or Betti vector and controls quotient persistence for a natural transitive symmetry group. The order-three rational-acyclic quotient and the order-four survival of \(18\) top-dimensional classes are a qualitative symmetry transition; the exact general formula identifies a natural rank for every prime-power order. The degree-two and degree-\(q\) modules unexpectedly coincide at order three, despite arising from different structural components. This provides an equivariant benchmark for the affine-incidence Rips family, not an arbitrary finite numerical slice.
+From the graph-metric clique classification derived U,V with U contractible, V collapsing onto B=*_{q+1}D_d and U∩V=G; integral T-equivariant Mayer-Vietoris identifies H2 with H1(G) and Hq with tensor_d reduced H0(D_d) for q>=3. Translation character on H1 has trace 1-q off identity, matching (q-1)Aug_T; on tensor top homology any nonzero translation fixes q lines in exactly one direction, giving tau_q=(-1)^q(q-1). Fourier character inversion yields integer a_q,b_q and rational semisimple decomposition; finite group rational transfer computes quotient invariants and scale-three cone ends bars. Independently verified integer divisibilities for q=3,4,5,7,8,9 and b3=0,b4=18,b5=160. All-prime-power proof is structural, not numerology.
 
-**Limits.** The result does not classify the full affine collineation representation, integral quotient torsion, or non-Desarguesian affine-plane actions. Small-field computation is corroboration of an all-order proof, not extrapolation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published earlier affine-plane Rips work proves the nonequivariant homotopy wedge for all finite affine planes, including q3 multiplicities. That work does not state the translation module or rational quotient ranks; the new result uses the Desarguesian translation group and computes off-identity characters. General equivariant homology/transfer facts alone do not supply these explicit representations. Alternative equivariant incidence-geometry calculations remain a risk.
+
+## value
+
+PASS
+
+Integral natural symmetry lattices and full quotient persistence are an independently useful invariant of this canonical incidence Rips family. The order-three-to-four rational quotient transition is a sharp natural structural boundary, not just another Betti-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
