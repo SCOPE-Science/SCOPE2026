@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:07:51.232044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At any state with x clique and y independent unmatched vertices of K_x∨bar(K_y), eligible clique edges number x(x−1)/2 and cross edges xy; the next uniformly sampled edge is therefore internal with probability (x−1)/(x−1+2y) and crossing with probability 2y/(x−1+2y). Conditioning gives the stated finite rational distribution recursion and exact endpoints. Independent small-state rational recursion reproduced representative terminal laws and matching-size parity. For a_n/n→α>0,b_n/n→β>0, exponential edge clocks of rate 1/n yield fluid drift dx/dt=−x²−xy,dy/dt=−xy. The first integral x/y−log(y/β)=α/β leads to terminal survivor y*=βe^(−α/β). Uniform drift/martingale estimates justify endpoint convergence; stopping when x<=εn controls late survivors. The finite-parameter invariant H_n=x/y−log(y/β_n)−r_n has jumps O(1/n) and conditional drift O(1/n²) per accepted match; its centered martingale bracket converges to [4−e^(−r)(r+2)²]/y*. A stopping argument keeps the late part O(ε²), allowing martingale CLT and delta method Y centered at z_n=b_n exp(−a_n/b_n) with variance v=βe^(−r)[4−e^(−r)(r+2)²]. This v>0 for r>0. Matching size differs from (a+b−Y)/2 by at most 1/2, preserving the CLT. The maximum matching size is min(a,floor((a+b)/2)); differentiating the two branches of the asymptotic efficiency ratio gives a unique minimum at r=1 of 1−1/(2e). The finite exact solver check.py was read; full-edge-order enumeration and simulations corroborate only finite cases, not the stopped martingale limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arnosti DOI:10.1287/stsy.2021.0082 original full accessible article text",
+          "Dyer–Frieze DOI:10.1002/rsa.3240020104 abstract only",
+          "Dyer–Frieze–Pittel DOI:10.1214/aoap/1177005436 abstract/bibliography"
+        ],
+        "reasoning": "General randomized greedy matching and sparse random-graph limit theorems are broader in model category but their known publicly described conclusions are not exact for deterministic dense complete split graphs and do not provide the explicit split-graph v or 1−1/(2e). Full Dyer–Frieze source unavailable, so no blanket non-coverage judgment.",
+        "searches": [
+          "Resultary: greedy random edge matching complete split graph matching CLT",
+          "Arnosti, Greedy Matching in Bipartite Random Graphs (2021/2022), DOI:10.1287/stsy.2021.0082",
+          "Dyer–Frieze, Randomized greedy matching (1991), DOI:10.1002/rsa.3240020104",
+          "Dyer–Frieze–Pittel, On the average performance of the greedy algorithm for finding a matching in a graph (1993), DOI:10.1214/aoap/1177005436"
+        ]
+      },
+      "checked_sources": [
+        "Arnosti, DOI:10.1287/stsy.2021.0082 (public full article)",
+        "Dyer–Frieze, DOI:10.1002/rsa.3240020104 (abstract only; full text inaccessible)",
+        "Dyer–Frieze–Pittel, DOI:10.1214/aoap/1177005436 (public metadata/abstract)",
+        "Resultary published semantic query above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dyer–Frieze 1991 randomized-greedy framework",
+          "Pinned RESULT.md sections 2–4 fluid invariant and variance evaluation"
+        ],
+        "reasoning": "The classical fact every greedy edge order yields a maximal matching does not imply the expected dense split matching size or central limit. Applying the known density-dependent martingale CLT is a methodological route, but requires computing the exact fluid invariant, boundary stopping and variance integral; inspected prior statements do not mechanically yield these constants.",
+        "searches": [
+          "Resultary: greedy random edge matching complete split graph matching CLT",
+          "Arnosti, Greedy Matching in Bipartite Random Graphs (2021/2022), DOI:10.1287/stsy.2021.0082",
+          "Dyer–Frieze, Randomized greedy matching (1991), DOI:10.1002/rsa.3240020104",
+          "Dyer–Frieze–Pittel, On the average performance of the greedy algorithm for finding a matching in a graph (1993), DOI:10.1214/aoap/1177005436"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arnosti 2021/2022 bipartite random graph matching policy",
+          "Dyer–Frieze 1991 abstract/metadata",
+          "Pinned RESULT.md exponential-clock equivalence"
+        ],
+        "reasoning": "Equivalent models are uniform random permutations of all edges, one uniform currently admissible edge at a time, and independent memoryless edge clocks. The discrete exact recursion and Gaussian result were compared with greedy matching sources, distinguishing from random-vertex matching and random bipartite input graphs.",
+        "searches": [
+          "Resultary: greedy random edge matching complete split graph matching CLT",
+          "Arnosti, Greedy Matching in Bipartite Random Graphs (2021/2022), DOI:10.1287/stsy.2021.0082",
+          "Dyer–Frieze, Randomized greedy matching (1991), DOI:10.1002/rsa.3240020104",
+          "Dyer–Frieze–Pittel, On the average performance of the greedy algorithm for finding a matching in a graph (1993), DOI:10.1214/aoap/1177005436"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits: random greedy MIS on complete multipartite graphs, matching-complex homotopy, threshold graph greedy independent sets"
+        ],
+        "reasoning": "Returned Resultary records are matching complexes, greedy maximal independent sets, or threshold graph/chain graph algorithms rather than the random-edge matching output law on deterministic complete split graphs. There is no claimed exhaustive matching database census.",
+        "searches": [
+          "Resultary: greedy random edge matching complete split graph matching CLT",
+          "Arnosti, Greedy Matching in Bipartite Random Graphs (2021/2022), DOI:10.1287/stsy.2021.0082",
+          "Dyer–Frieze, Randomized greedy matching (1991), DOI:10.1002/rsa.3240020104",
+          "Dyer–Frieze–Pittel, On the average performance of the greedy algorithm for finding a matching in a graph (1993), DOI:10.1214/aoap/1177005436"
+        ]
+      },
+      "rationale": "The exact recursion and dense complete-split fluid/CLT constants, especially unique 1−1/(2e) efficiency minimum, are not contained in the inspected Arnosti random BIPARTITE graph results or the accessible descriptions of Dyer–Frieze general greedy matching. Those classical papers are acknowledged as contextual foundations for random-edge greedy algorithms and sparse random graph limits. The highly relevant 1991 Dyer–Frieze full text could not be reached by lawful arXiv/open access or authorized institutional access; its possible special dense-split calculations remain an explicit originality risk, not an automatic failure.",
+      "residual_risks": [
+        "Dyer–Frieze 1991 full paper and related early 1990s general-graph work were not fully accessible; special case or implication may have been previously evaluated.",
+        "The Gaussian asymptotic assumes positive linear clique and independent part proportions, not extreme triangular-array aspects or another edge policy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its setting has random bipartite graph edges and no clique interior, not the evaluated complete split graph recursion",
+          "evidence": [
+            "Stochastic Systems 12 (2022) 133–150; input bipartite randomness and greedy policy comparisons."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+          "material_read": "Public full publisher article HTML, model description, theorem/result statements",
+          "method": "Open journal full HTML reading",
+          "title": "Greedy Matching in Bipartite Random Graphs",
+          "trigger": "Same random-edge matching algorithm, differing random bipartite inputs"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING conclusion; specific split-graph evaluations may be buried in full paper",
+          "evidence": [
+            "Dyer and Frieze, Random Structures & Algorithms 2 (1991) 29–45; general randomized greedy matching."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "Public abstract/metadata only; arXiv and lawful OA full text unsuccessful, authorized institutional access unavailable",
+          "method": "Public abstract plus authorized publisher full-text attempt (not read)",
+          "title": "Randomized greedy matching",
+          "trigger": "Strongest old same algorithm/general graph priority lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform random-EDGE maximal matching is a canonical greedy algorithm, and complete split graphs are a simple structured dense obstruction to optimality. The exact finite law, Gaussian survivor fluctuations, and sharp worst balance ratio quantify both algorithmic performance and variability rather than a tiny graph example. In particular a split graph with a perfect matching can lose a nonzero 1/(2e) fraction asymptotically under uniform greedy edge ordering; the variance is a reproducible natural statistic for randomized-algorithm benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Arnosti, DOI:10.1287/stsy.2021.0082 (public full article)",
+    "Dyer–Frieze, DOI:10.1002/rsa.3240020104 (abstract only; full text inaccessible)",
+    "Dyer–Frieze–Pittel, DOI:10.1214/aoap/1177005436 (public metadata/abstract)",
+    "Resultary published semantic query above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete split graph K_a join independent b and uniformly selected eligible edges only; finite recursion extends to zero parts but Gaussian law needs positive α,β.",
+    "The 1−1/(2e) value is an asymptotic infimum over fixed positive aspect ratios, not an asserted finite-n universal bound.",
+    "General-graph early primary full text unavailable; this limits absolute priority, not correctness of the independently reconstructed recursion/limit."
+  ],
+  "schema_version": 1
+}
