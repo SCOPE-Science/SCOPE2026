@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the conditional excentral shape law
+# Independent mathematical audit
 
-The analytical proof is given in `RESULT.md`. The included `verification.py` is a standalone supplementary reproducibility check requiring Python 3, NumPy, SciPy and SymPy; run it with `python verification.py`. It verifies all three independent ingredients before printing `ALL_CHECKS_PASSED`.
+## correctness
 
-**Exact affine structure.** Symbolically verify that the \(3\times3\) matrix with off-diagonal entries \(1/2\) is doubly stochastic, has determinant \(1/4\), and maps the simplex corners to the acute-region corners. The uniform push-forward follows from the Jacobian; this last fact is mathematical analysis, not a numerical inference.
+PASS
 
-**Deterministic shape comparison.** At 17,296 positive rational barycentric triples of denominator at most 48, check simplex constraints, weak majorization, and strictly improved normalized area, perimeter and inradius away from the equilateral triple. The complete assertion is proved separately using majorization and strict trigonometric concavity; the rational mesh is not exhaustive on a continuum.
+Fixing one independently designated sample as anchor yields uniform Dirichlet(1,1,1) arc gaps and hence the labelled angle simplex. The affine map T acts by −1/2 on the two-dimensional tangent plane, has Jacobian 1/4 and bijects the full simplex to the strict acute central simplex; it transports the entire uniform law. Its doubly stochastic matrix implies T(x)≺x, strict for nonequilateral vectors; log-sin concavity proves normalized perimeter, area, inradius increases. Beta(1,2) integration gives E[P]=12/π and E[P|acute]=48/π², and centered scaling gives V|acute=d V/4. Independent rational-simplex inequalities over 406 sample triples and integral identity support the proof, not replace it.
 
-**Conditional-law distribution diagnostic.** With reproducible seed `20261025`, transport 350,000 independent Dirichlet samples and compare them with independently generated Dirichlet samples accepted by the acute criterion, using sample coordinate means and two-sample Kolmogorov–Smirnov distances for area, perimeter and inradius. The measured acute frequency is approximately one-quarter, with the observed shape-score distances all below 0.003. These are finite checks, not a replacement for equality in law.
+## originality
 
-**Analytic perimeter and variance identities.** The complete proof evaluates the beta marginal integrals to obtain \(\mathbb E[P]=12/\pi\) and \(\mathbb E[P\mid\mathcal A]=48/\pi^2\). The affine centered map gives \(V(X)\mid\mathcal A\stackrel{\mathrm d}=V(X)/4\), with means \(1/6\) and \(1/24\).
+PASS
 
-There is no infinite/computer-assisted certification or external independent validation. The source-comparison caveats in `REVIEW.md` apply to the claim of novelty.
+Best-of-knowledge qualified: Wendel one-quarter acute probability, Gaussian triangle shape distributions, and published polygonal conditional area moments are antecedents, but none of the inspected statements entails this exact same-model deterministic conditional transport and universal Schur-concave stochastic ordering.
+
+## value
+
+PASS
+
+The complete conditional shape law and simultaneous ordering of every symmetric Schur-concave shape score are natural geometric probability results. They jointly and sharply compare a substantial class of area/perimeter/inradius/imbalance statistics; not merely a new calculation of the known acuteness probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

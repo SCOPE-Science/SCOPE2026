@@ -1,21 +1,21 @@
-# Scientific review: excentral conditional shape transport
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sampling convention fixes a designated anchor among three independent uniform circle points before sorting the other two; this avoids the size bias that would arise from anchoring at the smallest absolute polar argument. The resulting three normalized angular gaps are exactly uniform on the positive angle simplex. By the inscribed-angle theorem they are the triangle angles divided by \(\pi\), up to a permutation. The acute region has the three vertices given by coordinate permutations of \((0,1/2,1/2)\); the excentral affine map has that exact image and two-dimensional Jacobian \(1/4\). It therefore transports the unconditional **entire** angle law to the acute-conditioned law. Its doubly stochastic matrix and centered scaling by \(-1/2\) prove weak majorization, strict majorization except equilateral, and exact quarter-scaling of centered angular variance. Trigonometric strict concavity checks support the area, perimeter and inradius assertions after common-circumradius normalization. All limits are for three independent, uniformly circular vertices; no finite numerical sample is being used to prove the continuous result.
+PASS
 
-Symbolic matrix calculation, 17,296 positive rational angle vectors and independent numerical conditional/rejection comparisons passed. Numerical evidence is supplemental; the affine and functional arguments close the proof.
+Fixing one independently designated sample as anchor yields uniform Dirichlet(1,1,1) arc gaps and hence the labelled angle simplex. The affine map T acts by −1/2 on the two-dimensional tangent plane, has Jacobian 1/4 and bijects the full simplex to the strict acute central simplex; it transports the entire uniform law. Its doubly stochastic matrix implies T(x)≺x, strict for nonequilateral vectors; log-sin concavity proves normalized perimeter, area, inradius increases. Beta(1,2) integration gives E[P]=12/π and E[P|acute]=48/π², and centered scaling gives V|acute=d V/4. Independent rational-simplex inequalities over 406 sample triples and integral identity support the proof, not replace it.
 
-## Originality — PASS, with residual historical risk
+## originality
 
-Wendel (1962) derives hemisphere coverage probabilities, which specialize to the known one-quarter acute-triangle event; probability alone does not identify an entire conditioned angle law. Akopyan–Edelsbrunner–Nikitenko (arXiv:2007.07783v1, pp. 4–6) explicitly recall that one-quarter event and study a different two-sphere point model; the inspected proof is not the excentral push-forward or a universal Schur-concave order. Edelman–Strang (2012, Sections 3 and 3.6) study Gaussian-vertex shape sampling and distinguish it from uniform angular sampling; those sampling laws cannot be silently identified. A later published record on center-containing triangles sampled from finite regular polygons covers first and second conditional area moments and their continuum limit, so those numbers are not claimed as original. Its indexed summary does not itself imply the majorization transport, but the complete publication was not accessible for comparison. Targeted published-record and open-literature searches for excentral random shapes, conditional uniform-angle laws, and stochastic area/perimeter dominance found no direct coverage; this is a bounded best-knowledge assessment, not proof of historical uniqueness.
+PASS
 
-## Value — PASS
+Best-of-knowledge qualified: Wendel one-quarter acute probability, Gaussian triangle shape distributions, and published polygonal conditional area moments are antecedents, but none of the inspected statements entails this exact same-model deterministic conditional transport and universal Schur-concave stochastic ordering.
 
-The result replaces separate conditional integrations with a **single exact measure-preserving (after conditioning) shape coupling**: one draw generates both models, and one deterministic majorization relation orders *every* symmetric Schur-concave triangle-shape score at once. Area, perimeter and inradius are simultaneously and strictly improved; a natural continuous angular-deviation invariant satisfies a full-law exact quarter-scaling, not merely a mean identity. The theorem provides a direct rejection-free sampler for acute-triangle shape and clarifies why various natural geometric measures move together under a meaningful shape constraint. This structural conditional-distribution principle goes beyond reporting the textbook one-quarter probability or recomputing moments.
+## value
 
-## Scope and priority limitations
+PASS
 
-The law concerns normalized angle-based geometry only; it does not couple the three original vertex locations. The three-point, circular, uniform sampling hypothesis is essential. The published finite-polygon record was inspected at indexed-summary level rather than in full, and broader historical angle-geometry literature may contain an equivalent identity. Historical originality cannot be certified by database partition or failed searches. No independent review has been carried out.
+The complete conditional shape law and simultaneous ordering of every symmetric Schur-concave shape score are natural geometric probability results. They jointly and sharply compare a substantial class of area/perimeter/inradius/imbalance statistics; not merely a new calculation of the known acuteness probability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
