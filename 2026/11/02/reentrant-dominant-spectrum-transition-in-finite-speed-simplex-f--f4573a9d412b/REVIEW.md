@@ -1,15 +1,21 @@
-# Review of the exact regular-simplex spectral regime theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The zero-velocity simplex makes the implicit light-cone delay and distance-weight variations second-order in the velocity equation. Modal decomposition yields one neutral uniform-velocity equation and exactly one scalar delayed negative-feedback equation in each disagreement direction. The disagreement characteristic roots are all strictly left of the imaginary axis. The leading-branch proof orders the Lambert roots and locates the unique branch-point equation. Calculus gives the complete zero/one/two-distance classification, and the large-population and large-separation results follow from explicitly stated asymptotics. The checker passes all packaged numerical assertions. No nonlinear-global conclusion is inferred from linear spectra.
+## correctness
 
-## Originality
-PASS under the inspected evidence, with finite literature coverage. The closest primary text is Haskovec and Rodriguez Cartabia (2026, arXiv:2610.33170), which develops the same unnormalized state-dependent finite-speed model and proves nonlinear flocking under additional hypotheses, but does not classify the stationary-simplex leading characteristic roots. Haskovec (2021, arXiv:2112.12806) covers a normalized predecessor with no such classification. Haskovec and Markou (2018, arXiv:1810.01084) treats reaction-type rather than transmission-type delay and establishes nonoscillatory criteria for a different scalar equation. Moradian and Kia (2018, arXiv:1812.04030) provides general Lambert-function spectral technology; no independent claim is made for that method. The model-specific geometric double threshold and its many-agent scaling were not found in the inspected records. Overlap searches found a different fading-memory consensus theorem but not an implication of the present two-separation classification. Residual risk remains from unindexed specialized delay-network results.
+PASS
 
-## Mathematical value
-PASS. The finite signal transit time grows with simplex separation, while influence attenuation reduces feedback strength. The competition produces a strict return from complex to real leading modes at large distances only when attenuation is integrable, with exact speed thresholds and explicitly widening separation scales as the population grows. This is a natural phase boundary in the source's model family, distinct from a routine stability-at-zero test; it clarifies relaxation behavior without asserting a nonlinear Hopf bifurcation.
+PASS: For N>=2 and ambient d>=N-1 at a resting regular simplex, the base relative velocities vanish. Derivatives of distance-dependent delays and communication weights multiply zero base velocity differences, so the linear disagreement equation is w_dot=-(N-1)a w-a w(t-tau), a=(1+D)^(-p), tau=D/c. Its characteristic roots are -(N-1)a+W_k(-q exp((N-1)q))/tau. The dominant branch changes from two real roots to complex conjugates at q=W0((N-1)/e)/(N-1), and all disagreement roots have strictly negative real part. Differentiating q(D)=D/[c(1+D)^p] yields the exact one/two/zero crossing cases and c threshold for p>1. Asymptotics q_N~logN/N give D-~c logN/N, D+~(N/(c logN))^(1/(p-1)); p=0 limiting damping rates follow from the scalar characteristic equation. Independent high-precision calculations checked q_N and representative two-crossing parameter regimes; these cannot prove all N. Neutral position and uniform-velocity modes explicitly excluded from exponential stability.
 
-## Limits and closest sources
-The stationary-rest simplex and the precise normalization are essential. Full solutions have neutral positional and common-velocity modes. Spectral pairs characterize generic linearized tails only. No global synchronization or nonlinear periodic-orbit theorem is claimed. See the primary texts and full references in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge with method prior acknowledged. Haskovec and Rodriguez Cartabia define the precise finite propagation speed model and prove flocking by different methods; older papers cover fixed reaction delays and Lambert-W spectral tools. The combined geometric stationary-simplex double transition and population-size scaling were not implied by the inspected source statements. A general delayed consensus characteristic-root theorem may contain this scalar case.
+
+## value
+
+PASS
+
+PASS: The sign of a dominant linearized mode (real versus nonreal, while still damped) controls qualitative relaxation and is motivated in communication-delay flocking. Complete nonmonotone distance/speed threshold classification at p>1, including degeneration at tangency and N scaling, is an interpretable precise invariant and distinguishes spectral oscillation from nonlinear instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

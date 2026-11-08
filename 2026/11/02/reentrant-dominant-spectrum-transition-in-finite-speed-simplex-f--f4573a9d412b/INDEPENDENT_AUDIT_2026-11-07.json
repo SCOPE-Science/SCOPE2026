@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:01:50.349678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For N>=2 and ambient d>=N-1 at a resting regular simplex, the base relative velocities vanish. Derivatives of distance-dependent delays and communication weights multiply zero base velocity differences, so the linear disagreement equation is w_dot=-(N-1)a w-a w(t-tau), a=(1+D)^(-p), tau=D/c. Its characteristic roots are -(N-1)a+W_k(-q exp((N-1)q))/tau. The dominant branch changes from two real roots to complex conjugates at q=W0((N-1)/e)/(N-1), and all disagreement roots have strictly negative real part. Differentiating q(D)=D/[c(1+D)^p] yields the exact one/two/zero crossing cases and c threshold for p>1. Asymptotics q_N~logN/N give D-~c logN/N, D+~(N/(c logN))^(1/(p-1)); p=0 limiting damping rates follow from the scalar characteristic equation. Independent high-precision calculations checked q_N and representative two-crossing parameter regimes; these cannot prove all N. Neutral position and uniform-velocity modes explicitly excluded from exponential stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convergence theory for finite-speed communication does not classify stationary regular-simplex disagreement characteristic spectra. Fixed reaction-type delay is a different model; Lambert-W method is common."
+        ],
+        "reasoning": "A generic scalar DDE root-order theorem could imply the first spectral step and is prior methodology; the full claim also includes q(D) geometry and multiple distance thresholds with exact N behavior. No inspected stronger theorem covered all.",
+        "searches": [
+          "Resultary_Search semantic published-record query: Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "Haskovec and Rodriguez Cartabia arXiv:2610.33170",
+          "Haskovec and Markou arXiv:1810.01084",
+          "Moradian and Kia arXiv:1812.04030"
+        ]
+      },
+      "checked_sources": [
+        "Actual Git RESULT.md, verify.py, assigned seven-entry tree",
+        "Independent mpmath q threshold calculations",
+        "https://arxiv.org/abs/2610.33170",
+        "https://arxiv.org/abs/1810.01084",
+        "https://arxiv.org/abs/1812.04030"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original unnormalized finite-speed dynamics have state-dependent light-cone delays. Earlier scalar fixed-delay work and Lambert-W analysis predate this result but address different physical parameters."
+        ],
+        "reasoning": "Cucker–Smale source nonlinear flocking conclusion neither implies nor contradicts an oscillatory damped leading eigenvalue for a stationary simplex. The claimed double crossing is a linear mode classification, not a nonlinear bifurcation.",
+        "searches": [
+          "Resultary_Search semantic published-record query: Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "arXiv:2610.33170",
+          "arXiv:1810.01084",
+          "arXiv:1812.04030"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linearized simplex decouples to scalar negative feedback DDE; dominant root is a Lambert-W branch-point condition on q=a*tau."
+        ],
+        "reasoning": "Equivalent form is an overdamped-versus-underdamped transition of scalar retarded negative feedback with instantaneous damping (N-1)a. Older DDE methods yield Lambert-W roots but do not by themselves supply the mapped two-distance classification for nonmonotone q(D).",
+        "searches": [
+          "Resultary_Search semantic published-record query: Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "arXiv:2610.33170",
+          "arXiv:1812.04030 Lambert W"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching table or complete q_N distance phase diagram in semantic records. The thresholds vary continuously with p,c and N."
+        ],
+        "reasoning": "Finite branch calculations do not replace the universal classification. Prior models with normalized interaction sum require rescaling; no identical table for this unnormalized model was located.",
+        "searches": [
+          "Resultary_Search semantic published-record query: Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "Finite speed Cucker Smale flock resting regular simplex linearized delayed velocity dominant Lambert W spectral real complex transition two critical distances",
+          "Resultary spectral finite-speed simplex two thresholds",
+          "arXiv:2610.33170",
+          "arXiv:2112.12806"
+        ]
+      },
+      "rationale": "PASS best of knowledge with method prior acknowledged. Haskovec and Rodriguez Cartabia define the precise finite propagation speed model and prove flocking by different methods; older papers cover fixed reaction delays and Lambert-W spectral tools. The combined geometric stationary-simplex double transition and population-size scaling were not implied by the inspected source statements. A general delayed consensus characteristic-root theorem may contain this scalar case.",
+      "residual_risks": [
+        "Original Haskovec/Rodriguez Cartabia full paper not read; source may include unindexed local dispersion analysis.",
+        "General scalar negative-feedback retarded equation literature could already give the branch-point threshold; novelty concerns the exact model-specific phase geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model prior: nonlinear flocking, no fully inspected spectral classification",
+          "evidence": "Haskovec and Rodriguez Cartabia introduce unnormalized finite-signal-speed equations; source global results not equated with spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33170",
+          "material_read": "Abstract and reported equations/scope; author-posted full HTML unavailable in run",
+          "method": "Compare model, stationary linearization and theorem statements",
+          "title": "Flocking with finite communication speed: a Doppler-inspired Lyapunov approach",
+          "trigger": "exact parent dynamical equations and normalizations"
+        },
+        {
+          "assessment": "Related scalar characteristic stability methods but different dynamics",
+          "evidence": "Delayed negative feedback and nonoscillatory regimes are known prior work.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.01084",
+          "material_read": "Abstract and bibliographic descriptions",
+          "method": "Compare fixed reaction delays with state-dependent light-cone delays",
+          "title": "Asymptotic flocking in the Cucker-Smale model with reaction-type delays in the non-oscillatory regime",
+          "trigger": "possible dominating nonoscillation theorem"
+        },
+        {
+          "assessment": "Method precedent, not complete simplex classification",
+          "evidence": "Delay may alter convergence and W branches; physical q(D) double threshold not shown.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.04030",
+          "material_read": "Abstract and scope of published results",
+          "method": "Compare purely delayed feedback with mixed instantaneous/retarded scalar equation",
+          "title": "On the Positive Effect of Delay on the Rate of Convergence of a Class of Linear Time-Delayed Systems",
+          "trigger": "general Lambert-W dominant root methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The sign of a dominant linearized mode (real versus nonreal, while still damped) controls qualitative relaxation and is motivated in communication-delay flocking. Complete nonmonotone distance/speed threshold classification at p>1, including degeneration at tangency and N scaling, is an interpretable precise invariant and distinguishes spectral oscillation from nonlinear instability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual Git RESULT.md, verify.py, assigned seven-entry tree",
+    "Independent mpmath q threshold calculations",
+    "https://arxiv.org/abs/2610.33170",
+    "https://arxiv.org/abs/1810.01084",
+    "https://arxiv.org/abs/1812.04030"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific C/O/V pass is best of current knowledge, not a claim of independent historical-priority certification or journal validation. All package sources were read as evidence, not directions; exact proof quantifiers and finite test limits listed in correctness. Full-text access limitations are documented in source_inspections. Publication withheld because complete public privacy sanitation and guarded replacement bytes were not supplied.",
+  "residual_risks": [
+    "Original Haskovec/Rodriguez Cartabia full paper not read; source may include unindexed local dispersion analysis.",
+    "General scalar negative-feedback retarded equation literature could already give the branch-point threshold; novelty concerns the exact model-specific phase geometry."
+  ],
+  "schema_version": 1
+}
