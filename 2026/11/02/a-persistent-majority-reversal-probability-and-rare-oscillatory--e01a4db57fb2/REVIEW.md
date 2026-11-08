@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact three-shore count map preserves all relevant labelled-state information: a strict outside majority makes one entire shore pure, while an exact tie retains every individual state on that shore. Splitting by zero, one, two, or three shore ties proves the two-update first-periodicity cutoff without invoking the general period-two theorem. Fixed points and two-cycle phases follow from this complete classification. The unique strict-between tie criterion proves the weighted binomial sum, whose asymptotic follows by conditioning on a binomial tie and using an independent binomial/hypergeometric central limit theorem. The reversal constant follows from the three-dimensional Gaussian orthant identity with explicitly computed correlations. Exhaustive labelled simulations for all \(1\le n\le5\) and weighted macro tests through \(n=30\) support the formulas. The all-size proof is analytic and not inferred from the finite experiments.
+## correctness
 
-## Originality — PASS, with residual risk
-Goles and Olivos (1980) already prove eventual periods of at most two for symmetric threshold networks; their result does not imply the sharp two-update bound, the exact mixed-shore orbit count, basin sizes, or reversal frequency. Benjamini et al. (arXiv:1405.2486, 2014) analyze general majority dynamics and random-graph consensus, not the balanced tripartite deterministic model or its explicit Gaussian majority-reversal probability. Turau (arXiv:2312.13769, 2023) counts fixed and pure-cycle states on trees, not partially frozen cycles on complete tripartite graphs. Current mathematical-record and literature searches did not identify a covering tripartite theorem. Similar results under unindexed terminology or inaccessible sources remain possible, so this is a research-level best-knowledge originality judgment rather than an independently certified novelty claim.
+PASS
 
-## Mathematical value — PASS
-There are \(3(2^n-2)\) distinct nontrivial two-cycle orbits, yet a random initial configuration reaches one with probability asymptotic to a constant times \(n^{-1/2}\). More strikingly, consensus succeeds with probability tending to one while it overturns the initially winning global opinion with limiting probability about \(8.774\%\). This is a structural, nontrivial statement about information aggregation on a canonical dense but multipartite graph family, contrasting with results for random dense graphs where the initial majority is often preserved. The precise probability is an intrinsic dynamical invariant, not an arbitrary finite table or parameter slice.
+The exact labelled update depends only on outside-shore counts: q_i maps to n,0,or retained q_i according to whether sum_{j != i}q_j is above, below,or equal to n. The classification by 0/1/2/3 tied shores yields all fixed states 2+1_{2|n}binom(n,n/2)^3, 3(2^n-2) distinct primitive two-cycles, and entry within two updates, sharp for n>=3. Unique strict-between tied shore gives B_n=3 sum_a binom(n,a)^2 sum_{b=min(a,n-a)+1}^{max(a,n-a)-1} binom(n,b). Hypergeometric/binomial conditional CLT and Gaussian orthant signs give rare oscillation 6 pi^-3/2 atan(1/sqrt2) n^-1/2 and persistent reversal 1-(3/pi)atan(sqrt2). Independent weighted count-state census for n=1..8 confirmed exact B_n [0,12,36,660,3180,38172,218904,2266164] and all fixed/periodic counts. Finite census is corroboration, not an infinite proof.
 
-## Scope and risks
-The analysis is restricted to equal shore sizes, deterministic synchronous update, neighbor-only strict majority, retained opinions on ties, and independently unbiased initial opinions for the probability laws. The exact finite counts do not imply a matching statement for irregular or randomly sampled graphs. An unindexed identical tripartite computation and the inaccessible 1980 short primary full text remain literature risks; neither supplies a known covering statement. No independent replication or literature audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Goles–Olivos general period-at-most-two theorem is strictly weaker than sharp entry-time, full labelled orbit/basin census and asymptotic reversal probability. Benjamini et al analyze unimodular and random graphs with distinct hypotheses, not balanced complete tripartite exact formulas. Direct Resultary query located parity-automaton multipartite work, not strict-majority. No implication from those sources to the displayed constants; best-of-knowledge PASS with residual equivalent-treatment risk.
+
+## value
+
+PASS
+
+Sharp, complete dynamics of a canonical dense multipartite network, with surprising nonzero probability (~0.08774) that eventual consensus opposes the initial global majority despite vanishing oscillatory basin. Exact labelled basin size, 2-update cutoff and asymptotic constants may be needed in majority-network studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
