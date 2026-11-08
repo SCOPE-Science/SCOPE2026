@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`punctured_verify.py` constructs \(\operatorname{PG}(2,2)\), \(\operatorname{AG}(2,3)\), a cyclic order-thirteen Steiner triple system, and the binary projective order-fifteen system. Its checks include exact pair coverage, the full extension table, stabilization of equality-and-block three-variable logical refinement, and the four-variable free-witness threshold. All passed in the supplied output, with the final empty-position colors grouping the four complete structures together and the four punctures together, separately.
+## correctness
 
-`deletion_extension_verify.py` is a second standalone implementation that deletes every point in the four parents, constructs each leave without using any refinement code, and exhaustively checks the predicted case-by-case extension counts. It passed for \(44\) punctures, \(5{,}640\) ordered anchor pairs, and \(69{,}744\) third-vertex choices. The four-variable threshold was verified for every deletion.
+PASS
 
-To reproduce, extract both scripts and run `python3 punctured_verify.py` and `python3 deletion_extension_verify.py` with Python 3. No third-party modules, external data, random seeds, or network access are required.
+After point deletion the uncovered pairs form a perfect matching M. With two anchored points, complete systems have unique block completion plus other witnesses, and punctures have one matching mate per anchor, one completion (unless anchors matched) and v−6 free choices, all nonempty for v≥7. Maintaining R and M under any 3-pebble move proves unbounded-depth FO3 equivalence. FO2 sees pure equality only. The 4-variable formula with locally shadowed quantifiers counts at least two free witnesses: v7 gives one, v≥9 gives ≥3. Independently checked small STS extension types; all-orders proof is structural.
 
-The checks cover only the listed finite designs and do not enumerate all Steiner triple systems of any order. The general all-depth assertion rests on the proved permanent three-pebble extension invariant; the sharp four-variable distinction rests on the universal witness count \(v-6\). Self-review has passed; independent audit has not been performed.
+## originality
+
+PASS
+
+Qualified PASS: Barbina–Casanovas study model completion of generic Steiner quasigroups, not finite one-point-puncture FO3 theories; the full published leave-matching extension polynomial result addresses one-point additions rather than the deletion pebble game. The all-depth collapse plus explicit FO4 boundary is not mechanically implied by these inspected statements; older finite-variable results may exist under alternate naming.
+
+## value
+
+PASS
+
+The leave matching under point deletion is a canonical Steiner structure. Unrestricted-depth three-variable collapse and its sharp four-variable separation describe genuine expressivity limits for an infinite design family; not merely a finite small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
