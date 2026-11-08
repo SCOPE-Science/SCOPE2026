@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:09:48.143939Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>=2, type A count a, type B count two and utility opposite-type count divided by full coalition size, strict blockers must be mixed. If both B in one block with p A and r outside, density comparison yields a one-B blocker iff r>=floor(p/2)+1 with minimum size floor(p/2)+2; any two-B blocker implies a smaller one-B blocker. If the two B are in separate p>=q blocks and r outside, the lower-density B can strictly improve with q+1 eligible A exactly iff p>=q+2 or r>=q+1, yielding min size q+2. Larger single-B or two-B blockers imply one of these cases. Optimizing the two formulas over unstable partitions yields max min-size floor(a/2)+1; p=q+2, q=floor((a-2)/2), r in {0,1} attains it with exactly binom(p+r,q+1) eligible blockers. Brute-force independent integer-utility cross multiplication enumerated all labeled set partitions and candidate subsets for a=2..6 (15,52,203,877,4140 partitions) and checked minima and maxima. These are finite checks; the all-a inequalities in RESULT.md prove the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fanelli et al. IJCAI 2021",
+          "Demeulemeester–Peters MFCS 2023 and expanded 2024 text",
+          "Fioravanti et al. arXiv:2311.11101"
+        ],
+        "reasoning": "Fanelli–Monaco–Moscardelli and Demeulemeester–Peters give general size-relaxed core stability or improvement factor bounds; Fioravanti et al. gives fractional-core sampling/error results. None of their inspected theorems yields the sharp strict-blocker size over every K_{a,2} partition by substitution.",
+        "searches": [
+          "Resultary: K a 2 simple symmetric fractional hedonic strict core size minimum blocking coalition partition worst case",
+          "Primary full-text: arXiv:1705.10116"
+        ]
+      },
+      "checked_sources": [
+        "Aziz et al. arXiv:1705.10116 §5.3",
+        "Fanelli et al. IJCAI 2021",
+        "Demeulemeester–Peters MFCS 2023 and expanded 2024 article",
+        "Fioravanti et al. arXiv:2311.11101",
+        "Resultary semantic K_{a,2} minimum strict blocker query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aziz arXiv:1705.10116 Theorem 5.3",
+          "Sharp cut-off constructive proof in pinned RESULT.md"
+        ],
+        "reasoning": "General existence of a core-stable grand coalition or generic q-core approximation does not force an extremal bad partition with no blocker below floor(a/2)+1, nor prove every bad partition has one by that cutoff. The separate p,q,r case analysis and sharp construction establish both directions.",
+        "searches": [
+          "Resultary: K a 2 simple symmetric fractional hedonic strict core size minimum blocking coalition partition worst case",
+          "Primary full-text: arXiv:1705.10116"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aziz et al. arXiv:1705.10116 Section 5.3",
+          "General K_{a,b} fixed-partition blocker count polynomial, related published finding"
+        ],
+        "reasoning": "The result is equivalent to the exact worst-case q-size strict-blocker search cutoff on K_{a,2}. Aziz et al. characterizes the strict core with weak blockers and equal ratios, a different quantifier, while the prior fixed-partition generating function is not an all-partitions minimax theorem.",
+        "searches": [
+          "Resultary: K a 2 simple symmetric fractional hedonic strict core size minimum blocking coalition partition worst case",
+          "Primary full-text: arXiv:1705.10116"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published K_{a,b} blocker-count generating polynomial, per-partition rather than global"
+        ],
+        "reasoning": "The prior size-resolved K_{a,b} polynomial gives exact counts for any fixed partition; it is acknowledged and is not a table of the sharp maximum smallest blocker across all partitions. No inspected source gives the two-B phase diagram.",
+        "searches": [
+          "Resultary: K a 2 simple symmetric fractional hedonic strict core size minimum blocking coalition partition worst case",
+          "Primary full-text: arXiv:1705.10116"
+        ]
+      },
+      "rationale": "The source fractional hedonic games literature establishes core/strict-core conventions and broad q-core relaxations. Prior size-resolved blocker-generating polynomial on general K_{a,b} computes per-partition blocker counts, so that component is prior art. The present structural proof evaluates the sharp maximum across all unstable partitions with two minority players and classifies every instability case, which is not stated by these general bounds or per-instance enumeration.",
+      "residual_risks": [
+        "A specialist unindexed exact K_{a,2} strict-blocker minimax theorem could cover this classification.",
+        "The broader published fixed-partition generating polynomial should not be presented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes ratio arguments and existence, not a size-minimax cutoff for strictly blocking coalitions",
+          "evidence": [
+            "Theorem 5.3 and Corollary 5.4 concern complete multipartite type ratios."
+          ],
+          "identifier_or_url": "arXiv:1705.10116",
+          "material_read": "Full accessible Section 5.3 and adjacent ratio-based core results",
+          "method": "Original preprint full text section inspection",
+          "title": "Fractional Hedonic Games",
+          "trigger": "Same valuation graph and strict core"
+        },
+        {
+          "assessment": "Different general approximation/convergence bounds; not K_{a,2} exact all-partitions blocker cutoff",
+          "evidence": [
+            "Introduces size-relaxed stability for fractional hedonic games."
+          ],
+          "identifier_or_url": "DOI 10.24963/ijcai.2021/26",
+          "material_read": "Accessible full official conference text, size-relaxed core and related guarantees",
+          "method": "Official proceedings full text",
+          "title": "Relaxed Core Stability in Fractional Hedonic Games",
+          "trigger": "Generic size-limited blocking concept"
+        },
+        {
+          "assessment": "Improvement-factor bounds do not provide sharp minimum strictly blocking coalition on K_{a,2}",
+          "evidence": [
+            "Analyzes relaxed core stability and utility improvement, not exact extremal strict-blocker size."
+          ],
+          "identifier_or_url": "DOI 10.4230/LIPIcs.MFCS.2023.41",
+          "material_read": "Primary MFCS manuscript and expanded full accessible HTML with formal model, principal results and comparisons",
+          "method": "Official publisher and expanded open preprint",
+          "title": "Relaxed Core Stability for Hedonic Games with Size-Dependent Utilities",
+          "trigger": "Possible stronger general size-relaxed theorem"
+        },
+        {
+          "assessment": "General error/sampling results do not assert the exact K_{a,2} extremal phase diagram",
+          "evidence": [
+            "Small fractional-core-error phenomena are distinct from all-partitions exact size cutoff."
+          ],
+          "identifier_or_url": "arXiv:2311.11101",
+          "material_read": "Full relevant open text including construction sections/appendix",
+          "method": "Open arXiv full text",
+          "title": "epsilon-fractional Core Stability in Hedonic Games",
+          "trigger": "Potential sampling-rarity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cutoff floor(a/2)+1 is a natural tight limit on what coalition sizes must be searched to detect strict-core instability in the two-minority-player game; the extremal witnesses show profitable deviations can be linear size yet exponentially rare among uniformly sampled subsets. This gives substantive algorithmic and cooperative-game motivation beyond an isolated partition example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Aziz et al. arXiv:1705.10116 §5.3",
+    "Fanelli et al. IJCAI 2021",
+    "Demeulemeester–Peters MFCS 2023 and expanded 2024 article",
+    "Fioravanti et al. arXiv:2311.11101",
+    "Resultary semantic K_{a,2} minimum strict blocker query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two B agents, unit complete bipartite valuations, full-size normalization |C| and all strictly improving participants.",
+    "No arbitrary graphs, weak blockers or |C|-1 denominator, and finite brute-force checks only through a=6."
+  ],
+  "schema_version": 1
+}

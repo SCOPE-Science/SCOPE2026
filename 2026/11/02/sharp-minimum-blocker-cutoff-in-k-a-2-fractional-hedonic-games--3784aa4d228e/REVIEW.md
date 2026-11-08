@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from exactly normalized two-type payoffs and exhausts the two possible positions of the two rare-type agents. In each case it shows a necessary and sufficient instability condition and constructs the smallest possible profitable group. All one- and two-rare-type deviations are excluded or subsumed. The global cutoff follows by sharp inequalities linking the required available agents to the total number. The extremal construction is proved to have exactly the listed blockers, not merely at least one of the target size. The exact-rational enumeration of 5,287 labeled partitions for \(2\le a\le6\) passed but is not used as the infinite proof.
+PASS
 
-## Originality — PASS (subject to priority uncertainty)
+For a>=2, type A count a, type B count two and utility opposite-type count divided by full coalition size, strict blockers must be mixed. If both B in one block with p A and r outside, density comparison yields a one-B blocker iff r>=floor(p/2)+1 with minimum size floor(p/2)+2; any two-B blocker implies a smaller one-B blocker. If the two B are in separate p>=q blocks and r outside, the lower-density B can strictly improve with q+1 eligible A exactly iff p>=q+2 or r>=q+1, yielding min size q+2. Larger single-B or two-B blockers imply one of these cases. Optimizing the two formulas over unstable partitions yields max min-size floor(a/2)+1; p=q+2, q=floor((a-2)/2), r in {0,1} attains it with exactly binom(p+r,q+1) eligible blockers. Brute-force independent integer-utility cross multiplication enumerated all labeled set partitions and candidate subsets for a=2..6 (15,52,203,877,4140 partitions) and checked minima and maxima. These are finite checks; the all-a inequalities in RESULT.md prove the theorem.
 
-The closest preceding results are the two-type strict-core characterization of Aziz et al.; Fanelli et al.'s general size-relaxed core; Demeulemeester and Peters' improvement-factor bounds; and Fioravanti et al.'s fractional core probability bounds. The general fixed-partition blocker-count polynomial for complete bipartite games is explicitly treated as prior coverage. This result instead proves the sharp **maximum minimum** blocker size over all partitions of \(K_{a,2}\), its necessary-and-sufficient configuration criteria, and the exact sparse sharpness construction. These extremal implications were not located in the inspected relevant primary texts and indexed searches. Specialist work not found in the searches remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A q-size core relaxation is useful precisely when large coalitions are hard to coordinate; this theorem pinpoints the smallest coalition-size threshold that suffices for the full core on a canonical family with only two agents of one type. Its sharp examples prove a structural separation between two notions of stability and reveal a simultaneous mismatch between size-restricted detectability and uniform random-sampling detectability: profitable deviations can be linearly large while having exponentially small sampling probability. The global exact cutoff and complete partition phase diagram are stronger than checking a single numeric instance.
+The source fractional hedonic games literature establishes core/strict-core conventions and broad q-core relaxations. Prior size-resolved blocker-generating polynomial on general K_{a,b} computes per-partition blocker counts, so that component is prior art. The present structural proof evaluates the sharp maximum across all unstable partitions with two minority players and classifies every instability case, which is not stated by these general bounds or per-instance enumeration.
 
-## Restrictions and relevant work
+## value
 
-Scope is strictly improving core blocking, total-size payoff denominator, and simple symmetric valuations on \(K_{a,2}\) for \(a\ge2\). Finite enumeration does not certify arbitrary orders. Relevant literature: Aziz et al., *Fractional Hedonic Games*, arXiv:1705.10116, §5.3; Fanelli et al., IJCAI 2021 DOI 10.24963/ijcai.2021/26; Demeulemeester and Peters, MFCS 2023 DOI 10.4230/LIPIcs.MFCS.2023.41; Fioravanti et al., arXiv:2311.11101 §§5 and Appendix B. Exact precedence has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact cutoff floor(a/2)+1 is a natural tight limit on what coalition sizes must be searched to detect strict-core instability in the two-minority-player game; the extremal witnesses show profitable deviations can be linear size yet exponentially rare among uniformly sampled subsets. This gives substantive algorithmic and cooperative-game motivation beyond an isolated partition example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
