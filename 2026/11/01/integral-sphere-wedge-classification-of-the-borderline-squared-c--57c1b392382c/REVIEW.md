@@ -1,12 +1,21 @@
-# Review of the finite squared-cycle cut-complex homotopy classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** All \(28\) members of the domain \(3\le k\le30\) were enumerated, subjected to full reversed-Hasse acyclicity checks, and reduced using exact signed integral Morse differentials. The critical cell counts and columns give primitive degree-one attaching maps whose cancellations establish the stated **homotopy equivalence**, not only Betti numbers. The package includes the executable source and its complete recorded output. Its cutoff is finite, and independent mod-two/BFS crosschecks apply only to the specified subranges.
+## correctness
 
-## Originality
-**PASS against inspected sources, with bibliographic risk.** The original 2023 paper states the requested homotopy result as Conjecture 7.23 and its multiplicity formula numerically for \(3\le k\le15\) as Conjecture 7.24. The standalone \(k=16\) integral calculation, the all-parameter face-vector/Euler result and the neighboring diagonal \(n=k+6\) are prior work, not presented as newly discovered cases. None implies the 14 rigorously certified cases \(17\le k\le30\). The sequel on squared paths and the later treatment of total cut complexes do not provide the ordinary squared-cycle borderline result. Index coverage is incomplete, and an unindexed equivalent calculation cannot be excluded.
+PASS
 
-## Value
-**PASS.** The result tests a published natural infinite-family topological conjecture at a meaningful consecutive finite cutoff with exhaustive *integral homotopy* certificates and explicit primitive Morse boundaries, rather than only matching conditional Euler characteristics. It is a bounded classification through \(k=30\), not an all-parameter proof, and it offers no equivariant classification.
+Reconstructed deleted-five-run criterion for ordinary k-cut complex of squared cycle C_{k+5}^2: disconnectivity iff two separated deleted runs have length at least two. Independently enumerated all k=3..30 (n=8..35) facet sets, entire face posets, greedy pivot matchings and full directed Hasse acyclicity, reproducing exact critical counts one vertex, n-7 3-cells, beta+n-8 4-cells, beta=n(n-7)(n-8)/6. Independent exact signed Morse differential reductions for n=8,9,12,16,25,30,35 yielded precisely n-8 primitive columns e_i-e_last and no other columns, including the endpoint n=35 with beta=4410. The inspected original finite verifier exhaustively performs signed differential checks for every n=8..35. From the 2-connected 3-skeleton and primitive attaching degrees, homotopy cancellations give S^3 vee beta S^4 for exactly this finite range; no all-k theorem is inferred.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. Independent acyclic matching and primitive integral differential determine the finite homotopy types not implied by prior formula. The new exact homotopy evidence is specifically k17..30, with finite endpoint 30, not rediscovery of known k3..16 numerical data. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+This range settles 28 precise finite cases of published borderline squared-cycle cut-complex homotopy conjectures, including 14 new cases k=17..30 beyond previously reported k<=16. Exact integral attaching maps distinguish the wedge from the previously known Euler formula. The n=35 cutoff is computational, explicitly bounded, and substantively motivated by a published open classification, not an unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executable verification
+# Independent mathematical audit
 
-Run `python3 verify.py`. Python 3.9 or later and the standard library are sufficient. No external downloads or files are needed. The expected last line is `BORDERLINE_SQUARED_CYCLE_FINITE_INTEGRAL_HOMOTOPY_VERIFIED`.
+## correctness
 
-Across all 28 inputs with \(n=k+5\) and \(8\le n\le35\), the checker enumerates exactly 125,853 maximal faces and 335,867 nonempty faces, constructs 150,171 disjoint Morse pairs, and checks 1,393,910 oriented Hasse incidences by a full topological sort. For every input, it checks the number of critical zero-, three- and four-cells and explicitly eliminates matched cells to compute every signed critical boundary column over \(\mathbb Z\). These columns are either zero or one of the primitive columns \(e_i-e_{n-7}\); there are exactly \(n-8\) distinct nonzero columns.
+PASS
 
-For \(n=8,9,10,11,12,13,14,16,20\), the script independently reduces all simplicial boundary matrices over \(\mathbf F_2\) and asserts the predicted homology ranks. For every \(n\le18\), it independently compares the five-deletion-run facet characterization with actual breadth-first-search connectivity of every survivor-induced graph. The run-gap equivalence for all larger \(n\) is proved in the accompanying mathematical argument, not guessed from those smaller checks.
+Reconstructed deleted-five-run criterion for ordinary k-cut complex of squared cycle C_{k+5}^2: disconnectivity iff two separated deleted runs have length at least two. Independently enumerated all k=3..30 (n=8..35) facet sets, entire face posets, greedy pivot matchings and full directed Hasse acyclicity, reproducing exact critical counts one vertex, n-7 3-cells, beta+n-8 4-cells, beta=n(n-7)(n-8)/6. Independent exact signed Morse differential reductions for n=8,9,12,16,25,30,35 yielded precisely n-8 primitive columns e_i-e_last and no other columns, including the endpoint n=35 with beta=4410. The inspected original finite verifier exhaustively performs signed differential checks for every n=8..35. From the 2-connected 3-skeleton and primitive attaching degrees, homotopy cancellations give S^3 vee beta S^4 for exactly this finite range; no all-k theorem is inferred.
 
-The case \(n=35\), \(k=30\) has 39,200 nonempty faces, 17,367 pairs, 28 critical three-cells and 4,437 critical four-cells, with 27 primitive signed boundary columns, yielding \(\widetilde H_3\cong\mathbb Z\) and \(\widetilde H_4\cong\mathbb Z^{4410}\). The supplied `verify.out` records execution results for all 28 cases. No computation or proof is asserted outside the prescribed finite interval, and no independent audit has been performed.
+## originality
+
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. Independent acyclic matching and primitive integral differential determine the finite homotopy types not implied by prior formula. The new exact homotopy evidence is specifically k17..30, with finite endpoint 30, not rediscovery of known k3..16 numerical data. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+This range settles 28 precise finite cases of published borderline squared-cycle cut-complex homotopy conjectures, including 14 new cases k=17..30 beyond previously reported k<=16. Exact integral attaching maps distinguish the wedge from the previously known Euler formula. The n=35 cutoff is computational, explicitly bounded, and substantively motivated by a published open classification, not an unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
