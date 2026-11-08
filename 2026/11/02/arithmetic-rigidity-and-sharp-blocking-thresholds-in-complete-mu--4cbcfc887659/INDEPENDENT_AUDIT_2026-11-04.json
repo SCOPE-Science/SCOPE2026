@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:14:03.500907Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let C0 be largest Nash coalition: a missing type i agent would strictly improve by joining it, so C0 contains all types. Bilateral deviations for an i-agent between any coalition C and C0 imply M-m_i=u-c_i; summing over represented types produces (1-p)(M-u)=H where H is the positive mass of omitted types. Hence every coalition contains every type, M=u and each type count is equal, so r divides gcd(n_i). Balanced partitions have no improving unilateral move, and multiplying multinomials/dividing by r! counts them. Summing weak-blocker friend inequalities shows size U>=s and the U=s case all indifferent; all-strict blockers require U>=s+2. Enemies preclude weak blocker size s+1, while neutrals permit a one-agent augmentation; adding two different types gives core blockers at s+2. Grand coalition has no blocking proper subset. Independent 2808 full Nash-partition/preference tests corroborate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al show some Nash partition exists for symmetric friendship but do not enumerate all such partitions.",
+          "Ota et al treat general friends/enemies/neutrals core stability, a broader graph class whose exposed theorems do not provide sharp s+1/s+2 block sizes here."
+        ],
+        "reasoning": "A general existence theorem or different strong-core stability statement does not imply the exact all-partition count. A stronger general characterisation of all Nash partitions, if present unindexed, remains possible risk.",
+        "searches": [
+          "arxiv:2203.09655",
+          "doi:10.24963/ijcai.2017/51",
+          "doi:10.2139/ssrn.639483"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md full theorem and proof, blob 0a84ab262307c57c1e92fad461a89a803fa40357",
+        "Frozen AUDIT.json and REVIEW.md for context only, not relied upon as proof.",
+        "https://arxiv.org/abs/2203.09655",
+        "https://www.ijcai.org/proceedings/2017/0051.pdf",
+        "https://doi.org/10.2139/ssrn.639483"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Observation 2 ensures Nash existence for symmetric friendship, which follows here from r=1, but does not impose balanced composition on all Nash partitions.",
+          "Known strict-core protection of the grand coalition is credited as prior and deliberately not claimed independently novel."
+        ],
+        "reasoning": "The new conjunction of exact Nash classification/count and two distinct minimal blocker sizes is not an immediate restatement of the published existence results.",
+        "searches": [
+          "arxiv:2203.09655",
+          "doi:10.24963/ijcai.2017/51"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen-Csaji-Roy-Simola define friend-enemy-neutral preferences and give symmetric friendship Nash existence (Observation 2), not the balanced all-outcome characterization.",
+          "Earlier complete bipartite fractional or signed-additive games have different scoring or parameter restrictions."
+        ],
+        "reasoning": "Compared preference representation (lexicographic friend-first), unilateral entry consent, coalition graph structure and blocking quantifiers, not just words Nash/core. No same exact multipartite formula located.",
+        "searches": [
+          "complete multipartite hedonic game friend appreciation Nash stable equilibria balanced coalitions exact counting core blocker",
+          "arxiv:2203.09655",
+          "doi:10.24963/ijcai.2017/51"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The output E(n_1,...,n_t) is a divisor-sum over arbitrary sizes, not a fixed finite table.",
+          "Resultary search found unrelated simple voting games and a preference-stable coloring example, not a hedonic all-outcomes table."
+        ],
+        "reasoning": "No exact census-table match identified; failure of an index is no substitute for implication comparison.",
+        "searches": [
+          "complete multipartite hedonic game friend appreciation Nash stable equilibria balanced coalitions exact counting core blocker",
+          "Resultary semantic search: complete multipartite hedonic friend appreciation Nash balanced partitions"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for exact characterization and labeled count of *every* Nash partition and distinct minimum core/strict-core blocking sizes under two fixed complete-multipartite preference systems. General Nash existence under symmetric friendship and grand-coalition core protection are prior; they do not state all-divisor partitions and blocking radii.",
+      "residual_risks": [
+        "Prior characterisations of Nash partitions of complete multipartite friend-appreciation games may be unindexed.",
+        "Dimitrov-Sung full manuscript not inspected; its abstract-level result is not used as proof of noncoverage.",
+        "Requires complete undirected intertype friendship, homogeneous lexicographic preferences and unilateral moves without entry consent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_EXISTENCE_ONLY: no complete multipartite Nash count or sharp blocker cardinalities in inspected theorem",
+          "evidence": [
+            "Observation 2 asserts Nash existence for symmetric friendship; Appendix B.3 gives construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.09655",
+          "material_read": "Full accessible 2023 conference PDF, especially model definitions and Observation 2 on symmetric friendship Nash existence",
+          "method": "Open AAMAS proceedings full PDF; inspected first page via PDF screenshot and later body",
+          "title": "Hedonic Games With Friends, Enemies, and Neutrals: Resolving Open Questions and Fine-Grained Complexity",
+          "trigger": "Same exact FE/FEN friend-appreciation model and Nash existence"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_THEORY: general core-stability notions, not all integer-size balanced Nash enumeration",
+          "evidence": [
+            "Defines friend-enemy-neutral setting and explores strong/core coalition deviations."
+          ],
+          "identifier_or_url": "https://www.ijcai.org/proceedings/2017/0051.pdf",
+          "material_read": "Accessible principal definitions, core-stability result statements and proofs on friendship graphs",
+          "method": "Open IJCAI 2017 proceedings article",
+          "title": "Core Stability in Hedonic Games among Friends and Enemies: Impact of Neutrals",
+          "trigger": "Same neutral/enemy preference distinctions for core stability"
+        },
+        {
+          "assessment": "PRIORITY_RISK: full manuscript not materially read, so no whole-document noncoverage claim",
+          "evidence": [
+            "General symmetric friend/enemy deviation and stability existence framework is prior."
+          ],
+          "identifier_or_url": "https://doi.org/10.2139/ssrn.639483",
+          "material_read": "Accessible paper abstract and high-level existence result, not the complete primary paper",
+          "method": "Publisher/working-paper landing page",
+          "title": "Enemies and Friends in Hedonic Games: Individual Deviations, Stability and Manipulation",
+          "trigger": "Earlier mutual friendship Nash results could cover classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete multipartite graphs are a canonical friendship-network family; exact equilibrium multiplicities and a sharp s+1 vs s+2 difference between neutral and enemy internal ties describe a meaningful collective-stability boundary not captured by general existence results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prior characterisations of Nash partitions of complete multipartite friend-appreciation games may be unindexed.",
+    "Dimitrov-Sung full manuscript not inspected; its abstract-level result is not used as proof of noncoverage.",
+    "Requires complete undirected intertype friendship, homogeneous lexicographic preferences and unilateral moves without entry consent."
+  ],
+  "schema_version": 1
+}
