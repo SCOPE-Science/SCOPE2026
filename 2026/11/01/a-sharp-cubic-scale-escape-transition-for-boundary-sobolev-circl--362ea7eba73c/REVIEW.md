@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The rank-one coefficient formula is recomputed directly from Haar orthogonality, with the unique positive simple root fixed by a strictly increasing scalar ratio. Rouché's theorem handles the subcritical disk, and the exact identity for \(|B|^2-A^2\) excludes all nonpositive-root boundary crossings for every supercritical mass. A continuity argument identifies the unique escaped root. The degree-dependent conclusions follow from a locally uniform Riemann-sum limit and a uniform logarithmic-scale Laplace estimate, not numerical extrapolation. The embedded checker passed 13705 supplementary assertions, including exact rational inner products, symbolic factor identities and numerical root counting. Risks: a missing hypothesis in the uniform Riemann-sum comparison would affect only the refined supercritical exponent law; the provided proof explicitly establishes the \(O((1+v)^2/n)\) relative error on the required regime.
+PASS
 
-## Originality: PASS relative to inspected material
+PASS. Haar orthogonality determines coefficients c_j=-lambda j P'(1) and P'(1)=n/(1+lambda S_n), S_n=sum_{j<n}j², yielding P=z[z^{n-1}-A sum_{j=1}^{n-1}j z^{j-1}] with A=n lambda/(1+lambda S_n). Descartes sign rule or monotonic F_m(r) gives one simple positive root; setting r=1 yields lambda_c exactly. For A<A*, Rouché gives all Q roots inside; at equality only r=1 is on the boundary; for A>A*, the explicit |B_{m,A}(e^{i theta})|²-A²=2(1-cos theta){A[A m(m+1)-2]+2(1-cos theta)[A(m+1)+1]} is strictly positive except at z=1, forbidding another boundary crossing. For n=2, the m=1 edge case follows directly. For lambda_n the monotone inversion of a locally uniform Riemann sum gives H(u) limits for s<=3; a relative O((1+v)²/n) Laplace-sum error for v=O(log n) and equation e^-v v²~tau n^{-(s-3)} gives the s>3 log and loglog expansion with constants. Separate exact symbolic verification of the unit-circle identity and 57 finite root-class cases was performed; inspected pinned CHECK.py. Finite roots do not prove all n, lambda, tau or s.
 
-The general discrete Sobolev rank-one perturbation formula is already in the cited thesis and is not claimed new. The thesis's outside-support asymptotic zero theorem assumes an evaluation point strictly beyond the disk. The closest accessible 2026 primary paper treats absolutely continuous derivative measures rather than a point mass and therefore does not imply the cubic-scale threshold. indexed mathematical-record searches for exact zero counts, boundary jet masses, threshold parameters and aliases identified no equivalent claim. The **2012 article on exactly this general model** was accessible at abstract level only; it may contain a special-case result that narrows originality, which remains a genuine residual risk. Full-text noncoverage is not asserted. The novelty assessment is best-knowledge rather than a proof of unique discovery.
+## originality
 
-## Value: PASS
+PASS
 
-An exact finite-degree threshold for when Sobolev orthogonality loses disk-zero confinement is a natural zero-location boundary, not an arbitrary numerical slice. The all-degree classification shows that a rank-one derivative mass creates exactly one escaping zero; the dimensionally distinct \(n^{-3}\) scale (versus the continuous-derivative \(n^{-2}\) scale), sharp phase law and logarithm-plus-loglog return quantify that structural distinction. The result is useful for interpreting zero plots and choosing degree-dependent Sobolev penalties. It is not a global theory for arbitrary Sobolev measures.
+PASS, explicitly best-of-knowledge, with unusually material unresolved priority risk. The rank-one discrete Sobolev perturbation formula is standard. Castillo, Garza and Marcellán (Numerical Algorithms 60, 2012, 669–681), DOI 10.1007/s11075-012-9594-6, is a directly relevant earlier study of zeros for the exact general inner-product form with derivative evaluation at arbitrary alpha and lambda, and may include the special Haar/alpha=1 case. Both arXiv/preprint and lawful OA searches did not yield its full text; authorized Oxford retrieval returned vpn_disconnected. Its accessible abstract states general zero behaviour when n and lambda vary but neither this precise all-degree threshold nor the loglog asymptotic. No whole-paper NOT_COVERING finding is made. The 2026 Majumder–Swaminathan arXiv:2610.31994 studies absolutely continuous derivative measures on the circle rather than the point mass at 1, so its stated hypotheses do not directly cover the result. On the specific full formula and exact asymptotic available to compare, retain PASS with explicit literature priority risk, not an access-based automatic rejection.
 
-## Closest sources and limitations
+## value
 
-Majumder–Swaminathan arXiv:2610.31994v1 (2026); the thesis *Spectral Problems and Orthogonal Polynomials on the Unit Circle*, §5.2; Castillo–Garza–Marcellán, Numerical Algorithms 60 (2012), 669–681 (abstract only); Castillo–Garza–Marcellán, Integral Transforms and Special Functions 24 (2013), 23–38 (abstract only). Important access risk: the full 2012 Numerical Algorithms article could not be inspected. No result is asserted for other base measures, several masses or moving \(s\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. For a canonical Haar orthogonality perturbed by a boundary derivative atom, the exact transition location of the unique escaping zero across every degree is a natural sharp zero-geometry invariant. The cubic mass scale and three moving-parameter regimes, including a loglog subcritical asymptotic, go well beyond merely restating a rank-one perturbation formula or illustrating small degrees. Such precise quantitative root behaviour can be independently useful for asymptotic Sobolev orthogonal polynomial theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
