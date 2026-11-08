@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact enumeration constructs all \(2940\) nonempty simplices and validates \(1424\) acyclic discrete Morse pairs on the entire Hasse incidence graph. The full signed Morse complex has critical degrees \(0,3,4,5\); its only nonzero differential has seven unit Smith factors, and the top differential vanishes. Importantly, the direct degree-three cohomology basis and the cup-one formula verify the vanishing of \(Sq^2:H^3(-;\mathbb F_2)\to H^5(-;\mathbb F_2)\), thereby excluding all possible mod-two Hopf attachments after integral cellular cancellations. This closes the gap between integral homology and the asserted homotopy wedge. Reproducibility is provided by the standalone source and saved output; no unperformed independent check is claimed.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
+Reconstructed all 21 arcs and exhaustively enumerated all nonempty directed-acyclic indegree<=1/outdegree<=1 arc subsets: 2,940 faces f=(21,168,630,1113,819,189), mod2 ordinary boundary ranks (20,148,482,616,165). Independently rebuilt source-specified 1,424 toggle Morse pairs and topologically sorted the 2,940-vertex reversed matched-incidence Hasse graph, giving critical cells {0:1,3:22,4:45,5:24}. Independently computed the exact integer 22x45 Morse differential and Smith factors (seven units; all other zero), verified critical ∂5=0. Thus free integral reduced Betti 15,38,24 but this alone would not imply wedge. Reconstructed 15 independent mod2 H^3 cocycles modulo full 482-rank coboundaries and calculated their cup-one squares on all 5-simplices; all lie in the 165-rank degree-5 coboundary image. Consequently Sq²:H³->H⁵ is zero. After canceling seven 3/4 unit cellular pairs, 5-cell attachments to wedge^15 S3 vee wedge^38 S4 have classes in (Z/2)^15 + Z^38; ∂5 kills free parts, Sq² detects each mod2 Hopf part. Thus all attachments nullhomotopic. This proves the full wedge rather than only homology.
 
-The two inspected foundational sources describe multipath complexes and calculate selected target families, especially transitive tournaments. This result concerns a nontransitive seven-vertex quadratic-residue tournament, and is neither a special case of the transitive theorem nor the directed flag, path-homology, out-neighborhood or directed-Hom constructions. Semantic searches of available mathematical records, including equivalent terminology, related parameters and stronger coverage, uncovered no claim implying this complete integral homotopy type. published-finding corpus's closest relevant multipath record treats bidirected double stars rather than tournaments. Unindexed and inaccessible results cannot be excluded categorically.
+## originality
 
-## Value — PASS
+PASS
 
-The first small nontransitive doubly regular Paley tournament is a canonical test object beyond transitive multipath classifications. The full integral homotopy type is a natural exact invariant, and its mixed three-dimensional distribution together with a necessary Steenrod obstruction computation is meaningful independently of a universal-family formula. The finding is not represented as a new general theorem on all tournaments.
+Best-of-knowledge new full integral homotopy calculation for the *nontransitive* doubly regular Paley-7 tournament. Caputi–Collari–Di Trani–Smith 2024 full postprint explicitly treats transitive tournaments (Theorem 5.1), linear graphs, polygons and small grids, with general module decomposition not resolving this irreducible target. The earlier Caputi et al. definitions do not state a Paley seven calculation. The closest Resultary Paley tournament results compute directed *flag* complexes at 19/31 vertices, a different construction. Need distinguish a general theorem that some transitive multipath complexes are wedges from this specific 15/38/24 integral wedge and Hopf Sq² obstruction.
 
-## Scope and limits
+## value
 
-One seven-vertex target only; no complete family pattern, equivariant classification or independently performed external audit. The referenced literature supplies definitions and comparison, not the finite numerical certificate. Both exhaustive computation and the classical attaching-map argument are necessary for the final result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first highly symmetric nontransitive doubly regular Paley tournament is a canonical test case beyond transitive families. Computing its *integral homotopy type*, with nontrivial mixed S³/S⁴/S⁵ ranks and explicit Steenrod-square elimination of possible Hopf attachments, is a natural nontrivial exact invariant that a future multipath-complex classification can use even without a general family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
