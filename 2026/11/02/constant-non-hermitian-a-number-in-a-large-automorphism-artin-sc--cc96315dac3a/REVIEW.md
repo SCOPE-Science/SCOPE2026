@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-point Artin–Schreier ramification calculation supplies the exact genus and complete differential basis. Cartier semilinearity gives an explicit matrix whose weight decomposition is exhaustive: zero for weights below \(p-1\) and a separately controlled block for each remaining weight. For nonzero parameters, invertible row/column rescalings turn every block into a polynomial-evaluation matrix of explicitly known rank. The block ranks sum to \((p^2-1)/8\). At the zero parameter, every possible Cartier term contains a positive power of the parameter and therefore vanishes. This verifies the quantifiers for every prime \(p\ge5\) and every coefficient in the algebraic closure. The seven-prime standalone checker is supplemental, not proof of the infinite claim.
+PASS
 
-## Originality — PASS, with priority risk
+For algebraically closed k of odd prime characteristic p≥5, y^p-y=x^(p+1)+a x² has one pole of order p+1 and genus p(p-1)/2; the holomorphic differential basis x^i y^j dx (i+j≤p−2) follows from valuations at infinity. The explicit Cartier expansion has source weight i+2j and output weight t=i+2j−(p−1). For a=0 every possible term includes a positive power of a^(1/p), giving zero rank. For a≠0, invertible row/column rescaling transforms each t-block into evaluation of the polynomial basis P_k(u)=∏_(h=k+1)^K(u+h) at distinct u∈{1,...,N} in F_p; its rank is min(K+1,N), K=floor(t/2), N=(p−1)/2−ceil(t/2). Summing t=0...p−3 gives rank (p²−1)/8 and hence a-number (p−1)(3p−1)/8. A separate direct modular expansion/elimination (not executing the package script) for p=5,7,11 and a=0,1,2 recovered ranks 0/3, 0/6, 0/15. The all-prime claim rests on the evaluation argument.
 
-The exact originating curves appear in Arakelian–Kian (2026, Theorem 1.3), but that source calculates automorphisms and \(p\)-rank, not the \(a\)-number. Zhou (2019) explicitly contains the \(p=3\) special case and lower-rank constraints for some higher primes; the new statement restricts its claimed uniform novelty to \(p\ge5\). Borges–Niemann–Zini (2026, Example 3.7) gives the same type of special curve through a double-cover presentation, computing genus and automorphisms but no Cartier rank. Farnell–Pries requires pole orders dividing \(p-1\), and Booher–Cais gives broader bounds and exact results for a different ramification regime, not this family-wide exact formula. Exact-equation, rank-formula, and alternate-description searches found no covering result in inspected primary literature or accessible published research records. This does not establish absolute historical priority: alternate isomorphic models or unindexed tables may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The family is singled out by a large normal Heisenberg automorphism group, fixed genus, and \(p\)-rank zero. The theorem determines a natural fine Jacobian invariant uniformly for every nonzero deformation coefficient and identifies its exact jump at the distinguished Hermitian curve. A closed uniform classification for an infinite family is more than a finite calculation or a normalization check; it distinguishes strata invisible to genus, \(p\)-rank, and group-size considerations.
+The exact curve family is already in Arakelian–Kian 2026 for large automorphisms; Zhou 2019 proves p=3 nonzero case, intentionally excluded. Farnell–Pries 2013 constant-rank theorem applies only p≡1 modulo pole-order L, impossible for L=p+1, while its own text discusses monomial a-number formulas. No located result computes the entire nonzero-parameter p≥5 block rank. Nevertheless original Arakelian–Kian manuscript was not fully accessible (arXiv/OA unavailable and Oxford VPN disconnected), leaving a serious possibility of a stronger formula in its full text or appendices.
 
-## Limits and relevant literature
+## value
 
-The claim is about a one-step Cartier rank, not the entire \(p\)-torsion group scheme. Arakelian–Kian, arXiv:2608.13768; Zhou, arXiv:1901.08375; Farnell–Pries, arXiv:1202.4183; Booher–Cais, arXiv:1807.10313; Borges–Niemann–Zini, arXiv:2602.13925. The checked formulas leave the indicated new \(p\ge5\) invariant undetermined. Full priority and mathematical validation require independent checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The a-number is a canonical finer Jacobian invariant after genus and p-rank. In a natural large-automorphism Artin–Schreier deformation family, a complete all-primes coefficient-independent formula for all a≠0 and the exact jump at the Hermitian boundary gives a meaningful infinite classification. It is neither just a normalization check nor a finite experiment; the p=3 previously known case is excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
