@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** Every derivation is represented by two length-\(m\) truncated-polynomial coordinates, with the odd-length constant-term constraint included. The power identity \(D^{2^e}=f(f')^{2^e-1}\partial_x\) follows inductively from characteristic-two Leibniz cancellation and \((f')'=0\); comparison of even/odd coefficients yields two necessary and sufficient equations. Valuations then prove the irredundant linear component union and its dimensions, while a direct kernel computation proves the rank formula and elementary finite-field valuation counting proves all coefficients. The verification file independently builds original derivation matrices and checks finite cases. Boundary cases \(m=1\), \(Q=0\), rank zero, parity, and heights exceeding nilpotence limits are explicitly included. The proof makes no inference from samples to arbitrary fields.
+
+## Originality
+**PASS under examined literature, with priority risk.** Premet (arXiv:1405.2426) treats restricted Cartan-type derivation invariant theory over characteristic \(p>2\) and does not imply the characteristic-two exact higher-height equations or rank census. Feldvoss–Siciliano–Weigel (arXiv:1102.2629) treats restricted derivations of nilpotent restricted Lie algebras rather than powers of ordinary derivations on one-variable truncated commutative algebras. The already-known characteristic-two square-zero layer \(D^2=0\) is explicitly excluded from the new claim. Searches for \(D^4=0\), higher restricted nilpotence, parameter equivalences, and full rank counts gave no demonstrably covering formula. The sharp non-equidimensionality and equidimensionality criterion are genuinely additional statements. A possibly unlocated broader theorem could subsume the new result, so absolute priority is not certified.
+
+## Value
+**PASS.** Restricted powers are intrinsic to derivation Lie algebras in positive characteristic, and varieties of bounded height form a natural filtration of their nilpotent loci. The exact component structure shows that the higher-height varieties need not be equidimensional, despite the simpler square-zero boundary, and gives an exact dimension criterion. The full finite-field rank distribution, including parity coincidence and differences between successive heights, is a mathematically natural arithmetic refinement with direct use in studying these restricted strata; it is neither an arbitrary parameter slice nor a trivial substitution into square-zero counts.
+
+## Limitations and closest literature
+All geometric statements concern reduced varieties; nonreduced schemes, automorphism orbits, and other characteristics remain unclassified here. Historical coverage is necessarily limited by indexed and accessible primary sources. Premet (2014) is the archival topical anchor; Feldvoss–Siciliano–Weigel (2011) and Chen (2019) supply contextual comparisons, not covering the stated claim. Finite-field checks corroborate but do not constitute proof.
+
+Self-review: passed. Independent audit: not yet performed.
