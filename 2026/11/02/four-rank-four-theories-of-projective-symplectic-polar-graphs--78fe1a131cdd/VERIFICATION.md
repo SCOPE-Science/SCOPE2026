@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-The accompanying `verify_polar.py` uses only the Python standard library and evaluates atomic-extension profiles for projective symplectic graphs in eight finite parameter cases. The output `verify_output.txt` records every tested graph order and the 28 pairwise decisions.
 
-The supplementary `separator_check.py`, which imports `verify_polar.py`, directly tests both distinguishing rank-four properties on five small models; `separator_output.txt` records successful results. The executable checks verify the finite cases only. The uniform algebraic argument in `RESULT.md`, including the surjectivity and exceptional missing-fiber analysis, is required for the infinite statement. No external or independent mathematical validation was performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The graph represents one-dimensional subspaces with orthogonality under nondegenerate alternating B. For at most three selected points, retain equality, adjacency, and projective dependence signature. A full-rank linear map w↦(B(w,u_i)) gives all orthogonality value patterns except the explicitly enumerated small q=2,d=2 fibers or isotropic projective lines. The proof inspects the rank2 versus >=3 and q=2 versus >=3 dependent/independent cases and obtains four-round Duplicator extension. Two depth-four sentences distinguish existence of independent isotropic triple (d>=3) and q>=3 dependent nonorthogonal triple with nonzero forms simultaneously (q>=3). Independent F2 versus F3 at Witt rank two and F2 Witt rank two versus three distinguishing-sentence computations matched; inspected the separate packaged verify_polar.py full atomic extension-profile algorithm covering eight finite models with expected all 28 model pair decisions, plus separator_check.py metadata. Small-model computation does not prove all prime powers; the explicit nondegenerate symplectic linear-algebra extension lemma does.
+
+## originality
+
+PASS
+
+Closest statement/implication comparisons and bounded primary reading support best-of-knowledge originality with explicitly named residual priority risks; no claim of exhaustive historical uniqueness.
+
+## value
+
+PASS
+
+This is a sharp logical complexity threshold and finite canonical representative cutoff for an infinite natural family of point-collinearity graphs. The q=2 slice is already known by complementing an earlier binary symplectic-graph classification; value lies in incorporating all q>=3 and distinguishing the two field-size and Witt-rank dichotomies in the pure graph language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

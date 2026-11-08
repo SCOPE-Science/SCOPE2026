@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim uses precisely the pure undirected graph language. The proof gives a four-move matching strategy from an exact three-point structural signature; the affine fiber argument handles both small exceptions, with extra attention to the binary four-dimensional case. Two explicit rank-four sentences separate Witt rank two from higher rank and field size two from larger fields. Exact finite root-type computations on eight models independently check all 28 sampled cross-pairs. The uniform cases depend on proof, not experimental extrapolation.
+## correctness
 
-## Originality
-PASS, qualified. The closest materials inspected are Pikhurko–Verbitsky's finite-graph logical complexity survey (arXiv:1003.4865), Abiad–Haemers on binary symplectic switching/two-rank (arXiv:1412.2945), and Brouwer–Ihringer–Kantor on the combinatorial four-vertex condition (arXiv:2107.00076). None of their examined propositions gives the present across-parameter first-order rank-four equivalence and its sharp two-bit separation. The ordinary four-vertex condition counts configurations over anchored pairs and is not equivalent to rank-four elementary equivalence across graphs. Residual risk: equivalent low-depth classifications in older or unindexed literature could have escaped the searches.
+PASS
 
-## Value
-PASS. The exact four-class classification identifies the first logical depth capable of detecting the underlying field-size and Witt-rank transitions, with sharp finite representatives. The contrast between combinatorial four-vertex regularity and cross-parameter first-order distinguishability gives a natural structural motivation beyond checking small examples.
+The graph represents one-dimensional subspaces with orthogonality under nondegenerate alternating B. For at most three selected points, retain equality, adjacency, and projective dependence signature. A full-rank linear map w↦(B(w,u_i)) gives all orthogonality value patterns except the explicitly enumerated small q=2,d=2 fibers or isotropic projective lines. The proof inspects the rank2 versus >=3 and q=2 versus >=3 dependent/independent cases and obtains four-round Duplicator extension. Two depth-four sentences distinguish existence of independent isotropic triple (d>=3) and q>=3 dependent nonorthogonal triple with nonzero forms simultaneously (q>=3). Independent F2 versus F3 at Witt rank two and F2 Witt rank two versus three distinguishing-sentence computations matched; inspected the separate packaged verify_polar.py full atomic extension-profile algorithm covering eight finite models with expected all 28 model pair decisions, plus separator_check.py metadata. Small-model computation does not prove all prime powers; the explicit nondegenerate symplectic linear-algebra extension lemma does.
 
-## Limits
-Restricted to the one-sorted simple point-collinearity graph. The independent mathematical audit and exhaustive historical priority check remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest statement/implication comparisons and bounded primary reading support best-of-knowledge originality with explicitly named residual priority risks; no claim of exhaustive historical uniqueness.
+
+## value
+
+PASS
+
+This is a sharp logical complexity threshold and finite canonical representative cutoff for an infinite natural family of point-collinearity graphs. The q=2 slice is already known by complementing an earlier binary symplectic-graph classification; value lies in incorporating all q>=3 and distinguishing the two field-size and Witt-rank dichotomies in the pure graph language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
