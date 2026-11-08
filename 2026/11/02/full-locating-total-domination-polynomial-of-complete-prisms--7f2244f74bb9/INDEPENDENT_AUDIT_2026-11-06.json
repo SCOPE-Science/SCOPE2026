@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:46:58.469178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_n square K_2 with OPEN locating-total domination of ALL vertices, same-layer outside signatures are distinct iff at most one matching column is empty; top/bottom cross signatures separate when either layer has at least two selected. Total domination forces two occupied vertices in each nonempty layer except full opposite layer and the one-vertex matched-pair cases. Counting empty columns and column states with weighted inclusion–exclusion yields n>=4 polynomial t^n(t+2)^n+n*t^(n-1)(t+2)^(n-1)-2*n*t^n-2*n^2*t^(n-1), +6*t^2 at n=3, and 4*t^2+4*t^3+t^4 at n=2. It implies min n for 2<=n<=4 and n-1 for n>=5, counts 4,14,56,n(2^(n-1)-2n). Independent from source checker: enumerate all 2^(2n) labeled vertex subsets for each n=2..7 using direct adjacency and open-neighborhood signatures and compare EVERY coefficient, including boundaries. Proof unbounded, finite tests corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chakraborty et al. Theorem 3 gives <= |V|/2=n for twin-free cobipartite graphs; for n>=5 the proved min n-1 is smaller. Foucaud-Henning gives an upper bound for line graphs, not coefficientwise enumeration."
+        ],
+        "reasoning": "A bounding theorem on a broader class does not imply the exact polynomial or minimum-set multiplicities; the record does not claim the old upper bound itself.",
+        "searches": [
+          "arXiv:2211.14178 Chakraborty Foucaud Hakanen Henning Wagler cobipartite locating-total theorem",
+          "arXiv:1506.02623 Foucaud Henning Location-domination in line graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2211.14178",
+        "https://arxiv.org/abs/1506.02623",
+        "https://doi.org/10.1177/00368504211053417",
+        "Resultary 2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cobipartite inequality gives gamma<=n rather than exact gamma and full L_n(t); the 2021 source studies cycle prisms C_n square K_2, which are not complete prisms for n>=4; mixed-metric codes use distance vectors instead of N(v) intersect S."
+        ],
+        "reasoning": "None of the compared claim statements implies the coefficient formulas as a corollary by parameter matching or inclusion. The line-graph equivalence is considered explicitly; potential unindexed identical enumeration remains a residual risk.",
+        "searches": [
+          "Chakraborty et al. arXiv:2211.14178 Section 2 Theorem 3",
+          "Science Progress 2021 DOI:10.1177/00368504211053417 locating total domination rotationally symmetric graphs",
+          "Resultary: total domination complete prisms and mixed metric bases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the line graph L(K_{2,n}), and is a pair of cliques joined by a perfect matching; Roman {3} domination Resultary record 2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2 counts functions, not LTD vertex subsets."
+        ],
+        "reasoning": "Compared equivalent graph names and alternative domination semantics. L(K_{2,n}) is the same underlying graph, but the located line-graph results provide bounds, not an enumerator; different domination notions do not imply open-neighborhood counting.",
+        "searches": [
+          "Resultary: locating total domination polynomial K_n Cartesian K_2 complete prism open neighborhood enumerator",
+          "web: \"locating-total\" \"K_n\" \"K_2\" polynomial complete prism"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary complete-prism Roman {3} domination 2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2 has a different invariant; an indexed same-polynomial table was not found."
+        ],
+        "reasoning": "Known small n counts are independently derivable and are not asserted as previously unknown; no available table providing all n and all coefficients was identified. Search absence is not a priority certificate.",
+        "searches": [
+          "Resultary semantic: complete prism locating-total domination polynomial exact coefficients",
+          "web: \"K_n square K_2\" locating total domination labeled sets polynomial"
+        ]
+      },
+      "rationale": "Relevant prior results give general bounds for twin-free cobipartite graphs, general line-graph location domination, and ordinary C_n prism graphs, not the all-cardinality open-neighborhood LTD polynomial of K_n square K_2. The same-graph Roman 3 domination record has distinct labeled functions. Best-of-knowledge original with historical indexing limitations.",
+      "residual_risks": [
+        "Indexing cannot exclude an older K_n square K_2 locating-total set polynomial under another graph/parameter name.",
+        "The line-graph literature beyond inspected theorem statements may include a specialized enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING all-cardinality enumeration",
+          "evidence": "Theorem 3 establishes scalar upper |V|/2 but does not state the full K_n square K_2 polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.14178",
+          "material_read": "Full legally accessible PDF: introduction, definitions and Section 2 theorem/statement of twin-free cobipartite bound (visually checked theorem page).",
+          "method": "primary paper PDF plus screenshot",
+          "title": "Progress towards the two-thirds conjecture on locating-total dominating sets",
+          "trigger": "same locating-total invariant and cobipartite superfamily"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR: line-graph upper bounds; possible unseen specifics",
+          "evidence": "Relates to same graph family through L(K_{2,n}); bounds are weaker than claimed full enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.02623",
+          "material_read": "Available bibliographic/intro and relevant line-graph bound statements; not an exhaustive whole-document check.",
+          "method": "indexed primary text and publication descriptions",
+          "title": "Location-domination in line graphs",
+          "trigger": "complete prism is L(K_{2,n})"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The size enumerator is a natural strengthening of a locating-total domination number on a canonical infinite cobipartite/line-graph family. It recovers the minimum and all equality configurations and detects the sharp change at n=5; the exact coefficient sequence is mathematically usable beyond a single small instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Indexing cannot exclude an older K_n square K_2 locating-total set polynomial under another graph/parameter name.",
+    "The line-graph literature beyond inspected theorem statements may include a specialized enumeration."
+  ],
+  "schema_version": 1
+}

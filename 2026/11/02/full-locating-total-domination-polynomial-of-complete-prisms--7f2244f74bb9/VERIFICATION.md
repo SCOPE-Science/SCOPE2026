@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the locating-total domination polynomial
+# Independent mathematical audit
 
-`verify_prisms.py` constructs both complete clique layers, the matching edges, and open neighborhoods directly. For each \(2\le n\le10\) it examines all \(2^{2n}\) labeled subsets, requires nonempty selected neighborhoods at **every** vertex, requires distinct selected-neighborhood intersections for all distinct unselected vertices, and compares every cardinality count against the polynomial coefficients.
+## correctness
 
-The observed sums of coefficients were \(9,36,149,588,2103,7178,23913,78552,255659\) for \(n=2,3,\ldots,10\). Their exact minimum sizes and multiplicities were \((2,4),(3,14),(4,56),(4,30),(5,120),(6,350),(7,896),(8,2142),(9,4920)\). Result: `VERIFY_OK`.
+PASS
 
-`verify_prisms_structure.py` separately reconstructs the graph, checks that no subset smaller than the claimed minimum is locating-total, and checks that **every** subset of minimum size matches the predicted equality structures for \(2\le n\le10\). It also checks forty explicit larger constructions for \(n\in\{11,12,17,23,35\}\). Result: `VERIFY_OK`.
+For K_n square K_2 with OPEN locating-total domination of ALL vertices, same-layer outside signatures are distinct iff at most one matching column is empty; top/bottom cross signatures separate when either layer has at least two selected. Total domination forces two occupied vertices in each nonempty layer except full opposite layer and the one-vertex matched-pair cases. Counting empty columns and column states with weighted inclusion–exclusion yields n>=4 polynomial t^n(t+2)^n+n*t^(n-1)(t+2)^(n-1)-2*n*t^n-2*n^2*t^(n-1), +6*t^2 at n=3, and 4*t^2+4*t^3+t^4 at n=2. It implies min n for 2<=n<=4 and n-1 for n>=5, counts 4,14,56,n(2^(n-1)-2n). Independent from source checker: enumerate all 2^(2n) labeled vertex subsets for each n=2..7 using direct adjacency and open-neighborhood signatures and compare EVERY coefficient, including boundaries. Proof unbounded, finite tests corroborative.
 
-The enumeration is exhaustive only for the stated finite graphs. The theorem for arbitrary \(n\) is proved by the neighborhood and coefficient argument in `RESULT.md`. Verifiers are self-contained, use only the Python standard library, and may be run with `python verify_prisms.py` and `python verify_prisms_structure.py`. All checks were rerun from the actual newly embedded checker files after the final JSONL was saved and reopened. No independent mathematical audit was performed.
+## originality
+
+PASS
+
+Relevant prior results give general bounds for twin-free cobipartite graphs, general line-graph location domination, and ordinary C_n prism graphs, not the all-cardinality open-neighborhood LTD polynomial of K_n square K_2. The same-graph Roman 3 domination record has distinct labeled functions. Best-of-knowledge original with historical indexing limitations.
+
+## value
+
+PASS
+
+The size enumerator is a natural strengthening of a locating-total domination number on a canonical infinite cobipartite/line-graph family. It recovers the minimum and all equality configurations and detects the sharp change at n=5; the exact coefficient sequence is mathematically usable beyond a single small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
