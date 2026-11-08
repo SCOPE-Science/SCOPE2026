@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** An exponential-clock coupling identifies greedy independent-set selections with competitive monomer/dimer adsorption. Direct enumeration of adsorption hazards yields a finite interval hierarchy with its correct terminal condition on a cycle; an explicit infinite-hierarchy solution satisfies its initial data and differential equations. Integrated differences give the finite formula without approximation. Strict positivity follows from an integrated adjacent-interval identity and a bounded hazard, and Laplace localization gives the leading factorial correction. The independently implemented exact-state enumerator agreed with the formula in all tested small cases. No finite experiment is being used as an infinite proof.
+
+**Originality — PASS, subject to historical-priority risk.** The baseline paper on random greedy independent sets via local limits gives no cited finite-ring clique-chain parity formula. Classical graph adsorption and cactus-coverage papers establish closely related methods and asymptotic frameworks. Their abstracts and accessible material do not establish the displayed alternating finite-size identity by statement or immediate implication. Pippenger's full article could not be inspected, leaving a real possible coverage risk; this is not represented as a uniqueness certificate. The claim concerns the exact finite-cycle correction, not the classical infinite-line formula.
+
+**Value — PASS.** Periodic boundary effects in adsorption are scientifically natural because cycles are the smallest obstruction to tree-like renewal and empty-interval calculations. The theorem gives a strict sign reversal for every odd/even cycle size and a factorially small correction, a quantitative boundary effect that asymptotic density alone does not determine. The all-size sign and rate jointly distinguish this from arbitrary finite-graph census data.
+
+**Closest literature and limits.** Krivelevich–Mészáros–Michaeli–Shikhelman (arXiv:1907.07216); Pippenger (1989), DOI 10.1137/0402034; Fan–Percus (1991), DOI 10.1103/PhysRevA.44.5099. The finite-cycle formula is derived under uniform arrival rates and fixed clique order; classical absorption schemes are not claimed new.
+
+Self-review: passed. Independent audit: not yet performed.
