@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:47:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Cayley identity C=2(I+sL)^-1-I and M-matrix positivity show all off-diagonals are positive for s>0 and sign loss is diagonal only. For paths, the reflecting heat-kernel diagonal equals q_{2r}(0)+q_{2r}(2i-1), and cycle kernel differences satisfy an irreducible cooperative tridiagonal ODE, making the center exactly minimal. Product semigroup and Laplace resolvent preserve minima. Cosine path spectrum supplies the finite central diagonal sum, strictly decreasing from 1 to 1/(mn)<1/2, hence unique threshold. Image-reflection terms show finite central Green > infinite square-lattice Green and convergence as both dimensions grow. Fourier integration gives G(s)=2K(4s/(1+4s))/(π(1+4s)), using elliptic modulus. The massive 2D axis Green has a unique Laplace saddle with exponent ξ=arcosh(1+1/(2s)); nearest images at ±n (odd) or n±1 (even) and exponential-moment tail control give the two explicit amplitudes with relative O(1/n). Independent direct 2D matrix inversion tested central min, entrywise threshold and sign changes for 5 different rectangles. This numerical test does not establish the all-grid limit or parity constants; those are supported by the analytic image and saddle calculation. Inspected source verification artifact also reports 2806 finite/numeric checks and high precision asymptotic ratios, not substitute proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faragó–Horváth supply an adequate sufficient Crank–Nicolson step bound with distinct Dirichlet-type boundary conditions; Higueras–Roldán study sharp 1D Dirichlet threshold; Resultary generic reversible-chain criterion supplies no 2D specific center or parity asymptotics."
+        ],
+        "reasoning": "None of these actual theorem statements implies the exact finite reflecting-rectangle roots and two parity coefficients without additional geometry-specific heat kernel/image analysis.",
+        "searches": [
+          "Faragó–Horváth 2006 Sections 5–7",
+          "Higueras–Roldán 2023 full preprint",
+          "Resultary resolvent-return full RESULT.md",
+          "Crank Nicolson graph Laplacian reflecting rectangular grids sharp positivity threshold elliptic integral parity correction"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, artifacts/verify.py and artifacts/verification.txt at verified Git tree",
+        "Resultary 2026 resolvent-return full RESULT.md",
+        "Higueras–Roldán 2023 full OA preprint",
+        "Faragó–Horváth 2006 substantive theorem context",
+        "Sun 2009 bibliography/abstract",
+        "Resultary semantic query: Crank Nicolson graph Laplacian reflecting rectangular grids sharp positivity threshold elliptic integral parity correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic criterion plus spectral decomposition gives a root at any particular grid vertex but not which one controls first loss; the strict central-return ordering comes from the new reflecting-cycle monotonicity argument.",
+          "Higueras–Roldán 1D Dirichlet theorem has different eigenvectors and center return geometry."
+        ],
+        "reasoning": "Known sufficient CFL bound and generic resolvent criterion do not imply an exact 2D graph-reflecting universal constant or exponentially small parity-dependent approach.",
+        "searches": [
+          "Resultary 2026 full theorem and proof",
+          "Faragó–Horváth 2006 Theorem 6.2 / Remark 6.3",
+          "Higueras–Roldán 2023 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing Resultary theorem: for a Markov generator, CN nonnegativity iff backward-Euler diagonal returns all ≥1/2; reversible chains have unique spectral thresholds.",
+          "Present new result identifies which vertex minimizes returns on every reflecting rectangle and asymptotic Green limits."
+        ],
+        "reasoning": "We explicitly treat the general diagonal resolvent test as covered. Its chain-generic formula does not by itself supply geometric central order and lattice return asymptotics.",
+        "searches": [
+          "Crank Nicolson graph Laplacian reflecting rectangular grids sharp positivity threshold elliptic integral parity correction",
+          "Resultary: A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (2026)",
+          "Higueras–Roldán arXiv:2301.01066"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact s∞ root of 2K(k)/(π(1+4s))=1/2, k=4s/(1+4s), is ≈0.294098641842814; numerical finite square ratios 5..18 printed in source artifacts/verification.txt.",
+          "Known elliptic integral is a lattice Green identity, not a Crank–Nicolson center positivity/parity table."
+        ],
+        "reasoning": "The precise spectral-root threshold and finite-size amplitudes are not just a known elliptic integral value; direct computation from that known function still requires the new central-site and image arguments.",
+        "searches": [
+          "Resultary 2026 resolvent-return note",
+          "Higueras–Roldán 2023 tables and examples",
+          "Morita 1971 square lattice Green function"
+        ]
+      },
+      "rationale": "The general Markov-chain resolvent positivity criterion is an explicit prior Resultary finding and is not treated as new. Older Dirichlet 1D/2D finite difference sufficient bounds and the lattice elliptic Green formula are known. The assessed addition is the exact CENTER obstruction for every reflecting Cartesian rectangle, the uniform sharp square-lattice constant, and the parity-sensitive exponential finite-square corrections. Higueras–Roldán full paper treats one-dimensional Dirichlet grids and cannot directly imply the 2D reflecting parity law.",
+      "residual_risks": [
+        "Full specialist papers of Kraaijevanger (1992), Sun (2009), Gao–Sun (2012), Morita (1971) not all inspected; specialized Neumann positivity priority remains bounded uncertainty.",
+        "Parity-asymptotic remainder proof relies on precise uniform exponential-moment control, verified at argument level but not independently formalized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers C=2R-I and exact general reversible Markov-chain diagonal crossing; does not give central reflecting rectangles or parity Green asymptotics.",
+          "evidence": [
+            "Resultary 2026 full RESULT.md, commit-independent public record"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Full RESULT.md via repository read: finding, all statewise spectral formulas, proof, examples, limitations, references.",
+          "method": "Read pinned original Resultary full scientific file with GitHub connector",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Published direct prior whose general theorem covers the first proof step"
+        },
+        {
+          "assessment": "One-dimensional Dirichlet Laplacian, not all reflecting 2D product graphs; does not imply this parity correction.",
+          "evidence": [
+            "Higueras and Roldán (2023), arXiv:2301.01066"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Accessible full 2023 open preprint PDF, hypotheses, main one-dimensional Dirichlet theorem, analytical method and scope.",
+          "method": "Read original PDF with page screenshots",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "Closest titled sharp CN positivity result"
+        },
+        {
+          "assessment": "Provides sufficient 2D step-size restriction in different boundary discretization, not exact reflecting-grid root and image asymptotics.",
+          "evidence": [
+            "Faragó and Horváth (2006), SIAM J. Sci. Comput. 28, 2313–2336"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/050627241",
+          "material_read": "Available publisher abstract and Theorem 6.2 / Remark 6.3 descriptions in the inspected assigned science; full primary article not independently read during this run.",
+          "method": "Primary bibliographic comparison plus explicitly attributed theorem statements from assigned source",
+          "title": "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems",
+          "trigger": "Prior 2D sufficient CN step limit"
+        },
+        {
+          "assessment": "Compact Neumann heat scheme may have related maximum principle properties; no global negative noncoverage claim.",
+          "evidence": [
+            "Sun (2009), Numer. Methods PDE 25, 1320–1341"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/num.20402",
+          "material_read": "Publisher abstract/bibliographic description; full text not read.",
+          "method": "Primary publisher bibliographic context",
+          "title": "Compact difference schemes for heat equation with Neumann boundary conditions",
+          "trigger": "Highly plausible same Neumann boundary area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A classical discrete maximum-principle question gets a sharp, easy-to-use timestep constant 0.58819728368... instead of the conservative sufficient 0.5, exact finite-rectangle roots, and the nontrivial even/odd exponentially small finite-size law. These are natural numerical-analysis invariants with clear parameter/geometry motivation and precise boundary-convention scope.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, artifacts/verify.py and artifacts/verification.txt at verified Git tree",
+    "Resultary 2026 resolvent-return full RESULT.md",
+    "Higueras–Roldán 2023 full OA preprint",
+    "Faragó–Horváth 2006 substantive theorem context",
+    "Sun 2009 bibliography/abstract",
+    "Resultary semantic query: Crank Nicolson graph Laplacian reflecting rectangular grids sharp positivity threshold elliptic integral parity correction"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every reflecting unit-weight rectangle P_m square P_n (m,n≥2), entrywise positivity of the Crank–Nicolson end-step holds iff s≤ a unique center-diagonal resolvent crossing. A two-dimensional square-lattice elliptic root s∞≈0.29409864 is the exact uniform bound, with parity-dependent leading square-grid corrections e^-ξn/sqrt(n).",
+  "limitations": [
+    "Unit graph path-product reflecting/no-flux boundary only; each physical step uses s=κΔt/(2Δx²).",
+    "Square finite-size formula requires both sides equal and growing, not arbitrary thin rectangles; only one exact end step, not internal stage positivity."
+  ],
+  "residual_risks": [
+    "Full specialist papers of Kraaijevanger (1992), Sun (2009), Gao–Sun (2012), Morita (1971) not all inspected; specialized Neumann positivity priority remains bounded uncertainty.",
+    "Parity-asymptotic remainder proof relies on precise uniform exponential-moment control, verified at argument level but not independently formalized."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers C=2R-I and exact general reversible Markov-chain diagonal crossing; does not give central reflecting rectangles or parity Green asymptotics.",
+      "evidence": [
+        "Resultary 2026 full RESULT.md, commit-independent public record"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "material_read": "Full RESULT.md via repository read: finding, all statewise spectral formulas, proof, examples, limitations, references.",
+      "method": "Read pinned original Resultary full scientific file with GitHub connector",
+      "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+      "trigger": "Published direct prior whose general theorem covers the first proof step"
+    },
+    {
+      "assessment": "One-dimensional Dirichlet Laplacian, not all reflecting 2D product graphs; does not imply this parity correction.",
+      "evidence": [
+        "Higueras and Roldán (2023), arXiv:2301.01066"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+      "material_read": "Accessible full 2023 open preprint PDF, hypotheses, main one-dimensional Dirichlet theorem, analytical method and scope.",
+      "method": "Read original PDF with page screenshots",
+      "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+      "trigger": "Closest titled sharp CN positivity result"
+    },
+    {
+      "assessment": "Provides sufficient 2D step-size restriction in different boundary discretization, not exact reflecting-grid root and image asymptotics.",
+      "evidence": [
+        "Faragó and Horváth (2006), SIAM J. Sci. Comput. 28, 2313–2336"
+      ],
+      "identifier_or_url": "https://doi.org/10.1137/050627241",
+      "material_read": "Available publisher abstract and Theorem 6.2 / Remark 6.3 descriptions in the inspected assigned science; full primary article not independently read during this run.",
+      "method": "Primary bibliographic comparison plus explicitly attributed theorem statements from assigned source",
+      "title": "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems",
+      "trigger": "Prior 2D sufficient CN step limit"
+    },
+    {
+      "assessment": "Compact Neumann heat scheme may have related maximum principle properties; no global negative noncoverage claim.",
+      "evidence": [
+        "Sun (2009), Numer. Methods PDE 25, 1320–1341"
+      ],
+      "identifier_or_url": "https://doi.org/10.1002/num.20402",
+      "material_read": "Publisher abstract/bibliographic description; full text not read.",
+      "method": "Primary publisher bibliographic context",
+      "title": "Compact difference schemes for heat equation with Neumann boundary conditions",
+      "trigger": "Highly plausible same Neumann boundary area"
+    }
+  ]
+}

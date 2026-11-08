@@ -1,19 +1,21 @@
-# Scientific review: reflecting-grid Crank–Nicolson positivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scope is the graph-reflecting product of two unit path Laplacians, with \(s=\kappa\Delta t/(2\Delta x^2)\). The proof explicitly identifies every possible negative entry through \(C=2(I+sL)^{-1}-I\); proves strict central diagonal minimization using a cycle heat-kernel difference system; derives a unique finite positive crossing from the path cosine spectrum; obtains the universal elliptic integral via image sums; and applies a one-dimensional Laplace method to the massive square-lattice axis Green function. The two parity constants reflect the exact nearest-image offsets \(\pm n\) versus \(n-1\) and \(-(n+1)\). An exponential moment bounds all remaining image terms. The independent finite rational matrix test and high-precision spectral/elliptic tests passed all 2806 checks; the arbitrary-size and asymptotic conclusions rest on the written analytic proof, not on finite tests.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+The Cayley identity C=2(I+sL)^-1-I and M-matrix positivity show all off-diagonals are positive for s>0 and sign loss is diagonal only. For paths, the reflecting heat-kernel diagonal equals q_{2r}(0)+q_{2r}(2i-1), and cycle kernel differences satisfy an irreducible cooperative tridiagonal ODE, making the center exactly minimal. Product semigroup and Laplace resolvent preserve minima. Cosine path spectrum supplies the finite central diagonal sum, strictly decreasing from 1 to 1/(mn)<1/2, hence unique threshold. Image-reflection terms show finite central Green > infinite square-lattice Green and convergence as both dimensions grow. Fourier integration gives G(s)=2K(4s/(1+4s))/(π(1+4s)), using elliptic modulus. The massive 2D axis Green has a unique Laplace saddle with exponent ξ=arcosh(1+1/(2s)); nearest images at ±n (odd) or n±1 (even) and exponential-moment tail control give the two explicit amplitudes with relative O(1/n). Independent direct 2D matrix inversion tested central min, entrywise threshold and sign changes for 5 different rectangles. This numerical test does not establish the all-grid limit or parity constants; those are supported by the analytic image and saddle calculation. Inspected source verification artifact also reports 2806 finite/numeric checks and high precision asymptotic ratios, not substitute proof.
 
-The general resolvent diagonal criterion in “A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains” is acknowledged in the first proof step. Faragó–Horváth (DOI:10.1137/050627241) were compared in substantial publicly accessible full text, especially Sections 5, 6 and 7: their 2D Crank–Nicolson finite-difference restriction is a sufficient maximum-principle bound, rather than the exact finite reflecting-grid criterion or parity correction. Higueras–Roldán (arXiv:2301.01066) were inspected in the available open PDF, including the hypotheses, main one-dimensional Dirichlet theorem and method. Their matrix boundary conditions and dimension differ. The full texts of Sun (DOI:10.1002/num.20402), Gao–Sun (DOI:10.1002/num.21760), Kraaijevanger (1992), and Beale (DOI:10.1137/080731645) could not all be accessed, so specialist priority remains a genuine limitation rather than a certified absence of prior work. The elliptic lattice Green formula of Morita and standard Laplace asymptotics are not separately claimed as original.
+## originality
 
-## Value — PASS
+PASS
 
-The already-motivated discrete maximum-principle problem has a simple but conservative two-dimensional sufficient CFL bound \(\kappa\Delta t/\Delta x^2\le1/2\). This theorem replaces it by the sharp all-rectangle constant approximately \(0.58819728\), gives finite-grid exact roots, identifies the precise sites of first violation, and provides a nontrivial two-parity exponentially small approach to that constant. These are useful reproducible benchmarks for one-step qualitative stability tests with reflecting boundaries, not arbitrary small numerical refinements.
+The general Markov-chain resolvent positivity criterion is an explicit prior Resultary finding and is not treated as new. Older Dirichlet 1D/2D finite difference sufficient bounds and the lattice elliptic Green formula are known. The assessed addition is the exact CENTER obstruction for every reflecting Cartesian rectangle, the uniform sharp square-lattice constant, and the parity-sensitive exponential finite-square corrections. Higueras–Roldán full paper treats one-dimensional Dirichlet grids and cannot directly imply the 2D reflecting parity law.
 
-## Scope, sources and residual risk
+## value
 
-The exact root and center-minimization statements hold for every pair of integers \(m,n\ge2\). The elliptic limit requires both dimensions to grow, and the parity coefficients are for square grids. No claims are made about different boundary closures, general variable coefficients, multi-step norm stability, or independent publication priority. Relevant earlier works: Faragó–Horváth (2006), Kraaijevanger (1992), Sun (2009), Gao–Sun (2012 first published), Higueras–Roldán (2023), Morita (1971), and the prior resolvent-return note (2026).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A classical discrete maximum-principle question gets a sharp, easy-to-use timestep constant 0.58819728368... instead of the conservative sufficient 0.5, exact finite-rectangle roots, and the nontrivial even/odd exponentially small finite-size law. These are natural numerical-analysis invariants with clear parameter/geometry motivation and precise boundary-convention scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
