@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The deterministic minimum-norm formula and centered-coordinate Jacobian are reconstructed explicitly. The two-sided \(t\pm1\) tail sandwich and dominated convergence prove the sharp density-factorized coefficient under the exact continuity/support assumptions; the Gaussian product identity independently justifies its unbounded-support case. Tail integration proves both directions of the moment threshold. The Gaussian positivity calculation reduces to independent normal and \(\chi_2\) variables, then an explicit angular elliptic integral. Standalone deterministic and seeded checks support, but do not replace, these arguments.
+## correctness
 
-**Originality (PASS, conditional on accessible-source comparison).** The closest existing own published finding proves the uniform-node special case, which is expressly excluded from novelty claims. The new part is a distribution-class theorem with precise density factor and an exact Gaussian positivity probability; neither is implied as a theorem by the uniform-only statement. Migliorati–Nobile's published Section 3.2 is concerned with finite-sample positivity guarantees and different general sampling, not the claimed sharp small-node collision constant. The motivating Bělík–Narayan–Turnage manuscript was accessible only as an abstract, so complete-text priority cannot be ruled out. Semantic published mathematical research index searches identified no more covering statement, which is not a uniqueness proof.
+PASS
 
-**Value (PASS).** Stability of randomized least-squares quadrature is governed by rare near-coincident nodes; the theorem proves that the exact amplification exponent and finite-noise-variance cutoff are robust across very different sampling distributions, while the prefactor records local sample concentration. The Gaussian three-node elliptic value quantifies the failure of the raw least-norm construction to exploit all convex-feasible samples, a natural benchmark for stabilization or rejection strategies. This is materially more than a numerical table lookup and does not assert an unproved downstream theorem.
+Exact Euclidean least-norm weights w_i=1/n-m(X_i-m)/S follow from two affine constraints. Polar coordinates Xi=m+r a_i on H_n have Jacobian sqrt(n) r^{n-2} and uniform bounds |m|A(a)/r-1 <= kappa <= |m|A(a)/r+1. Integrating the collision near r=0 by dominated convergence for bounded compactly supported a.e.-continuous densities, or using Gaussian factorization, gives exact t^{-(n-1)} asymptotic coefficient with the angular integral and finite positive constant. Tail integration proves E[kappa^p]<infinity iff p<n-1; noise variance iff n>3. Independent Gaussian moment/angular integration and Monte Carlo corroborate C2=2/pi, C3=2/9+sqrt3/(3pi). In n=3 independent Gaussian mean and residual polar variables give all weights positive probability (3/(pi sqrt3)) F(pi/3|2/3)=.654208764956, below feasibility 3/4. This exact conditional geometry, not simulation, proves the claimed law.
 
-**Residual limits.** The full 2026 motivating paper was inaccessible; the analysis is unweighted affine interpolation of the sampling measure, not a proof for every weighted algorithm or degree. The earlier uniform benchmark is acknowledged, not rebranded. Scientific priority remains open to independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously known iid uniform-node collision and positivity special cases are expressly excluded from the original contribution. The extension to broad bounded densities with a factorized sharp tail coefficient and Gaussian exact elliptic positivity are not covered by the inspected randomized least-squares cubature primary theorems.
+
+## value
+
+PASS
+
+Unmodified affine-exact minimum-norm random quadrature is a natural sampling algorithm. A universal rare-collision power law across densities, sharp noise-moment sample threshold n>3, and Gaussian three-node solver-versus-feasibility positivity deficit are important stability and algorithmic diagnostics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

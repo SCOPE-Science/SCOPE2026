@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:07:33.186401Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact Euclidean least-norm weights w_i=1/n-m(X_i-m)/S follow from two affine constraints. Polar coordinates Xi=m+r a_i on H_n have Jacobian sqrt(n) r^{n-2} and uniform bounds |m|A(a)/r-1 <= kappa <= |m|A(a)/r+1. Integrating the collision near r=0 by dominated convergence for bounded compactly supported a.e.-continuous densities, or using Gaussian factorization, gives exact t^{-(n-1)} asymptotic coefficient with the angular integral and finite positive constant. Tail integration proves E[kappa^p]<infinity iff p<n-1; noise variance iff n>3. Independent Gaussian moment/angular integration and Monte Carlo corroborate C2=2/pi, C3=2/9+sqrt3/(3pi). In n=3 independent Gaussian mean and residual polar variables give all weights positive probability (3/(pi sqrt3)) F(pi/3|2/3)=.654208764956, below feasibility 3/4. This exact conditional geometry, not simulation, proves the claimed law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bělík–Narayan–Turnage Thm4 and Thm10 address high-probability well-conditioning, positivity and positive intermediate least-squares weights for sufficiently many samples, not the fixed-n exact rare-collision t^{-(n-1)} coefficient or elliptical P3.",
+          "Migliorati–Nobile Thm6 supplies weighted randomized cubature positivity in a larger-dimensional regime, not this unmodified minimum-norm scalar affine law."
+        ],
+        "reasoning": "The candidate more-general papers use these hypotheses and conclusions: Bělík–Narayan–Turnage Thm4 and Thm10 address high-probability well-conditioning, positivity and positive intermediate least-squares weights for sufficiently many samples, not the fixed-n exact rare-collision t^{-(n-1)} coefficient or elliptical P3. An apparent general theme is not assumed to imply the specialized exact claim.",
+        "searches": [
+          "Resultary: minimum norm affine quadrature weights uniform nodes tail exponent n minus one positivity probability three nodes",
+          "Resultary: random least squares quadrature affine weights Gaussian positivity collision tails",
+          "Bělík Narayan Turnage Constructive Tchakaloff results randomized least squares arXiv:2609.09506",
+          "Migliorati Nobile stable high order randomized cubature arXiv:1812.07761"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py actual Git tree 9608fc666681400f6a0b5ab066b81b15674ac858",
+        "Independent angular integration, exact elliptic evaluation and seeded Monte Carlo",
+        "arXiv:2609.09506v1 full 35 page manuscript, Thm4/10",
+        "arXiv:1812.07761 and doi:10.1016/j.jat.2022.105706",
+        "Resultary semantic search quadrature Gaussian collision"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "High-probability concentration for growing sample size does not give a sharp polynomial extreme instability asymptotic for each fixed n. Existence of positive weights when 0 lies in the convex hull (probability 3/4) does not imply the minimum-norm selected weights are positive (about .6542)."
+        ],
+        "reasoning": "The mathematical implication test compared assumptions and actually supplied conclusions, including known special cases and dominating parameters.",
+        "searches": [
+          "Resultary: minimum norm affine quadrature weights uniform nodes tail exponent n minus one positivity probability three nodes",
+          "Resultary: random least squares quadrature affine weights Gaussian positivity collision tails",
+          "Bělík Narayan Turnage Constructive Tchakaloff results randomized least squares arXiv:2609.09506",
+          "Migliorati Nobile stable high order randomized cubature arXiv:1812.07761"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine weights coincide with unregularized degree-one least-norm L2 exact cubature; prior uniform iid-node tail is a particular density f and not new.",
+          "The broad-density coefficient and Gaussian n=3 elliptic probability require an additional collision/polar-positivity computation not included in the earlier uniform statement."
+        ],
+        "reasoning": "The precise claimed equivalence/alias was compared with published formulations: The affine weights coincide with unregularized degree-one least-norm L2 exact cubature; prior uniform iid-node tail is a particular density f and not new.",
+        "searches": [
+          "Resultary: minimum norm affine quadrature weights uniform nodes tail exponent n minus one positivity probability three nodes",
+          "Resultary: random least squares quadrature affine weights Gaussian positivity collision tails",
+          "Bělík Narayan Turnage Constructive Tchakaloff results randomized least squares arXiv:2609.09506",
+          "Migliorati Nobile stable high order randomized cubature arXiv:1812.07761"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published table of the uniform-density special case exists and is not claimed; no exact Gaussian P3 elliptic table was located in primary inspected texts or ranked Resultary records."
+        ],
+        "reasoning": "Any already-known exact special cases were separated from the claimed new all-case or different invariant result; failed search alone is not novelty proof.",
+        "searches": [
+          "Resultary: minimum norm affine quadrature weights uniform nodes tail exponent n minus one positivity probability three nodes",
+          "Resultary: random least squares quadrature affine weights Gaussian positivity collision tails",
+          "Bělík Narayan Turnage Constructive Tchakaloff results randomized least squares arXiv:2609.09506",
+          "Migliorati Nobile stable high order randomized cubature arXiv:1812.07761"
+        ]
+      },
+      "rationale": "The previously known iid uniform-node collision and positivity special cases are expressly excluded from the original contribution. The extension to broad bounded densities with a factorized sharp tail coefficient and Gaussian exact elliptic positivity are not covered by the inspected randomized least-squares cubature primary theorems.",
+      "residual_risks": [
+        "Specialized Gaussian-ratio distribution work might derive the same elliptic positivity probability.",
+        "Uniform[-1,1] special case is not original; general heavy-tailed non-Gaussian densities and positivity-enforcing methods are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ASYMPTOTIC_AND_POSITIVITY_EVENT",
+          "evidence": [
+            "Thm10 positive quadrature high-probability with sufficiently large M; no sharp density-factorized fixed-n collision tail or n=3 elliptic least-norm positivity probability."
+          ],
+          "identifier_or_url": "arXiv:2609.09506v1",
+          "material_read": "Full 35-page lawful arXiv manuscript accessed; definitions, finite-sample least-squares weights, Theorem 4, Theorem 10 and positivity section inspected",
+          "method": "arXiv PDF extraction plus rendered page",
+          "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+          "trigger": "Most relevant recent primary article on same unmodified least-squares weights"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING_AND_SAMPLE_SIZE_THEOREM",
+          "evidence": [
+            "Large-sample sufficient positivity differs from fixed-n rare-collision distribution."
+          ],
+          "identifier_or_url": "arXiv:1812.07761; doi:10.1016/j.jat.2022.105706",
+          "material_read": "Published available article, Section 3.2 and Theorem 6, relevant methodological passages",
+          "method": "lawful open manuscript/article text",
+          "title": "Stable high-order randomized cubature formulae in arbitrary dimension",
+          "trigger": "Randomized and weighted least-squares cubature positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unmodified affine-exact minimum-norm random quadrature is a natural sampling algorithm. A universal rare-collision power law across densities, sharp noise-moment sample threshold n>3, and Gaussian three-node solver-versus-feasibility positivity deficit are important stability and algorithmic diagnostics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify.py actual Git tree 9608fc666681400f6a0b5ab066b81b15674ac858",
+    "Independent angular integration, exact elliptic evaluation and seeded Monte Carlo",
+    "arXiv:2609.09506v1 full 35 page manuscript, Thm4/10",
+    "arXiv:1812.07761 and doi:10.1016/j.jat.2022.105706",
+    "Resultary semantic search quadrature Gaussian collision"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Specialized Gaussian-ratio distribution work might derive the same elliptic positivity probability.",
+    "Uniform[-1,1] special case is not original; general heavy-tailed non-Gaussian densities and positivity-enforcing methods are outside the theorem."
+  ],
+  "schema_version": 1
+}
