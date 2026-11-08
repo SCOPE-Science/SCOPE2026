@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof is mathematical and applies to every finite field \(\mathbb F_q\); the code provides independent finite checks, not a substitute for the projective-line argument.
+## correctness
 
-From the directory containing `verification/`, run:
+PASS
 
-```
-python3 verification/check_all_fields.py
-python3 verification/check_graph_spectrum.py
-```
+Nondegeneracy makes multiplication equivalent to a nonsingular orthogonally diagonalizable symmetric binary B. Each nonisotropic projective line L has a distinct complementary L-perp; counting the m=q+1-epsilon lines and vector scalings gives m(q-1)^2 ordered bases and m/2 classes. Exactly the single pair containing square generator ku is sparse when B(u,u)≠0, giving support-one probability 2/m. Epsilon is 1 for q even and 0/2 for q odd, so uniqueness iff q2 or split q3. Independent direct field enumeration of diagonal nondegenerate forms over F2,F3,F5,F7 reproduces counts and graphs.
 
-Both programs use only Python's standard library. Compare their exact standard output against `verification/check_all_fields.out` and `verification/check_graph_spectrum.out`, respectively. They construct finite fields, symmetric Gram matrices, nonzero square generators, and every ordered natural basis, then recompute the numbers and graph distributions from the definitions. The first checker exhausts all eligible Gram matrices and nonzero generator vectors over fields of orders \(2,3,4,5\); it samples further Gram forms over \(7,8,9,16\), always exhaustively evaluating all nonzero generator vectors for each chosen form. The second checker exhausts odd-prime forms of orders \(3,5,7\), and uses representative forms at \(11,13\). The field extensions are implemented explicitly via irreducible polynomials; these choices and all loops appear in the included source files.
+## originality
 
-`VERIFY_OK` indicates that every finite enumerated case matched the formulas, not that a higher-dimensional or otherwise extended theorem has been checked. The general proof depends only on finite-field perfection in characteristic two and elementary two-dimensional nondegenerate quadratic forms in odd characteristic.
+PASS
+
+Best-of-knowledge originality after primary-literature and published-record comparison; limited access and substantive priority risks explicitly recorded. 
+
+## value
+
+PASS
+
+A complete graph-spectrum probability law for natural bases of intrinsic rank-one two-dimensional evolution algebras, with genuine small-field exceptions to a published unrestricted uniqueness corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
