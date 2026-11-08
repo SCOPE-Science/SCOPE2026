@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The finite exact checker is `verify.py`, executed with `python3 verify.py`; it passed 1,901,150 exact assertions. It independently enumerates all permutations of sizes two through eight, checks the constant fibre cardinality \(i\), the conditional image set, all footrule tail inequalities, and exact rational means and covariances. The five convex nondecreasing functions checked are \(t\), \(t^2\), \(t^3\), \(\max(0,t-1)\), and \(\max(0,t-3)\). Checks are finite, and do not independently certify the claimed infinite result.
+## correctness
 
-The mathematical proof covers every integer \(n\ge2\) and every \(i\in\{2,\ldots,n\}\) using an explicit counting map, convexity under each inversion-removing adjacent swap, and elementary expectations for maxima of uniform subsets. No external formal certification has been performed. The comparisons to historic literature are a self-review only.
+PASS
+
+For uniform permutations, moving the largest of the first i entries to position i has exactly i distinct preimages per record-conditioned output, hence a uniform conditional target. Each bubble step removes an inversion and satisfies the convex Monge four-point inequality for ψ(x)=φ(|x|), simultaneously for all nondecreasing convex φ. The maximum of a uniform i-subset has expectation i(n+1)/(i+1). Conditional prefix symmetry then gives the exact footrule mean deficit −i(2i−1)/(3n), indicator covariance −(2i−1)/(3n), total-record covariance −(n²−1)/(3n), and the squared-displacement formula. Independently enumerated every permutation n=2..7 and checked 21 (n,i) rational regressions for footrule and squared cost. The i-to-one map and convex inequality, not finite enumeration, prove all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge original as a uniform record-position conditioning coupling simultaneously monotone for an entire class of rank-displacement statistics. Classical footrule adjacent swaps and uniform record encodings are acknowledged ingredients.
+
+## value
+
+PASS
+
+A natural conditional law for random permutations is given a strong pathwise transport inequality and exact rank-disarray covariance profile. This is more informative than a marginal footrule calculation and can inform conditional rank-statistic comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

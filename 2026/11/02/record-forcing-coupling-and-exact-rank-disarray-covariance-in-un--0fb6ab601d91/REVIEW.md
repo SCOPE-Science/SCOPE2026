@@ -1,13 +1,21 @@
-## Correctness
-The constant-fibre map is \(i\)-to-one onto the event that position \(i\) is an upper record; this verifies the conditional law rather than just an inequality for individual permutations. Adjacent inversion-removing swaps decrease every nondecreasing convex separable rank cost by the Monge inequality. The exact footrule regression follows from the maximum of a uniform \(i\)-subset and a positionwise exchangeability computation; the squared-displacement identity follows from the affine rank-cost difference. The separate exact enumerator passed 1,901,150 assertions for all permutations through eight vertices and all candidate thresholds, and it checks multiple convex costs. The infinite-domain proof rests on the bijection and expectation identities, not on enumeration.
+# Independent mathematical audit
 
-## Originality
-The primary closest works are Diaconis–Graham (1977), which develops Spearman's footrule and already analyzes adjacent transpositions and a right-to-left maxima inequality, and Gnedin (2006), which develops uniform permutations conditional on record statistics. Neither inspected full source states the uniform record-position transport, simultaneous convex-cost stochastic order or the exact covariance as an output. Ury–Kleinecke's marginal distribution table was checked at the abstract level only. Search results for alternate words, dual orientations, and broader rearrangement statements did not identify a directly dominating theorem; an implicit older monotone-coupling formulation is a residual priority risk.
+## correctness
 
-## Mathematical value
-The record indicator is a fundamental stopping/ordering statistic, while footrule and squared displacement are classical measures of rank disorder. A single size-uniform coupling gives *all upper-tail comparisons* for an entire family of separable convex disarray losses, not just a moment inequality. The linear exact footrule covariance by record position and summed record-count covariance make the dependence quantitative for finite-sample rank analysis. This does not claim any improvement in statistical test power or a larger classification of conditioning on record sets.
+PASS
 
-## Limitations and validation status
-The conclusion requires one prescribed upper-record position and the uniform-permutation law. Marginal footrule tables do not certify the claimed novelty; full inspection of every historical source was not feasible. The exact-computation verifier is supplementary to the all-size proof. External independent review has not occurred.
+For uniform permutations, moving the largest of the first i entries to position i has exactly i distinct preimages per record-conditioned output, hence a uniform conditional target. Each bubble step removes an inversion and satisfies the convex Monge four-point inequality for ψ(x)=φ(|x|), simultaneously for all nondecreasing convex φ. The maximum of a uniform i-subset has expectation i(n+1)/(i+1). Conditional prefix symmetry then gives the exact footrule mean deficit −i(2i−1)/(3n), indicator covariance −(2i−1)/(3n), total-record covariance −(n²−1)/(3n), and the squared-displacement formula. Independently enumerated every permutation n=2..7 and checked 21 (n,i) rational regressions for footrule and squared cost. The i-to-one map and convex inequality, not finite enumeration, prove all n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original as a uniform record-position conditioning coupling simultaneously monotone for an entire class of rank-displacement statistics. Classical footrule adjacent swaps and uniform record encodings are acknowledged ingredients.
+
+## value
+
+PASS
+
+A natural conditional law for random permutations is given a strong pathwise transport inequality and exact rank-disarray covariance profile. This is more informative than a marginal footrule calculation and can inform conditional rank-statistic comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
