@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** An exact three-time history decomposition handles leaf copying, two-child majority constraints and the three-child root separately. The resulting integer recurrence is bijective with initial states obeying \(M^3x=Mx\). The local obstruction yields a rigorous independent-block exponential bound. The direct checker exhaustively enumerates 4,195,344 initial states over heights one through three; the separate recurrence checker agrees through height six. Neither finite check substitutes for the general proof.
+
+**Originality — PASS, qualified.** Kaaser–Mallmann-Trenn–Natale (2015) treat worst-case voting time; Královič (2001), discussed explicitly in Turau (2022), treats fixed points; Turau (2022) gives recurrent-state characterizations on trees; Benjamini–Zakharov–Zhukovskii (2026) treat worst-case and typical times. Those claims do not determine the time-one **preimage** population at all heights. An actual mathematical-record search found no directly equivalent assertion, but searches cannot establish uniqueness. The 2001 full text and complete 2026 paper were not fully inspectable; possible equivalent finite-horizon enumerations remain residual risks. Related internal published time-census results concern cycles and other graphs, not this cubic-tree recurrence.
+
+**Value — PASS.** The number of initial opinions stabilizing after at most one round is a natural first-entrance distribution quantity for a standard branching network. Its complete exact all-height census, first depth where delays appear, and rigorous exponentially small early-entry probability refine known worst-case/typical-time questions, without claiming a new general period-two theorem or new fixed-point enumeration.
+
+Self-review: passed. Independent audit: not yet performed.
