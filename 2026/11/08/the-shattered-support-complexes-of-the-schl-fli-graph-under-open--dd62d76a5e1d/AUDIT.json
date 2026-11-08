@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The claim is a finite, exhaustive theorem on the standard 27-vertex Schläfli graph. The attached verifier constructs adjacency from two independent representations (intersection form and double-six rules), checks all 27 vertex degrees and all 351 pairwise common-neighbor counts, independently computes traces for all 1+27+351+2925+17550 supports of size at most four, tests the iff-edge/triangle/clique criteria for every support, and checks 12 top-face orbits. Cardinality 27<32 rules out larger support. Every step was independently executed and reviewed from the actual embedded checker path; no extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coudert et al., DOI:10.4230/LIPIcs.SEA.2024.8, Secs. 1–2, 5–6: efficient general algorithms and bounds; experiments concern practical network datasets, not this finite graph.",
+        "Pham et al., arXiv:2303.07878, Thms. 1.4–1.5: asymptotic bounds under d=o(n) and size hypotheses, not the 27-vertex support census."
+      ],
+      "reasoning": "An algorithm applicable to all graphs permits calculation, but does not give the special numeric polynomial or the iff-clique/iff-triangle support theorem as a previously stated or computed corollary. Likewise generic pseudorandom lower bounds cannot certify exact 720-versus-2880 triple counts.",
+      "searches": [
+        "published-finding corpus: exact VC shattering polynomial of 27 lines on a cubic surface pair of open vs closed neighborhoods",
+        "web: graph VC dimension open neighborhoods closed neighborhoods Coudert full text arxiv 2405.07588",
+        "web: Schläfli graph open neighbourhood VC dimension 27",
+        "published-finding corpus: Shattering polynomials graph closed neighborhoods 27 vertex strongly regular E6 graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2405.07588 and DOI:10.4230/LIPIcs.SEA.2024.8",
+      "arxiv:2303.07878",
+      "https://jaanos.github.io/tables/graphs/Schlaefli.html",
+      "published-finding corpus semantic search queries recorded above",
+      "Prior mathematical calculation of the 16-vertex rook/Shrikhande closed-neighborhood shattering polynomials"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus ID 2026/10/11/SCOPE-the-open-neighborhood-complex-of-the-27-line-collinearity-graph--25fb4f3d0330 reports homotopy of a Lovász complex on the COMPLEMENTARY collinearity graph; it does not quantify all Boolean traces.",
+        "Previously compared 16-vertex rook/Shrikhande graph closed-neighborhood calculations concern a different SRG parameter tuple and cannot entail the 27-vertex classification.",
+        "Published Hamming/Johnson graph VC analyses address distinct graph families and do not furnish exact Schläfli support types."
+      ],
+      "reasoning": "A face of the Lovász neighborhood complex requires at least one center hitting every vertex; a shattered face requires one center for EACH labeling, including all-negative. Neither assertion is an implication of the other in general. Full graph adjacency and clique counts do not by themselves assert the all-traces property. No inspected prior claim logically dominates this conjunction.",
+      "searches": [
+        "published-finding corpus: Finite generalized quadrangle GQ(2,4) VC dimension neighbor sets 27 points",
+        "published-finding corpus: exact VC shattering polynomial of 27 lines on a cubic surface pair of open vs closed neighborhoods",
+        "DOI:10.1016/j.dam.2021.09.017 (source returned in web search: Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2405.07588, introduction and Section 2: closed-neighborhood shattering definition; no Schläfli occurrence in searchable full PDF.",
+        "arXiv:2303.07878v1, introduction and Theorems 1.4–1.5: pseudorandom-graph VC bounds, no Schläfli occurrence in HTML."
+      ],
+      "reasoning": "Equivalent descriptions were tested through 27 lines, GQ(2,4), E6, neighborhood traces, VC-dimension, and shattering polynomial. Neither published theorem characterizes all size-three and size-four Schläfli supports. This is not an assertion that failed search proves novelty.",
+      "searches": [
+        "web slow: \"Schläfli\" \"shattering\" neighborhoods \"VC\"",
+        "web slow: \"Schläfli graph\" \"VC dimension\"",
+        "published-finding corpus: On the 27-vertex Schläfli strongly regular graph, the closed neighborhood shattered supports of size three are precisely graph triangles and of size four precisely graph 4-cliques; shattering polynomial 1+27x+351x^2+720x^3+1080x^4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A. E. Brouwer Schläfli graph page tabulates 27 vertices, 72 six-cliques, 45 three-cocliques, and strongly regular parameters, but has no all-traces table.",
+        "Coudert et al., 2024 paper Section 6 table lists real-world benchmark networks and does not list a Schläfli graph."
+      ],
+      "reasoning": "Known clique and coclique counts are used for motivation and consistency, not mistaken for the additional trace-shattering classification. No checked table reports the full pair of polynomials.",
+      "searches": [
+        "web slow: \"GQ(2,4)\" \"shattered\" \"clique\"",
+        "web slow: \"Schläfli graph\" \"VC dimension\"",
+        "published-finding corpus: Schläfli graph closed-neighborhood VC dimension and shattered subsets cliques polynomial 27 720 1080",
+        "published-finding corpus: Schläfli graph open neighborhood VC dimension and shattered triples quadruples"
+      ]
+    },
+    "rationale": "The primary 2024 paper develops a general closed-neighborhood VC-dimension algorithm, not an exact Schläfli shattering complex; the 2023 pseudorandom-graph paper gives asymptotic open-neighborhood dimension bounds, not finite support characterizations. Classical Schläfli geometry supplies the graph and clique counts, but the complete open/closed trace requirements and the asymmetric degree-three support classification are additional. Database and exact-phrase searches exposed no stronger statement implying both full polynomials. The published related 27-line collinearity graph result concerns a different complex. Historical priority under alternative terminology is a residual risk.",
+    "residual_risks": [
+      "A historical combinatorial classification might describe the same trace structure using the 27-line configuration, GQ(2,4), or coding terminology without VC language.",
+      "The highly relevant 27-line Lovász neighborhood-complex result was available as a published-finding corpus summary only, though its stated complex is mathematically different.",
+      "No independent mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General graph algorithms and observed VC dimensions, with no explicit Schläfli support polynomial or classification.",
+        "evidence": [
+          "PDF pp. 1–4 definition/contributions",
+          "PDF p. 8 benchmark table",
+          "searchable PDF has no Schläfli / strongly regular hits"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol301-sea2024/LIPIcs.SEA.2024.8/LIPIcs.SEA.2024.8.pdf",
+        "material_read": "Introduction and Sections 2, 5 and 6 where accessible through PDF extracted text; graph benchmark list in Table 1; relevant pages visually checked. Full-text keyword matches checked for Schläfli and strongly regular.",
+        "method": "Primary open-access publisher PDF; text and page screenshots",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Same invariant and closed-neighborhood convention"
+      },
+      {
+        "assessment": "Asymptotic VC lower-bound problem for graph adjacency, no finite Schläfli census; hypotheses d=o(n) do not speak to one fixed 27-vertex graph.",
+        "evidence": [
+          "arXiv HTML lines 33–108 main result statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.07878v1",
+        "material_read": "Abstract, introduction, main Theorems 1.4 and 1.5, and their hypotheses and applications; keyword matches for Schläfli and strongly regular.",
+        "method": "Original arXiv full-text HTML",
+        "title": "VC-dimension and pseudo-random graphs",
+        "trigger": "Open adjacency classes and potentially stronger general coverage"
+      },
+      {
+        "assessment": "Provides standard parameters and counts (including 45 independent triples); not a VC shattering theorem.",
+        "evidence": [
+          "Graph page, sections Group, Subgraphs, Clique and Independence number"
+        ],
+        "identifier_or_url": "https://jaanos.github.io/tables/graphs/Schlaefli.html",
+        "material_read": "Complete available graph description and clique/coclique enumeration, including 27-line collinearity complement.",
+        "method": "Mathematical graph reference HTML",
+        "title": "Schläfli graph",
+        "trigger": "Same named object and possible known tables"
+      },
+      {
+        "assessment": "Result identifies a Lovász open-neighborhood complex on the complementary graph, not a VC shattering complex on Schläfli. Full-text priority is residual risk.",
+        "evidence": [
+          "published-finding corpus search record names 71 four-spheres for collinearity graph"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-the-open-neighborhood-complex-of-the-27-line-collinearity-graph--25fb4f3d0330",
+        "material_read": "published-finding corpus title and abstract-like summary only; primary full text not accessed.",
+        "method": "published-finding corpus semantic record; public full-text link was not accessible",
+        "title": "The open-neighborhood complex of the 27-line collinearity graph is a wedge of 71 four-spheres",
+        "trigger": "Same 27-line geometry and overlapping word neighborhood complex"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd62d76a-5e1d-4c20-944b-b26fd455dd9c",
+  "value": {
+    "rationale": "For the canonical 27-line cubic-surface graph, the full shattering complex is a natural learning invariant not reduced to the scalar VC dimension or classical clique counts. The result exposes a sharp open-versus-closed phenomenon: both classes have identical 1080 top-dimensional four-cliques, while their shattered triples differ by 2160, and gives uniform induced-subgraph characterizations for all support sizes. These exact natural invariants clarify which local incidence configurations support arbitrary traces, providing motivated structural information beyond a routine single-number computation.",
+    "status": "PASS"
+  }
+}
