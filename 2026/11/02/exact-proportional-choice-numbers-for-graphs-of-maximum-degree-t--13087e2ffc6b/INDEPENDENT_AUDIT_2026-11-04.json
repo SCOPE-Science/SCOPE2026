@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:56:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all nonempty simple n<=6, Delta<=2 graphs, source reduction to four maximal labelled six-vertex graphs C6, C3∪C3, C4∪K2, C5∪K1 is valid via edge containment and subgraph monotonicity. Every 3-list assignment up to palette permutation uniquely corresponds to counts f_S over 63 nonempty vertex supports with sum_{S contains v} f_S=3 for each v. The source C++ checker completely enumerates exactly 2,406,208 support multisets, rebuilds all three distinct colors per vertex, and exhaustive depth-first chooses one per vertex while pruning only provably impossible properness/use bounds. **Fresh local compile and complete live execution** of the retrieved exact C++ source with g++ -std=c++17 -O3 printed PASS for each of the four graphs on all 2,406,208 support multisets, totaling 9,624,832 graph-list tests, and VERIFY_OK. The separate Python support counting recurrence was inspected. Thus full finite quantified proof is not an extrapolation. Kaul–Mudrock–Pelsmajer–Reiniger Theorem 5 gives the precise 2-choosable linear forest characterization and exact values 1/2/3; independent primary text was read. No n>=7 claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General upper bound implies <=4 for paths but not <=3 for P6, and 2-list characterization supplies lower values only."
+        ],
+        "reasoning": "Neither accessible broader theorem dominates the new finite 3-list property; the omitted full Mudrock article remains a residual risk.",
+        "searches": [
+          "Mudrock 2610.33914 upper bound 2^chromatic-index",
+          "Kaul et al 1806.11265 Prop3 and Thm5"
+        ]
+      },
+      "checked_sources": [
+        "Kaul–Mudrock–Pelsmajer–Reiniger 2018 primary PDF, Theorem 5 and Proposition 3",
+        "Mudrock arXiv:2610.33914 2026 arXiv abstract, full-text access blocked",
+        "Resultary published research semantic search on proportional 3-choosability",
+        "Frozen source RESULT.md, verify_degree2_six.cpp and verify_support_count.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 entails chi_pc(P6)>2 but not <=3; Mudrock <=4 for paths does not imply exactly 3. Source complete 3-list feasibility is the missing upper bound."
+        ],
+        "reasoning": "The original claim is not a logical corollary of either inspected prior implication; O is a qualified best-of-knowledge PASS.",
+        "searches": [
+          "Kaul et al arXiv:1806.11265v1 Theorem 5 full PDF",
+          "Mudrock arXiv:2610.33914 public abstract, reported Conjecture 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source asserts all unrestricted-palette 3-list assignments for four maximal degree-two six-vertex graphs; previous 2-list characterization is a different color-use quota."
+        ],
+        "reasoning": "Ordinary list/equitable choosability and proportional 2-choosability cannot be substituted for the 3-list availability-constrained theorem.",
+        "searches": [
+          "Kaul Mudrock Pelsmajer Reiniger arXiv:1806.11265 Theorem 5",
+          "Mudrock arXiv:2610.33914 general proportional choice bounds",
+          "Resultary: proportional 3 choosability graphs six vertices finite exhaustive conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separate source verifier fully enumerates 2,406,208 support assignments; no accessible historical exact 3-choosability table was identified."
+        ],
+        "reasoning": "A complete finite computer proof itself is a valid exact theorem if coverage is sound; an old hidden enumeration would change originality, not computation correctness.",
+        "searches": [
+          "Resultary: proportional 3 choosability six vertices 2406208 C6",
+          "Web: chi_pc P6 C6 3 exact six vertex"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Kaul et al arXiv:1806.11265v1 Theorem 5 classifies proportional **2**-choosability, and Proposition 3 proves subgraph monotonicity; its primary text inspected, but it does not give the universal 3-list upper bound for all n<=6. Mudrock 2026 arXiv:2610.33914 resolves constant upper bound <=4 for paths and formulates path-3 conjecture; neither public abstract nor accessible referenced theorem supplies this first exact finite cutoff. Full Mudrock primary text unavailable (arXiv HTML/PDF failed, authorized institutional access vpn_disconnected), possible unrecognized six-vertex implication risk. Independent exhaustive checker confirms correctness, not novelty.",
+      "residual_risks": [
+        "Mudrock 2026 full article not retrieved; an unquoted six-vertex lemma might imply this special case.",
+        "Completeness rests on exact finite C++ enumeration; full independent compiler replay succeeded, but it is not a Lean or expert certification.",
+        "The result asserts no n>=7 degree-two upper bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lower-layer k=2 only; supplies valid subgraph monotonicity but not 3-list result",
+          "evidence": "Theorem 5: exactly linear forests with largest component <=5 and others <=2; Prop3 subgraph monotonicity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.11265",
+          "material_read": "Full primary 9-page PDF available; read Theorem 5, Proposition 3, sections 1-3 relevant text and inspected PDF first-page image",
+          "method": "Read primary PDF text and screenshot page 0",
+          "title": "A Simple Characterization of Proportionally 2-choosable Graphs",
+          "trigger": "Exact 2-choosability baseline and subgraph property"
+        },
+        {
+          "assessment": "Incomplete full-text inspection; cannot pronounce entire paper non-covering",
+          "evidence": "Public abstract gives <=2^chromatic index, path <=4, not the desired <=3 at n=6; priority risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33914",
+          "material_read": "ArXiv abstract plus exact theorem references within frozen RESULT.md; direct HTML/PDF access unsuccessful",
+          "method": "Open-access attempts, then authorized Oxford retrieval returned vpn_disconnected",
+          "title": "Improved Bounds on Proportional Choice Numbers",
+          "trigger": "Current path proportional-3 conjecture and general bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First finite path length n=6 on the explicitly motivated path proportional-3 conjecture and complete maximum-degree-2 six-vertex family including disconnected graphs; exact natural finite cutoff valuable despite lack of an all-n proof. Exhaustive support-multiset enumeration handles arbitrary palettes, not arbitrary artificial slices.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kaul–Mudrock–Pelsmajer–Reiniger 2018 primary PDF, Theorem 5 and Proposition 3",
+    "Mudrock arXiv:2610.33914 2026 arXiv abstract, full-text access blocked",
+    "Resultary published research semantic search on proportional 3-choosability",
+    "Frozen source RESULT.md, verify_degree2_six.cpp and verify_support_count.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No proof for arbitrary-order paths or max-degree-two graphs.",
+    "Independent executable replay validates specific finite algorithm and its covered input space; does not imply formal proof of every uninspected toolchain behavior."
+  ],
+  "residual_risks": [
+    "Mudrock 2026 full article not retrieved; an unquoted six-vertex lemma might imply this special case.",
+    "Completeness rests on exact finite C++ enumeration; full independent compiler replay succeeded, but it is not a Lean or expert certification.",
+    "The result asserts no n>=7 degree-two upper bound."
+  ],
+  "schema_version": 1
+}
