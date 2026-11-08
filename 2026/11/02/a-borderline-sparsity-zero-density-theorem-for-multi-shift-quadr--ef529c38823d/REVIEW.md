@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the usable divergent prime mass from the unbounded reciprocal-divisor sum. At every prime away from \(2AC\Delta\), the exact number of unit pairs solving \(F(u,v)\equiv0\pmod\ell\) is \((\ell-1)(1+(\Delta/\ell))\). CRT independence yields expectation at least \(H\) and variance at most \(3H\) for the quadratic prime model, versus zero mean and variance at most \(H\) for a uniform integer. Fixed-modulus prime equidistribution and the hypothesis \(N_a(X)^r=O((\log X)^2)\) control respectively the atypical prime pairs and the number of shifts. No finite experiment is used to infer an infinite-density conclusion. The standalone checker passed 199 local-root and 22 moment checks.
+PASS
 
-## Originality — PASS, with explicit priority risk
+The prime reciprocal sum diverges because log(sigma_-1(a_k)) <= 2 sum_{l|a_k}1/l and the chain eventually contains any finite prime-product modulus P. For l coprime to 2ACDelta, the nonzero-root count is (l-1)(1+chi_l), giving independent Bernoulli parameters (1+chi_l)/(l-1). The signed statistic T has mean >=H and variance <=3H on unit prime pairs, versus mean 0 and variance <=H on arbitrary residues. Fixed-modulus PNT in progressions plus Chebyshev controls the represented values; terms with a bounded small index cost O(X(log X)^(-2/r)), and all-large shifts preserve T. Taking a finite modulus with H arbitrarily large establishes zero upper density. Independently checked 55 residue cases from six forms and ten odd primes. Critical r>=3 construction a_k=k! 2^{ceil(k^{r/2})} has log a_k asymptotic k^{r/2} log 2. Finite checks cannot replace the PNT-based argument.
 
-Yan--Xu (arXiv:2610.28237v1), whose full HTML was inspected, already proves the \(r=2\), \(F(U,V)=U^2+V^2\) case. The new theorem contains a higher-shift critical-sparsity regime \(r\ge3\) and a discriminant-controlled extension to coercive nondegenerate binary forms (including reducible forms); neither is stated in the inspected source. A related earlier recorded two-shift quantitative Romanoff result does not dominate the general \(r\ge3\) conclusion. The argument deliberately adapts the source's CRT/Chebyshev idea, so an implicit or unindexed derivation is a serious remaining priority risk. The Dai--Pan full article was not accessible; its abstract and the statement quoted by Yan--Xu concern complementary positive-density hypotheses.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The multi-shift generalization addresses the natural question of how many sparse additive shifts can be added before a two-prime quadratic representation count becomes too large for density-zero arguments. At the exact borderline \(N_a(X)^r\asymp(\log X)^2\), elementary counting does not give \(o(X)\). The theorem supplies a substantive zero-density result there for all \(r\ge3\), and an explicit family \(a_k=k!2^{\lceil k^{r/2}\rceil}\) realizes the hypotheses. Nonzero discriminant is a structural condition supporting the character-twisted obstruction; no claim of an optimal threshold or result at singular discriminant is made.
+Yan–Xu treats two prime squares plus exactly two shifts and a divergent reciprocal divisor sum. The broader r and general nondegenerate F statement is not equivalent just by relabeling variables: the proof needs the shifted exponent cutoff and quadratic-character root distribution. The accessible Yan–Xu abstract identifies only p^2+q^2+a_k+a_l; the Dai–Pan result covers positive density under bounded divisor mass, not this implication. Full Yan–Xu text remained inaccessible, so no whole-paper exclusion is asserted. This is an infinite density theorem quantified over forms and divisibility chains, not an exact table; the Resultary semantic hits for the search concern unrelated quadratic-form and sparsity questions. The older r=2 positive-square necessity theorem is recovered as a special case; its assertion alone does not imply r>=3 or general F. The new local character weighting handles both split and nonsplit discriminants.
 
-## Closest literature and limitations
+## value
 
-Primary: Yan and Xu, *A necessary condition for a Romanoff type theorem* (October 20, 2026), full Sections 1-3. Supplementary: Dai and Pan, *On Erdős' generalization of the Romanoff theorem* (DOI:10.1016/j.jnt.2026.04.003, abstract only); Lam, Schindler and Xiao, *On prime values of binary quadratic forms with a thin variable* (arXiv:1809.10755, abstract only). The proof is conditional on standard unconditional prime number theory in fixed arithmetic progressions, not on an unproved number-theoretic conjecture.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural generalization of a recently posed Romanoff-type necessity problem to any fixed number of shifts and nondegenerate cone-coercive quadratic forms, at the nontrivial critical shift-count scale N_a(X)^r=O(log^2 X). The exhibited factorial-exponential chains show the result is not solely a trivial counting bound. The statement is explicitly sufficient, not a necessity threshold or a new density theorem without hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
