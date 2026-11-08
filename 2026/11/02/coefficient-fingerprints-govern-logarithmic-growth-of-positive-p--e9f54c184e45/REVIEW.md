@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For fixed positive coefficients, one restricts exponent tuples to a logarithmic cube, deletes only a codimension-one collection of close-digit and boundary tuples, and recovers separated base-digit blocks uniquely. Precisely the free within-primitive-class permutations account for the generic collisions. Positivity gives both cutoff inequalities. The fully explicit binary-pattern classification gives the exact \(L(L-2)\) example. The standalone checker independently corroborates the exact finite example and the generic collision fingerprint. No finite test is presented as an infinite proof.
+## correctness
 
-**Originality — PASS with residual historical priority risk.** Schulz (arXiv:2610.26409v1, especially Theorem 3.3) proves a broad *image characterization*, and related bounds give polylogarithmic order but not this universal explicit coefficient-class leading factor. Krieger–Rampersad–Shallit (arXiv:0711.4990v1) classify the growth order of regular languages; a coefficient-fingerprint theorem does not follow as one of their stated conclusions. Szilard–Yu–Zhang–Shallit's 1992 language-decomposition theorem may support a more general computation of counts, but only its abstract was accessible for comparison; an older mathematically equivalent special-case formula cannot be excluded. Targeted searches of relevant mathematical summaries found no covering statement. Uncertainty of search is not treated as proof of novelty.
+PASS
 
-**Value — PASS.** This is a natural all-parameter exact growth invariant inside fixed linear images of base-power Cartesian products, not an arbitrary finite slice. The formula singles out an unexpected and computable invariant of *primitive coefficient multiplicities*: even coefficients with elaborate digit patterns have the same leading constant provided these multiplicities agree. It upgrades an order-of-growth classification to an exact first-order count with a sharp lower-order boundary example and a transparent mechanism for all asymptotically dominant collisions.
+Write each c_i=d_i*k^{v_i} with k not dividing d_i. For separated normalized starts t_i=e_i+v_i, each summand has a bounded digit block whose initial/terminal digits are nonzero; sufficiently long zero runs uniquely mark blocks and recover the multiset of (d_i,t_i). All nonseparated or boundary tuples number O(L^{r-1}) in the logarithmic exponent cube; interior collision orbits are precisely free permutations of starts within the equal d classes, each of size product_d m_d!. Positivity gives both cutoff sandwich bounds. For (1,3) binary digit patterns partition into singleton, 101, 111 and separate adjacent-pair/one-bit classes, giving L(L-2). Independent exact finite enumerations corroborate; no composite-base primality assumption or nonpositive coefficients are smuggled in.
 
-**Scientific limitations and risks.** The positivity, fixed-coefficient and integral-base assumptions are necessary in the given proof. The older regular-language decomposition has not been fully compared; independent peer review has not occurred. The supplied checker supports finite tests only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schulz 2026 supplies the broad Presburger image representation and qualitative polylog bounds; Krieger–Rampersad–Shallit 2007 provides a regular-language polynomial growth degree. Neither inspected statement gives the explicit leading factorial collision coefficient; an older regular-language counting decomposition could possibly imply it. The precise invariant requires an additional separated-digit orbit argument.
+
+## value
+
+PASS
+
+A uniform asymptotic with an explicit leading coefficient for an infinite family of natural additive exponential images is a motivated exact invariant: it explains all asymptotically dominant collisions solely by coefficient equivalence modulo powers of the base, rather than a mere renaming of a growth exponent. The exact binary sharp-remainder example delineates limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

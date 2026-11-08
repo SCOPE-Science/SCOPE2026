@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The statement is proved by the separated-digit fingerprint and generic-orbit count in `RESULT.md`. A standard-library-only checker reproduces twenty exact binary cutoffs and tests several independent normalized-coefficient families and 192 widely separated exponent tuples. These finite tests do not certify the universal asymptotic. The historic 1992 regular-language-decomposition paper was available through abstract-level metadata, not an inspected primary full text, leaving priority uncertainty. No independent audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Write each c_i=d_i*k^{v_i} with k not dividing d_i. For separated normalized starts t_i=e_i+v_i, each summand has a bounded digit block whose initial/terminal digits are nonzero; sufficiently long zero runs uniquely mark blocks and recover the multiset of (d_i,t_i). All nonseparated or boundary tuples number O(L^{r-1}) in the logarithmic exponent cube; interior collision orbits are precisely free permutations of starts within the equal d classes, each of size product_d m_d!. Positivity gives both cutoff sandwich bounds. For (1,3) binary digit patterns partition into singleton, 101, 111 and separate adjacent-pair/one-bit classes, giving L(L-2). Independent exact finite enumerations corroborate; no composite-base primality assumption or nonpositive coefficients are smuggled in.
+
+## originality
+
+PASS
+
+Schulz 2026 supplies the broad Presburger image representation and qualitative polylog bounds; Krieger–Rampersad–Shallit 2007 provides a regular-language polynomial growth degree. Neither inspected statement gives the explicit leading factorial collision coefficient; an older regular-language counting decomposition could possibly imply it. The precise invariant requires an additional separated-digit orbit argument.
+
+## value
+
+PASS
+
+A uniform asymptotic with an explicit leading coefficient for an infinite family of natural additive exponential images is a motivated exact invariant: it explains all asymptotically dominant collisions solely by coefficient equivalence modulo powers of the base, rather than a mere renaming of a growth exponent. The exact binary sharp-remainder example delineates limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
