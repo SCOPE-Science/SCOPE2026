@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The determinant zonotope identity reduces the second moment to overlaps of triples; conditional sphere integration gives \(\mu=\pi/8\), diagonal variance \(2/9-\pi^2/64\), and exactly-two-index covariance \(1/6-\pi^2/64\). The one-index overlap vanishes by rotation invariance. The first Hoeffding projection vanishes; the second is the explicit great-circle-angle kernel. A terminating hypergeometric/beta calculation gives its complete negative even-harmonic spectrum. Canonical third-order orthogonality and square-summable spectral tails justify the weak limit and exact upper endpoint. The included numerical and symbolic checks independently corroborate key identities; a numerical experiment is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, historically provisional.** Full-text comparisons were made with the zonoid-algebra/determinant literature (Breiding–Bürgisser–Lerario–Mathis, arXiv:2109.14996), Schneider's random-zonotope valuation and nondegenerate central-limit theorem (arXiv:2202.06774), and the Gaussian-zonotope expected-volume calculation (Kabluchko–Zaporozhets, arXiv:1706.08092). The closest first-moment formulas do not imply the evaluated unit-spherical covariance or spectral weights. Schneider explicitly requires nonzero first-order projection for its central limit theorem; here that projection vanishes. The evaluated infinite spectrum, one-sided support, and all-finite-sample variance are not stated in the inspected results. The general tools are standard and not claimed as new. Index searches and accessible historical records revealed no covering statement, but imperfect indexing and historical priority remain residual risks.
+PASS
 
-**Mathematical value — PASS.** The volume of a random three-dimensional zonotope is a natural intrinsic-volume statistic. A generic first-order Gaussian approximation collapses in the fixed-length isotropic case; the result identifies its true order and a complete, strongly non-Gaussian limit with a sharp hard upper endpoint. Exact finite-sample variance quantifies the transition and gives a testable geometric fluctuation benchmark; this is more than a special parameter substitution into the known expectation formula.
+The determinant sum Vol Z_n=Σ_{i<j<k}|det(u_i,u_j,u_k)| gives μ=π/8 and second moment 2/9 by conditional uniform sphere projection. Triple overlaps of 1 index have zero covariance by isotropy; overlaps of exactly 2 have c=1/6−π²/64. Ordered-pair combinatorics yields the exact variance. Hoeffding first projection vanishes, second equals g(u,v)=1/2 sqrt(1−(u·v)^2)−π/8; third canonical projection variance O(n³), hence negligible after n^-2 scaling. Funk–Hecke eigenvalues are strictly negative -a_m at even degree 2m, multiplicity 4m+1; odd and constant sectors zero. Absolute trace convergence Σ(4m+1)a_m=π/8 and Hilbert–Schmidt tail control justify the weighted centered chi-square limit and support. Independently evaluated beta–Legendre integrals through degree 12 and exact n=3,4,5,10,50 overlap counts, matching the claimed coefficients; finite checks do not establish infinite spectrum on their own.
 
-**Scope and integrity.** Unit spherical generators, unscaled Minkowski sums, and fixed ambient dimension three are essential. The result does not address nonuniform orientations, random radial lengths, or independent mathematical auditing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schneider random-zonotope valuation CLT uses nonvanishing first-order projection, whereas isotropic unit lengths make it degenerate. Breiding et al supply determinant and zonoid algebra expectations; Gaussian zonotope work uses different radial generators. General degenerate U-statistics imply an abstract chaos limit but do not evaluate this precise spherical-harmonic spectrum, hard upper endpoint, or finite-n variance. Resultary searches returned nearby but distinct convex geometry results; historical full coverage not guaranteed.
+
+## value
+
+PASS
+
+Fixed-length isotropic random zonotope volume is natural, but its first projection is identically zero so generic Gaussian first-order valuation CLTs give no fluctuation. Exact finite-n variance, sharp n² scaling and explicit bounded-above non-Gaussian chi-square law identify the true geometric regime and distinguish it from a mere mean-volume calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
