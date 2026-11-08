@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine maps have one full-width fold and otherwise integer-translation branches. The arithmetic residue classes yield exactly one renewal block and the claimed deterministic cycle blocks; the determinant identity and the classical entropy formula follow. Coprime periodic graph words always traverse the fold, making their branch return contractions. Integer boundary points form a single orbit meeting both uniquely coded endpoints, excluding double counting. This gives the zeta identity for every iteration. The included exact checker passes 90 finite parameter cases and 15,932 periodic-address checks; the proof handles all integers and times.
+## correctness
 
-## Originality — PASS within the inspected evidence
-Wang's arXiv:2205.07225v1 defines the cyclic-interval graph characteristic numbers and treats the one-step modular shift, but the inspected text does not give the full coprime-numerator classification, zeta function, gcd-dependent entropy, or periodic islands. Geller–Misiurewicz's Farey–Lorenz twist permutations and later related neuron-map work concern a different discontinuous canonical model. Closely ranked mathematical-research records concerning zeta functions describe other maps. A general finite Markov-graph trace identity is not itself claimed original; the map-specific arithmetic block decomposition and its combined dynamical consequences are the claim. Potential earlier unnamed cyclic-permutation computations in kneading/Markov literature remain a publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-The family is the canonical continuous affine interpolation of the basic modular cyclic action on equally spaced knots. The theorem is a complete natural parameter classification: the quotient by the gcd controls entropy while the gcd counts macroscopic periodic islands, including coexistence of chaos and regularity. For every coprime numerator it also gives the entire periodic orbit census through one rational zeta function and sharp ordered shortest-cycle lengths. The result is not an arbitrary finite enumeration or a single routine substitution.
+The sole fold is cell w=n-q-1 with slope -(n-1); all other cells translate with unit slope. Mod-d residues give a length-(m-1) forced string ending at the hub plus d-1 disjoint deterministic m-cycles receiving but not returning edges, yielding the block determinant and entropy. Their iterate m translates each cell to itself, proving neutral identities; any itinerary using the fold has derivative magnitude >=n-1 and cannot be identity on an interval. For gcd=1 all closed Markov walks traverse an expanding fold and identify one unique periodic fixed point per walk, with boundary addresses checked against the n-knot orbit, giving trace(M^k), determinant zeta, and hub return lengths. Independently built all 44 transition matrices for 3<=n<=10 and all q and checked their entire symbolic characteristic polynomials; separately enumerated exact rational closed-itinerary points for (n,q)=(3,1),(4,1),(4,3),(5,2) at k<=6 without duplicates. These finite checks support but do not prove the all-parameter result.
 
-## Limitations and validation status
-Only these piecewise-affine modular interpolants are covered. No broad interval-permutation classification, arbitrary observable mixing statement, or independent publication-priority certification is asserted. The numerical and exact-rational checks supplement, not replace, the infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the exact final combined claim, after reviewing primary statements and Resultary hits; credited known partial antecedents. Wang studies the same interval-covering graph and a characteristic number for general transitive permutations, while the present statement explicitly specializes the affine modular rotations and adds gcd-block entropy, full periodic-island measure and coprime Artin–Mazur zeta. Wang Proposition 3.5 identifies characteristic numbers with shortest Markov cycles in general, and Example 3.7(1) gives sorted 1..n-1 for q=1. That component is KNOWN for the one-step shift and is not independently novel. The general graph framework does not supply the exact gcd decomposition, entropy polynomial, zeta or noncoprime neutral lengths for arbitrary q. Generic entropy-from-Markov and trace/determinant zeta identities automatically yield the displayed formulas once the claimed new specific graph structure and endpoint coding are proved; the theorem is the arithmetic family identification, not a new zeta identity. Neither Wang’s general inequalities nor the q=1 example logically forces the q-coprime independence or d>1 island decomposition without the residue-class argument.
+
+## value
+
+PASS
+
+The gcd of a natural modular permutation controls exact entropy, persistence of positive-measure periodic islands and the full zeta function; the coexistence of expanding folding dynamics with neutral intervals is a substantive, reusable interval-dynamics classification. The known q=1 shortest-cycle component is contextual, not the whole value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
