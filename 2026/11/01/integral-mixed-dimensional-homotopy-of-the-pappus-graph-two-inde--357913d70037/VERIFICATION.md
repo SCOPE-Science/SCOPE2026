@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational reproducibility
 
-Run `python3 verify_pappus_ind2.py` using the Python standard library only. The included `verify_pappus_ind2.txt` gives the exact recorded output, ending in `ALL_CHECKS_PASS`.
+# Independent mathematical audit
 
-Verified graph: 18 vertices, 27 edges, cubic, connected, bipartite, girth six; full nonempty face vector `(18,153,762,2394,4806,6027,4428,1728,308,27)` totaling 20,651. The recursive face generator agrees with the direct validity test over all 262,144 subsets. The finite matching contains 10,320 pairs, nine critical 5-cells, one critical 6-cell, one critical vertex; topological sorting checks all 20,651 nodes and all 120,222 directed face incidences. The integral 6-to-5 Morse cellular degree vector is exactly `(0,0,0,0,0,0,0,0,0)`; its memoized recursive expansion visits 933 faces. Independently, mod-two full simplicial boundary ranks are `(17,136,626,1768,3038,2980,1447,281,27)` for dimensions 1 through 9.
+## correctness
 
-The discrete Morse matching and integer attaching-degree calculation, together with Hurewicz in degree five, prove the stated integral homotopy equivalence for this one finite complex. The mod-two ranks do not by themselves establish an integral homotopy type. No infinite census, unpublished independent inspection, or equivariant homotopy classification is asserted.
+PASS
+
+PASS: The LCF sequence (5,7,-7,7,-7,-5)^3 reconstructs the connected bipartite 18-vertex cubic Pappus graph. Faces of Ind₂(P) are exactly vertex masks with induced degree at most 1 (no connected induced triple). Independently enumerating all 2^18 masks agrees with the incremental face construction, giving 20,651 nonempty faces and the published complete f-vector. A freshly reconstructed vertex-toggle matching pairs 10,320 faces and leaves a critical vertex, nine critical 5-faces and one critical 6-face. Every one of 120,222 directed Hasse incidences was included in a complete acyclic topological sort visiting all 20,651 faces. Exact signed integer gradient-path cancellation gives the single critical 6→5 Morse boundary column (0,0,0,0,0,0,0,0,0), with 933 memoized intermediate projections. The 5-skeleton is wedge^9S^5; Hurewicz π5≅H5 identifies its 6-cell map, and the zero attaching vector makes the extra S^6. Thus the claimed integral homotopy wedge, not merely mod-two Betti numbers, is established for this finite graph.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: higher-independence literature gives general functor and classes of graphs but not Pappus; the published full Pappus ordinary matching complex is a distinct 27-edge-vertex simplicial complex. Exact Ind₂(P) integral wedge neither follows from its ordinary matching or ordinary independence complex results nor from the inspected general-family statements.
+
+## value
+
+PASS
+
+PASS: Higher independence complexes are natural vertex-subset invariants; the Pappus Levi graph is a canonical symmetric girth-six graph. The precise integer mixed-dimensional homotopy wedge, particularly its nonzero S^6 summand shown by zero integral attaching degree, resolves an unknown exact invariant not mechanically implied by standard higher-independence family theorems or the graph’s ordinary matching complex. This self-contained finite fact can be useful for comparative classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
