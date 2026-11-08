@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-In the truncated cyclic path algebra, the semisimple quotient forces a square-zero element into the arrow ideal. Degree-two and degree-three coefficients of its square reduce to two explicit families of equations; degree-three path coefficients in the element remain free. The first family imposes a cyclic independent support, and a bipartite incidence-star argument proves the middle-layer matrix rank equals \(2|S|-t_2(S)-t_3(S)\) in every characteristic. Direct counting proves the exact formula. The five-state transfer trace and characteristic determinant produce the recurrence, with the four initial values checked by the support sum. The independent checker exhaustively tests direct multiplication and row ranks in eleven field/length configurations and verifies transfer and recurrence identities at thirteen lengths over six field sizes. The theorem does not infer a general statement merely from these checks.
+PASS
 
-## Originality — PASS (provisional historical priority)
+All square-zero elements have no length-zero path coefficients because k^n has no nonzero square-zero elements. Direct path concatenation yields a_i a_{i+1}=0 and a_i b_{i+1}+b_i a_{i+2}=0; length-three coefficients are free. For independent occupied support S the bipartite matrix incidence components are stars (a degree-two row cannot be adjacent to a degree-two column without consecutive occupied sites), hence rank exactly 2|S|-t_2(S)-t_3(S) regardless of field characteristic or nonzero scalars. Counting gives (q-1)^|S| q^(2n-rank). The five-state cyclic triple transfer matrix encodes precisely distance-two/three support interactions; its determinant 1-t-qwt^2+(q-1)wt^4, w=(q-1)/q^2, and Cayley-Hamilton give D_n=q^2 D_(n-1)+q^3(q-1)D_(n-2)-q^6(q-1)^2D_(n-4). Initial values are obtained from explicit small cycles, not extrapolated. Fresh support enumeration and transfer calculations checked q=2,3,4,5 and n=3..10. Tests are finite, not the all-q proof.
 
-The initial 2014 preprint by Shen was read at its main theorems and the relevant proofs concerning Nakayama resolution quivers; it provides singularity and stable-module information, not elementwise finite-field square-zero counts. Jonsson's full 2018 preprint concerns bimodule cell structures over radical-square-zero Nakayama algebras, with a different truncation and invariant. The Xu–Han–Jiang work addresses Hochschild cohomology of truncated quivers. Relevant mathematical-result searches for the exact recurrence, the incidence-support formula, and equivalent nilpotency-counting formulations returned no covering theorem; closest results instead address Coxeter periodicity, nilpotency indices of matrix lifts, or monomial algebra classification. An earlier equivalent enumeration could still exist and would supersede the originality assessment. No priority guarantee is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The count of square-zero elements is a natural arithmetic invariant of a finite-dimensional algebra and is not determined by homological equivalences or by counts in the shorter Loewy-length-three case. The new coupled middle-layer equations introduce distance-two and distance-three interactions, yet collapse uniformly into a fourth-order linear recurrence. This gives effective exact counts and finite-extension point enumerators for an unbounded natural family; its content is more than an isolated parameter evaluation or a routine reinterpretation of existing tables.
+The exact finite-field square-zero-locus cardinality and distance-interaction transfer recurrence were not obtained from the inspected categorical/bimodule references or Resultary search. This is a best-of-knowledge judgment; a general arithmetic quiver-variety counting formula could imply it.
 
-## Limitations and validation status
+## value
 
-The family is uniformly oriented cycles of length at least three with truncation at paths of length four. Geometric irreducibility, nonreduced schemes, generalized quivers and detailed automorphism orbits are outside the claim. The novelty comparison is historically provisional, and independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniformly oriented truncated cycle algebras are a canonical family; counting actual nilpotent elements (rather than isoclasses) at every field size with one exact recurrence gives a structural arithmetic invariant. The support-incidence rank formula is independently useful for similar path-length decompositions, not a cosmetic restatement of categorical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
