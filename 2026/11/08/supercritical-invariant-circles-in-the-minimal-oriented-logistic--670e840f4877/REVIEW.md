@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof uses an exact three-site Fourier reduction, rather than an inferred normal form. The spectral threshold and eigenvalue crossing are algebraic; the center-manifold coefficient, quadratic elimination and strict negative cubic radial coefficient are checked symbolically. The classical local Neimark–Sacker theorem then supplies the attracting invariant circle for each fixed nonresonant interaction. The clipping is inactive near the positive equilibrium; strong resonances and global behavior are excluded. The independent numerical check is illustrative only.
+
+**Originality — PASS within inspected sources.** Baron–Galla treat iid random couplings and large-network random spectra. Mareno–English treat a different two-site strong-coupling update; their published Neimark–Sacker construction neither reduces to the balanced three-site oriented map nor implies the explicit parameter-uniform negative coefficient, circle amplitude, and mean deficit. Related indexed results address other dynamical maps and oscillator models. Search coverage is not exhaustive; priority is provisional.
+
+**Mathematical value — PASS.** Three sites are the smallest cyclic network admitting a nonzero real skew-symmetric interaction with zero row sums, so this is a structurally canonical deterministic test case of disorder-induced oscillatory mechanisms. The parameter-uniform sign of the first nonlinear radial coefficient upgrades the elementary spectral crossing to an existence theorem, with a quantitative oscillation amplitude and a negative mean-density shift. It identifies a stable nonfixed collective state below the isolated logistic flip at \(r=3\), not just a numerical example.
+
+**Closest literature and risks.** The general bifurcation method is classical, and more distant coupled-logistic Neimark–Sacker phenomena are already known. The source's stochastic large-network limit is not a deterministic three-node statement. Full general historical priority cannot be guaranteed; the two low-order resonance cases remain open here. Only local invariant curves are asserted, not quasi-periodicity for every parameter or global attraction.
+
+Self-review: passed. Independent audit: not yet performed.
