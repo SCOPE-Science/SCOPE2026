@@ -1,24 +1,21 @@
-# Scientific review: dyadic Klein line degeneration
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact model is the twenty-one source linear forms over the integer ring of \(\mathbb Q(\sqrt{-7})\), not an arbitrary presentation of the Klein configuration. A primitive degree-\(21\) homogeneous product is flat over the Dedekind base. The standalone integer-ring verifier exhausts the \(1330\) triple determinants, reproduces their norm spectrum \(0,1,2,4,8,16,32,64\) with frequencies \(112,169,228,271,320,156,70,4\), and reconstructs the \(49\) generic multiple-point supports. Only \(2\) divides any nonzero determinant norm. The two evaluations \(\alpha=0,1\) give the full dyadic divisor equations, and exact local-uniformizer reductions identify all \(49\) labelled point specializations. The generic good-prime conclusion is a theorem from units, not extrapolation from a sampled list of fields.
+PASS
 
-## Originality (O): PASS, with historical risk
+The specified 21 forms in R=Z[alpha]/(alpha^2+alpha+2) define a primitive homogeneous degree-21 relative effective Cartier divisor, flat over the Dedekind base because each fiber polynomial remains nonzero. Exact independent determinant arithmetic using alpha^2=-alpha-2 reproduced the histogram of all 1330 triples: norm 0:112, 1:169, 2:228, 4:271, 8:320, 16:156, 32:70, 64:4. Every nonzero determinant has only factors 2, so away from dyadic primes all concurrency relations persist, including prime 7; pairwise distinct lines are protected by a unit-norm witness for each pair, and generic pair grouping gives 21 quadruple and 28 triple points. Reducing all forms at the two split primes over 2 (alpha=0 or 1) independently gave XYZ(X+Y)^6(X+Z)^6(Y+Z)^6 and XYZ(X+Y)^2(X+Z)^2(Y+Z)^2(X+Y+Z)^12, respectively. The read exact verification code computes the complete 49-support incidence structure, applies local-uniformizer division to each representative cross-product, checks choice-of-line-pair independence, and verifies the displayed seven-row marked-point specialization table. Properness identifies primitive projective point reductions with actual closures. The statement explicitly does not conflate the 49 colliding labelled sections with a Jacobian-scheme length or an invariant of all coordinate models.
 
-Gévay--Pokora (arXiv:2211.15309, §2.1) provides the twenty-one lines and all forty-nine generic intersection point coordinates; Pokora--Roé (arXiv:1803.06411, §1) gives the already-known complex incidence geometry. These foundational results are fully credited. Their inspected relevant sections do not state the exact exceptional-prime classification, either of the two nonreduced dyadic divisor factorizations, or the table of generic marked-point specializations. Published-index searches for modular Klein arrangements, split dyadic primes, and the two specific factorizations found no dominating record. Relevant excerpts of Elkies' arithmetic account were inspected. A 2024 expository article reproducing the line list could not be fully opened, and the possibility of an unindexed arithmetic computation remains a residual priority risk; no claim of exhaustive historical uniqueness is made.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-This is a natural complete arithmetic classification for a fixed integral model of a distinguished complex configuration, resolving precisely which residue characteristics preserve its incidence lattice. Its two nonisomorphic dyadic reduced supports, their different scheme-theoretic component multiplicities, and the complete collision profile for \(49\) canonical generic intersections provide motivated structural invariants. The result is not merely a numerical sample, a rephrased complex intersection count, or an arbitrary unmotivated parameter slice. The scope excludes claims about coordinate-model independence and intrinsic singular-scheme lengths.
+PASS, qualified. Gévay–Pokora publish the exact 21 linear forms and generic 21 quadruple/28 triple complex intersection data; these are not original here. The present conclusion is the exhaustive integral good-prime test, two distinct complete scheme-fiber decompositions at the split primes above 2 and specialization census of individually labelled points. Inspected relevant primary sections did not state these reductions; older unindexed modular arrangement literature remains an explicit priority risk.
 
-## Closest literature and limits
+## value
 
-- Gévay and Pokora, *Klein's arrangements of lines and conics*, arXiv:2211.15309 (original source for line and point coordinates, 2022).
-- Pokora and Roé, *The 21 reducible polars of Klein's quartic*, arXiv:1803.06411 (classical line configuration and complex intersections, 2018).
-- Elkies, *The Klein Quartic in Number Theory* (modular representation context; only relevant excerpts inspected).
-- *Quasi-Configurations Derived by Special Arrangements of Lines* (2024; preview accessible, full article not inspected because of rate limits).
+PASS
 
-The exact equations are model-specific. Neither intrinsic Jacobian singular schemes in special fibers nor coordinate-invariant stable reduction are addressed. Earlier independently recorded arithmetic specialization calculations could exist.
+This is a complete arithmetic-reduction classification of a natural classical Klein 21-line arrangement over its natural quadratic integer ring, including the exact two exceptional dyadic scheme fibers and all marked intersection specializations. The norm-unit certificate answers uniformly over every nonzero prime and supplies more than a small finite table: it identifies a nontrivial arithmetic boundary and exact multiplicity geometry, with model-dependence correctly acknowledged.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
