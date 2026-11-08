@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces all proper named three-colourings to disjoint-palette states and precisely enumerated single-shared-colour states; it proves the necessity of the unique \((3,3,3)\) exception and explains why the latter produces exactly six isolated states. The six hypercubes are identified by their coordinate restrictions and corner intersections. Every additional state has degree two, and explicit junction rerouting proves that the base remains isometric. The circle-coordinate lower bound and direct upper-route constructions prove every eccentricity, including those of the new states; parity and winding prove the odd-girth claim. Independent direct enumeration and constructive verification pass all stated finite checks. Risk: an unnoticed gap in the angular route case split would affect the infinite-family metric, although two independent finite approaches corroborate it.
+## correctness
 
-**Originality — PASS, qualified.** The nearest primary source is Celaya–Choo–MacGillivray–Seyffarth (2016), which determines Gray-code/Hamiltonicity properties for complete bipartite graphs and explicitly uses the six-hypercube decomposition at zero deletion. Earlier three-colouring reconfiguration sources establish connectivity and algorithmic shortest-path methods but do not imply the exact multi-deletion graph, its invariant eccentricity, or the sharp \(C_6\) boundary. The one-missing-edge subcase is excluded from the new claim. Scientific searches for equivalent names—crown graphs, matching-deleted bicliques, three-colouring graphs, Glauber single-site moves, and graph-homomorphism recolouring—found related but noncovering results. Risk: a historical unindexed exact graph computation could exist; no partition of the literature proves uniqueness.
+PASS
 
-**Value — PASS.** The exact state graph of a natural three-colouring Glauber move system is stable against removing an arbitrary matching, despite the potential for two or more shared colours to interact. A sharp boundary shows the first failure of this robustness and connectivity at the smallest degree-two cycle. The result classifies an infinite family, including all crown graphs, and gives exact state counts, move counts, every eccentricity, and odd girth. These statements are not implied by the known zero- or one-deletion cases, because simultaneous missing edges could in principle support interacting shared-colour configurations.
+For 3<=m<=n and 0<=t<=m, any color shared between the bipartition parts must lie on one deleted pair; two different shared colors force m=n=t=3, giving exactly 6 isolated 3-colorings. All no-shared-colorings split into three n-cubes and three m-cubes meeting at the 6 pure corners; each deleted edge contributes six degree-two ears closing squares at the same junctions and no ear-ear edges. Removing an ear excursion reroutes through its junction with unchanged length. A circular coordinate of circumference 3(m+n), alternating 6 cube lengths, gives sharp eccentricity floor(3(m+n)/2), parity and odd-girth 3(m+n); square ears preserve these via first/last-step substitutions. I independently enumerated all proper colorings and one-vertex transitions at (m,n,t)=(3,3,0),(3,3,1),(3,3,2),(3,3,3),(3,4,0),(3,4,1),(3,4,3): verified order and edge formulas, all eccentricities in ordinary cases, and 60+6 isolated states at the exception. Both verify_direct.py and verify_constructive.py source were inspected. Finite samples do not replace general structural proof.
 
-Independent mathematical evaluation has not been performed; conclusions are subject to external verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The substantive claimed result was compared at the level of mathematical objects, exact implications and limitations against same-family primary results, general theorems and Resultary; accepted as best-of-knowledge, with identified prior components and explicit residual risks, not an assertion of exhaustive historical priority.
+
+## value
+
+PASS
+
+A complete named-color reconfiguration graph, metric, odd girth and a sharp exceptional six-cycle for an infinite family of crown-like matching deletions are meaningful exact invariants; multiple deleted edges could in principle introduce new interactions, and the theorem proves they do not except at one precise boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
