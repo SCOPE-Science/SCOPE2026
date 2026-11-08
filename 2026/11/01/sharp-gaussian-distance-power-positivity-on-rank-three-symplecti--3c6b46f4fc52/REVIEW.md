@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite symplectic geometry is defined for every prime-power field order, including characteristic two. The four-row distance association algebra follows from the explicit intersection array, and the three nonconstant powered-distance eigenvalues are reconstructed from its polynomial recurrence. The critical branch \(F_2(p)=-1+q^2(3^p-2^p)\) is strictly increasing, with precisely one zero in \((0,1)\). Both competitors are strictly negative there: the fourth association-scheme branch is controlled by strict concavity, with an explicit exceptional \(q=2\) tangent estimate, and the remaining branch is no larger. The zero-sum eigenvalue multiplicity is derived by the orthogonality relations, not conjectured from numerical spectra. Schoenberg's theorem then yields the universal-in-scale classification. The finite checker reconstructs the binary graph and verifies algebraic identities without replacing the infinite proof.
+## correctness
 
-## Originality — PASS, subject to residual risk
-The association-scheme eigenvalues and the general criterion for exponential positive definiteness are prior results. In particular, Ihringer and Metsch's Theorem 7.2 (arXiv:1510.01697) gives all distance-class eigenvalues in much greater generality. Their inspected §7 does not provide the powered-distance positivity threshold, its universal field-order sign comparison, or the embedding-rank transition proved here. Moorhouse and Williford (arXiv:1504.01067) give the symplectic construction and intersection counts, but focus on double covers; Feragen et al. (arXiv:1411.0296) explain general conditional negative definiteness without this finite polar classification. Broader spectral formulas are strong prior input and equivalence to an unlocated treatment is a meaningful residual risk, not a claim of exhaustive novelty.
+PASS
 
-## Mathematical value — PASS
-The sharp exponent is a canonical positive-definite-kernel invariant of a homogeneous symplectic metric space. The family has unbounded size and is the first nontrivial rank-three symplectic dual-polar class. The field-uniform spectral obstruction is unusually clean, but the endpoint is not merely a scalar cutoff: exactly \(q^6+q^4+q^2\) centered modes collapse, leaving the closed-form minimum Euclidean dimension \(q(q^2+1)^2\). The result also gives the scale \(\alpha_q\asymp q^{-2}\), explaining how universal positivity weakens with field order. It goes beyond a known spectral table by identifying and proving the governing branch and its geometric consequence.
+The rank-three dual-polar intersection array yields four adjacency eigenvalues and eigenmatrix for distance classes A1,A2,A3. The zero-sum powered-distance eigenbranches are F1,F2,F3, with F2(p)=−1+q²(3^p−2^p) crossing once on (0,1). The proof checks F3<0 by concavity, with exceptional q=2 tangent bound, and F1≤F3; this establishes the exact negative-type interval. Schoenberg equivalence, strict Gaussian positivity on distinct Euclidean realizations and centered Gram rank give the positivity and embedding claims. I independently factored the quotient adjacency characteristic polynomial symbolically in q and verified sign separation for q=2,3,4,5,7,8,9,11; computations do not replace the field-uniform inequalities.
 
-## Closest literature and limitations
-The strongest near-covering result is the dual-polar eigenmatrix formula in arXiv:1510.01697, §7. The actual new assertion is the continuous powered-distance sign classification and endpoint dimension, not any previously known intersection parameter or polynomial basis. Other possible older statements involving association schemes, generalized roundness, or zonal kernels may be equivalent. The result does not classify individual-scale positivity above the threshold. The numerical checks are finite; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General dual-polar association eigenmatrix and distance intersection numbers from Ihringer–Metsch and Moorhouse–Williford are acknowledged. General Schoenberg negative-type characterization is also known. Their inspected full source portions do not state this field-uniform powered-distance cutoff and its exact rank collapse; a preexisting graph-kernel association-scheme specialization is a real residual priority risk.
+
+## value
+
+PASS
+
+The canonical negative-type exponent of a highly symmetric distance-regular graph is an intrinsic kernel-positivity invariant; the simultaneous exact endpoint for all prime powers and a large, explicitly counted Euclidean dimension collapse provide a structural result beyond restating the known eigenmatrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

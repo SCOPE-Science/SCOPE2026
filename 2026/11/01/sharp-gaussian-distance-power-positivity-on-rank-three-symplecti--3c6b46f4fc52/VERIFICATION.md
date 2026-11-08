@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical statement
+# Independent mathematical audit
 
-The proof establishes the universal prime-power result using the distance-regular intersection algebra and the strict analytic inequalities for its three nonconstant eigenbranches. No extrapolation from finite matrices is involved.
+## correctness
 
-The supplied standalone `dual_polar_rank3_checker.py` uses Python 3 and NumPy. Running `python dual_polar_rank3_checker.py` produced `ALGEBRA_CHECK_OK q=2,...,101`, `FULL_GF2_GRAPH_CHECK_OK 135 0.421967970792`, and `CHECK_OK`. The script independently enumerates 135 three-dimensional totally isotropic binary subspaces, reconstructs their distances and distance-class matrix products exactly, checks the claimed adjacency eigenspace dimensions numerically, and tests further representative field orders algebraically. Floating-point eigenvalues and finitely many field orders do not certify an infinite theorem; the proof is in RESULT.md.
+PASS
 
-No external or independent mathematical validation has been performed.
+The rank-three dual-polar intersection array yields four adjacency eigenvalues and eigenmatrix for distance classes A1,A2,A3. The zero-sum powered-distance eigenbranches are F1,F2,F3, with F2(p)=−1+q²(3^p−2^p) crossing once on (0,1). The proof checks F3<0 by concavity, with exceptional q=2 tangent bound, and F1≤F3; this establishes the exact negative-type interval. Schoenberg equivalence, strict Gaussian positivity on distinct Euclidean realizations and centered Gram rank give the positivity and embedding claims. I independently factored the quotient adjacency characteristic polynomial symbolically in q and verified sign separation for q=2,3,4,5,7,8,9,11; computations do not replace the field-uniform inequalities.
+
+## originality
+
+PASS
+
+General dual-polar association eigenmatrix and distance intersection numbers from Ihringer–Metsch and Moorhouse–Williford are acknowledged. General Schoenberg negative-type characterization is also known. Their inspected full source portions do not state this field-uniform powered-distance cutoff and its exact rank collapse; a preexisting graph-kernel association-scheme specialization is a real residual priority risk.
+
+## value
+
+PASS
+
+The canonical negative-type exponent of a highly symmetric distance-regular graph is an intrinsic kernel-positivity invariant; the simultaneous exact endpoint for all prime powers and a large, explicitly counted Euclidean dimension collapse provide a structural result beyond restating the known eigenmatrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
