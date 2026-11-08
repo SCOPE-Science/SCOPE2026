@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-`verify.py` is a standalone standard-library Python script. It enumerates all outgoing-neighbor choices of every vertex for each of \(K_{1,1}\), \(K_{1,5}\), \(K_{2,2}\), \(K_{2,3}\), \(K_{2,4}\), \(K_{3,3}\), \(K_{3,4}\), and \(K_{4,4}\). It computes exact-rational long-run cost from each player's cycle and basin, tests every unilateral outgoing-neighbor change, checks whether equilibrium is equivalent to a unique cycle with depth-one-or-zero vertices, and checks every coefficient of the counting formula. Total complete profiles enumerated: 71,799.
+## correctness
 
-Recurrent-cycle half-length equilibrium counts are: \(K_{1,1}\): [1]; \(K_{1,5}\): [5]; \(K_{2,2}\): [4,2]; \(K_{2,3}\): [6,12]; \(K_{2,4}\): [8,48]; \(K_{3,3}\): [9,72,12]; \(K_{3,4}\): [12,288,144]; \(K_{4,4}\): [16,1152,1728,144]. The script checks numerical positions of the maximizing term for balanced sizes 10, 20, 50, 100, 200, and 500. Its terminal success marker is `EXACT_COMPARISONS_OK profiles=71799`.
+PASS
 
-The algebraic exact count and all-size characterization are established by the proof in `RESULT.md`. Finite tests cannot prove an infinite characterization or a distributional limit. The concentration follows from a uniform Stirling error, the explicitly differentiated exponent, and a strict maximizer. Scientific priority is subject to the literature limitations documented in `REVIEW.md` and `AUDIT.json`. No independent external audit has been performed.
+For every pure strategy profile on bidirected loopless K_(a,b), the functional digraph has disjoint cycle components. With multiple cycles, a cycle vertex can redirect to a vertex of the opposite part on another cycle and eliminate its own recurrence, strictly reducing its full-support-prior cost. With one cycle but an off-cycle vertex at depth d≥2, a parity-correct cycle vertex can redirect to that tail to extend the cycle by d (even d) or d−1 (odd d), reducing its cost. Conversely with one cycle of length 2k and only depth-one noncycle vertices, every legal cycle-vertex deviation yields a cycle no longer than the original, and offcycle players have zero cost. Thus the precise prior-free equilibria are one alternating cycle and depth-one attachments. Choose k vertices per side, k!(k−1)! cyclic orders, and k^(a+b−2k) depth-one links to derive the exact labeled N_k. Balanced m,m log count has uniform Stirling exponent F(x) strictly concave and maximized at α=1/(1+ω), ωe^ω=1; concentration of K_m/m and fairness m/K_m follow. Independent exhaustive direct uniform-prior best-response comparisons for K_(1,1), K_(1,4), K_(2,3), K_(3,3), K_(3,4) matched structure and complete coefficients.
+
+## originality
+
+PASS
+
+Cominetti–Quattropani–Scarsini introduce the prior-free game and supply general profitable-cycle extensions, component merging, and equilibrium existence, all acknowledged. The inspected arXiv treatment does not provide the exact labeled complete-bipartite equilibrium cycle-length polynomial or the balanced uniformly-sampled-equilibrium Lambert-W limit. These quantitative results are additional; an unindexed specialized cycle-arborescence enumeration remains a historical risk.
+
+## value
+
+PASS
+
+A complete natural infinite-family equilibrium spectrum answers how many pure prior-free equilibria of each cycle size exist, not just existence. The typical recurrent fraction ≈0.638 and fairness ratio ≈1.567 provide motivated quantitative welfare/fairness information distinct from worst-case or algorithmic dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

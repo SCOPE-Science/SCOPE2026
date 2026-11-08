@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof addresses every positive pair of bipartition sizes and every strategy profile, establishes the parity-sensitive cycle extension lemma, and counts alternating cycles without duplication. Uniform Stirling remainders and strict concavity establish the balanced limit for all sufficiently large sizes. Exact-rational exhaustive checks covered 71,799 profiles across eight networks; these finite computations do not prove the infinite theorem.
+PASS
 
-## Originality — PASS (qualified by residual priority risk)
+For every pure strategy profile on bidirected loopless K_(a,b), the functional digraph has disjoint cycle components. With multiple cycles, a cycle vertex can redirect to a vertex of the opposite part on another cycle and eliminate its own recurrence, strictly reducing its full-support-prior cost. With one cycle but an off-cycle vertex at depth d≥2, a parity-correct cycle vertex can redirect to that tail to extend the cycle by d (even d) or d−1 (odd d), reducing its cost. Conversely with one cycle of length 2k and only depth-one noncycle vertices, every legal cycle-vertex deviation yields a cycle no longer than the original, and offcycle players have zero cost. Thus the precise prior-free equilibria are one alternating cycle and depth-one attachments. Choose k vertices per side, k!(k−1)! cyclic orders, and k^(a+b−2k) depth-one links to derive the exact labeled N_k. Balanced m,m log count has uniform Stirling exponent F(x) strictly concave and maximized at α=1/(1+ω), ωe^ω=1; concentration of K_m/m and fairness m/K_m follow. Independent exhaustive direct uniform-prior best-response comparisons for K_(1,1), K_(1,4), K_(2,3), K_(3,3), K_(3,4) matched structure and complete coefficients.
 
-The 2018 initiating paper by Cominetti, Quattropani and Scarsini supplies the game and the general profitable-deviation framework, including that a cycle extension benefits its participants and that multiple recurrent components may be merged. This work explicitly credits those results. It adds the complete bipartite PFNE cycle-length enumerator and the sharp uniform-equilibrium Lambert-W/fairness limit. Full accessible arXiv sections and publisher abstract were compared, as were related indexed statements and existing same-topic research claims. No matching formula or dominating evaluated asymptotic was identified. Absence from search is not a proof of absolute novelty; the journal-only full text and any unindexed specialized literature remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem describes the entire natural labeled equilibrium spectrum on an infinite family of heterogeneous bipartite graphs. Beyond exact counts, the balanced asymptotic gives an interpretable equilibrium-selection statistic: a typical equilibrium has a recurrent fraction about \(0.6381\) and a maximum-cost ratio about \(1.5671\) relative to the optimal Hamiltonian profile. Such a gap between typical and worst equilibrium fairness is relevant to interpreting decentralized chore-routing equilibria rather than an arbitrary numerical experiment.
+Cominetti–Quattropani–Scarsini introduce the prior-free game and supply general profitable-cycle extensions, component merging, and equilibrium existence, all acknowledged. The inspected arXiv treatment does not provide the exact labeled complete-bipartite equilibrium cycle-length polynomial or the balanced uniformly-sampled-equilibrium Lambert-W limit. These quantitative results are additional; an unindexed specialized cycle-arborescence enumeration remains a historical risk.
 
-## Closest literature and limitations
+## value
 
-Source: R. Cominetti, M. Quattropani, M. Scarsini, *The Buck-Passing Game*, arXiv:1808.03206, Theorem 3.9, and *Mathematics of Operations Research* 47(3), 1731–1756 (2022). These are general deterministic/stochastic equilibrium results, not the exact complete-bipartite enumerator as observed in inspected material. The conclusions here apply to pure, deterministic, prior-free strategies and uniform sampling across equilibria on balanced hosts, not to stochastic strategies, fixed-prior-only equilibria, or outcomes of learning dynamics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural infinite-family equilibrium spectrum answers how many pure prior-free equilibria of each cycle size exist, not just existence. The typical recurrent fraction ≈0.638 and fairness ratio ≈1.567 provide motivated quantitative welfare/fairness information distinct from worst-case or algorithmic dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

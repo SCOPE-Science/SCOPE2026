@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:10:24.027032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every pure strategy profile on bidirected loopless K_(a,b), the functional digraph has disjoint cycle components. With multiple cycles, a cycle vertex can redirect to a vertex of the opposite part on another cycle and eliminate its own recurrence, strictly reducing its full-support-prior cost. With one cycle but an off-cycle vertex at depth d≥2, a parity-correct cycle vertex can redirect to that tail to extend the cycle by d (even d) or d−1 (odd d), reducing its cost. Conversely with one cycle of length 2k and only depth-one noncycle vertices, every legal cycle-vertex deviation yields a cycle no longer than the original, and offcycle players have zero cost. Thus the precise prior-free equilibria are one alternating cycle and depth-one attachments. Choose k vertices per side, k!(k−1)! cyclic orders, and k^(a+b−2k) depth-one links to derive the exact labeled N_k. Balanced m,m log count has uniform Stirling exponent F(x) strictly concave and maximized at α=1/(1+ω), ωe^ω=1; concentration of K_m/m and fairness m/K_m follow. Independent exhaustive direct uniform-prior best-response comparisons for K_(1,1), K_(1,4), K_(2,3), K_(3,3), K_(3,4) matched structure and complete coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The initiating Theorem 3.9 provides the general potential and profitable change framework, and examples include Hamiltonian equilibria.",
+          "Its general existence theorem does not specify the complete-bipartite depth-one necessity or counts and typical fairness."
+        ],
+        "reasoning": "The broader strategic framework contains lemmas used here but not the sharp K_a,b counting and concentration conclusions as inspected.",
+        "searches": [
+          "Cominetti Quattropani Scarsini The Buck Passing Game arxiv 1808.03206 Theorem 3.9 prior-free Nash",
+          "bipartite deterministic buck-passing cycle extensions and equilibrium existence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1808.03206v4",
+        "https://doi.org/10.1287/moor.2021.1186",
+        "Resultary search: K_a,b buck passing prior-free equilibrium counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General theorem implies cycle mergers/extensions are profitable in appropriate cases; it does not decide all depth configurations in every K_(a,b).",
+          "Uniform enumeration and Stirling asymptotics require additional bipartite parity, count, and saddle analysis."
+        ],
+        "reasoning": "The exact equilibrium polynomial and asymptotic fraction are not formal corollaries of just existence or a qualitative ordinal potential without the added combinatorics.",
+        "searches": [
+          "arxiv 1808.03206 Theorem 3.9 buck passing cycle length profitable deviation",
+          "buck passing game complete graph Hamiltonian prior free equilibrium fraction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior-free strategy profiles correspond to one-out maps; the depth-one unicycle census is equivalently alternating directed cycle selection times opposite-side attachments.",
+          "Cominetti–Quattropani–Scarsini full arXiv introduces this game and general cycle deviations."
+        ],
+        "reasoning": "General unicycle functional graph enumeration might have a closed formula but would need exactly the equilibrium depth condition and chosen bipartite cycle; matching N_k was not demonstrated.",
+        "searches": [
+          "complete bipartite buck passing prior-free Nash equilibrium cycle length enumerator Lambert W fairness",
+          "directed functional digraph spanning unicycle depth one attachments K_a,b buck-passing equilibrium"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct count N_k gives P_(3,3)(z)=9z+72z²+12z³ and P_(4,4)(z)=16z+1152z²+1728z³+144z⁴.",
+          "Resultary hits were about different cyclic games rather than this polynomial."
+        ],
+        "reasoning": "No duplicate table surfaced, but negative results in topical search cannot certify priority.",
+        "searches": [
+          "buck passing game K_m,m number of prior-free Nash equilibria k cycles binomial factorial",
+          "Resultary: complete bipartite buck passing prior-free Nash equilibrium cycle length enumerator Lambert W fairness"
+        ]
+      },
+      "rationale": "Cominetti–Quattropani–Scarsini introduce the prior-free game and supply general profitable-cycle extensions, component merging, and equilibrium existence, all acknowledged. The inspected arXiv treatment does not provide the exact labeled complete-bipartite equilibrium cycle-length polynomial or the balanced uniformly-sampled-equilibrium Lambert-W limit. These quantitative results are additional; an unindexed specialized cycle-arborescence enumeration remains a historical risk.",
+      "residual_risks": [
+        "Possible specialized functional-digraph counting result under another name, or journal-only change, may imply this exact polynomial.",
+        "Only pure deterministic prior-free equilibria; probability is uniform on equilibria, not dynamics or initial prior; balanced asymptotic only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_PARTIAL",
+          "evidence": [
+            "Establishes prior-free equilibrium and cycle-improvement framework; examples do not determine K_a,b polynomial or Lambert-W asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1808.03206v4",
+          "material_read": "Freely accessible primary arXiv full rendered text, Section 3, theorem on deviations, equilibrium examples and definitions",
+          "method": "read full relevant portions and compare exact quantifiers",
+          "title": "The Buck-Passing Game",
+          "trigger": "foundational identical prior-free buck-passing model"
+        },
+        {
+          "assessment": "SAME_PAPER_VERSION",
+          "evidence": [
+            "ArXiv full version used for mathematics; journal only metadata not treated as complete independent read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/moor.2021.1186",
+          "material_read": "Publisher abstract and metadata, not entire paywalled journal text",
+          "method": "bibliographic comparison with full accessible arXiv version",
+          "title": "The Buck-Passing Game, Mathematics of Operations Research",
+          "trigger": "published journal version of same primary paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural infinite-family equilibrium spectrum answers how many pure prior-free equilibria of each cycle size exist, not just existence. The typical recurrent fraction ≈0.638 and fairness ratio ≈1.567 provide motivated quantitative welfare/fairness information distinct from worst-case or algorithmic dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite sample enumeration cannot establish all-size count or the asymptotic limit; it is supplementary to the exact proof."
+  ],
+  "schema_version": 1
+}
