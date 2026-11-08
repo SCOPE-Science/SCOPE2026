@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The inclusion and antitonicity argument establishes \(F^3=F\) for the exact stated open-neighborhood operator. The output decomposition into empty-row/empty-column rectangle and isolated active rooks is a direct exhaustive case distinction. The residual realizability criterion \(\eta(p,q)\) is both necessary and sufficient, including the \((0,0)\), \((1,1)\), one-zero and boundary cases. Every nontrivial rectangle is intrinsically identifiable in the output as the unique nontrivial rook-graph component; the matching-only overlap is removed by the separate square-board exclusion. The fixed-state count follows from maximal nonattacking rook placements. The analytic two-row count treats the \(2\)-by-\(2\) overlap separately. Direct, independently implemented row/column checks examined 2,811,728 configurations across fifteen board sizes and established exact equality of predicted and observed recurrent sets as well as counts. Tests are corroborative, not the infinite proof.
+PASS
 
-## Originality
+For every graph F(S) is antitone and S subset F²(S), giving F³=F and one-step entrance into period<=2. On the rook graph, an output square has no other active input in its row or column precisely when its row and column are both empty or it is an isolated active rook. This gives the disjoint full rectangle A×B plus complementary isolated partial matching I. The residual block can realize the prescribed empty rows/columns exactly for (p,q)=(0,0) or p,q>=1,p+q>=3. Nontrivial rectangles are recoverable as unique connected output components; all partial matchings occur except size a-1 on a square a=b. Count them by binomial matching factors; maximal independent matchings filling at least one side give E=max(a,b)!/|a-b|!, and the difference halves to 2-cycle orbits. Independent direct state enumeration produced (P,E,Q)=(4,2,1),(20,6,7),(42,12,15),(44,6,19),(182,24,79) for boards 2x2,2x3,2x4,3x3,3x4 and matched the combinatorial formulas. These finite checks are corroborative; the all-parameter structural proof covers the claim.
 
-PASS, with historical-priority qualification. The closest antecedent is the standard fixed-point correspondence for negative conjunctive networks: it does not cover the full periodic-image classification or two-cycle census. The 2015 survey and 2020 parallel-Boolean literature give general period restrictions under different self-dependence conventions rather than this graph-specific exact census. Later MIS-network research focuses on sequential updates. Direct searches of the available research-record index and the accessible prior findings identified no implication that already gives the rectangle-plus-matching structure or exact \(Q_{a,b}\) formula. In particular the previous graph-join NOR result concerns \(G\vee H\) and does not specialize to \(K_a\square K_b\). Residual risk: an unindexed equivalent result using relation polarities, formal concepts, or Boolean closures could predate this formulation, and not every historical full text was accessible.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem is a complete all-parameter classification of a natural graph Boolean dynamical system. It explains an exact, exceptional square-board hole in the recurrent partial-matching strata, gives an explicit finite binomial census over all rectangular boards, and yields the compact nontrivial family \(Q_{2,b}=2^b-1\). This resolves the orbit-number question left open by generic period-two bounds for this graph family, rather than merely restating that all orbits have period at most two.
+The generic antitone F³=F property and NOR fixed-point/maximal-independent-set correspondence are prior art. Synchronous strict-neighbor rook-graph recurrence-image classification, square-board near-perfect omission, and exact labelled temporal orbit sum do not follow from inspected inclusive-neighbor parallel dynamics or sequential independent-set update theorems. Best-of-knowledge originality is for this precise structural enumeration, with historical closure-system equivalence risk.
 
-## Closest literature and limitations
+## value
 
-The open-access 2015 survey of Aledo–Martinez–Valverde was read in its definitions and dynamical sections. Aracena–Richard–Salinas (arXiv:1507.06141) was read from the full primary PDF, including the fixed-point/maximal-independent-set result and scope. Indexed extended material of the later Aledo et al. 2020 and Gadouleau–Kutner 2024/2025 studies was compared, with access and scope limitations identified in AUDIT.json. The proof is for synchronous open-neighborhood NOR, not self-inclusive minterm/NOR or sequential MIS updates. Exact all-size claims rest on proof, not finite coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-size orbit classification for the natural line graphs L(K_{a,b}) is mathematically motivated by finite synchronous Boolean dynamics; it exposes an exact square-only boundary defect and counts the two-cycle population, a graph-dynamical invariant not determined by the general period-two restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
