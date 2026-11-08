@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:20:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md eqs (1)-(10), Jacobi orthogonality and exact gamma telescoping",
+        "Independent script scope_worker01_independent_checks_16Z.py; exact rational 27 cases",
+        "Git blob 447fd12cb62296f44a6f4431ccab0743732ea027",
+        "DLMF classical Jacobi norm and terminating 2F1 identities"
+      ],
+      "rationale": "For q>=3 fixed, ray averaging kills monomials of differing degree mod q; in sector h the exactly normalized measure is q^{-1}u^{a_h-1}du with a_h=(2h+1)/q. Shifted Jacobi polynomials P_j^(0,a_h-1)(2u-1) have norm 1/(2j+a_h), so summing the orthonormal basis gives the asserted finite reproducing kernel including off-ray complex arguments. At zero, only h=0 survives and the Jacobi endpoint identity telescopes to [Gamma(m+1+1/q)/(Gamma(1+1/q)Gamma(m+1))]^2. The terminating hypergeometric representation, dominated coefficient bound, gamma-ratio limit uniformly for j/m bounded from zero, and O(delta^{2a_h}) contribution from j<delta*m justify every sector Riemann sum; the scaling exponent cancels exactly to 2/q. The local uniform limit is a sum of squares and has diagonal 1/Gamma(1+1/q)^2. Independently inverted rational moment matrices and matched exact all-sector kernel values at two distinct rational evaluation pairs for 27 combinations q=3,4,5 and N=0..8; also checked center formula. The finite checks support, but do not prove, the infinite asymptotic.",
+      "residual_risks": [
+        "Uniform limit uses standard majorization of terminating 2F1, which was reconstructed from coefficient formula but not formally verified",
+        "The theorem requires symmetric equal-length rays with uniform arclength; no asymmetric-ray claim"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marinescu–Vu estimates growth at piecewise-smooth totally-real sets; no exact q-branch off-support kernel identified. Danka–Totik Theorems 1.1–1.2 explicitly assume locally smooth Jordan arcs with one local arc or an endpoint, not q>=3 crossing rays."
+        ],
+        "reasoning": "Broader scalar growth bounds, single-arc endpoint results and hard-edge special functions do not by their hypotheses/equations establish the full q-branch star limit. An implicit assembly of the ingredients remains plausible.",
+        "searches": [
+          "arXiv:2210.11031 singular-set Bergman kernel estimates",
+          "arXiv:1504.03968 Christoffel functions Jordan arcs and power weights",
+          "Resultary semantic search: polynomial Bergman kernel q radial rays junction Christoffel Jacobi multi-Bessel microscopic scaling"
+        ]
+      },
+      "checked_sources": [
+        "Milovanović 2025 §6.1, doi:10.3390/axioms14010065",
+        "Danka–Totik arXiv:1504.03968 PDF pp.1–6, Theorems 1.1–1.2",
+        "Marinescu–Vu arXiv:2210.11031 abstract/theorem descriptions",
+        "Resultary semantic search for multi-Bessel q ray kernel and published Bergman near misses",
+        "Frozen record AUDIT.json and complete RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present statement specifies m^{-2/q} complex rescaling, all h=0..q-1, integral 0F1 formula, and locally uniform convergence in C². The prior cited works respectively describe sectors, one-arc scalar asymptotics, or polynomial growth bounds."
+        ],
+        "reasoning": "None of those exact asserted conclusions logically yields the full scaled two-variable kernel without extra multi-channel Mehler–Heine estimates and summation; classical ingredients remain fully credited.",
+        "searches": [
+          "Milovanović preprints.org 202412.1898 §6.1",
+          "Danka–Totik arXiv:1504.03968 Theorems 1.1–1.2",
+          "arXiv:2210.11031 general polynomial Bergman kernel bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Milovanović gives congruence classes of ray monomials and classical Jacobi data. Danka–Totik gives scalar Christoffel asymptotics at locally smooth arc interiors/endpoints."
+        ],
+        "reasoning": "The exact basis/center values reduce to classical Jacobi formulas, but a locally uniform complex two-variable kernel with all q coupled residue sectors requires their simultaneous hard-edge scaling. The identified statements do not supply that kernel directly.",
+        "searches": [
+          "Resultary semantic search: polynomial Bergman kernel q radial rays junction Christoffel Jacobi multi-Bessel microscopic scaling",
+          "Milovanović 2025 §6.1 moment formula (30), Theorem 5; radial-ray orthogonal polynomial Jacobi blocks",
+          "Danka–Totik arXiv:1504.03968 Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF records the Jacobi endpoint norms, not the q-ray all-sector scaling. The identified published Bergman-jet finding concerns disk derivative evaluations, not a star junction."
+        ],
+        "reasoning": "The exact center gamma quotient is a routine derivable Jacobi specialization and is not claimed independently novel. No matching complete kernel table was identified; this search absence is not novelty proof.",
+        "searches": [
+          "Resultary semantic search: polynomial Bergman kernel q radial rays junction Christoffel Jacobi multi-Bessel microscopic scaling",
+          "DLMF Jacobi norms and Christoffel–Darboux formula",
+          "Resultary near match: 2026/10/11/SCOPE-exact-zero-fibres-of-pure-jet-bergman-gram-kernels-on-the-disk--98259fe7e47b"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: known radial congruence/Jacobi reduction and classical one-arc Bessel endpoint limits are acknowledged, but the entire locally uniform q-sector two-variable junction kernel with its fractional normalization is not stated or implied by the inspected primary theorems.",
+      "residual_risks": [
+        "All-sector formula may be an implicit, previously publishable corollary of Jacobi hard-edge kernel universality combined with the previously known ray decomposition.",
+        "Uninspected star-graph or intersecting-arc Christoffel literature could contain equivalent local limits; failed semantic search alone is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS congruence block and reduced Jacobi construction; no displayed full locally uniform kernel limit in inspected §6.1.",
+          "evidence": "Section 6.1 separates exponents by congruence mod number of rays and gives the weighted radial moments.",
+          "identifier_or_url": "preprints.org manuscript 202412.1898; doi:10.3390/axioms14010065",
+          "material_read": "Accessible full HTML §6.1, moment identity (30), Theorem 5, and surrounding construction",
+          "method": "Primary online mathematical text read and compared by weights, angular classes, theorem outputs",
+          "title": "Orthogonal Polynomials on Radial Rays in the Complex Plane: Construction, Properties and Applications",
+          "trigger": "Identical symmetric-ray family and Jacobi decomposition"
+        },
+        {
+          "assessment": "Single locally smooth arc endpoint/interior hypotheses do not cover q-fold transverse common junction, and output is scalar rather than full two-variable kernel.",
+          "evidence": "Theorems treat Christoffel functions with a single locally smooth Jordan arc near the evaluation point.",
+          "identifier_or_url": "arXiv:1504.03968; https://arxiv.org/pdf/1504.03968",
+          "material_read": "Original 59-page PDF beginning, hypotheses and Theorems 1.1–1.2 at pages 4–5; page-image inspection of theorem setup",
+          "method": "Primary PDF searchable text and page screenshot, reading precise local smoothness hypotheses",
+          "title": "Christoffel functions with power type weights",
+          "trigger": "Potential stronger Bessel endpoint asymptotic on unions of arcs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact q-ray evaluation geometry, normalized kernel, and positivity",
+        "Published radial-ray construction and endpoint comparators"
+      ],
+      "rationale": "The transverse junction of q rays is a canonical singular geometric support, and the exact polynomial evaluation scale N^{-2/q} and non-scalar positive-definite q-sector limit describe a natural local invariant not captured by isolated smooth arc endpoints. The locally uniform two-variable result is structurally stronger than its elementary finite block decomposition and remains independently useful as a local polynomial-kernel model.",
+      "residual_risks": [
+        "Not a universality claim under perturbations or unequal weights; q is fixed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform limit uses standard majorization of terminating 2F1, which was reconstructed from coefficient formula but not formally verified",
+    "The theorem requires symmetric equal-length rays with uniform arclength; no asymmetric-ray claim",
+    "All-sector formula may be an implicit, previously publishable corollary of Jacobi hard-edge kernel universality combined with the previously known ray decomposition.",
+    "Uninspected star-graph or intersecting-arc Christoffel literature could contain equivalent local limits; failed semantic search alone is not novelty proof.",
+    "Not a universality claim under perturbations or unequal weights; q is fixed."
+  ]
+}

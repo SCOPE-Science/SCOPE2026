@@ -1,11 +1,21 @@
-# Scientific review: microscopic kernels at radial junctions
+# Independent mathematical audit
 
-**Correctness (PASS, self-review).** The ray averaging and substitution \(u=t^q\) give an exact block-diagonal inner product. The shifted Jacobi norm and endpoint formula yield the finite-degree reproducing kernel and the telescoping center value. The terminating \({}_2F_1\) series admits an absolute uniform power-series majorant on the microscopic scale; its gamma ratio and a small-index \(O(\delta^{2a_h})\) bound justify a locally uniform Riemann-sum limit across every congruence sector. The standalone rational-Gram checker passed 174 finite assertions, including off-diagonal instances; finite tests do not replace the analytic limit proof.
+## correctness
 
-**Originality (PASS, provisional).** The closest prior sources are Marinescu–Vu, arXiv:2210.11031, and Milovanović, preprints.org 202412.1898. The former proves broad growth statements at singular piecewise-smooth sets but not an exact local junction kernel; the latter establishes radial-ray orthogonal polynomials and the rotation-block reduction, but does not state a locally uniform \(q\)-sector Bessel kernel. Danka–Totik, arXiv:1504.03968, treats Bessel-related Christoffel endpoint laws, but its complete manuscript could not be inspected, leaving an explicit priority risk. The new assertion is the assembled two-variable microscopic limit (not the classical decomposition or Mehler–Heine limit in isolation). No directly dominating statement was identified in targeted mathematical database and literature searches. Absence from search results does not prove priority.
+PASS
 
-**Mathematical value (PASS).** A transverse branch junction is a natural non-smooth point at which classical one-arc bulk or endpoint kernel behavior does not give the full local geometry. The theorem quantifies that geometry through a fractional scaling exponent and a nontrivial multi-sector positive-definite kernel, supplying exact finite-degree normalization and a usable local covariance model for polynomial evaluation. The exact same framework covers all branch counts \(q\ge3\); this is a structural kernel limit, not a parameter-only recomputation.
+For q>=3 fixed, ray averaging kills monomials of differing degree mod q; in sector h the exactly normalized measure is q^{-1}u^{a_h-1}du with a_h=(2h+1)/q. Shifted Jacobi polynomials P_j^(0,a_h-1)(2u-1) have norm 1/(2j+a_h), so summing the orthonormal basis gives the asserted finite reproducing kernel including off-ray complex arguments. At zero, only h=0 survives and the Jacobi endpoint identity telescopes to [Gamma(m+1+1/q)/(Gamma(1+1/q)Gamma(m+1))]^2. The terminating hypergeometric representation, dominated coefficient bound, gamma-ratio limit uniformly for j/m bounded from zero, and O(delta^{2a_h}) contribution from j<delta*m justify every sector Riemann sum; the scaling exponent cancels exactly to 2/q. The local uniform limit is a sum of squares and has diagonal 1/Gamma(1+1/q)^2. Independently inverted rational moment matrices and matched exact all-sector kernel values at two distinct rational evaluation pairs for 27 combinations q=3,4,5 and N=0..8; also checked center formula. The finite checks support, but do not prove, the infinite asymptotic.
 
-**Risks and limits.** The result is for symmetric equal-length rays and uniform weight; no perturbation universality is claimed. Some classical strong asymptotics on intersecting arcs were not fully accessible. The positive-definite limit is derived analytically but not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: known radial congruence/Jacobi reduction and classical one-arc Bessel endpoint limits are acknowledged, but the entire locally uniform q-sector two-variable junction kernel with its fractional normalization is not stated or implied by the inspected primary theorems.
+
+## value
+
+PASS
+
+The transverse junction of q rays is a canonical singular geometric support, and the exact polynomial evaluation scale N^{-2/q} and non-scalar positive-definite q-sector limit describe a natural local invariant not captured by isolated smooth arc endpoints. The locally uniform two-variable result is structurally stronger than its elementary finite block decomposition and remains independently useful as a local polynomial-kernel model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
