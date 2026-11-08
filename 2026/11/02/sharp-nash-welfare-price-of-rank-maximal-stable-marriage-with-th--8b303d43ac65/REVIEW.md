@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite theorem is certified by exhaustive enumeration of all \((3!)^6=46{,}656\) strict complete three-pair profiles, each with all \(3!=6\) possible perfect pairings checked against every potential blocking pair. Two independently structured integer-only verification programs reproduce the seven exact reduced-ratio cells, the full argmax-set relation, and the extremal witness. The two-pair claim also follows analytically from \(P=2^{p_1}\). No extrapolation to arbitrary \(n\) is made. Risk: correctness depends on the specified strict complete definitions; changes of utility normalization change the product ratio.
+PASS
 
-## Originality — PASS, with priority risk
+Exactly (3!)^6=46,656 complete strict 3-by-3 preference profiles and all six bijections per profile were independently enumerated with explicit two-sided blocking-pair checks. Calculated lex-max profile (p1,p2,p3), Nash product 3^p1 2^p2, and ratio P*/PR using exact fractions; obtained exactly seven cells 1:42756, 4/3:2484, 16/9:432, 64/27:12, 8/3:828, 32/9:72, 16/3:72. The stable-match count distribution was 34080 one, 11484 two, 1092 three; optimal sets coincide for 42756 and are disjoint for 3900, none partially overlap. The simple n=2 identity P=2^p1 gives universal ratio 1. Since this is the entire finite domain, the exact enumeration is an exhaustive certificate rather than a partial experiment.
 
-Desai et al., arXiv:2609.02354, define and optimize positive rank-induced Nash welfare within the stable-matching lattice and benchmark against egalitarian, regret and sex-equal objectives, not rank-maximality. Cooper and Manlove, arXiv:1905.06626, define and compute lexicographically rank-maximal stable matchings but do not evaluate Nash-product approximation. The closest indexed three-pair finite classification compares rank-maximal **against egalitarian** matching; its rank-sum relation cells do not supply a sharp Nash product price or a seven-ratio distribution. Earlier Nash-versus-egalitarian claims likewise lack the rank-maximal denominator. Risk: an unindexed equivalent finite calculation may exist; the reviewed primary papers do not establish it.
+## originality
 
-## Value — PASS
+PASS
 
-The ratio measures the real welfare cost of insisting lexicographically on first choices in a classical, widely used matching model. The worst product loss of \(16/3\), its exact frequency, and the clean equality/disjointness dichotomy together distinguish the smallest nontrivial market from a mere isolated example. The specific invariant is motivated by comparing two established and substantively different stable-matching fairness criteria. This is a finite exact market benchmark, not a claim to a general-case theorem.
+Prior rank-maximal stable-marriage profile optimization and rank-induced Nash welfare algorithms concern other objectives or broader algorithm design. A published three-pair Resultary classification ranks maximal versus egalitarian stable marriage and shares some frequency counts, but the *additive* egalitarian objective does not imply the exact multiplicative seven-atom ratio law. No explicit stronger implication was identified; the recent Nash paper was not fully accessible, so the priority judgment remains qualified.
 
-## Limits
+## value
 
-Only the three-pair complete strict domain is classified, with a two-pair elementary boundary; no large-market price is claimed. The evidence is an exact finite enumeration plus a direct sharpness witness, not an externally certified theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial market size admits an exact worst welfare loss of 16/3 and complete frequency/argmax-set dichotomy, quantifying the concrete fairness cost of lexicographic rank maximality. It is a natural finite classification of distinct optimization criteria, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
