@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global rigidity proof uses the exact block matrix \(F_G\), observes \(F_G^3=0\iff (BB^{\mathsf T})B=0\), and shows that connectedness forces all columns of \(BB^{\mathsf T}\) identical; symmetry and an existing edge give \(J_n\), hence exactly even complete graphs. Independent rank arguments determine all Jordan blocks and the swapping periodic subsystem. Exact finite-field preimage sizes establish the orbit, basin, and entrance-time formulas for each admitted parameter, including \(n=2\) and odd \(n=3\). Two stand-alone checkers corroborate all stated finite instances. The proof, not exhaustive experiments, handles arbitrary orders and characteristic-two field sizes.
+PASS
 
-## Originality — PASS, with residual historical risk
+The exact block matrix of the synchronous unweighted open-neighbor update on ordinary subdivision S(G) over every characteristic-2 finite field is F=[[0,B],[B^t,0]], B the unoriented vertex-edge incidence matrix. With L=BB^t=D+A mod 2, F^3=0 iff LB=0; the columns e_u+e_v of B force L_u=L_v along every base edge, hence all columns identical by connectedness. Symmetry plus the unit entry at each base edge forces L=J and G complete, and its diagonals force even order. Conversely even K_n gives L=J and JB=0. F^2 !=0. On even K_n ranks are N, 2(n-1), n-1, 0, and the rank drops establish J3(0)^(n-1) plus J1(0)^(binom(n-2,2)), with exact shell sizes from kernel dimensions. On odd K_n L=I+J and F^3=F, with periodic image W⊕B^t W a swap involution; fixed states q^(n-1), two-cycles (q^(2(n-1))-q^(n-1))/2, one-step basin sizes q^(N-2(n-1)). Rechecked rank and nilpotence for 771 connected labelled simple graphs n<=5 independently; these finite checks do not prove the infinite theorem.
 
-The general finite-linear-dynamics framework in Moreno–Bollman–Aviño-Díaz does not state connected-subdivision extinction rigidity. Gadouleau–Richard's nilpotent Boolean-function existence results allow selecting a suitable function for a graph and so cannot imply the identity for a *fixed* open-neighbor sum map. Barrett et al. optimize matrix rank over admissible symmetric matrices, not all iterates of the prescribed adjacency matrix. The subdivision-corona spectra paper treats different graph operations and spectra. Direct research-record searches and accessible prior-claim comparisons identified no dominating result. The closest prior subdivision-Kneser and subdivision-complete-bipartite dynamical claims concern distinct base graphs; the latter overlaps only at the trivial complete-graph edge \(K_2\), not the all-connected-graph rigidity or odd-clique swap classification. Unindexed literature may contain a rediscovery; absence from search results does not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The rigidity theorem characterizes **all** connected simple base graphs admitting uniform extinction after three iterations under a fixed local linear rule, a structural statement rather than a selected example. The even/odd clique dichotomy gives exact Jordan decompositions, sharp extinction or entrance times, and every periodic orbit and attraction basin. It contrasts a rigid extinction class with exponentially many recurrent states under one-vertex changes of clique order, a meaningful relationship between graph structure and global dynamics.
+Other work on nilpotent Boolean graph rules often permits choice of update function and uses existence statements; this theorem prescribes a single adjacency-sum rule on ordinary edge subdivisions, proves rigidity among all connected simple bases, and computes complete parity-sensitive transient and periodic counts. The algebra is short but is not merely a parameter substitution of the referenced existence or minimum-rank theorems. A broader finite-field automata classification could still specialize to it.
 
-## Closest literature, scientific limitations and remaining risk
+## value
 
-Primary references [1]–[4] are compared in RESULT.md and in the structured review. Their full available passages were inspected at the methods or theorem level. The result is restricted to characteristic-two, unweighted zero-diagonal dynamics on ordinary edge subdivisions of connected simple graphs; it makes no statement for different update functions or general signed/weighted interactions. The documented historical-overlap risk requires independent expert evaluation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact three-step nilpotence boundary for a natural fixed local cellular rule is a structural graph-theoretic classification, and the odd/even switch between nilpotence and an involution yields exact probability and basin counts for every finite characteristic-two field. The object is motivated as synchronous graph dynamics, not an arbitrary matrix computation. This is independently useful beyond a routine one-instance rank check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-`check_incidence.py` independently assembles the binary incidence adjacency matrix, raises it to consecutive powers, performs finite-field row reduction, and compares predicted ranks, rigidity, and exact first-entry counts. It enumerates every connected labelled simple graph on \(2\le n\le6\) vertices and finds exactly one nilpotent-in-three base graph for each even order (the complete one), none for odd orders. It checks clique ranks for \(2\le n\le14\), and exact state censuses for \(2\le n\le5\). The recorded result ends with `VERIFICATION_OK`.
+## correctness
 
-`check_states.cpp` separately implements neighbor-sum updates as explicit bit-mask transitions, enumerates all states on \(S(K_n)\) for \(2\le n\le6\), and compares periodicity, entry times and eventual periods with the theorem. Its largest test checks all \(2^{21}=2,097,152\) configurations on \(S(K_6)\). Recorded output ends with `CPLUSPLUS_VERIFICATION_OK`.
+PASS
 
-Only source text and recorded ordinary output are supplied; C++ may be compiled with a standard C++17 compiler. These computations are not exhaustive in graph size or field order and do not prove the statements for arbitrary sizes or finite characteristic-two fields. Those limits are resolved for correctness by the symbolic proof in RESULT.md, not by extrapolation from checks. No independent audit has been performed.
+The exact block matrix of the synchronous unweighted open-neighbor update on ordinary subdivision S(G) over every characteristic-2 finite field is F=[[0,B],[B^t,0]], B the unoriented vertex-edge incidence matrix. With L=BB^t=D+A mod 2, F^3=0 iff LB=0; the columns e_u+e_v of B force L_u=L_v along every base edge, hence all columns identical by connectedness. Symmetry plus the unit entry at each base edge forces L=J and G complete, and its diagonals force even order. Conversely even K_n gives L=J and JB=0. F^2 !=0. On even K_n ranks are N, 2(n-1), n-1, 0, and the rank drops establish J3(0)^(n-1) plus J1(0)^(binom(n-2,2)), with exact shell sizes from kernel dimensions. On odd K_n L=I+J and F^3=F, with periodic image W⊕B^t W a swap involution; fixed states q^(n-1), two-cycles (q^(2(n-1))-q^(n-1))/2, one-step basin sizes q^(N-2(n-1)). Rechecked rank and nilpotence for 771 connected labelled simple graphs n<=5 independently; these finite checks do not prove the infinite theorem.
+
+## originality
+
+PASS
+
+Other work on nilpotent Boolean graph rules often permits choice of update function and uses existence statements; this theorem prescribes a single adjacency-sum rule on ordinary edge subdivisions, proves rigidity among all connected simple bases, and computes complete parity-sensitive transient and periodic counts. The algebra is short but is not merely a parameter substitution of the referenced existence or minimum-rank theorems. A broader finite-field automata classification could still specialize to it.
+
+## value
+
+PASS
+
+The exact three-step nilpotence boundary for a natural fixed local cellular rule is a structural graph-theoretic classification, and the odd/even switch between nilpotence and an involution yields exact probability and basin counts for every finite characteristic-two field. The object is motivated as synchronous graph dynamics, not an arbitrary matrix computation. This is independently useful beyond a routine one-instance rank check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
