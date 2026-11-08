@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete proof is an exact vertex-and-cone argument. Retained cube corners require disjoint strict orthants, and each cut edge adjacent to the all-negative corner whose singleton weight exceeds the threshold requires an additional mutually disjoint illumination cone. An explicit direction family matches that lower bound for every cut-edge intersection, including tied subset sums. Fractional weights obey the same disjoint-cone lower bound. The full proof does not infer universal claims from finite enumeration. The standalone exact rational checker passed 354 parameter systems and 15,035 tests; independent vertex enumeration was used for selected small-dimensional instances.
+PASS
 
-## Originality — PASS, subject to historical-priority uncertainty
+The polytope is the unit cube with a single positive normal halfspace cap in any d≥2 and T>0, so it is full dimensional and has exactly two possible vertex types: retained Boolean vertices S with a(S)≤T, and cut-edge vertices along edges from feasible S (a(S)<T) to infeasible S∪{i} (a(S)+a_i>T). Every retained Boolean vertex has an exclusive strict sign orthant of inward directions; for each absent singleton a_i>T, the new cut vertex on its edge from the all-negative corner requires another disjoint cone with u_j>0 (j≠i) and a·u<0, which forces u_i<0 and is incompatible with all kept orthants and other such cut vertices. This supplies |V|+|J| independent fractional weight lower bounds. Explicit directions u^S use one coordinate −2A/a_r and appropriate remaining signs (and u^∅ all plus), while absent singleton directions w^i have a large negative i-th coordinate; each strictly enters all active facets of every vertex. Thus the ordinary upper bound matches the fractional lower bound. Ties are covered by weak retained-vertex and strict edge crossing inequalities; cancellation of singleton thresholds gives d+1+#{|S|≥2,a(S)≤T}. Reconstructed rational cut-edge lists and independent strict active-normal checks for six examples including tied thresholds verified coverage; the proof, not these bounded checks, covers arbitrary real weights and all d.
 
-The nearest published results are the one-corner example of Livshyts and Tikhomirov; the later independent shallow corner-truncation construction; Ivanov's general theorem for primitive polytopes; and Gorodzha's universal fractional illumination bound. Their full statements or relevant proof material were compared for implication, rather than only for terminology. The earlier one-corner calculation is a special case, and no novelty is claimed for it. Neither independent shallow corner cuts nor a general upper bound gives the weighted all-threshold formula or the exact singleton-cancellation rule. The possibility of an older equivalent result about clipped boxes remains unresolved; publication priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-The result classifies both illumination invariants for an all-dimensional continuum of anisotropic clipped cubes, replacing a geometric covering problem with an exact weighted Boolean subset count. It finds the necessary additional cut-edge correction overlooked by naive retained-vertex counting, describes every tied/non-tied threshold jump, and establishes integrality of the fractional relaxation throughout the family. For instance, weights \((3,1,1)\) at threshold \(5/2\) require five directions despite having only four original cube vertices. This is a motivated complete classification, rather than merely a small numerical computation.
+The exact weighted threshold staircase for a single halfspace-capped cube is not implied by general cube local-maximality, shallow independent-corner truncations, product-of-simplices illumination or universal fractional upper bounds. Checked the equivalent Boolean weighted knapsack count and the correction from cut edges, with the one-corner known special case explicitly acknowledged. Best-of-knowledge, with residual risk of older clipped-box identities.
 
-## Limits and closest references
+## value
 
-The result assumes one halfspace and strictly positive weights. No conclusion is drawn for multiple cuts or general polytopes. An equivalent older treatment under a different name could have escaped indexing. Relevant works: Ivanov, arXiv:2607.08944; Gorodzha, arXiv:2609.23913; Livshyts–Tikhomirov, arXiv:1710.05070; Naszódi (2009); and *Independent corner truncations realize the high illumination spectrum near the cube* (2026).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This theorem gives a dimension-uniform, complete, exact law for both ordinary and fractional illumination of a geometrically natural anisotropic single-facet perturbation of the cube, with all tied thresholds. The extra cut-edge witness shows retained cube vertex counting can be false (weights (3,1,1), T=5/2 give I=5, not 4), and singleton cancellation yields a sharp subset-sum staircase. It supplies many exact real convex-body illumination cases beyond upper-bound-only results and has a clear role in understanding fractional integrality and hypercube perturbations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

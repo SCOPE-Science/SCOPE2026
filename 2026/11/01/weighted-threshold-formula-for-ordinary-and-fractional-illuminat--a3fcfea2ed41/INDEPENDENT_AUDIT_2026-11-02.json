@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:45:17.649275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "3216b56cf13f3458b5353d1e118761f975adbcd9:2026/11/01/weighted-threshold-formula-for-ordinary-and-fractional-illuminat--a3fcfea2ed41/RESULT.md",
+        "3216b56cf13f3458b5353d1e118761f975adbcd9:2026/11/01/weighted-threshold-formula-for-ordinary-and-fractional-illuminat--a3fcfea2ed41/verify.py",
+        "Naszódi 2009 fractional illumination definition"
+      ],
+      "rationale": "The polytope is the unit cube with a single positive normal halfspace cap in any d≥2 and T>0, so it is full dimensional and has exactly two possible vertex types: retained Boolean vertices S with a(S)≤T, and cut-edge vertices along edges from feasible S (a(S)<T) to infeasible S∪{i} (a(S)+a_i>T). Every retained Boolean vertex has an exclusive strict sign orthant of inward directions; for each absent singleton a_i>T, the new cut vertex on its edge from the all-negative corner requires another disjoint cone with u_j>0 (j≠i) and a·u<0, which forces u_i<0 and is incompatible with all kept orthants and other such cut vertices. This supplies |V|+|J| independent fractional weight lower bounds. Explicit directions u^S use one coordinate −2A/a_r and appropriate remaining signs (and u^∅ all plus), while absent singleton directions w^i have a large negative i-th coordinate; each strictly enters all active facets of every vertex. Thus the ordinary upper bound matches the fractional lower bound. Ties are covered by weak retained-vertex and strict edge crossing inequalities; cancellation of singleton thresholds gives d+1+#{|S|≥2,a(S)≤T}. Reconstructed rational cut-edge lists and independent strict active-normal checks for six examples including tied thresholds verified coverage; the proof, not these bounded checks, covers arbitrary real weights and all d.",
+      "residual_risks": [
+        "Finite rational checks cannot verify all real weights.",
+        "The vertex-to-full-boundary extension uses standard polytope face incidence; no argument is offered for multiple cuts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ivanov proves illumination conjecture for primitive polytopes, giving upper bound not the exact weighted count; furthermore this one-cap family need not satisfy a uniform primitive-face hypothesis at tied thresholds.",
+          "Gorodzha proves I*(K)≤2^d, with equality only for parallelotopes, but that neither gives exact I*<2^d nor I=I*.",
+          "Livshyts–Tikhomirov bounds a sufficiently nearby non-parallelotope by 2^d−1, not arbitrary deep cuts."
+        ],
+        "reasoning": "The broad comparison works establish bounds or restricted classes, not this all-positive-weight threshold formula. Known cube endpoint T≥sum a is a prior standard value and expressly included as a boundary case.",
+        "searches": [
+          "Ivanov arxiv:2607.08944 primitive polytopes illumination [web]",
+          "Gorodzha arxiv:2609.23913 fractional illumination universal bound [web]",
+          "Livshyts Tikhomirov cube strict local maximizer 1710.05070 [web]"
+        ]
+      },
+      "checked_sources": [
+        "Livshyts–Tikhomirov arxiv:1710.05070/Discrete Comput Geom 2020 theorem and sharp example",
+        "Resultary independent corner truncations Oct4 2026 full RESULT.md",
+        "Ivanov arxiv:2607.08944 relevant full-text theorem",
+        "Gorodzha arxiv:2609.23913 theorem-level abstract",
+        "Naszódi 2009 DOI abstract/definition",
+        "Resultary semantic query 2 20 hits and cube–octahedron (all signed caps) comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published independent corner construction requires the set T of cut corners independent in hypercube graph and individual cut hyperplanes shallow 0<tau<1; it computes I only.",
+          "Example d=3 weights (3,1,1), T=5/2 retains four cube vertices but requires five directions: an absent singleton i=1 forces an extra cut-edge cone.",
+          "Full weighted theorem evaluates I* as well, identifies singleton cancellation and jumps only at higher subset sums."
+        ],
+        "reasoning": "A prior ordinary one-corner result is a special case, not dominating coverage. In the weighted example neither the count of retained original cube vertices nor the independent shallow corner formula alone determines the extra required direction. The universal fractional upper bound is weak except at cube endpoint.",
+        "searches": [
+          "Resultary published complete RESULT.md independent corner truncations, 2026/10/4",
+          "Livshyts–Tikhomirov 2020 Theorem and one-corner remark",
+          "Ivanov 2026 and Gorodzha 2026 general theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "New formula I=I*=|{S:a(S)≤T}|+|{i:a_i>T}|; equivalently d+1 plus count of feasible weight-subsets of size at least two.",
+          "Livshyts–Tikhomirov 2020 local maximality and one-corner sharp example yield 2^d−1 for a shallow cap, not the entire set of thresholds and weights.",
+          "Resultary independent-corner construction computes 2^n−|T| for independent shallow corner cuts, with no fractional invariant."
+        ],
+        "reasoning": "The Boolean subset-sum form is a reparameterization of this statement, not a previously found theorem. For cuts that delete many mutually adjacent vertices, independent shallow corner truncation assumptions fail; neither old ordinary bound nor local maximality establishes fractional equality.",
+        "searches": [
+          "cube clipped by one positive weighted hyperplane exact fractional illumination directions subset sum threshold [Resultary 2026-11-02]",
+          "fractional illumination hyperplane truncation hypercube one cap one vertex 2026 [web 2026-11-02]",
+          "weighted Boolean knapsack polytope illumination all cube vertex orthants [web 2026-11-02]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Highest Resultary hit, independent-corner truncations, has formula 2^n−|T| for shallow cuts of an independent set, not this single-hyperplane Boolean weight count.",
+          "Other Resultary hit K_c=[-1,1]^3∩{||x||_1≤c} uses all signed normal caps and has a 6→4→8 illumination profile, not this positive single cap."
+        ],
+        "reasoning": "Neither table supplies exact weighted thresholds nor ordinary/fractional equality. Search results are not proof that an unindexed clipped-box table cannot exist.",
+        "searches": [
+          "Resultary semantic query 2 on clipped cube illumination fractional weighted subset sum, 20 hits [2026-11-02]",
+          "Resultary 2026/10/4 SCOPE-independent-corner-truncations and SCOPE-exact-illumination-phase-profile-of-the-cube-octahedron-intersection"
+        ]
+      },
+      "rationale": "The exact weighted threshold staircase for a single halfspace-capped cube is not implied by general cube local-maximality, shallow independent-corner truncations, product-of-simplices illumination or universal fractional upper bounds. Checked the equivalent Boolean weighted knapsack count and the correction from cut edges, with the one-corner known special case explicitly acknowledged. Best-of-knowledge, with residual risk of older clipped-box identities.",
+      "residual_risks": [
+        "An old illumination result indexed under clipped boxes, one-facet truncations or weighted knapsack polytopes may have equivalent formulas.",
+        "Gorodzha fractional 2026 full proof not materially inspected; the stated main theorem is only a universal bound.",
+        "No claim of novelty for uncut cube endpoint or one-corner regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: shallow independent multi-corner ordinary I=2^n−|T| only; does not imply the one-cap weighted full-threshold or fractional law.",
+          "evidence": [
+            "The published proof needs independence of truncated vertices and n≥3, while present theorem works in d≥2 with many adjacent removed vertices and I*."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-independent-corner-truncations-realize-the-high-illumination-spe--1e3b3b8d0563/RESULT.md",
+          "material_read": "Complete public RESULT.md: theorem, assumptions, explicit vertex and cone proof, literature and limitations",
+          "method": "Read exact GitHub source via repository connector",
+          "title": "Independent corner truncations realize the high illumination spectrum near the cube",
+          "trigger": "Closest published exact cube-truncation illumination family"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING: shallow one-corner numeric value and nearby upper bound only.",
+          "evidence": [
+            "Strict local bound I≤2^d−1 for sufficiently close nonparallelotope; one-corner sharpness, no all-depth single-cap classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.05070",
+          "material_read": "Public full-text relevant statements, theorem, local-maximality and example/remark as available through paper HTML",
+          "method": "Lawful paper full text and theorem-level comparison",
+          "title": "Cube is a Strict Local Maximizer for the Illumination Number",
+          "trigger": "Foundational cube local-maximality and one-corner sharpness example"
+        },
+        {
+          "assessment": "GENERAL_UPPER_BOUND without exact weighted clipped-cube values.",
+          "evidence": [
+            "Statement bounds I for primitive polytopes; no ordinary/fractional equality formula indexed by subset sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08944",
+          "material_read": "Public full-text introduction and main primitive-polytope theorem and relevant proof excerpts",
+          "method": "Lawful preprint full text, theorem-level comparison",
+          "title": "Illuminating Primitive Polytopes",
+          "trigger": "Recent general theorem could dominate illumination formulas"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING: universal I*≤2^d and parallelepiped equality, not exact fractional staircase.",
+          "evidence": [
+            "Universal bound alone cannot determine integer equality except at full cube."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.23913",
+          "material_read": "Abstract and theorem-level statement available; complete full text not established as read",
+          "method": "arXiv abstract and indexed theorem statement",
+          "title": "Fractional illumination and the optimal exponential rate in Hadwiger’s covering conjecture",
+          "trigger": "Closest broad fractional illumination 2026 bound"
+        },
+        {
+          "assessment": "FOUNDATIONAL_DEFINITION, not treated as full-document comparison.",
+          "evidence": [
+            "Introduces fractional illumination invariant; exact one-cap weight parameters not in accessible statement."
+          ],
+          "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v4i2.62022",
+          "material_read": "Journal abstract/metadata and definition-level synopsis only",
+          "method": "Publisher abstract",
+          "title": "Fractional illumination of convex bodies",
+          "trigger": "Foundational definition and fractional relaxation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary independent shallow corner truncations",
+        "Livshyts–Tikhomirov cube local maximality",
+        "Gorodzha universal fractional bound"
+      ],
+      "rationale": "This theorem gives a dimension-uniform, complete, exact law for both ordinary and fractional illumination of a geometrically natural anisotropic single-facet perturbation of the cube, with all tied thresholds. The extra cut-edge witness shows retained cube vertex counting can be false (weights (3,1,1), T=5/2 give I=5, not 4), and singleton cancellation yields a sharp subset-sum staircase. It supplies many exact real convex-body illumination cases beyond upper-bound-only results and has a clear role in understanding fractional integrality and hypercube perturbations.",
+      "residual_risks": [
+        "Single positive-normal cap only; counting feasible subsets may be computationally hard for varying d, and no polynomial algorithm is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one strictly positive-normal cap, not simultaneous cuts or arbitrary perturbations.",
+    "Exact formula is a subset-sum count and not claimed to admit a polynomial-time algorithm as dimension grows."
+  ],
+  "schema_version": 1
+}
