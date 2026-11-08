@@ -1,12 +1,21 @@
-# Review of maximal nilpotency index in triangular matrix products
+# Independent mathematical audit
 
-## Correctness — PASS
-The necessary and sufficient diagonal-zero and superdiagonal-nonzero tests are algebraic identities. A compatible diagonal tuple is encoded by a word in \(L,R,Z\); the allowed words are exactly \(L^kR^{n-k}\) and \(L^kZR^{n-k-1}\). Their weighted sum is \((q-1)^{n-1}((n+1)q-1)\). Independent uniform superdiagonal coordinates supply the factor \(((q-1)/q)^{n-1}\). These steps prove the universal claim without extrapolating from finite tests. The standalone verifier exhaustively checks six prime-field instances, including all ordered pairs for \(n=4,q=2\), and tests the weighted words separately. The remaining scientific limitation is that the full Jordan distribution is not derived.
+## correctness
 
-## Originality — PASS (qualified)
-The closest primary result, Sarma–Subedi (2026), arXiv:2610.07892v1, Theorem 2.24, yields only the total nilpotent-product probability, whereas the claim counts the proper maximal-index stratum within that event. Fuchs–Kirillov (2022), Van Peski (2024), and Yip (2018) concern uniformly chosen strictly upper triangular matrices, which have a different measure from a product of uniform triangular factors. These distinctions were checked at the level of sampling law and exact implication, not paper titles. Targeted published-record searches found no explicit equivalent formula. An older factorization-weighted Jordan-type formula could imply the result; absolute priority is not certified.
+PASS
 
-## Value — PASS
-The nilpotency index is the size of the largest Jordan block and measures the nilpotent product's extremal behavior, rather than just its membership in the nilpotent cone. A single exact theorem covers **all** prime powers and dimensions, includes the number of maximal-index factorizations, and reveals an exponentially strong departure from the uniform nilpotent ensemble. This is a natural quantitative refinement of the newly studied nilpotent-product probability, not a small unmotivated parameter slice. It does not attempt the harder full-index distribution.
+AB upper triangular has diagonal a_i b_i, so nilpotence iff each pair has zero product. Under nilpotence, its nilpotency index is n exactly when every first-superdiagonal entry N_{i,i+1}=a_i B_{i,i+1}+A_{i,i+1} b_{i+1} is nonzero; (N^(n-1))_{1n} is their product. L,R,Z diagonal state words allowing this are exactly L^j R^(n-j) or L^j Z R^(n-j-1). Their weighted count is (q-1)^(n-1)((n+1)q-1). Distinct superdiagonal tests use disjoint free coordinates and each has probability (q-1)/q. Multiplying by q^(n(n-1))(2q-1)^n nilpotent pairs proves the all-prime-power count. Independently enumerated n=2,q=2,3 and n=3,q=2 and all state words n<=6; finite work checks cases, not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sarma and Subedi derive the nilpotent-product event for a full upper triangular ring but do not refine by nilpotency index. Fuchs–Kirillov and Yip concern Jordan types for one uniformly sampled strictly triangular matrix, whose measure is different from the factorization-weighted product law. No covering instance was found in actual Resultary query, but older product-Jordan enumerations remain possible.
+
+## value
+
+PASS
+
+The highest-index Jordan stratum of a natural product distribution is a nontrivial probabilistic statistic; the simple closed all-n/q formula and contrasting fixed-q/large-q behavior are mathematically useful beyond the known probability of nilpotence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
