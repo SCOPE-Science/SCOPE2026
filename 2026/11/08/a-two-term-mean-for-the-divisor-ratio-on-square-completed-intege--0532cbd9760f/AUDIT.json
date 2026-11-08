@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For f(m)=D(m²), the prime-power coefficients f(p^a)=a+1/2 give the exact local Euler factor (1-z/2+z²/2)/(1-z)². Its regularization H_p=(1-z/2+z²/2)/(1-z)^1/2 has 1+5z²/8+O(z³), ensuring absolute convergence near s=1. Nonnegative coefficients are dominated by tau(m), so the standard two-term Selberg--Delange theorem at exponent 3/2 applies, giving coefficients H(1)/Gamma(3/2) and [Hprime(1)+(3gamma/2-1)H(1)]/Gamma(1/2). Exact square blocks and Abel summation add A/4 at second order, leading to K0=sqrt(2/pi)H(1) and K1=sqrt(2/pi)[Hprime(1)+(3gamma-1)H(1)/2]. Fraction-based independent divisor-count checks and direct block checks replayed from the package; numerical limits are not used as proof. Termwise differentiation gives -Hprime(1)/H(1)> (log 2)/2+(3 log 3)/16>1/2; the elementary estimate gamma<2/3 proves K1<0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "de la Bretèche--Tenenbaum arXiv:2010.12929 provides the standard general analytic method, but no explicit calculation of this arithmetic observable.",
+        "Venkatasubbareddy--Sankaranarayanan, Czechoslovak Mathematical Journal 76 (2026), 515--524, studies unnormalized tau(n²), a different Dirichlet exponent."
+      ],
+      "reasoning": "The general Selberg--Delange theorem is used and credited. Derivation and correct identification of the arithmetic Euler factors, both constants, and the square-block transfer are new steps specific to the observable. The related unnormalized square-divisor estimates do not imply the normalized square-completion constants by a straightforward substitution.",
+      "searches": [
+        "\"tau(n^2)/2^{omega(n)}\" Selberg Delange",
+        "\"tau(n^2)\" \"2^{omega(n)}\" \"log\"",
+        "Selberg Delange theorem second order coefficient H derivative at 1",
+        "Selberg-Delange zeta(s)^{3/2} for quotient tau(m^2) / 2^omega(m)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2602.20808",
+      "https://arxiv.org/abs/2010.12929",
+      "https://de.wikipedia.org/wiki/Selberg-Delange-Methode",
+      "https://arxiv.org/abs/2212.05549",
+      "https://oeis.org/A307869",
+      "https://oeis.org/A068074",
+      "https://www.dml.cz/handle/10338.dmlcz/153646"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2602.20808 the exactly relevant Dirichlet series is displayed as zeta(s)^2 multiplied by an Euler product with local linear coefficient -1/2. This product tends to zero at s=1 and is not the analytic constant required by its displayed asymptotic.",
+        "The 2022 paper arXiv:2212.05549 treats sums on a decimal-digit-defined set, without square completion."
+      ],
+      "reasoning": "The source identifies the function but its claimed X log X scale does not establish the true X sqrt(log X) expansion. The newly computed Euler-product regularization changes the power of the logarithm, while the derivative term yields a distinct second coefficient. Background tools and different averages are not misidentified as the same theorem.",
+      "searches": [
+        "arXiv:2602.20808 Theorem 2.1 Lemma 2.2 full HTML",
+        "arXiv:2212.05549 B-multiple of 5 divisor/unitary divisor",
+        "two-term asymptotic for summatory shifted next square tau divided by unitary divisor count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bouderbala 2026 arXiv:2602.20808, Theorem 2.1 and equation (11): the same arithmetic average but an asserted X log X expansion; the regular Euler factor there is not convergent at s=1.",
+        "OEIS A307869 gives unshifted mean of D(n), not D(n+s(n))."
+      ],
+      "reasoning": "The square-completed average is equivalent to a weighted partial sum of D(m²), and the exact Euler factor has coefficient 3/2 at p^-s. The correct zeta exponent 3/2 produces a distinct asymptotic with strictly positive leading constant; the printed primary formula cannot imply this conclusion.",
+      "searches": [
+        "\"tau(n^2)\" \"2^omega(n)\" asymptotic",
+        "\"square-completion shift\" \"sqrt(log\"",
+        "\"D(n^2)\" \"sqrt(log\" divisor ratio",
+        "mean value square completion s(n)=ceil sqrt n squared minus n divisor unitary function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A307869 records the constant mean of D(n) without square completion.",
+        "OEIS A068074 records a signed divisor convolution linked to tau(n²), not the same normalized shifted average."
+      ],
+      "reasoning": "The indexed entries found have different coefficient definitions. Neither specifies the two-term asymptotic for S(X); direct numerical agreement alone would not certify priority.",
+      "searches": [
+        "OEIS \"tau(n^2)/2^omega(n)\"",
+        "OEIS \"tau(n)\" \"2^omega(n)\" mean",
+        "\"square completion\" \"divisor\" \"omega\" 2026 correction"
+      ]
+    },
+    "rationale": "The inspected February 2026 primary preprint treats the identical square-completion average but prints a logarithmic-order formula with a non-convergent prime-factor product. Its asserted expression does not entail the positive square-root-logarithmic two-term expansion. Published unshifted divisor-ratio means, unnormalized square-divisor estimates, a generic Selberg--Delange theorem, and relevant mathematical research records were compared by mathematical implication. The analytic technique is acknowledged as classical; historical-priority risk remains.",
+    "residual_risks": [
+      "An equivalent corrected asymptotic may appear in historical or unindexed sources not found by the actual searches.",
+      "The recent unnormalized square-divisor paper was compared at abstract level only; its stated different observable gives no decisive conflict.",
+      "The general Selberg--Delange theorem itself is prior and credited; originality rests on the new correct explicit specialization to the least-square-completion observable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: stated X log X scale and product P(s) are not a finite nonzero asymptotic for the function; its displayed exact Euler series can be regrouped into zeta(s)^3/2 H(s).",
+        "evidence": [
+          "Theorem 2.1 and equations (9)-(11), (16)-(21) of arXiv:2602.20808."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.20808",
+        "material_read": "Full accessible arXiv HTML: abstract; definitions; Theorem 2.1; Lemma 2.2; full Euler-product calculation and proof through conclusion",
+        "method": "Read web-rendered full article, including all displayed identities and arguments",
+        "title": "On the Asymptotic Behavior of a Multiplicative Arithmetic Function Related to the Divisor Function Over Perfect Squares Integers Generated by Shifting",
+        "trigger": "Exact same observable and square completion"
+      },
+      {
+        "assessment": "Background analytic theorem applies but does not state the computed two constants for this shifted arithmetic function.",
+        "evidence": [
+          "arXiv:2010.12929 abstract; Selberg--Delange formal asymptotic coefficient formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.12929",
+        "material_read": "Abstract and theorem statement descriptions; standard expansion statement separately checked against published Selberg--Delange formulation",
+        "method": "Read arXiv abstract and published theorem statement at https://de.wikipedia.org/wiki/Selberg-Delange-Methode (sections Die Klassen T und P; Aussage)",
+        "title": "Remarks on the Selberg--Delange method",
+        "trigger": "Needed classical theorem, possible broad implication"
+      },
+      {
+        "assessment": "NOT_COVERING: decimal-digit-defined summation domain and D(n), not square-completed D(m²) weighted blocks.",
+        "evidence": [
+          "Communications in Mathematics 31 (2023), 369--374, abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.05549",
+        "material_read": "Abstract and article description/metadata",
+        "method": "Read arXiv and journal landing-page abstracts",
+        "title": "On a sum of a multiplicative function linked to the divisor function over the set of integers B-multiple of 5",
+        "trigger": "Same D(n) ratio without the same argument"
+      },
+      {
+        "assessment": "NOT_COVERING: constant mean of unshifted D(n).",
+        "evidence": [
+          "OEIS A307869 description."
+        ],
+        "identifier_or_url": "https://oeis.org/A307869",
+        "material_read": "Sequence definition, comments, references",
+        "method": "Read OEIS record",
+        "title": "A307869: mean divisor-to-unitary-divisor ratio",
+        "trigger": "Possible exact database/table coverage"
+      },
+      {
+        "assessment": "Not same normalized square-completion function; full body not inspected, residual priority risk recorded.",
+        "evidence": [
+          "Czechoslovak Mathematical Journal 76 (2026), 515--524, abstract."
+        ],
+        "identifier_or_url": "https://www.dml.cz/handle/10338.dmlcz/153646",
+        "material_read": "Bibliographic abstract and scope only",
+        "method": "Read publisher/repository abstract",
+        "title": "On the distribution of the sequence of integers d(n²)",
+        "trigger": "Potential stronger result on squares"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0532cbd9-760f-483f-841a-7cc801b490aa",
+  "value": {
+    "rationale": "The observable is directly motivated by the February 2026 preprint. Its logarithmic order matters in analytic number theory, and a nonzero explicit X sqrt(log X) term plus an explicit second coefficient supplies the correct quantitative answer for the exact same mean. The result is not an arbitrary finite slice or standalone computation, and the incorrect scale in the motivating asymptotic makes the corrected order mathematically consequential. The first lower-order term is rigorously strictly negative, specifying the direction of the first correction.",
+    "status": "PASS"
+  }
+}
