@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:52:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-confluence-reversal-law-for-one-added-detention-reservoi--e1fdea699779/RESULT.md blob 61620c158530292ce6e9c052472450384dca1ab8",
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-confluence-reversal-law-for-one-added-detention-reservoi--e1fdea699779/checker.py blob 18ac9e53994a5e33e07856193074e2eee510f807",
+        "/mnt/data/scope_worker03_20261106T1238Z/independent_checks.py"
+      ],
+      "rationale": "Non-dimensionalize by x=at and r=b/a. Convolution of the original exponential with the serial exponential yields g_r(x)=r(exp(-x)-exp(-rx))/(r-1), with g_1(x)=x exp(-x). The original peak is beta+exp(-delta), since beta>=1. The derivative of e^x times post-arrival discharge has strictly negative derivative -r^2 exp(-(r-1)x), forcing a single post-arrival peak or an endpoint maximizer. The routed pulse g_r reaches its mode at m(r)=log r/(r-1), and g_r(delta)-exp(-delta) has the sign of delta-m. Below m, the envelope for the modified peak minus original is strictly increasing to zero, including interior-peak regime; above m both modified summands decrease from arrival, so the comparison is exact. Differentiating the excess proves unique maximum at delta=2m; writing r=exp(2u) yields 2u coth(u)>=2 with equality u=0. Independently evaluated the exact derivative and peak for bounded r,beta,delta cases. Model explicitly excludes wider rainfall and hydraulic effects.",
+      "residual_risks": [
+        "Finite independent calculations do not replace the analytic and infinite-quantifier parts of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pattison et al. use a full river hydraulic model to assess relative timing and attenuation.",
+          "McCuen reports the qualitative downstream harm of detention, so that phenomenon itself is covered."
+        ],
+        "reasoning": "General field complexity does not imply the sharp all-positive-rate two-impulse inequality with universal coefficient e^-2; the narrower quantitative statement is assessed.",
+        "searches": [
+          "doi:10.1002/2013WR014067",
+          "doi:10.1061/JYCEAJ.0005300",
+          "two tributaries stormwater detention routing peak flow reversal timing linear reservoir"
+        ]
+      },
+      "checked_sources": [
+        "Pattison, Lane, Hardy & Reaney (2014), Water Resources Research 50, 5444-5458, DOI 10.1002/2013WR014067",
+        "McCuen (1979), DOI 10.1061/JYCEAJ.0005300",
+        "Błażejewski & Murat-Błażejewska (2003), DOI 10.1623/hysj.48.4.665.51413"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pattison et al. numerical experiments show timing sensitivity but do not establish sign(Pb-P0)=sign(delta-m(r)) under the ideal convolution model.",
+          "The exact worst delay 2m(r) and maximization over r follow from derivative identities and u*coth(u)>=1."
+        ],
+        "reasoning": "Simulation conclusions do not mechanically supply these exact universal inequalities. The unread 2003 routing analysis remains an explicit risk.",
+        "searches": [
+          "doi:10.1002/2013WR014067",
+          "doi:10.1623/hysj.48.4.665.51413"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Simple first-order serial routing is an exponential convolution; related basin attenuation models predate this theorem.",
+          "None of the read hydraulic simulation results states the dimensionless mode-crossing sign identity."
+        ],
+        "reasoning": "Equivalent two-box/linear-reservoir notation may hide prior exact formulas; checked the physically equivalent delay and downstream-peak statements, with unread analytical prior risk.",
+        "searches": [
+          "two tributaries stormwater detention routing peak flow reversal timing linear reservoir",
+          "linear routing impulse response confluence hydrograph synchronization",
+          "doi:10.1623/hysj.48.4.665.51413"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-result semantic search retrieved no matching exact all-rate threshold, with only broad flow and delay analogues."
+        ],
+        "reasoning": "No exact prior table was identified; this is not a claim of novel qualitatively paradoxical runoff.",
+        "searches": [
+          "two tributaries stormwater detention routing peak flow reversal timing linear reservoir",
+          "stormwater retention basin downstream peak increase e^-2 exact upper bound"
+        ]
+      },
+      "rationale": "Hydraulic literature already recognizes that delaying one tributary may increase or decrease the downstream peak, so the qualitative paradox is prior. Pattison et al. study flood simulations and sensitivity of multi-tributary timing; the narrower analytical statement adds a universal exact modal-time sign threshold, beta-independence, and sharp penalty a/e² for one added serial linear reservoir. McCuen and Błażejewski are plausible but partly unread predecessors, retained as risks.",
+      "residual_risks": [
+        "McCuen (1979) and Błażejewski & Murat-Błażejewska (2003) complete papers were not read; an earlier two-exponential exact model remains a priority risk.",
+        "The theorem assumes instantaneous runoff impulses, beta>=1, common original reservoir a, a single added serial reservoir and storage-free linear confluence.",
+        "Finite checks do not certify the continuum optimization; it is proved by derivative and envelope arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full publisher text uses 1D hydraulic modeling and sensitivity changes, not this two-impulse linear-reservoir universal inequality",
+          "evidence": "Shows delay/synchronization can change downstream flood stage; does not state exact m(r) or e^-2.",
+          "identifier_or_url": "doi:10.1002/2013WR014067",
+          "material_read": "Accessible complete publisher HTML, sections on tributary timing, modeling, sensitivity experiments and conclusion",
+          "method": "Wiley open full research article",
+          "title": "The role of tributary relative timing and sequencing in controlling large floods",
+          "trigger": "Same confluence timing question and large flood downstream effects"
+        },
+        {
+          "assessment": "ACCESS LIMITED; qualitative attenuation paradox already known, exact formula not excluded",
+          "evidence": "Published result discusses watershed basins raising downstream flow; no full-text noncoverage asserted.",
+          "identifier_or_url": "doi:10.1061/JYCEAJ.0005300",
+          "material_read": "Publisher abstract/metadata only; full research text not retrieved",
+          "method": "Bibliographic abstract inspection",
+          "title": "Downstream Effects of Stormwater Management Basins",
+          "trigger": "Early detention-induced downstream peak reversal"
+        },
+        {
+          "assessment": "ACCESS LIMITED; risk of an exact earlier analytical routing specialization",
+          "evidence": "Published 2003 analysis concerns trapezoidal detention inflow, whereas present theorem is two impulses and a confluence.",
+          "identifier_or_url": "doi:10.1623/hysj.48.4.665.51413",
+          "material_read": "Abstract and routing-model description; full paper not retrieved",
+          "method": "Bibliographic/abstract inspection",
+          "title": "Analytical solutions of a routing problem for storm water in a detention basin",
+          "trigger": "Plausible direct analytic prior"
+        }
+      ],
+      "source_searches": [
+        "two tributaries stormwater detention routing peak flow reversal timing linear reservoir"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-confluence-reversal-law-for-one-added-detention-reservoi--e1fdea699779/RESULT.md blob 61620c158530292ce6e9c052472450384dca1ab8",
+        "Pattison, Lane, Hardy & Reaney (2014), Water Resources Research 50, 5444-5458, DOI 10.1002/2013WR014067",
+        "McCuen (1979), DOI 10.1061/JYCEAJ.0005300"
+      ],
+      "rationale": "Simple linear routing is an interpretable benchmark for detention/timing design: the exact safe/harmful boundary and rigorous maximum penalty are directly useful calibration and structural facts, despite not predicting empirical flood stage. The all-rate sharpness is not mechanically supplied by the qualitative flood examples.",
+      "residual_risks": [
+        "Finite checks do not certify the continuum optimization; it is proved by derivative and envelope arguments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pattison, Lane, Hardy & Reaney (2014), Water Resources Research 50, 5444-5458, DOI 10.1002/2013WR014067",
+    "McCuen (1979), DOI 10.1061/JYCEAJ.0005300",
+    "Błażejewski & Murat-Błażejewska (2003), DOI 10.1623/hysj.48.4.665.51413"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "McCuen (1979) and Błażejewski & Murat-Błażejewska (2003) complete papers were not read; an earlier two-exponential exact model remains a priority risk.",
+    "The theorem assumes instantaneous runoff impulses, beta>=1, common original reservoir a, a single added serial reservoir and storage-free linear confluence.",
+    "Finite checks do not certify the continuum optimization; it is proved by derivative and envelope arguments."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "McCuen (1979) and Błażejewski & Murat-Błażejewska (2003) complete papers were not read; an earlier two-exponential exact model remains a priority risk.",
+    "The theorem assumes instantaneous runoff impulses, beta>=1, common original reservoir a, a single added serial reservoir and storage-free linear confluence.",
+    "Finite checks do not certify the continuum optimization; it is proved by derivative and envelope arguments."
+  ]
+}
