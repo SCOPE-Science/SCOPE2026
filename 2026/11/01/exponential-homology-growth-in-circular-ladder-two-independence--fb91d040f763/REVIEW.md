@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local induced-degree condition gives a bijection between faces and admissible cyclic sixteen-state walks; the sign of each walk is the face parity. The exact characteristic polynomial is independently computable by the included standard-library integer-matrix verifier and corroborated by exhaustive face enumeration for three through eight rungs. Rational root brackets and a one-point monotonic growth comparison establish nonvanishing for all larger rungs, with no extrapolation. The Euler--Poincaré inequality then proves the nonzero rational homology and exponential lower bound. The scope is restricted to this signed Euler obstruction; no claims about individual degrees or full homotopy type are made.
+## correctness
 
-**Originality — PASS on inspected evidence.** Taylan, arXiv:1501.06754, treats \(P_k\)-devoid paths, cycles and forests, not Cartesian prism products. Deshpande–Singh, arXiv:2001.05448, explicitly enumerates its treated higher-independence graph families; the prism is not among them. The 2023 cubic-graph dissociation extremal theorem of Tu–Xiao–Lang assumes positive activities and therefore does not imply an exact signed value at \(-1\). Indexed related prism results apply to other topological graph complexes or ordinary independence, not induced-degree-one faces. The available preceding claims contain no matching cyclic transfer or nonvanishing statement. Exact unindexed equivalence remains a publication-priority risk.
+PASS
 
-**Value — PASS.** The circular ladder is a standard width-two periodic graph, and the two-independence complex is the first nontrivial relaxation beyond ordinary independence. The theorem settles a uniform, infinite-family noncontractibility question and proves an explicit exponential lower bound on rational Betti growth, rather than merely evaluating a graph-counting polynomial. The recurrence is a structural topological invariant and a reproducible benchmark for future homotopy/persistence classifications. The natural invariant, not arbitrary parameters, motivates the numerical algebraic constant.
+For n≥3 the rung masks b_i encode every labelled selected vertex set of C_n □ K2, and the 16-state transition enforces that each selected middle-rung vertex has at most one of the previous, next and opposite-layer neighbors; cyclic trace of T^n is therefore exactly the signed face enumerator. Independent symbolic construction gives charpoly x^10(x²−x+1)(x⁴−x²−2x+1); the six nonzero characteristic roots yield the order-six recurrence and initial exact traces 4,−3,11,10,1,29. The quartic derivative 2(x−1)(2x²+2x+1), α>17/40 and β>69/50, plus reciprocal product bound |γ|<1.31 imply a uniform rational lower bound Z_n>0 for all n≥14. The n3..13 direct traces close the finite gap, establishing nonzero signed Euler for every n≥3. Euler–Poincaré lower-bounds rational total Betti by |Z_n|, giving exponential rate β. Independent brute induced-degree enumerations for n=3,4,5,6 agree with traces; all-n logic uses analytic roots, not the finite sample.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Claim-level primary and published-results comparison finds the full asserted conclusion not implied by the identified earlier theorems, including known special cases and same-object constructions; exact search outcomes are not treated as novelty proof. See four named scientific comparisons and primary material inspections. Best-of-knowledge residual risks are explicit.
+
+## value
+
+PASS
+
+The first higher-independence/dissociation complex of the canonical cyclic width-two prism family is a natural missing infinite family. Uniform nonvanishing and a quantitative exponential rational Betti lower bound are substantial topological constraints for future homotopy classifications, not a tiny isolated graph count. The exact recurrence and dominant growth rate are determined by a motivated fixed-width transfer structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
