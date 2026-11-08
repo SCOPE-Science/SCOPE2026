@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The Luce exponential race gives independent Exp(a_i) exceptional scaled clocks and a unit Poisson limit for the ordinary clock point process. Given exceptional ranks the ordinary labels are exactly uniform over n-m positions; the falling-factorial moments are (h)_k/(n-m)_k with n-2m<=h<=n-m. Uniform generating-series domination establishes independent Poisson(1) ordinary fixed points. A memoryless exponential competition yields the exact m-step generating-polynomial recursion. Hypergeometric rectangle concentration establishes the Lebesgue permuton. For arbitrary one-spike weights the first-rank probability is exactly w_n/(w_n+n-1). The standalone exact-rational verifier passes 1031 cases, including exhaustive small permutations, conditional moments, recursion coefficients and asymptotic numerical cross-checks; these are supplemental to, not replacements for, the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2.1 of Borga--Chatterjee--Diaconis yields a uniform permuton when the weight profile converges almost everywhere to 1; such global convergence does not control the diagonal fixed-point count.",
+        "Their local pattern and inversion theorems address different statistics.",
+        "A finite-block Luce fixed-point Poisson statement for positive block proportions and constant rates excludes microscopic, diverging-weight spikes."
+      ],
+      "reasoning": "The permuton statement is covered by prior work and is not claimed as an independent innovation. The new claim concerns finite exceptional labels whose limiting mass is zero but whose weight is order n, producing non-Poisson diagonal events; it is neither a corollary of permuton convergence nor a special case of positive-proportion fixed-rate block theorems.",
+      "searches": [
+        "joint limiting distribution fixed points under nonuniform weighted permutations Luce model",
+        "Luce permutations Poisson fixed points with homogeneous blocks fixed proportions and rates, anomalous vanishing blocks",
+        "random permutations with uniform permuton but non-Poisson diagonal/fixed points Plackett Luce Tsetlin library",
+        "arXiv:2509.07729 Theorems 2.1, 3.1, 3.2, 4.1"
+      ]
+    },
+    "checked_sources": [
+      "Borga--Chatterjee--Diaconis, arXiv:2509.07729, accessible text, Sections 1, 2.1, 3, 4, 5.2",
+      "Chatterjee--Diaconis--Kim, arXiv:2306.16521v1, Sections 1 and 2.2, top/bottom rank overview",
+      "Clay, arXiv:2603.09008, Section 8",
+      "Diaconis--Fulman--Guralnick, arXiv:0708.2643, abstract",
+      "Earlier positive-proportion finite-block Luce fixed-point Poisson theorem, scientific claim comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 article anticipates an approximately Poisson fixed-point count from permuton density, but states this as a question, not a theorem.",
+        "Uniform random permutations have asymptotically Poisson(1) fixed points, whereas the finite-spike Luce model has Poisson(1) plus a nondegenerate finite correction despite identical limiting permuton density."
+      ],
+      "reasoning": "A general fixed-point theorem based solely on permuton density cannot cover this claim with a Poisson output, since the constructed law is not Poisson. Existing uniform-permutation theory covers only the bulk component, not its coupling to finitely many exceptional items.",
+      "searches": [
+        "fixed points Luce Poisson 2026",
+        "permuton fixed points Poisson Luce spike",
+        "Luce weighted fixed-point limits finite block constant rates versus vanishing fraction",
+        "arXiv:2509.07729 Section 5.2 Poisson density heuristic",
+        "arXiv:0708.2643 ordinary uniform fixed-point law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 Luce permuton paper treats fixed-point limits as an open question in Section 5.2 and gives a Poisson-density heuristic, not an exceptional-label Bernoulli correction.",
+        "The 2023 Tsetlin/Luce paper proves an exponential-clock representation and finite top/bottom rank distribution, not an asymptotic full fixed-point count."
+      ],
+      "reasoning": "Fixed points are invariant under permutation inversion, so card-at-rank and rank-of-card conventions are equivalent. The exponential-race formulation is also equivalent to stationary Tsetlin sampling; the cited theorems give model ingredients but do not imply the independent Poisson-plus-finite-correction law without new conditional-matching analysis.",
+      "searches": [
+        "Luce weighted random permutations fixed points with one exceptional item of weight proportional to n; Poisson plus independent Bernoulli limiting law; Plackett Luce rank-one spike",
+        "fixed points in Tsetlin library Luce distribution independent exponential races dominant card size-biased permutations Poisson Bernoulli",
+        "finite rank perturbation uniform random permutation, fixed point count Poisson plus finite Bernoulli, independently ordered exponential clocks",
+        "arXiv:2509.07729 Section 5.2",
+        "arXiv:2306.16521 Section 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 Tsetlin/Luce paper gives top/bottom rank enumeration and explicitly lists fixed-point counting as an outstanding question.",
+        "The 2026 shuffle paper Section 8 reidentifies the Luce fixed-point limit as open.",
+        "Scientific record searches returned fixed-point results for ordinary uniform permutations and rare Bernoulli sums, not the specific multi-spike finite-state polynomial."
+      ],
+      "reasoning": "Neither finite rank tables nor a partial top-k description determine the asymptotic full fixed-point count; the exact finite-state law for the exceptional correction and independent bulk Poisson mechanism are compared as a combined assertion.",
+      "searches": [
+        "Number of fixed points in Plackett Luce sampling with finitely many macroscopic weights and uniform remaining weights, non-Poisson limit despite Lebesgue permuton",
+        "Plackett-Luce number fixed points Poisson distribution permutations finite exceptional weights",
+        "spiked Luce permutation fixed point distribution",
+        "arXiv:2306.16521 top and bottom k cards",
+        "arXiv:2603.09008 Section 8 Luce fixed points"
+      ]
+    },
+    "rationale": "The specific full fixed-point limit under finite order-n weight spikes, the joint independent Poisson bulk plus a finite marked-exponential correction, and the resulting uniform-permuton/non-Poisson separation are not statements of the inspected motivating papers. The closest homogeneous fixed-block Poisson theorem requires blocks of positive limiting proportion and fixed rates and does not imply this singular spike regime. Later revisions and unknown equivalent general Poisson-approximation theorems remain priority risks.",
+    "residual_risks": [
+      "A later revision of arXiv:2509.07729 beyond the accessible article rendering was not materially inspected.",
+      "Historical priority against general weighted-permutation diagonal Poisson-approximation or finite-perturbation limit theorems is not independently established.",
+      "The broader 2023 top-rank theory may be usable to streamline part of the argument but does not by itself supply the uniform independent Poisson bulk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The sampled main results and explicit open question do not state the finite-spike non-Poisson law; the uniform permuton component is already covered by Theorem 2.1.",
+        "evidence": [
+          "Theorem 2.1 concerns macroscopic permuton convergence.",
+          "Section 5.2 asks the asymptotic fixed-point distribution and discusses a Poisson heuristic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.07729",
+        "material_read": "Accessible full-text rendering: Introduction, Theorem 2.1, descriptions of Theorems 3.1, 3.2, 4.1, Section 5.2 and adjacent discussion. Newer v3 text was not accessible in this search.",
+        "method": "Direct reading of publicly rendered article text with searches for fixed points, Poisson, spikes and exceptional items.",
+        "title": "Permuton and local limits for the Luce model",
+        "trigger": "Directly poses the fixed-point limit question and a Poisson-density heuristic"
+      },
+      {
+        "assessment": "Provides exponential-clock representation and finite-rank enumerative background. Explicitly lists the number-of-fixed-points distribution as an open question.",
+        "evidence": [
+          "Section 1 lists fixed-point distribution among natural open questions.",
+          "Theorem 2.1 supplies the exponential race representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.16521v1",
+        "material_read": "Abstract, Introduction, Sections 2.2.2 and 2.2.3, and section outlines for top and bottom k positions.",
+        "method": "Direct reading of open-access HTML sections and search for fixed points.",
+        "title": "Enumerative Theory for the Tsetlin Library",
+        "trigger": "Primary predecessor proving exponential formulation and top/bottom position laws"
+      },
+      {
+        "assessment": "Studies random-to-top shuffle statistics and suggests the Luce fixed-point question as future work; it does not present the exceptional-weight limit.",
+        "evidence": [
+          "Section 8 states the limiting fixed-point distribution in the Luce model remains an open direction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.09008",
+        "material_read": "Abstract, Introduction, Section 8 Future Directions.",
+        "method": "Direct reading of open-access HTML and targeted search for Luce and fixed-point discussion.",
+        "title": "On the statistics of random-to-top shuffles",
+        "trigger": "Recent reference independently highlights the fixed-point problem for Luce rankings"
+      },
+      {
+        "assessment": "Baseline Poisson(1) limit for uniform permutations; not evidence of the exceptional Luce perturbation.",
+        "evidence": [
+          "Abstract states the limiting Poisson law for fixed points of a uniform permutation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0708.2643",
+        "material_read": "Abstract and bibliographic statement only.",
+        "method": "Search and abstract comparison, not a full-paper exclusion.",
+        "title": "On fixed points of permutations",
+        "trigger": "Classical uniform random permutation fixed-point Poisson law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7ea2577a-5fda-4f95-a29f-08ccfa759c54",
+  "value": {
+    "rationale": "A documented open question conjectures fixed-point Poisson behavior based on the permuton diagonal. This theorem exhibits a naturally scaled rare preferred-item perturbation that preserves the uniform permuton yet changes the fixed-point limit, quantifies the critical weight scale for one preferred item, and gives a finite-state exact correction law for any fixed collection. The phenomenon identifies a concrete boundary for permuton-based inference instead of an arbitrary computation.",
+    "status": "PASS"
+  }
+}
