@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "On connected graphs U^2x=x implies the two-round firing-total vector is a constant harmonic integer vector. Primitive period two forces exactly one firing per vertex, giving complementary firing sets. Direct threshold inequalities give a one-to-one cut/slack parametrization, exact cut polynomial and full contiguous interval for each feasible cut. Every maximizing cut has positive cross degree, and its mass interval contains all others. Endpoint uniqueness, reciprocity and polynomial-time MAX-CUT reduction follow. Full checked domain n>=2; the two independently implemented stdlib programs replayed successfully and test 771 labelled connected graphs and 139 additional constructive examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jiang arXiv:1003.0943, Proposition 2.5 and Lemmas 2.1–2.3, full Section 2 and subsequent main-result sections read",
+        "Jiang–Scully–Zhang arXiv:1211.6786 PDF sections 2, 6–8 inspected",
+        "Wang–Lannan arXiv:2608.03258v1 abstract, as indexed with 2026-08-04 source date, gives eventual period two within a density band, not initial mass support"
+      ],
+      "reasoning": "General known period-return criteria and eventual two-cycle density bounds do not state or by themselves furnish the exact initial-period-two support endpoints, extremal coefficients or MAX-CUT decision equivalence. The 2026 full manuscript was unavailable here, so an unobserved stronger theorem remains a risk rather than a negative full-document assertion.",
+      "searches": [
+        "All parallel chip-firing games with 2|E|-|V|<|σ|<2|E| have period 2",
+        "On the Period Lengths of the Parallel Chip-Firing Game arxiv:1003.0943 Proposition 2.5",
+        "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game arxiv:1211.6786"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1003.0943 (full relevant HTML Sections 2–4)",
+      "arxiv:1211.6786 (full PDF relevant sections and page image)",
+      "Bitar–Goles 1992 institutional abstract",
+      "arxiv:2608.03258 accessible abstract",
+      "accessible earlier local claims e5633f91, ef82f229, c5ceff3e, 87f01668",
+      "published-finding corpus queries as recorded in the four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jiang 2010 Proposition 2.5 gives only equality of firing counts, a distinct criterion that requires derivation of chip intervals to obtain the claim",
+        "Jiang–Scully–Zhang 2012 study concerns allowable temporal patterns, not weighted enumeration over graph cuts",
+        "Wang–Lannan 2026 abstract: every game in a specified middle mass band eventually has period two; this does not require immediate periodicity or give the maxcut extremal band"
+      ],
+      "reasoning": "A statement about eventual periods is not a statement about initial recurrent states; a periodicity criterion is not the support/endpoint formula without the present max-cut and slack arguments. Strong coverage was not found in the inspected scientific claims; priority is qualified by specific inaccessible texts.",
+      "searches": [
+        "parallel chip firing two periodic configurations max cut min energy",
+        "minimum chip total of an immediately two-periodic parallel sandpile configuration encodes MAX CUT",
+        "On the Period Lengths of the Parallel Chip-Firing Game arxiv:1003.0943",
+        "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game arxiv:1211.6786"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jiang 2010 Section 2, ar5iv full HTML, Proposition 2.5: equal firing totals characterize a periodic return; no cut formula",
+        "Scully–Jiang–Zhang arXiv:1211.6786v3, full PDF sections 2 and 7: temporal firing patterns and nonclumpiness, not cut-degree mass support"
+      ],
+      "reasoning": "Terminological matches include two-period sandpile, fixed-energy sandpile, alternate firing bipartitions, cut-degree product, and MAX-CUT mass spectrum. The known harmonic firing-total condition is a premise; the new construction of independent per-vertex chip intervals, summation over cuts, and maximum-cut nesting are additional arguments not stated as an equivalent theorem in the inspected material.",
+      "searches": [
+        "parallel chip firing period two configurations number cut degrees product graph all vertices complement firing sets",
+        "parallel chip firing two-cycles maximum cut chip count spectrum",
+        "parallel chip firing period two maxcut minimum chips",
+        "\"chip-firing\" \"maximum cut\" \"period two\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible earlier local claims: e5633f91-9c2a-4597-8ee5-7f4920a2c0a8 (cycles), ef82f229-430e-4950-89f4-6469f9abd10c (wheels), c5ceff3e-1c5e-4547-8ac9-f055db25e169 (complete split graphs), 87f01668-3df6-4c7b-a2be-368ef1d845e3 (tree extremizers)",
+        "Targeted published-finding corpus returned no graph-universal chip-firing MAX-CUT mass support entry; nearest indexed hits concerned unrelated graph-cut or parity invariants"
+      ],
+      "reasoning": "Those family-specific results and extremal total-state counts do not imply the arbitrary-connected-graph support theorem. They can be recovered or constrained using the universal cut decomposition but do not cover its full domain. No exact database table with the graph-universal statement was identified.",
+      "searches": [
+        "primitive 2-period support interval [2|E|-MaxCut(G),2|E|+MaxCut(G)-|V|]",
+        "Exact primitive-two chip-mass spectrum on wheel graphs, cycle graphs, and split graphs under parallel chip-firing"
+      ]
+    },
+    "rationale": "Full-text Jiang 2010 establishes the harmonic return criterion and Jiang–Scully–Zhang 2012/2015 establishes local firing-pattern constraints; neither inspected statement specifies graph-universal immediate two-cycle mass support, maximum-cut endpoints, endpoint coefficients or NP-complete bounded-energy existence. Exact older claims in the accessible local ledger concern particular graph families, not arbitrary connected graphs. published-finding corpus searches for MAX-CUT/period-two aliases found no covering record. Accessible 2026 density-band theorem addresses eventual periodicity, not this initial-state invariant. 1992 and 2026 full-text access gaps remain documented.",
+    "residual_risks": [
+      "The inaccessible full original Bitar–Goles 1992 text may contain unstated related energy observations.",
+      "The 2026 general density-band article could contain an unobserved remark on immediate-period support; accessible material was insufficient for full-text exclusion.",
+      "Unindexed terminology such as alternating-firing-cut energy spectrum could hide equivalent prior results; failed searches do not certify novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes equal firing totals, complement symmetry and bipartite period lengths; does not state max-cut energy spectrum or endpoint multiplicities.",
+        "evidence": [
+          "Section 2, Proposition 2.5, eq. (3): U^t sigma=sigma iff all vertices fire same number",
+          "Section 3 constructs possible periods on complete bipartite graphs; no universal cut energy endpoints."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1003.0943",
+        "material_read": "Full HTML Section 2 including Proposition 2.5, introduction and main results in Sections 3–4, with targeted searches for maximum cut, period two and counting.",
+        "method": "Read substantive text and compare stated propositions and hypotheses with chip-mass support and extremal coefficients.",
+        "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+        "trigger": "Universal periodic-return criterion might subsume a cut-mass characterization."
+      },
+      {
+        "assessment": "Discusses possible periodic firing patterns and removal of tree-like parts, not exact MAX-CUT mass support.",
+        "evidence": [
+          "PDF page 3 states periodic positions relatively little studied; Section 7 (pages 14–17) derives nonclumpiness implications."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+        "material_read": "PDF pages 1–4 (definitions, prior work, scope); Sections 6–8 including proof consequences and conclusions; page 3 visually inspected.",
+        "method": "Primary PDF text and page screenshot; matched local period-two predicates and mass/enumeration terms.",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Closest primary full-text account of firing sequences and period-two constraints."
+      },
+      {
+        "assessment": "Abstract gives tree-period restriction and general examples, no evidence of max-cut support; full-text originality risk retained.",
+        "evidence": [
+          "Published 1992-01-20; abstract mentions tree periods one or two and general periodic behavior."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90316-8",
+        "material_read": "Abstract and bibliographic metadata only, full text unavailable.",
+        "method": "University-indexed bibliographic abstract; no whole-document absence conclusion.",
+        "title": "Parallel chip firing games on graphs",
+        "trigger": "Foundational initial paper, potentially covers generic period-two phenomena."
+      },
+      {
+        "assessment": "Accessible assertion does not entail exact immediate-period-two support or MAX-CUT endpoints; uninspected full text is a priority risk.",
+        "evidence": [
+          "Indexed theorem asserts all games with 2|E|-|V|<mass<2|E| eventually attain period two."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.03258",
+        "material_read": "Indexed abstract and external review only; primary manuscript full text unavailable.",
+        "method": "Compared accessible stated theorem (eventual periods in an open mass interval) to immediate-period support.",
+        "title": "All parallel chip-firing games with a middle chip-density band have period two",
+        "trigger": "Plausibly strong global energy-dependent period-two result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f5540596-47ef-4a2b-9728-cd10af3aa7b7",
+  "value": {
+    "rationale": "The result determines the complete natural chip-mass support on all finite connected simple graphs and exactly counts both boundary populations by maximum-cut multiplicity. It turns a recurrent-state invariant into a classical global graph optimization invariant and gives an NP-complete decision problem with an exact reduction, rather than a graph-family substitution or recomputation of earlier tables. It provides a structural tool for understanding energy support even when interior coefficients remain unknown.",
+    "status": "PASS"
+  }
+}
