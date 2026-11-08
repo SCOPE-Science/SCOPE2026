@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Exact covariance sum C=2h(I-(I-hA)^2)^{-1}, symmetric-root spectral decomposition and projector classification, sharp two-endpoint minimax step argument, finite-time Gaussian covariance sum and two-step cancellation are proved for every dimension under stated hypotheses. Exact-rational standalone verifier passed 690 counted checks on actual package code. Finite checks are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kirsten et al., arxiv:2608.09743: exact covariance recursion, first-order gradient-descent equivalence (inspected).",
+        "Aifer et al., arxiv:2308.05660: continuous-time equilibrium covariance inversion (inspected PDF formulas).",
+        "Singh et al., Phys. Rev. E 98 012136: inference from time-ordered paths, not covariance-only snapshots (publisher abstract).",
+        "van Seeventer and Salehkaleybar, arxiv:2603.08311: continuous-time causal sign identification with unknown diffusion (abstract).",
+        "Kirsten et al. Theorem 3 gives h=1/(lambda_min+lambda_max) for the first-order covariance-gradient map; our h=2/(lambda_min+lambda_max) concerns the original exact Euler matrix transition and is therefore not their recommended step."
+      ],
+      "reasoning": "A theorem identifying dynamics from paths with lag information is not a stronger covering theorem about **all** parameter drifts compatible with one-time Euler covariance: the observation spaces differ. Continuous-time Lyapunov covariance yields A^{-1} in the symmetric isotropic case, not the discretized two-branch map. Inspected 2026 preprint motivates the exact recursion but does not state these fiber, optimal-step or two-step conclusions in examined portions.",
+      "searches": [
+        "Stationary covariance Euler-Maruyama Ornstein Uhlenbeck thermodynamic inverse matrix map noninjective two drift matrices same covariance quadratic Riccati branch h eigenvalue reflection",
+        "arxiv:2608.09743 Theoretical Analysis of Thermodynamic Matrix Inversion Kirsten preconditioned gradient descent stationary covariance",
+        "finite Euler timestep thermodynamic matrix inversion identifiability optimal step inverse estimation spectral aliasing",
+        "Optimal gradient descent step h=2/(lambda_min+lambda_max) Euler-Maruyama all Gaussian snapshots from zero isotropic covariance for two eigenvalue symmetric drift",
+        "Fast Bayesian inference multivariate Ornstein Uhlenbeck process 2018 drift inferred from lagged covariance zero-lag",
+        "arxiv 2603.08311 Sign Identifiability in Causal OU Systems matrix drift covariance assumptions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.09743",
+      "https://www.nature.com/articles/s44335-026-00098-w",
+      "https://arxiv.org/abs/2308.05660",
+      "https://doi.org/10.1103/PhysRevE.98.012136",
+      "https://arxiv.org/abs/2603.08311",
+      "published-finding corpus:2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+      "published-finding corpus:2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+      "published-finding corpus:2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf",
+      "published-finding corpus:2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kirsten et al. state the covariance recursion explicitly, so the basic fixed-point equation C^{-1}=A-(h/2)A^2 is not treated as a stand-alone discovery.",
+        "The matrix spectral proof further determines every stable symmetric inverse branch, a unique-fiber iff boundary, the optimal-step isotropy iff condition, all finite-time marginal equivalences and a two-step algebraic reconstruction.",
+        "Aifer et al. continuous-time formula has no discrete branch symmetry."
+      ],
+      "reasoning": "The starting recursion and scalar quadratic identity are known/elementary, and are properly credited. Their stated first-order algorithmic equivalence does not contain a conclusion about manifold-valued inverse fibers and optimal-step loss of **all** one-time Gaussian eigenspace information. This is not an instance of a theorem on a narrower normalization of the same stronger claim, based on the material inspected. Historical-priority risk is recorded instead of claiming exhaustive uniqueness. The source first-order optimal step is exactly half the exact Euler transition optimal step and does not yield the stated isotropic collapse.",
+      "searches": [
+        "arxiv:2608.09743 Theoretical Analysis of Thermodynamic Matrix Inversion Kirsten preconditioned gradient descent stationary covariance",
+        "Optimal gradient descent step h=2/(lambda_min+lambda_max) Euler-Maruyama all Gaussian snapshots from zero isotropic covariance for two eigenvalue symmetric drift",
+        "Fixed-step AR(1) sign ambiguity covariance Lyapunov Euler stationary matrix simultaneous eigenspace rotations at optimal time step",
+        "arxiv 2608.09743 pdf lemma 1 theorem 1 h covariance finite Euler stationarity",
+        "Optimal gradient descent step h=2/(lambda_min+lambda_max) Euler-Maruyama all Gaussian snapshots from zero isotropic covariance for two eigenvalue symmetric drift"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact fixed-point identity C^{-1}=A-(h/2)A^2 gives a matrix quadratic equation; on each covariance eigenspace it is equivalent to the symmetric square-root problem K^2=I-2hC^{-1}.",
+        "Scalar AR(1) stationary variance only contains the square of its signed transition coefficient, a classical special case.",
+        "published-finding corpus close analogous result 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf addresses squared-spectrum sign ambiguity in reversible Markov-chain paired autocovariances."
+      ],
+      "reasoning": "The scalar sign ambiguity and general matrix-root parameterization are acknowledged inputs; the new claim specifies the exact **stable SPD thermodynamic Euler** inverse fibers including their Grassmannian components and relates the worst isotropic equivalence to the unique minimax Euler rate and finite-time Gaussian marginals. The published reversible-chain result is on a different observation statistic and cannot give this stationary Euler reconstruction.",
+      "searches": [
+        "Exact classification all symmetric positive definite drifts with identical stationary covariance of Euler-discretized overdamped Langevin OU process Grassmannian matrix square root ambiguity",
+        "Euler-Maruyama Ornstein Uhlenbeck A h A squared precision covariance fixed point branch ambiguity sign spectral decomposition",
+        "stationary covariance same for multiple SPD symmetric drifts discrete OU Euler signed square root Grassmann manifold",
+        "Finite-step thermodynamic matrix inversion A-hA^2/2 effective precision and matrix square root ambiguity orthogonal projection Grassmann",
+        "Fixed-step AR(1) sign ambiguity covariance Lyapunov Euler stationary matrix simultaneous eigenspace rotations at optimal time step",
+        "Euler Maruyama OU process covariance drift identifiability stationary covariance same different drift Euler time discretization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus queries returned no matching tabulated classified stationary Euler covariance fibers; closest listed findings concern underdamped Gaussian biases, Gauss-Seidel inverses and covariance sign ambiguity in other processes.",
+        "The claim is an all-dimensional continuous-matrix classification with an exact step parameter rather than a finite enumerative invariant."
+      ],
+      "reasoning": "No natural finite classification table covers the continuous family of orthogonal projectors; generic database absence alone is not used to establish novelty, and checked published-finding corpus records are compared by their actual mathematical implications.",
+      "searches": [
+        "Thermodynamic matrix inversion finite timestep covariance bias A - h A squared over 2 identifiability aliases",
+        "Finite-step thermodynamic matrix inversion A-hA^2/2 effective precision and matrix square root ambiguity orthogonal projection Grassmann",
+        "thermodynamic linear algebra Euler discretization stationary covariance matrix multiple inverses aliasing",
+        "stationary covariance same for multiple SPD symmetric drifts discrete OU Euler signed square root Grassmann manifold"
+      ]
+    },
+    "rationale": "Actual published-finding corpus semantic searches, accessible historical ledger claim comparison, primary 2026 thermodynamic inversion passages and continuous-time foundational PDF distinguish the exact Euler snapshot inverse-fiber theorem from known first-order covariance recurrence, full-path OU inference and general scalar AR(1) sign ambiguity. The new structural combination comprises a complete orthogonal-projector parameterization and an exact fastest-step snapshot collapse, not a new claim to the known covariance recursion. Priority remains qualified by inspected-source access limits.",
+    "residual_risks": [
+      "Full text of several older time-series and discrete Lyapunov identification works was not inspected; an equivalent known general matrix-root identifiability treatment may exist.",
+      "The 2026 motivating preprint was inspected at equation and principal theorem passages but a complete secondary full-text review after later URL fetch failures was not possible.",
+      "The scalar autoregressive sign ambiguity and fixed-point covariance recurrence are classical/previously known; only the complete Euler SPD fiber and sharp optimal-step marginal collapse are presented as the distinct result.",
+      "Historical priority requires independent literature review; there is no independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact covariance update and optimal learning rate 1/(lambda_min+lambda_max) for the first-order error map I-2hA are prior; the latter differs from the exact Euler transition optimum 2/(lambda_min+lambda_max). Inspected main theorems do not state the full nonlinear stationary inverse fibers, exact Euler optimal-step isotropic marginals, or two-step exact branch resolution. Residual appendices/full-text risk remains.",
+        "evidence": [
+          "arxiv:2608.09743; exact Euler covariance update is Sigma_next=(I-hA) Sigma (I-hA)+2h I",
+          "Theorem 1 in inspected passages concerns first-order equivalence to preconditioned gradient descent",
+          "Earliest public v1 timestamp 2026-08-10 15:38:47 UTC (papers.cool/arxiv/2608.09743)",
+          "Theorems 2--3 identify convergence and optimal h=1/(lambda_min+lambda_max) for first-order error map I-2hA, explicitly distinct from the exact Euler B=I-hA optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.09743",
+        "material_read": "ArXiv primary HTML abstract and sections containing Lemma 1 covariance recursion and Theorems 1--3, with the first-order optimization comparison and numerical experiment passages; later retrieval of the entire remaining full text/appendices failed.",
+        "method": "Primary preprint HTML mathematical-text inspection and equation-to-claim comparison; later full-text retrieval failed.",
+        "title": "Theoretical Analysis of Thermodynamic Matrix Inversion: First-order Equivalence to Preconditioned Gradient Descent and Implications for Analog Computing",
+        "trigger": "Exact Euler covariance recursion and numerical-matrix-inversion objective"
+      },
+      {
+        "assessment": "Continuous-time stationary covariance is a unique inverse; no Euler stationary inverse-fiber classification observed in text searched.",
+        "evidence": [
+          "arxiv:2308.05660, continuous-time OU covariance based thermodynamic inverse",
+          "PDF page images 3--4 inspected; document text search did not find Euler"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.05660",
+        "material_read": "Available primary PDF text and displayed formulas on pages 3--4 (zero-indexed screenshots 2 and 3), including continuous-time equilibrium covariance; targeted full-text text search for Euler.",
+        "method": "PDF text inspection and rendered page screenshots",
+        "title": "Thermodynamic Linear Algebra",
+        "trigger": "Foundational OU thermodynamic covariance matrix inversion"
+      },
+      {
+        "assessment": "Uses discrete time-ordered sample paths and autocorrelation information, not zero-lag stationary Euler covariance alone; full-text priority risk retained.",
+        "evidence": [
+          "Singh, Ghosh, Adhikari (2018): estimates drift and diffusion from N discrete observations of a sample path"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.98.012136",
+        "material_read": "Publisher abstract and arXiv listing only; main text not inspected.",
+        "method": "Publisher abstract comparison",
+        "title": "Fast Bayesian inference of the multivariate Ornstein-Uhlenbeck process",
+        "trigger": "Potential stronger drift identifiability from observations"
+      },
+      {
+        "assessment": "Continuous-time causal directed drift with unknown noise/graph constraints; does not imply exact fixed-isotropic-noise SPD Euler fiber or the optimal Euler-step collapse.",
+        "evidence": [
+          "arxiv:2603.08311 focuses on continuous-time stationary systems with unknown diffusion and causal edge-sign identifiability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.08311",
+        "material_read": "ArXiv abstract and summary of assumptions and results; full original paper not inspected.",
+        "method": "Abstract and exact-model comparison",
+        "title": "Sign Identifiability of Causal Effects in Stationary Stochastic Dynamical Systems",
+        "trigger": "Stationary OU covariance non-identifiability with sign ambiguities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f885032b-c16e-41f7-8f2d-b80134b5fba1",
+  "value": {
+    "rationale": "Thermodynamic covariance matrix inversion needs a reliable mapping from an observed equilibrium covariance to the SPD matrix. This theorem determines its entire non-identifiable inverse fiber, shows that optimal deterministic Euler relaxation can maximally erase spatial anisotropy not just at equilibrium but at every one-time Gaussian snapshot from zero, and gives a two-step-size remedy. The exact border and whole-fiber geometry matter for model identifiability and numerical step selection beyond a routine bias expansion. It makes no unsupported claims about actual finite-sample estimators or broad classes of SDEs.",
+    "status": "PASS"
+  }
+}
