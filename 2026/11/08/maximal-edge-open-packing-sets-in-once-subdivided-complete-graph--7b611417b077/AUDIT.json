@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The directed-incidence criterion follows by examining every possible third graph edge between two selected incidence edges in a bipartite subdivision. Directed length-two walks force isolated reciprocal pairs; the remaining arcs separate into source-to-target blocks. Missing arcs and unused vertices can be added, so maximal blocks are complete and cover the remaining vertices; all other additions are excluded except the one-by-one exceptional case. The factorial count normalizes unordered pairs and ordered source/target partitions without duplication. The sharp extrema and parity follow algebraically. Raw-graph exhaustive subset comparisons through n=5 and direct validation of constructed families through n=8 agree with each claimed coefficient; these finite results are corroboration, not the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chelladurai, Kalimuthu and Soundararajan, Edge open packing sets in graphs, RAIRO Operations Research 56 (2022), 3765–3776, DOI 10.1051/ro/2022171: §2 gives extremal values for paths, cycles, complete multipartite graphs and wheels; §3 gives general inequalities and extremal cases.",
+        "Brešar and Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750 (first posted 2024-03-01): §2 NP-hardness, §3 tree algorithm, §4 bounds and edge deletion."
+      ],
+      "reasoning": "The published families include unsubdivided complete multipartite graphs and trees, while once-subdivided complete graphs contain many cycles and are not among those claimed exact families. General upper/lower bounds cannot determine the cardinality polynomial. The current result concerns all maximal rather than only maximum packings.",
+      "searches": [
+        "\"edge open packing\" \"subdivision\" \"cut\" maximum",
+        "\"edge open packing\" \"subdivision graph\" complete",
+        "\"Edge open packing sets in graphs\"",
+        "\"Edge open packing: complexity, algorithmic aspects, and bounds\""
+      ]
+    },
+    "checked_sources": [
+      "Chelladurai, Kalimuthu and Soundararajan, Edge open packing sets in graphs, RAIRO Operations Research 56 (2022), 3765–3776, DOI 10.1051/ro/2022171",
+      "Brešar and Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750 (first posted 2024-03-01)",
+      "Priyamvada and Panda, Injective edge coloring of some standard graph products, DOI 10.1142/S1793830923500416 (abstract-level evidence only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chelladurai, Kalimuthu and Soundararajan, Edge open packing sets in graphs, RAIRO Operations Research 56 (2022), 3765–3776, DOI 10.1051/ro/2022171 supplies the EOP definition and standard-graph bounds.",
+        "Brešar and Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750 (first posted 2024-03-01) supplies computational and structural bounds for a single extremal size.",
+        "Priyamvada and Panda, Injective edge coloring of some standard graph products, DOI 10.1142/S1793830923500416 (abstract-level evidence only) concerns injective chromatic-index bounds on graph operations; full text was not accessible."
+      ],
+      "reasoning": "The maximal-set formula is not implied by a bound for the edge-open-packing number or by an injective chromatic-index bound, because different maximal distributions may share these scalar invariants. The inaccessible subdivision-coloring paper is a genuine residual risk but its abstract does not state the exact family, distribution, or any result decisively encompassing it.",
+      "searches": [
+        "\"Injective edge coloring of some standard graph products\" \"subdivision\" theorem",
+        "\"Injective edge coloring of some standard graph products\" arxiv",
+        "arxiv:2403.00750 subdivision",
+        "DOI 10.1051/ro/2022171 subdivision"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar and Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750 (first posted 2024-03-01): §1 identifies injective edge coloring color classes with EOP sets; later sections study optimization and algorithms.",
+        "No exact once-subdivided complete-graph maximal-class polynomial was located in the inspected literature."
+      ],
+      "reasoning": "A single maximal injective-edge-color class equals a maximal EOP edge set, but minimizing the total number of colors is a different problem. Neither the coloring equivalence alone nor the 2024 size and algorithm results counts all individual maximal classes or proves the directed-arc decomposition.",
+      "searches": [
+        "\"edge open packing\" \"subdivision\" \"complete graph\"",
+        "\"edge open packing\" \"S(K_n)\" maximal",
+        "\"injective edge coloring\" \"subdivision\" \"maximal color class\"",
+        "arxiv:2403.00750 §1–§4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table or formula was found in the specific indexed searches. The independent exhaustive graph test yields for n=5 the polynomial \\(85z^4+20z^6\\) as a reproducible checkpoint."
+      ],
+      "reasoning": "An exact table for the same object would cover coefficients regardless of presentation; no such table was identified in searches. Search failure is not proof that none exists, so this check records remaining publication-priority uncertainty.",
+      "searches": [
+        "\"maximal edge open packing\" \"subdivided complete\"",
+        "\"edge open packing\" \"S(K_n)\" \"floor\"",
+        "maximal edge-open-packing complete subdivision polynomial",
+        "exact enumeration maximal edge open packing sets in complete subdivisions and size gaps"
+      ]
+    },
+    "rationale": "The claim classifies and enumerates every inclusion-maximal edge-open-packing set in every once-subdivided complete graph. The inspected foundational and subsequent edge-open-packing research treats maximum sizes, complexity, tree algorithms and bounds, not the complete maximal-set polynomial of this graph family. Injective-edge-coloring chromatic-index results count colors in partitions, not maximal individual color classes. Searches of exact problem, aliases, strongly covering parameters, and related published records found no statement implying the enumerator; this is provisional and not a uniqueness certificate.",
+    "residual_risks": [
+      "Other papers may use injective edge-color classes, incidence conflicts, or 2-step arc languages without the EOP name.",
+      "The Priyamvada–Panda full text was not obtained, so its detailed subdivision results remain uninspected.",
+      "Indexing and search are incomplete, and independent publication-priority checking has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces invariant and scalar extremal results, not the exact S(K_n) maximal-set enumerator.",
+        "evidence": "The standard-family section treats paths, cycles, complete multipartite graphs, wheels and Petersen; the later results treat inequalities and constructions.",
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+        "material_read": "Open-access PDF: abstract, definition, sections on standard graphs and bounds, examples and conclusions (including pp. 3765, 3766–3768, 3772–3776).",
+        "method": "Full-text searchable reading plus direct PDF page inspection.",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Foundational definition and possible complete-graph coverage"
+      },
+      {
+        "assessment": "No full maximal-set polynomial or classification for once-subdivided complete graphs.",
+        "evidence": "Abstract and §§1–4 center on complexity, tree optimization, upper bounds, edge deletion; no occurrence of subdivision found in the full-text search.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+        "material_read": "Accessible full-text HTML: introduction, complexity proofs, tree dynamic-programming section, structural bounds and cited prior work.",
+        "method": "Full HTML section reading and searches for subdivision and complete graph.",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Closest current primary paper on same invariant"
+      },
+      {
+        "assessment": "Studies injective chromatic index under graph operations, which does not directly imply maximal-class enumeration. Coverage cannot be definitively excluded without full text.",
+        "evidence": "Abstract describes tight upper bounds on coloring under graph operations, including subdivision; no maximal-class polynomial in accessible material.",
+        "identifier_or_url": "https://doi.org/10.1142/S1793830923500416",
+        "material_read": "Bibliographic metadata and accessible abstract only; no complete article accessible in searched arXiv or open-access routes.",
+        "method": "Searched title, DOI, arXiv versions and openly accessible copies; complete article not available.",
+        "title": "Injective edge coloring of some standard graph products",
+        "trigger": "Potential stronger result involving subdivision and equivalent color classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b611417-b077-4a3b-b0ce-7bd1abb43b85",
+  "value": {
+    "rationale": "Complete classification and full labeled polynomial solve a natural maximal-set enumeration problem for canonical one-subdivisions of complete graphs. The minimum \\(n-1\\), maximum \\(\\lfloor n^2/4\\rfloor\\), exact arithmetic cardinality spectrum, and even-only spectrum at odd n distinguish possible inclusion-maximal color-class sizes beyond the previously studied single maximum. These invariants support reproducible benchmark examples and are not merely renamings of the established maximum number.",
+    "status": "PASS"
+  }
+}
