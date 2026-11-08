@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The exact ball KKT equations have a unique scalar multiplier. Coordinatewise prox monotonicity in input and inverse monotonicity in multiplier make the ball map isotone on the nonnegative orthant; its radius monotonicity then composes for arbitrary schedules. An ℓ1 path-length budget proves the sharp finite-step bound. For the explicit smooth SPD hierarchy, induction comparing the exact minimizer to a feasible point shows successive-coordinate elimination in the singular parameter limit and proves the step count equals the dimension at sufficiently small positive parameter. Every limiting statement is backed by an all-dimension analytic argument, not by finite arithmetic. Numerical reproduction uses 960 ordered-trajectory comparisons and dimension witnesses d=2..7; exact subproblem solutions require infinite-precision mathematics, while the Python checker is a high-precision diagnostic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.35147: dimension-dependent length estimate and polyhedral lower example, plus general nonmonotonic radii",
+        "https://arxiv.org/abs/2502.02002: generic squared-distance contraction gives a quadratic step-count bound",
+        "https://arxiv.org/abs/2003.08078: accelerated oracle method with a different iteration"
+      ],
+      "reasoning": "The older squared-distance upper bound the ceiling of squared initial distance over squared radius specializes to at most d steps for the unit-start diagonal family but does not construct a strongly convex quadratic attaining equality or compare trajectories coordinatewise for different radii. The newer polyhedral family shows sharpness in nonsmooth convex objectives, not in the smooth SPD subclass. No inspected stronger theorem includes both new claims.",
+      "searches": [
+        "https://arxiv.org/abs/2609.35147 entire HTML including radius selection and polyhedral example",
+        "https://arxiv.org/abs/2502.02002 entire HTML and its convex convergence theorem",
+        "https://arxiv.org/abs/2003.08078 entire HTML",
+        "ball proximal method trust-region quadratic radius monotonicity finite termination step count SPD",
+        "ball proximal SPD diagonal quadratic sharp sqrt dimension step count lower bound"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.35147",
+      "https://arxiv.org/abs/2502.02002",
+      "https://arxiv.org/abs/2003.08078",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.35147: polyhedral dimension lower example does not establish a smooth SPD example",
+        "https://arxiv.org/abs/2609.35147: generic convex radius nonmonotonicity highlights need for structure",
+        "https://arxiv.org/abs/2502.02002: finite termination upper bounds do not imply radius-order comparison"
+      ],
+      "reasoning": "An orthogonally diagonalizable SPD Hessian is within the smooth objective subclass, not the polyhedral witnesses in the primary paper. Coordinatewise trajectory ordering is logically stronger than per-run norm bounds and fails in the larger convex class, while the upper bound at most d steps is compatible with all strict improvements and cannot imply an instance with exactly d steps. Neither result follows as a corollary from the inspected general claims.",
+      "searches": [
+        "https://arxiv.org/abs/2609.35147 sections on radius selection, finite termination and dimension lower bounds",
+        "https://arxiv.org/abs/2502.02002 general step and distance proof",
+        "exact ball-proximal point on separable convex objective comparison principle ordered radii coordinatewise trajectory",
+        "ball proximal SPD diagonal quadratic sharp sqrt dimension step count lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.35147: ball-proximal minimization on a ball; general finite termination, radius-selection counterexample and polyhedral sharpness",
+        "https://arxiv.org/abs/2502.02002: normalized proximal formulation and universal convex finite-termination inequalities"
+      ],
+      "reasoning": "The scalar multiplier equations are a proximal reformulation, but prior convex bounds on distances/objectives do not assert coordinatewise isotonicity across independently ordered radius schedules. The originating work gives a counterexample to radius monotonicity for a nonsmooth coupled objective, which is compatible with a positive theorem on separable strictly convex costs. Neither equivalent title nor the known proximal relation implies this result.",
+      "searches": [
+        "\"ball proximal\" \"monotone\" radius \"separable\" convex",
+        "\"ball proximal\" \"radius\" \"coordinatewise\" monotone trajectory",
+        "exact ball-proximal point on separable convex objective comparison principle ordered radii coordinatewise trajectory",
+        "Theorem ball-proximal under orthogonally separable convex objective if radius sequences ordered then iterates coordinatewise ordered",
+        "arxiv:2609.35147v1 §4.3, §6 and appendix E",
+        "arxiv:2502.02002v2 §3 and §8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996: Bregman-adaptive Hellinger-ray asymptotic, not an exact Euclidean ball-minimization oracle",
+        "2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2: composite trust-region gradient descent cycling threshold, not ball-proximal minimization",
+        "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe: Cauchy trust-region decrease ratio, not coordinatewise ball-oracle trajectories"
+      ],
+      "reasoning": "Semantic published-finding corpus records were searched for both radius-order comparison and the smooth quadratic exact step count; closest retrieved mathematical claims concern different iterations or different objectives and do not imply this theorem. No exact table of the claimed dimension witnesses was identified. A negative database search is not a proof of mathematical uniqueness.",
+      "searches": [
+        "ball proximal method trust-region quadratic radius monotonicity finite termination step count SPD",
+        "exact ball-proximal point on separable convex objective comparison principle ordered radii coordinatewise trajectory",
+        "ball proximal SPD diagonal quadratic sharp sqrt dimension step count lower bound",
+        "Theorem ball-proximal under orthogonally separable convex objective if radius sequences ordered then iterates coordinatewise ordered",
+        "exact broximal point smooth strongly convex diagonal quadratic n iterations with initial distance sqrt n",
+        "2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996",
+        "2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2",
+        "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+      ]
+    },
+    "rationale": "Two substantial class-specific claims (trajectory radius order across schedules and exact dimension attainment in the smooth SPD subclass) are not statements or consequences of the fully inspected same-operator source theorems. Generic length/termination upper bounds cannot imply the new comparison or the smooth lower witness; the source general-radius counterexample is nonsmooth and outside the new assumptions. Searches of relevant published mathematical claims found no equivalent or stronger claim. Remaining historical-priority risk is explicit.",
+    "residual_risks": [
+      "Classical order-preserving trust-region or proximal-resolvent literature may contain an equivalent coordinatewise comparison theorem under different terminology; broad historic coverage is not independently certified.",
+      "Published claim summaries for the two nearest published-finding corpus mathematics records were not full-text audits; their described update rules differ from the present iteration.",
+      "The originating paper supplies a closely related polyhedral dimensional lower witness, so the precise incremental value is smooth strong-convexity attainability plus all-radius trajectory comparison, not the general lower bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary establishes general convex bounds and nonsmooth/polyhedral behaviors but not the two new class-specific statements; high relevance and acknowledged mathematical foundation",
+        "evidence": [
+          "arxiv:2609.35147v1 sections on convergence, radius selection and polyhedral dimension-dependent construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.35147",
+        "material_read": "Full arXiv HTML text: definitions, radius-selection discussion, finite-length bounds, polyhedral lower-bound example and appendix proof sections",
+        "method": "Read source mathematics and compared implication to coordinatewise radius order and smooth SPD witness",
+        "title": "A Sharper Theory of Ball-Proximal Optimization: Convergence and Radius Selection",
+        "trigger": "Same exact Euclidean ball-proximal iteration, radius selection and dimension-sharp finite convergence"
+      },
+      {
+        "assessment": "Broad finite-termination guarantee, not a diagonal comparison theorem or smooth exact-dimension attainment",
+        "evidence": [
+          "arxiv:2502.02002v2 Definition 1.1 and convex convergence Theorem 8.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.02002",
+        "material_read": "Full arXiv HTML, introduction, normalized prox and convex convergence theorem including related appendices",
+        "method": "Compared squared-distance decrease and proximal reformulation with all-radius coordinatewise comparison",
+        "title": "The Ball-Proximal (=“Broximal”) Point Method: a New Algorithm, Convergence Theory, and Applications",
+        "trigger": "Original ball-proximal method and generic finite-termination inequality"
+      },
+      {
+        "assessment": "Accelerated algorithmic guarantees do not subsume the present coordinatewise nonaccelerated theorem",
+        "evidence": [
+          "arxiv:2003.08078 original accelerated ball-oracle method"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.08078",
+        "material_read": "Full lawful open-access arXiv HTML, method formulation and oracle-complexity arguments",
+        "method": "Compared accelerated ball-oracle usage and objectives against nonaccelerated exact point iteration",
+        "title": "Acceleration with a Ball Optimization Oracle",
+        "trigger": "Potential stronger coverage from classic ball-oracle optimization literature"
+      },
+      {
+        "assessment": "Bregman-adaptive projected gradient on a Hellinger ray, distinct from exact Euclidean ball-proximal iteration; absence of full review retained as risk",
+        "evidence": [
+          "published-finding corpus published identifier 2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996",
+        "material_read": "Published title and mathematical claim summary, not full underlying paper",
+        "method": "Matched operators and update rules in the published claim summary",
+        "title": "Exact cumulative-step boundary law for B-adaPG on an invariant Hellinger ray",
+        "trigger": "Semantically nearest previously published local optimization finding"
+      },
+      {
+        "assessment": "Different update, different nonsmooth objective and different sharp threshold",
+        "evidence": [
+          "published-finding corpus published identifier 2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2",
+        "material_read": "Published title and mathematical claim summary, not full linked paper",
+        "method": "Compared composite descent update and exact ball minimization",
+        "title": "Sharp fixed-radius phase transition for composite trust-region gradient descent",
+        "trigger": "Similar fixed-radius terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "90396b37-5e46-4216-b8de-922716a9561b",
+  "value": {
+    "rationale": "Radius selection can paradoxically increase iteration counts for general convex objectives in the motivating paper. The coordinatewise comparison identifies a natural broad class (all orthogonally separable strict convex objectives, especially arbitrary SPD quadratics) where this cannot happen, even under adaptive radii; this is a structural phenomenon relevant to selecting exact ball-oracle radii. The ℓ1 budget is a natural geometry-sensitive iteration estimate, and its exact attainment in smooth strongly convex quadratics resolves whether the published nonsmooth polyhedral sharpness is merely a nonsmooth artifact. The statement is not a routine renaming of the generic finite-step upper bound.",
+    "status": "PASS"
+  }
+}
