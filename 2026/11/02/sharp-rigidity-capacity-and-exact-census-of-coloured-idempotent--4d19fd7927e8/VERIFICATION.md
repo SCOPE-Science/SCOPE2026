@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-Run `python3 checker.py`. The checker is standalone, requires no external package, and compares each coloured idempotent labelled map on every carrier in the finite ranges \((q,n)=(1,1..6),(2,1..5),(4,1..4)\). It independently computes the canonical multiset-of-stars key, tests rigidity from the existence of colour-preserving automorphisms, enumerates the unrestricted multiset product, expands the rigid polynomial, and checks the unrestricted divisor-sum recurrence. For all checked carrier sizes it matches unlabeled and rigid type counts, as well as the labelled enumeration's canonical type partition. It confirms reciprocal rigid coefficients, positivity up to the sharp bound, and a unique maximal rigid type for each tested colour count; it checks the unrestricted recurrence through degree \(20\). Actual replay output ended `ALL_CHECKS_OK`.
+## correctness
 
-The mathematical proof establishes all \(q\), all \(n\), and the fixed-\(q\) asymptotic by rooted-star decomposition and a moment-concentration argument; a finite computer test cannot establish any of those infinite claims alone. No external independent audit was performed. Literature comparison cannot certify historical priority.
+PASS
+
+The one-step idempotence f²=f forces each fibre to be a rooted coloured star; the product of leaf-colour permutations and equal-star permutations is the complete automorphism group. Rigidity therefore means distinct star types and at most one leaf of each colour. Selecting each of q binom(q,j) rigid j-leaf types at most once gives R_q(z)=product_{j=0}^q (1+z^(j+1))^(q binom(q,j)). Sum of all type sizes gives sharp capacity N_q=q 2^(q-1)(q+2); subset-sum induction yields all sizes 0..N_q and complement yields coefficient symmetry. Arbitrary multiplicities yield unrestricted Euler product and divisor recurrence; the fixed-q logarithmic growth follows from its exact Boltzmann log-partition with C=q zeta(q+1), Chebyshev concentration and monotonicity of counts. Independent separate direct idempotent-function and colour enumeration for q=1,2 at small carrier sizes matched rigid polynomial; this finite check cannot prove the asymptotic.
+
+## originality
+
+PASS
+
+Exact automorphism-free polynomial/capacity for an idempotent named-colour monounary class survives comparison; generic function automorphism counting and known unrestricted series are prior.
+
+## value
+
+PASS
+
+Rigidity is the precise obstruction to labelled/unlabelled corrections in finite monounary model counting. The exact finite capacity, gap-free support, symmetric polynomial and contrast with unbounded unrestricted counts give a natural complete structural classification, beyond a routine unrestricted counting table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

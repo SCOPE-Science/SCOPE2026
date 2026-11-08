@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A total idempotent function decomposes into disjoint rooted fibres. A star's root colour and non-root colour multiplicities are complete invariants. Its internal leaf permutations and permutations of isomorphic fibres supply all automorphisms, yielding the exact rigidity criterion. Choosing each permissible rigid star type at most once proves the product polynomial; a contiguous subset-sum lemma proves every carrier size up to the sharp maximum is possible. The unrestricted multiset generating function and coefficient recurrence follow from the same type count. For fixed \(q\), an exact expression for the logarithm of the generating function yields the stated regular power asymptotics of the log partition function, mean, and variance; exponential tilting gives matching coefficient growth bounds. The supplied checker independently enumerates the claimed finite parameter ranges and returns `ALL_CHECKS_OK`. The infinite assertions do not depend on exhaustive testing.
+PASS
 
-## Originality
+The one-step idempotence f²=f forces each fibre to be a rooted coloured star; the product of leaf-colour permutations and equal-star permutations is the complete automorphism group. Rigidity therefore means distinct star types and at most one leaf of each colour. Selecting each of q binom(q,j) rigid j-leaf types at most once gives R_q(z)=product_{j=0}^q (1+z^(j+1))^(q binom(q,j)). Sum of all type sizes gives sharp capacity N_q=q 2^(q-1)(q+2); subset-sum induction yields all sizes 0..N_q and complement yields coefficient symmetry. Arbitrary multiplicities yield unrestricted Euler product and divisor recurrence; the fixed-q logarithmic growth follows from its exact Boltzmann log-partition with C=q zeta(q+1), Chebyshev concentration and monotonicity of counts. Independent separate direct idempotent-function and colour enumeration for q=1,2 at small carrier sizes matched rigid polynomial; this finite check cannot prove the asymptotic.
 
-**PASS within the checked primary-literature and mathematical-database evidence.** Kuželka's arXiv:2608.30580 treats general unary functions and automorphism-aware model counting but not the constrained idempotent rooted-star rigidity ceiling. OEIS A161870 already contains the two-colour **unrestricted** series, which is expressly credited and not claimed new. published-finding corpus searches for coloured idempotent unary rigidity, star-type automorphism groups, exact finite ceiling, and equivalent generating polynomials did not identify a result covering the rigid classification. The closest identified published work concerns generic unary functions or polymorphism-homogeneous monounary algebras and lacks the exact same object/constraints. Historical priority remains a caveat: older work on finite unary algebras or coloured star forests might imply the criterion without matching terminology.
+## originality
 
-## Value
+PASS
 
-**PASS.** Finite model counting with automorphisms raises the natural question of which coloured unary models admit no nontrivial symmetry. The theorem completely classifies that locus, provides a sharp finite size obstruction and an exact labelled/unlabelled conversion for rigid models, and contrasts it with unbounded general counts and their growth. The cutoff is structural rather than an arbitrary small example or recomputation of a known unrestricted sequence.
+Exact automorphism-free polynomial/capacity for an idempotent named-colour monounary class survives comparison; generic function automorphism counting and known unrestricted series are prior.
 
-## Evidence and limits
+## value
 
-The proof, explicit coefficient methods and standard-library exhaustive checker are self-contained. Exhaustive finite checks cover \(q=1,2,4\) on small carriers, not all parameters. The original paper was materially inspected in its publicly accessible version, including its automorphism treatment; the absence of a matched theorem in inspected material does not establish publication priority. The asymptotic is for fixed colour count. The result does not extend automatically to unrestricted unary maps or multiple operations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rigidity is the precise obstruction to labelled/unlabelled corrections in finite monounary model counting. The exact finite capacity, gap-free support, symmetric polynomial and contrast with unbounded unrestricted counts give a natural complete structural classification, beyond a routine unrestricted counting table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
