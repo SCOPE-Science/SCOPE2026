@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional attachment rules yield a closed mixed-moment covariance recurrence. The exact expected leaf count and a second telescoping identity give the finite formula without asymptotic approximation. Strict increase of an explicit stage function proves the single crossing, and product asymptotics establish the sharp \(9j\) threshold. An independent weighted-history enumerator and rational recurrence checker exercise finite cases. The nonstandard signs and error estimate were checked directly in the proof. Boundary conditions are limited to the stated initial edge and \(j\ge3\).
+## correctness
 
-## Originality — PASS, with residual risk
-The 1999 growth-model source, the full-text 2009 depth-stratification study, and the 2026 joint degree/leafdegree and leaf-count study were compared with the exact birth-rank mixed covariance. The 2026 study contains the expected total leaf count but treats marginal age-agnostic observables; its reported joint covariances concern totals of degree classes, not the degree of one specified birth-rank vertex. The relevant published uniform-recursive-tree covariance concerns a different attachment law. No inspected primary source gives the exact age-resolved formula or its \(1/9\) phase boundary. Further historical coverage is possible, and searches cannot prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-Leaf count is a natural boundary-size observable for growing networks, while birth-rank degree measures age-selective hub growth. The exact, finite-sample mixed covariance and the single sharp age threshold demonstrate opposite dependencies for old and young vertices in the same random tree. This is a complete naturally parametrized dependence profile, not an arbitrary numerical special case. Its threshold is relevant when interpreting age-stratified topology in growth models. The theorem does not claim extension to different attachment kernels.
+For the degree-proportional one-parent tree started from edge {1,2}, conditionally J_t=attachment to vertex j and U_t=attachment to a leaf satisfy E[J_t U_t|T_t]=p_t I_{t,j}, p_t=1/(2(t-1)). Hence covariance increments are p_t^2 d_t mu_t-p_t q_t. The leaf mean is 2(t-1)/3+4h_t/3. Recursions for d_t, q_t and d_t h_t telescope exactly to (a_{n,j}+3b_{n,j}-4+4(h_j-a_{n,j}h_n))/3, including n=j. Since d_t/q_t=(t-3/2)/(j-3/2), the increment sign uses an increasing B_t=(t-3/2)mu_t/[2(t-1)]; increments are negative then positive, net covariance tends +infinity, so there is a single eventual positive transition (possibly an intervening zero). Uniform product asymptotics for n/j to rho>1 give (sqrt(rho)-1)(sqrt(rho)-3)/(3sqrt(rho)), with threshold rho=9. Independently enumerated all weighted parent histories for n=3..7 using exact fractions, agreeing with formula. The proof does not assign a sign at the critical birth fraction 1/9.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Full source comparison distinguishes PA trees from uniform-parent recursive trees and separates birth-indexed degree from number of leaf neighbors. The exact covariance trajectory and 1/9 threshold are not yielded by the inspected age-agnostic PA formulas or uniform-recursive-tree results. This is a qualified best-of-knowledge novelty assessment, not absolute priority proof.
+
+## value
+
+PASS
+
+A signed, birth-age-resolved correlation change and the sharp macroscopic 1/9 threshold make a natural refinement of global PA leaf statistics. The exact finite-size formula can serve as a reusable age-indexed second-moment benchmark; it is not just an unmotivated small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
