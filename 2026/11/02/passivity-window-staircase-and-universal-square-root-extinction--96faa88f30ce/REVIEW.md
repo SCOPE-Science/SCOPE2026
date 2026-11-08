@@ -1,27 +1,21 @@
-# Scientific assessment: passivity-window staircase in a lossy two-qubit battery
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Lindblad dynamics has one loss jump and at most one excitation. Explicit exponentiation of the non-Hermitian two-state block gives the underdamped sine, critical polynomial, and overdamped hyperbolic transfer amplitudes. The reduced battery density matrix is determined by its excited population and vacuum–excitation coherence. Its two eigenvalues yield the standard qubit ergotropy formula. For an excited initial charger, passivity is exactly the threshold of one-half transfer; coherent initial chargers are nonpassive whenever their off-diagonal element is nonzero. Every underdamped lobe has exactly one maximum. Its height is an exact exponential, and its logarithmic loss exponent is strictly increasing. The ceiling count handles equality correctly. The second derivative of log transfer at each peak equals \(-2J^2\), yielding the fixed-index square-root width. The weak-loss total-time limit follows from a uniform lobe-phase squeeze and a Riemann sum over \(O(1/\gamma)\) active lobes; its Catalan constant follows from a standard log-cosine integral. Hyperbolic and critical cases have maximum transfer below one half. These arguments cover every \(J>0\), \(\gamma\ge0\), \(\omega>0\), \(p\in[0,1]\), and finite \(t>0\).
+PASS
 
-Independent matrix-exponential replay of the complete GKLS superoperator and root/curvature tests passed 4348 bounded numerical checks using `verify.py`. Only the analytical proof establishes the infinite-index assertions. The weak-loss expansion is fixed-index-plus-large-index asymptotics on the exact root scale; uniformity in simultaneous parameter limits is not asserted.
+Verified the no-jump two-qubit exchange generator, battery transfer f(t), density matrix and qubit passive-work expression; for p=1, W=ω max(0,2u-1). Each damped lobe has one peak u_k=exp[-F_k(x)] and log-curvature -2J²; F_k strictly increases and the count follows from strict inequalities, including equality and γ=0 / γ>=4J boundaries. Taylor expansion at the threshold gives width 2 sqrt(F_k’(x_k)(x_k-x))/J, peak linear, not uniform in k. The weak-loss total duration is a controlled many-lobe Riemann sum 2∫_0^{log2} P(s)ds=4G_Cat/pi-log2. Positive energy-basis coherence for 0<p<1 forbids passivity wherever u>0. Independent numeric peak, curvature and Catalan-value checks corroborated equations; numerics are not infinite proof.
 
-## Originality — PASS, qualified
+## originality
 
-Source 1 is the closest complete primary text. Its equations (60)–(70) provide both the model and the transfer/ergotropy functions, and its lossless section already recognizes passive time intervals. The new claim is not either formula, but the exact count of all dissipative positive-work intervals as a function of loss, the unique ordered infinite sequence of critical damping strengths, the weak-loss accumulation law, the universal fixed-lobe square-root extinction width, and the weak-loss Catalan-constant time-budget law. We examined the source's lossless mechanism and dissipative sections, conclusions and references; that package of comparisons is not stated there.
+PASS
 
-Source 2 gives the known qubit half-population passivity threshold, particularly equation (20) and Appendix B, but its charging operation is a controlled modular shift followed by noise during *storage*. It has no damped exchange oscillations during charging, so that threshold cannot by itself supply the sequence of lobe maxima or its universal curvature law. Source 3 employs postcharging selective weak measurements, not the same generator or root-counting problem. Published research-record searches using the aliases 'Rabi work windows', 'ergotropy sudden death', 'coherent damping', and 'two-qubit charger' found no exact hierarchy. However, database incompleteness and possible broader amplitude-damped-oscillator theorems leave a residual publication-priority risk. Search absence is not proof of novelty.
+Known exact dissipative transfer amplitudes and pointwise ergotropy threshold are not novel. The compared primary papers do not state the globally indexed damping staircase, universal lobe-by-lobe scaling and nontrivial Catalan limit for total positive-work time. Best-of-knowledge originality retains the risk that a source exact formula can be pushed to equivalent consequences elsewhere.
 
-## Value — PASS
+## value
 
-The phenomenon concerns a physically natural discrete operational question: how many times an initially inverted charger can transfer a *nonpassive* battery state before its oscillations are damped out. Its answer is not the exceptional-point criterion, and the last ergotropic window dies at \(\gamma/J\approx1.0211\), well before the oscillatory/nonoscillatory transition at \(4\). A count depending on \(\gamma/J\) with infinitely many exact critical points allows preselection of damping tolerances for a desired revival index. The critical width has a sharp square-root collapse with a loss-independent local curvature, providing a quantitative scheduling tolerance. The exact Catalan limit quantifies the entire usable-time budget as weak loss activates increasingly many Rabi windows; this global aggregate does not follow from inspecting one fixed peak. The contrasting coherent initial-state regime demonstrates that population inversion and coherent activation have singularly different positivity boundaries. None of these results implies finite net-cycle efficiency or resilience above an experimental noise floor.
+PASS
 
-## Closest-source comparison and limits
+The exact global damping-index classification, complete positive-time budget, and precise square-root extinction boundaries answer naturally motivated operational questions about usable charging windows; they are not just pointwise ergotropy substitutions. The distinction between exact positivity and finite detection threshold is explicit.
 
-- Downing and Ukhtary (2026), https://doi.org/10.1002/andp.202500638: exact underdamped model; general ergotropy and transfer known. Newly classified loss-dependent window count and boundary law, not the formula itself.
-- Ali, Al-Kuwari and Quach (2026), https://arxiv.org/abs/2607.02810: single-qubit diagonal passivity threshold known; discrete gate and postcharging noise instead of continuous exchange charging.
-- Malavazi and collaborators (2025), https://doi.org/10.1103/bv4w-jr6q: weak-measurement preservation rather than the free dissipative exchange dynamics; inspected abstract/protocol description only.
-
-Scientific limitations: fixed two-level resonance and Markovian charger-only zero-temperature loss; strictly positive ergotropy need not be practically measurable; asymptotic onset for fixed lobe index; publication-priority risk from possibly unlocated stronger literature. These limitations are not used to weaken a failed correctness claim.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

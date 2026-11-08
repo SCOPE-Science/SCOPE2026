@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy and SciPy. The bundled script performs direct density-matrix propagation with a 16-by-16 GKLS Liouvillian, rather than assuming the reduced transfer formula. It tests 825 different \((J,\gamma,p,t)\) parameter combinations (three coupling choices, eleven decay choices, five charger populations and five time choices), including weak/strong dissipation, the critical point, and the overdamped regime. For each, it checks trace, positivity, independently calculated ergotropy, battery excited population and squared energy coherence. It additionally checks threshold roots and ordering for fifteen lobe indices, strict peak/passivity comparisons on either side of the roots, the exact window count for thirteen damping values, universal peak curvature, the square-root width ratio near four critical lobes, the large-index root asymptotic, and numerical quadrature of all positive-work windows for five small damping values against the Catalan-constant limit.
+## correctness
 
-Replayed output:
+PASS
 
-```
-PASS: 4348 exact-identity/numerical checks, independent GKLS comparison and threshold tests
-critical k,x,gamma/J: 0 0.255275637649 1.021102550595
-critical k,x,gamma/J: 1 0.074520240857 0.298080963427
-critical k,x,gamma/J: 2 0.044334071096 0.177336284386
-critical k,x,gamma/J: 3 0.031594433915 0.126377735658
-```
+Verified the no-jump two-qubit exchange generator, battery transfer f(t), density matrix and qubit passive-work expression; for p=1, W=ω max(0,2u-1). Each damped lobe has one peak u_k=exp[-F_k(x)] and log-curvature -2J²; F_k strictly increases and the count follows from strict inequalities, including equality and γ=0 / γ>=4J boundaries. Taylor expansion at the threshold gives width 2 sqrt(F_k’(x_k)(x_k-x))/J, peak linear, not uniform in k. The weak-loss total duration is a controlled many-lobe Riemann sum 2∫_0^{log2} P(s)ds=4G_Cat/pi-log2. Positive energy-basis coherence for 0<p<1 forbids passivity wherever u>0. Independent numeric peak, curvature and Catalan-value checks corroborated equations; numerics are not infinite proof.
 
-Tests have bounded parameters and numerical tolerances; they cannot prove uniqueness of every critical root, the infinite threshold ordering, the all-parameter exact interval count the global-time limit or the limiting exponents. These follow instead from the analytic monotonicity of \(F_k\), exact single-lobe maxima and a Taylor expansion at the nondegenerate peak. No independent audit has been conducted.
+## originality
+
+PASS
+
+Known exact dissipative transfer amplitudes and pointwise ergotropy threshold are not novel. The compared primary papers do not state the globally indexed damping staircase, universal lobe-by-lobe scaling and nontrivial Catalan limit for total positive-work time. Best-of-knowledge originality retains the risk that a source exact formula can be pushed to equivalent consequences elsewhere.
+
+## value
+
+PASS
+
+The exact global damping-index classification, complete positive-time budget, and precise square-root extinction boundaries answer naturally motivated operational questions about usable charging windows; they are not just pointwise ergotropy substitutions. The distinction between exact positivity and finite detection threshold is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
