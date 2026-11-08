@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For any convex body L of dimension d, the normalized reflection-volume polynomial has coefficients binom(d,j) V_d(L[d-j],-L[j])/vol(L). Alexandrov--Fenchel log-concavity and the equal endpoint volumes give the coefficientwise lower envelope (1+t)^d, and the proved Godbersen inequality gives the upper envelope F_d(t)=sum_j binom(d,j)^2 t^j. Cartesian products multiply these polynomials. The Vandermonde square inequality F_a F_b <=_coeff F_{a+b} merges all but one factor. The proven coefficientwise Hankel-total positivity of type-B Narayana polynomials yields F_{a-1}F_{n-a+1}>=_coeff F_aF_{n-a} for 2<=a<=n/2, so F_1F_{n-1} is the sharp upper envelope. Extracting its k-th coefficient and normalizing produces [k^2+(n-k)^2]/n^2. Equality throughout the upper envelope forces the maximal partition of the first coefficient, hence dimensions 1 and n-1, and equality in the factor Godbersen theorem forces a simplex; the converse is direct. The lower envelope equality is equivalent to Brunn--Minkowski difference-body equality and central symmetry. The actual included checker passed 1048469 exact coefficient comparisons for all ordered factor partitions through dimension sixteen; independent exact shoelace geometry checked an asymmetric trapezoid factor.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kotrbatý--Mouamine arXiv:2607.20387v1 proves the universal bound but not a positive quantitative gap tied to decomposability.",
+        "Fryš--Kotrbatý--Mouamine--Wang arXiv:2610.06806v2 proves general equality rigidity, but not the product-spectrum upper envelope.",
+        "The 2021 Narayana theorem implies polynomial Hankel minors; it alone does not bound the mixed volumes of arbitrary product factors."
+      ],
+      "reasoning": "The new bound improves the universal Godbersen ratio from 1 to 1-2k(n-k)/n^2 on a full, natural structural class. The all-body prior theorem has broader domain but a weaker bound; it therefore does not dominate this quantitative claim. The 2021 result supplies a nontrivial proof ingredient rather than the geometric statement.",
+      "searches": [
+        "Published mathematical records: sharp quantitative Godbersen deficit for affinely decomposable convex bodies product versus prism segment times simplex",
+        "Web: product of simplices Godbersen mixed volume sharp bound",
+        "Web: Godbersen mixed-volume inequality Cartesian products convex bodies"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.06806v2 (full relevant HTML)",
+      "arXiv:2107.10608v1 (full relevant HTML)",
+      "arXiv:2607.20387v1 (metadata/abstract)",
+      "arXiv:0810.2247v1 (abstract)",
+      "Targeted published mathematical records and accessible earlier mathematical claims for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The recent Godbersen bound is coefficientwise F_d(t) for each individual factor; the type-B Narayana theorem gives the previously unrelated 2x2 Hankel-minor inequality.",
+        "An arbitrary product has normalized polynomial equal to the product of its factor polynomials. Applying both cited ingredients and comparing partitions proves the new sharp bound."
+      ],
+      "reasoning": "The result is a new cross-theorem application and is logically derivable from two published, independently motivated results plus product factorization. Neither published theorem alone entails the sharp product inequality. The proof spells out the additional partition-comparison argument; it does not claim the underlying inequalities themselves are new.",
+      "searches": [
+        "Web: Godbersen inequality product of simplices sharp bound mixed volume binomial squared",
+        "Web: type B Narayana polynomials coefficientwise Hankel totally positive",
+        "Full text arXiv:2610.06806v2, sections 1 and 3; full text arXiv:2107.10608v1, Introduction and Theorem 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.06806v2, Introduction and Theorem 1.2 states only the all-body simplex extremum.",
+        "arXiv:2107.10608v1, Theorem 4.2 establishes coefficientwise Hankel-total positivity without a reflection-mixed-volume interpretation."
+      ],
+      "reasoning": "The coefficientwise volume-polynomial statement and the index-normalized mixed-volume statement are exactly equivalent by polarization, including affine-coordinate invariance. The polynomial inequalities are not stated as geometric results in the inspected sources. No matching formulation was recovered in targeted searches.",
+      "searches": [
+        "Published mathematical records: reflection mixed volume of Cartesian product of arbitrary convex bodies bounded by prism simplex coefficients",
+        "Web: Godbersen deficit Cartesian product convex bodies quantitative gap",
+        "Web: Godbersen Cartesian product sharp deficit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record titles were “Exact Godbersen mixed-volume profile for one-vertex simplex truncations” and “Exact Cartesian-product law for the two-body Bézout mixed-volume coefficient”; their substantive claims concern truncated simplices and a distinct Bézout coefficient, respectively.",
+        "An accessible prior prism reflection-mixed-volume formula has the endpoint expression for segment times simplex but not a comparison theorem for general products."
+      ],
+      "reasoning": "Searches and accessible records contained no exact n,k-indexed bound over all affinely decomposable convex bodies or a table that subsumes it. The endpoint prism formula alone does not imply the universal product-domain inequality without the Hankel comparison.",
+      "searches": [
+        "Published mathematical records: Godbersen coefficient for products of simplices and sharp factor dimension optimality",
+        "Published mathematical records: Cartesian products of simplices maximum normalized opposite-body mixed volume coefficient",
+        "Accessible mathematical claim records: all 91 finding claim fields, targeted product/mixed-volume/Godbersen/coefficients and synonyms"
+      ]
+    },
+    "rationale": "The all-body Godbersen theorem supplies a weaker universal maximum and equality class, while the type-B Narayana polynomial theorem supplies an unrelated coefficientwise total-positivity fact. No inspected source explicitly gives the sharp, universal all-index improvement for arbitrary affine Cartesian decompositions. The distinct conceptual step is using Hankel-total positivity to compare the entire factor-dimension spectrum and identifying the optimal product shape. A previously recorded prism formula covers the sharp witness but not domination across arbitrary decomposable bodies. Database and targeted full-text comparisons found no stronger covering statement; historical priority remains provisional.",
+    "residual_risks": [
+      "A prior unindexed application of type-B Narayana Hankel positivity to Godbersen product bodies may exist.",
+      "The July 2026 Godbersen manuscript was not fully readable at the same depth as the October continuation; its complete noncoverage cannot be asserted from the abstract alone.",
+      "This is an explicit combination of published broad theorems, not a claim that either underlying theorem is new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves general simplex extremality, not the explicit improved product-domain coefficient envelope",
+        "evidence": "Theorem 1.2 and (2) state the universal upper bound and exact simplex equality; section 1.2 discusses a different higher-order product-space lift.",
+        "identifier_or_url": "https://arxiv.org/html/2610.06806v2",
+        "material_read": "Full HTML theorem and introduction; relevant proof and sections indexed, with term and product searches",
+        "method": "Primary arXiv HTML inspection and targeted finds for Cartesian products, product of simplices, and equality",
+        "title": "Higher-Order Godbersen Inequality and a characterization of simplices via the face lattice",
+        "trigger": "Direct predecessor solving all-body Godbersen bound and equality; plausible dominating result"
+      },
+      {
+        "assessment": "Theorem exactly supplies required coefficientwise Hankel minors; no convex-body application stated",
+        "evidence": "Theorem 4.2 establishes nonnegative coefficient minor polynomials of H=(W_{i+j}), with W_d=sum binom(d,j)^2q^j.",
+        "identifier_or_url": "https://arxiv.org/abs/2107.10608",
+        "material_read": "HTML full-text introduction, definition of F_d, and section 4 including Theorem 4.2 and proof conclusion",
+        "method": "Primary arXiv HTML mathematical theorem and proof passage inspection",
+        "title": "A planar network proof for Hankel total positivity of type B Narayana polynomials",
+        "trigger": "Published nonstandard key lemma used to compare products of F_d polynomials"
+      },
+      {
+        "assessment": "Proves global bound but no product-specific sharp gap identified in accessible abstract; no whole-document noncoverage conclusion inferred",
+        "evidence": "Publicly submitted July 22, 2026; arXiv summary establishes full-dimensional convex body inequality.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.20387",
+        "material_read": "Abstract and submitted timestamp; general inequality also explicitly restated in the 2026 October primary full text",
+        "method": "ArXiv bibliographic/abstract source and October-paper cross-verification",
+        "title": "Godbersen's conjecture and the L_p-Rogers--Shephard inequality",
+        "trigger": "First public solution of general Godbersen inequality, earlier than the 2026 October equality paper"
+      },
+      {
+        "assessment": "Establishes adjacent q-log-convexity but provides no inspected geometric product-domain theorem",
+        "evidence": "Chen--Tang--Wang--Yang 2008 abstract describes q-log-convexity of F_d; later Hankel theorem supplies the stronger minors.",
+        "identifier_or_url": "https://arxiv.org/abs/0810.2247",
+        "material_read": "Bibliographic abstract and theorem-level description",
+        "method": "Search and arXiv source metadata",
+        "title": "The q-Log-convexity of the Generating Functions of the Squares of Binomial Coefficients",
+        "trigger": "Earlier positive-polynomial inequality possibly covering the needed comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "20f3f5ed-6d18-423f-8243-dc9a7c4c5f2f",
+  "value": {
+    "rationale": "The sharp, all-index improvement 1-2k(n-k)/n^2 quantifies rigidity of the recently solved Godbersen inequality on the structurally natural and broad class of all affinely product-decomposable full-dimensional convex bodies. Central indices force approximately a fifty-percent reduction from the universal simplex coefficient, uniformly in dimension; the exact upper equality shape is a prism over a simplex, whereas the lower edge is governed by central symmetry. This quantifies a meaningful geometric separation rather than a single special-value computation or a routine restatement. The structural bridge from general convex mixed volumes to nontrivial Narayana Hankel-total positivity supplies the needed proof.",
+    "status": "PASS"
+  }
+}
