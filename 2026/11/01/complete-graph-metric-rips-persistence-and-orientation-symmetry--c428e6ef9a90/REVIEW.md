@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph is fixed unambiguously by its 24-vertex LCF edge list. All-pairs distance computation gives 24 omitted pairs at radius three; they form exactly six disjoint induced four-cycles. This gives the simplicial identity \(K_3=\operatorname{Ind}(C_4)^{*6}\), and an elementary equivariant deformation identifies it with a five-sphere. The radius-two 96-pair collapse establishes that the persistent degree-one classes survive through radius two. The 32-automorphism character computation agrees with an independently constructed signed simplicial Lefschetz trace for all automorphisms. The proof relies on structural joins, elementary free-face collapses and finite-group transfer, not homology guesses. The finite checks were replayed on the exact bundled executable. Remaining mathematical risk is limited to independently auditing the stated combinatorial identities and topological identifications, not a known numerical extrapolation.
+## correctness
 
-## Originality
-PASS within the evidence searched, with residual bibliographic uncertainty. Adamaszek's 2011 full text proves high-girth collapse at radius two; its Proposition 2.2 does not cover radius three for girth seven. The published McGee independence-complex sphere is \(\operatorname{Ind}(G)\), whereas the present radius-three object is \(\operatorname{Ind}(H)\) for the distance-four graph \(H=6C_4\). The published radius-three Tutte–Coxeter graph-power result concerns a different graph and homotopy dimension. Existing classical sources cover the cage and its automorphisms, not the displayed persistent barcode and character. Published result searches, aliases, parameters, equivalent formulations and prior claims were compared. Possible unindexed equivalents and the original 1960 publication's unavailable precise day remain explicit risks; negative searches alone are not an originality proof.
+PASS
 
-## Value
-PASS. The McGee graph is the unique extremal cubic \((3,7)\)-cage, making its metric filtration a canonical natural test case, not an arbitrary parameter slice. Its radius-three transition from 13 persistent circle classes to one five-dimensional sphere exposes a sharp degree jump, and the exact symmetry orientation character distinguishes the full-automorphism and orientation-kernel quotient homologies. This supplies useful integral and equivariant invariants beyond ordinary graph combinatorics and beyond the radius-two general stability theorem. The result is finite and self-contained, not a uniform cage theorem.
+LCF [12,7,-7]^8 gives 24 vertices and 36 edges; distance counts (36,72,144,24). K1 has 13 free loops, K2 collapses to G via 96 valid tetrahedron/triangle free-face pairs and thus preserves H1. Distance-4 graph H consists of six disjoint C4, giving K3=Ind(H)=Ind(C4)^{*6}≃S5. Diameter four makes K4 a simplex. Signed permutation of six opposite-part pairs gives the full Aut(G) determinant and 16 positive/16 negative orientations; rational quotient homology follows by averaging. This proves the specified integer barcode and quotient statements; no integral quotient homology claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinctive final claim was compared with actual same-object, stronger and aliased candidates; known covered ingredients are expressly credited. No identified theorem or table entails this entire final claim. Best-of-knowledge priority is conditional on the named accessible-source limits.
+
+## value
+
+PASS
+
+The McGee cage is the unique smallest cubic girth-seven graph. Its complete integral graph-distance Rips barcode at the first non-girth-stable radius and nontrivial symmetry orientation/quotient distinction are independently useful exact invariants, not generic substitution into the early girth theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
