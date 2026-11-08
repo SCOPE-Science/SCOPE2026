@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof proceeds by normalizing the Drury–Arveson monomial basis, deriving each block of the two matrix Gramians, proving the scalar affine identity between them, and diagonalizing the row Gramian. The resulting eigenvalues and multiplicities yield the full spectral statement, compactness, ideal thresholds and logarithmic coefficients through binomial counts and elementary asymptotics.
+## correctness
 
-The included standalone `spectral_check.py` builds multiplier matrices from directly enumerated monomials, checks the Gram blocks and both eigenvalue branches by numerical diagonalization, and verifies dimensional counts. Actual run: `python spectral_check.py`; output: `PASS 1012 independent finite degree, dimension, and multiplicity assertions`. Python 3 and NumPy are needed. These are finite checks only; they do not constitute validation of an infinite-dimensional theorem or independent review.
+PASS
 
-The degree-one, two-variable check matches the earlier published determinant near \(-0.133975\). This comparison fixes the orientation of the operator-matrix indices and the square-root conventions.
+The Drury–Arveson degree-n multipliers have bosonic creation/annihilation forms S_i=a_i^*/sqrt(n+1), S_i^*=a_i/sqrt(n). The exact commutation identity L_n=(I+n R_n)/(n+1) makes L_n and R_n simultaneous functions of the row Gram matrix. The creation row V_n has V_n^*V_n=(n+d-1)I on H_(n-1), so R_n has eigenvalues 0 and (n+d-1)/n with multiplicities d h_n-h_(n-1) and h_(n-1). This yields positive c_n=1/sqrt(n+1) and negative delta_n=sqrt((n+d)/(n+1))-sqrt((n+d-1)/n); each tends to 0, giving compact injective D. Cumulative multiplicities asymptote ((d-1)/d!)n^d and n^d/d!, giving singular-value exponents 1/(2d) and 2/d, sharp Schatten p thresholds 2d and d/2 and logarithmic constants. Independently built full homogeneous blocks and their roots for d=2..4,n=0..4, matching spectra. Note finite blocks do not prove infinite operator spectral completeness; orthogonal direct sums and counting do. Independent verification: /mnt/data/scope_worker03_20261105T0838Z/independent_checks.py; run output ALL_FIVE_INDEPENDENT_CHECKS_OK. Finite checks support but do not prove universal statements.
 
-Source comparison covered the published semi-hyponormality framework, \(d\)-shift commutator ideals, essential normality, and related available research records. The theorem's claimed originality remains a best-knowledge assessment subject to further independent bibliographic review. The earliest complete day of the motivating article's 2025 journal release remains unresolved; its dated May 2026 arXiv posting is recorded separately.
+## originality
+
+PASS
+
+Curto–Yoon already show a negative homogeneous two-dimensional compression of the exact Drury–Arveson semi-hyponormality defect; inspecting the full paper did not find the all-degree spectral multiplicities, signed Schatten cutoffs, or critical logarithmic coefficients. Arveson commutators are a related but different operator.
+
+## value
+
+PASS
+
+The Drury–Arveson coordinate tuple is a standard multivariable operator model, and the semi-hyponormality defect is the exact nonlinear square-root comparison used in primary work. Resolving the entire signed spectrum, degree multiplicities, asymmetric Schatten thresholds and logarithmic endpoint constants explains the non-hyponormality mechanism quantitatively. The result is more than a sign check and provides a natural compact-operator spectral invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
