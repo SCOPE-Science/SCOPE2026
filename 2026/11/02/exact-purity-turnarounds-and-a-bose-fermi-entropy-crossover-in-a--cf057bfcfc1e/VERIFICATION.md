@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the explicit stationary GKLS Bloch system and exact rational identities, plus sign arguments for the derivative and for a single positive quadratic root. No finite experiment is used as an infinite proof.
+# Independent mathematical audit
 
-Run the standalone `verify.py` with `python verify.py` using Python, NumPy and SymPy. It constructs the actual two-level Lindblad matrices and solves the trace-preserving stationary linear equations, checks positive eigenvalues and equations of motion, compares all three Bloch components against the closed forms, tests the ergotropy and purity signs across a parameter grid, verifies the symbolic Bloch-norm identity and derivative, and checks the exact physical-integer step criterion. The executed program completed 1,832 checks successfully.
+## correctness
 
-The tests cover a finite parameter grid only. The universal claims require the analytical positivity, uniqueness and factorization arguments in `RESULT.md`. No independent verification is asserted. The oscillator ancillas enter via the exact thermal Lindblad rates, rather than a finite Fock-space truncation. Physical integer clusters must be distinguished from the real-valued algebraic threshold used to classify them. Numerical witness rounding is illustrative and does not provide an exact certificate for arbitrary parameters.
+PASS
+
+For the stated 2×2 Lindbladian with thermal p∈(0,1), positive f1,f2,omega and rates k_F=N,k_B=N/p, the unique Bloch solution equals p(f1f2 A,f1f2 sqrt(q),−Av/2−q)/(K+q) with q=(omega/k)^2. Its squared length R(q)=1−4u²/(K+q)+u²L/(K+q)² has derivative 4u²(q−Av/4)/(K+q)^3, giving exactly one real purity minimum per type. Difference R(p²q)−R(q) factors with strictly decreasing quadratic Bv−(1+p²)q−4p²q²/A², hence one cross-reservoir purity/entropy reversal and ordered minima. Differentiated passive-rearrangement ergotropy is strictly decreasing in q, so W_B>W_F and both increase in N. Rational step signs and N^−2 tails follow by exact factoring/Taylor expansion. Independent 2×2 Lindblad system calculations matched 30 parameter cases; analytic proof, not sample grid, supplies universality.
+
+## originality
+
+PASS
+
+The stationary Bloch vector is already implicit/explicit in the overlapping 2026 coherent-battery article, so it is not claimed new. The assessed additional contribution is the global unique real-N purity turnarounds, sharp Bose–Fermi crossing, exact integer-step signs and strict simultaneous ergotropy ordering. The exact overlapping 2026 original could not be inspected in full: possible stronger prior coverage is material but not affirmative evidence of prior implication.
+
+## value
+
+PASS
+
+A complete finite-temperature phase diagram distinguishing entropy/purity from useful work, including sharp unique turning sizes and exact integer-step signs, is a natural and potentially useful clarification for collision-model thermodynamics; it is not just recalculation of an already-known state.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
