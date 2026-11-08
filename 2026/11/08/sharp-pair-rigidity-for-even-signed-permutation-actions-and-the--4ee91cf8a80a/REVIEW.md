@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The proof identifies the first two orbit moments in every dimension and vanishing cubic moment from dimension four onward. A nonnegative degree-three polynomial forces the sharp support threshold and, at equality, restricts all orbit projections to two values. Walsh-character independence proves complete axis–flat rigidity for dimensions at least five. The complementary-pair aliasing of Walsh characters in dimension four admits precisely one further flat–flat opposite-parity stratum; the three-dimensional case follows from tetrahedral orbit rigidity. Every converse is exhibited explicitly. The rank-one singular-value identity gives the norm assertion. The attached diagnostic code checks the low-rank boundaries; it does not prove the uniform theorem.
+
+## Originality — PASS (qualified)
+The source introducing the group Daugavet identity proves qualitative orbit transitivity, while its quantitative parameter is a group displacement diameter rather than the complete minimizing rank-one pair set for \(W(D_d)\). The general spherical 3-design covering-radius inequality already implies the numerical lower bound, and the elementary axis orbit already yields equality in value. These facts are **not** counted as novelty. The identified new result is the global equality classification: two axis–flat strata in higher ranks, an exceptional flat–flat stratum at rank four, and a tetrahedral stratum at rank three. An indexed study of spin-weight polytope John balls also treats fixed-orbit contacts, including the special rank-four contact, but its accessible summary does not establish all-pair completeness. Its unavailable full text remains a priority risk. Database queries for exact type-D optimizer equivalences returned no directly covering record; failure to retrieve one is not proof of priority.
+
+## Mathematical value — PASS
+Sharp-pair geometry is a natural and nonredundant refinement of the numerical group-Daugavet constant. It identifies **all** worst rank-one operators for an infinite sequence of irreducible reflection groups, with a distinct rank-three tetrahedral mechanism and rank-four parity/triality mechanism. The equality proof explains why the extra flat–flat family disappears after rank four, via independence of two-coordinate Walsh characters. This structural equality information is not determined by the older scalar bound and is useful for extremizer stability and comparison of signed-permutation symmetries.
+
+## Limitations and literature risk
+A published spherical-design bound already yields the scalar minimum, and published spin-weight inball formulas give certain fixed-orbit sharp contacts. The complete original text of the closest indexed spin-weight study was not accessible, so some optimizer-priority risk remains. This package makes no claim for arbitrary orthogonal representations, does not substitute finite enumeration for proof, and has not undergone independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
