@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Derived the full stagewise five-state recurrence from the primary equation; computed its exact 3-step characteristic cubic symbolically; applied necessary/sufficient cubic Schur inequalities for all real |mu|<1; showed a real multiplier <-1 below the rational threshold, a simple -1 multiplier at equality, and full Schur stability above. Proved independently that every constant integer delay is stable by an exact unit-circle identity and Rouché, and that the continuous variable-delay equation is exponentially stable by the Halanay inequality. verify.py reproduces symbolic polynomial and algebra; explicit histories exist from nonzero Floquet eigenvectors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koto (2009) accessible abstract describes scalar stability regions for IMEX multistep ODE and DDE algorithms, without a variable-stage three-period computation.",
+        "Watanabe–Roth (1985) accessible abstract explicitly formulates fixed-delay scalar DDE stability.",
+        "Rodríguez-Gutiérrez–Martín-Vaquero (2026) Section 4.3 uses a common Lyapunov condition rather than an exact failed example."
+      ],
+      "reasoning": "The earlier works address broader classes but available material did not yield a theorem whose hypotheses and conclusion force this precise switching stability threshold. Full historical coverage is not established; no claim of absolute uniqueness is made.",
+      "searches": [
+        "web: second order linear multistep delay differential equations variable delay numerical stability counterexample exact solution stable",
+        "web: variable delays stable scalar equation variable delays IMEX unconditional stability frozen steps counterexample two-step"
+      ]
+    },
+    "checked_sources": [
+      "Rodríguez-Gutiérrez and Martín-Vaquero (2026), arXiv:2610.33780v1, relevant complete HTML sections",
+      "Koto (2009), DOI 10.1007/s11464-009-0005-9, accessible abstract",
+      "Watanabe and Roth (1985), DOI 10.1137/0722010, accessible abstract",
+      "Published result c7d71d470cbe (two-periodic bilateral recurrence)",
+      "Published result cf66315c5a14 (BDF2 sign loss)",
+      "Published result 6affbd05c3f2 (continuous fractional delay crossing)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] Theorem 3.8 implies the frozen stability portion but not stability or instability under stagewise variable delay.",
+        "Source [1] Theorem 4.3 is a sufficient common quadratic certificate; its absence cannot imply instability, whereas our explicit negative multiplier does.",
+        "Classical Halanay comparison implies continuous stability, but cannot imply stability of this signed-coefficient recurrence."
+      ],
+      "reasoning": "The new exact phase transition uses a product of three different stage maps; fixed-delay root locations and generic switched-system cautions are strictly weaker claims. Explicit algebra and the cubically exact Schur test supply the missing conclusion.",
+      "searches": [
+        "arxiv:2610.33780 Rodriguez Gutierrez Martin Vaquero beta0 family variable delay periodic 1 2 3 fixed delays all stable switched unstable Floquet",
+        "frozen delay stable but variable delay numerical two-step multistep DDE common Lyapunov counterexample periodic switching",
+        "web: stability of implicit explicit linear multistep methods ordinary delay differential equations Koto"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rodríguez-Gutiérrez–Martín-Vaquero arXiv:2610.33780v1 Eq. (29), Sections 4.3 and 6 give the general product caution but no three-phase exact cubic.",
+        "Relevant published periodic recurrence search match c7d71d470cbe concerns a bilateral first-order energy residual constant."
+      ],
+      "reasoning": "The proposed statement is equivalent to a real cubic Schur classification for a specifically stage-indexed IMEX Floquet product. General product warnings, generic Floquet theory, and a different bilateral recurrence do not imply the explicit threshold and exact-vs-numerical comparison.",
+      "searches": [
+        "arxiv:2610.33780 Rodriguez Gutierrez Martin Vaquero beta0 family variable delay periodic 1 2 3 fixed delays all stable switched unstable Floquet",
+        "periodic grid aligned delay 1 2 3 second order IMEX y prime minus 5y minus 4.5 delayed switching instability mu critical 10773 13315",
+        "web: periodically varying delay second order IMEX multistep numerical instability fixed delay stable exact example Floquet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus retrieved related but none listing coefficients 27000, 28675, 13315 or the claimed three-phase boundary.",
+        "Accessible prior ledger claims cover a three-step variable-step BDFL stability result and other numerical solvers, not this variable-delay IMEX recurrence."
+      ],
+      "reasoning": "A matching numerical table or exact identity was not found in the accessible semantic database or own claim inventory. The absence is not a proof of novelty; the claim is supported by the exact new algebraic derivation and carefully qualified comparison.",
+      "searches": [
+        "periodic grid aligned delay 1 2 3 second order IMEX y prime minus 5y minus 4.5 delayed switching instability mu critical 10773 13315",
+        "exact Schur Jury boundary cubic 27000 10367 28675 4913 7825 5780 delay IMEX Floquet",
+        "own prior scientific-claim ledger title/claim overlap scan for variable delays, Floquet and IMEX"
+      ]
+    },
+    "rationale": "An exact all-feedback three-stage variable-delay Floquet boundary and stable-continuous/unstable-discrete separation is not implied by the source frozen-delay theorem or its abstract product warning. Actual published-finding corpus searches returned distinct problems; remaining priority uncertainty for older IMEX/DDE texts with abstracts only is disclosed.",
+    "residual_risks": [
+      "Older fixed/variable-delay IMEX papers may contain a more general product-stability theorem; Koto 2009 and Watanabe–Roth 1985 full texts were not read.",
+      "Numerical Floquet switching principles are classical; only the exact specialized method frontier and strong physical/discrete comparison are asserted as new.",
+      "Semantic search and locally accessible records do not prove global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the algorithm, frozen disk theorem and product-level caution; not the exact periodic-three switching threshold or physical-vs-discrete witness.",
+        "evidence": [
+          "Eq. (29), lines 381–384; Thm 3.8 lines 454–505; Sections 4.2–4.3 lines 616–672; conclusion lines 934–942"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.33780v1",
+        "material_read": "Full HTML primary text: abstract/introduction, sections 3, 4.1–4.3 and conclusion; equations (29),(51), Theorems 3.8,4.2,4.3 and references",
+        "method": "Read relevant HTML sections including equations and proof arguments; compared fixed-delay root statement, varying-delay product formulation and scope",
+        "title": "On the stability of second-order methods for DDEs and PDDEs",
+        "trigger": "Same beta0 IMEX family, stagewise variable-delay formulation and closest theorem"
+      },
+      {
+        "assessment": "Describes scalar stability regions and another second-order IMEX scheme; cannot rule out all special-variable-delay material without full text.",
+        "evidence": [
+          "Journal HTML abstract at https://journal.hep.com.cn/fmc/EN/10.1007/s11464-009-0005-9"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11464-009-0005-9",
+        "material_read": "Accessible abstract and bibliographic details only; full text not accessed",
+        "method": "Reviewed journal abstract and comparison with 2026 source references",
+        "title": "Stability of implicit-explicit linear multistep methods for ordinary and delay differential equations",
+        "trigger": "Earlier IMEX/DDE stability analysis potentially broader than present theorem"
+      },
+      {
+        "assessment": "Explicitly a constant-delay scalar equation; does not on its abstract cover exact periodically stage-dependent IMEX Floquet thresholds; full text priority remains uncertain.",
+        "evidence": [
+          "SIAM abstract https://epubs.siam.org/doi/10.1137/0722010"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0722010",
+        "material_read": "Accessible SIAM abstract and article scope only; full text not accessed",
+        "method": "Reviewed publication abstract",
+        "title": "The stability of difference formulas for delay differential equations",
+        "trigger": "Classical fixed-delay multistep numerical stability predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "458f99c9-1ee0-4755-b67b-811af31fb26f",
+  "value": {
+    "rationale": "A natural periodic grid delay exposes a sharp failure mode in an otherwise fixed-delay-unconditionally-stable second-order IMEX family. The rational necessary-and-sufficient switching threshold, together with stability of every physical bounded-delay solution and every frozen discrete recurrence, provides a concrete benchmark for common-Lyapunov or switching safeguards; it is not an arbitrary finite table or routine restatement.",
+    "status": "PASS"
+  }
+}
