@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T20:12:56.121485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let n>=3 cyclic labeled voters/candidates, each voter approves d consecutive positions, k selected, 0<=k<=n, and f has positive strictly decreasing increments through d. Each selected candidate appears in exactly d windows, so sum_i b_i=dk. Discrete concavity gives universal upper bound (n-r)f(q)+rf(q+1) at q=floor(dk/n), r=dk-nq, with equality exactly if every window count is q or q+1. The periodic mechanical-word choice x_j=floor((j+1)k/n)-floor(jk/n) gives a feasible k-subset whose every d-window sum is balanced, establishing the biconditional and independence from f including PAV. At d=3 sparse minority t=min(k,n-k), 3t<=n, spacing >=2 of the majority between minority bits gives n/(n-2t)*binom(n-2t,t). In the central case the absence of 000 and 111 forces every cyclic run length 1 or 2, and summing pairs of binomial run choices with weight n/a gives the stated exact count. Complement and k=0,n cases are covered. An independent Python exact mask enumeration at n=12,k=6 counts 174 winning committees; the script supplied covers n<=12 all d and n<=18 for d=3. This is corroboration, not proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Structured-interval Thiele algorithms solve winner determination or characterize LP integrality, not all equal-window cyclic winner sets and cardinality.",
+          "General PAV counting-hardness applies to arbitrary approval profiles, giving no exact expression in this family."
+        ],
+        "reasoning": "The circular windows wrap and are a strict special domain; generic algorithms might compute each instance but do not supply a uniform exact mathematical enumeration or a stronger structural theorem from inspected published statements.",
+        "searches": [
+          "cyclic interval approval PAV balanced windows exact winner ties three consecutive approvals",
+          "arXiv:2605.03067",
+          "arXiv:2607.28575",
+          "arXiv:2305.01769"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.01769 PDF pp1-3 and Table1",
+        "arXiv:2609.08884 abstract",
+        "arXiv:2605.03067 abstract",
+        "arXiv:2607.28575 abstract",
+        "Resultary query: cyclic interval approval PAV balanced windows exact winner ties three consecutive approvals"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older PAV tie paper establishes #P hardness on general elections, a complexity lower bound not a cyclic profile count.",
+          "Interval-electorate LP and parameterized algorithms can find winning committees but do not force the biconditional equality classification."
+        ],
+        "reasoning": "Hardness and algorithmic tractability neither contradict nor mathematically imply this exact closed form. A classical counting formula about circular binary words might imply the run-count piece if reformulated, so absolute priority is not asserted.",
+        "searches": [
+          "cyclic interval approval PAV balanced windows exact winner ties three consecutive approvals",
+          "arXiv:2305.01769, §1-2 and Table1",
+          "arXiv:2605.03067 abstract",
+          "arXiv:2607.28575 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A committee is a cyclic binary word of density k/n and voters sum its length-d windows.",
+          "The optimality criterion is balanced/Sturmian mechanical word window sums, or Jensen-maximal smoothing of fixed total dk; d=3 ties are forbidden run lengths."
+        ],
+        "reasoning": "Prior balance-word theory supplies the construction and classical run counting supplies coefficients, but the reviewed voting claim includes the full strict-concavity equality class and labeled cooptimal committee enumeration. General PAV tie complexity does not imply exact formulas on this profile.",
+        "searches": [
+          "cyclic interval approval PAV balanced windows exact winner ties three consecutive approvals",
+          "arXiv:2305.01769",
+          "arXiv:2609.08884"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior tie paper lists complexity classes for number of winning committees, not a table of exact labeled counts for cyclic uniform windows.",
+          "Direct n=12,k=6 mask enumeration yields 174, matching a=3,4,5,6 terms 4+108+60+2."
+        ],
+        "reasoning": "A single n=12 numerical count is not novel by itself; its role is illustration of a closed all-n tie formula. No exact prior table for this regular profile surfaced.",
+        "searches": [
+          "cyclic interval approval PAV balanced windows exact winner ties three consecutive approvals",
+          "arXiv:2305.01769, Table 1",
+          "arXiv:2609.08884"
+        ]
+      },
+      "rationale": "Qualified PASS for a complete all-optimum committee description for a natural uniform cyclic voter profile, independent of strictly concave Thiele weights, and an all-n exact d=3 labeled tie-count formula. Janeczko–Faliszewski 2023 prove general tie-counting complexity, and Ai 2026 general PAV optimal-set complexity; Avramidis et al and Lassota–Sornat study algorithms on structured interval profiles rather than a closed exact cyclic symmetric winner-set distribution. Jensen smoothing, mechanical balanced words and circular run counting are classical proof ingredients; a prior application to this exact voting profile could render the result covered, and searches cannot guarantee priority.",
+      "residual_risks": [
+        "Unknown earlier balanced-word applications to cyclic approval elections or circular-run counting could cover this exact uniform profile.",
+        "Strict discrete concavity is needed for exact if-and-only-if equality set; weakly concave rules have extra winners.",
+        "The counting formula applies d=3, not all d, and labeled committees are not quotient by rotation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_COMPLEXITY_NOT_CYCLIC_EXACT_COUNT",
+          "evidence": [
+            "PAV #winning-committees is #P-hard in general; no closed balanced circular equal-length voter profile in materially read sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.01769",
+          "material_read": "Full 17-page PDF metadata and materially read pp1-3: motivation, Table 1, exact Thiele scoring definition, general counting-hardness results.",
+          "method": "Primary PDF extracted text and page 2 screenshot",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Same objective counting tied PAV-winning committees"
+        },
+        {
+          "assessment": "GENERAL_COMPLEXITY",
+          "evidence": [
+            "Counting is #OptP complete for variable k in general elections, not an exact symmetric cyclic formula in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.08884",
+          "material_read": "Complete available indexed abstract with membership/uniqueness/counting hardness; full text not accessed.",
+          "method": "arXiv abstract",
+          "title": "The Complexity of Membership, Uniqueness, and Counting for Optimal Proportional Approval Voting Committees",
+          "trigger": "Potential dominating general optimal-set theorem"
+        },
+        {
+          "assessment": "ALGORITHMIC_RELATED",
+          "evidence": [
+            "The theorem concerns existence/computation of an integral optimal committee on general interval domains, not numbers of all equal-optimum cyclic committees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.03067",
+          "material_read": "Full indexed abstract describing LP integral optimum and algorithms, not full text.",
+          "method": "arXiv abstract",
+          "title": "Computing Thiele Rules on Interval Elections and their Generalizations",
+          "trigger": "Candidate interval and voter interval domains, possible structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Tie-breaking uncertainty matters in multiwinner voting. A canonical regular circular profile can have many maximizing committees, and the theorem determines all optimizers, common score, an exact labeled count for d=3 and an exponential family of ties; the n=12,k=6 count 174 gives a concrete nontrivial example. It is a natural whole family, not an arbitrary one-off census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly n voters, one for each cyclic length-d window; 0<=k<=n; 1<=d<=n; strict concavity.",
+    "Only d=3 has exact tie-count formula; all d have winning-set criterion."
+  ],
+  "schema_version": 1
+}

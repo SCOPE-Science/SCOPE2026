@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equality statement follows from strict discrete concavity and the fixed sum of cyclic window counts; an explicit periodic floor-difference construction attains the balanced bound. For width three, the sparse and intermediate cases exhaust all binary circular words, respectively by minority separation and alternating runs of lengths one or two, leading to the stated formulas. The exact-integer standalone verifier exhausts n<=12 for all widths and n<=18 for width three, and is corroborative rather than an infinite proof.
+PASS
 
-The proof covers every integer \(n\ge3\), \(1\le d\le n\), and \(0\le k\le n\), with explicitly named strict-concavity assumptions and boundary cases. Harmonic PAV satisfies the hypotheses. The exact count uses labeled rather than rotation-equivalence committees. Finite tests support, but are not substituted for, the proof.
+Let n>=3 cyclic labeled voters/candidates, each voter approves d consecutive positions, k selected, 0<=k<=n, and f has positive strictly decreasing increments through d. Each selected candidate appears in exactly d windows, so sum_i b_i=dk. Discrete concavity gives universal upper bound (n-r)f(q)+rf(q+1) at q=floor(dk/n), r=dk-nq, with equality exactly if every window count is q or q+1. The periodic mechanical-word choice x_j=floor((j+1)k/n)-floor(jk/n) gives a feasible k-subset whose every d-window sum is balanced, establishing the biconditional and independence from f including PAV. At d=3 sparse minority t=min(k,n-k), 3t<=n, spacing >=2 of the majority between minority bits gives n/(n-2t)*binom(n-2t,t). In the central case the absence of 000 and 111 forces every cyclic run length 1 or 2, and summing pairs of binomial run choices with weight n/a gives the stated exact count. Complement and k=0,n cases are covered. An independent Python exact mask enumeration at n=12,k=6 counts 174 winning committees; the script supplied covers n<=12 all d and n<=18 for d=3. This is corroboration, not proof for all n.
 
-## Originality — PASS, with residual risk
+## originality
 
-Ai 2026 classifies general PAV optimal-set complexity but does not give a cyclic equal-window characterization or formula; Janeczko–Faliszewski 2023 establishes counting hardness for general ballots. Lassota–Sornat and Avramidis et al. establish structured-domain winner determination but not these exact optimal-set counts. Actual semantic record queries gave no equal or stronger theorem; the two nearest own claims concern three-party apportionment and reverse sequential deletion. The source text inspected and residual risks are recorded separately. Classical balanced word and run-counting methods are acknowledged as ingredients.
+PASS
 
-The closest specific public sources are Ai (2026), https://arxiv.org/abs/2609.08884; Janeczko and Faliszewski (2023), https://arxiv.org/abs/2305.01769; Lassota and Sornat (2026), https://arxiv.org/abs/2607.28575; and Avramidis et al. (2026), https://arxiv.org/abs/2605.03067. The Manurangsi–Sornat 2026 abstract (https://arxiv.org/abs/2604.05953) was available, not its full paper text, so earlier implicit coverage cannot be ruled out. Standard binary-word arguments are proof ingredients, not separately claimed discoveries. Relevant mathematical-record searches returned no equivalent statement, which does not establish absolute priority.
+Qualified PASS for a complete all-optimum committee description for a natural uniform cyclic voter profile, independent of strictly concave Thiele weights, and an all-n exact d=3 labeled tie-count formula. Janeczko–Faliszewski 2023 prove general tie-counting complexity, and Ai 2026 general PAV optimal-set complexity; Avramidis et al and Lassota–Sornat study algorithms on structured interval profiles rather than a closed exact cyclic symmetric winner-set distribution. Jensen smoothing, mechanical balanced words and circular run counting are classical proof ingredients; a prior application to this exact voting profile could render the result covered, and searches cannot guarantee priority.
 
-## Value — PASS
+## value
 
-Optimal-set counting under PAV is broadly hard and important for tie-breaking. In a natural maximally symmetric circular-local approval family, the result determines every winning committee and its common exact score for every strictly concave Thiele rule, plus a closed-form number of ties at width three. At twelve candidates and six seats, 174 co-optimal committees demonstrate meaningful multiwinner ambiguity, and the family with n=6m and k=3m has at least 3 times binomial(2m,m) squared co-optima, growing exponentially; this is not an arbitrary single-profile calculation.
+PASS
 
-The result gives an infinite family with a closed winner-set characterization, exact score and binomial-sum tie count. It concerns a structurally motivated circular election model, not an arbitrary restriction of a general counting problem. Its limitations are uniform window length and one ballot per cyclic position; it does not cover arbitrary circle-interval elections.
+Tie-breaking uncertainty matters in multiwinner voting. A canonical regular circular profile can have many maximizing committees, and the theorem determines all optimizers, common score, an exact labeled count for d=3 and an exponential family of ties; the n=12,k=6 count 174 gives a concrete nontrivial example. It is a natural whole family, not an arbitrary one-off census.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
