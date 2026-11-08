@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts all even-palindromic factorizations with four ones: either a single four-one block or two two-one blocks. It derives two necessary-and-sufficient parity/gap conditions, independently parametrizes each family and their intersection, then obtains \\(\\frac{1+5x+x^2+x^3}{(1-x)^5(1+x)}\\), a valid exact quasipolynomial and the conditional limiting density \\(1/4\\). Direct DP rechecked all 18,832 eligible words through length 22; coefficient identities were checked to \\(m=39\\). Finite checks are supplementary, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richmond–Shallit Theorem 2: unrestricted \\(P_k(X)=1/(2-U_k(X))\\) with U_k counting all unbordered strings by length",
+        "Rampersad–Shallit–Wang Theorems 3, 6: unique prime factorization and prime-palstar bijection"
+      ],
+      "reasoning": "These general results address different data: aggregate word-length counts and prime-palstar structure. Weight-four enumeration is not a parameter substitution into a provided closed bivariate formula; the nontrivial gap classification and overlap subtraction are required. They supply background but do not state or immediately yield the particular exact count without additional analysis.",
+      "searches": [
+        "Counting the Palstars arxiv Richmond Shallit",
+        "bivariate generating function palstars by ones number of ones 2014 Richmond Shallit",
+        "arXiv:1311.2318",
+        "arXiv:1008.2440"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1008.2440",
+      "arXiv:1311.2318",
+      "EJC 21(3) P3.25",
+      "OEIS:A246019"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rampersad–Shallit–Wang Section 3 gives a recursion for unrestricted prime-palstar counts",
+        "Richmond–Shallit Theorem 3 gives exponential total-length asymptotics, not conditional weight-four density",
+        "The present criterion splits factorizations into one four-one block and two two-one blocks and computes the precise intersection"
+      ],
+      "reasoning": "The finite-content formula does not follow from the numerical unrestricted recurrences by specializing an existing parameter. A formal multivariate extension of a prime-factorization identity is possible in principle, but requires computing restricted unbordered coefficients and is not a previously stated exact result. The novelty claim is restricted to the explicit weight-four structural criterion and closed enumerator, not prime-palstar factorization itself.",
+      "searches": [
+        "arXiv:1008.2440",
+        "arXiv:1311.2318",
+        "palstar words with exactly four ones fixed letter frequency palindrome product generating function",
+        "even palindromic factorization binary weight four palstar gap classification",
+        "Binary palstars containing exactly four ones gap a b c d e counts 1 9 32 84 181 quasipolynomial and 1/4 density",
+        "Even palindrome concatenation fixed Hamming weight four 1+5x+x^2+x^3 rational generating function",
+        "Palstar two double-one palindromes four-one block gap classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1008.2440, Section 2: \\(\\mathrm{PALSTAR}=\\mathrm{PAL}^{*}\\) and Theorem 6 relates prime palstars to unbordered words",
+        "arXiv:1311.2318 / EJC 21(3) P3.25, Section 2: unique prime factorization generates total counts"
+      ],
+      "reasoning": "Equivalent language terms (even-palindrome Kleene star, palstar, prime-palstar decomposition) were checked. Neither examined paper gives a fixed-four-one five-zero-gap characterization or a two-family intersection enumerator.",
+      "searches": [
+        "palstar words with exactly four ones fixed letter frequency palindrome product generating function",
+        "even palindromic factorization binary weight four palstar gap classification",
+        "bivariate generating function palstars by ones number of ones 2014 Richmond Shallit",
+        "arXiv:1008.2440",
+        "arXiv:1311.2318",
+        "Binary palstars containing exactly four ones gap a b c d e counts 1 9 32 84 181 quasipolynomial and 1/4 density",
+        "Even palindrome concatenation fixed Hamming weight four 1+5x+x^2+x^3 rational generating function",
+        "Palstar two double-one palindromes four-one block gap classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A246019 lists total counts 1,2,6,20,66,... for all palstars over a binary alphabet; present fixed-weight-four counts begin 1,9,32,84,181,...",
+        "The dedicated exact-phrase and fixed-content searches did not retrieve a matching weight-four sequence"
+      ],
+      "reasoning": "The OEIS aggregate counts cannot be confused with the fixed-weight coefficients. Search absence is not positive proof of uniqueness; no covering exact table was found among inspected resources.",
+      "searches": [
+        "OEIS A246019 palstars binary 2n",
+        "\"palstars\" \"four ones\"",
+        "\"palstar\" \"fixed number of\" \"ones\" enumeration",
+        "binary palstars fixed Hamming weight four generating function",
+        "\"1, 9, 32, 84, 181, 345\" palstar",
+        "Binary palstars containing exactly four ones gap a b c d e counts 1 9 32 84 181 quasipolynomial and 1/4 density",
+        "Even palindrome concatenation fixed Hamming weight four 1+5x+x^2+x^3 rational generating function",
+        "Palstar two double-one palindromes four-one block gap classification"
+      ]
+    },
+    "rationale": "The full inspected primary texts describe prime-palstar structure, unbordered-word correspondence and unrestricted length enumeration. They do not state the weight-four gap criterion, its rational content-refined generating series, or the parity-sensitive exact count. Searches of an indexed findings collection, external literature and accessible historical claims yielded no equivalent specialization. Priority remains qualified by possible unindexed content-refined treatments and the possibility of deriving the specialization with additional calculations from general generating identities.",
+    "residual_risks": [
+      "An unindexed work may derive the fixed-content four-one count as a corollary of general prime-palstar factorizations.",
+      "The checked public full texts and indexed findings do not constitute an exhaustive search of all literature.",
+      "The final specialized semantic search returned only unrelated palindrome-duplication codes and unrelated fixed-weight Fourier or combinatorial results; this is absence of a matching hit, not an exhaustive uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact weight-four palstar language/count; establishes general prime-palstar correspondence and separate four-one unbordered-language example",
+        "evidence": [
+          "Theorem 6 is prime palstar iff a perfect shuffle from an unbordered word",
+          "Section 3 counts unbordered words and hence prime palstars by length",
+          "Section 4 treats a restricted four-one unbordered language rather than fixed-weight palstars"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2440",
+        "material_read": "Full-text Sections 2 and 3; Theorems 3, 6, and the four-one unbordered-word example in Section 4",
+        "method": "Read PDF text and inspected page image of Theorem 6 and Section 3",
+        "title": "Inverse Star, Borders, and Palstars",
+        "trigger": "First identified palstar/prime-palstar language source with direct structural overlap risk"
+      },
+      {
+        "assessment": "NOT_COVERING the explicit fixed-content four-one criterion and quasipolynomial; provides unrestricted generating relationship and asymptotic",
+        "evidence": [
+          "Theorem 2 \\(P_k(X)=1/(2-U_k(X))\\) uses unbordered total length counts",
+          "Theorem 3 unrestricted total palstar asymptotics",
+          "Section 4 numerical total palstar table is not content-resolved"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i3p25/pdf/",
+        "material_read": "Full-text six pages, Introduction, Section 2 Theorem 2, Section 3 Theorem 3, Section 4 table",
+        "method": "Read PDF text, checked page image of generating-function theorem",
+        "title": "Counting the Palstars",
+        "trigger": "Direct prior unrestricted palstar enumeration and likely covering source"
+      },
+      {
+        "assessment": "NOT_COVERING the weight-four slice; entries count all binary palstars",
+        "evidence": [
+          "Sequence definition explicitly counts all palstars of length 2n over an alphabet of size 2"
+        ],
+        "identifier_or_url": "https://oeis.org/A246019",
+        "material_read": "Definition, table, references and recurrence-based code",
+        "method": "Inspected HTML record",
+        "title": "OEIS A246019",
+        "trigger": "Exact sequence database for palstars"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "17c0f301-d4cf-46f3-bce5-876febbbce5e",
+  "value": {
+    "rationale": "The first nontrivial positive-weight palstar layer with competing positive-block patterns is four ones: one four-one palindrome or two two-one palindromes. Their exact overlap produces a complete membership criterion, all-length quasipolynomial and limiting conditional density \\(1/4\\). This is a natural content-refined enumeration useful as a boundary case for palindrome-product language counting, not an arbitrary finite table or a reformulation of the total word-length counts.",
+    "status": "PASS"
+  }
+}
