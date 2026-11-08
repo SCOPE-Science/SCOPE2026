@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The attached standalone checker independently enumerates \(262,143\) nonempty vertex subsets, reproduces \(22,692\) valid faces, checks the \(11,343\)-pair matching for cycles over \(132,988\) incidences, and finds only critical cells of dimensions zero, five, seven, seven, seven and seven. The four supporting five-simplices of the exact cocycle all contain the same five-vertex face, so any pair covers at most seven vertices: the explicit cup-three square is the zero cochain. A separate closed mod-two 5-cycle pairs nontrivially with that cocycle, and four independent 7-cycles are checked. The standard \(\pi_6(S^5)=\mathbb Z/2\) attaching-map criterion and detection by \(Sq^2\) reconstruct the wedge homotopy equivalence. The exact statement covers just the specified graph.
+PASS
 
-## Originality — PASS, with residual risk
+Induced-degree<=1 defines faces on precisely 18 vertices. Independently enumerated all 262143 nonempty masks, finding 22692 faces; independently reconstructed 11343 disjoint pivot matching pairs in the published order, six critical cells (one 0-cell, one 5-cell mask 74386 and four 7-cells 37291,37801,69995,70505), and directed Hasse graph with all 132988 covering incidences topologically sorted (acyclic). The dual mod-two fifth cocycle reconstructed from matching recursion has precisely four support masks 73875,73878,74386,75922, common five-vertex intersection 73874, and every pair union at most seven vertices. The cocycle condition holds on every degree-six face; by the cup-3 cochain formula each degree-seven coefficient requires two supporting 5-faces whose union includes all eight vertices, impossible here. Thus Sq2=0. The Morse CW model has one 5-cell and four 7-cells with possible attaching maps in pi6(S5)=Z/2; nontrivial suspended Hopf class is detected by Sq2, forcing all four trivial and the asserted integral wedge. This concerns exactly n=9, not extrapolation. Sources: Source RESULT.md 4d33adfddaebba49a5b8fd5fa54b619bd43cb0df and verifier c0534640a0693e8001d0e879da76a4204d594e70, proof steps 1-4.; Independent enumeration and DAG: 22692 faces, 11343 pairs, 132988 incidences, critical dimensions {0:1,5:1,7:4}; cochain 4-support and union bound <=7, degree6 cocycle checked.; Medina-Mardones arXiv:2105.08025v3 cup-i diagonal; standard π6(S5)=Z/2 detects suspended Hopf by Sq2.
 
-The closest published primary comparison is Deshpande–Singh, Section 6.4, Table 1, which already supplies the integral homology ranks for the *identical* object and parameter. Those ranks are explicitly excluded from the novelty claim. The paper asks the exact higher-independence grid homotopy-type question but does not determine its four possible Hopf attachments. Taylan gives matching-tree methods for path-free complexes; Medina-Mardones supplies the computational cohomology operation, not the graph-specific calculation. Searches with grid, ladder, dissociation/P3-devoid, and homotopy aliases did not identify a covering homotopy theorem. Existence of unindexed equivalent work remains unresolved; failed searches do not prove priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For the first documented mixed-dimensional ladder higher-independence homology case, the exact question left by the primary graph-topology literature is whether known homology groups conceal nontrivial stable Hopf attachments. The explicit zero \(Sq^2\) rules these out, strengthening known Betti numbers to an integral homotopy classification. This is a natural finite benchmark motivated by a published question, not an arbitrary numerical slice or a claim of a uniform grid formula.
+The exact fifth and seventh homology ranks of this same grid/parameter were already printed in Deshpande–Singh (2020/2021) and are explicitly excluded from the novelty claim. The new exact HOMOTOPY wedge classification and Hopf attaching obstruction check are not implied by integral Betti ranks; that paper itself asks for grid higher-independence homotopy types. PASS with properly attributed covered homology.
 
-## Closest literature and scientific limits
+## value
 
-D. Taylan (2015), arXiv:1501.06754; P. Deshpande and A. Singh (2020/2021), arXiv:2001.05448, Section 6.4, Table 1 and Question 4; A. M. Medina-Mardones (2021/2022), arXiv:2105.08025, Definition 7 and Theorem 10. The matching and cochain checks are exact but are not independently audited. Unindexed equivalents cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deshpande–Singh expressly left homotopy classification of grid higher-independence complexes as an open concrete direction, and the nine-rung case has a genuine unresolved order-two Hopf attaching ambiguity despite known torsion-free homology. Eliminating that ambiguity by a four-support Steenrod-square obstruction is an independently useful exact homotopy classification of a natural grid, not a recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
