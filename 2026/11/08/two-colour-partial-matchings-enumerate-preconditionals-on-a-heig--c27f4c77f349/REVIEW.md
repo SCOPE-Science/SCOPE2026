@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof reconstructs every row of a preconditional on the explicit height-three lattice from the axioms. The coatom row has exactly two possibilities on each atom because the fifth axiom forbids the intermediate coatom value. The interaction between coatom and atom rows forbids marking the nonzero image of the atomic map. The fifth axiom is then checked in all outer-antecedent cases; the double-negation requirement is exactly reciprocity of nonzero atomic arrows. Double counting by subsets and partial matchings proves both exact formulas, and atom permutations yield the complete orbit classification. The packaged checker directly evaluates every axiom for all normal-form choices up to four atoms, while a separate unconstrained row-candidate enumeration checks the counts through three atoms. Finite experiments do not establish the general theorem; the symbolic proof does.
+
+## Originality — PASS within inspected literature
+Chen (arXiv:2607.20221v1) defines the precise fundamental preconditional axioms, and Holliday (arXiv:2402.02296) develops the earlier foundational algebra. Published chain classifications apply to linear orders; the already known height-two diamond census gives uncoloured matchings, whereas adding a common coatom changes the algebraic constraints and introduces two independent states per unmatched atom. The exact weighted matching classification, the \(\exp(2z+z^2/2)\) enumeration, and the \(\lfloor(m+2)^2/4\rfloor\) orbit count do not follow immediately from a mere numerical overlap or a title match. The published-finding corpus queries on coatom extensions, ordinal sums, coloured matchings, and the exact generating function did not identify a stronger theorem covering this one. A predecessor on height-two lattices is explicitly recognized. The specialty-literature search is not exhaustive; an unindexed theorem on ordinal-sum preconditionals could supersede this finding, and that historical-priority risk remains.
+
+## Mathematical value — PASS
+The target is the first natural height-three ordinal extension of the family of finite modular diamonds used in conditional algebra, and it is not covered by the lattice-chain and height-two enumerations. Its additional intermediate level permits new conditional operations governed by a nontrivial compatibility condition, yielding a complete normal form, all labelled counts, an exponential generating function and all isomorphism classes. The difference between \(\mathsf T\) and \(\mathsf F\) is also quantified. This is a family classification, not an arbitrary isolated small computation.
+
+## Limitations and priority risks
+No classification of all height-three bounded lattices, all weaker \(\mathsf K\) operations, or all ordinal sums is claimed. Exact code checks stop at four atoms; the infinite result is mathematical. Published source summaries were not universally read in full, and earlier nonindexed classifications could exist. This is a self-review, not an independent proof or historical-priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
