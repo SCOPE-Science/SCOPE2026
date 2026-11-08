@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact third-order Taylor expansion gives the two-step cubic constant \\(\\frac43(2-\\epsilon)(5-2\\epsilon)\\), positive for every fixed depth. Compact image and a strict logarithmic-mean contradiction exclude prime two-cycles of the limiting map. Coppel interval iteration then gives convergence, while monotonic growth near zero excludes that boundary limit. The reciprocal-square telescoping identity yields the exact \\(k(u_k-1)^2\\) constant. The symbolic checker replays the finite algebraic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hofmann, The Map Behind the Flow, §3 and §4, treats c=1 boundary and finite-depth family but no sharp critical-time convergence statement found in inspected sections.",
+        "Baigent et al., J. Difference Equations Appl. 29 (2023), treats planar classical Ricker map x exp(r-x-alpha y), not quadratic-exponent u exp(2u(1-u))."
+      ],
+      "reasoning": "The principal prior source derives the dynamics and normal-form setting, yet its cited first period doubling does not imply the sharp asymptotic coefficient or global behavior at equality. The classical Ricker results are not statements for the same map and no evident reduction has been established.",
+      "searches": [
+        "deep linear scalar chain gradient descent c=1 first flip boundary critical polynomial convergence 1/sqrt iterations coefficient",
+        "finite depth scaled polynomial map u(1- (c/n)u^(1-1/n)(u-1))^(2n) rate critical c=1 coefficient",
+        "Thomas Hofmann arxiv 2607.04993 edge critical convergence coefficient cubic two step n",
+        "generalized Ricker map x exp(r x(1-x)) global stability r=2"
+      ]
+    },
+    "checked_sources": [
+      "Hofmann, arxiv:2607.04993v1",
+      "Coppel (1955), Proceedings of the Cambridge Philosophical Society 51, 41-43",
+      "Baigent et al. (2023), Journal of Difference Equations and Applications 29, 575-591",
+      "Global signed and logarithmic critical relaxation in a positive rational flip map (2026)",
+      "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Coppel (1955) implies convergence conditional on exclusion of 2-cycles; the exclusion here is supplied by the strict log-mean inequality.",
+        "Hofmann (2026) provides finite-map form and identifies the first period doubling; does not itself give the coefficient 3/[4(2-1/n)(5-2/n)] or the global positive-basin claim.",
+        "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics (2026) treats a different gradient update."
+      ],
+      "reasoning": "The novel claim is not the location of the flip nor general one-dimensional normal form. It is an exact depth formula plus global no-period-two conclusion for this specific exponent. Available stronger results for different maps do not logically entail either assertion.",
+      "searches": [
+        "deep linear scalar chain gradient descent c=1 first flip boundary critical polynomial convergence 1/sqrt iterations coefficient",
+        "Thomas Hofmann arxiv 2607.04993 edge critical convergence coefficient cubic two step n",
+        "Coppel theorem continuous interval map no period two every orbit converges fixed point"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hofmann arXiv:2607.04993v1: limiting map u exp(2c u(1-u)) and finite quotient; first flip at c=1.",
+        "Coppel, The solution of equations by iteration (1955): no-period-two interval convergence criterion."
+      ],
+      "reasoning": "Recast the depth limit as an exponential-growth interval map and finite depths as scalar-gradient quotients. Coppel yields only global convergence once the new period-two exclusion is established; neither Coppel alone nor the source first-flip classification supplies the exact depth constants or the exclusion for this map.",
+      "searches": [
+        "critical c=1 large-depth finite n quotient map u(1- c/n u^(1-1/n)(u-1))^(2n) universal sqrt n rate alternation period doubling neutral fixed point",
+        "Ricker depth limit u exp(2cu(1-u)) at c=1 rate n^-1/2 derivative -1",
+        "critical flip map exact coefficient 4/3 (2-1/n) (5-2/n) near fixed point deep network",
+        "Ricker Allee effect model x exp(x (1-x)) global convergence stability no period 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published comparison: Global signed and logarithmic critical relaxation in a positive rational flip map (2026); different rational map with no deduced implication.",
+        "Comparison: A sharp flip frontier for the Polar-Express surrogate on scalar quadratics (2026); different optimizer and map."
+      ],
+      "reasoning": "These are analytic formulas and dynamics, not numerical table values. Overlap queries against published claims, own existing records, and exact parameter alternatives found no exact matching theorem.",
+      "searches": [
+        "u_{k+1}=u_k (1-(1/n)u_k^((n-1)/n)(u_k-1))^(2n) at critical edge k(u_k-1)^2 exact finite depth coefficient",
+        "critical flip map exact coefficient 4/3 (2-1/n) (5-2/n) near fixed point deep network"
+      ]
+    },
+    "rationale": "Targeted source and equivalence searches distinguish the existing c=1 flip location, classical Coppel theorem, and Ricker literature from the exact depth law and specialized global limit-map convergence; no covering theorem found in inspected evidence. Priority remains provisional.",
+    "residual_risks": [
+      "Classical generalized Ricker population literature may give equivalent critical-map global behavior not surfaced by queries.",
+      "No independent historical-priority verification; related classical global convergence could reduce novelty of one part, although the depth-dependent coefficient was not found.",
+      "Only selected published papers were accessible as full text; some comparable related work was checked at abstract/model level."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source owns map and first-flip boundary, but inspected material does not give the exact k^{-1/2} depth law or global c=1 limit-map convergence.",
+        "evidence": [
+          "ArXiv submitted 2026-07-06 12:28:24 UTC; sections 3.2, 3.6 and 4.1; arXiv:2607.04993v1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.04993v1",
+        "material_read": "Original 2026 paper, depth-limit quotient, first period doubling, finite-depth bifurcations and related discussion",
+        "method": "Full-text inspection and direct comparison of statements, formulae, equality boundary and asymptotics",
+        "title": "The Map Behind the Flow: Finite-Step Gradient Descent as a Dynamical System",
+        "trigger": "Same finite-depth quotient, depth-limit Ricker-type map, first period doubling c=1"
+      },
+      {
+        "assessment": "The general convergence implication is preexisting and is explicitly credited; the specialized no-2-cycle inequality remains to prove.",
+        "evidence": [
+          "Coppel theorem: continuous selfmap of compact interval has convergent orbits iff no prime 2-cycle; https://www.scribd.com/document/361220558/Lecture-Notes-on-Dynamical-Systems-Chaos-and-Fractal-Geometry"
+        ],
+        "identifier_or_url": "Coppel, Proc. Cambridge Philos. Soc. 51 (1955), 41–43",
+        "material_read": "Statement and proof reproduced in dynamically-oriented lecture notes, plus bibliographic citation in Coppel historical paper",
+        "method": "Read convergence criterion and its hypotheses; use as classical theorem only",
+        "title": "The solution of equations by iteration",
+        "trigger": "Global interval convergence from absence of period-two points"
+      },
+      {
+        "assessment": "Studies planar map with affine exponent r-x-alpha*y, not quadratic self-exponent 2u(1-u); an exact covering reduction was not found.",
+        "evidence": [
+          "Baigent et al. 2023 model explicitly (x exp(r-x-alpha y), y exp(s-y-beta x))."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10236198.2023.2222855",
+        "material_read": "Article abstract, stated model, theorem summary accessible through online full-article listing",
+        "method": "Model-level comparison of exponential growth laws",
+        "title": "A global picture for the planar Ricker map",
+        "trigger": "Potential stronger global stability theorem for an exponent Ricker map"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "22b2af44-d04e-4b2a-bcf3-180f128307df",
+  "value": {
+    "rationale": "The natural first multiplier -1 boundary is nonhyperbolic, so the leading rate is not implied by strict-stability theorems. The exact fixed-depth inverse-square limit and globally attracting infinite-depth map quantify iteration complexity in the source model and identify a genuine endpoint where oscillation persists while convergence slows polynomially. The value is specific to the unmodified model, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
