@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "Reconstructs the stationary vector transform from two Markov generator equations, its positive subordinator Lévy density, the unique Bessel radial Lévy density and polar class-L criterion. The Bessel quotient is <2 for all radii and converges to 2 as r decreases to zero for every d>=2, proving iff alpha>=2 and equality. Radial integration proves the nonnegative compound-Poisson driver has rate alpha and reconstructs the OU invariant measure. The common-switch and scalar-drift restrictions are explicit. The standalone package checker passed 393 finite diagnostics, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sato (2001) establishes inheritance of self-decomposability from an SD subordinator to Brownian subordination, a sufficient condition.",
+        "Buchmann–Lu–Madan (2017/2019) consider Brownian motions weakly subordinated by Thorin subordinators; the source subordinator multiplier (1+alpha/2)e^{-alpha t}-e^{-2alpha t} is not completely monotone as t varies, and is not a Thorin multiplier.",
+        "No inspected theorem supplies the physical-model-specific necessity or the interval of coordinatewise class-L without joint class-L."
+      ],
+      "reasoning": "The subordinator is self-decomposable exactly when alpha>=2 by differentiating its t-times-Lévy-density. Classical inheritance supplies the upper-regime sufficiency but does not prove that the multidimensional subordinated law fails class L below alpha=2, nor the explicit positive finite-rate vector driver or strict scalar-projection gap. The Bessel-polar proof supplies those missing consequences. A full-text stronger converse elsewhere remains a residual risk.",
+      "searches": [
+        "selfdecomposability of subordinated Brownian motion iff subordinator selfdecomposable d>=2",
+        "multivariate normal variance mixtures self decomposable iff mixing distribution self decomposable dimension two Brownian subordination",
+        "arXiv:1712.03640 Selfdecomposability of Weak Variance Generalised Gamma Convolutions",
+        "doi:10.1016/S0167-7152(01)00110-9 Subordination and self-decomposability"
+      ]
+    },
+    "checked_sources": [
+      "Frydel 2024 arXiv:2407.12213v2 relevant full HTML sections",
+      "Public exact variance-gamma/Gaussian compound-Poisson class-L result, full RESULT.md",
+      "Sato 1999 classical polar class-L theorem (known mathematical criterion, no new full-text inspection claimed)",
+      "Sato 2001 indexed abstract",
+      "Buchmann–Lu–Madan arXiv:1712.03640 abstract",
+      "Barndorff-Nielsen et al. 2007 published Section 4 Example 3 excerpt",
+      "Ratanov arXiv:2102.13308 abstract and 2022 publisher abstract",
+      "Frydel arXiv:2607.05173 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Frydel provides the stationary characteristic function and all-dimensional extension, not an explicit class-L vector iff condition.",
+        "Classical Brownian subordination supplies sufficiency when its subordinator is class L but not the reverse direction for the physical vector law.",
+        "Existing Lévy-copula examples prove in principle that class-L marginals need not imply vector class L, but do not give this trap distribution or exact physical interval.",
+        "The separate variance-gamma/Gaussian-shock class-L result has different Lévy structure."
+      ],
+      "reasoning": "The claim is a complete iff for a specific common-switch system and a sharp coexistence interval of scalar-class-L and vector-non-class-L. The source mixed-Gaussian representation plus a scalar threshold does not logically imply the all-dimensional converse. Known general sufficient results leave that implication open. Relevant restricted/partial papers are explicitly recorded and are not falsely classified as fully excluding coverage.",
+      "searches": [
+        "arXiv:2407.12213 full text sections II-V",
+        "arXiv:1712.03640 abstract and link to full preprint",
+        "doi:10.1111/j.1467-9469.2006.00527.x section 4 marginal selfdecomposability",
+        "arXiv:2102.13308",
+        "arXiv:2607.05173",
+        "2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same radial Gaussian-mixture transform appears in Frydel 2024, equation (20) and section V; no class-L test or vector Lévy bath is stated in the inspected original sections.",
+        "The one-dimensional switched-trap class-L cutoff is already covered by earlier scalar calculations; this is a genuinely joint vector statement with a different cutoff.",
+        "The standard polar Lévy criterion relates class L to the radial profile r^d ell(r), not merely to scalar projections."
+      ],
+      "reasoning": "Reparameterizing the source Fourier transform or repeating the known scalar cutoff does not prove the vector class-L classification. The essential new operation is differentiating the multivariate Bessel profile and comparing its small-radius limit; for dimensions at least two the exact boundary is alpha=2 rather than the scalar 2(sqrt(2)-1). A general multidimensional theorem with the same implication was searched for but not identified in the accessible inspected material. The closely related Markov-modulated OU source was not fully accessible and remains a stated risk.",
+      "searches": [
+        "multivariate switching harmonic trap Lévy self-decomposability full spatial vector dimension two Bessel K radial canonical profile threshold alpha equals two versus one dimensional",
+        "stationary multivariate Gaussian scale mixture on off trap infinitely divisible but not selfdecomposable despite selfdecomposable one dimensional projections",
+        "d-dimensional isotropic variance gamma mixture Brownian OU representability monotone Bessel K threshold",
+        "arXiv:2407.12213 sections III.1 and V",
+        "arXiv:2102.13308",
+        "doi:10.1007/s11009-022-09956-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest identified public prior finding is a scalar variance-gamma plus Gaussian compound-Poisson class-L threshold, with a different characteristic exponent and no common-switch multidimensional law.",
+        "The source paper identifies the physical alpha=2 crossover in a variance-mixture weight, not the vector Lévy radial profile or independently-incremented bath.",
+        "No exact table or published vector threshold for the on/off trap was located in the inspected research records."
+      ],
+      "reasoning": "A matching numerical crossover parameter is not by itself statement coverage. The previously known crossover concerns p(lambda), whereas the new theorem concerns class L of the entire d-dimensional position law; its proof depends on radial Bessel monotonicity and yields a new vector Lévy density. The scalar compound-Poisson model and generic class-L tables do not dominate this claim.",
+      "searches": [
+        "multivariate switching harmonic trap Lévy self-decomposability full spatial vector dimension two Bessel K radial canonical profile threshold alpha equals two versus one dimensional",
+        "stationary multivariate Gaussian scale mixture on off trap infinitely divisible but not selfdecomposable despite selfdecomposable one dimensional projections",
+        "2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e",
+        "Frydel 2024 equation 20 alpha two crossover"
+      ]
+    },
+    "rationale": "The source stationary transform and dimensional extension and known scalar cutoff were excluded from the new claim. Relevant accessible prior records/papers were searched for vector class-L aliases and stronger general subordination results. Known inheritance theorem gives only the upper-direction sufficiency, and the most similar published scalar result uses different Gaussian compound-Poisson noise. The physical model-specific d>=2 converse, vector Poisson bath and projection gap were not found in inspected material. Restricted or only abstract-inspected plausible papers are recorded as risks; no universal priority certification is claimed.",
+    "residual_risks": [
+      "Some class-L and multivariate subordination monographs or indexed papers might state a stronger converse that covers this concrete law; accessible searched sources did not establish that implication.",
+      "The Ratanov 2021/2022 Markov-modulated OU source full text was not available; no full-document exclusion claim is made.",
+      "Buchmann–Lu–Madan complete text and later Frydel 2026 full text were not read, so stronger parameter-specific equivalences there remain possible.",
+      "The source already notes an alpha=2 crossover in the effective trap-stiffness mixing density; the newly assessed result concerns a different vector class-L property with the same numeric threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Inspected relevant full sections: stationary transform and physical alpha=2 mixture crossover are prior; no vector Lévy density/class-L theorem or bath is identified in those sections.",
+        "evidence": "Equations (20), (31)-(37); first public arXiv v1 July 16 2024",
+        "identifier_or_url": "https://arxiv.org/html/2407.12213v2",
+        "material_read": "HTML sections II, III including equation (20), IV, V including equations (31)-(37), introduction and conclusion",
+        "method": "Full available arXiv HTML, line-level examination of model, formulae and extension",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Exact same switching trap and high-dimensional Gaussian mixture; strongest direct source"
+      },
+      {
+        "assessment": "A scalar VG law with independent Gaussian compound-Poisson shocks; not the common-switch d-dimensional Brownian-trap characteristic exponent, no vector Bessel cutoff.",
+        "evidence": "Canonical one-dimensional k(x)=beta exp(-x/b)+lambda x Gaussian(x) and optimization of jump scale",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e",
+        "material_read": "Complete publicly available RESULT.md theorem, proof, context and references",
+        "method": "Public repository full-text scientific comparison",
+        "title": "Exact self-decomposability threshold for Gaussian compound-Poisson perturbations of symmetric variance-gamma laws",
+        "trigger": "Closest identified self-decomposability and compound-Poisson construction"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY; concerns Thorin-subordinated multivariate processes, while the target subordinator is not Thorin. An uninspected stronger conclusion remains a risk.",
+        "evidence": "Abstract explicitly specifies multivariate Thorin subordinators and conditional selfdecomposability results",
+        "identifier_or_url": "https://arxiv.org/abs/1712.03640",
+        "material_read": "arXiv abstract, bibliographic scope; full arXiv HTML endpoint unavailable",
+        "method": "Accessible abstract and targeted literature comparison; no full-text exclusion claimed",
+        "title": "Selfdecomposability of Weak Variance Generalised Gamma Convolutions",
+        "trigger": "Potentially stronger multivariate self-decomposability theorem"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: sufficient inherited class-L result does not state converse for the present model.",
+        "evidence": "Sato 2001 abstract: subordinated Brownian motion with an SD subordinator is SD",
+        "identifier_or_url": "https://ideas.repec.org/a/eee/stapro/v54y2001i3p317-324.html",
+        "material_read": "Abstract stating inheritance of class L under Brownian subordination; full article not retrieved",
+        "method": "Indexed abstract and implication analysis",
+        "title": "Subordination and self-decomposability",
+        "trigger": "Classical sufficient inheritance may subsume part of the construction"
+      },
+      {
+        "assessment": "Related general phenomenon but different singular copula examples, no switched harmonic trap or exact alpha interval.",
+        "evidence": "Example 3: stable one-dimensional margins with non-SD bivariate Lévy measure",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-9469.2006.00527.x",
+        "material_read": "Online text of Section 4 and Example 3, not complete article",
+        "method": "Publisher-hosted section excerpt",
+        "title": "Lévy Copulas: Dynamics and Transforms of Upsilon Type",
+        "trigger": "Known counterexamples from scalar selfdecomposability to joint selfdecomposability"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY, genuinely plausible source; cannot rule out a stronger result without full text and record as residual publication-priority risk.",
+        "evidence": "Ratanov 2021/2022 studies two-state switching OU stationary distributions and exponential functionals",
+        "identifier_or_url": "https://arxiv.org/abs/2102.13308",
+        "material_read": "arXiv and journal abstracts; full arXiv HTML and journal full text unavailable in this pass",
+        "method": "Abstract/metadata comparison, lawful full-text access attempted",
+        "title": "First-passage probabilities and invariant distributions of Kac-Ornstein-Uhlenbeck processes; related 2022 journal continuation",
+        "trigger": "Two-state Markov-modulated OU with stationary mixtures"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY; generalized stationary integral equations, unknown possible stronger vector result, included in risk.",
+        "evidence": "Abstract describes arbitrary waiting-time trap switching and Gaussian mixtures",
+        "identifier_or_url": "https://arxiv.org/abs/2607.05173",
+        "material_read": "2026 arXiv abstract only; full HTML not accessible",
+        "method": "Accessible abstract and targeted topic query",
+        "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+        "trigger": "Later same-author generalized waiting-time model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e850a93-a0c1-48fb-a462-24508194dbc0",
+  "value": {
+    "rationale": "The exact sharp interval where every 1D projection is stationary-Lévy-OU representable but the physically shared-switch vector law is not is a natural structural obstruction. The all-dimensional threshold and explicit unique-rate jump bath provide a complete stationary-marginal classification for one model, rather than a routine scalar recomputation or unmotivated parameter slice.",
+    "status": "PASS"
+  }
+}
