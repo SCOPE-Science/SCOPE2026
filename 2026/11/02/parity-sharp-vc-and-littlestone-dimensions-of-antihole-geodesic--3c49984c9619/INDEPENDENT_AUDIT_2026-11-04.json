@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:14:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=7 any nonedge of G_n is a consecutive pair in C_n; its common neighbors on shortest 2-paths include all but two vertices, and applying the same forced-geodesic closure to two consecutive interior pairs forces those last two. Therefore any proper convex set is a clique of G_n, equivalently an ordinary cycle independent set, and the full graph is the unique exceptional top hypothesis. A set T with at least three vertices containing a cycle edge cannot shatter the trace {u,v}: only the exceptional top contains both endpoints; independent T and all |T|<=2 shatter. This yields Phi_n=I(C_n;z)+nz², VC floor(n/2). For online dimension, Ind(F) has Ldim alpha(F), and the augmented-path with a positive exceptional top/marker has Ldim floor(m/2)+1 by endpoint first-query induction and branch bounds. First query v in the cycle induces negative Ind(P_{n-1}) and positive augmented P_{n-3}, giving Ldim=1+min(ceil((n-1)/2),floor((n-3)/2)+1)=ceil(n/2). Independently enumerated all convex traces and recursive version-space Littlestone trees for n=7..11, reproducing odd gap one and even gap zero; this is support for the infinite structural induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thiessen–Gärtner has general bounds and a convex online-learning formulation; Dourado surveys graph convexities; neither full inspected source states a formula for all antiholes and Ldim parity."
+        ],
+        "reasoning": "Broad definitions and generic online inequalities fail to identify the exact exceptional top branch and sharp parity-dependent Ldim without the special graph proof.",
+        "searches": [
+          "Thiessen Gärtner Online Learning of Convex Sets on Graphs 2022",
+          "Dourado Gutierrez Protti Sampaio Tondato graph convex geometries survey arxiv 2203.15878",
+          "Kranakis Krizanc Ruf Urrutia Woeginger graph set systems VC 1997"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/978-3-031-26412-2_22",
+        "https://arxiv.org/abs/2203.15878",
+        "https://doi.org/10.1016/S0166-218X(96)00137-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary 2022 online-convexity paper gives general upper/lower bounds without antihole identification; the survey classifies general graph convexity properties, not this VC polynomial or online equality."
+        ],
+        "reasoning": "Neither inspected primary theorem dominates the exact n-dependent parity gap after classifying the hypotheses; the augmented-path lemma supplies the nontrivial adaptive step.",
+        "searches": [
+          "doi:10.1007/978-3-031-26412-2_22 Sections 4 Propositions 11 12 15",
+          "arxiv:2203.15878 graph classes geodesic convexity",
+          "augmented path Littlestone exceptional top independent-set class"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geodesic family is canonically Ind(C_n) union {V}; standard independence sets alone have both VC and Ldim alpha(C_n). Adding one full hypothesis changes odd-n online capacity, a substantive distinction."
+        ],
+        "reasoning": "Explicit equivalence to independence-system plus top was examined for coverage: ordinary independent-set VC/Ldim results do not imply the extra adaptive parity gap without augmented-path analysis.",
+        "searches": [
+          "geodesic convexity antihole complement of cycle VC Littlestone dimension independent set",
+          "\"antihole\" \"geodesic convexity\" \"Littlestone\"",
+          "\"independent sets\" \"one exceptional\" \"Littlestone dimension\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cycle independent-set numbers are classical and are explicitly not claimed as new; the extra n*z² comes from exceptional full-set traces and the precise antihole concept family."
+        ],
+        "reasoning": "Claim is about a natural entire n>=7 family with labelled shattering and online trees, not a recomputation of known cycle independence coefficients.",
+        "searches": [
+          "\"complement of cycle\" VC dimension geodesic convexity table",
+          "\"antihole\" \"Littlestone\" exact",
+          "cycle independence polynomial table vs shattered support polynomial"
+        ]
+      },
+      "rationale": "General graph-geodesic convexity, independence polynomials, VC dimension and online Littlestone theory are known. Inspected primary Thiessen–Gärtner studies the general learning framework but does not give this complete antihole family or the augmented-path exact dimension. Best-of-knowledge originality passes for the combined exact antihole classification, shattered-support polynomial and parity-sensitive Ldim, subject to universal-top hypothesis-system prior-art risk.",
+      "residual_risks": [
+        "An earlier theorem for hereditary independent-set hypotheses plus a universal positive top could imply the Littlestone augmented-path formula under alternate concept-class terminology.",
+        "Finite n<=11 exhaustive checks do not prove n unbounded; the induction and hull proof are the basis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_THEORY_NOT_EXACT_ANTIHOLEN",
+          "evidence": "General VC/Littlestone inequalities, not the specific all-n complement-cycle concept classification or parity formula.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "material_read": "Complete conference PDF, with pages inspected, general bounds, geodesic convexity definitions and Sections 3–4/Propositions",
+          "method": "full_pdf_pages_and_text",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Primary directly matching online graph-geodesic convexity"
+        },
+        {
+          "assessment": "SURVEY_NO_IDENTICAL_THEOREM",
+          "evidence": "Discusses broad path/graph convexity, not exact antihole online learning result.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.15878",
+          "material_read": "Complete HTML of arXiv survey with definition and survey of graph convexities",
+          "method": "full_html",
+          "title": "Characterizations of graph classes via convex geometries: a survey",
+          "trigger": "Geodesic convexity and graph class prior classifications"
+        },
+        {
+          "assessment": "POSSIBLE_COVERAGE_RISK",
+          "evidence": "No whole-document claim about absence of this exact hypothesis family.",
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(96)00137-0",
+          "material_read": "Bibliography/metadata and abstract-level information, not full text",
+          "method": "abstract_metadata_only",
+          "title": "The VC-dimension of set systems defined by graphs",
+          "trigger": "Potential preexisting graph-defined set-system VC results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Combines an exact convex-hypothesis classification with the full shattered-support generating polynomial and a sharp static-versus-adaptive dimension gap for a natural infinite graph family. The +1 parity effect is an informative boundary example in online geodesic-convexity learning and extends beyond generic VC inequalities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=7 only; shorter antiholes have different convex hull structure.",
+    "All shortest paths, all convex subsets, and membership-query adversarial Littlestone model; no efficiency or restricted hypothesis subclasses.",
+    "Nonpublic private scientific assessment, not external independent expert/formal attestation; publication plan explicitly not ready."
+  ],
+  "schema_version": 1
+}
