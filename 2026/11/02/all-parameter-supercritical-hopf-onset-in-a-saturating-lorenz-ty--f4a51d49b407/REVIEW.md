@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact complex reduction, unique equilibrium, frequency and real-part crossing speed follow directly from the stated vector field. A center-manifold invariance equation gives the quadratic mean coefficient; removing nonresonant quadratic terms gives the real cubic coefficient, which factors into a strictly negative expression for every admissible parameter triple. The nondegenerate Hopf theorem then gives the unique locally attracting periodic orbit and its leading amplitude. The attached `verify_hopf.py` checks the generic symbolic identity and three independent real multilinear calculations; the parameter-universal conclusion rests on the analytic factorization and Hopf theorem, not on finitely many tests.
+## correctness
 
-## Originality
-PASS on inspected evidence, with residual priority risk. The source's 2026 full text defines the self-review, proves its linear Hopf threshold, and observes an apparently supercritical transition numerically for one parameter choice, but does not derive a third-order Lyapunov coefficient or an all-parameter sign theorem. The 1982 complex Lorenz equations differ in their nonlinear coupling, while general Hopf formulas give only a method. Similar published computations on other Lorenz/Sprott systems do not cover these equations. Searches for the source title, saturation law, exact amplitude, and related first-Lyapunov computations did not identify a theorem implying the present factorization; absence from search is not proof of novelty.
+PASS
 
-## Mathematical value
-PASS. The criticality of the numerically identified onset was not analytically classified over the admissible physical parameters. An everywhere-negative cubic coefficient excludes a generalized-Hopf transition at both nonzero thresholds and gives an exact leading, physical-signal amplitude constant. This answers a structural question about this particular model and enables quantitative local onset comparison; the conclusion is neither merely a stability linearization nor an arbitrary parameter substitution.
+For sigma>0,kappa>epsilon>0, unique equilibrium (-r/sigma,0,0) follows from q=y+iz satisfying qdot=(phi(x)-1+ix)q. Eigenvalues -sigma, phi(-r/sigma)-1 +-i(-r/sigma) cross at |r|=sigma/sqrt(delta), delta=kappa-epsilon. Positive crossing derivative 2delta^{3/2}/(kappa*sigma). At positive threshold, center manifold u=a q+conj(a q)+O(|q|^2), a=sigma/[2(sigma+i omega)], omega=-1/sqrt(delta), with h11=-2c|a|^2/sigma, c=-2delta^{3/2}/kappa and d=delta^2(kappa-4epsilon)/kappa^2. Quadratic elimination gives resonant real cubic nu=|a|^2(2d-2c^2/sigma-2c/omega) = -sigma delta^3[sigma(kappa+4epsilon)+4delta]/[2kappa^2(1+sigma^2delta)]<0. Independent symbolic simplification confirmed generic identity, normal form and signs; Hopf theorem gives unique nearby attracting limit cycle for |r|>rH, amplitude asymptotics and period 2pi sqrt(delta). Sign conjugacy maps +/- r thresholds. No global orbit assertion.
 
-## Closest literature and limits
-Khodabandehlou–Maes, arXiv:2609.21415v1, Sections II and V, is the principal and closest source. Fowler–Gibbon–McGuinness (1982) treats a different complex Lorenz system. Generic normal-form methods appear in the Scholarpedia Hopf reference. A 2024 modified reduced Lorenz-model article could be examined only at abstract level because its full-text host returned a rate limit; this and possible unindexed older feedback-oscillator papers remain historical-priority risks. The theorem is local and does not assert global uniqueness of the attracting state.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS restricted to universal explicit negative physical-amplitude cubic and all-parameter supercritical conclusion, beyond Khodabandehlou–Maes model/linear crossing/numerical Hopf observations. Full source unavailable, thus priority qualified; related Resultary Lorenz, Sprott and four-scroll Hopf calculations are different vector fields.
+
+## value
+
+PASS
+
+Provides an exact and uniformly negative nonlinearity coefficient across the entire admissible family, rules out generalized-Hopf points on the stated surfaces, quantifies stable oscillation amplitude and upgrades numerical supercritical indications to a theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

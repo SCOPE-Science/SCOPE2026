@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:16:01.821320Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For sigma>0,kappa>epsilon>0, unique equilibrium (-r/sigma,0,0) follows from q=y+iz satisfying qdot=(phi(x)-1+ix)q. Eigenvalues -sigma, phi(-r/sigma)-1 +-i(-r/sigma) cross at |r|=sigma/sqrt(delta), delta=kappa-epsilon. Positive crossing derivative 2delta^{3/2}/(kappa*sigma). At positive threshold, center manifold u=a q+conj(a q)+O(|q|^2), a=sigma/[2(sigma+i omega)], omega=-1/sqrt(delta), with h11=-2c|a|^2/sigma, c=-2delta^{3/2}/kappa and d=delta^2(kappa-4epsilon)/kappa^2. Quadratic elimination gives resonant real cubic nu=|a|^2(2d-2c^2/sigma-2c/omega) = -sigma delta^3[sigma(kappa+4epsilon)+4delta]/[2kappa^2(1+sigma^2delta)]<0. Independent symbolic simplification confirmed generic identity, normal form and signs; Hopf theorem gives unique nearby attracting limit cycle for |r|>rH, amplitude asymptotics and period 2pi sqrt(delta). Sign conjugacy maps +/- r thresholds. No global orbit assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Model source presents linear threshold and numerical cycles; classical complex Lorenz has different couplings; Resultary hits for classical/5D Lorenz and Sprott-S do not specialize to this saturation-gated field."
+        ],
+        "reasoning": "General Hopf existence theorem alone needs a computed nonzero l1 and cannot certify universal sign over sigma,kappa,epsilon. Inaccessible source may nevertheless contain more theory.",
+        "searches": [
+          "arxiv:2609.21415 Local Detailed Balance in Lorenz Model",
+          "Fowler Gibbon McGuinness complex Lorenz 1982"
+        ]
+      },
+      "checked_sources": [
+        "record RESULT.md Git blob 5f791a49844faae0879f1749f30653fd81b256ef",
+        "record verify_hopf.py Git blob b0725b92040cc3ed2d6d3da25604c11104d4ca73",
+        "arxiv:2609.21415",
+        "Scholarpedia Andronov-Hopf",
+        "Resultary query saturating Lorenz model Hopf bifurcation first Lyapunov coefficient supercritical all parameters"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eigenvalue crossing determines the Hopf locus but not super/subcritical side; general Hopf formula is computational method, not an evaluated result for this particular family."
+        ],
+        "reasoning": "Explicit factored negative nu is the independent mathematically substantive addition relative to threshold or numerical oscillation existence.",
+        "searches": [
+          "arxiv:2609.21415 original frenetic bursting",
+          "Scholarpedia Andronov Hopf bifurcation normal form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Physical signal q=y+iz reduces system to scalar linear complex amplification driven by x; normal-form coefficient defined in q normalization."
+        ],
+        "reasoning": "General Hopf l1 coefficients differ by amplitude scaling, but sign is invariant. Search for equivalent complex-signal or center-manifold formula did not locate the exact model-specific expression.",
+        "searches": [
+          "saturating Lorenz model Hopf bifurcation first Lyapunov coefficient supercritical all parameters",
+          "Khodabandehlou Maes frenetic bursting saturating Lorenz Hopf cubic coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior numerical observations at selected parameters are not an analytic universal coefficient; a generic SymPy identity checked the displayed nu, plus exact rational test points."
+        ],
+        "reasoning": "A numerical phase chart cannot prove all-parameter supercriticality; no exact model-specific l1 table discovered in retrieved literature.",
+        "searches": [
+          "saturating Lorenz model Hopf bifurcation first Lyapunov coefficient supercritical all parameters",
+          "saturating Lorenz first Lyapunov coefficient kappa epsilon sigma numerical table"
+        ]
+      },
+      "rationale": "Best-knowledge PASS restricted to universal explicit negative physical-amplitude cubic and all-parameter supercritical conclusion, beyond Khodabandehlou–Maes model/linear crossing/numerical Hopf observations. Full source unavailable, thus priority qualified; related Resultary Lorenz, Sprott and four-scroll Hopf calculations are different vector fields.",
+      "residual_risks": [
+        "Full exact-model paper could not be inspected: institutional VPN disconnected; source may contain implicit or explicit cubic coefficient.",
+        "Normalization of cubic coefficient is physical q=y+iz, not universal classical l1; no uniform parameter neighborhood or global orbit guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reports threshold and numerical supercritical behavior; cannot assert whole-document noncoverage; paper full text remains priority risk",
+          "evidence": [
+            "arxiv:2609.21415; Oxford institutional vpn_disconnected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21415",
+          "material_read": "Accessible abstract and secondary derivative discussion; entire paper inaccessible via arXiv/OA/authorized institutional access",
+          "method": "abstract and matched-equation comparison, lawful access attempts",
+          "title": "Local Detailed Balance in the Lorenz Model: Replaces the Butterfly with Frenetic Bursting",
+          "trigger": "Exact dynamical system and closest original source"
+        },
+        {
+          "assessment": "Different complex coupling; no implication of model-specific coefficient identified",
+          "evidence": [
+            "Fowler–Gibbon–McGuinness (1982)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-2789(82)90057-4",
+          "material_read": "Bibliographic/source formulation only",
+          "method": "equation/model family comparison",
+          "title": "The complex Lorenz equations",
+          "trigger": "Potential stronger universal Lorenz theorem"
+        },
+        {
+          "assessment": "Standard Hopf theorem supports the implication from computed coefficient, not its model-specific algebra",
+          "evidence": [
+            "Scholarpedia Andronov–Hopf article"
+          ],
+          "identifier_or_url": "https://www.scholarpedia.org/article/Andronov-Hopf",
+          "material_read": "General l1 and normal-form framework",
+          "method": "read technical overview",
+          "title": "Andronov–Hopf bifurcation",
+          "trigger": "standard normal form method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an exact and uniformly negative nonlinearity coefficient across the entire admissible family, rules out generalized-Hopf points on the stated surfaces, quantifies stable oscillation amplitude and upgrades numerical supercritical indications to a theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "record RESULT.md Git blob 5f791a49844faae0879f1749f30653fd81b256ef",
+    "record verify_hopf.py Git blob b0725b92040cc3ed2d6d3da25604c11104d4ca73",
+    "arxiv:2609.21415",
+    "Scholarpedia Andronov-Hopf",
+    "Resultary query saturating Lorenz model Hopf bifurcation first Lyapunov coefficient supercritical all parameters"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Local fixed-parameter Hopf only, no global attraction/chaos classification; epsilon positive and kappa>epsilon; cubic coefficient normalized to stated complex signal.",
+    "Full exact-model paper could not be inspected: institutional VPN disconnected; source may contain implicit or explicit cubic coefficient.",
+    "Normalization of cubic coefficient is physical q=y+iz, not universal classical l1; no uniform parameter neighborhood or global orbit guarantee."
+  ],
+  "schema_version": 1
+}
