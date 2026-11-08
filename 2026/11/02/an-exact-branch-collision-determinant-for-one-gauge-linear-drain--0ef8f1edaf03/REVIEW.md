@@ -1,19 +1,21 @@
-# Review of the one-gauge drainage-tree determinant
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The model uses known, strictly positive depletion and transfer rates on a topologically ordered rooted tree, with a zero-input linear differential equation. The full formula is derived from exact resolvent-path numerators, a unit-triangular change from outlet derivative jets to numerator coefficients, and a leaf-deletion determinant recursion. The same proof handles rate equality, arbitrary topology, and the one-store boundary. Cayley–Hamilton proves that singularity gives indistinguishable complete outlet trajectories, including distinct positive initial stores. Exact symbolic and rational checks substantiate, but do not replace, this proof.
+PASS
 
-## Originality
+The frozen RESULT.md constructs resolvent numerators p_v(s)=c g_v ∏_{u not on P(v)}(s+k_u). Monic common-denominator multiplication gives a unit-lower-triangular transformation from the n outlet derivatives to descending numerator coefficients. Leaf deletion via division by (s+k_leaf) has unit determinant and remainder p_leaf(-k_leaf)=c g_leaf ∏_{i||leaf}(k_i-k_leaf), proving the formula inductively for all n and repeated k. Cayley–Hamilton shows kernel vectors have zero complete trace; a small kernel perturbation of a strictly positive baseline proves nonuniqueness among positive stores. Chain and star boundary cases checked; n=1 and shorter jets addressed. Reconstructed 874 parent-topological rooted trees with exact integer SymPy determinants, including n≤7; finite tests are corroboration only.
 
-**PASS within accessible comparisons; historical priority remains provisional.** The quantitative all-tree determinant factors were not located in the targeted literature and published-result searches. Nash's series-reservoir model and Pan–Wood's inverse-routing model motivate the question but do not give this exact factorization. Older compartmental observability results include structural criteria and treatment of repeated eigenvalues; the Fagarasan–DiStefano (1986) generalized-tree analysis is especially plausible prior coverage of the qualitative observability criterion. Its full paper could not be read, so this is a material residual priority risk. The asserted additional result is the explicit determinant polynomial, not merely the observation that generic rates are observable.
+## originality
 
-## Value
+PASS
 
-**PASS.** A single outlet gauge is a natural monitoring bottleneck in branching drainage networks. The all-network-size product isolates precisely which timescale collisions erase independent stored-volume information, while distinguishing branch collisions from harmless repeated rates in a series. It also exposes algebraic sensitivity to nearly equal branch rates and identifies the minimum exact output-derivative count. The theorem is an idealized structural result, not a noise-robust hydrological inversion procedure.
+Best-knowledge originality applies to the precise claimed combination, not generic background results: The qualitative repeated-eigenvalue visibility mechanism is prior work; no explicit identical n-jet determinant product was identifiable from the accessible abstract. If its complete generalized-tree results include that product, originality would fail; full text unavailable. Abstract-only access prevents ruling out an algebraically equivalent implication from the complete 1986 source. Best-knowledge O survives with material priority risk; any complete source yielding the exact product would cover the claim.
 
-## Limits and closest literature
+## value
 
-Only known-coefficient passive linear routing after inputs cease is analyzed. Other source terms, unknown routing rates, stochastic errors, nonlinear retention, and numerical conditioning are outside the theorem. Closest literature: Nash (1957), Pan and Wood (2013), Cobelli et al. (1979), and Fagarasan and DiStefano (1986). The last work was accessible only by abstract. The result has not undergone independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Observability of known transport rates from a single outlet is a motivated structural inverse problem. The exact factorization supplies every singular rate-collision hyperplane and distinguishes harmless repeated rates along a chain from fatal repeated rates across branches, for arbitrary finite tree size; not a generic-rank assertion or arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

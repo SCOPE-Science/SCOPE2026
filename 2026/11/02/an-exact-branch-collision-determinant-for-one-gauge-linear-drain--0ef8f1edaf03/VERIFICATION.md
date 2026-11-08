@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the rooted drainage-tree determinant
+# Independent mathematical audit
 
-The main proof is the monic-denominator numerator transformation followed by synthetic division at a deleted leaf; it proves the identity over the polynomial ring in the depletion and transfer parameters. The exact output is a Laplace transform of initial states for a zero-input linear ODE. Differentiation and Cayley–Hamilton translate the determinant criterion into full-trace identifiability and positive-state nonidentifiability.
+## correctness
 
-`check_observability.py` was run with Python 3 and SymPy. Its result was:
+PASS
 
-```
-PASS: symbolic rooted trees: 34
-PASS: exact rational routed networks: 665
-PASS: singular instances among these: 105
-PASS: repeated-rate chain/sibling boundary cases: 4
-```
+The frozen RESULT.md constructs resolvent numerators p_v(s)=c g_v ∏_{u not on P(v)}(s+k_u). Monic common-denominator multiplication gives a unit-lower-triangular transformation from the n outlet derivatives to descending numerator coefficients. Leaf deletion via division by (s+k_leaf) has unit determinant and remainder p_leaf(-k_leaf)=c g_leaf ∏_{i||leaf}(k_i-k_leaf), proving the formula inductively for all n and repeated k. Cayley–Hamilton shows kernel vectors have zero complete trace; a small kernel perturbation of a strictly positive baseline proves nonuniqueness among positive stores. Chain and star boundary cases checked; n=1 and shorter jets addressed. Reconstructed 874 parent-topological rooted trees with exact integer SymPy determinants, including n≤7; finite tests are corroboration only.
 
-The independent variable is continuous time, but the program tests only finite exact instances and does not independently prove the general theorem. The theorem is about known linear network coefficients and exact initial states, not estimation under unknown inputs or sampling noise. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-knowledge originality applies to the precise claimed combination, not generic background results: The qualitative repeated-eigenvalue visibility mechanism is prior work; no explicit identical n-jet determinant product was identifiable from the accessible abstract. If its complete generalized-tree results include that product, originality would fail; full text unavailable. Abstract-only access prevents ruling out an algebraically equivalent implication from the complete 1986 source. Best-knowledge O survives with material priority risk; any complete source yielding the exact product would cover the claim.
+
+## value
+
+PASS
+
+Observability of known transport rates from a single outlet is a motivated structural inverse problem. The exact factorization supplies every singular rate-collision hyperplane and distinguishes harmless repeated rates along a chain from fatal repeated rates across branches, for arbitrary finite tree size; not a generic-rank assertion or arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
