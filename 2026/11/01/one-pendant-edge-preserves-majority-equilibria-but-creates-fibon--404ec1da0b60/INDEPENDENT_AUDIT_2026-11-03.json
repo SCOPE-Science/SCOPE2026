@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:13:44.882471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For synchronous tie-retaining strict-neighbor-majority on C_n with one leaf, symmetric integer W with diagonal tie-retention loops makes all local fields odd and nonzero; the two-time Lyapunov pairing increases strictly unless s(t+1)=s(t-1), establishing eventual period at most two for all n>=3. A flip at any degree-two rim vertex forces neighbors to flip; propagation yields the all-flip alternating even-n orbit. Otherwise only root/leaf flip with endpoints opposite and all interior constant runs length >=2. Opposite endpoints imply an even number of runs, giving generating function 2R(z)^2/(1-R(z)^2), R=z²/(1-z), coefficient F_{n-2}-q_{n-3}; add one even-n alternating orbit. Fixed states require no singleton runs, counted by trace of four-state transfer matrix with char polynomial (lambda²-lambda-1)(lambda²-lambda+1), hence H=L_n+2cos(pi n/3). Independently enumerated all states at n=3,...,10 and agreed with both formulas (H,N): (2,0),(6,1),(12,2),(20,5),(30,6),(46,9),(74,12),(122,21). The finite check corroborates the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamini et al arXiv:1405.2486",
+          "Haslegrave-Cannings DOI:10.1016/j.dam.2016.12.004"
+        ],
+        "reasoning": "Goles-Olivos establishes a uniform eventual-period upper bound for symmetric threshold systems; it does not count all fixed or two-cycles on this graph. Haslegrave-Cannings permits altered threshold functions and investigates attainable periods, not an exact more-general 1-leaf orbit-count formula.",
+        "searches": [
+          "Resultary: binary majority dynamics on cycle with pendant leaf fixed points 2 cycles Fibonacci orbit count",
+          "Resultary: strict majority tie retain connected cycle pendant leaf Fibonacci many 2-cycles",
+          "web: majority dynamics with one nonconformist Cannings Haslegrave; Benjamini Chan ODonnell Tamuz Tan tie retaining majority 1405.2486"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1405.2486v1",
+        "https://wrap.warwick.ac.uk/id/eprint/84436/",
+        "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "Resultary: binary majority dynamics on cycle with pendant leaf fixed points 2 cycles Fibonacci orbit count",
+        "Resultary: strict majority tie retain connected cycle pendant leaf Fibonacci many 2-cycles",
+        "web: majority dynamics with one nonconformist Cannings Haslegrave; Benjamini Chan ODonnell Tamuz Tan tie retaining majority 1405.2486"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Benjamini et al arXiv:1405.2486",
+          "Haslegrave-Cannings 2017"
+        ],
+        "reasoning": "The period-two theorem and known bare-cycle fixed-word formula jointly do not imply the new leaf-induced flip-set classification or its Fibonacci family without graph-specific analysis. No searched prior theorem with these counts was located.",
+        "searches": [
+          "Resultary: binary majority dynamics on cycle with pendant leaf fixed points 2 cycles Fibonacci orbit count",
+          "Resultary: strict majority tie retain connected cycle pendant leaf Fibonacci many 2-cycles",
+          "web: majority dynamics with one nonconformist Cannings Haslegrave; Benjamini Chan ODonnell Tamuz Tan tie retaining majority 1405.2486"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goles and Olivos, Discrete Math 30 (1980) 187-189",
+          "Benjamini et al arXiv:1405.2486"
+        ],
+        "reasoning": "The equivalent spin-threshold system with self-loops at degree-two vertices has general period-two theorem, but a single added leaf is not equivalent to a nonconforming rule on the unmodified cycle. Primitive temporal orbits are labelled modulo time shift, not graph isomorphism.",
+        "searches": [
+          "Resultary: binary majority dynamics on cycle with pendant leaf fixed points 2 cycles Fibonacci orbit count",
+          "Resultary: strict majority tie retain connected cycle pendant leaf Fibonacci many 2-cycles",
+          "web: majority dynamics with one nonconformist Cannings Haslegrave; Benjamini Chan ODonnell Tamuz Tan tie retaining majority 1405.2486"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RESULT.md transfer matrix and compositions",
+          "classical Lucas/Fibonacci sequences"
+        ],
+        "reasoning": "A transfer-matrix trace count of binary cyclic words without isolated runs is an established local-word enumeration. That known sequence is explicitly excluded from the originality claim; the new one-leaf period-two count and its difference from the bare cycle are not read from the existing table.",
+        "searches": [
+          "Resultary: binary majority dynamics on cycle with pendant leaf fixed points 2 cycles Fibonacci orbit count",
+          "Resultary: strict majority tie retain connected cycle pendant leaf Fibonacci many 2-cycles",
+          "web: majority dynamics with one nonconformist Cannings Haslegrave; Benjamini Chan ODonnell Tamuz Tan tie retaining majority 1405.2486"
+        ]
+      },
+      "rationale": "Classical Goles-Olivos/Benjamini et al period-at-most-two theorem is recognized and used only as context; it does not give a complete labelled recurrent-orbit census after one extra pendant edge. Haslegrave-Cannings one nonconformist changes an update rule, not graph neighborhood, and examines possible periods rather than this Fibonacci count. No statement-equivalent or stronger coverage found; historical priority risk in local-rule combinatorics remains.",
+      "residual_risks": [
+        "Unindexed threshold-network cycle-with-leaf enumerations may exist.",
+        "1980 Goles-Olivos note and Haslegrave-Cannings full text not completely inspected; their known question differs.",
+        "Finite brute force n<=10 is not proof for every n; proof comes from flip propagation, transfer matrix, run generating function."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PERIOD_BOUND_NOT_COUNT",
+          "evidence": "Presents finite eventual period<=2 and probabilistic/infinite graphs; no cycle-with-pendant census.",
+          "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+          "material_read": "Accessible full arXiv HTML, introduction, updating definition and finite-period theorem discussion",
+          "method": "Read relevant text and theorem connections",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Same tie-retaining synchronous majority convention"
+        },
+        {
+          "assessment": "MODEL_DIFFERENCE_WITH_ACCESS_LIMIT",
+          "evidence": "Nonconforming update function differs from adding a leaf; abstract does not establish exact Fibonacci formula.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/84436/",
+          "material_read": "University archive abstract and metadata; full accepted PDF not read",
+          "method": "Read repository metadata/abstract",
+          "title": "Majority dynamics with one nonconformist",
+          "trigger": "Nearby single perturbation terminology"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_PERIOD_BOUND",
+          "evidence": "Only the eventual period bound used; no direct evidence of this exact graph census.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic record and theorem as cited in Benjamini et al; full primary 1980 text not read",
+          "method": "Cross-checked publication reference against later full article",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General finite symmetric-threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One local graph perturbation leaves equilibrium count unchanged yet creates Fibonacci-many distinct genuine two-cycles, including two-cycles on odd cycles previously admitting none. The structural flip-set classification and exact transfer/run-count formulas expose a nontrivial amplification phenomenon that a future study of local perturbation dynamics can use; it is not a routine restatement of period-at-most-two.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1405.2486v1",
+    "https://wrap.warwick.ac.uk/id/eprint/84436/",
+    "https://doi.org/10.1016/0012-365X(80)90121-1",
+    "Resultary: binary majority dynamics on cycle with pendant leaf fixed points 2 cycles Fibonacci orbit count",
+    "Resultary: strict majority tie retain connected cycle pendant leaf Fibonacci many 2-cycles",
+    "web: majority dynamics with one nonconformist Cannings Haslegrave; Benjamini Chan ODonnell Tamuz Tan tie retaining majority 1405.2486",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/one-pendant-edge-preserves-majority-equilibria-but-creates-fibon--404ec1da0b60/RESULT.md Git blob e77e7c078c157436dd590e5376d54b51392a13b2",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/one-pendant-edge-preserves-majority-equilibria-but-creates-fibon--404ec1da0b60 verifier Git blob f0a7aaec6a1075f3b815a626dd2cdb39075001e6"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed threshold-network cycle-with-leaf enumerations may exist.",
+    "1980 Goles-Olivos note and Haslegrave-Cannings full text not completely inspected; their known question differs.",
+    "Finite brute force n<=10 is not proof for every n; proof comes from flip propagation, transfer matrix, run generating function."
+  ],
+  "schema_version": 1
+}
