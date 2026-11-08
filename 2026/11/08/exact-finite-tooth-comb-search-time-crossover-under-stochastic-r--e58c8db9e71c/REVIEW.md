@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The tooth resolvent solves a second-order recurrence with a reflecting cap; eliminating the teeth leaves a one-dimensional backbone resolvent, and the standard Poisson-reset renewal identity yields an exact formula for all finite positive integer parameters and all positive reset rates. Uniform-at-fixed-parameter Taylor expansions establish the stated joint \(H/L^2\) and \(rL^4\) limit; independent numerical matrix checks reproduce 21 finite and scaling tests. No finite enumeration is used to justify an infinite result.
+
+**Originality (PASS on examined evidence, with residual historical risk).** Full accessible primary text of Méndez et al., arXiv:1509.01670, analyzes finite-tooth transport but not stochastic resetting or target search. Full accessible primary text of Singh et al., arXiv:2105.08112, analyzes resetting FPT on a continuous comb with a confining *potential on infinite teeth*, not reflecting finite teeth, and its formula does not imply this tanh mesoscopic scaling by literal specialization. The 2023 comb-resetting MSD study's full text could not be verified from the accessible sources, but the accessible sections concern diffusivity, not this target search. Targeted source/alias searches and research-index comparisons did not locate a result implying the particular joint limit; searches are not mathematical uniqueness proofs. Priority risk from otherwise unindexed literature remains.
+
+**Mathematical value (PASS).** The equality of the tip mixing-time scale \(H^2\) and the infinite-comb target-search time scale \(L^4\) selects the natural nontrivial regime \(H\asymp L^2\), and the limiting formula resolves the entire reset-rate response between physically distinct normal and anomalous transport. It predicts quantitative search-performance profiles, not an arbitrary finite numerical invariant.
+
+**Limits.** Symmetric edge-rate-one single-particle model, one-sided equally high reflecting teeth, one perfectly absorbing backbone vertex, Poisson reset to the starting point; no uniqueness claim for intermediate-regime optima, and no bulk phase transition. The novelty claim is limited to the specified crossover, not elementary renewal theory.
+
+Self-review: passed. Independent audit: not yet performed.
