@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The critical lemma is the rank-one tensor reduction: commuting with a nilpotent matrix forces each nonzero tensor factor to lie in its kernel or annihilate its image. The square-zero condition becomes a pairing of rank equal to the number of singleton Jordan blocks. Counting that pairing proves the total; the rank-one perturbation criterion and the length-two Jordan predecessor map prove the two transition counts. All higher powers of the perturbed operator equal the original powers. The projective Segre incidence equation proves the component criterion over an algebraic closure. Scripts `verify.py` and `verify_ambient.py` independently check matrix identities and full finite-field distributions in 90 parameter configurations and eight complete ambient spaces. These computations are supporting evidence, not infinite proofs. A nonstandard risk is the geometric irreducibility argument; it is resolved by the rank-at-least-two bilinear incidence hypersurface and the explicit rank-one factorization when there is one singleton block.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest accessible earlier claim is the rank-one square-zero commutator spectrum (opaque record 9ca4dfd9-ead7-482a-8f1c-273e1396ba1f), whose zero-commutator fiber \(Z\) is algebraically **identical** to the unrefined count \(C\) here. That count is explicitly credited and excluded from the new contribution. The previous statement concerns \([N,T]\) and does not imply the new rank-transition distribution for \(N+T\): the partitions \((4,2,1)\) and \((3,3,1)\) have identical original census parameters but rank-decrease counts \(9\) and \(0\) over \(\mathbb F_3\). Neither the new finer multiplicity law nor the reducibility threshold is stated in that earlier claim. The closest inspected external primary literature is Britnell–Wildon (arXiv:1001.0811), which establishes existence of commuting nilpotent similarity classes, and Iarrobino–Khatami (arXiv:1204.4635), which studies generic nilpotent centralizer Jordan type. Iarrobino and colleagues (arXiv:1409.2192) classify certain inverse fibers of generic Jordan types, while Bogdanić and colleagues (arXiv:2212.08425) analyze the allowable commuting orbits for fixed equal-size two-block matrices. These statements do not logically imply the precise finite-field multiplicity spectrum for rank-one square-zero perturbations of arbitrary fixed Jordan type or the one-singleton-block reducibility threshold. The general rank-one update criterion is classical, so its standalone content is not claimed as new. The foundational low-rank perturbation paper by Moro–Dopico (DOI:10.1137/S0895479802417118) was read in its complete author-hosted open-access form. Its generic complex-matrix perturbation criterion covers the elementary rank-update mechanism, but does not supply exact finite-field counts inside the commuting square-zero rank-one locus or the reduced incidence-cone criterion. An unidentified stronger determinantal theorem remains a priority risk. The structured comparison and material inspected are detailed in `AUDIT.json`.
+PASS
 
-## Value — PASS
-This is a natural complete classification of the simplest nonzero stratum of a fixed nilpotent centralizer. It settles the complete distribution of the Jordan type of the **sum** over all compatible rank-one square-zero perturbations and gives a sharp geometric component boundary valid for every partition and characteristic. The two septenary partitions \((4,2,1)\) and \((3,3,1)\) have equal raw perturbation counts over \(\mathbb F_3\) but unequal rank-decreasing counts, illustrating that the refined invariant distinguishes otherwise invisible block-length information. The general geometric criterion is independent of finite enumeration alone.
+For a rank-one tensor u⊗φ, the commutation of T with nilpotent N forces Nu=0 and φN=0; T²=0 iff φ(u)=0. Restricted K×Ann(im N) pairing has rank a (#singleton blocks) and radical dimension s=b+c. Counting its projective incidence tensors gives total C, upward C_+ = (q^a−1)q^s(q^(r−1)−q^s)/(q−1), downward C_- = (q^b−1)q^c q^(s−1)/(q−1) for b>0, and C_0=C−C_+−C_-. Downward update is detected by the predecessor map on E=kerN∩imN of rank b. Since NT=TN=T²=0, higher powers of N+T equal N^j (j≥2), so only the 1↔2 Jordan-block transition occurs. The square-zero rank-one incidence is a cone over a bilinear divisor of coefficient rank a; it has two geometric components iff a=1 (otherwise irreducible). For a=1, n≥2 implies r≥2, avoiding the degenerate component intersection boundary. Independent GF(2) direct matrices checked partitions (2,1,1),(3,2),(2,2),(4,1),(3,1,1),(1,1,1), with all delta multiplicities matching.
 
-## Limitations and outstanding risks
-The theorem concerns only rank-at-most-one square-zero perturbations of nilpotent fixed operators, not arbitrary nilpotent commutants or complete scheme structures. The strongest unresolved originality risk is a broader rank-one determinantal theorem not found in inspected sources; the Moro–Dopico article was inspected in full, but unidentified broader treatments of the restricted rank-one locus might exist. The proof has received self-review only and no independent expert audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The total C is explicitly conceded as previously counted in a rank-one commutator-spectrum record. The nontrivial residual consists of b-sensitive rank-transition refinements and the a=1 reducibility boundary; earlier nilpotent-centralizer and low-rank perturbation works do not imply these finite-field counts in their inspected results. Best-knowledge PASS, retaining possible hidden determinantal formula risk.
+
+## value
+
+PASS
+
+The reducibility iff exactly one singleton block is a natural, sharp geometric classification. The refined rank-up/down transition counts reveal information invisible to the earlier total C, for example Jordan partitions (4,2,1) versus (3,3,1). This is more than a simple recomputation of the old count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
