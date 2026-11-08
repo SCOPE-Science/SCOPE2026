@@ -1,15 +1,21 @@
-# Review of the finite-path unimodal maximal-variation theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every quantified claim is supported by an analytical argument. The crucial preservation lemma uses an exact ball-shift comparison at every superlevel threshold, accounting for truncation at the endpoints. It establishes unimodality at the prescribed peak, not merely a numerical trend. The variation identity then telescopes, and explicit prefix/suffix balls produce the two endpoint lower bounds. The zero-endpoint subclass has a sharp constant because a singleton at the peak simultaneously minimizes both endpoint maximal values. Equality in the nonnegative remainder forces every other coordinate to vanish; the global equality cases follow by strictness at interior peaks and the monotone-prefix calculation at boundary peaks. The finite checker verifies 4,365 exact rational cases but is not used as a substitute for this proof.
+## correctness
 
-## Originality
-**PASS (best-knowledge literature assessment).** González-Riquelme, Kovač, and Madrid pose an unrestricted path-graph conjecture and supply only small-graph computations, not the quantified peak-location result. A pre-existing monotone-data theorem proves the boundary-peak case but cannot imply the interior-peak sharp factor or nontrivial stability remainder: its assumptions exclude data increasing and then decreasing. Bilz and Weigt treat centered maximal variation on the full line and integer lattice for indicator functions and a separate attachment-condition class; neither gives the finite-path, truncation-sensitive, all-unimodal exact factor. Direct searches for unimodal finite-path bounds and equivalent endpoint-deficit formulae found no earlier dominating claim. The remaining risks are older folklore on shape preservation and an unindexed formulation of the sharp fixed-peak extremal problem; absence from searchable records is not a proof of priority.
+PASS
 
-## Mathematical value
-**PASS.** The full finite-path sharp-variation inequality is an explicit current conjecture. This result identifies an all-size, genuinely nonmonotone class in which it holds; computes a strictly stronger, optimally attainable peak-sensitive constant with a unique extremizing ray; and quantifies all departures from the extremizer through a positive interior-mass remainder. The maximal operator's preservation of a peak under boundary-truncated graph balls is a structural fact needed for these conclusions. The result is a sharp natural classification, not a numerical special case or an arbitrary narrow parameter choice.
+PASS: The proof for every n≥3 and nonnegative unimodal sequence uses a threshold t and centered-ball shifting: when i<j≤k and Mf(i)>t while f(j)≤t, a smaller ball centered at j reaches the same right endpoint and removes only nonpositive excess terms, so Mf(j)>t. Reflection proves the decreasing half; Mf(k)=f(k) because of the singleton ball. Therefore Var(Mf) telescopes to 2p−Mf(1)−Mf(n). The prefix/suffix balls at 1,n give the two deficit bounds. For zero-endpoint interior-peak data, Var(f)=2p and the nonnegative interior mass sums yield exact C=1−1/(2k)−1/(2(n−k+1)), with unique positive point-mass extremizer. Endpoint equality follows from monotone sequence prefix averages. Independent exact rational arithmetic sampled 1,147 unimodal sequences on n≤7 and confirmed the inequalities and peak preservation. Infinite claim is established by the ball argument, not by this finite test.
 
-## Closest literature and limitations
-The initiating source is arXiv:2603.12462 (first public 2026-03-12, primary MSC2020 26A45). The closest general variation work is Bilz–Weigt (2025, DOI:10.1007/s12220-025-01965-x). Known monotone-only path bounds cover endpoint peaks; they do not supply the present interior-peak classification. This work does not settle the conjecture for data having multiple changes of monotonic direction, or for general finite graphs. Independent external mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): The March 2026 González-Riquelme–Kovač–Madrid paper explicitly conjectures full-path sharp 1−1/n and presents small-n evidence; it does not prove all-n peak-preserving unimodal theorem. The published Resultary monotone-path result (full RESULT read) covers boundary peaks only, not interior nonmonotone humps, sharp k-dependent coefficient or stability remainder. Bilz–Weigt treats infinite line/lattice indicator functions under different geometry. There is real residual risk of an unindexed folklore peak-preservation observation, but the exact boundary-truncated all-n classification was not covered by inspected statements.
+
+## value
+
+PASS
+
+PASS: The full finite-path variation conjecture is an identified mathematical problem. The theorem settles an infinite-size natural genuinely nonmonotone unimodal subclass, proves a structural shape-preservation lemma, gives a strictly better exact position-dependent factor, equality rigidity and quantitative remainder. This is an independently useful sharp subproblem, not a restatement of monotone endpoint estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

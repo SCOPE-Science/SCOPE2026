@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical derivation is contained in `RESULT.md`. Its central step compares the summed excess above any real threshold on two centered graph balls with the same clipped right endpoint; terms removed on the left are nonpositive. Reflection gives the other side. This proves the unimodality-preservation assertion for every path size and all nonnegative real data.
+## correctness
 
-The two endpoint ball averages are explicit and give the variation deficit without limiting or approximation. For zero-endpoint data the unique equality class is forced by nonnegativity of all surplus coordinates. These arguments are not consequences of the finite consistency test.
+PASS
 
-The accompanying `check_unimodal.py` uses exact Python `fractions.Fraction` arithmetic to enumerate nonnegative weakly unimodal inputs with integer values in the set `{0,1,2,3}` on each path from three through eight vertices. It checks unimodality of the maximal function, the telescoping identity, the peak-sensitive inequality, the sharp zero-endpoint remainder and equality restrictions, and explicit singleton and endpoint-baseline equality cases. The documented execution returned `EXACT_CHECK_OK 4365`. This finite enumeration is not exhaustive over arbitrary real sequences or arbitrary path lengths.
+PASS: The proof for every n≥3 and nonnegative unimodal sequence uses a threshold t and centered-ball shifting: when i<j≤k and Mf(i)>t while f(j)≤t, a smaller ball centered at j reaches the same right endpoint and removes only nonpositive excess terms, so Mf(j)>t. Reflection proves the decreasing half; Mf(k)=f(k) because of the singleton ball. Therefore Var(Mf) telescopes to 2p−Mf(1)−Mf(n). The prefix/suffix balls at 1,n give the two deficit bounds. For zero-endpoint interior-peak data, Var(f)=2p and the nonnegative interior mass sums yield exact C=1−1/(2k)−1/(2(n−k+1)), with unique positive point-mass extremizer. Endpoint equality follows from monotone sequence prefix averages. Independent exact rational arithmetic sampled 1,147 unimodal sequences on n≤7 and confirmed the inequalities and peak preservation. Infinite claim is established by the ball argument, not by this finite test.
 
-No independent audit, publication-priority certification, or higher-variation extension is claimed.
+## originality
+
+PASS
+
+PASS (best of knowledge): The March 2026 González-Riquelme–Kovač–Madrid paper explicitly conjectures full-path sharp 1−1/n and presents small-n evidence; it does not prove all-n peak-preserving unimodal theorem. The published Resultary monotone-path result (full RESULT read) covers boundary peaks only, not interior nonmonotone humps, sharp k-dependent coefficient or stability remainder. Bilz–Weigt treats infinite line/lattice indicator functions under different geometry. There is real residual risk of an unindexed folklore peak-preservation observation, but the exact boundary-truncated all-n classification was not covered by inspected statements.
+
+## value
+
+PASS
+
+PASS: The full finite-path variation conjecture is an identified mathematical problem. The theorem settles an infinite-size natural genuinely nonmonotone unimodal subclass, proves a structural shape-preservation lemma, gives a strictly better exact position-dependent factor, equality rigidity and quantitative remainder. This is an independently useful sharp subproblem, not a restatement of monotone endpoint estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
