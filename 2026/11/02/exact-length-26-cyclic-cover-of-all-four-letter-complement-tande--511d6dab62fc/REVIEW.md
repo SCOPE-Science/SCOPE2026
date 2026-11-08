@@ -1,11 +1,21 @@
-# Scientific review: exact complement-tandem four-mer cover
+# Independent mathematical audit
 
-**Correctness — PASS.** The transition formula \(F(a,b)=(b,\overline a)\) establishes four disjoint four-target shift-one cycles; shift-two transitions remain inside the same orbit. The cyclic Hamiltonian-tour lower bound and the classification of tours with at most four inter-orbit edges prove a cost of at least \(26\). The displayed word attains \(26\) and the extracted standalone verifier checks its motif coverage and independently solves all 16-vertex tour states using integer dynamic programming. The proof does not infer an infinite theorem from experiments.
+## correctness
 
-**Originality — PASS, subject to literature priority risk.** The primary arXiv texts for reverse-complement duplication and restricted universal cycles address distinct transformations or goals. The exact complement-tandem motif-set searches and searches against available mathematical research records found no implication proving the minimum \(26\). Related ordinary tandem and reverse-complement palindrome results differ in the target language. Existing unindexed superstring tables and the uninspected full 2020 restricted-cycle article remain residual risks; absence from search results alone was not treated as novelty proof.
+PASS
 
-**Value — PASS.** All sixteen complement-tandem four-mers over the four-symbol Watson–Crick alphabet form a complete natural motif language. The tight 26-symbol cover and the pair-switch lower-bound obstruction provide a reproducible finite optimum for constrained superstring algorithms, not an arbitrary numerical slice. This is a mathematical motif-covering statement rather than a biological application claim.
+The F(a,b)=(b,bar(a)) permutation on ordered symbol pairs has four orbits, each of size four. All shift-1 and shift-2 target transitions stay within an orbit. Any cyclic target tour with >=5 interorbit transitions costs >=26. Four interorbit transitions force four contiguous forward four-target runs if cost <=25; the pure-pair X/X and Y/Y runs force >=2 cross-pair boundary joins of shift 4, contradicting <=25. Explicit 26-letter cyclic word 00110013021303120312233223 covers all sixteen motifs. Independently recomputed 16-target Held–Karp exact cycle optimum 26 and cyclic motif windows. This is an exhaustive FINITE optimum of the precise natural motif set, not extrapolation.
 
-**Limits.** No generalization to arbitrary alphabets or motif lengths is claimed, and no independent external validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact minimum for the symbolwise complement-tandem motif language is not implied by examined reverse-complement duplication-capacity work or restricted universal-cycle existence theorems. Similar normalizations and other palindrome/square target languages are different. Best-of-knowledge originality for this precise exact cyclic-cover optimum, with unindexed restricted-superstring tables still a priority risk.
+
+## value
+
+PASS
+
+The sixteen complement-tandem four-mers are an intrinsically defined complete target language over the DNA Watson–Crick involution. Exact shortest cyclic coverage and an explainable orbit obstruction form a natural constrained-superstring benchmark usable to verify exact covering algorithms; length 26 is a sharp finite optimum, not an arbitrarily selected enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
