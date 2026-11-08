@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses an exact deterministic characterization of directed cycles of a simple cycle, then independent clockwise/counterclockwise reachability, Bernoulli-to-Poisson process limits, conditional uniform cyclic spacings and factorial moments for rare long bidirectional runs. The full finite-case reduction has been exhaustively checked through six vertices; exact rational probability checks cover multiple orders and asymmetric arc configurations. These checks are secondary evidence, and the infinite claims are supported by explicit mathematical arguments. Assumptions, degenerate parameters, normalization, the Dirichlet mixture condition and the one-vertex Gumbel centering shift have been checked.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2026 source treats the same bidirected-arc model but primarily on infinite transitive graphs, with critical parameter, uniqueness and finite susceptibility results; it does not provide the proposed finite-cycle SCC-size crossover. Other close full texts treat planar directed lattices, generic directed-degree random graphs, or conditional criteria for giant strongly connected components. General undirected cyclic gaps and Bernoulli runs supply some steps but do not incorporate the full-orientation tour atom. No equivalent complete statement was located in indexed mathematical records or searched publications. Historical priority, particularly older reliability literature on directed rings and older extreme-run theorems, has not been independently certified.
+PASS
 
-**Value — PASS.** This solves a natural finite-volume scaling question for a newly studied percolation model. The distinction between a surviving single-orientation Hamiltonian tour and loss of bidirectional edges generates a nontrivial mixture law for every macroscopic component, not merely a binary full-connectivity estimate. The exact two-point law and adjacent Gumbel extreme regime give quantitative observables and sharply delimit how local infinite-path information fails to determine the global finite-circle component partition.
+In a directed subgraph of a simple cycle the only non-backtracking directed circuits are the two oriented Hamiltonian cycles. If neither survives, SCCs are components of the fully-bidirectional edge subgraph; exhaustive independent reachability checks on every 64+256+1024 arc configuration for n=3..5 confirmed this. Independently oriented forward/backward arc sets give Pr(0<->j)=(p^j+p^{n-j}-p^n)^2. Full SCC connectivity is 2p^n-p^(2n)+n(1-p)^2*p^(2n-2); if the only bad edge does not destroy both directed arcs, an orientation is complete, hence the correction counts exactly both-missing edges. With n(1-p)->lambda finite, independent marked Bernoulli arcs converge to two Poisson point processes and, when each has at least one mark, cyclic gaps are finite-dimensional Dirichlet spacings; tightness yields ranked l1 convergence. When n(1-p)->infty and p->1, rare long bidirectional runs yield the Gumbel law using factorial moments, with one-vertex error negligible since -log(p^2)->0. Endpoint p=0,1 and lambda=0 are compatible. Finite checks are not convergence proofs.
 
-**Closest literature and limits.** Liu–Rolla–Shi (arXiv:2610.28762v1) supply the bidirected model and global threshold questions; Newman–Grassberger (arXiv:2607.24975v1) study planar directed lattices; van der Hofstad–Pandey (arXiv:2403.02137v1) address general digraph giant-locality conditions. Related Erdős–Rényi digraph scaling work operates on another random topology. The result does not cover chorded rings, correlated orientations, or arbitrary graphs. Its mixed finite-dimensional Dirichlet spacing law should not be conflated with the classical infinite-dimensional Poisson–Dirichlet law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General bidirected percolation in Liu–Rolla–Shi concerns infinite transitive graphs, while this exact finite-circle model has a distinct Hamiltonian single-orientation atom and a Poisson-to-Gumbel complete SCC crossover. Undirected Bernoulli spacings and longest-run extremes are classical inputs; novelty is assessed for the explicit directed model and whole crossover, with possible classical directed-ring reliability formulation retained as risk.
+
+## value
+
+PASS
+
+A natural one-dimensional directed percolation model exhibits a qualitatively different single-macroscopic-SCC event from undirected cuts. Its exact connectivity polynomial and complete ranked mass partition, followed by microscopic Gumbel extremes, form a useful connected finite-size/crossover classification rather than routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

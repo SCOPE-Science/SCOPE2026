@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:00:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a directed subgraph of a simple cycle the only non-backtracking directed circuits are the two oriented Hamiltonian cycles. If neither survives, SCCs are components of the fully-bidirectional edge subgraph; exhaustive independent reachability checks on every 64+256+1024 arc configuration for n=3..5 confirmed this. Independently oriented forward/backward arc sets give Pr(0<->j)=(p^j+p^{n-j}-p^n)^2. Full SCC connectivity is 2p^n-p^(2n)+n(1-p)^2*p^(2n-2); if the only bad edge does not destroy both directed arcs, an orientation is complete, hence the correction counts exactly both-missing edges. With n(1-p)->lambda finite, independent marked Bernoulli arcs converge to two Poisson point processes and, when each has at least one mark, cyclic gaps are finite-dimensional Dirichlet spacings; tightness yields ranked l1 convergence. When n(1-p)->infty and p->1, rare long bidirectional runs yield the Gumbel law using factorial moments, with one-vertex error negligible since -log(p^2)->0. Endpoint p=0,1 and lambda=0 are compatible. Finite checks are not convergence proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van der Hofstad–Pandey arXiv:2403.02137 is a local-to-global giant directed-component theorem for general graph sequences, not a formula for finite cycle ranked spacings.",
+          "Liu–Rolla–Shi model provides infinite transitive setting, with a different limit and no explicit finite-circle law in material read."
+        ],
+        "reasoning": "General graph criteria do not calculate the Poisson double-color mark conditioning or sharp centering for this specified cycle; complete full-text comparison with the 2026 bidirected paper remains unavailable.",
+        "searches": [
+          "Resultary: bidirected cycle directed percolation strongly connected components Poisson spacings Gumbel near perfect",
+          "arXiv:2610.28762 (Liu–Rolla–Shi, 2026-10-20)",
+          "arXiv:2403.02137 (van der Hofstad–Pandey)",
+          "arXiv:2607.24975 (Newman–Grassberger)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.28762 abstract (full text inaccessible)",
+        "arXiv:2403.02137 theorem overview",
+        "arXiv:2607.24975 abstract",
+        "Resultary directed percolation semantic query",
+        "Frozen RESULT.md, verify.py and verification_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Bernoulli longest-run Gumbel and uniform-circle Dirichlet spacings yield pieces once the deterministic SCC reduction is proved.",
+          "General bidirected cluster thresholds do not imply finite-cycle P(K=1)=2p^n-p^(2n)+n(1-p)^2 p^(2n-2) or mixed ranked spacings."
+        ],
+        "reasoning": "The natural reduction makes subsequent limit calculations accessible, but the combined finite cycle theorem and extra Hamiltonian mixture are not explicit corollaries of the located broader statements.",
+        "searches": [
+          "Resultary: bidirected cycle directed percolation strongly connected components Poisson spacings Gumbel near perfect",
+          "arXiv:2610.28762 (Liu–Rolla–Shi, 2026-10-20)",
+          "arXiv:2403.02137 (van der Hofstad–Pandey)",
+          "arXiv:2607.24975 (Newman–Grassberger)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A single surviving clockwise or counterclockwise Hamiltonian circuit forces one SCC, a mechanism absent from pure undirected bond percolation.",
+          "Liu–Rolla–Shi arXiv:2610.28762 studies independently retained bidirected arcs but, in accessible abstract, large infinite-graph SCC thresholds."
+        ],
+        "reasoning": "The SCC-to-bidirectional-cut reduction is an equivalence only after excluding both complete oriented tours; straight transfer of undirected cycle percolation misses the single-tour atom.",
+        "searches": [
+          "Resultary: bidirected cycle directed percolation strongly connected components Poisson spacings Gumbel near perfect",
+          "arXiv:2610.28762 (Liu–Rolla–Shi, 2026-10-20)",
+          "arXiv:2403.02137 (van der Hofstad–Pandey)",
+          "arXiv:2607.24975 (Newman–Grassberger)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-model exact directed-ring SCC census appeared in Resultary semantic hits.",
+          "Frozen checker enumerates all n=3..6 arc patterns and tests exact p=1/3 and p=3/5 rational events for n=3..5; these are original package evidence, not outside published tables."
+        ],
+        "reasoning": "The exact finite formula and limiting law are not known-table recomputations in the searched records, but specialized directed ring reliability tables could exist.",
+        "searches": [
+          "Resultary: bidirected cycle directed percolation strongly connected components Poisson spacings Gumbel near perfect",
+          "arXiv:2610.28762 (Liu–Rolla–Shi, 2026-10-20)",
+          "arXiv:2403.02137 (van der Hofstad–Pandey)",
+          "arXiv:2607.24975 (Newman–Grassberger)"
+        ]
+      },
+      "rationale": "General bidirected percolation in Liu–Rolla–Shi concerns infinite transitive graphs, while this exact finite-circle model has a distinct Hamiltonian single-orientation atom and a Poisson-to-Gumbel complete SCC crossover. Undirected Bernoulli spacings and longest-run extremes are classical inputs; novelty is assessed for the explicit directed model and whole crossover, with possible classical directed-ring reliability formulation retained as risk.",
+      "residual_risks": [
+        "Full text of 2026 same-model bidirected percolation paper was not available; no claim of whole-document NOT_COVERING.",
+        "Classical directed-ring reliability or cycle run-extreme results may contain an equivalent corollary.",
+        "Gumbel regime explicitly requires p_n->1; no assertion for fixed p."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No whole-document noncoverage conclusion; exact finite-cycle result could be inside unread text",
+          "evidence": "arXiv:2610.28762 abstract explicitly focuses on infinite transitive graphs",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28762",
+          "material_read": "Public arXiv abstract and bibliographic metadata; full HTML/PDF not obtainable in this run",
+          "method": "arXiv open-access attempt, search/abstract",
+          "title": "Percolation on Bidirected Graphs",
+          "trigger": "Same independent oppositely oriented arc model, newly published October 20 2026"
+        },
+        {
+          "assessment": "Does not supply specified explicit one-cycle ranked law in material read",
+          "evidence": "arXiv:2403.02137 abstract and theorem overview",
+          "identifier_or_url": "https://arxiv.org/abs/2403.02137",
+          "material_read": "Public theorem statements and abstract about directed-graph giant-component locality; not full-paper verification",
+          "method": "public search/theorem preview",
+          "title": "Are giants in random digraphs 'almost' local?",
+          "trigger": "Potential dominating general strong-component theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural one-dimensional directed percolation model exhibits a qualitatively different single-macroscopic-SCC event from undirected cuts. Its exact connectivity polynomial and complete ranked mass partition, followed by microscopic Gumbel extremes, form a useful connected finite-size/crossover classification rather than routine parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.28762 abstract (full text inaccessible)",
+    "arXiv:2403.02137 theorem overview",
+    "arXiv:2607.24975 abstract",
+    "Resultary directed percolation semantic query",
+    "Frozen RESULT.md, verify.py and verification_output.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full text of 2026 same-model bidirected percolation paper was not available; no claim of whole-document NOT_COVERING.",
+    "Classical directed-ring reliability or cycle run-extreme results may contain an equivalent corollary.",
+    "Gumbel regime explicitly requires p_n->1; no assertion for fixed p."
+  ],
+  "residual_risks": [
+    "Full text of 2026 same-model bidirected percolation paper was not available; no claim of whole-document NOT_COVERING.",
+    "Classical directed-ring reliability or cycle run-extreme results may contain an equivalent corollary.",
+    "Gumbel regime explicitly requires p_n->1; no assertion for fixed p."
+  ],
+  "schema_version": 1
+}
