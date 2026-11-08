@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:49:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With constant mass w_e=rho_e*length_e on each edge and the orthogonal edge basis q0=1-7x/2+5x^2/2, q1=-3x/2+5x^2/2, b=4x(1-x), exact local integration gives nodal Gram H=(3D-A)/24, bubble norm 8/15, inverse 8 sum 3^-j T^j D^-1 strictly positive on a connected graph, and vertex row normalization sum d_u(H^-1)_vu=12. Since integral |q_i|=79/300, each vertex evaluation kernel has L1 norm strictly below 12*79/300=79/25; the interior kernel identity plus explicit two-region shape-function envelope is also strictly below. On Q_d, radial random-walk moments bound sum_edges min(a_u,a_w)<=6/d, yielding norm >=79/25-158/(25d), proving optimal unattained constant. Because K integrates to 1, the maximal negative excursion for 0<=f<=1 equals (norm-1)/2 and tends to 27/25. Independent rational Gram/integral and single-edge kernel checks corroborated the proof. Strict finite-graph supremum and hypercube limiting sharpness have separate arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those primary formulations establish stability or finite-element methods but do not derive a universal sharp constant under unrestricted graph topology and edgewise quadratic basis."
+        ],
+        "reasoning": "Generic Lp stability guarantees at best boundedness under assumptions; they do not imply 79/25 or hypercube realization without the graph-specific decomposition.",
+        "searches": [
+          "Resultary query: continuous quadratic splines metric graph L infinity orthogonal projection sharp norm 79/25 edgewise positive weights hypercubes",
+          "Grigorieff--Sloan PDF discussion of Crouzeix--Thomée and de Boor continuous L2 projections; Arioli--Benzi metric-graph finite elements"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1017/S0004972700032263",
+        "https://arxiv.org/abs/math/0611573",
+        "https://doi.org/10.1093/imanum/drx029",
+        "Resultary: exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing uniform interval stability and higher-dimensional instability cannot by themselves give the all-graph bound, strictness, hypercube sharpness, and positivity defect. These require exact q0,q1,b orthogonality and the M-matrix inverse mass sum."
+        ],
+        "reasoning": "An uninspected specialist paper on metric-graph quadratic mass matrix inverse bounds might contain an equivalent stronger theorem; no positive implication established.",
+        "searches": [
+          "Resultary query: continuous quadratic splines metric graph L infinity orthogonal projection sharp norm 79/25 edgewise positive weights hypercubes",
+          "Grigorieff--Sloan 1998 theorem framework, Oswald math/0611573; current H inverse and hypercube proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grigorieff--Sloan treats spline spaces over a one-dimensional interval mesh with discrete quadrature; Oswald concerns linear splines on planar triangulations; the Resultary simplex result concerns local affine polynomial projections."
+        ],
+        "reasoning": "The present domain admits arbitrary graph branching, continuous quadratic edge bubbles, and a graph-dependent inverse of a weighted nodal matrix, not the same interval/simplex projector.",
+        "searches": [
+          "Resultary query: continuous quadratic splines metric graph L infinity orthogonal projection sharp norm 79/25 edgewise positive weights hypercubes",
+          "Grigorieff--Sloan 1998 DOI:10.1017/S0004972700032263; Oswald arXiv:math/0611573; Resultary exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's affine least-squares projector positivity defect is a simplex in dimension d, with a different function space and constant; no direct metric-graph quadratic norm table appears."
+        ],
+        "reasoning": "No direct exact known-table recomputation was located, but specialized graph spline publications may be underindexed.",
+        "searches": [
+          "Resultary query: continuous quadratic splines metric graph L infinity orthogonal projection sharp norm 79/25 edgewise positive weights hypercubes",
+          "Resultary query exact norm 79/25 graph quadratic orthogonal projection; top relevant 99c2b9dd9b34"
+        ]
+      },
+      "rationale": "Classical interval spline stability, discrete quadrature spline projections, and 2D triangulation counterexamples are strong antecedents. The inspected relevant primary work does not give this exact 79/25 constant for quadratic continuous metric-graph spaces, nor its hypercube limiting sharpness or 27/25 positivity defect. This is a qualified O pass with specialist finite-element literature risk.",
+      "residual_risks": [
+        "Specialist continuous quadratic spline operator-norm literature on graphs might give an equivalent all-topology constant under alternate terminology.",
+        "Constant edgewise density and no derivative matching are essential: neither higher polynomial degrees nor variable densities were analyzed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Develops interval-grid discrete projection Lp bounds, not unrestricted weighted branching metric-graph quadratic 79/25 extremum",
+          "evidence": "Introduction and discussion of discrete versus continuous projection",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7D0DC09E500F27C9A04CE850E6F18BB/S0004972700032263a.pdf/stability-of-discrete-orthogonal-projections-for-continuous-splines.pdf",
+          "material_read": "Primary PDF abstract, introduction, Section 1 discretization, and comparison with continuous interval L2-projection",
+          "method": "Read PDF text and page image",
+          "title": "Stability of discrete orthogonal projections for continuous splines",
+          "trigger": "Close spline-projection stability method"
+        },
+        {
+          "assessment": "Constructs 2D triangulation linear-spline instability, a different topology/dimension and polynomial order",
+          "evidence": "arXiv abstract and setup",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+          "material_read": "ArXiv abstract and model/scope description",
+          "method": "Abstract/scope reading; not presented as full-document NOT_COVERING",
+          "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+          "trigger": "Potential contrary L infinity projection stability phenomena"
+        },
+        {
+          "assessment": "Studies finite elements for quantum graph differential equations, not the sharp L infinity L2 orthogonal projector norm in the source claim",
+          "evidence": "Title and abstract",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+          "material_read": "Bibliographic abstract and finite-element model/scope only",
+          "method": "Abstract inspection, not claimed full-text coverage",
+          "title": "A finite element method for quantum graphs",
+          "trigger": "Finite elements on metric graphs may encompass special basis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp uniform max-norm and positivity-defect constants for edgewise-quadratic orthogonal projection on arbitrary weighted finite metric graphs address stability of a natural finite-element/spline projection under unrestricted branching and degrees. An explicit extremizing topology sequence supplies genuine optimality beyond textbook interval estimates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only finite connected simple metric graphs, positive edge lengths, edgewise constant positive density and C0 quadratics without derivative matching.",
+    "The hypercube deficit rate is a bound, not a fixed-d exact norm; no claims for cubic splines, variable densities, infinite graphs."
+  ],
+  "schema_version": 1
+}
