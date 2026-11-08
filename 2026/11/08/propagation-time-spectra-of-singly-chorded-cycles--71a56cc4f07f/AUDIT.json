@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For every n>=4 and 2<=a<=n-2, no singleton or nonconsecutive two-set can initially force. Starting at an adjacent pair on the length-a arc, two forcing fronts reach the chord endpoints after i and a-1-i synchronous rounds; an early endpoint is blocked from the opposite arc by its two white neighbors until both endpoints are blue. After T=max(i,a-1-i), the length-b arc fills from both ends in floor(b/2) rounds; swapping arcs gives the other formula. Counting max(i,l-1-i) explicitly gives B_l(z), hence the entire enumerator, bounds, complete realized interval, efficient-set parity and cycle comparison. Boundary a=b=2 and seeds at chord endpoints are covered by the proof. Python directly simulated every chord and every original-cycle starting pair for n=4..50, also every other two-set for n<=12. Independent C++ bit-mask code simulated all two-sets for n=4..22. Both passed from the actual standalone public source paths. Finite tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferrero et al., arXiv:2511.16335, Section 1 and named results on propagation-time intervals/fixed propagation, treat general realizability questions; no theorem about the complete minimum-set time spectrum of singly chorded cycles was identified.",
+        "Hogben et al., arXiv:1410.4191, general bounds and examples do not specify the full timing histogram of one-chord cycles.",
+        "The fixed-time and full-interval definitions alone do not give the coefficients of an enumerator, the exact parity dependent efficient-set count, or the individual starting-pair formula."
+      ],
+      "reasoning": "The present polynomial is a weighted refinement of the minimum-zero-forcing-set count. General propagation-time bounds and interval terminology neither determine starting-pair times nor assert the sharp parity effect of an added chord. The explicit graph and parameter domain were checked, not merely title similarity.",
+      "searches": [
+        "arxiv:2511.16335v1",
+        "arxiv:1410.4191v1",
+        "\"cycle with a chord\" \"propagation time\" \"zero forcing\"",
+        "Zero forcing propagation time two parallel paths theta graphs maximum propagation time"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1105.1492v1 (2011-05-08): plain cycle iteration index",
+      "arxiv:1410.4191v1 (2014-10-15): propagation time definitions and example classes",
+      "arxiv:1801.08910v1 (2018-01-26): exact chorded-cycle zero-forcing-set identity, Theorem 22 Claim 1",
+      "arxiv:2511.16335v1 (2025-11-20): propagation interval context",
+      "Public research records for chorded-cycle and propagation-time queries; the nearest timed-path and zero-forcing-polynomial statements were compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyer et al. explicitly prove that C_n and C_n+e have identical zero forcing sets, including the n consecutive pairs, but do not give a parallel-round time formula.",
+        "Chilakamarri et al. give the cycle iteration index ceil((n-2)/2).",
+        "Hogben et al. define efficient forcing sets and minimum/maximum propagation time; these definitions do not imply the values or multiplicities.",
+        "Ferrero et al. frame full propagation-time intervals as a nonautomatic phenomenon."
+      ],
+      "reasoning": "A set-family bijection by itself says only which initial configurations eventually force, not their propagation speeds. Indeed the proven new formula explicitly exhibits equal forcing sets with differing times: C_8 requires three rounds from every adjacent pair, while C_8 with a chord spanning two length-four arcs needs four or five. The known results are used as genuine prior premises, but the timing assertion is not an automatic specialization or numerical substitution.",
+      "searches": [
+        "arxiv:1801.08910v1 Theorem 22 Claim 1 and proof",
+        "arxiv:1105.1492v1 Observation 2.6(iii)",
+        "arxiv:1410.4191v1 Definitions 1.1-1.9",
+        "arxiv:2511.16335v1 Section 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chilakamarri et al., arXiv:1105.1492, Observation 2.6(iii), computes the iteration index of the *plain cycle*, not a chorded cycle.",
+        "Hogben et al., arXiv:1410.4191, Section 1, defines propagation time, efficient forcing sets, and propagation-time intervals, but no singly chorded cycle formula was identified in the inspected text.",
+        "The publicly indexed result \"Local maxima determine temporal zero forcing on injectively timed paths\" concerns timed-path forcing, a distinct rule and graph class."
+      ],
+      "reasoning": "The exact requested invariant is the full distribution of round counts from every minimum two-seed set on one-chord cycles. Cycle iteration indices are not equal to this distribution, and edge-time-restricted temporal forcing on a path uses a different rule. No inspected result implies the seed-resolved formulas or coefficient counts.",
+      "searches": [
+        "Zero forcing propagation time singly chorded cycles exact formula minimum maximum times chord endpoints parity",
+        "Propagation time enumerator of minimal zero forcing sets chorded cycle",
+        "\"chorded cycle\" \"propagation time\" \"zero forcing\"",
+        "arxiv:1105.1492v1",
+        "arxiv:1410.4191v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches retrieved related published work on fan graph zero forcing polynomials, temporal paths and transmission zero forcing of complete multipartite graphs; these give different invariants, with no identical chorded-cycle timing statement located.",
+        "Boyer et al., arXiv:1801.08910, Theorem 22/Claim 1, fixes the number and identity of forcing sets, but its polynomial coefficients enumerate set cardinality, not propagation rounds.",
+        "Known count of minimum sets is n, whereas the new H_{a,b}(z) has n total coefficient sum but nontrivial round-dependent coefficients."
+      ],
+      "reasoning": "The known count tables and zero-forcing-polynomial identity cannot be equated to the new time enumerator. No exact tabulation of the proposed time spectra was observed in the accessible searches; this absence is not a proof of priority.",
+      "searches": [
+        "Zero forcing propagation time singly chorded cycles exact formula minimum maximum times chord endpoints parity",
+        "Propagation time enumerator of minimal zero forcing sets chorded cycle",
+        "Zero forcing polynomial of generalized Petersen graphs and prism graphs, counts of minimum zero forcing sets",
+        "arxiv:1801.08910v1 Section 5.1"
+      ]
+    },
+    "rationale": "The nearest source Boyer et al. (arXiv:1801.08910, Theorem 22 Claim 1) already proves exact equality of the forcing-set families of C_n and C_n+e, which is credited. Chilakamarri et al. (arXiv:1105.1492, Observation 2.6(iii)) give the iteration index only for an unchorded cycle; Hogben et al. (arXiv:1410.4191) introduce propagation-time and efficient-set concepts; Ferrero et al. (arXiv:2511.16335) examine time intervals generally. The proposed invariant is the complete round-count distribution for each minimum pair and its multiplicities. Set membership and count do not imply round counts: a chord can change times while preserving every forcing set. Relevant primary sections, search aliases and database records were checked, with the residual risk of an unindexed equivalent result explicitly acknowledged.",
+    "residual_risks": [
+      "No literature search proves historical uniqueness; unindexed notes, theses, or alternate terminology may contain an equivalent timing formula.",
+      "Broader propagation-time treatments not named in the selected primary sources may contain an implicit specialization; independently checking all such sources remains future scholarly work.",
+      "Previous literature establishes the identical minimum forcing sets, so the claim is confined to dynamic timing and its exact enumeration rather than set identification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_PLAIN_CYCLE_ONLY; does not contain the chorded-cycle time enumerator in the inspected material.",
+        "evidence": [
+          "First public version dated 2011-05-08.",
+          "Observation 2.6(iii): cycle iteration index ceil((n-2)/2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1105.1492",
+        "material_read": "Abstract; introductory definition of iteration index; Observation 2.6(iii) with formula for cycles; adjacent results and references on cycle-like graphs.",
+        "method": "Inspected arXiv full-text HTML and original PDF textual sections (including page 6 of the PDF).",
+        "title": "Iteration Index of a Zero Forcing Set in a Graph",
+        "trigger": "Earliest dated primary source for the cycle iteration index and standard synchronous forcing."
+      },
+      {
+        "assessment": "BACKGROUND_AND_GENERAL_BOUNDS; no matching graph-specific complete distribution found.",
+        "evidence": [
+          "First public arXiv version dated 2014-10-15.",
+          "Definition 1.1 gives synchronous forcing; Definitions 1.6 through 1.9 give efficient sets and intervals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.4191",
+        "material_read": "Section 1 definitions, examples, bounds and interval discussion; subsequent named graph-family content located via full-text searches for cycle and chord.",
+        "method": "Inspected arXiv HTML full text and PDF page 2; searched the text for chord and cycle.",
+        "title": "Propagation time for zero forcing on a graph",
+        "trigger": "Primary development of the exact propagation-time model, efficient sets and time intervals."
+      },
+      {
+        "assessment": "STRONGLY_COVERS_SET_MEMBERSHIP_BUT_NOT_THE_DYNAMIC_CLAIM; the present classification credits this prior set-family theorem.",
+        "evidence": [
+          "First public arXiv version dated 2018-01-26.",
+          "Theorem 22, Claim 1: all zero-forcing sets of the chorded and unchorded cycles coincide.",
+          "No formula for the per-minimum-set simultaneous round counts appears in its directly relevant Claim 1 or adjacent treatment."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+        "material_read": "Sections 1 and 5.1 in arXiv full text, especially Theorem 22, Claim 1 and the complete relevant proof; neighboring structural claims about zero-forcing-set counts.",
+        "method": "Inspected arXiv HTML primary full-text section, original PDF content and page 15 image; searched for propagation-time discussion.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Closest primary source using precisely singly chorded cycles and all original-cycle consecutive pairs."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_THE_EXACT_CHORD_CYCLE_FORMULA in the material inspected.",
+        "evidence": [
+          "First public arXiv version dated 2025-11-20.",
+          "Defines propagation-time sets, gaps, full intervals and fixed propagation times; no chord cycle named in searched text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.16335",
+        "material_read": "Abstract, Section 1 definitions and summary of Sections 2-4; searched the full-text representation for chord-related terminology.",
+        "method": "Inspected arXiv full-text HTML and the primary PDF page 3 image; searched for the named graph family.",
+        "title": "Zero forcing propagation time intervals and graphs with fixed propagation time",
+        "trigger": "Recent general research on full propagation-time intervals, potential stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71a56cc4-f07f-404e-84d9-4a793223fa58",
+  "value": {
+    "rationale": "This is a motivated all-parameter refinement of a published equality that says the static zero-forcing polynomial cannot distinguish cycles from singly chorded cycles. The exact dynamic time enumerator does distinguish them; it provides all possible propagation rounds, sharp minimum and maximum, and the exact 2/3/4 efficient minimum seeds, exhibiting a genuine parity-controlled slowdown despite identical forcing sets. The result is structural for an infinite natural class, not an isolated computation or arbitrary parameter slice. It benchmarks efficient seed placement in a graph infection model and informs how much information static forcing polynomials omit.",
+    "status": "PASS"
+  }
+}
