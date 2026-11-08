@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the matching-chain reversibility theorem
+# Independent mathematical audit
 
-Run `python verify_matching_chain.py` with Python 3.10 or newer; no third-party dependencies are required.
+## correctness
 
-The program independently enumerates all partial matchings for \(N=4,5,6\) (respectively 10, 26, 76 matchings) and builds the exact stochastic transition kernel by applying each possible single-site or Bell-pair measurement. It confirms all row sums equal one; checks pairwise detailed balance against the proposed product measure for positive vertex-additive reciprocal weights and also when an individual vertex potential is negative; and detects nonzero detailed-balance residuals for distance exponents one and two. The five-state Kolmogorov ratio is verified exactly as \(1/2\) and \(1/4\), respectively, at each tested size. All performed checks passed.
+PASS
 
-The proof in `RESULT.md` establishes the infinite parameter family and all finite sizes. Finite enumeration alone would not establish those general conclusions. In particular, the assertion about the full quantum trajectory or any thermodynamic-limit rate is not made. The primary 2026 model and its supplement were compared, as were general monomer–dimer weights and the classical cycle criterion; a more general published result might subsume the classification.
+Positive site deletion and disjoint Bell additions make finite partial-matching chain irreducible. Detailed balance on add/delete edges uniquely forces matching-product measure. Single-edge rewiring automatically obeys its balance equations. Double-edge reconnection has both Bell selections, giving exact fourpoint inverse-rate identity, equivalent by explicit reconstruction to vertex-additive 1/w. The oriented five-matching Kolmogorov cycle has ratio (1/w_ab+1/w_cd)/(1/w_ac+1/w_bd)=2^-alpha for four consecutive distance-weighted vertices. Independent exact rational check of cycle ratios for alpha=0,1,2; all-N proof is algebraic.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
+
+## value
+
+PASS
+
+Sampling distance alpha is an intrinsic physical control of the measurement-only matching model. The theorem gives a complete equilibrium/non-equilibrium boundary and exact stationary Gibbs law, plus a finite, four-site obstruction for every alpha>0, without extrapolation from large systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

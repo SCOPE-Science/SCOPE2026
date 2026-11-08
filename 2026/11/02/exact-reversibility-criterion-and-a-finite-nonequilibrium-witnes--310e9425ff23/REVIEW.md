@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** In the specified positive-rate finite matching Markov chain, adding or removing a disjoint edge determines the only possible reversible stationary law. Single-edge rewiring automatically respects that law. Double-edge entanglement swapping respects it if and only if a reciprocal-weight four-point identity holds. The identity is algebraically equivalent to a vertex-additive reciprocal matrix. A five-state Kolmogorov cycle has exactly computed probability-product ratio \(2^{-\alpha}\) on consecutive sites; the theorem therefore distinguishes the uniform protocol from every positive power-law exponent. Detailed finite-state reconstruction using exact rational probabilities agreed for all matchings of 4, 5 and 6 vertices. The proof applies to arbitrary finite size; the checks are not a substitute.
+## correctness
 
-**Originality — PASS (best-knowledge, not independently certified).** Holdhusen–McAmis–Rahmani (arXiv:2609.28743v2, main text and supplement) introduce the matching automaton, study entanglement scaling, and present uniform-sampling combinatorics; their inspected material does not present the sharp arbitrary-positive-weight reversibility criterion or the finite positive-exponent cycle affinity. Heilmann–Lieb monomer–dimer Gibbs weights and the standard Kolmogorov criterion supply background, not the model-specific double-reconnection equivalence. A broadly phrased reversibility theorem for stochastic matching rewiring might still imply this classification; the available comparisons do not independently certify literature-wide priority.
+PASS
 
-**Value — PASS.** The source's spatial sampling exponent is a physical control of measurement locality. The theorem isolates a mathematically exact nonequilibrium boundary: any positive exponent violates detailed balance in a four-site witness, independently of the number of sites and measurement mixture, whereas a wider nonuniform reciprocal-additive sampling family remains reversible with an exact stationary law. This distinguishes lack of time reversal from the different source phase boundaries in entanglement scaling and identifies when equilibrium monomer–dimer tools are valid for this dynamics.
+Positive site deletion and disjoint Bell additions make finite partial-matching chain irreducible. Detailed balance on add/delete edges uniquely forces matching-product measure. Single-edge rewiring automatically obeys its balance equations. Double-edge reconnection has both Bell selections, giving exact fourpoint inverse-rate identity, equivalent by explicit reconstruction to vertex-additive 1/w. The oriented five-matching Kolmogorov cycle has ratio (1/w_ab+1/w_cd)/(1/w_ac+1/w_bd)=2^-alpha for four consecutive distance-weighted vertices. Independent exact rational check of cycle ratios for alpha=0,1,2; all-N proof is algebraic.
 
-**Limitations.** Outcome-averaged pairing states only; positive pair weights; \(N\ge4\); \(0<p<1\). No quantitative full-channel entropy production or claim of thermodynamic-limit behavior. A general stochastic-network theorem covering this physical process remains an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
+
+## value
+
+PASS
+
+Sampling distance alpha is an intrinsic physical control of the measurement-only matching model. The theorem gives a complete equilibrium/non-equilibrium boundary and exact stationary Gibbs law, plus a finite, four-site obstruction for every alpha>0, without extrapolation from large systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
