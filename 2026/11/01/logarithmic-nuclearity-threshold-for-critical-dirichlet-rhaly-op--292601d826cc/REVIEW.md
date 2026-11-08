@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the coefficient Hilbert model, the Rhaly operator has a precisely defined factorable matrix. The cited two-weight Hardy criterion establishes the boundedness and compactness thresholds. Exact finite-triangle singular values and uniformly invertible local diagonal factors imply the three local Schatten regimes. The off-diagonal logarithmic-slab compression reduces to a weighted discrete Volterra matrix whose trace norm is summable for \(b>1\). Block pinching and local singular-number lower estimates establish both the nuclear threshold and the impossibility of \(\mathcal S_p\) for \(0<p<1\). Finite-section trace-norm growth follows with an additive uniformly bounded cross-slab error. The included program passed 482 supplementary finite checks.
+PASS
 
-## Originality
+The orthonormal coordinate matrix is A(n,k)=[(n+1)(k+1)]^(-1/2) [log(n+2)]^(-b) 1_{k<=n}; this normalization is essential. Weighted Hardy tails have rho_m~(log(m+2))^(1-b) for b>1/2, with divergent tails for b<=1/2, establishing bounded and compact thresholds. Partition indices into I_j of 2^j entries. Each diagonal block is invertibly diagonally scaled from triangular T_{2^j}; the exact s_m(T_N)=[2 sin((2m-1)pi/(4N+2))]^-1 yields block S1 mass ~ (j+1)^(1-b), S_p mass for p>1 ~ (j+1)^(-bp), and subunit S_p mass ~ 2^{j(1-p)}(j+1)^(-bp). The cross-slab part is a block-rank-one lower triangle; after a second dyadic decomposition its group trace norms are O((h+1)2^{h(1-b)}), summable for b>1. Pinching gives the S1 necessity and the uniform error bounded by ||B||_1 in finite-section nuclear growth. No finite calculation has been used as an all-b proof.
 
-PASS, subject to residual publication-priority uncertainty. The 2026 factorable-matrix paper covers boundedness, compactness, and the range \(p>1\), and explicitly singles out the classical Dirichlet case with its Hilbert–Schmidt distinction. It does not state the trace-class classification, the subunit quasi-Schatten obstruction, or finite-section nuclear-growth rates for this critical family. An earlier public mathematical record obtains a comparable trace-class logarithmic threshold for unweighted Rhaly matrices, but the input factor and normed-space realization differ, and its statement does not imply this weighted family by bounded diagonal similarity. The weighted endpoint is proved independently here. Full priority across all historical weighted Volterra theory has not been established.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Classical Dirichlet weights mark the critical boundary omitted from the parameter-uniform 2026 Schatten criterion. The theorem supplies an exact endpoint phase diagram and quantitative finite-dimensional growth for a canonical log-damped family, separating compactness, trace class, and quasi-Schatten regularity. This makes the Dirichlet exception concrete without claiming a general characterization of arbitrary weights.
+No decisive statement-equivalent or stronger-prior implication in the inspected comparisons; this is a bounded best-of-knowledge judgment rather than guaranteed priority. See four named check analyses and actual material-read logs. The already established general p>1 Rhaly claims are explicitly treated as prior.
 
-## Closest literature and scientific limits
+## value
 
-The closest literature is Bellavita–Dellepiane–Stylogiannis (2026 and 2025) and Galanopoulos–Girela (2026). Previously established \(p>1\) membership is credited rather than independently marketed as new. Exact leading nuclear-growth constants and broader arbitrary-symbol criteria remain outside scope; possible earlier general weighted-Hardy implications remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural borderline trace-ideal problem for analytic Dirichlet averaging: the sharp nuclear boundary at b=2 and power/log-log finite-cutoff divergence are not inferred from compactness or known S_p,p>1 theory. The subunit quasi-Schatten obstruction adds an exact ideal cutoff; the logarithmic slab mechanism is reusable. The fact concerns a motivated critical norm, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
