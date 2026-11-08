@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:51:49.074545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Formal-log differentiation gives b_m(n) polynomial recurrence and exact rational margins [∞,6,5,5,4,4,4,4,3,3,3,3,3,3] for n≤14 at k=6. This yields v2(b_m(n))=k−v2(n) and normalized unit u(2^{v2(n)+1}−1)/(n/2^{v2(n)}) mod 8 for every m=2^ku, k≥6, odd u. Legendre three-squares criterion gives the table (u≡1:4/8;3:5/14;5:3/2;7:1/6, for even/odd k). Independent exact-integer recurrence checked the first low-power obstructions 34,10,13,4,8 and m=96→18. Also independently confirmed published even-m power-series congruence recovers ALL required first-14 residues.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published §7 uniform congruence applies to all even m, not only m=2^ku with k≥6.",
+          "Published §7 Problem 7.2 still asks full all-index classification, which is stronger than first-14 table."
+        ],
+        "reasoning": "The published modulo bound is a dominating parameter range and precision for finite n≤14: each first obstruction requires b_m(n) modulo 2^{k−ν₂(n)+3}, no greater than 2^{k+3} already supplied. Legendre then mechanically classifies these indices; it does not solve the full open S_m problem.",
+        "searches": [
+          "three squares colored binary partition b_m(n) 2-adic first forbidden index"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00025-023-01966-8",
+        "Gawron–Miska–Ulas arXiv:1703.01955, coefficient congruence background",
+        "Resultary search for colored binary partition first three-square index",
+        "Legendre three-square theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct independent coefficient check for m=64,128,192,320,448,640 reproduced known §7 congruence modulo 2^{ν₂(m)+3} through n=14.",
+          "The required modulus for normalized odd unit is 2^{k−ν₂(n)+3}, which divides the prior congruence modulus."
+        ],
+        "reasoning": "This is decisive prior implication of the parameter-uniform residue data; applying Legendre and checking finitely many early n gives the advertised sharp index cutoff. The small m=2,4,8,16,32 and m=96 counts are short direct recurrences and do not substantively separate the claim from the published general arithmetic framework.",
+        "searches": [
+          "three squares colored binary partition b_m(n) 2-adic first forbidden index"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sobolewski–Ulas Results in Mathematics 78 (2023) §7, pp. lines 742–746: B_m(x) congruent to (1−x)^m(1+2mP(x)) modulo 2^{ν₂(m)+3} for EVERY even m."
+        ],
+        "reasoning": "Coefficient extraction of this known congruence is an equivalent route to all residue and valuation facts needed for the claimed first-index table; merely introducing polynomial margin coefficients is not mathematically independent.",
+        "searches": [
+          "three squares colored binary partition b_m(n) 2-adic first forbidden index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The article does not print the eight-class rho(m) table, but gives a generating-function congruence determining it exactly; OEIS uncolored entries are not the relevant dominating source."
+        ],
+        "reasoning": "No exact printed table is needed when a known stronger congruence and a standard three-square test mechanically imply every entry.",
+        "searches": [
+          "three squares colored binary partition b_m(n) 2-adic first forbidden index"
+        ]
+      },
+      "rationale": "The 2023 Sobolewski–Ulas primary paper already states the GENERAL even-m generating-function congruence B_m(x)≡(1−x)^m(1+2mP(x)) modulo 2^{ν₂(m)+3}. For m divisible by 64 this is strong enough to determine, by straightforward coefficient extraction through n=14, the entire needed normalized residue table and Legendre obstructions. Direct independent check confirmed these exact first-14 values. The claim is thus a routine first-index specialization of a stronger published statement plus Legendre and finite tabulation, even though the exact table and low-power sample values are not expressly printed in that paper. Originality must be assessed by implication, not missing wording; the remaining small computations do not establish an independent broad claim.",
+      "residual_risks": [
+        "Interpretation of a finite table as a separately publishable consequence may vary, but under the specified implication-based originality bar it is covered.",
+        "The 2023 paper raises the full S_m problem; rejecting this first-index corollary does not claim that full problem has been solved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_MATERIAL_PRIOR_IMPLICATION",
+          "evidence": [
+            "General even-color generating-function congruence has 2^{ν₂(m)+3} precision, exactly enough for n≤14 3-square residue tests."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-023-01966-8",
+          "material_read": "Full accessible open-access rendered primary paper, especially §7 Problem7.2, paperfolding congruence lines 742–746, and earlier 3-square results",
+          "method": "Direct full-text section reading and independent numerical check of §7 congruence",
+          "title": "Values of Binary Partition Function Represented by a Sum of Three Squares",
+          "trigger": "Same b_m and same three-square representability"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first forbidden coefficient for natural colored binary-partition sequences is a well-motivated finite invariant. The exact small-index and high-divisibility cutoff table is useful for testing Diophantine partition questions, although not a classification of all forbidden indices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Interpretation of a finite table as a separately publishable consequence may vary, but under the specified implication-based originality bar it is covered.",
+    "The 2023 paper raises the full S_m problem; rejecting this first-index corollary does not claim that full problem has been solved."
+  ],
+  "schema_version": 1
+}
