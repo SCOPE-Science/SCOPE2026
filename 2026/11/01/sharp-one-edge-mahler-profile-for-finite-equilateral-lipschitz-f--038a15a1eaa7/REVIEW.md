@@ -1,19 +1,21 @@
-# Scientific review: one-edge Mahler profile
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(N\ge3\) and \(0<r\le1\), the object is the real Lipschitz-free unit ball dual to the finite-distance Lipschitz ball, with one exceptional distance and all remaining distances one. The proof reconstructs both polar bodies. The order-chamber Jacobian is unimodular; the beta-binomial identity integrates the \(N!\) simplex chambers exactly to \(r(2(N-1)-(N-2)r)\). The type-A root-polytope facet cones admit spanning-tree unimodular triangulations and their two stretched antipodal cap volumes add without overlap. The rational identities and the unique critical parameter follow directly. Numeric convex-hull evaluations independently reproduce both volumes through dimension six, while exact rational identities were checked through \(N=40\). The finite tests are corroboration, not the all-parameter proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The metric triangle constraints are valid for 0<r<=1 and N>=3. The dual Lipschitz unit ball equals the range<=1 potential polytope cut by |f1-f2|<=r; its N! order chambers have unimodular gap coordinates and beta(s,N-s) rank-gap CDF. Summation and binomial first moment give vol(P)=2(N-1)r-(N-2)r². Its polar Q is the type A root polytope with opposite distinguished roots stretched by 1/r. Root facets indexed by proper nonempty subsets are products of simplices with unimodular staircase triangulations; Vandermonde yields vol(Q)=B_N(1/r+(N-2)/(N-1)). Opposite visible cap interiors are disjoint, so no mixed term. Product is a strictly concave quadratic, stationary point r*=(N-1)/(2(N-2)) inside (0,1) iff N>=4; for N=3 maximizer is endpoint 1. Independently evaluated exact rational beta-binomial and facet sums for N=3..25 at multiple r, reproducing two volume identities; infinite dimensional N results rely on chamber and facet proof.
 
-The closest full primary text is Alexander–Fradelizi–García-Lirola–Zvavitch, arXiv:1911.10642: its §5.2 computes only the undeformed equilateral value, while §5.1 proves abstract nonmaximality for nonsimplicial free-space balls and gives a general local facet-cap volume principle (Lemma 5.4), which is not claimed here as a new method. The present one-short-edge **two-volume identity**, the unique optimizer inside the shortening interval and the limiting amplification \(9/8\) are not covered or directly implied as numerical conclusions. Gordon–Petrov, arXiv:1608.06848, studies root-polytope face combinatorics and unimodular triangulations, not the varying Mahler product. Çelik et al., arXiv:2003.06725, treats Wasserstein polytopes for discrete and product metrics, not this one-parameter weighted metric. A publicly available claim about independently shortened disjoint pairs counts facets and classifies extreme potentials, but does not yield volume formulas. The remaining risk is an equivalent earlier stretched-root-polytope volume calculation under different terminology; absence from searched records is not exhaustive priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite Lipschitz-free space Mahler products are a motivated quantitative problem, specifically raised by the 2019 reference. The formula yields a **complete infinite-dimensional-parameter optimization for a canonical perturbation family**, not only another computation at the undeformed point. In every cardinality \(N\ge4\), the equilateral metric loses optimality under a single shortened distance and a unique interior distortion length restores optimality. The sharp relative improvement tends to \(9/8\), giving a dimension-independent quantitative answer to the nonmaximality phenomenon. The result does not claim a global metric-space maximum or settle higher-dimensional Mahler conjectures.
+Alexander–Fradelizi–García-Lirola–Zvavitch full primary paper supplies the equilateral baseline, general cap principle, and proof that equilateral metric is not globally maximizing for N>=4. Those statements are prior, but do not determine the exact volume polynomial, unique one-edge optimizer and 9/8 gain. Independently published Resultary result for several shortened matching pairs counts facets rather than volumes. Alternative root-polytope radial stretching literature remains a real priority risk.
 
-## Limitations and literature comparison
+## value
 
-The full theorem is limited to real spaces with exactly one shortened metric pair and \(0<r\le1\). The \(N=3\) boundary is included, and the degenerate limit at \(r=0\) is excluded. Earlier results on arbitrary polyhedral deformations or single-root radial variations may express an equivalent fact; a historical-priority search cannot exclude every formulation. The checker needs Python, NumPy and SciPy for its independent hull mode; the proof uses none of those packages.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Lipschitz-free Mahler products are a natural finite-metric geometric invariant. This theorem gives a complete sharp, quantitatively optimized deformation profile in every cardinality, refines known equilateral nonmaximality and identifies asymptotic gain 9/8; it does not claim global maximization over arbitrary metrics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

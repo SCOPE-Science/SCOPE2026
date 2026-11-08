@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Install the dependencies in `requirements.txt`, then run `python volume_checker.py` with Python 3, NumPy and SciPy. The exact combinatorial checks use only the Python standard library; the numerical polytope cross-check uses `scipy.spatial.ConvexHull` and `scipy.spatial.HalfspaceIntersection`.
+## correctness
 
-Executed output:
+PASS
 
-`CHECK_OK exact_volume_identities=567 independently_computed_convex_hull_volumes=30 parameter_N=3..40`
+The metric triangle constraints are valid for 0<r<=1 and N>=3. The dual Lipschitz unit ball equals the range<=1 potential polytope cut by |f1-f2|<=r; its N! order chambers have unimodular gap coordinates and beta(s,N-s) rank-gap CDF. Summation and binomial first moment give vol(P)=2(N-1)r-(N-2)r². Its polar Q is the type A root polytope with opposite distinguished roots stretched by 1/r. Root facets indexed by proper nonempty subsets are products of simplices with unimodular staircase triangulations; Vandermonde yields vol(Q)=B_N(1/r+(N-2)/(N-1)). Opposite visible cap interiors are disjoint, so no mixed term. Product is a strictly concave quadratic, stationary point r*=(N-1)/(2(N-2)) inside (0,1) iff N>=4; for N=3 maximizer is endpoint 1. Independently evaluated exact rational beta-binomial and facet sums for N=3..25 at multiple r, reproducing two volume identities; infinite dimensional N results rely on chamber and facet proof.
 
-The first 456 identities come from separate exact sums over beta-binomial order-chamber volumes and over type-A root-polytope facets, at six rational metric parameters for each of 38 cardinalities. The remaining 111 checks evaluate the unique maximizing parameter, exact ratio, and peak product for cardinalities 4 through 40. Independent numerical convex-hull computations evaluate two actual polytopes at three metric parameters for cardinalities 3 through 7. These results check normalization, dimension and the absence of a mixed tip-volume term.
+## originality
 
-The unrestricted theorem is proved by the determinant-one chamber decomposition, facet-product staircase triangulation, visible-facet cap addition, and single-variable differentiation in `RESULT.md`. Finite calculations do not prove the infinitely many cases or substitute for the geometric facet argument. Independent external mathematical review was not performed.
+PASS
+
+Alexander–Fradelizi–García-Lirola–Zvavitch full primary paper supplies the equilateral baseline, general cap principle, and proof that equilateral metric is not globally maximizing for N>=4. Those statements are prior, but do not determine the exact volume polynomial, unique one-edge optimizer and 9/8 gain. Independently published Resultary result for several shortened matching pairs counts facets rather than volumes. Alternative root-polytope radial stretching literature remains a real priority risk.
+
+## value
+
+PASS
+
+Lipschitz-free Mahler products are a natural finite-metric geometric invariant. This theorem gives a complete sharp, quantitatively optimized deformation profile in every cardinality, refines known equilateral nonmaximality and identifies asymptotic gain 9/8; it does not claim global maximization over arbitrary metrics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
