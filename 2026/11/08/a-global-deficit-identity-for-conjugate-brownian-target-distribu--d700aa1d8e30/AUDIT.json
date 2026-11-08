@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The Brownian backward heat equation yields the Green-kernel identity g(x)=D^{-1}∫min(x,y)f(y)dy, including singular renewal clocks by Tonelli. The renewal mean is g/f. The known conjugate p0=f0²/Z then admits an exact symmetric-kernel AM–GM deficit, nonnegative for all competitors and strict unless f=f0. Characteristic-function/Laplace uniqueness makes f=f0 equivalent to identical reset-duration laws. Finite reference mean follows from E τ0<∞ and Gaussian-tail integrals. The standalone checker passed 37 independent numerical assertions, not used for the all-law proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1607.06048 permits general restart but optimizes fixed-target completion laws by sharp restart.",
+        "arxiv:1107.4225 optimizes Poisson resetting locations and rates, not all iid temporal interval distributions.",
+        "arxiv:2505.16626v2 explicitly says its bounded-domain spatial-rate optimization differs from Evans–Ray temporal optimization."
+      ],
+      "reasoning": "None of these stronger-looking generic restart/target papers implies this fixed-once random-target conjugate-law minimizer without additional arguments; the Brownian symmetric kernel is essential.",
+      "searches": [
+        "First Passage Under Restart Pal Reuveni 2016 arbitrary restart fixed target",
+        "Diffusion with Optimal Resetting Evans Majumdar 2011 target distribution",
+        "How target distributions shape optimal stochastic resetting García-Valladares 2025"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.01941v2, full main text equations (2),(7)-(17), and Supplementary II–VI, especially the explicit admission after Eq. (15) that a true minimum is not established by stationarity",
+      "arxiv:1607.06048 full public article, general renewal ratio and fixed-target sharp restart optimum",
+      "arxiv:1107.4225 full public article Sections 1, 4 and 5, optimization over spatial reset location at fixed Poisson rate",
+      "arxiv:2505.16626v2 full public article Sections I–IV, optimized spatially dependent reset rates in bounded domain",
+      "arxiv:2410.01941v2 distinguishes its stationary clock condition from proven all-law optimality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2410.01941v2 says it remains to confirm whether a stationary protocol truly minimizes; the two families explored are stretched exponential and Gaussian.",
+        "Fixed-Poisson-clock formulas for random targets do not establish global optimization over arbitrary iid reset-time laws.",
+        "The new equality condition identifies a unique clock distribution via Brownian scale-mixture Laplace transforms."
+      ],
+      "reasoning": "The old paper’s claim of an extremal conjugate strategy and selected numerical evidence do not logically prove the all-clock nonnegative gap or its unique equality case. Earlier Poisson moment formulas are compatible but not covering.",
+      "searches": [
+        "arxiv:2410.01941v2 full text numerical minimization after its first variation",
+        "Pal Reuveni First Passage Under Restart 2016 sharp restart",
+        "conjugate target distribution global minimum restart target"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2410.01941v2 derives P_T^*=f²/Z and stationary functional derivative, then states minimization remains to be confirmed; it tests two clock families only.",
+        "The new formula is an exact nonnegative distance-like functional of f/f0 with equality iff the clocks coincide."
+      ],
+      "reasoning": "The known stationary criterion is necessary for optimization, not the asserted sufficient all-clock inequality and strict equality case; no matching squared-ratio identity was found in the inspected full text.",
+      "searches": [
+        "conjugate target distribution global minimum restart target",
+        "arxiv:2410.01941v2 Sections main (2) and (7)-(17) supplementary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The object is a functional optimization theorem over probability laws, not a finite table or database value.",
+        "No identified published table contains an all-clock deficit identity or equality classification."
+      ],
+      "reasoning": "Exact numerical parameter coincidences or known Poisson formulas do not subsume a universal inequality over all iid clock laws.",
+      "searches": [
+        "conjugate global resetting distribution target Brownian Evans Ray proof",
+        "stochastic resetting target distribution P(R) proportional f(R)^2 globally optimal arbitrary renewal reset time"
+      ]
+    },
+    "rationale": "The main source constructs the conjugate density and verifies only vanishing first variation; the source itself notes global minimization remains to be confirmed and reports numerical checks in two restricted families. The present exact squared-ratio deficit and uniqueness across all iid positive reset laws are materially stronger. General restart, spatial Poisson resetting, and bounded-domain rate optimization are distinct. No public full-text source inspected here supplies the same all-law deficit identity; implicit derivability remains a residual publication-priority risk.",
+    "residual_risks": [
+      "General positive-kernel or ratio-symmetrization results outside the inspected literature may implicitly contain the inequality.",
+      "The main paper describes its conjugate protocols as optimal in prose despite explicitly limiting the derivation to stationarity and family-level tests; priority for the all-law claim warrants external assessment.",
+      "Search results do not establish a proof of literature uniqueness; acceptance is based on bounded best-knowledge comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides p0=f0²/Z and first variation; explicitly leaves all-law true-minimum proof outstanding in text, testing only two parametric families",
+        "evidence": [
+          "Main text after Eq. (15) states remaining task is to confirm minimization, then evaluates stretched-exponential and Gaussian waiting-time families",
+          "Supplementary symmetric integral concerns first variation, not a squared ratio of two arbitrary protocols"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.01941v2",
+        "material_read": "Main abstract, introduction, full central derivation including equations (2), (7)-(17), numerical minimality discussion, and supplementary material including symmetry kernel and finiteness",
+        "method": "Read public full-text HTML (not abstracts only), compared proof steps and quantifiers",
+        "title": "Stochastic resetting prevails over sharp restart for broad target distributions",
+        "trigger": "Exact same Brownian random-fixed-target and conjugate density"
+      },
+      {
+        "assessment": "Fixed-target restart result and renewal quotient, not conjugate fixed-once random target all-clock global identity",
+        "evidence": [
+          "Mean E[min(T,R)]/P(T<R) and its sharp restart conclusion for an underlying single completion-time law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+        "material_read": "Full public-text mean first passage formula and sharp-restart optimality discussion",
+        "method": "Read arXiv rendered article and compared completion-law quantifiers",
+        "title": "First Passage Under Restart",
+        "trigger": "Generic renewal identity could dominate optimization claim"
+      },
+      {
+        "assessment": "Changes spatial position-dependent Poisson rules, not arbitrary iid renewal clock distribution",
+        "evidence": [
+          "Introduction specifies r(x) and spatial reset-location distribution P(z) as optimized functions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.4225",
+        "material_read": "Full public-text introduction/model and sections describing spatial reset-location optimization",
+        "method": "Read arXiv article, contrasted temporal and spatial optimization",
+        "title": "Diffusion with Optimal Resetting",
+        "trigger": "Earlier random target and optimized resetting study"
+      },
+      {
+        "assessment": "Different constrained spatial-rate optimization; source explicitly differentiates itself from Evans and Ray temporal-law optimization",
+        "evidence": [
+          "Introduction states their optimization is different from Evans and Ray, optimizing a spatially dependent resetting rate in a finite interval"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.16626v2",
+        "material_read": "Full public HTML model setup and sections I–IV describing bounded-domain and spatially inhomogeneous rate optimization",
+        "method": "Read arXiv HTML and compare objective/allowed controls",
+        "title": "How target distributions shape optimal stochastic resetting",
+        "trigger": "Later related target-distribution optimality study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d700aa1d-8e30-4283-bded-8527a8d55085",
+  "value": {
+    "rationale": "Establishes the missing global-minimization guarantee identified in the motivating research using an exact nonnegative deficit over the entire iid reset-law class. The theorem handles deterministic, exponential, mixture, singular and heavy-tailed competitor clocks and proves uniqueness by an intrinsic Brownian transform, resolving a structural protocol-selection question for random fixed targets.",
+    "status": "PASS"
+  }
+}
