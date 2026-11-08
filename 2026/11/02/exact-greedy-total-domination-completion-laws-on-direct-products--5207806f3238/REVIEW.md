@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The uncovered vertices after an ordered prefix are exactly the intersection of its row-column crosses. The three exhaustive cases for two chosen cells give all legal third and fourth moves, with distinctness and the smallest orders checked. The matching-cover argument independently classifies inclusion-minimal total-dominating four-sets; every permutation of such a set is legal by private-neighbor witnesses. The exact conditional-choice argument derives the two sampling laws. A separate original-adjacency checker verified all terminal histories, minimum-set predicates, and rational sampling probabilities for all 15 unordered dimension pairs with \(2\le m\le n\le6\); the infinite theorem uses proof rather than extrapolation.
+PASS
 
-## Originality
+PASS: Open adjacency is exactly complement of row-or-column cross, so uncovered set after a legal prefix equals the intersection of its selected crosses. Two selected vertices sharing row/column leave an entire row/column, otherwise two opposite cells; all third moves either terminate at length three or leave exactly one cell, so no fifth move. Exhaustive cases give z3 and z4 coefficients and boundary m=2 or n=2. Classifying minimal four-sets by bipartite matching number<=2 yields two-rows/two-columns families and their rectangle overlap, 4! orders each. A uniformly chosen next legal vertex differs from sampling a uniformly chosen completed history; conditional probabilities follow from the first two moves. Independent exhaustive original-adjacency legal-history enumeration and rational policy checks for 2<=m,n<=4 passed.
 
-PASS subject to priority uncertainty. The 2017 product paper arXiv:1712.08780 establishes relevant length bounds and discusses products of complete graphs but does not in its inspected material state the ordered completion enumerator, redundant-completion count, or uniform-history versus uniform-online sampling comparison. The 2016 foundational paper arXiv:1601.07525 defines the invariant and studies scalar extremal results. The earlier setwise classification of minimum total-dominating sets of \(K_m\times K_n\) implies the length-three count and is expressly not treated as a new contribution. A 2020 paper on total-uniform graphs, arXiv:2010.08368, was accessible in abstract/metadata form only, so its uninspected full text is a residual priority risk, not affirmative evidence of noncoverage. Searches using both tensor-product and rook-complement terminology, sequence counts, and randomized greedy laws found no equivalent mathematical statement in the material checked.
+## originality
 
-## Value
+PASS
 
-PASS. Counting ordered legal histories is different from counting final dominating sets and from knowing only the maximum possible length. The theorem measures how often longest greedy histories stop at redundant final configurations, gives the exact boundary for this phenomenon, and exhibits opposite limiting behaviors for two natural randomization schemes on the same graph family. This makes the new exact count relevant to understanding randomized sequential coverage and the effect of weighting histories rather than individual choices.
+Best-of-knowledge novelty rests on a precise target mathematical statement not established or implied by inspected stronger primary results. Existing identical primitives, partial tables, scalar invariants and adjacent object classes are credited; an inaccessible or unindexed equivalent theorem remains a documented risk.
 
-## Residual limitations
+## value
 
-The proof covers two complete factors, and publication priority is not independently certified. Search failure alone does not establish novelty. The 2020 uniformity article's full text and possible unindexed sequence-enumeration work remain material but presently nondecisive risks. The verifier checks finite cases only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Ordered greedy histories and inclusion-minimal final sets are distinct combinatorial objects; exact coefficients and the count of redundant completions quantify their difference. The striking opposite limiting three-step probabilities under uniform completed history vs online uniform legal next choice are a meaningful sampling-bias result not inferred from maximum sequence length alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

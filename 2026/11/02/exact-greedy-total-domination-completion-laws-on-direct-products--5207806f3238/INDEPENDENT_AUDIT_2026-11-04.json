@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:52:59.764356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Open adjacency is exactly complement of row-or-column cross, so uncovered set after a legal prefix equals the intersection of its selected crosses. Two selected vertices sharing row/column leave an entire row/column, otherwise two opposite cells; all third moves either terminate at length three or leave exactly one cell, so no fifth move. Exhaustive cases give z3 and z4 coefficients and boundary m=2 or n=2. Classifying minimal four-sets by bipartite matching number<=2 yields two-rows/two-columns families and their rectangle overlap, 4! orders each. A uniformly chosen next legal vertex differs from sampling a uniformly chosen completed history; conditional probabilities follow from the first two moves. Independent exhaustive original-adjacency legal-history enumeration and rational policy checks for 2<=m,n<=4 passed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Direct-product paper proves scalar longest length bounds and examples, not number of all completions.",
+          "Complete multipartite graph is structurally not K_m x K_n (rook-complement), so its ordered maximum count does not specialize."
+        ],
+        "reasoning": "The scalar extremal theory is a genuine antecedent but cannot imply multiplicity counts or comparison of two sampling measures.",
+        "searches": [
+          "arXiv:1712.08780 Section 2 complete factor direct products",
+          "arXiv:1601.07525 maximum Grundy total domination",
+          "Resultary maximum Grundy complete multipartite graph ordered sequence counts"
+        ]
+      },
+      "checked_sources": [
+        "Bresar et al., On Grundy Total Domination Number in Product Graphs, arXiv:1712.08780, full PDF Introduction and direct product Section 2 through p.8",
+        "Bresar, Henning, Rall, Total Dominating Sequences in Graphs, arXiv:1601.07525 (fundamental definitions)",
+        "OEIS A384117 minimum total dominating sets of K_m×K_n, explicitly a set not history count",
+        "Resultary semantic search: Grundy total dominating sequences direct product complete graphs enumeration ordered legal sequences random greedy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior max length four can constrain polynomial support only; it gives neither z3 nor z4 coefficients.",
+          "Known minimal three-cell matchings do not determine redundant four-cell histories or uniform-online transition probability."
+        ],
+        "reasoning": "The new exact polynomial and competing measures require case analysis beyond prior length and set-count results.",
+        "searches": [
+          "arXiv:1712.08780 Section 2 and conjecture 2.2",
+          "arXiv:1601.07525 legal sequence definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar et al define legal open-neighborhood sequences and max length, same rules, but no ordered full completion distribution in inspected section.",
+          "Existing OEIS A384117 table concerns minimum total dominating sets, not ordered legal terminal sequences."
+        ],
+        "reasoning": "Dominating sets and Grundy length are not equivalent to a sequence-count polynomial or the distribution of terminal online greedy trajectories.",
+        "searches": [
+          "Grundy total domination legal open neighborhood sequences product complete graphs",
+          "arXiv:1712.08780 direct product complete graph",
+          "Resultary semantic search: Grundy total dominating sequences direct product complete graphs enumeration ordered legal sequences random greedy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A384117 tabulates minimum dominating SETS; histories depend on order, legal prefix condition and optional redundant final set.",
+          "Only previously known subset cardinality counts can support some special terms, not all coefficients."
+        ],
+        "reasoning": "An exact table for minimum sets is not the required two-term generating polynomial; no matching ordered-history table surfaced.",
+        "searches": [
+          "OEIS A384117 K_m x K_n total dominating minimum sets",
+          "K_m tensor K_n ordered total dominating legal sequences enumerator"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty rests on a precise target mathematical statement not established or implied by inspected stronger primary results. Existing identical primitives, partial tables, scalar invariants and adjacent object classes are credited; an inaccessible or unindexed equivalent theorem remains a documented risk.",
+      "residual_risks": [
+        "A specialized enumeration of ordered maximal open-neighborhood sequences under rook-complement terminology may already contain some coefficients.",
+        "Total k-uniform graphs paper arXiv:2010.08368 not independently inspected beyond its abstract/metadata.",
+        "The length-three minimum set count is known; only the full ordered polynomial, redundant histories and sampling comparison assessed original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same scalar invariant, does not calculate the ordered polynomial or sampling laws",
+          "evidence": [
+            "PDF p.8 notes complete-graph factors as a case of conjectured scalar equality, not enumerated histories."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.08780",
+          "material_read": "Full PDF Introduction and Section 2 direct product up to p.8, including complete-graph discussion; p.8 screenshot",
+          "method": "Read definitions and maximum length theorem and exact scope, compared to ordered completion distribution",
+          "title": "On Grundy total domination number in product graphs",
+          "trigger": "Same direct product and legal total domination sequence; strongest comparison"
+        },
+        {
+          "assessment": "No documented covered all-history expression in the inspected material; full text not checked this run",
+          "evidence": [
+            "Defines legal total-dominating sequence; originality does not rest on this definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.07525",
+          "material_read": "Abstract and foundational definitions (from public primary text), not full theorem-by-theorem review",
+          "method": "Compared basic open-neighborhood legality and maximal sequence length with enumerator",
+          "title": "Total Dominating Sequences in Graphs",
+          "trigger": "Foundational exact legal sequence definition and known length invariant"
+        },
+        {
+          "assessment": "Not a table of the target sequence distribution",
+          "evidence": [
+            "Entry T(n,m) explicitly counts minimum total dominating sets."
+          ],
+          "identifier_or_url": "https://oeis.org/A384117",
+          "material_read": "Entry definition, initial table and formula",
+          "method": "Checked whether indexed invariant counts sets or ordered greedy histories",
+          "title": "OEIS A384117 minimum total dominating sets in rook graph direct product",
+          "trigger": "Exact database/table for similar K_m x K_n problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Ordered greedy histories and inclusion-minimal final sets are distinct combinatorial objects; exact coefficients and the count of redundant completions quantify their difference. The striking opposite limiting three-step probabilities under uniform completed history vs online uniform legal next choice are a meaningful sampling-bias result not inferred from maximum sequence length alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bresar et al., On Grundy Total Domination Number in Product Graphs, arXiv:1712.08780, full PDF Introduction and direct product Section 2 through p.8",
+    "Bresar, Henning, Rall, Total Dominating Sequences in Graphs, arXiv:1601.07525 (fundamental definitions)",
+    "OEIS A384117 minimum total dominating sets of K_m×K_n, explicitly a set not history count",
+    "Resultary semantic search: Grundy total dominating sequences direct product complete graphs enumeration ordered legal sequences random greedy"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two complete factors K_m×K_n (m,n>=2), completed legal total-domination sequences have exact length polynomial mn(m-1)(n-1)(m-2)(n-2) z^3 + 3mn(m-1)^2(n-1)^2(m+n-2) z^4. The minimal/redundant four-history counts and uniform-history vs uniform-next-move three-step probabilities have the stated closed formulas; their square-factor limits are 0 versus 1.",
+  "limitations": [
+    "Only two factors with each order >=2, complete graph direct product, sequences stop exactly on total domination.",
+    "The sampled next legal moves are uniformly random, not arbitrary biased transition rules."
+  ],
+  "residual_risks": [
+    "A specialized enumeration of ordered maximal open-neighborhood sequences under rook-complement terminology may already contain some coefficients.",
+    "Total k-uniform graphs paper arXiv:2010.08368 not independently inspected beyond its abstract/metadata.",
+    "The length-three minimum set count is known; only the full ordered polynomial, redundant histories and sampling comparison assessed original."
+  ],
+  "schema_version": 1
+}
