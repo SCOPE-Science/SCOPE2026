@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The object is precisely the Lovász open-neighborhood complex of the fifteen-vertex line graph of \(\mathrm{KG}(5,2)\). The proof relates its **integral equivariant** homology to the thirty-vertex bipartite double-cover graph by an equivariant nerve argument with verified singleton intersections, constructs an integral fundamental-cycle basis, and computes the two generator actions using edge permutations. The full exact Smith diagonal has twenty-nine ones and two twos; the standalone standard-library verifier rebuilds the presentation, applies unimodular Euclidean operations, checks cycle boundaries, and independently matches all 120 signed simplicial Lefschetz traces. It proves an exact finite result, with no unsupported infinite extrapolation. Residual risk: an implementation defect not caught by these logically distinct checks remains possible until independent human/code review.
+
+## Originality — PASS against located evidence
+Kamibeppu's general square-free graph model and the later published edge-disjoint-square classification cover the **nonequivariant** homotopy type, which is expressly credited rather than claimed new. Their inspected statements do not give the natural \(S_5\) integral coinvariant group or the seven-class rational character. Shukla's maximum-degree-three and circulant theorem has different scope; Goyal–Shukla–Singh study clique rather than open-neighborhood complexes. Targeted published-finding corpus searches for the Petersen line graph, its aliases, integral coinvariants, Specht representations, the bipartite double cover, and stronger graph-family results returned no equivalent statement. An unindexed or inaccessible calculation, or an unpublished derived module computation, is the central priority risk; negative searching is not proof of novelty.
+
+## Mathematical value — PASS
+The Petersen graph has canonical \(S_5\) symmetry, and taking its line graph supplies a natural nontrivial degree-four neighborhood complex. The rank-thirty-one homology is free, yet the **integral quotient by symmetry** has two independent order-two classes; both disappear rationally. This demonstrates a concrete integral-lattice obstruction invisible to the known circle-wedge homotopy type and to the complete rational character. The exact small symmetric test case can inform integral equivariant topology of graph complexes without claiming a larger classification.
+
+Self-review: passed. Independent audit: not yet performed.
