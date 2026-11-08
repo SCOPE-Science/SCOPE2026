@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:04:01.838285Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k=2^j with j>=1 and both cut sizes a,b>=k−1, computational basis phase is (−1)^{binom(w,k)}=(−1)^{bit_j(w)} by Lucas. Local block bit phases are removed, and the carry sign F_rs=1−2·1_{r+s>=k} yields exact k×k residue coefficient matrix K_rs=2^{−(a+b)/2}sqrt(N_a(r)N_b(s))F_rs. Distinct row differences imply det F=±2^{k−1}; all residue weights positive, so Schmidt rank k exactly. As a,b grow independently at fixed k, residues equidistribute and K→F/k. Then FF^T has entries k−2|r−s|; the antiperiodic discrete Laplacian L satisfies L(FF^T)=4I, eigenmodes give λ_h=[k²sin²((2h−1)π/(2k))]^{-1}, purity 1/3+2/(3k²). Finally pairing odd endpoint frequencies and dominated convergence using q^{-2}(1+log q) yields the iterated Shannon entropy log₂(π²/4)−2/3−12ζʹ(2)/(π²ln2)=2.2808853887532333… bits. k=2 boundary is handled by seam cancellation. Independent direct computational-basis SVD versus K gave discrepancies at most 1.89e−15 in six cases k=2,4,8; independent high-precision odd-series entropy matched the displayed constant. No simultaneous growing-(k,a,b) assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Nöller–Gühne–Gachechiladze primary text addresses symmetry, geometric entanglement and Bell nonlocality, not the complete arbitrary-cut Schmidt eigenvalue multiset in inspected sections.",
+          "Rank lower-bound certificates do not determine all eigenvalues or their entropy."
+        ],
+        "reasoning": "More general state classes or entanglement metrics do not mathematically dominate an exact positive Schmidt spectrum for each eligible cut; a stronger full-spectral theorem would be needed.",
+        "searches": [
+          "Nöller Gühne Gachechiladze symmetric hypergraph states arxiv:2302.01695 entanglement quantification",
+          "Rossi Huber Bruß Macchiavello quantum hypergraph states arxiv:1211.5554",
+          "Fajardo Paraschiv restriction-based Schmidt rank certificate arxiv:2602.21016"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2302.01695",
+        "https://arxiv.org/abs/1211.5554",
+        "https://arxiv.org/abs/1305.0662",
+        "https://arxiv.org/abs/2602.21016",
+        "Resultary query: complete dyadic uniform hypergraph quantum Schmidt spectrum entropy bipartition complete k uniform"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Geometric entanglement is an optimization over product states and does not determine the complete bipartite Schmidt spectrum.",
+          "Lower bounds on Schmidt rank and average entanglement of random ensembles do not imply this deterministic exact spectral law."
+        ],
+        "reasoning": "Prior results supply definitions, symmetry and distinct entanglement functionals. The spectral and finite-entropy statements are not corollaries of those displayed conclusions.",
+        "searches": [
+          "arxiv:2302.01695 geometric entanglement symmetric hypergraph states full primary",
+          "arxiv:2602.21016 Schmidt rank lower-bound hypergraph states",
+          "arxiv:2110.07158 random hypergraph entanglement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Isometric residue compression is equivalent to a Schmidt decomposition and to singular values of a k×k signed carry matrix.",
+          "Resultary hits on unrelated Johnson concentration spectra and graph-polytopes, no matching hypergraph-state cut spectrum."
+        ],
+        "reasoning": "The claim is invariant under local diagonal phase unitaries and under choice of cut subset at fixed sizes. An equivalent signed carry/antiperiodic Laplacian form is explicitly recognized.",
+        "searches": [
+          "Resultary semantic: complete dyadic uniform hypergraph quantum Schmidt spectrum entropy bipartition complete k uniform",
+          "symmetric complete 2^j uniform hypergraph states Schmidt decomposition residue Fourier eigenvalues",
+          "real equally weighted Boolean hypergraph state reduced spectrum Lucas parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact k2/4/8 finite cut SVD matches the residue formula by ≤1.9e−15 in six checked cases.",
+          "No matching exact table emerged from the Resultary query."
+        ],
+        "reasoning": "Known low-k state data might reproduce isolated cases, but not the all-dyadic fixed-k spectrum or analytic iterated entropy limit.",
+        "searches": [
+          "Resultary complete hypergraph state k2 k4 k8 Schmidt spectra",
+          "symmetric hypergraph entanglement exact eigenvalue numerical table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact arbitrary-eligible-cut Schmidt spectrum, fixed-k trigonometric limiting spectrum, and finite entropy despite unbounded rank in an iterated dyadic-arity limit. Hypergraph-state phase definitions and symmetric-state entanglement methods are established; checked prior research emphasizes geometric multipartite entanglement, one-qubit measures, or rank bounds rather than this full cut eigenvalue law.",
+      "residual_risks": [
+        "A specialized full-spectrum treatment of real equally weighted states or Boolean carry matrices could imply the claimed trigonometric spectrum.",
+        "Inspected higher-overlap hypergraph primary text was selected relevant sections, not an assertion of exhaustive coverage across all literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric entanglement and Bell results in inspected material, no general k=2^j all-cut eigenvalue formula established",
+          "evidence": "The studied geometric overlap is a different functional from the full reduced-state eigenvalue list.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.01695",
+          "material_read": "Lawfully accessible full primary text; read relevant setup, symmetry/entanglement Sections 2–3 and searched later Schmidt/entanglement passages",
+          "method": "Full-text targeted inspection of original result and appendix context",
+          "title": "Symmetric hypergraph states: Entanglement quantification and robust Bell nonlocality",
+          "trigger": "Same complete symmetric hypergraph states and plausible higher-coverage entanglement theorem"
+        },
+        {
+          "assessment": "Rank lower-bound certificate, not complete Schmidt weights or entropy",
+          "evidence": "A rank inequality cannot infer a full multiset of positive eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.21016",
+          "material_read": "Accessible abstract and source-cited characterization; full paper not inspected",
+          "method": "Targeted statement/implication comparison",
+          "title": "Restriction-Based Certificate of Bipartite Schmidt Rank in Hypergraph States",
+          "trigger": "Most directly similar Schmidt-rank invariant"
+        },
+        {
+          "assessment": "State class is established prior work",
+          "evidence": "Uniform controlled phase on hyperedges is foundational.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.5554",
+          "material_read": "Introduction/abstract and source definitions",
+          "method": "Foundation verification, not claim of new state definition",
+          "title": "Quantum Hypergraph States",
+          "trigger": "Foundational hypergraph controlled-phase construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete symmetric dyadic hypergraph states are natural highly structured quantum many-body objects. An exact full Schmidt spectrum across arbitrary cuts and a finite limiting von Neumann entropy with growing Schmidt rank give quantitatively meaningful entanglement invariants beyond a mere rank lower bound or numerical estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2302.01695",
+    "https://arxiv.org/abs/1211.5554",
+    "https://arxiv.org/abs/1305.0662",
+    "https://arxiv.org/abs/2602.21016",
+    "Resultary query: complete dyadic uniform hypergraph quantum Schmidt spectrum entropy bipartition complete k uniform"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized full-spectrum treatment of real equally weighted states or Boolean carry matrices could imply the claimed trigonometric spectrum.",
+    "Inspected higher-overlap hypergraph primary text was selected relevant sections, not an assertion of exhaustive coverage across all literature.",
+    "Finite independent verification does not establish unbounded quantifiers; correctness relies on the reconstructed source proof.",
+    "High-priority inaccessible full primary sources remain noted as best-of-knowledge originality risks, not scientific failure.",
+    "Public-bound METADATA.json and AUDIT.json both contain private scope_run_id operational provenance; reviewed exact blobs but complete confidentiality-sanitized public replacement bytes with verified source-tree/blob guards and hashes were not prepared."
+  ],
+  "schema_version": 1
+}
