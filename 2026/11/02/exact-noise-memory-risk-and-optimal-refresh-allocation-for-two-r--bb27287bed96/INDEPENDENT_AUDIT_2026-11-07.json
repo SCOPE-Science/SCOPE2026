@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:17:00.665961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After row 2 sweep, error is t v + ζ_{2}a2 with v perpendicular a2; first/second row projection yields t_k=c² t_{k-1}+c s ζ2,k-1-s ζ1,k, preserving the critical one-sweep lag. Independently cached errors have covariance σ_i²(1-r_i)^h, even at refresh endpoints. Filtering yields stationary variance via exactly summed geometric double kernel (1+uα)/[(1-u²)(1-uα)]. Orthogonality gives R=σ2²+(1/(1+u))[σ1²(1+uα1)/(1-uα1)+uσ2²(1+uα2)/(1-uα2)]; the contraction u<1 yields convergence regardless of Gaussianity. On r1+r2=B, minimization of σ1²/(1-u+ur1)+uσ2²/(1-u+ur2) is strictly convex, first-order ratio gives unique clipped minimizer. Independent rational stationary covariance equations were solved and checked at 96 parameter choices. Does not establish finite-horizon optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coria–Haddock–Pacheco convergence theorem, arXiv:2403.19874; Marshall–Mickelin scheduled learning rates."
+        ],
+        "reasoning": "Linear-filter Lyapunov and autocovariance formulas are standard and could be specialized; the inspected QRK and randomized Kaczmarz bounds do not give this exact Bernoulli cache risk plus a constrained per-row refresh optimizer. Their broader convergence statements use different noise/update assumptions.",
+        "searches": [
+          "cyclic two row Kaczmarz correlated cached noise sample and hold measurements optimal refresh probability",
+          "arxiv:2403.19874 time varying noise randomized Kaczmarz",
+          "arxiv:2202.12224 scheduled learning rate Kaczmarz noise",
+          "cyclic Kaczmarz retained observations Bernoulli refresh stationary mean squared error"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.19874",
+        "https://arxiv.org/pdf/2202.12224",
+        "https://arxiv.org/abs/2201.08620",
+        "Resultary semantic published-finding search: cyclic two row Kaczmarz correlated cached noise sample and hold measurements optimal refresh probability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coria et al. 2024 QRK noise/corruption bounds and Marshall–Mickelin 2022 learning-rate method."
+        ],
+        "reasoning": "A noisy randomized-row convergence upper bound cannot imply the displayed equality under deterministic cyclic order and Markov-retained independent row observations. Deriving the optimizer also needs the exact denominators, not just asymptotic convergence.",
+        "searches": [
+          "cyclic two row Kaczmarz correlated cached noise sample and hold measurements optimal refresh probability",
+          "arxiv:2403.19874 time varying noise randomized Kaczmarz",
+          "arxiv:2202.12224 scheduled learning rate Kaczmarz noise",
+          "cyclic Kaczmarz retained observations Bernoulli refresh stationary mean squared error"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coria–Haddock–Pacheco arXiv:2403.19874; Marshall–Mickelin arXiv:2202.12224."
+        ],
+        "reasoning": "Fixed-order exact two-row cyclic projections with temporally reused right-hand-side measurements differ from randomized Kaczmarz with fresh time-varying noisy equations, and from optimized relaxation/learning-rate schedules. Their update law and objective are not equivalent under a parameter rename.",
+        "searches": [
+          "cyclic two row Kaczmarz correlated cached noise sample and hold measurements optimal refresh probability",
+          "arxiv:2403.19874 time varying noise randomized Kaczmarz",
+          "arxiv:2202.12224 scheduled learning rate Kaczmarz noise",
+          "cyclic Kaczmarz retained observations Bernoulli refresh stationary mean squared error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d549f7251aa1, finite-horizon overrelaxation (different objective)."
+        ],
+        "reasoning": "The risk is a continuum of real angle, noise and budget parameters, not just a finite table; Resultary search found two-row deterministic overrelaxation d549f7251aa1 rather than the rowwise refresh risk. Lack of a table hit is not priority proof.",
+        "searches": [
+          "cyclic two row Kaczmarz correlated cached noise sample and hold measurements optimal refresh probability",
+          "arxiv:2403.19874 time varying noise randomized Kaczmarz",
+          "arxiv:2202.12224 scheduled learning rate Kaczmarz noise",
+          "cyclic Kaczmarz retained observations Bernoulli refresh stationary mean squared error"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical claims, implications, aliases and relevant primary texts; general tools are credited and historical priority is qualified. Fixed-order exact two-row cyclic projections with temporally reused right-hand-side measurements differ from randomized Kaczmarz with fresh time-varying noisy equations, and from optimized relaxation/learning-rate schedules. Their update law and objective are not equivalent under a parameter rename.",
+      "residual_risks": [
+        "Classical linear systems with correlated driving noise or specialized sample-and-hold projection literature might contain an equivalent closed risk after specialization.",
+        "The third Kaczmarz comparator was only read as abstract, not full paper.",
+        "Results require independent stationary centered row noise, two normalized rows, full-sweep assessment and u∈(0,1); no adaptive or correlated refresh claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different randomized algorithm with bounds rather than fixed-order cached-measurement equality or budget allocation",
+          "evidence": [
+            "arXiv:2403.19874, time-varying-noise quantile algorithm and bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.19874",
+          "material_read": "Original PDF abstract, quantile randomized update assumptions and main convergence theorem context",
+          "method": "Read primary method/theorem text and inspected PDF page image",
+          "title": "On Quantile Randomized Kaczmarz for Linear Systems with Time-Varying Noise and Corruption",
+          "trigger": "Closest Kaczmarz time-dependent-noise theory"
+        },
+        {
+          "assessment": "Learning-rate scheduling, not rowwise Bernoulli reuse or fresh-query budgeting",
+          "evidence": [
+            "arXiv:2202.12224, randomized row learning-rate schedule"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12224",
+          "material_read": "Original PDF introduction, noisy observation/learning-rate assumptions and relevant theorems",
+          "method": "Read source method and representative mathematical pages and inspected PDF image",
+          "title": "An optimal scheduled learning rate for a randomized Kaczmarz algorithm",
+          "trigger": "Potential competing noisy-oracle allocation theorem"
+        },
+        {
+          "assessment": "Only an abstract-level difference could be established; deeper priority risk remains",
+          "evidence": [
+            "arXiv:2201.08620 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.08620",
+          "material_read": "Abstract and source metadata only",
+          "method": "Compared publicly available abstract, not claiming whole-paper exclusion",
+          "title": "Extended Randomized Kaczmarz Method for Sparse Least Squares and Impulsive Noise Problems",
+          "trigger": "Other noisy Kaczmarz approach"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model asks how to allocate a fixed costly measurement-refresh budget between nonorthogonal equations under persistent measurement noise. Its exact stationary risk and clipped global optimum reveal a robust near-parallel tradeoff: refreshing only one row may diverge while a balanced refresh stays bounded. This is a motivated algorithmic noise-design result rather than a generic convergence inequality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical linear systems with correlated driving noise or specialized sample-and-hold projection literature might contain an equivalent closed risk after specialization.",
+    "The third Kaczmarz comparator was only read as abstract, not full paper.",
+    "Results require independent stationary centered row noise, two normalized rows, full-sweep assessment and u∈(0,1); no adaptive or correlated refresh claim."
+  ],
+  "schema_version": 1
+}

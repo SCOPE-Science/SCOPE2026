@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly states the row normalization, independent cached-error model, full-sweep order, and all endpoint refresh cases. The exact orthogonal error representation produces the lagged scalar recursion; geometric filtering with the proved autocovariance law gives the displayed stationary risk. Strict convexity of the budget-constrained reciprocal sum proves global uniqueness and the clipped formula. The standalone verifier independently enumerates the conditional second-degree polynomial moment operator for rational cases and validates 8,100 exact rational assertions, but the infinite-time theorem rests on the analytic proof. No Gaussian or independent-audit claim is made.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+After row 2 sweep, error is t v + ζ_{2}a2 with v perpendicular a2; first/second row projection yields t_k=c² t_{k-1}+c s ζ2,k-1-s ζ1,k, preserving the critical one-sweep lag. Independently cached errors have covariance σ_i²(1-r_i)^h, even at refresh endpoints. Filtering yields stationary variance via exactly summed geometric double kernel (1+uα)/[(1-u²)(1-uα)]. Orthogonality gives R=σ2²+(1/(1+u))[σ1²(1+uα1)/(1-uα1)+uσ2²(1+uα2)/(1-uα2)]; the contraction u<1 yields convergence regardless of Gaussianity. On r1+r2=B, minimization of σ1²/(1-u+ur1)+uσ2²/(1-u+ur2) is strictly convex, first-order ratio gives unique clipped minimizer. Independent rational stationary covariance equations were solved and checked at 96 parameter choices. Does not establish finite-horizon optimality.
 
-The preprint of Coria--Haddock--Pacheco, arXiv:2403.19874 (2024-03-28), addresses time-varying-noise quantile randomized Kaczmarz using convergence bounds and horizons, rather than the exact two-row cyclic Bernoulli-retention risk and unique measurement-refresh allocation. Marshall--Mickelin, arXiv:2202.12224 (2022-02-24), address noisy randomized Kaczmarz with optimized learning-rate scheduling rather than this cached-observation allocation. The selected full texts were inspected for the update models and theorem statements. Classical linear-filter covariance identities and convex reciprocal allocation can be used as ingredients but, in the inspected sources, do not explicitly state or dominate this model-specific joint result. Relevant published cyclic Kaczmarz work on overrelaxation, order reversal and stale-iterate delays concerns distinct update mechanisms. Searches cannot certify worldwide novelty; a specialized prior paper on sample-and-hold noisy cyclic projections remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating issue is whether a limited budget of new measurements should be spent refreshing just the most important equation or spread across nearly parallel equations. The theorem gives an explicit feasible minimizer for all positive row variances and nonorthogonal row angles. At budget one and equal variances, exclusive refresh diverges as the two row normals become parallel while equal split stays at limiting risk \(4\sigma^2\); this is a quantitative and operationally motivated boundary, not a routine sign or units check. It does not claim improved finite-horizon work or higher-dimensional guarantees.
+Best-of-knowledge comparison of mathematical claims, implications, aliases and relevant primary texts; general tools are credited and historical priority is qualified. Fixed-order exact two-row cyclic projections with temporally reused right-hand-side measurements differ from randomized Kaczmarz with fresh time-varying noisy equations, and from optimized relaxation/learning-rate schedules. Their update law and objective are not equivalent under a parameter rename.
 
-## Limitations and literature
+## value
 
-The independent-refresh model, strict two-row geometry, stationary second moments, and expected-per-sweep budget are necessary. Direct prior comparisons: arXiv:2403.19874, arXiv:2202.12224, arXiv:2201.08620. Unknown specialized earlier coverage and extension to correlated measurements remain risks. Full public text was available for the two closest preprints; independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model asks how to allocate a fixed costly measurement-refresh budget between nonorthogonal equations under persistent measurement noise. Its exact stationary risk and clipped global optimum reveal a robust near-parallel tradeoff: refreshing only one row may diverge while a balanced refresh stays bounded. This is a motivated algorithmic noise-design result rather than a generic convergence inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
