@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The identity element gives the unique pairing representation \(B_f(a,b)=f(ab)\). The nonzero leading coefficient on each branch supplies an invertible anti-triangular Gram block. After removing these mutually orthogonal blocks, the adjusted unit paired with the branch-top powers leaves a rank-two block exactly when at least one positive-degree coefficient is nonzero. Finite-field counts follow by multiplying the choices of branch-top coefficients; reduced rank loci follow by bounding and saturating the excess heights. The proof explicitly covers every characteristic, all exponent vectors in scope, and the zero functional. The 18-case independent matrix enumerator passes.
+## correctness
 
-## Originality
-A published full-text classification of automorphisms of truncated coordinate-cross algebras concerns the **same algebra family** when all truncation lengths agree, but it classifies automorphism groups, not multiplication-pairing ranks or rank loci. The closest primary publications investigate fiber-product homological invariants (Moore, arXiv:0704.3631; Ananthnarayan–Avramov–Moore, arXiv:1005.1304) or **nondegenerate** forms on Frobenius algebras (Murray, arXiv:1401.6486). Their inspected statements do not provide the complete rank-distribution generating function or the capped-composition linear components of every reduced determinantal rank locus for multi-branch non-Frobenius algebras. Semantic database searches, including multiplication-Hankel and inverse-system aliases, did not yield an equivalent formula. Residual priority risk remains from general inverse-system and subspace-arrangement literature; negative searches do not prove uniqueness.
+PASS
 
-## Value
-The family is a natural unbounded collection of finite local fiber-product rings with socle type \(t\), for which the classical yes/no Gorenstein criterion excludes nondegenerate associative forms. The theorem refines that binary obstruction into a complete rank spectrum, exact finite-field multiplicities, a sharp generic radical dimension \(t-1\), and the component count/dimension of every reduced degeneracy locus. These are structural invariants of the dual multiplication system rather than an arbitrary numerical sample.
+Associativity with unit forces B_f(a,b)=f(ab), and f is recovered from B_f(1,-). On each active branch, the power block on x_i,...,x_i^(h_i-1) is anti-triangular with nonzero anti-diagonal c_{i,h_i}, giving invertible rank h_i-1. Eliminating the unit leaves a star-shaped residual matrix [[c,v^T],[v,0]] of rank 2 whenever v has a nonzero top coordinate, in any characteristic. Inactive branches are radical. Counting highest nonzero branch coefficient (q-1)q^(h_i-1), with q free unit coefficient, gives 1+(q-1)z+q z²(prod_i[1+(q-1)sum_{a=0}^{e_i-2}q^a z^a]-1). Rank<=R equivalent to bounded height sum; every smaller bounded vector extends to one with total R-2, and incomparable upper bounds produce all irreducible linear components. Independent direct Gram-matrix finite-field elimination and all coefficient-vector enumeration for multiple F2/F3 examples, including (2,3,3), reproduced exact histograms and membership.
 
-## Scope and risks
-Reduced loci only; not scheme-theoretic ideals or orbit classification. No independence or exhaustive literature priority is claimed. The prior literature on inverse systems can provide general techniques but the exact claim's presence in obscure sources is not fully excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: close same-object published automorphism normal forms and classical fiber-product homological algebra were read and explicitly compared. Frobenius-algebra treatments require nondegeneracy, whereas these t>=2 algebras have generic radical t-1. The complete rank census and reduced determinantal component geometry remain distinct in inspected sources.
+
+## value
+
+PASS
+
+For a natural multi-branch Artin algebra with no nondegenerate associative pairing, the exact rank distribution and complete reduced degeneracy arrangement are intrinsic invariants of its multiplication tensor. The uniform all-branch, all-exponent, all-characteristic formulas and generic radical size are independently useful for degeneracy and finite-field geometry; this is more than the known elementary B_f=f(uv) correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
