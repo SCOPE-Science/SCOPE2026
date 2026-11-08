@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python3 checker.py` with Python 3 and no third-party packages. The checker constructs cyclotomic polynomials by exact monic polynomial division, reduces individual roots of unity in the corresponding integer quotient rings, and compares their four-term vanishing tests against the congruence lemma. It exhaustively compares the first-zero and multiple-zero histograms for \((b,L)=(2,4),(3,2),(4,3),(6,2)\). The successful run prints `FOUR_ATOM_SIMPLEX_EXACT_CYCLOTOMIC_OK`.
+# Independent mathematical audit
 
-Observed counts for exactly zero, one and two vanishing mask factors among residue triples modulo \(b^L\): at \((2,4)\), \((2341,1185,570)\); at \((3,2)\), \((729,0,0)\); at \((4,3)\), \((223039,38277,828)\); and at \((6,2)\), \((43329,3309,18)\). A finite exhaustive computation is a check at the stated levels, not an infinite proof. The paper's elementary geometric lemma, transition matrix, and cylinder-tail argument supply the infinite proof.
+## correctness
 
-Independent audit has not been performed. The 2012 exact-object paper's complete text was inaccessible in the bounded source comparison; equivalent historical derivations remain a possibility.
+PASS
+
+The infinite convolution has product mask (1+Σ_i e^(2πim_i/b^j))/4 with summable factor deviations; nonzero factors give a nonzero product. Four unit vectors sum to zero only in opposite pairs; since one term is 1, for even b a zero occurs at a level iff one coordinate is b^j/2 mod b^j and the two remaining coordinates differ by b^j/2; odd b has no zeros. The two live residue patterns A=(0,0,0) and B_i=(0,u,u), u≠0, encode all possible future zeros. Transition recurrences produce G_b(z)=3z((b-1)b²-z)/[(b³-z)(b²-z)] and q_{b,j}=3/(b-1)[b^(-3j)+(b-2)b^(-2j)]. A cancellation from B is terminal, and from A can leave B only, so at most two levels, with double density 3/[(b³-1)(b²-1)]. The late-level event is bounded by (1+3(b^L-1))/b^(3L), validating natural densities. Independently enumerated congruence cancellations for (b,L)=(2,4),(4,3),(6,2): first-level counts (1536,192,24,3), (36864,2112,129), (3240,87); b=4 double count 828 of 262144. Finite checks corroborate but do not prove all b,L.
+
+## originality
+
+PASS
+
+PASS qualified: the zero-locus congruence families for this four-digit self-affine measure, its even/odd spectral behavior, and the dyadic special case are established. The new claimed scope is complete first cancellation distribution and two-level density for all even integer scales, particularly even composites; identical-parameter Li 2012 full text remains unread.
+
+## value
+
+PASS
+
+Exact first-null-level and multiplicity densities on the full integer lattice clarify Fourier orthogonality structure of a canonical self-affine gasket family beyond the known zero locus; these are natural complete counting invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

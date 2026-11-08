@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four-unimodular-summands lemma follows from the unique unordered pair with any fixed nonzero sum. It gives the complete mask congruence (1); the Fourier product has a summable tail. An exhaustive base-digit classification yields precisely the live states \(A\) and \(B_i\), with transition counts \(3(b-1),1,3(b-2)\) from \(A\) and \(b,b\) from \(B_i\). The two-state generating-function calculation proves the full first-zero distribution. A separate post-hit state argument proves at most two levels and their exact density. Finite-cylinder tail domination proves *natural* rather than merely profinite densities. The standalone exact cyclotomic checker independently compared the claimed mask congruence with polynomial divisibility and tested the stated count formulas at four parameter pairs. Its finite tests do not replace the analytic proof.
+## correctness
 
-## Originality
-**PASS under bounded literature review, with a specific unresolved source risk.** Li (2012) treats the same four-digit spatial Sierpinski measure, and the full accessible article of Lu–Dong–Zhang (2019) explicitly credits and supplies the known *zero-set decomposition*; those results are not claimed as novel. Dutkay–Jorgensen (2006) covers the Fourier-product framework. Lam–Leung (1995) develops general root-of-unity cancellation. Searches for lattice null-density, first-zero generating functions, and simultaneous two-level cancellation found no directly covering theorem. A complete inspection of Li (2012) was unavailable, so historical priority for these statistical refinements cannot be certified. No claim of independent verification is made.
+PASS
 
-## Mathematical value
-**PASS.** Among the canonical self-similar measures on the spatial Sierpinski simplex, exact lattice Fourier-null density gives a natural invariant of the kernel of the associated torus convolution operator. The two geometric poles in the first-zero generating function and the sharp two-level restriction isolate how first and later radix digits interact, including mixed-factor even radices such as six. The eight-digit dyadic and prime-base counts do not supply this scalar-radix formula, although the special scale \(b=2\) had been studied. This solves an entire even-scale family and distinguishes it from every odd scale, rather than selecting a small, arbitrary finite instance.
+The infinite convolution has product mask (1+Σ_i e^(2πim_i/b^j))/4 with summable factor deviations; nonzero factors give a nonzero product. Four unit vectors sum to zero only in opposite pairs; since one term is 1, for even b a zero occurs at a level iff one coordinate is b^j/2 mod b^j and the two remaining coordinates differ by b^j/2; odd b has no zeros. The two live residue patterns A=(0,0,0) and B_i=(0,u,u), u≠0, encode all possible future zeros. Transition recurrences produce G_b(z)=3z((b-1)b²-z)/[(b³-z)(b²-z)] and q_{b,j}=3/(b-1)[b^(-3j)+(b-2)b^(-2j)]. A cancellation from B is terminal, and from A can leave B only, so at most two levels, with double density 3/[(b³-1)(b²-1)]. The late-level event is bounded by (1+3(b^L-1))/b^(3L), validating natural densities. Independently enumerated congruence cancellations for (b,L)=(2,4),(4,3),(6,2): first-level counts (1536,192,24,3), (36864,2112,129), (3240,87); b=4 double count 828 of 262144. Finite checks corroborate but do not prove all b,L.
 
-## Sources and residual limits
-Primary references are Lam–Leung (arXiv:math/9511209), Dutkay–Jorgensen (arXiv:math/0604547), Li (DOI 10.1017/S0013091511000502), and Lu–Dong–Zhang (DOI 10.1515/forum-2019-0062). Older equivalent first-hit or density computations may exist; the 2012 exact-object text was not available. Only integer frequencies, four uniform digits and isotropic integer scales are treated; counting scale cancellations is not analytic order of zeros.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: the zero-locus congruence families for this four-digit self-affine measure, its even/odd spectral behavior, and the dyadic special case are established. The new claimed scope is complete first cancellation distribution and two-level density for all even integer scales, particularly even composites; identical-parameter Li 2012 full text remains unread.
+
+## value
+
+PASS
+
+Exact first-null-level and multiplicity densities on the full integer lattice clarify Fourier orthogonality structure of a canonical self-affine gasket family beyond the known zero locus; these are natural complete counting invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
