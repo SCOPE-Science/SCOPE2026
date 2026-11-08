@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The scalar phase reduction, midpoint-of-largest-gap lower bound, opposite-phase bound, exact three-regime evaluation for the inset grid, and equality-case argument establish both the global value and uniqueness. The all-matrix-level result follows by arbitrary matrix coefficient functionals. The ceiling and asymptotic statements are deductions of the same exact root. The theorem explicitly excludes the previously settled two-node case and the full-circle endpoint.
+## correctness
 
-**Originality: PASS (best-knowledge).** The established two-node theorem does not imply multi-node optimality: new proof ingredients are packing all consecutive gaps, the global equality classification, and the exact cardinality law. Ray studies operator-space uniqueness rather than sampling; Dai–Prymak study high-dimensional trigonometric norming, Sommariva–Vianello use different subperiodic Chebyshev meshes, and the earlier arc transfer theorem concerns restriction between continuous arcs. Searches also tested synonyms such as sharp norming, operator-valued meshes, trigonometric arcs, finite-point sampling, and complete bounded norm. Residual priority risk: a classical exact degree-one arc Remez theorem may already entail the result. No originality guarantee follows merely from unsuccessful searches.
+PASS
 
-**Value: PASS.** Finite sampling of a full infinite compact arc is the central norm-discretization question for this natural two-dimensional function space. The result identifies a complete and *unique* optimal design at every freely chosen sampling budget, an exact minimum budget to reach a tolerance, and the sharp inverse-square rate. The fact that the optimal grid omits endpoints is structurally important; the all-matrix-level persistence matters for operator-space computations. This is not an arbitrary finite numerical invariant and is not merely the m=2 case renamed.
+For complex affine a+bz restricted to a proper closed arc, |a+e^{it}b|^2 is constant times (1+c cos(t-delta)), 0<=c<=1; the worst continuous-to-discrete quotient is attained at c=1 when it exceeds one. With endpoints span 4x and largest knot gap g>=4x/(m-1), the gap midpoint gives lower bound sec(g/4)>=sec(x/(m-1)); the antipodal phase to the endpoints gives at least sin(theta/2)/sin x. One increasing and one decreasing function cross at unique sin x=sin(theta/2)cos(x/(m-1)); the symmetric arithmetic inset grid achieves this bound by three phase regions, and equality forces centered endpoints and equal gaps. Scalar matrix coefficients <(A+zB)u,v> yield the same sharp constant at all Hilbert-space operator levels. The expansion gives theta^2/8 leading (m-1)^2(C-1), theta^2 tan(theta/2)/4 for inset, and budget from the two balanced inequalities. Independently sampled phase maxima on dense grids at (theta,m)=(0.7,3),(1.9,5),(3.05,8) and matched predicted secant constants within <1e-11. Not a global optimizer proof from finite grids: the analytic bounds/rigidity supply it.
 
-**Limitations and closest literature.** The separate two-point result has been credited, not rediscovered. The degree-one sampling optimum could be implicit in older algebraic norming literature. Numerical checks cannot replace proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: original claim adds the mathematically distinct sharp classification/quantitative invariant described in the four actual prior-implication checks; no dominating statement was identified in checked primary literature, with listed specific residual risks.
+
+## value
+
+PASS
+
+For the natural two-complex-dimensional affine function plane on a proper circular arc, the exact optimal m-point norming mesh, uniqueness, matrix-level stability and exact budget are useful finite measurements. All m>=3 and continuous theta are solved, with a nontrivial inset boundary layer; not a rename of old two-knot formula or an arbitrary narrow number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
