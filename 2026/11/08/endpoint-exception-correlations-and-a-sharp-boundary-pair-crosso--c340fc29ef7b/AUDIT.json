@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Conditional source/path counting gives exact joint and marginal probabilities. AM-GM proves strict endpoint negativity. One-closed-edge expansion proves the precise high-p sign coefficient, and p=0 gives negative baseline. Integer CDF counts give strictly positive nonconstant coefficients of F_n/(1-p), yielding a unique boundary-adjacent root and its asymptotics. Full finite enumeration in check.py passed 20,483 exact rational assertions, but the unrestricted proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharkey et al. (2013), https://link.springer.com/article/10.1007/s11538-013-9923-5, main theorem and discussion of pure state initialization",
+        "Hall and Siebert (2021), https://arxiv.org/abs/2108.07128, Sections 1-2, single initially infectious node equations",
+        "Rodríguez et al. (2018), https://arxiv.org/abs/1807.06909, Sections II-III, contemporaneous infectious-state correlation counterexample"
+      ],
+      "reasoning": "The frameworks can produce state probabilities but do not by themselves prove the proposed sign dichotomy after mixing random initial sources. The 2014/2018 infection-status discussion uses finite-time current state, not final ever-infected indicators of a single uniformly random seed in an independent-bond model.",
+      "searches": [
+        "SIR epidemic correlations infection indicators tree final recovered states negative positive",
+        "exact equations SIR epidemics on tree graphs Sharkey Kiss Wilkinson Simon",
+        "exact solutions and bounds network SIR SEIR rooted-tree Hall Siebert",
+        "Nodal infection in Markovian susceptible-infected-susceptible and susceptible-infected-removed epidemics on networks are non-negatively correlated"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/0408176v1",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2186204/",
+      "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+      "https://arxiv.org/abs/2108.07128",
+      "https://arxiv.org/abs/1807.06909",
+      "https://doi.org/10.1103/PhysRevE.89.052802"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kenah and Robins (2007) give a component correspondence, but not the all-n sign statement",
+        "Sharkey et al. (2013) prove exact tree moment equations for Markovian SIR with pure-state initials; theorem here is about independent bond percolation and a random source",
+        "van den Berg et al. (2004) prove conditional correlation inequalities for fixed roots and their connected components"
+      ],
+      "reasoning": "It is possible to derive the finite joint expression using general component theory, but its all-p strict endpoint sign, all-pairs high-p coefficient, unique boundary-adjacent root, and asymptotic expansion require additional exact comparison and coefficient analysis not implied in a cited prior theorem. No stronger inspected result dominates this combined claim.",
+      "searches": [
+        "uniform source SIR epidemic infection final status pairwise covariance line graph adjacent endpoints",
+        "independent cascade uniform random source negative correlation node activations path graph",
+        "comment 2018 nodal infection Markovian SIR negative covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "van den Berg et al. (2004), https://arxiv.org/html/math/0408176v1, Theorems 1.1-1.4 discuss fixed-root cluster connectivity conditioned on disconnection",
+        "Kenah and Robins (2007), https://pmc.ncbi.nlm.nih.gov/articles/PMC2186204/, Section 1 and Appendix motivate percolation components"
+      ],
+      "reasoning": "Averaging a random unique source across all path vertices generates negative between-source covariance absent in fixed-root FKG/association statements. The endpoint sign and adjacent unique switch are not rephrasings of fixed-root positive association or general outbreak-component characterization.",
+      "searches": [
+        "independent bond percolation path graph uniform random root infected indicators covariance positive negative correlation sign",
+        "uniform root percolation path epidemic co-infection pair covariance sign transition near full transmission",
+        "uniform random seed bond percolation infection vertex covariance path graph negative correlation",
+        "SIR final size node infection indicator covariance negative correlations unknown random initial infective network tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "van den Berg et al. (2004) present conditional fixed-source inequalities, not a table of mixed-source covariance thresholds",
+        "Kenah and Robins (2007) describe component probabilities and outbreak sizes, not a path-pair sign table",
+        "Sharkey et al. (2013) give general tree-state equations, not a closed endpoint-adjacent crossover formula"
+      ],
+      "reasoning": "No exact path-pair sign table or equivalent threshold was located in the inspected primary articles or index-search results. An unsuccessful search does not establish priority.",
+      "searches": [
+        "on a path graph, random uniformly chosen infected root, independent bond percolation, endpoint infection indicators are negatively correlated at all p, interior pairs switch positive",
+        "endpoint adjacent pair covariance exact polynomial root threshold in finite path epidemics",
+        "independent cascade uniform random source negative correlation node activations path graph"
+      ]
+    },
+    "rationale": "Exact uniform-random-source path covariance classification, endpoint-only perpetual anticorrelation, and the unique endpoint-adjacent threshold were compared with relevant literature searches and inspected full-text scientific sources. The general epidemic-percolation and tree-equation frameworks do not state the claimed sign geometry; fixed-root association is not the unconditional random-root covariance; finite-time infectious-state correlation is a different observable. Historical priority remains provisional.",
+    "residual_risks": [
+      "The 2014 Cator/Van Mieghem article full text was not obtained; its abstract and the full 2018 comment indicate different state/time observables.",
+      "A combinatorially equivalent random-root percolation or path-reliability result might exist under an unsearched title; lack of search hits is not a proof of novelty.",
+      "The analysis is limited to independent undirected bonds; arbitrary Markovian SIR infectious-period dependence is outside scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; fixed-root conditional cluster association, not uniform random-root final infection indicators",
+        "evidence": "Sections 1 and 3 explicitly fix source vertices s,t and condition on connectivity/nonconnectivity.",
+        "identifier_or_url": "https://arxiv.org/html/math/0408176v1",
+        "material_read": "full accessible HTML article, especially Sections 1 and 3, Theorems 1.1-1.4 and 3.2",
+        "method": "HTML full-text inspection and targeted searches for negative correlations, fixed roots and graph assumptions",
+        "title": "Some Conditional Correlation Inequalities for Percolation and Related Processes",
+        "trigger": "possible stronger positive/negative association theorem on bond percolation"
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING; random contact percolation components and sizes, not pair-sign classification",
+        "evidence": "Introduction and Section 1.2 describe out-components and outbreak-size distributions.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2186204/",
+        "material_read": "accessible full-text main exposition, Introduction, Section 1.2, framework and appendix description",
+        "method": "HTML full-text sections and term searches for covariance and random seeds",
+        "title": "Network-based analysis of stochastic SIR epidemic models with random and proportionate mixing",
+        "trigger": "earliest core percolation-epidemic bridge and outbreak components"
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE; pure initial states and time-indexed Markovian SIR equations, not uniform-root percolation sign law",
+        "evidence": "Theorem 1.1 requires pure states and discusses exact closure; no endpoint-exception covariance result.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+        "material_read": "full accessible article structure, introduction and Theorem 1.1, Section 2 including open triple",
+        "method": "Springer HTML main-result and model comparisons",
+        "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+        "trigger": "general exact moment equations that might imply pairwise covariance"
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE; addresses exact time-dependent node-state marginals with fixed initial source, not mixed-source pairwise final covariances",
+        "evidence": "Introduction identifies rooted-tree differential equations for a single infectious initial node.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.07128",
+        "material_read": "accessible arXiv HTML main introduction, Sections 1-2, equations/claims and cited results",
+        "method": "arXiv HTML plus Springer HTML comparison",
+        "title": "Exact solutions and bounds for network SIR and SEIR models using a rooted-tree approximation",
+        "trigger": "single-source chain closed form potentially dominating final moments"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE; current infectious-state covariance at finite time, fixed seed; not ever-infected indicators with uniform random source",
+        "evidence": "Section III explicitly computes covariance at time 1 for fixed initial infected node on a two-vertex path.",
+        "identifier_or_url": "https://arxiv.org/abs/1807.06909",
+        "material_read": "entire accessible arXiv HTML text, Sections I-III",
+        "method": "read full article including two-node path counterexample and variable definitions",
+        "title": "Comment on Nodal infection in Markovian ... non-negatively correlated",
+        "trigger": "explicit negativity on path in an epidemic correlation paper"
+      },
+      {
+        "assessment": "NOT_RESOLVED_BY_FULL_TEXT; apparent positive-correlation claim concerns contemporaneous current infection status and Markovian process, not the specified percolation final statuses; original full text remains a risk",
+        "evidence": "Publisher abstract dated 2014-05-01 and 2018 commentary identify the variables as current SIR/SIS infection statuses.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.89.052802",
+        "material_read": "abstract, publication metadata and detailed 2018 comment discussion of its construction; original full body not accessible",
+        "method": "publisher HTML abstract and cross-reference through full text of 2018 comment",
+        "title": "Nodal infection in Markovian ... non-negatively correlated",
+        "trigger": "plausible universal positive-correlation claim and follow-up controversy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c340fc29-ef7b-4e2c-942c-43c47837b2d1",
+  "value": {
+    "rationale": "The precise dependence of final infection indicators can change sign depending on contact-position geometry even under homogeneous independent transmission and one shared outbreak source. The endpoint-only permanent anticorrelation, all-other-pairs high-transmission positivity, and exact inverse-path-length boundary-pair transition give nontrivial analytic benchmarks for network surveillance covariance modeling and dependence interpretation, not merely a single numerical example.",
+    "status": "PASS"
+  }
+}
