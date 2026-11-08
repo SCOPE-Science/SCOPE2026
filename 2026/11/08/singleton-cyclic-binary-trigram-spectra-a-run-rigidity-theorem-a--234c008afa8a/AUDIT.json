@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Every cyclic trigram multiplicity equals a run-singleton count, long-run count or run-length excess, which fixes independent zero- and one-run vector statistics. Stars-and-bars counts each ordered vector as binom(r,s)binom(T+r-s-1,r-s-1); elementary binomial inequalities give 1, r or >r possibilities, with 1 exactly U and r exactly D. Diagonal cyclic shifting of r paired run positions yields one orbit precisely for U/U,U/D,D/U. Summing run-total weights gives the stated rational generating function and asymptotic 8n/3 + O(1). Actual standalone verify.py checks 1,048,574 words, 58,833 necklaces, full singleton classifications n<=19, and 120 rational coefficients. Infinite proof is independent of finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acosta–Tomescu arXiv:2208.08522, Introduction and Corollary 1: all parallel edges imply nonuniqueness of edge-distinguishable Euler circuits; our model counts distinct cyclic bit strings and admits arbitrary repeated trigrams.",
+        "Ota–Manada DOI:10.1587/transfun.2023TAP0015, complete scientific sections 2–5, including condition 2 and its proof: tests unique reconstruction using fixed-window frequencies and minimal absent factors for aperiodic circles, but does not enumerate singleton three-spectrum fibres of all lengths.",
+        "Gabrys–Milenkovic arXiv:1804.04548, Sections I–III: design of linear-spectrum codebooks with read lengths scaling with n; no fixed cyclic three-spectrum census."
+      ],
+      "reasoning": "There are broader algorithms for deciding whether one observed reconstruction is unique, but a general decision procedure does not itself give the explicit necessary/sufficient run-type classification, the all-length generating function or its linear asymptotic. The labeled-edge Eulerian uniqueness theorem tests a stronger and often false condition when parallel occurrences are indistinguishable, so it does not subsume this exact string-fibre classification.",
+      "searches": [
+        "unique Eulerian circuit binary de Bruijn graph k-mer counts reconstruct circular sequence characterization",
+        "\"3-spectrum\" \"unique\" reconstruction circular binary necklace",
+        "circular sequence reconstruction unique Eulerian circuit repeats k-mer 2019",
+        "Binary circular trigram k-mer multiset singleton reconstruction classification number uniquely reconstructible profiles"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1804.04548v2 (full-text HTML main sections)",
+      "arxiv:2208.08522 (full-text HTML sections 1–3)",
+      "doi:10.1587/transfun.2023TAP0015 (publisher PDF scientific sections)",
+      "OEIS A217689, unequal next term and unrelated definition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ota–Manada states a general necessary/sufficient reconstruction criterion, not a closed formula or all-n exact fibre classification.",
+        "Acosta–Tomescu studies edge-distinguishable Euler circuits, whereas parallel identical three-grams do not identify separate cyclic outputs.",
+        "Gabrys–Milenkovic gives codebook constructions in a distinct linear model, not an unrestricted census.",
+        "A related classification of loop-free ternary digram singleton spectra uses a different alphabet, window size and run object."
+      ],
+      "reasoning": "None of the inspected theorem statements gives the conjunction of the labeled binary cyclic length-three word model, explicit U/D/X reconstruction class, and the rational generating function. A generic unique-reconstruction algorithm is relevant background but does not automatically supply this substantive exact infinite-family count. Residual unindexed, indirect mathematical equivalences remain possible.",
+      "searches": [
+        "Exact generating function uniquely reconstructable binary 3-spectrum k=3 cyclic words necklaces",
+        "Binary circular trigram k-mer multiset singleton reconstruction classification number uniquely reconstructible profiles",
+        "\"number of unique\" \"3-spectra\" \"binary\" strings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact eight-vector is the cyclic 3-mer frequency multispectrum and also the multiset of length-three directed de Bruijn edges, modulo interchangeability of identical edges.",
+        "Ota–Manada 2023, Theorem 1, pages 412–413: general automaton-based reconstruction; no enumeration formula of the singleton length-three fibre.",
+        "A related length-two adjacent-pair multispectrum classification concerns linear words and a different read length, rather than cyclic trigrams."
+      ],
+      "reasoning": "Equality of string spectra is exactly equality of both zero- and one-run singleton counts and length-excess totals. The present U/D/X classification is a closed statement about unlabeled, identically repeated trigram occurrences, not uniqueness of distinguishable graph-edge tours or uniqueness relative to a designed codebook. No equivalent classification was found among the retrieved records.",
+      "searches": [
+        "Binary circular trigram k-mer multiset singleton reconstruction classification number uniquely reconstructible profiles",
+        "Exact generating function uniquely reconstructable binary 3-spectrum k=3 cyclic words necklaces",
+        "de Bruijn order two edge multiplicities unique Eulerian cyclic word binary trigrams",
+        "\"trigram\" \"cyclic\" \"unique\" \"reconstruction\" binary multiset words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A217689 is an unrelated OEIS integer sequence: the next term after 19 is 23 rather than the present 22.",
+        "An earlier all-profile enumeration concerns every realizable cyclic binary trigram histogram, whereas the singleton-fibre count here first differs at length 6.",
+        "The exhaustive verifier reproduces 2,3,4,6,8,12,16,19,22,24,28,29,... for singleton spectra through n=19."
+      ],
+      "reasoning": "The concrete string of initial values was searched against OEIS and web material; the nearest hit had a different next term and unrelated definition. The all-profile table in the accessible prior work is a different statistic, which does not determine singleton status. Failed database matches are treated as residual bibliographic uncertainty, not as a proof of novelty.",
+      "searches": [
+        "site:oeis.org \"2, 3, 4, 6, 8, 12, 16, 19\"",
+        "\"2,3,4,6,8,12,16,19,22,24,28,29\" strings",
+        "number uniquely reconstructible cyclic words from 3-gram frequencies sequence",
+        "Exact generating function uniquely reconstructable binary 3-spectrum k=3 cyclic words necklaces"
+      ]
+    },
+    "rationale": "Relevant primary full text was inspected and statement-level compared with unrestricted cyclic labeled three-mer singleton fibres, including edge identity and periodic inputs. The broad Ota–Manada decision procedure, Acosta–Tomescu labeled Euler-tour criterion, and Gabrys–Milenkovic linear code constructions do not state or directly imply the explicit U/D/X classification and exact all-length rational singleton census. Related total-profile and ternary-digram claims do not establish the present binary cyclic-trigram singleton classification. This is best-knowledge originality, with residual bibliographic risk.",
+    "residual_risks": [
+      "Unindexed or differently formulated previous complete enumeration may exist.",
+      "General reconstruction algorithms could be independently specialized to recover this classification, but that derivation and generating function were not present in inspected source material.",
+      "No independent expert novelty assessment has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_DECISION_NOT_EXACT_ENUMERATION",
+        "evidence": "Theorem 1 and Condition 2 on p. 412 establish a necessary/sufficient weighted-automaton uniqueness condition. Sections 4.3–4.4 derive construction and MAW properties; no run vector U/D/X classification, rational count, or periodic-circle enumeration occurs.",
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/E107.A/3/E107.A_2023TAP0015/_pdf/-char/en",
+        "material_read": "Journal full-text sections 1–5, pp. 409–415, including the automaton uniqueness condition, proof, examples, MAW propositions and conclusion; supporting final reference list.",
+        "method": "Publisher open-access PDF text and page images, especially p. 410, p. 412, p. 413 and p. 415.",
+        "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+        "trigger": "Same object: binary circular words reconstructed from weighted short-substring frequencies."
+      },
+      {
+        "assessment": "DIFFERENT_EDGE_IDENTITY",
+        "evidence": "The introduction says parallel edges imply at least two Eulerian circuits, while the present problem treats identical trigram occurrences as indistinguishable; this changes the uniqueness decision even for a constant cycle.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.08522",
+        "material_read": "Full accessible HTML paper, Sections 1–3, including parallel-edge discussion, Corollary 1 and proof.",
+        "method": "arXiv open full-text HTML.",
+        "title": "Simplicity in Eulerian Circuits: Uniqueness and Safety",
+        "trigger": "Possible domination by the general unique Eulerian circuit characterization."
+      },
+      {
+        "assessment": "DIFFERENT_LINEAR_CODEBOOK_SCOPE",
+        "evidence": "The paper defines linear length-L multispectra and constructs restricted high-rate codes with L generally logarithmic in n; it does not enumerate unrestricted cyclic 3-mer singleton fibres.",
+        "identifier_or_url": "https://arxiv.org/html/1804.04548v2",
+        "material_read": "Accessible full-text Introduction, notation, main reconstruction-codebook results and precise spectrum definitions, Sections I–III.",
+        "method": "arXiv open full-text HTML.",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Potential broader substring multispectrum reconstruction and matching code size."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "234c008a-fa8a-4c0f-839c-00e193d305f5",
+  "value": {
+    "rationale": "A complete description of the uniquely reconstructible unrestricted binary circles from the smallest nontrivial fixed k-mer histogram has direct structural interest in cyclic short-read assembly. The theorem separates two simple one-run types from irreducible ambiguity, handles periodic words, gives an exact rational all-length census and proves linear growth against a much larger space of feasible profiles. These are natural mathematical objects and the result is not a renaming or a bounded census.",
+    "status": "PASS"
+  }
+}
