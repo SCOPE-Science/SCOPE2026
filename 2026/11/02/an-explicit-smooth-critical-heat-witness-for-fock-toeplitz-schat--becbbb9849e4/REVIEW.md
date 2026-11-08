@@ -1,15 +1,21 @@
-# Scientific review of the constructive Fock endpoint witness
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalized radial Fock moment identity and repeated integration by parts establish an exact trace-norm approximation to every monomial rank-one projection, with error at most \(e^{2\varepsilon}-1\). Summing alternating approximants gives a Schatten bound \(jN_j^{1/p-1}+j(e^{2N_j^{-3}}-1)\), summable for each \(p>1\). The deterministic Gaussian separation inequalities imply local finiteness, coherent-state admissibility, and preservation of operator sums. The center heat identity is exact, and the off-center contributions are absolutely controlled. The established trace-class endpoint estimate rules out \(\mathcal S_1\). The proof does not confuse finite numerical tests with an infinite operator proof.
+## correctness
 
-## Originality
-PASS, with priority risk. Virtanen (arXiv:2609.11853v2) already proves nonconstructive existence of a common all-\(p>1\) example. The claimed advance is not that existential result: it is a fixed real \(C^\infty\) symbol given by explicit derivative-mollifier blocks, a deterministic integral-test recursion for the supports, trace-norm certificates, and quantified heat peaks. Looi (arXiv:2601.20859v1) supplies explicit Weyl-based bounded-operator counterexamples but does not prove simultaneous membership in all \(\mathcal S_p\), \(p>1\), for those blocks. García–Maximenko (arXiv:2503.23276v1) study constructive uniform approximation of radial Toeplitz eigenvalue sequences, not the stated trace-norm blocks and endpoint construction. Previously published general density results may contain latent implications; the relevant texts were compared by claims, not solely by titles.
+PASS
 
-## Mathematical value
-PASS. The 2026 critical-Schatten endpoint theorem expressly lacked an explicit representative of its common \(p>1\) existential class. The present construction fills that reproducibility gap with a real smooth witness and a rigorously justified, computable finite procedure for every block and center. The trace-norm mollifier mechanism also gives a concrete bridge from finite Fock number projections to actual smooth compact Toeplitz symbols. This is an explicit structural construction, not a reparameterized special case or a numerical table.
+Gaussian radial Toeplitz eigenvalue identity and repeated integration by parts yield exact S1 distance <= exp(2ε)-1 from each monomial projection, with oscillating finite blocks c_j J P_{<N_j}. N_j=2^(j²), c_j=j/N_j, ε_j=N_j^-3 give summable S_p norms for each p>1. Gaussian-weighted L2 seminorms controlled by recursively spaced R_j ensure admissibility and identify T_g with the S_p operator sum. Heat peaks HB_j(0)=2j E(exp(-s))>=2j exp(-2ε_j), Gaussian cross contributions summable by the separation recursion, so Hg(R_j)>=3j/2. Virtanen trace-class heat bound then rules out S1. The uniform-bump numerical surrogate from the package is not proof for the smooth bump; the integration-by-parts identities are. Remaining technical reliance is the cited endpoint theorem and Fock operator identification.
 
-## Scientific limitations and closest sources
-The source theorem already settles the abstract existence question, and the construction should not be presented as resolving that question a second time. The new assertion concerns explicit smoothness, deterministic geometry, and certifiable quantitative approximants. Very high derivatives and very distant centers may make direct numerical plotting impractical. The example is one-dimensional and the symbol is unbounded. Publication priority beyond the inspected literature is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified priority: The class T_g∈cap_{p>1}S_p with unbounded critical heat is already established existentially by Virtanen 2609.11853; the added quantifier is a deterministic real C∞ explicitly specified witness with quantified block errors. The quantified already-known claim is existence of some admissible all-p>1 counterexample. The new claim adds a fixed smooth real formula and deterministic separation, not logically implied by mere existence, with further explicit trace-norm blocks. An unsuccessful search is not novelty proof; sources and risks delimit the decision.
+
+## value
+
+PASS
+
+A constructive real C∞ witness is a substantive explicitness gap left by Virtanen’s nonconstructive Baire-category theorem: it supplies a deterministic finite recursion, trace-norm control of actual smooth Toeplitz building blocks and arbitrarily large critical heat peaks, not merely a new name or finite example. The precise S_p/S1 endpoint is natural to Fock Toeplitz operator theory; extreme amplitudes limit applications but not mathematical significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
