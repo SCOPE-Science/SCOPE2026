@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each nonconstant affine word, choose its least active digit and partition into blocks containing one Q-zero subblock. Adjacent zero subblocks can merge only once, giving only Q/2Q runs and the exact zero-window formula. A highest-nonzero-coefficient cyclic block translation proves constant-term invariance. A carry-by-carry count yields M=1_{H_{s-1}=1}+(p-1) sum_{t=0}^{s-2} p^{s-t-2}1_{H_t=1}. The prefix-sum coefficient transformation is invertible, giving the exact polynomial F_s and multiplicity p(p-1). The proof handles j=m-1, b=1 and b>2Q and is supplemented by 117 independently calculated complete enumerator comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2309.08920v1 computes minimum b-symbol distances of Reed–Muller codes but not complete multiplicity enumerators.",
+        "arXiv:2109.13764v1 supplies broad bounds and general run identities but not the code-specific count of the digit carry merges.",
+        "Ma and Luo (arXiv:1911.02184v1) handle simplex and variation-simplex rather than this length p^m affine family."
+      ],
+      "reasoning": "A minimum weight alone cannot determine all weights and multiplicities. The general identity w_b=n−sum of zero-window counts requires the specific complete run census, which those sources do not provide. Broader field alphabets or coding bounds do not directly dominate this coordinate-sensitive exact enumerator.",
+      "searches": [
+        "Reed Muller simplex codes b-symbol weight distribution coordinate order and full enumerators",
+        "Complete q-ary lexicographically ordered first-order Reed Muller b-symbol weight enumerator for arbitrary q and b and affine functions",
+        "b-symbol weight enumerator Reed Muller RM(1,m) complete q-ary distribution zero-run lengths power of q and double power",
+        "arXiv:2309.08920v1 minimum b-symbol distances Reed Muller",
+        "arXiv:2109.13764v1 Hamming b symbol generalized Hamming theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1911.02184v1",
+      "arXiv:2109.13764v1",
+      "arXiv:2309.08920v1",
+      "https://arxiv.org/html/2401.04941v1 (bounds and code constructions)",
+      "published-finding corpus 2026/9/8/SCOPE080",
+      "published-finding corpus 2026/10/4/SCOPE-minimum-support-multiplicities-for-simplex-sr-sums--b93f5e25acc2",
+      "published-finding corpus 2026/10/4/SCOPE-exact-odd-dimensional-all-symbol-pir-multiplicity-of-binary-first--20fe13e8df61"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Luo: rearranging simplex coordinates changes pair weights; code length/projective or cyclic construction differs.",
+        "Shi–Zhu–Helleseth: b-symbol weights are determined by full zero-run counts but they are not themselves calculated for the affine code family.",
+        "Pan–Ling–Liu: determines the extreme minimum b-symbol distance in the RM family, not nonminimum levels.",
+        "Own earlier p=2 special case has no odd-prime coefficient arithmetic or distinct superincreasing exponents."
+      ],
+      "reasoning": "The proposed exact enumerator strictly contains much more information than an extremal distance or a generic window formula, and an arbitrary code equivalence need not preserve cyclic coordinate windows. The new nonbinary carry multiset is therefore not logically forced by the inspected prior statements without a substantial new computation; it is not presented as independent of the earlier binary specialization.",
+      "searches": [
+        "arXiv:1911.02184v1 full article",
+        "arXiv:2109.13764v1 full article",
+        "arXiv:2309.08920v1 full article",
+        "For odd prime p, all codewords of first-order p-ary Reed Muller affine function truth tables evaluated least significant digit first. Compute complete cyclic b-symbol weight enumerator using zero runs of lengths p^j and 2p^j, Cantor polynomial product (p-1+t) times (p-1+t^((p-1)p^k))."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1911.02184v1 treats simplex and variation-simplex symbol-pair spectra; its code supports and ordered evaluations differ from affine p^m coordinate words.",
+        "arXiv:2109.13764v1 expresses b-symbol weight through zero-run counts without specifying prime-ary affine evaluation zero-run multiplicities.",
+        "The previously recorded binary affine result item 0fd3d918-ba43-40bc-a35b-52475288d8e0 covers p=2, not p>=3."
+      ],
+      "reasoning": "A statement for projective simplex words, binary affine words or a generic run-weight identity does not supply the odd-prime joint distribution of all zero-run counts and b-symbol weights. The new formula follows a distinct carry-parameterization. The earlier binary case is excluded, not reformulated as new.",
+      "searches": [
+        "Complete q-ary lexicographically ordered first-order Reed Muller b-symbol weight enumerator for arbitrary q and b and affine functions",
+        "Prime p-ary first-order Reed-Muller code full b-symbol weight enumerator in lexicographic digit evaluation order, zero-run merging carry prefix sums and Cantor-type multiplicities",
+        "All weights and multiplicities of sliding window nonzero weight in affine function truth tables over F_p, exact distribution via p-ary digit carry indicators",
+        "For odd prime p, all codewords of first-order p-ary Reed Muller affine function truth tables evaluated least significant digit first. Compute complete cyclic b-symbol weight enumerator using zero runs of lengths p^j and 2p^j, Cantor polynomial product (p-1+t) times (p-1+t^((p-1)p^k)).",
+        "arXiv:1911.02184v1 section 4",
+        "arXiv:2109.13764v1 section 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus SCOPE080 is an exact census of selected binary cyclic symbol-pair codes of small lengths, not odd-prime first-order affine codes.",
+        "published-finding corpus simplex SR-sums record exact generalized Hamming support multiplicities, not cyclic b-symbol weights.",
+        "The inspected Ma–Luo tables cover simplex variants, not first-order affine RM_p(1,m) at all prime dimensions and windows."
+      ],
+      "reasoning": "No identified exact table contains this all-prime all-dimension all-b set of affine codeword spectra. Nonappearance in searched databases is supporting evidence only, never a proof of uniqueness.",
+      "searches": [
+        "Prime p-ary first-order Reed-Muller code full b-symbol weight enumerator in lexicographic digit evaluation order, zero-run merging carry prefix sums and Cantor-type multiplicities",
+        "All weights and multiplicities of sliding window nonzero weight in affine function truth tables over F_p, exact distribution via p-ary digit carry indicators",
+        "For odd prime p, all codewords of first-order p-ary Reed Muller affine function truth tables evaluated least significant digit first. Compute complete cyclic b-symbol weight enumerator using zero runs of lengths p^j and 2p^j, Cantor polynomial product (p-1+t) times (p-1+t^((p-1)p^k)).",
+        "published-finding corpus 2026/9/8/SCOPE080",
+        "published-finding corpus 2026/10/4/SCOPE-minimum-support-multiplicities-for-simplex-sr-sums--b93f5e25acc2"
+      ]
+    },
+    "rationale": "Targeted semantic searches of published mathematical findings and primary coding-theory literature did not identify an equivalent complete odd-prime affine evaluation-word b-symbol spectrum in the specified coordinate order. The closest binary classification is explicitly excluded; 2019 simplex results apply to different projective/cyclic codewords, the 2021 run identity is generic, and 2023 RM work gives minima only. The new content is an exact prime-digit-carry distribution and all-window multiplicities. Unindexed equivalents remain possible.",
+    "residual_risks": [
+      "An unindexed or inaccessible complete odd-prime RM_p(1,m) enumerator in the same digit order could imply the statement.",
+      "General symbol-pair/code equivalences are coordinate-sensitive; changes in convention must be independently checked before asserting a contradiction or originality.",
+      "No independent literature expert validation or external audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different simplex/variation-simplex construction; no target odd-prime length p^m affine all-b enumeration",
+        "evidence": [
+          "Section 4 specializes simplex/variation-simplex codes and discusses coordinate reorderings",
+          "Abstract and later distributions are for projective simplex codes and their variants"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.02184",
+        "material_read": "Full available article text, including simplex sections and coordinate arrangement analysis",
+        "method": "Opened arXiv full-text HTML rendering and compared code definition, blocklength, ordering, and weight statements",
+        "title": "Symbol-pair Weight Distributions of Some Linear Codes",
+        "trigger": "Potential full symbol-pair enumerator for simplex/RM-related codes"
+      },
+      {
+        "assessment": "Provides a required generic identity but not the code-specific zero-run multiplicity census",
+        "evidence": [
+          "Section 3.1 treats b-symbol versus Hamming and zero-run counts",
+          "The paper studies general metric relations and bounds rather than an RM_p(1,m) exact spectrum"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.13764v1",
+        "material_read": "Full arXiv HTML, introduction, main run-weight identity, conclusions, reference context",
+        "method": "Compared generic identity for zero-run lengths with target exact carry-counting distributions",
+        "title": "The connections among Hamming metric, b-symbol metric, and r-th generalized Hamming metric",
+        "trigger": "General zero-run weight identity could subsume enumeration"
+      },
+      {
+        "assessment": "RM minimum distances do not determine the multiplicity-sensitive full enumerator",
+        "evidence": [
+          "Abstract states all minimum b-symbol distances of Reed–Muller codes",
+          "The Reed–Muller results are expressed as minimum distances rather than complete weight distributions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.08920",
+        "material_read": "Full available arXiv article text, especially Reed–Muller construction and distance sections",
+        "method": "Compared exact theorem content: minimum distance only versus full codeword spectrum",
+        "title": "New bounds for b-Symbol Distances of Matrix Product Codes",
+        "trigger": "Direct mention of all minimum b-symbol distances for Reed–Muller codes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d2462d48-3145-4659-8c89-d2ff88f1ef82",
+  "value": {
+    "rationale": "The question is motivated by the coordinate-order-sensitive overlapping-read b-symbol metric on the classical first-order Reed–Muller family. The theorem calculates the entire weight spectrum and codeword multiplicities for every odd prime, every dimension, and every cyclic window length. Its digit-carry structure and sparse polynomial with 2^s distinct admissible join counts are nontrivial finite-field combinatorics, not an arbitrary isolated example, a mere minimum-distance corollary, or a relabeling of the known binary case.",
+    "status": "PASS"
+  }
+}
