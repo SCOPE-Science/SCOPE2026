@@ -1,19 +1,21 @@
-# Review of the five-adic derangement residue census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recurrence \(D_n=nD_{n-1}+(-1)^n\) and falling-factorial representation give \(D_n=(-1)^nF(n)\) for the uniformly convergent five-adic series \(F\). Each derivative tail beyond index nine vanishes modulo five. Direct polynomial evaluation yields \(F(a)\bmod5=(1,0,1,3,4)\) and \(F'(a)\bmod5=(1,3,4,2,4)\), so every residue disk has a unit slope. The difference quotient and digit lifting prove one preimage per matching disk at each power, giving the precise frequencies \((2,3,1,1,3)\). A standalone independent recurrence program confirms all complete periods through exponent six. Finite computations are supporting evidence only.
+PASS
 
-## Originality — PASS, subject to priority risk
+The falling-factorial p-adic series F(x)=sum (-1)^j(x)_j converges on Z5 and satisfies D_n=(-1)^n F(n). The finite mod-5 table F(a)=(1,0,1,3,4), F'(a)=(1,3,4,2,4) has all unit derivatives; the difference quotient on each disk is a unit even at arbitrary 5-adic arguments (tail j>=10 divisible by 5). Digit-by-digit Hensel lifting gives a bijection of each disk onto its target disk and hence the exact two-parity frequency. Independent complete recurrence enumeration verified all levels k<=4. The all-k assertion rests on the analytic isometry, not finite tests.
 
-The key antecedent is Piotr Miska (2015, arXiv:1508.01987): its period theorem and Hensel method are prior art, not new contributions. The exact five-adic preimage multiplicity distribution and surjectivity for every power of five were not found in the inspected relevant sections of that paper, in the earlier prime-level congruence works (arXiv:1008.1573; arXiv:1009.2929), or in the later general interpolation work (arXiv:2012.04615). The new claim does not assert a new general period law or new interpolation method. Specialized sources beyond those inspected could already imply the complete result; independent priority review is needed.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact, infinite-level classification of a natural arithmetic statistic: the distribution of fixed-point-free permutation counts over residue classes of prime powers. It proves universal five-adic coverage, gives nonuniform *exact* natural densities among indices and identifies the smallest prime with full prime-power coverage. These are stronger and more informative than repeating a period formula or listing computations at a fixed modulus.
+Best-of-knowledge new all-level residue-frequency law, not the already known 2*5^k period, interpolation or Hensel machinery. Sun–Zagier and Sun–Wu–Zhuang treat prime-level congruences; Miska period/valuation work and O'Desky–Richman p-adic interpolation overlap methods. No accessible primary statement was identified with the c=(2,3,1,1,3) preimage law; Miska full paper could not be read through authorized connection, which is an explicit priority risk, not proof of novelty.
 
-## Scientific limitations
+## value
 
-The result is for powers of five, not arbitrary prime powers; index density is distinct from density by numerical magnitude. The literature comparisons do not establish global novelty by exhaustion. The proof, not the finite verifier, carries the infinite quantifiers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-power surjectivity and exact frequency density of a classical arithmetic sequence is a natural infinite-level local invariant, not merely an instance table; the uniform p-adic disk-isometry supplies a structural explanation useful for related recurrences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

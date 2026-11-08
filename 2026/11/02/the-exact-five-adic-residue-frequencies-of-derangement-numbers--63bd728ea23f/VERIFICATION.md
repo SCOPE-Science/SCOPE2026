@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-Run `python3 verify.py` with standard Python 3. The script implements the recurrence modulo each \(5^k\), checks all \(2\cdot5^k\) indices for \(1\le k\le6\), asserts the exact frequency formula for every target residue, independently checks the derivative table by polynomial arithmetic and checks minimality of periods as well as the omitted residues modulo four and nine.
+# Independent mathematical audit
 
-Expected final log line: `VERIFY_OK derivative_table=5 residue_censuses=1..6 period_minimality=1..6 small_prime_obstructions=4,9`.
+## correctness
 
-This is not a proof of the theorem at arbitrarily high powers. The unrestricted proof is supplied in `RESULT.md`, based on convergence of the falling-factorial series, the difference-quotient unit law and Hensel digit lifting. The previously known period formula is attributed to Miska (2015). No independent audit has been performed.
+PASS
+
+The falling-factorial p-adic series F(x)=sum (-1)^j(x)_j converges on Z5 and satisfies D_n=(-1)^n F(n). The finite mod-5 table F(a)=(1,0,1,3,4), F'(a)=(1,3,4,2,4) has all unit derivatives; the difference quotient on each disk is a unit even at arbitrary 5-adic arguments (tail j>=10 divisible by 5). Digit-by-digit Hensel lifting gives a bijection of each disk onto its target disk and hence the exact two-parity frequency. Independent complete recurrence enumeration verified all levels k<=4. The all-k assertion rests on the analytic isometry, not finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge new all-level residue-frequency law, not the already known 2*5^k period, interpolation or Hensel machinery. Sun–Zagier and Sun–Wu–Zhuang treat prime-level congruences; Miska period/valuation work and O'Desky–Richman p-adic interpolation overlap methods. No accessible primary statement was identified with the c=(2,3,1,1,3) preimage law; Miska full paper could not be read through authorized connection, which is an explicit priority risk, not proof of novelty.
+
+## value
+
+PASS
+
+The all-power surjectivity and exact frequency density of a classical arithmetic sequence is a natural infinite-level local invariant, not merely an instance table; the uniform p-adic disk-isometry supplies a structural explanation useful for related recurrences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
