@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T20:12:56.121474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a+b=2h>0, season half-width t=T/2>0, g>0 and real mean r, both seasonal matrices have trace 2(r-h). Their traceless parts M1,M2 satisfy M1²=κ_-²I, M2²=κ_+²I and half tr(M2M1)=h²-g², giving the exact normalized monodromy half-trace C_p(t) with p=ab. The rational Laplace identity C_hat=s/(s²-4h²)[1-16g²p/((s²-4h²)(s²-4g²))]^{-1} yields a Volterra series in p with nonnegative causal kernel and strictly positive convolution coefficients at t>0. Thus C_p(t)>C_0(t)=cosh(2ht)>1 for p>0, strictly increasing for p from zero to h², and λ=r-h+T^{-1}arcosh C_p(T/2) increases strictly. Balancing a=b uniquely maximizes; one-way boundaries both give λ=r. For r<0 a viability threshold exists iff balanced λ>0, with unique p_* solving C=cosh((h-r)T); critical equality covered. Taylor fourth coefficient C_p−cosh(2ht)=(2/3)g²p t⁴+O(t⁶) produces λ−r=g²p T²/(24h)+O(T⁴). Independent scipy matrix exponentials for h=g=1,T=4,r=-1/5 reproduce endpoint -0.2, imbalanced -0.0024963625 and balanced +0.0426584316. Finite values are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 work covers general time-dependent growth and asymmetric dispersal and establishes asymptotic growth criteria.",
+          "Katriel assumes symmetric migration and cannot compare a≠b."
+        ],
+        "reasoning": "General positive-system existence/asymptotic formula is too weak to determine sign of derivative with respect to p for fixed a+b, contrast and period. No explicit stronger fixed-budget theorem found in materially inspected section.",
+        "searches": [
+          "antiphase two patch periodic growth asymmetric migration fixed sum product ab Floquet rate balance",
+          "arXiv:2311.04706 main Theorem 4 and §4.3",
+          "arXiv:2111.12633",
+          "arXiv:2104.01589"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.04706v2 PDF §§4.2-4.3, Fig2/Table1, supplementary S1",
+        "arXiv:2111.12633 abstract and model summary",
+        "arXiv:2104.01589 abstract",
+        "Resultary query: antiphase two patch periodic growth asymmetric migration fixed sum product ab Floquet rate balance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 §4.3 explicitly uses different local annual means and fixed 2:1 directional migration ratio; supplement S1 uses three patches.",
+          "The new theorem uses exactly equal means and fixed migration sum, a separately constrained comparison."
+        ],
+        "reasoning": "Prior dispersal-induced growth results establish possibility/criteria in nonautonomous Metzler systems, but no cited implication fixes directional optimizer for every positive h,g,T. A general matrix inequality might subsume the positive Volterra proof; priority remains qualified.",
+        "searches": [
+          "antiphase two patch periodic growth asymmetric migration fixed sum product ab Floquet rate balance",
+          "arXiv:2311.04706 §§4.2-4.3, Supplement S1",
+          "arXiv:2104.01589 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-sum directional migration p=ab is equivalent to fixing h and varying the antisymmetry d=(a-b)/2, while Benaïm et al vary scalar dispersal intensity m with a fixed l12:l21 ratio.",
+          "Monodromy is a positive product of two 2x2 exponentials; exact half-trace is naturally the spectral proxy."
+        ],
+        "reasoning": "The literature formulation of Λ(m,T) is not automatically a p=ab budget comparison. Neither their fixed-ratio intensity curves nor a symmetric-migration special case implies the strict all-bias ordering.",
+        "searches": [
+          "antiphase two patch periodic growth asymmetric migration fixed sum product ab Floquet rate balance",
+          "arXiv:2311.04706 §§4.2-4.3",
+          "arXiv:2111.12633"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source Fig.2 and Table1 use unequal seasonal local means and l12=2,l21=1, varying common scale m; they do not enumerate rates at a fixed sum.",
+          "Sample threshold h=g=1,r=-.2,T=4 is independently reproduced."
+        ],
+        "reasoning": "Numerical migration growth tables cannot themselves prove a universal fixed-total product ordering or uniquely determined threshold. No exact table covering this theorem was located.",
+        "searches": [
+          "antiphase two patch periodic growth asymmetric migration fixed sum product ab Floquet rate balance",
+          "arXiv:2311.04706, Table 1/Fig. 2"
+        ]
+      },
+      "rationale": "PASS on the sharp fixed-total-transport-rate directional balancing law for equal-mean exactly antiphase square waves. The most relevant Benaïm et al 2023 primary paper treats non-symmetric migration but its §4.3 compares fixed migration direction and varying scalar intensity with unequal local means; it shows numerical Floquet curves, not a theorem that at fixed a+b all periods and contrasts optimize at a=b. Supplementary S1 concerns three-patch directional migration. Broader growth criteria do not imply this strict p=ab ordering. Specialized equivalent spectral inequalities remain a realistic but not decisive priority risk.",
+      "residual_risks": [
+        "An unindexed two-season Floquet trace inequality could imply this specialized monotonicity.",
+        "Strictness requires g,h,T>0 and equal-duration exact antiphase seasons; at g=0 strict inequality fails.",
+        "Growth exponent is not an unconditional nonlinear persistence theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_MODEL_NOT_FIXED_SUM_THEOREM",
+          "evidence": [
+            "Section 4.3 varies a scale m with directional rates 2:1 and unequal local mean growth; no full fixed-budget strict product ordering shown there.",
+            "Supplement S1 uses three patch cyclic migration and numerical growth curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.04706",
+          "material_read": "Full PDF contents and Sections 4.2,4.3 pp21-23, Table 1/Fig. 2, Supplement S1 p53 were materially read and visually inspected.",
+          "method": "Primary 61-page PDF extracted text plus screenshots pages 21,22,52",
+          "title": "When can a population spreading across sink habitats persist?",
+          "trigger": "Directly matching two-patch periodically forced asymmetric migration"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_FRAMEWORK",
+          "evidence": [
+            "Earlier models include non-symmetric rates but exact fixed-total-directional-rate monotonicity is not established by abstract material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12633",
+          "material_read": "Published summary/abstract and referenced §3.2 scope from associated bibliographic material, not independently read full PDF this run.",
+          "method": "arXiv abstract and bibliographic comparison",
+          "title": "Untangling the role of temporal and spatial variations in persistence of populations",
+          "trigger": "Earlier asymmetric two-patch growth formula"
+        },
+        {
+          "assessment": "DIFFERENT_SYMMETRIC_RATE_SCOPE",
+          "evidence": [
+            "Symmetric-migration assumption excludes directional-bias optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.01589",
+          "material_read": "Abstract/parameter scope and established symmetric-migration hypothesis; full proof not read.",
+          "method": "arXiv indexed abstract",
+          "title": "Dispersal-induced growth in a time-periodic environment",
+          "trigger": "Possible broader monotonicity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Migration direction is a natural controllable resource under a fixed total-rate budget; its exact optimizer and sharp necessary-and-sufficient survival corridor resolve a concrete model design problem, including strictness, equality and one-way boundary. The positive Volterra kernel supplies structural explanation, not arbitrary parameter fitting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "a,b nonnegative, a+b=2h fixed, h,g,T>0, r arbitrary; seasons exactly half-period and opposite.",
+    "Finite numerical matrices corroborate but positivity of the all-parameter convolution proves the theorem."
+  ],
+  "schema_version": 1
+}
