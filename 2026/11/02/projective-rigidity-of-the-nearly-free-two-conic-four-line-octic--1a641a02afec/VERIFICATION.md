@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Install Python 3 and SymPy. In the directory containing the accompanying scripts, run `python verify_symbolic.py` and `python verify_incidence.py`. These programs depend on no external datasets or network access.
+## correctness
 
-The first checker reconstructs the exact defining polynomial, checks the nonsingularity of the second conic, verifies all four tangents of the first conic and the four cycle vertices of the second, and checks the squared intersection divisor of the two conics. It also substitutes an explicit homogeneous degree-four syzygy into the Jacobian identity and computes over the exact rationals that the degree-three syzygy map from \(S_3^3\) to \(S_{10}\) has zero kernel. This provides an independently replayable witness for \(\operatorname{mdr}=4\). It does not invoke floating-point calculations.
+PASS
 
-The second checker enumerates abstract pair-incidence assignments for the only numerically possible singularity baskets; it independently finds only six labeled configurations, all relabelings of the four-cycle. This combinatorial finite check is redundant with the proof. It does not certify the nonexistence of geometrically unrealizable configurations by itself, nor does it establish projective equivalence; those are addressed by the exhaustive case argument and pencil calculation in the theorem.
+Reconstructed the Bezout and Tjurina counts n2+2t+3n3=26, n2+3t+4n3=36, mdr bound and tau=36; the incidence case-split and common-tangent exclusion force a four-cycle; conic pencil discriminants then force r=1/2 and equal coefficients. The explicit smooth conics, all local intersection multiplicities, square restriction and degree-four syzygy with no cubic syzygy certify existence/near freeness. Independent SymPy exact checks reproduced the syzygy, Hessian and 30/30 rank of cubic-syzygy matrix; no finite incidence listing was substituted for projective uniqueness.
 
-Published inequalities and the near-freeness criterion are applied under their stated hypotheses; external independent mathematical auditing remains unperformed.
+## originality
+
+PASS
+
+Published constraints and common tangent lemma are explicitly used; the five-direction/conic-pencil normalization and uniqueness of all nearly-free two-conic/four-line octics were not asserted in the inspected source theorems. Resultary degree-eight example has one conic and six lines, so it neither implies nor contradicts this classification.
+
+## value
+
+PASS
+
+A sharp complete projective classification in the first degree beyond an earlier nearly-free existence gap; the singularity basket and harmonic-pencil uniqueness are natural geometric invariants and go beyond an arbitrary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

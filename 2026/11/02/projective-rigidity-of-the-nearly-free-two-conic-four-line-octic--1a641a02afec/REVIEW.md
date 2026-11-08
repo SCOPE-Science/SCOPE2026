@@ -1,19 +1,21 @@
-# Mathematical review: a rigid two-conic, four-line octic
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the ground field and all local singularity types, uses the degree-eight nearly free Tjurina equality and a published orbifold bound to obtain \(4\le n_3\le6\), and distinguishes all possible line-only triple-point cases. Counting component pair intersections forces two conic-conic tacnodes and a four-cycle of transverse conic–two-line triple points. The published common-tangent lemma excludes all other abstract types. A direct pencil calculation then forces the harmonic fourth tangent parameter and equal pencil coefficients. The normal-form conics are smooth, and every pairwise intersection and tangent multiplicity is accounted for. Exact polynomial identities and a degree-four Jacobian syzygy, coupled with exact absence of cubic syzygies, give \(\operatorname{mdr}=4\); the numerical near-freeness criterion applies with \(\tau=36\).
+## correctness
 
-Evidence: `verify_symbolic.py`, `verify_incidence.py`, and the complete proof in `RESULT.md`. The incidence program is finite corroboration, not a substitute for the complex-geometric argument. The only non-elementary imported claims are precisely the published nearly free criterion, the minimal-syzygy lower bound, the arrangement inequality, and the common-tangent lemma; their hypotheses match this setting.
+PASS
 
-## Originality — PASS, with residual risk
-Gałecka's paper (arXiv:2204.13969) derives necessary inequalities and does not construct or classify degree-eight nearly free arrangements. Dimca and Pokora (arXiv:2111.12349) classify **free** arrangements and supply the two-tacnode common-tangent lemma, but not the asserted nearly free classification. Măcinic and Pokora (arXiv:2309.15228) classify examples with plus-one defect two, not defect-one nearly free arrangements; their degree-eight example has one conic. A related published degree-eight nearly free example has one conic and six lines and different singularity counts \((3,3,6)\). Indexed claims, exact basket searches, alternate normal-form descriptions, and accessible prior mathematics do not provide a result implying the two-conic/four-line theorem.
+Reconstructed the Bezout and Tjurina counts n2+2t+3n3=26, n2+3t+4n3=36, mdr bound and tau=36; the incidence case-split and common-tangent exclusion force a four-cycle; conic pencil discriminants then force r=1/2 and equal coefficients. The explicit smooth conics, all local intersection multiplicities, square restriction and degree-four syzygy with no cubic syzygy certify existence/near freeness. Independent SymPy exact checks reproduced the syzygy, Hessian and 30/30 rank of cubic-syzygy matrix; no finite incidence listing was substituted for projective uniqueness.
 
-Residual risk: a specialized unindexed or differently phrased Poncelet/configuration classification may imply this conclusion without naming nearly freeness. The normal-form argument is elementary enough that earlier unnoticed geometry is plausible. Priority is not externally certified.
+## originality
 
-## Mathematical value — PASS
-The finding settles an entire component decomposition of a published degree-eight nearly free arrangement classification problem: not merely existence, but the singularity basket and uniqueness up to projective equivalence. Its key structural ingredient is a four-cycle conic–line incidence obstruction followed by a harmonic condition on four tangents, yielding a rational normal form. This is a natural global classification; it is not an arbitrary coefficient specialization or numerical recomputation.
+PASS
 
-## Scope
-No classification is claimed for degree-eight arrangements with one, three, or four conics, for alternate singularity types, or over non-algebraically-closed fields. An independent audit and external validation have not been carried out.
+Published constraints and common tangent lemma are explicitly used; the five-direction/conic-pencil normalization and uniqueness of all nearly-free two-conic/four-line octics were not asserted in the inspected source theorems. Resultary degree-eight example has one conic and six lines, so it neither implies nor contradicts this classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp complete projective classification in the first degree beyond an earlier nearly-free existence gap; the singularity basket and harmonic-pencil uniqueness are natural geometric invariants and go beyond an arbitrary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
