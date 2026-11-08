@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:16:20.964241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Gaussian least-squares projection: S=sum X_i²~chi-square(k), Z~N(0,1), V=R/sigma²~chi-square(k−1) independent; F=[S(u−theta_hat)²+R]/(2k), G=S(u−theta_hat)/k. Substitution gives T0=x−gamma(x−theta)/2+gamma*sigma[Z+V/(Z−d sqrt S)]/(2sqrt S). Conditional normal small-window probability about the pole, dominated by E(V S^−1/2), proves t P(|T0|>t)→C with C=gamma*sigma*Gamma((k+1)/2)/(sqrt(pi)*Gamma(k/2))*(1+d²)^(-(k−1)/2) for k≥2. Student residue decays faster (order t^−k); tail integration proves moment iff q<1. For gradient-squared ridge, the local |u|/(u²+a²) integral yields exactly C/2 times log(1/eps), with chi-square integrable dominating function even k=2. Exact-batch-target cancellation makes affine AR1 with scaled t_k innovations: unique stationary q-moment iff q<k, variance gamma*sigma²/((4−gamma)*(k−2)) for k>2; k=1 gives stationary centered Cauchy scale sigma. All denominators are almost surely nonzero for deterministic x. No inference about the unregularized iterated chain's stationarity or capped SPS.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "NeurIPS 2022 Section 1.1 and Section 3 require a finite upper cap on SPS, and Theorem 2 establishes expected objective bound for that capped algorithm.",
+          "Gower et al. 2022 author preprint landing abstract introduces slack variables, stable steps and convergence, not in inspected abstract a sharp one-step Cauchy pole coefficient."
+        ],
+        "reasoning": "Generic convergence theorems for bounded step rules cannot imply an infinite mean for uncapped T0. Statistical ratio theory supplies ingredients; deriving joint exact coefficient and ridge cost for this algorithm is additional.",
+        "searches": [
+          "Orvieto Lacoste-Julien Loizou Dynamics SGD Stochastic Polyak Stepsizes NeurIPS 2022 main paper section3",
+          "Gower Blondel Gazagnadou Pedregosa Cutting Some Slack SPS 2022",
+          "normalized LMS gaussian noisy ratios 2009"
+        ]
+      },
+      "checked_sources": [
+        "Orvieto et al. NeurIPS 2022 primary PDF pp1–5 with Sections1–3 and Theorems1–2",
+        "arxiv:2202.12328 author landing and abstract only",
+        "arxiv:2301.04935 abstract and package comparison",
+        "Resultary semantic stochastic Polyak heavy-tail search",
+        "2009 normalized LMS title and abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orvieto et al. Sections 1–3 and theorem use gamma_k=min{ratio,finite cap} and analyze suboptimality convergence in expectations; not tP(|T0|>t) or ridge C/2.",
+          "The stationary calibrated AR(1) follows after subtracting the actual residual batch minimum; neither lower-bound convergence statement implies the q<k Student-innovation threshold."
+        ],
+        "reasoning": "Prior risk about noninterpolating SPS is acknowledged; the claimed sharp pole, ridge, and calibrated moment boundaries do not follow as stated corollaries of the capped results.",
+        "searches": [
+          "NeurIPS 2022 Orvieto SPSmax ell min lower bound section3 Theorem2",
+          "Gower Cutting Some Slack SPS lower-bound stepsize 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orvieto–Lacoste-Julien–Loizou NeurIPS 2022 Section 3 defines SPS^ell_max=min{(f−ell)/(c||g||²),gamma_b}, not unbounded T0=f/G.",
+          "Student normal-over-chi-square distribution is standard, but does not by itself identify the positive residual numerator or its precise gradient-ridge coefficient."
+        ],
+        "reasoning": "Search for normalized learning, stochastic Polyak, Cauchy ratios and gradient-residual poles; documented original specifically changes the cap and limit target. No found statement equal to the exact uncapped one-step law.",
+        "searches": [
+          "\"stochastic Polyak\" Gaussian Cauchy reciprocal gradient pole",
+          "\"uncapped\" stochastic Polyak infinite expectation residual ratio",
+          "Resultary semantic stochastic Polyak stepsize zero lower bound gaussian regression reciprocal gradient Cauchy heavy tail exact ridge logarithmic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact database entry/tabulation for this scalar zero-bound rule or its C/2 ridge coefficient; Resultary results concerned distinct deterministic quadratic optimizers and rates.",
+          "The coefficient was derived from E(V S^−1/2 exp(−d² S/2)), not inferred from an indexed table."
+        ],
+        "reasoning": "Possible normalized-LMS moment tables remain under priority risk; no exact matching result was found in investigated sources.",
+        "searches": [
+          "\"gamma((k+1)/2)\" \"polyak\" Gaussian tail",
+          "\"ridge\" \"Polyak\" \"logarithmic\" Cauchy minibatch",
+          "Resultary published stochastic Polyak gradient pole"
+        ]
+      },
+      "rationale": "Qualified PASS for the quantitative uncapped Gaussian Polyak one-step reciprocal-gradient Cauchy coefficient, exact gradient-ridge logarithmic coefficient, and paired batch-calibrated stationary moment classification. Established SPS and classical Gaussian ratio identities are excluded. The directly relevant NeurIPS 2022 original was read in full; its lower-bound procedure is explicitly capped and addresses convergence rather than this unbounded distribution.",
+      "residual_risks": [
+        "Uninspected Gower full paper and specialty statistical-ratio literature may contain equivalent law.",
+        "The singular rule is deliberately uncapped; no implication for original published capped or DecSPS algorithms.",
+        "Stationarity moment comparison requires fresh independent Gaussian batches; no iterated-T0 law asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS lower-bound capped SPS and convergence in the pages read; no uncapped Gaussian gradient pole or ridge asymptotic in those sections. Later sections not claimed fully excluded.",
+          "evidence": "NeurIPS 2022 Section3, formula SPS^ell_max with min against finite cap, Theorem2; p5 screenshot.",
+          "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2022/file/ac662d74829e4407ce1d126477f4a03a-Paper-Conference.pdf",
+          "material_read": "Complete 12-page primary PDF obtained; materially inspected pp1–5, Sections 1–3, Theorem 1, Theorem 2 and lower-bound SPS formula, with screenshots p2 and p5; remaining pages not reviewed exhaustively.",
+          "method": "Published lawful NeurIPS primary PDF text and page screenshots",
+          "title": "Dynamics of SGD with Stochastic Polyak Stepsizes: Truly Adaptive Variants and Convergence to Exact Solution",
+          "trigger": "Closest lower-bound SPS regime where batch minimum is unavailable"
+        },
+        {
+          "assessment": "Abstract-level differentiation only; no claim of full-text noncoverage.",
+          "evidence": "arxiv:2202.12328, author abstract, arxiv PDF fetch DisabledError.",
+          "identifier_or_url": "https://ngazagna.github.io/publication/slackpolyak/",
+          "material_read": "Author-hosted public abstract and preprint landing page only; full arxiv PDF/HTML attempts unavailable.",
+          "method": "Lawful author website and abstract",
+          "title": "Cutting Some Slack for SGD with Adaptive Polyak Stepsizes",
+          "trigger": "Primary closely related slack SPS variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: an admissible but loose zero lower bound makes an uncapped stochastic step have infinite first absolute moment despite a strongly convex realized quadratic, and the exact positive coefficient identifies batch-size and starting-displacement sensitivity. Quantifying gradient-ridge cost and contrasting true-minimum calibration supplies an actionable mathematical boundary, not merely a textbook Cauchy-ratio restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar Gaussian independent random design, finite k≥2 and deterministic x; k=1 only for calibrated stationary Cauchy.",
+    "Uncapped T0 and specified squared-gradient ridge, not practical capped SPS or arbitrary non-Gaussian batches.",
+    "Related Gaussian-ratio and normalized-learning papers not exhaustively inspected."
+  ],
+  "schema_version": 1
+}

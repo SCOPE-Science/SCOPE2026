@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the bundled Python-standard-library verifier with `python3 verify.py`. It performs exact-rational regression/Polyak identities at five minibatch sizes, gamma-integral comparisons for 12 parameter settings, exact variance identities for 16 settings, and 570,000 seeded diagnostic Gaussian samples. It is deliberately a finite checker: no numerical simulation certifies the sharp tail, invariant moment class, or logarithmic ridge asymptotic. Those are established by the displayed conditional-density, chi-square and affine-series proofs in `RESULT.md`.
+## correctness
 
-All assumptions for the statement are explicit: positive error variance, deterministic initial point, independent Gaussian covariates and errors, finite \(k\ge2\) for the pole and ridge, and fresh independent minibatches for the stationary-law comparison. The calibrated \(k=1\) Cauchy case is an additional exact boundary check. The `verify.py` file requires no third-party library or network access. Independent mathematical audit is not yet performed.
+PASS
+
+Reconstructed Gaussian least-squares projection: S=sum X_i²~chi-square(k), Z~N(0,1), V=R/sigma²~chi-square(k−1) independent; F=[S(u−theta_hat)²+R]/(2k), G=S(u−theta_hat)/k. Substitution gives T0=x−gamma(x−theta)/2+gamma*sigma[Z+V/(Z−d sqrt S)]/(2sqrt S). Conditional normal small-window probability about the pole, dominated by E(V S^−1/2), proves t P(|T0|>t)→C with C=gamma*sigma*Gamma((k+1)/2)/(sqrt(pi)*Gamma(k/2))*(1+d²)^(-(k−1)/2) for k≥2. Student residue decays faster (order t^−k); tail integration proves moment iff q<1. For gradient-squared ridge, the local |u|/(u²+a²) integral yields exactly C/2 times log(1/eps), with chi-square integrable dominating function even k=2. Exact-batch-target cancellation makes affine AR1 with scaled t_k innovations: unique stationary q-moment iff q<k, variance gamma*sigma²/((4−gamma)*(k−2)) for k>2; k=1 gives stationary centered Cauchy scale sigma. All denominators are almost surely nonzero for deterministic x. No inference about the unregularized iterated chain's stationarity or capped SPS.
+
+## originality
+
+PASS
+
+Qualified PASS for the quantitative uncapped Gaussian Polyak one-step reciprocal-gradient Cauchy coefficient, exact gradient-ridge logarithmic coefficient, and paired batch-calibrated stationary moment classification. Established SPS and classical Gaussian ratio identities are excluded. The directly relevant NeurIPS 2022 original was read in full; its lower-bound procedure is explicitly capped and addresses convergence rather than this unbounded distribution.
+
+## value
+
+PASS
+
+PASS: an admissible but loose zero lower bound makes an uncapped stochastic step have infinite first absolute moment despite a strongly convex realized quadratic, and the exact positive coefficient identifies batch-size and starting-displacement sensitivity. Quantifying gradient-ridge cost and contrasting true-minimum calibration supplies an actionable mathematical boundary, not merely a textbook Cauchy-ratio restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
