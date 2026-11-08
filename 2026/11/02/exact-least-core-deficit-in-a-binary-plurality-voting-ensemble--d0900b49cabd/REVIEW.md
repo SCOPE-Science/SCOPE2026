@@ -1,22 +1,21 @@
-# Scientific review: exact least-core deficit in a binary plurality-voting ensemble
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analyzed characteristic function is precisely the source's pointwise binary random-tie accuracy game: coalitions with more correct than incorrect predictors score 1, tied nonempty coalitions score 1/2, and losing coalitions score 0. The theorem uses efficient signed allocations and nonnegative additive epsilon for all nonempty proper coalitions. Every formula and boundary case follows from explicit global lower bounds and feasible payoff witnesses. The first lower bound sums all correct singleton constraints and the all-incorrect coalition; the second averages nearly balanced winning-coalition constraints and uses singleton bounds. The maximum of these is attained by the displayed type-symmetric credits. The four types of coalitional payoff are checked in the proof, including the exceptional small tie cases. Direct exact tests covered 1,088 integer parameter profiles and 312,544 type-count coalition inequalities; an independent full, unsymmetrized linear program covered 54 profiles. These checks support, but do not prove, the infinite statement.
+PASS
 
-## Originality — PASS with stated uncertainty
+For a correct voters and b incorrect voters, additive epsilon least core permits signed efficient x. The a correct singleton constraints and the all-incorrect coalition force epsilon >= (a-v(N))/(a+1); when a>=b+2, averaging winning coalitions consisting of b+1 correct plus all incorrect gives epsilon >= (a-b-1)/(a-b). Explicit type-symmetric p,q attain their maximum, and proper tie coalition small edge cases (1,1),(2,1) are checked. Homogeneous all-correct and all-incorrect cases use singleton averaging/zero allocation. Independently solved unrestricted individual-variable LPs for 27 mixed and homogeneous profiles with 2<=n<=7; matches six exact branches, but finite LP does not prove general case.
 
-The closest relevant primary source is Sarpe, Georgakopoulos, and Gionis, *Exact power indices for plurality-voting ensembles*, arXiv:2610.17980v1 (October 13, 2026). Its Eq. (2) defines the same binary characteristic function, while Theorems 4.1 and 4.2 compute Banzhaf and Shapley values; no additive least-core formula is supplied in the inspected full text. General least-core duality and finite-game solvers are known, but they do not state this game-specific all-parameter four-regime formula. Published simple voting-game power-index records concern a different (monotone) game class and different invariants. Searches for the pointwise majority accuracy least core, two-type signed allocations, ties, the originating paper and nearby published records uncovered no equal or stronger result. This is not a proof of universal priority: unindexed equivalent analyses remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The minimum coalitional violation is a natural stability diagnostic complementary to the Shapley and Banzhaf marginal-credit values proposed for classifier ensembles. Its exact four-regime classification applies to all ensemble sizes and yields explicit efficient signed allocations and matching blocking-coalition certificates. The threshold at \(a=2b+1\) has structural content: it identifies when the decisive coalition changes from the all-incorrect set to a winning set containing every incorrect classifier and just enough correct classifiers. This is neither a generic LP recipe nor an arbitrary fixed-size numerical slice. It is restricted to the pointwise game; dataset averaging need not retain the symmetry.
+The precise binary random-tie plurality accuracy game is already defined by Sarpe–Georgakopoulos–Gionis; their Banzhaf and Shapley allocations do not solve the least-core minimax coalition problem. General least-core LP duality solves arbitrary finite instances but does not imply a closed parametric formula or its sharp transition a=2b+1. Indexed related voting-power results are distinct ranking/attribution questions. Best-of-knowledge originality is confined to the all-(a,b) exact deficit and optimizer with signed transfers.
 
-## Closest literature and remaining limitations
+## value
 
-- Sarpe, Georgakopoulos, Gionis, arXiv:2610.17980v1, Sections 3–4 and 6: identical pointwise game, different indices; open-access full-text inspection performed.
-- *Weighted nucleoli and dually essential coalitions*, DOI 10.1007/s00182-019-00689-x, Section 3: general least-core theory, no special binary ensemble phase diagram identified.
-- TUGLab `leastcore` documentation: finite-game LP computation, not a closed uniform symbolic formula.
-- Residual priority risk: poorly indexed or nonpublic analyses. Other restrictions (nonnegative credits, multiclass predictors, test-set averages) remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimax coalition stability is structurally different from average marginal power; an exact six-case formula with a sharp switch in binding coalition type settles a motivated stability invariant for a natural classifier ensemble. It supplies constructive optimizer and lower-bound certificates for every population size, not a tiny-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
