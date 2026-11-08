@@ -1,18 +1,21 @@
-# Scientific assessment: odd hypercube antipodal spectral distance
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional norm equality is established by averaging any endpoint-distance optimizer over coordinate permutations, reducing to radial increments and then a Jacobi norm. A two-coordinate-block construction gives a feasible primal value. The positive unit vector with entries \(u_{2j}=u_{2j+1}=(2Lw_{2j})^{-1/2}\) gives a matching Rayleigh quotient bound for every increment by strict log concavity of the binomial radial weights. These steps rule out nonradial improvement and establish the formula for every odd dimension, not merely the numerically sampled ones. Midpoint quadrature with Hurwitz-zeta subtraction proves the asymptotic and its stated error. The supplementary Python checker reports 170 successful finite assertions.
+## correctness
 
-Risk: the asymptotic error uses the standard midpoint rule after isolating square-root endpoint singularities; bounds on the second derivative of the remainder are specified in the proof, rather than independently computer-certified.
+PASS
 
-## Originality — PASS with disclosed broader-coverage risk
-The materially read Clare--Li--Poon--Swartz 2024 paper has a general implicit path-optimization theorem (Theorem 3.10), and its small examples show that selecting the maximizing pattern is delicate. After radial symmetrization that theorem applies to the present Jacobi matrix, so general *implicit* path characterization is **not** new and cannot be counted as this contribution. The comparison identified no explicit all-dimensional binomial-weight optimizer, unit Rayleigh dual witness, or the \(\pi/2\) limit with the specific Hurwitz-zeta correction in that paper. Besnard 2021 supplies graph bounds rather than this exact family. Swartz 2026 studies edge deletion, not hypercube antipodes. Searches of published mathematical records and semantic mathematical finding records with hypercube/Connes/adjacency/odd parity/explicit-sum synonyms found no matching claim. Absence of search results does not prove absolute novelty.
+Group averaging over coordinate permutations preserves endpoints and contracts the commutator norm. Diagonal-unitary conjugation makes nonnegative radial edge increments, whose Perron norm is that of an (n+1)-vertex Jacobi matrix with weights sqrt((k+1)(n-k)). For n odd an alternating matching h_even=1/w_even, h_odd=0 achieves L; normalized dual vector u_{2j}=u_{2j+1}=(2L w_{2j})^-1/2 gives the Rayleigh lower bound ||J(h)||>=sum(h)/L by strict log concavity of w. Thus both bounds match in all odd dimensions. Midpoint quadrature after subtraction of endpoint square-root singularities gives pi/2+zeta(1/2,1/2)/sqrt(N)+O(N^-3/2). Independent full-commutator checks confirmed n=1,3,5,7 and Rayleigh certificates; these finite checks do not prove n unbounded.
 
-Residual risks: the 2024 implicit weighted-path characterization has genuine broader applicability; a specialist may regard this explicit specialization as subsumed if an uninspected derivation has already been published. Noncommutative hypercube variants with other Dirac operators and related fuzzy-space reciprocal square-root sums are not the same operator-model statements.
+## originality
 
-## Mathematical value — PASS
-An entire geometrically canonical infinite family of high-dimensional graphs receives an exact noncommutative metric invariant. The formula is constructive, supplies a sharp all-dimensional norm certificate rather than an algorithm, and exhibits a qualitative contrast with growing shortest-path distance. The correction \(\zeta(1/2,1/2)/\sqrt N\) distinguishes the rate and direction of convergence. Unlike a routine special-case numeric substitution, finding the matching block pattern and proving its global optimality require a separate log-concavity-based dual inequality.
+PASS
 
-Limitations: odd dimensions only, unweighted adjacency Dirac operator only; neither a new general weighted-path framework nor an even-dimensional classification is asserted.
+Qualified PASS: Clare–Li–Poon–Swartz 2024 gives a generic implicit viable-vector weighted-path optimization (Theorem 3.10) and small path examples; the all-odd-binomial explicit optimal alternating pattern and zeta asymptotic are not a directly stated consequence without solving that maximization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact spectral metric of an entire canonical graph family is a meaningful invariant, and its finite limit versus linear graph distance plus sharp correction highlights a nontrivial geometric effect. The four-vertex case is already subsumed by prior small-path calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

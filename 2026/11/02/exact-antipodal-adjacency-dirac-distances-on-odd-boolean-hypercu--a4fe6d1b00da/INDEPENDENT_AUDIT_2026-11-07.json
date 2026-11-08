@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:44:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Group averaging over coordinate permutations preserves endpoints and contracts the commutator norm. Diagonal-unitary conjugation makes nonnegative radial edge increments, whose Perron norm is that of an (n+1)-vertex Jacobi matrix with weights sqrt((k+1)(n-k)). For n odd an alternating matching h_even=1/w_even, h_odd=0 achieves L; normalized dual vector u_{2j}=u_{2j+1}=(2L w_{2j})^-1/2 gives the Rayleigh lower bound ||J(h)||>=sum(h)/L by strict log concavity of w. Thus both bounds match in all odd dimensions. Midpoint quadrature after subtraction of endpoint square-root singularities gives pi/2+zeta(1/2,1/2)/sqrt(N)+O(N^-3/2). Independent full-commutator checks confirmed n=1,3,5,7 and Rayleigh certificates; these finite checks do not prove n unbounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.10 covers arbitrary weighted paths implicitly; the 2021 graph paper gives bounds."
+        ],
+        "reasoning": "Generic characterization is broader by inputs but not an explicit evaluated distance or limiting coefficient; no stronger explicit cube formula located.",
+        "searches": [
+          "arXiv:2409.04146 general weighted path",
+          "arXiv:2105.09056 graph spectral bounds"
+        ]
+      },
+      "checked_sources": [
+        "Clare, Li, Poon & Swartz, Noncommutative distances on graphs: An explicit approach via Birkhoff-James orthogonality, arXiv:2409.04146v1, Thm 3.10 and §4",
+        "Besnard, Estimating noncommutative distances on graphs, arXiv:2105.09056",
+        "Swartz, Effect of edge deletion on noncommutative distances on graphs, arXiv:2610.07718",
+        "Resultary semantic search: adjacency matrix Dirac Connes distance odd dimensional Boolean hypercube antipodal vertices exact path weighted spectral norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior path theorem says maximize over viable vectors, whereas the explicit Rayleigh witness proves the unique optimal value for binomial radial weights."
+        ],
+        "reasoning": "This evaluated optimality and Euler–Maclaurin calculation are nontrivial added consequences; the general theorem alone does not state them.",
+        "searches": [
+          "Clare–Li–Poon–Swartz theorem 3.10",
+          "Besnard 2021 degree bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A symmetric radial commutator is a weighted Jacobi path, precisely in the scope of Clare et al."
+        ],
+        "reasoning": "The problem translates exactly to their generic path variational formulation; the new step is a proof that the alternating matching solves those particular log-concave binomial weights globally.",
+        "searches": [
+          "odd hypercube Connes adjacency spectral metric antipodal",
+          "adjacency matrix Dirac Connes distance odd dimensional Boolean hypercube antipodal vertices exact path weighted spectral norm",
+          "arXiv:2409.04146 Theorem 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 4 gives small-dimensional examples; Q3 numerical value 2/sqrt(3) agrees with the proof, without the entire odd family."
+        ],
+        "reasoning": "Small finite tables cannot prove the unbounded family or zeta correction, though specific small cases are covered.",
+        "searches": [
+          "Connes distances hypercube Q3 Q5 Q7",
+          "arXiv:2409.04146 Section 4"
+        ]
+      },
+      "rationale": "Qualified PASS: Clare–Li–Poon–Swartz 2024 gives a generic implicit viable-vector weighted-path optimization (Theorem 3.10) and small path examples; the all-odd-binomial explicit optimal alternating pattern and zeta asymptotic are not a directly stated consequence without solving that maximization.",
+      "residual_risks": [
+        "An unindexed explicit evaluation of binomial tridiagonal path spectral distance could subsume the whole formula.",
+        "The theorem does not cover even n, other Dirac choices or nonantipodal endpoints.",
+        "Prior 4-vertex weighted path result already covers a small specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides implicit characterization and certain finite examples; not the displayed all-odd hypercube closed value or its asymptotic",
+          "evidence": "The implicit general theorem can yield this particular solution once nontrivial dual inequalities are established.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.04146",
+          "material_read": "Full primary PDF, relevant Theorem 3.10 and Section 4 examples, including the four-vertex alternating-edge special case",
+          "method": "Opened and read rendered primary PDF text and screenshot of theorem page",
+          "title": "Noncommutative distances on graphs: An explicit approach via Birkhoff-James orthogonality",
+          "trigger": "Direct strong coverage risk: solves general weighted paths including radial Jacobi reduction"
+        },
+        {
+          "assessment": "General degree and geodesic estimates not an all-dimension exact odd cube antipodal value",
+          "evidence": "An uninspected special example could overlap.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.09056",
+          "material_read": "Abstract and accessible relevant statements; entire body not re-read",
+          "method": "Open search/abstract",
+          "title": "Estimating noncommutative distances on graphs",
+          "trigger": "Generic graph metric bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact spectral metric of an entire canonical graph family is a meaningful invariant, and its finite limit versus linear graph distance plus sharp correction highlights a nontrivial geometric effect. The four-vertex case is already subsumed by prior small-path calculations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Clare, Li, Poon & Swartz, Noncommutative distances on graphs: An explicit approach via Birkhoff-James orthogonality, arXiv:2409.04146v1, Thm 3.10 and §4",
+    "Besnard, Estimating noncommutative distances on graphs, arXiv:2105.09056",
+    "Swartz, Effect of edge deletion on noncommutative distances on graphs, arXiv:2610.07718",
+    "Resultary semantic search: adjacency matrix Dirac Connes distance odd dimensional Boolean hypercube antipodal vertices exact path weighted spectral norm"
+  ],
+  "disposition": "passed",
+  "final_claim": "For odd Q_{2m+1} with the adjacency matrix itself as Dirac, the exact antipodal Connes distance is sum_{j=0}^m 1/sqrt((2j+1)(2m-2j+1)), with limit pi/2 and the explicit Hurwitz-zeta N^-1/2 correction.",
+  "limitations": [
+    "An unindexed explicit evaluation of binomial tridiagonal path spectral distance could subsume the whole formula.",
+    "The theorem does not cover even n, other Dirac choices or nonantipodal endpoints.",
+    "Prior 4-vertex weighted path result already covers a small specialization.",
+    "Full assigned Git directory-tree SHA not independently recomputed; exact individual source blob SHA identifiers verified for five files.",
+    "No GitHub writes or published certificate produced; privacy release not ready."
+  ],
+  "residual_risks": [
+    "An unindexed explicit evaluation of binomial tridiagonal path spectral distance could subsume the whole formula.",
+    "The theorem does not cover even n, other Dirac choices or nonantipodal endpoints.",
+    "Prior 4-vertex weighted path result already covers a small specialization."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides implicit characterization and certain finite examples; not the displayed all-odd hypercube closed value or its asymptotic",
+      "evidence": "The implicit general theorem can yield this particular solution once nontrivial dual inequalities are established.",
+      "identifier_or_url": "https://arxiv.org/abs/2409.04146",
+      "material_read": "Full primary PDF, relevant Theorem 3.10 and Section 4 examples, including the four-vertex alternating-edge special case",
+      "method": "Opened and read rendered primary PDF text and screenshot of theorem page",
+      "title": "Noncommutative distances on graphs: An explicit approach via Birkhoff-James orthogonality",
+      "trigger": "Direct strong coverage risk: solves general weighted paths including radial Jacobi reduction"
+    },
+    {
+      "assessment": "General degree and geodesic estimates not an all-dimension exact odd cube antipodal value",
+      "evidence": "An uninspected special example could overlap.",
+      "identifier_or_url": "https://arxiv.org/abs/2105.09056",
+      "material_read": "Abstract and accessible relevant statements; entire body not re-read",
+      "method": "Open search/abstract",
+      "title": "Estimating noncommutative distances on graphs",
+      "trigger": "Generic graph metric bounds"
+    }
+  ]
+}
