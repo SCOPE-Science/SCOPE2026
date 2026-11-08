@@ -1,15 +1,21 @@
-# Scientific review: all-degree harmonic sampling on the 72 type-\(E_6\) roots
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The definition uses the complete 72-root configuration and an explicitly stated radius-one, six-dimensional harmonic normalization. The proof reduces antipodal evaluations to 36 representatives and computes their normalized Gegenbauer kernel. Its critical finite facts are exact integer identities for matrices built from **all** 36 representatives, rather than sampled pairs. The exhaustive checker independently generates the underlying integer coordinates, checks the signed and unsigned adjacency identities, and uses a separate Gegenbauer recurrence for consistency. A separate numerical eigensystem calculation confirms the two spectra. The six-dimensional addition theorem gives the stated sector eigenvalues, with high-degree positivity proved by analytic inequalities rather than finite extrapolation. The unique global Gram condition-number maximum, \(25/3\) at degree ten, follows from explicit rational eigenvalues and strict decreasing tail bounds. One can reproduce the exact finite certificate using `python3 check_e6.py`.
+## correctness
 
-## Originality
-**PASS under bounded literature comparison.** The closest relevant 2013 and 2015 harmonic-index-design works concern weighted harmonic cancellations and tight-design cardinality bounds, respectively; they do not supply the all-degree E6 evaluation spectrum or sharp worst-case condition number. Borodachov's 2022 section on the 72-root E6 configuration establishes its five-design and potential-minimization properties, not the complete nonconstant evaluation sectors. The E6 result is intrinsic to a six-dimensional sphere and is not implied merely by a larger-root-system sampling statement on a different sphere. The 36-line adjacency spectrum is a known structural ingredient; the distinction between that ingredient and the new all-degree rank and stability classification is explicit. Published-record and source-alias searches found no recorded directly covering result. The residual risk is an older harmonic-analysis, association-scheme or numerical cubature treatment deriving the same spectrum or exact sharp condition-number extremum; absence from searches is not proof of historical novelty.
+PASS
 
-## Mathematical value
-**PASS.** The 72 roots of E6 are a canonical exceptional spherical five-design. Their exact-degree restriction problem asks a natural question not answered by their moment-cancellation property: when does one frequency band interpolate every parity-compatible sample? The theorem identifies every low-degree loss, proves permanent surjectivity from degree five, and supplies a sharp uniform stability result over infinitely many degrees. Particularly, degree ten is a unique worst-conditioned band despite being full rank, distinguishing interpolation from robust interpolation. The precise \(25/3\) constant is motivated by the canonical sampling operator and governs its singular values. No result is claimed for arbitrary five-designs or perturbations of the root configuration.
+Explicit E6 36 root pair representatives give exact A1=20, A^2=8I-2A+12J with eigen 20^1,2^20,-4^15 and S^2=20I+8S with eigen 10^6,-2^30. Addition theorem and parity establish spectra. Gegenbauer residue-period C_k^(2)(1/2) and C_k^(2)(0) yield high degree |p|,|q| bounds; cubic inequalities show full rank for odd k>=5 and even k>=10, low even k6,8 exact. For k10 p=-4/143 q=-3/143, levels (18,144,150)/143 yield 25/3; tail uniform bounds 55/17 and 226/47 control other degrees. Independent exact 36x36 scheme and 61 rational Gegenbauer degrees match, but infinite assertion relies on inequalities.
 
-## Closest sources and limitations
-Primary evidence considered includes E. Bannai, T. Okuda, and M. Tagami, *Spherical designs of harmonic index t* (arXiv:1308.5101); Y. Zhu et al., *More on spherical designs of harmonic index t* (arXiv:1507.05373); and S. Borodachov, *Absolute Minima of Potentials of a Certain Class of Spherical Designs* (arXiv:2212.04594, §9). The 2022 source's E6 section and the 2015 source's available full text were inspected; the 2013 source was compared from accessible article sections and abstracts, not independently through its entire preprint. No exhaustive literature novelty certification or external mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for E6 exact-degree root-sampling rank/spectral classification and, especially, sharp unique worst conditioning 25/3 at k10. Spherical five-design properties and association schemes alone characterize finite angular relations and low-degree moments, not an all-k sharp max condition number. E6 exceptional-root graph eigenvalues and Borodachov potential minimization are antecedents; same full Fourier restriction or uniform conditioning might have appeared in spectral literature.
+
+## value
+
+PASS
+
+Uniformly stable interpolation across infinitely many degrees on a canonical E6 root design with exact worst conditioning and its unique exceptional degree is an independently useful exact analytic invariant, beyond reproducing a known graph adjacency spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
