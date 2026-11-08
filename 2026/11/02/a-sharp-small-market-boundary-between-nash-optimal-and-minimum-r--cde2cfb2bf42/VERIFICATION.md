@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and proof boundaries
+# Independent mathematical audit
 
-The standalone `CHECK.py` uses only Python 3 standard-library modules. Run `python3 CHECK.py` from the extracted package directory. The expected successful output is:
+## correctness
 
-`VERIFY_OK n2=16 n3=46656 equal=39672 proper=6984 cross-regret-pairs=3504 regret-subset-egal=1200 n4-stable=3 padding=5,6`
+PASS
 
-For \(n=2,3\) it constructs all \((n!)^{2n}\) labeled strict profiles and all \(n!\) full matchings, tests stability by explicit blocking pairs, obtains exact integer products of \(n-r\) and worst ranks, builds both complete optimizer sets, and checks the asserted counts. The recorded \(3{,}504\) comparisons are all pairs of distinct-regret stable matchings within all three-pair profiles. No sampling, randomness, floating-point tolerance, solver bound or timeout serves as a proof of absence.
+PASS — Exhaustively re-enumerated all (n!)^(2n) strict labeled preference profiles for n=2 and 3, all n! possible matchings for each, explicit blocking pairs, zero-based individual rank products P=∏(n−r) and regret R=max r. Independent code reproduced n2 equality=16, n3 optimizer-set equality=39672, strict Nash-optimizer inclusion in regret-set=6984 and exactly 3504 cross-regret stable-outcome comparisons with strict inverse Nash ordering. Independently checked all 24 matchings for the supplied n=4 preferences: exactly three stable vectors with (R,P)=(2,4608),(3,5184),(3,3456), yielding unique incompatible optima. For n≥5 each new pair is mutual top choice, so it must be matched in every stable outcome, old rank increases by k, old n−r utility remains 4−r, all new utilities n, and old maximum rank shifts by k: this analytic argument (not finite padding trials) preserves the separation for all n. All claims require balanced strict complete profiles, no ties.
 
-For the four-pair witness, the checker enumerates all \(24\) complete matchings, identifies exactly the three stable ones displayed in `RESULT.md`, and verifies their utility products and unique opposing optima. It also verifies the explicit padding at sizes five and six. The accompanying **analytical** forced-mutual-top-pair argument, not those two examples, proves persistence for every larger size. The proof and certificate require labeled strict complete lists, balanced bipartite markets, positive rank utilities \(n-r\), and the ordinary blocking-pair definition of stability. These checks are self-review; no independent scientific audit or formal proof-assistant certification has been performed.
+## originality
+
+PASS
+
+PASS, qualified — Nash-optimal stable matching under rank-induced utilities and minimum-regret stable matching are classical as separate objectives; Desai–Rasheed–Ghalme–Gujar 2026 applies Nash welfare to this exact model. A full published Resultary primary finding for *egalitarian vs minimum-regret* establishes related n3 nested optimizer sets, but does not entail the different nonadditive Nash-vs-regret inclusion. The present exact n3 46,656-profile census and n4 sharp counterexample were not identified in checked published records. The inaccessible full Desai et al. article is a significant priority risk; abstract does not justify a whole-document noncoverage claim.
+
+## value
+
+PASS
+
+PASS — Sharp compatibility threshold for two independently motivated stability/fairness objectives, complete small-market optimum-set census and explicit infinite-size separation. This is a natural boundary rather than arbitrary enumeration: it distinguishes when welfare optimization automatically satisfies a max-regret fairness guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

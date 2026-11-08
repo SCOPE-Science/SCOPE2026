@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:49:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Exhaustively re-enumerated all (n!)^(2n) strict labeled preference profiles for n=2 and 3, all n! possible matchings for each, explicit blocking pairs, zero-based individual rank products P=∏(n−r) and regret R=max r. Independent code reproduced n2 equality=16, n3 optimizer-set equality=39672, strict Nash-optimizer inclusion in regret-set=6984 and exactly 3504 cross-regret stable-outcome comparisons with strict inverse Nash ordering. Independently checked all 24 matchings for the supplied n=4 preferences: exactly three stable vectors with (R,P)=(2,4608),(3,5184),(3,3456), yielding unique incompatible optima. For n≥5 each new pair is mutual top choice, so it must be matched in every stable outcome, old rank increases by k, old n−r utility remains 4−r, all new utilities n, and old maximum rank shifts by k: this analytic argument (not finite padding trials) preserves the separation for all n. All claims require balanced strict complete profiles, no ties.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Desai et al., arXiv:2609.02354, accessible abstract establishes optimization algorithm and empirical regret comparisons",
+          "Gusfield 1987 computes classical minimum-regret stable matching, not a cross-objective inclusion"
+        ],
+        "reasoning": "Efficient algorithms for each objective do not prove their argopt sets are nested through n3 or disjoint at n4. However full Desai primary text inaccessible and remains an uncertainty.",
+        "searches": [
+          "stable marriage Nash social welfare minimum regret stable matching small n 3 4",
+          "Fair Stable Matching Nash social welfare regret theorem Desai Rasheed Ghalme Gujar 2026"
+        ]
+      },
+      "checked_sources": [
+        "Desai et al. 2026, arXiv:2609.02354, abstract; full paper access unavailable",
+        "Resultary full RESULT.md: Sharp coincidence boundary for egalitarian and minimum-regret stable marriage, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+        "Gusfield 1987 DOI:10.1137/0216010 bibliographic result",
+        "Resultary semantic query: stable marriage Nash social welfare minimum regret stable matching small n 3 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known E⊂R or R⊂E for n3 but no theorem Nash⊂E or Nash⊂R",
+          "Independent complete n3 enumeration and n4 witness"
+        ],
+        "reasoning": "Even knowing Nash optimizers were egalitarian (not established here) does not force them to be regret minimizers when R is the strict smaller nested set. Current claim genuinely relates different nonlinear objectives. The first-incompatibility result is not a mere reformulation of the prior egalitarian theorem.",
+        "searches": [
+          "stable marriage Nash social welfare minimum regret stable matching small n 3 4",
+          "published Resultary Sharp coincidence boundary for egalitarian and minimum regret stable marriage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Desai et al. arXiv:2609.02354 uses rank-induced utilities n−r and computes stable Nash optimizer",
+          "Resultary full exact egalitarian/minimum-regret nested optimizer theorem"
+        ],
+        "reasoning": "Taking log gives sum log(n−r), a strictly concave aggregate distinct from sum ranks and max rank; equality of one objective's optima with another is not a substitution theorem. Current inclusion is not a corollary of published egalitarian/regret nesting.",
+        "searches": [
+          "stable marriage Nash social welfare minimum regret stable matching small n 3 4",
+          "rank-induced Nash welfare stable matching minimum regret equivalence small market"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: Sharp coincidence boundary for egalitarian and minimum-regret stable marriage, 2026-10-04, read full result with 40056/5400/1200 split",
+          "This audit independently found Nash/regret split 39672/6984 in 46656 profiles"
+        ],
+        "reasoning": "The known table concerns sum ranks and max rank, not product(n−rank) and max rank, and its counts differ for a mathematical reason. No exact published Nash-regret table surfaced in checked sources, subject to unindexed data risk.",
+        "searches": [
+          "stable marriage Nash social welfare minimum regret stable matching small n 3 4",
+          "Resultary exact three-by-three stable marriage Nash regret 39672 6984"
+        ]
+      },
+      "rationale": "PASS, qualified — Nash-optimal stable matching under rank-induced utilities and minimum-regret stable matching are classical as separate objectives; Desai–Rasheed–Ghalme–Gujar 2026 applies Nash welfare to this exact model. A full published Resultary primary finding for *egalitarian vs minimum-regret* establishes related n3 nested optimizer sets, but does not entail the different nonadditive Nash-vs-regret inclusion. The present exact n3 46,656-profile census and n4 sharp counterexample were not identified in checked published records. The inaccessible full Desai et al. article is a significant priority risk; abstract does not justify a whole-document noncoverage claim.",
+      "residual_risks": [
+        "Desai et al. full article/appendix inaccessible; its same-model experiments may contain n3 or n4 exact classifications.",
+        "Indexed fairness-matching literature might contain equivalent ordinal argument via an unexpected inequality; absence from a search is not proof of absolute novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME MODEL PRIOR; full paper coverage of exact small-market boundary UNRESOLVED",
+          "evidence": "Oxford access vpn_disconnected, job 691eaff041f6d536f020578a7f920d08",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02354",
+          "material_read": "Primary arXiv abstract, author-provided bibliographic description; full arXiv HTML/PDF inaccessible and not read",
+          "method": "arXiv abstract plus attempted lawful primary full text then institutional tool",
+          "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+          "trigger": "Exactly same Nash utility model and compares regret fairness"
+        },
+        {
+          "assessment": "DOES NOT IMPLY Nash-vs-regret without added nonlinear optimizer relation",
+          "evidence": "Known E/R counts 40056 equality, 5400 E strict subset, 1200 R strict subset",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+          "material_read": "Read complete primary RESULT.md including exact 46656-profile census and proof",
+          "method": "GitHub published research text direct fetch",
+          "title": "Sharp coincidence boundary for egalitarian and minimum-regret stable marriage",
+          "trigger": "Strong plausible published n≤3 fairness-criterion theorem"
+        },
+        {
+          "assessment": "KNOWN MINIMUM-REGRET ALGORITHM, not evidence of cross-objective n3 census",
+          "evidence": "Gusfield (1987), SIAM J Comput 16",
+          "identifier_or_url": "https://doi.org/10.1137/0216010",
+          "material_read": "Bibliographic title and reference description; full text not read",
+          "method": "primary bibliographic record",
+          "title": "Three Fast Algorithms for Four Problems in Stable Marriage",
+          "trigger": "Classical minimum-regret optimization context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Sharp compatibility threshold for two independently motivated stability/fairness objectives, complete small-market optimum-set census and explicit infinite-size separation. This is a natural boundary rather than arbitrary enumeration: it distinguishes when welfare optimization automatically satisfies a max-regret fairness guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Desai et al. full article/appendix inaccessible; its same-model experiments may contain n3 or n4 exact classifications.",
+    "Indexed fairness-matching literature might contain equivalent ordinal argument via an unexpected inequality; absence from a search is not proof of absolute novelty."
+  ],
+  "schema_version": 1
+}
