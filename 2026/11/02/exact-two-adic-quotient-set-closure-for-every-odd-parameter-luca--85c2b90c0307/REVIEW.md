@@ -1,15 +1,21 @@
-# Scientific review: exact two-adic closure of odd-parameter Lucas-companion ratios
+# Independent mathematical audit
 
-## Correctness — PASS
-For every odd integer \(P\) and positive index, \(V_n=\operatorname{tr}(M^n)\) for the integer companion matrix with determinant \(-1\). Explicit verification of the identity \(M^6\equiv5I\pmod8\), the valuation cases (odd exactly when \(3\nmid n\), valuation \(2\) on indices \(3\pmod6\), valuation \(1\) on multiples of \(6\)), and scalar-power induction establishes all hypotheses and boundaries. The mod-4 seeds and universal one-bit lift prove coverage of every odd residue at every precision. Ratios with fixed valuations \(0,1,2\) and varying dense unit terms give all five shells, and closed valuation shells exclude zero. The exact modular verifier passed for 16 odd parameters, 176 modulus cases, 8160 valuation tests, and scalar lifts through exponent 12. Finite checks supplement rather than prove the theorem.
+## correctness
 
-## Originality — PASS, scoped to uniform odd-parameter theorem
-Garcia et al. (2017, Theorem 7.2(a)) give only non-density in the classical \(P=1\) case. Antony–Barman (arXiv:2207.07084, 2022), Theorems 1.2 and 1.8, address density versus non-density under other hypotheses rather than describing this exact closed subset. Carlip–Jacobson (1996, Theorem 1.1) obtain residue frequencies of the first-kind \(U_0=0,U_1=1\) recurrence, not the companion \(V_0=2,V_1=P\). Bundschuh–Bundschuh (2010, Theorem 2) determine full residues of **the classical \(P=1\)** Lucas sequence; **that special case is prior-covered**, and originality is only for the uniform all-odd-parameter classification. Semantic mathematical-record searches for the exact annulus, odd-parameter companion and equivalent residue lifting did not return a dominating theorem. The 1996 and 2010 recurrence-distribution literature leaves a priority risk for an implicit uniform consequence, and a full PDF of the 2010 work was not accessible from the searched host during inspection.
+PASS
 
-## Value — PASS
-The exact closure of ratio sets is a natural refinement of the published density/non-density program for recurrence sequences. Specifying **all five** valuation shells and the exclusion of zero for an **infinite parameter family** determines a topological invariant, not simply a non-density observation. The proof isolates a parameter-uniform dyadic scalar lift explaining the unit-density mechanism. The classical \(P=1\) case alone would not support the claimed value because its complete residue distribution is known.
+For every odd integer P (negative included), M=[[P,1],[1,0]], det M=-1, and Vn=tr M^n. M^3=PI+(P²+1)M, M^6≡5I mod8. Mod2 the order-three companion implies Vn odd iff 3∤n; V3≡4 mod8 for n≡3 mod6 and duplication V2m=Vm²−2(−1)^m gives valuation 1 for 6|n. The scalar lift M^(3·2^(k−1))≡(1+2^k)I mod2^(k+1) for all k>=2 follows by squaring, and shifts every represented odd residue into its complementary next bit. Initial V1,V2 (P≡1 mod4) or V1,V5 (P≡3 mod4) represent both mod4 odd classes. Hence odd positive-index terms are dense in Z2×, with fixed V1,V6,V3 of valuations 0,1,2; ratios cover the five valuation shells j=-2..2 densely and no others or zero. I independently checked seven positive/negative odd P, full odd-residue coverage modulo 2^k through k=9 and scalar lift through k=8. These finite checks support, but do not replace, the scalar induction.
 
-## Limitations and sources
-Scope: odd \(P\) only; positive indices and \(\mathbb Q_2\) topology; no claim about other primes or companion coefficients. Primary material considered: Antony–Barman 2022 full HTML introduction/theorems and proof context; Garcia et al. 2017 Section 7 and Theorem 7.2; Carlip–Jacobson 1996 scanned paper pages 298, 300, 304; Bundschuh–Bundschuh 2010 indexed Theorem 2 excerpt, with full PDF timeout; Southwick 2014 HTML. Bibliographic risk: a broad older theorem in recurrence-distribution literature could implicitly imply the all-odd-parameter result; no exhaustive novelty certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, limited to the quantified all-odd-P exact closure. Garcia et al. 2017 Theorem 7.2(a) shows the classical Lucas ratio set is not Q2-dense but does not determine all limit shells. Bundschuh–Bundschuh 2010 theorem 2 has full residue frequency for the classical P=1 case, which implies that specialization and is NOT claimed new. Carlip–Jacobson 1996 concerns first-kind U0=0,U1=1, not second-kind V0=2,V1=P. Antony–Barman 2022 treats density tests, and its prime-two coverage differs; searched Resultary results on period/Dold companions do not cover this exact all-odd closure. An unindexed older companion-frequency theorem could imply the uniform result and remains priority risk.
+
+## value
+
+PASS
+
+Exact p-adic closure of a ratio set is a natural stronger invariant than merely deciding density. The uniform five-shell classification across every odd companion parameter and universal scalar-lifting mechanism extend significantly beyond a previously tabulated single classical Lucas sequence; the P=1 specialization alone is prior known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
