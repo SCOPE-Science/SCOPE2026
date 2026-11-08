@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:55:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directional Crofton flux is sum_i |u_i|, and the entry-face probability of opposite exit at i is product_{j≠i}(1−|u_j|/|u_i|)_+. Replacing homogeneous spherical ratio with Gaussian expectations and size-biasing |G_i| gives Rayleigh density x e^{−x²/2}, and integrates the independent Gaussian coordinates to F(x)=erf(x/√2)−μ(1−e^{−x²/2})/x. d=2 flux integral yields √2−1. The asymptotic −log F=μ/x+μ²/(2x²)+μ³/(3x³)+O(x^-4), q=(μ(d−1))^{1/3}, and centered x=q+s lead to action 3q²/2+μ q/2+μ²/3+3s²/2−μs. Uniform tails permit Gaussian Laplace normalization, producing √(2π/3)q exp(−3q²/2−μ q/2−μ²/6) and s⇒N(μ/3,1/3). Under Crofton-direction weighting, radial flux gives a χ_{d+1} radial law independent of direction; R/√d→1 and R−√d=O_P(1), while X=q+O_P(1), so L=R/X yields d^{1/6}(L−√d/q)⇒−μ^{-2/3}Z. Independent numerical integration confirmed p2 and saddle probability ratio convergence through d=5000; finite calculations are not asymptotic proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko–Prochno–Thäle arXiv:1910.02676 treats Haar projections of cube/product measures rather than line offsets and opposing-face exits.",
+          "Coleman (1969) abstract reports random path distributions in rectangles/cubes, but full original inaccessible."
+        ],
+        "reasoning": "Haar random subspace projections alone do not determine this joint affine offset/directional event; Coleman may contain some low-dimensional overlap but not shown to establish the sharp high-dimensional law.",
+        "searches": [
+          "high dimensional cube Crofton random lines opposite facets chord length stretched exponential",
+          "Kabluchko Prochno Thale random projections of cube 2019",
+          "Coleman Random paths through convex bodies 1969 random chord"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md pinned blob 2ecc6076aa1bdb9d17daa4f250747eee6399e63c",
+        "verify.py pinned blob bdd6d7ccae7243cfefbc87818419e84466f78517",
+        "Egan Pick Two Points web essay",
+        "Coleman 1969 DOI:10.2307/3212012",
+        "Kabluchko Prochno Thäle arXiv:1910.02676",
+        "MathWorld CubeLinePickingFaceandFace",
+        "Resultary semantic query: high dimensional cube Crofton random lines opposite facets chord length stretched exponential"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian flux/Rayleigh integral depends on face-entry projection weights and is absent from the inspected alternative-sampling calculations.",
+          "The saddlepoint q~d^{1/3} and Gaussian centered fluctuation are additional claims beyond any fixed-dimensional chord-density table."
+        ],
+        "reasoning": "Low-dimensional chord-length distributions or a 2/(d+1) two-interior-point result cannot imply the exact Crofton event or its all-dimensional stretched-exponential regime.",
+        "searches": [
+          "high dimensional cube Crofton random lines opposite facets chord length stretched exponential",
+          "Coleman 1969 Random paths through convex bodies 10.2307/3212012",
+          "Egan Pick Two Points line cube face probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Egan Pick Two Points chooses a line via two volume-uniform cube points and obtains opposite faces probability 2/(d+1).",
+          "Crofton line selection is proportional to orthogonal projection volume with uniform offset, gives p2=√2−1."
+        ],
+        "reasoning": "Random line induced from two interior points is not the translation/rotation-invariant conditioned Crofton affine-line law; their p2 values already differ.",
+        "searches": [
+          "high dimensional cube Crofton random lines opposite facets chord length stretched exponential",
+          "Crofton invariant lines cube opposite sides probability face to face",
+          "Greg Egan Pick Two Points cube opposite face 2/(d+1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned central random hyperplane sections and directional cube width laws, not a Crofton opposite-facet line-event distribution.",
+          "MathWorld Cube Line Picking—Face and Face prescribes sampling endpoints on faces, a different line measure."
+        ],
+        "reasoning": "No exact database/table identified giving this all-d Crofton law or asymptotics. Nearby geometric tables use materially different sampling.",
+        "searches": [
+          "high dimensional cube Crofton random lines opposite facets chord length stretched exponential",
+          "Resultary Crofton cube face-to-face chord probability Gaussian saddle",
+          "MathWorld cube line picking face face endpoint sampling"
+        ]
+      },
+      "rationale": "The sampling convention matters critically: Egan’s high-dimensional opposite-facet result samples the line through two independent interior points and yields 2/(d+1), unlike the Crofton p2=√2−1. Published Haar cube projection laws concern random linear subspaces, not affine-line offsets and their face-pair rare events. Coleman’s historical random-path paper has only accessible abstract/low-dimensional scope; its full text could not be obtained due to institutional VPN disconnection, so priority risk is explicit. Best-of-knowledge original is the exact all-d Crofton event, sharp saddle asymptotic and conditional chord fluctuations.",
+      "residual_risks": [
+        "Full text Coleman 1969 random-path study could not be examined due to Oxford VPN authorization disconnected; unknown partial or equivalent historical overlap remains.",
+        "Full-text of Kabluchko et al not read, but stated Haar projection objects differ.",
+        "Sampling law is invariant affine line measure conditioned on hitting cube, not two uniform random points or uniformly sampled opposite-face endpoints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT MEASURE and hence not covering",
+          "evidence": "Reports 2/(d+1) under two interior points; Crofton yields √2−1 already at d=2.",
+          "identifier_or_url": "https://www.gregegan.net/SCIENCE/PickTwoPoints/PickTwoPoints.html",
+          "material_read": "Complete accessible mathematical web essay and calculation of opposite-face probability for random line through two independently chosen cube points",
+          "method": "read primary full HTML",
+          "title": "Pick Two Points",
+          "trigger": "apparent exact opposite-facet probability for high-dimensional cubes"
+        },
+        {
+          "assessment": "INACCESSIBLE; no full-text non-coverage verdict",
+          "evidence": "Abstract covers several random path mechanisms in low-dimensional bodies; its unseen contents are a genuine historical-priority risk.",
+          "identifier_or_url": "https://doi.org/10.2307/3212012",
+          "material_read": "Available Cambridge indexed abstract and bibliographic material only; arXiv and lawful OA search failed to provide full text; Oxford request returned vpn_disconnected job 10d6a71b70788b99415dd8e3c6803e23",
+          "method": "abstract plus authorized institutional attempt",
+          "title": "Random paths through convex bodies",
+          "trigger": "historically direct random chords through rectangles and cubes"
+        },
+        {
+          "assessment": "RELATED but different object",
+          "evidence": "Fixed-dimensional Haar projection distribution is not the conditional affine-Crofton line face-crossing law.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.02676",
+          "material_read": "Accessible abstract and stated main theorem scope; not entire PDF",
+          "method": "primary abstract/theorem overview",
+          "title": "A new look at random projections of the cube and general product measures",
+          "trigger": "high-dimensional cube random projection large deviations"
+        },
+        {
+          "assessment": "NOT_COVERING Crofton line sampling",
+          "evidence": "Picks endpoints on opposite cube faces rather than isometry-invariant lines conditioned intersecting the cube.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CubeLinePickingFaceandFace.html",
+          "material_read": "Accessible HTML definition, sampling and formulas",
+          "method": "read full short reference page",
+          "title": "Cube Line Picking—Face and Face",
+          "trigger": "tabulated opposite-face chord lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Opposite-facet traversal of a high-dimensional cube under the invariant Crofton line process is a natural integral-geometric rare event. The exact finite-d law, unusual exp(−Θ(d^{2/3})) decay, sharp subleading constants, and conditional chord length/normal fluctuations are reusable geometric structure, not an unmotivated isolated constant or alternative endpoint sampling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md pinned blob 2ecc6076aa1bdb9d17daa4f250747eee6399e63c",
+    "verify.py pinned blob bdd6d7ccae7243cfefbc87818419e84466f78517",
+    "Egan Pick Two Points web essay",
+    "Coleman 1969 DOI:10.2307/3212012",
+    "Kabluchko Prochno Thäle arXiv:1910.02676",
+    "MathWorld CubeLinePickingFaceandFace",
+    "Resultary semantic query: high dimensional cube Crofton random lines opposite facets chord length stretched exponential"
+  ],
+  "disposition": "passed",
+  "final_claim": "For invariant Crofton affine lines intersecting [0,1]^d, the opposite-facet chord event has the exact Rayleigh integral p_d, p2=√2−1, sharp stretched-exponential probability, Gaussian conditional crossing-amplitude fluctuations, and the scaled Gaussian conditional chord-length limit as d→∞.",
+  "limitations": [
+    "Full text Coleman 1969 random-path study could not be examined due to Oxford VPN authorization disconnected; unknown partial or equivalent historical overlap remains.",
+    "Full-text of Kabluchko et al not read, but stated Haar projection objects differ.",
+    "Sampling law is invariant affine line measure conditioned on hitting cube, not two uniform random points or uniformly sampled opposite-face endpoints."
+  ],
+  "residual_risks": [
+    "Full text Coleman 1969 random-path study could not be examined due to Oxford VPN authorization disconnected; unknown partial or equivalent historical overlap remains.",
+    "Full-text of Kabluchko et al not read, but stated Haar projection objects differ.",
+    "Sampling law is invariant affine line measure conditioned on hitting cube, not two uniform random points or uniformly sampled opposite-face endpoints."
+  ],
+  "schema_version": 1
+}
