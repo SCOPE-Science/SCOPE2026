@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix identity \(C^{28}=I+8E\) and the first two binomial coefficients are exact integers. For residues \(20,25,27\), a verified negative-index zero gives a unit times \(8(m+1)\). For residue zero, the higher binomial terms are strictly contracting relative to the odd linear coefficient, making \(h\) a two-adic isometry with exactly one zero. This proves all valuations at all positive indices. Counting the resulting congruence classes establishes the exact densities and a level-uniform discrepancy bound. The standalone verifier independently checks modular recurrence terms and root lifting; finite checking is not presented as a proof of the infinite statements.
+PASS
 
-## Originality — PASS within inspected literature
+Companion matrix C sends (a_n,a_(n+1),a_(n+2)) by recurrence, and exact C^28=I+8E with E as displayed. Uniform binomial interpolation F_r(z)=e C^r sum_{j≥0}8^j E^j binom(z,j)v extends all residue subsequences 2-adically. Residues R0,R1,R2 determined uniformly mod8; r14 remains ≡8 mod16; r=20,25,27 each has F_r(−1)=0 and an odd unit bracket, giving 3+nu2(m+1). For r0=0, F_0(z)=32z h(z) with odd linear coefficient 12899489 and Lipschitz remainder contracting by >=8, so h is an exact Z_2 isometry with unique odd root theta. Thus nu2(a_(28m))=5+nu2(m)+nu2(m−theta) for m>=1. Congruence classes count densities p_t and at most 16 progression discrepancies for each level uniformly in X,t. Independent exact SymPy C^28 identity and direct recurrence valuations for n=1..29999 matched the classification using theta ≡698045 mod2^22. Checks are finite, full law follows from the analytic isometry and progression argument.
 
-The closest exact-object source, Guadalupe (arXiv:2112.06187), treats valuations at the different prime three. The generalized-Fibonacci work of Sobolewski (arXiv:1702.05819) concerns different recurrences. Antony–Barman (arXiv:2402.18279) addresses broader third-order recurrence criteria but not this explicit binary Narayana valuation and its frequencies. Searches for index shifts, prime-power congruence classes, local two-adic zeros, and the resulting distribution did not locate an equivalent theorem. General p-adic analytic methods overlap with the proof technique but do not by themselves supply the specific matrix residue computation and the quantitative density theorem. Residual bibliographic risk: an unindexed earlier specialization or an implicit consequence not exposed by the examined arguments. Absence of a search result is not a proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The published full three-adic classification motivates the analogous unresolved explicit two-adic arithmetic statistic. The answer has an exceptional analytic zero and three shared shift-root classes, rather than one routine congruence. It completely classifies all positive indices and all valuation levels and proves a uniform bounded discrepancy stronger than mere natural density. The exact distribution is useful for studying divisibility, divisibility thresholds, and arithmetic sampling of a classical third-order recurrence. The result does not claim a new general theorem for arbitrary recurrences.
+The complete p=2 law, unique exceptional 2-adic root, 28-residue partition, exact density and uniform discrepancy are different from the published p=3 Narayana valuation theorem by Guadalupe. General third-order recurrence valuation frameworks and generalized Fibonacci 2-adic results do not visibly instantiate all these precise formulas. Best-of-knowledge originality retains risk of unindexed older p=2 specialization or hidden corollary.
 
-## Limits and closest literature
+## value
 
-The result is restricted to the normalized Narayana sequence and \(p=2\). The two-adic root is given intrinsically and to explicit modular precision, not in a closed rational form. The principal priority risk is an undiscovered explicit or implicit earlier classification. Independent validation and independent bibliography audit are not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Narayana numbers are a standard recurrence with published valuations at prime 3; full prime-2 divisibility is a motivated complementary arithmetic invariant. A complete 28-residue law, unique 2-adic root, every valuation density and uniform |C_t(X)−p_tX|≤16 are useful exact quantitative information about all positive indices, beyond known small tables or routine periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
