@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:57:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For E=diag(1,0), J=[[0,-1],[1,0]], R=diag(0,r), r>0, consistent initial (1,1/r), E_eps=diag(1+eps,eps), eigenmode decomposition of the unsplit ODE gives the slow eigenvalue -> -1/r, fast -> -r/eps and unsplit exact endpoint -> (t,t/r) with t=e^{-h/r}. The exact Strang conservative–dissipative–conservative matrix is C D C with theta=h/(2sqrt(eps(1+eps))), q=e^{-rh/eps}, C=[[cos theta,-delta sin theta],[sin theta/delta,cos theta]], D=diag(1,q). After scaling the second endpoint coordinate by sqrt(eps), the split endpoint equals (cos^2 theta,cos theta sin theta)+o(1), uniformly in phase. Continuous theta->infinity covers the entire radius-1/2 circle. Error squared in E_eps tends to t^2+(1-2t)cos^2 theta, hence exact positive liminf=min(t,1-t), limsup=max(t,1-t), equal 1/2 at h=r log2. E_eps-orthogonality of C and contraction of D give unconditional split energy dissipation. Independent SciPy matrix-exponential evaluations at three h,r pairs corroborate phase envelope but finite eps values are not asserted to equal the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2308.16736",
+          "arxiv:2304.01766",
+          "arxiv:2208.03574"
+        ],
+        "reasoning": "Bartel-Diab-Frommer-Günther 2023 uses E+eps I and exact splitting and treats convergence at fixed eps; its stated second-order estimates do not provide uniformity as eps->0. Dynamic iteration for descriptor systems is a different algorithm; nonsingular pH splitting excludes singular limit.",
+        "searches": [
+          "Resultary semantic query: port Hamiltonian DAE E plus epsilon I Strang splitting stiff limit oscillatory failure nonuniform fixed step",
+          "primary literature searches: arxiv:2308.16736"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2308.16736",
+        "arxiv:2304.01766",
+        "arxiv:2208.03574",
+        "doi:10.1093/imanum/dru002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2308.16736",
+          "arxiv:2304.01766",
+          "arxiv:2208.03574"
+        ],
+        "reasoning": "Second order for each fixed eps allows eps-dependent constants and does not imply convergence for fixed h as eps->0. The example exhibits an order-of-limits obstruction with positive lower error; established general stability does not contradict it or provide these exact values.",
+        "searches": [
+          "Resultary semantic query: port Hamiltonian DAE E plus epsilon I Strang splitting stiff limit oscillatory failure nonuniform fixed step",
+          "primary literature searches: arxiv:2308.16736"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2308.16736",
+          "arxiv:2304.01766",
+          "arxiv:2208.03574"
+        ],
+        "reasoning": "This is singularly perturbed port-Hamiltonian Strang splitting, equivalent to a fast Hamiltonian rotation composed with fast rank-one damping. Generic order reduction and stiff-splitting discussions do not specify the exact circle or weighted error for fixed h and eps->0.",
+        "searches": [
+          "Resultary semantic query: port Hamiltonian DAE E plus epsilon I Strang splitting stiff limit oscillatory failure nonuniform fixed step",
+          "primary literature searches: arxiv:2308.16736"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arxiv:2308.16736",
+          "arxiv:2304.01766",
+          "arxiv:2208.03574"
+        ],
+        "reasoning": "No finite table or benchmark could establish the full continuum circle of cluster points; searches for scalar two-state stiff Strang benchmarks found no identical exact limit in the relevant papers. All phase cluster points require the analytic oscillatory argument.",
+        "searches": [
+          "Resultary semantic query: port Hamiltonian DAE E plus epsilon I Strang splitting stiff limit oscillatory failure nonuniform fixed step",
+          "primary literature searches: arxiv:2308.16736"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge scientific comparison: Second order for each fixed eps allows eps-dependent constants and does not imply convergence for fixed h as eps->0. The example exhibits an order-of-limits obstruction with positive lower error; established general stability does not contradict it or provide these exact values. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.",
+      "residual_risks": [
+        "A general theorem on singular limits of damped fast oscillatory Strang compositions might imply the two-state result, though no exact specialization found.",
+        "One fixed positive timestep and exactly the shown regularization are covered; coupled h(eps), alternative split/solvers, and multiple steps are outside the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No target fixed-h singular-mass asymptotic circle or liminf/sup is stated in inspected relevant parts; the paper gives fixed-parameter convergence, so this does not supersede it",
+          "evidence": [
+            "Bartel, Diab, Frommer, Günther (2023), pH splitting section"
+          ],
+          "identifier_or_url": "arxiv:2308.16736",
+          "material_read": "Open arXiv PDF relevant methods and fixed-epsilon convergence discussion, including page 4 visually",
+          "method": "arXiv PDF and screenshot",
+          "title": "Operator splitting for semi-explicit differential-algebraic equations and port-Hamiltonian DAEs",
+          "trigger": "Exact same regularization and conservative/dissipative splitting framework"
+        },
+        {
+          "assessment": "Nonsingular ODE setting, not index-one DAE regularization with unbounded fast skew generator",
+          "evidence": [
+            "Frommer et al. (2023)"
+          ],
+          "identifier_or_url": "arxiv:2304.01766",
+          "material_read": "Accessible full paper introductory/convergence portions",
+          "method": "open full text",
+          "title": "Operator splitting for port-Hamiltonian systems",
+          "trigger": "Same energy-preserving splitting but ODE assumptions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal explicit, dissipative index-one descriptor problem shows exact-subflow Strang splitting can be energy-stable and individually consistent but not uniformly accurate as regularization becomes singular. The full circle and sharp nonzero error range are stronger and more informative than an isolated failure example; a motivated numerical-analysis boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git result blob 87d65c0332472dc699eec9f1feac2a578310e3c0",
+    "arxiv:2308.16736",
+    "arxiv:2304.01766",
+    "arxiv:2208.03574",
+    "doi:10.1093/imanum/dru002"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general theorem on singular limits of damped fast oscillatory Strang compositions might imply the two-state result, though no exact specialization found.",
+    "One fixed positive timestep and exactly the shown regularization are covered; coupled h(eps), alternative split/solvers, and multiple steps are outside the claim."
+  ],
+  "residual_risks": [
+    "A general theorem on singular limits of damped fast oscillatory Strang compositions might imply the two-state result, though no exact specialization found.",
+    "One fixed positive timestep and exactly the shown regularization are covered; coupled h(eps), alternative split/solvers, and multiple steps are outside the claim."
+  ],
+  "schema_version": 1
+}

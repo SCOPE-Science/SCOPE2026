@@ -1,19 +1,21 @@
-# Scientific review: a sharp singular-regularization splitting obstruction
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proposed matrices satisfy the index-one constraint and the port-Hamiltonian sign conditions. The regularized continuous-time eigenvalues and consistent initialization give convergence of the unsplit flow to the DAE. The conservative and dissipative subflows are exact and their product was reconstructed symbolically: its scaled endpoint differs uniformly in the oscillation phase from \((\cos^2\theta,\cos\theta\sin\theta)\) by a vanishing term. The phase runs through every angle infinitely often as \(\varepsilon\downarrow0\), giving the entire circle and no other accumulation points. Finally the squared weighted error reduces, uniformly in phase, to \(t^2+(1-2t)\cos^2\theta\) with \(t=e^{-h/r}\), proving both sharp accumulation limits and the \(t=1/2\) boundary. Exact energy contractivity is preserved at every \(\varepsilon,h>0\). The supplied standard-library verification program checks 80 phase cases and independent matrix products. Limitation: the theorem is only for one exact-subflow step with fixed \(h\).
+PASS
 
-## Originality
+For E=diag(1,0), J=[[0,-1],[1,0]], R=diag(0,r), r>0, consistent initial (1,1/r), E_eps=diag(1+eps,eps), eigenmode decomposition of the unsplit ODE gives the slow eigenvalue -> -1/r, fast -> -r/eps and unsplit exact endpoint -> (t,t/r) with t=e^{-h/r}. The exact Strang conservative–dissipative–conservative matrix is C D C with theta=h/(2sqrt(eps(1+eps))), q=e^{-rh/eps}, C=[[cos theta,-delta sin theta],[sin theta/delta,cos theta]], D=diag(1,q). After scaling the second endpoint coordinate by sqrt(eps), the split endpoint equals (cos^2 theta,cos theta sin theta)+o(1), uniformly in phase. Continuous theta->infinity covers the entire radius-1/2 circle. Error squared in E_eps tends to t^2+(1-2t)cos^2 theta, hence exact positive liminf=min(t,1-t), limsup=max(t,1-t), equal 1/2 at h=r log2. E_eps-orthogonality of C and contraction of D give unconditional split energy dissipation. Independent SciPy matrix-exponential evaluations at three h,r pairs corroborate phase envelope but finite eps values are not asserted to equal the limits.
 
-PASS under best-knowledge comparison, with independent priority verification outstanding. The directly motivating paper arXiv:2308.16736, whose complete eight-page text and pertinent displayed equations were inspected, gives the \(E+\varepsilon I\) perturbation and conservative/dissipative Strang construction, but does not supply a fixed-\(h\), \(\varepsilon\downarrow0\) error barrier, the endpoint circle, or the sharp energy-metric extremal constants. The same-author nonsingular port-Hamiltonian splitting paper arXiv:2304.01766 analyzes a different nonsingular regime. The descriptor-system paper arXiv:2208.03574 studies dynamic iteration rather than these exact split subflows. A general stiff-splitting order-reduction literature precedent is acknowledged; its broad phenomenon is not claimed as new. Available mathematical-record searches and accessible historical claim comparisons identified no covering theorem. Residual risk: equivalent older singular-perturbation/splitting calculations may exist under different notation; the abstract-only general stiff-splitting source has not been fully compared.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The example resolves a physically motivated *compatibility* question raised by combining a regularization intended to recover a constrained port-Hamiltonian DAE with an energy-dissipative operator splitting. Neither exact subflow integration nor contractivity in the natural regularized Hamiltonian norm ensures consistency as regularization vanishes at fixed step. The sharp positive lower error accumulation, exact complete circle of outcomes and phase-independent half-unit error at \(h=r\log2\) quantify the obstruction, which is stronger than an isolated numerical counterexample. It supplies a precise boundary for evaluating asymptotic-preserving claims while leaving open coupled limits \(h=h(\varepsilon)\).
+Bounded best-of-knowledge scientific comparison: Second order for each fixed eps allows eps-dependent constants and does not imply convergence for fixed h as eps->0. The example exhibits an order-of-limits obstruction with positive lower error; established general stability does not contradict it or provide these exact values. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
 
-## Sources and remaining risks
+## value
 
-The complete eight-page original source arXiv:2308.16736 was checked, including its regularization, splitting equations and conclusions. The closely related arXiv:2304.01766 and arXiv:2208.03574 were read in their algorithmic and introductory portions, and targeted earlier stiff-splitting literature was compared at abstract level. The cited 2015 stiff-splitting source was not verified at full-text level, so no claim of exhaustive priority is made. Numerical checks are supportive rather than complete proofs. The scientific conclusions have not received independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal explicit, dissipative index-one descriptor problem shows exact-subflow Strang splitting can be energy-stable and individually consistent but not uniformly accurate as regularization becomes singular. The full circle and sharp nonzero error range are stronger and more informative than an isolated failure example; a motivated numerical-analysis boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
