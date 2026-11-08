@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The board-to-path bijection is explicit and encoded by a deterministic 18-state three-mask transfer; exact symbolic matrix inversion verifies the bivariate numerator and denominator. An independent cell-covering enumeration checks every histogram through 4-by-9, including the six-column two-square cycle. Strong connectivity and a zero-square length-one loop ensure primitive Perron theory. Two cycles with different squares per step prove positive asymptotic variance via the finite-state coboundary criterion. Analytic perturbation/quasi-powers gives CLT with the stated normalizations; finite tests do not purport to prove asymptotic claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohn–Kenyon–Propp, arXiv:math/0008220v3, abstract/introduction: variational theory of pure domino/dimer tilings",
+        "Propp, EJC 8(1) R18 (2001), abstract: fixed-height recurrence and reciprocity for pure domino tilings",
+        "Thorat, arXiv:2610.39907v1 §2.10 and §3: cohomological classification of planar rectangle-tiling shifts"
+      ],
+      "reasoning": "Domino-only general theorems omit 3-by-3 square tiles, which change the state graph, pressure and variance. General transfer-matrix/Perron machinery is acknowledged but supplies no closed formula without this exact 18-state calculation. No broader primary statement inspected was found to imply the displayed Q(z,u).",
+      "searches": [
+        "mixed domino and 3x3 square rectangle tilings transfer matrix",
+        "A variational principle for domino tilings Cohn Kenyon Propp",
+        "A Reciprocity Theorem for Domino Tilings Propp",
+        "domino square monomer dimer 3x3 polymer strip finite volume pressure entropy fluctuations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.39907v1 (full source HTML)",
+      "arXiv:math/0008220v3 (abstract and introduction)",
+      "DOI:10.37236/1562 (publisher abstract)",
+      "Published 6xN two-monomer Kasteleyn counting record (title/summary)",
+      "Published 3xN matching-complex reflection record (title/summary)",
+      "OEIS A165716 (different domino–tromino problem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Thm 2.10: primitivity iff all discrete-group cocycles trivial; does not compute number of strip tilings",
+        "Source Lemma 2.5: full-plane mixing criterion; does not compute count or limit law for finite rectangles",
+        "Propp abstract: recurrence for domino-only rectangular tilings, cannot be specialized to mixed domino and 3x3 squares"
+      ],
+      "reasoning": "Logical comparison: Thorat supplies a qualitative dichotomy for a full-plane dynamical space; this result supplies a quantitative marked 4-row pressure with an explicit positive variance. Neither a primitive tile criterion nor pure-dimer recurrence determines the displayed 10th-degree Q(z,u); the new calculation is not a corollary or merely altered notation.",
+      "searches": [
+        "Cocycles on Tiling Spaces Aditya Thorat 2610.39907 mixed domino 3x3 square four-row strip Perron pressure",
+        "Rectangular tiling subshift cohomologically trivial tile set 1x2 2x1 3x3 finite-width pressure square density",
+        "Propp 2001 domino tiling recurrence reciprocity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.39907v1 classifies rectangle-tiling cocycles, not marked-strip partition functions; formula Q(z,u) depends nontrivially on u^2",
+        "The open 4-by-N square-count probability law is an exact marked return-path resolvent, equivalent to finite-strip pressure and not to cohomological triviality"
+      ],
+      "reasoning": "Compared finite-strip enumerator, weighted-return resolvent, logarithmic Perron pressure, square count central limit theorem, domino-only recurrence and general tiling cocycle triviality. None of the specifically inspected sources asserts a bivariate rational function for the stated mixed tiles or its derivatives.",
+      "searches": [
+        "4 by n dominoes 3x3 square generating function square count",
+        "mixed square domino tilings finite-width pressure",
+        "Rectangular tiling subshift primitive domino plus 3x3 square exact periodic strip tiling count 3 by n transfer matrix entropy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact initial sequence 1,1,5,11,36,95,283,787,2277,6444 independently generated from two enumeration mechanisms",
+        "Retrieved OEIS A165716 describes 3-by-n domino and right-tromino tilings and is a different counting problem",
+        "No exact matching tabulation was identified in inspected search results"
+      ],
+      "reasoning": "A negative search is not proof of absence from OEIS or unpublished tables. Existing sequence-based results may be stronger than simple counts, but no inspected table has the stated bivariate rational function with 3-by-3 square fugacity. Residual database-coverage risk is explicitly retained.",
+      "searches": [
+        "\"1, 1, 5, 11, 36, 95, 283, 787, 2277\" tilings",
+        "\"1,1,5,11,36,95,283,787\" squares dominoes",
+        "\"4 x n\" \"3x3\" \"dominoes\" tilings recurrence",
+        "Number of perfect tilings of 4 by n rectangle with horizontal vertical dominoes and 3 by 3 square 1 1 5 11 36 95 283 787"
+      ]
+    },
+    "rationale": "The full primary text of Thorat arXiv:2610.39907v1 (background, §2.10, §3) proves a criterion for cocycle triviality and topological mixing, not an exact square-marked 4-row transfer enumerator. Propp 2001 and Cohn–Kenyon–Propp 2001 treat pure dominoes, so their recurrences and variational principles do not imply the mixed 3-by-3-square square-frequency pressure. Published nearby finite-strip matching records also have different tile sets or homological observables. Precise sequence and alias searches located no covering theorem or table. Priority is provisional; the scientific inference is non-implication by different premises, not novelty from lack of search matches.",
+    "residual_risks": [
+      "Historical priority is provisional; a matching unpublished manuscript or an unindexed integer-sequence table may exist.",
+      "The Propp full article was not read, although its explicitly domino-only scope rules out direct coverage by its stated result.",
+      "Some adjacent published records were compared using title and summary rather than complete primary text; no same-object stronger theorem was found there.",
+      "Finite-state rational-function and central-limit machinery are classical; originality is limited to the particular marked mixed-strip computation and resulting explicit asymptotic invariants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact 4-row bivariate GF or Gaussian square-count fluctuation theorem; it establishes qualitative cocycle triviality and mixing instead",
+        "evidence": [
+          "arXiv:2610.39907v1, §§1,2,3",
+          "Theorem 2.10 (primitive iff cohomologically trivial)",
+          "§3.6–3.10 prove mixing/extension and cocycle classification, with no 18-state marked enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39907v1",
+        "material_read": "Abstract, introduction, definitions 2.3–2.9, Theorem 2.10 and main proofs and conclusions in §3, references",
+        "method": "Read primary full-text HTML and compared assumptions, tile parameters and theorems with a marked 4-row counting problem",
+        "title": "Cocycles on Tiling Spaces",
+        "trigger": "Source of new primitive rectangular-tile setting and full-plane cohomological classification"
+      },
+      {
+        "assessment": "INAPPLICABLE to mixed domino and 3-by-3-square partition function, though standard thermodynamic concepts are prior art",
+        "evidence": [
+          "arXiv:math/0008220v3, abstract and §1 explicitly restrict to dimer/domino tiles"
+        ],
+        "identifier_or_url": "https://www.alphaxiv.org/abs/math/0008220",
+        "material_read": "Abstract and introduction through description of pure domino/dimer model and principal variational claims",
+        "method": "Read primary preprint HTML and checked its tile set and principal entropy observable",
+        "title": "A Variational Principle for Domino Tilings",
+        "trigger": "Plausible general domination by entropy principles"
+      },
+      {
+        "assessment": "INAPPLICABLE because it treats rectangles tiled exclusively by dominoes; full-text comparison remains incomplete but the model discrepancy is decisive",
+        "evidence": [
+          "Propp (2001) abstract: T(m,n) counts domino tilings and satisfies a fixed-height recurrence and reciprocity"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v8i1r18",
+        "material_read": "Publisher abstract, result statement, publication metadata; full paper not read",
+        "method": "Checked primary publisher statement and exact class of tiles",
+        "title": "A Reciprocity Theorem for Domino Tilings",
+        "trigger": "Closest generic exact fixed-height rectangle enumeration theorem"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: two-monomer pure dimer count on specific 6xN boards, not marked mixed 4xN square pressure; limited to summary-level comparison",
+        "evidence": [
+          "Public record summary describes Kasteleyn Pfaffian and two-monomer maximal-correlation witness, with no mixed tile set"
+        ],
+        "identifier_or_url": "Published record (2026-09-07), Exact two-monomer Kasteleyn census on 6xN rectangles",
+        "material_read": "Published title and record summary only, not full body",
+        "method": "Compared the described tiles, observables, and finite dimensions with the present claim",
+        "title": "Exact two-monomer Kasteleyn census on 6xN rectangles",
+        "trigger": "Closest published research record retrieved for finite strip dimer counting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e322249e-b1ff-45fe-b702-65ea4c1c7e1c",
+  "value": {
+    "rationale": "The first interacting four-row strip of the natural primitive {horizontal domino, vertical domino, 3-by-3 square} tile family is qualitatively outside the height-three renewal regime: the large tile leaves a lane allowing crossing dominoes. Its exact pressure, asymptotic 3-by-3-square frequency and strictly positive Gaussian variance answer natural quantitative questions of the strip dynamical system not implied by the full-plane cohomological criterion or pure-dimer formulas. It supplies a reproducible finite-width benchmark but makes no unproved full-plane claims.",
+    "status": "PASS"
+  }
+}
