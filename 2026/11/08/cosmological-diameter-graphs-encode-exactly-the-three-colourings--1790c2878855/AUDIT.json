@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Every source vector has squared norm 3 and total coordinate sum 1. For equal source edges distinct points have inner product -1. For distinct simple-graph edges disjoint supports yield inner product 0, while a unique shared endpoint yields the product of signs ±1; hence all different-vertex squared distances are 4,6,8 and maximum 8 is realized. Counting within-edge triangles and four opposite-sign pairs per incident edge pair proves the diameter-edge formula. A four-clique would have Gram diagonal 3 and off-diagonal -1 so its vector sum has squared norm zero, contradicting total coordinate sum four; triangles exist. At any graph node v, the negative-sign vertex on any incident edge is forced to the third colour of the two positive-sign vertices on another incident edge. This makes its colour independent of the edge and defines a proper G-colouring. Conversely each proper G-colouring uniquely assigns the negative-sign point colours and the third triangle colour, satisfying every cross-incidence diameter edge. Therefore the maps invert exactly. Exact pure-Python finite checks passed 2,627,773 assertions across all 771 connected labelled simple graphs on 2–5 vertices, and independently compared counts on 2–4 vertices. Finite testing does not stand in place of the unrestricted proof. Complexity follows from the standard connected graph 3-COL reduction. No nonstandard infinite external lemma is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2209.08069v2 Theorem 3.1 classifies faces rather than Euclidean farthest-point pairs.",
+        "arXiv:2603.03894v1 Theorems 1.2, 3.2 and 4.1 concern polar duals, tubings and canonical forms.",
+        "published-finding corpus 2026/10/11/SCOPE-fractional-coloring-determines-the-minkowski-center-space-of-eve--fa9dec18ce76 concerns fractional colourings and Minkowski asymmetry of stable-set polytopes, a non-equivalent polytope construction."
+      ],
+      "reasoning": "The closest broad results on graph-polytopes/colouring, facet structures, Euclidean radii, and farthest points do not imply the sign-sensitive cross-incidence adjacency rule in this graph. The construction is not a corollary of ordinary face adjacency: diametral pairs generally need not be polytope edges.",
+      "searches": [
+        "graph 3-colorability encoded in diameter graph of cosmological polytope",
+        "cosmological polytope Euclidean distance graph",
+        "cosmological graph polytope Euclidean distance 4 6 8 chromatic",
+        "Cayley polytope Euclidean inradius circumradius width exact classification",
+        "2026/10/11/SCOPE-fractional-coloring-determines-the-minkowski-center-space-of-eve--fa9dec18ce76",
+        "2026/10/11/SCOPE-diametral-rigidity-of-cardinality-weighted-star-hypergraphic-pol--fc74a3f40add"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.23371v1 (2026-05-22, motivating paper)",
+      "arxiv:2209.08069v2 (face and one-skeleton theory)",
+      "arxiv:2603.03894v1 (polar dual and canonical forms)",
+      "published-finding corpus:2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126",
+      "published-finding corpus:2026/10/11/SCOPE-fractional-coloring-determines-the-minkowski-center-space-of-eve--fa9dec18ce76",
+      "published-finding corpus:2026/10/11/SCOPE-diametral-rigidity-of-cardinality-weighted-star-hypergraphic-pol--fc74a3f40add"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.23371v1 studies the ordinary f_1(C_G) of a random cosmological polytope; the expected random edge count is not the number of Euclidean farthest pairs.",
+        "arXiv:2209.08069v2 supplies the face description; it does not state squared distances or diameter-graph colourings.",
+        "published-finding corpus 2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126 gives a common min-enclosing sphere but says the pairwise distance spectrum is outside its result."
+      ],
+      "reasoning": "The new claim is not an immediate special case of a stronger checked theorem. Cospherical source vectors alone give no distance-eight adjacency; a separate exact Gram calculation and a two-way propagation proof are essential. Colourings of the ordinary 1-skeleton of C_G are unrelated to the proved three-colouring bijection for its farthest-pair graph.",
+      "searches": [
+        "arxiv:2605.23371v1 Section 2.2 and Sections 3-4",
+        "arxiv:2209.08069v2 Theorem 3.1 and Section 5",
+        "arxiv:2603.03894v1 Theorem 3.2 and Section 4",
+        "2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.23371v1, §2.2 states the exact integer coordinate realization; §§3–4 count different kinds of edges.",
+        "published-finding corpus 2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126 proves only the graph-independent minimum enclosing sphere; its Limitation section explicitly omits the pairwise Euclidean distance spectrum."
+      ],
+      "reasoning": "The equivalent terms maximal Euclidean-distance graph, farthest-pair graph, diameter graph, and 3-colourability of this graph were checked. An enclosing-sphere formula is not an equivalent distance graph: infinitely many cospherical configurations differ in pairwise distances and chromatic graph. No matching result was found in those searches.",
+      "searches": [
+        "cosmological polytope graph Euclidean diameter graph 3-coloring proper graph colorings chromatic polynomial",
+        "diameter graph of cosmological polytope 3-colorability exactly proper coloring",
+        "cosmological polytopes diametral-pair graph chromatic polynomial",
+        "cosmological polytope diameter graph 3 coloring",
+        "Euclidean diameter graph of cosmological polytopes chromatic graph 3 coloring",
+        "2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The local recoverable-claim comparison of the accessible November geometry ledger, generation p0001_g000132, contained 132 finding claims and no cosmological-polytope claim.",
+        "The most relevant semantic-record hit is published-finding corpus 2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126, about circumradius."
+      ],
+      "reasoning": "The claim is a closed statement for every connected simple source graph, not a numerical table. No exact database item, known parameter table, or recoverable own finding contains its diameter-edge formula and colouring equivalence; completeness of external databases is not assumed.",
+      "searches": [
+        "diameter graph of cosmological polytope 3-colorability exactly proper coloring",
+        "cosmological polytopes diametral-pair graph chromatic polynomial",
+        "cosmological polytope diametral chromatic number",
+        "cosmological polytope Euclidean distance among generators pairs signed endpoints"
+      ]
+    },
+    "rationale": "Direct comparison with the motivating manuscript arXiv:2605.23371v1 (Section 2.2, Section 3 and Section 4), the complete accessible text of arXiv:2209.08069v2 (face criteria and edge counts), arXiv:2603.03894v1 (dual and canonical form), and the full public published-finding corpus circumradius record found no graph of *maximum Euclidean-distance pairs* or proper three-colouring bijection. The circumradius theorem proves all vertices lie on a common optimal sphere but explicitly leaves their pairwise distance spectrum uncomputed: common radius does not constrain adjacency by farthest-pair distance. Source-edge and ordinary one-skeleton counts do not imply graph colouring of this different distance graph. The actual published-finding corpus queries and local ledger deduplication found no covering record. Priority is provisional and an unindexed equivalent presentation remains a risk.",
+    "residual_risks": [
+      "An unindexed earlier equivalent result may use maximum-distance graph, farthest-point colouring or related physics terminology; published-database nonappearance is not a priority certificate.",
+      "The first original construction arxiv:1709.02813 was inspected at abstract/description level only; a nonstandard metric claim in its complete text cannot be ruled out from that inspection.",
+      "Independent mathematical review is not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the Euclidean farthest-pair graph or labelled three-colouring correspondence.",
+        "evidence": "The introduction and §§3–4 explicitly identify the studied edge count as f_1(C_G) or triangulation edges; §2.2 gives the 3|E| integer vertices. First public 2026-05-22, primary MSC 52B20.",
+        "identifier_or_url": "https://arxiv.org/html/2605.23371v1",
+        "material_read": "Full available HTML: abstract, definitions §2.2, statement and proofs of ordinary polytope-edge counts §3, triangulation-edge counts §4, reference list.",
+        "method": "Read and compare the stated objects and theorems, with exact versus metric edge distinction; searched page for diameter/chromatic terminology.",
+        "title": "Central limit theorems for high dimensional lattice polytopes: cosmological polytopes",
+        "trigger": "2026 recent motivating source, same polytope realization, edge description"
+      },
+      {
+        "assessment": "NOT_COVERING the exact Euclidean metric graph or its colouring problem.",
+        "evidence": "Definition 1.1 includes optional isolated-node points; Remark 1.2 says they do not change the polytope when the graph has no isolates. Theorem 3.1 classifies ordinary faces.",
+        "identifier_or_url": "https://arxiv.org/html/2209.08069v2",
+        "material_read": "Complete available HTML, particularly Definition 1.1, Remark 1.2, Theorems 2.1 and 3.1, and face-counting sections.",
+        "method": "Theorem/definition comparison distinguishing the graph of one-dimensional faces from the maximum-distance graph; search for diameter.",
+        "title": "Faces of Cosmological Polytopes",
+        "trigger": "Central source with same geometric objects and potentially broad combinatorial edge coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: dual realization and canonical forms, not pairwise Euclidean distances of primal vertices.",
+        "evidence": "Theorem 3.2 presents vertices of the polar; Theorem 4.1 expresses canonical form; neither produces metric diameter-graph adjacency.",
+        "identifier_or_url": "https://arxiv.org/html/2603.03894v1",
+        "material_read": "Available HTML introduction and definitions, polar dual Theorem 3.2, triangulation and canonical-form theorems through §4, conclusions/references.",
+        "method": "Compare exact geometric problem and consequent implications; searched page for diameter and coloring.",
+        "title": "On cosmological polytopes, their canonical forms and their duals",
+        "trigger": "Recent same-family treatment of polars, possible stronger coordinate/metric results"
+      },
+      {
+        "assessment": "NOT_COVERING: exactly determines enclosing radius and all sphere contacts, but not Euclidean diameter, farthest-pair graph or three-colouring.",
+        "evidence": "Result gives unique centre D^{-1}1 and radius sqrt(3-1/D); Limitations says it does not determine the pairwise Euclidean distance spectrum.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126",
+        "material_read": "Complete public RESULT.md via repository read, including theorem, proof, prior-work section and explicit limitations.",
+        "method": "Direct implication test comparing sphere-centre geometry against pairwise distance-eight adjacency and three-colouring maps.",
+        "title": "Every connected cosmological polytope has graph-independent Euclidean circumradius",
+        "trigger": "Closest known published Euclidean result for the identical graph-polytope embedding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1790c287-8855-470c-8e8d-1e7179e9c8a1",
+  "value": {
+    "rationale": "The Euclidean farthest-pair graph of a natural, recently studied graph-based lattice polytope is not its ordinary one-skeleton. A complete distance-graph reconstruction formula with the exact proper labelled 3-colouring bijection creates a structural bridge from metric geometry to vertex colouring. It proves K4-freeness alongside NP-completeness in an explicitly parameterized family, and preserves the exact number of 3-colourings. These are natural, nonlocal invariants of all source graphs and explain computational richness despite constant diameter and graph-independent enclosing radius, not merely a numerical example or routine normalisation.",
+    "status": "PASS"
+  }
+}
