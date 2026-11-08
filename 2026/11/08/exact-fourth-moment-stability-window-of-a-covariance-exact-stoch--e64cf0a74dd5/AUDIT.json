@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The continuous stationary density proportional to (sigma^2+b^2 x^2)^(-1-a/b^2) has density tail |x|^(-2-2/r), so its fourth moment is finite exactly for r<2/3. The drift-only midpoint update is the random affine recurrence Y_next=A Y+C with independent Gaussian coefficients, E[A^2]<1 for 0<r<2, so its unique stationary law exists in L² and has variance s/(2-r). Its fourth moment is finite iff E[A^4]<1: sufficiency by L4 convergence of the affine series, necessity from the strictly positive fourth-moment fixed-point numerator. Direct Gaussian expansion gives 1-E[A^4]=4t[(2-3r)(1+t²)+3r(2-r)t]/(1+t)^4; an AM–GM argument yields the exact trichotomy and equality boundaries. The displayed moment formula and strict physical comparison follow algebraically. Standard-library exact-rational replay: 3028 assertions; finite tests support but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li, Liu, Xiao (2026) require strict theta>1/2 and small steps, excluding midpoint endpoint and global step classification",
+        "Higham (2000) analyzes homogeneous mean-square and asymptotic stability, without independent additive forcing and stationary positive variance",
+        "BEM stability in Liu, Mao, Wu (2022) uses theta=1, not theta=1/2."
+      ],
+      "reasoning": "Neither the inspected stronger convergence results nor the homogeneous stability criteria entail a finite stationary fourth-moment window in the specific nondegenerate forced midpoint scheme. Higham full text remains unread and cannot be declared globally non-covering.",
+      "searches": [
+        "mean square exact midpoint linear multiplicative additive diffusion stationary kurtosis fourth moment finite discretization while continuous infinite",
+        "random affine recursion Gaussian coefficient centered midpoint stationary fourth moments nonlinear threshold",
+        "Gaussian random affine recursion midpoint Monte Carlo invariant law artificial regularization infinite fourth moment finite fourth moment",
+        "arXiv:2606.19886 main invariant-measure theorem",
+        "doi:10.1137/S003614299834736X abstract and bibliographic text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.09970 (full text)",
+      "Qiu–Liu–Hu, DOI:10.1186/1687-1847-2014-310 (full HTML)",
+      "Higham, DOI:10.1137/S003614299834736X (abstract only)",
+      "arXiv:2606.19886 (full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Mao–Wu (2022) prove backward Euler-Maruyama invariant-law approximation; their statements do not give the midpoint fourth moment or its all-step threshold",
+        "Qiu–Liu–Hu (2014) bound second and small moments; those bounds cannot imply existence and exact value of the fourth moment in the present diffusion",
+        "Li–Liu–Xiao (2026) main theorem only treats theta>1/2 and small h, which does not imply the midpoint all-step classification."
+      ],
+      "reasoning": "Covariance matching does not imply fourth-moment matching. Bounds on 2nd moments and convergence as h tends to zero do not determine the infinite-fourth to finite-fourth intermediate-step phenomenon. A general E[A^4]<1 criterion supplies the tool, but not the concrete r threshold, sharp interval, or exact strict bias without new algebra.",
+      "searches": [
+        "arXiv:2206.09970 v2 full text Sections 2-4",
+        "doi:10.1186/1687-1847-2014-310 full HTML Sections 3.1,3.2,4",
+        "arXiv:2606.19886 full text Sections 2-3",
+        "stochastic theta midpoint Euler Maruyama scalar multiplicative and additive noise invariant fourth moment exact covariance artificial finite fourth moment window",
+        "2/sqrt(3) nonmonotone fourth moment window stochastic theta midpoint Euler Maruyama multiplicative additive Gaussian diffusion exact stationary variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2206.09970 proves BEM invariant measures, not drift-midpoint fourth-moment phase transitions",
+        "Qiu, Liu, Hu (2014) discuss theta-method second-moment boundedness and small moments, not this exact fourth-moment boundary",
+        "The multiplier criterion E[A^4]<1 is common to affine recursions but requires evaluation of the particular Gaussian midpoint multiplier and its sharp nonmonotone domain."
+      ],
+      "reasoning": "Equivalent alternatives include a random-affine-recursion multiplier condition and a quartic stability polynomial. Searching those formulations did not identify a matching interval with the reciprocal endpoints t_-t_+=1. No absence-of-search proof of uniqueness is asserted.",
+      "searches": [
+        "stochastic theta midpoint Euler Maruyama scalar multiplicative and additive noise invariant fourth moment exact covariance artificial finite fourth moment window",
+        "mean square exact midpoint linear multiplicative additive diffusion stationary kurtosis fourth moment finite discretization while continuous infinite",
+        "stochastic theta Euler Ornstein Uhlenbeck mixed additive multiplicative noise fourth moment phase transition heavy tail",
+        "2/sqrt(3) nonmonotone fourth moment window stochastic theta midpoint Euler Maruyama multiplicative additive Gaussian diffusion exact stationary variance",
+        "arXiv:2206.09970, full text theorem and proof sections",
+        "doi:10.1186/1687-1847-2014-310, full HTML sections 3 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published findings identified are a harmonic UBU configurational-bias result, a constant-template STORM covariance result and a two-client Loopless SVRG mean-square frontier; each addresses a different stochastic numerical recursion.",
+        "A general random-affine fourth-moment condition does not by itself tabulate the midpoint scheme’s critical interval and strict invariant fourth-moment deficit."
+      ],
+      "reasoning": "No inspected exact formula table covers the stated r,t fourth-moment phase diagram. Incomplete discovery does not establish novelty.",
+      "searches": [
+        "2/sqrt(3) nonmonotone fourth moment window stochastic theta midpoint Euler Maruyama multiplicative additive Gaussian diffusion exact stationary variance",
+        "scalar stochastic theta method with two independent Brownian drivers drift -a X diffusion b X and additive sigma: exact fourth moment threshold",
+        "stochastic theta midpoint Euler Maruyama scalar multiplicative and additive noise invariant fourth moment exact covariance artificial finite fourth moment window",
+        "mean square exact midpoint linear multiplicative additive diffusion stationary kurtosis fourth moment finite discretization while continuous infinite",
+        "stochastic theta Euler Ornstein Uhlenbeck mixed additive multiplicative noise fourth moment phase transition heavy tail"
+      ]
+    },
+    "rationale": "The exact all-positive-step midpoint fourth-moment phase diagram, including an intermediate finite-moment interval for physically infinite-fourth diffusions, and the strict all-step fourth-moment deficit are not implied by the inspected BEM invariant-measure convergence theorem, general theta second-moment bounds, or homogeneous theta mean-square stability results. The simple affine fourth-moment criterion is standard; the claim is the complete scheme-specific sharp classification. This is qualified by incomplete access to one specialist full text and the possibility of earlier equivalent formulas.",
+    "residual_risks": [
+      "Higham (2000) specialist full text could not be inspected; noncoverage cannot be asserted for uninspected appendices or results.",
+      "Earlier specialist stationary fourth-moment calculations for stochastic theta discretizations could contain algebraically equivalent statements under different names.",
+      "Searchable publications and scientific databases are incomplete discovery tools and do not independently establish originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BEM theta=1 and convergence, not midpoint theta=1/2 exact fourth-moment window",
+        "evidence": [
+          "ArXiv record identifies v1 2022-06-20 and main MSC 65C30",
+          "BEM invariant-measure existence/convergence results under broad dissipativity assumptions, not exact fourth-moment formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.09970",
+        "material_read": "Preprint full HTML v2, definitions, theorems and proof sections on numerical invariant measures; source arXiv record and v1 submission metadata; PDF title page and theorem material",
+        "method": "Full-text comparison of method, hypotheses and stated theorem conclusions; checked v1 public submission date",
+        "title": "The backward Euler-Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients",
+        "trigger": "Motivating numerical invariant-law paper, primary MSC 65C30"
+      },
+      {
+        "assessment": "Bounds for second and small positive moments; no inspected exact fourth-moment multiplier threshold",
+        "evidence": [
+          "Qiu–Liu–Hu (2014), Theorems in Section 3, discuss second moment and small p moments",
+          "The general theta method includes drift midpoint but their boundedness conditions do not state an all-h fourth-moment threshold."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/1687-1847-2014-310",
+        "material_read": "Open-access full HTML abstract, introduction, numerical scheme, Sections 3.1 (second moments), 3.2 (small moments), Section 4 context",
+        "method": "Compared theorem moment orders and scheme scope",
+        "title": "Asymptotic moment boundedness of the stochastic theta method and its application for stochastic differential equations",
+        "trigger": "Plausibly dominating general stochastic theta moment bound"
+      },
+      {
+        "assessment": "Homogeneous stability is different from nondegenerate forced stationary moments, but uninspected full text may contain more",
+        "evidence": [
+          "Higham (2000) is an early primary reference on mean-square and asymptotic stability of stochastic theta schemes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S003614299834736X",
+        "material_read": "Publisher abstract, bibliographic record and available references only; full mathematical text unavailable",
+        "method": "Compared scope from accessible abstract, without whole-document noncoverage inference",
+        "title": "Mean-square and asymptotic stability of the stochastic theta method",
+        "trigger": "Closest specialist theta-method linear multiplicative-noise stability reference"
+      },
+      {
+        "assessment": "Strict theta>1/2 and small steps; does not subsume all-step theta=1/2 result",
+        "evidence": [
+          "Main stated invariant-measure results assume theta strictly above one half and sufficiently small h."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.19886",
+        "material_read": "Full preprint HTML main definitions and theorem sections (Sections 2 and 3)",
+        "method": "Checked theta range and small-step qualifications versus sharp endpoint result",
+        "title": "Invariant measures of the stochastic theta method for stochastic differential equations with super-linearly growing coefficients",
+        "trigger": "Recent general invariant-measure result covering theta methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e64cf0a7-4dd5-4c38-9449-812c25b3ebe0",
+  "value": {
+    "rationale": "Numerical stationary covariance is often used to gauge invariant-measure fidelity. The new all-step phase diagram shows a qualitatively important failure of covariance exactness for tail-sensitive quantities: a discretization can possess a finite fourth moment even when the true equilibrium has none, and its fourth moment is strictly biased low whenever the physical fourth moment exists. The reciprocal nonmonotone finite-moment interval supplies an exact benchmark for step choice and stochastic theta integrator analysis; this is not merely second-moment restatement.",
+    "status": "PASS"
+  }
+}
