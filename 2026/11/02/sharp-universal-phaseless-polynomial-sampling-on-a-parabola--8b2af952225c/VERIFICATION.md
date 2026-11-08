@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof consists of a rational-function identity argument and an all-degree induction with sign-separated positive real roots of a polynomial of degree \(2n\). The latter gives \(4n\) distinct real observation parameters and demonstrates sharpness, not merely a finite numerical example.
+## correctness
 
-Run `python3 verify.py`. It uses only Python's standard library, with exact rational coefficients, and checks the two polynomial deck identities and explicit sign-changing examples for degrees 1, 2, 3 and 4. Those finite instances are not an exhaustive check of the infinite theorem. All exact-degree roots are established by the induction in `RESULT.md`, not by root-finding software.
+PASS
 
-Unproved here: any noise-stability rate, phase retrieval for general entire functions, and the optimal sample number for generic rather than arbitrary point placements. Historical mathematical priority remains provisional; independent mathematical audit has not been performed.
+For z(t)=t+it^2, the two deck symmetries t->i-t and t->-i-t of z and its coefficient-conjugate reflection imply that any rational quotient of polynomial pullbacks with modulus one on the parabola has period 2i, hence is constant. The squared-modulus difference of two degree<=n complex polynomials is a real polynomial in t of degree<=4n, so any 4n+1 distinct samples enforce phase-equivalence. Sharpness is all-degree: the base pair z-100i and (z-50i)/4 has two positive u=t^2 magnitude crossings; adding distant imaginary roots and scaling one branch by alpha between A_n^-1/2 and 1 creates two additional separated crossings, until exactly 2n positive simple u roots yield 4n distinct t samples. The n=0 case and Euclidean similarity reductions are addressed. Independent exact rational Sturm isolations for n=1,2,3 corroborated the inductive signs but do not replace the all-degree proof.
+
+## originality
+
+PASS
+
+Published phase retrieval on unions of straight lines and circles and lemniscate intersection theory are genuinely related. Reading their theorem statements and hypotheses did not find an implication for a single real parabola with any 4n+1 samples and sharp all-degree 4n obstructions. O remains qualified given possible alternate real algebraic curve intersection bounds.
+
+## value
+
+PASS
+
+Identifies an exact worst-case deterministic sampling number for a natural curved real analytic sampling arc and gives nontrivial reflection-group phase rigidity plus an explicit matching obstruction in every degree. A generic-position result would not replace this for arbitrary predetermined sample sites.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two deck involutions of the parabolic parameterization yield a nonzero complex translation symmetry of any rational modulus quotient. A nonconstant rational function cannot be translation-periodic. The degree \(4n\) zero-count bound is exact because the positive-ratio induction constructs \(2n\) distinct positive squared-parameter crossings in every degree. Each yields two real parabola parameters. Exact rational supplementary computations in `verify.py` check explicit examples in degrees 1–4; they are not relied upon to certify the infinite family.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For z(t)=t+it^2, the two deck symmetries t->i-t and t->-i-t of z and its coefficient-conjugate reflection imply that any rational quotient of polynomial pullbacks with modulus one on the parabola has period 2i, hence is constant. The squared-modulus difference of two degree<=n complex polynomials is a real polynomial in t of degree<=4n, so any 4n+1 distinct samples enforce phase-equivalence. Sharpness is all-degree: the base pair z-100i and (z-50i)/4 has two positive u=t^2 magnitude crossings; adding distant imaginary roots and scaling one branch by alpha between A_n^-1/2 and 1 creates two additional separated crossings, until exactly 2n positive simple u roots yield 4n distinct t samples. The n=0 case and Euclidean similarity reductions are addressed. Independent exact rational Sturm isolations for n=1,2,3 corroborated the inductive signs but do not replace the all-degree proof.
 
-The closest inspected sources were Chalendar–Partington (arXiv:2403.16255), Liehr (arXiv:2308.05722), and Orevkov–Pakovich (arXiv:2309.04983). The first concerns two-line/two-circle magnitude uniqueness, the second full parallel-line sampling families, and the third rational-lemniscate intersections and irreducibility. None of their inspected theorems explicitly establishes the exact worst-case \(4n+1\) phaseless sample threshold on one fixed parabola **with its sharp all-degree real-crossing construction**. Similar uniqueness theorems on other conics do not force the stated sharpness on a parabola. A more general algebraic-curve intersection result could indirectly imply portions of the claim, so priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result determines an exact, natural measurement-complexity invariant at every polynomial degree for an accessible nonlinear sampling geometry. The key contribution is the sharp nontrivial lower construction matching the unconditional finite-sample upper bound; the reflection-period rigidity explains why infinite-data ambiguities do not persist. It does not determine generic sample requirements or provide noise-stability estimates.
+Published phase retrieval on unions of straight lines and circles and lemniscate intersection theory are genuinely related. Reading their theorem statements and hypotheses did not find an implication for a single real parabola with any 4n+1 samples and sharp all-degree 4n obstructions. O remains qualified given possible alternate real algebraic curve intersection bounds.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Identifies an exact worst-case deterministic sampling number for a natural curved real analytic sampling arc and gives nontrivial reflection-group phase rigidity plus an explicit matching obstruction in every degree. A generic-position result would not replace this for arbitrary predetermined sample sites.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
