@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The exact proof uses the graph nodal mass matrix, explicit inverse-column coefficients, elementary integration of absolute affine functions and two positive-coefficient polynomial identities. These objects are specified in `RESULT.md`. Run `python verify_split_spline.py` with SymPy at least version 1.10 to reproduce the exact-rational calculations.
+## correctness
 
-The executed checker returned `EXACT_INDEPENDENT_MASS_INVERSES_AND_KERNEL_INTEGRALS_OK 72`, all-parameter positivity certificates for both signs of the other-clique inverse coefficient, `EXACT_TWO_THRESHOLD_AND_LIMIT_IDENTITIES_OK`, and `ALL_SPLIT_METRIC_GRAPH_P1_PROJECTION_CHECKS_OK`.
+PASS
 
-Finite matrix instances are supplementary diagnostics; the two symbolic coefficient checks establish universal algebraic comparisons. The universal theorem also depends on the explicit kernel representation and positivity of the mass matrix, proved in `RESULT.md` independently of any finite run. No independent scientific audit or external certification has been performed.
+From actual RESULT.md, the P1 nodal Gram matrix satisfies 6M=2D+A; its two symmetry classes give explicit M^-1 rows. Integrating |affine endpoint kernel| uses J(s,t), and both branches m<=2k and m>2k have strictly positive coefficient-polynomial numerators Q_- and Q_+ for R_I-R_C. Their all-parameter positivity, not finite samples, proves the only norming vertices; affine convexity rules out interiors. The stated formula implies R_I-2=(m^2+2km-5m-8k+8)/[3L(L+1)], giving m>=4, and (7/3)-R_I>0. Independently constructed numerical Gram-matrix inverses and kernel absolute integrals for 72 (m,k) pairs showed maximum formula error 8.89e-15, strict class comparison, and threshold.
+
+## originality
+
+PASS
+
+The exact complete-split branching graph formula and exclusive independent-class norming locations are not implied by interval de Boor–Shadrin/Kayumov bounds, dimension>=2 mesh counterexamples, or published simplex P1 projection norms. The clique edges create off-diagonal Gram couplings absent from those objects. Best-of-knowledge acceptance retains possible older finite-element graph-spline priority overlap.
+
+## value
+
+PASS
+
+Exact L-infinity stability and positivity preservation are intrinsic invariants of an L2 projector; the first complete-split branching graph provides a natural parametric interpolation between bipartite and clique behavior. Sharp norming-vertex classification and m=4 positivity-stability transition can inform graph finite-element analysis; this is more than a renaming of the known interval constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

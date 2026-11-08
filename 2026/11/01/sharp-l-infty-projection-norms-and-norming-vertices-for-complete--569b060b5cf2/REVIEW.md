@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The object is the orthogonal arclength-\(L^2\) projection onto continuous edgewise affine functions on \(\overline{K_m}\vee K_k\), \(m,k\ge2\). The independent and clique evaluation kernels are derived from an explicit positive-definite nodal mass matrix. Their exact \(L^1\) norms are compared by two symbolic identities with polynomials having strictly positive coefficients after translating the valid integer parameter domains. This strictly locates every norming evaluation. The sharp positivity defect follows from exact kernel mass one. The threshold and asymptotic statements are rational identities. The standalone checker independently evaluates mass matrices for finite parameters and proves the universal algebraic sign certificates symbolically. There is no appeal to numerical testing to establish all-parameter claims.
+## correctness
 
-**Originality — PASS, with residual risk.** Relevant earlier work gives uniform projector bounds on interval splines (Shadrin), finite-element projection bounds under geometric or weighted hypotheses (Boman), and mass-matrix estimates for PDE discretizations (Huang–Kamenski–Lang). Existing exact metric-graph projection results for balanced multipartite, complete bipartite, and windmill families do not yield the complete-split formula: the clique edges and unequal orbit degrees alter the mass-matrix spectrum and exact kernel integral. Actual semantic searches targeting complete-split orthogonal P1 projection, its aliases and norm thresholds did not find an identical or stronger formula. Boman's inaccessible full text is a residual overlap risk; search absence is not a proof of novelty.
+PASS
 
-**Value — PASS.** The result gives a sharp, attained operator norm and identifies all locations of worst-case amplification on a natural infinite family of branching finite-element networks. The parameter-independent threshold \(m=4\), sharp negative overshoot and two competing limits differentiate this family structurally. It is a precise quantitative stability result, not a reparametrized estimate or unmotivated finite example.
+From actual RESULT.md, the P1 nodal Gram matrix satisfies 6M=2D+A; its two symmetry classes give explicit M^-1 rows. Integrating |affine endpoint kernel| uses J(s,t), and both branches m<=2k and m>2k have strictly positive coefficient-polynomial numerators Q_- and Q_+ for R_I-R_C. Their all-parameter positivity, not finite samples, proves the only norming vertices; affine convexity rules out interiors. The stated formula implies R_I-2=(m^2+2km-5m-8k+8)/[3L(L+1)], giving m>=4, and (7/3)-R_I>0. Independently constructed numerical Gram-matrix inverses and kernel absolute integrals for 72 (m,k) pairs showed maximum formula error 8.89e-15, strict class comparison, and threshold.
 
-**Limitations.** No independent review has been performed; complete-split unit-length graphs and degree-one polynomial splines are the entire proven domain. No complete classification of all extremizing inputs is asserted. Full-text comparison with Boman remains incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact complete-split branching graph formula and exclusive independent-class norming locations are not implied by interval de Boor–Shadrin/Kayumov bounds, dimension>=2 mesh counterexamples, or published simplex P1 projection norms. The clique edges create off-diagonal Gram couplings absent from those objects. Best-of-knowledge acceptance retains possible older finite-element graph-spline priority overlap.
+
+## value
+
+PASS
+
+Exact L-infinity stability and positivity preservation are intrinsic invariants of an L2 projector; the first complete-split branching graph provides a natural parametric interpolation between bipartite and clique behavior. Sharp norming-vertex classification and m=4 positivity-stability transition can inform graph finite-element analysis; this is more than a renaming of the known interval constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
