@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem was checked by a direct proof: all subspaces containing the one-dimensional square are automatically subalgebras, and every avoiding subalgebra is a graph over a pairwise zero-product subspace. An orthogonal-pair enumeration followed by a linear Goursat parametrization gives the formula and proves that the dimension bound is sharp.
+# Independent mathematical audit
 
-The included `CHECK.py` enumerates RREF subspaces and tests the original associative multiplication, independently of Goursat classification, for eight field/dimension cases: \((r,q)=(1,2),(1,3),(1,4),(1,5),(2,2),(2,3),(2,4),(3,2)\). The last line of the observed successful execution was `GENERALIZED_HEISENBERG_SUBALGEBRA_OK`. The computed data appear in `RESULT.md`; direct exhaustive checks are finite evidence, not a proof for all \(r\) or \(q\).
+## correctness
 
-Limitations: no verification over nonfields, no enumeration of integral suborders, and no external independent mathematical audit. Prior-literature comparison has publication-priority uncertainty, recorded in `AUDIT.json`.
+PASS
+
+The product of the radical lands in its one-dimensional annihilator Z=A²; any d-subspace containing Z is closed and counted by [2r,d−1]_q. If H∩Z=0, closure forces H²=0; it is a graph lift over a subspace S⊂U⊕V, with q^d choices of central functional. The U and V projections of S must be pairwise orthogonal, counted by [r a]_q[r−a b]_q. The linear Goursat correspondence classifies S through a common quotient of dimension t, with [a t]_q[b t]_q|GL_t(q)| possibilities and dim S=a+b−t. This proves exact sum and sharp d≤r; equality requires t=0 and b=r−a. Independent complete subspace enumeration over F2 for r=1,2 confirmed each dimension census. Characteristic 2 and nonprime fields are covered by the field-linear proof, not the small test.
+
+## originality
+
+PASS
+
+Qualified PASS: classical Lie Heisenberg subalgebra zeta results count different closure, and Eick–Moede coclass papers classify isomorphism types of finite nilpotent associative algebras rather than all embedded subspaces of a fixed (1,r,1) associative radical. The closest 2015 full text was inaccessible (Oxford VPN disconnected), so priority risk remains.
+
+## value
+
+PASS
+
+A natural infinite block-radical family gets an exact entire subalgebra dimension spectrum, sharp structural cutoff, and equality enumeration. An associative-vs-Lie contrast makes this more than a mechanical restatement of a known zeta count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
