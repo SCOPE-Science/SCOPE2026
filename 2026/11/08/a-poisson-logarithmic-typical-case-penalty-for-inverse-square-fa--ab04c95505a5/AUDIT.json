@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact finite cost and optimum reduction; exact exponential-spacing representation; weighted heavy-tail truncation yields A_n/(2n log n)→1; adjacent-maximum corrections are o_p(n^2); multinomial rare-event point-process convergence with singular-tail truncation yields joint (n min E, n^-2 sum E^-2)→(T1,S2). Slutsky gives the claimed law. 3223 exact rational instances and 125 seeded scale tests pass the included checker; none is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fotakis–Tzamos establish a factor-two worst-case ratio for a different line-specific sampling rule, Pick the Loser.",
+        "The Inverse-Square guarantee holds for all metric profiles but bounds only the approximation ratio, not its random uniform asymptotic distribution."
+      ],
+      "reasoning": "The stronger *performance guarantee* for Pick the Loser is not broader coverage of the same rule. A general-metric worst-case bound for Inverse-Square is weaker information than its distribution under independently sampled positions; the theorem neither repeats nor directly follows from that guarantee.",
+      "searches": [
+        "Chan Lin Wang 2608.22484 Inverse-Square omission n-1 facilities average case random uniform interval logarithmic approximation ratio",
+        "Poisson points reciprocal squared spacings inverse nearest neighbor sampling logarithmic social cost ratio",
+        "arXiv:1305.3333 Section 6",
+        "arXiv:2608.22484 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.22484v1 and accessible full v2",
+      "arXiv:1305.3333v1",
+      "published-finding corpus search: inverse-square random uniform gaps, mechanism aliases, nearest-neighbor Poisson limits",
+      "Published published-finding corpus nearest hit 2026/10/4/SCOPE-the-critical-logarithm-is-necessary-for-planar-w-1-empirical-qua--46b181246ec2 (different planar transport objective)",
+      "Published published-finding corpus nearest hit 2026/9/19/SCOPE-endpoint-gamma-localization-poisson-laguerre-inradii--28a16606f392 (different Poisson geometry)",
+      "Published published-finding corpus hit 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (different quadratic optimization)",
+      "Previously recorded gap-product facility selection finding (fixed facility count; distinct probability weights and asymptotic regime)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chan–Lin–Wang derive a strategyproof rule and a tight square-root worst-case factor.",
+        "Fotakis–Tzamos derive the distinct Pick the Loser rule and its factor-two worst-case guarantee."
+      ],
+      "reasoning": "Neither a worst-case bound on Inverse-Square nor a bound for a separate mechanism implies a nonconstant Poisson distributional limit. The present proof adds heavy-tail reciprocal-gap scaling, adjacent-maximum correction control, and joint point-process convergence.",
+      "searches": [
+        "Randomized Strategyproof Facility Location Two Facilities and Beyond inverse-square mechanism expected typical stochastic",
+        "Chan Lin Wang 2608.22484 Inverse-Square omission n-1 facilities average case random uniform interval logarithmic approximation ratio",
+        "arXiv:2608.22484 Section 4 Theorem 3",
+        "arXiv:1305.3333 Section 6 Theorem 6.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chan–Lin–Wang Section 4 specifies the same inverse-square omission rule and tight worst-case factor, but examines supremum approximation rather than the uniform-profile probability law.",
+        "Finite ratio for sorted locations is exactly (sum inverse nearest gaps)/(smallest gap times sum inverse-square nearest gaps)."
+      ],
+      "reasoning": "Reexpressing the theorem as a reciprocal-gap statistic, a Poisson shot-noise functional, or a random-profile approximation ratio leaves the assertion equivalent. None is entailed by the published worst-case inequality: a bound of order square-root in sample size cannot determine the logarithmic-scale distribution.",
+      "searches": [
+        "inverse-square omit nearest-neighbor gap mechanism n minus one facility uniform random points typical expected approximation logarithmic Poisson point process",
+        "nearest neighbor inverse squared sampling leave one facility typical Poisson log n random uniform metric",
+        "Randomized Strategyproof Facility Location Two Facilities and Beyond inverse-square mechanism expected typical stochastic",
+        "arXiv:2608.22484 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus similarity hits centered on planar Wasserstein quantization, Poisson–Laguerre inradii and inverse-positive quadratic coordinate sampling, without a facility-omission random-profile law.",
+        "The exponential-spacing law is a classical probabilistic tool, not an existing table of the resulting conditional mechanism ratio."
+      ],
+      "reasoning": "No identified exact-data table records the probability law of this inverse-square mechanism under uniform inputs. Reciprocals of random spacings alone do not specify the ratio without both the logarithmic numerator and the extremal denominator joint limit.",
+      "searches": [
+        "inverse-square omit nearest-neighbor gap mechanism n minus one facility uniform random points typical expected approximation logarithmic Poisson point process",
+        "Chan Lin Wang 2608.22484 Inverse-Square omission n-1 facilities average case random uniform interval logarithmic approximation ratio",
+        "random uniform facility points omitted nearest neighbor inverse square typical-case cost log n"
+      ]
+    },
+    "rationale": "The strongest directly relevant 2026 source defines the Inverse-Square rule and its tight worst-case ratio, but does not obtain any random uniform-profile law; the 2013 competing line mechanism is different. Mechanism-name, reciprocal-gap, Poisson-extreme and uniform-random-profile database searches returned no equivalent or dominating statement. Standard exponential spacing is proof technique, not prior coverage of the mechanism-specific limit.",
+    "residual_risks": [
+      "Unindexed or future work may have independently derived the same mechanism-specific limit.",
+      "Only independent uniform real-line locations are covered; no general-density or expectation-convergence claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the mechanism and worst-case approximation, but not the asserted logarithmic uniform-location law or Poisson distribution.",
+        "evidence": [
+          "arXiv:2608.22484v2, Section 4, Theorem 3, PDF pages 19–21",
+          "arXiv abstract originally posted 2026-08-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.22484",
+        "material_read": "Full text including introduction, Sections 4 and associated proof, and references; formulas for omission weights and worst-case factor checked in primary PDF pages 19–21.",
+        "method": "Inspected accessible full arXiv PDF and its rendered pages, with section-specific searches.",
+        "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+        "trigger": "Introduces exactly the Inverse-Square mechanism; any random-profile limit could have appeared in its approximation analysis."
+      },
+      {
+        "assessment": "The guarantee concerns different probability weights and an alternative strategyproof mechanism; it does not determine Inverse-Square behavior.",
+        "evidence": [
+          "arXiv:1305.3333v1, Section 6, Theorem 6.1, PDF pages 16–20"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1305.3333",
+        "material_read": "Abstract, introduction, Section 6 including the Pick the Loser mechanism and the approximation-ratio proof, as accessible PDF text and rendered page.",
+        "method": "Inspected accessible original full arXiv PDF with section-specific searches and page rendering.",
+        "title": "Strategyproof Facility Location for Concave Cost Functions",
+        "trigger": "Strong line-specific competing mechanism with a constant approximation bound might dominate or coincide with the asserted special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab04c955-05a5-468d-9a68-1b3e5ca0033d",
+  "value": {
+    "rationale": "An exact nondegenerate logarithmic distributional typical-case law for a recently introduced strategyproof approximation mechanism distinguishes typical efficiency from its root-n worst-case bound and from a competing line-specific constant-bound rule. The singular denominator and logarithmic numerator interact structurally; the result is more informative than a finite computation or routine substitution.",
+    "status": "PASS"
+  }
+}
