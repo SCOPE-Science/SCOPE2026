@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:55:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Scalar quadratic proximal maps are affine r_i x+eta a_i c_i/(1+eta a_i). Matching coefficients for every center vector forces p_i=(1+eta a_i)/(n+eta S); the conditional mean is the proximal map of the arithmetic mean. The finite family contracts, so a unique attracting stationary law exists. Centered independent affine recursion gives V=eta T/(S+U), lag covariance V R^k and averaging coefficient Gamma=(2n+eta S)T/[S(S+U)]. Two-component differentiation gives a nonnegative square; for (a,b,b) centers (0,1,-1) its exact derivative has sign a/b-1 for all eta>0, whereas single-iterate V strictly increases. Independent symbolic derivatives and rational stationary moment checks agree; finite checks only support analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sadiev–Condat–Richtárik expected-similarity theorem controls convergence bounds for general stochastic resolvents.",
+          "Traoré et al establishes variance-reduced proximal convergence rates, not the exact heterogeneous quadratic Gamma derivative sign."
+        ],
+        "reasoning": "General upper bounds for stochastic resolvents cannot automatically determine the exact stationary law nor the strict n=2 vs n=3 parameter-wise step-size sign. Scalar random affine recursions provide the mechanical covariance step, not whole reversal classification.",
+        "searches": [
+          "stochastic proximal point mean resolvent unbiased component sampling quadratic long-run variance step size",
+          "https://arxiv.org/pdf/2308.09310",
+          "https://arxiv.org/pdf/2405.14255",
+          "https://arxiv.org/abs/2108.11440"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 09978c6f8cb7ed6597766eca7c6f863b9a4fc220",
+        "Frozen verify.py d1af386a84746f1a33bad47bb07db2b55885ca06",
+        "https://arxiv.org/pdf/2308.09310",
+        "https://arxiv.org/pdf/2405.14255",
+        "Independent symbolic/two exact-rational stationary check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proximal average theorem says weighted proximal maps are a proximal map of a different averaged objective, not generally prox_{eta (1/n)sum f_i}.",
+          "The explicit p_i law makes that equality hold for every quadratic center vector; the stationary variance derivative then creates a new sharp two-to-three sign contrast."
+        ],
+        "reasoning": "Prior generic proximal average and convergence statements do not imply this conditional expectation identity for the original F, nor the strict all-step reversal.",
+        "searches": [
+          "stochastic proximal point mean resolvent unbiased component sampling quadratic long-run variance step size",
+          "https://arxiv.org/pdf/2308.09310",
+          "https://arxiv.org/pdf/2405.14255",
+          "https://arxiv.org/abs/2108.11440"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Traoré et al Algorithm 4.1 uses iid uniform component index for vanilla SPPA; special calibration here is nonuniform and step-dependent.",
+          "Random affine stationary covariance formula is standard, and the record explicitly attributes that ingredient."
+        ],
+        "reasoning": "Mean-proximal calibration is not the ordinary importance-sampling unbiased gradient condition, which weights gradients rather than nonlinearly contracted affine proximal maps; equality for every center vector fixes the law.",
+        "searches": [
+          "stochastic proximal point mean resolvent unbiased component sampling quadratic long-run variance step size",
+          "https://arxiv.org/pdf/2308.09310",
+          "https://arxiv.org/pdf/2405.14255",
+          "https://arxiv.org/abs/2108.11440"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A two-component rational Gamma derivative equals g^2(a-b)^2/((a+b)(a+b+eta ab)^2).",
+          "The three-component symmetric-offset derivative is a positive rational factor times (a/b-1); Resultary query related to stochastic covariance but no exact 2-to-3 calibrated variance entry."
+        ],
+        "reasoning": "No checked table evaluates this precise all-center law or reversal. The algebraic sign transition was verified directly and searches are not asserted exhaustive.",
+        "searches": [
+          "stochastic proximal point mean resolvent unbiased component sampling quadratic long-run variance step size",
+          "https://arxiv.org/pdf/2308.09310",
+          "https://arxiv.org/pdf/2405.14255",
+          "https://arxiv.org/abs/2108.11440"
+        ]
+      },
+      "rationale": "Compared exact statements and logical implications against primary full text where accessible, plus published mathematical record searches. The specified result is not established by the inspected prior statements; explicit inaccessible-primary and historical-priority residual risks are retained.",
+      "residual_risks": [
+        "A more specialized theorem on stationary random affine iteration and mean-resolvent sampling could contain equivalent formulas under another vocabulary.",
+        "The coefficient uniqueness requires equality for every possible center vector; not for one fixed vector.",
+        "No nonlinear, matrix-curvature, or general stochastic method theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Vanilla SPPA samples indices uniformly, no all-center step-dependent mean-resolvent law nor sharp 2-vs-3 stationary average sign.",
+          "evidence": "Algorithm 4.1 explicitly uses iid uniformly distributed indices; later algorithms are variance-corrected.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.09310",
+          "material_read": "Complete 28-page primary arXiv PDF; specifically Algorithm 4.1, §4 SPPA and variance-reduced algorithms",
+          "method": "Read parsed primary PDF including actual SPPA update and sampling",
+          "title": "Variance reduction techniques for stochastic proximal point algorithms (Traoré et al.)",
+          "trigger": "Same stochastic proximal finite-sum setting"
+        },
+        {
+          "assessment": "General convergence bounds do not determine the exact coefficient-matching probabilities and the three-component stationary averaging derivative.",
+          "evidence": "Theorem 1 gives an expected-similarity convergence bound, rather than these exact scalar stationary coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.14255",
+          "material_read": "Full 20-page primary arXiv PDF with sampled schemes, theorems and hypotheses; first-page screenshot inspected",
+          "method": "Read full parsed primary PDF focusing on main theorems and noise bounds",
+          "title": "Stochastic Proximal Point Methods for Monotone Inclusions under Expected Similarity (Sadiev, Condat, Richtárik)",
+          "trigger": "General random resolvents could subsume exact statistics"
+        },
+        {
+          "assessment": "Proximal average constructs a different aggregate function; equality with prox of the original arithmetic sum requires explicit quadratic curvature-dependent weights.",
+          "evidence": "Title and abstract on proximal averages do not establish the all-center coefficient-matching identity.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.11440",
+          "material_read": "Public arXiv abstract / searchable descriptive material only",
+          "method": "Read abstract, compared mapping definitions",
+          "title": "The Bregman proximal average (Bauschke and Wang)",
+          "trigger": "Proximal averages could render calibration tautological"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Conditional-unbiased sampling of resolvents for heterogeneous scalar quadratics is a natural algorithm-design calibration. The sharp distinction that two-component averaged variance cannot decrease while a natural three-component family decreases for every step size, opposite to its iterate variance, is a mathematically motivated stochastic-approximation boundary rather than a generic reparameterization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 09978c6f8cb7ed6597766eca7c6f863b9a4fc220",
+    "Frozen verify.py d1af386a84746f1a33bad47bb07db2b55885ca06",
+    "https://arxiv.org/pdf/2308.09310",
+    "https://arxiv.org/pdf/2405.14255",
+    "Independent symbolic/two exact-rational stationary check"
+  ],
+  "disposition": "passed",
+  "final_claim": "For iid component-prox sampling on scalar positive quadratics, p_i=(1+eta a_i)/(n+eta S) is the unique all-center calibration matching E[prox_{eta f_I}]=prox_{eta F}; exact stationary average variance is nondecreasing for n=2 but strictly decreases for all eta when a<b in the specified (a,b,b),(0,1,-1) n=3 family.",
+  "limitations": [
+    "Fixed eta iid scalar strictly convex quadratics, stationary averaging only; no nonstationary CLT or global algorithmic speed claim.",
+    "Source tree listing was not independently reconstructible by connected GitHub interface."
+  ],
+  "residual_risks": [
+    "A more specialized theorem on stationary random affine iteration and mean-resolvent sampling could contain equivalent formulas under another vocabulary.",
+    "The coefficient uniqueness requires equality for every possible center vector; not for one fixed vector.",
+    "No nonlinear, matrix-curvature, or general stochastic method theorem."
+  ],
+  "schema_version": 1
+}
