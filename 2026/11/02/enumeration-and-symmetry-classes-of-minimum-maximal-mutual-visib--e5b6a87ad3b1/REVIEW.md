@@ -1,15 +1,21 @@
-# Self-review: enumeration of optimum maximal mutual-visibility sets
+# Independent mathematical audit
 
-## Correctness — PASS
-The root-graph conversion is exact: on a rook graph the only nonadjacent selected pair has two possible internal squares on a length-two geodesic. Failure of mutual visibility is equivalent to an entire selected rectangle, hence to a root four-cycle. Maximality is root four-cycle saturation. Saturation forces connectedness and the minimal edge count forces a tree. For a tree, adding a missing cross-edge creates a four-cycle exactly when its unique path has length three. This yields a diameter-at-most-four characterization and a universal center. Row-centered and column-centered assignment families have sizes \(m n^{m-1}\) and \(n m^{n-1}\), with exactly \(mn\) double-counted double-stars. Orbits are multiset partitions of pendent-neighbor counts. Quantifiers and boundary \(m,n\ge2\) are handled. The embedded standalone code directly checks 145180 minimum-size candidate subsets across nine boards; it completes with `VERIFY_OK`. Finite tests support, but do not prove, the universal theorem.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Brešar–Yero (arXiv:2307.02951) supplies the underlying invariant and scalar value; Bryant–Fu (Discrete Mathematics 259, 2002, Section 2) supplies the saturated-bipartite framework and minimum edge count. The fact that minimum saturating subgraphs are short-diameter trees is a straightforward consequence of their results, **not** asserted to be independently novel. The independently evaluated labeled count and independent-factor/full-factor orbit formulas are not given in either inspected full text and were not found in targeted literature or mathematical-record searches. The claim is narrower than an assertion that saturation conditions are new. Classical enumeration of small-diameter bipartite trees might yield equivalent formulas and is a residual priority risk. Dong–Ge (arXiv:2103.05294) counts spanning trees containing specified forests; it does not assert this exact saturation-restricted enumerator.
+PASS
 
-## Mathematical value — PASS
-The lower mutual-visibility number alone gives only a minimum size. The number and symmetry decomposition of all optimum inclusion-maximal configurations quantify placement diversity, classify designs under row/column relabeling, and show the success probability among uniformly random bipartite spanning trees. The cross-center inclusion-exclusion and partition-orbit analysis give a complete all-parameter answer to this natural enumeration problem. This is a modest exact enumeration, not a new asymptotic extremal theorem. The claim would lose priority if a pre-existing diameter-restricted bipartite-tree census is demonstrated.
+For R_{m,n}=K_m square K_n with m,n>=2, selected squares correspond to edges of K_{m,n}. A pair of non-row/non-column squares is visible if at least one other rectangle corner is unselected, so mutual visibility is exactly C4-freeness and inclusion maximality is C4 saturation. Saturation forces spanning connectivity; equality size m+n-1 forces a tree. In a tree adding a missing opposite-part edge creates C4 exactly at tree distance three; hence all opposite distances <=3 iff diameter<=4, iff a universal vertex adjacent to the entire opposite part. Counting row-centered and column-centered trees yields m*n^(m-1)+n*m^(n-1)-m*n, the overlap being double-stars. Unlabeled row-centered degree profiles are integer partitions of m-1 into <=n parts and analogous column profiles, with double-star counted twice and factor exchange only if m=n. Fresh direct shortest-path subset enumeration matched labeled counts on (2,2),(2,3),(2,4),(3,3),(3,4). This is a finite check; the structural tree classification proves every board.
 
-## Closest literature and limits
-Primary inspections: Brešar–Yero, arXiv:2307.02951, product-of-cliques section; Bryant–Fu, *C4-saturated bipartite graphs*, pp. 264–265, including Lemmas 2.1–2.3; Chakraborti–Chen–Hasabnis, arXiv:2009.07651, introductory theorems (the asymmetric \(K_{s,t}\) regime); Dong–Ge, arXiv:2103.05294, abstract on trees containing fixed forests. The result is specific to minimum-size maximal sets; cyclic saturated graphs are not counted. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the exact labeled enumeration and orbit classification, not for prior known minimum size m+n-1, C4 saturation correspondence, or diameter-four tree reduction alone. Brešar–Yero (2023) and Bryant–Fu (2002) imply the minimum and strongly anticipate the structural step. An older enumeration of bipartite small-diameter trees or their unlabeled orbits is a genuine residual priority risk.
+
+## value
+
+PASS
+
+The count and factor-swap orbit types are precise natural invariants of the complete minimum layer of a graph visibility optimization problem; they refine a known cardinality into all minimizing configurations, useful for structural extremal graph studies. Although short once reduced to trees, the exact enumeration is not just repetition of the known scalar optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
