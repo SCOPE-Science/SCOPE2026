@@ -1,25 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(xy\ne av\), a unique third free entry realizes each determinant; for \(xy=av\), the determinant constraint reduces bijectively to a nonzero-root quadratic whose discriminant is \((abc+uvw-t)^2-4abcuvw\). The finite-field quadratic root count and a direct character-sum identity give all determinant fibers and their multiplicities. Every prescribed coefficient is explicitly required to be nonzero; characteristic two is excluded. Exact enumeration across prime and quadratic-extension fields independently checks the formulas, but the argument does not depend on experimental extrapolation.
+PASS
 
-## Originality — PASS (best knowledge)
+Direct determinant expansion C−ucy−bwx+(xy−av)z splits q²−q+1 pairs with a uniquely determined z from the exceptional q−1 pairs xy=av. The latter reduce to the nonzero-root quadratic Z²−(C−t)Z+DT, with precisely 1+χ discriminant roots, each admitting q choices of z. The character sum ∑_sχ(s²−4DT)=−1 determines all target multiplicities. This holds over every odd finite field and requires D,T nonzero. Independent direct triple enumeration for selected F3/F5/F7 nonzero parameter sets matched every target fiber; this is corroboration rather than proof.
 
-Gorodetsky's exact diagonal marginal [1, Theorem 1.4] and rectangular-submatrix result [1, Lemma 1.7] do not give the evaluated determinant fibers for this nonrectangular six-entry pattern. Li and Hu [2, Theorem 2.1] provide a stronger general *Fourier-transform representation* from which one can in principle reconstruct restricted determinant counts, but they do not evaluate the six-entry three-cycle restriction or state this squareclass-sensitive profile. A general unevaluated transform and the present evaluated closed classification are distinguished rather than declared logically unrelated. Targeted literature searches and mathematical research-record overlap checks found no exact coverage. An unindexed evaluation or a short unpublished specialization of [2] remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed positions form the two disjoint permutation cycle covers of the three-vertex directed cycle, a natural smallest genuinely cyclic entry-completion pattern. The exact distribution exhibits three distinct quadratic-character levels, yet the singular count obeys a sharper dichotomy depending solely on equality of the two cycle products. This yields an interpretable complete arithmetic invariant, not a numerical table for a chosen modulus; the formula holds across all odd finite fields and all nonzero coefficients.
+Earlier general invertible-matrix counting with prescribed diagonal entries and determinant Fourier transforms are relevant but do not expressly evaluate the full determinant distribution with two fixed cyclic supports. The evaluated three-level discriminant law is a distinct, naturally specified counting invariant. No directly identical published formula was found; implicitly derivable identities remain possible.
 
-## Scope and independent validation
+## value
 
-Only the stated six-entry, order-three, odd-characteristic setting is proved. The accompanying finite checks cover 4,544 parameter choices but do not substitute for the proof; no claim of optimal-complexity evaluation or priority certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Prescribing six nonzero positions in an otherwise free 3×3 matrix is a natural smallest nonrectangular sparse completion family. The full determinant-target histogram and exact singular/invertible counts yield useful closed finite-field arithmetic data beyond generic asymptotics or a tautological character-sum representation.
 
-## References
-
-[1] Ofir Gorodetsky, arXiv:2610.29305v1, https://arxiv.org/html/2610.29305v1.
-
-[2] Yan Li and Su Hu, arXiv:1105.4513v1, https://arxiv.org/abs/1105.4513.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

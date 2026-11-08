@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact checks and boundaries
+# Independent mathematical audit
 
-Run the included standalone program with `python verify.py`. It uses Python's standard library and exact integer or finite-field operations. The order-nine extension is represented as \(\mathbb F_3[\alpha]/(\alpha^2+1)\), with coefficient-pair arithmetic performed modulo three. The squareclass discriminant is computed in the appropriate finite field, not in the integers.
+## correctness
 
-The replay completed with `PASS 4544 six-entry choices; 24128 determinant fibers; 4544 total-count checks`. Counts are obtained independently by evaluating \(\det M(x,y,z)\) for all \((x,y,z)\in\mathbb F_q^3\), then compared to the formula for each target. The program verifies \(\sum_t N_t=q^3\) for every parameter choice. It exhausts nonzero six-tuples for \(q=3,5\), and tests deterministic nonzero six-tuples for \(q=7,9,11\).
+PASS
 
-Finite execution checks only those fields and parameter choices; the proof applies to all odd prime powers and nonzero prescribed values. No independent scientific audit or external verification was performed.
+Direct determinant expansion C−ucy−bwx+(xy−av)z splits q²−q+1 pairs with a uniquely determined z from the exceptional q−1 pairs xy=av. The latter reduce to the nonzero-root quadratic Z²−(C−t)Z+DT, with precisely 1+χ discriminant roots, each admitting q choices of z. The character sum ∑_sχ(s²−4DT)=−1 determines all target multiplicities. This holds over every odd finite field and requires D,T nonzero. Independent direct triple enumeration for selected F3/F5/F7 nonzero parameter sets matched every target fiber; this is corroboration rather than proof.
+
+## originality
+
+PASS
+
+Earlier general invertible-matrix counting with prescribed diagonal entries and determinant Fourier transforms are relevant but do not expressly evaluate the full determinant distribution with two fixed cyclic supports. The evaluated three-level discriminant law is a distinct, naturally specified counting invariant. No directly identical published formula was found; implicitly derivable identities remain possible.
+
+## value
+
+PASS
+
+Prescribing six nonzero positions in an otherwise free 3×3 matrix is a natural smallest nonrectangular sparse completion family. The full determinant-target histogram and exact singular/invertible counts yield useful closed finite-field arithmetic data beyond generic asymptotics or a tautological character-sum representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
