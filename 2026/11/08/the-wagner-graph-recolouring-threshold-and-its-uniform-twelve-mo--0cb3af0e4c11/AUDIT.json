@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Direct C++17 base-k exhaustive enumeration of all \\(3^8\\) and \\(4^8\\) colour assignments, exact twelve-edge properness checks and all-source BFS proves every claimed finite distance. Independent Python recursion, direct legal recolour enumeration and D8 × S_k orbit-shell calculation independently agrees. C++ checks all distances without symmetry reliance. The two 24-vertex connected degree-two 3-colour components must be cycles. Exact pair-shell sum equals C(2160,2). The greedy Grundy-4 witness is checked explicitly. No infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cereceda–van den Heuvel–Johnson Theorem 6: any 3-chromatic graph has disconnected R3, not component size/type. Their Theorem 3 guarantees connectivity for k>=col(G)+2=5 here.",
+        "Bonamy–Bousquet 2013 Theorem 1 guarantees k-mixing for k>=Grundy(G)+1; explicit Wagner greedy order shows Grundy=4, so threshold 5. Theorem 2 applies at k>=tw(G)+2, not providing the exact four-colour radius or eccentricities.",
+        "ArXiv 2014 broader tree-decomposition theorems do not give exact Wagner R4 distances."
+      ],
+      "reasoning": "A generic connectivity theorem at k>=5 is inapplicable at k=4; generic nonconnectivity of chromatic 3-colorings does not imply R3=2C24. Even a broad diameter estimate does not determine exact twelve-move all-source radius and extremal count.",
+      "searches": [
+        "LSE-CDAM-2005-11, Theorems 3 and 6 and full-text Wagner search",
+        "arxiv:1302.3486v1, Theorems 1 and 2; full-text Wagner/Mobius search",
+        "arxiv:1403.6386v1, introduction and main theorem scope; full-text Wagner/Mobius search",
+        "Single vertex recolouring four colours of the Wagner graph with 2160 configurations diameter twelve radius twelve"
+      ]
+    },
+    "checked_sources": [
+      "LSE-CDAM-2005-11 primary PDF relevant theorem text",
+      "arxiv:1302.3486v1 primary PDF relevant theorem text",
+      "arxiv:1403.6386v1 primary PDF relevant theorem text",
+      "OEIS:A277444 full entry",
+      "Wagner graph standard reference (structure and chromatic number)",
+      "Semantic literature searches for Wagner single-vertex colouring/reconfiguration and aliases",
+      "Bibliographic literature checks for exact recolouring on Wagner graphs and Möbius ladders"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A graph-square chromatic invariant concerns distance-two constraints, which do not define single-site recolouring transitions. Wagner matching and Morse complexes concern unrelated configuration spaces.",
+        "A published Heawood-to-cycle homomorphism/recolouring result involves a different source graph and target; published Wagner matching/Morse-complex results describe different complexes.",
+        "OEIS count and mixing theorem facts do not determine shortest paths in R4(W)."
+      ],
+      "reasoning": "Implications were tested at object, move, palette, and invariant level: a fixed graph with different token swapping or graph-square colourings is not a coverage match; an exact chromatic polynomial yields configuration counts, but no connectivity or metric information; the named general theorems cannot imply the four-palette radius twelve.",
+      "searches": [
+        "Wagner graph Mobius ladder M8 proper 3 colorings 48 two 24 cycles 4 coloring 2160 12 diameter recoloring",
+        "Single vertex recolouring four colours of the Wagner graph with 2160 configurations diameter twelve radius twelve",
+        "Wagner graph exact four vertex-colouring recoloring state count 2160 diameter 12",
+        "\"Möbius ladder\" \"colourings\" \"24-cycle\"",
+        "\"Wagner graph\" \"reconfiguration graph\" coloring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wagner graph = eight-vertex Möbius ladder M8 by graph definition and standard reference; hence checked both aliases. OEIS A277444 counts proper colourings but not recolouring distances. Bonamy–Bousquet arXiv:1302.3486v1 defines R_k(G) under single-vertex moves."
+      ],
+      "reasoning": "Matching the Wagner/M8/Mobius-ladder graph and exact single-vertex moves is required. The closest retrievable named results concern other graph invariants (matching complexes, chromatic polynomial) rather than the R3/R4 distance metric.",
+      "searches": [
+        "Wagner graph Mobius ladder M8 proper 3 colorings 48 two 24 cycles 4 coloring 2160 12 diameter recoloring",
+        "Chromatic recoloring graph of eight vertex Mobius ladder diameter twelve connected and self centered",
+        "\"Möbius ladder\" \"reconfiguration\" \"colorings\" diameter",
+        "\"Wagner graph\" \"recoloring\" \"diameter\" four colors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A277444 authored 2016-10-15 gives colour-count table including 48 and 2160, with classical 1972 Biggs–Damerell–Sands reference. Its formula counts proper colourings, and contains no transition graph, eccentricity or diametral-pair data."
+      ],
+      "reasoning": "The state counts are exact table coverage and are deliberately not treated as new. The accepted claim is the additional transition-graph classification, which is not implied by a chromatic polynomial or its evaluation.",
+      "searches": [
+        "\"Wagner graph\" \"2160\" \"colorings\"",
+        "OEIS A277444 Möbius ladder chromatic polynomial table (full page)",
+        "\"Möbius ladder\" \"2160\" colorings"
+      ]
+    },
+    "rationale": "The exact two C24 reconfiguration components and the self-centered nonregular R4(W) with diameter 12, full distance-shell census and 5160 antipodal unordered pairs were not present in the primary literature passages, published records and inspected source comparisons. Known chromatic-polynomial counts 48 and 2160 are expressly credited. General 3-chromatic nonmixing is a strict weakening of the exact two-cycle classification; Grundy or treewidth mixing bounds do not supply the sharp k=4 Wagner metric. Residual priority uncertainty remains for unindexed or inaccessible records.",
+    "residual_risks": [
+      "Unindexed or inaccessible equivalent finite computation can exist; a failed search is not a uniqueness proof.",
+      "The original 1972 chromatic-polynomial paper was not inspected in full; no explicit metric data found in its accessible derivative formula.",
+      "The July 2005 report lacks a verified first-publication day; 2013-02-14 is the earliest precisely day-dated selected public arXiv preprint, not a claim that all related earlier work postdates it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general disconnectedness of chromatic-three R3 but no Wagner R3 component census or R4 exact metric",
+        "evidence": [
+          "Report dated July 2005; abstract and section 3; Theorem 6; name Wagner absent in searchable full text"
+        ],
+        "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+        "material_read": "Full eight-page primary PDF accessed; abstract, definitions, Theorems 3 and 6 and their proofs, theorem statements and Wagner name search checked",
+        "method": "Opened primary PDF and inspected relevant pages and theorem text, with PDF-page image",
+        "title": "Connectedness of the Graph of Vertex-Colourings",
+        "trigger": "Same exact notion of named proper colourings and one-vertex recolouring, with chromatic three nonconnectivity"
+      },
+      {
+        "assessment": "General k>=Grundy+1 and k>=tw+2 criteria; no exact W8 k4 metric or 3-cycle classification",
+        "evidence": [
+          "arXiv:1302.3486v1 date 2013-02-14 shown on PDF, Theorems 1 and 2; Wagner name absent in PDF"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.3486",
+        "material_read": "Original preprint PDF accessed; abstract, first two sections, Theorem 1 on Grundy bound and Theorem 2 on treewidth bound; full-text Wagner name check",
+        "method": "Opened full primary PDF, examined theorem wording and screenshot of page 2, searched explicit alternate graph names",
+        "title": "Recoloring bounded treewidth graphs",
+        "trigger": "Earliest exactly day-dated public arXiv source in selected recolouring literature; general connectivity and diameter theorems"
+      },
+      {
+        "assessment": "Broader mixing and upper bound results without the present exact four-colour Wagner metric",
+        "evidence": [
+          "arXiv first posted 2014-03-25; intro defines same Rk; no Wagner/Mobius name in PDF text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.6386",
+        "material_read": "Primary PDF accessed; abstract, definitions and main theorem scope checked; page-one screenshot and Wagner/Mobius name searches",
+        "method": "Opened PDF and scanned relevant theorem sections, checked page image, searched specific graph aliases",
+        "title": "Recoloring graphs via tree decompositions",
+        "trigger": "Broader successor analysis of exact recolouring move and distance bounds"
+      },
+      {
+        "assessment": "Exact configuration counts known, no distance/transition graph data; excluded counts from novelty claim",
+        "evidence": [
+          "Author date October 15, 2016; entries 48 and 2160; Biggs–Damerell–Sands 1972 citation"
+        ],
+        "identifier_or_url": "https://oeis.org/A277444",
+        "material_read": "Full short public sequence page, formula, example table, author date, cited classical 1972 article",
+        "method": "Opened and inspected public OEIS entry, including array definition and formula",
+        "title": "OEIS A277444: n-colourings of Möbius ladders",
+        "trigger": "Exact matching counts 48 and 2160; possible table coverage"
+      },
+      {
+        "assessment": "Underlying known chromatic count is fully credited, possible unexamined historical metric material is residual risk",
+        "evidence": [
+          "OEIS A277444 bibliography and formula"
+        ],
+        "identifier_or_url": "Biggs, Damerell and Sands, Journal of Combinatorial Theory B 12 (1972), 123-131",
+        "material_read": "Title, year, bibliographic reference and derived formula as reproduced by OEIS only; original full text not obtained",
+        "method": "Bibliographic and table comparison, explicitly not whole-paper examination",
+        "title": "Recursive families of graphs",
+        "trigger": "Underlying older chromatic polynomial and possible enumerative domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0cb3af0e-4c11-4ede-9178-3fedfd45e3df",
+  "value": {
+    "rationale": "Canonical Wagner/Mobius ladder is a natural small nonplanar cubic, 3-chromatic graph. The exact k=3 to k=4 connectivity threshold is at the chromatic palette plus one, below the applicable generic Grundy sufficient threshold five. The transition from two C24 components to an irregular yet self-centered 2160-state graph with sharp diameter twelve, full metric shells and 5160 diametral pairs constitutes substantive reconfiguration information not contained in known chromatic counts or qualitative mixing results.",
+    "status": "PASS"
+  }
+}
