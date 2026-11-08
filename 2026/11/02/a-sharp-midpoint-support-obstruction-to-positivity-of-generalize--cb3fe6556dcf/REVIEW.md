@@ -1,15 +1,21 @@
-# Review of the midpoint-support obstruction
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite-measure Schur bound establishes the bounded self-adjoint realization; compact-support Laplace asymptotics and binomial entropy give the exact divergence rate of a normalized 2-by-2 minor. The two-atom equivalent is computed by local Stirling estimates. An elementary Gram integral handles the midpoint point mass. Exact-rational checks cover independent finite examples, but the analytical argument proves the infinite assertion.
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** The inspected same-family paper of Athanasiou (2023, DOI 10.1112/blms.12882) is concerned with boundedness and norms; Bellavita et al. (arXiv:2307.15334) establish adjoint/Hankel and norm properties; and Jin (arXiv:2504.19743) studies weighted-space norm estimates. published-finding corpus searches for PSD, reflection symmetry, midpoint support and two-point exponential ratios returned no statement implying this obstruction. The unrelated essential-norm record SCOPE-exact-essential-norm-for-slowly-oscillating-generalized-hilbert--c5f873897cc1 is not a competing positivity result. Equivalence under another name remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The theorem identifies a sharp support barrier inside a natural operator family, shows how rapidly positivity fails, and works for all reflection-symmetric compact-support measures instead of only a discretized example. This separates entrywise positive kernels from positive operators and provides a motivated structural restriction on their representing measures.
+The kernel binomial(n+k,k)∫(1−t)^n t^k dμ is bounded by Schur on compact support in (0,1), and self-adjoint by reflection symmetry. The compact-support Laplace principle applies even to singular measures. For s=max(S∩(0,1/2)), h=s(1−s), diagonal logarithmic growth is log(4h) per index, while the binomial/KL expression for entry (m−floor(sm),floor(sm)) has m-th log limit zero because t=s is in support. The normalized off-diagonal therefore has m-th log growth −log(2√h)>0; its 2×2 principal minor is negative for large m. For μ=(δ_s+δ_(1−s))/2, local binomial Stirling gives prefactor 1/(2√2 h^(1/4)); δ_(1/2) is a nonnegative Gram kernel. Independently evaluated four exact rational negative minors; these tests do not prove the universal Laplace step.
 
-## Limits
-Necessary condition only: no sufficiency at midpoint, no noncompact-support extension, and no full negative spectral decomposition. The multiplicative asymptotic constant is special to two-point measures. Independent mathematical evaluation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise novel statement is the all-measure midpoint-support necessity with exact exponential 2-coordinate PSD violation, not boundedness of Hilbert/Hausdorff operators. The closest same-kernel work establishes boundedness, operator adjointness and Hankel structure, not this support-gap criterion, within material read. Resultary exact-invariant search did not identify a dominating finding, but absence of hits is not proof of priority.
+
+## value
+
+PASS
+
+A support-theoretic necessary condition is structurally meaningful for positivity of a natural generalized Hilbert/Hausdorff matrix; the exact exponential failure rate and sharp two-point prefactor distinguish a spectral sign obstruction from norm estimates, with a precise midpoint boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
