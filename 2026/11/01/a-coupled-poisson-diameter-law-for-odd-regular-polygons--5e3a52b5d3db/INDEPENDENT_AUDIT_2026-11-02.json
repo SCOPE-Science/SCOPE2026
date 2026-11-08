@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:54:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed m=2r+1, precisely m unordered vertex pairs at step r maximize polygon diameter 2cos(pi/(2m)), and their vertices are shared. In each corner cone the two longest-diagonal inward loss forms have slopes (q,p) and (p,q), where p=sin(pi/(2m)), q=sin(3pi/(2m)), and the edge-coordinate area Jacobian divided by polygon area is exactly 2/m. After scaling corner coordinates by sqrt(N), disjoint vertex neighborhoods converge jointly to independent intensity-2/m Poisson processes. Strict first-order transversality and positive gap outside neighborhoods justify localization and a uniformly O(N^-1) Taylor remainder, giving weak convergence of the minimum over finite diameter pairs. The two directional minima at one vertex are dependent and their joint survival is the Poisson void probability for union of two triangles; direct trapezoidal/midpoint integration confirms all piecewise intersection formulas. Each one-diagonal sum has CDF lambda² t^4/6+O(t^6). Pairwise diagonal intersections require at least 3 corner processes and contribute O(t^6), so inclusion–exclusion gives m lambda²/6=1/(6mp²q²). Finally small-angle limits give 8/(27 pi^4) versus even 1/(12 pi^4), ratio 32/9. Independent checks of 5 vertex gradients and 600 exact-versus-quadrature overlaps are supplementary only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lao Theorem 6.8 covers even polygons sampled by planar area; Chapter 5 Section 5.2 odd polygons sampled on one-dimensional boundary.",
+          "Appel–Najim–Russo 2002 available abstract describes general diameter limits, but original full text was unavailable."
+        ],
+        "reasoning": "Known broad convergence theorems for a UNIQUE diametral pair do not handle multiple pairs with overlapping endpoints without a new dependent cone-process argument. However the inaccessible 2002 source could contain broader shared-vertex treatment; residual risk remains.",
+        "searches": [
+          "Resultary: area uniform maximum interpoint distance odd regular polygon shared vertex diameter Poisson weak limit",
+          "Web: Some weak limit laws for the diameter of random point sets in bounded regions Lao 2010",
+          "Web: Appel Najim Russo 2002 Limit laws for the diameter of a random point set"
+        ]
+      },
+      "checked_sources": [
+        "Lao 2010 primary full thesis Chapter 5 §5.2, Chapter 6 Theorem 6.8",
+        "Appel–Najim–Russo (2002) abstract; institutional full text blocked VPN disconnected",
+        "Mayer–Molchanov arXiv:math/0605289 primary introduction",
+        "Resultary similar regular-polygon geometric records, no random-sample maximum theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lao even-polygon area-uniform law is a disjoint-endpoint special geometry, and Lao odd boundary samples use different dimension/scaling.",
+          "Appel et al abstract and Mayer–Molchanov intro discuss extrema/unique major axes; no accessible theorem was verified that gives the explicit coupled pair U_j,V_j."
+        ],
+        "reasoning": "Neither the even independent-Weibull result nor odd boundary result implies the area-uniform odd shared-vertex process; the decisive potential stronger 2002 source is inaccessible, so this is a best-of-knowledge acceptance with carefully recorded priority exposure, not a claim that inaccessible text was read.",
+        "searches": [
+          "Resultary: area uniform maximum interpoint distance odd regular polygon shared vertex diameter Poisson weak limit",
+          "DOI:10.5445/KSP/1000019800",
+          "arXiv:math/0605289",
+          "DOI:10.1239/aap/1019160946"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lao 2010 defines diameter graph of longest chords and models minima from corner processes for other polygon/sampling regimes.",
+          "Odd polygon shares each vertex across two maximal diagonals; single vertex contributes two dependent linear Poisson minima."
+        ],
+        "reasoning": "A hypergraph/diameter-graph indexing of the same shared-corner Poisson process is equivalent, but an even-sided independent-corner formula is not: it cannot reproduce positive bivariate dependence or the odd coefficient.",
+        "searches": [
+          "Resultary: area uniform maximum interpoint distance odd regular polygon shared vertex diameter Poisson weak limit",
+          "Wei Lao 2010 Chapters 5.2 and 6 Theorem 6.8 odd polygon boundary vs even polygon interior"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lao even-polygon coefficient has 1/(12m sin^4(pi/m)); the proposed odd coefficient 1/(6m sin²(pi/(2m))sin²(3pi/(2m))) is different.",
+          "Resultary regular-polygon reports concern geometric constants, not sample maxima in odd polygons."
+        ],
+        "reasoning": "The even constant cannot be reused for odd side counts; the limit parity ratio 32/9 follows from new shared-corner coefficient, not preexisting tabulated polygon diameter data.",
+        "searches": [
+          "Resultary: area uniform maximum interpoint distance odd regular polygon shared vertex diameter Poisson weak limit",
+          "Lao 2010 Theorem 6.8 regular polygon sampled interior even",
+          "Resultary: area uniform maximum interpoint distance odd regular polygon shared vertex diameter Poisson weak limit"
+        ]
+      },
+      "rationale": "Lao (2010) Chapter 6 Theorem 6.8 treats area-uniform EVEN polygons, whose diametral corners are disjoint; Chapter 5 section 5.2 treats odd polygons with BOUNDARY/arclength sampling and shared endpoints, not the fixed odd area-uniform case with its sqrt(N) scaling and 2D cone intensity. Appel–Najim–Russo (2002) and Mayer–Molchanov (2006) address general random-point diameters; the precise role of repeated diameter endpoint maxima required a high-priority comparison. An authorized institutional retrieval of Appel et al returned VPN disconnected; only abstract and later summaries available, and that priority risk is explicitly retained. No decisive direct prior implication for the coupled bivariate law was established from accessible statements; do not claim absolute novelty.",
+      "residual_risks": [
+        "Appel, Najim & Russo (2002) is directly relevant but full primary material could not be retrieved; institutional VPN was disconnected. This is real priority uncertainty.",
+        "Lao 2010 may contain other relevant appendix material outside inspected Chapter 5/6 comparisons; theoretical overlap risk retained.",
+        "Only fixed odd m with N→infty followed by t→0 and then m→infty is shown; no joint uniform m,N theorem.",
+        "Quadrature/finite gradient tests cannot establish convergence or historical originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest explicit polygon results separate precisely the odd boundary and even interior regimes; shared-corner area-uniform odd theorem not found in material read.",
+          "evidence": [
+            "Lao (2010), Chapter 5 §5.2 and Chapter 6 Theorem 6.8"
+          ],
+          "identifier_or_url": "Wei Lao 2010, DOI:10.5445/KSP/1000019800, https://publikationen.bibliothek.kit.edu/1000019800",
+          "material_read": "Primary full thesis text accessible, Chapter 5 Section 5.2 on arclength-uniform odd polygons, and Chapter 6 Theorem 6.8 on area-uniform even regular polygons, plus introduction/comparison.",
+          "method": "Institutional full-text HTML/text and primary theorem passages",
+          "title": "Some Weak Limit Laws for the Diameter of Random Point Sets in Bounded Regions",
+          "trigger": "Direct same diameter maximum, polygon parity, sampling model"
+        },
+        {
+          "assessment": "Unresolved priority overlap: unknown if paper covers odd regular polygons with shared maximal endpoints; unavailable source ALONE not a scientific FAIL or proof of NOT_COVERING.",
+          "evidence": [
+            "Appel et al 2002 abstract; Mayer–Molchanov arXiv:math/0605289 introduction"
+          ],
+          "identifier_or_url": "M. J. B. Appel, C. A. Najim, R. P. Russo (2002); DOI:10.1239/aap/1019160946",
+          "material_read": "Published abstract and Mayer–Molchanov 2006 intro characterization only. Both arXiv and open-access full text search unsuccessful. Authorized Oxford retrieval returned vpn_disconnected (manual access required); full primary could not be read.",
+          "method": "Publisher abstract, later primary-paper introduction, then institutional request returned vpn_disconnected",
+          "title": "Limit laws for the diameter of a random point set",
+          "trigger": "Potential broad polygon diameter theorem, same area-uniform maximum"
+        },
+        {
+          "assessment": "Unit ball/spherical geometry has different extremal set; related but not the explicit odd regular polygon shared-corner law.",
+          "evidence": [
+            "arXiv:math/0605289 introduction"
+          ],
+          "identifier_or_url": "M. Mayer and I. Molchanov 2006, arXiv:math/0605289",
+          "material_read": "Primary arXiv introduction and characterization of earlier assumptions; not a full proof-level inspection.",
+          "method": "Primary lawful arXiv introduction",
+          "title": "A limit theorem for the maximal interpoint distance of a random sample in the unit ball",
+          "trigger": "Related random diameter limiting laws / uniqueness conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Random-sample diameter is a canonical geometric extreme statistic. Odd regular polygons are the first natural symmetric class where maximal-diameter chords share endpoints, so the missing dependence invalidates naive products of independent Weibull variables. The bivariate cone process and exact lower-tail coefficient are nontrivial geometry-probability invariants, not a minor constant gain. The parity contrast quantifies an important structural distinction from even polygons.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lao 2010 primary full thesis Chapter 5 §5.2, Chapter 6 Theorem 6.8",
+    "Appel–Najim–Russo (2002) abstract; institutional full text blocked VPN disconnected",
+    "Mayer–Molchanov arXiv:math/0605289 primary introduction",
+    "Resultary similar regular-polygon geometric records, no random-sample maximum theorem"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed odd regular m-gon (m>=3, circumradius 1) and area-uniform iid N-sample, sqrt(N) times the diameter deficit converges in law to the minimum of m coupled sums U_j+V_(j+r), where each independent vertex Poisson process supplies the correlated pair U_j,V_j. Joint bivariate survival is explicit triangle-overlap exp(-lambda(s²+t²)+(2/m)I_(p,q)(s,t)); lower tail constant 1/(6m p²q²) gives odd/even large-m coefficient ratio 32/9 in successive limits.",
+  "limitations": [
+    "Area-uniform interior points, fixed odd polygon order, circumradius 1; not boundary sample or simultaneous N,m limits.",
+    "The 2002 closest prior source full text was inaccessible due authorization/network and is a non-dismissed novelty risk."
+  ],
+  "residual_risks": [
+    "Appel, Najim & Russo (2002) is directly relevant but full primary material could not be retrieved; institutional VPN was disconnected. This is real priority uncertainty.",
+    "Lao 2010 may contain other relevant appendix material outside inspected Chapter 5/6 comparisons; theoretical overlap risk retained.",
+    "Only fixed odd m with N→infty followed by t→0 and then m→infty is shown; no joint uniform m,N theorem.",
+    "Quadrature/finite gradient tests cannot establish convergence or historical originality."
+  ],
+  "schema_version": 1
+}
