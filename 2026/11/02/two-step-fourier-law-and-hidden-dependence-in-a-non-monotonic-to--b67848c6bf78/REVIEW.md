@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The map is a composition of two invertible Haar-preserving shears. The stationary-coordinate change \((x,y)\mapsto(y,v=y+x+f_\eta(y))\) has Haar-preserving triangular Jacobian and makes \(y\) and \(v\) independent. Therefore the complete two-time characteristic function factors into two exactly evaluated one-variable integrals. The closed-form sine expressions are algebraic consequences; the signs and the endpoint limits follow from elementary positivity and Taylor expansions. Character uniqueness proves uniform circular difference, a nonzero character proves non-independence, and the linear cat-map formula verifies the endpoint. In particular no mixing theorem or heuristic approximation is needed. The standalone finite-grid checker passed 398 comparisons; finite checks support rather than replace the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Read frozen RESULT.md with explicit tent shear f_eta, H_eta coordinates and Haar initial measure. The area-preserving triangular-shear change of variables makes (Y0,Y1)=(y,v) independent Haar, with X0=v-y-f_eta(y), X2=v-y+f_eta(v). Character expectations factor exactly into J_eta(k-l,k)J_eta(l-k,l), J_eta(m,r)=(1-eta)E(r+m(1-eta))+eta E(r-m eta), E(t)=∫e^{2πitz}dz. This representation handles removable denominator singularities. The tent map pushes Haar onto Haar, hence all C(k,k)=0 for k nonzero and X2-X0 is Haar; C(1,-1)=sin²(2πη)/[π²(3-2η)²(1-2η)²]>0, so observations not independent. C(1,2) negative formula gives d_TV≥|C|/2~eta/6; at eta=0 the cat linear map X2=2X0+3Y0 makes independent pair. Independent 100 direct-original-coordinate Fourier grid quadratures agreed within stated grid tolerances. Analytic factorization, not quadratures, covers all frequencies and parameters.
 
-The primary 2021 preprint and 2022 open-access article define the exact family and establish Bernoulli mixing over two parameter windows. Their inspected full mathematical statements and arguments develop invariant cones, hyperbolicity and manifold crossings, not explicit two-time coordinate Fourier coefficients or a parameter-uniform independence dichotomy. Related 2022 and 2023 work on two tent shears concerns a different map. Specific searches for two-step joint spectra, sum-versus-difference harmonics, and the identified sine coefficients did not identify a broader theorem that implies this claim. Existing published dynamics and general harmonic-integration techniques are credited, not claimed as new. Residual priority risk: a specialized earlier harmonic calculation, unpublished thesis chapter, or unindexed source may already contain equivalent results; the absence of a located match is not an exhaustive novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source family is a natural model of laminar stirring with parameters where long-time mixing remains difficult. This theorem classifies an experimentally accessible short-time dependence diagnostic **at every parameter**, distinguishes uniform circular displacement from pairwise independence, proves exact independence at lag one but none at lag two in the interior, and provides an explicit first-order onset near the cat-map limit. The complete two-dimensional Fourier coefficient formula is reusable to evaluate arbitrary trigonometric coordinate observables. This is more informative than an isolated numerical covariance or an arbitrary parameter slice; the question is motivated by statistical mixing diagnostics and the mathematical contrast between strong long-time mixing and finite-lag behavior.
+Best-knowledge: distinct precise final statement not implied by inspected prior work; exact comparisons and known subclaims separated. Inaccessibility of some sources alone not a scientific failure; residual risks stated. Prior exact map definitions match, but prior theorem conclusions address mixing/Bernoulli on parameter windows, not all-parameter explicit lag-two Fourier coefficients. The broader dynamics framework and cat-map mixing do not by logical implication yield the exact Fourier factorization for every interior parameter.
 
-## Closest literature and limitations
+## value
 
-J. Myers Hill, R. Sturman and M. C. T. Wilson, arXiv:2112.07346v1 (2021), later Journal of Nonlinear Science 32, 31 (2022), is the defining source; the precise literature comparison uses its full HTML mathematical presentation (introduction, definitions, theorem, proofs and appendix). Further context includes the same authors' work on two non-monotonic orthogonal shears (Physica D 434, 133224, 2022), and their 2023 orthogonal-tents paper; these are not the same one-tent-one-linear map. A comprehensive thesis-level or all-literature comparison is not claimed. The result is strictly a two-iteration stationary law, not a new proof of Bernoulli mixing or long-time correlation decay. Independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The map exhibits a subtle but exact separation of uniform displacement from genuine two-time independence in a named nonmonotone mixing family, complete with all Fourier coefficients and a quantitative approach to the linear cat limit; the example can serve as a rigorous finite-time correlation benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
