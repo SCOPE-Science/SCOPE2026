@@ -1,11 +1,21 @@
-# Review of the exact three-survivor multiset theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the exact unordered-multiset deletion convention, confusability equals multiplicity intersection at least three. Distinct heavy words cannot reuse a multiplicity-at-least-three coordinate; two light words have intersection at least \(2n-2q\), so they cannot coexist for \(n\ge q+2\). The explicit pure-plus-light code achieves the sharp bound, and absence of light words beyond \(2q\) proves the second regime. Disjointness of heavy-coordinate sets proves the stated equality structure. Distinct two-light witnesses prove that the starting threshold is sharp. Independent finite checks confirm 18 exact optima and 897 explicit witnesses. No finite experiment is substituted for the parameter-uniform proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Kreindel–Barouch Essayag–Zabokritskiy (arXiv:2601.05636v2, Section 4.4, Proposition 12) gives the general bound \(q+\binom q2\), not the exact uniform formula. The relevant exact binary and particular ternary/quaternary cases are acknowledged as already covered and are **not** represented as novel. The arbitrary-alphabet, all-blocklength sharp profile and the forced heavy-coordinate equality structure are broader than those cases. Full text of the two directly relevant 2026 works and the foundational 2016 study was inspected. Search-based negative evidence cannot establish absolute publication priority; an unindexed earlier proof remains possible.
+PASS
 
-**Value — PASS.** The recent paper singles out the three-survivor regime but leaves a quadratic-in-alphabet upper bound. This theorem settles the entire parameter strip \(n\ge q+2\) with a linear sharp optimum, supplies explicit achieving codes, gives both sharp transition thresholds, and restricts the structure of every optimizer. For example, at \(q=5,n=7\), it reduces an existing bound of 15 to the exact value 6; at \(n=11\) the value is 5. These are a meaningful complete infinite-family result, not a single arbitrary finite slice.
+For size-n multiplicity vectors x,y, correcting up to n-3 deletions is equivalent to no common 3-submultiset, i.e. I(x,y)=sum_i min(x_i,y_i)<=2. Distinct words with any multiplicity >=3 (heavy) cannot be assigned the same heavy coordinate, so at most q heavy codewords. For any two vectors with all entries <=2 (light), I(x,y)>=sum_i(x_i+y_i-2)=2n-2q>=4 when n>=q+2, so at most one light; for n>=2q+1 light words do not exist. The q pure vectors n*e_i meet the bound, and when q+2<=n<=2q the added light vector with n-q twos and 2q-n ones has sum n and intersects each pure vector by at most 2. For n=q+1 the explicit odd/even-q two-light witness yields >=q+2, proving the lower threshold sharp. Equality q heavy words forces exactly one singleton high-multiplicity coordinate for each alphabet symbol. This is a genuine all-parameter proof; independent exact pairwise intersection checks of constructions and lower-boundary witnesses for q=2..9 support it.
 
-**Limits and closest coverage.** Kovačević and Tan (arXiv:1612.08837) provide the general metric and classical bounds; arXiv:2603.18322 emphasizes ball geometry. The exact ternary and quaternary size cases are previously reported. The present claim does not enumerate all equality codebooks or treat other output sizes. Independent priority and proof audits are unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previous published Resultary result settles only q=3, and binary special cases are old. Kreindel, Barouch Essayag and Zabokritskiy, arXiv:2601.05636v2, Section 4.4 Proposition 12, establish a much weaker q+binom(q,2) upper bound for n>=q+2; the theorem in this package is a uniform sharp q+1/q formula and partial optimizer structure for every alphabet size. Prior Kovačević–Tan discrete simplex work covers the model and general metric bounds, not this exact stated all-q threshold.
+
+## value
+
+PASS
+
+Survivor-length-three is a particularly natural high-deletion boundary for multiset coding. Its uniform two-phase optimum, sharp n threshold, and heavy-coordinate rigidity answer an exact extremal question for every q, not merely recomputing a known ternary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

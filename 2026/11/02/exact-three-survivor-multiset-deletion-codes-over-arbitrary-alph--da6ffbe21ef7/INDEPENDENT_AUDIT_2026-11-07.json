@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T10:03:21.190316Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For size-n multiplicity vectors x,y, correcting up to n-3 deletions is equivalent to no common 3-submultiset, i.e. I(x,y)=sum_i min(x_i,y_i)<=2. Distinct words with any multiplicity >=3 (heavy) cannot be assigned the same heavy coordinate, so at most q heavy codewords. For any two vectors with all entries <=2 (light), I(x,y)>=sum_i(x_i+y_i-2)=2n-2q>=4 when n>=q+2, so at most one light; for n>=2q+1 light words do not exist. The q pure vectors n*e_i meet the bound, and when q+2<=n<=2q the added light vector with n-q twos and 2q-n ones has sum n and intersects each pure vector by at most 2. For n=q+1 the explicit odd/even-q two-light witness yields >=q+2, proving the lower threshold sharp. Equality q heavy words forces exactly one singleton high-multiplicity coordinate for each alphabet symbol. This is a genuine all-parameter proof; independent exact pairwise intersection checks of constructions and lower-boundary witnesses for q=2..9 support it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest inspected explicit uniform bound q+binom(q,2) is not sharp for q>=4",
+          "General simplex-metric framework explains the intersection criterion, not the heavy/light decomposition and exact count"
+        ],
+        "reasoning": "Prior upper bound cannot imply the lower numerical optimum and classification at all sizes without an additional argument; no inspected stronger dominating theorem.",
+        "searches": [
+          "arXiv:2601.05636v2 Proposition 12 exact bounds",
+          "arXiv:1612.08837 simplex codes multiset deletion"
+        ]
+      },
+      "checked_sources": [
+        "multiset deletion codes only three survivors S_q(n,n-3) exact maximum q+1",
+        "Kreindel Barouch Essayag Zabokritskiy Proposition 12 n-3",
+        "Resultary exact ternary multiset deletion codes three elements survive",
+        "Kovačević Tan multiset deletion channel discrete simplex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Basic confusability is I(x,y)<=2; at most q heavy words plus at most one light yields new sharp upper bound",
+          "The paper’s q+binom(q,2) estimate permits much larger families than the exact bound, so does not logically imply the equality q+1/q"
+        ],
+        "reasoning": "All-q theorem supplies new reduction, not a corollary of checked general bound; prior q3 result remains a special case.",
+        "searches": [
+          "Kreindel 2026 multiset deletion Prop 12 q+choose(q,2)",
+          "heavy coordinate intersection at most two multiset codes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published q=3 result agrees with the q-uniform specialization but does not contain a parameter-uniform theorem",
+          "Kreindel et al. Prop12 states upper bound q+binom(q,2) in same deletion model"
+        ],
+        "reasoning": "The q=3 and q=2 cases are prior coverage, not new. A result for one alphabet size does not logically imply all-q sharp q+1 and q regions.",
+        "searches": [
+          "arXiv:2601.05636 Section 4.4 S_q(n,n-3)",
+          "Resultary exact ternary multiset deletion codes survive three"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary pre-existing ternary table: S3(5,2)=S3(6,3)=4, S3(n,n-3)=3 for n>=7",
+          "Source complete symbolic q,n formula specializes correctly to that known row"
+        ],
+        "reasoning": "A table of selected q does not determine all q. q3 rows are explicitly acknowledged as prior and excluded from independent novelty.",
+        "searches": [
+          "multiset deletion q=3 n-3 exact result Resultary",
+          "multiset deletion codes large q q+1 optimal table"
+        ]
+      },
+      "rationale": "The previous published Resultary result settles only q=3, and binary special cases are old. Kreindel, Barouch Essayag and Zabokritskiy, arXiv:2601.05636v2, Section 4.4 Proposition 12, establish a much weaker q+binom(q,2) upper bound for n>=q+2; the theorem in this package is a uniform sharp q+1/q formula and partial optimizer structure for every alphabet size. Prior Kovačević–Tan discrete simplex work covers the model and general metric bounds, not this exact stated all-q threshold.",
+      "residual_risks": [
+        "Special q=2 and q=3 cases already known and are not independent novelties",
+        "A different exact general upper-bound theorem in earlier multiset or constant-composition coding literature might contain this all-q result"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Proposition 12 states S<=q+binom(q,2), not the sharp q+1 / q formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+          "material_read": "Full lawful OA PDF (47 pages) with title/definitions and Section 4.4 Proposition 12 and later discussion around pp24-26 and conclusion; inspected relevant displayed bounds",
+          "method": "Read relevant primary PDF pages and screenshots of Proposition 12",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Same S_q(n,n-3), identical channel and q,n parameter range"
+        },
+        {
+          "assessment": "COVERS_SPECIAL_CASE",
+          "evidence": [
+            "The q=3 specialization is known; cannot claim novelty for that individual case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505",
+          "material_read": "Published Resultary semantic search title, precise summary and listed q3 formula",
+          "method": "Search record and mathematical implication comparison; complete proof not inspected",
+          "title": "Exact ternary multiset deletion codes when three multiset elements survive",
+          "trigger": "Identical survivor count and a special alphabet"
+        },
+        {
+          "assessment": "BACKGROUND_RISK",
+          "evidence": [
+            "Does not justify whole-paper NOT_COVERING; broader bounds remain a priority risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+          "material_read": "Abstract/model and cited general bounds, not full theorem-by-theorem text",
+          "method": "Bibliographic comparison only",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+          "trigger": "Foundational multiset code metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Survivor-length-three is a particularly natural high-deletion boundary for multiset coding. Its uniform two-phase optimum, sharp n threshold, and heavy-coordinate rigidity answer an exact extremal question for every q, not merely recomputing a known ternary case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "multiset deletion codes only three survivors S_q(n,n-3) exact maximum q+1",
+    "Kreindel Barouch Essayag Zabokritskiy Proposition 12 n-3",
+    "Resultary exact ternary multiset deletion codes three elements survive",
+    "Kovačević Tan multiset deletion channel discrete simplex"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific novelty is best-of-knowledge only; residual priority and source-access risks remain explicit.",
+    "Publication withheld because public-bound metadata retains private operational provenance; no GitHub edits or import-ready sanitized files."
+  ],
+  "residual_risks": [
+    "Special q=2 and q=3 cases already known and are not independent novelties",
+    "A different exact general upper-bound theorem in earlier multiset or constant-composition coding literature might contain this all-q result"
+  ],
+  "schema_version": 1
+}
