@@ -1,0 +1,15 @@
+# Scientific review of the Hardy power law
+
+## Correctness — PASS
+The exact operator-power normalization follows from monomial weights. The constrained kernel formula follows from the Szegő kernel and the real positive overlap. Swapping the two points reduces the global optimization to one hyperbolic branch, and the derivative quartic has a unique root: its derivative is convex and negative between endpoint values. Its value at the branch threshold is positive, ensuring the root is admissible. The signed quartic value at the origin-crossing point yields the sharp alignment criterion. Concavity of \(1-\beta^t\) gives the one-way transition; the stationary logarithmic derivative with uniform denominator control proves the high-power boundary layer and its exact constant. Symbolic polynomial identities and 8,493 finite diagnostic assertions were checked. Their role is diagnostic, not an infinite proof.
+
+## Originality — PASS, qualified
+Bhattacharya–Patra (arXiv:2601.02334, 2026, Sections 3.3–3.4) already prove disk geometry for one-step real weighted shifts and discuss the single geometric shift. The first-power exact quartic and first-power alignment transition are also prior-covered and are excluded. The present finding concerns \(m\ge2\) powers, the varying threshold \((1-\beta^m)/(m+1-\beta^m)\), and the exact universal asymptotic of their normalized \(q\)-Berezin radii. Mahapatra et al. (arXiv:2608.21723, Section 3) treat Bergman kernels and do not cover this Hardy result. Publicly indexed neighboring results on geometrically damped shifts concern ordinary numerical radius, not this prescribed-overlap power law. Searches for higher powers, weighted-composition aliases, geometric shifts, and exact kernel asymptotics found no directly covering statement. Since literature retrieval can miss differently phrased general results, publication priority remains a residual risk.
+
+## Mathematical value — PASS
+The question is how strongly normalized kernel-pair tests see high powers of a compact, quasinilpotent weighted shift. Its norm already decays like \(\beta^{m(m-1)/2}\); the exact further factor \(1/m\) and the damping-independent constant quantify an additional and initially invisible loss. The threshold staircase reveals that the geometry of maximizing kernel pairs changes in only one direction as the power grows. This is a complete structural and quantitative answer for a natural operator orbit, rather than an isolated routine evaluation. The finding does not generalize to all weighted shifts or to varying overlap at the singular endpoint.
+
+## Closest literature and limits
+The closest source is Bhattacharya–Patra, Theorem 3.18, Corollary 3.19, and Remark 3.20. A related source is Mahapatra et al., Theorem 3.11 on Bergman shifts. The former supplies the starting disk geometry but not the power limit; the latter changes the ambient kernel. The m=1 formula is prior-covered. The residual risk is an unlocated general theory of higher-step weighted-composition Berezin extrema that could imply the result.
+
+Self-review: passed. Independent audit: not yet performed.
