@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:45:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob cc731720e320d0a6279b1421b735fdebb5d3062a",
+        "verify.py exact hash and signed determinant enumeration inspected",
+        "independent_checks_output.txt direct small signed determinants",
+        "arxiv:2508.21189v2 §§1.5.1,3.1,Appendix B",
+        "arxiv:2606.20195 abstract OA only, Oxford VPN unavailable"
+      ],
+      "rationale": "Full rank of an n=p+q square two-block signed incidence matrix requires every graph component to have exactly one cycle: with total edges=vertices, a tree component forces a multicyclic dependent component. Each unicyclic component has full rank iff its cycle parity is inconsistent (probability 1/2), with determinant magnitude 2 before column normalization. Therefore |det S|^2=4^(C-n/2) on success. Rooted-bipartite-tree equations T_L=x exp(T_R), T_R=y exp(T_L) and signed unicyclic cores yield F=(1-T_LT_R)^(-u/4), with logarithmic Jacobian 1-st under x=s exp(-t), y=t exp(-s). Coefficient extraction gives the exact polynomial and E det(S^TS)=n!/(2^n p^p q^q). Independent direct rational enumeration of hash/sign choices and exact integer determinants verified five allocations; determinant second-moment identities checked further sizes. Finite checks support, not replace, the formal all-positive-integer enumeration.",
+      "residual_risks": [
+        "Original Jeendgar–Flint–Anzt paper full text inaccessible through arXiv and OA attempts; authorized Oxford reported vpn_disconnected; no whole-document noncoverage inferred.",
+        "Only square normalized independent two-block model on coordinate subspace; no smallest-singular-value, condition number or floating point results.",
+        "Possible equivalent random signed graph EGF in prior graph enumerations; historical originality not guaranteed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Camaño et al. provide OSE/OSI dimension/sparsity bounds, not exact finite rank-volume PGF at no-oversampling.",
+          "Signed graph determinant factor 4^C, rooted bipartite unicyclic EGF, and exact Lagrange coefficient produce full finite law."
+        ],
+        "reasoning": "General sparse-random-matrix rank theorems and Camaño et al. SparseStack OSI properties use asymptotic oversampling or uniform injectivity guarantees. Such statements do not identify the exact square p+q probability generating polynomial or volume spectrum for all p,q.",
+        "searches": [
+          "Resultary published mathematical results semantic search: two block SparseStack square sketch signed bipartite unicyclic nonsingularity determinant generating function",
+          "https://arxiv.org/html/2508.21189v2",
+          "https://arxiv.org/abs/2606.20195",
+          "https://doi.org/10.1002/rsa.21085"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob cc731720e320d0a6279b1421b735fdebb5d3062a",
+        "verify.py exact hash and signed determinant enumeration inspected",
+        "independent_checks_output.txt direct small signed determinants",
+        "arxiv:2508.21189v2 §§1.5.1,3.1,Appendix B",
+        "arxiv:2606.20195 abstract OA only, Oxford VPN unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Camaño et al. provide OSE/OSI dimension/sparsity bounds, not exact finite rank-volume PGF at no-oversampling.",
+          "Signed graph determinant factor 4^C, rooted bipartite unicyclic EGF, and exact Lagrange coefficient produce full finite law."
+        ],
+        "reasoning": "Signed-graph full-rank iff inconsistent unicyclic components is classical, but combining correct labeled parallel-edge weights, fair parity factor 1/2 per cycle and bivariate Lagrange residue yields new explicit joint probabilities. Existing generic OSI or second-moment identity fixes only weighted determinant moment, not the complete law.",
+        "searches": [
+          "Resultary published mathematical results semantic search: two block SparseStack square sketch signed bipartite unicyclic nonsingularity determinant generating function",
+          "https://arxiv.org/html/2508.21189v2",
+          "https://arxiv.org/abs/2606.20195",
+          "https://doi.org/10.1002/rsa.21085"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Camaño et al. provide OSE/OSI dimension/sparsity bounds, not exact finite rank-volume PGF at no-oversampling.",
+          "Signed graph determinant factor 4^C, rooted bipartite unicyclic EGF, and exact Lagrange coefficient produce full finite law."
+        ],
+        "reasoning": "The exact distribution is equivalent to counting sign-inconsistent unicyclic components of a labeled bipartite multigraph; this is not the one-block CountSketch occupancy collision law. General signed graphic matroid determinant identities give local graph criteria, not immediately the random two-block coefficient law.",
+        "searches": [
+          "Resultary published mathematical results semantic search: two block SparseStack square sketch signed bipartite unicyclic nonsingularity determinant generating function",
+          "https://arxiv.org/html/2508.21189v2",
+          "https://arxiv.org/abs/2606.20195",
+          "https://doi.org/10.1002/rsa.21085"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Camaño et al. provide OSE/OSI dimension/sparsity bounds, not exact finite rank-volume PGF at no-oversampling.",
+          "Signed graph determinant factor 4^C, rooted bipartite unicyclic EGF, and exact Lagrange coefficient produce full finite law."
+        ],
+        "reasoning": "Inspected Camaño et al. §3.1 and Appendix B have moment/OSI bounds and experimental plots, not exact p,q finite-size coefficients. Jeendgar et al. full primary text inaccessible and therefore any table possibly there remains an explicit risk, not declared absent.",
+        "searches": [
+          "Resultary published mathematical results semantic search: two block SparseStack square sketch signed bipartite unicyclic nonsingularity determinant generating function",
+          "https://arxiv.org/html/2508.21189v2",
+          "https://arxiv.org/abs/2606.20195",
+          "https://doi.org/10.1002/rsa.21085"
+        ]
+      },
+      "rationale": "Classical graph signed-incidence rank and unicyclic labeled combinatorics are background, not new. Camaño et al. establish general SparseStack OSI guarantees and examples rather than an exact square two-block finite PGF; Jeendgar et al. model SparseStack empirically, with full original paper blocked by VPN, so its exact possible coverage is a named residual risk.",
+      "residual_risks": [
+        "Original Jeendgar–Flint–Anzt paper full text inaccessible through arXiv and OA attempts; authorized Oxford reported vpn_disconnected; no whole-document noncoverage inferred.",
+        "Only square normalized independent two-block model on coordinate subspace; no smallest-singular-value, condition number or floating point results.",
+        "Possible equivalent random signed graph EGF in prior graph enumerations; historical originality not guaranteed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SparseStack OSE/OSI theory and moment bounds do not give finite no-oversampling n=p+q full-rank component polynomial or Gram determinant distribution.",
+          "evidence": [
+            "arxiv:2508.21189v2 §3.1 and Appendix B; https://arxiv.org/html/2508.21189v2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2508.21189v2",
+          "material_read": "Complete 1675-line HTML accessible; inspected §§1.5.1,3.1,7 and Appendix B statements, OSI guarantees, sampling parameters and relevant moment calculations",
+          "method": "Full-text primary HTML targeted theorem and appendix comparison",
+          "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+          "trigger": "Original SparseStack model, injectivity of random sparse projections"
+        },
+        {
+          "assessment": "Computational FP16 and mixed-precision accuracy focus per abstract; full text not read, no whole-document noncoverage inferred, explicit residual originality risk.",
+          "evidence": [
+            "https://www.alphaxiv.org/abs/2606.20195",
+            "https://arxiv.org/abs/2606.20195"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.20195",
+          "material_read": "Abstract and algorithm description only; original arXiv PDF/HTML inaccessible, OA mirrors returned abstract only; Oxford institutional request blocked with VPN disconnected",
+          "method": "ArXiv attempts, OA abstract mirrors and authorized Oxford paper access attempt",
+          "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+          "trigger": "Uses same two-block SparseStack sketching family, possible exact rank claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob cc731720e320d0a6279b1421b735fdebb5d3062a",
+        "verify.py exact hash and signed determinant enumeration inspected",
+        "independent_checks_output.txt direct small signed determinants",
+        "arxiv:2508.21189v2 §§1.5.1,3.1,Appendix B",
+        "arxiv:2606.20195 abstract OA only, Oxford VPN unavailable"
+      ],
+      "rationale": "Square no-oversampling two-block SparseStack on a coordinate input is a natural challenging injectivity boundary; the complete finite rank/component law and discrete determinant volume spectrum are informative beyond asymptotic OSE bounds or one scalar nonsingularity probability.",
+      "residual_risks": [
+        "Original Jeendgar–Flint–Anzt paper full text inaccessible through arXiv and OA attempts; authorized Oxford reported vpn_disconnected; no whole-document noncoverage inferred.",
+        "Only square normalized independent two-block model on coordinate subspace; no smallest-singular-value, condition number or floating point results.",
+        "Possible equivalent random signed graph EGF in prior graph enumerations; historical originality not guaranteed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original Jeendgar–Flint–Anzt paper full text inaccessible through arXiv and OA attempts; authorized Oxford reported vpn_disconnected; no whole-document noncoverage inferred.",
+    "Only square normalized independent two-block model on coordinate subspace; no smallest-singular-value, condition number or floating point results.",
+    "Possible equivalent random signed graph EGF in prior graph enumerations; historical originality not guaranteed."
+  ],
+  "schema_version": 1
+}
