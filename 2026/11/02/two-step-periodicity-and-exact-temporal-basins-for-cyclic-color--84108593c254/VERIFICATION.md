@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof uses an exact six-type abstraction of deleted matching pairs, with each multiplicity recorded as zero, one, or at least two. This abstraction is transition-complete because successor-neighbor detection depends only on whether the global successor-color population is zero, one or at least two and whether the unique successor-colored vertex is the matching partner.
+# Independent mathematical audit
 
-Run `python verification/certificate.py` (tested with Python 3.13.5 and SymPy 1.14.0). This checks every one of the 707 admissible capped vectors, including per-pair rather than aggregate state identities, plus the exponential-generating-function equalities. The recorded successful output is `verification/certificate_output.txt`.
+## correctness
 
-For an independent explicit graph implementation, compile `g++ -std=c++17 -O2 verification/independent.cpp -o independent` and run `./independent`. The implementation tests every labelled initial configuration at graph sizes with three through seven deleted pairs. The recorded successful output is `verification/independent_output.txt`.
+PASS
 
-The exhaustive finite reduction applies to every graph order at least six because types of multiplicity at least two are handled symbolically. The independent direct enumeration is finite corroboration only. The original source literature addresses the broader model and eventual synchronization; the current proof supplies a graph-family-specific exact temporal classification. No independent external audit or formal-proof certificate is claimed.
+Read frozen RESULT.md and actual verification/certificate.py and verification/independent.cpp code, including exact state transition with excluded partner. For a pair type among {00,11,22,01,12,02}, any vertex only needs successor population capped at 2; the exact target rule from each pair remains determined by six counts capped in {0,1,2}. Exactly 707 realizable signatures are all 3^6 minus 22 zero/one vectors of total ≤2; the certificate actually loops over all 707, compares capped and raw pair transitions through 6 iterates and checks each F^5=F^2 and t,p class. Six orientation-weighted exponential EGFs reduce to the displayed exponential-polynomial identities; coefficient extraction yields counts t0: (3, 9^n-(6n+12)4^(n-1)+6n+3); t1:(3*4^n-6n-6, 6n(4^(n-1)-2n)); t2:(12n,12n(n-1)). Independently coded all 707 signature representatives, and enumerated full labelled states for n=3,4,5 (3^(2n) each), reproducing classes and full F^5=F^2. The finite signature exhaustion is a legitimate all-n proof because successor threshold only depends on capped counts and output pair types, whereas the small-n brute force is additional corroboration. For n=2 other dynamics excluded.
+
+## originality
+
+PASS
+
+Best-knowledge: distinct precise final statement not implied by inspected prior work; exact comparisons and known subclaims separated. Inaccessibility of some sources alone not a scientific failure; residual risks stated. The known synchronization criterion is structurally distinct from a full exact census of both consensus and period-three basins on a fixed graph family. Broader theory covers only a strict subclaim (consensus-time bound), while the final central sixfold census and universal F^5 identity require additional exact combinatorics.
+
+## value
+
+PASS
+
+A sharp full dynamical census for a natural graph class: exact finite first-entry cutoff, complete attractor periods and basins, and exponentially vanishing consensus probability. The 707-signature saturation converts an apparently growing state space into a bounded exact proof, exceeding qualitative synchronization bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

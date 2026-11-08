@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:14:44.843008Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read frozen RESULT.md and actual verification/certificate.py and verification/independent.cpp code, including exact state transition with excluded partner. For a pair type among {00,11,22,01,12,02}, any vertex only needs successor population capped at 2; the exact target rule from each pair remains determined by six counts capped in {0,1,2}. Exactly 707 realizable signatures are all 3^6 minus 22 zero/one vectors of total ≤2; the certificate actually loops over all 707, compares capped and raw pair transitions through 6 iterates and checks each F^5=F^2 and t,p class. Six orientation-weighted exponential EGFs reduce to the displayed exponential-polynomial identities; coefficient extraction yields counts t0: (3, 9^n-(6n+12)4^(n-1)+6n+3); t1:(3*4^n-6n-6, 6n(4^(n-1)-2n)); t2:(12n,12n(n-1)). Independently coded all 707 signature representatives, and enumerated full labelled states for n=3,4,5 (3^(2n) each), reproducing classes and full F^5=F^2. The finite signature exhaustion is a legitimate all-n proof because successor threshold only depends on capped counts and output pair types, whereas the small-n brute force is additional corroboration. For n=2 other dynamics excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general graph theorem already implies the consensus time ≤diameter=2 conditional on eventual synchronization; that part alone is covered.",
+          "It does not imply F^5=F^2 for all configurations or enumerate 9^n-(6n+12)4^(n-1)+6n+3 initial 3-cycle states."
+        ],
+        "reasoning": "Broader theory covers only a strict subclaim (consensus-time bound), while the final central sixfold census and universal F^5 identity require additional exact combinatorics.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arxiv:1610.07320 Theorem 3",
+          "Fisch–Gravner–Griffeath arxiv:patt-sol/9304001 classical 3-color excitable media"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 09e03f176b1897666244682c2e869827ddc84e81",
+        "SCOPE verification/certificate.py blob 4ad3d3b8e1abb9d5359cccde4475f8efbeddda71 actual code inspected",
+        "SCOPE verification/independent.cpp blob c1506ae933192a1c2b6bd99aeaa3372dd2ee9c6f actual code inspected",
+        "Gravner–Lyu–Sivakoff 2018 full PDF arxiv:1610.07320",
+        "Resultary CCA query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known irrotationality iff eventual synchronization alone does not enumerate first-entry class populations or primitive orbit count.",
+          "The capped six-type argument is a graph-specific reduction and yields 707 finite regimes and six exact EGFs."
+        ],
+        "reasoning": "No inspected general theorem with dominating parameters logically implies the six exact all-n formulas; the consensus-only time bound is explicitly credited as covered.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff criterion and diameter theorem",
+          "Graph complement-of-matching pair-count reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2018 general work studies 3-color CCA on arbitrary graphs, color divergence and synchronization; Theorem 3 gives a criterion and diameter bound when synchronization occurs.",
+          "Inspected complete PDF; no six labeled counts for K_2n minus perfect matching."
+        ],
+        "reasoning": "The known synchronization criterion is structurally distinct from a full exact census of both consensus and period-three basins on a fixed graph family.",
+        "searches": [
+          "Resultary: three color cyclic cellular automaton cocktail party graph complete graph minus matching period three exact basin census",
+          "Gravner–Lyu–Sivakoff 2018 arxiv:1610.07320"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact six-row table found; Resultary hits included a distinct parity automaton on complete multipartite graphs.",
+          "Direct n=3..5 enumerations reproduce values, but neither a small table nor the known CCA contour literature yields all-n formulas without extra proof."
+        ],
+        "reasoning": "No exact published CCA table was identified; exhaustive finite instances cannot establish historical novelty.",
+        "searches": [
+          "Resultary 3-color CCA cocktail party exact counts",
+          "GitHub search: cocktail party cyclic color"
+        ]
+      },
+      "rationale": "Best-knowledge: distinct precise final statement not implied by inspected prior work; exact comparisons and known subclaims separated. Inaccessibility of some sources alone not a scientific failure; residual risks stated. The known synchronization criterion is structurally distinct from a full exact census of both consensus and period-three basins on a fixed graph family. Broader theory covers only a strict subclaim (consensus-time bound), while the final central sixfold census and universal F^5 identity require additional exact combinatorics.",
+      "residual_risks": [
+        "Unindexed exact CCA attractor census for highly connected matching-complement graphs may exist, though no matching statement located.",
+        "The small-n direct census supplements rather than substitutes the proof from exact capped signature dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves qualitative consensus and conditional ≤diam bound; no exact matching-complement six-class initial-state census in inspected material.",
+          "evidence": "Theorem 3 covers t≤2 for synchronization on diameter-two graph, but not t≤2 for every nonsynchronizing trajectory.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Complete arXiv PDF with Theorem 3, winding/irrotational criterion, graph-diameter synchronization bound, examples; first page visually checked.",
+          "method": "Full PDF parsed, theorem located and page screenshot inspected",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same synchronous 3-color CCA and arbitrary connected graph class, plausible stronger theorem"
+        },
+        {
+          "assessment": "Background source, cannot assert absence of relevant specialization in full document.",
+          "evidence": "Classical 3-color CCA is prior; risk of hidden graph-specific tables remains.",
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9304001",
+          "material_read": "Bibliographic record and abstract only; not full original text.",
+          "method": "arXiv record",
+          "title": "Threshold-Range Scaling of Excitable Cellular Automata",
+          "trigger": "Foundational three-state excitable dynamics could contain all-graph attractor results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp full dynamical census for a natural graph class: exact finite first-entry cutoff, complete attractor periods and basins, and exponentially vanishing consensus probability. The 707-signature saturation converts an apparently growing state space into a bounded exact proof, exceeding qualitative synchronization bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n≥3, 3 cyclic colors and synchronous threshold-one successor activation, perfect matching deleted, labelled states.",
+    "Not a theorem for CCA with more colors, other graphs or Greenberg–Hastings automata."
+  ],
+  "schema_version": 1
+}
