@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete infinite proof appears in `RESULT.md`, especially the eight-atom reduction, seven first-pick categories, explicit generic witnesses, and separating rank-two sentences.
+## correctness
 
-`verify_dic_rank2_direct.py` constructs each group from the presentation using ordered-pair coordinates and multiplication; for every first element and second element it evaluates all nine ordered equality comparisons and all 27 possible multiplication atomic statements involving the identity and the two picks. It forms the exact extension-set-of-sets that characterizes rank-two equivalence and checks every parameter from 2 through 56, with result in `verify_dic_rank2_direct.out`.
+PASS
 
-`verify_dic_rank2_basis.py` independently generates all group elements, reduces multiplication/equality atoms algebraically to eight predicates, computes the extension-set-of-sets, and checks all parameters from 2 through 100, with result in `verify_dic_rank2_basis.out`. It does not rely on the direct program's signature encoding or list of representative moves.
+For Dic_n=<a,b | a^(2n)=1,b²=a^n,bab^-1=a^-1>, n>=2, |Dic_n|=4n, the identity-and-ternary-multiplication language has exact atomic 2-pebble basis x=e,y=e,x=y,x²=e,y²=e,xy=e,x²=y,y²=x. The first-move extension spectrum S_G(x) depends only on seven intrinsic classes: identity, unique involution, order3, unrooted/rooted order4 and unrooted/rooted other order; exceptional n=2 generic diagram handled separately. The class-presence conditions are exactly n=2,3,4 singleton special and, for n>=5, independent indicators 3|n,4|n. The rank<=2 sentences Phi_3, Phi_8, Phi_gen give all seven distinct truth signatures; minimal parameter reps 2,3,4,5,6,8,12, so sharp maximum representative order 48. Independently reconstructed full multiplication-relational diagrams over every ordered group pair for 2<=n<=34, recovering the same seven types. Source distinct checkers cover n<=56 and n<=100. Important difference from function-symbol multiplication where nested terms may be atomic.
 
-Run with Python 3's standard library: `python3 verify_dic_rank2_direct.py` and `python3 verify_dic_rank2_basis.py`.
+## originality
 
-Both finite enumerations passed. They are consistency tests, not substitutes for the infinite group-theoretic proof; their output establishes only the stated finite ranges. There has been no independent external validation.
+PASS
+
+Best-of-knowledge originality after checking exact formulations, stronger work, tables and implication: Dicyclic presentation and generalized quaternion notation Q_4n are aliases; comparisons were made by same relational signature and exact EF condition, not title. General treatments of the same abstract dicyclic groups may have stronger scope in presentations, but no theorem located implies these seven quantified rank-2 theories. The split result does not transfer by a proved rank-preserving reduction. New periodic class criteria use 3-torsion and 8-torsion square-root conditions, not generic presentation equivalence.
+
+## value
+
+PASS
+
+A natural uniform finite-model-theoretic classification for the canonical non-split dicyclic series, with unexpected eventual periodic dependence on 3- and 4-divisibility and exact small exceptions. This is a complete nonabelian example distinct from the known cyclic/dihedral EF-transfer theory, potentially useful as a bounded-rank non-split extension test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
