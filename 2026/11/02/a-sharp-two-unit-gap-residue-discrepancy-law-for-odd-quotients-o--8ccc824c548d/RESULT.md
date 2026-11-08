@@ -1,38 +1,56 @@
 # A sharp two-unit gap-residue discrepancy law for odd quotients of consecutive coin semigroups
 
 ## Finding
-For every odd integer \(p\ge3\) and integer \(t\ge1\), define \(a=pt+1\) and the numerical semigroup
-\[Q_{p,t}=\{x\in\mathbb N_0:px\in\langle a,a+1\rangle\}.\]
-Write \(h=(p-1)/2\), \(E=\lfloor h/2\rfloor+1\), and \(O=\lceil h/2\rceil\). Define \([z]_p\in\{0,\ldots,p-1\}\) as the least nonnegative residue and \(u\in\mathbb Z\) by \(2u\equiv1\pmod p\). For each \(0\le j<p\), let \(C_j\) be the number of positive gaps of \(Q_{p,t}\) congruent to \(j\pmod p\). Then
+
+For an odd integer \(p\ge3\) and an integer \(t\ge1\), let \(a=pt+1\) and
 \[
-C_j=\frac{t(t-1)}2+\left\lfloor\frac{tE}{p}\right\rfloor+\left\lfloor\frac{tO}{p}\right\rfloor+\mathbf1_{[u(j-1)]_p<[tE]_p}+\mathbf1_{[u(j-1-t)]_p<[tO]_p}.
+Q_{p,t}=\{x\in\mathbb N_0:px\in\langle a,a+1\rangle\}.
 \]
-In particular, \(\max_{0\le j<p} C_j-\min_{0\le j<p} C_j\le2\). This is sharp simultaneously for every odd \(p\ge5\) at \(t=2\), while for \(p=3\) the difference never exceeds one. The genus is \(g(Q_{p,t})=t(pt+1)/2\).
+Put \(h=(p-1)/2\), \(E=\lfloor h/2\rfloor+1\), and \(O=\lceil h/2\rceil\). Write \([z]_p\in\{0,\ldots,p-1\}\) for the least residue and choose \(u\) with \(2u\equiv1\pmod p\). If \(C_j\) is the number of positive gaps of \(Q_{p,t}\) congruent to \(j\pmod p\), then for every \(0\le j<p\),
+\[
+\boxed{C_j=\frac{t(t-1)}2+\left\lfloor\frac{tE}{p}\right\rfloor+\left\lfloor\frac{tO}{p}\right\rfloor
++\mathbf1_{[u(j-1)]_p<[tE]_p}+\mathbf1_{[u(j-1-t)]_p<[tO]_p}.}
+\]
+Consequently, \(\max_j C_j-\min_j C_j\le2\). The difference equals two for \(t=2\) and every odd \(p\ge5\), while for \(p=3\) it never exceeds one. The genus is \(g(Q_{p,t})=t(pt+1)/2\).
 
 ## Assumptions and scope
-The odd modulus \(p\) is **not required to be prime**; \(t\) is any positive integer. The semigroup quotient is defined by membership \(px\in\langle pt+1,pt+2\rangle\). Gap means a nonnegative integer excluded from this semigroup; hence zero is never a gap. The formula counts each distinct gap exactly once, without asymptotics or coprimality assumptions on \(p\) and \(t\).
+
+The odd integer \(p\) need not be prime; there is no coprimality restriction between \(p\) and \(t\). Gaps are nonnegative integers outside the semigroup, so zero is not a gap. Each gap is counted once. The result concerns only the indicated consecutive-generator quotient and residues modulo its odd quotient parameter, not arbitrary semigroup quotients or even moduli.
 
 ## Proof
-**Exact parameterization.** Every nonnegative integer \(n\) has a unique expression \(n=ak+y\) with \(0\le y<a\). One has \(n\in\langle a,a+1\rangle\) if and only if \(y\le k\): the forward implication follows by reducing the number of copies of \(a+1\) modulo \(a\); the reverse direction is \(n=(k-y)a+y(a+1)\). Thus \(x\notin Q_{p,t}\) if and only if \(px=ak+y\) with \(y>k\). Since \(a=pt+1\), divisibility by \(p\) gives \(k+y\equiv0\pmod p\). We may therefore uniquely write \(k=pq+r\), \(0\le r<p\), and \(y=pt-ps-r\). Both \(q,s\) are nonnegative integers. The inequality \(y>k\) becomes \(p(t-q-s)>2r\). Accordingly, for \(0\le r\le h\) it is exactly \(q+s\le t-1\), whereas for \(h<r<p\) it is \(q+s\le t-2\). The corresponding gap is
-\[x=t(pq+r)+q+t-s.\]
-These conditions ensure \(0<y<a\) and give a bijection with all gaps.
 
-**Uniform interior contribution.** Separate the parameter triples with \(q+s\le t-2\) and \(q+s=t-1\). The interior has all \(p\) values of \(r\) available. Its gap residue is \(tr+t+q-s\pmod p\). Let \(d=\gcd(p,t)\), which is odd. For each residue modulo \(d\), the number of pairs \((q,s)\) satisfying \(q,s\ge0\), \(q+s\le t-2\), and a prescribed residue of \(q-s\pmod d\) is exactly \(t(t-1)/(2d)\). To see this, start with the \(t\)-by-\(t\) square of pairs, where all differences are equally distributed modulo \(d\). The middle diagonal \(q+s=t-1\) is also equidistributed since \(d\mid t\) and \(2\) is invertible modulo \(d\). Reflection \((q,s)\mapsto(t-1-s,t-1-q)\) preserves \(q-s\) and bijects the two remaining triangles. Each triangle therefore contains \((t^2/d-t/d)/2\) pairs per residue. As \(r\) ranges over \(0,\ldots,p-1\), its multiples \(tr\pmod p\) run through the residues divisible by \(d\) exactly \(d\) times each. Thus every class modulo \(p\) receives exactly \(t(t-1)/2\) interior gaps.
+**1. Unique gap parameters.** Every nonnegative integer \(n\) has a unique decomposition \(n=ak+y\), with \(0\le y<a\). Since \(a+1\) and \(a\) are consecutive, \(n\in\langle a,a+1\rangle\) if and only if \(y\le k\): if \(y\le k\), write \(n=(k-y)a+y(a+1)\); conversely, any nonnegative generating expression reduces modulo \(a\) to a residue whose least representative cannot exceed the quotient \(k\). For a gap \(x\) of \(Q_{p,t}\), write \(px=ak+y\), where \(y>k\). Divisibility by \(p\), together with \(a=pt+1\), forces \(k+y\equiv0\pmod p\). Thus uniquely write
+\[
+k=pq+r,\quad 0\le r<p,\qquad y=p(t-s)-r
+\]
+with \(q,s\ge0\). The inequality \(y>k\) is equivalent to \(p(t-q-s)>2r\), which gives \(q+s\le t-1\) for \(0\le r\le h\), and \(q+s\le t-2\) for \(h<r<p\). These conditions also ensure \(0<y<a\). The gap itself is
+\[
+x=t(pq+r)+q+t-s.
+\]
+This is a bijective parameterization of all positive gaps.
 
-**Two boundary intervals.** On \(q+s=t-1\) only \(0\le r\le h\) are allowed, and the gap residue reduces to \(tr+2q+1\pmod p\). Split into even indices \(r=2i\) and odd indices \(r=2i+1\). There are exactly \(E\) even choices and \(O\) odd choices. For the even choices, the integers \(ti+q\), with \(0\le i<E\) and \(0\le q<t\), run through the complete interval \(0,1,\ldots,tE-1\) exactly once. The associated residues are \(2z+1\pmod p\). Similarly the odd indices give \(z=0,\ldots,tO-1\) with associated residues \(2z+t+1\pmod p\). Since \(2\) is invertible modulo the odd number \(p\), any interval \(0,\ldots,L-1\) has \(\lfloor L/p\rfloor\) representatives of each prescribed residue, plus one more precisely when that residue is less than \([L]_p\). Adding the two intervals to the interior contribution yields the asserted formula and establishes discrepancy at most two.
+**2. Uniform interior.** First count \(q,s\ge0\) with \(q+s\le t-2\), allowing every \(r\in\{0,\ldots,p-1\}\). Their residues are \(tr+t+q-s\pmod p\). Put \(d=\gcd(p,t)\), necessarily odd. The full square \(0\le q,s<t\) has exactly \(t^2/d\) points with each prescribed \(q-s\pmod d\). On the diagonal \(q+s=t-1\), differences \(q-s=2q-(t-1)\) occupy each class modulo \(d\) exactly \(t/d\) times because \(d\mid t\) and \(2\) is invertible modulo \(d\). The reflection \((q,s)\mapsto(t-1-s,t-1-q)\) preserves \(q-s\) and swaps the two triangles on either side of the diagonal. Each class therefore has exactly \(t(t-1)/(2d)\) interior pairs. As \(r\) ranges over all \(p\) values, the residues \(tr\pmod p\) cover every multiple of \(d\) exactly \(d\) times. Consequently each residue class of the gaps receives precisely \(t(t-1)/2\) interior contributions.
 
-**Sharpness and genus.** For \(t=2\), the two boundary-interval lengths are \(2E\) and \(2O\), both smaller than \(p\) when \(p\ge5\). The first interval has residues \(2z+1\) for \(0\le z<2E\); the second has residues \(2z+3\) for \(0\le z<2O\). They overlap (at least at residue \(3\)), but their union has only \(h+2<p\) residues. Therefore one residue receives two extra boundary gaps and another receives zero, proving sharpness. For \(p=3\), \(O=0\), so there is only one indicator and discrepancy at most one. Finally, summing the interior and boundary counts gives \(pt(t-1)/2+t(E+O)=(pt^2+t)/2\), because \(E+O=h+1=(p+1)/2\).
+**3. Boundary intervals.** On the boundary \(q+s=t-1\), only \(0\le r\le h\) occur. The gap residue is \(tr+2q+1\pmod p\). Even \(r=2i\), for \(0\le i<E\), give \(2(ti+q)+1\), with \(0\le q<t\); every integer \(z=ti+q\) in \([0,tE)\) occurs once. Odd \(r=2i+1\), for \(0\le i<O\), similarly give \(2z+t+1\) for \(z\in[0,tO)\). Since \(2\) is invertible modulo odd \(p\), the number of solutions \(0\le z<L\) to \(2z+b\equiv j\pmod p\) equals \(\lfloor L/p\rfloor+\mathbf1_{[u(j-b)]_p<[L]_p}\). Adding the two boundary contributions to the common interior contribution proves the boxed histogram formula and the discrepancy bound two.
+
+**4. Sharpness for \(p\ge5\).** Set \(t=2\). Both boundary interval lengths \(2E,2O\) are strictly smaller than \(p\). The two boundary supports are the residues \(2z+1\) for \(0\le z<2E\) and \(2z+3\) for \(0\le z<2O\). Their intersection contains residue \(3\); their union has exactly \(h+2<p\) residues. Indeed, when \(h\) is even, the second support is contained in the first; when \(h\) is odd, it extends the first by precisely one residue. Therefore one class receives two boundary counts while another receives none. The common interior count does not affect the difference, proving discrepancy exactly two.
+
+**5. The exceptional modulus \(p=3\).** Here \(h=1\) and, importantly, **\(E=O=1\)**: there are two boundary indicators, not one. If \(t\equiv0\pmod3\), both remainder intervals have length divisible by three and both indicators vanish. If \(t\equiv1\pmod3\), each remainder interval has length one, and the two indicators select different classes \(j\equiv1\) and \(j\equiv2\pmod3\). If \(t\equiv2\pmod3\), each remainder interval has length two; their missing classes are different (respectively \(j\equiv2\) and \(j\equiv1\pmod3\)). Thus in every case the sum of the two indicators differs by at most one between any two classes. This proves the sharper bound one for \(p=3\), without the incorrect assertion that \(O=0\).
+
+**6. Genus.** There are \(p\binom t2=pt(t-1)/2\) interior gaps and \(t(E+O)=t(h+1)=t(p+1)/2\) boundary gaps, giving \(g(Q_{p,t})=(pt^2+t)/2\).
 
 ## Verification
-The self-contained verifier `verify.py` independently enumerates quotient membership from the ordinary two-generator criterion and checks every residue histogram against the exact closed formula. It checks every odd \(p\) from \(3\) to \(79\) and every \(t\) from \(1\) to \(34\), altogether \(1326\) instances. It also verifies the universal discrepancy bound and witnesses sharpness at \(t=2\). Run with `python3 verify.py` from the extracted package directory. This finite test supplements, rather than proves, the universally quantified theorem.
 
-## Relationship to prior work
-Shor's 2021 preprint, later published in 2022, studies exact equidistribution of numerical-semigroup gaps, especially when a nonzero Apéry set forms an arithmetic progression. The present quotient family for general \(t\) is distinct from the characterized arithmetic-Apéry family; the claim here is a quantitative all-residue histogram with uniform discrepancy, not merely an equidistribution yes/no condition. Cabanillas' 2019 work computes standard invariants of arbitrary quotients of two-generated numerical semigroups (including genus, Frobenius number, type, and generators), but its examined theorems do not state this sharp residue-by-residue estimate. Liu's 2023 preprint, subsequently published in 2024, develops representation-generating functions for quotient semigroups and generator descriptions, not this residue-discrepancy theorem. The exact genus of the present family is not claimed independently novel. The existing general membership and generating-function methods could potentially derive this formula, but no earlier equivalent or stronger statement was identified in the materially inspected portions and searches.
+The accompanying `verify.py` enumerates quotient membership independently of the gap-parameter proof and checks residue histograms, genus and sharpness on a finite grid of odd \(p\) and positive \(t\). Independently checked cases include composite odd moduli. These computations corroborate only their finite ranges; the arguments above prove the all-parameter statement.
 
-## Limitations
-No assertion is made for even \(p\), for quotients of nonconsecutive two-generated numerical semigroups, or for arbitrary residue moduli unrelated to the quotient parameter. The result is a new explicit family consequence and does not assert a universal discrepancy bound for all numerical semigroups. Independent external mathematical audit and exhaustive bibliographic verification are not performed.
+## Relation to prior work and limitations
+
+Shor (2022; arXiv:2101.01760) characterizes exact equidistribution of semigroup gaps, particularly for arithmetic Apéry configurations. Cabanillas (2019; arXiv:1904.08240) develops algorithms for genus, type, Frobenius number and generators of two-generated semigroup quotients. Liu (2023; arXiv:2312.10889) supplies generating functions and generator descriptions of quotient semigroups. Those known general tools provide context and may furnish alternate derivations; the present claim is the explicit every-residue histogram and its sharp discrepancy for this constrained family, not the known genus formula or an assertion of new quotient-semigroup theory. Earlier equivalent specializations remain a historical-priority risk.
+
+No conclusion is asserted for even quotient parameters, nonconsecutive original generators, or unrelated residue moduli. The finite verifier is not a proof for infinitely many parameters, and bibliographic comparison does not guarantee exhaustive priority.
 
 ## References
-1. Caleb M. Shor, *Equidistribution of numerical semigroup gaps modulo m*, arXiv:2101.01760 (first posted 2021-01-05), https://arxiv.org/abs/2101.01760.
-2. Emmanuel Cabanillas, *Quotients of numerical semigroups generated by two numbers*, arXiv:1904.08240 (2019-04-17), https://arxiv.org/abs/1904.08240.
-3. Feihu Liu, *Generating functions for the quotients of numerical semigroups*, arXiv:2312.10889 (first posted 2023-12-18), https://arxiv.org/abs/2312.10889.
+
+1. C. M. Shor, *Equidistribution of numerical semigroup gaps modulo m*, arXiv:2101.01760, 2021; Discrete Mathematics 345 (2022), 112995. https://arxiv.org/abs/2101.01760
+2. E. Cabanillas, *Quotients of numerical semigroups generated by two numbers*, arXiv:1904.08240, 2019. https://arxiv.org/abs/1904.08240
+3. F. Liu, *Generating functions for the quotients of numerical semigroups*, arXiv:2312.10889, 2023. https://arxiv.org/abs/2312.10889

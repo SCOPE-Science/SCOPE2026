@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Unique quotient-gap triple parameters follow from the two-generator membership criterion, and the difference-distribution involution makes the triangular core exactly uniform for every odd \(p\), regardless of primality. The remaining boundary decomposes into two complete intervals. The displayed indicator formula, sharp bound and genus therefore hold for the full domain. Exact finite replay provides 1326 independent arithmetic checks; it does not replace the proof.
+## correctness
 
-**Originality — PASS with bibliographic risk.** Shor's work gives equidistribution criteria for arithmetic-Apéry classes; the quotient family here has a different profile for general \(t\). Cabanillas' stronger general study supplies prior coverage for standard invariants such as genus, while Liu's representation-generating functions supply quotient methods and generators. Neither materially inspected relevant theorem implies the complete residue-discrepancy statement; prior computational recipes are not claimed new. A missing implicit equivalent theorem remains possible.
+PASS
 
-**Mathematical value — PASS.** An optimal, parameter-independent two-unit discrepancy bound and an exact binary-indicator formula solve the motivated all-residue gap counting problem for a natural infinite family. This is a complete nontrivial classification, including odd composite moduli and sharp examples, rather than a mere genus recomputation.
+The existing RESULT.md supplies the unique decomposition px=(pt+1)k+y and gap condition y>k. Writing k=pq+r, y=p(t−s)−r gives q+s≤t−1 when 0≤r≤(p−1)/2 and q+s≤t−2 otherwise. For interior q+s≤t−2, reflection in the t×t square and uniform differences mod d=gcd(p,t) give exactly t(t−1)/2 contributions per class, even when p is composite. Boundary q+s=t−1 splits into even and odd r and two consecutive intervals of lengths tE,tO, giving the full formula. At t=2 and p≥5 these supports overlap but fail to cover all p classes, proving sharpness; summing counts gives genus. CRITICAL REPAIR: the frozen proof says “for p=3, O=0”; mathematically O=1, so its given proof for the p=3 discrepancy is false. Reconstructed full RESULT.md with E=O=1 and a complete p=3 residue case split t mod 3: when t≡0 the two indicators vanish, when t≡1 they select different single classes, and when t≡2 their missing classes differ; thus discrepancy≤1. All unchanged conclusions now follow. Independent checker evaluated 228 histograms including composite p, and p=3 for every t through 499, all agreeing; no finite test substitutes for the corrected universal proof.
 
-**Limits.** No even-quotient generalization or unrestricted-semigroup bound is proved. Literature review is not a proof of publication novelty. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shor studies exact equidistribution of semigroup gaps for arithmetic Apéry families, not an explicit two-indicator entire histogram for this quotient; Cabanillas gives general quotient invariants/genus and algorithms, but inspected full PDF theorem statements do not directly imply every residue count; Liu gives generator descriptions and quotient generating functions rather than the asserted exact bounded-discrepancy statement. Known membership and genus are expressly excluded from novelty. A sufficiently specialized application of general generating functions might imply the formula, but no decisive prior coverage identified in the inspected full texts.
+
+## value
+
+PASS
+
+The exact familywide residue histogram gives a dimension-free discrepancy bound and sharpness across all odd p, including nonprime moduli, a natural fine distribution refinement beyond genus or Frobenius number. The arithmetic p=3 exception is a genuine boundary classification, not an artificial finite example. Repair removes an invalid normalization without changing the relevant mathematical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

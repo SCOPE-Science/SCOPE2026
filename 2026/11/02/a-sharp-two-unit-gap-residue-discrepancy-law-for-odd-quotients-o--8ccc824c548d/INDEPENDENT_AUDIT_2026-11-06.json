@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:36.994312Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree 5f4089139f709bbaa6e0543042e966eb1240b4b6, RESULT.md blob 3166ab3a3bf6f3b6a419d1eaf0c35efc6c9ac079",
+        "Complete corrected RESULT3_corrected.md with p=3 cases; independent CASE3_OK 228+499 checks"
+      ],
+      "rationale": "The existing RESULT.md supplies the unique decomposition px=(pt+1)k+y and gap condition y>k. Writing k=pq+r, y=p(t−s)−r gives q+s≤t−1 when 0≤r≤(p−1)/2 and q+s≤t−2 otherwise. For interior q+s≤t−2, reflection in the t×t square and uniform differences mod d=gcd(p,t) give exactly t(t−1)/2 contributions per class, even when p is composite. Boundary q+s=t−1 splits into even and odd r and two consecutive intervals of lengths tE,tO, giving the full formula. At t=2 and p≥5 these supports overlap but fail to cover all p classes, proving sharpness; summing counts gives genus. CRITICAL REPAIR: the frozen proof says “for p=3, O=0”; mathematically O=1, so its given proof for the p=3 discrepancy is false. Reconstructed full RESULT.md with E=O=1 and a complete p=3 residue case split t mod 3: when t≡0 the two indicators vanish, when t≡1 they select different single classes, and when t≡2 their missing classes differ; thus discrepancy≤1. All unchanged conclusions now follow. Independent checker evaluated 228 histograms including composite p, and p=3 for every t through 499, all agreeing; no finite test substitutes for the corrected universal proof.",
+      "residual_risks": [
+        "No claim for even p, arbitrary residue moduli, or nonconsecutive generator pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabanillas general invariants and Liu general generating functions apply to broad quotient semigroups; they provide methods but the inspected displayed results did not directly state the exact C_j or discrepancy bound."
+        ],
+        "reasoning": "General generating-function machinery could derive a specialized distribution but does not automatically entail a proved sharp 2-unit bound without analyzing coefficients; recorded as residual implication risk.",
+        "searches": [
+          "arxiv:1904.08240 Sections on genus/Frobenius/type",
+          "arxiv:2312.10889 quotient generating functions",
+          "Resultary semantic query: numerical semigroup quotient consecutive generators odd modulus residue gap histogram discrepancy two"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 5f4089139f709bbaa6e0543042e966eb1240b4b6, RESULT.md blob 3166ab3a3bf6f3b6a419d1eaf0c35efc6c9ac079",
+        "Complete corrected RESULT3_corrected.md with p=3 cases; independent CASE3_OK 228+499 checks",
+        "Shor arxiv:2101.01760 full primary text",
+        "Cabanillas arxiv:1904.08240 full primary text",
+        "Liu arxiv:2312.10889 full primary text",
+        "Resultary semantic numerical semigroup quotient search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Genus g=t(pt+1)/2 follows by summation and is a known-type invariant; exact C_j variation at most two and universal p=3 exception require finer two-interval residue analysis."
+        ],
+        "reasoning": "The genus and semigroup membership are prior; the new content is a complete distribution and sharp discrepancy, not a renamed membership theorem.",
+        "searches": [
+          "arxiv:2101.01760",
+          "arxiv:1904.08240",
+          "arxiv:2312.10889"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shor Theorem 4.5 analyzes full equidistribution and arithmetic Apéry configurations, not bounded nonzero discrepancy for all residues of <pt+1,pt+2>/p. Cabanillas studies quotient invariants, not this distribution as a stated theorem."
+        ],
+        "reasoning": "Compared numerical semigroup quotient/contracted semigroup, Apéry arithmetic progression, modular gap counts, quasi-polynomial/Ehrhart interval descriptions. The formula is two floor terms and two indicator terms, not merely genus.",
+        "searches": [
+          "Resultary semantic query: numerical semigroup quotient consecutive generators odd modulus residue gap histogram discrepancy two",
+          "Shor arxiv:2101.01760 full text",
+          "Cabanillas arxiv:1904.08240 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior residue-class table with all odd p,t located. Independent direct membership enumeration reproduced 228 histograms and all p=3 values for t≤499, corroborating rather than establishing literature novelty."
+        ],
+        "reasoning": "A finite numerical census is not coverage of the all-parameter theorem. No matching pre-existing table identified; bibliographic completeness is not asserted.",
+        "searches": [
+          "Resultary semantic query: numerical semigroup quotient consecutive generators odd modulus residue gap histogram discrepancy two",
+          "Frozen verify.py full membership histograms, finite p/t samples"
+        ]
+      },
+      "rationale": "Shor studies exact equidistribution of semigroup gaps for arithmetic Apéry families, not an explicit two-indicator entire histogram for this quotient; Cabanillas gives general quotient invariants/genus and algorithms, but inspected full PDF theorem statements do not directly imply every residue count; Liu gives generator descriptions and quotient generating functions rather than the asserted exact bounded-discrepancy statement. Known membership and genus are expressly excluded from novelty. A sufficiently specialized application of general generating functions might imply the formula, but no decisive prior coverage identified in the inspected full texts.",
+      "residual_risks": [
+        "Original immutable RESULT.md has a provably false p=3 proof sentence (“O=0”); full corrected mathematical RESULT.md is staged with exact UTF-8 hash, but publication import remains not_ready until confidential metadata is guarded/sanitized.",
+        "General quotient semigroup generating functions may encode an equivalent residue histogram without explicit discrepancy theorem.",
+        "No claim for even p, arbitrary residue moduli, or nonconsecutive generator pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equidistribution classification does not state this all-odd quotient family histogram or its bounded nonzero discrepancy.",
+          "evidence": [
+            "Shor (2021/2022), Theorem 4.5 and arithmetic Apéry criterion"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01760",
+          "material_read": "Full 17-page lawful arXiv PDF; read definitions, principal equidistribution results including Theorem 4.5, arithmetic Apéry discussion and references",
+          "method": "Full-text PDF read plus visual page screenshot",
+          "title": "Equidistribution of numerical semigroup gaps modulo m",
+          "trigger": "Equidistribution theorem might dominate bounded residue discrepancy"
+        },
+        {
+          "assessment": "Broad quotient formulas include genus and generators but no explicit every-residue two-indicator histogram in materially inspected theorems.",
+          "evidence": [
+            "Cabanillas 2019, genus and quotient-invariant theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.08240",
+          "material_read": "Full 57-page lawful arXiv PDF; read introduction, quotient construction and key theorem sections on genus, Frobenius, type/generators",
+          "method": "Full primary PDF reading and selected page screenshots",
+          "title": "Quotients of numerical semigroups generated by two numbers",
+          "trigger": "Exact same quotient objects and potentially stronger invariants"
+        },
+        {
+          "assessment": "The general generating functions could in principle be specialized, but no explicit sharp ≤2 residue discrepancy statement appears in inspected theorems.",
+          "evidence": [
+            "Liu 2023 Theorem 1.1 and concrete quotient examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.10889",
+          "material_read": "Full lawful 11-page arXiv PDF; read main theorem, examples, generator and representation identities",
+          "method": "Full primary PDF reading with theorem inspection and page screenshot",
+          "title": "Generating functions for the quotients of numerical semigroups",
+          "trigger": "Potential stronger generating function that could imply all C_j"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git tree 5f4089139f709bbaa6e0543042e966eb1240b4b6, RESULT.md blob 3166ab3a3bf6f3b6a419d1eaf0c35efc6c9ac079",
+        "Complete corrected RESULT3_corrected.md with p=3 cases; independent CASE3_OK 228+499 checks",
+        "Shor arxiv:2101.01760 full primary text",
+        "Cabanillas arxiv:1904.08240 full primary text",
+        "Liu arxiv:2312.10889 full primary text",
+        "Resultary semantic numerical semigroup quotient search"
+      ],
+      "rationale": "The exact familywide residue histogram gives a dimension-free discrepancy bound and sharpness across all odd p, including nonprime moduli, a natural fine distribution refinement beyond genus or Frobenius number. The arithmetic p=3 exception is a genuine boundary classification, not an artificial finite example. Repair removes an invalid normalization without changing the relevant mathematical invariant.",
+      "residual_risks": [
+        "Original immutable RESULT.md has a provably false p=3 proof sentence (“O=0”); full corrected mathematical RESULT.md is staged with exact UTF-8 hash, but publication import remains not_ready until confidential metadata is guarded/sanitized.",
+        "General quotient semigroup generating functions may encode an equivalent residue histogram without explicit discrepancy theorem.",
+        "No claim for even p, arbitrary residue moduli, or nonconsecutive generator pairs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 5f4089139f709bbaa6e0543042e966eb1240b4b6, RESULT.md blob 3166ab3a3bf6f3b6a419d1eaf0c35efc6c9ac079",
+    "Complete corrected RESULT3_corrected.md with p=3 cases; independent CASE3_OK 228+499 checks",
+    "Shor arxiv:2101.01760 full primary text",
+    "Cabanillas arxiv:1904.08240 full primary text",
+    "Liu arxiv:2312.10889 full primary text",
+    "Resultary semantic numerical semigroup quotient search"
+  ],
+  "disposition": "repaired",
+  "residual_risks": [
+    "Original immutable RESULT.md has a provably false p=3 proof sentence (“O=0”); full corrected mathematical RESULT.md is staged with exact UTF-8 hash, but publication import remains not_ready until confidential metadata is guarded/sanitized.",
+    "General quotient semigroup generating functions may encode an equivalent residue histogram without explicit discrepancy theorem.",
+    "No claim for even p, arbitrary residue moduli, or nonconsecutive generator pairs."
+  ],
+  "schema_version": 1
+}
