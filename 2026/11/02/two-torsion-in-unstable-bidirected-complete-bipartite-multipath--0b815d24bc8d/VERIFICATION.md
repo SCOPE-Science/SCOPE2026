@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify_moore.py` with Python 3. The program uses the standard library only, constructs every valid arc subset (all possible simplex dimensions), verifies simplicial down-closure and signed boundary-square zero, generates the matching from increasing arc indices, and validates all directed Hasse incidences in an independent graph-topological-sort check. Exact signed chain elimination yields the integral Morse differential; a separate original-boundary sparse rank computation uses prime fields two and three.
+# Independent mathematical audit
 
-Expected essential outputs: at \(n=4\), face vector \((16,80,144,72)\), 151 matched pairs, critical cell counts \((1,0,8,1)\) and integral Morse differential content two; at \(n=5\), face vector \((20,130,320,240)\), 338 matched pairs, critical cell counts \((1,0,1,32)\) and integer matrix content two; at \(n=6\), critical counts \((1,0,0,169)\). Expected success marker: `BIDIRECTED_K2N_TWO_TORSION_UNSTABLE_MODULE_MOORE_VERIFIED`.
+## correctness
 
-The original-boundary ranks over the two fields are an independent torsion consistency check, **not** an alternative proof of exact integral Smith invariants. The precise invariant factor two comes from the integral Morse matrices; the homotopy statement then uses the simply connected two-skeleton and degree classification of three-cell attachments. The dynamical-module minimality proof is separate mathematics under the definitions from the cited source. The package makes no claim of independent external audit, infinite enumeration or correctness of unexamined literature.
+PASS
+
+For fully bidirected K_{2,n}, enumerating all arc sets of size≤4 with in/out-degree≤1 and no directed cycle gives complete simplices. Independently enumerated f-vectors n=1..6, including n4 (16,80,144,72), n5 (20,130,320,240), n6 (24,192,600,600), and separately computed mod-2/mod-3 original boundary ranks. Independently reconstructed the specified greedy discrete-Morse matching with original arc order and its signed integral cancellations: n4 151 pairs, critical (0:1,2:8,3:1), six boundary entries ±2/gcd2; n5 338 pairs, (0:1,2:1,3:32), 26 even entries/gcd2; n6 623 pairs, (0:1,3:169). Read the source verify_moore.py: full Hasse orientation topological sort verifies acyclicity, not just matching cardinalities. The Morse complexes have simply connected 2-skeleta, so signed rank-one integer boundary Smith factor 2 yields Moore-space wedges; no all-n homotopy claim. For the module assertion, a region containing an arc must contain its reverse by 2-cycle closure, then no endpoint can be boundary; connectedness propagates to all arcs. Hence the unique module is unstable, contradicting the literal 2022 v1 conjecture.
+
+## originality
+
+PASS
+
+The 2022 introduction explicitly conjectures stable modules as necessary for torsion. The exact bidirected K_{2,4}, K_{2,5} signed Moore homotopy decompositions and single-unstable-module counterexample are not implied by cited alternating-orientation or acyclic-digraph results.
+
+## value
+
+PASS
+
+A concrete finite, reproducible counterexample to a published stability–torsion conjecture is intrinsically important, and its full integral homotopy types and within-family first occurrence sharply identify the obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
