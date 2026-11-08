@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result fixes the normalizing base value \(\mathcal W_1=2\) and uses the facet form of the published recurrence. The central section of the sixteen-cell is the twelve-vertex root polytope \(\operatorname{conv}\{(e_i-e_j)/2\}\); its eight triangular and six square facets exhaust the boundary. Exact facet/section areas, known self-perimeters \(6\) and \(8\), and the two successive recursion sums yield \(16/3\) and \(128/15\). An independent geometric program reconstructs the facet and section data from coordinates. No finite sampling is used as a universal proof.
+PASS
 
-## Originality
+Fix the source recurrence (1/d)Σ_facets[facet (d−1)-volume / orthogonal central-section (d−1)-volume] W_{d−1}(section), and W1=2. The section of the 4-cross-polytope by Σx_i=0 is the 12-vertex cuboctahedron C=conv{(e_i−e_j)/2:i≠j}, ordinary 3-volume 5/6. Its eight equilateral triangular facets each have area √3/8, orthogonal section regular hexagon of area 3√3/4 and W2=3; six square facets have area 1/2, square central section area 1 and W2=4. The contributions to 3W3(C) are 4 and 12, so W3(C)=16/3. The sixteen tetrahedron facets of B each have Euclidean 3-volume 1/3 and section C volume 5/6, so W4(B)=16·(1/4)·(1/3)·(16/3)/(5/6)=128/15. The four-cube polar has coordinate facets parallel to equal-volume central cubical sections and W4=16 by recursion. Exact independent rational cancellation confirms 8/15; all facet counts and geometry are given explicitly, and numerical hull code is corroboration, not a proof of a global property.
 
-**PASS, with provisional historical priority.** The April 2026 defining preprint has been examined through its equations, section on explicit examples, and later statements. It treats cubes and balls, but not this regular four-cross-polytope or its cuboctahedral facet-normal sections. The abstract and conclusion also mention polar duality; the exact dual comparison is substantively different from, and incompatible with a universal polarity-equality reading. The closest published search matches concern Mahler volume, other cuboctahedral invariants, or central-section statistics rather than this recursive integral. A complete search of all unpublished literature is impossible; a missed equivalent calculation remains the main risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a dimension-four exact benchmark for a newly proposed affine-invariant recursive functional whose higher-dimensional values and extrema are largely unknown. The computation passes through a non-product three-dimensional polytope with two facet orbits, rather than a direct reuse of the elementary cube recurrence. It also supplies a sharp, explicit polar-pair diagnostic \(8/15\), important when assessing structural properties and proposed extremizers. It does not claim an extremum or a general theorem beyond this concrete natural geometry.
+Wolansky’s defining paper states the recurrence and calculates standard cubes and balls; its inspected example sections do not evaluate the 4-cross-polytope or intermediate cuboctahedral section. Classical planar hexagon/parallelogram self-perimeters are prior work. The polar ratio 8/15 is an explicit diagnostic for the stated recurrence, and is notably inconsistent with a naive universal equality of polar pairs suggested in source prose; it does not claim to disprove a different precisely qualified duality theorem.
 
-## Limits
+## value
 
-The assertion is restricted to the centered regular four-cross-polytope and its polar under the stated recursion. Priority is not independently certified. The numerical geometric reconstruction is corroboration only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 4-cross-polytope and its polar cube are natural first nontrivial test bodies for a recently defined higher-dimensional recursive functional. The cuboctahedron is a genuine two-facet-orbit intermediate geometry, so evaluating W3=16/3 is not merely plugging into the cube formula. The exact polar ratio 8/15 clarifies structural interpretation of the recurrence and gives a benchmark for future extremal or polarity questions. A narrow exact self-contained invariant has clear future mathematical use without needing a new general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

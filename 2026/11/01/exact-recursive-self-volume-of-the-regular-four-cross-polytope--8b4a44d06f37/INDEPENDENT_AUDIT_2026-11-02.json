@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T04:12:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob bf7e3dab2ba5b45459b2176f50a02b523625ca1d: recurrence and complete facet/section geometry table.",
+        "Frozen verify.py Git blob 14a7bdc1aaf5b10a87b44a135e990221867f725e: convex hull facet enumeration and section verification, inspected as corroboration only.",
+        "Exact independent rational recurrence check: 8·(√3/8)·3/(3√3/4)=4, 6·(1/2)·4=12, W3=16/3, W4=128/15, ratio=8/15.",
+        "Wolansky arXiv:2604.01950, Section 4, equation (5), verified published definition and examples."
+      ],
+      "rationale": "Fix the source recurrence (1/d)Σ_facets[facet (d−1)-volume / orthogonal central-section (d−1)-volume] W_{d−1}(section), and W1=2. The section of the 4-cross-polytope by Σx_i=0 is the 12-vertex cuboctahedron C=conv{(e_i−e_j)/2:i≠j}, ordinary 3-volume 5/6. Its eight equilateral triangular facets each have area √3/8, orthogonal section regular hexagon of area 3√3/4 and W2=3; six square facets have area 1/2, square central section area 1 and W2=4. The contributions to 3W3(C) are 4 and 12, so W3(C)=16/3. The sixteen tetrahedron facets of B each have Euclidean 3-volume 1/3 and section C volume 5/6, so W4(B)=16·(1/4)·(1/3)·(16/3)/(5/6)=128/15. The four-cube polar has coordinate facets parallel to equal-volume central cubical sections and W4=16 by recursion. Exact independent rational cancellation confirms 8/15; all facet counts and geometry are given explicitly, and numerical hull code is corroboration, not a proof of a global property.",
+      "residual_risks": [
+        "The comparison concerns Wolansky’s precise recurrence; alternative normalization or duality conventions may yield different invariants.",
+        "Finite one-body exact evaluation does not establish extremizers, all-dimensional cross-polytope recurrences or a universal duality law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wolansky gives the definition (equation (5)) and cube examples, while the checked relevant sections do not compute cuboctahedral section W3 or W4 of the four-cross-polytope.",
+          "Planar self-perimeter base values W2(square)=4 and W2(affine-regular hexagon)=3 are known and explicitly credited."
+        ],
+        "reasoning": "A recurrence does not directly encode the nontrivial facet-by-facet cuboctahedron calculation in its statement; no prior stronger formula found that specializes to W4=128/15 by substitution alone.",
+        "searches": [
+          "Wolansky, Self perimeter of convex sets, arXiv:2604.01950, Sections 3–4 and examples",
+          "Ghandehari–Martini (2019) On self-circumferences in Minkowski planes"
+        ]
+      },
+      "checked_sources": [
+        "Wolansky arXiv:2604.01950 Section 4, explicit examples and conclusion",
+        "Resultary semantic search for recursive self-volume polar cross-polytope",
+        "Ghandehari–Martini (2019), planar value citation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stated recurrence and known planar W2 values are necessary inputs, while the two-orbit cuboctahedral calculation and sixteen-facet 4D step are additional exact geometric analysis.",
+          "Wolansky’s surrounding prose suggests a broad polar symmetry; the computed ratio of W4(B) and W4(B°) is 8/15 under equation (5), so the specific equality cannot hold universally as a direct consequence of that equation."
+        ],
+        "reasoning": "The result is a concrete evaluation and a carefully normalized counterexample to an overbroad polarity-equality interpretation, not a renaming of ordinary volume or an assertion about every possible polar invariant.",
+        "searches": [
+          "Wolansky arXiv:2604.01950 recurrence and polar-duality prose",
+          "Ghandehari–Martini 2019 planar normalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Retrieved nearby Resultary matches cover Mahler volume, John/Löwner ellipsoids and polar geometry, not the boundary-section functional W4.",
+          "Wolansky’s formula defines a new recursive metric functional, not ordinary Euclidean volume or intrinsic volume."
+        ],
+        "reasoning": "Identifying the ℓ1 ball as the cross-polytope and its polar ℓ∞ cube is essential, but published polar-volume products do not evaluate this facet-by-section recurrence.",
+        "searches": [
+          "Resultary semantic query: Wolansky self perimeter recursive self volume L1 ball cross polytope 4 dimension polar dual",
+          "Aliases: 16-cell, ℓ1 unit ball, four-cross-polytope, cuboctahedral A3 root-polytope orthogonal section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Wolansky examples list cubes/balls; no 128/15 cross-polytope or 16/3 cuboctahedron entry found in inspected material."
+        ],
+        "reasoning": "No exact precomputed values found for this new functional on the natural polar pair, but specialized unindexed notes remain possible.",
+        "searches": [
+          "Resultary query for recursive self-volume 16-cell 128/15, cuboctahedron 16/3",
+          "Prior Wolansky examples/cube tables and 2019 planar self-circumference literature"
+        ]
+      },
+      "rationale": "Wolansky’s defining paper states the recurrence and calculates standard cubes and balls; its inspected example sections do not evaluate the 4-cross-polytope or intermediate cuboctahedral section. Classical planar hexagon/parallelogram self-perimeters are prior work. The polar ratio 8/15 is an explicit diagnostic for the stated recurrence, and is notably inconsistent with a naive universal equality of polar pairs suggested in source prose; it does not claim to disprove a different precisely qualified duality theorem.",
+      "residual_risks": [
+        "A previously unseen computation may be available under self-perimeter, anisotropic Minkowski content or 16-cell terminology.",
+        "The source paper’s own polar-duality wording has not been reconciled as a universal theorem; the numerical ratio is asserted only under the quoted recurrence, so a different definition is not refuted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the recurrence and gives standard cases; no checked 4-cross-polytope/cuboctahedron evaluation. Its duality prose warrants explicitly scoped interpretation.",
+          "evidence": [
+            "Wolansky (2026), Section 4 equation (5) facet-normal boundary-section recurrence; text around cubical examples and polar-duality statements"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.01950",
+          "material_read": "Accessible full-text article, especially Section 4 equation (5), cube and ball examples and conclusion passages discussing polar duality",
+          "method": "Inspect lawful-access full article text, equations and examples; compare the input normalization and stated source propositions",
+          "title": "Self perimeter of convex sets",
+          "trigger": "Defining source of exact recursive self-volume and possible stronger duality claim"
+        },
+        {
+          "assessment": "Planar W2 values are treated as prior, not as originality of the 4D computation",
+          "evidence": [
+            "Classical self-circumference values under Minkowski-plane normalization"
+          ],
+          "identifier_or_url": "Ghandehari and Martini, Extracta Mathematicae 34(1) (2019), 73–89",
+          "material_read": "Relevant description of planar self-circumference and cited normalization, not the entire article",
+          "method": "Compare source references and planar invariants in Wolansky/record proof",
+          "title": "On self-circumferences in Minkowski planes",
+          "trigger": "Prior knowledge of planar hexagonal/parallelogram base values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wolansky 2026 defining recursion and its listed simple examples",
+        "Complete frozen RESULT.md facet/section table and exact sums",
+        "Classical planar base normalization"
+      ],
+      "rationale": "The 4-cross-polytope and its polar cube are natural first nontrivial test bodies for a recently defined higher-dimensional recursive functional. The cuboctahedron is a genuine two-facet-orbit intermediate geometry, so evaluating W3=16/3 is not merely plugging into the cube formula. The exact polar ratio 8/15 clarifies structural interpretation of the recurrence and gives a benchmark for future extremal or polarity questions. A narrow exact self-contained invariant has clear future mathematical use without needing a new general theorem.",
+      "residual_risks": [
+        "The value concerns the precise defined functional and does not by itself locate its global extremizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only B1⁴, its polar and the indicated cuboctahedral section; no all-dimension result.",
+    "Primary source’s polar-duality prose leaves an interpretive caveat; equation (5) is used verbatim."
+  ],
+  "schema_version": 1
+}
