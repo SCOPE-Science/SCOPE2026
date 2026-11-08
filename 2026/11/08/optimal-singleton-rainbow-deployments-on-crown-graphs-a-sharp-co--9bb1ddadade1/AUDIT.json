@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proof handles n<=k via degree n-1, n>k with blanks on both sides via surjectivity and forced equal supports, and one fully colored side via singleton-color count q >= 2k-n and forced opposite sites. All equality cases and boundaries n=k, n=2k are covered. For the matched supports, both sides carry one of each color. One-side-full assignments have exactly s singleton colors and k-s doubles, yielding the multinomial term. The provided standalone checker enumerates every labelled assignment at all weights up to the claimed minimum for 11 finite (n,k) test pairs; no lighter or unclassified examples occurred. Independently, the all-graph proof establishes the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lange arXiv:2610.06906v1, sections 2, 3, 5 and references: general lower bounds, regular-family scalar formulas, and lift upper bounds, not crown optimal-label counts.",
+        "Rao et al. arXiv:2608.14690v1, sections 2-3: splitting graphs, joins, Cartesian products and coronas; no crown/tensor-product theorem."
+      ],
+      "reasoning": "The 2022 lift inequality can yield upper bounds on the crown optimum but cannot force equality-case support rigidity or count those cases. A Cartesian product result does not apply to the tensor product K_n x K_2. The full count, including two disjoint types near n=2k, is not implied.",
+      "searches": [
+        "singleton rainbow k-domination polynomial complete bipartite K_{m,n}, all valid one-color-or-empty vertex assignments, their weight distribution and optimum threshold 2k",
+        "rainbow k-domination complete bipartite graphs singleton versions exact rainbow domination number minimum service sites",
+        "singleton rainbow k domination crown graph K_{n,n} minus perfect matching exact minimum optimal assignment counts 2k",
+        "arXiv:2610.06906v1",
+        "arXiv:2608.14690v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.06906",
+      "https://arxiv.org/abs/2608.14690",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58",
+      "https://arxiv.org/abs/2610.06906",
+      "https://arxiv.org/abs/2608.14690",
+      "https://doi.org/10.1016/j.dam.2026.03.017"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary full-text source https://arxiv.org/html/2610.06906 defines singleton labels and proves regular-family bounds, but has no enumeration over matched supports of crown graphs.",
+        "Related full text https://arxiv.org/abs/2608.14690 defines dual-server partitions and addresses different graph operations.",
+        "The published multipartite RESULT.md permits a {1,2} label and has full multipartite adjacency, unlike the missing matching of Cr_n."
+      ],
+      "reasoning": "A general lower bound or lift construction could explain the scalar value 2k; the claim is the exact, unique structural classification and two-type count, not that scalar alone. None of the checked statements logically forces the matching of support indices or the multiplicities k^{2k-n} and n!/2^{n-k}.",
+      "searches": [
+        "arXiv:2610.06906v1",
+        "arXiv:2608.14690v1",
+        "2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58",
+        "rainbow domination K_n,n matching deleted",
+        "for crown graph Cr_n=K_n,n minus matching singleton rainbow k domination 2k minimum functions count binomial n k factorial squared, matched support, all full-side boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Singleton rainbow 2-domination is also known as dual-server domination (Lange, Introduction, arXiv:2610.06906v1).",
+        "The crown is the bipartite double cover/tensor product of the complete graph; a selected vertex supplies one named color."
+      ],
+      "reasoning": "Searched under synonymous graph names and singleton/dual-server terminology, including k=2. The available equivalent formulations identify the problem but do not determine the number of optimal assignments.",
+      "searches": [
+        "singleton rainbow k domination crown graph K_{n,n} minus perfect matching exact minimum optimal assignment counts 2k",
+        "rainbow k dominating functions crown graph every optimal colored support matched index pairs k colors singleton 3 4",
+        "dual-server domination crown graphs counting minimum functions",
+        "singleton rainbow crown graph domination",
+        "dual server domination bipartite double cover complete graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus entry 2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58 counts ordinary two-rainbow functions with labels 0,{1},{2},{1,2} on complete multipartite graphs, an explicitly different model and family.",
+        "Retrieved published-finding corpus nearest crown records concern perfect Roman, restrained domination, odd colorings, and conflict-free coloring, not singleton rainbow minima."
+      ],
+      "reasoning": "No exact table or formula with the stated pair (n,k), crown graph, and singleton optimal-assignment count was found among actually returned published-finding corpus records or accessible own claims. This is a search result, not a uniqueness proof.",
+      "searches": [
+        "singleton rainbow k domination crown graph K_{n,n} minus perfect matching exact minimum optimal assignment counts 2k",
+        "rainbow k dominating functions crown graph every optimal colored support matched index pairs k colors singleton 3 4",
+        "for crown graph Cr_n=K_n,n minus matching singleton rainbow k domination 2k minimum functions count binomial n k factorial squared, matched support, all full-side boundary",
+        "minimum dual-server dominating functions crown graphs exact counts match supports n choose 2 and permutations two colors, single side full",
+        "2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58"
+      ]
+    },
+    "rationale": "The central new invariant is the exact number and classification of minimum singleton-rainbow service configurations on crown graphs for arbitrary n,k, including the matched-index restriction and one-side-full boundary, rather than a scalar inequality. Lange studies regular graph bounds and different families; Rao et al. give dual-server values under other operations; the closest accessible published two-rainbow multipartite enumerator permits doubleton labels and concerns complete multipartite hosts. Crown graphs are tensor products K_n x K_2, not included in those stated classes. Search did not identify a formula or stronger theorem implying the enumerator. Historical priority remains qualified by inaccessible foundational dual-server text.",
+    "residual_risks": [
+      "The full foundational dual-server paper by Chellali, Haynes and Hedetniemi was not read; it may include narrower crown examples not advertised in abstract.",
+      "Earlier studies may use terms bipartite double cover, tensor product, dual-server or 2-rainbow domination; the searches are not proof of global priority.",
+      "The 2022 paper on generalized Petersen graphs contains a lift inequality; its full text was not read, but a scalar lift inequality alone cannot count all optimal crown assignments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for optimal crown-graph function counts",
+        "evidence": "arXiv:2610.06906v1 first public 2026-10-01; sections 2-6 concern general bounds, cycles, Möbius ladders, prisms and generalized Petersen graphs.",
+        "identifier_or_url": "https://arxiv.org/html/2610.06906",
+        "material_read": "HTML Introduction, Preliminaries, general bounds, family summaries, and table of contents including appendices and references",
+        "method": "Read accessible full arXiv HTML and abstract text; compared objects and result domains",
+        "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+        "trigger": "Defines the exact singleton-rainbow model and derives scalar regular-graph bounds"
+      },
+      {
+        "assessment": "NOT_COVERING for the new labelled optimum count",
+        "evidence": "arXiv:2608.14690v1, sections 2-3 and concluding remarks; no crown/tensor-product or optimum-assignment count.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.14690",
+        "material_read": "arXiv full textual rendering including Introduction, splitting-graph results, join and other operation section, conclusion",
+        "method": "Compared the precise graph operations and scalar conclusions with crown tensor-product family",
+        "title": "The Dual-Server Domination Number of Some Graph Operations",
+        "trigger": "Dual-server is a k=2 synonym; possible domination operation theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: set-valued two-rainbow and complete multipartite hosts, not singleton k-rainbow on crown",
+        "evidence": "RESULT.md allows {1,2} at one vertex; formulas use multipartite parts V_i with full complement adjacency.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58",
+        "material_read": "Entire published RESULT.md fetched from GitHub repository via authorized read",
+        "method": "Compared allowed vertex labels, graph hypothesis, and mathematical count",
+        "title": "All 2-rainbow dominating functions of complete multipartite graphs",
+        "trigger": "Nearest published published-finding corpus hit is an entire weight enumerator"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE, historical-priority risk retained",
+        "evidence": "Chellali, Haynes and Hedetniemi, Discrete Applied Mathematics 387 (2026) 251-259; no actual proof-level comparison possible from abstract.",
+        "identifier_or_url": "DOI:10.1016/j.dam.2026.03.017",
+        "material_read": "Bibliographic details and abstract only; no full-text material accessible",
+        "method": "Located 2026 journal and SSRN bibliographic records, searched crown-related terms",
+        "title": "Dual-server domination in graphs",
+        "trigger": "Foundational exact two-color synonym and potential strong prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9bb1ddad-ade1-4d47-83a3-6abfd6cf3f6b",
+  "value": {
+    "rationale": "Complete enumeration and structural classification of minimum singleton service deployments on crown graphs is a natural missing invariant not recoverable from the minimum weight. The equality-type transition at n=2k and exact factor binomial(n,k) loss of optimum configurations after removing a perfect matching from a dense biclique quantify robustness of optimal allocations. The result is an infinite two-parameter statement and not a rephrasing of a general lower bound or a finite tabulation.",
+    "status": "PASS"
+  }
+}
