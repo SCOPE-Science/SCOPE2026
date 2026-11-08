@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For each b>=2, independent Gaussian sketches on diag(I_b,0) give first-lookahead probability 1-F_{b²}(b*tau²); conditional on this, the QR spans the exact range, the next residual is exactly zero, and b independent projected row squared norms have chi-square_b/b law. The algorithm removes a row iff their minimum is below tau². Every such removal causes true squared residual at least one, proving the exact product law. Stirling, endpoint Laplace asymptotics and concentration of the first block prove the sharp c=2 transition and centered Gumbel window. A standalone numerical reproducer reconstructs QR/pruning and independently checks finite distributions; numerical tests do not certify the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu--Gu--Li derive coefficient-energy identities with explicit rows, not an independent sketch proxy used to drop basis vectors.",
+        "Pearce et al. apply randomized sketches to LU interpolation; they do not apply the Algorithm 3 independent projected-row energy pruning step.",
+        "Gorman et al. provide tails for aggregate random projection error criteria rather than an all-coordinate row-minimum after an exact-zero lookahead."
+      ],
+      "reasoning": "A general concentration inequality for each sketch gives possible upper bounds but does not determine the exact all-row min, threshold c=2, and centered Gumbel law for this specific algorithm without the independent conditional reduction. The source method itself includes no deterministic safety correction for dropped basis vectors.",
+      "searches": [
+        "randomized low rank approximation adjoint-free rank pruning Gaussian sketch projected row norm misordering angle sharp",
+        "arXiv:1606.09402 fixed-precision QB energy estimator",
+        "arXiv:2310.09417 partially pivoted LU adaptive interpolative decomposition",
+        "arXiv:1810.04125 stopping criteria"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.06758v1 Sections 3.2--3.3, Algorithms 3--4",
+      "arXiv:1606.09402",
+      "arXiv:2310.09417",
+      "arXiv:1810.04125 Section 2/Appendix A"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper gives individual unbiasedness and variance 2/b in Section 3.3; such variance control does not exclude a growing minimum-based failure probability.",
+        "A related earlier analysis of unpivoted QR with exact coefficient rows proves excess retained rank, while the present statement proves loss of required rank under independently sketched coefficient rows.",
+        "Gorman et al. establish exponential tails for individual projected norms, which do not imply this exact extreme-value phase absent reduction to the analyzed algorithmic event."
+      ],
+      "reasoning": "Neither the source individual-row variance statement nor the exact-row over-retention specialization entails the new false-pruning event with a true residual of at least one. Conversely the present rank-b flat-spectrum example does not reprove the earlier over-retention phenomenon on a rank-two nonflat matrix. The classical chi-square minimum is an ingredient rather than the claimed novelty.",
+      "searches": [
+        "unpivoted Gaussian QB arcsine law obstruction rank pruning overretention Smith Do Chen",
+        "arXiv:2607.06758v1 Algorithms 3--4, lines 338--410",
+        "arXiv:1810.04125 Appendix A chi-square tails"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the rank-b partial identity, the event is the minimum of b independent chi-square row energies being below an absolute Frobenius threshold (Algorithm 3 applied to Algorithm 4).",
+        "Gorman et al. study one projected Frobenius norm via Chernoff bounds, not the minimum of b sketched coefficient-row energies."
+      ],
+      "reasoning": "The mathematically equivalent description is a false-negative multiple test of b exact unit-energy coordinates using b Gaussian measurements each, conditional on the first block reaching the second lookahead. Known chi-square extrema explain the distribution, but no inspected algorithmic source states the induced exact true-residual event or its centering.",
+      "searches": [
+        "2607.06758 Smith Do Chen adjoint-free Frobenius rank pruning random projected row norms premature deletion tolerance violation chi square Gumbel",
+        "adaptive matrix-free low rank Frobenius Gaussian sketch min row chi square under retention b block probability failure",
+        "arXiv:2607.06758v1 Sections 3.2--3.3",
+        "arXiv:1810.04125 Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source reports empirical errors and ranks on singular-value decay test matrices, rather than an exact finite-b failure table for flat rank-b inputs.",
+        "No exact table for this pruning-failure event was identified in the consulted numerical and historical sources."
+      ],
+      "reasoning": "The exact probability is computed from an explicit analytic expression, not copied from an existing table. Lack of a matching table is supportive only, not a uniqueness proof.",
+      "searches": [
+        "2607.06758 Smith Do Chen adjoint-free Frobenius rank pruning random projected row norms premature deletion tolerance violation chi square Gumbel",
+        "adaptive matrix-free low rank Frobenius Gaussian sketch min row chi square under retention b block probability failure",
+        "arXiv:2607.06758v1 Section 5 numerical experiments",
+        "arXiv:1810.04125 Section 4 and Appendix A"
+      ]
+    },
+    "rationale": "The inspected source provides row-energy unbiasedness and variance but does not calculate the true-tolerance failure event or its block-size extreme-value transition. Historical QB, LU interpolation and HSS stopping studies use distinct coefficient or aggregate stopping criteria. Related known exact-coefficient unpivoted QR pruning over-retains rank, while this independent-sketch procedure under-retains. Classical chi-square extreme-value theory is an acknowledged ingredient, not itself claimed novel. Priority remains subject to more comprehensive historical comparison.",
+    "residual_risks": [
+      "A general older theorem on dependent or independent Gaussian-row sketch pruning might imply the exact special case without using the same terminology.",
+      "The mathematical limit is derived for a flat-rank family and does not establish typical failure rates for arbitrary spectra."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECTS_NOT_COVERING_NEW_CLAIM",
+        "evidence": [
+          "Algorithm 3 lines 338--366 sorts ascending norms and removes if updated estimate stays below tolerance.",
+          "Algorithm 4 lines 381--410 normalizes Gaussian sketches by square root of block width and uses the independent second block for the pruning proxy.",
+          "Lines 375--378 assert unbiasedness, variance 2/b and discuss over-retention, not an exact under-retention risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.06758v1",
+        "material_read": "Full-text Sections 1--3.3, Algorithms 3--4, source variance discussion, and numerical-test scope in Section 5",
+        "method": "Open arXiv HTML and compare mathematical equations and pseudocode with the new conditional event",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Defines the exact adjoint-free Frobenius algorithm and pruning rule"
+      },
+      {
+        "assessment": "DIFFERENT_PROCEDURE_NOT_COVERING_NEW_CLAIM",
+        "evidence": [
+          "The method uses explicit QB factor row energies and an error-subtraction mechanism; the independent sketch proxy for individual last-block rows is absent."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.09402",
+        "material_read": "Original full-text arXiv rendering, including introduction, QB factorization and relevant error-indicator/rank arguments",
+        "method": "Inspect original arXiv full textual rendering and compare use of coefficients versus independent proxies",
+        "title": "Efficient Randomized Algorithms for the Fixed-Precision Low-Rank Matrix Approximation",
+        "trigger": "Historical adaptive Frobenius QB error tracking and rank determination"
+      },
+      {
+        "assessment": "DIFFERENT_PROCEDURE_NOT_COVERING_NEW_CLAIM",
+        "evidence": [
+          "Sketches support partially pivoted LU and interpolative decomposition, not the exact row-energy Algorithm 3/4 pruning."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.09417",
+        "material_read": "Original full-text arXiv rendering, including introduction and relevant adaptive LU/interpolative decomposition method sections",
+        "method": "Inspect arXiv full text and search for pruning and same coefficient-row Gaussian proxy",
+        "title": "Adaptive Parallelizable Algorithms for Interpolative Decompositions via Partially Pivoted LU",
+        "trigger": "Randomized sketching with adaptive rank and residual tests"
+      },
+      {
+        "assessment": "DIFFERENT_STOPPING_EVENT_NOT_COVERING_NEW_CLAIM",
+        "evidence": [
+          "Appendix A proves tail bounds for the aggregate Gaussian-projected Frobenius norm.",
+          "Its algorithm adapts projection size in HSS compression rather than taking the minimum of independent projected coefficient-row energies at final-block pruning."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.04125",
+        "material_read": "Full preprint, including Section 2 sampling criteria, Section 4 experiments, and Appendix A probability theory",
+        "method": "Inspect original arXiv full text, especially projected-Frobenius Chernoff bounds and absence of row-pruning operation",
+        "title": "Matrix-free construction of HSS representation using adaptive randomized sampling",
+        "trigger": "Closest earlier randomized matrix-free adaptive sampling/stopping criteria"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f45f200d-e90f-44e9-a437-a7649e03b43b",
+  "value": {
+    "rationale": "The exact finite-block probability and sharp c=2/Gumbel phase expose a genuine risk of below-tolerance rank selection: as block size grows, more unbiased row estimates are minimized, and failure can tend to one despite each estimate becoming more concentrated. This precisely localizes when Gaussian adjoint-free rank pruning needs confidence adjustment on a natural finite-rank flat-spectrum system.",
+    "status": "PASS"
+  }
+}
