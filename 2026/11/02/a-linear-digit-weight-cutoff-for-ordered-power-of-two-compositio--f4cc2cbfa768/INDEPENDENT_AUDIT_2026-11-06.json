@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:10:50.488368Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered composition generating series F(z)=1/(1-S), S=Σ_j z^{2^j}, T=Σ_{i<j}z^{2^i+2^j} obeys S(1-S)=z-2T, hence exact integral F=(S/z)(1-2T/z)^(-1). Modulo 2^N, a potentially surviving summand at r<N in Σ_r 2^r z^{-r-1}ST^r shows n+r+1 is a sum of exactly 2r+1 powers of two, so s2(n+r+1)<=2r+1. Since n+N=(n+r+1)+(N-r-1), digit-weight subadditivity gives s2(n+N)<=N+r<=2N-1. Contrapositive proves for all N>=1 and n>=0: s2(n+N)>=2N implies 2^N|theta(n). Translation to [0,2^K) counts at most Σ_{j<=2N-1}binom(K+1,j) exceptional indices (for 2^K>=N), so O_N((log x)^(2N-1)). Independently checked recurrence mod1024 through n<250000: FIVE_BINARY_COMPOSITION_PASS. Universal validity comes from formal series, not the test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alkauskas 2010 proves s2(n+2^(N-1))>=2^N suffices for 2^N divisibility and states later exponential-scale improvement",
+          "Alkauskas tabulates small moduli and residue patterns",
+          "The new 2N cutoff for s2(n+N) is not a numerical rephrasing of these previous sufficient conditions"
+        ],
+        "reasoning": "Previous all-N criteria have exponential dependence in N, while the new criterion is linear for N>=3 and yields tighter density bound. The published theorems and tables do not imply the new all-precision implication directly.",
+        "searches": [
+          "power of two ordered compositions 2-adic digit weight cutoff divisibility theta(n)",
+          "arxiv:1003.1064",
+          "Alkauskas Theorem 6 digit sum composition powers of two"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 888b4097ffde0573197bb5cd00fcc8190479bfac; RESULT.md b29ddad478699840172e610fe1996b656dac1380; verify.py 208e756c0634573a74a31e5b3980400c2abd268b",
+        "arXiv:1003.1064; JIS 13 (2010) Article 10.5.3",
+        "Knopfmacher–Robbins (2003)",
+        "Resultary composition/2-adic semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N>=3, examples n=2^L-N-1 (L large) satisfy new s2(n+N)=L but not Alkauskas old s2(n+2^(N-1))>=2^N condition",
+          "Old recurrence/generating function is not itself the asserted cutoff without the S^2=S-z+2T factorization"
+        ],
+        "reasoning": "Older sufficient tests fail at infinitely many indices certified by the new test; their direct implication is therefore strictly weaker. A more powerful later theorem remains a priority possibility.",
+        "searches": [
+          "power of two ordered compositions 2-adic digit weight cutoff divisibility theta(n)",
+          "Alkauskas s2(n+2^(N-1)) >= 2^N threshold",
+          "theta(n) ordered power of two compositions support mod 2^N"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knopfmacher–Robbins 2003 gives generating function for ordered power-of-two compositions",
+          "Alkauskas 2010 considers theta(n) mod 2^N and digit-weight sufficient criteria"
+        ],
+        "reasoning": "The same function can be expressed by the formal rational series 1/(1-S). The precise shift n+N and 2N threshold differ from the published shifted exponential criterion; the new formal-series expansion proves the strengthened sufficient condition.",
+        "searches": [
+          "power of two ordered compositions 2-adic digit weight cutoff divisibility theta(n)",
+          "Alkauskas compositions powers of 2 binary digit sum sufficient divisibility cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alkauskas 2010 has finite residue tables for small powers of two",
+          "New theorem applies every N,n, with a nonoptimal upper bound for exceptional counting"
+        ],
+        "reasoning": "Known finite tables may cover N=1,2 or small n but cannot alone establish the all-precision linear digit-weight sufficient condition. New claim is not that every exception is classified.",
+        "searches": [
+          "power of two ordered compositions 2-adic digit weight cutoff divisibility theta(n)",
+          "Alkauskas 2010 tables mod 4 8 16 binary compositions theta"
+        ]
+      },
+      "rationale": "The inspected prior primary mathematics supplies the classical framework, but none of the materially compared statements implies the full claimed specialization; best-of-knowledge priority, with explicit risks. The same function can be expressed by the formal rational series 1/(1-S). The precise shift n+N and 2N threshold differ from the published shifted exponential criterion; the new formal-series expansion proves the strengthened sufficient condition. Previous all-N criteria have exponential dependence in N, while the new criterion is linear for N>=3 and yields tighter density bound. The published theorems and tables do not imply the new all-precision implication directly.",
+      "residual_risks": [
+        "A post-2010 or otherwise unindexed stronger digital-weight theorem may subsume the criterion.",
+        "The condition is sufficient, not necessary; 2N-1 polylog exponent not claimed optimal.",
+        "Earlier N=1/2 special residues are known, so originality pertains to the uniform quantitative improvement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Previous exponential-precision binary-weight bound, not new s2(n+N)>=2N in read text",
+          "evidence": [
+            "Theorem 1 and Theorem 6 give modular digit criteria; concluding bound remains exponential-scale in N."
+          ],
+          "identifier_or_url": "arXiv:1003.1064; J. Integer Sequences 13 (2010), Article 10.5.3",
+          "material_read": "Complete 9-page public journal text, Theorem 1, Theorem 6, Proposition 5, tables 1–2 and final discussion, with visual page examination",
+          "method": "Primary full-text paper with theorem and table comparison",
+          "title": "Congruence Properties of the Function that Counts Compositions into Powers of 2",
+          "trigger": "Same exact ordered-composition function and direct predecessor binary-weight theorem"
+        },
+        {
+          "assessment": "Foundational function identity and parity, not new all-N quantitative digit cutoff",
+          "evidence": [
+            "Generates ordered compositions through 1/(1-Σ z^(2^j))."
+          ],
+          "identifier_or_url": "Knopfmacher–Robbins 2003",
+          "material_read": "Public author-uploaded textual transcription, Section 2 recurrence, generating function, parity and asymptotic results",
+          "method": "Primary full-text statements as available",
+          "title": "On Binary and Fibonacci Compositions",
+          "trigger": "Foundational ordered power-of-two recurrence and parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordered composition function is a standard arithmetic-combinatorics object; binary sparsity of nonzero residues is a natural distribution question. A sufficient vanishing condition linear rather than exponential in required 2-adic precision, and its all-precision polylogarithmic exceptional-count bound, are substantial quantitative refinements of published digit-weight criteria.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 888b4097ffde0573197bb5cd00fcc8190479bfac; RESULT.md b29ddad478699840172e610fe1996b656dac1380; verify.py 208e756c0634573a74a31e5b3980400c2abd268b",
+    "arXiv:1003.1064; JIS 13 (2010) Article 10.5.3",
+    "Knopfmacher–Robbins (2003)",
+    "Resultary composition/2-adic semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A post-2010 or otherwise unindexed stronger digital-weight theorem may subsume the criterion.",
+    "The condition is sufficient, not necessary; 2N-1 polylog exponent not claimed optimal.",
+    "Earlier N=1/2 special residues are known, so originality pertains to the uniform quantitative improvement."
+  ],
+  "schema_version": 1
+}
