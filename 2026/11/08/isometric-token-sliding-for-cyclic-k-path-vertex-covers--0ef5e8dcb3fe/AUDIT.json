@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, 2<=k<n and ceil(n/k)<=t<n, the median-flow lower bound follows from edgewise integer conservation. The median gives a zero-flow cut and an optimal order-preserving line matching. Coordinatewise maxima preserve the positive upper-bounded cyclic gaps, and an explicit tight-gap dependency lemma proves a unit-step path of exactly the line-matching cost whenever t<n<kt. At kt=n all t gaps equal k and every one of the k distinct phases is frozen. Separate Python and C++ exhaustive all-pairs verification over every k,t through n=10 and n=12, respectively, and independent constructive routes for 12,488 cases through n=100 corroborate the argument. No computation substitutes for its infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoang–Suzuki–Yagita, arXiv:1911.03026, Theorem 16: reachability for every cycle and token size, and a polynomial-time sequence; Section 4.2.2 explicitly states the cycle algorithm does not always achieve the shortest sequence.",
+        "Hoang, arXiv:2610.31261 (2026), abstract and introduction concern trees, not cycles; does not assert exact cycle shortest lengths.",
+        "The arithmetic earth-mover expression and isometric subgraph assertion are absent from the inspected directly relevant cycle theorem."
+      ],
+      "reasoning": "The strongest directly relevant full-text result decides whether a path exists, not the length of a shortest such path. The new formula entails connectivity when kt>n and sharpens it to an exact all-pairs distance, so the old result does not logically imply the additional quantitative claim. General shortest path results on paths likewise do not address wrap-around flows on cycles.",
+      "searches": [
+        "\"Reconfiguring k-Path Vertex Covers\" Hoang Suzuki Yagita Theorem 16 Section 4.2.2",
+        "\"shortest\" \"cycle\" \"k-path vertex cover reconfiguration\" \"token sliding\" distance",
+        "\"k-path vertex cover\" \"minimum\" \"shortest\" \"cycle\" sliding",
+        "exact shortest token sliding distance between k-path vertex covers of a cycle equals circular earth mover median prefix flow; geodesics optimum flow"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1012.2088v1 (first public 2010-12-09)",
+      "arxiv:1911.03026v1 (first public 2019-11-08; full relevant Section 4.2.2 read)",
+      "doi:10.1587/transinf.2021EDP7177 (2022 journal version of same reconfiguration work)",
+      "arxiv:2610.31261 (2026, later related tree paper abstract only)",
+      "arxiv:2203.11667 (2022, caterpillar extension abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2010 Brešar–Kardoš–Katrenič–Semanišin: coverage numbers, complexity and the definition; no token-slide shortest metric.",
+        "2019 Hoang–Suzuki–Yagita: equal-cardinality cycle covers are reachable outside the frozen minimum layer, and their cycle construction is expressly not claimed shortest.",
+        "The current theorem supplies a quantitative equality to the unrestricted circular transport lower bound and a legal monotone realization for every such instance."
+      ],
+      "reasoning": "The new theorem contains the older cycle connectivity characterization as a corollary, while adding pairwise metric equality and isometricity. These stronger conclusions are not formal consequences of reachability alone. Transport minimization by a median is classical for unconstrained tokens, but does not itself guarantee that all intermediate sets still hit every k-path; the bounded-gap monotone-lattice lemma is the nonstandard contribution.",
+      "searches": [
+        "arXiv:1911.03026 full text pages 18–22, Theorem 16 and conclusion",
+        "arXiv:1012.2088 full text Introduction and sections 2–5",
+        "\"Reconfiguring k-Path Vertex Covers\" \"shortest\" \"cycle\"",
+        "\"cycle\" \"path vertex cover\" \"earth mover\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar et al., arXiv:1012.2088, Introduction, defines k-path vertex cover and its 3-path/dissociation equivalence.",
+        "Hoang–Suzuki–Yagita, arXiv:1911.03026, Section 4.2.2 treats the same cycle and legal slides; their reachability criterion is a proper weakening of the exact metric.",
+        "No equivalent median-flow / geodesically isometric cyclic cover statement appeared among the returned records. This negative search is not proof of historical priority."
+      ],
+      "reasoning": "The complement of a 3-path cover is a dissociation set; relabelling as cyclic 111-free binary words gives an equivalent dynamic problem. These aliases were explicitly considered rather than treating differing titles as nonoverlap. The identified predecessor studies reachability, not the exact metric, but research under exclusion-process vocabulary may remain.",
+      "searches": [
+        "\"3-path vertex cover\" reconfiguration token sliding cycles graph",
+        "\"dissociation set reconfiguration\" token sliding 2025",
+        "\"k-path vertex cover\" \"isometric\" \"cycle\" \"token\"",
+        "\"bounded gap\" \"token sliding\" \"cycle\" geodesic",
+        "cyclic bounded-gap exclusion token sliding all constrained configurations is isometric subgraph shortest paths median flow"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed research records concerned dissociation polynomials of fan graphs and geodesic graph-flex metrics, neither of which states a cyclic k-path vertex-cover slide metric.",
+        "Accessible existing mathematical claims considered for overlap did not state a token-slide distance theorem for cyclic k-path vertex covers; incomplete historical coverage is not a uniqueness proof.",
+        "The 2019/2022 published cycle reconfiguration theorem provides connectivity and a constructive bound, not the exact all-pairs distances."
+      ],
+      "reasoning": "No exact table or previously published all-pairs formula was located. The literature comparison concerns statements and implications, not title matches; incomplete indexing and historical coverage remain residual risks.",
+      "searches": [
+        "shortest token sliding k-PVC reconfiguration on cycles length median imbalance no paths gaps at most k",
+        "reconfiguration graph of maximum dissociation sets in cycles and paths under one-step token slides exact geometry",
+        "\"k-PVC cycle exact shortest move complexity 2024 2025\""
+      ]
+    },
+    "rationale": "Actual full-text comparison distinguishes the older theorem establishing cycle reachability from the exact new all-pairs slide length and isometric embedding. Targeted queries also cover dissociation and binary-run aliases, more general shortest-token formulations, targeted research records and accessible prior claims. No dominating or equivalent result was identified; independent historical priority remains a risk.",
+    "residual_risks": [
+      "A pre-existing theorem about constrained exclusion processes or bounded-gap circular words, published under terminology unrelated to k-path vertex covers, could imply the distance formula.",
+      "Unindexed earlier computational or theoretical treatments cannot be excluded by searches or database partitions.",
+      "A separately conducted scholarly audit of novelty and correctness has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact token-slide geodesics: studies cover numbers and bounds, not reconfiguration metrics.",
+        "evidence": "Introduction defines k-path cover and identifies 3-path covers with complements of dissociation sets; Section 3 develops tree cover algorithm, other sections bounds.",
+        "identifier_or_url": "https://arxiv.org/pdf/1012.2088",
+        "material_read": "Full 13-page public paper text, including definition, Sections 2–5 and references; title and abstract checked against page image.",
+        "method": "Readable arXiv PDF text and page-image inspection.",
+        "title": "Minimum k-path vertex cover",
+        "trigger": "Earliest verified public source of k-path vertex cover terminology; possible older direct invariant."
+      },
+      {
+        "assessment": "CLOSEST, NOT_COVERING the new quantitative claim: establishes reachability and polynomial constructions, explicitly notes its cycle construction is not always shortest.",
+        "evidence": "Section 4.2.2 states cycle algorithms do not always achieve shortest; Theorem 16 gives a connectivity dichotomy and an O(n^2) non-shortest TS construction.",
+        "identifier_or_url": "https://arxiv.org/pdf/1911.03026",
+        "material_read": "Abstract, introduction, Sections 4.2.1–4.2.2, Theorem 16 with proof, following limitations/example and conclusion; checked relevant PDF page images.",
+        "method": "arXiv PDF full-text search, material reading and page-image inspection.",
+        "title": "Reconfiguring k-Path Vertex Covers",
+        "trigger": "Direct predecessor on same cycle objects, same token-slide operation and all token counts."
+      },
+      {
+        "assessment": "Different host class (trees), explicitly distinguishes known shortest paths on paths from mere cycle reconfiguration sequences.",
+        "evidence": "Public abstract states a tree-specific reachability algorithm; available overview cites Hoang–Suzuki–Yagita for cycle connectivity.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.31261",
+        "material_read": "Abstract and indexed overview of the introduction, especially citation of the 2019 cycle result; full manuscript not inspected.",
+        "method": "ArXiv metadata and accessible indexed text, not full-text source validation.",
+        "title": "A Polynomial-Time Algorithm for k-Path Vertex Cover Reconfiguration on Trees under Token Sliding",
+        "trigger": "Recent later survey of the same reconfiguration problem and closest previous cycle results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ef5e8dc-b3fe-4167-9350-805833b52267",
+  "value": {
+    "rationale": "An exact shortest dynamic protection relocation cost for every fixed-size cyclic k-path cover is a natural optimization objective. The 2019/2022 direct predecessor only decided reachability and gave non-shortest cycle sequences. The linear-time median expression and its sharp frozen boundary solve a different quantitative problem for all orders, path lengths and feasible token levels; the isometric embedding is structural and potentially reusable.",
+    "status": "PASS"
+  }
+}
