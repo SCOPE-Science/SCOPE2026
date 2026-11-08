@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier diagonalization gives exact modal multipliers. The endpoints yield a lower bound, whose minimax optimizer is uniquely determined by the product inequality \((B-x)(B-y)\ge0\) and endpoint balancing. For the selected pair, the intermediate quadratic negative trough is at most \(1/24\), whereas the endpoint modulus is at least \(1/6\). This proves the all-odd-order claim analytically. An executable standard-library checker verifies 22,455 supplementary finite assertions, including exact rational matrix products. The proof is limited to uniform-within-each-round kernels.
+PASS
 
-## Originality — PASS, qualified
+For odd n≥5 the circulant Fourier symbol of P(p) is 1-pλ_k, so the exact two-round SLEM is max_k |(1-pλ_k)(1-qλ_k)|. With a=min positive Laplacian eigenvalue and b=max, the endpoint objective bounds the full spectrum. If either p<1/b, its slow endpoint is strictly too high. Otherwise with x=bp-1,y=bq-1 in [0,B], B=b/2-1, fixing c=xy and applying (B-x)(B-y)≥0 forces one factor to p=1/2 at optimum. Balancing slow and high endpoints uniquely gives the unordered pair {1/2,1/(a+b-2)} and value (2-a)(b-2)/(2(a+b-2)). For this pair the only possible intermediate magnitude excursion is a negative quadratic trough at most 1/24, smaller than the attained endpoint maximum (≥1/6). The repeated one-step optimum balances affine spectral endpoints at p=2/(a+b); direct algebra yields the positive exact gap and n^-6 expansion. Independent spectral-mode calculations for odd n=5,7,9,13,19,51,101 corroborate all finite formulas; they are not a substitute for the endpoint/trough proof.
 
-The 2007 graph-symmetry fastest-mixing paper covers stationary transition matrices; it does not optimize products of two distinct Markov kernels. Apers and Sarlette's 2015 polynomial-filter analysis explicitly drops Markov nonnegativity of polynomial factors; its unconstrained optimizer is not feasible here. The published stagewise-safe Richardson result has a different admissible range, \(p\le2/b\), which for odd cycles extends beyond the stochastic cap \(1/2\), and controls an entire spectral interval rather than discrete modes. Its even-cycle case is covered and has deliberately been excluded. Actual targeted research search found no matching two-round odd-cycle stochastic classification. An equivalent historical treatment outside the inspected sources is a residual risk; this is not an assertion of exhaustive novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This solves a natural constrained two-round mixing problem exactly for every odd cycle, identifies the forced zero-holding phase, demonstrates strict improvement over any repeated stationary kernel, and quantifies the limited asymptotic benefit. The positivity constraint matters operationally: relaxation schemes may use negative holding weights, whereas Markov rounds cannot. The exact five-cycle rule and its factor reduction from \(1/5\) to \(1/6\) illustrate a nontrivial finite-network improvement.
+Best-of-knowledge mathematical statement-and-implication comparison of the exact reviewed final theorem with relevant primary literature, published-record searches, and recognized prior ingredients. Search failure is not novelty proof; priority risks remain specified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The two-round fastest stochastic consensus problem with independent stage choices and a per-round nonnegative Markov constraint is a natural finite-time optimization, not covered by optimizing one stationary transition matrix. The exact pair, uniqueness and n^-6 strict improvement are useful despite the gain being asymptotically small: they distinguish feasible Markov-factor schedules from unconstrained polynomial filters. The result does not claim Chebyshev-order acceleration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

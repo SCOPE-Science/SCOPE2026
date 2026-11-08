@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:51:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd/RESULT.md @ cfcfeabae648d95c4eddc501bebff97d0ab79a36",
+        "Independent check: independent_checks.py, case S2"
+      ],
+      "rationale": "For odd n≥5 the circulant Fourier symbol of P(p) is 1-pλ_k, so the exact two-round SLEM is max_k |(1-pλ_k)(1-qλ_k)|. With a=min positive Laplacian eigenvalue and b=max, the endpoint objective bounds the full spectrum. If either p<1/b, its slow endpoint is strictly too high. Otherwise with x=bp-1,y=bq-1 in [0,B], B=b/2-1, fixing c=xy and applying (B-x)(B-y)≥0 forces one factor to p=1/2 at optimum. Balancing slow and high endpoints uniquely gives the unordered pair {1/2,1/(a+b-2)} and value (2-a)(b-2)/(2(a+b-2)). For this pair the only possible intermediate magnitude excursion is a negative quadratic trough at most 1/24, smaller than the attained endpoint maximum (≥1/6). The repeated one-step optimum balances affine spectral endpoints at p=2/(a+b); direct algebra yields the positive exact gap and n^-6 expansion. Independent spectral-mode calculations for odd n=5,7,9,13,19,51,101 corroborate all finite formulas; they are not a substitute for the endpoint/trough proof.",
+      "residual_risks": [
+        "No generalization to vertex-dependent or longer-range factors, even cycles, or more than two rounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd–Diaconis–Parrilo–Xiao optimize stationary reversible walks; Apers–Sarlette give polynomial-filter acceleration with potentially negative intermediate coefficients. Neither broader method determines the admissible two-step optimum with p,q≤1/2."
+        ],
+        "reasoning": "Boyd–Diaconis–Parrilo–Xiao optimize stationary reversible walks; Apers–Sarlette give polynomial-filter acceleration with potentially negative intermediate coefficients. Neither broader method determines the admissible two-step optimum with p,q≤1/2.",
+        "searches": [
+          "odd cycle Markov chain two rounds two stochastic nearest-neighbor kernels exact spectral radius optimal alternating weights",
+          "https://arxiv.org/pdf/1503.01269",
+          "https://arxiv.org/abs/0709.0955"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1503.01269",
+        "https://arxiv.org/abs/0709.0955",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "https://arxiv.org/pdf/1503.01269",
+        "https://arxiv.org/abs/0709.0955"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published stagewise-safe Richardson two-step frontier optimizes p,q≤2/b; because b<4 on odd cycles, this permits p>1/2 and hence negative holding entries. Its admissible optimizer cannot be directly substituted for this Markov-feasible theorem."
+        ],
+        "reasoning": "The published stagewise-safe Richardson two-step frontier optimizes p,q≤2/b; because b<4 on odd cycles, this permits p>1/2 and hence negative holding entries. Its admissible optimizer cannot be directly substituted for this Markov-feasible theorem.",
+        "searches": [
+          "odd cycle Markov chain two rounds two stochastic nearest-neighbor kernels exact spectral radius optimal alternating weights",
+          "https://arxiv.org/pdf/1503.01269",
+          "https://arxiv.org/abs/0709.0955",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two individually stochastic nearest-neighbor steps are a positivity-constrained quadratic polynomial in the cycle Laplacian. A general quadratic spectral filter need not factor into feasible Markov steps."
+        ],
+        "reasoning": "Two individually stochastic nearest-neighbor steps are a positivity-constrained quadratic polynomial in the cycle Laplacian. A general quadratic spectral filter need not factor into feasible Markov steps.",
+        "searches": [
+          "odd cycle Markov chain two rounds two stochastic nearest-neighbor kernels exact spectral radius optimal alternating weights",
+          "https://arxiv.org/pdf/1503.01269"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The odd-cycle endpoint formula has n=5 rational case p=1/2,q=1/3 and factor 1/6; searched published consensus and cycle spectral-radius records, not an exact prior two-step probability-pair table."
+        ],
+        "reasoning": "The odd-cycle endpoint formula has n=5 rational case p=1/2,q=1/3 and factor 1/6; searched published consensus and cycle spectral-radius records, not an exact prior two-step probability-pair table.",
+        "searches": [
+          "odd cycle Markov chain two rounds two stochastic nearest-neighbor kernels exact spectral radius optimal alternating weights",
+          "https://arxiv.org/pdf/1503.01269"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical statement-and-implication comparison of the exact reviewed final theorem with relevant primary literature, published-record searches, and recognized prior ingredients. Search failure is not novelty proof; priority risks remain specified.",
+      "residual_risks": [
+        "A specialized earlier two-period Markov/consensus theorem may give the same formula for odd cycles.",
+        "The finite gap is order n^-6; no leading-order asymptotic rate improvement is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_POLYNOMIAL_METHOD_DIFFERENT_FEASIBLE_SET",
+          "evidence": "Polynomial filter acceleration allows intermediate updates outside the stochastic transition class; it does not impose p,q≤1/2 at every step.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.01269",
+          "material_read": "Full 15-page arXiv paper accessible; inspected polynomial-filter model, factorization and admissible accelerated iterations in introduction and method sections, including treatment of non-Markov coefficients",
+          "method": "lawful arXiv PDF full-text sections and page screenshot",
+          "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+          "trigger": "Most plausible stronger quadratic spectral-filter optimization"
+        },
+        {
+          "assessment": "STATIONARY_ONE_STEP_COMPARATOR",
+          "evidence": "Optimizes a single symmetric Markov kernel; this theorem optimizes a product of two separately chosen Markov kernels.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Abstract and known stationary-chain scope; complete full text not re-inspected for this run",
+          "method": "arXiv bibliographic/abstract comparison",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Potential exact cyclic spectral optimum antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd/RESULT.md @ cfcfeabae648d95c4eddc501bebff97d0ab79a36",
+        "Independent check: independent_checks.py, case S2",
+        "https://arxiv.org/pdf/1503.01269",
+        "https://arxiv.org/abs/0709.0955"
+      ],
+      "rationale": "The two-round fastest stochastic consensus problem with independent stage choices and a per-round nonnegative Markov constraint is a natural finite-time optimization, not covered by optimizing one stationary transition matrix. The exact pair, uniqueness and n^-6 strict improvement are useful despite the gain being asymptotically small: they distinguish feasible Markov-factor schedules from unconstrained polynomial filters. The result does not claim Chebyshev-order acceleration.",
+      "residual_risks": [
+        "No generalization to vertex-dependent or longer-range factors, even cycles, or more than two rounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized earlier two-period Markov/consensus theorem may give the same formula for odd cycles.",
+    "The finite gap is order n^-6; no leading-order asymptotic rate improvement is established.",
+    "No generalization to vertex-dependent or longer-range factors, even cycles, or more than two rounds.",
+    "The publication plan is not_ready because source provenance and prior-work date metadata have not been sanitized."
+  ],
+  "schema_version": 1
+}
