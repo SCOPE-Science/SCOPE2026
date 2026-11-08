@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For each t>0, A^T A has eigenvalues 1+2t² and 1, giving exact optimal squared Frobenius rank-one residual 1. Orthogonal projections onto each original row give residuals 1+t², 1+t² and 1. The first Gaussian pivot selects the last row iff (2t−1)|S|>|D| for independent S,D~N(0,2), and D/S is standard Cauchy, giving the exact two-point law. At t>1/2, complementary probability equals (2/pi) arctan(1/(2t−1)), yielding expected loss ~t/pi. The first pivot depends only on first Gaussian sketch column for all sketch widths. Exact rational identity checks and independent angular numerical integration passed; these support but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pan et al. 2014 Algorithm 7.1 constructs an orthogonal basis of the random range, not a row skeleton.",
+        "Dong et al. 2023 gives adversarial behavior for squared-norm/block sampling, rather than Gaussian first-column LUPP pivot.",
+        "Pearce et al. 2023 studies full rank-adaptive LUPP and numerical behavior, with no first-pivot risk classification."
+      ],
+      "reasoning": "Randomized range-projection guarantees do not govern choosing a single original row. A bound on final multi-pivot adaptive output does not imply the risk of its intermediate first row. Qualitative adversarial examples are not exact parameter- and probability-matched coverage.",
+      "searches": [
+        "single random Gaussian test vector selects row with maximum absolute inner product; expected approximation ratio diverges despite near sure best row",
+        "oversampling necessary row interpolative decomposition single column pivot Gaussian sketch failure large norm row",
+        "randomized row selection Gaussian sketch first pivot counterexample expected error",
+        "arxiv:1406.5802 Section 7",
+        "arxiv:2309.16002 Sections 2-4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.09417",
+      "https://arxiv.org/abs/2309.16002",
+      "https://arxiv.org/abs/1406.5802",
+      "https://arxiv.org/abs/1503.07157",
+      "Published mathematical corpus: four actual semantic searches detailed above",
+      "Previously catalogued mathematical claims (identifiers and implications compared)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pearce et al. provide the first-pivot primitive and full algorithm; not the distribution/expectation here.",
+        "Pan et al. randomized range projection is a distinct estimator.",
+        "Previously catalogued spike theorem concerns Q(A Omega) as a continuous projector, not the pivot-defined discrete choice."
+      ],
+      "reasoning": "The proposed statement follows by combining the Cauchy angle event with exact row-specific Frobenius losses, which requires more than an ordinary sketching rank-revelation or high-probability result. None of the inspected stated theorems subsumes this quantitative first-pivot law. No claim is made about completion of multi-pivot algorithms.",
+      "searches": [
+        "arxiv:2310.09417 Sections 2.4, 3.1, 4.1",
+        "arxiv:2309.16002 Sections 2,4,6",
+        "arxiv:1406.5802 Sections 7.2-7.4",
+        "randomized LU partial pivoting Gaussian projection leading row probability Cauchy cancellation rank one interpolative decomposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Standard ratio-of-independent-Gaussians is Cauchy, an ingredient but no result about row pivot quality",
+        "public-index closest sketch/ACA findings are different row-selection rules and loss measures"
+      ],
+      "reasoning": "Aliases considered: first-entry maximum row pivot, rank-one LU row skeleton, greedy sketched row ID, Gaussian projection cancellation, Cauchy directional threshold. Generic Gaussian angle identities alone do not assert two-point skeleton loss or unbounded expected ratio.",
+      "searches": [
+        "Gaussian one-column row sketch first pivot failure for matrix rows (1,0),(0,1),(t,t), Cauchy ratio and unbounded expected Frobenius rank-one approximation error",
+        "randomized LU partial pivoting Gaussian projection leading row probability Cauchy cancellation rank one interpolative decomposition",
+        "Gaussian sketch pivot one column interpolative approximation factor",
+        "arxiv:2310.09417 Section 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 3-by-2 Gaussian first-pivot Cauchy distribution appeared among the actual published mathematical index search results.",
+        "Previously catalogued mathematical claim f67f8a25-6b4c-4d86-904f-a2c141f0b658 concerns one-spike Gaussian random range finding, not row skeleton selection."
+      ],
+      "reasoning": "The exact error law and threshold are not known numerical database entries. Query failure cannot establish uniqueness, and inaccessible older history is not reconstructed.",
+      "searches": [
+        "Gaussian one-column row sketch first pivot failure for matrix rows (1,0),(0,1),(t,t), Cauchy ratio and unbounded expected Frobenius rank-one approximation error",
+        "randomized LU partial pivoting Gaussian projection leading row probability Cauchy cancellation rank one interpolative decomposition",
+        "f67f8a25-6b4c-4d86-904f-a2c141f0b658"
+      ]
+    },
+    "rationale": "Source and public-finding comparisons distinguish the exact Gaussian first-column row maximum, Cauchy event and mean-loss divergence from previously analyzed randomized orthogonal range projection, adaptive full-sketch LUPP, other randomized pivoting and previously logged Gaussian spike projection models. No matching or dominating statement found in the inspected material. This is a best-knowledge same-model assessment, not an independent precedence certificate.",
+    "residual_risks": [
+      "Specialist random-first-pivot analyses not indexed by searched terms could already contain this exact example.",
+      "The latest arxiv:2309.16002 full text includes revisions after initial posting; relevant sections and methods were compared but older versions were not exhaustively audited.",
+      "An abstract-only fourth source cannot support a whole-document noncoverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses LUPP of Gaussian sketches and develops adaptive error estimators; does not supply the exact 3-by-2 first-pivot Cauchy law or divergent expected one-row projection risk. Adaptive complete algorithm outside claim scope.",
+        "evidence": "arxiv:2310.09417 Sections 2.4 (Y=A Omega), 3.1 (LUPP selected row indices), 4.1 (first iteration), Appendix 7 (oversampling p=10)",
+        "identifier_or_url": "https://arxiv.org/abs/2310.09417",
+        "material_read": "Original 2023 preprint HTML, introduction, Sections 2.3-2.4, 3.1, 4.1, Appendix 7 numerical setup and remarks",
+        "method": "Read accessible full-length HTML at arxiv.org/html/2310.09417v1 and compare construction and theorem objects",
+        "title": "Adaptive Parallelizable Algorithms for Interpolative Decompositions via Partially Pivoted LU",
+        "trigger": "Same Gaussian sketch Y=A Omega and LUPP row-pivot primitive"
+      },
+      {
+        "assessment": "Provides different robust/blockwise sampling schemes and examples of adversarial behavior, but not the first-column Gaussian max-score pivot on the present family or its exact Cauchy two-point risk distribution.",
+        "evidence": "arxiv:2309.16002 Sections 2.2, 4, 6; first publication 2023-09-27",
+        "identifier_or_url": "https://arxiv.org/abs/2309.16002",
+        "material_read": "Accessible arxiv full text, Sections 1-4 and comparisons in Section 6, including discussion of adversarial squared-norm and blockwise pivoting examples",
+        "method": "Compare selected-row procedure, objective, randomization and quantitative bounds",
+        "title": "Robust Blockwise Random Pivoting: Fast and Accurate Adaptive Interpolative Decomposition",
+        "trigger": "Adversarial row pivoting and Gaussian sketchy LUPP are related possible prior coverage"
+      },
+      {
+        "assessment": "Uses random range finder Q(AH) and QQ^T A, not max-entry first LUPP pivot or one original row; its low-rank guarantees do not entail the stated discrete skeleton law.",
+        "evidence": "arxiv:1406.5802 Algorithm 7.1 and Section 7.4",
+        "identifier_or_url": "https://arxiv.org/abs/1406.5802",
+        "material_read": "Accessible arxiv full text, Sections 1 and 7.2-7.4, Algorithm 7.1 and relevant theorems",
+        "method": "Identify whether the resulting rank-one space is a span of an original input row and whether selection is maximum sketch entry",
+        "title": "Random Multipliers Numerically Stabilize Gaussian and Block Gaussian Elimination: Proofs and an Extension to Low-rank Approximation",
+        "trigger": "No-oversampling random Gaussian low-rank approximation could appear to dominate the negative result"
+      },
+      {
+        "assessment": "Different blocked rank-revealing method; full-text precedence risk retained, not treated as decisive comparison.",
+        "evidence": "arxiv:1503.07157 abstract",
+        "identifier_or_url": "https://arxiv.org/abs/1503.07157",
+        "material_read": "Abstract and stated rank-revealing randomized Gram-Schmidt strategy; full algorithm sections not inspected",
+        "method": "Abstract-level comparison only; no whole-document noncoverage claim",
+        "title": "A randomized blocked algorithm for efficiently computing rank-revealing factorizations of matrices",
+        "trigger": "Randomized low-rank benchmark possibly broad enough to imply first-pivot negative finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f6f0d284-3eaf-44a7-bf20-fbe4b0a0e0cc",
+  "value": {
+    "rationale": "A natural first-pivot primitive in randomized interpolative decomposition can be correct with probability approaching one while suffering unbounded expected approximation-error inflation, even under perfect least-squares refitting, on a nonnegative fixed-size matrix. The exact visibility boundary t=1/2, Cauchy success probability and sketch-width invariance clarify a genuine high-probability/mean-risk gap; they do not overstate failure of a complete algorithm.",
+    "status": "PASS"
+  }
+}
