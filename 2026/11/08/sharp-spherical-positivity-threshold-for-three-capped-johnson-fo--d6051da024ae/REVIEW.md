@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The object is the metric \(d(S,T)=\min\{4-|S\cap T|,3\}\) on all four-subsets for \(n\ge8\). Standard Johnson spherical theory gives \(\theta_j=(4-j)(n-4-j)-j\) with eigenspace dimension \(\binom nj-\binom n{j-1}\); an independently derived adjacency-square identity gives \(\nu_j=(\theta_j^2-(n-2)\theta_j-4(n-4))/4\). The distance-power matrix is \(3^p(J-I)+(1-3^p)A_1+(2^p-3^p)A_2\). The explicit factorized differences between \(\theta_j+t\nu_j\) show the degree-three spherical eigenvalue is strictly maximal for all \(0<p\le1\). Its strictly increasing transition function changes sign exactly once in \((0,1)\). The negative-type interval principle excludes re-entry for larger exponents. Gram ranks and the scaling limit follow exactly. Direct finite numerical eigenvalue comparisons pass for \(n=8,9,10\) and separate asymptotic tests; these checks are corroboration, not proof of the universal quantifier.
+
+## Originality — PASS, bounded literature comparison
+Krebs–Shaheen (2008) gives Johnson-scheme eigenvalues but does not state the capped-distance power threshold, the strict critical-degree comparison, or the Euclidean rank jump. Sánchez (arXiv:1108.0451v1) gives a general determinant criterion and examples, but no closed all-dimensional result for this Johnson metric. Deza–Maehara (1990) is a closely related truncated-metric precursor; its available descriptions concern two-distance graphs, while the present metric takes values \(0,1,2,3\), but the full 1990 paper was not accessible for a decisive whole-document check. Bounded targeted searches for negative type on the capped Johnson four-subset metric did not locate a statement that implies the complete theorem. Prior results about capped Hamming distances on the full Boolean cube do not determine the sharp threshold on the four-subset slice. Residual risk: an equivalent specialized Johnson-scheme positivity theorem may exist, so no unconditional historical-priority claim is made.
+
+## Mathematical value — PASS
+The untruncated Johnson metric has 1-negative type as a sum of coordinate cut metrics, yet capping only disjoint pairs destroys it for every \(n\ge8\). This is the smallest constant-weight Johnson layer where capping distance at three changes the geometry, and it identifies the exact first loss of positive type, the unique responsible harmonic sector, the full endpoint Euclidean dimension defect, and the asymptotic law as the ambient ground set grows. It is a complete natural infinite-family spectral/metric classification rather than a test calculation, an arbitrary parameter slice, or a simple restatement of a known Eberlein spectrum.
+
+## Scientific limitations
+No claim is made for other Johnson ranks or caps. The exact value of the root is implicit except at \(n=8\); finite computations do not establish the infinite theorem. Review of the cited 1990 full text and independent mathematical validation are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
