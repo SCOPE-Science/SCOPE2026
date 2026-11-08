@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "A fully reconstructed Kirchhoff backward ODE gives φ_m(s)=cosh(z)/(1+m sinh(z)^2). The Poisson renewal identity yields the exact mean. Its small-r expansion proves the sharp m=1 versus m>=2 benefit; direct positive decomposition of normalized means proves strict degree monotonicity; and a sign-controlled entire power series proves uniqueness of the limiting root and convergence of every sequence of minimizers. The included standard-library script independently checks finite-difference boundary equations, renewal, and numerical constants (52 passed diagnostics). Finite tests do not substitute for proof. Domain includes all integers m>=1, lengths L>0, diffusivities D>0, and nonnegative reset rates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Evans and Majumdar, arXiv:1107.4225, public 2011-07-21, section 2 renewal/backward method and sections 3-5 heterogeneous resetting and target laws, no star-degree optimization.",
+        "Riascos et al., arXiv:1910.13568, public 2019-10-29, sections II and IV give discrete-network spectral and Cayley-tree first-passage resetting, not the continuum Kirchhoff star with one absorbing tip.",
+        "Dassios and Zhang, doi:10.1007/s11009-021-09884-4, first published 2021-09-15, sections 2-3 and Theorem 1 give unreset Brownian star hitting times with all outer tips stopping boundaries, not one absorbing and others reflecting.",
+        "Riascos et al. arXiv:1910.13568, IV examines positive finite Cayley-tree reset optimum on discrete random walks; no continuum degree-dependent normalized gain formula."
+      ],
+      "reasoning": "The abstract renewal identity broadly covers resetting once a no-reset hitting-time law is known, and generic spectral methods cover discrete graphs. A broad methodological theorem alone does not give this precise boundary-value observable and optimization. The present result explicitly derives the one-tip-transform, proves a degree-monotone exact decomposition, and proves the sharp star-degree limit. The all-tip-stopping theorem of Dassios and Zhang does not contain reflecting dead ends, so its first-hit variable differs.",
+      "searches": [
+        "Web: stochastic resetting star graph first passage vertex Brownian metric tree search target optimum reset rate",
+        "Web: diffusion with stochastic resetting on metric graphs star graph Kirchhoff junctions optimum first-passage",
+        "published-finding corpus: first passage Brownian star finite interval absorbing one leaf reflecting other endpoints Poisson restart no restart criterion"
+      ]
+    },
+    "checked_sources": [
+      "Evans and Majumdar, arXiv:1102.2704, public 2011-02-14, backward diffusion/Poisson reset identity for a target on a half-line; main calculation Eqs. (4)-(7), no metric-star geometry.",
+      "Evans and Majumdar, arXiv:1107.4225, public 2011-07-21, section 2 renewal/backward method and sections 3-5 heterogeneous resetting and target laws, no star-degree optimization.",
+      "Riascos et al., arXiv:1910.13568, public 2019-10-29, sections II and IV give discrete-network spectral and Cayley-tree first-passage resetting, not the continuum Kirchhoff star with one absorbing tip.",
+      "Dassios and Zhang, doi:10.1007/s11009-021-09884-4, first published 2021-09-15, sections 2-3 and Theorem 1 give unreset Brownian star hitting times with all outer tips stopping boundaries, not one absorbing and others reflecting.",
+      "published-finding corpus semantic searches of source, claims, aliases, limits and equivalent formulations, including exact limiting constant; accessible matching records are methodologically or geometrically distinct."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Evans and Majumdar, arXiv:1102.2704, public 2011-02-14, backward diffusion/Poisson reset identity for a target on a half-line; main calculation Eqs. (4)-(7), no metric-star geometry.",
+        "Riascos et al., arXiv:1910.13568, public 2019-10-29, sections II and IV give discrete-network spectral and Cayley-tree first-passage resetting, not the continuum Kirchhoff star with one absorbing tip.",
+        "Dassios and Zhang, doi:10.1007/s11009-021-09884-4, first published 2021-09-15, sections 2-3 and Theorem 1 give unreset Brownian star hitting times with all outer tips stopping boundaries, not one absorbing and others reflecting.",
+        "The no-reset moment crossing and normalized gain come from an explicit star-specific boundary problem plus positivity of (cosh(z)-1)^2/(2 z^2 cosh(z)), rather than just a restatement of a general restart theorem."
+      ],
+      "reasoning": "The 2011 reset papers cover the renewal mechanism and half-line target; it is not claimed anew. The 2019 network paper does show optimal resetting on particular discrete trees, so a generic claim that branching can enable resetting would be covered. This finding is specifically the full equilateral metric-star all-degree strict fractional-gain order and its sharp limiting constant, as well as the one-arm boundary, which neither primary comparison establishes. Generic renewal and graph hitting-time methods do not directly tabulate or imply the exact asserted optimization without additional model-specific computation and analysis.",
+      "searches": [
+        "Web: \"Brownian motion\" \"star graph\" \"resetting\" \"first-passage\"",
+        "Web: \"star graph\" \"stochastic resetting\" \"optimal\" diffusion",
+        "published-finding corpus: renewal Brownian resetting star graph sharp threshold degree one versus degree two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Evans and Majumdar, arXiv:1102.2704, public 2011-02-14, backward diffusion/Poisson reset identity for a target on a half-line; main calculation Eqs. (4)-(7), no metric-star geometry.",
+        "Dassios and Zhang, doi:10.1007/s11009-021-09884-4, first published 2021-09-15, sections 2-3 and Theorem 1 give unreset Brownian star hitting times with all outer tips stopping boundaries, not one absorbing and others reflecting.",
+        "Searches returned network diffusion, star Brownian and unrelated star geometry records but no explicit normalized degree-monotonic formula."
+      ],
+      "reasoning": "A Walsh-Brownian/metric-star representation is the same object under uniform arm-selection probabilities; the closest all-tip hitting-time transform changes the stopping event. General resetting identities are reused, not treated as original. None of the inspected equivalent formulations states the proved strict gain monotonicity and sharp 0.144736... large-branch limit.",
+      "searches": [
+        "published-finding corpus: Brownian metric star graph absorbing one tip reflecting other tips stochastic resetting at junction exact mean first passage time optimal rate number branches",
+        "published-finding corpus: Evans Majumdar 2011 diffusion resetting finite reflecting star network single absorbing arm Kirchhoff",
+        "Web: \"metric graph\" \"stochastic resetting\" \"star\" \"first passage\"",
+        "Web: \"Walsh Brownian motion\" \"resetting\" \"star\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved published-finding corpus matches concerned unrelated equiradial-star norms and other topics, no identical MFPT or degree sequence.",
+        "Exact-number web searches gave unrelated numerical occurrences, not a prior table of these optimum savings."
+      ],
+      "reasoning": "Neither available numerical tables nor mathematical results found a tabulation of the sharp limiting normalized minimum or the complete strict degree dependence. Search absence is not a novelty certificate; the direct full-text comparisons carry the priority assessment.",
+      "searches": [
+        "published-finding corpus: equilateral metric star Brownian stochastic resetting optimal search relative gain 14.473634 percent limit arms 1.606115",
+        "Web: \"0.855263655\" resetting OR diffusion OR Brownian OR star",
+        "Web: \"1.606115\" Brownian resetting star search"
+      ]
+    },
+    "rationale": "Direct comparison with openly read primary papers arXiv:1102.2704, arXiv:1107.4225, arXiv:1910.13568 and the full accessible Dassios-Zhang theorem found reset/first-hit methods and distinct graph/target setups but not the equilateral metric-star normalized strict degree gain and sharp high-degree 14.4736% limit. Generic renewal is acknowledged as prior and not claimed. Residual priority risk from unindexed or differently formulated metric graph resetting literature remains.",
+    "residual_risks": [
+      "A specialized earlier metric-star restarting calculation not indexed under Brownian, Walsh or resetting aliases may contain the same limiting optimum.",
+      "One may derive parts of the formula using general restart-renewal or network-transport tools; originality rests on the explicit all-degree strict gain and limiting constant, not on those methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives target hitting on the half-line and basic renewal effects; no finite metric-star one-tip mixed boundary geometry or strict normalized gain law.",
+        "evidence": [
+          "Evans and Majumdar, arXiv:1102.2704, public 2011-02-14, backward diffusion/Poisson reset identity for a target on a half-line; main calculation Eqs. (4)-(7), no metric-star geometry."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1102.2704",
+        "material_read": "Accessible arXiv full HTML, introductory model, backward equation and explicit MFPT derivation around Eqs. (4)-(7), plus geometry description",
+        "method": "Full-text HTML reading and graph/star keyword comparison",
+        "title": "Diffusion with Stochastic Resetting",
+        "trigger": "Origin of the Brownian Poisson renewal method and closest claim of an optimum"
+      },
+      {
+        "assessment": "Broader reset mechanisms, but no degree-indexed metric-star theorem or limiting 14.4736% invariant.",
+        "evidence": [
+          "Evans and Majumdar, arXiv:1107.4225, public 2011-07-21, section 2 renewal/backward method and sections 3-5 heterogeneous resetting and target laws, no star-degree optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.4225",
+        "material_read": "Accessible full HTML, introduction, section 2 first-passage method and sections 3-5 scope/summary of spatial reset and target distributions",
+        "method": "Section and formula reading in openly accessible HTML",
+        "title": "Diffusion with Optimal Resetting",
+        "trigger": "Potentially dominating reset-optimization theorem"
+      },
+      {
+        "assessment": "Discrete graph walk and finite-depth Cayley-tree models, not continuous metric-star Kirchhoff diffusion; nearest qualitative precedent for beneficial restarting on branched networks.",
+        "evidence": [
+          "Riascos et al., arXiv:1910.13568, public 2019-10-29, sections II and IV give discrete-network spectral and Cayley-tree first-passage resetting, not the continuum Kirchhoff star with one absorbing tip."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+        "material_read": "Accessible arXiv full HTML sections II-IV, including MFPT spectral formula and finite Cayley-tree/large-depth calculations",
+        "method": "Read exact equations and models, compared target and movement process",
+        "title": "Random walks on networks with stochastic resetting",
+        "trigger": "Potential all-network stronger coverage and Cayley-tree example"
+      },
+      {
+        "assessment": "The first stopping time is the minimum of hits on every tip, rather than a single tip with reflecting others; restarting and its optimization absent.",
+        "evidence": [
+          "Dassios and Zhang, doi:10.1007/s11009-021-09884-4, first published 2021-09-15, sections 2-3 and Theorem 1 give unreset Brownian star hitting times with all outer tips stopping boundaries, not one absorbing and others reflecting."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11009-021-09884-4",
+        "material_read": "Open-access HTML sections 1-3, setup (definition (1)), Theorem 1 and its hitting-time transform with all leg tips absorbing",
+        "method": "Direct reading of publisher open-access primary article including theorem statement",
+        "title": "First Hitting Time of Brownian Motion on Simple Graph with Skew Semiaxes",
+        "trigger": "Potential exact pre-existing Brownian-star Laplace transform"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b190f93-9122-479c-9e39-3ff5424c0447",
+  "value": {
+    "rationale": "A natural confined Brownian-search benchmark distinguishes a blind reflecting arm from a solitary reflecting-to-absorbing interval. It gives a sharp topology threshold, an exact increasing efficiency law for every branch number, and a nontrivial quantitative asymptotic cap (about 14.47%) with a unique defining root. Such a normalized network-design invariant can be compared across branched transport search geometries, unlike a routine isolated finite example. The importance is bounded to the stated model; it is not a generic graph or thermodynamic theorem.",
+    "status": "PASS"
+  }
+}
