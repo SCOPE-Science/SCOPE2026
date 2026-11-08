@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is one global inequality for all measurable nonnegative weights with finite positive moments and all exterior-dominated entire pairs whose quotient is nonconstant. Strict log-convexity makes the normalized backward shift contractive, with exactly one unit singular weight and a sharp second-weight gap. The rational Schur representation of the actual exterior quotient gives \(f=H(T)g\), and a direct norm-square subtraction yields an exact two-term nonnegative deficit. The transverse gap is the relative variance \(1-m_1^2/(m_0m_2)\). Quadratic pairs attain equality for every prescribed \(a=H(0)\in\mathbb D\), so the coefficient is globally optimal. Exact rational checks confirm selected families but are not relied upon for the infinite-dimensional statement.
+PASS
 
-## Originality — PASS relative to inspected sources
+For all nonnegative measurable radial W with 0<m_j<infty and exterior-dominated entire f,g with nonconstant quotient, strict Cauchy–Schwarz gives log-convex moments, hence T=R B has w_1=1 and w_n^2<=m_1^2/(m_0m_2)<1 for n>=2. The exact transverse shift gap is delta_W dist(v,Cz)^2 with delta_W=1-m_1^2/(m_0m_2). The meromorphic exterior quotient has finitely many interior poles, hence is rational; reversal gives a Schur H and f=H(T)g. Schur factorization H=(a+w psi)/(1+conj(a)w psi) yields exact deficit (1-|a|^2)[||u||²-||Tu||²+||Tu||²-||psi(T)Tu||²], both pieces nonnegative. Quadratic Mobius witnesses g=z(z+conj(a) eta R), f=z(az+eta R), u=z² attain delta for every fixed admissible a and weight. Independent exact examples delta=1/2 for Gaussian moments and 1/13 for thin ring d=1/2; no need for numerical extension to all weights.
 
-Wikström proves Gaussian sharp-radius and equality statements, with weighted radius sufficient criteria. The later all-radial radius result already provides the contractive-backward-shift proof, and unrestricted-radial equality is also known. Neither of these mathematical conclusions entails the sharp **quantitative** Schur-state transverse deficit: a norm inequality or equality classification alone does not fix a positive global quadratic gap or its best coefficient. A separate planar-radial Bergman theorem has different domain hypotheses. Targeted searches for Korenblum stability, strict Schur calculus and the relative-moment variance coefficient found no equivalent statement. Source indexing is incomplete, and an unindexed identical operator-defect result remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a sharp stability law for all radial Hilbert Fock weights, including nonmonotone weights, rather than a new radius or equality result. It gives an intrinsic quantitative control of the component of the Schur-normalized denominator outside the unique isometric monomial direction. The optimal constant is exactly the radial squared-radius variance divided by its second moment, and its explicit collapse on thin annuli distinguishes qualitative domination from quantitative rigidity. The state-space metric is essential and is not advertised as a best direct function-pair distance.
+The fully published universal radial sharp-radius result already provides moment-weighted shift and rational Schur functional calculus, and monotone-weight rigidity already classifies equality; those are not new. The quantitatively optimal variance-controlled transverse deficit for the quotient-dependent normalized state u is a distinct strengthening, not stated in the full published results inspected. The paper on original Fock radius may conceivably contain a related quantitative estimate; its full text was inaccessible.
 
-## Sources and scientific limitations
+## value
 
-The closest results are listed and distinguished in `RESULT.md`. The proof uses the universal-radius quotient realization as an independently reconstructed ingredient; it does not reassert that prior theorem as novel. The exact state variable depends on the quotient, and no \(L^p\), nonradial or annular-only generalization is established. Full independent mathematical validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp state-space stability explains how near extremizers are suppressed by the radial relative variance, with a concrete second-moment coefficient that degenerates quadratically for thin annuli; natural Hilbert contraction problem, not a normalization-only check. The claim carefully does not assert direct pair-distance stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
