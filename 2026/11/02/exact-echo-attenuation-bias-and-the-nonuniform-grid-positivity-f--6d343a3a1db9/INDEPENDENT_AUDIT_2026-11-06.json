@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:50:24.636791Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the line with bounded initial constant m, the plane-wave ansatz gives G'=g and H'=G^2; exact subflows produce right endpoint R and left endpoint L. For arbitrary positive h_j with q_0=q_N=0, integration and summation by parts give R-I=E+J and L-I=E-J. Independent exact arithmetic for h=(1,2,1), q=(0,2,1,0) gives I=19/3, R=6, L=9, so right splitting underattenuates. The interior q_i can be chosen arbitrarily, proving order equality for all echoes iff every neighboring h_i agrees. Explicit expansion gives 3(R-I)=v^T T_R v and similarly T_L, and the irreducible tridiagonal PSD criterion uses all strict proper leading minors and a nonnegative last determinant, with the stated recurrence. This covers N=2 boundary, all real echo gradients, and all positive durations; it does not imply a general full-solution or non-echo convergence theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General first-order solution convergence does not imply selected echo cancellation or PSD frontier",
+          "1997 gradient-pulse analysis is a plausible broader technique, full article not inspected"
+        ],
+        "reasoning": "A solution norm convergence bound may hold on more general domains but cannot logically specify the sign and exact second-order coefficient for the restricted observable; residual risk from full specialized pulse literature.",
+        "searches": [
+          "arxiv:2610.04355 theorem 1 nonautonomous evolution splitting Bloch Torrey",
+          "PubMed PMID:9405218 spin echo gradient propagator"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.04355",
+        "https://pubmed.ncbi.nlm.nih.gov/9405218/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Lie first-order estimate is weaker than exact two-order echo equality and universal underattenuation",
+          "Known quadrature and Fourier-plane-wave identities are explicitly used as ingredients"
+        ],
+        "reasoning": "Neither the stated convergence theorem nor a classical trapezoid formula alone entails the sharp tridiagonal conditions as a published mathematical claim; cannot categorically rule out older equivalent treatment.",
+        "searches": [
+          "arxiv:2610.04355v1",
+          "PMID:9405218",
+          "doi:10.1137/18M1229353"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md derives exact phase diffusion products and a quadratic-form error, not merely standard integration error",
+          "No indexed equivalent two-order all-echo sign criterion among retrieved findings"
+        ],
+        "reasoning": "Searched exact gradient waveform / endpoint quadrature and splitting aliases. A classical trapezoid identity yields E but not J-dependent global PSD classification without additional problem formulation.",
+        "searches": [
+          "Resultary: Bloch Torrey spin echo Lie Trotter splitting uniform nonuniform gradient mesh attenuation bias tridiagonal",
+          "Web: arXiv:2610.04355 operator splitting Bloch-Torrey echo gradient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact signal-bias nonuniform mesh lookup table found",
+          "The displayed N=2 ratio and N=3 counterexample are derived algebraically, not copied from a table"
+        ],
+        "reasoning": "This is an infinite grid classification rather than a finite-table value; no searched exact table covered it.",
+        "searches": [
+          "Resultary: Bloch Torrey spin echo Lie Trotter splitting uniform nonuniform gradient mesh attenuation bias tridiagonal"
+        ]
+      },
+      "rationale": "Classical trapezoidal quadrature and exact gradient phase accumulation are known. Kaltenbacher–Muñoz–Thalhammer study general first-order Lie/Trotter errors for non-autonomous Bloch–Torrey. Neither their accessible general convergence statement nor the older spin-echo abstract determines the exceptional second-order echo observable, universality of equal orders on uniform grids, or the sharp arbitrary-mesh PSD sign criterion. Best-of-knowledge PASS, with specialized older NMR priority risk.",
+      "residual_risks": [
+        "1997 restricted diffusion generalized gradient-pulse primary full text not inspected; an equivalent specialized echo identity may predate result.",
+        "Novelty does not extend to basic plane-wave solution or trapezoid rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known broader first-order solution error, no identified exact all-grid echo bias theorem in material read",
+          "evidence": [
+            "General convergence theorem versus R-I=E+J exact boundary characterization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04355",
+          "material_read": "Abstract and source-package discussion of Theorem 1; complete original proof not independently read",
+          "method": "arXiv abstract/source comparison",
+          "title": "Operator splitting methods for non-autonomous evolution equations comprising three parts, with application to the Bloch-Torrey equation of MRI",
+          "trigger": "Same PDE and time-splitting method"
+        },
+        {
+          "assessment": "Plausibly relevant; no whole-document exclusion of specialized formula",
+          "evidence": [
+            "PMID:9405218, 1997 NMR gradient propagator"
+          ],
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/9405218/",
+          "material_read": "PubMed abstract only; no full text",
+          "method": "PubMed indexed abstract",
+          "title": "A simple matrix formalism for spin echo analysis of restricted diffusion under generalized gradient waveforms",
+          "trigger": "General gradient waveform and echo propagation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of echo-signal bias and when opposite Lie orders agree are concrete observables for MRI gradient timestepping. A linear-time semidefinite test and the three-step counterexample show the two-step neighboring-ratio safeguard is not sufficient: useful precise design information beyond a routine local quadrature exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Free diffusion, homogeneous D, entire line, final echo only, no boundaries/relaxation/non-exact subflows.",
+    "Only accessible abstracts for closest PDE and classical NMR prior full text; residual scientific priority risk.",
+    "1997 restricted diffusion generalized gradient-pulse primary full text not inspected; an equivalent specialized echo identity may predate result.",
+    "Novelty does not extend to basic plane-wave solution or trapezoid rule."
+  ],
+  "schema_version": 1
+}
