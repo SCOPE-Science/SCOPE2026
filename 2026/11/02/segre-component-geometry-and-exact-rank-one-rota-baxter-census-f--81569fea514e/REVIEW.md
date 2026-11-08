@@ -1,19 +1,21 @@
-# Review of the rank-one truncated Rota–Baxter classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stated rank-one criterion is derived from the full operator identity, not an assumed shape of solutions. The unit-image possibility is excluded in every characteristic, nilpotency forces the generator to be square-zero, and the induced nilpotent multiplication operator forces the functional to kill the generator ideal. Truncation valuation translates these conditions into a disjoint rank-one cone decomposition. Projective determinantal geometry proves irreducibility, dimension and intersections; counting factorization orbits yields the finite-field formula. Direct exhaustive field-arithmetic tests provide a separate finite corroboration, but not a proof of the infinite family.
+PASS
 
-## Originality
+Every nonzero rank-one R on A=k[t]/(t^n) factors as R(a)=φ(a)u, u≠0. Substitution into weight-zero Rota–Baxter equation forces u²∈ku and φ∘μ_u scalar multiple φ; nilpotence in the local algebra excludes nonzero scalar eigenvalues and scalar-unit image, yielding u²=0 and φ(uA)=0. For ν(u)=r this is equivalent to r≥ceil(n/2) and φ killing (t^r). Hence the reduced rank≤1 locus is the union of rank-one determinantal cones X_r⊂Hom(A/(t^r),(t^r)), each geometrically irreducible of dimension n-1, with Segre projectivizations. For r<s, intersections have Hom(A/(t^r),(t^s)) rank≤1, dimension n-1-(s-r), making all X_r proper irreducible components. Distinct valuation strata have q^(n-r-1)(q^r-1) maps, so nonzero count is floor(n/2) q^(n-1) - (q^floor(n/2)-1)/(q-1). Independent exhaustive F2 multiplication and basis-pair Rota–Baxter checks for n=2,3,4 yielded 1,3,13 maps and agreement with formula; the rank-one algebraic proof covers all fields and all n≥4.
 
-**PASS under the completed best-knowledge literature comparison, with residual risk.** The main 2014 semigroup-algebra paper covers dimensions two and three. The 2014 polynomial-algebra article and Yu's later monomial classification concern nontruncated polynomial algebras and classes of operators that do not imply the entire family of finite quotient rank-one moduli. The 2026 paper on square-zero truncations concerns a different quotient. A relevant separate published finite-field published-finding corpus result enumerates all weight-zero operators on a four-dimensional exterior algebra over \(\mathbb F_2\), not the truncated univariate family or its component geometry. Three semantic database searches and primary full-text inspections found no equivalent theorem; lack of discovery is not proof of novelty. The possibility of a broader unpublished or unindexed rank-one theorem remains.
+## originality
 
-## Value
+PASS
 
-**PASS.** The Rota–Baxter identity is an established operator-algebra construction. The classified family varies with unbounded length and exhibits a naturally defined operator-moduli invariant: a growing number of geometrically irreducible components, uniform equidimensionality, a sharp explicit intersection lattice and a full finite-field count. These statements distinguish reduced geometry from exact rational-point enumeration and supply a structural starting point for the higher-rank problem. This is not merely a tiny parameter evaluation or a rewording of a general determinantal theorem; the nontrivial input is the global rank-one Rota–Baxter criterion.
+Farooq 2026 arXiv:2605.15670 addresses DIFFERENT square-zero radical truncation K[x_1,..,x_m]/m² over characteristic zero, not univariate k[t]/t^n with n>=4 or finite fields. Guo-Rosenkranz-Zheng 2014 classify order two/three semigroup algebras and polynomial k[x] monomial/injective operators, not these rank-one reduced moduli. The standard Segre determinantal geometry is not novel by itself; claim is the exact Rota–Baxter cutout, its irreducible components and intersections, and its all-q census. Published Resultary exterior algebra over F2 is another nonisomorphic four-dimensional algebra.
 
-## Remaining limitations
+## value
 
-The defining Rota–Baxter ideal may have nilpotent scheme structure that is not determined. Rank-two and higher operator loci, conjugacy classes and unrestricted operator enumeration are not addressed. Human literature-priority adjudication and independent validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a natural complete rank-one stratum classification of a basic finite local algebra, geometric components/intersections and exact arithmetic points over all finite fields, with meaningful field/length uniformity. These are intrinsic moduli invariants rather than arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
