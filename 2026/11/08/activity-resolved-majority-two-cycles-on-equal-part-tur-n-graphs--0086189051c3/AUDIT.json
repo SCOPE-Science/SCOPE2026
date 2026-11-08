@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For each part, the update is all-zero, all-one or unchanged according to the strict sign of total ones outside that part minus half the degree. A uniform part can never become mixed. Two-step recurrence thus either uses uniform parts only, or leaves each mixed part tied both times. In the latter case all mixed parts have a common size j, the pure-zero and pure-one part numbers are equal, and (c-1)(j-q/2)=0. This yields exactly the cases and multinomial counts stated. The symmetric two-time energy with diagonal tie breakers proves no longer periodic orbits. Direct bit and independent weighted-profile programs checked full activity distributions across 21 and 34 parameter pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaaser et al., arXiv:1508.03519, Theorem 1.2 and Section 3.2: reduction for voting-time bounds and O(r^2) on Turán graphs.",
+        "Goles and Olivos 1980 general period-at-most-two theorem, DOI 10.1016/0012-365X(80)90121-1."
+      ],
+      "reasoning": "The generic symmetric-threshold eventual-period theorem establishes only the set of possible periods; its implication does not determine how many such states exist or their numbers of flipping vertices. Voting-time bounds do not enumerate recurrent configurations. Equal-part q=2 is one specialization of the new general q>=2 classification, not a separate novelty claim.",
+      "searches": [
+        "majority voting dynamics complete graph minus perfect matching cocktail party graph exact periodic orbit census",
+        "majority dynamics complete multipartite graphs synchronous fixed points 2-cycles classification",
+        "count number fixed points synchronous majority voting complete multipartite graph K_{n,n,...n} oscillation period 2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1102.5361",
+      "https://arxiv.org/abs/1508.03519",
+      "https://doi.org/10.1155/2020/9708347",
+      "https://doi.org/10.1016/0012-365X(80)90121-1",
+      "public research-index records dd5898d7bbc5 and acea41c73be7 (summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adams et al. 2011, Theorem 2 explicitly concerns irreversible majority conversion and minimum dynamo cardinality.",
+        "Aledo et al. 2020, Introduction and Section 3 explicitly treat Boolean OR/AND maxterm/minterm networks, not threshold majority.",
+        "Kaaser et al. 2015, Section 3.2 uses module contractions to bound stabilization time, with no activity-resolved cycle formula."
+      ],
+      "reasoning": "Replacing a nonmonotone tie-preserving majority map by irreversible activation or Boolean OR/AND changes the dynamics; those theorems do not imply the present counts. Likewise an eventual period-two theorem or an asymptotic voting-time bound cannot imply exact per-activity populations. The new proof independently derives all counts.",
+      "searches": [
+        "\"complete multipartite\" \"majority\" \"two-cycle\" synchronous",
+        "Counting Periodic Points in Parallel Graph Dynamical Systems Aledo 2020 maxterm minterm",
+        "Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products 1102.5361"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaaser et al., arXiv:1508.03519, Sections 1 and 3.2: Turán graph family appears with voting-time bounds, not activity-resolved counting.",
+        "Adams et al., arXiv:1102.5361, Section 2: minimum dynamo problem with irreversible conversions."
+      ],
+      "reasoning": "Equivalences checked include Turán graph T(rq,r), equal-size complete multipartite K_{q,...,q}, lazy/tie-preserving majority, deterministic binary voting, and two-cycle flip-activity profile. None of the inspected theorem statements supplies the new per-activity counts.",
+      "searches": [
+        "Synchronous majority on equally sized complete multipartite graph K_{q,q,...,q} exact fixed point and two-cycle counts, one half-full part, binomial sum.",
+        "period two recurrent configurations of complete multipartite graph under threshold majority with tie retention, balanced pure blocks and half-full blocks.",
+        "\"majority dynamics\" \"complete multipartite\" \"fixed points\" \"2-cycles\"",
+        "\"majority dynamics\" \"complete multipartite graph\" periodic configurations enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS-oriented and exact-parameter web searches returned no identified table of the full two-parameter activity spectrum.",
+        "Closest indexed title Majority C-colorings of complete multipartite graphs concerns a static graph-coloring parameter; closest parity automata title uses XOR updates."
+      ],
+      "reasoning": "Generic multinomial coefficients and the central trinomial coefficient identity appear as ordinary counting expressions but are not equivalent to a labelled dynamic recurrent-state census with tie retention. No exact database/table of this entire invariant was identified.",
+      "searches": [
+        "OEIS majority complete multipartite fixed points two cycles binomial",
+        "\"K_{q,q,q}\" \"majority\" \"cycles\" \"fixed\"",
+        "exact periodic orbit count for reversible majority dynamics on complete multipartite graphs of equal part size"
+      ]
+    },
+    "rationale": "A complete activity-resolved periodic census for equal-part Turán graphs under nonmonotone strict majority was compared by implication with the closest accessible 2011 complete-multipartite irreversible conversion paper, the 2015 majority voting-time paper explicitly covering Turán graphs, and the 2020 OR/AND Boolean dynamical-system census. Their conclusions do not give the claimed counts or activity stratification. Relevant mathematical search and published research-index records did not supply a covering result. Absence of search hits does not establish priority absolutely; older and unindexed material remains a risk.",
+    "residual_risks": [
+      "An earlier unindexed exact activity-census may exist; database nonappearance alone is not novelty proof.",
+      "The full original Goles–Olivos 1980 article was not available; its reported main result covers periods, but unexamined further content is a historical-priority uncertainty.",
+      "Full documents behind two relevant public research-index summaries were unavailable; their reported update rules are different, but complete text was not inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its dynamics is explicitly irreversible and its complete-multipartite result determines minimum dynamo size, not reversible two-cycles or activity counts.",
+        "evidence": [
+          "Section 1: black vertices permanently retain activation.",
+          "Section 2, Theorem 2: min_D(K_{p1,...,pm})=ceil((n-p1)/2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1102.5361",
+        "material_read": "Original openly rendered text: abstract, Introduction, Section 2 with Theorems 1-2 and proofs, and remaining section headings.",
+        "method": "Original open preprint, text reading of the relevant definitions and main results.",
+        "title": "Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products",
+        "trigger": "Exact same complete multipartite graph family and majority terminology"
+      },
+      {
+        "assessment": "Determines algorithmic voting-time bounds and module reductions; no displayed full recurrent-state census by flip activity.",
+        "evidence": [
+          "Introduction and Section 3.2: O(r^2) voting-time bound on Turán graphs.",
+          "Theorem 1.2 and Appendix C: convergence-time and potential properties."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+        "material_read": "Original openly rendered text: Introduction, Section 3.2, symmetry-contraction theorem and its proof, and selected Appendix C passages; section headings searched across the work.",
+        "method": "Original preprint text reading and targeted term searches for Turán, periodic states and time bounds.",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Same strict binary majority rule; Turán graphs explicitly covered"
+      },
+      {
+        "assessment": "Counts Boolean OR/AND-based maxterm/minterm network periodic points, not strict majority; does not imply the claimed formula.",
+        "evidence": [
+          "Introduction defines maxterm as a disjunction of literals and minterm as a conjunction.",
+          "Section 3 addresses NAND and other maxterm/minterm rules."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+        "material_read": "Accessible full-page HTML abstract, introduction and descriptions of Sections 2-4, notably definition of MAX/MIN local functions.",
+        "method": "Publisher open HTML inspection of operator definitions and theorem scopes.",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "Name promises exact periodic counts on related Boolean graph dynamics"
+      },
+      {
+        "assessment": "Documented general period-at-most-two theorem. Full text was not inspected; not asserted to be globally NOT_COVERING on the basis of the abstract alone.",
+        "evidence": [
+          "Original abstract states symmetric threshold iterations lead to fixed points or two-cycles."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Original abstract and bibliographic description only; full older article not available.",
+        "method": "University publication record and citation metadata reading.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Classical generic eventual-period restriction used as background"
+      },
+      {
+        "assessment": "Summary classifies a static majority C-coloring parameter and count, which is not equivalent to synchronous recurrent-state enumeration. Full-text comparison remains a limited residual risk.",
+        "evidence": [
+          "Summary: optimal two-coloring when every part size is even, with each part split in half."
+        ],
+        "identifier_or_url": "public research-index record dd5898d7bbc5",
+        "material_read": "Public title and short indexed summary only; underlying full source inaccessible.",
+        "method": "Semantic research-index query with scientific statement comparison.",
+        "title": "Majority C-colorings of complete multipartite graphs",
+        "trigger": "Static majority and the same graph family"
+      },
+      {
+        "assessment": "Parity/XOR map cannot dominate the nonlinear majority claim by a parameter change. Full-text access limitation recorded.",
+        "evidence": [
+          "Summary: unshifted parity automata on complete multipartite graphs, period at most four."
+        ],
+        "identifier_or_url": "public research-index record acea41c73be7",
+        "material_read": "Public title and short indexed summary only; underlying full source inaccessible.",
+        "method": "Semantic research-index query; compare XOR/parity versus strict threshold-majority definitions.",
+        "title": "Sharp period-four census for complete multipartite parity automata",
+        "trigger": "Same family with periodic-orbit census under another Boolean update"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "00861890-51c3-45d6-9ab1-1a0077d3d4ee",
+  "value": {
+    "rationale": "The formula completely classifies every initially recurrent state of an infinite two-parameter family of equal-part Turán graphs, including flip-activity strata, a natural nonlinear dynamical invariant. A sharp structural difference occurs between odd and even part sizes: only one partial part can freeze at maximal activity for odd part count, whereas even part size allows several half-filled stationary parts and multiple lower-activity classes. For example r=5,q=4 has 4320 and 420 two-cycle configurations in distinct activity classes, despite the same graph structure being measured by both. The result is a meaningful benchmark for the influence of community parity on deterministic majority dynamics, not merely a numerical table.",
+    "status": "PASS"
+  }
+}
