@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-level classification reconstructs the corrected four-term coefficient formula. The proof verifies strict initial growth, with quantitative inequalities at the two rectangle-sensitive steps, and a binomial tail whose initial rise makes the boundary comparison decisive. Exact integer arithmetic gives the factorial threshold with both directions, including the equality boundary. The standalone checker independently compared graph enumeration in five small cases and exercised threshold boundaries through \(a=11\); it returned `VERIFY_OK`. Only the written argument proves all parameters.
+## correctness
 
-**Originality — PASS.** The original 2024 paper posed the all-parameter unimodality question. The 2026 correction gives coefficients for all parameters and analyzes selected cases, notably \(a=3\), but the inspected material does not state or prove the sharp factorial phase transition for every \(a\ge5\) with \(r\ge2a+4\). This theorem is a new nontrivial property-level deduction requiring control of every coefficient before the binomial tail, not a claim to rediscover the coefficient formula. Relevant mathematical-record searches and accessible earlier claims yielded no equivalent threshold; that failure to find does not certify global priority.
+PASS
 
-**Value — PASS.** The source literature explicitly motivates a classification of unimodality for these graphs. The theorem settles an unbounded two-dimensional region with a sharp, unexpectedly factorial cutoff rather than a finite experiment, showing that both unimodal and nonunimodal behavior persist for each fixed \(a\ge5\). The result is narrower than a complete classification and has no asserted consequences for other graph polynomials.
+Read corrected four-type general-position counting in RESULT.md: row, column, clique and 2x2 rectangle classes for size ≥3, obtaining a*C(r,k)+r*C(a,k)+(r)_k*C(a,k)+C(a,2)C(r,2)C(4,k); c0=1,c1=ar,c2=C(ar,2). For a≥5 and r≥2a+4 the positive-difference ratio bounds at k=3,4,5 and k≥5 prove c0<...<c_a. For k≥a+1 tail is a*C(r,k), and c_{a+2}>c_{a+1}. Subtraction c_{a+1}−c_a=[a/(a+1)]C(r,a)(r−R_a+1)−r changes sign exactly at integer R_a=(a+1)(a−1)!+2a+2. Independent exact-integer checker tested a=5..9 and all polynomial entries for r≤1200; separate graph subset enumeration checked 3 small instances. These finitely many checks supplement unrestricted inequalities.
 
-**Closest literature and residual limits.** Iršič et al. (2024), Problem 5.2, motivates the question; Rather (2026), Theorems 5.3 and 5.6 and Corollary 5.7, supplies the corrected enumeration and certain smaller-parameter cases. The earlier printed enumerator cannot be substituted for the corrected one. Search coverage is incomplete for unindexed theses and manuscripts, and no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rather Theorem 5.3 already provides the exact four-term coefficient formula; no new credit is assigned for it. Rather Theorem 5.6/Cor.5.7 cover particular small a, while the earlier open Problem 5.2 asks for more general unimodality. The final all-a≥5 factorial boundary and sharp dip are not obtained from those prior theorems without the new difference estimates. Relevant Resultary hits concern windmill/spider general-position polynomials and different graphs.
+
+## value
+
+PASS
+
+General-position polynomial unimodality is a published motivating open problem. Determining an exact factorial transition across the whole unbounded parameter region a≥5,r≥2a+4, with explicit local obstruction and fully unimodal tail, is a natural precise invariant and is not a tiny numerical or artificial slice. The theorem explicitly does not cover a≤4 or smaller r.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
