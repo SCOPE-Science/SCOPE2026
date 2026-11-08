@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Reproducible finite checks and analytic boundary
-Run `python3 checker.py` using only the Python standard library. It exhaustively compares every ordered internal-child pair for \(m=2,3\) and \(1\le n\le6\), and for \(m=4\) and \(1\le n\le5\). The test reconstructs all Catalan trees, enumerates all leaf assignments, and compares each resulting multiset against a separate recurrence for the marked-node generating series. Expected final output: `ALL_CHECKS_OK 158`. The critical Boolean child and internal false values are checked against their radicals. Numerical tests or finite enumeration cannot validate a universal limit; the latter is proved via explicit factorial-moment formulas and an Euler-limit argument in the manuscript. No independent audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Mark one internal node; the distinguished root contributes G_aG_b and either ancestor child gives factor 2G, so M_ab=G_aG_b/(1−2G). For a fixed fully labelled fringe of ℓ leaves, one- and two-node contractions yield exact Catalan-ratio first and factorial second moments, hence L² convergence of occurrence frequencies. Distinct identical fringes cannot nest, validating the double contraction. Critical 0/2 Galton–Watson extinction and finite-fringe truncation yield the empirical π_aπ_b law for every fixed finite m; deterministic Gödel implication maps to internal-output τ. The finite-chain tail recursion has equi-Lipschitz scaling and unique ODE limit S(t)=2−√(1+2t), giving child density (1+2t)^−1/2 and top atom 2−√3, then internal output density 2/(√(1+2t))−1 and atom 4−2√3. For m=2, false internal proportion π_1π_0=√3−3/2. Independent direct enumeration confirmed internal-node pair TOTAL identities for 8 (m,n) cases; the universal convergence is analytic.
+
+## originality
+
+PASS
+
+Yildiz proves root-output and root-split laws, not empirical frequencies over all nodes. Janson gives general conditioned-Galton–Watson fringe frequencies, and a combination with Yildiz can yield some convergence as a corollary; the submitted result additionally derives an exact marked-node series, explicit complete finite-chain pair/output proportions, a Boolean intermediate-value constant, and a distinct continuum output law. The result is not claimed as a new universal fringe law. Best-of-knowledge priority is limited by generic-theorem specialization.
+
+## value
+
+PASS
+
+The natural observable is the fraction of intermediate implication operations with particular input/output truth levels, not just the final root. Exact internal pair enumerators, a rigorously concentrated finite-chain frequency vector, and a second, different dense-chain law measure the computational semantics of random formulas. The explicit Boolean false-share and top atom are reusable interpretable invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
