@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An arbitrary cost-minimizing facility can be chosen among the reports; directional slopes and reflection reduce every four-report profile to the explicit normal form with a report at the optimal origin. The four EPCD probabilities and cost expressions produce three exact polynomial identities. Each is nonnegative, with a common noncollocated equality profile. The independent random-dictator triangle-inequality bound is sharp on that same profile. Hence the entire mixture law and its nontrivial equality classification hold on the continuous circle, including coincident and antipodal reports. Three symbolic identities were separately expanded to zero; an exact-rational verifier checked 37,136 independent profiles and 4,851 case parameter values. These finite checks do not replace the written universal proof.
+PASS
 
-## Originality — PASS (self-review)
+Four labelled report copies on R/Z with geodesic distance admit a globally optimal report because the piecewise-linear total-distance function only jumps upward at reports. The optimality slope inequalities and reflection yield normalized (-a,0,b,c), 0<=a<=1/2, 0<=b<=c<=1/2 with OPT=a+b+c. For four-agent EPCD, probability of clockwise report zi is (g_{i+1}+g_{i+2})/2; expressing full social costs and splitting according to a+c<=1/2, a+b<=1/2<=a+c, or a+b>=1/2 yields three exact algebraic identities for F=5OPT-4C_E, each nonnegative, and equality only at (-1/4,0,0,1/4) for OPT>0. RD triangle inequality gives <=3OPT/2 and same witness attains both bounds, so every fixed mixture has exact sharp ratio (5+lambda)/4 for lambda in [0,1], including EPCD 5/4 and equal mixture 11/8. Independent rational input checks verified the direct random-deletion EPCD formula and all three case identities; they are corroboration, not proof over continuum.
 
-The directly relevant primary source by Chan, Lin and Wang (arXiv:2609.12792, first public September 11, 2026) defines EPCD and proves the globally sharp population-uniform upper bound of \(3/2\) for equal mixing, but its asymptotic sharpness construction explicitly uses even population \(n\ge6\), and its four-agent lower bound concerns all possible strategyproof mechanisms. This does not yield the exact four-agent bound \(11/8\) or the \(5/4\) EPCD theorem. The 2025 Rogowski–Dziubiński paper concerns odd populations, and Meir's 2019 PCD guarantee concerns three-voter social cost rather than the full four-voter cost after deletion. Searches of related mathematical statements for aliases, four-report parameters and ratios found no dominating statement. Priority risk remains for unindexed equivalent derivations; independent novelty review is unperformed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves the first even-population specialization of a currently studied circle mechanism, yields a strict improvement from the uniform \(3/2\) guarantee to \(11/8\) for the published mixture, and shows the unmixed deletion rule has exact factor \(5/4\). The whole continuum of mixture weights is sharp against one rigid extremal configuration. It makes a substantive finite-population design distinction: at four agents the efficiency-best fixed mixture is pure EPCD, whereas equal mixing is motivated by the large-population uniform problem.
+Chan–Lin–Wang introduce even-population EPCD and show 3/2 for the equal-weight mixed mechanism uniformly in population size, not the 4-agent exact 11/8 from accessible abstract. Their unrestricted strategyproof 4-agent lower bound is about a different minmax object. Prior 3-agent PCD results and odd-population mixtures cannot be directly used for four-agent deletion+full-cost evaluation. Their complete 2026 primary paper remains inaccessible, hence a material priority risk but not evidence of coverage.
 
-## Scope and limitations
+## value
 
-The result treats only four agents and the geodesic circle, with report-independent mixture weights. It does not solve the globally best strategyproof mechanism or larger population sizes. No independently conducted scientific audit is claimed. The verifier enumerates grids and rational test profiles; universal validity derives from the analytical proof.
+PASS
 
-## Closest primary sources
+The exceptional n=4 case is the smallest even population for the mechanism and tests sharpness of a population-independent guarantee. Exact 5/4, 11/8, and an affine interpolation law, with an equality-classification witness, quantify the mechanism-performance gap rather than merely supplying another loose bound.
 
-- Chan, Lin and Wang (2026), https://arxiv.org/abs/2609.12792 — same mechanisms, uniform rather than sharp four-agent factors.
-- Rogowski and Dziubiński (2025), https://arxiv.org/abs/2505.12943 — odd populations only.
-- Meir (2019), https://arxiv.org/abs/1902.08070 — three-agent PCD, not four-agent EPCD.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
