@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:49:09.937358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed fixed-composition exact run-count pmf by alternating positive-block compositions: even 2k count 2*C(a−1,k−1)C(b−1,k−1), odd 2k+1 count C(a−1,k)C(b−1,k−1)+C(a−1,k−1)C(b−1,k). Decomposing selected adjacent-change indicators into edge components and alternating orientations gives factorial moments through order four, converted via Stirling numbers to a rational fourth cumulant and Q_n(t) (explicit in frozen RESULT). Independently enumerated all fixed-count binary words through n12 and compared exact rational cumulants and formula. Verified transformed (1+y)^3 Q_n((n−1+n²y/4)/(1+y)) coefficients, whose signs are +,+,−,− for n≥10. Descartes plus positive n−1 and negative balanced boundary gives exactly one crossing in feasible range, not just a numerical observation. Exactly checked small n4..9, and asymptotic Q_n(αn²)/n^7→8α(30α²−12α+1). Independent all-integer signs through n400 corroborated. Discrete equality not guaranteed to occur for a feasible ab.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazemi–Jafari derives probability mass functions and first/second moments for order statistics of two run types, not the complete fourth cumulant sign theorem. Smeeton–Cox addresses runs-test conditional distributions and calibration."
+        ],
+        "reasoning": "The full distribution is broader data from which any moment can be calculated, but no identified stronger structural theorem entails exactly one sign crossing at all lengths. Historical full scans were not all obtainable; material priority risk retained.",
+        "searches": [
+          "Kazemi–Jafari arXiv:1410.8167 complete accessible preprint",
+          "Smeeton–Cox 2003 do-it-yourself shuffling and runs",
+          "Mood 1940 distribution theory runs",
+          "Barton–David 1957 Multiple Runs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 331f105b9fe06e0963e95823c8bf3dcc9bc0dc09",
+        "Frozen verify_run_cumulant.py SHA 1b13fc0987a50aaa2aadd20c330ebf58fd7be16a",
+        "Independent checks CASE3_OK",
+        "Kazemi–Jafari arXiv:1410.8167",
+        "Smeeton–Cox 2003 doi:10.1177/1536867X0300300304",
+        "Mood 1940 doi:10.1214/aoms/1177731825",
+        "Resultary fixed-composition run-transitions covariance record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known probability law fixes all moments in principle; this fact alone does not automatically certify that a closed polynomial simplifies to one positive root for all n≥10. The signed transformed cubic and endpoint inequalities prove the global crossing."
+        ],
+        "reasoning": "The claim is not independent of the old pmf, but its exact structural global consequence is not stated by checked sources; credit older work for the distribution.",
+        "searches": [
+          "Kazemi–Jafari arXiv:1410.8167 sections 1-4",
+          "Smeeton–Cox 2003",
+          "Mood 1940 DOI 10.1214/aoms/1177731825"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation is the sign of standardized excess kurtosis, since variance is positive for n≥3; classical conditional pmf determines its numeric moments by summing."
+        ],
+        "reasoning": "The same statistic can be presented as fourth joint cumulants of adjacent-change indicators, or fixed-content runs kurtosis, but the unique sign-crossing theorem is a further global algebraic consequence not located as an explicit result.",
+        "searches": [
+          "Resultary: fixed content binary runs fourth cumulant kurtosis unique sign phase threshold",
+          "published exact dependence phases of fixed-composition run transitions",
+          "Wald–Wolfowitz conditional runs null"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact finite run distributions are classical and are expressly not novel. Pairwise transition covariance table addresses second-order statistics; no fourth-order all-n threshold table was identified."
+        ],
+        "reasoning": "Comparing the exact known mass table with the proposed global phase diagram establishes what is actually added: polynomial fourth cumulant and an algebraic sign classification.",
+        "searches": [
+          "classical runs exact pmf binomial compositions",
+          "Resultary: exact dependence phases of fixed-composition run transitions",
+          "Resultary: fixed content binary runs fourth cumulant kurtosis unique sign phase threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the evaluated fourth cumulant and global single sign-boundary theorem with exact length-10 onset and limiting threshold, NOT for known conditional runs distribution or first two moments. Exact classic distribution logically permits calculating fourth cumulant but does not by itself state/prove its all-length monotone sign regime.",
+      "residual_risks": [
+        "Mood 1940 and Barton–David 1957 complete historical articles and older monographs were not fully read; they might contain equivalent higher-moment sign results.",
+        "Kurtosis-sign crossing alone yields no Berry–Esseen or tail-probability guarantee; conditional fixed-composition model only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper establishes run-type order statistics and first two moments, not a fourth cumulant phase diagram.",
+          "evidence": [
+            "Kazemi and Jafari, arXiv:1410.8167; Lemma 3.1 and abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.8167",
+          "material_read": "Accessible 14-page preprint including abstract, distribution formulas and Section 3 conditional means/variances, inspected rendered pages 1 and 5",
+          "method": "Full arXiv PDF text and page images",
+          "title": "Characterization of Order Statistics in Two Runs Using Conditional Expectation",
+          "trigger": "Same fixed-class binary run model"
+        },
+        {
+          "assessment": "The conditional null distribution is old; the new all-n fourth cumulant sign theorem is not explicitly reported.",
+          "evidence": [
+            "Smeeton and Cox (2003)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1177/1536867X0300300304",
+          "material_read": "Accessible full-text account of exact run-count distribution and calibration; compared reported statistics",
+          "method": "OA full-text article",
+          "title": "Do-it-yourself shuffling and the number of runs under randomness",
+          "trigger": "Classical conditional Wald–Wolfowitz runs statistic"
+        },
+        {
+          "assessment": "Cannot assert absence of matching fourth-cumulant claim in unread full text.",
+          "evidence": [
+            "Mood (1940), Annals of Mathematical Statistics 11, 367–392"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177731825",
+          "material_read": "Bibliographic article record and first-page/abstract-access context; complete 26-page historical text not available",
+          "method": "Project Euclid bibliographic/preview access",
+          "title": "The Distribution Theory of Runs",
+          "trigger": "Foundational same-statistic primary source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of excess kurtosis in the exact permutation-null runs test is a natural descriptor of fourth-order departure from Gaussianity. An all-length unique balance transition, first n10 occurrence, and universal critical composition constant are motivated structural facts, not merely a raw moment table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 331f105b9fe06e0963e95823c8bf3dcc9bc0dc09",
+    "Frozen verify_run_cumulant.py SHA 1b13fc0987a50aaa2aadd20c330ebf58fd7be16a",
+    "Independent checks CASE3_OK",
+    "Kazemi–Jafari arXiv:1410.8167",
+    "Smeeton–Cox 2003 doi:10.1177/1536867X0300300304",
+    "Mood 1940 doi:10.1214/aoms/1177731825",
+    "Resultary fixed-composition run-transitions covariance record"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Mood 1940 and Barton–David 1957 complete historical articles and older monographs were not fully read; they might contain equivalent higher-moment sign results.",
+    "Kurtosis-sign crossing alone yields no Berry–Esseen or tail-probability guarantee; conditional fixed-composition model only."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact fourth-cumulant polynomial follows from a finite path-edge cluster enumeration of factorial moments and conversion to ordinary moments. A separate binomial-composition count gives independent exact checks. The transformed cubic has coefficient signs \((+,+,-,-)\) for every integer length at least \(10\); Descartes' rule proves one and only one sign transition. The finite lower boundary and every endpoint are explicitly checked. An optional symbolic checker reconstructs the polynomial rather than merely substituting sample inputs.
+## correctness
 
-**Originality — PASS (qualified).** The known fixed-content runs law mathematically determines the fourth moment, so its mere computation would not suffice. The new assessed statement is the complete single-transition theorem, the sharp length-ten onset, and the universal limiting critical proportion. An existing published exact analysis of the same transition indicators gives only pairwise covariance phases and the second cumulant. Inspected full accessible texts by Kazemi–Jafari and Smeeton–Cox address distributions, conditional first/second moments, and testing, without the stated global fourth-cumulant phase. The older foundational scans and some runs monographs were not fully accessible; historical implicit coverage is possible.
+PASS
 
-**Mathematical value — PASS.** The class imbalance affects the direction of the non-Gaussian fourth-cumulant correction under an exact nonparametric testing null. A natural one-parameter transition is completely classified, with explicit finite and asymptotic boundaries. This is a nontrivial structural conclusion requiring a global polynomial-sign argument, not merely a restatement of a probability table. It does not by itself imply a normal-tail error bound.
+Reconstructed fixed-composition exact run-count pmf by alternating positive-block compositions: even 2k count 2*C(a−1,k−1)C(b−1,k−1), odd 2k+1 count C(a−1,k)C(b−1,k−1)+C(a−1,k−1)C(b−1,k). Decomposing selected adjacent-change indicators into edge components and alternating orientations gives factorial moments through order four, converted via Stirling numbers to a rational fourth cumulant and Q_n(t) (explicit in frozen RESULT). Independently enumerated all fixed-count binary words through n12 and compared exact rational cumulants and formula. Verified transformed (1+y)^3 Q_n((n−1+n²y/4)/(1+y)) coefficients, whose signs are +,+,−,− for n≥10. Descartes plus positive n−1 and negative balanced boundary gives exactly one crossing in feasible range, not just a numerical observation. Exactly checked small n4..9, and asymptotic Q_n(αn²)/n^7→8α(30α²−12α+1). Independent all-integer signs through n400 corroborated. Discrete equality not guaranteed to occur for a feasible ab.
 
-**Closest literature and limitations.** Wald–Wolfowitz (1940), Mood (1940), Smeeton–Cox (2003), Kazemi–Jafari (arXiv:1410.8167, 2014), Barton–David (1957), and the published transition-covariance study. Full classical scans and all historical monographs were not exhaustively inspected. The underlying exact pmf is classical; no claim of independence or external validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the evaluated fourth cumulant and global single sign-boundary theorem with exact length-10 onset and limiting threshold, NOT for known conditional runs distribution or first two moments. Exact classic distribution logically permits calculating fourth cumulant but does not by itself state/prove its all-length monotone sign regime.
+
+## value
+
+PASS
+
+The sign of excess kurtosis in the exact permutation-null runs test is a natural descriptor of fourth-order departure from Gaussianity. An all-length unique balance transition, first n10 occurrence, and universal critical composition constant are motivated structural facts, not merely a raw moment table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_run_cumulant.py --symbolic` under Python 3.10 or newer with SymPy installed. The ordinary checks use only Python standard-library rational and integer operations; run `python3 verify_run_cumulant.py` if SymPy is unavailable.
+## correctness
 
-The checker independently enumerates binary arrangements and run counts, compares with the binomial-composition exact distribution, and evaluates the fourth cumulant from rational raw moments. It checks every pair of positive class counts for lengths from \(2\) through \(100\), all sign rows through length \(1000\), and both transformed-cubic endpoint coefficients through length \(499\). The symbolic phase constructs the cluster formula for factorial moments through order four and verifies the generic cumulant identity and four transformed coefficients by polynomial cancellation.
+PASS
 
-The infinite sign classification is proved mathematically using Descartes' sign rule, endpoint factorizations and a finite check for lengths \(4\)–\(9\). Exhaustive word enumeration is not presented as proof for unbounded lengths. Uninspected classical primary texts limit certainty about absolute novelty. Independent validation has not occurred.
+Reconstructed fixed-composition exact run-count pmf by alternating positive-block compositions: even 2k count 2*C(a−1,k−1)C(b−1,k−1), odd 2k+1 count C(a−1,k)C(b−1,k−1)+C(a−1,k−1)C(b−1,k). Decomposing selected adjacent-change indicators into edge components and alternating orientations gives factorial moments through order four, converted via Stirling numbers to a rational fourth cumulant and Q_n(t) (explicit in frozen RESULT). Independently enumerated all fixed-count binary words through n12 and compared exact rational cumulants and formula. Verified transformed (1+y)^3 Q_n((n−1+n²y/4)/(1+y)) coefficients, whose signs are +,+,−,− for n≥10. Descartes plus positive n−1 and negative balanced boundary gives exactly one crossing in feasible range, not just a numerical observation. Exactly checked small n4..9, and asymptotic Q_n(αn²)/n^7→8α(30α²−12α+1). Independent all-integer signs through n400 corroborated. Discrete equality not guaranteed to occur for a feasible ab.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the evaluated fourth cumulant and global single sign-boundary theorem with exact length-10 onset and limiting threshold, NOT for known conditional runs distribution or first two moments. Exact classic distribution logically permits calculating fourth cumulant but does not by itself state/prove its all-length monotone sign regime.
+
+## value
+
+PASS
+
+The sign of excess kurtosis in the exact permutation-null runs test is a natural descriptor of fourth-order departure from Gaussianity. An all-length unique balance transition, first n10 occurrence, and universal critical composition constant are motivated structural facts, not merely a raw moment table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
