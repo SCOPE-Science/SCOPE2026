@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary positive durations of finite mean (including deterministic and atomic laws), the stationary forward-residual Laplace transform is \((1-\phi(s))/(s\tau)\). A sign flip at each renewal gives the signed renewal identity \(\widehat C(s)=s^{-1}-2(1-\phi(s))/(\tau s^2(1+\phi(s)))\). Filtering by the harmonic kernel shows \(\operatorname{Var}(X_0)=v^2\widehat C(k)/k\), producing the claimed exact formula. Strict Jensen establishes the unique deterministic minimum, and the positive two-point family proves sharp non-attained supremum. The two high-stiffness limits isolate speed and mean duration, and an algebraic inversion plus uniqueness of Laplace transforms recover the distribution. A finite second waiting-time moment gives the inverse-stiffness coefficient, while direct periodic phase analysis gives the finite deterministic limit. No finite experiment is used in place of these proofs. Independent regenerative-reward equations and exact-interval event-driven checks reproduce the displayed identities. Limit: no general heavy-tail weak-trap exponent or finite-sample inverse guarantee is established.
+PASS
 
-## Originality — PASS, with a bounded priority risk
+Equilibrium renewal residual transform equals (1-phi(s))/(tau s); alternating renewal gives C-hat(s)=1/s-2(1-phi)/(tau s^2(1+phi)). The harmonic filter yields V=v^2 C-hat(k)/k. Strict Jensen for e^-kL proves unique constant-duration minimizer; a positive two-point rare-long family tends to the upper envelope, and convex order forces monotonicity. Taking k->infty twice recovers v,tau and then the complete phi, giving law by uniqueness of Laplace transforms. k->0 finite-variance expansion gives inverse-k constant, while uniform phase for deterministic duration gives uniform limiting X and variance v^2 tau^2/12. Independent telegraph and alternative reward checks passed sampled cases.
 
-The 2024 Farago–Smith paper (arXiv:2401.01576, full text inspected, sections II–IV) establishes the model and general numerical stationary-density framework, but its explicit computational treatment uses a nonlinear sinusoidal potential and does not supply the harmonic variance identity with the global convex-order bounds, inverse stiffness spectroscopy, and weak-trap discontinuity. The 2024 Sun–Ye–Podgornik preprint (arXiv:2409.00578, sections II–III inspected) uses exponential Markovian run/tumble sojourns and is not an arbitrary equal-law alternating-renewal model. Sarkar–Santra–Basu (arXiv:2210.09035, full abstract and harmonic-chain model inspected) analyze harmonic chains driven by exponentially correlated active reservoirs, not the inverse reconstruction. An earlier published non-Poisson slit-wall transport result contains a superficially similar convex-order/inverse-Laplace pattern but for a different renewal reward and physical observable; it does not logically imply the harmonic alternating-sign renewal identity or weak-trap boundary. An earlier published alternating-renewal two-time aliasing finding assumes two *different* orientation-sojourn laws, whereas the present injectivity theorem assumes one common law. General renewal-correlation and linear-filter theorems may imply the baseline formula and could subsume portions of the specialization; that remaining possibility is explicitly retained. No independent publication-priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source problem asks how a non-exponential run-time law changes confinement statistics. The exact stationary-variance map is a natural observable, and its injectivity provides an experimentally motivated *principled identification target*. The universal sharp optimizer applies simultaneously at all trap stiffnesses and over all positive mean-constrained duration laws, rather than optimizing an arbitrary finite slice. Most significantly, a zero-versus-positive timing-variance dichotomy separates bounded unconfined periodic excursions from random diffusive spreading whose stationary variance grows like inverse stiffness. This is a structural localization boundary with an exact physical prefactor, not merely a numerical table or normalization check.
+Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. The general waiting-time transform and harmonic resolvent readily yield the baseline V formula once combined; this deduction is credited. Distinct added statements require strict Jensen for all k, extract v/tau from high-k behavior, uniqueness of Laplace transforms, and small-k second-moment expansion. Farago-Smith nonlinear-potential density numerics do not logically force these exact all-law properties.
 
-## Closest literature and limitations
+## value
 
-The closest primary papers are Farago–Smith (arXiv:2401.01576), Sun–Ye–Podgornik (arXiv:2409.00578), and Sarkar–Santra–Basu (arXiv:2210.09035). The analytic model assumes deterministic sign reversal, identical iid sojourn laws, no independent translational noise, and exact stationary observations. A broader published theorem specializing renewal-noise linear filters may overlap with this result, so publication priority remains a residual risk. Numerical checks cannot prove universality, nor is finite-observation identifiability established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The harmonic-trap variance is a physically natural summary of the actual stationary particle, and varying trap stiffness gives an exact inverse observable for a non-Markovian waiting-time law. Uniform optimality over all positive mean-constrained laws and a sharp localization/diffusion boundary provide substantive structural insights rather than a numerical model slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

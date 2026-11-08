@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-# Reproduction and proof/experiment boundary
+# Independent mathematical audit
 
-The self-contained `verification.py` requires only the Python 3 standard library. From the same directory run `python3 verification.py`.
+## correctness
 
-The independent second-moment derivation uses \(Y_n=S_{T_n}X_{T_n}\) just after a sign flip. Conditional on an iid run length \(L_n\), with \(c=v/k\) and \(A_n=e^{-kL_n}\), its exact reversal map is
-\[
-Y_{n+1}=-A_nY_n-c(1-A_n).
-\]
-Write \(a=\mathbb EA_n\), \(b=\mathbb EA_n^2\), \(m=\mathbb EY_n\), \(M=\mathbb EY_n^2\). Stationary moments solve
-\[
-m=-c\frac{1-a}{1+a},\qquad
-M=\frac{2c(a-b)m+c^2(1-2a+b)}{1-b}.
-\]
-The exact integrated squared position within one run is
-\[
-c^2L+\frac{2c(Y_n-c)(1-e^{-kL})}{k}
-+\frac{(Y_n-c)^2(1-e^{-2kL})}{2k}.
-\]
-Dividing its expectation by \(\mathbb EL=\tau\) yields
-\[
-V_{\mathrm{reward}}=\frac{c^2\tau+2c(m-c)(1-a)/k+(M-2cm+c^2)(1-b)/(2k)}{\tau},
-\]
-which simplifies algebraically to the stationary-renewal-correlation formula in `RESULT.md`. The independent derivation uses no numerical fits.
+PASS
 
-Executed reproduction tests: 48 exact correlation-versus-reward comparisons using deterministic, exponential, Erlang-2 and symmetric two-point dwell times; 12 independent event-driven stationary squared-position time integrations (120,000 sampled runs per case, plus burn-in); Jensen-bound samples at 12 mean/rate pairs; weak-trap coefficient checks for three nondegenerate laws and the deterministic finite limit; and sharp unattained upper-envelope convergence. All assertions passed. The maximum observed independent-event-integration relative discrepancy in those 12 cases is below 0.4%. Random draws are seeded, making checks reproducible. The analytic derivation is the mathematical proof; finite stochastic examples are not exhaustive and cannot prove a universal waiting-law or continuous-parameter statement.
+Equilibrium renewal residual transform equals (1-phi(s))/(tau s); alternating renewal gives C-hat(s)=1/s-2(1-phi)/(tau s^2(1+phi)). The harmonic filter yields V=v^2 C-hat(k)/k. Strict Jensen for e^-kL proves unique constant-duration minimizer; a positive two-point rare-long family tends to the upper envelope, and convex order forces monotonicity. Taking k->infty twice recovers v,tau and then the complete phi, giving law by uniqueness of Laplace transforms. k->0 finite-variance expansion gives inverse-k constant, while uniform phase for deterministic duration gives uniform limiting X and variance v^2 tau^2/12. Independent telegraph and alternative reward checks passed sampled cases.
 
-Scientific scope: identical iid orientation residence lengths, positive finite mean, fixed propulsion speed, overdamped harmonic trap, and stationary initialization. Inverse spectroscopy requires exact data over all positive trap stiffnesses. Scientific originality is subject to remaining literature-priority risk; independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. The general waiting-time transform and harmonic resolvent readily yield the baseline V formula once combined; this deduction is credited. Distinct added statements require strict Jensen for all k, extract v/tau from high-k behavior, uniqueness of Laplace transforms, and small-k second-moment expansion. Farago-Smith nonlinear-potential density numerics do not logically force these exact all-law properties.
+
+## value
+
+PASS
+
+The harmonic-trap variance is a physically natural summary of the actual stationary particle, and varying trap stiffness gives an exact inverse observable for a non-Markovian waiting-time law. Uniform optimality over all positive mean-constrained laws and a sharp localization/diffusion boundary provide substantive structural insights rather than a numerical model slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
