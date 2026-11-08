@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification of the analytic statements
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and `mpmath`. The program passed 75 deterministic assertions, comparing exact Fibonacci identities and continued-fraction inequalities, searching frequencies for seven iteration counts and four analytic weights, and testing the complete envelope against its theoretical endpoints. Four phase subsequences at increasing scales converge numerically to the asserted period-one envelope. The proof of infinitely many frequencies and the uniform asymptotic is in RESULT.md; finite checks alone cannot establish those assertions. The sharp constants use \(a=\sigma/\sqrt5\) and \(b=\pi^2/2\). The derivative of Steiner symmetrization is a first-order shape formula and makes no claim about nonlinear error uniformly in the number of operations.
+## correctness
+
+PASS
+
+PASS: The first-variation is explicitly restricted to perturbations about the disk, with mean and translation harmonics excluded. Product projections and Fourier norms give exact operator norm. Continued-fraction dominance, localized Binet asymptotics and arithmetic endpoint minimax prove full log-periodic accumulation range; no nonlinear convergence claim is inferred.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, confined to full exact Fibonacci optimizer and phase-resolved sharp constants of the Steiner first variation. Related fixed-rotation Minkowski averaging has spectrally analogous factors and covers stretched-exponential order and subsequential sharpness; this broad rate is not new. Sun–Sun 2026 inaccessible full text remains a serious overlap risk; its accessible abstract does not decisively cover the exact envelope.
+
+## value
+
+PASS
+
+PASS: For a natural irrational deterministic symmetrization schedule, exact maximizing Fibonacci modes and a nonconstant log-periodic leading loss demonstrate that the sharp convergence coefficient has no single limit. Both endpoints and their universal ratio distinguish genuine arithmetic resonance from generic order-of-decay bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
