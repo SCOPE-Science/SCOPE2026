@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-With Python 3 and no third-party dependencies, run `python3 verify_direction_fiber.py` from the directory holding the file. The checker uses `fractions.Fraction` to compare the length-1 through length-10 sign-word probabilities against the three-cell Markov chain, enumerate the two inverse-return paths for each gap length from 2 through 16, reconstruct inverse cylinders for several multi-gap schedules, and check equal lengths and disjoint interiors. The executed output was:
+## correctness
 
-```
-PASS exact_markov_word_checks 2046
-PASS first_return_two_branches k=2..16; disjoint equal cylinders
-PASS multi_return_equal_cylinder_lengths and counts
-PASS stationary_mean=1/3 stationary_down_frequency=1/3
-PASS sign_entropy=(2/3)log(2), typical_fiber_dimension=1/3
-PASS finite_checks_total 2234
-```
+PASS
 
-The displayed exact results concern finitely many finite words. The proof in `RESULT.md` supplies the infinite extrapolation via an exact path classification, Frostman bound, ergodicity, and local bi-Lipschitz conjugacy. The program does not certify originality, reach the entire infinite domain computationally, or perform independent validation. No Lean/external expert certificate is asserted.
+PASS: The increasing smooth interior conjugacy h(t)=sin²(pi t/2) converts the sign observation to tent-map threshold 2/3. The Markov refinement A=[0,1/2], B=[1/2,2/3], C=[2/3,1] has edges A→ABC, B→C, C→AB, so every C-to-C return of length k>=2 avoiding intermediate C has exactly two inverse branches C A^(k-1) C and C A^(k-2) B C. Their equal contraction 2^-k yields exactly 2^j equal-length, disjoint-interior cylinders after j returns; upper covers and the fair-branch Frostman measure give dimension lim j/n_j=p (including p=0). Countably many forbidden threshold preimages do not change dimension, and h preserves dimensions by countable compact interior exhaustion. Lebesgue tent ergodicity gives typical C frequency 1/3; the stationary two-state Markov transitions and entropy rate follow directly. Independent enumeration verified both first-return paths for every k=2,...,30. The infinite-fiber dimension is established analytically, not from finite enumeration.
+
+## originality
+
+PASS
+
+PASS with disclosed prior work: Bollt–Stanford–Lai–Życzkowski (2001) already establish severe nonuniqueness for misplaced tent-map partitions, and Pfante et al. (2013/2014) explicitly derive this exact two-state Markov process at threshold 2/3, so those statistical facts are not novel. Both relevant full texts were inspected; neither states a per-infinite-word Hausdorff dimension equal to minus frequency (including sparse, dimension-zero uncountable fibers). The surviving novelty is the every-word geometric inverse-fiber law, not Markov entropy or mere uncountability.
+
+## value
+
+PASS
+
+PASS: An observer has the *entire* direction time series but still retains a fractal family of potential initial conditions. The exact dimension as a function of observed minus density and typical 1/3 loss quantify an intrinsic deterministic inverse problem; the complete word-wise formula is more than a statistical rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

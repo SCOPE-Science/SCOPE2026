@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The increasing sine-square conjugacy carries the logistic map at parameter four to the full-height tent map. The strict direction threshold is exactly two thirds. A three-cell Markov partition gives exactly two inverse branches of slope magnitude \(2^{-k}\) for every prescribed gap \(k\ge2\) between two downward observations; no further hidden paths exist. The resulting inhomogeneous equal-diameter Cantor cylinders have count \(2^j\), length \((1/3)2^{-n_j}\), and asymptotic \(j/n_j\to p\). A covering argument and an explicit uniform branching Frostman measure give the matching dimension bounds (including \(p=0\)); local bi-Lipschitz transfer returns the result to the logistic coordinate. The ergodic theorem gives the typical frequency \(1/3\). These are analytic proofs of infinite assertions; the exact-rational program supplies separate finite consistency checks.
+## correctness
 
-**Originality — PASS, provisional under inspected evidence.** The 2026 directional-phase source does not formulate inverse-fiber dimensions. Bollt et al. (2001), read through the full mathematical text especially Section 8, already prove nonunique tent threshold codes, including uncountable indistinguishable sets; no word-by-word dimension function was found there. Pfante et al. (2013/2014) already analyze the exceptional two-thirds partition and Markov symbol statistics, so neither the threshold nor the coarse-graining nor the simple sign Markov law is claimed as new. Its full text could not be retrieved; priority remains subject to this explicit gap. The assessed new mathematical assertion is specifically \(\dim_{\mathrm H}E_w=p\) for every stated infinite observation word and the generic \(1/3\) ambiguity. Relevant published-result searches by structural claim, equivalent codings, and parameters found no covering entry; searches alone cannot establish novelty.
+PASS
 
-**Value — PASS.** A complete, infinite, noise-free direction-sign recording may still fail to localize the starting state to dimension zero. The exact dimension is a measurable feature of the observed sequence itself, not just an aggregate entropy loss; the theorem supplies the entire frequency-resolved family and the natural typical value. This distinguishes metric reconstruction ambiguity from the previously established existence of multiple indistinguishable points. The precise fiber statistic could inform observability and threshold-encoding questions, without asserting an application or a stronger theorem that has not been proved.
+PASS: The increasing smooth interior conjugacy h(t)=sin²(pi t/2) converts the sign observation to tent-map threshold 2/3. The Markov refinement A=[0,1/2], B=[1/2,2/3], C=[2/3,1] has edges A→ABC, B→C, C→AB, so every C-to-C return of length k>=2 avoiding intermediate C has exactly two inverse branches C A^(k-1) C and C A^(k-2) B C. Their equal contraction 2^-k yields exactly 2^j equal-length, disjoint-interior cylinders after j returns; upper covers and the fair-branch Frostman measure give dimension lim j/n_j=p (including p=0). Countably many forbidden threshold preimages do not change dimension, and h preserves dimensions by countable compact interior exhaustion. Lebesgue tent ergodicity gives typical C frequency 1/3; the stationary two-state Markov transitions and entropy rate follow directly. Independent enumeration verified both first-return paths for every k=2,...,30. The infinite-fiber dimension is established analytically, not from finite enumeration.
 
-**Closest literature and limits.** Bollt et al., Physica D 154 (2001), Section 8, addresses nonuniqueness; Pfante et al., Chaos 24 (2014), studies the same threshold's symbolic information theory; Dixit et al., arXiv:2609.00983v1, uses directional phases. The dimension statement is restricted to the fully chaotic logistic map, infinite admissible strict words with convergent minus frequency, and no noise; the uninspected Pfante full text remains a residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with disclosed prior work: Bollt–Stanford–Lai–Życzkowski (2001) already establish severe nonuniqueness for misplaced tent-map partitions, and Pfante et al. (2013/2014) explicitly derive this exact two-state Markov process at threshold 2/3, so those statistical facts are not novel. Both relevant full texts were inspected; neither states a per-infinite-word Hausdorff dimension equal to minus frequency (including sparse, dimension-zero uncountable fibers). The surviving novelty is the every-word geometric inverse-fiber law, not Markov entropy or mere uncountability.
+
+## value
+
+PASS
+
+PASS: An observer has the *entire* direction time series but still retains a fractal family of potential initial conditions. The exact dimension as a function of observed minus density and typical 1/3 loss quantify an intrinsic deterministic inverse problem; the complete word-wise formula is more than a statistical rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
