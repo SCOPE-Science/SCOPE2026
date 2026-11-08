@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof distinguishes same-layer from cross-layer pairs in an even cycle corona, proves a necessary and sufficient bound on the three clockwise landmark gaps, and obtains the exact count by a unique-long-gap subtraction. The sharp three-robot bound treats both \(m\ge3\) and the exceptional \(m=2\) case, including leaf landmarks in the lower bound. Legal gap transfers reduce an integer \(\ell_1\) discrepancy and lead to a repeatable labelled clockwise patrol; pendant detours preserve resolution. Independent finite enumeration from the graph's actual adjacency lists, paired with labelled-robot exploration, was replayed for cycle lengths \(4,6,8,10,12,14,16\). No infinite statement rests on the finite test alone.
+PASS
 
-## Originality
+Distance from core landmark c_a to cycle c_i is d_C(a,i), to its leaf ℓ_i is d_C(a,i)+1. Cross-layer ambiguity occurs only if all core landmarks lie within an m-vertex consecutive arc (equivalent to a cyclic gap >=m+1). Thus valid triples are exactly gap vectors g_i≥1,g_i≤m,sum 2m; subtract unique long-gap count from binom(2m,3) to obtain m(m−1)(m+4)/3. Legal unit transfers between donor/receiver gaps preserve [1,m], reduce target L1; for m>=3 reach (m−1,m−1,2) and use front-to-back slides for a repeatable clockwise labelled patrol; for m2 four triples form the vacancy-sliding cycle. Moving a core robot out/back to its leaf preserves distinct signatures. Explicit two-projection witness configurations show no resolving pairs for m>=3; for m2 four adjacent-leaf pairs resolve but freeze when moving inward. Independent BFS on n=4,6,8,10,12 confirmed all pairs, 210 valid core triples total, the gap iff, allowed pendant detours and connected legal configurations. General proof, not extrapolation, supplies all m.
 
-**PASS, with priority qualification.** Camacho Moreno and collaborators (arXiv:2610.13339, 2026-10-09) prove a two-robot result for odd unicyclic graphs but do not cover the even sunlet's core-triple gap criterion, all-configuration complete mobility or count. Ali, Rahim and Ali (2014) study the ordinary static metric dimension of sunlets; that result is not a statement about legal robot walks. The static dimension and familiar finite gap counting are not claimed to be novel in themselves. The closest accessible mathematical-record hits concern mobile *general position*, not mobile resolving robots. Targeted source, equivalence and coverage searches did not locate the full theorem, but such searches cannot establish universal historical priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The paper motivating the problem directly asks about complete-mobility properties outside its treated families. The new result does not merely report a graph-family number: it gives a necessary-and-sufficient classification of **every core-only** three-robot resolving set, proves that each such configuration lets each labelled robot reach every leaf and cycle vertex, gives exact frequency and connectivity, and isolates the smallest even sunlet where static and completely mobile dimensions diverge. This resolves a natural previously untreated parity boundary while specifying the dynamic mechanism.
+Camacho Moreno et al 2026 primary theorem concerns completely mobile robots on odd unicyclic graphs; cannot directly imply even sunlet triple movement or frequency. Ali–Rahim–Ali 2014 ordinary sunlet metric dimension is static (no move constraints). Resultary hits concern mobile general position, a different invariant. Similar mobile reconfiguration under alternative terminology remains a priority risk.
 
-## Limits and residual risks
+## value
 
-Only even sunlets with unit pendant leaves and core-only triple enumeration are classified; mixed core/leaf triples are not counted. The known ordinary metric dimension and the odd-unicyclic complete-mobility theorem are credited. A conceptually equivalent result might exist under alternative reconfiguration terminology. This is not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves the natural even-parity gap in a studied completely mobile resolving problem and gives explicit all-configuration classification, exact count, reconfiguration connectivity and individual patrol (not merely the mobile-dimension number). Distinguishes static and dynamic optimality at m2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
