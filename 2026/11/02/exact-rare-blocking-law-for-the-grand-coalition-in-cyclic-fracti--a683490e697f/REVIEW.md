@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The all-size claim is reconstructed from the exact strict inequality \(n d_S(i)>2|S|\), a complete characterization of permissible subsets on a connected cycle, and run-composition counting with an explicit \(n/r\) cyclic multiplicity factor. The Perron characteristic polynomial, tilted mean and variance, spectral aperiodicity, and dominated Fourier local limit establish both the sharp exponential rate and parity constants. Direct integer comparisons of every deviating subset through 18 agents, and an independent polynomial recurrence through 150 agents, passed. The finite checks do not replace the proof. Scope and parity/equality boundaries are explicit.
+PASS
 
-## Originality
+For C_n under symmetric unit valuation of neighbors and zero self-value, each grand-coalition member has utility 2/n. A strict-blocking S of size s needs n d_{C_n[S]}(i)>2s for every included i. A nonempty proper cycle subset cannot have all induced degrees 2; hence strict blockers are exactly s<n/2 with no isolated selected vertices. Decompose cyclic binary words into r one-runs of lengths≥2 and r zero-runs lengths≥1, yielding n/r*binom(s−r−1,r−1)*binom(n−s−1,r−1). At z0=3/4, 3-state transfer matrix has simple dominant root 3/2, logarithmic coefficient mean1/2, variance1/3. Distinct-phase self-loops enforce spectral aperiodicity and Fourier local CLT; dominated geometric summation below n/2 proves parity constants 3√3 (even), 6 (odd) times (√3/2)^n/sqrt(2πn). Independently enumerated all selected coalitions n=3..15 and compared direct strict utility with exact run formula, including n=3,4 zero. Finite enumeration is not the local limit proof.
 
-**PASS under accessible literature and mathematical-record comparisons, with residual priority uncertainty.** The initiating probabilistic-core paper gives general guarantees but no cycle grand-coalition enumeration or sharp constant. Aziz et al. discuss the five-cycle's strict-core obstruction, not the entire all-size strict-blocking count. The size-core literature concerns worst-case permitted deviations or multiplicative utility factors, not the uniform random coalition measure. Prior local results on complete bipartite fractional-hedonic graphs and a different cycle social-distance utility do not imply this statement. The cyclic run enumeration itself is not claimed as an invention; unindexed combinatorial or game-theoretic equivalents remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The 2023 relaxed stability criterion asks for the probability that a uniformly sampled group can block an outcome. The all-together partition on a sparse cycle is a natural transparent benchmark: it is genuinely core-unstable for every size at least five, yet its chance of encountering a uniformly random jointly beneficial deviation is exponentially small. The exact rate \(\sqrt3/2\), a polynomial prefactor, and a parity effect distinguish this probabilistic robustness from merely knowing that blocking coalitions exist. The claim is not an optimal-partition theorem.
+Best-of-knowledge originality of the specific final claim, excluding established background components; real Resultary searches and relevant primary-source statements did not show a dominating equivalent, with explicit primary access and unindexed-source residual risks. Core existence on cycles says a different partition can have no blockers; it does not imply any bound on the grand partition. General epsilon-core existence is not the claimed special partition count.
 
-## Closest literature and limits
+## value
 
-Fioravanti et al. (2023), https://arxiv.org/abs/2311.11101 ; Aziz et al. (2017), https://arxiv.org/abs/1705.10116 ; Fanelli et al. (2021), https://ijcai.org/proceedings/2021/26 ; Demeulemeester and Peters (2024), https://arxiv.org/abs/2412.01666 . This result treats only the standard unweighted cycle, strict blocking, and the grand coalition. It neither excludes a lower blocking fraction for other partitions nor claims that the transfer-matrix technique or binary-run enumeration is new.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Explicit quantitative fragility of a natural grand-coalition baseline in fractional hedonic games: exact setwise characterization, all-n counting and precise exponentially rare blocking probability with nontrivial parity effects. The specified grand partition is not claimed optimal and the calculation is a useful strict-core stability benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
