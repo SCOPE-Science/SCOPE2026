@@ -1,11 +1,21 @@
-# Self-review of the linear-forest shattering gap
+# Independent mathematical audit
 
-**Correctness — PASS.** Sixteen maximal independent sets of the ten-vertex path are generated from the independence-and-domination predicate and checked against the certificate. Exactly two of its ten vertex coordinates have eight positive occurrences, proving four-coordinate static shattering impossible. Queries at vertices 1, 4, and 7 realize all eight static patterns. A complete four-level decision tree has all sixteen possible leaf patterns realized, while the sixteen-concept count precludes a fifth level. For every positive number of disjoint path blocks, the exact product of maximal-independent-set families proves the static sum; concatenating local adaptive trees proves the adaptive lower bound, and the exact product cardinality gives its upper bound. Maximum-degree-one graphs split into edges and isolates, where both dimensions equal the edge count. The finite smallest-path assertion was exhaustively checked for orders at most ten. The standalone program replays all essential finite certificates.
+## correctness
 
-**Originality — PASS, subject to stated priority risk.** Chase and Freitag's 2018 model-theoretic account gives the general thicket shattering theory, not maximal-independent-set dimensions on paths. Guingona and coauthors' 2021 equality theorem concerns full zero-set linear-combination families and cannot imply the strict gap here. Song and Yao's 2020 main theorem maximizes the number of maximal independent sets of a specified cardinality, and the 2019/2024 paper of Krivelevich and collaborators concerns the distribution of random greedy outputs on paths; neither controls all online vertex-membership query trees. Ghazi and collaborators' 2021 composition theorem gives general asymptotic upper bounds, not an exact disjoint-domain path product. Searches for independent domination and maximal stable sets did not reveal a statement implying this result, but historical priority under other terminology is not certified.
+PASS
 
-**Value — PASS.** The finding establishes a sharp graph-structural threshold: degree one forces equality of static and adaptive shattering complexity, but degree two already admits an unbounded gap, even within forests. Its underlying witness is the smallest path displaying a strict gap, and every unbounded family member has an exact invariant formula, not merely a lower bound. The example delineates the limitations of substituting VC dimension for worst-case online mistake complexity in a natural independent-dominating-set membership problem.
+The path maximal independent sets are exactly independent dominating sets. Recursive decomposition on the first vertices gives 16 distinct P_10 concepts, independently exhaustively recomputed from adjacency. Their membership frequencies are (9,7,5,8,6,6,8,5,7,9); since only positions 4 and 7 occur in exactly 8 of 16 concepts, no four columns can realize 16 patterns, while columns {1,4,7} shatter all 8. An explicit complete depth-four adaptive query certificate with 16 distinct leaf concepts was fetched and checked for consistency; cardinality 16 excludes depth five. Disjoint-union maximality factors componentwise, so VC dimensions sum; concatenating complete adaptive trees gives Ldim>=4m and cardinality 16^m bounds above. For degree at most one, every edge contributes one independent binary choice and isolates are fixed. Independently exhaustively enumerated P1..P10 concept sets and VC/Ldim recursion, reproducing minimality profile and 256 two-block products. The finite P10 census plus arbitrary-product proof establishes the infinite gap without extrapolation.
 
-**Closest literature and scope.** The most directly comparable definitions occur in Chase–Freitag (arXiv:1801.07640); Guingona–Kolesnikov–Nierwinski–Soucy (arXiv:2109.04805) establish equality for a distinct structured class; Song–Yao (arXiv:2012.06066) and Krivelevich–Mészáros–Michaeli–Shikhelman (arXiv:1907.07216) address different maximal-independent-set parameters; Ghazi–Golowich–Kumar–Manurangsi (PMLR 132, 2021) treat aggregation closure bounds. The infinite construction is disconnected and does not solve the connected-path case. Search coverage is not a historical-priority certificate; the principal residual risk is an unlocated equivalent result under the phrase *independent dominating sets*.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chase–Freitag define/generalize Littlestone/thicket shattering; maximal independent dominating sets are an established graph class. Guingona et al. prove VC/Ldim equality for zero sets of *full linear-combination classes*, not these memberships (which exhibit strict inequality). Ghazi et al. give general Boolean aggregation bounds and Song–Yao count MIS but neither provides this exact first path or degree threshold. Resultary graph results discovered are about domination/other graph parameters, not the same pair of shattering dimensions.
+
+## value
+
+PASS
+
+This is a sharp structural degree threshold distinguishing static and adaptive shattering of an elementary natural graph concept class; one finite certified P10 witness plus a general disjoint-union amplification proves an unbounded difference. The specified narrow graph order is motivated by minimality, not a randomly chosen finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-The finite portion is replayable with `python3 verify.py` alongside `certificate.json`. Every certificate row is reconstructed against the ten-point path graph, not trusted as input. The checker verifies all sixteen distinct maximal independent sets, counts membership frequencies in ten columns, checks eight fixed-query traces at coordinates 1, 4, and 7, and validates all paths in the complete depth-four adaptive query tree. Direct exact VC-support searches and a memoized two-branch rank recursion cover every path order from 1 through 10. The two-component direct-product membership count is also checked. Its standard-library run printed:
+# Independent mathematical audit
 
-```
-PATH10_CERTIFICATE_PASS concepts=16 balanced_positions=2 VC=3 Ldim=4 tree_leaves=16
-FIRST_PATH_GAP_PASS [(0, 0), (1, 1), (1, 1), (1, 1), (2, 2), (2, 2), (2, 2), (3, 3), (3, 3), (3, 4)]
-TWO_COMPONENT_PRODUCT_PASS maximal_independent_sets=256
-ALL_NEW_FINITE_CHECKS_PASS
-```
+## correctness
 
-The proof for all positive component counts is mathematical: componentwise maximal independence gives an exact Cartesian product; fixed-support shattering decomposes componentwise; depth-four adaptive trees concatenate; and concept cardinality forbids greater depth. These infinite quantifiers are not inferred from the finite checker. The proof does not claim a connected-family extension or a classification of all paths.
+PASS
+
+The path maximal independent sets are exactly independent dominating sets. Recursive decomposition on the first vertices gives 16 distinct P_10 concepts, independently exhaustively recomputed from adjacency. Their membership frequencies are (9,7,5,8,6,6,8,5,7,9); since only positions 4 and 7 occur in exactly 8 of 16 concepts, no four columns can realize 16 patterns, while columns {1,4,7} shatter all 8. An explicit complete depth-four adaptive query certificate with 16 distinct leaf concepts was fetched and checked for consistency; cardinality 16 excludes depth five. Disjoint-union maximality factors componentwise, so VC dimensions sum; concatenating complete adaptive trees gives Ldim>=4m and cardinality 16^m bounds above. For degree at most one, every edge contributes one independent binary choice and isolates are fixed. Independently exhaustively enumerated P1..P10 concept sets and VC/Ldim recursion, reproducing minimality profile and 256 two-block products. The finite P10 census plus arbitrary-product proof establishes the infinite gap without extrapolation.
+
+## originality
+
+PASS
+
+Chase–Freitag define/generalize Littlestone/thicket shattering; maximal independent dominating sets are an established graph class. Guingona et al. prove VC/Ldim equality for zero sets of *full linear-combination classes*, not these memberships (which exhibit strict inequality). Ghazi et al. give general Boolean aggregation bounds and Song–Yao count MIS but neither provides this exact first path or degree threshold. Resultary graph results discovered are about domination/other graph parameters, not the same pair of shattering dimensions.
+
+## value
+
+PASS
+
+This is a sharp structural degree threshold distinguishing static and adaptive shattering of an elementary natural graph concept class; one finite certified P10 witness plus a general disjoint-union amplification proves an unbounded difference. The specified narrow graph order is motivated by minimality, not a randomly chosen finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

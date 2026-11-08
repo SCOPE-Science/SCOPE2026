@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:52:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-degree-threshold-for-an-unbounded-vc-littlestone-gap-in--d770e9ac4db6/RESULT.md blob a70fdfc5bcf52eb290aa3d8bf13af7b097fec3f3",
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-degree-threshold-for-an-unbounded-vc-littlestone-gap-in--d770e9ac4db6/verify.py blob eafaec20deda4706bb9eacfdc301024311ce744a",
+        "/mnt/data/scope_worker03_20261106T1238Z/independent_checks.py"
+      ],
+      "rationale": "The path maximal independent sets are exactly independent dominating sets. Recursive decomposition on the first vertices gives 16 distinct P_10 concepts, independently exhaustively recomputed from adjacency. Their membership frequencies are (9,7,5,8,6,6,8,5,7,9); since only positions 4 and 7 occur in exactly 8 of 16 concepts, no four columns can realize 16 patterns, while columns {1,4,7} shatter all 8. An explicit complete depth-four adaptive query certificate with 16 distinct leaf concepts was fetched and checked for consistency; cardinality 16 excludes depth five. Disjoint-union maximality factors componentwise, so VC dimensions sum; concatenating complete adaptive trees gives Ldim>=4m and cardinality 16^m bounds above. For degree at most one, every edge contributes one independent binary choice and isolates are fixed. Independently exhaustively enumerated P1..P10 concept sets and VC/Ldim recursion, reproducing minimality profile and 256 two-block products. The finite P10 census plus arbitrary-product proof establishes the infinite gap without extrapolation.",
+      "residual_risks": [
+        "Finite independent calculations do not replace the analytic and infinite-quantifier parts of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zero sets of full linear-combination families have equality under hypotheses not met by a strict-gap MIS class.",
+          "General Boolean closure and thicket results do not specify maximal-independent-set path dimension profiles."
+        ],
+        "reasoning": "The broad framework provides upper cardinality constraints, but not the sharp maximum degree-two witness/minimality; an earlier implicit graph-learning classification remains a risk.",
+        "searches": [
+          "arxiv:2109.04805",
+          "PMLR 132 ghazi21a",
+          "arxiv:1801.07640"
+        ]
+      },
+      "checked_sources": [
+        "Chase & Freitag, arxiv:1801.07640, model theory and combinatorics of banned sequences",
+        "Guingona et al., arxiv:2109.04805, Littlestone and VC dimension of zero-set families",
+        "Ghazi et al., PMLR 132 (2021), Boolean closure bounds",
+        "Song & Yao, arxiv:2012.06066, counts of maximal independent sets",
+        "Krivelevich et al., arxiv:1907.07216, random greedy MIS on paths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 16 P10 concepts realize a full depth-four adaptive tree but cannot 4-shatter fixed coordinates.",
+          "Disjoint unions multiply classes and give dimensions (3m,4m); degree<=1 is independent binary edges."
+        ],
+        "reasoning": "Prior MIS counts and general dimension theory do not entail these P10 witness identities; the product argument is elementary but creates substantive sharp degree threshold when paired with certified base block.",
+        "searches": [
+          "arxiv:2109.04805",
+          "arxiv:2012.06066",
+          "arxiv:1801.07640"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal independent vertex sets are precisely independent dominating sets, so alias was searched.",
+          "The evaluated 16 P10 concepts support a dimension gap 3 versus 4 by a complete adaptive witness."
+        ],
+        "reasoning": "Dominating-set enumeration is related but counting/minimization parameters do not automatically determine static/adaptive shattering of the full concept class.",
+        "searches": [
+          "Littlestone dimension of maximal independent set independent dominating set path",
+          "maximal independent set independent dominating set graph set system VC Littlestone path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned graph domination and VC-like parameters on different structures, not the P1..P10 MIS shattering table.",
+          "The audited P1..P10 table was independently re-enumerated."
+        ],
+        "reasoning": "The finite table alone is not the value claim; it establishes a minimality base for infinite unbounded-gap amplification, and no matching prior table was found.",
+        "searches": [
+          "Littlestone dimension of maximal independent set independent dominating set path",
+          "P10 maximal independent sets Littlestone dimension 4 VC dimension 3",
+          "independent dominating path online learning concept class"
+        ]
+      },
+      "rationale": "Chase–Freitag define/generalize Littlestone/thicket shattering; maximal independent dominating sets are an established graph class. Guingona et al. prove VC/Ldim equality for zero sets of *full linear-combination classes*, not these memberships (which exhibit strict inequality). Ghazi et al. give general Boolean aggregation bounds and Song–Yao count MIS but neither provides this exact first path or degree threshold. Resultary graph results discovered are about domination/other graph parameters, not the same pair of shattering dimensions.",
+      "residual_risks": [
+        "Earlier graph learning results under the alias independent dominating sets could provide the same P10 threshold; exhaustive semantic matching is impossible.",
+        "Unbounded gaps are on disconnected linear forests, not asserted for connected trees.",
+        "Exhaustive finite certificate proves P1..P10 only; all m follows a separate mathematical product argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its equality assumptions are not satisfied by membership classes whose dimensions differ; cannot dominate this counterexample",
+          "evidence": "Result concerns all zero sets of a nontrivial linear-combination family, not arbitrary MIS concepts.",
+          "identifier_or_url": "arxiv:2109.04805",
+          "material_read": "Abstract and stated linear-combination-zero-set theorem/conditions; no full appendix read in this run",
+          "method": "Published preprint abstract and theorem comparison",
+          "title": "Littlestone and VC-Dimension of Families of Zero Sets",
+          "trigger": "An apparently broad theorem proving equality of dimensions"
+        },
+        {
+          "assessment": "General dimension framework, not a finite path-class calculation",
+          "evidence": "Generic Sauer–Shelah-type constraints lack exact P10 membership structures.",
+          "identifier_or_url": "arxiv:1801.07640",
+          "material_read": "Abstract and theorem scope for general shattering dimensions",
+          "method": "Preprint bibliographic/theorem overview",
+          "title": "Model Theory and Combinatorics of Banned Sequences",
+          "trigger": "General thicket/Littlestone bounds"
+        },
+        {
+          "assessment": "Counts by size rather than static/adaptive shattering of all MIS sets",
+          "evidence": "Number and size profiles do not imply VC/Ldim equality or first-gap path classification.",
+          "identifier_or_url": "arxiv:2012.06066",
+          "material_read": "Abstract and counting theorem description, not full article read",
+          "method": "arXiv abstract metadata",
+          "title": "Maximizing the Number of Maximal Independent Sets of a Fixed Size",
+          "trigger": "Same maximal-independent-set combinatorial objects"
+        },
+        {
+          "assessment": "General closure bounds not an exact pair for maximal independent sets of paths",
+          "evidence": "Complete direct product proof uses basic dimension/cardinality ideas beyond fixed Boolean aggregator statements.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+          "material_read": "PMLR publisher abstract and result descriptions",
+          "method": "Publisher HTML abstract/theorem information",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "General dimension bounds may subsume product effect"
+        }
+      ],
+      "source_searches": [
+        "Littlestone dimension of maximal independent set independent dominating set path"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-degree-threshold-for-an-unbounded-vc-littlestone-gap-in--d770e9ac4db6/RESULT.md blob a70fdfc5bcf52eb290aa3d8bf13af7b097fec3f3",
+        "Chase & Freitag, arxiv:1801.07640, model theory and combinatorics of banned sequences",
+        "Guingona et al., arxiv:2109.04805, Littlestone and VC dimension of zero-set families"
+      ],
+      "rationale": "This is a sharp structural degree threshold distinguishing static and adaptive shattering of an elementary natural graph concept class; one finite certified P10 witness plus a general disjoint-union amplification proves an unbounded difference. The specified narrow graph order is motivated by minimality, not a randomly chosen finite table.",
+      "residual_risks": [
+        "Exhaustive finite certificate proves P1..P10 only; all m follows a separate mathematical product argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chase & Freitag, arxiv:1801.07640, model theory and combinatorics of banned sequences",
+    "Guingona et al., arxiv:2109.04805, Littlestone and VC dimension of zero-set families",
+    "Ghazi et al., PMLR 132 (2021), Boolean closure bounds",
+    "Song & Yao, arxiv:2012.06066, counts of maximal independent sets",
+    "Krivelevich et al., arxiv:1907.07216, random greedy MIS on paths"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Earlier graph learning results under the alias independent dominating sets could provide the same P10 threshold; exhaustive semantic matching is impossible.",
+    "Unbounded gaps are on disconnected linear forests, not asserted for connected trees.",
+    "Exhaustive finite certificate proves P1..P10 only; all m follows a separate mathematical product argument."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Earlier graph learning results under the alias independent dominating sets could provide the same P10 threshold; exhaustive semantic matching is impossible.",
+    "Unbounded gaps are on disconnected linear forests, not asserted for connected trees.",
+    "Exhaustive finite certificate proves P1..P10 only; all m follows a separate mathematical product argument."
+  ]
+}
