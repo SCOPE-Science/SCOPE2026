@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The proof is fully analytic and applies to every real \(\lambda>0\) and integer \(n\ge3\). Edge-to-edge shortest routes reduce to four endpoint choices; their pointwise minimum is piecewise affine. The analytic case split yields matching upper/lower bounds. Strict derivative signs determine normalized optimality without numeric optimization.
+## correctness
 
-Executed `python3 CHECK.py` using Python's exact `fractions.Fraction` arithmetic. It independently formed every edge pair of \(K_n\), maximized four endpoint routes over the two edge coordinates by enumerating pairwise affine-equality and rectangle-boundary intersections, and checked the asserted diameter for \(n=3,4,5,6\) at seven positive rational deformations each. This gave 28 complete rational configurations, plus 320 exact normalized comparisons. Result: `PASS`.
+PASS
 
-This finite checker is not a proof for infinitely many \(n\) or \(\lambda\). The universal conclusion is justified only by the quantified exhaustive edge-type argument and the derivative calculations in `RESULT.md`. An independent scientific audit has not yet been conducted.
+In the continuous realization of K_n, n>=3, with one edge ab of arbitrary length λ>0 and all others length 1, vertex distances are min(λ,2) for a,b and 1 for all other distinct vertices. For two points on distinct edges their geodesic distance is the minimum of four endpoint-route affine expressions. Pairwise cases same edge, incident edges, exceptional/disjoint and normal/disjoint bound all distances by the stated formula, with exact midpoint witnesses. Thus D_3=(λ+2)/2 (metric circle), D_4=(λ+3)/2, D_n=max(2,(λ+3)/2) for n>=5. L=binom(n,2)-1+λ; differentiation yields n=3 constant ratio, n=4 strictly increasing ratio with unattained 3/10 limit, n>=5 strictly decreasing on (0,1] and increasing on [1,infty), unique minimum 2/binom(n,2) at λ=1. Independently computed all-edge grid geodesic diameter for n=3..6 at six distinct λ values and matched; edge-pair inequalities prove continuum result.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualification: actual Resultary searches and directly compared primary mathematical results show no decisive prior implication of this exact final claim; component methods, previously known examples, accessible full-text scope and named inaccessible-source risks are explicitly distinguished.
+
+## value
+
+PASS
+
+Continuous geometric network diameter is a natural intrinsic quantity distinct from discrete vertex diameter. The exact one-exceptional-edge complete-graph classification and sharp length-normalized minimizer change at n=4/5 yield a useful boundary phenomenon for metric network design without implying global optimality among all weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The vertex-distance lemma, exact four-endpoint formula, and exhaustive incident/disjoint/same-edge proof establish the diameter for every positive parameter and all \(n\ge3\); midpoint witnesses establish equality. Exact derivatives prove the complete length-normalized classification. The standalone exact-rational enumeration reproduces the claimed results in tested instances, without replacing the quantified proof.
+## correctness
 
-**Originality (PASS, qualified).** The work isolates the explicit one-deformed-edge complete-network theorem from generic farthest-point algorithms (Bose et al., arXiv:1304.1909), the path-and-cycle shortcut optimization (De Carufel et al., arXiv:1512.02257), and weaker universal length-diameter inequalities (Ahn et al., arXiv:2608.08716). The 1982 Chen–Garfinkel generalized-diameter paper could not be examined in full; earlier special-case publication remains a genuine risk. Only the explicit parametric diameter and sharp constrained optimum are claimed as the contribution, not the generic method.
+PASS
 
-**Mathematical value (PASS).** Complete metric networks are canonical models of robust redundant connectivity, and continuous diameter measures their worst-case interior-to-interior distance. The theorem proves three sharply different size regimes for the same natural length-normalized invariant, with a unique optimal equilateral point arising exactly from five vertices on. It does not establish a full optimization among arbitrary weighted networks.
+In the continuous realization of K_n, n>=3, with one edge ab of arbitrary length λ>0 and all others length 1, vertex distances are min(λ,2) for a,b and 1 for all other distinct vertices. For two points on distinct edges their geodesic distance is the minimum of four endpoint-route affine expressions. Pairwise cases same edge, incident edges, exceptional/disjoint and normal/disjoint bound all distances by the stated formula, with exact midpoint witnesses. Thus D_3=(λ+2)/2 (metric circle), D_4=(λ+3)/2, D_n=max(2,(λ+3)/2) for n>=5. L=binom(n,2)-1+λ; differentiation yields n=3 constant ratio, n=4 strictly increasing ratio with unattained 3/10 limit, n>=5 strictly decreasing on (0,1] and increasing on [1,infty), unique minimum 2/binom(n,2) at λ=1. Independently computed all-edge grid geodesic diameter for n=3..6 at six distinct λ values and matched; edge-pair inequalities prove continuum result.
 
-**Limitations.** Positive edge lengths only; one distinguished length and all others equal; abstract graph realization; no external validation or independent historical priority determination. The finite checker is corroboration, not a universal certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualification: actual Resultary searches and directly compared primary mathematical results show no decisive prior implication of this exact final claim; component methods, previously known examples, accessible full-text scope and named inaccessible-source risks are explicitly distinguished.
+
+## value
+
+PASS
+
+Continuous geometric network diameter is a natural intrinsic quantity distinct from discrete vertex diameter. The exact one-exceptional-edge complete-graph classification and sharp length-normalized minimizer change at n=4/5 yield a useful boundary phenomenon for metric network design without implying global optimality among all weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
