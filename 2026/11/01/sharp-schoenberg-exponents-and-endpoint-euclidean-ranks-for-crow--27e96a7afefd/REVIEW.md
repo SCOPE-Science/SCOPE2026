@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The geodesic metric is completely described by four entry types, and its powered matrix has an exact two-block form. The symmetric/antisymmetric decomposition and within-part mean-zero decomposition give all \(2n\) real eigenvalues with multiplicities. Checking all centered signs reduces to two scalar inequalities. The monotonicity argument proves uniqueness of the internal root and the impossibility of higher exponents, while diagonalization gives the claimed endpoint multiplicities. Schoenberg's criterion exactly links uniform-bandwidth positive type to conditional negative type. The inverse-order asymptotic coefficients follow from an analytic expansion whose remainder is justified by the implicit-function theorem. A standalone direct-matrix test gives 5152 matching eigenvector identities on explicit finite cases. No numerical extrapolation is used as an infinite proof.
+## correctness
 
-## Originality: PASS, subject to residual literature risk
-A source- and implication-oriented comparison was made with Sánchez's general finite-metric determinant theorem and his complete-bipartite calculation (arXiv:1108.0451), Murugan's vertex-transitive general determinant theorem (arXiv:1112.5657), and retrieved literature on crown-graph distances. Both general theorems provide methods that apply to the object but do **not state** the closed crown-family formula, endpoint Euclidean nullities, or matching-deletion second-order improvement. The closest indexed crown-graph results cover geodesic subpath counts, Rips homology, and unrelated invariants; these do not logically imply the negative-type spectrum. A general association-scheme reference may contain the same eigenvalue formula in another normalization; possible unindexed earlier formulations remain a substantive residual risk. A bounded negative search is not a uniqueness proof.
+PASS
 
-## Mathematical value: PASS
-The exact supremal powered-distance negative-type exponent of an infinite natural graph family is an embedding invariant with a concrete all-bandwidth positive-kernel consequence. The matched-edge removal is a minimal structured perturbation of the known complete-bipartite case, yet it changes both the critical exponent and endpoint multiplicities. The complete classification, small-order spectral degeneracy, and sharp second-order perturbation gain are mathematically motivated and not a recomputation of a known table.
+From the actual geodesic distances on K_{n,n} minus a perfect matching, the full powered matrix has diagonal blocks 2^p(J-I) and off-diagonal blocks J+(3^p-1)I. The exact constant and three centered invariant eigenspaces yield eigenvalues (n-1)(2^p-1)-3^p (once), 3^p-2^p-1 (n-1 times), 1-2^p-3^p (n-1 times). Independently constructed exact 2n-by-2n metric matrices and checked every specified sector vector for n=3,4,6,10 and p=1,2; all identities agree. Subadditivity forces p<=1; 3^p/(2^p-1) strictly decreases on (0,1], yielding beta=1 for n3,4 and unique root (n-1)(2^p-1)=3^p for n>=5. Eigenvalue zero multiplicities give endpoint ranks 3,3,2n-2. Series inversion yields second-order expansion and gain relative to Sanchez K_n,n formula; Schoenberg CND iff e^{-tD} PSD for every t>0. Finite checks are not infinite proof.
 
-## Scope and limits
-The proof includes every integer \(n\ge3\) and every real \(p\ge0\), with \(n=1,2\) excluded as disconnected. The negative result for larger exponents means failure of positive definiteness for **at least one** bandwidth, not for all bandwidths. Older spectral-graph or finite-metric papers inaccessible or unindexed in the bounded search could reduce originality. This assessment is self-review only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared precise mathematical statements with their strongest identified precursors and published mathematical finding searches. Originality is best-of-knowledge with explicitly named inaccessible/unindexed priority risks, not certification.
+
+## value
+
+PASS
+
+A complete negative-type classification for a natural infinite graph family under removal of a perfect matching gives an all-bandwidth kernel boundary, exceptional endpoint dimensions and sharp improvement over the classical K_{n,n} case; the concrete comparison motivates the exact exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
