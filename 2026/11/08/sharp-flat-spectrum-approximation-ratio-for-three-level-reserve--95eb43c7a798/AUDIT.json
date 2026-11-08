@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The source reserve tests were translated to exact floor counts; the middle-level count is uniformly bounded. Strict convexity c'' > 0 and a two-segment convex envelope give the optimal continuous payload with O(1) uniform rounding. Fractional-linear comparison proves the unique maximal normalized budget and Jensen proves uniform middle precision is the unique finite-rank optimum at that budget. A packaged independent implementation of the source reserve test passed 17,723 exact-rational checks, including exhaustive count optimizations for ranks 1 through 12 and the rank-64 witness. The general assertion is analytically proved, not extrapolated from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://adamwei.com/publication/bitallocation/ describes a different optimal fixed-point resource-allocation algorithm in its abstract.",
+        "https://proceedings.mlr.press/v157/satoki21a.html describes a different submodular-inspired greedy search with layer accuracy interactions, not the source reserve constraint.",
+        "https://arxiv.org/html/2610.40134v1 is the exact primary algorithm; Section 4.3 reports finite comparisons, not a universal approximation analysis."
+      ],
+      "reasoning": "General knapsack/linear-programming convexification is already classical and provides the optimal relaxed envelope. It does not alone quantify the concrete first-lowest-then-middle source reserve decision; that decision is analyzed by its floor counts. The older comparison-paper abstracts are not whole-document novelty certifications and remain a documented residual risk.",
+      "searches": [
+        "bit allocation greedy algorithm error constraint storage optimization approximation bound hierarchical matrix quantization",
+        "\"precision allocation\" \"greedy\" \"worst case\" quantization bit budget matrix",
+        "\"integer quantized hierarchical matrices\" \"greedy\" \"approximation ratio\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.40134v1",
+      "https://adamwei.com/publication/bitallocation/",
+      "https://proceedings.mlr.press/v157/satoki21a.html",
+      "https://arxiv.org/abs/2610.40134"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2610.40134v1 Theorem 27 proves feasibility of the source greedy allocation, not storage optimality or a worst-case ratio.",
+        "https://arxiv.org/html/2610.40134v1 Remark 28 explicitly warns of nonoptimality and Sections 4.2--4.3 compare DP and heuristic ratios empirically.",
+        "https://adamwei.com/publication/bitallocation/ and https://proceedings.mlr.press/v157/satoki21a.html use different optimization algorithms and objectives in their publicly read abstracts."
+      ],
+      "reasoning": "Feasibility is compatible with arbitrarily large cost relative to optimum. A finite witnessed ratio or a nonmonotone budget trace does not entail the precise all-budget envelope, uniqueness at the middle cost, or the linear high-bitwidth coefficient. The present derivation supplies separate floor-count and convex-envelope proofs.",
+      "searches": [
+        "\"integer quantized hierarchical matrices\" \"greedy\" \"approximation ratio\" 2026",
+        "mixed precision compression greedy allocation minimum storage budget singular values constant coefficients multi bit width worst-case ratio",
+        "greedy reserve integer quantization flat spectral bit allocation approximation ratio unbounded high precision bit budget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2610.40134v1 Section 2.2 equations (2.60)-(2.69) gives the same integer certificate optimization and reserve-greedy rule.",
+        "Source Remark 28 explicitly acknowledges possible nonoptimality, but does not state the three-level limiting worst-budget formula."
+      ],
+      "reasoning": "The exact same source algorithm was identified and compared at the level of the reserve inequalities, not merely by name. Existing qualitative nonoptimality is logically weaker than the exact limiting approximation ratio for every three-level palette and the unbounded high-precision limit.",
+      "searches": [
+        "\"integer quantized hierarchical matrices\" \"greedy\" \"approximation ratio\" 2026",
+        "\"mixed precision\" \"greedy\" \"arbitrarily bad\" bit allocation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2610.40134v1 Supplement B Table B.1 has finite flat-spectrum comparisons (max 1.065 for one listed setting), and Table B.3 reports empirical maximum 2.587 over tested palettes and budgets.",
+        "The source flat-spectrum tables are finite sampled data, not the symbolic all-budget supremum."
+      ],
+      "reasoning": "The claimed exact formulas and 64-coordinate construction were compared to the source tables and supplementary reserve trace. Neither table gives the exact triple-palette maximization at the critical middle-coefficient budget, and numerical maximums over sample data do not imply the all-rank limit.",
+      "searches": [
+        "\"Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation\" \"65G50\"",
+        "\"integer quantized hierarchical matrices\" \"greedy\" \"approximation ratio\" 2026"
+      ]
+    },
+    "rationale": "Original source explicitly proves reserve feasibility and acknowledges nonoptimality but does not give the sharp three-level, all-budget asymptotic approximation factor, unique maximizing budget, or unbounded high-precision law. Different older mixed-precision optimization methods do not logically imply this reserve-specific formula. Remaining risk is unexamined general approximation-analysis literature, not an identified covering theorem.",
+    "residual_risks": [
+      "A general approximation theorem for low-to-high reserve-greedy multi-choice allocation may exist outside the papers inspected; no priority guarantee is claimed.",
+      "The two older precision-allocation primary sources were checked at abstract level, not all proofs.",
+      "The source performs certificate allocation in a complete hierarchical solver, whereas the claimed exact ratio excludes scale/map metadata and other blocks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same rule and certificate; establishes feasibility and reports finite nonoptimality, but no exact all-budget three-tier approximation ratio or its maximum-precision asymptotic",
+        "evidence": [
+          "Equations (2.60), (2.62), (2.65)-(2.69), Algorithm 1 lines 518-564, Remark 28 lines 597-599",
+          "Section 4.3 lines 719-728 and Supplement B lines 811-851, including Tables B.1/B.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.40134v1",
+        "material_read": "HTML full-text Sections 2.1-2.2 definitions, algorithm, Theorem 27 and Remark 28; experimental Sections 4.2-4.3; supplementary B and tables B.1-B.3, reserve-trace text",
+        "method": "Direct reading of the lawful arXiv full-text HTML",
+        "title": "Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation",
+        "trigger": "Defines the precise certificate and Algorithm 1 being assessed"
+      },
+      {
+        "assessment": "Different optimal resource-allocation algorithm; no evidence of the precise three-level reserve rule from inspected material; full text not inspected",
+        "evidence": [
+          "2021 abstract describes NP-hard fixed-point quantization resource allocation and a near-linear solution, without the source reserve-greedy rule"
+        ],
+        "identifier_or_url": "https://adamwei.com/publication/bitallocation/",
+        "material_read": "Public publication-page abstract and methodological summary only",
+        "method": "HTML abstract reading",
+        "title": "BitAllocation: A Resource Allocation Algorithm For Fixed-Point Quantization",
+        "trigger": "Potential broader classic discrete allocation theorem"
+      },
+      {
+        "assessment": "Layerwise accuracy-updating greedy heuristic, not the singular-value certificate and reserve-future-error test; full paper not inspected",
+        "evidence": [
+          "PMLR 157:886-901, 2021 abstract describes O(N^2) submodular-inspired CNN greedy search"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v157/satoki21a.html",
+        "material_read": "PMLR public abstract and paper metadata; not full PDF",
+        "method": "HTML abstract reading",
+        "title": "Greedy Search Algorithm for Mixed Precision in Post-Training Quantization of Convolutional Neural Network Inspired by Submodular Optimization",
+        "trigger": "Potential established greedy precision-allocation analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "95eb43c7-a798-490a-8992-735b0ff11660",
+  "value": {
+    "rationale": "The source studies the same singular-value certificate optimization but previously quantifies greedy inefficiency only in finite experiments. A complete analytic three-tier frontier identifies which tolerance is maximally expensive and gives a practical stringent-budget witness: (8,12,32), rank 64, 1676 versus 768 payload at 3.13% norm certificate. The family proves increasingly high reserve precision can systematically worsen local payload despite feasible uniform medium precision. This is substantive guidance for approximation guarantees and candidate safeguards, while remaining limited to certified factor-bit payload.",
+    "status": "PASS"
+  }
+}
