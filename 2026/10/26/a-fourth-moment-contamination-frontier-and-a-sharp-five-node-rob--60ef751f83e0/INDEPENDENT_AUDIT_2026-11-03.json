@@ -1,0 +1,220 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T14:49:48.392166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For L>1 and 0<eps<1, the symmetric variance-mixture moments are m2=1+eps(L²-1), m4=3[1+eps(L⁴-1)]; the unique 3-node degree-five Gauss rule has P3=x³-(m4/m2)x and positive weights m2²/(2m4) at each ±sqrt(m4/m2), 1-m2²/m4 at zero. E[V²]>=E[V]² implies center weight >=2/3. If theta=eps*L⁴->c<infinity, eps*L²->0 so the displayed three-atom Gc is exact; if theta->infinity, 2w_±=m2²/m4 <= 1/(3theta)+2/(3L²)+eps/3 ->0. A subsequence argument gives G_L->G0 iff theta->0. For any positive degree-five-exact rule with <=4 nodes converging weakly to three separated G0 atoms, at least three nodes remain in bounded neighborhoods; at most one additional node can escape. Because the fifth moment is exactly zero, its positive weighted term v*z^5 is minus a bounded core contribution, whence v*z^4=o(1), incompatible with m4->infinity. The explicit five-node rule has total mass 1, correct m2,m4 and zero odd moments through 5, with escaping pair mass eps/3->0. For eps=L^-3, bounded witness e^-x² gives limits 1 versus 1/sqrt(3). Independently verified 48 rational mixtures, positivity, moment identities, 5-node attainment, three asymptotic scales and bounded witness. Finite checks supplement unrestricted proofs; not proof of general moment-map stability under arbitrary contaminations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trefethen 2021 SIAM Review abstract distinguishes exactness from practical accuracy and compares Gauss-Hermite convergence for analytic integrands as node count grows; it does not assert fixed-degree positive-node lower bounds for rare high-variance Gaussian mixtures.",
+          "Pinkse 2026 abstract and accessible methods describe multivariate positive cubature for standard Gaussian and uniform weights up to five dimensions; the perturbed mixture is different.",
+          "An–Wu 2022 arXiv:2202.13691 study hyperinterpolation under relaxed quadrature exactness, not fixed degree-five moment exactness with a prescribed weak limit."
+        ],
+        "reasoning": "General moment-space and quadrature theory can imply the orthogonal-cubic part. Neither the accessible higher-level theories nor the inspected primary claims directly imply the all-rate epsilon*L^4 family together with the sharp positive node cost. A stronger unindexed quadrature stability theorem remains a priority risk.",
+        "searches": [
+          "gaussian quadrature positive moment matching Gaussian scale mixture rare high variance contamination weak convergence fourth moment discontinuity five nodes minimal",
+          "orthogonal polynomials Gauss quadrature weak convergence nonuniform integrability highest moment escaping quadrature nodes tail mass",
+          "positive quadrature exact moments weak approximation escaping moments minimal support points",
+          "positive quadrature weak convergence number of nodes moments",
+          "Trefethen Exactness of Quadrature Formulas DOI 10.1137/20M1389522",
+          "Pinkse arXiv:2609.26840",
+          "Xu 1994 DOI 10.1090/S0025-5718-1994-1223234-0"
+        ]
+      },
+      "checked_sources": [
+        "Kabaila arXiv:2607.14511 18-page PDF and §§1–7 (full text available)",
+        "Shim arXiv:2608.21467 abstract, OA and Oxford attempts; full text unavailable",
+        "Pinkse arXiv:2609.26840 abstract and software description",
+        "Xu 1994 DOI:10.1090/S0025-5718-1994-1223234-0 abstract",
+        "Trefethen 2021 DOI:10.1137/20M1389522 publisher abstract",
+        "An–Wu arXiv:2202.13691 abstract",
+        "Resultary published optimal-alphabet Hermite theorem full RESULT.md",
+        "Resultary published fixed-three-atom kurtosis RESULT.md",
+        "Resultary published three-atom Pearson-gap RESULT.md",
+        "Resultary semantic searches: three independent mathematically explicit queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kabaila: exact construction of general Gauss rules; no contamination phase law or 4/5 positive-node comparison in inspected full text.",
+          "Shim: the accessible abstract concerns Gaussian-mixture entropy integration and an action-space surrogate; its full text was inaccessible, so whole-document noncoverage is not asserted.",
+          "Published Hermite-node theorem minimizes support for matching fixed Gaussian moments, whereas the new rule matches an L-dependent mixture and must converge to a three-atom normal quadrature while its fourth moment diverges.",
+          "The new fourth-to-fifth moment obstruction has one escaping node: bounded core fifth moment forces v*z^5=O(1), contradicting divergent fourth moment v*z^4, so its quantifiers are not just a restatement of standard three-node Gaussian exactness."
+        ],
+        "reasoning": "The general theory explains the three-node formula, but the current final claim combines the exact weak-stability frontier with a no-four-nodes theorem for any positive degree-five-exact competitor and an attained five-node construction. The inspected papers do not entail that joint statement without a distinct new argument.",
+        "searches": [
+          "Gaussian quadrature for mixture distributions moment matched rare outliers weak convergence",
+          "Gaussian quadrature outliers mixture instability exact",
+          "quadrature tiny probability large variance normal mixture",
+          "2607.14511 full text PDF Kabaila alternate",
+          "2608.21467 Shim PDF downloadable",
+          "Kabaila 2026 Sections 1–7 and Appendix A",
+          "Shim arXiv:2608.21467 abstract",
+          "Pinkse arXiv:2609.26840 abstract",
+          "Resultary published q-Hermite full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For symmetric mixtures, the standard degree-three orthogonal polynomial is x^3-(m4/m2)x. Its roots and weights are classical Gaussian quadrature.",
+          "Kabaila 2026 describes general moment determinants/Stieltjes methods and their numerical ill-conditioning, not the stated contamination asymptotic or minimal weakly stable rule.",
+          "Xu 1994 characterizes positive n-node quadratures as certain tridiagonal Jacobi matrix rules; the accessible abstract does not give weak-contamination four-versus-five node threshold."
+        ],
+        "reasoning": "Equivalently the claim describes discontinuity of a 3-point Gauss moment map under TV-vanishing, non-uniformly-integrable perturbations, plus a minimal positive representation with three persisting atoms and two tail atoms forced by zero fifth moment. General Gaussian quadrature and Jacobi matrix representation alone are not the same full theorem.",
+        "searches": [
+          "gaussian quadrature positive moment matching Gaussian scale mixture rare high variance contamination weak convergence fourth moment discontinuity five nodes minimal",
+          "orthogonal polynomials Gauss quadrature weak convergence nonuniform integrability highest moment escaping quadrature nodes tail mass",
+          "Gaussian quadrature weak convergence perturbation measures moments nodes moment convergence Gauss quadrature under weak convergence",
+          "Gaussian quadrature for mixture distributions moment matched rare outliers weak convergence",
+          "Kabaila arXiv:2607.14511 full text §§1–3,7",
+          "Xu 1994 DOI 10.1090/S0025-5718-1994-1223234-0 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Hermite-node/critical-exponent finding gives q-point Gaussian moment cancellation and a q-node lower bound for matching normal moments, not asymptotic node migration under variance-mixture contamination.",
+          "Two published fixed-three-atom moments results determine Pearson gaps or kurtosis support optimization, not positive degree-five-exact mixture quadrature with five nodes.",
+          "Resultary semantic search of three independent paraphrases returned no direct table/formula for this exact family or its 4-node impossibility."
+        ],
+        "reasoning": "No identified published exact record or table gives the complete three/five-node threshold. This negative search is only bounded corroboration, not proof of novelty.",
+        "searches": [
+          "gaussian quadrature positive moment matching Gaussian scale mixture rare high variance contamination weak convergence fourth moment discontinuity five nodes minimal",
+          "five node positive degree five quadrature rare contaminated normal mixture convergence Gauss Hermite three node",
+          "Resultary 2026/10/11/SCOPE-optimal-alphabet-multicritical-transitions-from-gaussian-quadrat--f0a99f9f7b89",
+          "Resultary 2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1",
+          "Resultary 2026/10/4/SCOPE-vandermonde-factorization-and-exact-support-optimum-for-the-pear--356b2d980720"
+        ]
+      },
+      "rationale": "Best-of-knowledge assessment: the joint theorem of sharp epsilon*L^4 weak-limit phases, positive four-node impossibility and five-node attainment is not covered by the actual statements inspected in classical moment-based Gaussian quadrature, Kabaila 2026, Shim 2026 abstract, Pinkse 2026, Xu 1994, Trefethen 2021 or the published Resultary moment/Hermite findings. The cubic and componentwise construction by themselves are classical. The 4-node lower bound is genuinely stronger than standard quadrature formulas; unindexed older exact-equivalent results remain possible.",
+      "residual_risks": [
+        "Historical orthogonal-polynomial perturbation or truncated moment-problem theory could imply the four-node escaping-mass obstruction under an alternative name.",
+        "Shim arXiv:2608.21467 full PDF was not accessible via arXiv/OA or Oxford (VPN disconnected); abstract alone cannot establish no earlier overlap.",
+        "Xu 1994 and Trefethen 2021 full texts were not read; general results may admit a non-obvious corollary.",
+        "Search and source checks do not certify nonexistence of a stronger unindexed theorem or of independent prior discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical computation/numerical precision of Gauss nodes; no rare-contamination fourth-moment weak-limit law or 4/5 positive-node theorem located.",
+          "evidence": [
+            "PDF pp.2–3: methods are moment determinants and Stieltjes procedure; p.13 §7 numerical implementation, p.14–16 appendices; no mixture/robust terms."
+          ],
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2607.14511v1.pdf",
+          "material_read": "Full 18-page PDF accessible; inspected abstract, introduction, §§2–3, examples, §7 discussion and appendices; searched text for mixture, variance and robust.",
+          "method": "Open PDF via lawfully available alphaXiv mirror, rendered first-page screenshot, inspected page-indexed text and selected sections.",
+          "title": "Custom-made Gauss quadrature: an introduction for statisticians",
+          "trigger": "Same nonclassical Gaussian quadrature moment and Stieltjes construction, plausible exact prior work."
+        },
+        {
+          "assessment": "Abstract discusses Gaussian-mixture entropy quadrature and surrogate optimization; insufficient for whole-document noncoverage. Material residual risk.",
+          "evidence": [
+            "2026-08-21 arXiv abstract states mixture entropy/numerical benchmarks, not degree-five node minimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.21467",
+          "material_read": "Full abstract and bibliographic record, not the complete PDF; arXiv and OA HTML/PDF routes failed and institutional access was disconnected.",
+          "method": "arXiv abstract, alternate OA query, authorized Oxford retrieval (VPN disconnected).",
+          "title": "Gauss--Hermite Quadrature for Gaussian-Mixture Entropy with an Action-Space Hermite Surrogate",
+          "trigger": "Closest method applied to Gaussian mixtures."
+        },
+        {
+          "assessment": "Focus on d=2–5 standard Gaussian/uniform cubature; not a demonstrated dominating theorem for a moving univariate Gaussian-mixture weight.",
+          "evidence": [
+            "Published 2026-09-22: 80-digit positive-weight fixed Gaussian and Legendre rules, multiple dimensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26840",
+          "material_read": "Full abstract, software description, and accessible metadata; full main PDF not obtained in this run.",
+          "method": "arXiv bibliographic abstract; publisher-indexed abstract/software comparison.",
+          "title": "Positive weight Hermite and Legendre quadrature rules",
+          "trigger": "Same positivity/exactness/node-count objective."
+        },
+        {
+          "assessment": "General tridiagonal-matrix characterization does not state this fixed-degree contamination weak-limit lower bound; full-text implication risk remains.",
+          "evidence": [
+            "Xu 1994: every positive n-node formula is Gaussian for some nonnegative measure; does not fix the changing mixture moments in the abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1994-1223234-0",
+          "material_read": "Publisher/CiNii abstract with theorem statement, full article not obtained.",
+          "method": "Read indexed primary bibliographic description and abstract.",
+          "title": "A characterization of positive quadrature formulae",
+          "trigger": "Potential all-positive four-node rule classification in quasi-orthogonal/Jacobi form."
+        },
+        {
+          "assessment": "Relevant motivation but stated conclusions concern accuracy of canonical rules in n, not moving Gaussian mixtures and minimal weak-stable positive node count.",
+          "evidence": [
+            "Trefethen 2021 abstract describes four quadratures and Gauss-Hermite convergence rates."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/20M1389522",
+          "material_read": "SIAM Review full abstract, author/key results and references; full article gated.",
+          "method": "Read publisher abstract and scope.",
+          "title": "Exactness of Quadrature Formulas",
+          "trigger": "Published theoretical comparator on practical Gauss quadrature failure despite exactness."
+        },
+        {
+          "assessment": "Its q-node minimality matches fixed standard-normal moments and thermodynamic pressure, not contamination-dependent weakly stable degree-five rules.",
+          "evidence": [
+            "Proof part 7: squared product of q-1 roots contradicts Gaussian moment equality; q-node rigidity for Gaussian Hermite roots."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-optimal-alphabet-multicritical-transitions-from-gaussian-quadrat--f0a99f9f7b89",
+          "material_read": "Full RESULT.md central theorem, assumptions, proof including part 7 minimal support argument.",
+          "method": "Read GitHub primary RESULT.md, compared quantifiers and moment targets.",
+          "title": "Optimal-alphabet multicritical transitions from Gaussian quadrature",
+          "trigger": "Previously published exact Hermite moment matching and sharp node minimality."
+        },
+        {
+          "assessment": "Optimizes standardized fourth moment under fixed three-atom masses; no moving Gaussian mixture or weak node stability.",
+          "evidence": [
+            "Formula (5) classifies kurtosis derivative as support changes with a,b,c fixed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1",
+          "material_read": "Full finding, assumptions, derivative proof and prior-work comparison of RESULT.md.",
+          "method": "Read GitHub primary RESULT.md.",
+          "title": "Complete kurtosis phase diagram for three-point laws with fixed masses",
+          "trigger": "Published three-atom fourth-moment comparison."
+        },
+        {
+          "assessment": "Fixed three-atom Pearson gap, not Gaussian-mixture contaminated quadrature.",
+          "evidence": [
+            "Core result is kappa-gamma²-1 = abc * squared Vandermonde / sigma^6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-vandermonde-factorization-and-exact-support-optimum-for-the-pear--356b2d980720",
+          "material_read": "Finding, assumptions, Gram-Vandermonde proof, and prior-work sections of RESULT.md.",
+          "method": "Read GitHub primary mathematical result.",
+          "title": "Vandermonde factorization and exact support optimum for the Pearson skewness–kurtosis gap",
+          "trigger": "Published three-atom moments/Gram-matrix formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-component centered Gaussian variance mixture is a natural stress test for positive moment-fitted numerical integration under vanishing total-variation contamination. The epsilon*L⁴ threshold is sharp and mathematically interpretable as the uncontrolled fourth moment; the bounded smooth witness shows genuine loss of distributional fidelity. The exact positive node budget (3 fails and every 4-node rule fails, while 5 works) identifies a meaningful algorithmic design tradeoff without claiming universal quadrature accuracy. This is a structural theorem with a motivated optimal finite cutoff, not merely the classical 3-node Hermite formula or an arbitrary table entry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kabaila arXiv:2607.14511 18-page PDF and §§1–7 (full text available)",
+    "Shim arXiv:2608.21467 abstract, OA and Oxford attempts; full text unavailable",
+    "Pinkse arXiv:2609.26840 abstract and software description",
+    "Xu 1994 DOI:10.1090/S0025-5718-1994-1223234-0 abstract",
+    "Trefethen 2021 DOI:10.1137/20M1389522 publisher abstract",
+    "An–Wu arXiv:2202.13691 abstract",
+    "Resultary published optimal-alphabet Hermite theorem full RESULT.md",
+    "Resultary published fixed-three-atom kurtosis RESULT.md",
+    "Resultary published three-atom Pearson-gap RESULT.md",
+    "Resultary semantic searches: three independent mathematically explicit queries"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Historical orthogonal-polynomial perturbation or truncated moment-problem theory could imply the four-node escaping-mass obstruction under an alternative name.",
+    "Shim arXiv:2608.21467 full PDF was not accessible via arXiv/OA or Oxford (VPN disconnected); abstract alone cannot establish no earlier overlap.",
+    "Xu 1994 and Trefethen 2021 full texts were not read; general results may admit a non-obvious corollary.",
+    "Search and source checks do not certify nonexistence of a stronger unindexed theorem or of independent prior discovery."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only centered univariate two-Gaussian variance mixtures, positive weights and degree-five polynomial exactness.",
+    "Five-node rule converges weakly to 3-node normal quadrature, not to full continuous N(0,1); generic smooth test error is not eliminated.",
+    "No conclusions for signed weights, higher degrees, approximate moment constraints, adaptive evaluation cost, or arbitrary contaminations.",
+    "Best-of-knowledge originality retains incomplete primary source inspections and possible hidden implication risks."
+  ]
+}
