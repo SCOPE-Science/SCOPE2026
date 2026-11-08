@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.8 or later. The script has no third-party dependencies.
+## correctness
 
-For \(\operatorname{PG}(2,3)\), the script generates all normalized projective point and line coordinates, independently assembles incidence neighborhoods, and enumerates all \(8192\) choices per bipartition side. It compares each geometrical acceptance decision to the original two-directed neighborhood definition (and separately the RED symmetric-difference definition). All classifications match.
+PASS
 
-For every pair among the \(234\) minimum-size valid point-side and \(234\) minimum-size valid line-side choices, the program checks the resulting full \(26\)-vertex detector set against the original predicate: \(54{,}756\) complete checks. It also checks \(20{,}001\) further deterministically chosen complete subsets, and confirms each polynomial coefficient.
+For incidence graph of PG(2,3), all 13 points and 13 lines labeled. The DET:OLD definition requires each open detector neighborhood size>=2 and for each distinct pair at least one directional neighborhood difference size>=2. Bipartite point/line tests separate independently. A set of selected lines is DET-feasible iff every point selected degree d(p)>=2 and every selected line contains at most one weak point with d(p)=2. The omitted lines form an arc of size <=4 in the dual plane. Four omitted lines force six weak pair-intersections on only nine selected lines (12 incidences), hence fail. Three nonconcurrent omissions work, as their pairwise intersections are joined only by omitted lines. The 0/1/2/3 omitted counts 1,13,78,234 yield side polynomial z^13+13z^12+78z^11+234z^10, squared for full DET; minimum 20 with 234^2=54756 extremizers. RED only needs double cover, allowing 234 4-arcs, hence RED square with extra 234z^9 and minimum 18. Independently enumerated all 8192 side masks with exact incidence over F3 and checked both histograms. Geometry proves all 26-vertex cases, not an unproven infinite extrapolation.
 
-Expected terminal summary:
+## originality
 
-```
-q 2 N 7 DET_SIDE_DISTRIBUTION [(6, 7), (7, 1)] RED_SIDE_DISTRIBUTION [(6, 7), (7, 1)]
-q 3 N 13 DET_SIDE_DISTRIBUTION [(10, 234), (11, 78), (12, 13), (13, 1)] RED_SIDE_DISTRIBUTION [(9, 234), (10, 234), (11, 78), (12, 13), (13, 1)]
-DET_FULL_POLYNOMIAL [(20, 54756), (21, 36504), (22, 12168), (23, 2496), (24, 325), (25, 26), (26, 1)] min_direct_checks 54756
-RED_FULL_POLYNOMIAL [(18, 54756), (19, 109512), (20, 91260), (21, 42588), (22, 12636), (23, 2496), (24, 325), (25, 26), (26, 1)]
-VERIFY_OK
-```
+PASS
 
-This finite verification is exhaustive for each one-side selection and for all optimum full sets, but not for all \(2^{26}\) full detector selections. The infinite/general claim is not inferred from finite tests: the result concerns the specified finite plane and has an independent structural proof. Scientific literature priority is assessed separately, not certified by computation.
+Jean and Seo formulate DET and RED neighborhood criteria and study extremal graphs, complexity, infinite grids, cubic graphs, not this Desarguesian plane incidence graph. Classical finite-plane double-blocking/arc counts already imply RED minimum and four-point arc counts. The directed DET restriction rules out four omitted lines and yields the exact new full DET enumerator/extremizer characterization. Risk of a preexisting exact PG(2,3) detector table under different indexing remains.
+
+## value
+
+PASS
+
+The detector sets are a natural information-theoretic, one-fault graph-code invariant on a canonical 4-regular, 26-vertex finite geometry. Exact polynomials separate two closely related error models by two detectors and classify every optimum, potentially useful to a researcher comparing code robustness; finite size does not by itself negate mathematical significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

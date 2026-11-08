@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original fault-tolerant pair criterion reduces to an exact geometric weak-point obstruction for a selected-line family and independently for a selected-point family. The dual-plane omission bound is proved by secant incidence counting; the rejection of four omitted lines uses twelve weak-point incidences across nine retained lines. These steps establish all finite coefficients, all extremizers, and both minimum cardinalities without relying on sampling. An independently implemented open-neighborhood checker agrees with the structural test on all \(8192\) one-side subsets and directly checks all \(54{,}756\) minimum full detector sets.
+PASS
 
-## Originality — PASS
+For incidence graph of PG(2,3), all 13 points and 13 lines labeled. The DET:OLD definition requires each open detector neighborhood size>=2 and for each distinct pair at least one directional neighborhood difference size>=2. Bipartite point/line tests separate independently. A set of selected lines is DET-feasible iff every point selected degree d(p)>=2 and every selected line contains at most one weak point with d(p)=2. The omitted lines form an arc of size <=4 in the dual plane. Four omitted lines force six weak pair-intersections on only nine selected lines (12 incidences), hence fail. Three nonconcurrent omissions work, as their pairwise intersections are joined only by omitted lines. The 0/1/2/3 omitted counts 1,13,78,234 yield side polynomial z^13+13z^12+78z^11+234z^10, squared for full DET; minimum 20 with 234^2=54756 extremizers. RED only needs double cover, allowing 234 4-arcs, hence RED square with extra 234z^9 and minimum 18. Independently enumerated all 8192 side masks with exact incidence over F3 and checked both histograms. Geometry proves all 26-vertex cases, not an unproven infinite extrapolation.
 
-Jean–Seo's foundational DET:OLD paper defines the directed criterion but contains no analyzed projective-plane incidence case. Csajbók–Héger's double-blocking theory covers the twofold-coverage condition and hence the RED minimum, not the additional directed-pair DET obstruction. Searches of the closest available records and literature found no equivalent DET polynomial or complete minimum-code classification for this incidence graph. Novelty is assessed for the exact DET theorem, not for the previously implied RED minimum. Differently named prior results remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This exact benchmark for a canonical \(4\)-regular, \(26\)-vertex, girth-six incidence network quantifies a genuine two-sensor separation between two different one-fault location models. It gives a complete cardinality polynomial and a geometrically interpretable classification of all \(54{,}756\) minimum placements, beyond a minimum-size computation. The Fano-plane control has no such gap, highlighting the first nontrivial projective order tested.
+Jean and Seo formulate DET and RED neighborhood criteria and study extremal graphs, complexity, infinite grids, cubic graphs, not this Desarguesian plane incidence graph. Classical finite-plane double-blocking/arc counts already imply RED minimum and four-point arc counts. The directed DET restriction rules out four omitted lines and yields the exact new full DET enumerator/extremizer characterization. Risk of a preexisting exact PG(2,3) detector table under different indexing remains.
 
-## Scope and comparison limits
+## value
 
-Only the Desarguesian order-three projective plane is covered. The literature comparison is limited to identified accessible documents and metadata, and does not prove global priority. The control at order two is not promoted into a general theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The detector sets are a natural information-theoretic, one-fault graph-code invariant on a canonical 4-regular, 26-vertex finite geometry. Exact polynomials separate two closely related error models by two detectors and classify every optimum, potentially useful to a researcher comparing code robustness; finite size does not by itself negate mathematical significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
