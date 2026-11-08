@@ -1,11 +1,21 @@
-# Review of optimal zero-forcing seeds in path and cycle powers
+# Independent mathematical audit
 
-**Correctness — PASS.** The minimum cardinalities follow from the minimum-degree first-step bound and explicit forcing sequences. Equality forces an initial forcing vertex of minimum degree. On path powers only endpoints have that degree; on cycle powers every vertex does, giving exhaustive candidate lists. Each candidate forces, and a cyclic-interval intersection lemma classifies exactly the duplicate descriptions, producing \(2k\) and \(n(2k-1)\). The dihedral orbit calculation follows from unique representations except for consecutive blocks. The standalone checker independently exhausts \(83\) finite cases and \(102073\) minimum-size subsets; finite tests corroborate rather than prove the infinite theorem.
+## correctness
 
-**Originality — PASS, with historical-priority limitations.** The recent power-graph paper determines minimum numbers, not complete optimal families. The 2018 zero-forcing polynomial literature explicitly covers ordinary paths/cycles and several general extremal coefficients; complete/complete-multipartite near-boundaries are also established and excluded from the claim of novelty. Relevant published mathematical records on fan, friendship, chain and complete multipartite graph zero forcing concern nonidentical families; the complete multipartite record would cover a deliberately excluded dense cycle-power boundary. Exact equivalences, stronger implications and parameter ranges were compared rather than titles alone. The plausible remaining risk is an older general neighbourhood-enumeration result or another unlocated result that implies the count.
+PASS
 
-**Mathematical value — PASS.** The theorem completes a natural optimizer-classification problem left by new graph-power minimum results, determines exact labelled optimal-seed multiplicities for two infinite parameter families, and resolves the nontrivial double-counting and dihedral symmetry of cyclic radius-neighbourhood seeds. It is a structurally motivated optimum-set census, not merely a recomputation of the known minimum numbers. No full-polynomial or arbitrary-graph-power claim is made.
+PASS. The first-step lemma establishes that a successful initial delta(G)-set has a first forcing vertex of degree exactly delta and consists of that vertex plus all but one neighbour. Only path endpoints have degree k, while the cycle is 2k regular. Every candidate forces a complete radius-k interval and then propagates around the graph. For n>=2k+3 the only duplicate descriptions of cycle seeds arise from adjacent cyclic intervals of length 2k+1, yielding exactly n duplicates among 2kn descriptions. This also gives the dihedral orbit counts. Independent exhaustive ordinary black-vertex/unique-white-neighbour enumeration verified 16 small k=2,3 cases against exact optimal-seed lists; those are corroborative only.
 
-**Closest sources and scope.** Abiad et al. (2026), arXiv:2610.03892; Boyer et al. (2018), arXiv:1801.08910; Chang–Lin, *Minimum Rank of Powers of Cycles and Trees*; Johnson et al. (2025), failed skew forcing on path powers; published complete multipartite and fan/chain zero-forcing results. The generic theorem's possible overlap with an unknown more general enumeration remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Abiad et al. 2026 identify minimum zero-forcing numbers for graph powers, not a census of all minimum seeds in the inspected material. Boyer et al. 2018 zero-forcing polynomial covers power-one paths/cycles and certain dense boundaries that have been expressly excluded. The new classification also accounts for cyclic double descriptions and symmetry orbits. A broader general neighbourhood-overlap theorem could imply these formulas; priority remains qualified.
+
+## value
+
+PASS
+
+PASS. The exact solution set is a natural refinement of known zero-forcing numbers on standard infinite graph families. Determining every optimiser, labelled multiplicities and dihedral orbit sizes requires a structural first-force restriction plus nontrivial cyclic interval double counting, not a trivial relabelling of the minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

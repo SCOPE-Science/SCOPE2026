@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:54:45.131766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The first-step lemma establishes that a successful initial delta(G)-set has a first forcing vertex of degree exactly delta and consists of that vertex plus all but one neighbour. Only path endpoints have degree k, while the cycle is 2k regular. Every candidate forces a complete radius-k interval and then propagates around the graph. For n>=2k+3 the only duplicate descriptions of cycle seeds arise from adjacent cyclic intervals of length 2k+1, yielding exactly n duplicates among 2kn descriptions. This also gives the dihedral orbit counts. Independent exhaustive ordinary black-vertex/unique-white-neighbour enumeration verified 16 small k=2,3 cases against exact optimal-seed lists; those are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abiad et al. title/abstract: The Zero Forcing Number of Graph Powers, values Z(P_n^k)=k and Z(C_n^k)=2k.",
+          "Boyer et al. general polynomial theory and familiar graph families including k=1."
+        ],
+        "reasoning": "Minimum numbers alone do not determine optimizer counts; general zero-forcing polynomials could cover them if specialised, but no inspected implication to n(2k-1) was established.",
+        "searches": [
+          "Abiad et al. arxiv:2610.03892",
+          "Boyer et al. arxiv:1801.08910"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md c858d289ff10ba0bae89ae51d465ff740512d03a",
+        "Frozen verify.py 8f7ed70ed748637fd37cf5d950c7cf504d2f3921",
+        "Independent exhaustive 16 power-graph min seed cases in scope_worker07_independent_20261106T0341_results.json",
+        "Abiad et al. arxiv:2610.03892",
+        "Boyer et al. arxiv:1801.08910",
+        "Resultary query on power-graph forcing polynomial and optimizers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-force degree equality determines candidate neighbourhoods but not automatically which ones force or how duplicates arise.",
+          "The new proof explicitly forces each candidate and classifies cyclic interval overlap."
+        ],
+        "reasoning": "Existing Z values are consistent with, but strictly weaker than, a complete classification and exact first nonzero polynomial coefficient.",
+        "searches": [
+          "Abiad et al. 2026 graph powers Z values",
+          "Boyer 2018 zero forcing polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned zero forcing polynomials for fan graphs and tree extremizers, not these power-graph seed classes.",
+          "Boyer defines and evaluates general zero forcing polynomial with power-one and specific dense cases."
+        ],
+        "reasoning": "The minimum coefficient for path/cycle powers k>=2 in the noncomplete ranges was not found in inspected sources; any general coefficient theorem remains a genuine risk.",
+        "searches": [
+          "Resultary semantic search: zero forcing polynomial minimum seed sets path powers cycle powers classify all optimizers",
+          "Boyer et al. arxiv:1801.08910"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact counts for k=1 paths and cycles are deliberately excluded.",
+          "Complete or nearly complete cycle-power boundary instances n<=2k+2 are also deliberately excluded; fan graphs are not graph powers."
+        ],
+        "reasoning": "No matching all-k noncomplete path/cycle power table seen; the known boundary tabulations must not be counted as original.",
+        "searches": [
+          "Boyer et al. 2018 exact graph families",
+          "Resultary published fan graph zero forcing polynomial",
+          "Abiad et al. 2026 minimum tables"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. Abiad et al. 2026 identify minimum zero-forcing numbers for graph powers, not a census of all minimum seeds in the inspected material. Boyer et al. 2018 zero-forcing polynomial covers power-one paths/cycles and certain dense boundaries that have been expressly excluded. The new classification also accounts for cyclic double descriptions and symmetry orbits. A broader general neighbourhood-overlap theorem could imply these formulas; priority remains qualified.",
+      "residual_risks": [
+        "The two highest-relevance arXiv papers were not inspected in full; a generic coefficient or neighbourhood-overlap theorem may imply the census.",
+        "The main claim excludes n<=2k+2 cycle powers, complete path powers, k=1, nonminimum zero-forcing sets and forcing-sequence counts.",
+        "Bounded exhaustive tests do not establish every n,k; proof supplies universal reasoning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms known minimum numbers; no whole-document noncoverage assertion",
+          "evidence": [
+            "Minimum values k and 2k were prior, but exact optimal initial subsets not seen in accessible abstract."
+          ],
+          "identifier_or_url": "arxiv:2610.03892",
+          "material_read": "ArXiv abstract and accessible summaries only; full source was not obtained in this execution",
+          "method": "Primary arXiv abstract compared with package proof and hypotheses",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Exact same path and cycle powers"
+        },
+        {
+          "assessment": "Power-one and particular general graph coefficients prior; no demonstrated all-power implication",
+          "evidence": [
+            "The original graph family is the ordinary zero-forcing polynomial; this claim isolates first coefficient for graph powers k>=2."
+          ],
+          "identifier_or_url": "arxiv:1801.08910",
+          "material_read": "ArXiv abstract, title, and bibliographic mathematical descriptions; full text not obtained in this execution",
+          "method": "Primary arXiv abstract plus power-one/dense boundary comparisons",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Same zero-forcing polynomial invariant including power-one cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exact solution set is a natural refinement of known zero-forcing numbers on standard infinite graph families. Determining every optimiser, labelled multiplicities and dihedral orbit sizes requires a structural first-force restriction plus nontrivial cyclic interval double counting, not a trivial relabelling of the minimum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md c858d289ff10ba0bae89ae51d465ff740512d03a",
+    "Frozen verify.py 8f7ed70ed748637fd37cf5d950c7cf504d2f3921",
+    "Independent exhaustive 16 power-graph min seed cases in scope_worker07_independent_20261106T0341_results.json",
+    "Abiad et al. arxiv:2610.03892",
+    "Boyer et al. arxiv:1801.08910",
+    "Resultary query on power-graph forcing polynomial and optimizers"
+  ],
+  "disposition": "passed",
+  "final_claim": "For k>=2 and n>=k+2, all minimum ordinary zero-forcing sets of P_n^k are the 2k endpoint-based sets of size k; for n>=2k+3, all minimum sets of C_n^k are I_v\\{w} with w in N(v), giving n(2k-1) distinct labelled sets with dihedral orbits of one size n and k-1 size 2n.",
+  "limitations": [
+    "The two highest-relevance arXiv papers were not inspected in full; a generic coefficient or neighbourhood-overlap theorem may imply the census.",
+    "The main claim excludes n<=2k+2 cycle powers, complete path powers, k=1, nonminimum zero-forcing sets and forcing-sequence counts.",
+    "Bounded exhaustive tests do not establish every n,k; proof supplies universal reasoning.",
+    "This is a bounded best-of-knowledge originality assessment, not a guarantee that no unlocated prior theorem applies.",
+    "Finite tests are corroboration; universal reasoning is the mathematical proof and exact finite certificates where applicable."
+  ],
+  "schema_version": 1
+}
