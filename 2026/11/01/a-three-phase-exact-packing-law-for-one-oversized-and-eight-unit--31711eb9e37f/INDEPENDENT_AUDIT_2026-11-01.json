@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:49:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Geometric lower bound: if L<min(a+2,5), total horizontal and vertical gaps beside the a-square are each <2; reflections ensure left and bottom gaps <1. Every unit square must be wholly right or wholly above the large square. Each strip has width<2, so two unit projections across short direction overlap and projections along length must be disjoint; each strip holds <=4 units because L<5. With eight units, both assigned strips contain four; the rightmost top-assigned square has left coordinate >=3 and the uppermost right-assigned square has bottom >=3, while both lie in [a,L-1] along constrained axes. Since L<5, their horizontal and vertical unit projections overlap strictly, impossible. Separate L>=a+1 follows because otherwise both total coordinate gaps <1 and no unit square can be disjoint. Explicit three coordinate layouts attain the max/min formula including a=1,3,4. Independently checked 10 rational samples and all 360 pairwise closed-square nonoverlap relations; universal result rests on continuous geometric argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Badger arxiv:2610.22622v1 Theorem A covers up to 7 positive squares.",
+          "Badger arxiv:2610.28504v1 Theorem1.1, 23 packing-strategy costs, covers up to 8 positive squares.",
+          "Friedman unit-square survey tabulates congruent square packing; not mixed a-dependent formula."
+        ],
+        "reasoning": "No cited cardinality-bounded theorem can directly imply nine positive square exact optimum. The general finite-strategy method informs the proof but is not a closed nine-square parameter evaluation.",
+        "searches": [
+          "axis parallel packing one large square and eight identical unit squares exact minimal square container",
+          "https://arxiv.org/html/2610.22622v1",
+          "https://arxiv.org/html/2610.28504v1",
+          "https://doi.org/10.37236/28"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md",
+        "Pinned verify_packings.py",
+        "Badger arxiv:2610.22622v1 Theorem A",
+        "Badger arxiv:2610.28504v1 Theorem1.1 and Table1.1",
+        "Friedman 1998/2009 unit-square packing survey DOI:10.37236/28",
+        "Resultary query axis parallel packing one large square and eight identical unit squares exact minimal square container",
+        "Targeted web two-size nine-square searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Badger L_8*(s) with s=(a,1^7) gives only necessary bound for (a,1^8), not sufficiency nor the a=3..4 plateau.",
+          "Geometric two-strip 4+4 collision argument forces sharp min(a+2,5) in the 9-square problem."
+        ],
+        "reasoning": "The additional eighth unit creates a new combinatorial obstruction that is not automatic from L_8 formula or nine unit-square tiling. The exact continuous lower bound and construction are required.",
+        "searches": [
+          "axis parallel packing one large square and eight identical unit squares exact minimal square container",
+          "https://arxiv.org/html/2610.22622v1",
+          "https://arxiv.org/html/2610.28504v1",
+          "https://doi.org/10.37236/28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Problem equals evaluation of optimal axis-aligned square-container function L_9*(a,1,1,1,1,1,1,1,1) for a>=1.",
+          "Equal-unit point a=1 specializes to s(9)=3."
+        ],
+        "reasoning": "Size ratio a/b scaling is trivial but full a-dependent nine positive squares is not equivalent to the prior n<=8 formula. Ordinary unit-square packing gives only single parameter value.",
+        "searches": [
+          "axis parallel packing one large square and eight identical unit squares exact minimal square container",
+          "https://arxiv.org/html/2610.22622v1",
+          "https://arxiv.org/html/2610.28504v1",
+          "https://doi.org/10.37236/28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact equal-unit s(9)=3 is known and matches a=1.",
+          "Resultary nearest entries involve square geometry and separation, not the mixed-size nine-square function.",
+          "No matched exact three-phase (a+2,5,a+1) table found in queried indexed sources."
+        ],
+        "reasoning": "Known equal-square boundary value is covered; the two-size one-dimensional continuous profile is different. Search nonhits cannot establish priority universally.",
+        "searches": [
+          "axis parallel packing one large square and eight identical unit squares exact minimal square container",
+          "https://arxiv.org/html/2610.22622v1",
+          "https://arxiv.org/html/2610.28504v1",
+          "https://doi.org/10.37236/28"
+        ]
+      },
+      "rationale": "Recent Badger 7-square formula (2610.22622) and 8-square 23-strategy formula (2610.28504) explicitly have fewer positive squares; not a nine-square exact profile. Classical equal-unit n=9 packing s(9)=3 is only boundary a=1, not a dominating mixed-size theorem. No retrieved stronger two-size nine-square formula; best-of-knowledge originality with meaningful older/uncatalogued two-size packing risk.",
+      "residual_risks": [
+        "Older or unindexed special two-size nine-square packing literature may already give this profile.",
+        "Rotations and arbitrary nine side vectors are outside theorem; equal-unit a=1 is classical.",
+        "Rational coordinate tests check only constructions; all-real lower bound is proved by strip geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides L_7* for seven prescribed sides, not nine; cannot substitute 0-side squares for two present positive unit squares.",
+          "evidence": [
+            "Theorem A n<=7 and exact geometry only for at most seven positive squares."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22622v1",
+          "material_read": "Full accessible primary HTML including definitions L_n*, theorem A through seven, geometric projection-based lower bounds, and context for 8-9.",
+          "method": "Primary arXiv full-text theorem and methods reading",
+          "title": "Axis-parallel square packing with an exact formula for optimal packing of seven squares",
+          "trigger": "Direct same optimization and smaller cardinality family"
+        },
+        {
+          "assessment": "Eight arbitrary sizes is strictly smaller cardinality; current nine-square slice is not a formal corollary, though lower-bound techniques are related.",
+          "evidence": [
+            "Theorem1.1 evaluates L_8*, not L_9*. One a-square plus eight units is nine positive entries."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.28504v1",
+          "material_read": "Full accessible primary HTML Section1 Theorem1.1 and 23-case formula/Table1.1, background references and discussion of n>=9 unresolved.",
+          "method": "Primary arXiv full-text theorem and table comparison",
+          "title": "An exact formula for optimal axis-parallel packing of eight squares",
+          "trigger": "Most recent exact solution for eight arbitrary side lengths"
+        },
+        {
+          "assessment": "Different all-equal size setting; does not by itself cover one variable size.",
+          "evidence": [
+            "Exact nine congruent value is known, and is acknowledged as a boundary case."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/28",
+          "material_read": "Abstract and theorem scope for congruent unit squares, specifically s(9)=3; full survey not materially read.",
+          "method": "Journal article abstract/index and bibliographic survey entry",
+          "title": "Packing Unit Squares in Squares: A Survey and New Results",
+          "trigger": "Potential exact known special nine-unit boundary table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nine-square two-size slice directly probes the first cardinality not covered by the newly exact arbitrary 8-square theorem. Its a-dependent three-phase optimum, including a constant container-size plateau 3<=a<=4, isolates a sharp eight-unit strip capacity obstruction for a canonical object/invariant instead of arbitrary enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md",
+    "Pinned verify_packings.py",
+    "Badger arxiv:2610.22622v1 Theorem A",
+    "Badger arxiv:2610.28504v1 Theorem1.1 and Table1.1",
+    "Friedman 1998/2009 unit-square packing survey DOI:10.37236/28",
+    "Resultary query axis parallel packing one large square and eight identical unit squares exact minimal square container",
+    "Targeted web two-size nine-square searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For one axis-parallel square of side a>=1 and eight unit squares without rotations, exact minimum square-container side is max(a+1,min(a+2,5)), with phases a+2 (1<=a<=3), 5 (3<=a<=4), and a+1 (a>=4).",
+  "limitations": [
+    "Older or unindexed special two-size nine-square packing literature may already give this profile.",
+    "Rotations and arbitrary nine side vectors are outside theorem; equal-unit a=1 is classical.",
+    "Rational coordinate tests check only constructions; all-real lower bound is proved by strip geometry."
+  ],
+  "residual_risks": [
+    "Older or unindexed special two-size nine-square packing literature may already give this profile.",
+    "Rotations and arbitrary nine side vectors are outside theorem; equal-unit a=1 is classical.",
+    "Rational coordinate tests check only constructions; all-real lower bound is proved by strip geometry."
+  ],
+  "schema_version": 1
+}
