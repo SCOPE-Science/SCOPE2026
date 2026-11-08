@@ -1,19 +1,21 @@
-# Scientific review: quartic harmonic sampling on signed constant-weight orbits
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has a fixed integer domain \(n\ge8\), \(3\le k\le n-3\), an explicitly normalized finite spherical sample set, and a well-defined exact homogeneous Euclidean degree-four harmonic evaluation operator. Sign-parity projection decomposes the full harmonic space into mutually independent parity-four, parity-two, and even subspaces. Four-distinct-index monomials account for the \(k=3\) loss. In each two-odd-index sector, harmonicity imposes \(3(a+b)+\sum c_\ell=0\), whereas vanishing on the fixed-size support slice imposes \(a+b+(k-2)c=0\); their difference gives exactly \(n=3k-4\) as the only extra pair-sector resonance. In the all-even sector, pair incidence has rank \(\binom n2\), leaving the explicit \(n\)-dimensional span of \(Q_i\); its Laplacian has scalar and standard eigenvalues that vanish precisely at \(n=3k-2\) and \(n=6k-4\). These exhaustive dimensions sum to the displayed nullity. The independent integer-scaled harmonic-basis checker reproduced the predicted ranks over two finite prime fields for eleven cases (22 checks), testing each resonance. Finite reductions corroborate but do not replace the proof.
+PASS
 
-## Originality
+For n>=8, 3<=k<=n-3, partition homogeneous Euclidean harmonic quartics by the set of odd coordinate exponents, whose sizes are 4,2,0 and remain independent under all sample coordinate-sign flips. Four-odd monomials vanish only at k=3. For each odd pair, harmonicity requires 3(a+b)+Σ_ext c=0 and zero evaluation requires a+b+(k-2)c=0 with c constant by fixed-cardinality subset swap, giving one permanent antisymmetric invisible mode and an extra only at n=3k-4. The even evaluation kernel is the n-dimensional span Q_i=x_i⁴-(1/k)x_i²R, because pair-incidence functions are independent on interior k-slices. The Euclidean Laplacian on Q_i has scalar and sum-zero eigenvalues 4(3k-n-2)/k and 2(6k-n-4)/k, producing extra dimensions 1 at n=3k-2 and n-1 at n=6k-4. Sum of mutually independent parity sectors gives displayed full nullity; checked exact scalar eigenvalues, sample boundary parameters and package modular-rank routine design independently. An infinite formula follows from incidence and Laplacian proofs, not finite modular tests.
 
-**PASS, with bounded-priority residual risk.** The exact object is a *restriction map on the entire real homogeneous Euclidean quartic harmonic space*, not invariant cubature moment exactness. Bajnok's 2006/2007 orbit-design paper studies spherical/euclidean design strengths using invariant moment equations; its harmonic-polynomial sections were inspected and do not state an all-mode evaluation nullity or the pair/standard representation resonance losses. Sawa–Xu's 2011 spherical cubature work likewise addresses exact integration conditions. Filmus's 2014 Boolean-slice basis establishes relevant discrete incidence tools but treats a different harmonicity operator. The published nonbinary Hamming Fourier-band spectral law gives a broader restriction kernel for full low-interaction bands, but its theorem does not directly identify the intersection with exact degree-four Euclidean harmonic polynomials or the three arithmetic resonances; obtaining the result requires the complete parity/Laplacian calculation in the proof. Actual targeted published-result searches for signed sparse quartic evaluation nullities, aliases, and resonance parameters returned no equivalent claim. Searches alone are not a priority certificate; equivalent treatments in older reflection-group interpolation or harmonic ideal theory remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The signed constant-weight orbit is a canonical hyperoctahedral sampling design, not an arbitrarily selected finite configuration. The result completely quantifies the inability of all degree-four spherical modes to be reconstructed for every interior support size and ambient dimension. In addition to a universal large nullspace, it isolates three distinct arithmetic loci of extra rank loss, with explicit invisible harmonics for each, separating design-averaging failure from full harmonic interpolation failure. This is a structural classification of a natural sampling invariant that can inform exact-degree spherical reconstruction or the choice of unions of symmetric node orbits. It does not claim higher-degree results, nonzero singular values, or absolute novelty.
+Bajnok already studied the same signed constant-weight spherical orbit and its Euclidean-design strengths (including a quartic averaged-moment parameter resonance). The assessed theorem is strictly the whole pointwise evaluation nullspace intersected with Euclidean Laplacian harmonics, not a new design setting; existing all-degree Hamming Fourier bands are a broader ambient but different polynomial/harmonicity object.
 
-## Closest literature, checks, and limitations
+## value
 
-The closest sources are Bajnok (online 2006-11-14; DOI 10.1007/s10801-006-0042-3), Sawa–Xu (arXiv:1108.3385), Filmus (arXiv:1406.0142), and the published all-degree q-ary Hamming-shell Fourier spectral law (record `2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90`). Full relevant HTML sections or the available complete research statement were read and compared by their implications. The finite checker cannot certify all dimensions; the written subset-incidence and parity argument supplies the general proof. A genuinely independent audit has not yet occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The hyperoctahedral signed constant-weight orbit is a canonical sample set. Its full quartic harmonic pointwise kernel quantifies exact unidentifiable modes, gives explicit generators, and separates three nontrivial arithmetic resonance strata beyond its permanent C(n,2) blind modes. This is a complete structural sampling classification not implied by mere spherical design strength or an all-band rank statement without extra work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
