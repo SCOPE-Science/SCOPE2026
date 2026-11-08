@@ -1,11 +1,21 @@
-# Self-review: sharp biclique diffusion amplitude
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Define the two-phase amplitude over both labelled integer states of a primitive two-cycle. For every edge, the two edge signs must cancel, since their sum has divergence zero and its pairing with the sum of the two states is a sum of nonnegative terms, strictly positive for any noncancelling edge. Opposite strict edge directions constrain both cross-shore gaps to at most \(a+b-1\). Normalize the minimum across the two phases to zero. A minimum on the left yields the universal bound \(a+2b-2\) by separately bounding right-shore values and left-shore values before and after update; a right-side minimum gives \(b+2a-2\). The maximum of the two bounds is reached by an explicit all-left-lower-than-right two-cycle with one elevated vertex in the smaller shore. Every inequality, including ties and size-two shores, is verified in the complete proof; standard-library finite checks corroborate but are not used in place of it.
+## correctness
 
-**Originality (O): PASS with residual risk.** The closest directly relevant primary predecessor, Duffy et al. (arXiv:1609.05792, Sections 2.3 and 3.2), establishes eventual periodicity for complete bipartite diffusion and studies stars but does not state this sharp, initial-condition-independent two-phase amplitude on bicliques with both shores nonsingleton. Long and Narayanan (arXiv:1704.04295, Section 2) prove period at most two for arbitrary graphs, which supplies no sharp biclique range. Carlotti and Herrman (arXiv:1805.05932, Theorems 1 and 2) bound a *starting* chip floor sufficient for future nonnegativity, not the normalized global width of a recurrent orbit. The general edge reversal argument is not presented as independently novel. Closest alternative recurrence classifications concern cliques, stars, or bistars; they do not imply the biclique extremum. Literature-index and claim-history searches identified no statement implying this bound, but that absence is not a proof of priority. A differently stated historical result remains a risk.
+PASS
 
-**Mathematical value (V): PASS.** The quantity is the exact smallest integer alphabet needed after uniform translation to represent all recurrent two-cycles on a natural dense bipartite network. The optimal threshold is independent of initial labels (unlike the published eventual boundedness proof), grows explicitly with the larger shore, and is attained by a concrete oscillating configuration. This yields a sharp finite search cutoff for translation classes, a motivated invariant for complete-bipartite diffusion rather than an arbitrary finite slice or routine check. The classification does not purport to count all cycles or their basins.
+For synchronous sign-comparison diffusion, the signed edge-flow sum across an x→y→x pair is divergence free. Pairing with x+y expresses zero as a sum of nonnegative edge terms, forcing every edge to be tied in both phases or reverse strictly between phases. On K_{a,b}, reversing integer gaps and degree-sum a+b bounds cross-shore gaps by H=a+b−1 at either phase. Normalize minimum over both phases to zero. For a left-shore minimum, its right neighbours and phase changes are bounded by H and b; splitting other left vertices at value H gives all two-phase labels ≤H+b−1; exchanging shores gives H+a−1. Thus maximal span ≤a+b+max(a,b)−2. For a≤b the left labels (0 repeated a−1,H−1) and all right labels H update to left (b repeated a−1,H+b−1) and right (b−1 repeated b), then reverse, attaining upper bound. All sizes ≥2, ties and arbitrary translated labels covered. Independent finite integer-state enumeration for K_2,2 and K_2,3 confirmed widths 4 and 6; not extrapolated to all parameters.
 
-The findings concern integer-valued parallel diffusion, not sequential binary parity or standard degree-threshold chip firing. Potential historical equivalence is explicitly retained as a risk; there is no assertion of external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original feature is the exact two-phase recurrent amplitude a+b+max(a,b)−2 for complete bipartite graphs with both parts ≥2, not edge sign potentials or period-two classification generally. The same-model Duffy et al theorem establishes eventual periodicity but its width bounds depend on a chosen initial configuration; Long/Narayanan restrict possible periods on all finite graphs; Carlotti/Herrman bound a starting chip floor sufficient for nonnegativity. None of these quantified statements implies a sharp maximum over all primitive two-cycles and both phases after translation. The Resultary same-object query returned integer height-function ranges (different dynamics) and no dominating recurrent-width theorem. Indexed absence is not novelty proof.
+
+## value
+
+PASS
+
+The exact maximum span over two recurrent configurations gives the smallest global translation-normalized integer alphabet needed for the entire period-two recurrent set of K_{a,b}, independent of arbitrary initial chip counts. This is an intrinsically motivated finite cutoff enabling finite classification of recurrent orbits on a canonical dense bipartite network. The sharp attained law is not a table of hand-picked small states, nor a routine consequence of eventual-period ≤2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
