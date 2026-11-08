@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every labelled finite cycle of order n>=3, every set of at most three points qualifies, while six circularly ordered selected points expose a pair with two blocked vertices on each arc. For exactly four selected points the only obstruction is a cyclic gap longer than floor(n/2); for five it is a two-consecutive-gap sum longer than floor(n/2). Every antipodal tie is handled by the alternate shortest arc. Exact positive-composition inclusion-exclusion counts the possible gaps: events on nonadjacent indices cannot intersect and no triple intersection is possible; all terms B and I are explicitly derived. Each s-subset is represented n/s times, giving exactly the displayed parity formulas. Direct exhaustive shortest-path tests for 3<=n<=18 and independent gap-composition tests for 5<=n<=32 both matched, but the proof is unrestricted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.14500 establishes the maximum size for all tolerance parameters, hence degree but not coefficients.",
+        "arXiv:2507.01851 explicitly requires zero selected internal vertices.",
+        "DOI 10.1007/s00010-025-01197-y defines and treats the same zero-tolerance visibility polynomial."
+      ],
+      "reasoning": "The 2026 scalar statement has wider parameter scope but weaker mathematical conclusion, so cannot imply the labelled fourth and fifth coefficients. The 2025 polynomial statements count a strictly smaller admissible family and do not supply a tolerance-one coefficientwise identity. No broader counting theorem was found.",
+      "searches": [
+        "\"mutual k-visibility\" cycle polynomial coefficient enumeration",
+        "\"k-mutual visibility\" graph set generating polynomial",
+        "arXiv:2602.14500 Section 4 and all other sections",
+        "arXiv:2507.01851 Theorem on visibility polynomial of cycles",
+        "doi:10.1007/s00010-025-01197-y visibility polynomial Section 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2602.14500",
+      "https://arxiv.org/pdf/2602.14500",
+      "https://arxiv.org/pdf/2507.01851",
+      "https://doi.org/10.1007/s00010-025-01197-y",
+      "https://oeis.org/A392421"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The sharp 2026 bound gives only μ_1(C_n)=min(n,5); all positive A_5(n) satisfy this but are not determined by it.",
+        "The 2025 zero-tolerance cycle polynomial has degree three; our fourth and fifth coefficients are positive for n>=5."
+      ],
+      "reasoning": "The current result implies the known maximum size as an easy consequence; reverse implication fails because existence of one fifth-set does not determine the number. Zero-tolerance results do not dominate a tolerance-one counting theorem. Distinct constraints and coefficients prevent an implied-corollary overlap.",
+      "searches": [
+        "arXiv:2602.14500 cycle proposition v3 Proposition 14",
+        "arXiv:2507.01851 cycle visibility polynomial",
+        "2025 Bujtás Klavžar Tian visibility polynomials Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original tolerant condition is pairwise existence of a shortest path with at most one interior chosen vertex (Tonny and Shikhi 2026).",
+        "For cycles, such a path is one of two arcs; the new two-gap inequalities are a direct exact restatement for five chosen points.",
+        "No all-five-set enumeration appeared in the inspected 2026 cycle proposition or in the cited zero-tolerance works."
+      ],
+      "reasoning": "The direct arc inequality is an equivalent formulation of the new classification, but it is not itself present as an all-set theorem in the inspected prior sources. Possible descriptions via cyclic compositions and extremal geodesic packings were searched. No stronger equivalent published result was identified; failure to find one does not prove uniqueness.",
+      "searches": [
+        "\"mutual 1-visibility\" \"C_n\" number of 5 sets",
+        "\"one tolerant\" \"geodesic\" visibility cycle polynomial",
+        "\"C_n\" \"five element\" \"mutual 1-visible\"",
+        "\"1-visibility polynomial\" cycle graph",
+        "arXiv:2602.14500 full text; cyclic shortest-geodesic formulations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A392421 is described as the number of size-three ordinary mutual-visibility sets in the cycle graph.",
+        "The candidate count is the coefficient of size five in the tolerance-one polynomial; its asymptotic share is 1/16."
+      ],
+      "reasoning": "The identified sequence and tables concern a different tolerance and a different size. An exact table determining every fifth coefficient was not identified. Undiscovered sequence entries or alternate encodings remain possible.",
+      "searches": [
+        "OEIS A392421",
+        "\"mutual 1-visibility\" \"C_n\" number of 5 sets",
+        "\"k-visibility polynomial\" \"cycles\" \"coefficients\" \"1\""
+      ]
+    },
+    "rationale": "Nearest publicly available primary full text arXiv:2602.14500 introduces the tolerant property and proves only cycle maximum mu_k(C_n)=min(n,2k+3); it does not count the viable fourth and fifth coefficients. The 2025 visibility-polynomial studies concern zero-tolerance, and the OEIS three-subset sequence likewise does not dominate this tolerance-one result. Exact alternative-geodesic, cyclic-composition, graph-polynomial and record searches supplied no covering statement. Priority is provisional, not an assertion of absolute uniqueness.",
+    "residual_risks": [
+      "An equivalent fifth-coefficient count in an uncatalogued sequence or differently titled geodesic-enumeration source may exist.",
+      "The version-three primary arXiv manuscript was fully inspected; subsequent revisions after this check were not audited.",
+      "Priority and proof have not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the scalar size bound, not the complete one-tolerant polynomial or fourth/fifth coefficients.",
+        "evidence": [
+          "Version 3 Proposition 14: mu_k(C_n)=min(n,2k+3).",
+          "The document does not give the tolerant cycle set-generating polynomial or the new cyclic-gap coefficient formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.14500",
+        "material_read": "Full eighteen-page arXiv third-version text, with the formal definition, cycle proposition and surrounding results, algorithms, and concluding coverage inspected.",
+        "method": "Read extracted full-text statements and the PDF page depicting the cycle proof, and searched entire paper for polynomial and counting formulations.",
+        "title": "Mutual k-Visibility in Graphs",
+        "trigger": "Introduces precisely the tolerance parameter and proves exact cycle maximum."
+      },
+      {
+        "assessment": "Defines and computes ordinary zero-tolerance mutual-visibility polynomial, with cycle degree three; does not imply tolerance-one positive fourth/fifth coefficients.",
+        "evidence": [
+          "Abstract and definition require zero internal selected vertices.",
+          "Cycle polynomial in the paper concerns classical mutual visibility."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.01851",
+        "material_read": "Full twelve-page arXiv second-version text, including its cycle-polynomial results.",
+        "method": "Read full-text portions and PDF title/abstract and definition page; checked distinction between zero and one tolerated interior vertices.",
+        "title": "On the Visibility Polynomial of Graphs",
+        "trigger": "Closest same-author cycle polynomial treatment; possible dominating coefficient identities."
+      },
+      {
+        "assessment": "Counts classical zero-tolerance mutual-visibility sets; no tolerance-one cycle polynomial or corresponding five-gap theorem.",
+        "evidence": [
+          "The visibility definition forbids every internal selected vertex.",
+          "Open-access article dated 22 July 2025."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00010-025-01197-y",
+        "material_read": "Open-access full HTML article including definitions and visibility-polynomial discussion.",
+        "method": "Inspected full-text article and its definition of classical mutual visibility and alternate variants.",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Primary general visibility polynomial source, which might dominate the derived enumeration."
+      },
+      {
+        "assessment": "Not covering; tabulates size-three sets under ordinary zero-tolerance visibility.",
+        "evidence": [
+          "Different tolerance zero rather than one.",
+          "Different coefficient size three rather than five."
+        ],
+        "identifier_or_url": "https://oeis.org/A392421",
+        "material_read": "Sequence title and stated definition; the relevant scope of its tabulated invariant.",
+        "method": "Checked sequence description and compared tolerance and cardinality.",
+        "title": "OEIS A392421: Number of mutual-visibility sets of size 3 in the n-cycle graph",
+        "trigger": "Potential exact sequence/table with matching graph family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "723bd0d3-b6e2-4ddc-bc99-2c27e63e0bca",
+  "value": {
+    "rationale": "A recently motivated tolerance hierarchy has a complete exact graph-set enumeration in its first genuinely new tolerance case. The result gives two explicit nontrivial coefficient formulas for every order, geometric necessary-and-sufficient conditions for all maximum sets, correct antipodal boundaries, and a limiting density 1/16 for size-five samples; these cannot be deduced from the known extremal cardinality alone. It is a structurally meaningful infinite-family polynomial, not a routine rewriting of the scalar maximum.",
+    "status": "PASS"
+  }
+}
