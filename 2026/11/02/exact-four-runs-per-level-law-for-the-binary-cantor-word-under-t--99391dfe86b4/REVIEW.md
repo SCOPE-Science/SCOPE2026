@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary-selector indexing gives the cyclic gap identity \(g_j=3^{\nu_2(j+1)}\) for nonterminal gaps, with one zero closing gap. The proof covers every possible rotation (leading zeros or a leading one), and identifies all group-internal preceding bits through a first-differing-gap comparison, including the terminal marker exception. It then counts exactly \(2k\) one-runs and \(2k\) zero-runs for every \(k\ge2\). Independent literal sorting and suffix-doubling sorting corroborate finite cases; no experimental extrapolation is used for the general theorem.
+PASS
 
-## Originality — PASS, with priority uncertainty
+For C_0=1, C_{k+1}=mu(C_k) with mu(1)=101 and mu(0)=000, positions of ones have base-three digits 0/2, giving cyclic zero gaps g_j=3^{nu_2(j+1)} and terminal g_{2^k-1}=0. Among rotations with t exact leading zeros, only t=3^a have preceding-letter 1; lex comparison of subsequent gap sequences yields block 1^{H-1}0^{H-1}1 for H=2^{k-a-1}. Non-power groups are all-zero. One-initial group is 0^A 1 0^B with A,B>0 for k>=2. Thus exactly 2k 1-runs and 2k 0-runs, r(BWT(C_k))=4k (k>=2), with k0=1, k1=2. Fresh literal cyclic rotation sort n=3^k, k=0..5 confirmed exact numbers and blocks; infinite proof uses the gap recursion.
 
-The 2022 nonprimitive-morphism theorem already supplies \(\Theta(k)\) BWT-run growth for broad morphic families, so that order estimate is expressly excluded from any novelty claim. The additional result specifies **the exact factor four at every level** and explicitly determines the BWT output of every leading-zero group. The 2019 and 2023 full texts inspected concern other morphic constructions or generic morphism effects, and the 2016 source studies permutation complexity instead of BWT. Semantic mathematical-record searches found no equivalent formula; absence of a match is not a proof of priority. An unindexed or differently phrased earlier exact result is a residual risk, especially since the entire 2016 paper was not accessible.
+## originality
 
-## Value — PASS
+PASS
 
-The Cantor substitution is a classical nonprimitive morphism, a test case for the difference between combinatorial structure and compressibility. The precise run constant and explicit ordered block decomposition show **how** an input with \(2^{k+1}-1\) ordinary runs reorganizes into only \(4k\) BWT runs, sharpening known generic logarithmic-order statements and providing an exact all-level benchmark for cyclic text-index construction.
+Frosini et al already show logarithmic BWT run asymptotics for growing nonprimitive binary morphisms. The exact coefficient, exceptional initial cases and full ordered block structure for the Cantor morphism remain additional conclusions; novelty is not claimed for logarithmic order itself.
 
-## Limitations
+## value
 
-The finding concerns only finite iterates of the stated binary substitution, standard lex order, and sentinel-free circular BWT. Independent historical-priority validation is not performed. The complete 2016 permutation-complexity article was not read, and equivalence under another name cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining a precise infinite-family BWT compression invariant of a canonical fractal morphic word is mathematically natural. Exact 4k and the block decomposition enable exact index-run counts beyond a coarse Theta(log n) bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

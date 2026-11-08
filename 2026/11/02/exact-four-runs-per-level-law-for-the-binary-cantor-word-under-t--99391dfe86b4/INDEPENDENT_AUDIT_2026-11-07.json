@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:43:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, checker.py",
+        "independent_checks.py CANTOR k=0..5",
+        "gap sequence and rotation-order proof"
+      ],
+      "rationale": "For C_0=1, C_{k+1}=mu(C_k) with mu(1)=101 and mu(0)=000, positions of ones have base-three digits 0/2, giving cyclic zero gaps g_j=3^{nu_2(j+1)} and terminal g_{2^k-1}=0. Among rotations with t exact leading zeros, only t=3^a have preceding-letter 1; lex comparison of subsequent gap sequences yields block 1^{H-1}0^{H-1}1 for H=2^{k-a-1}. Non-power groups are all-zero. One-initial group is 0^A 1 0^B with A,B>0 for k>=2. Thus exactly 2k 1-runs and 2k 0-runs, r(BWT(C_k))=4k (k>=2), with k0=1, k1=2. Fresh literal cyclic rotation sort n=3^k, k=0..5 confirmed exact numbers and blocks; infinite proof uses the gap recursion.",
+      "residual_risks": [
+        "Fresh literal rotation sorts only k<=5; general claim relies on proof of lex order for all k.",
+        "Circular sentinel-free BWT and linear run count; other BWT conventions may differ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives O(iteration), Theorem 4.2 gives matching lower order in appropriate morphisms; neither gives the exact coefficient four or the values of every BWT run block."
+        ],
+        "reasoning": "The more general domain has weaker conclusions, so it does not dominate the new exact single-morphism formula. Earlier generic BWT theorems cannot be cited as exact 4k.",
+        "searches": [
+          "Frosini et al Theorems 4.1 and 4.2",
+          "binary Cantor word 1->101 0->000 Burrows Wheeler transform exact run count"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.02609",
+        "https://doi.org/10.1007/978-3-030-25005-8_32",
+        "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+        "Resultary query: binary Cantor word 1->101 0->000 Burrows Wheeler transform exact run count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known logarithmic-run bound establishes growth order. New proof classifies gap sizes g_j=3^{nu2(j+1)}, then each zero-initial group t=3^a yields 1^{H-1}0^{H-1}1 and final one-initial group 0^A1 0^B."
+        ],
+        "reasoning": "Those exact lexicographic group orderings, including exceptional first iterates, do not follow numerically from generic logarithmic upper/lower bounds without extra argument.",
+        "searches": [
+          "https://arxiv.org/abs/2202.02609",
+          "https://doi.org/10.1007/978-3-030-25005-8_32",
+          "https://doi.org/10.4230/LIPIcs.CPM.2023.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frosini et al consider BWT run complexity of broad morphic words with general O(i), Omega(i) conclusions for growing nonprimitive morphisms."
+        ],
+        "reasoning": "Exact 4k and lexicographically ordered initial-zero block decomposition are stronger than Theta(k) even when the present Cantor morphism is a special case of the general hypotheses.",
+        "searches": [
+          "binary Cantor word 1->101 0->000 Burrows Wheeler transform exact run count",
+          "Cantor sequence morphism 1 101 0 000 circular Burrows Wheeler runs",
+          "https://arxiv.org/abs/2202.02609"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Permutation complexity concerns pattern orderings rather than BWT runs; finite check table through k=9 is not a known prior table."
+        ],
+        "reasoning": "No exact sequence of circular Cantor BWT run counts 4k found in the checked sources or related published record search; possible unindexed sequence table remains risk.",
+        "searches": [
+          "binary Cantor word 1->101 0->000 Burrows Wheeler transform exact run count",
+          "Lü Chen Guo Wen 2016 Cantor-like permutation complexity",
+          "Brlek et al 2019 BWT words defined by morphisms"
+        ]
+      },
+      "rationale": "Frosini et al already show logarithmic BWT run asymptotics for growing nonprimitive binary morphisms. The exact coefficient, exceptional initial cases and full ordered block structure for the Cantor morphism remain additional conclusions; novelty is not claimed for logarithmic order itself.",
+      "residual_risks": [
+        "Unindexed exact Cantor BWT formula or 2019 BWT morphism appendix may already contain an equivalent decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Theta(log n) result can cover order of growth but not exact 4k and ordered blocks",
+          "evidence": [
+            "Theorem 4.1 O(i), Theorem 4.2 lower rate; no exact Cantor 4k coefficient in inspected text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02609",
+          "material_read": "Full arXiv HTML main text Sections 3-4, Theorems 4.1 and 4.2, examples, conclusion and appendix references",
+          "method": "web arXiv full-text HTML",
+          "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+          "trigger": "Most directly related invariant: BWT run count under nonprimitive binary morphism"
+        },
+        {
+          "assessment": "Priority risk retained; no whole-document noncoverage inference",
+          "evidence": [
+            "Related morphic BWT families, need comparison for possible exact special cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-25005-8_32",
+          "material_read": "Title, abstract-level bibliographic information; no complete original proof read in this run",
+          "method": "publisher/author OA listing",
+          "title": "Burrows-Wheeler transform of words defined by morphisms",
+          "trigger": "Related BWT of specific morphic words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "morphic BWT run count and canonical Cantor substitution"
+      ],
+      "rationale": "Determining a precise infinite-family BWT compression invariant of a canonical fractal morphic word is mathematically natural. Exact 4k and the block decomposition enable exact index-run counts beyond a coarse Theta(log n) bound.",
+      "residual_risks": [
+        "Specific substitution, no all-morphisms exact formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Alphabet 0<1, circular BWT, no sentinel; linear runs in BWT output, duplicate rotations indexed.",
+    "Generic logarithmic bounds were already established; exact constant and block sequence are the claim.",
+    "Full text of 2019 morphic BWT comparator was not inspected.",
+    "Publication withheld for metadata sanitization and source guards."
+  ],
+  "schema_version": 1
+}
