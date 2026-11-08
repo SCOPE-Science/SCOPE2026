@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python3 verify.py` from the directory containing this file, using Python 3.10 or later. No third-party modules, network requests, precomputed data, or external files are required. The expected final line is `ALL_VERIFY_OK`; all assertions must succeed. The checker builds its own vertex and edge ordering for \(\operatorname{KG}(5,2)\), enumerates all fifteen-edge masks, and cross-checks the face polynomial using an independent vertex-deletion recurrence.
+# Independent mathematical audit
 
-It builds the indicated 160-pair Morse matching, checks all 975 Hasse incidences and the full directed graph for acyclicity, calculates every coefficient in the integral Morse boundary by signed gradient paths, and finds the zero 5-by-5 matrix. These are sufficient for the ordinary integral wedge-of-spheres homotopy conclusion. They do not claim an equivariant homotopy equivalence.
+## correctness
 
-For symmetry it evaluates signed chain actions for all 120 permutations. Modular Gaussian elimination computes the image of the degree-three simplicial boundary, which has rank 79 both rationally (by the proven homotopy ranks) and modulo 1000003. The modular trace is uniquely lifted to an integer because a finite-order linear operator on a 79-dimensional rational space has trace between -79 and 79. Every permutation is checked against the closed expressions for the two rational characters. The code verifies the degree-three character has norm one and is the difference of the two-subset and point permutation characters.
+PASS
 
-Limitations: the checker is exhaustive only for the Petersen graph, not for other cubic graphs. Exact signed Morse coefficients do not independently certify the entire mathematical literature comparison. Independent human validation has not been performed.
+Reconstructed Petersen graph as KG(5,2), its fifteen graph edges and all 32768 edge masks; verified matching cardinality counts (1,15,75,145,90,6). Independently reproduced the specified 160-pair discrete Morse matching, topologically sorted all 975 directed Hasse incidences on the 331 nonempty faces, and obtained exactly one critical vertex, five critical 2-cells and five critical 3-cells. Independently computed the signed integral gradient-path boundary from all five critical 3-cells to all five critical 2-cells, finding an identically zero 5×5 matrix (not just zero modulo a prime). Thus Hurewicz π2=Z5 makes every S2 attaching map null and the integral wedge follows. For each of all 120 permutations in S5, independently computed oriented chain traces and the 79-dimensional im(d3) finite-field trace; prime1000003 > 2×79 gives unique integral trace lifts, yielding H2=sgn(g)·fixed_points(g) and H3=choose(fixed_points,2)+two_cycles-fixed_points. Their rational characters identify the two named modules; no claim about integral S5 lattice decomposition.
+
+## originality
+
+PASS
+
+Mondal–Mukherjee–Saha study M_n=M(K_n), with M(K5) itself the Petersen graph; that is not M(Petersen), a 15-vertex 4-dimensional complex. Known Petersen 2-matching, Morse and cut complexes use distinct face conditions; outerplanar matching theorem does not cover nonplanar Petersen. The actual integral homotopy and full degree-split S5 character are not shown as covered.
+
+## value
+
+PASS
+
+The Petersen graph is a highly canonical symmetric cubic graph. Identifying a mixed-dimensional integral homotopy wedge and distinguishing its two five-dimensional rational S5 homology modules supplies structural information beyond face counts and Betti numbers, and a reusable exact benchmark for graph matching-complex calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
