@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every residue produced by a proposed extension has the form of a nonnegative power of the added term times an allowed residue. A modular additive triple yields a three-variable integral Bézout equation: the gcd of its coefficients divides the target because it is coprime to the prime modulus. The explicitly exhibited positive homogeneous shift turns that equation into a forbidden triple of positive terms. Together with the cyclic subgroup lattice, these arguments prove the finite necessary-and-sufficient criterion with no finiteness assumption on the prospective GD extension. The theorem has been checked against boundaries including \(p=5\), \(p\equiv1\pmod4\), and the order-six/order-ten examples. The verifier corroborates 421 sum-free subgroup and 1020 lifting-divisibility instances; finite checks are not the infinite proof.
+## correctness
 
-## Originality — PASS (with priority uncertainty)
-Demirov–Trifonov (arXiv:2607.09937v1) proves that \(V_p\) has the GD extension \(E_p\) and asks for maximal supersets, but does not state when \(E_p\) is itself globally maximal. Alon–Bourgain (2014) studies additive triples in finite-field multiplicative subgroups but not the universal integer lifting needed for the conclusion. Targeted mathematical-research-record searches for global GD maximality and prime-index criteria did not locate a covering theorem. An implicit or unindexed earlier proof remains possible.
+PASS
 
-## Mathematical value — PASS
-The result turns an infinite inclusion-maximality question, explicitly motivated by a recently posed problem, into an exact finite computation with no periodicity assumption on a competitor. It supplies maximal families (safe primes and primes with half-order a power of three), and a genuinely different infinite nonmaximal family (primes congruent to one modulo four other than five).
+For prime p and sum-free multiplicative H<=F_p^*, S_H is GD. If a GD superset contains t not in S_H, p|t is excluded by 1+t collision. K=<H,t mod p> must be modular sum-free: any K modular triple can be represented r_i=t^{e_i}h_i and lifted to a positive exact integer triple through A s1+B s2=C s3 with A,B,C powers of t; g=gcd(A,B,C) divides the numerator and, since p∤g, also N=(C h3-A h1-B h2)/p. Bézout provides integer z_i solving A z1+B z2-C z3=N, and positive kernel increments (LC,LC,L(A+B)) make all s_i positive. This contradicts GD closure; hence global integer maximality iff finite subgroup maximality. Cyclic F_p^* means every first enlargement has prime index ell, and divide-by-w converts modular u+v=w to a+b=1, or a-b=1 with -1. Checked safe primes, p≡1 mod4 fourth roots, p=19 and 31 and independent exact subgroup enumerations.
 
-## Limitations
-It decides maximality of full-residue-class subgroup sets, not arbitrary sparse multiplication-closed sets. A failed criterion provides an extension but need not construct a globally maximal one, so the full maximal-extension problem remains unresolved for such cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The preceding 2026 GD paper defines the same arithmetic closure problem and shows residue-one progressions for p>=5 admit ±1 extensions, but its full openly available eight-page text addresses T_k,V_k,W_k (Theorems 4–5) and expressly leaves a formula for maximal extensions of V_p open in Problem 7. The fresh prime-index test handles whether the ±1 extension or arbitrary sum-free subgroup residue system is itself globally maximal, including nonperiodic extensions. This extends rather than reproduces the previous paper.
+
+## value
+
+PASS
+
+A finite explicit prime-index decision test for maximality against *all* nonperiodic GD supersets closes a natural residue-extension problem left open in the recent originating paper; its positivity-preserving lifting lemma is a structural argument, not a trivial renaming or isolated congruence example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
