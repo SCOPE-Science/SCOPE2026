@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:51:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-orientation-sensitivity-of-two-step-randomly-pivoted-chole--8657b8293542/RESULT.md at frozen Git blob ecb16588691adbcfd2a6638e8cebe25df0783e15",
+        "2026/11/02/sharp-orientation-sensitivity-of-two-step-randomly-pivoted-chole--8657b8293542/verify.py (source inspected; analytic claims assessed independently)",
+        "/mnt/data/scope_worker03_20261106T0638Z/independent_checks_output.txt"
+      ],
+      "rationale": "The exact ordered adaptive-pivot probability is Δ_ij/(S t_i), where S=tr K and t_i=S-(K²)_ii/K_ii. The last Schur complement trace det(K)/Δ_ij cancels Δ_ij, giving E=2det(K)/S sum_i 1/t_i. Inserting the spike identities yields the stated separable law. Each summand 1-L/[L+1+(L-1)w] has second derivative -2L(L-1)^2/[L+1+(L-1)w]^3<0; strict Jensen proves the unique balanced maximum and concavity/simplex vertices the axis minima. Direct exact rational Schur-complement enumeration of 16 independent matrices reproduced both stages, boundaries and 2-DPP benchmark. The one-step expectation K−K²/tr(K) is spectrally invariant, while dimension 2 has zero residual after two pivots. Limit L=1 has nonunique equality and is deliberately excluded.",
+      "residual_risks": [
+        "Computational samples are finite and do not independently certify unquantified infinite-domain conditions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general one-step map A−A²/tr A and spectral tail estimates are in the earlier RPCholesky literature",
+          "The target is an equality classification for two actual stochastic steps, not a spectral tail bound"
+        ],
+        "reasoning": "General spectral bounds concern a wider class of inputs, but their inequalities do not determine or dominate the asserted orientation-dependent exact law and sharp equality cases.",
+        "searches": [
+          "randomly pivoted Cholesky two step orientation rank one spiked matrix expectation trace Nystrom",
+          "arXiv:2207.06503 Section 5.1",
+          "arXiv:2608.20633 sharper RPCholesky expectation bounds"
+        ]
+      },
+      "checked_sources": [
+        "Chen, Epperly, Tropp, Webber, arXiv:2207.06503 Algorithm 1 and Section 5.1; one-step expected residual map and general spectral bounds",
+        "Epperly, Tropp, Webber, arXiv:2410.03969 Sections 1.3–2; same pivot rule in accelerated implementation",
+        "Epperly arXiv:2608.20633 abstract/identified bounds, full article not verified",
+        "Resultary 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (different adaptive randomized pivoting stage model)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2207.06503: E[R1]=A−A²/tr A and standard DPP pair sampling",
+          "Current derivation: E[R2]=2 det(A)/tr(A) sum_i [tr(A)−(A²)_ii/A_ii]^{-1}"
+        ],
+        "reasoning": "The one-step spectral identity does not commute with random nonlinear second updates; DPP mean trace gives only the orientation-independent comparison, not the adaptive extrema.",
+        "searches": [
+          "randomly pivoted Cholesky two step orientation rank one spiked matrix expectation trace Nystrom",
+          "Chen Epperly Tropp Webber one-step residual and determinantal sampling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2207.06503 Algorithm 1: adaptive diagonal-residual probability",
+          "Different source 2026/9/18 addresses multistage adaptive randomized pivoting, not the 3x3 positive-definite Nyström error"
+        ],
+        "reasoning": "Identical algorithm keywords alone do not establish coverage: the exact conditional 2-pivot Schur trace extrema are not the multistage ARP column-projection factor.",
+        "searches": [
+          "randomly pivoted Cholesky two step orientation rank one spiked matrix expectation trace Nystrom",
+          "\"randomly pivoted Cholesky\" \"rank-one spike\" expected two-pivot error",
+          "Resultary 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact dataset/table observed in the examined RPCholesky primary sections or Resultary top-ranked entries; this is a bounded negative search, not novelty proof."
+        ],
+        "reasoning": "A continuous L>1 orientation-extremization law is not a conventional finite exact-database question; check the spectral/DPP formulas rather than assuming an absent numerical row proves novelty.",
+        "searches": [
+          "randomly pivoted Cholesky two step orientation rank one spiked matrix expectation trace Nystrom",
+          "randomized Cholesky 3x3 matrix spike exact orientation DPP comparison"
+        ]
+      },
+      "rationale": "Existing RPCholesky work derives the general one-step map and generic error bounds, whereas this claim computes the actual two-step expectation and all fixed-spectrum 3x3 orientation extremizers; a DPP comparison already known is properly acknowledged. Exact bounded instance search cannot by itself establish novelty.",
+      "residual_risks": [
+        "An exact small-dimension RPCholesky formula or bound may already imply the result without naming a rank-one spike.",
+        "Later arXiv:2608.20633 was not inspected cover-to-cover; possible equivalent sharp specialization remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL PRIOR METHODS, NO IDENTIFIED EXACT ORIENTATION CLASSIFICATION",
+          "evidence": "one-step expected residual A−A²/tr(A); DPP unordered minors; neither is the 2-stage exact convex-simplex extremization",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.06503",
+          "material_read": "Algorithm 1, Section 5.1 expectation map, corresponding spectral bound context and Appendix C DPP comparison",
+          "method": "primary full-text PDF opened; relevant sections and page images examined",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "same adaptive pivot algorithm and broad expected-error claims"
+        },
+        {
+          "assessment": "RELATED IMPLEMENTATION, NO CLAIMED PRIOR 3X3 EXTREMUM",
+          "evidence": "accelerated kernel approximation preserves the sequential diagonal-residual law",
+          "identifier_or_url": "https://arxiv.org/abs/2410.03969",
+          "material_read": "Abstract and algorithmic descriptions (not all paper pages)",
+          "method": "preprint and linked PDF inspected in relevant introduction",
+          "title": "Embrace rejection: Kernel matrix approximation by accelerated randomly pivoted Cholesky",
+          "trigger": "same sampling law implemented faster"
+        },
+        {
+          "assessment": "POTENTIAL PRIOR PRIORITY RISK",
+          "evidence": "general expectation/concentration bounds may hide equivalent specialized limits",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20633",
+          "material_read": "Search abstract and source-reported theorems; full proof not examined",
+          "method": "search/abstract and source cross-reference",
+          "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+          "trigger": "newer potentially stronger guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen, Epperly, Tropp, Webber, arXiv:2207.06503 Algorithm 1 and Section 5.1; one-step expected residual map and general spectral bounds",
+        "Epperly, Tropp, Webber, arXiv:2410.03969 Sections 1.3–2; same pivot rule in accelerated implementation",
+        "Epperly arXiv:2608.20633 abstract/identified bounds, full article not verified",
+        "Resultary 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (different adaptive randomized pivoting stage model)"
+      ],
+      "rationale": "At fixed eigenvalues, this is a minimal sharp example showing eigenvector orientation can change expected sequential adaptive Cholesky performance; the exact 3/2 asymptotic gap and complete extremizers are useful counterpoints to spectral-only bounds.",
+      "residual_risks": [
+        "An exact small-dimension RPCholesky formula or bound may already imply the result without naming a rank-one spike.",
+        "Later arXiv:2608.20633 was not inspected cover-to-cover; possible equivalent sharp specialization remains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chen, Epperly, Tropp, Webber, arXiv:2207.06503 Algorithm 1 and Section 5.1; one-step expected residual map and general spectral bounds",
+    "Epperly, Tropp, Webber, arXiv:2410.03969 Sections 1.3–2; same pivot rule in accelerated implementation",
+    "Epperly arXiv:2608.20633 abstract/identified bounds, full article not verified",
+    "Resultary 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (different adaptive randomized pivoting stage model)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An exact small-dimension RPCholesky formula or bound may already imply the result without naming a rank-one spike.",
+    "Later arXiv:2608.20633 was not inspected cover-to-cover; possible equivalent sharp specialization remains."
+  ],
+  "schema_version": 1
+}

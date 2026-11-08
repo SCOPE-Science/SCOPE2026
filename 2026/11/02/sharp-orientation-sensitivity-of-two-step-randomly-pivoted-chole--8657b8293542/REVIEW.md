@@ -1,15 +1,21 @@
-# Scientific review: two-step randomly pivoted Cholesky orientation law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete six-history probability calculation starts with Algorithm 1's actual sequential residual-diagonal law. For a positive-definite three-dimensional input, each ordered-pair probability is the principal two-by-two minor divided by the initial trace and first-residual trace, while the corresponding final scalar Schur complement is the determinant divided by that minor. The exact cancellation produces the orientation formula. Strict concavity on the probability simplex gives both sharp extrema and their complete equality cases, including all complex phases. The first-step identity and the dimension-two exact-recovery observation establish minimality. An independent rational verifier enumerated the actual two-pivot updates and checked the identities for several exact inputs. No numerical approximation is used as proof of the global assertions.
+PASS
 
-## Originality — PASS, qualified best knowledge
+The exact ordered adaptive-pivot probability is Δ_ij/(S t_i), where S=tr K and t_i=S-(K²)_ii/K_ii. The last Schur complement trace det(K)/Δ_ij cancels Δ_ij, giving E=2det(K)/S sum_i 1/t_i. Inserting the spike identities yields the stated separable law. Each summand 1-L/[L+1+(L-1)w] has second derivative -2L(L-1)^2/[L+1+(L-1)w]^3<0; strict Jensen proves the unique balanced maximum and concavity/simplex vertices the axis minima. Direct exact rational Schur-complement enumeration of 16 independent matrices reproduced both stages, boundaries and 2-DPP benchmark. The one-step expectation K−K²/tr(K) is spectrally invariant, while dimension 2 has zero residual after two pivots. Limit L=1 has nonunique equality and is deliberately excluded.
 
-Closest primary comparison: Chen–Epperly–Tropp–Webber, arXiv:2207.06503, Algorithm 1, Section 5.1 and Appendix C. Their one-step map and general trace bounds do not provide the exact two-step orientation extremizers. Their nonlinear-map iteration is an upper bound on the actual expected residual, not an equality. Accelerated RPCholesky (arXiv:2410.03969) generates the same pivot law but analyzes implementation and block/rejection sampling. Epperly's 2026 analysis (arXiv:2608.20633) sharpens general trace and probability guarantees without deriving this complete fixed-spectrum extremal formula. Searches for rotations, eigenvector orientation, rank-one spikes, two-pivot RPCholesky, and equivalent principal-minor calculations did not locate a prior statement implying the sharp classification. The remaining risk is an earlier specialized identity buried in subset-sampling or Schur-complement literature; search absence alone is not a proof of uniqueness. Independent priority review has not occurred.
+## originality
 
-## Value — PASS
+PASS
 
-The claim isolates the first point at which the popular adaptive pivoting algorithm becomes sensitive to the *orientation* of an input at fixed eigenvalues. The complete extrema and sharp factor \(3/2\) quantify a natural performance distinction not controlled by the spectrum or the best rank-two error. The equal-modulus extremizer exactly matches the size-two determinantal-sampling expected residual, giving a concrete comparison benchmark. This is a structural finite-dimensional diagnostic, not a general guarantee for arbitrary matrix sizes or finite precision.
+Existing RPCholesky work derives the general one-step map and generic error bounds, whereas this claim computes the actual two-step expectation and all fixed-spectrum 3x3 orientation extremizers; a DPP comparison already known is properly acknowledged. Exact bounded instance search cannot by itself establish novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+At fixed eigenvalues, this is a minimal sharp example showing eigenvector orientation can change expected sequential adaptive Cholesky performance; the exact 3/2 asymptotic gap and complete extremizers are useful counterpoints to spectral-only bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
