@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification evidence and scope
+# Independent mathematical audit
 
-`RESULT.md` gives the self-contained analytic argument: support-function inclusion, a base John frame, explicit positive cap weights, the two John moment identities, affine normalization and the sharp differentiability transition. The proof is valid for all dimensions and real admissible parameters; it does not rely on an exhaustive computer search.
+## correctness
 
-Run `python check_frusta.py` with Python 3. The program uses only standard-library `fractions.Fraction` to check exactly 197 dimension/parameter instances for \(2\le n\le14\), including the dimension-dependent threshold and both endpoints. For each instance it verifies cap inequalities, exact side-support equality, the axial weights and isotropic second-moment equations, and a regular-simplex base contact Gram frame. The program was run against its actual saved source and printed:
+PASS
 
-```
-PASS: 197 dimension/parameter pairs, exact Fraction arithmetic;
-both transition regimes and the degenerate top-base endpoint included.
-```
+For J(B)=B_m, the candidate axis ellipsoid center t=a, axial semiaxis a, transverse semiaxis b has lateral support equality (1-lambda)a+sqrt((1-lambda)^2 a²+b²)=1. Its height [0,2a] fits below the top cap iff a<=1/2. When lambda<=lambda_c=(n-1)/(n+1), a=[(n+1)(1-lambda)]^-1 and b²=(n-1)/(n+1); above lambda_c, a=1/2,b²=lambda. Any base John frame with sum c_i u_i=0 and sum c_i u_i u_i^T=I_m lifts to lateral contact points (q,sqrt(1-q²)u_i), where q=(1-lambda)a/[1-(1-lambda)a]. Weights c_i/(1-q²), plus alpha=(1-nq)/[2(1-q)] at the upper cap and beta=(1+nq)/[2(1+q)] at lower cap, are nonnegative and have zero first and identity second moments. John sufficiency and uniqueness yield global optimality without symmetric base. Alpha changes 0 to positive precisely at lambda_c. Volume a b^(n-1) is C1 not C2 at transition; affine shear transports to any base. Independently checked 168 exact rational support/contact equations for dimensions 2..29; actual check_frusta.py uses finite rationals but full theorem follows from contact-frame proof.
 
-The numerical count does not establish the all-parameter theorem. In particular, verification of the non-round and asymmetric base case follows from the general contact-frame construction proved in `RESULT.md`, rather than finite sampling of all possible convex bases. No independent review, formal certification or external certificate is claimed.
+## originality
+
+PASS
+
+The older Khachiyan half-cone result covers a specific round cone and a central cut, and is explicitly credited. Güler–Gürtuna solve outer/covering truncated second-order cones, while noting the inner truncated-cone problem is unsolved; their inner ellipsoids concern different slab bodies. The fully inspected Santaló-law record concerns polar-volume products, not John ellipsoids. No inspected source entails the all-base all-ratio John formula or contact transition.
+
+## value
+
+PASS
+
+Gives a universal, shape-independent reduction of a natural maximum-volume inscribed ellipsoid optimization for every asymmetric or nonsmooth convex base to one scalar ratio; includes an exact regime switch and nonsmooth second derivative. This is a general structural theorem, not a trivial special-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
