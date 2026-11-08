@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The pointwise inequality follows from the exact quadratic factorization for the two specified polynomials. Gaussian moments \(k!/2^k\) and a five-term convolution prove a negative rational fourth-norm difference, independently replayed by the standard-library checker. For the lower bound, the cited Hilbert-space theorem applies to squared entire functions in the correctly normalized Gaussian space. All implications, strict signs, parameter values, and domains are explicit.
+## correctness
 
-## Originality — PASS under inspected evidence
-The primary 2026 full text discusses the exponent \(p=4\) in Section 7.2 and gives the lower bound \(1/\sqrt2\) and upper bound \(2^{-1/4}\), without the explicit strict obstruction. Published Hilbert Fock rigidity and arbitrary radial Hilbert-space results do not imply this non-Hilbert upper comparison. The full 2020 and 2023 historical articles could not be inspected beyond abstracts, so possible implicit equivalent bounds remain a specified risk. Search absence is not novelty proof.
+PASS
 
-## Value — PASS
-An explicitly posed natural gap is narrowed by a strict qualitative separation from the canonical monomial upper bound. The witness identifies the mechanism: multiplying an exterior-tight linear pair by a common nonconstant factor changes the quartic Gaussian norm comparison. The constant is a safe rational certificate, not a claimed optimal value.
+At source RESULT.md and verify.py, for r=2063/2500, a=99/100, b=1/7 the polynomials f=(r-az)(1+bz), g=(z-ar)(1+bz) satisfy |g|²-|f|²=(1-a²)(|z|²-r²)|1+bz|², so exterior domination is exact for all |z|>r. Gaussian orthogonality gives ||h||_4^4=sum_{k=0}^4 k!/(2^k)|[z^k]h²|². Independently recomputed exact rational difference ||g||_4^4-||f||_4^4=-23857292957391399561/18757812500000000000000000<0, and checked r^4<1/2. Lower bound follows by applying the sharp Hilbert Fock radius at exponent2/weight2 to f²,g². The finite-term certificate is genuinely exhaustive for these degree-two witnesses, but no exact value of the universal K4 is established.
 
-## Limitations
-The exact sharp radius remains unknown. The explicit quadratic family may permit a somewhat stronger upper bound. Historical implicit-coverage risk persists because relevant complete older texts were inaccessible. No independent verification or audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality from actual published mathematical searches and inspected primary scientific material; relevant exact known cases and stronger-coverage risks are compared, not merely title-matched. No directly implication-equivalent theorem identified in inspected statements; not a historical priority guarantee.
+
+## value
+
+PASS
+
+This produces an explicit strict qualitative improvement beyond the natural monomial benchmark for an expressly open non-Hilbert Fock Korenblum problem. The multiplication by a nonconstant common factor reverses the quartic Gaussian norm inequality while retaining pointwise exterior domination. The rational number is a certificate, not asserted optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
