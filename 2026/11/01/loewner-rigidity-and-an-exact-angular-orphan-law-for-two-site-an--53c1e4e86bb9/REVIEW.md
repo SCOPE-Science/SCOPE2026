@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary distinct planar sites with site-assigned SPD matrices, subtracting the two quadratic distances gives a degree-two polynomial whose values at the sites have opposite strict signs. If its Hessian is positive semidefinite, the first cell is convex. If it has any negative eigenvalue, star-shapedness at the first site would force all negative quadratic directions to remain inside the cell from their site to infinity; continuity and the null-cone directions then contradict the second site's strictly positive distance difference. Exchange of sites proves the complete iff criterion. In the incomparable case, completing the square and tracking the sign of the resulting hyperbolic level yields the full phase diagram, including the double-cone exception. An elementary angular measure calculation yields the displayed arctangent law. All metric matrices, quantifiers, topological boundary conventions, and the whole-plane restriction are explicit in the proof. The included verifier independently checks 676 exact coordinate identities and three phase witnesses, plus 100,000 angular directions; those finite checks are not used as an infinite proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+For site-dependent SPD matrices, subtracting squared distances yields q(x)=xᵀ(A−B)x+2(Bp)ᵀx−pᵀBp, q(0)<0<q(p). If A−B⪰0 then the 0-cell is a convex quadratic sublevel. Conversely any negative direction of H=A−B gives arbitrarily distant points of C0 along that ray. Star-shapedness from 0 would force the entire ray to lie in C0; negative semidefinite directions by density or the two independent null lines for indefinite H contradict q(p)>0 or force Bp=0. Site exchange gives Cp criterion. If H indefinite, completing square with K=(B⁻¹−A⁻¹)⁻¹ yields hyperbolic phase parameter η=pᵀKp: positive gives disconnected Cp, negative disconnected C0, zero two apex-sharing closed cones. K has inertia (1,1), so η=0 gives exactly two exceptional lines. Haar uniform angles in eigenbasis give 2 arctan(sqrt(μ/λ+))/π for orphan C0, independent of |p|. Independent quadratic phase identities and 200,000-point uniform-angle test gave 0.39183 versus 0.3918265520 for K=diag(2,−1), corroborating rather than proving the general result.
 
-The recent Venkovic–Anzt paper treats site-star-shaped anisotropic cells as a precondition for its contact-function Minkowski-tensor formulas; it does not state an iff Loewner criterion or the two-site orientation law. Labelle–Shewchuk (2003) establishes a sufficient visibility lemma after *restricting to a wedge*, not a whole-plane iff matrix test. Canas–Gortler (2011) offers dense-site sufficient conditions for orphan freedom, not the two-site hyperbolic phase diagram. Comparisons of these precise hypotheses and conclusions, along with targeted mathematical-index searches, found no implication covering the displayed exact angular result. Older conic-partition and multiplicatively weighted Voronoi literature remains a genuine priority risk; a failed search alone does not certify novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural classification of two-site star-convexity and disconnectedness, not a restatement of the conic equation. The joint conclusion is structural: incomparable site metrics force a detached Voronoi component in exactly one of the two cells for almost every relative direction, regardless of site separation, and the proportion of directions producing each type is computed exactly from a spectral invariant. These facts quantify a concrete limitation of radial boundary-contact formulas and provide an explicit benchmark for orphan-detection in anisotropic tessellations. The exceptional directions and their connected-but-nonstar transition are also classified.
+Known anisotropic Voronoi literature studies multi-site visibility under sufficient wedge/density assumptions and geometric tensors conditional on star convexity. The source establishes a necessary-and-sufficient Loewner comparison for unrestricted two-site whole-plane star-shape and exact spectral probability of each orphan phase. The conic classification is classical and not claimed alone; novelty is this sharp linkage to site-assigned SPD cells. Highly relevant Venkovic–Anzt full text was unavailable after lawful attempts and Oxford VPN disconnection, leaving a named priority risk, not automatic rejection.
 
-## Scope and risks
+## value
 
-Star-shapedness refers specifically to each generating site. The theorem is about full-plane cells; bounded clipping can destroy its orphan conclusion. The exact angular probability is not valid for directionally biased displacements. The phase classification is an application of elementary conic geometry, so possible prior equivalent formulations (including old mechanical/applied-geometry literature) should be checked independently before any public priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-SPD two-site iff is a sharp structural boundary for whether common anisotropic Voronoi visibility assumptions are satisfied; the indefinite case gives an exact site-labeled orphan phase diagram and length-free spectral probability. This is mathematically motivated by anisotropic tessellation topology and clarifies when tensor/meshing models can assume star-shaped cells, rather than merely restating textbook conic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

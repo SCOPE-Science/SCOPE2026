@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T06:58:43.288295Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned full RESULT.md a6d45cc1ba048e5e703e5acb6ccb1d61560e2baf",
+        "Read original verify.py 3742a31394691680a33bff196e8d0ba0bdbcf8ef",
+        "Independent quadratic phase comparisons and 200,000-point orientation test",
+        "Full Canas–Gortler 2011 accessible PDF at https://www.cs.harvard.edu/~sjg/papers/avd.pdf"
+      ],
+      "rationale": "For site-dependent SPD matrices, subtracting squared distances yields q(x)=xᵀ(A−B)x+2(Bp)ᵀx−pᵀBp, q(0)<0<q(p). If A−B⪰0 then the 0-cell is a convex quadratic sublevel. Conversely any negative direction of H=A−B gives arbitrarily distant points of C0 along that ray. Star-shapedness from 0 would force the entire ray to lie in C0; negative semidefinite directions by density or the two independent null lines for indefinite H contradict q(p)>0 or force Bp=0. Site exchange gives Cp criterion. If H indefinite, completing square with K=(B⁻¹−A⁻¹)⁻¹ yields hyperbolic phase parameter η=pᵀKp: positive gives disconnected Cp, negative disconnected C0, zero two apex-sharing closed cones. K has inertia (1,1), so η=0 gives exactly two exceptional lines. Haar uniform angles in eigenbasis give 2 arctan(sqrt(μ/λ+))/π for orphan C0, independent of |p|. Independent quadratic phase identities and 200,000-point uniform-angle test gave 0.39183 versus 0.3918265520 for K=diag(2,−1), corroborating rather than proving the general result.",
+      "residual_risks": [
+        "The classification is for two SPD site metrics over the whole plane; clipping or three sites can destroy orphan conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Canas–Gortler full primary PDF uses sufficient sampling/metric-variation hypotheses and density.",
+          "Labelle–Shewchuk proves local wedge visibility under face restrictions."
+        ],
+        "reasoning": "These are not unconditional iff theorems for two arbitrary site matrices; their hypotheses restrict or add sites. A general conic topology theorem alone would not automatically quantify the site-defined orphan event without the signed SPD displacement relation.",
+        "searches": [
+          "two site anisotropic Voronoi indefinite Loewner orphan angle",
+          "arxiv:1102.3670",
+          "Labelle Shewchuk anisotropic Voronoi visibility wedge theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cs.harvard.edu/~sjg/papers/avd.pdf",
+        "https://arxiv.org/abs/2610.08656",
+        "https://arxiv.org/abs/1102.3670",
+        "two site anisotropic Voronoi indefinite Loewner orphan angle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source on Minkowski tensors assumes star-convexity as an input, not a criterion for arbitrary SPD pairs.",
+          "Orphan-free sufficient theorems exclude many incomparable SPD pairs by hypothesis."
+        ],
+        "reasoning": "Neither assumption nor sufficient condition implies the sharp iff in both directions, and known hyperbola classification alone does not state the exact site/orphan phase or Haar direction distribution. The combination requires the sign-at-sites and K inertia identities.",
+        "searches": [
+          "arxiv:2610.08656",
+          "arxiv:1102.3670",
+          "two site anisotropic Voronoi indefinite Loewner orphan angle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Venkovic–Anzt uses site-star-convex cells as a hypothesis for Minkowski tensor formulas.",
+          "Canas–Gortler epsilon-net sufficient conditions target orphan-free multi-site diagrams."
+        ],
+        "reasoning": "Site-specific quadratic separation is a conic, but neither supplied statement equates whole-plane site-star-shapedness for all two-site SPD matrices to the Loewner order, or supplies spectral angular orphan probability.",
+        "searches": [
+          "two site anisotropic Voronoi indefinite Loewner orphan angle",
+          "arxiv:2610.08656",
+          "arxiv:1102.3670"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic Resultary search produced no explicit two-matrix Loewner phase/probability table among 35 results.",
+          "The derived arctangent is spectral and parameterized continuously, not an isolated numeric look-up."
+        ],
+        "reasoning": "Search did not find a matching exact table; the main argument is an algebraic classification and not simply a lookup.",
+        "searches": [
+          "two site anisotropic Voronoi indefinite Loewner orphan angle",
+          "Resultary query two-site anisotropic Voronoi Loewner orphan angle"
+        ]
+      },
+      "rationale": "Known anisotropic Voronoi literature studies multi-site visibility under sufficient wedge/density assumptions and geometric tensors conditional on star convexity. The source establishes a necessary-and-sufficient Loewner comparison for unrestricted two-site whole-plane star-shape and exact spectral probability of each orphan phase. The conic classification is classical and not claimed alone; novelty is this sharp linkage to site-assigned SPD cells. Highly relevant Venkovic–Anzt full text was unavailable after lawful attempts and Oxford VPN disconnection, leaving a named priority risk, not automatic rejection.",
+      "residual_risks": [
+        "Venkovic–Anzt 2610.08656 28-page full text inaccessible because institutional VPN disconnected; possible same-object criterion cannot be definitively excluded.",
+        "General quadratic Voronoi treatments may contain a matching conic phase law under alternative terminology.",
+        "No extension to bounded observation windows or multi-site configurations follows from this claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient sampling theorems and multi-site orphan examples do not directly give arbitrary-two-SPD iff/probability",
+          "evidence": [
+            "Primary paper assumes site density and metric variation bounds for orphan-free diagrams"
+          ],
+          "identifier_or_url": "https://www.cs.harvard.edu/~sjg/papers/avd.pdf",
+          "material_read": "Accessible PDF text inspected for setup and main orphan-free sufficient-condition statements; first page visually inspected",
+          "method": "Read primary PDF text and its displayed conditions via browser, inspected PDF screenshot, compared ε-net theorem with unconstrained two-site problem",
+          "title": "Orphan-Free Anisotropic Voronoi Diagrams",
+          "trigger": "Direct established orphan and site-metric theory"
+        },
+        {
+          "assessment": "Star-convexity explicitly prerequisite for tensor formulas, but a hidden equivalent appendix cannot be excluded",
+          "evidence": [
+            "Abstract: arbitrary-order Minkowski tensors of planar anisotropic Voronoi cells that are star convex at nucleation point"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08656",
+          "material_read": "Accessible primary abstract and version metadata; full text unavailable after arXiv/OA, Oxford returned VPN disconnected",
+          "method": "Compared abstract star-convexity hypothesis with requested iff theorem; did not claim inaccessible whole document NOT_COVERING",
+          "title": "Minkowski Tensors of Planar Anisotropic Voronoi Diagrams",
+          "trigger": "Same planar site-metric cells; most plausible competitor"
+        },
+        {
+          "assessment": "Wedge restriction is not the same global cell and no whole-document exclusion is asserted from the available source",
+          "evidence": [
+            "Local wedge visibility is conditional on wedge, whereas claim addresses whole-plane cells"
+          ],
+          "identifier_or_url": "https://www.ljll.fr/~frey/papers/meshing/Labelle%20F.%2C%20Anisotropic%20Voronoi%20diagrams%20and%20guaranteed-quality%20anisotropic%20mesh%20generation.pdf",
+          "material_read": "Referenced wedge-visibility lemma and theorem statement via bibliographic/search evidence; entire primary PDF not independently reread",
+          "method": "Compared wedge-limited two-site assumptions with unrestricted whole-plane quadratic cells",
+          "title": "Anisotropic Voronoi Diagrams and Guaranteed-Quality Anisotropic Mesh Generation",
+          "trigger": "Wedge-local visibility statement may imply a special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned all-SPD necessity proof and complete-square phase derivation",
+        "Venkovic–Anzt 2026 use of star-convexity as prerequisite",
+        "Canas–Gortler 2011 orphan-free sufficient conditions"
+      ],
+      "rationale": "The all-SPD two-site iff is a sharp structural boundary for whether common anisotropic Voronoi visibility assumptions are satisfied; the indefinite case gives an exact site-labeled orphan phase diagram and length-free spectral probability. This is mathematically motivated by anisotropic tessellation topology and clarifies when tensor/meshing models can assume star-shaped cells, rather than merely restating textbook conic classification.",
+      "residual_risks": [
+        "The analytic calculation is elementary once posed as a two-site discriminant; mathematical motivation rests on a sharp necessary-and-sufficient cell topology classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned full RESULT.md a6d45cc1ba048e5e703e5acb6ccb1d61560e2baf",
+    "Read original verify.py 3742a31394691680a33bff196e8d0ba0bdbcf8ef",
+    "Independent quadratic phase comparisons and 200,000-point orientation test",
+    "Full Canas–Gortler 2011 accessible PDF at https://www.cs.harvard.edu/~sjg/papers/avd.pdf",
+    "https://www.cs.harvard.edu/~sjg/papers/avd.pdf",
+    "https://arxiv.org/abs/2610.08656",
+    "https://arxiv.org/abs/1102.3670",
+    "two site anisotropic Voronoi indefinite Loewner orphan angle",
+    "Assigned all-SPD necessity proof and complete-square phase derivation",
+    "Venkovic–Anzt 2026 use of star-convexity as prerequisite",
+    "Canas–Gortler 2011 orphan-free sufficient conditions"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the named full final claim was assessed; results are best-of-knowledge scientific judgments, not external certification.",
+    "Independent bounded arithmetic checks support but do not replace all-parameter arguments.",
+    "No new scientific files were changed. Publication/change-set plans are unexecuted."
+  ],
+  "residual_risks": [
+    "The classification is for two SPD site metrics over the whole plane; clipping or three sites can destroy orphan conclusions.",
+    "Venkovic–Anzt 2610.08656 28-page full text inaccessible because institutional VPN disconnected; possible same-object criterion cannot be definitively excluded.",
+    "General quadratic Voronoi treatments may contain a matching conic phase law under alternative terminology.",
+    "No extension to bounded observation windows or multi-site configurations follows from this claim.",
+    "The analytic calculation is elementary once posed as a two-site discriminant; mathematical motivation rests on a sharp necessary-and-sufficient cell topology classification."
+  ],
+  "schema_version": 1
+}
