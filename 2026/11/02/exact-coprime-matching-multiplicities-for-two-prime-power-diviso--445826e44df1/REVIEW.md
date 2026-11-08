@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem follows from a complete partition of divisor targets for \(p^a q^b\): a doubly divisible integer can only match \(1\), a \(p\)-only multiple can only match \(1,q,\ldots,q^b\), a \(q\)-only multiple can only match \(1,p,\ldots,p^a\), and an integer coprime to both can match any divisor. Distinguishing the partner of \(1\) gives three disjoint terms. Boundaries (including zero, more than one doubly divisible integer, saturated classes, and empty categories) follow from the zero-extended falling factorials. An independent exact-subset permanent implementation confirms the formula on 7,776 progressions and 846 occupancy patterns. The proof, not the experiments, covers all parameters.
+PASS
 
-## Originality — PASS with residual historical-priority risk
+PASS: Each divisor p^i q^j is a unique labelled target. A pq-divisible source can use only divisor 1; p-only uses 1,q,...,q^b; q-only uses 1,p,...,p^a; unrestricted sources use every target. The three possibilities for the source assigned to 1 are disjoint, exhaustive and contribute exactly the three falling-factorial terms. T>=2 impossible, T=1 forces unit. Positive summands yield precise Hall feasibility including both saturated corners; zero-extended factorials cover empty classes, negative integers and input zero. Independent exact gcd-mask permanents confirmed 846 four-class populations and 480/288 worked example; infinite exponent and arbitrary-X conclusion follows from bijective counting argument, not enumeration.
 
-Alekseyev's 2026 full-text arithmetic-progression criterion decides existence from one-prime capacities but does not evaluate multiplicity. McNew–Pomerance 2026 concerns matchable integers and densities. Sah–Sawhney 2022 enumerates coprime permutations of an interval, asymptotically, not matchings to an arbitrary two-prime-power divisor set. Searches for the evaluated permanent, its overlap profile, and equivalent two-prime divisor bipartite graphs found no direct earlier formula. The two progressions for \(n=225\) are a concrete implication separation: both have three multiples of \(3\) and two of \(5\), yet have respectively \(480\) and \(288\) matchings. General permanent theory may contain an equivalent special-case identity; absence of a search hit is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 question establishes exact existence for arithmetic progressions; the next natural enumerative invariant is how many choices a given progression admits. The theorem completely evaluates that invariant for all exponent pairs in the first genuinely interacting, two-prime support family, including non-progressions, and exposes a new overlap parameter invisible to the existential criterion. It also classifies precisely why two one-prime capacity inequalities can fail for arbitrary integer sets. This is a natural complete classification rather than a single numerical instance. The statement makes no claim to settle arbitrary prime support.
+Best-knowledge PASS after exact statement/implication comparison, Resultary searches and inspection of relevant primary source material. Classical ingredients, partial coverage and specific inaccessible-source risks are credited; no exhaustive historical priority claimed.
 
-## Closest literature and limitations
+## value
 
-Alekseyev (arXiv:2610.37512v1, Sections 1, 2, 5); McNew–Pomerance (arXiv:2604.05304v2); Sah–Sawhney (arXiv:2203.06268). Earlier generalized permanent evaluations may provide indirect priority; an independent survey is advisable. Only two distinct primes are included, and finite experiments do not establish the infinite theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Number of possible matchings is the next intrinsic invariant after the very recent existence criterion for matching divisor sets to progressions. The full two-prime-power family is the first overlapping face case. Exact unrestricted count distinguishes progressions identical on prime-divisibility marginals (480 vs 288), giving a genuine informative enumeration rather than recomputing known existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

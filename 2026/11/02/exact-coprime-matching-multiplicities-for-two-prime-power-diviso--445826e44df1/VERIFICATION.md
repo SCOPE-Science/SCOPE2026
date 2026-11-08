@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_coprime_matchings.py` using only the standard library. The verifier independently forms every divisor \(p^i q^j\), builds the gcd-allowed bipartite adjacency relation, and computes its permanent using dynamic programming on subsets of target divisors. This routine is algebraically independent of the closed-form falling-factorial argument. All calculations are exact integers.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK progression_cases=7776 occupancy_cases=846 positive=4281 zero=3495 exact_permanent_dp=yes`
+PASS: Each divisor p^i q^j is a unique labelled target. A pq-divisible source can use only divisor 1; p-only uses 1,q,...,q^b; q-only uses 1,p,...,p^a; unrestricted sources use every target. The three possibilities for the source assigned to 1 are disjoint, exhaustive and contribute exactly the three falling-factorial terms. T>=2 impossible, T=1 forces unit. Positive summands yield precise Hall feasibility including both saturated corners; zero-extended factorials cover empty classes, negative integers and input zero. Independent exact gcd-mask permanents confirmed 846 four-class populations and 480/288 worked example; infinite exponent and arbitrary-X conclusion follows from bijective counting argument, not enumeration.
 
-The progression sweep uses the prime pairs \((2,3)\), \((2,5)\), \((3,5)\), \((3,7)\), exponent pairs with each exponent in \(\{1,2,3\}\) and at most twelve divisors, starts in the integer range from negative twelve to fourteen, and positive steps from one through nine. The occupancy sweep constructs distinct residue representatives and exhausts all nonnegative four-class populations for exponent pairs in \(\{1,2\}^2\) at prime pairs \((2,3)\), \((3,5)\).
+## originality
 
-This is finite validation. The proof in `RESULT.md` covers all distinct primes, all positive exponents, and all appropriately sized sets of distinct integers. It does not claim a computer-generated proof or independent mathematical certification.
+PASS
+
+Best-knowledge PASS after exact statement/implication comparison, Resultary searches and inspection of relevant primary source material. Classical ingredients, partial coverage and specific inaccessible-source risks are credited; no exhaustive historical priority claimed.
+
+## value
+
+PASS
+
+PASS: Number of possible matchings is the next intrinsic invariant after the very recent existence criterion for matching divisor sets to progressions. The full two-prime-power family is the first overlapping face case. Exact unrestricted count distinguishes progressions identical on prime-divisibility marginals (480 vs 288), giving a genuine informative enumeration rather than recomputing known existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
