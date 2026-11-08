@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The class census processes all \(84\) possible three-point lines under a canonical least-point rule, forbids repeated point pairs, and satisfies every point degree. It counts \(73{,}920\) labelled structures in triangle strata \(27,29,30\); exact automorphism orders \(108,12,9\) give orbit sizes matching each stratum, establishing the exhaustive three-class theorem. Three independent explicit Levi graph matrices yield the claimed exact Smith factors via integer algorithms. Separate fraction-free determinants equal all Smith products and spanning-tree numbers. The C++ and Python programs have been executed from the candidate's actual paths. Residual correctness risk is implementation/library error, not unexamined infinite cases.
+## correctness
 
-## Originality — PASS (qualified)
-The Pappus critical group is already explicitly published by Joyner and Melles (2017, §5.18) and is cited as a baseline; no novelty is claimed for that row. General critical-group theory and the three combinatorial configuration classes are established background. The substantive claim computes and distinguishes **the two other \((9_3)\) Levi-graph integral critical groups**, especially their separate \(5\)- and \(107\)-torsion, with a self-contained census connecting both to the complete three-class universe. Searches for aliases, Smith factors, spanning-tree counts, Levi graphs and point-line configurations found no implication or covering table for both new groups. An unindexed table remains a concrete risk.
+PASS
 
-## Value — PASS
-The family is the first nontrivial order after classical smaller balanced three-point configurations where several combinatorial types coexist. Full critical groups, unlike rational spectra or a single spanning-tree count, record integral chip-firing behavior. Their primary decompositions distinguish all three types by disjoint exceptional-prime signatures, giving a natural complete small-case classification rather than an arbitrary numerical slice. The appearance of \(107\)-torsion in one 18-vertex cubic Levi graph is a distinctive arithmetic feature.
+The 84 triples on 9 labelled points are exhaustively processed by least-point recursion; choosing lexicographically increasing lines, respecting point degree 3 and forbidding duplicate point pairs yields every valid unlabelled-line design exactly once. Independent C++ implementation traversed 1,690,154 states and counted 73,920 labelled designs, with t=27/29/30 strata 3360/30240/40320. The displayed three representatives have point automorphism orders 108/12/9 (9!/aut matches the three strata), proving exactly three isomorphism orbits, not merely partial samples. Each explicit 18-vertex Levi graph is connected; independent 17×17 reduced integer Laplacian Smith form and exact determinant agree: t=27 factors 2,6,6,18,18,54; t=29 factors 2,6,48,2160; t=30 factors 214,5778. Determinants match spanning tree counts and valuation factorizations. Because the full finite universe was exhausted this is a genuine bounded exact classification proof, not a finite extrapolation.
 
-## Closest literature and limits
-Bokowski–Kovič–Pisanski–Žitnik (2014 arXiv preprint) treats configurations and their realizations, not the present integer Laplacians. Bond–Levine (2014) develops general critical-group theory, not these matrices. Joyner–Melles (2017, §5.18) explicitly provides the Pappus Smith factors and therefore covers that row completely. Primary literature and an indexed thesis excerpt do not exhibit the two other rows; equivalence under different nomenclature remains possible. This same-review finding is computationally exact, but not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Pappus group is explicitly in Joyner–Melles 2017 §5.18 and Tamimi’s later table; it is excluded from novelty. Classical three-type enumerations and generic abelian-network critical group theory are likewise prior. Inspected primary materials and targeted aliases did not contain the two non-Pappus integral Smith decompositions. Unindexed tabulations of cubic bipartite graphs might already list these. Qualified best-of-knowledge PASS for the two new groups and their complete-context arithmetic distinction.
+
+## value
+
+PASS
+
+The three classical small symmetric incidence types form a natural complete classification; their integral Laplacian cokernels distinguish non-Pappus types by 5- and 107-primary torsion. Exact group structures and spanning-tree counts are natural invariants that may be needed for chip-firing or configuration comparisons; the Pappus baseline is explicitly not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
