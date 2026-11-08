@@ -1,19 +1,21 @@
-# Scientific review: A single-pair versus multi-pair price threshold for spectral-gap design of complete graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All parameters have explicit domains: \(n\ge4\), \(1\le k\le\lfloor n/2floor\), and positive prices/budget. The proof identifies the unit-gap normalization and constructs a valid positive-semidefinite dual \(X_s\). Its edge lengths and trace give a universal lower bound. Exact uniform and matching-deleted primal allocations attain the bound, with complete eigenspace decompositions. Complementary slackness proves unique uniform weights strictly below the threshold and deletion of every costly edge strictly above it. The exact-rational standalone verifier ran 35,388 assertions on the stated finite instances; the all-parameter claim is supported by the analytic proof.
+PASS
 
-## Originality — PASS (qualified)
+For K_n with k disjoint marked edges priced P, others Q, convert budgeted lambda_2 maximization by homogeneity into unit-gap L>=Pi cost minimization. X_s=Pi(1/2 I+(1-s)/2 A_M)Pi is PSD on 1-perp exactly up to rc=2 for k>=2, and rc=2(n-1)/(n-2) for k=1. Its edge quadratic lengths are s on matched edges, 1 otherwise, with trace (n-1)/2+k(s-1)/n, a universal dual price lower bound. Uniform weights 1/n attain below threshold; X_r positive definite forces L=Pi hence unique weights. Explicit zero-matching designs attain the critical bound and have all nonzero eigenvalues at least 1. Strict dual slack at r>rc forces deletion of all marked edges in EVERY optimizer; equal-cost boundary solutions and convex combinations follow. Independent 79 matching-deletion configurations and 186 projected-dual configurations checked spectrum, costs and lengths. No claim about arbitrary nonmatching priced edges.
 
-Sun–Boyd–Xiao–Diaconis (2006) provide the general continuous-time SDP and embedding dual, not this matching-size-dependent two-price threshold or the full optimizer rigidity statements. Boyd–Diaconis–Parrilo–Xiao (2007) address discrete-time SLEM and uniform complete graphs. Ghosh–Boyd (2006) address convex relaxations of *unweighted graph families*. Literature and semantic record searches used equivalent language (priced algebraic connectivity, fastest mixing Markov process, matching-deleted complete graph and symmetric edge-weight design). No inspected source dominated the precise result. A sufficiently specialized unlocated reference could still cover it, so this is a best-knowledge novelty assessment rather than proof of first discovery.
+## originality
 
-## Value — PASS
+PASS
 
-The exact transition from uniform conductances to mandatory whole-matching deletion is an operational design decision. It distinguishes one costly connection from multiple disjoint ones, giving a genuinely dimension-independent price threshold in the latter case. The theorem also yields the optimum spectral gap for every continuous price and budget, not just one isolated numerical example.
+Best-of-knowledge: The proof relies on older duality theory but the particular exact optimizer law is not an observed direct corollary of the inspected general descriptions.
 
-## Closest literature and limitations
+## value
 
-Primary literature: https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf; https://arxiv.org/pdf/0709.0955; https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf. The result assumes a matching of costly edges in a complete graph, two positive price classes and unnormalized continuous-time Laplacian spectral gap. It does not treat arbitrary expensive-edge subgraphs or classify every critical/above-critical optimizer. No independent external review has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact price-ratio at which economically costly edges disappear from an optimally mixing complete graph distinguishes one exceptional edge from two or more and gives a stringent structural all-optimizer screening law. It is a natural nontrivial optimization threshold beyond generic SDP existence, backed by a constructive primal and dual, with potential uses in constrained network design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

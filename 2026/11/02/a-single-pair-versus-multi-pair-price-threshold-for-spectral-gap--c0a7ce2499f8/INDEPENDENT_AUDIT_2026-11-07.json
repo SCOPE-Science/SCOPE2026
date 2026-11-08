@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:57:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_n with k disjoint marked edges priced P, others Q, convert budgeted lambda_2 maximization by homogeneity into unit-gap L>=Pi cost minimization. X_s=Pi(1/2 I+(1-s)/2 A_M)Pi is PSD on 1-perp exactly up to rc=2 for k>=2, and rc=2(n-1)/(n-2) for k=1. Its edge quadratic lengths are s on matched edges, 1 otherwise, with trace (n-1)/2+k(s-1)/n, a universal dual price lower bound. Uniform weights 1/n attain below threshold; X_r positive definite forces L=Pi hence unique weights. Explicit zero-matching designs attain the critical bound and have all nonzero eigenvalues at least 1. Strict dual slack at r>rc forces deletion of all marked edges in EVERY optimizer; equal-cost boundary solutions and convex combinations follow. Independent 79 matching-deletion configurations and 186 projected-dual configurations checked spectrum, costs and lengths. No claim about arbitrary nonmatching priced edges.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary full Sun et al. paper derives general duality/convexity; no matched-edge two-price closed classification was located in inspected sections.",
+          "Boyd et al. 2007 studies discrete-time SLEM and symmetries, not this unnormalized continuous-time two-price program."
+        ],
+        "reasoning": "The general SDP permits deriving the optimum via additional work; it is not a displayed stronger closed-form theorem with both thresholds. Specialist literature coverage remains a risk.",
+        "searches": [
+          "fastest mixing Markov process complete graph matching distinguished priced edges spectral gap optimal",
+          "Sun Boyd Xiao Diaconis 2006 DOI:10.1137/S0036144504443821",
+          "Boyd Diaconis Parrilo Xiao arxiv:0709.0955"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify.py; exact primal and dual formulas",
+        "Independent checks of 79 deletion designs/186 duals",
+        "Sun et al. 2006 primary PDF",
+        "Resultary fastest mixing Markov process complete graph matching distinguished priced edges spectral gap optimal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Sun et al. published general SDP and dual certify the permissible method; the all-pair matching symmetry threshold is not simply the generic dual statement.",
+          "The new PSD spectral decomposition and explicit deleted-edge primal witness establish rc=2 or 2(n-1)/(n-2) and forced-zero complementarity."
+        ],
+        "reasoning": "The proof relies on older duality theory but the particular exact optimizer law is not an observed direct corollary of the inspected general descriptions.",
+        "searches": [
+          "fastest mixing Markov process complete graph matching distinguished priced edges spectral gap optimal",
+          "Sun et al. SIAM Review 48 (2006) sections 1–3",
+          "Ghosh Boyd 2006 algebraic connectivity bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2006 formulation optimizes continuous-time unnormalized Laplacian algebraic connectivity using semidefinite constraints and an embedding dual, encompassing the optimization *framework*.",
+          "The new theorem solves a restricted 2-price complete-graph matching instance with explicit price thresholds and uniqueness."
+        ],
+        "reasoning": "Rephrasing as fastest mixing Markov processes is equivalent as an optimization class, but class-level SDP does not by itself state or prove the matching edge elimination criterion.",
+        "searches": [
+          "fastest mixing Markov process complete graph matching distinguished priced edges spectral gap optimal",
+          "Sun Boyd Xiao Diaconis Fastest Mixing Markov Process 2006 SIAM Review"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit Spectral John ellipsoids of fractional matching polytopes concerns a different object, not graph mixing conductance pricing.",
+          "No relevant matching-price threshold table surfaced among retrieved published findings."
+        ],
+        "reasoning": "A graph containing a matching or a spectral gap is not sufficient implication: variables/objectives differ. Search absence is not priority evidence by itself.",
+        "searches": [
+          "fastest mixing Markov process complete graph matching distinguished priced edges spectral gap optimal",
+          "Resultary matching spectral-gap exact conductance price query"
+        ]
+      },
+      "rationale": "Best-of-knowledge: The proof relies on older duality theory but the particular exact optimizer law is not an observed direct corollary of the inspected general descriptions.",
+      "residual_risks": [
+        "A specialized two-orbit matching-weight closed form may appear in optimization literature not retrieved.",
+        "General fastest-mixing semidefinite dual framework is not new; only exact matching-case consequences are attributed value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found generic SDP and duality but not exact priced-matching closed form or all-optimizer deletion threshold.",
+          "evidence": [
+            "SIAM Review 48 (2006), equations on unit-gap constraint and dual; PDF page 3 inspected"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Primary PDF relevant Sections 1 and 3 including spectral constraint, convex optimization and dual; page-image visually inspected.",
+          "method": "Direct full-text PDF inspection and rendered page",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same algebraic-connectivity semidefinite objective"
+        },
+        {
+          "assessment": "Discrete-time SLEM objective differs from continuous-time unnormalized spectral-gap budget.",
+          "evidence": [
+            "arxiv:0709.0955, discrete-time Markov chain symmetries"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Abstract and published metadata; no independently acquired full manuscript during this execution.",
+          "method": "Abstract/formulation comparison",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Possible symmetry reduction of matching cost case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact price-ratio at which economically costly edges disappear from an optimally mixing complete graph distinguishes one exceptional edge from two or more and gives a stringent structural all-optimizer screening law. It is a natural nontrivial optimization threshold beyond generic SDP existence, backed by a constructive primal and dual, with potential uses in constrained network design.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized two-orbit matching-weight closed form may appear in optimization literature not retrieved.",
+    "General fastest-mixing semidefinite dual framework is not new; only exact matching-case consequences are attributed value.",
+    "Finite verification supplements analytic proof but does not independently certify all infinite parameter values.",
+    "No external expert/formal attestation and no historical priority certification.",
+    "Complete privacy-safe publication changes were not staged."
+  ],
+  "schema_version": 1
+}
