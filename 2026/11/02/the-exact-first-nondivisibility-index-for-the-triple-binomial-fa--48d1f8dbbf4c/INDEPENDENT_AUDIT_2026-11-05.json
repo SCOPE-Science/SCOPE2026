@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:46:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For B=binom((b+3)n,3n−1), the C_n block-rotation action is free because gcd(n,3n−1)=1, proving n|B; the adjacent-binomial identity makes bn+1 divisibility equivalent to 3n|B. Kummer guarantees an extra 3-factor whenever 3∤bn+1; remaining cases use Lucas digits. If b≡0 mod3 every n succeeds; b≡2 fails at n=1; for b≡1 and s=v3(b+2), digit constraints force n≥(3^s+1)/2, and the candidate with base-three digits (2,1,...,1) attains equality. Independent exact-integer divisibility checks passed in 1917 cases and deeper witnesses; finite checks corroborate the all-b proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo–Krattenthaler give infinitude of failures when a has prime not dividing b and an upper bound for f(a,b), not first-index equality.",
+          "Sun supplies universal divisor (bn+1)/gcd(a,bn+1), not an exact f(3,b)."
+        ],
+        "reasoning": "These broad results force existence for suitable b but do not imply the sharp v3(b+2) threshold or its unbounded parametric family.",
+        "searches": [
+          "Guo Krattenthaler 2013 theorem 2.1 f(a,b) upper bound",
+          "Sun binomial divisibility theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Sun (2012), DOI 10.1017/S1446788712000171, Theorem 1.1",
+        "Guo–Krattenthaler arXiv:1301.7651, Theorems 2.1–2.2",
+        "Resultary query Sun f(3,b)",
+        "SCOPE Git RESULT.md and verify_f3.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun general gcd divisor leaves an extra 3-factor unresolved.",
+          "Guo–Krattenthaler bound is generally much larger than (3^s+1)/2."
+        ],
+        "reasoning": "The stated preceding results are strictly weaker for the first-index question; neither is a general theorem whose special case directly yields this exact value.",
+        "searches": [
+          "Zhi-Wei Sun 2012 On divisibility of binomial coefficients Theorem 1.1",
+          "Guo Krattenthaler 2013 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun 2012 defines the same f(a,b) with f=0 if no failures.",
+          "The index is equivalent to the first n for which 3 ∤ binom((b+3)n,3n−1) given 3|bn+1; reduction shown via cyclic action."
+        ],
+        "reasoning": "The cyclic/Lucas reformulation is fully equivalent and used in proof; an equivalent previously published digit formula is a residual risk.",
+        "searches": [
+          "Sun f(a,b) first nondivisibility index a=3",
+          "Lucas theorem binomial bn+1 binomial (b+3)n 3n",
+          "Resultary: least nondivisibility f(3,b) 3-adic b+2 binomial Sun Guo Krattenthaler"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published searches found no exact tabulation indexed by v3(b+2).",
+          "Direct exact integer tests checked 1917 (b,n) pairs including first failures or preceding indices."
+        ],
+        "reasoning": "No matching exact database/table located; the finite examples cannot certify universal novelty.",
+        "searches": [
+          "f(3,b) exact table first binomial failure Sun",
+          "Resultary: least nondivisibility f(3,b) 3-adic b+2 binomial Sun Guo Krattenthaler"
+        ]
+      },
+      "rationale": "Sun defined the least failure f(a,b) and a general gcd-corrected divisor; Guo–Krattenthaler proved infinitely many failures plus a general bound for many a,b. Neither primary theorem states the precise a=3 first-index classification by v3(b+2). The full single-parameter family and arbitrary valuation depths are derived separately here.",
+      "residual_risks": [
+        "A previously unlocated classical or more general explicit valuation formula may imply this a=3 index; searches cannot certify global originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_SHARP_FIRST_INDEX",
+          "evidence": "Sun gives general divisibility, not the v3(b+2) formula in the inspected statement.",
+          "identifier_or_url": "https://doi.org/10.1017/S1446788712000171",
+          "material_read": "Definition and Theorem 1.1 statement with gcd-corrected divisor; accessible publication material",
+          "method": "Primary theorem-focused comparison",
+          "title": "On divisibility of binomial coefficients",
+          "trigger": "Defines the exact first-failure invariant"
+        },
+        {
+          "assessment": "PROVES_INFINITE_FAILURES_NOT_EXACT_A3_INDEX",
+          "evidence": "Theorems give failure occurrence and broad upper bound without exact first n.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.7651",
+          "material_read": "Primary PDF theorem 2.1–2.2 and Lucas-theorem argument, read relevant full mathematical material",
+          "method": "Primary PDF text and page image check",
+          "title": "Some divisibility properties of binomial and q-binomial coefficients",
+          "trigger": "Direct predecessor proving f(a,b) failure existence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It solves an entire natural fixed a=3 family of an existing published first-nondivisibility invariant and exhibits arbitrarily long first-success segments as b=3^s−2 grows; an exact arithmetic index a researcher can cite, not an arbitrary case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a=3 and first failure, not complete set of failing n or arbitrary a.",
+    "A previously unlocated classical or more general explicit valuation formula may imply this a=3 index; searches cannot certify global originality."
+  ],
+  "schema_version": 1
+}
