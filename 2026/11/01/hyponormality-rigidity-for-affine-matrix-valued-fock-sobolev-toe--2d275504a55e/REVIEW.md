@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The weighted monomial normalization fixes the creation and annihilation coefficients. The polynomial-core commutator identity is checked algebraically, including its finite-rank vacuum correction and two-step cross terms. Positive quadratic forms force a positive matrix-valued high-energy angular symbol. Its trace vanishes identically; positivity then makes the entire angular symbol zero, yielding both matrix cancellation identities. Conversely, the positive bounded core commutator transfers to the graph closure by the closed-adjoint argument. Exact nonnormal matrices demonstrate nontriviality; 3,789 supplementary finite assertions passed in the packaged checker. Domain claims are limited to the polynomial-core closure.
+## correctness
 
-**Originality: PASS (best-knowledge).** The closest Fock–Sobolev primary work by Ko–Lee–Lee treats scalar polynomials, not arbitrary noncommuting matrix coefficients. The 2026 vector-valued doubling Fock block Toeplitz paper concerns boundedness/compactness/Fredholmness, not the unbounded oscillator hyponormality classification. The two full 2026 arXiv papers on matrix-valued hyponormal Toeplitz operators work on Hardy spaces over the circle with bounded symbols. Related published research on commuting-normal Laurent Toeplitz and multishift commutator positivity has mathematically different hypotheses and does not imply the three matrix identities here. Exact research-record and own-claim overlap searches found no dominating statement. Possible equivalent matrix-oscillator classifications outside indexed sources remain a risk.
+PASS
 
-**Mathematical value: PASS.** The result supplies a necessary-and-sufficient classification for the natural matrix-valued first-degree extension of a recent scalar Fock–Sobolev problem, uniformly across finite matrix sizes and Sobolev orders. The cancellation of linearly growing blocks, the explicit finite vacuum anomaly, and noncommuting strictly hyponormal examples make it structural rather than a mere scalar substitution.
+The monomial norm makes Je_n=sqrt(n+m+1)e_{n+1}. Expanding T*T-TT* on finite polynomial sequences yields diagonal P+(n+m)G for n>=1, vacuum (m+1)P, and second-neighbor coefficients ~nK. For high-frequency long packets (length floor sqrt N), positivity forces each Hermitian M(theta)=G+e^{-2i theta}K+e^{2i theta}K*>=0. tr G=tr K=0 identically so positivity implies M(theta)=0, hence Fourier coefficients G=K=0. Then remaining bounded core form is (I+mE00)tensor P, with P>=0 necessary/sufficient; closure follows by Cauchy control of T* and closed adjoint. Independently reconstructed 2x2 nonnormal matrices A=N-3I,B=N* -2I: P=[[5,-1],[-1,5]], eigenvalues 4,6, G=K=0 and [A,B]!=0; checked exact diagonal blocks for m=0,1,4 at several fibers. Essential spectrum assertion is for bounded FORM extension, not unbounded products.
 
-Scientific boundaries: the statement does not address higher-degree symbols, infinite coefficient multiplicity, all maximal realizations, or subnormality. The essential-spectrum claim is for the bounded form-extension only. Full expert review, exhaustive synonym-based priority searches, and independent validation are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ko–Lee–Lee 2026 open-access full text treats scalar Fock–Sobolev harmonic polynomials (not noncommuting matrix coefficients). Matrix/block Toeplitz Hardy space results act on a bounded unilateral-shift geometry; doubling Fock work studies boundedness/Fredholmness, not this unbounded hyponormality equivalence. No published-record search returned the three-matrix rigidity criterion, though operator-valued bosonic oscillator literature might contain it.
+
+## value
+
+PASS
+
+An iff theorem for all finite matrix multiplicities and Sobolev weights extends natural scalar harmonic-symbol operator theory and gives explicit noncommuting, nonnormal examples plus vacuum spectral anomaly. Matrix trace/packet rigidity is structurally nontrivial, not scalar substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytical and supplementary verification
+# Independent mathematical audit
 
-The polynomial-core identity was derived directly using the orthonormal basis \(e_n(z)=\sqrt{m!/(n+m)!}\,z^n\) and \(Je_n=\sqrt{n+m+1}e_{n+1}\). The proof separately establishes the high-energy necessity and closure sufficiency. No numerical experiment is used as evidence of positivity for all matrix sizes or levels.
+## correctness
 
-The standalone `verification/verify_affine_fock.py` (Python 3; requires NumPy) can be run from any directory with `python verification/verify_affine_fock.py`. It reported `supplementary finite assertions passed: 3789` on actual execution. It tests random complex matrix coefficients in dimensions 1, 2, 3 and Sobolev indices 0, 1, 3, 7; exact interior block formulas; trace cancellations; and a genuinely nonnormal example. It intentionally omits artificial top truncation boundaries. Exact symbolic calculation for the example also gave \(P=\begin{psmallmatrix}5&-1\\-1&5\end{psmallmatrix}\), \(G=0\), and \(K=0\), with eigenvalues 4 and 6.
+PASS
 
-Limits: finite truncation is not an infinite-dimensional proof, and numerical `allclose` assertions are not exact algebraic certificates. The analytical trace cancellation, packet limit, polynomial domains, and closure argument provide the infinite-dimensional reasoning. No independent audit or external validation has been performed.
+The monomial norm makes Je_n=sqrt(n+m+1)e_{n+1}. Expanding T*T-TT* on finite polynomial sequences yields diagonal P+(n+m)G for n>=1, vacuum (m+1)P, and second-neighbor coefficients ~nK. For high-frequency long packets (length floor sqrt N), positivity forces each Hermitian M(theta)=G+e^{-2i theta}K+e^{2i theta}K*>=0. tr G=tr K=0 identically so positivity implies M(theta)=0, hence Fourier coefficients G=K=0. Then remaining bounded core form is (I+mE00)tensor P, with P>=0 necessary/sufficient; closure follows by Cauchy control of T* and closed adjoint. Independently reconstructed 2x2 nonnormal matrices A=N-3I,B=N* -2I: P=[[5,-1],[-1,5]], eigenvalues 4,6, G=K=0 and [A,B]!=0; checked exact diagonal blocks for m=0,1,4 at several fibers. Essential spectrum assertion is for bounded FORM extension, not unbounded products.
+
+## originality
+
+PASS
+
+Ko–Lee–Lee 2026 open-access full text treats scalar Fock–Sobolev harmonic polynomials (not noncommuting matrix coefficients). Matrix/block Toeplitz Hardy space results act on a bounded unilateral-shift geometry; doubling Fock work studies boundedness/Fredholmness, not this unbounded hyponormality equivalence. No published-record search returned the three-matrix rigidity criterion, though operator-valued bosonic oscillator literature might contain it.
+
+## value
+
+PASS
+
+An iff theorem for all finite matrix multiplicities and Sobolev weights extends natural scalar harmonic-symbol operator theory and gives explicit noncommuting, nonnormal examples plus vacuum spectral anomaly. Matrix trace/packet rigidity is structurally nontrivial, not scalar substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
