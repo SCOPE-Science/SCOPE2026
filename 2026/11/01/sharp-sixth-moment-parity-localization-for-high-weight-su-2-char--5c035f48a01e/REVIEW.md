@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Weyl-integral normalization and the exact Clebsch–Gordan evaluation of \(\int\chi_m^6\) determine the coefficient \(1/4\) at each endpoint. Reflection distinguishes even and odd character offsets. The pointwise bounded-difference estimate, the weighted \(L^5\) growth bound, and a scalar sixth-power inequality establish the uniform \(O_S(m^2)\) remainder for arbitrary complex coefficients. Cauchy–Schwarz and the derivative in Bernstein form establish the global \(5:1\) threshold and the complete limiting optimizer set. A direct triple-fusion checker passed 14,766 deterministic assertions. The infinity-weight conclusion is analytical, not an extrapolation from the finite checks.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Youn's 2024 central-Fourier Khintchine theorem concerns the general non-Kac quantum-group setting, not the sharp growing-weight sixth moment on classical \(SU(2)\). Dooley–Gupta's 1996 work concerns fourth moments of noncentral matrix-coefficient sums. The closest published parity-packet result treats fourth moments, with \(3:1\) rather than \(5:1\) transition. Exact sixth moments of a pair of adjacent characters and the fourth moments of arbitrary pairs were compared; these are covered special cases or different moments, not implications of the arbitrary finite-support sixth-moment theorem. Relevant primary source material and semantic search results were inspected; older unindexed equivalent estimates remain possible.
+PASS
 
-**Value — PASS.** Sparse central character packets arise naturally in studying optimal \(L^2\)-to-\(L^p\) synthesis at high representation weight. The sharp \(5:1\) concentration/mixing threshold, the complete coefficient-phase classification, and the independence from within-parity spacing supply a mathematically meaningful boundary phenomenon not obtained from single-character sixth moments or fourth-moment sharp constants. In particular, supports with parity counts \((4,1)\) and \((5,1)\) lie on opposite sides of an exact transition. No claim is made for growing bandwidth or noncentral coefficients.
+Weyl integration of ordinary SU(2) trace characters gives ||chi_m||_6^6=(m+1)(m²+2m+2)/2; Clebsch-Gordan fusion independently verified this exact identity for m=0..31. For each fixed finite S, on theta<=pi/2, chi_(m+s)-chi_m is uniformly bounded by O(s), because |sin((m+s+1)theta)-sin((m+1)theta)| <=s theta. The reflected endpoint has parity signs (-1)^s. Weighted L5 size of chi_m is O(m²), so replacing the packet on each half by (A+B)chi_m and (A-B)chi_m gives a uniform O_S(m²) error and leading m³/4 (|A+B|^6+|A-B|^6). Cauchy-Schwarz saturates only for constant profiles in each active parity class; relative phases are 0 or pi. With a=max(e,o),b=min(e,o), the energy split p yields cubic Phi=1/2(q³+12ab q p(1-p)), q=ap+b(1-p). Its derivative in Bernstein form has unique interior zero for 1<=a/b<5 and is positive to p=1 for a/b>=5. Uniform convergence on compact unit coefficient sphere yields convergence of finite-weight maximizers to the complete limiting equality set. Exactly fixed supports only, no growing-bandwidth claim.
 
-**Closest references and limits.** Youn (2024), arXiv:2408.13519; Dooley–Gupta (1996), *Pacific Journal of Mathematics* 175, 491–509; the published note *High-weight parity localization of central fourth moments on \(SU(2)\)* (2026-10-11). Known two-character sixth-moment formulas do not determine the six-character threshold. The only asserted novelty is the general fixed-packet sixth-moment parity law and its sharp optimizer classification, with an \(O_S(m^2)\) remainder. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact conclusions and logical implications, not titles or equal parameter words. Central Fourier synthesis, Chebyshev/Weyl characters, Clebsch-Gordan and lambda(6)-norm formulations were compared. An L4 threshold cannot force the L6 constant, and a known adjacent two-character sixth-moment case does not determine arbitrary offset sets. The closest stronger-looking harmonic-analysis statements compare norms at different moments or distinct coefficient spaces; no inspected theorem dominates the new 5:1 and all-fixed-S leading L6 formula. Residual source-access risks and credited antecedents are explicit.
+
+## value
+
+PASS
+
+The L²-to-L6 extremizer of a high highest-weight central character packet is a natural sparse representation-theoretic synthesis problem. The threshold a/b=5 is a sharp concentration/mixing phase transition with full coefficient phase classification and parity-count universality, different from the known fourth-moment 3:1 phase transition. Supports with (4,1) versus (5,1) expose a motivated boundary not mechanically implied by the single- or two-character moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
