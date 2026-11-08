@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the finite-field norm-perturbation classification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 only. The checker implements \(\mathbb F_{p^2}\) as ordered pairs over \(\mathbb F_p\), using irreducible quadratic relations. For each \(p=2,3,5,7\) it enumerates all \(p^4\) matrices representing \(\mathbb F_p\)-linear maps, computes norm values by exponentiation, and tabulates every output multiplicity. The predicted two possible profiles are compared by direct assertions. The number of checked linear maps is \(3123\). This is finite verification only; the universal proof is given in `RESULT.md`. The source and assertion paths are wholly contained in this package.
+## correctness
 
-No external or independent audit has been performed.
+PASS
+
+The criterion b=a^q is equivalent to L mapping into Fq and yields N(x+a)−N(a). Otherwise quotient projection K/Fq composed with L has rank one; each input affine line of its kernel maps into one target line by As²+B_t s. In odd q every line contributes one singleton and (q−1)/2 doubletons; in even q B_t cycles through Fq because trace pairing nondegenerate and trace(u*u^q)=0, so one line is bijective and q−1 others have kernel two. Hence N0=N2=q(q−1)/2,N1=q, versus norm-translation N0=q²−q,N1=1,N_{q+1}=q−1. Independently enumerated all Fq-linear 2x2 matrices for q=2,3,5,7 (16+81+625+2401=3123) and verified profiles, separate from all-q proof.
+
+## originality
+
+PASS
+
+Earlier Mullen–Wan–Wang arbitrary polynomial map value-set bounds and Gao–Wang probabilistic value-set laws do not classify every coefficient and every fiber. Zheng et al many-to-one maps require rank-one trace-like conditions, narrower/different, not the full two-stratum norm+arbitrary endomorphism family. Nevertheless affine quadratic-plane normal-form theory may imply the result without matching its polynomial notation and is the main residual equivalence risk.
+
+## value
+
+PASS
+
+The exact fiber multiset and image sizes for an entire natural two-parameter family of finite-field norm-plus-linear maps, uniformly in both characteristics and including singular linear maps, provide a reusable classification for finite-map value-set and many-to-one constructions; not just a single special example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
