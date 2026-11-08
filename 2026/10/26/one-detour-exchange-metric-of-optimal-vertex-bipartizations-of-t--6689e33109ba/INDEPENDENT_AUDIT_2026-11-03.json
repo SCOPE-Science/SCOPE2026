@@ -1,0 +1,191 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:47:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob be686ad28864b4562495e7154c7b49aae268351e",
+        "assigned verify_a.py Git blob a1adfe64ebaf34958b034a27a467e03f367c1a2a",
+        "assigned verify_b.py Git blob db592fe6a44b99ecefd39dffc208e7ee765fc51e",
+        "assigned verify_a.json Git blob cff89477bfc951b8dfba780aee51263878d71b95",
+        "assigned verify_b.json Git blob e1668c82e0ddaef1e86a58c8db9fe4d3085a718f",
+        "independent_check.py and independent_computation.json, run 2026-11-03 UTC"
+      ],
+      "rationale": "Exact finite claim for GP(10,2): define outer cycle u_i u_(i+1), spokes u_i v_i, inner v_i v_(i+2), each for i mod 10. Vertex OCT means remaining induced graph bipartite. Independently implemented exact enumeration in a newly written standard-library program that tested all 60,460 subsets of 20 vertices of sizes 0..6 (zero feasible below six, exactly 3240 at six), constructed all feasible one-removal/one-addition arcs and all-pairs BFS. Independently obtained 31800 undirected exchange edges, degree histogram (12:150,14:480,15:240,16:30,17:240,18:120,19:120,20:240,21:480,22:120,23:240,24:260,25:360,26:120,27:40), eccentricity 6 for every one of 3240 states, and exactly all 10 metric table entries including 67,480 (ordered) excess pairs. Every BFS reached all 3240 states, and every counted pair satisfied h <= d <= h+1; strict cases exist. Independently checked the nonmatroid witness {1,5,7,9,11,14}, {6,9,10,12,13,15}: both feasible, replacing 5 by any vertex of T\\S fails. Inspected both repository verifier algorithms (including checked GP-to-LCF isomorphism) and both output JSON files. Actual frozen source Git tree reconstructed independently from all ten listed file blob identities and matched 92d25604fcaaf3a6f5b86560ed0c6f75e0799f03. Complete exhaustive finite computation is a proof for this fixed graph and all its allowed states, not an infinite-family extrapolation.",
+      "residual_risks": [
+        "The two bundled repository verifiers were read but not executed byte-for-byte; instead a separately implemented complete enumerator was executed twice with a corrected independent bipartite test, agreeing on all invariants.",
+        "This is a complete computer-assisted finite enumeration proof of the fixed 20-vertex instance, not a symbolic proof for arbitrary fullerene graphs.",
+        "Machine and code correctness of finite certificate relies on the standard combinatorial subset and BFS invariants; no formal proof assistant was used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu Theorem 1.4 is an induced-bipartite ratio bound excluding dodecahedron, and section 2 uses families B(G) without optimal-set exchange metrics.",
+          "Král et al. prove planar tau<=6 nu; no fixed-object shortest path theorem.",
+          "Faria et al. study edge OCT, a distinct parameter.",
+          "Generalized token jumping work addresses vertex cover/independent set/dominating set and general reachability rules, not OCT metric."
+        ],
+        "reasoning": "These general results do not mathematically imply the exact state count/complete distance distribution; a known optimum size or all-graph inequality cannot determine the arrangement of all minimum solution subsets. Matroid basis-geodesic arguments cannot be assumed: independent direct witness violates basis-exchange.",
+        "searches": [
+          "Zhu 2009 full-text PDF Theorem 1.4 and proof",
+          "Král-Sereni-Stacho arXiv:1108.4281",
+          "Faria-Klein-Stehlík arXiv:1203.3912",
+          "Krišťan-Svoboda arXiv:2411.12582",
+          "reconfiguration of minimum odd cycle transversal vertex deletion optimal bipartite sets 3240 dodecahedron graph diameter 6"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.nsysu.edu.tw/~zhu/papers/sparse/cubic2008-4-17-erratum-implemented.pdf",
+        "https://arxiv.org/pdf/1203.3912",
+        "https://arxiv.org/pdf/1108.4281",
+        "https://arxiv.org/pdf/2411.12582",
+        "https://doi.org/10.1002/jgt.20041",
+        "Resultary 3 fresh queries, names and hits recorded in the four named checks",
+        "2026/10/4/SCOPE-the-dodecahedral-independence-complex-is-a-wedge-of-four-5-spher--ba0161fd495f",
+        "2026/10/4/SCOPE-mod-2-homology-of-the-dodecahedral-matching-complex--0f7a788bfafc",
+        "2026/10/11/SCOPE-the-dodecahedral-matching-complex-is-a-wedge-of-five-5-spheres-a--07d4993d8316",
+        "2026/10/4/SCOPE-exact-graph-metric-of-consecutive-layer-s-hypersimplices--aed724149739"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest same-object Zhu work controls alpha_2 and analyzes structural graph operations, but contains no shortest paths on its family B(D).",
+          "The planar OCT min-max and fullerene edge-OCT theorems are scalar inequalities and do not imply all 10,497,600 ordered pair distances.",
+          "A graph induced in J(20,6) need not be geodesic-plus-one: this requires explicit feasibility computation."
+        ],
+        "reasoning": "A theorem on minimum OCT size or existence of an optimum does not imply connectivity, degree sequence, radius, eccentricity, or how far feasible exchange paths deviate from Hamming/Johnson distance. The explicitly verified failure of matroid basis exchange rules out applying matroid basis graph geodesicity. No studied stronger result implies the final claim, subject to unindexed historical-table risk.",
+        "searches": [
+          "Zhu 2009 B(G) and Theorems 1.4/2.1",
+          "Král-Sereni-Stacho Theorem 9",
+          "Faria-Klein-Stehlík Theorem 1.1",
+          "Krišťan-Svoboda general token-jumping theorems",
+          "Resultary dodecahedron and Johnson-metric hits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimum vertex odd-cycle transversal iff complement is maximum induced bipartite graph; optimum size six means 14 retained vertices in GP(10,2).",
+          "Token jumping of fixed-size optimum OCTs is the graph induced on those six-subsets within Johnson J(20,6).",
+          "Zhu PDF uses B(G) for maximum induced bipartite subgraphs but not reconfiguration distances; Krišťan-Svoboda rules target other graph parameters."
+        ],
+        "reasoning": "Aliases include dodecahedral graph, generalized Petersen GP(10,2), minimum vertex bipartization, maximum induced bipartite induced vertex sets, optimal OCT token jumping, and Johnson-metric detours. Equivalent complement-description preserves pair symmetric differences and distances but no compared source yields the all-pairs exchange metric.",
+        "searches": [
+          "Dodecahedral graph GP(10,2) minimum vertex odd cycle transversals optimal bipartizations exchange graph token jumping distance Johnson graph one detour",
+          "reconfiguration of minimum odd cycle transversal vertex deletion optimal bipartite sets 3240 dodecahedron graph diameter 6",
+          "dodecahedron graph induced bipartite subgraph maximum order 14 optimal colorings enumeration flip graph",
+          "Zhu 2009 Theorem 1.4 and B(G) notation",
+          "Krišťan-Svoboda arXiv:2411.12582"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest published records concern dodecahedral independence/matching complexes and ambient consecutive-layer hypersimplex metrics, not the 3240-state OCT exchange graph.",
+          "Published Byskov–Madsen–Skjernaa 2005 abstract concerns general maximal induced bipartite subgraph counts, not this exact optimum-family table.",
+          "No matching 3240-state Johnson/exchange distance table appeared in the actual specified searches."
+        ],
+        "reasoning": "Known exact homotopy/L1 metrics for the same underlying graph concern different objects. An exact small-graph computation might occur in unindexed supplementary tables; an unsuccessful search is not evidence of absolute novelty.",
+        "searches": [
+          "Dodecahedral graph GP(10,2) minimum vertex odd cycle transversals optimal bipartizations exchange graph token jumping distance Johnson graph one detour",
+          "dodecahedron graph induced bipartite subgraph maximum order 14 optimal colorings enumeration flip graph",
+          "web: dodecahedron maximum induced bipartite subgraphs 3240 number",
+          "web: dodecahedral graph minimum vertex odd cycle transversal reconfiguration token jumping 3240",
+          "2026/10/4/SCOPE-the-dodecahedral-independence-complex-is-a-wedge-of-four-5-spher--ba0161fd495f",
+          "2026/10/4/SCOPE-mod-2-homology-of-the-dodecahedral-matching-complex--0f7a788bfafc",
+          "2026/10/11/SCOPE-the-dodecahedral-matching-complex-is-a-wedge-of-five-5-spheres-a--07d4993d8316",
+          "2026/10/4/SCOPE-exact-graph-metric-of-consecutive-layer-s-hypersimplices--aed724149739"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the full constrained optimum-solution graph metric (3240 six-vertex OCTs, 31800 swap edges, one-detour Johnson bound, exact pair table and 33740 exceptional unordered pairs), not the known scalar dodecahedral bipartization number, basic token-jumping definition, exhaustive-search method or ambient Johnson lower bound. Fresh Resultary searches and primary scientific comparisons found no theorem/table logically entailing these exact constrained distances. Importantly the once-inaccessible closest Zhu manuscript was found as an author-hosted full PDF and materially inspected this run: it treats maximum induced-bipartite cardinalities and the exceptional dodecahedron, NOT the optimum-solution reconfiguration metric. Novelty is best knowledge with historical table risk, not formal priority certification.",
+      "residual_risks": [
+        "Published historical finite graph atlases or unindexed computational tables could independently contain the exact 3240-state exchange metric.",
+        "The closest prior Zhu author manuscript has been materially read, improving comparison, but not every historical source or every table has been exhausted.",
+        "Byskov–Madsen–Skjernaa primary text was only available via abstract in this run; its subject is general maximal induced bipartite enumeration.",
+        "Failed searches alone never prove novelty; priority remains best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-object source establishes broad lower bound and explicitly exempts dodecahedron; even though B(G) denotes the family of maximum induced bipartite subgraphs, inspected results do not enumerate B(D), construct their token-jump graph, or give one-detour metric. Does not imply exact exchange distances without independent computation.",
+          "evidence": [
+            "Theorem 1.4: alpha_2(G)/|V(G)| >= 5/7 except Petersen/dodecahedron (PDF lines 50-60).",
+            "Lemma 2.2 and definition B(G) (PDF lines 89-93) concern size under graph operations, not exchanges of optima.",
+            "Proof section Theorem 1.4 (PDF lines 529-560) focuses on extremal cardinality inequalities."
+          ],
+          "identifier_or_url": "https://www.math.nsysu.edu.tw/~zhu/papers/sparse/cubic2008-4-17-erratum-implemented.pdf",
+          "material_read": "Full-text accessible PDF: abstract, Introduction Theorem 1.4, notation for family B(G) of maximum induced bipartite subgraphs and Lemma 2.2, detailed proof of Theorem 1.4 and exceptional dodecahedron, and concluding proof section. The PDF text was searched for exchange/optimal and examined around its dodecahedron occurrences. Screenshot fetch of this host timed out.",
+          "method": "Web PDF full-text extraction with targeted section and keyword reading; primary author copy with erratum",
+          "title": "Bipartite subgraphs of triangle-free subcubic graphs",
+          "trigger": "Author-hosted full primary text, same dodecahedron and same induced-bipartization invariant; prior self-review could access only the abstract"
+        },
+        {
+          "assessment": "Explicitly edge-deletion odd-cycle transversal; Theorem 1.1 bounds edge deletion by sqrt(12n/5), not the minimum vertex-deletion solution exchange graph. No covering metric implication.",
+          "evidence": [
+            "PDF introduction says a set of EDGES is an odd-cycle transversal; Theorem 1.1 bounds tau_odd(G) for fullerene graphs.",
+            "Section 5 computes T-join/moat edge bounds rather than optimal vertex-subset shortest paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.3912",
+          "material_read": "Open-access arXiv 2012 PDF, abstract, Introduction and Theorem 1.1, definitions, sections 4 and 5 including proof steps and p.8 technical material",
+          "method": "Full-text PDF primary-source reading with web screenshot of pages 1 and 8, and keyword checks",
+          "title": "Odd cycle transversals and independent sets in fullerene graphs",
+          "trigger": "Fullerenes include dodecahedral graph; name odd-cycle transversal potentially aliases vertex version"
+        },
+        {
+          "assessment": "Proves tau(G)<=6 nu(G) for planar vertex OCT and algorithmic approximation, not optimum-set swap adjacency or all-pair metric on a fixed graph.",
+          "evidence": [
+            "Abstract and introduction specify tau(G) as minimum vertices hitting every odd cycle and main tau<=6nu inequality; p.1-3.",
+            "Theorems concern bounds on optimal cardinality, not how optima reconfigure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.4281",
+          "material_read": "Open arXiv 2011 PDF abstract, introduction, notation and theorem summary including Theorem 9, primary first page screenshot",
+          "method": "Primary full-text PDF and screenshot examination",
+          "title": "Min-max relations for odd cycles in planar graphs",
+          "trigger": "Identical vertex OCT parameter in all planar graphs, possible broader covering theorem"
+        },
+        {
+          "assessment": "Studies Independent Set, Vertex Cover and Dominating Set; not the family of optimum vertex OCTs on GP(10,2). No evident implication of this exact constrained metric.",
+          "evidence": [
+            "Abstract names the three solution families, with minimal generalized rules and complexity classes.",
+            "Introduction describes (k,d)-token jumping, not dodecahedral minimum odd-cycle transversals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.12582",
+          "material_read": "Open arXiv 2024 paper abstract, introduction, rule definitions and overview of scope, primary first-page screenshot",
+          "method": "Primary arXiv PDF reading and direct inspection of problem classes",
+          "title": "Reconfiguration Using Generalized Token Jumping",
+          "trigger": "General reconfiguration connectivity/distance theorem might dominate single-token jumping between optimal OCT sets"
+        },
+        {
+          "assessment": "General enumeration bounds for maximal (inclusion-wise) bipartite induced subgraphs, not exact maximum-cardinality dodecahedral optima or their exchange metric; cannot categorically exclude hidden special-case tables from abstract.",
+          "evidence": [
+            "Abstract bounds maximum number of maximal induced bipartite subgraphs in an n-vertex graph and gives algorithmic enumeration asymptotics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20041",
+          "material_read": "Published Wiley abstract and bibliographic statement only; full paper not inspected",
+          "method": "Public journal abstract",
+          "title": "On the number of maximal bipartite subgraphs of a graph",
+          "trigger": "Potential exact database/count of maximum induced bipartite subgraphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "independently enumerated complete 3240-vertex state graph and metric",
+        "Zhu 2009 induced-bipartite exceptional dodecahedron results",
+        "Krišťan-Svoboda 2024 reconfiguration context",
+        "source RESULT.md"
+      ],
+      "rationale": "The dodecahedron is a canonical exceptional cubic fullerene for bipartite induced-subgraph bounds. Maximum induced bipartite subgraphs and their optimum-preserving vertex exchanges form a natural optimization reconfiguration object: feasibility can constrain paths substantially beyond the Johnson lower bound. A complete exact 3240-state metric, self-centered nonregular structure, sharp one-step detour bound with exact 33740 unordered obstructions, and a specific violation of matroid basis-exchange characterize the geometry of all optimal solutions rather than simply recomputing the known scalar optimum of six. This is mathematically motivated and could serve as a natural exact benchmark for feasible-solution reconfiguration, without requiring an all-fullerene generalization.",
+      "residual_risks": [
+        "Single finite graph, no claimed theorem for every generalized Petersen graph or fullerene.",
+        "The one-detour bound is a natural and substantive classification here but cannot be extrapolated to all optimum OCT families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly fixed graph GP(10,2); no graph-family general theorem or novel scalar OCT cardinality.",
+    "The new review is not itself publication, an independent external expert attestation, or a formal proof-assistant certificate."
+  ]
+}
