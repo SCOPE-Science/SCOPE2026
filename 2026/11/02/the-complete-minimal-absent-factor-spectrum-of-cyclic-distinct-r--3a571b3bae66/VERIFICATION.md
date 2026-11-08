@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing this document and the verifier. The script has no external dependencies. It constructs the factor set directly from each word, collects all minimal absent bigrams and all absent extensions \(a u b\) whose adjacent length-one truncations both occur, and compares the *full sets* with the stated four families. It also checks the exact total count.
+## correctness
 
-Observed output on the included verifier:
+PASS
 
-`VERIFY_OK exhaustive_parameter_cases=147 compared_minimal_absent_words=2104`
+In the two-sided periodic language, avoiding the first three obstruction families exactly characterizes factors with cyclic consecutive run labels and full interior runs. Any extra finite-word MAW must be longer than (k-1)p+1; its occurring prefix and suffix have unique phase by distinct ordered transitions, forcing suffix/prefix boundary occurrences and border length m-2. Because P is unbordered and P^k has shortest period p, m=(k-1)p+2 and the unique endpoint factor follows. Direct independent literal-factor enumeration matched all predicted MAW sets for 500 small parameter cases covering 10,386 MAWs. The proof establishes unrestricted k rather than extrapolation.
 
-The parameter grid includes all positive run-length vectors through coordinate bound three for \(q=3\), through bound two for \(q=4,5\), and singleton runs for \(q=6\); powers include \(k=2,3,4\) where indicated in source. Literal enumeration is finite corroboration only. The all-parameter claim is supported by the written classification of the infinite periodic language and the finite-endpoint border argument. No external proof assistant or independent human review was used.
+## originality
+
+PASS
+
+Circular-word minimal forbidden factors and general run-length encoded MAW category algorithms are prior art (Fici–Restivo–Rizzo; Akagi et al.). The exact antidictionary for this distinct-run linear power, one moving endpoint and k-invariant cardinality go beyond the inspected general sources and are not inferred from their circular representation without an additional boundary argument.
+
+## value
+
+PASS
+
+Exact minimal absent words are natural anti-dictionaries for pattern matching and compressed string indexing. A complete distribution for arbitrary run lengths and powers, including a single sharp boundary obstruction, is a reproducible structural result with prospective direct use in test collections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
