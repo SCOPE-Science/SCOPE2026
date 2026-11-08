@@ -1,15 +1,21 @@
-# Scientific review: positional record–excedance dependence
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof partitions the covariance by relative position and uses the independence of a uniformly sampled prefix set from its internal rank order. For earlier excedances the prefix maximum is certainly greater than the position threshold; for same-position excedances the sole failure is selection of the initial \(i\) values, with probability \(\binom ni^{-1}\). Independence for later excedances follows by conditioning on the later value, and exact row sums prove the five-element sign boundary. The finite computations (500825 exact assertions in `verify.py`) independently reconstruct the table through eight entries and probe the sign inequalities to size 1000; the all-size proof does not depend on enumeration.
+## correctness
 
-## Originality (PASS, with historical qualification)
-Ehrenborg–Steingrímsson's excedance-set work, Gnedin's record-rank study, and Brändén–Claesson's mesh-pattern representations supply the natural starting points. Their inspected contents do not give the exact mixed \(\operatorname{Cov}(R_i,E_j)\) kernel or the strict global sample-size threshold \(n=5\). They are not excluded from having more general identities from which portions might be recovered; this historical-priority risk remains for independent assessment. The standard record/Eulerian marginals are not new contributions.
+PASS
 
-## Mathematical value (PASS)
-The theorem resolves the complete position-dependent interaction of two canonical random-permutation statistics. Its unexpected sign pattern explains how negative contributions from all earlier excedances coexist with a positive record–excedance covariance for the whole permutation from size five onward, and quantifies the finite nonzero covariance alongside vanishing asymptotic correlation. This is more informative than a marginal generating function or an isolated moment computation.
+For uniform π∈S_n, the unordered prefix set S_i of i values is independent of their relative ranks, including the event R_i that position i is the prefix maximum. If j<i, conditional on R_i, π_j is uniform among S_i except its maximum, which necessarily exceeds j, so conditional P(E_j)= [i(n−j)/n−1]/(i−1). Multiplying its difference from (n−j)/n by P(R_i)=1/i gives Cov(R_i,E_j)=−j/[ni(i−1)]. On j=i, P(max S_i≤i)=1/C(n,i), giving diagonal 1/n−1/[iC(n,i)]; for j>i, π_j is independent of the earlier relative prefix rank, so covariance zero; R1 is constant. Summation yields row 1/(2n)−1/[iC(n,i)] (i≥2); it is positive at interior i=2..n−1 for n≥4 and negative final. Summing rows yields Cov(R,X)=(n−1)/(2n)−(1/n)Σ_{k=1}^{n−1}1/C(n−1,k). The binomial reciprocal bound for n≥5 proves strictly positive, while n=2,3,4 give −1/4,−1/6,−1/24; expansion yields 1/2−3/(2n)+O(n^(−2)). Standard independent record ranks and Eulerian X variance yield Corr∼sqrt(3)/sqrt(n log n). Independent literal enumeration of every π for n=2..7 reproduced every matrix entry and global totals −1/4,−1/6,−1/24,1/15,3/20,89/420. Finite checks corroborate an all-n conditional-subset proof.
 
-## Scope and literature risk
-All conclusions require a uniform permutation and one-based strict records/excedances. A general joint statistic enumerator could implicitly contain the finite covariance but must be checked for actual implication; the accessible primary sources examined do not state the positional matrix. No independent originality or correctness validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ehrenborg--Steingrímsson provide prescribed excedance-set enumeration; Gnedin provides the initial-rank record representation; Brändén--Claesson express both kinds of statistics through mesh-pattern expansions. These are substantial antecedents, but none of their materially inspected theorems supplies the evaluated n×n mixed covariance kernel and the sharp aggregate sign transition n=5. General bivariate Stirling/Eulerian or mesh-pattern generating functions could encode it implicitly; the judgment is best-of-knowledge and qualified. Resultary nearest records concern fixed-point/descent dependence and inversion precision, not the same event pair.
+
+## value
+
+PASS
+
+Position-resolved cross-covariance is a natural joint statistic of two canonical permutation observables, not determined by either marginal distribution. Its entire upper-zero/lower-negative/same-position-positive pattern, exact row sums and sharp sign reversal of the aggregate covariance at n=5 provide an all-n structural dependence classification. The positive finite covariance limit but vanishing correlation quantifies an instructive asymptotic contrast. This is a complete exact fact rather than a tiny-instance recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

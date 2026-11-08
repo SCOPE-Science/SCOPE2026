@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:12:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0c3a48f165d056a00e74bd1ba0cf5eba7c37b698",
+        "verify.py blob 1495bb3a4b84c9ee74f48a9259b101fbf96c133c",
+        "Independent Python exact enumeration all permutations n=2..7 checking each entry/row/total"
+      ],
+      "rationale": "For uniform π∈S_n, the unordered prefix set S_i of i values is independent of their relative ranks, including the event R_i that position i is the prefix maximum. If j<i, conditional on R_i, π_j is uniform among S_i except its maximum, which necessarily exceeds j, so conditional P(E_j)= [i(n−j)/n−1]/(i−1). Multiplying its difference from (n−j)/n by P(R_i)=1/i gives Cov(R_i,E_j)=−j/[ni(i−1)]. On j=i, P(max S_i≤i)=1/C(n,i), giving diagonal 1/n−1/[iC(n,i)]; for j>i, π_j is independent of the earlier relative prefix rank, so covariance zero; R1 is constant. Summation yields row 1/(2n)−1/[iC(n,i)] (i≥2); it is positive at interior i=2..n−1 for n≥4 and negative final. Summing rows yields Cov(R,X)=(n−1)/(2n)−(1/n)Σ_{k=1}^{n−1}1/C(n−1,k). The binomial reciprocal bound for n≥5 proves strictly positive, while n=2,3,4 give −1/4,−1/6,−1/24; expansion yields 1/2−3/(2n)+O(n^(−2)). Standard independent record ranks and Eulerian X variance yield Corr∼sqrt(3)/sqrt(n log n). Independent literal enumeration of every π for n=2..7 reproduced every matrix entry and global totals −1/4,−1/6,−1/24,1/15,3/20,89/420. Finite checks corroborate an all-n conditional-subset proof.",
+      "residual_risks": [
+        "Uniform one-line permutations only, 1-based positions, strict upper records and strict excedances; not weighted permutations or general patterns.",
+        "The limiting correlation uses classical marginal variance formulas, not a joint CLT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ehrenborg–Steingrímsson enumerates excedance sets, without record-conditioned cross moments in the sections read.",
+          "Gnedin provides independent initial ranks; Brändén–Claesson broadly expresses statistics, potentially powerful enough to derive joint moments, but does not state the exact kernel/sign transition in inspected results."
+        ],
+        "reasoning": "These are general ingredients, not direct stronger evaluated statements; a specialized bivariate distribution in older literature is plausible and noted.",
+        "searches": [
+          "Ehrenborg Steingrimsson The Excedance Set of a Permutation 2000 author PDF",
+          "Gnedin Coherent random permutations with record statistics 2006",
+          "Brändén Claesson Mesh Patterns and Expansion arxiv 1102.4226"
+        ]
+      },
+      "checked_sources": [
+        "Ehrenborg--Steingrímsson 2000 The Excedance Set of a Permutation",
+        "Gnedin arxiv:math/0611538",
+        "Brändén--Claesson arxiv:1102.4226",
+        "Resultary positional permutation mixed-covariance query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marginal distribution of E sets does not determine covariance with R without knowing their dependence.",
+          "Independent initial ranks alone do not give the absolute-threshold excedance conditional probabilities; the new subset-with-removed-maximum argument supplies them."
+        ],
+        "reasoning": "General pattern expansions encode the event pair formally, but no inspected earlier result directly evaluates the mixed kernel or the exact change in sign after n=4.",
+        "searches": [
+          "Ehrenborg Steingrimsson 2000 excedance set theorem",
+          "Gnedin 2006 initial rank law",
+          "Brändén Claesson 2011 general mesh patterns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strict upper record is a left-to-right maximum; strict excedance E_j means π_j>j; both are known mesh-pattern indicators.",
+          "Brändén–Claesson gives expansions but not evaluated mixed covariance entries in inspected theorems."
+        ],
+        "reasoning": "Aliases and equivalent pattern notation compared; a general expression for pattern counts is not automatically the exact n-dependent kernel and sign theorem.",
+        "searches": [
+          "\"left-to-right maxima\" \"excedances\" covariance positions",
+          "random permutation joint records excedance statistics mesh patterns",
+          "Resultary: joint covariance upper records left to right maxima excedances permutations exact sign transition n=5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching full matrix table or global signed covariance sequence was found in the ranked research index; relevant fixed-point/descent matrix concerns different statistics.",
+          "Author PDF excedance-set tables do not tabulate the conditional record event."
+        ],
+        "reasoning": "Existing bivariate generating polynomials might imply the kernel after differentiation; failed table search alone is not originality proof.",
+        "searches": [
+          "permutation covariance left-to-right maxima excedances table",
+          "records excedance bivariate Eulerian Stirlingian joint enumeration n=5",
+          "Resultary positional record excedance covariance sign reversal"
+        ]
+      },
+      "rationale": "Ehrenborg--Steingrímsson provide prescribed excedance-set enumeration; Gnedin provides the initial-rank record representation; Brändén--Claesson express both kinds of statistics through mesh-pattern expansions. These are substantial antecedents, but none of their materially inspected theorems supplies the evaluated n×n mixed covariance kernel and the sharp aggregate sign transition n=5. General bivariate Stirling/Eulerian or mesh-pattern generating functions could encode it implicitly; the judgment is best-of-knowledge and qualified. Resultary nearest records concern fixed-point/descent dependence and inversion precision, not the same event pair.",
+      "residual_risks": [
+        "Older joint Eulerian–Stirlingian distributions or general mesh pattern expansions may imply the kernel after nontrivial specialization.",
+        "No proof of absolute historical novelty from finite search index coverage; further citation-chaining would improve priority confidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ONE_MARGIN_NOT_MIXED",
+          "evidence": "Enumerates E-set statistic but not its dependence on position-wise upper records in the material read.",
+          "identifier_or_url": "https://www.ms.uky.edu/~jrge/Papers/Excedance.pdf",
+          "material_read": "Full author PDF title/abstract, opening definition and enumerative recurrences, exact prescribed excedance-set formulas; rendered first page inspected",
+          "method": "Lawful primary PDF text and screenshot read",
+          "title": "The Excedance Set of a Permutation",
+          "trigger": "Closest classic positional excedance-statistic enumeration"
+        },
+        {
+          "assessment": "BACKGROUND_RECORD_RANKS",
+          "evidence": "Initial rank independence is known; no exact mixed absolute-position excedance cross moments found in examined portions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611538",
+          "material_read": "Public full proceedings relevant introduction, definitions and initial-rank distribution material",
+          "method": "Lawful public manuscript material inspection",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Canonical record initial-rank representation and potential common refinement"
+        },
+        {
+          "assessment": "GENERAL_ENCODING_RISK",
+          "evidence": "General mesh-pattern expansion covers formal representations of both statistics, but the evaluated cross-covariance and n=5 sign boundary were not explicitly located in read material.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.4226",
+          "material_read": "Primary preprint abstract, definitions and expansion theorem/examples; rendered page inspected",
+          "method": "ArXiv PDF text and page screenshot inspection",
+          "title": "Mesh Patterns and the Expansion of Permutation Statistics as Sums of Permutation Patterns",
+          "trigger": "Strong potential general pattern-statistics encoding of both records/excedances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob 0c3a48f165d056a00e74bd1ba0cf5eba7c37b698",
+        "Ehrenborg--Steingrímsson 2000 The Excedance Set of a Permutation",
+        "Gnedin arxiv:math/0611538"
+      ],
+      "rationale": "Position-resolved cross-covariance is a natural joint statistic of two canonical permutation observables, not determined by either marginal distribution. Its entire upper-zero/lower-negative/same-position-positive pattern, exact row sums and sharp sign reversal of the aggregate covariance at n=5 provide an all-n structural dependence classification. The positive finite covariance limit but vanishing correlation quantifies an instructive asymptotic contrast. This is a complete exact fact rather than a tiny-instance recomputation.",
+      "residual_risks": [
+        "No joint central limit theorem or nonuniform-permutation extension claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform one-line permutations only, 1-based positions, strict upper records and strict excedances; not weighted permutations or general patterns.",
+    "The limiting correlation uses classical marginal variance formulas, not a joint CLT.",
+    "Older joint Eulerian–Stirlingian distributions or general mesh pattern expansions may imply the kernel after nontrivial specialization.",
+    "No proof of absolute historical novelty from finite search index coverage; further citation-chaining would improve priority confidence."
+  ]
+}
