@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:49:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d>=2 with m=d-1 and strictly positive Bernstein payoff coefficients, the scalar ODE factorizes as x(1-q-x)f_B(x)(f_A/f_B-G_q). Its drift is inward outside (q,1-q). Bernstein probability weights imply x(1-x)(log(f_A/f_B))'<m strictly, while x(1-x)(log G_q)'>=2q/(1-2q). Hence at q>=m/[2(m+1)] the crossing is unique and transverse, and the drift sign yields global convergence and a hyperbolically attracting equilibrium; q=1/2 follows by a separate exact factorization. Below threshold symmetric positive epsilon payoffs make the midpoint unstable, creating two additional roots by the intermediate value theorem. The explicit d=3,q=1/4 example factors as claimed. This is a scalar infinite-family proof, not a finite root-count experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Old theorems count roots for fixed payoff coefficients and pairwise social dilemmas; these are flexible analyses but not a uniform all-positive-coefficients q threshold with optimality."
+        ],
+        "reasoning": "A general exact root-count algorithm could verify individual games, but it does not imply the all-coefficient bound and universal counterexamples without additional inequalities.",
+        "searches": [
+          "Resultary query: positive polynomial stochastic replicator mutation universal threshold global convergence nonlinear population dynamics",
+          "Duong--Han arXiv:1904.09805 general polynomial/Descartes-Sturm equilibrium counting; Chen et al arXiv:2303.16558"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1904.09805",
+        "https://arxiv.org/abs/2303.16558",
+        "https://arxiv.org/abs/2107.06025",
+        "Resultary: all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior fixed-game Descartes bounds do not imply a universal threshold: the necessary uniform Bernstein logarithmic-slope bound m and strictly positive epsilon instability witnesses supply the missing quantifier and sharpness."
+        ],
+        "reasoning": "An earlier uniform mutation-selection contraction theorem with an equivalent positivity condition could cover the result; no such implication was located.",
+        "searches": [
+          "Resultary query: positive polynomial stochastic replicator mutation universal threshold global convergence nonlinear population dynamics",
+          "Duong--Han arXiv:1904.09805 Section 2.3 and current RESULT.md odds-slope proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Duong--Han formulation is literally the same ODE model with the same Bernstein payoffs, while the Resultary finding is a substrate-limited growth-weighted chemostat with reversible mutation, not the two-strategy scalar payoff map."
+        ],
+        "reasoning": "Same model does not imply same new global payoff-uniform threshold; the precise claimed new part is global uniqueness at q>=m/2(m+1) with matching lower-q positive examples.",
+        "searches": [
+          "Resultary query: positive polynomial stochastic replicator mutation universal threshold global convergence nonlinear population dynamics",
+          "Duong--Han arXiv:1904.09805 Section 2.3 equations (12)-(18); Resultary all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked findings were other mutation/chemostat models; no published q_d=(d-1)/(2d) threshold table for strictly positive d-player payoffs found."
+        ],
+        "reasoning": "Lack of an indexed table is not priority proof, merely limited support for the distinct bounded theorem.",
+        "searches": [
+          "Resultary query: positive polynomial stochastic replicator mutation universal threshold global convergence nonlinear population dynamics",
+          "Resultary positive payoff replicator mutation threshold query; top relevant 23a37c2c63fd; Duong--Han numerical/random-game discussion"
+        ]
+      },
+      "rationale": "Duong--Han's exact same d-player replicator--mutator model and polynomial root-count machinery are strong prior art. Their examined general counting statements do not supply this universal payoff-independent threshold or a matching strictly positive witness for every q below it. Related noisy social-dilemma papers restrict payoff families and often allow nonpositive entries. Qualified O PASS with known-model antecedent explicitly credited.",
+      "residual_risks": [
+        "Potential older mutation-dominance contraction theorem from evolutionary game theory could imply the coefficient-uniform slope bound implicitly.",
+        "The quantified positive-payoff condition is essential; standard payoff shifts can change the dynamics and are not interchangeable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the dynamical setup and roots polynomial and fixed-game counts, but not the claimed all-positive-payoff sharp universal threshold",
+          "evidence": "Section 2.3 equations (12)-(18), equilibrium counting discussion",
+          "identifier_or_url": "https://arxiv.org/abs/1904.09805",
+          "material_read": "Open-access full HTML Sections 2.2-2.3, equations (12)-(18), theorem/corollary equilibrium-count statements",
+          "method": "Read original primary full-text HTML through equations and theorem statements",
+          "title": "On Equilibrium Properties of the Replicator–Mutator Equation in Deterministic and Random Games",
+          "trigger": "Most directly relevant exact same evolutionary model"
+        },
+        {
+          "assessment": "Concerned with pairwise social dilemmas, not all strictly positive d-player payoffs",
+          "evidence": "2023 abstract and scope; residual risk remains for unpublished supplementary claims",
+          "identifier_or_url": "https://arxiv.org/abs/2303.16558",
+          "material_read": "Accessible abstract, stated model and scope, not a claim to have read all derivations",
+          "method": "Abstract/metadata and scope check",
+          "title": "On the Number of Equilibria of the Replicator-Mutator Dynamics for Noisy Social Dilemmas",
+          "trigger": "Neighboring literature on mutation rates and equilibrium multiplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives the sharp payoff-independent regularization threshold for globally stable mutation-selection dynamics across all symmetric positive d-player two-strategy games. The matching positive-payoff multiplicity counterexamples identify a genuinely sharp dynamical boundary, rather than a fixed numerical game.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only strictly positive payoffs, symmetric mutation q in [0,1/2], continuous-time well-mixed two-strategy games; no higher-strategy or negative-fitness extension.",
+    "Local derivative gives hyperbolicity, but no payoff-uniform exponential convergence rate is asserted."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python scripts/check_threshold.py` after installing `requirements.txt`. The script exactly reconstructs the ODE factorization and the mutation odds logarithmic derivative, and checks the nonnegative central-difference identity symbolically. It then constructs 144 random strictly positive rational multiplayer games (group sizes 2–7) at the threshold, between the threshold and 1/2, and at 1/2. For each it counts stationary points on the closed simplex using exact Sturm root counting. Six further exact rational test games below their respective thresholds have three interior roots, and the explicit d=3 cubic factorization is checked.
+# Independent mathematical audit
 
-All checks succeeded on the packaged source. The mathematical theorem rests on the analytic Bernstein logarithmic-derivative inequalities in RESULT.md; finite sampling is not a proof for arbitrary payoffs or group sizes. No independent audit or formal proof assistant was used.
+## correctness
+
+PASS
+
+For d>=2 with m=d-1 and strictly positive Bernstein payoff coefficients, the scalar ODE factorizes as x(1-q-x)f_B(x)(f_A/f_B-G_q). Its drift is inward outside (q,1-q). Bernstein probability weights imply x(1-x)(log(f_A/f_B))'<m strictly, while x(1-x)(log G_q)'>=2q/(1-2q). Hence at q>=m/[2(m+1)] the crossing is unique and transverse, and the drift sign yields global convergence and a hyperbolically attracting equilibrium; q=1/2 follows by a separate exact factorization. Below threshold symmetric positive epsilon payoffs make the midpoint unstable, creating two additional roots by the intermediate value theorem. The explicit d=3,q=1/4 example factors as claimed. This is a scalar infinite-family proof, not a finite root-count experiment.
+
+## originality
+
+PASS
+
+Duong--Han's exact same d-player replicator--mutator model and polynomial root-count machinery are strong prior art. Their examined general counting statements do not supply this universal payoff-independent threshold or a matching strictly positive witness for every q below it. Related noisy social-dilemma papers restrict payoff families and often allow nonpositive entries. Qualified O PASS with known-model antecedent explicitly credited.
+
+## value
+
+PASS
+
+Gives the sharp payoff-independent regularization threshold for globally stable mutation-selection dynamics across all symmetric positive d-player two-strategy games. The matching positive-payoff multiplicity counterexamples identify a genuinely sharp dynamical boundary, rather than a fixed numerical game.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
