@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The integer transition potential is displayed in RESULT.md and is checked independently in `VERIFY_CERTIFICATE.py`. The finite checker covers every greedy state and signed comparison state of magnitude at most eight, every next value in {1,2,3}, and both assignments. The proof separately covers every state with magnitude at least nine by a direct inequality, without relying on a finite cutoff.
+# Independent mathematical audit
 
-A fresh exact dynamic-programming check computes the offline optimum over all signs for all 29,523 ordered sequences of length at most nine. It also verifies the explicit infinite-family formulas at 501 sample parameters. These checks are supplementary to the analytical potential proof. Originality is subject to the explicitly reported primary full-text access limitation; independent validation has not been performed.
+## correctness
+
+PASS
+
+Scaling u to1 gives greedy gap g in {0,1,2,3}, competitor signed gap d in Z. The displayed nonnegative 24-entry potential P(g,|d|) supported on |d|<=5 satisfies 3|g-v|-5|d±v|+P(|g-v|,d±v)<=P(g,d) by exhaustive finite g=0..3, |d|<=8, v=1,2,3, signs± checks. For |d|>=9 both potential entries vanish, |d±v|>=6 and 3g’<=9<5*6; hence all integer states covered. Telescoping from P(0,0)=0 and final nonnegative potential proves G<=5O/3 for ANY comparison allocation, all m. The repeated (1,1,3,1)(2,3,1)^r yields greedy cost 6+5r, feasible competitor cost 4+3r, so asymptotic ratio at least5/3. Independent exhaustive transition checks d in [-30,30] and exact small-sequence DP and witness family agree; infinite proof rests on full transition analysis.
+
+## originality
+
+PASS
+
+Cumulative envy model and fixed-order offline hardness are established by Goldberg–Robinson–Teh; their publicly accessible abstract presents a 3/2 guarantee for a variant permitting ordering control. It is not the same ternary fixed-order lower-load greedy result. Full primary manuscript inaccessible; best-knowledge originality with material residual risk.
+
+## value
+
+PASS
+
+Sharp universal online-to-offline cumulative-envy price for the first three-valued alphabet beyond two-valued greedy exactness, with a concrete recurring obstruction and a global potential. Exact general-in-horizon guarantee rather than isolated tiny numeric gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

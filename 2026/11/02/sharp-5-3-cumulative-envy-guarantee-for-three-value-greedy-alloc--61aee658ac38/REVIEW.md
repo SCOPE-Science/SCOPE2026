@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every finite positive sequence with two identical additive agents and three possible item values. Its fundamental inequality compares the myopic value imbalance with the absolute signed imbalance of an *arbitrary* competitor, not just an optimally selected competitor. The displayed 24-entry potential is nonnegative and starts at zero. All 408 small signed transitions were checked from the standalone file, while the analytically bounded complement covers every signed imbalance of magnitude at least nine. Telescoping proves the universal bound for all horizons. The repeating explicit sequence gives a valid limiting lower bound; its comparison allocation need not be optimal. A separate exact DP confirmed all 29,523 sequences through length nine and the certificate checker confirmed 501 witness parameters.
+PASS
 
-Risks: finite verification cannot replace the unbounded-state argument; that argument is explicitly given. The theorem does not cover zero/negative items, arbitrary item magnitudes, or more than two agents.
+Scaling u to1 gives greedy gap g in {0,1,2,3}, competitor signed gap d in Z. The displayed nonnegative 24-entry potential P(g,|d|) supported on |d|<=5 satisfies 3|g-v|-5|d±v|+P(|g-v|,d±v)<=P(g,d) by exhaustive finite g=0..3, |d|<=8, v=1,2,3, signs± checks. For |d|>=9 both potential entries vanish, |d±v|>=6 and 3g’<=9<5*6; hence all integer states covered. Telescoping from P(0,0)=0 and final nonnegative potential proves G<=5O/3 for ANY comparison allocation, all m. The repeated (1,1,3,1)(2,3,1)^r yields greedy cost 6+5r, feasible competitor cost 4+3r, so asymptotic ratio at least5/3. Independent exhaustive transition checks d in [-30,30] and exact small-sequence DP and witness family agree; infinite proof rests on full transition analysis.
 
-## Originality — PASS (qualified self-review)
+## originality
 
-The natural prior model is Goldberg, Robinson and Teh (arXiv:2610.09843v1, public posting 2026-10-07). Its accessible abstract discusses unrestricted fixed-order hardness and an approximation for a **reorderable** variant. Those statements neither establish nor refute the fixed-order ternary-alphabet ratio. The original full text could not be materially inspected, so it is NOT marked as proved non-covering. Earlier mathematical results for item values in two levels establish greedy exactness, and an exact formula for sequences with one exceptional item does not entail a sharp worst-case ratio for arbitrarily many alternating 1,2,3 items. published-finding corpus semantic searches on the full theorem and aliases found no claim with matching implications among the returned results; this is not considered a proof of originality.
+PASS
 
-Residual risk: the original forty-page source or unpublished/unindexed literature could already contain a comparable ternary-alphabet guarantee. Independent priority evaluation is warranted.
+Cumulative envy model and fixed-order offline hardness are established by Goldberg–Robinson–Teh; their publicly accessible abstract presents a 3/2 guarantee for a variant permitting ordering control. It is not the same ternary fixed-order lower-load greedy result. Full primary manuscript inaccessible; best-knowledge originality with material residual risk.
 
-## Value — PASS
+## value
 
-The result gives a global sharp performance guarantee for an elementary real-time fair-allocation rule in the first small integer value range beyond the exactly greedy-solvable two-level case. Arbitrarily long sequences amplify the cost of short-term balancing but the total penalty remains uniformly bounded by 5/3, with an explicit extremal family. This is a structural online-versus-offline frontier, not a finite census or a numerical improvement measured at a single chosen horizon.
+PASS
 
-## Scope and literature limitations
+Sharp universal online-to-offline cumulative-envy price for the first three-valued alphabet beyond two-valued greedy exactness, with a concrete recurring obstruction and a global potential. Exact general-in-horizon guarantee rather than isolated tiny numeric gain.
 
-The source of the cumulative-maximum-envy objective was inspected at the abstract level only; the relevant original full paper could not be read. The comparison concerns a fixed order and multiplicative cumulative-envy cost. No stronger claim about all value alphabets, reordering, or the complexity of offline optimization is made.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

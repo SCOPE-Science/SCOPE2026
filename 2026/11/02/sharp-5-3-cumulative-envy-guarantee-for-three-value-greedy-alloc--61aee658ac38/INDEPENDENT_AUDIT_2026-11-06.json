@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:44:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Scaling u to1 gives greedy gap g in {0,1,2,3}, competitor signed gap d in Z. The displayed nonnegative 24-entry potential P(g,|d|) supported on |d|<=5 satisfies 3|g-v|-5|d±v|+P(|g-v|,d±v)<=P(g,d) by exhaustive finite g=0..3, |d|<=8, v=1,2,3, signs± checks. For |d|>=9 both potential entries vanish, |d±v|>=6 and 3g’<=9<5*6; hence all integer states covered. Telescoping from P(0,0)=0 and final nonnegative potential proves G<=5O/3 for ANY comparison allocation, all m. The repeated (1,1,3,1)(2,3,1)^r yields greedy cost 6+5r, feasible competitor cost 4+3r, so asymptotic ratio at least5/3. Independent exhaustive transition checks d in [-30,30] and exact small-sequence DP and witness family agree; infinite proof rests on full transition analysis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Public abstract of the closest cumulative-envy work discusses unrestricted fixed-order computational hardness and a different reorderable approximation.",
+          "Temporal EF1 work uses a different objective, not cumulative maximum envy."
+        ],
+        "reasoning": "Neither a hardness statement nor a theorem for a more permissive choice of item order immediately implies a 5/3 ratio for a fixed-order lower-loaded greedy policy.",
+        "searches": [
+          "arXiv:2610.09843v1",
+          "Resultary semantic search: cumulative envy fixed item order greedy 1 2 3 two agents 5/3 approximation",
+          "Choi–Li–Teh arXiv:2608.20033"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09843v1 abstract",
+        "arXiv:2608.20033 bibliographic context",
+        "frozen RESULT.md and VERIFY_CERTIFICATE.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 3/2 greedy approximation for a reorderable regime is on a different feasible strategy set and benchmark.",
+          "An exact 2-value result or a one-exception formula cannot, without a reduction, yield a 3-value arbitrary-multiplicity bound."
+        ],
+        "reasoning": "Target 5/3 guarantee is not plainly implied by the prior abstract claims; cannot exclude a buried equivalent full-text result.",
+        "searches": [
+          "arXiv:2610.09843v1",
+          "Resultary semantic search: cumulative envy fixed item order greedy 1 2 3 two agents 5/3 approximation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For two equal valuations, cumulative maximum envy equals sum_t |signed running imbalance|.",
+          "The comparison allocation receives the same fixed order, but may anticipate future items; offline reordering changes objective and feasible policies."
+        ],
+        "reasoning": "The potential inequality addresses every signed offline assignment on one fixed input order and cannot be inferred by renaming a reorderable sequencing guarantee.",
+        "searches": [
+          "Resultary semantic search: cumulative envy fixed item order greedy 1 2 3 two agents 5/3 approximation",
+          "Goldberg–Robinson–Teh arXiv:2610.09843v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Potential is a 6x4 exact integer table used to certify every integer state; sharpness costs 6+5r and 4+3r.",
+          "Independent finite DP verifies short sequences but does not establish worst-case infinite ratio."
+        ],
+        "reasoning": "No matching existing exact 5/3 table/result encountered in the actual semantic search; this is supporting evidence only, not a no-prior-work certificate.",
+        "searches": [
+          "Resultary semantic search: cumulative envy fixed item order greedy 1 2 3 two agents 5/3 approximation",
+          "arXiv:2610.09843v1"
+        ]
+      },
+      "rationale": "Cumulative envy model and fixed-order offline hardness are established by Goldberg–Robinson–Teh; their publicly accessible abstract presents a 3/2 guarantee for a variant permitting ordering control. It is not the same ternary fixed-order lower-load greedy result. Full primary manuscript inaccessible; best-knowledge originality with material residual risk.",
+      "residual_risks": [
+        "Closest full paper inaccessible; an equivalent 5/3 theorem could appear in its later sections or appendix.",
+        "Other fixed-order temporal allocation algorithms may prove a stronger general bound, not identified in retrieved material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known cumulative-envy objective and different reorderable result. No complete-paper NOT_COVERING assertion.",
+          "evidence": [
+            "Goldberg–Robinson–Teh, arXiv:2610.09843v1, 2026-10-07"
+          ],
+          "identifier_or_url": "arXiv:2610.09843v1",
+          "material_read": "Primary public abstract and bibliographic date plus material excerpt in assigned comparative review, NOT full forty-page manuscript",
+          "method": "Public arXiv/alternative open access attempt; institutional Oxford PDF returned vpn_disconnected",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Closest same objective and fixed-order online/offline comparisons"
+        },
+        {
+          "assessment": "Temporal EF1 rather than summed maximum envy, not a direct dominating inequality.",
+          "evidence": [
+            "Choi–Li–Teh arXiv:2608.20033"
+          ],
+          "identifier_or_url": "arXiv:2608.20033",
+          "material_read": "Public abstract/context citation only",
+          "method": "Search and bibliographic references",
+          "title": "Temporal Fair Division of Indivisible Mixed Manna: Tractable Settings",
+          "trigger": "Alternative temporal fairness criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp universal online-to-offline cumulative-envy price for the first three-valued alphabet beyond two-valued greedy exactness, with a concrete recurring obstruction and a global potential. Exact general-in-horizon guarantee rather than isolated tiny numeric gain.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.09843v1 abstract",
+    "arXiv:2608.20033 bibliographic context",
+    "frozen RESULT.md and VERIFY_CERTIFICATE.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two identical positive additive agents receiving a fixed-order list of values from {u,2u,3u}, assigning each item to the lower-valued current bundle yields sum of absolute prefix imbalances G <= (5/3) times the offline optimum O. Sharp as sequence (1,1,3,1)+(2,3,1)^r grows.",
+  "limitations": [
+    "Exactly two agents, identical additive valuations, positive values in three-level alphabet.",
+    "Fixed-order sequential allocation; ratio supremum asymptotic, not asserted for every finite horizon."
+  ],
+  "residual_risks": [
+    "Closest full paper inaccessible; an equivalent 5/3 theorem could appear in its later sections or appendix.",
+    "Other fixed-order temporal allocation algorithms may prove a stronger general bound, not identified in retrieved material."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Known cumulative-envy objective and different reorderable result. No complete-paper NOT_COVERING assertion.",
+      "evidence": [
+        "Goldberg–Robinson–Teh, arXiv:2610.09843v1, 2026-10-07"
+      ],
+      "identifier_or_url": "arXiv:2610.09843v1",
+      "material_read": "Primary public abstract and bibliographic date plus material excerpt in assigned comparative review, NOT full forty-page manuscript",
+      "method": "Public arXiv/alternative open access attempt; institutional Oxford PDF returned vpn_disconnected",
+      "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+      "trigger": "Closest same objective and fixed-order online/offline comparisons"
+    },
+    {
+      "assessment": "Temporal EF1 rather than summed maximum envy, not a direct dominating inequality.",
+      "evidence": [
+        "Choi–Li–Teh arXiv:2608.20033"
+      ],
+      "identifier_or_url": "arXiv:2608.20033",
+      "material_read": "Public abstract/context citation only",
+      "method": "Search and bibliographic references",
+      "title": "Temporal Fair Division of Indivisible Mixed Manna: Tractable Settings",
+      "trigger": "Alternative temporal fairness criteria"
+    }
+  ]
+}
