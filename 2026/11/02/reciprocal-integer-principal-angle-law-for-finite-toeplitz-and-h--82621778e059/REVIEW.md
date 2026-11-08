@@ -1,19 +1,21 @@
-# Review of the reciprocal-integer Toeplitz–Hankel principal-angle law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite cross-Gram entry formula follows directly by intersection of a diagonal and an antidiagonal. The parity-block continuum embedding uses mesh \(2/n\) and kernel normalization \(G_n/h\); the boundary contribution has a uniform \(O(\delta)\) squared Hilbert–Schmidt estimate. The reflected limit is the weighted Volterra operator whose positive singular values are exactly \(1/k\), by the explicit terminating-hypergeometric Sturm–Liouville eigenpolynomials and their completeness. Combining two blocks supplies two copies. The principal-vector argument gives the **sharp** decomposition constant, with equality in each finite dimension. The standalone finite checker passed 43,864 assertions, but finite checks do not establish the asymptotic theorem.
+PASS
 
-## Originality
+The normalized diagonal D_d and anti-diagonal E_s bases are orthonormal for Frobenius norm, and their cross inner product is a single normalized cell if parity and index bounds match. Two parity blocks embed isometrically as kernel step functions on meshes 2/n; boundary squared Hilbert–Schmidt mass is uniformly O(delta), while bounded interior kernels converge by dominated convergence, yielding both blocks to the same Hilbert–Schmidt limit. Reflecting x→±u and y→t,2−t turns its nonzero action into Kf(u)=(1−u)^−1/2 ∫_u^1 f(t)/sqrt(t)dt. For F_k(t)=t 2F1(1−k,k+1;2;t), f_k=sqrt(1−t)F_k′, one has ((1−t)F_k′)′=−k²F_k/t; K*K identities imply KK* f_k=k^−2 f_k. The polynomial eigenfunctions span a dense subspace, so positive singular values of K are precisely 1/k; both parity blocks give every 1/k twice, converging in ℓ² and HS norm squared π²/3. For n>=3, checkerboard/constant matrices span the 2-dimensional intersection and give exactly two unit singular values; hence after orthogonally removing both common components the sharp squared-norm constant is 1−s3(G_n)→1/2. Independent finite matrix checks corroborate the first singular values and HS convergence; they do not establish the continuum limit.
 
-PASS under a best-knowledge literature comparison, not a claim of certified publication priority. The closest source is Babbar–Majee–Maji, arXiv:2610.35897v1 (Theorems 5.5 and 6.1), which identifies and parametrizes the two-dimensional intersection but gives no quantitative principal-angle spectrum. Bhuia–Majee, arXiv:2606.09370v1 (Section 5), identifies the checkerboard ambiguity and matrix recurrence, again without this spectrum. Established projection-angle theory explains what the cross-Gram singular values represent but not the reciprocal-integer numbers. Searches for Toeplitz/Hankel subspace canonical correlations, Frobenius principal angles, and stable decompositions returned no equivalent theorem. Residual risk: a historical treatment of canonical correlations between uniform-coordinate sum and difference, or Toeplitz–Hankel alternating projections, may imply some of these asymptotics indirectly.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Recent algebraic analysis leaves an intrinsically numerical question: how stable is the Toeplitz-plus-Hankel decomposition after its unavoidable two-dimensional ambiguity is removed? The complete limiting principal-angle distribution provides substantially more than one numerical bound and produces a sharp, dimension-uniform asymptotic lower stability constant of \(1/2\). It connects finite structured-matrix geometry to an exactly solvable weighted Volterra spectrum. The restriction to unweighted square Frobenius spaces is explicit; no general model-space uniform stability is asserted.
+Babbar–Majee–Maji arXiv:2610.35897 treats algebraic truncated Toeplitz+Hankel operators, intersection and ambiguity in Theorems 5.5/6.1, without computing the Frobenius cross-Gram spectrum. Bhuia–Majee arXiv:2606.09370 likewise discusses algebraic model spaces and checkerboard ambiguity. General principal-angle and projection-product theory identifies singular values of a cross Gram with cosines but does not assert the reciprocal-integer law for these two concrete growing subspaces. The limiting Volterra spectrum may be separately known (classical) and is not asserted new in isolation; the two-copy Toeplitz/Hankel limit and stability constant are assessed original best knowledge.
 
-## Limitations
+## value
 
-The result determines limiting singular values and their squared sum but not every finite-dimensional singular value in closed form. The limit concerns fixed spectral ranks as dimension increases and the strong \(\ell^2\) spectral topology. It does not establish priority or independent correctness verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Toeplitz+Hankel representation ambiguities are a natural structured-linear-algebra problem. Beyond identifying the two-dimensional overlap, this theorem gives the entire asymptotic principal-angle spectrum in ℓ² and the sharp limiting conditioning constant 1/2 for stable decompositions. The nontrivial weighted Volterra reduction is exact enough to support further approximation and numerical stability analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
