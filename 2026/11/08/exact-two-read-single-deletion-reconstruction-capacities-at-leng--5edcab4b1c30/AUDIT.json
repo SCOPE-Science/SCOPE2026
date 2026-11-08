@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The support-union lemma applies to two different descendants, so every conflict lies entirely within one exact alphabet support. Seven canonical support graphs cover all n=3,4 alphabet-size possibilities, regardless of q. Each included independent-set certificate and disjoint-edge matching certificate is reconstructed and checked by a standalone standard-library program. A matching of size v−a gives alpha≤a, while the independent set gives alpha≥a. Summation by binomial support counts proves the two exact formulas for every integer q≥2. All quantifiers, distinctness and low-read exclusions are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai et al. arXiv:2001.01376 develops syndrome-based q-ary (n,2;deletion)-reconstruction codes and asymptotic redundancy; the inspected theorem section does not supply finite n3/n4 optimal cardinalities.",
+        "Chrisnata et al. arXiv:2004.06032 gives binary asymptotic optimality up to constant redundancy error rather than these exact finite-q polynomials.",
+        "The related 2026 published edge-count result explicitly excludes independence and optimal code cardinalities from its scope."
+      ],
+      "reasoning": "A general constructive lower bound or asymptotic redundancy estimate does not imply the sharp short-blocklength capacities and matching upper bounds for each q. One-read deletion-correcting codes are strictly more constrained; known results for their capacities do not subsume the two-read capacities. No broader theorem located that yields either exact polynomial.",
+      "searches": [
+        "q-ary reconstruction code two distinct single-deletion reads short blocklength 3 4 exact independent matching",
+        "q-ary one deletion reconstruction codes N(n,1,2) ternary 4 optimal",
+        "arxiv:2001.01376 Theorem 17",
+        "arxiv:2004.06032 asymptotically exact redundancy"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1604.03000",
+      "https://arxiv.org/html/2001.01376v2",
+      "https://arxiv.org/html/2004.06032v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+      "published-finding corpus published semantic search: exact short q-ary two-read deletion code capacity, graph independence, support decomposition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published edge-count RESULT.md states: \"It does not determine the independence number of that graph and therefore does not by itself determine optimal two-read reconstruction-code cardinalities.\"",
+        "The 2020 Type-A characterization identifies forbidden pairs but does not provide their independence maxima on the exact-support classes.",
+        "The ternary length-four single-read maximum is 11, whereas the new two-read maximum is 45; the constraints differ and no implication yields this optimum."
+      ],
+      "reasoning": "Identical graph definitions establish relevance but not coverage: edge counts, pair classifications and asymptotic construction sizes cannot establish exact alpha without a sharp extremal argument. The seven independent set + disjoint matching pairs provide the missing proof of optimality. An unforeseen stronger historical theorem remains possible.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "arxiv:2001.01376 Type-A alternating intervals",
+        "arxiv:2004.06032 optimal reconstruction codes for deletion channels",
+        "2026/10/4/SCOPE-exact-ternary-length-four-single-deletion-code-size--6adacbb5cb97"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2001.01376 §IV (Type-A-confusable pairs; Theorem 17) defines the same distinct-read condition for arbitrary q.",
+        "The complete published RESULT.md for 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 explicitly says its edge-count theorem does not determine the independence number."
+      ],
+      "reasoning": "The two-read maximum-cardinality reconstruction code is the independence number of the graph with edges when two distinct deletion descendants are common. That is exactly the graph in the related published edge-count result, but its formula gives only |E| and average degree. The new capacities are sharp independence values at n=3,4 for all q, not a reformulation of edge count. The matched edges and independent sets establish sharpness.",
+      "searches": [
+        "maximum code size for reconstruction from two distinct one-deletion traces q-ary length 3 4 exact q²(q+1)/2 q²(q²+1)/2",
+        "two-read deletion reconstruction graph independence number symbol support component short words matching certificates",
+        "two distinct deletion descendants q-ary three symbol support confusability independent number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus search returned a relevant edge-count result, binary length-seven two-read maximum, ternary length-four ONE-read maximum, and q-ary asymptotic theorems, but not the requested n3/n4 two-read capacity polynomials.",
+        "The new finite table is established directly by seven complete certificates in certificates.json and verify.py; it is not borrowed from an external table."
+      ],
+      "reasoning": "A lookup of exact parameters, aliases and formulas did not return a matching published table. An absent search hit is not a proof of priority; residual risks are explicitly retained.",
+      "searches": [
+        "exact maximum two-read single deletion reconstruction codes length three length four arbitrary q alphabet q^2(q+1)/2 q^2(q^2+1)/2",
+        "\"two reads\" \"single deletion\" \"alphabet\" \"code\" length three exact",
+        "\"q^2(q^2+1)\" \"deletion\" \"reconstruction\""
+      ]
+    },
+    "rationale": "Actual published-record semantic queries and accessible own-ledger claim comparisons found no exact q-ary n=3,4 two-read code-size formulas. A highly relevant full published record proves edge numbers for the same graph but expressly does not evaluate independence; general Type-A classifications and asymptotic code constructions do not imply these two sharp capacities. Historical priority still has residual uncertainty.",
+    "residual_risks": [
+      "Unindexed older small-block code-size tables or theorems under different terminology could contain the equivalent exact capacities.",
+      "Even a published general pair-characterization might admit an earlier unlocated extremal corollary; the inspected results did not establish one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines q-ary coded multiread reconstruction and deletion balls, principally proves insertion intersection results; does not state two-read single-deletion finite capacity values.",
+        "evidence": [
+          "Paper dated 2016-04-11; §II-A equation (2) reconstructibility via maximum pairwise trace intersection."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.03000",
+        "material_read": "Accessible paper text: introduction, problem setup, deletion-ball definitions and stated scope in §§I–II, plus paper abstract",
+        "method": "Accessible extracted full text and targeted section inspection",
+        "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+        "trigger": "Day-verified archive-era coded multiple-trace reconstruction model"
+      },
+      {
+        "assessment": "Directly models the problem and supplies q-ary code constructions, without these two exact all-q short-length optimal independent numbers.",
+        "evidence": [
+          "2020-01-06 first posted; Theorem 17 constructs an (n,2;deletion)-reconstruction code."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+        "material_read": "Full HTML: abstract, code definitions, Type-A pair classification, Theorem 17 and §V asymptotic-optimality discussion via targeted text navigation",
+        "method": "Full-text HTML with within-document searches and surrounding sections",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Exact q-ary two-distinct-read deletion reconstruction model"
+      },
+      {
+        "assessment": "Its bound establishes asymptotic binary two-read redundancy, not exact n3/n4 cardinalities for each q.",
+        "evidence": [
+          "2020-04-13 initial upload; abstract establishes log log n+O(1) asymptotic behavior."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2004.06032v1",
+        "material_read": "Full HTML abstract, model/results and asymptotic theorem sections via targeted navigation",
+        "method": "Full-text HTML targeted inspection",
+        "title": "Optimal Reconstruction Codes for Deletion Channels",
+        "trigger": "Potential general optimality theorem for two-read deletion codes"
+      },
+      {
+        "assessment": "All-q, all-n edge count only. The file explicitly excludes the graph independence number and hence the new optimum sizes.",
+        "evidence": [
+          "Its Finding derives |E| for all n; Limitations does not give independence numbers.",
+          "Its Relationship section mentions a prior binary n=7 optimum but no n3/n4 all-q capacities."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "material_read": "Full published RESULT.md including definitions, proof, relationship and limitations",
+        "method": "Read published plain-text file in repository",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "Exact identical confusability graph at arbitrary q,n"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5edcab4b-1c30-4d21-8d20-20fc57a0511b",
+  "value": {
+    "rationale": "Gives sharp message capacities under an adversarial two-distinct-read deletion channel at the first two nontrivial blocklengths for every q, and a reusable structural support decomposition with exact matching/independent certificates. These are finite-dimensional but all-alphabet natural coding invariants not furnished by published edge counts or asymptotic bounds.",
+    "status": "PASS"
+  }
+}
