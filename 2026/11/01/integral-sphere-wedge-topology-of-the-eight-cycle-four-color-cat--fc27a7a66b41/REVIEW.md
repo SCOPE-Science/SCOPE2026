@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** All 196226 nonempty faces are enumerated once from the graph definition. Exactly 98087 disjoint Morse pairs are checked for acyclicity by topologically sorting the complete 1457216-arrow Hasse graph. The critical cells occur in dimensions 0, 4 and 5 with multiplicities 1, 24 and 27. An exact 24-by-27 integral Morse matrix has rank 21 and an explicit maximal-rank minor with determinant -1, proving torsion-freeness and the claimed wedge of spheres. The supplied Python standard-library checker replays these steps.
+## correctness
 
-**Originality: PASS against inspected material.** The closest 2023 cycle-product paper establishes a weaker possible wedge/Moore classification and poses the integral torsion question. A 2025 related paper concerns products with paths, not the four-vertex complete graph. Accessible mathematical records involving seven cycles/four colors and eight cycles/three colors treat different parameter pairs and do not imply this exact case. The accessible indexed search did not identify an equal or stronger covering statement. An unindexed or inaccessible identical calculation remains a real bibliographic risk.
+PASS
 
-**Value: PASS.** This is the first eight-cycle/four-color corner beyond nearby published or recorded cases in a natural two-parameter family explicitly associated with an open torsion-freeness question. The proof supplies exact integral homotopy and a unimodular certificate, rather than a mere finite-field Betti count. This single-parameter classification is not a global recurrence, and does not settle the all-parameter question.
+At pinned categorical-product adjacency (i,a)~(i±1,b) iff a!=b, independent enumeration confirms 32 vertices, 96 edges and 196226 nonempty faces. Independent vertex-stage matching leaves 98087 pairs with 1 critical vertex, 24 dimension-4 cells, 27 dimension-5 cells. An independent full oriented Hasse DAG traversal visits all 196226 faces through 1457216 arcs; the independent signed Morse boundary is 24×27 of rational rank 21 and has the cited 21×21 determinant minus one. The unit maximal minor forces all nonzero integral Smith factors to be 1, yielding free H4=Z3 and H5=Z6. The 4-skeleton is a wedge of 24 S4, and pi4 of that wedge is Z24; unimodular cellular basis changes and cancellation give wedge3 S4 plus wedge6 S5. Unlike a field rank check, exact integral minor excludes hidden torsion.
 
-**Scope limitations.** No family-wide classification, equivariant representation, higher homotopy invariant or canonical inter-parameter map is claimed. The finite computation is exhaustive for the specified graph; it is not an infinite-family proof. The closest public record text for the seven-cycle/four-color case was not accessible in full, so only its recoverable exact claim was used for comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared final theorem and implications with full material from the most relevant accessible papers, published mathematical results and indexed semantic searches; the new precise statement is not implied by the checked prior work. This is best-of-knowledge originality with the stated residual risks, not a proof of historical priority.
+
+## value
+
+PASS
+
+C8×K4 is a natural next finite instance in a published cycle×complete-graph torsion question, rather than a selected random graph. The exact unimodular Morse calculation determines both ranks and integral homotopy type, a fact meaningful even without settling the infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

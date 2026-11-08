@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_c8_k4.py` using Python 3. No external libraries or network access are required. The output must end in `CYCLE8_K4_INTEGRAL_MORSE_VERIFIED`. The stored `verification_output.txt` is the successful exact run.
+## correctness
 
-The checker reconstructs the 32-vertex 96-edge graph, generates all 196226 nonempty faces and face-vector entries, builds 98087 pairs by deterministic vertex-stage matching, topologically sorts all 1457216 oriented Hasse incidences, verifies one critical vertex and 24/27 critical cells in degrees 4/5, computes the exact integer Morse boundary, checks rank 21 by Fraction elimination, and verifies a 21-by-21 determinant of -1 by fraction-free Bareiss elimination. It additionally checks Euler characteristic -2. The printed integer boundary is an inspectable certificate.
+PASS
 
-Exactness and limits: these are exhaustive finite computations for the specified graph, not probabilistic tests or inference from a sample. An acyclic discrete Morse matching and unit Smith certificate justify the integral homotopy claim using standard algebraic topology. The checker is ordinary reproducible code, not an independent external certification or a statement about other graphs.
+At pinned categorical-product adjacency (i,a)~(i±1,b) iff a!=b, independent enumeration confirms 32 vertices, 96 edges and 196226 nonempty faces. Independent vertex-stage matching leaves 98087 pairs with 1 critical vertex, 24 dimension-4 cells, 27 dimension-5 cells. An independent full oriented Hasse DAG traversal visits all 196226 faces through 1457216 arcs; the independent signed Morse boundary is 24×27 of rational rank 21 and has the cited 21×21 determinant minus one. The unit maximal minor forces all nonzero integral Smith factors to be 1, yielding free H4=Z3 and H5=Z6. The 4-skeleton is a wedge of 24 S4, and pi4 of that wedge is Z24; unimodular cellular basis changes and cancellation give wedge3 S4 plus wedge6 S5. Unlike a field rank check, exact integral minor excludes hidden torsion.
+
+## originality
+
+PASS
+
+Compared final theorem and implications with full material from the most relevant accessible papers, published mathematical results and indexed semantic searches; the new precise statement is not implied by the checked prior work. This is best-of-knowledge originality with the stated residual risks, not a proof of historical priority.
+
+## value
+
+PASS
+
+C8×K4 is a natural next finite instance in a published cycle×complete-graph torsion question, rather than a selected random graph. The exact unimodular Morse calculation determines both ranks and integral homotopy type, a fact meaningful even without settling the infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
