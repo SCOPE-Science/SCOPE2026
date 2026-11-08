@@ -1,0 +1,11 @@
+# Review: quadratic synchronization response
+
+**Correctness: PASS.** The graph is connected for every specified \(n\ge3\) and \(t\le n\). The published cycle-integral criterion [1, Theorem 3] applies exactly to the finite connected synchronous three-state CCA and GHM rules given in the result. Cycle-flow conservation proves the common synchronization set. The height-lift bijection fixes the normalization and counts every starting colour exactly once per root-colour choice. For \(n\ge3\), a third bipartition index enforces the spread bound \(s\le2\). The three spread counts include the unique-extremum single-defect terms and the two-defect interaction \(t(t-1)\). Two independent programs reproduce all listed finite checks.
+
+**Originality: PASS, with historical risk.** [1] gives a general cycle criterion, not an explicit count for a graph with \(t\) matching edges deleted. Existing exact analysis at one deleted edge covers the endpoint \(t=1\), not the interaction term at \(t\ge2\). Nearby published claims about crown graph colourings, non-CIS pairs, and bipartite parity automata concern different definitions and do not mathematically imply the synchronization census. Searches for integer-Lipschitz homomorphisms and matching-deleted excitation did not locate a stronger or equivalent formula. An unindexed combinatorial enumeration remains possible.
+
+**Mathematical value: PASS.** Synchronizing initial-state populations are natural dynamical basins; the exact all-size response to a structurally constrained set of edge removals measures resilience of a finite excitable network. The positive constant second difference is a non-additive pair-defect effect, absent in the \(t=0,1\) endpoints, and the same proof yields the uniform exponential synchronization law. This is an exact natural invariant of an infinite two-parameter family, not an arbitrary finite census.
+
+**Closest literature and limits.** [1] supplies the general synchronization criterion and is not claimed as original. The present proof does not count nonzero-rate phases, temporal periodic orbits or entrance-time strata. Independent verification and complete historical priority are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
