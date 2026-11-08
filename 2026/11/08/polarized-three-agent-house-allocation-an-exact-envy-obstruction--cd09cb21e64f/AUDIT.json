@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Every envy-free assignment on a triple indexed i<j<k must give its extremes to the two oppositely ranking agents and its middle to the third; this is feasible iff the third ranks that middle first on the triple. A three-case assignment construction guarantees at most one ordered envy edge for any triple, giving simultaneous exact minima of number of envious agents, ordered pairwise envy and maximum individual envy. Absence of middle-first triples is equivalent by induction to deleting only current interval endpoints from best to worst; there are exactly 2^(m-1) such orders. Conditional uniform third preferences yield the exact failure probability, and coherent prefix monotonicity gives the first-success distribution and its two moments by absolutely convergent tail sums. `check.py` independently enumerates all third-ranking permutations and all distinct assignments for m=3,...,8 and matches the exact objectives and first-success counts; finite checks are auxiliary, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1905.00468v2 Section 2 Theorems 2.2 and 2.3: generic decision procedure and large-market probability for independently uniformly ranked agents.",
+        "arxiv:2511.07022v1 Section 4.2 Lemma 4.10 and Theorem 4.9: at most two envy-free agents under globally single-dipped preferences and a linear-time min-envious algorithm.",
+        "The closest published-finding corpus search records about random priority and three-agent TTC concern different allocation models and do not imply the exact conditional law."
+      ],
+      "reasoning": "A broad decision algorithm can evaluate each particular input but does not itself establish the exact necessary-and-sufficient polarized condition, three coincident objective minima, or the closed-form stock distribution. Lemma 4.10 already covers one direction; this result proves a converse in a precisely stated subdomain, not an inflated generalization.",
+      "searches": [
+        "random house allocation with two polarized opposite strict rankings and third random exact envy-free probability",
+        "probability envy free assignment three agents four houses random preferences house allocation exact",
+        "envy free house allocation randomized strict preferences single dipped 2025 2019 exact threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2511.07022v1",
+      "https://arxiv.org/pdf/1905.00468",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1",
+      "https://arxiv.org/abs/2511.07022",
+      "https://arxiv.org/abs/1905.00468"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2511.07022v1 Lemma 4.10 => obstruction when the third agent is single-dipped: acknowledged as a covered subclaim.",
+        "Neither Lemma 4.10 nor the accompanying 2025 algorithm asserts that a nonsingle-dipped third agent must admit a zero-envy allocation given exactly reversed other rankings.",
+        "arxiv:1905.00468v2 Theorems 2.2 and 2.3 cannot supply the displayed conditional count or waiting-time distribution without additional specific combinatorial analysis."
+      ],
+      "reasoning": "The genuinely evaluated new claim is the full biconditional and simultaneous 0/1 optimal envy classification plus exact conditional stochastic first-stock law, not the prior single-dipped impossibility in isolation. It is logically stronger than that prior special direction but restricted enough not to claim an unprovided arbitrary-profile converse.",
+      "searches": [
+        "three agents house allocation two opposite preference rankings third single dipped envy free assignment count 2^{m-1}/m! polarized preferences",
+        "house allocation three agents opposite preferences remaining third peak triple pattern first success time expected (exp(2)+1)/2",
+        "\"three agents\" \"single-dipped\" \"envy-free\" housing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The strict single-dipped criterion in arxiv:2511.07022v1 Section 4.2 is one equivalent expression of the forbidden third ranking.",
+        "End-point deletion of a permutation, avoidance of a middle-first triple, and single-dipped preferences on the polarized axis are shown equivalent in the supplied proof.",
+        "Actual published-finding corpus search produced the closest stochastic-dominance random-priority matching record https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1; it concerns random assignment on square markets, not an unassigned-house three-agent ordinal existence problem."
+      ],
+      "reasoning": "The endpoint-deletion counting identity is not asserted to be intrinsically novel. The searched equivalent formulations did not expose an existing assertion that two opposite house rankings plus an arbitrary third have exactly the stated 0-or-1 common optimal envy law and 2^(m-1)/m! conditional failure probability with first-stock distribution.",
+      "searches": [
+        "three agents house allocation two opposite preference rankings third single dipped envy free assignment count 2^{m-1}/m! polarized preferences",
+        "single-dipped third agent and two opposite agents exact envy-free housing 2^(m-1) permutations",
+        "house allocation three agents opposite preferences remaining third peak triple pattern first success time expected (exp(2)+1)/2",
+        "\"single-dipped\" \"envy-free\" \"opposite\" preference housing",
+        "\"two opposite\" rankings envy free 3 houses"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The combinatorial number 2^(m-1) of endpoint-deletion orders follows by basic recursion and is not claimed as a newly discovered integer sequence.",
+        "The primary 2025 paper reports algorithms and experimental housing markets, not a conditional three-agent enumeration with the stated formula.",
+        "The 2019 paper presents a high-probability bound for the independent-rankings model rather than this conditional exact table."
+      ],
+      "reasoning": "No exact table or database matching this house-allocation restriction and its three objectives or the first-inventory distribution was identified. A future targeted literature audit could still discover an equivalent published application of the familiar endpoint-deletion count.",
+      "searches": [
+        "three agents house allocation two opposite preference rankings third single dipped envy free assignment count 2^{m-1}/m! polarized preferences",
+        "single-dipped third agent and two opposite agents exact envy-free housing 2^(m-1) permutations",
+        "random house allocation with two polarized opposite strict rankings and third random exact envy-free probability",
+        "random permutation single dipped 2^(m-1) house allocation envy free",
+        "house allocation three agents four houses impartial culture exact probability"
+      ]
+    },
+    "rationale": "The motivating full text (Hosseini, Roy, Sethia, 2025, Section 4.2 Lemma 4.10) proves at most two unenvying agents when all rankings are single-dipped. That already implies the failure direction in the present setting, and is explicitly credited; the converse for two exactly opposed agents and the exact simultaneous three-objective and stock-size distributions are not given there. Gan, Suksompong, Voudouris (2019) provide a general existence decision algorithm and an unconditioned large-market asymptotic, not the restricted exact structural probability and stock law. Searches of accessible research records, accessible prior research claims, and primary literature did not find a covering exact statement; this is evidence of limited noncoverage, not definitive novelty proof.",
+    "residual_risks": [
+      "An unindexed exact polarized house-allocation statement or equivalent permutation-pattern calculation may exist.",
+      "The endpoint deletion enumeration is elementary prior combinatorics and is only used as a tool, not claimed independently original.",
+      "The result excludes ties and nonpolarized or larger-agent populations; no external independent scientific audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OBSTRUCTION_ONLY",
+        "evidence": [
+          "Definition 4.8 and Lemma 4.10 imply no fully envy-free allocation if all three orders are single-dipped; no sharp polarized converse or exact conditional random stock distribution was found in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.07022v1",
+        "material_read": "Abstract, Sections 1 and 2, Section 4.2 definition and Lemma 4.10, Theorem 4.9, Section 4.3 and conclusion; corresponding arXiv HTML lines 53-110, 346-476.",
+        "method": "Read accessible primary arXiv HTML and compared exact logical implications.",
+        "title": "Fair Societies: Algorithms for House Allocations",
+        "trigger": "Direct motivating source; single-dipped structure and three envy measures"
+      },
+      {
+        "assessment": "GENERAL_DECISION_NOT_EXACT_CONDITIONAL_LAW",
+        "evidence": [
+          "Theorem 2.2 addresses polynomial-time decision for arbitrary rankings; Theorem 2.3 gives asymptotic existence for independently random agent preferences when m>=c n log n. Neither provides the present polarization-conditioned exact distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.00468",
+        "material_read": "Primary arXiv PDF pages 1-4, particularly algorithm, Theorems 2.2 and 2.3 and proof on page 4 (PDF page-index 3).",
+        "method": "Read extracted primary PDF text and visually examined the relevant random-model page.",
+        "title": "Envy-Freeness in House Allocation Problems",
+        "trigger": "Foundational decision algorithm and random-house-allocation probability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd09cb21-e64f-49ad-a838-a9e3c40fb098",
+  "value": {
+    "rationale": "The 2025 house-allocation research identifies minimizing envious agents as a motivated optimization task and treats single-dipped preferences as a natural restricted domain. A perfectly polarized two-agent pair creates a distinct extremal preference geometry. In that model the exact third-agent obstruction gives a full classification instead of a one-way impossibility lemma, and it simultaneously resolves the minima of all three standard envy objectives. The sharp factorial failure probability and finite expected house-stock threshold turn that structural obstruction into a natural finite-market quantity; neither is just a table of arbitrary small cases or a relabeling of the source theorem. This restricted classification has substantive benchmarking value even without broader policy or complexity claims.",
+    "status": "PASS"
+  }
+}
