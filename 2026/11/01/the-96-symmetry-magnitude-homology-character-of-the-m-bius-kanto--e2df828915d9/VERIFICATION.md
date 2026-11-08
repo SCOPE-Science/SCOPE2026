@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The accompanying `magnitude_verify.py` is a standalone standard-library Python 3 program. Run `python3 magnitude_verify.py` from the directory containing `character_table.csv`. The program exactly reconstructs the graph and distance matrix; exhaustively forms the four length-four magnitude chain groups; tests signed integral compositions; obtains complete binary elimination ranks \(1040\) and \(1248\); verifies \(48\) independent alternating cycles; exhaustively enumerates all \(96\) distance-preserving permutations; and checks every line of the full individual character table and the three-dimensional invariant average. Its actual terminal output is recorded in `verification_output.txt`.
+# Independent mathematical audit
 
-Correctness uses binary matrix ranks only as lower bounds for rational ranks, with independent upper bounds from the chain complex and explicit cycles. Thus no inference about integral torsion from finite-field ranks is made. The proof concerns rational homology in a single bidegree, not an integral module classification. The bibliographic comparison cannot exclude an undiscovered or unindexed identical result.
+## correctness
+
+PASS
+
+Independently constructed the 16-vertex graph and shortest-path metric. Exact length-four chain counts (16,1056,2592,1296); signed integral chain identities checked, d2 surjectivity and mod-two ranks d3=1040,d4=1248 together with 48 alternating integral cycles force rational H3 dimension 304 and H4 dimension 48. Independently enumerated 96 automorphisms and fixed-tuple traces: 304:1,4:8,-4:12,0:75; average 3. Full enumeration and rational rank bounds, not an inferred equality of F2 and Q ranks.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for complete character, not for known total rank 304; directly relevant primary graph table and graph-theoretic generalizations were checked for implied coverage. No priority guarantee.
+
+## value
+
+PASS
+
+Full Aut(GP(8,3)) action is a motivated and previously unspecified representation refining a classical named exceptional-graph homology dimension; fixed multiplicity three is a useful equivariant invariant, beyond a routine table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
