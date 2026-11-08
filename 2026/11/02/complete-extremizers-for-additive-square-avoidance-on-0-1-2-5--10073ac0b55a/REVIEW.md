@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The end-square extension identity follows directly from prefix sums. Induction proves that the recurrence is exhaustive and neither creates nor omits a valid word. The two embedded programs implement dissimilar extension checks (a forbidden-letter identity versus literal sliding block sums) and agree on all \(299596819\) visited prefixes, the eight depth-86 words and zero depth-87 words. The four reversal pairings and three Parikh profiles are checked from the complete list. Arithmetic ranges are bounded. This is a finite computer-assisted result, not a claim proved from a sample.
+PASS
 
-## Originality — PASS, with risk
+For prefix sums P0..Pt, newly appending a creates forbidden equal-sum adjacent blocks of half-length k iff a=2P_{t+1−k}−P_{t+1−2k}−P_t; this exactly characterizes every permissible extension. Actual verify_forbidden.cpp and independent verify_direct.cpp inspected. A fresh compiled execution of the first complete DFS traversed exactly 299596819 nodes, counted depths 80..87 as 2696,1530,792,338,120,38,8,0, and printed eight distinct length-86 winners; independently checked reversal pairing and Parikh classes from those strings. The DFS is complete by induction on prefixes, not merely sampled. The second implementation uses separate sliding sums but not fully rerun this execution.
 
-Zhang's arXiv:2610.02215v1 and its technical supplement were inspected: the paper proves the sharp length \(86\), exhibits one word and records total search visits, but does not give an eight-word census or reversal/Parikh classification. Searches under the exact alphabet, extremal length, additive-square and equivalent terminology did not reveal an identical assertion in the published literature or searchable mathematical research records. The older endpoint-sum result is inapplicable to this isolated alphabet. Risk: the separate electronic source archive could not be read, so its unpublished raw logs might implicitly expose the same endpoint count; there has been no independent priority audit.
+## originality
 
-## Value — PASS
+PASS
 
-The alphabet \(\{0,1,2,5\}\) is the first isolated four-letter finite-spectrum class immediately beyond the previously studied endpoint-sum family in Zhang's sharp classification. Determining **all** equality cases refines the natural exact extremal length problem and shows marked rigidity: only eight words and four reversal orbits survive an exhaustive search of nearly 300 million valid prefixes. Their distinct Parikh profiles distinguish three types invisible from the published existence example and sharp bound. The new assertion is an exact complete classification of the natural extremizers, not a routine reformulation of the maximum-length result.
+Zhang 2026 proves only maximum length 86 and prints one witness, with same 299596819 search visit total. His technical supplement/electronic archive was identified but full contents were not successfully read, so the possibility it reports all winning words or implicit counts is material. Freedman–Brown 2016 concerns an endpoint-sum alphabet family with a different avoidance statement. This census is additional conditional on the unavailable supplementary file not already containing the eight-word list.
 
-## Limits and closest work
+## value
 
-The primary result is finite, for the stated integer alphabet only. The original maximum length and example are credited to Zhang; the new part is the complete optimizer census. External independent verification and supplementary-archive priority comparison remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equality-case census, reversal orbit structure and Parikh classes for a natural four-letter alphabet singled out in a recent sharp maximum-length theorem is a concrete finite-extremal classification, not rediscovery of maximal length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Both embedded standalone C++17 programs were compiled and executed from these exact source paths. `verify_forbidden.cpp` uses a prefix-sum forbidden-next-letter recurrence; `verify_direct.cpp` uses incremental literal block sums to test every possible newly completed square. Their complete exhaustive traversals agree at all \(299596819\) visited words, identify precisely eight length-\(86\) survivors, and find no length-\(87\) survivor. Each algorithm prints all survivors; lists were sorted and compared byte-for-byte. Independent arithmetic checking directly compared all adjacent equal-length subblock sums of each of the eight survivors.
+## correctness
 
-Expected final-layer counts are: length \(80\): 2696; \(81\): 1530; \(82\): 792; \(83\): 338; \(84\): 120; \(85\): 38; \(86\): 8; \(87\): 0.
+PASS
 
-Reproduction with a C++17 compiler:
+For prefix sums P0..Pt, newly appending a creates forbidden equal-sum adjacent blocks of half-length k iff a=2P_{t+1−k}−P_{t+1−2k}−P_t; this exactly characterizes every permissible extension. Actual verify_forbidden.cpp and independent verify_direct.cpp inspected. A fresh compiled execution of the first complete DFS traversed exactly 299596819 nodes, counted depths 80..87 as 2696,1530,792,338,120,38,8,0, and printed eight distinct length-86 winners; independently checked reversal pairing and Parikh classes from those strings. The DFS is complete by induction on prefixes, not merely sampled. The second implementation uses separate sliding sums but not fully rerun this execution.
 
-```sh
-g++ -O3 -std=c++17 verify_forbidden.cpp -o checker_1
-./checker_1
-g++ -O3 -std=c++17 verify_direct.cpp -o checker_2
-./checker_2
-```
+## originality
 
-The programs use only fixed-size arrays, exact integer arithmetic, and ordinary recursion; they do not download dependencies or use nondeterministic search. The explicit code path to length \(87\) is evaluated; zero survivors is an exhaustive conclusion, not a timeout. `extremizers.txt` prints all winning strings, and `verification-output.txt` records the scientific counts.
+PASS
 
-**Limits.** The computation proves the finite enumeration for the specified alphabet under the given definitions. It is not an independent external audit and does not resolve the absolute priority of the result, especially with the unavailable separately archived electronic data.
+Zhang 2026 proves only maximum length 86 and prints one witness, with same 299596819 search visit total. His technical supplement/electronic archive was identified but full contents were not successfully read, so the possibility it reports all winning words or implicit counts is material. Freedman–Brown 2016 concerns an endpoint-sum alphabet family with a different avoidance statement. This census is additional conditional on the unavailable supplementary file not already containing the eight-word list.
+
+## value
+
+PASS
+
+Equality-case census, reversal orbit structure and Parikh classes for a natural four-letter alphabet singled out in a recent sharp maximum-length theorem is a concrete finite-extremal classification, not rediscovery of maximal length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:53:26.780864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For prefix sums P0..Pt, newly appending a creates forbidden equal-sum adjacent blocks of half-length k iff a=2P_{t+1−k}−P_{t+1−2k}−P_t; this exactly characterizes every permissible extension. Actual verify_forbidden.cpp and independent verify_direct.cpp inspected. A fresh compiled execution of the first complete DFS traversed exactly 299596819 nodes, counted depths 80..87 as 2696,1530,792,338,120,38,8,0, and printed eight distinct length-86 winners; independently checked reversal pairing and Parikh classes from those strings. The DFS is complete by induction on prefixes, not merely sampled. The second implementation uses separate sliding sums but not fully rerun this execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Zhang bound g(A)=86 does not imply there are eight optimal words or their counts; its same visit count could be compatible with an exhaustive stored traversal."
+        ],
+        "reasoning": "Cannot assert noncoverage of unread supplementary data; compare exact calculated outputs when available.",
+        "searches": [
+          "E Zhang The additive-square-free spectrum below 139 arXiv:2610.02215 Theorem 1 supplement S1 S5",
+          "A R Freedman T C Brown Sequences on sets of four numbers 2016"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md; verify_forbidden.cpp and verify_direct.cpp, extremizers.txt",
+        "Fresh compiled check_extremizers full 299596819-node census",
+        "Zhang arXiv:2610.02215",
+        "Zenodo DOI 10.5281/zenodo.22651748 listing",
+        "Freedman Brown Integers 16 (2016) A33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximal word length 86 alone logically does not entail number of maximizers, reversal orbits, or Parikh profiles.",
+          "Same node visit count alone does not state terminal count or exact words."
+        ],
+        "reasoning": "The new census needs complete traversal; prior bounds and existence are insufficient unless the archival traversal already contains equivalent full results.",
+        "searches": [
+          "Zhang arXiv:2610.02215 Theorem 1 and supplemental cited visit count",
+          "Freedman Brown 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal integer-sum adjacent consecutive halves are additive squares; exact object different from ordinary letter squares.",
+          "Zhang establishes maximum length 86 and one 86-word witness, not a stated exhaustive equality census."
+        ],
+        "reasoning": "No symbol-permutation equivalence because alphabet elements carry integer sum; reversal is a true symmetry.",
+        "searches": [
+          "additive square free words 0 1 2 5 length 86 eight extremizers reversal Parikh Resultary search",
+          "Zhang additive-square-free spectrum below 139 arXiv:2610.02215"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Electronic archive lists technical supplement and source files; their full bytes could not be material-read in run."
+        ],
+        "reasoning": "Possible hidden exact extremizer listing in source archive is priority risk explicitly disclosed, not treated as absent.",
+        "searches": [
+          "Zenodo DOI:10.5281/zenodo.22651748 v3 technical_supplement.pdf electronic source_bundle.zip file listings",
+          "Zhang supplement S1 S5 search"
+        ]
+      },
+      "rationale": "Zhang 2026 proves only maximum length 86 and prints one witness, with same 299596819 search visit total. His technical supplement/electronic archive was identified but full contents were not successfully read, so the possibility it reports all winning words or implicit counts is material. Freedman–Brown 2016 concerns an endpoint-sum alphabet family with a different avoidance statement. This census is additional conditional on the unavailable supplementary file not already containing the eight-word list.",
+      "residual_risks": [
+        "Unread Zhang Zenodo electronic supplement/source bundle may contain equivalent eight-word terminal census; originality PASS is qualified by this concrete risk.",
+        "Only one of two bundled independent C++ searches was executed; both sources were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_UNCERTAIN_ARCHIVE",
+          "evidence": "Known sharp length and one example; exact eight-word list not established from material read.",
+          "identifier_or_url": "arXiv:2610.02215v1",
+          "material_read": "Accessible abstract, theorem/supplement metadata and source description; original complete paper/supplement not read",
+          "method": "arXiv metadata and search",
+          "title": "The additive-square-free spectrum below 139",
+          "trigger": "Exact same alphabet and sharp 86 length"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Cannot claim full archive lacks equivalent eight-word census.",
+          "identifier_or_url": "DOI:10.5281/zenodo.22651748",
+          "material_read": "Current v3 archive file listing technical_supplement.pdf and source_bundle.zip, actual file contents unavailable",
+          "method": "Zenodo record/file listing and attempted retrieval",
+          "title": "Zhang additive-square electronic supplement",
+          "trigger": "Potential exact list / full search output"
+        },
+        {
+          "assessment": "OTHER_ENDPOINT_SUM",
+          "evidence": "Different endpoint-sum family; possible broader combinatorial relation not proven.",
+          "identifier_or_url": "Freedman and Brown Integers 16 (2016) A33",
+          "material_read": "Bibliographic scope and cited comparison, not full PDF",
+          "method": "Cited primary bibliographic summary",
+          "title": "Sequences on sets of four numbers",
+          "trigger": "Earlier four-number avoidance work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equality-case census, reversal orbit structure and Parikh classes for a natural four-letter alphabet singled out in a recent sharp maximum-length theorem is a concrete finite-extremal classification, not rediscovery of maximal length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md; verify_forbidden.cpp and verify_direct.cpp, extremizers.txt",
+    "Fresh compiled check_extremizers full 299596819-node census",
+    "Zhang arXiv:2610.02215",
+    "Zenodo DOI 10.5281/zenodo.22651748 listing",
+    "Freedman Brown Integers 16 (2016) A33"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exactly eight maximum-length 86 additive-square-free words over integer alphabet {0,1,2,5}; they form four reversal pairs and three explicit Parikh types, with no word of length 87.",
+  "limitations": [
+    "Fixed integer alphabet only; finite exhaustive result; checks do not generalize to arbitrary alphabets."
+  ],
+  "residual_risks": [
+    "Unread Zhang Zenodo electronic supplement/source bundle may contain equivalent eight-word terminal census; originality PASS is qualified by this concrete risk.",
+    "Only one of two bundled independent C++ searches was executed; both sources were inspected."
+  ],
+  "schema_version": 1
+}
