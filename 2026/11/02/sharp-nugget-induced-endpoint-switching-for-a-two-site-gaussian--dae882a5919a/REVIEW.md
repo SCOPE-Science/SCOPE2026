@@ -1,19 +1,21 @@
-# Scientific review: two-site nugget likelihood endpoint law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For unit latent marginal variance, known nugget \(h>0\), and exact opposite residuals \((b,-b)\), diagonalizing the two-site covariance gives the scalar likelihood \(\ell_h(t;b)=2b^2/(1+h-t)+\log((1+h)^2-t^2)\). The comparison threshold function is strictly increasing for all \(0<t\le1\) when \(h\ge1\), by a termwise nonnegative convergent power series. A quadratic derivative then excludes any interior minimum on the opposite side of the boundary. The monotone critical curve and the all-nugget large-contrast obstruction follow from explicit inequalities. The standalone checker passed 18,374 assertions, including exact rational identities, finite differences, critical ties, and endpoint comparisons. Those finite checks are not replacements for the proof. The result applies to kernels with the prescribed positive two-point correlation range and endpoint limits; it does not assume a particular Matérn smoothness.
+PASS
 
-## Originality
+For two sites Y=(b,-b), known noise h>0 and signal variance1, exact diagonalization yields L(t)=2z/(A-t)+ln(A²-t²), A=1+h, z=b². For A>=2 compare L(t)-L(0)=2t[z-J_A(t)]/[A(A-t)]; series derivative shows J_A strictly increasing to J_A(1)=kappa(h). Differentiation gives derivative sign from q(t)=t²+(z-A)t+Az, excluding hidden interior minima if z<kappa, including z=0 and tie z=kappa. Series S(u) proves kappa strictly increasing from ln(4/3) toward 1/2. For ALL h>0 the bound J_A(t)<t/[2(1+t/A)]<1/2 forces t=0 when z>=1/2. Endpoints are compactification limits, never positive finite lengthscales under assumed kernel continuity/strict interior t. Independent numerical endpoint, tie and derivative calculations corroborate not exhaust the continuum.
 
-**PASS, qualified.** Karvonen–Oates (arXiv:2203.09179, Section 4) present the regularized likelihood, numerical evidence about an infinite-lengthscale transition and an explicit unresolved analytic question, but not the sharp two-site contrast trichotomy. Fosdick–Raftery (2012, Section 2) give the general cubic stationarity equation for known-variance bivariate normal correlation, a formula that encompasses the derivative calculation but does not evaluate the GP's nugget-constrained interval or establish the discontinuous global endpoint optimum and persistent large-contrast obstruction. Retrieved mathematical-record results about Gaussian calibration or likelihood ratios involve different estimators and objects; the retrieved prior mathematical claims do not concern GP lengthscale likelihood. The exact phase law may have appeared as an unrecognized specialization elsewhere; the record search is not a proof of absolute novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The literature explicitly highlights nugget-regularized lengthscale selection as difficult and suggests from numerical evidence that sufficiently large nugget forces the flat limit for arbitrary fixed data. This theorem gives a sharp, kernel-independent, finite-sample boundary: strong opposite-signed residuals never select the flat limit, at any positive noise variance. In the high-nugget regime, *every* fit in this model is an endpoint fit, and a uniquely specified noise/contrast threshold forces a discontinuous switch. This is a substantive structural limitation on hyperparameter tuning, beyond recomputing a likelihood or an isolated numerical counterexample.
+The GP negative log-likelihood formula is standard; Karvonen–Oates Section 4 investigates nugget smoothing with numerical endpoint evidence rather than an exact two-opposite-residual high-nugget threshold. Fosdick–Raftery cover unconstrained Gaussian correlation estimation, not constrained positive GP t in [0,1]. The current theorem gives a sharp nonattained finite-lengthscale interval, monotone noise-switch threshold and all-h large-contrast obstruction. Best-of-knowledge novelty concerns that complete constrained global classification only.
 
-## Sources and residual risks
+## value
 
-The primary basis is Karvonen and Oates, *Maximum Likelihood Estimation in Gaussian Process Regression is Ill-Posed*, arXiv:2203.09179 (first posted 17 March 2022), especially Section 4 and its regularized likelihood and conjectural interpretation. The closest general estimation precedent is Fosdick and Raftery, *Estimating the Correlation in Bivariate Normal Data With Known Variances and Small Sample Sizes*, The American Statistician 66 (2012), 34–41, especially its cubic maximum-likelihood equation. Rasmussen and Williams, *Gaussian Processes for Machine Learning*, Chapter 5, supplies the conventional marginal likelihood. Critical restrictions: exactly two sites, fixed latent variance and mean, opposite residuals, and correlations continuously ranging from zero to one; the high-nugget trichotomy requires \(h\ge1\), while the large-contrast obstruction holds for all \(h>0\). An unrelated equality can arise if the kernel is parameterized with a bounded lengthscale range; no such claim is made. Historical priority and independent validation remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Lengthscale nonexistence despite strictly positive noise and nonconstant data is an important boundary of Gaussian-process hyperparameter optimization. The exact all-high-noise endpoint switch and monotone threshold provide a complete natural two-site classification, including a high-signal counterboundary to global flatness. Its fixed mean, signal variance and contrast are essential; no general multi-site optimizer is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

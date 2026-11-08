@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:50:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-nugget-induced-endpoint-switching-for-a-two-site-gaussian--dae882a5919a/RESULT.md",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-nugget-induced-endpoint-switching-for-a-two-site-gaussian--dae882a5919a/verify.py",
+        "/mnt/data/scope_worker03_20261107T1938Z/independent_checks_output.txt"
+      ],
+      "rationale": "For two sites Y=(b,-b), known noise h>0 and signal variance1, exact diagonalization yields L(t)=2z/(A-t)+ln(A²-t²), A=1+h, z=b². For A>=2 compare L(t)-L(0)=2t[z-J_A(t)]/[A(A-t)]; series derivative shows J_A strictly increasing to J_A(1)=kappa(h). Differentiation gives derivative sign from q(t)=t²+(z-A)t+Az, excluding hidden interior minima if z<kappa, including z=0 and tie z=kappa. Series S(u) proves kappa strictly increasing from ln(4/3) toward 1/2. For ALL h>0 the bound J_A(t)<t/[2(1+t/A)]<1/2 forces t=0 when z>=1/2. Endpoints are compactification limits, never positive finite lengthscales under assumed kernel continuity/strict interior t. Independent numerical endpoint, tie and derivative calculations corroborate not exhaust the continuum.",
+      "residual_risks": [
+        "Fixed two sites opposite residuals, mean and marginal signal variance and h known; t endpoints correspond only to lengthscale limits and may not be finite. Middle-signal h<1 not globally classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General GP marginal likelihood theory includes model but provides numerical rather than proved two-point nugget phase boundary; unrestricted MLE does not constrain t≥0 or t≤1."
+        ],
+        "reasoning": "No inspected broader theorem determines global endpoint optimality and monotone κ(h) in this constrained slice.",
+        "searches": [
+          "Karvonen–Oates §4.1; Fosdick–Raftery Sections 1-3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.09179",
+        "https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2023/06/SampleCorrCoef.pdf",
+        "Resultary semantic search: Gaussian process two site opposite observations nugget lengthscale maximum likelihood endpoints threshold noisy bivariate Gaussian correlation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their likelihood formula is a starting point, while endpoint-only global minimization for A≥2 and all-h z≥1/2 require additional sign arguments."
+        ],
+        "reasoning": "Standard likelihood and cubic stationarity do not imply the claimed explicit global classification without proving derivative and boundary comparisons.",
+        "searches": [
+          "Karvonen–Oates §4, eq.4.1; Fosdick–Raftery cubic estimator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-site GP objective is a constrained bivariate Gaussian likelihood; Fosdick–Raftery inspect unrestricted correlation and cubic stationary points."
+        ],
+        "reasoning": "Algebraic reparametrization does not make the high-nugget sharp global endpoint switching a stated known correlation-estimation result.",
+        "searches": [
+          "Karvonen–Oates arXiv:2203.09179 §4; Fosdick–Raftery DOI 10.1080/00031305.2012.676329; Resultary query Gaussian process two site opposite observations nugget lengthscale maximum likelihood endpoints threshold noisy bivariate Gaussian correlation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Parameters h,z are continuous, not an enumerable finite table; no exact matching Resultary entry located."
+        ],
+        "reasoning": "Exact database/table coverage is inapplicable as source of full continuum threshold without a theorem, and published search found none.",
+        "searches": [
+          "Resultary query Gaussian process two site opposite observations nugget lengthscale maximum likelihood endpoints threshold noisy bivariate Gaussian correlation"
+        ]
+      },
+      "rationale": "The GP negative log-likelihood formula is standard; Karvonen–Oates Section 4 investigates nugget smoothing with numerical endpoint evidence rather than an exact two-opposite-residual high-nugget threshold. Fosdick–Raftery cover unconstrained Gaussian correlation estimation, not constrained positive GP t in [0,1]. The current theorem gives a sharp nonattained finite-lengthscale interval, monotone noise-switch threshold and all-h large-contrast obstruction. Best-of-knowledge novelty concerns that complete constrained global classification only.",
+      "residual_risks": [
+        "Source prior-publication metadata quotes antecedent, not finding priority; unrestricted correlation MLE literature possible aliases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_NOT_DOMINATING",
+          "evidence": "Karvonen–Oates study noise regularization and numerical large-nugget behavior, but their inspected Section 4 does not classify the fixed two-opposite-residual high-nugget boundary analytically.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.09179",
+          "material_read": "Full JMLR primary paper text including Section 4 nugget regularization and stated numerical evidence/analytic limitation.",
+          "method": "Downloaded lawful complete JMLR PDF, inspected section and PDF page imagery.",
+          "title": "Maximum Likelihood Estimation in Gaussian Process Regression is Ill-Posed",
+          "trigger": "Exactly nugget and lengthscale marginal likelihood with possible infinite MLE"
+        },
+        {
+          "assessment": "RELATED_NOT_SAME_CONSTRAINT",
+          "evidence": "Fosdick–Raftery address unrestricted correlation parameter estimation from bivariate samples; no GP nugget constraint t∈[0,1], two opposite residuals nor sharp h-dependent endpoint switching as stated.",
+          "identifier_or_url": "https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2023/06/SampleCorrCoef.pdf",
+          "material_read": "Full available primary PDF sections 1-3 on unrestricted bivariate correlation MLE and a cubic stationary equation; PDF page 2 image inspected.",
+          "method": "Lawful author PDF complete text and screenshot.",
+          "title": "Estimating the Correlation in Bivariate Normal Data With Known Variances and Small Sample Sizes",
+          "trigger": "Bivariate Gaussian known-variance correlation MLE may dominate two-site special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-nugget-induced-endpoint-switching-for-a-two-site-gaussian--dae882a5919a/RESULT.md",
+        "https://arxiv.org/abs/2203.09179",
+        "https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2023/06/SampleCorrCoef.pdf"
+      ],
+      "rationale": "Lengthscale nonexistence despite strictly positive noise and nonconstant data is an important boundary of Gaussian-process hyperparameter optimization. The exact all-high-noise endpoint switch and monotone threshold provide a complete natural two-site classification, including a high-signal counterboundary to global flatness. Its fixed mean, signal variance and contrast are essential; no general multi-site optimizer is claimed.",
+      "residual_risks": [
+        "Source prior-publication metadata quotes antecedent, not finding priority; unrestricted correlation MLE literature possible aliases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed two sites opposite residuals, mean and marginal signal variance and h known; t endpoints correspond only to lengthscale limits and may not be finite. Middle-signal h<1 not globally classified.",
+    "Source prior-publication metadata quotes antecedent, not finding priority; unrestricted correlation MLE literature possible aliases."
+  ],
+  "schema_version": 1
+}
