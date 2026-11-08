@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:14:21.642272Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The required de Bruijn digraph has unit imbalance at source vertices starting 10 but not ending 01 and sink vertices ending 01 but not starting 10. Every supplementary path from sink v to a source must traverse the first internal 10 or at least m-1 shifts. The explicit bijection v=PQ -> Q reverse(P) reaches a unique source with exactly k(v) shifts; augmenting a connected required graph yields an Euler tour. Independently enumerated sinks, images, source-degree balance and exact costs at n=3..9; the weighted generating function yields the stated rational coefficient identity for all n. The checker itself handles larger finite orders; finite checks do not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cazaux–Rivals 2016 DOI 10.1016/j.jda.2016.05.001 explicitly optimizes a set of cyclic strings whose total lengths are summed.",
+          "arxiv:2012.08878 establishes general hardness and reductions, not a closed 010-specific optimum in accessible abstract."
+        ],
+        "reasoning": "A general algorithm or an NP-completeness theorem does not imply the explicit all-order optimum without solving these instances; multi-circle covers need not be connected.",
+        "searches": [
+          "Cazaux Rivals shortest cyclic cover strings single circle multiple circular strings shortest cover collection",
+          "arxiv:2012.08878 shortest circular superstring general algorithm"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verify.py from immutable source tree 2ce5f120802b0e1f5901c02327a2442ad03db954",
+        "Moreno–Matamala WG2004 full accessible PDF",
+        "Cazaux–Rivals 2016 DOI 10.1016/j.jda.2016.05.001 abstract/intro",
+        "Gardner–Godbole arxiv:1711.07029 restricted-word universal cycles abstract",
+        "Resultary search query: binary words avoiding 010 minimum length single circular de Bruijn cover shortest cyclic superstring permitted forbidden windows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact-once periodic-language Euler cycles require admissibility of every cyclic window; source theorem permits windows containing 010.",
+          "One-circle lower bound counts each sink’s necessary first 10 shift under full de Bruijn augmentation."
+        ],
+        "reasoning": "Existing exact-once results cannot force these positive overheads; one-circle connectivity and the explicit matching are new work relative to inspected implications.",
+        "searches": [
+          "Moreno Matamala 2004 2007 W_F(n) periodic admissibility",
+          "Cazaux Rivals 2016 shortest cyclic cover and restricted universal cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moreno–Matamala WG 2004 DOI 10.1007/978-3-540-30559-0_14 defines exact-once cycle of a language of periodic sequences; record considers ordinary finite words, and allows extra arcs.",
+          "Cazaux–Rivals arxiv:2012.08878 considers shortest circular superstrings but does not state the n-dependent 010 optimum in the retrieved abstract."
+        ],
+        "reasoning": "The finite-word set contains transient words not belonging to the periodically admissible subshift. Neither exact-once language de Bruijn nor multi-circle coverage is equivalent to the one-circle unrestricted-extra-edge optimum.",
+        "searches": [
+          "binary words avoiding 010 minimum length single circular de Bruijn cover shortest cyclic superstring permitted forbidden windows",
+          "Moreno Matamala 0711.1695 periodically admissible forbidden 010",
+          "shortest circular superstring 010-avoiding de Bruijn graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected result gives 8,14,25,46,... by exact weighted-defect counts.",
+          "Resultary semantic hits concerned string attractors and other restricted-word counts; no same finite-language circular cover table."
+        ],
+        "reasoning": "No inspected indexed table supplies this entire family. This is qualified negative evidence only, not a novelty proof.",
+        "searches": [
+          "binary words avoiding 010 minimum length single circular de Bruijn cover shortest cyclic superstring permitted forbidden windows",
+          "binary 010 avoid shortest de Bruijn sequence n=5 25 46 84"
+        ]
+      },
+      "rationale": "Moreno–Matamala treats an exactly-once Eulerian sequence in the periodically admissible language; that does not cover all finite 010-avoiding words, which may be cyclically inadmissible. Cazaux–Rivals SCCS minimizes a collection of circles, not one circle; its general shortest circular superstring work supplies context without this 010-specific exact length. No direct all-n 010 single-circle formula was found in indexed/Resultary searches. Residual priority risk from more general cyclic superstring algorithms or unindexed forbidden-pattern classifications.",
+      "residual_risks": [
+        "An unindexed forbidden-substring circular-superstring theorem or deeper shortest cyclic superstring special-case computation may overlap; full Cazaux–Rivals publisher body not fully compared.",
+        "No classification of minimizing circular words; only exact minimum and an attaining construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING under read sections: exact-once periodic admissibility is different from finite 010-avoidance with optional repeated/forbidden windows.",
+          "evidence": "Definition of a de Bruijn sequence as containing each allowed n-tuple once and no others; W_F(n) uses periodically admissible language.",
+          "identifier_or_url": "https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-LNCS04-Minimal_de_Bruijn_sequence_in_a_language_with_forbidden_substrings.pdf",
+          "material_read": "Relevant introductory definitions and main algorithm/theorem sections of the public PDF dealing with language W_F(n), forbidden strings and Euler cycles; not every page read line by line",
+          "method": "Public PDF text inspection; screenshot requested but one source view returned access error",
+          "title": "Minimal de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Same forbidden-factor de Bruijn graph and Eulerian construction"
+        },
+        {
+          "assessment": "Distinct optimization: collection of cyclic strings, not a single circular word; remainder not ruled out",
+          "evidence": "2016 abstract states minimization of total length across a set of cyclic strings.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jda.2016.05.001",
+          "material_read": "Accessible author manuscript abstract and introduction, plus indexed descriptions; complete publisher article not fully inspected",
+          "method": "Public search and manuscript excerpts",
+          "title": "A linear time algorithm for Shortest Cyclic Cover of Strings",
+          "trigger": "Possible stronger shortest-cover algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the structurally remaining reversal/complement class of length-three forbidden binary factors, distinct from 000 and 001. The theorem gives a sharp infinite-family optimum and an explicit Eulerian construction rather than finite tables or arbitrary slice; the sink-distance matching is a reusable obstruction method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed forbidden-substring circular-superstring theorem or deeper shortest cyclic superstring special-case computation may overlap; full Cazaux–Rivals publisher body not fully compared.",
+    "No classification of minimizing circular words; only exact minimum and an attaining construction.",
+    "Publication not ready due to public metadata confidentiality/first-date issues; no scientific revisions were supplied."
+  ],
+  "schema_version": 1
+}
