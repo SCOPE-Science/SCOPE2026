@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Legendre gives nu_3(C_n)=s_3(2n)/2-nu_3(2n+1); unique extraction of nu_3(2n+1) gives s_3(2a)/2, reducing the full interval to restricted ternary digit doubling. The explicitly derived 2x2 carry matrix yields the rational bivariate series for all r. Differentiation proves exact moments; analytic dominant eigenvalue and characteristic functions prove the Gaussian limit. The standalone factorial-valuation verifier checks all n<3^r, 0<=r<=9, plus direct integer binomials.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krattenthaler–Müller Section 7 gives modular-coefficient algorithms for Fuss–Catalan numbers at prime powers, and explicitly characterizes valuation-zero and valuation-one coefficient classes modulo p².",
+        "Barat–Grabner introduction describes summation over pairs (n,k) of Pascal-triangle entries, not one proportional Fuss–Catalan index."
+      ],
+      "reasoning": "The general machinery could calculate any chosen finite histogram and is acknowledged as strong prior coverage of coefficientwise modular information. It does not itself state a closed two-variable generating function for these histogram polynomials or the exact Gaussian limit; the aggregation is established independently here.",
+      "searches": [
+        "https://link.springer.com/article/10.1007/s00010-025-01195-0 section 7 Theorems 19–20 and Corollary 22",
+        "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf Sections 1–2",
+        "https://arxiv.org/abs/1508.02580"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cambridge.org/core/journals/journal-of-the-london-mathematical-society/article/abs/distribution-of-binomial-coefficients-and-digital-functions/59BEA01A925CA294F5A691D50F634A75",
+      "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+      "https://arxiv.org/abs/1508.02580",
+      "https://link.springer.com/article/10.1007/s00010-025-01195-0",
+      "https://oeis.org/A001764",
+      "https://oeis.org/A003462"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barat–Grabner concerns full Pascal rows and asymptotic digit-block counts, not the one-index level-by-level polynomial.",
+        "Krattenthaler–Müller Corollary 22 is explicit modulo p² but not at arbitrary valuation depth aggregated over n<3^r.",
+        "The prior exact dyadic statement has index windows of length 2^r and v_2; it cannot instantiate the p=3 result by a parameter substitution because both digit transitions and denominator valuations differ."
+      ],
+      "reasoning": "The new theorem implies all constant/linear/etc. coefficients, exact mean and variance and a normal limit; none of the compared precise statements logically supplies these without a new derivation. No partition-specific exclusivity is claimed.",
+      "searches": [
+        "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "https://link.springer.com/article/10.1007/s00010-025-01195-0",
+        "https://oeis.org/A003462"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A003462 (comment Jan 14 2003) states precisely the nondivisible indices n=(3^j-1)/2, equivalent to P_r(0)=r+1 but not to the other coefficients or moments.",
+        "OEIS A001764 enumerates the Fuss–Catalan numbers, without the rational spectrum in inspected entries."
+      ],
+      "reasoning": "The known valuation-zero subclass agrees as a check and is not counted as novel. The claimed full polynomial P_r(t), exact moments, and CLT are strictly stronger than the zero-count alone; queried aliases did not identify a matching statement.",
+      "searches": [
+        "\"ternary Catalan\" \"valuation\" \"normal\" distribution 3-adic",
+        "\"Fuss Catalan\" \"3-adic valuation\" \"distribution\" generating function",
+        "OEIS A001764, OEIS A003462"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A001764 defines the indexed sequence and samples its values.",
+        "A003462 records index positions where the sequence is prime to three; this yields precisely the constant coefficient r+1."
+      ],
+      "reasoning": "The complete coefficient vectors for all r and rational generating function were not encountered in inspected OEIS tables or searched public literature. Database nonappearance alone is not a novelty proof.",
+      "searches": [
+        "https://oeis.org/A001764",
+        "https://oeis.org/A003462",
+        "\"Fuss Catalan\" \"3+5t\" \"4+13t\"",
+        "\"Fuss-Catalan\" \"valuation\" \"normal\""
+      ]
+    },
+    "rationale": "The full ternary valuation census is distinct from the known digit valuation formula, the known valuation-zero indices, the 2015 coefficientwise Fuss–Catalan congruence algorithm, and a previous dyadic (prime-two) histogram. The exact all-depth bivariate rational series and Gaussian parameters were not located in the inspected sources; historical priority is qualified rather than certified.",
+    "residual_risks": [
+      "A previously published or unindexed exact ternary valuation distribution may exist; absence in queried sources cannot certify novelty.",
+      "General prime-power coefficient algorithms in Krattenthaler–Müller may yield the histogram after nontrivial further summation, but no stated result matching the exact rational polynomial and CLT was identified.",
+      "Related unpublished calculations or sequence database tables may encode the same closed formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general digital sums and Pascal-row binomial distributions, not the specific proportional Fuss–Catalan one-index spectrum",
+        "evidence": "Its equation (1.1) defines vartheta_j(n) as the number of binomial coefficients in an entire row having valuation j, unlike the single-index C_n sequence.",
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Abstract; introduction pp. 1–2; digital-block transition discussion pp. 3–4; searchable PDF checked for Catalan",
+        "method": "Open full-text author-hosted preprint, inspect text and page rendering",
+        "title": "Distribution of Binomial Coefficients and Digital Functions",
+        "trigger": "Closest archival paper on digit-function valuation distributions, primary 11B65"
+      },
+      {
+        "assessment": "Strong coefficientwise prior modular theory, including known low valuation classes; no stated exact aggregated histogram or CLT",
+        "evidence": "Section 7 gives an expansion for F(n;p) modulo p powers and explicit n classes modulo p²; our statement counts every valuation layer for all indices n<3^r.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01195-0",
+        "material_read": "Full HTML introduction and Section 7 including Theorems 19, 20 and Corollary 22",
+        "method": "Inspect open-access full text and compare exact assumptions/claims",
+        "title": "A method for determining the mod-\\(p^k\\) behaviour of recursive sequences",
+        "trigger": "Same Fuss–Catalan family and prime-power modulus"
+      },
+      {
+        "assessment": "Same sequence; no all-depth valuation polynomial statement observed",
+        "evidence": "Entry defines a(n)=binomial(3n,n)/(2n+1).",
+        "identifier_or_url": "https://oeis.org/A001764",
+        "material_read": "Definition, comments, references and displayed terms",
+        "method": "Read database entry",
+        "title": "OEIS A001764",
+        "trigger": "Exact ternary Fuss–Catalan sequence database"
+      },
+      {
+        "assessment": "Explicitly covers the nondivisible coefficient P_r(0)=r+1; credited and excluded from originality claim",
+        "evidence": "Benoit Cloitre comment of Jan 14 2003 identifies n=(3^j-1)/2 as all n with A001764(n) not divisible by three.",
+        "identifier_or_url": "https://oeis.org/A003462",
+        "material_read": "Definition and dated comment in full entry",
+        "method": "Read database entry",
+        "title": "OEIS A003462",
+        "trigger": "Directly relevant old characterization of nondivisible terms"
+      },
+      {
+        "assessment": "Same work as preceding open-access journal text, not a separate independent covering result",
+        "evidence": "First arXiv posting Aug 11 2015; arxiv v2 revised 2025.",
+        "identifier_or_url": "https://arxiv.org/abs/1508.02580",
+        "material_read": "Title, abstract, first version date and version history; full scientific details compared in the open journal version",
+        "method": "Inspect preprint record, match same-paper published source",
+        "title": "A method for determining the mod-\\(p^k\\) behaviour of recursive sequences (preprint record)",
+        "trigger": "Public 2015 version of later journal article"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "38f9bdc9-9cfd-4aa3-889c-16a12c1b51de",
+  "value": {
+    "rationale": "The precise all-depth multiplicity of every valuation is a natural complete invariant of a classical combinatorial sequence; the two-state ternary cancellation gives a structural classification, sharp mean/variance and nontrivial Gaussian law. Unlike the already known set of nondivisible indices or a fixed-modulus table, the theorem quantifies typical valuations at every scale and is not obtained by a mere change of names in the dyadic theorem.",
+    "status": "PASS"
+  }
+}
