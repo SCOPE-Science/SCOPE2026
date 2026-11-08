@@ -1,19 +1,21 @@
-# Self-review: switched Abel cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reciprocal change of coordinates converts constant pure quadratic and cubic pulse flows to translations and positive square-root maps. Cyclically adjacent equal-type windows merge. In the only irreducible four-window order, the return-fixed-point equation reduces, after one necessary squaring, to a polynomial of degree at most two. If that polynomial is identically zero, any genuine fixed point belongs locally to an identity-return interval and is not isolated. With at most three windows the reduced fixed-point equation is linear, proving the sharp minimality. The explicit example uses a strictly concave scalar fixed-point function: its boundary value and unique maximum give the complete count, its first derivative gives both stability types, and its second derivative and parameter derivative certify a nondegenerate saddle-node. Exact rational witness trajectories and two Floquet multipliers were independently recomputed by the bundled program. Finite computations corroborate but do not replace the analytical statements.
+PASS
 
-## Originality — PASS under inspected evidence
+The reciprocal change y=1/x yields translations Q_b(y)=y-b and square-root flows C_a(y)=sqrt(y²−2a), all increasing on physical positive domains. Cyclic adjacent equal-type windows merge; the only irreducible four-letter word is alternating and has fixed-point necessity reducible to a quadratic, with an identically vanishing polynomial producing only a locally identity return, hence no isolated fixed point. For <=3 windows the reduced equation is linear. For the four-pulse example, the exact concave g_d(y) has one interior maximum and g_d(0) crossing at d∞, furnishing 1/2/one double/0 finite positive roots. Direct exact Fraction recomputation verified y=1/2 and 7/6 at d=1, with derivatives 9/7 and 143/161; independent parameter root counts corroborated. Physical positivity after each pulse, the excluded y=0 boundary and smooth local persistence were explicitly checked against the proof.
 
-The closest primary source, Bravo Trinidad–Tian–Zhao (arXiv:2610.19340v1), proves a one-cycle criterion subject to continuous coefficients, half-period symmetry, and curvature assumptions, all absent here. Huang–Tian–Zhao (arXiv:2506.14091v1) prove a two-cycle result when the smooth coefficient functions belong to an extended Chebyshev system; the present piecewise-constant windows are zero on open intervals and do not meet those assumptions. The Álvarez–Gasull–Giacomini sign-combination uniqueness criterion also fails for the explicit four-window coefficients because both terms change sign and occupy disjoint windows. Unlike these works, the new claim gives the minimum exact number of pure windows, a universal upper bound within that class, a complete exact one-parameter two-cycle diagram, and both stability types. Relevant mathematical research records and the own accessible research claims were checked for equivalent statements. An unidentified specialized result for pulse-switched Abel equations remains a residual priority risk; uninspected secondary full texts have not been asserted non-covering.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The coefficient-switching complexity is a natural restriction of the Abel periodic-orbit-counting problem, for which no universal bound holds with unrestricted coefficients. The theorem determines an exact four-stage threshold and an attaining example, rather than an arbitrary isolated orbit calculation. The two-branch diagram distinguishes entrance from infinite amplitude, coexistence of an attracting and a repelling finite cycle, and their finite saddle-node annihilation. These explicit structural phenomena give a reproducible test case for period-map methods and sign-changing coefficient criteria.
+General Abel upper-bound and uniqueness results impose continuity, sign-definite linear combination or Chebyshev-system hypotheses violated by disjoint alternating pulses. Earlier constructed two-cycle examples do not establish the least number of pure windows and exact sharp one-parameter fold. Published and semantic searches found no dominating theorem for this precise pure pulse class, though older piecewise Abel literature could contain an equivalent.
 
-## Scope and residual risks
+## value
 
-The universal bound is restricted to four or fewer pure-monomial constant-strength windows counted cyclically. A locally smoothable two-cycle witness does not imply a corresponding universal bound for unrestricted smooth forcing. Exact priority in less-indexed pulse-switched or piecewise Abel literature has not been independently established, and a specialized theorem may overlap. The review is not an independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cyclic-window count is a natural measure of switching complexity. Establishing four as the exact minimum for coexistence, with stable and unstable branches and a distinguishable infinite-amplitude boundary versus finite fold, creates a meaningful sharp structural threshold in nonautonomous polynomial flows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

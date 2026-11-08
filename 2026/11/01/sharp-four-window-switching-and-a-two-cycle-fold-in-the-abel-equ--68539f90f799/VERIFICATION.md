@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The scientific derivation is contained in `RESULT.md`; the self-contained reproducibility file is `verify.py`. The reciprocal transforms for pure quadratic and cubic pulses, the quadratic bound for four alternating windows, and the strict-concavity root count are proved symbolically without relying on finite sampling.
+## correctness
 
-Run `python3 verify.py` in a Python 3 installation with only the standard library. The actual run completed with `PASS; assertions: 553`, listed the two original-coordinate initial values `2` and `6/7`, and returned the respective Floquet multipliers `9/7` and `143/161`. The checker uses exact `fractions.Fraction` arithmetic for its cycle and multiplier certificates and additional floating-point spot checks for generic parameters. The numerical spot checks are not an exhaustive root count and do not certify the universal statement.
+PASS
 
-The exact fold and threshold formulas were separately cross-checked by symbolic manipulation of the discriminant and the first two derivatives of the return-defect function. These algebraic calculations are described explicitly in the proof rather than delegated to an opaque numerical solver.
+The reciprocal change y=1/x yields translations Q_b(y)=y-b and square-root flows C_a(y)=sqrt(y²−2a), all increasing on physical positive domains. Cyclic adjacent equal-type windows merge; the only irreducible four-letter word is alternating and has fixed-point necessity reducible to a quadratic, with an identically vanishing polynomial producing only a locally identity return, hence no isolated fixed point. For <=3 windows the reduced equation is linear. For the four-pulse example, the exact concave g_d(y) has one interior maximum and g_d(0) crossing at d∞, furnishing 1/2/one double/0 finite positive roots. Direct exact Fraction recomputation verified y=1/2 and 7/6 at d=1, with derivatives 9/7 and 143/161; independent parameter root counts corroborated. Physical positivity after each pulse, the excluded y=0 boundary and smooth local persistence were explicitly checked against the proof.
 
-The originality assessment compared the proposed statements and hypotheses with the 2026 half-period convexity theorem, the 2025 ET-system criterion, and earlier sign-definite coefficient criteria. It is a best-knowledge literature assessment, not an assertion of proven historical priority. An independent scientific audit has not been performed.
+## originality
+
+PASS
+
+General Abel upper-bound and uniqueness results impose continuity, sign-definite linear combination or Chebyshev-system hypotheses violated by disjoint alternating pulses. Earlier constructed two-cycle examples do not establish the least number of pure windows and exact sharp one-parameter fold. Published and semantic searches found no dominating theorem for this precise pure pulse class, though older piecewise Abel literature could contain an equivalent.
+
+## value
+
+PASS
+
+The cyclic-window count is a natural measure of switching complexity. Establishing four as the exact minimum for coexistence, with stable and unstable branches and a distinguishable infinite-amplitude boundary versus finite fold, creates a meaningful sharp structural threshold in nonautonomous polynomial flows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
