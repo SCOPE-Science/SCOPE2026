@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact fixed-damping mode equals AR(2) with determinant (1+a)^-2, characteristic trace phi, independent Gaussian innovation of variance a^3 sigma^2/(1+a)^4. Jury stability is Delta_t(a)>0. Yule-Walker gives V_t(a)=sigma^2(a^2+2a+2)/[t(a+2)Delta_t(a)]. Differentiating yields F_t(a)=B(a)(t-T(a)), with B(a)>0. The factored T derivative has exactly one positive root, 1+sqrt(3), and its minimum is (4+12sqrt(3))/13. Boundary classifications follow on the entire stable domain. Exact rational signs J'(1)=-10881433/143273691, J'(4)=40729/114967512, J'(20)=-2559661/557646408 prove a full-system reversal. The actual standalone verify.py independently solves state covariance in rational arithmetic on a stable parameter grid and confirms 299 checks; finite tests support but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leplat et al. Theorem 3.1 already gives the full Schur-stability interval; their Section 3.5 gives the discrete Lyapunov solution and Appendix D explicitly notes rational modal formulas could be written.",
+        "Mohammadi et al. Theorem 5 supplies a broader noise-amplification formula for any stable two-step momentum algorithm and Appendix E derives its Lyapunov equation."
+      ],
+      "reasoning": "Broader established coverage includes exact stationary covariance in principle and general Schur boundaries. It does not resolve the particular T(a) minimum, one/two-extrema dichotomy, or exact 11-mode derivative witness as a stated implication; those require an additional calculation and sign analysis. We restrict novelty accordingly.",
+      "searches": [
+        "NAG-GS semimplicit accelerated stochastic optimizer exact stationary variance noise floor phase bifurcation threshold curvature ratio 1.9065",
+        "accelerated gradient dynamics discrete Lyapunov equation stationary noise variance nonmonotonic step-size reentrant minima maxima",
+        "https://arxiv.org/html/2209.11920v3 Theorem 5",
+        "https://arxiv.org/html/2209.14937v3 Theorem 3.1 and Section 3.5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2209.14937v3",
+      "https://arxiv.org/html/2209.11920v3",
+      "https://arxiv.org/abs/1805.10579",
+      "https://arxiv.org/abs/2209.14937",
+      "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+      "2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad",
+      "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+      "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+      "2026/10/4/SCOPE-noise-amplification-imposes-an-exact-deterministic-stability-tax--8be1c7e1df01"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Leplat et al. establish stability for every positive step when L<=2 mu and note covariance can be evaluated; they do not prove that within such an unrestricted stability interval a stationary coordinate variance can have two derivative zeros.",
+        "Mohammadi et al. general formula depends on three parameters and spectrum but does not specify the NAG-GS nonlinear parameter curve or derive its quartic F_t factorization."
+      ],
+      "reasoning": "Stability-for-all-steps and a computable stationary covariance do not logically imply noise variance monotonicity nor the stated reentrant counterexample. The new derivative factorization and endpoint arguments give the missing implication; it remains a nontrivial specialization of the broader variance framework and is not represented as a fundamentally new stochastic principle.",
+      "searches": [
+        "https://arxiv.org/html/2209.14937v3 Sections 3.2, 3.5, Appendix D",
+        "https://arxiv.org/html/2209.11920v3 Section IV-C, Appendix E",
+        "semi implicit Gauss Seidel Nesterov stationary covariance nonmonotone stepsize curvature stochastic noise two local extrema"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "NAG-GS source Section 2.4 (equation 8) identifies equivalence to a Heavy-Ball recurrence with step-dependent coefficients, while general momentum Theorem 5 expresses stationary variance as inverse stability margins.",
+        "The resulting AR(2) mode has phi=[2(1+a)+a^2(1-t)]/(1+a)^2 and b=(1+a)^-2."
+      ],
+      "reasoning": "The algorithm can be rewritten as a step-dependent Heavy-Ball or two-step AR system. A generic stationary-variance formula covers computation of its variance, but by itself does not classify how the derivative changes sign along the nonlinear NAG-GS step path. The new assertion is exactly that global curvature-ratio phase diagram, not the AR(2) equivalence.",
+      "searches": [
+        "semi implicit Gauss Seidel Nesterov stationary covariance nonmonotone stepsize curvature stochastic noise two local extrema",
+        "quasi monotone method Wilson Recht Jordan Gaussian noise stationary error as function of step and condition number",
+        "https://arxiv.org/html/2209.14937v3 Section 2.4 Heavy-Ball representation",
+        "https://arxiv.org/html/2209.11920v3 Section IV-C"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-record hits closest to the topic: 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73, 2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad, 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12, 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285, 2026/10/4/SCOPE-noise-amplification-imposes-an-exact-deterministic-stability-tax--8be1c7e1df01.",
+        "One own prior ledger part was searched by title and recoverable claim for NAG-GS, semi-implicit stationary covariance and equivalent wording; no matching result was recovered."
+      ],
+      "reasoning": "Closest published records report constant-template STORM covariance, deterministic Nesterov objective spikes, and other stochastic dynamics, not the same NAG-GS covariance-stepsize bifurcation. This query result alone does not establish mathematical uniqueness; the cited primary full-text comparison is needed.",
+      "searches": [
+        "semi implicit Gauss Seidel Nesterov NAG-GS stationary Brownian variance step size two local turning points curvature ratio 1.906508437755",
+        "covariance phase diagram NAG-GS fixed damping Gaussian noise 1+sqrt3 threshold 4+12sqrt3 over 13",
+        "stationary noise amplification semimplicit Nesterov a=1,4,20 counterexample nonmonotonic dimension 11",
+        "NAG-GS semimplicit accelerated stochastic optimizer exact stationary variance noise floor phase bifurcation threshold curvature ratio 1.9065"
+      ]
+    },
+    "rationale": "Primary NAG-GS paper (arXiv:2209.14937, §§2.3,3.2,3.5 and Appendix D) gives the update, exact Schur boundary and Lyapunov covariance framework, but no mode-step derivative threshold or reentrant aggregate stationary error. The general momentum noise-amplification Theorem 5 in arXiv:2209.11920 covers the standard AR(2) covariance mechanism; the method and formula are therefore not claimed as new. Its universal framework does not state or establish the sharp NAG-GS-specific bifurcation or the 11D stable counterexample without additional algebraic parameter analysis. The accessible own prior claims and actual semantic published-record hits concern other algorithms or deterministic spikes. Residual risk of unindexed equivalent analytic treatment is acknowledged.",
+    "residual_risks": [
+      "The broad published generic AR(2) variance formulas mean that the algebraic variance identity is covered methodology, not a novelty claim. The sharp turning-point classification may be obtainable as an unstated special case; publication precedence remains possible.",
+      "Other versions and papers on quasi-monotone/Heavy-Ball noise tradeoffs might contain an equivalent parameterization without the same naming.",
+      "Results are specific to Gaussian velocity increments and gamma=mu, not general stochastic gradient perturbations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the fixed-damping algorithm, Schur boundary and Lyapunov covariance; mentions obtainable rational modal formulas but not a sharp noise-turning threshold or stationary total-MSE sign reversal.",
+        "evidence": [
+          "Equation (5) gives the position and velocity state update.",
+          "Theorem 3.1 gives all-step stable condition L<=2mu; Section 3.5, equations (27)-(30), gives Gaussian Lyapunov covariance.",
+          "Appendix D says rational modal covariance formulas are long and not needed for its proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.14937v3",
+        "material_read": "Sections 2.3-2.5, 3.1-3.5 and Appendix D including formulas (5),(12),(27)-(30), stability Theorem 3.1 and paragraph after Appendix D heading",
+        "method": "Full accessible arXiv HTML sections inspected and equations compared against the new specific stationary-variance derivative",
+        "title": "NAG-GS: A Semi-Implicit Stochastic Optimizer with Large-Step Stability",
+        "trigger": "Exact original algorithm and possible same-method covariance coverage"
+      },
+      {
+        "assessment": "Theorem 5 is a general two-step stationary variance formula and covers the underlying Yule-Walker/Lyapunov method, not a phase boundary along the NAG-GS semi-implicit parameter path. Strong generic-coverage precedent, novel specialization cautiously delimited.",
+        "evidence": [
+          "Theorem 5 gives J as a spectral sum of reciprocal stability-margin terms.",
+          "Appendix E gives the exact stationary Lyapunov equation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.11920v3",
+        "material_read": "Introduction, Sections II-C and IV-C including Theorem 5 and equation (31), and Appendix E equations (59a)-(59d)",
+        "method": "Read public arXiv HTML source and directly compared the exact statements and two-step parameterization",
+        "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+        "trigger": "Potential dominating general AR(2) moment theorem and equivalence"
+      },
+      {
+        "assessment": "Addresses noise robustness for other acceleration parameterizations; not identified as giving this fixed-damping NAG-GS turning point or 11-mode instance.",
+        "evidence": [
+          "The paper studies accelerated-gradient robustness under stochastic errors, not the specific NAG-GS curvature-ratio T(a)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.10579",
+        "material_read": "Available public arXiv text including formulation, assumptions, and robustness results on accelerated gradients (not the NAG-GS update)",
+        "method": "Accessible arXiv text reviewed for algorithmic parameters and noise model",
+        "title": "Robust Accelerated Gradient Methods for Smooth Strongly Convex Functions",
+        "trigger": "Potential general stationary robustness results on accelerated schemes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d12cc63f-e91c-4c91-8ff3-3c8cc5fa4439",
+  "value": {
+    "rationale": "An explicit curvature-ratio threshold distinguishes strictly decreasing stationary noise from a local-minimum/local-maximum reentrant noise profile without any loss of deterministic stability. This supplies a motivated sharp tuning boundary for a recognized semi-implicit accelerator; the 11D exact certificate proves the behavior survives aggregation into the optimizer position mean-square error. It is neither a generic textbook stability calculation nor an arbitrary finite census; no practical efficiency claim is made.",
+    "status": "PASS"
+  }
+}
