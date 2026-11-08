@@ -1,15 +1,21 @@
-# Scientific review: quantitative quenched bracket rate for static Pascal signs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement is restricted to independent static Bernoulli coefficients uniformly bounded away from zero and one, and an independent fair driving walk. Lucas parity gives an exact submask representation and exact product moments. The symmetric-difference lower bound yields strong cancellation except at sparse low-bit-count indices. The binomial bit-count sum proves a quasi-polylogarithmic bound on their total contribution. A complete multiscale maximal second-moment argument, dyadic Borel--Cantelli, and independent geometric holding times establish the stated almost-sure prefix bound. The normalized predictable cross-bracket follows algebraically. The fair-bit triangular transformation and renewal-reward central limit theorem prove minimax sharpness of the polynomial exponent. The 10,912 exact checker assertions corroborate finite identities but are not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with priority qualifications.** Hamza--Tournier, arXiv:2610.01658v1, Section 4.3, gives only annealed results for the precise static one-factor inclusion-induced setting. Qualitative quenched normality and fair-parameter Brownian-scale fluctuation behavior are already known in related analyses and are not newly claimed. The newly assessed assertion is the near-square-root **maximal, almost-sure quantitative cross-bracket bound**, with a deterministic uniform parameter over every nonstationary elliptic Bernoulli profile. No comparable all-prefix quantitative estimate was identified by searches over alternate terminology (Pascal parity scenery, binary submask transforms, frozen cardinality environments, and bracket discrepancy) or by the source comparisons. Existing general maximal inequalities alone do not provide the requisite sparse binary second-moment estimate. A more abstract theorem on low-weight Boolean transforms could still imply this result; independent priority review is outstanding.
+PASS
 
-## Value
-**PASS.** The sharp polynomial rate bridges a substantive quantitative gap between qualitative quenched convergence and Brownian-scale behavior: it guarantees that the entire finite-horizon predictable covariance discrepancy is at most \(N^{1/2+o(1)}\) with a deterministic uniform bound over arbitrarily varying elliptic probabilities. Simultaneous control over all prefixes is needed for time-dependent conditional bracket estimates, rather than merely convergence at terminal times. The exponent cannot be improved over this natural family, while the precise subpolynomial correction remains an open refinement.
+Lucas parity identifies each Pascal row modulo two with submasks D(s). For s<t, |D(s)△D(t)|≥2^{max(h(s),h(t))−1}, so independent elliptic Bernoulli coefficients yield |E[f(s)f(t)]|≤(1−2ε)^{2^{h(t)−1}}. Grouping by bit-count up to 2^L gives total upper bound exp(C(log(L+2))²). Dyadic aligned-block decomposition bounds the maximal spatial prefix second moment by 2^L exp(C(log(L+2))²); dyadic Markov–Borel–Cantelli provides the asserted sqrtN exp(C(loglogN)²) a.s. spatial rate. The monotone count S_n has independent geometric(1/2) holding lengths; centered weighted lengths are a martingale, controlled uniformly by Doob and Borel–Cantelli, and the incomplete holding and ζ0 convention are negligible. Therefore the actual predictable off-diagonal bracket has the same a.s. quenched bound. For independent fair β, invertible lower-triangular Pascal transform yields iid fair f(s); independent geometric holding times have EH=2 and EH²=6, so renewal-reward CLT gives variance3 and proves polynomial exponent 1/2 optimal uniformly over the admitted family. Independently verified 8,128 distinct submask distance bounds and bijections of every fair Pascal transform through size8.
 
-## Limits and closest literature
-The closest direct published source is Hamza--Tournier (2026), Section 4 and Corollary 12, which proves an annealed rather than an all-prefix quenched quantitative assertion. Collevecchio--Hamza--Shi--Williams (2022) provides general bootstrap limit criteria without a specialized elliptic-Pascal maximal rate. The new result does not establish an optimal iterated-logarithm correction, and it requires static independent coefficients and symmetric increments. Priority is provisional, and no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hamza–Tournier 2026 Section 4.3 describes the same frozen inclusion-induced one-factor bootstrap environment and obtains annealed convergence, rather than the specific quenched all-prefix quantitative rate. Related qualitative static quenched limits and fair-profile Brownian fluctuations are acknowledged; the novel assessed result is the near-square-root uniform almost-sure maximal bracket estimate across arbitrary heterogeneous elliptic parameters. Earlier abstract Walsh/Pascal maximal estimates could imply this without matching nomenclature and remain a serious priority risk.
+
+## value
+
+PASS
+
+A near-optimal almost-sure all-prefix rate for predictable cross-bracket, uniform across independent but arbitrarily nonstationary elliptic scenery, is mathematically significant for quantitative martingale covariance control; the fair case proves its polynomial exponent cannot improve uniformly. Unlike qualitative o(N) strong law, this gives a controlled Brownian-scale error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

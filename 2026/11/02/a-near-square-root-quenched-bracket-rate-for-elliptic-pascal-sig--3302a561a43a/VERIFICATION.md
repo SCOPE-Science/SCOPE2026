@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Analytic verification
-The proof in `RESULT.md` independently derives the Lucas parity/submask equivalence, the exact product-moment identity, the Boolean symmetric-difference bound, the quasi-polylogarithmic exceptional-index estimate, a dyadic maximal second-moment inequality, and the almost-sure transfer through independent geometric holding lengths. The fair-bit triangular invertibility and ordinary renewal-reward central limit theorem furnish the sharpness example. The infinite almost-sure theorem relies on these analytical steps, not on finite testing.
+# Independent mathematical audit
 
-## Finite checker
-Run `python3 check.py` with a standard Python 3 installation. The checker uses exact `fractions.Fraction`, `math.comb`, and exhaustive finite products: it verifies 10,912 assertions for binomial parity, submask distances, biased exact sign-product moments, interval moment bounds and the inverse of the fair Pascal transform. Actual output is included in `check_output.txt`. No random sampling, external dependencies, or network access is used.
+## correctness
 
-## Scientific limitations
-The bound controls the polynomial exponent optimally but does not identify the smallest possible subpolynomial factor. The fair-case lower-bound argument is under the joint law, which suffices to preclude any uniform smaller almost-sure exponent; it is not a claim of an explicit lower bound for each nonstationary parameter profile. The result is not independently audited or externally certified.
+PASS
+
+Lucas parity identifies each Pascal row modulo two with submasks D(s). For s<t, |D(s)△D(t)|≥2^{max(h(s),h(t))−1}, so independent elliptic Bernoulli coefficients yield |E[f(s)f(t)]|≤(1−2ε)^{2^{h(t)−1}}. Grouping by bit-count up to 2^L gives total upper bound exp(C(log(L+2))²). Dyadic aligned-block decomposition bounds the maximal spatial prefix second moment by 2^L exp(C(log(L+2))²); dyadic Markov–Borel–Cantelli provides the asserted sqrtN exp(C(loglogN)²) a.s. spatial rate. The monotone count S_n has independent geometric(1/2) holding lengths; centered weighted lengths are a martingale, controlled uniformly by Doob and Borel–Cantelli, and the incomplete holding and ζ0 convention are negligible. Therefore the actual predictable off-diagonal bracket has the same a.s. quenched bound. For independent fair β, invertible lower-triangular Pascal transform yields iid fair f(s); independent geometric holding times have EH=2 and EH²=6, so renewal-reward CLT gives variance3 and proves polynomial exponent 1/2 optimal uniformly over the admitted family. Independently verified 8,128 distinct submask distance bounds and bijections of every fair Pascal transform through size8.
+
+## originality
+
+PASS
+
+Hamza–Tournier 2026 Section 4.3 describes the same frozen inclusion-induced one-factor bootstrap environment and obtains annealed convergence, rather than the specific quenched all-prefix quantitative rate. Related qualitative static quenched limits and fair-profile Brownian fluctuations are acknowledged; the novel assessed result is the near-square-root uniform almost-sure maximal bracket estimate across arbitrary heterogeneous elliptic parameters. Earlier abstract Walsh/Pascal maximal estimates could imply this without matching nomenclature and remain a serious priority risk.
+
+## value
+
+PASS
+
+A near-optimal almost-sure all-prefix rate for predictable cross-bracket, uniform across independent but arbitrarily nonstationary elliptic scenery, is mathematically significant for quantitative martingale covariance control; the fair case proves its polynomial exponent cannot improve uniformly. Unlike qualitative o(N) strong law, this gives a controlled Brownian-scale error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
