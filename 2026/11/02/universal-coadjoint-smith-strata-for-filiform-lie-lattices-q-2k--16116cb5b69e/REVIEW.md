@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original filiform brackets give a skew matrix with a symplectic middle block and a single appended row. Because the appended row contains the top central coefficient, its minimum valuation is at most the central valuation. A primitive-vector symplectic basis extension isolates one elementary pair of smaller valuation, while the remaining pairs have the central valuation. This proves all invariant factors over arbitrary finite commutative chain rings, with no division by a nonunit and no characteristic exclusions. Valuation layers are disjoint and exhaust every functional. The counts are exact cardinalities, and the conditional group-character statement applies only with nilpotency class less than residue characteristic. Exhaustive checks use the original bracket matrix over both integer quotient and polynomial quotient rings.
+PASS
 
-## Originality — PASS (provisional)
+For integral filiform brackets Q_{2k}, coadjoint alternating matrix has one covector v=(lambda e3,..,lambda e2k) adjoining the middle nondegenerate skew form zJ, where z=lambda e2k and valuation b=nu(v)<=a=nu(z). Over any finite chain ring, a primitive symplectic-basis reduction turns v into pi^b in the first coordinate and leaves J standard; a 3x3 elementary shift removes the z coupling because pi^b divides z. Thus Smith skew blocks are pi^b J2 + (k-2) pi^a J2 + 0_2. Counting valuations of z and of n-3 other v entries proves all H_{a,b}, sum q^(sn), image q^(2e). The residue-characteristic p>2k-1 hypothesis makes the finite Lazard/Kirillov method applicable, giving orbit size q^(2e), degree q^e and multiplicities q^(-2e)*H. The symplectic reduction remains valid in characteristic two; character statement is conditional.
 
-The 2012 Adimi–Makhlouf source establishes the underlying filiform family and its generic field index, not the complete elementary-divisor distribution over chain rings. The 2012 O'Brien–Voll paper supplies a general orbit method but does not specialize it to this family at arbitrary local length. The new claim distinguishes all pairs of valuations, their exact multiplicities, and ring-independent character-degree counts. A published-finding corpus comparison with adjoint-rank results for other maximal-class Lie algebras and searches for local representation zeta functions did not yield an equivalent statement. Residual risk: an unlocated specialization in the broad literature on nilpotent Lie-ring representation zeta functions could imply the calculation; publication priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The field index suppresses all local torsion information. The theorem lifts the natural coadjoint bilinear-form invariant from a field to every finite chain ring and resolves every Smith stratum, not merely the generic rank. It provides a universal polynomial count and translates to a complete conditional character-degree enumerator for an unbounded family of finite nilpotent groups, including newly appearing intermediate degrees at longer ring lengths. This is a motivated local-arithmetic refinement, not a fixed small-field census.
+Complete two-valuation coadjoint Smith-type census over all finite chain rings, with exact multiplicities and Lazard-range character counts, extends generic field index and uses (not claims to invent) classical orbit method.
 
-## Scope and risk
+## value
 
-The general proof establishes Smith types and cardinalities; the checker verifies finite instances only. The representation-theoretic conclusion uses the classical orbit method and requires a strict Lazard characteristic bound. Universality does not extend to arbitrary non-chain rings. Historical overlap remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete local Smith-stratification and counts of a natural maximal-class filiform Lie lattice across all finite chain rings is an independently useful family-wide invariant, with explicit representation-degree distribution in the Lazard range; not a field-rank recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
