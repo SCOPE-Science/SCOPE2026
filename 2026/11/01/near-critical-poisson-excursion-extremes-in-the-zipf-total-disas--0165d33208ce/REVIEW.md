@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact renewal-tail telescoping identity implies the clipped-mean and variance bounds used in the deterministic physical clock. The limit of rare excursion-height tails gives the Poisson mark intensity after coupling the iid-index process to the renewal clock. A short random-index band handles both completed-only point measures and the unfinished excursion at horizon. The proof supplies quantifiers and boundary cases, and the attached checker performs 328 successful finite assertions without treating simulations as an infinite proof. The exact model assumptions (fresh start, fixed parameter along one path, fixed real crossover variable, and all sufficiently large horizons) are stated.
+## correctness
 
-## Originality — PASS, qualified
-The exact Zipf-disaster kernel and return-cycle laws appear in Huillet (2026), while Goncalves and Huillet (2021) treat related fixed-parameter models. Neither relevant full text states a triangular beta drift across recurrence, physical-time marked Poisson peaks, or the explicit crossover constant. Generic iid Poisson-extreme theory remains prior art and is acknowledged rather than repackaged as new. Published mathematical-record searches and accessible previous finding statements found no covering theorem. Residual risk: an unlocated general triangular renewal-extremes result may imply part or all of this specialization; the 2026 generic extremal point-process article was compared from abstract only.
+PASS
 
-## Mathematical value — PASS
-The theorem quantifies time-window extreme population peaks under the natural near-critical scaling where a catastrophe Markov chain changes recurrence type. The coefficient varies sharply with the direction of parameter drift, and the marked Poisson process records both when and how high rare peaks appear. The deterministic clipping and terminal-excursion controls distinguish physical-time extremes from iid-height order statistics alone.
+Exact transition telescoping gives iid cycle lengths with P(L>=k)=k^-beta_n. The truncated first moment is a(c)log n+o(log n), second moment O_c(n); Chebyshev and P(L>n) union bound give uniform inverse renewal clock on O(n/log n) cycles. The rare iid mark measure has intensity tail e^-c/z on that scale, and Laplace functional convergence yields a PRM. Replacing index times by physical excursion starts is justified uniformly, and completed-vs-straddling differences are bounded by rare high marks in an epsilon-width random-index band. The derivative lambda'(c)<0 and limits give continuous recurrence crossover. Independent exact telescoping and finite-scale mark probabilities were checked, not used to establish the asymptotic theorem.
 
-## Limitations and primary references
-The claim is distributional only and restricted to fixed crossover parameter and this exact chain. No moment limit, whole-path limit or uniformity over unbounded parameters is asserted. Source references: Huillet, arXiv:2610.29974v1, Sections 3.1–3.5; Goncalves–Huillet, arXiv:2101.03853v1, Sections 3 and 4; De Monte–Papastathopoulos, DOI 10.1016/j.spl.2026.110722 (abstract only). Independent mathematical and historical-priority audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Huillet 2026 establishes the exact Zipf transition kernel and fixed-beta recurrence/excursion input; Goncalves–Huillet 2021 develops related birth-catastrophe renewal models. Independent rare-event Poisson machinery is standard, but none of the accessible compared statements gives the explicit beta_n=1+c/log n clock and time-space intensity lambda(c). The most directly relevant 2026 source full text was inaccessible; this is a material originality risk, not an automatic FAIL or a whole-document noncoverage assertion.
+
+## value
+
+PASS
+
+The natural observable is the physical-time distribution of rare high population excursions under a Zipf catastrophes chain at the recurrence transition. A marked Poisson process, explicit nonconstant intensity c/(exp(c)-1), and treatment of unfinished excursions provide nontrivial model-specific quantitative information beyond fixed-beta renewal formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

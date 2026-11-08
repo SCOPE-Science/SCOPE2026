@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:50:50Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md actual blob 9411723843bc20bfb240974064a9abdf7874000a, Steps 1-5: renewal clock, Poisson Laplace functional, terminal excursion bound.",
+        "Independent exact Fraction P(L>=k)=k^-beta for beta in {1,2,3}; near-critical mark tail tested at n=10^200 for five c.",
+        "Original verify.py inspected and its simulation is only finite diagnostic, not a proof."
+      ],
+      "limitations": [
+        "Fixed c and fresh state zero; a triangular family, not one fixed chain; weak convergence only, no uniformity over varying c or moments."
+      ],
+      "rationale": "Exact transition telescoping gives iid cycle lengths with P(L>=k)=k^-beta_n. The truncated first moment is a(c)log n+o(log n), second moment O_c(n); Chebyshev and P(L>n) union bound give uniform inverse renewal clock on O(n/log n) cycles. The rare iid mark measure has intensity tail e^-c/z on that scale, and Laplace functional convergence yields a PRM. Replacing index times by physical excursion starts is justified uniformly, and completed-vs-straddling differences are bounded by rare high marks in an epsilon-width random-index band. The derivative lambda'(c)<0 and limits give continuous recurrence crossover. Independent exact telescoping and finite-scale mark probabilities were checked, not used to establish the asymptotic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 primary fixed-parameter models include excursions and return cycles. The October 2026 manuscript is closest, but full text could not be read."
+        ],
+        "reasoning": "General iid rare-event point-process results cover one step, not manifestly the physical-time triangular renewal clock; inaccessible closest primary is explicitly recorded rather than ruled out.",
+        "searches": [
+          "Huillet arXiv:2610.29974 abstract and public metadata",
+          "Goncalves–Huillet 2021 full-text Sections 3-4",
+          "De Monte–Papastathopoulos 2026 generic directional Poisson point process abstract"
+        ]
+      },
+      "checked_sources": [
+        "Huillet arXiv:2610.29974 bibliographic material only; Oxford VPN disconnected",
+        "Goncalves–Huillet arXiv:2101.03853 primary PDF Sections 3-4",
+        "De Monte–Papastathopoulos 2026 abstract only",
+        "Resultary query: Zipf total disaster Markov chain near critical excursions Poisson point process Fréchet extremes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known P(L>=k)=k^-beta is the model input; standard Poisson rare-event theorem supplies iid-mark convergence once clock is controlled."
+        ],
+        "reasoning": "The new statement also needs critical clipped-mean law, random-index time change, and unfinished-excursion estimate; these are not explicitly implied by accessible published fixed-exponent formulations.",
+        "searches": [
+          "Huillet 2026 arXiv:2610.29974 abstract/model metadata",
+          "Goncalves–Huillet arXiv:2101.03853 fixed parameter calculations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Model is regenerative with exact triangular Pareto/Zipf cycle tail; the limit can equivalently be phrased as extremes among approximately n/(a(c)log n) iid excursions."
+        ],
+        "reasoning": "Fixed-beta renewal tails alone do not give the coupled deterministic-horizon, near-critical intensity; generic triangular array renewal extreme results could imply it if their hypotheses match.",
+        "searches": [
+          "Resultary query: Zipf total disaster Markov chain near critical excursions Poisson point process Fréchet extremes",
+          "Goncalves–Huillet arXiv:2101.03853 sections 3-4",
+          "search: near critical infinite mean renewal Poisson extreme cycle 1/log n"
+        ]
+      },
+      "evidence": [
+        "Direct mathematical implication comparison of assigned theorem with primary-source statements, not title-only or failed-search inference.",
+        "Published Resultary query recorded: Resultary query: Zipf total disaster Markov chain near critical excursions Poisson point process Fréchet extremes"
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary result for Zipf-normalized expanding maps concerns Hausdorff dimension of a different dynamical system. No exact excursion-intensity table retrieved."
+        ],
+        "reasoning": "An unsuccessful indexed search does not prove originality; it supplies only bounded absence of direct exact-table evidence.",
+        "searches": [
+          "Resultary query: Zipf total disaster Markov chain near critical excursions Poisson point process Fréchet extremes",
+          "search: Zipf total-disaster near critical intensity c/(exp(c)-1)"
+        ]
+      },
+      "rationale": "Huillet 2026 establishes the exact Zipf transition kernel and fixed-beta recurrence/excursion input; Goncalves–Huillet 2021 develops related birth-catastrophe renewal models. Independent rare-event Poisson machinery is standard, but none of the accessible compared statements gives the explicit beta_n=1+c/log n clock and time-space intensity lambda(c). The most directly relevant 2026 source full text was inaccessible; this is a material originality risk, not an automatic FAIL or a whole-document noncoverage assertion.",
+      "residual_risks": [
+        "Full Huillet 2026 preprint could already imply the near-critical Poisson limit; institutional retrieval failed with vpn_disconnected.",
+        "An unlocated general triangular renewal-extreme point process theorem may include this specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potentially close source, cannot conclude its full body lacks the new theorem; material priority risk",
+          "evidence": [
+            "arXiv:2610.29974 metadata/abstract; full text unavailable; no whole-document noncoverage judgment"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.29974",
+          "material_read": "Bibliographic/abstract-level material only; no complete original manuscript obtained",
+          "method": "Tried arXiv/OA first, then authorized Oxford source; Oxford returned vpn_disconnected without content",
+          "title": "On Divisibility Properties of Zipf Law and Relatives",
+          "trigger": "Same exact Zipf total-disaster transition kernel, published 2026-10-21"
+        },
+        {
+          "assessment": "Related fixed-parameter birth-catastrophe models; examined statements do not give the coupled beta_n drift intensity",
+          "evidence": [
+            "Goncalves–Huillet 2021, Sections 3-4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.03853",
+          "material_read": "Primary full 34-page PDF accessible, sections 3-4 and renewal/extreme model sections read",
+          "method": "Read PDF sections and inspected pages visually",
+          "title": "Scaling Features of Two Special Markov Chains Involving Total Disasters",
+          "trigger": "Primary earlier catastrophe chain and renewal/extreme context"
+        },
+        {
+          "assessment": "Background only; cannot rule out general dominance without theorem text",
+          "evidence": [
+            "De Monte–Papastathopoulos 2026 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110722",
+          "material_read": "Abstract only, full theorem conditions not read",
+          "method": "Read publication abstract record",
+          "title": "A directional Poisson point process for univariate extremes",
+          "trigger": "Potential stronger general extreme point process method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Natural object, specific invariant, and exact new classification independently assessed; not solely code or novelty."
+      ],
+      "limitations": [
+        "No full path functional limit, fixed-beta long-time limit, uniform c, or moment asymptotics."
+      ],
+      "rationale": "The natural observable is the physical-time distribution of rare high population excursions under a Zipf catastrophes chain at the recurrence transition. A marked Poisson process, explicit nonconstant intensity c/(exp(c)-1), and treatment of unfinished excursions provide nontrivial model-specific quantitative information beyond fixed-beta renewal formulas.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Huillet arXiv:2610.29974 bibliographic material only; Oxford VPN disconnected",
+    "Goncalves–Huillet arXiv:2101.03853 primary PDF Sections 3-4",
+    "De Monte–Papastathopoulos 2026 abstract only",
+    "Resultary query: Zipf total disaster Markov chain near critical excursions Poisson point process Fréchet extremes"
+  ],
+  "disposition": "passed",
+  "final_claim": "For beta_n=1+c/log n fixed during an n-step Zipf disaster path, renewal counts N_n/(n/logn) converge to 1/a(c), completed high excursions form a space-time Poisson process of intensity lambda(c) dt z^-2 dz, and path maxima have Frechet CDF exp(-lambda(c)/x).",
+  "limitations": [
+    "Fixed c and fresh state zero; a triangular family, not one fixed chain; weak convergence only, no uniformity over varying c or moments.",
+    "No full path functional limit, fixed-beta long-time limit, uniform c, or moment asymptotics."
+  ],
+  "residual_risks": [
+    "Full Huillet 2026 preprint could already imply the near-critical Poisson limit; institutional retrieval failed with vpn_disconnected.",
+    "An unlocated general triangular renewal-extreme point process theorem may include this specialization."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Potentially close source, cannot conclude its full body lacks the new theorem; material priority risk",
+      "evidence": [
+        "arXiv:2610.29974 metadata/abstract; full text unavailable; no whole-document noncoverage judgment"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.29974",
+      "material_read": "Bibliographic/abstract-level material only; no complete original manuscript obtained",
+      "method": "Tried arXiv/OA first, then authorized Oxford source; Oxford returned vpn_disconnected without content",
+      "title": "On Divisibility Properties of Zipf Law and Relatives",
+      "trigger": "Same exact Zipf total-disaster transition kernel, published 2026-10-21"
+    },
+    {
+      "assessment": "Related fixed-parameter birth-catastrophe models; examined statements do not give the coupled beta_n drift intensity",
+      "evidence": [
+        "Goncalves–Huillet 2021, Sections 3-4"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2101.03853",
+      "material_read": "Primary full 34-page PDF accessible, sections 3-4 and renewal/extreme model sections read",
+      "method": "Read PDF sections and inspected pages visually",
+      "title": "Scaling Features of Two Special Markov Chains Involving Total Disasters",
+      "trigger": "Primary earlier catastrophe chain and renewal/extreme context"
+    },
+    {
+      "assessment": "Background only; cannot rule out general dominance without theorem text",
+      "evidence": [
+        "De Monte–Papastathopoulos 2026 abstract"
+      ],
+      "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110722",
+      "material_read": "Abstract only, full theorem conditions not read",
+      "method": "Read publication abstract record",
+      "title": "A directional Poisson point process for univariate extremes",
+      "trigger": "Potential stronger general extreme point process method"
+    }
+  ]
+}
