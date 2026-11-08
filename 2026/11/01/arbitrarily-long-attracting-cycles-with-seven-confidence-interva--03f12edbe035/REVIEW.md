@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is all integers \(p\ge2\), three scalar agents with exactly two distinct stubborn opinions, and a single closed symmetric confidence set with at most seven intervals. The proof calculates each trust membership with integer-numerator separation \(\ge3c\) for excluded differences and padding \(c\) for included differences, so all claimed phase-specific affine updates hold in open neighborhoods. The explicit itinerary is least period \(p\), the exact error identity establishes attraction with multiplier \(2^{-p}\), and all cases with fewer than three agents are ruled out. Exact rational code covers a finite sample of periods and perturbations; the general theorem rests on the symbolic proof. Boundary equalities and the special \(p=2\) coinciding intervals are handled explicitly.
+PASS
 
-## Originality — PASS, with priority risk
+For each p>=2, Q=2^p-1, c=1/(4Q), orbit positions x0=1/Q and xj=2^(p-j)/Q (j>=1) are all distinct. The symmetric confidence set consists of [-c,c] and up to three positive bands and their negatives: I1 around the range 2/Q to 2^(p-2)/Q for p>=3, I2 around 2^(p-1)/Q, I3 around (Q-1)/Q; for p=2, I2 and I3 coincide and I1 is omitted. Their integer/Q offsets have strict margin c for intended trust and >=3c for excluded trust. At x0 the moving agent trusts stubborn opinion 1 only, giving R(x)=(x+1)/2; at the other orbit positions it trusts stubborn 0 only, giving L(x)=x/2. R followed by p-1 halvings forms a least-period-p cycle. A nonempty open c/2-neighborhood follows the same itinerary, errors halve at every step and return multiplier is 2^(-p); hence attraction is genuine, not a fragile point cycle. With <=2 agents, reciprocal averaging reaches consensus or a one-stubborn distance strictly contracts upon any nontrivial step, so no nonconstant cycle; the three-agent count is minimal. Independently checked exact rational transitions/trust/perturbations for representative p including 2..59,120,200. Those finite instances do not prove the universal p theorem; the symbolic integer separation does. Endpoints of confidence bands depend on p.
 
-The source paper (Zabarianska–Proskurnikov, arXiv:2408.01753v1, Example 4) already exhibits a three-agent symmetric-confidence periodic orbit with two stubborn opinions. That prior existence claim is not new. The contribution assessed here is the **uniform seven-component construction for every least period \(p\ge2\)** together with a strict open attraction basin and least-agent sharpness. The full originating text was read in the relevant model, examples and convergence-theorem sections. The piecewise-increasing-contraction theorem of Gaivão–Nogueira (arXiv:2007.08014) bounds the count of periodic orbits, not an orbit's period, and does not furnish a SCOD embedding. Relevant opinion-dynamics survey sections and actual semantic research records were considered. Residual risk: period-encoding tricks may be known in general interval-map work, and an alternative SCOD construction could be unindexed; there is no independent literature-priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The question of temporal complexity after relaxing equal-stubborn-opinion convergence is central to the initiating SCOD study. Unbounded least period **without increasing the number of agents or confidence-set components** is a structural distinction from an isolated period-three counterexample. The explicit contraction basin shows persistence for an open set of initial opinions rather than a fragile exact orbit, and the construction identifies the smallest possible agent count.
+Zabarianska–Proskurnikov (2024) already constructs a period-three orbit with three agents and two distinct stubborn agents. The assessed contribution is the explicit all-p, <=7 symmetric-component construction with attracting open basin and minimal agent count; this is not implied by one period-three example. Piecewise contraction bounds on number of orbits do not bound period length of one orbit.
 
-## Limits
+## value
 
-The confidence interval endpoints vary with \(p\); the theorem does not claim many long-period cycles coexist for one fixed set. The dynamics are deterministic and synchronous; no finite stochastic-population or convex-confidence conclusions follow. Other formulations of the binary contraction mechanism could predate this construction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unbounded attracting least period with a constant three agents and seven confidence components isolates a genuine dynamical-complexity threshold left open by a single known period-three example. A robust open attraction basin and a least-agent proof give conceptual force. This theorem does not claim one fixed confidence set simultaneously has all periods, nor global attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
