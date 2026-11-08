@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The domain-to-target reindexing is explicitly two-sided unitary, not a similarity. It reduces the infinite positive diagonal shift-pair coupling to one scalar block and a norm-bounded orthogonal sum of 2-by-2 triangular blocks. Their Gram determinant is one, trace is \(2+t^2\), and singular values are exactly \(F(t)\) and its reciprocal. The sharp lower bound and examples follow by strict monotonicity, not numerical extrapolation. The difference from the unitary rank-one bridge is an off-diagonal diagonal operator, making its complete Schatten membership exact even for exponents less than one. The finite checker was replayed from the package directory and passed all 7,752 assertions. No finite test substitutes for the analytical direct-sum proof.
+
+## Originality — PASS (best-knowledge, not exhaustive)
+Ji and Wang, arXiv:2610.39605v1, prove invertibility and inverse-invariant-subspace existence under strictly positive arbitrary coupling; their inspected theorem, proof, inverse formula, and references do not give the full singular-modulus spectrum or sharp conditioning law. Fang, Hou, Jiang and Zhang, arXiv:2610.11202, is a structurally relevant paper cited therein, but its original full text could not be retrieved in this check; no negative full-document claim is made. Related public records on weighted shifts, triangular operator matrices, and Schatten perturbations do not state or dominate this simultaneously exact shift-pair singular spectrum and conditioning profile. The elementary two-by-two reduction raises a real risk of an older equivalent observation in block-operator literature; this is an explicit residual publication-priority risk.
+
+## Value — PASS
+The strictly positive hypothesis in the motivating infinite-dimensional result is highly nonuniform. The quantitative distinction is meaningful: diagonal positive couplings can make an invertible Cowen–Douglas shift pair arbitrarily close to a bilateral unitary even in any Schatten \(\mathcal S_p\), while positive scalar couplings have a sharp condition-number barrier of \(2\). A uniform positive lower bound has the exact, attained optimal conditioning barrier \(F(\mu)^2\). The result is a complete natural class calculation, not a new general invariant-subspace theorem. The broader setting remains open for analogous quantitative formulas.
+
+## Closest literature and limits
+Primary: K. Ji and Z. Wang, *Riccati Equations and the Third Problem of Halmos*, arXiv:2610.39605v1 (2026), especially main theorem and last-page proof. Related: J. Fang, B. Hou, C. Jiang and Y. Zhang, *The Invariant Subspace Problem and Rosenblum Operators II*, arXiv:2610.11202 (2026), cited by the primary source; full-text access limitation noted. The Wold decomposition and classical finite triangular-matrix singular values are necessary background; neither alone states the joint optimization for this concrete positive-coupling family. External publication priority has not been certified.
+
+Self-review: passed. Independent audit: not yet performed.
