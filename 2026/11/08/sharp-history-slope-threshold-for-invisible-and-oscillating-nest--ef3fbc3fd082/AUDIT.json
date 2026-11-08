@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For all 0<eta,a<1,M>a, the clipped history has exact Lphi=M and history amplitudes <1/eta; direct method-of-steps on t in (0,a/[4M(1+eta*M)]) gives tau2=1+eta*M*t, r2=M(1-eta*M)*t and the exact three-branch h2. Global constant-delay trajectory is the signed triangle wave bounded by one, verifying all assumptions of the published subcritical theorem. Monotonicity of phi ensures a unique local implicit-delay root tau*=1+(eta*M)/(1+eta*M)*t and identical local implicit solution. At criticality the nested delays alternate 1 and 1+t for all finite orders, yielding h_odd=a-t and h_even=a. Exact rational checker passed 140 triples and 25 orders. No finite test is treated as the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.39281v1 Section 6 anticipates noncontracting delay-iteration periodic orbits; does not prove a sharp necessary endpoint",
+        "arXiv:2110.01850v1 Sections 1–5 studies smooth feedback and bifurcation surfaces rather than iterated signum feedback"
+      ],
+      "reasoning": "No inspected broader theorem implies this exact clipped initial-history classification. The published invisibility theorem is restricted to eta*Lphi<1 and cannot imply failure at equality. Classical Picard-iteration flip at derivative -1 may explain the local algebra but, by itself, does not establish the DDE trajectory split, history admissibility, and uniqueness of the implicit branch.",
+      "searches": [
+        "Dynamic invisibility of implicit and nested state-dependent delays Lipschitz initial history sharp counterexample eta L_phi >= 1 sign switching delay",
+        "Bolduc St Aubin Subramanian Krauskopf noncontracting nested delay sign flip history slope critical threshold 2026",
+        "state dependent delay tau(t)=tau0+eta h(t-tau0) sign change zero crossing maximal slope one-step nested",
+        "\"noncontracting\" \"nested delays\" \"sign\" \"Lipschitz\""
+      ]
+    },
+    "checked_sources": [
+      "Bolduc-St-Aubin et al., arXiv:2610.39281v1; Theorem 1.1, Sections 2–6",
+      "Keane et al., 2019, DOI 10.1098/rsta.2018.0121; Sections 1–3",
+      "Humphries et al., arXiv:2110.01850; Sections 1–5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.39281v1 equations (4)–(7), Theorem 1.1 and Section 6; original theorem covers only the subcritical side",
+        "Keane et al. 2019 PMC6661334 Sections 2–4: smooth ENSO numerical bifurcation and state dependence",
+        "Humphries et al. arXiv:2110.01850 Sections 1–5: smooth scalar DDE with delayed state-dependence and center-manifold bifurcations"
+      ],
+      "reasoning": "Subcritical agreement is explicitly attributed to the source. The new contribution is a necessary-and-sufficient family boundary, critical all-orders alternation, supercritical order-two sign reversal, and a locally unique implicit delay whose trajectory still agrees with constant delay. These are neither equivalent to the sufficiency theorem nor consequences of the numerical smooth models as stated.",
+      "searches": [
+        "Dynamic invisibility of implicit and nested state-dependent delays Lipschitz initial history sharp counterexample eta L_phi >= 1 sign switching delay",
+        "Bolduc St Aubin Subramanian Krauskopf noncontracting nested delay sign flip history slope critical threshold 2026",
+        "nested state-dependent delay contraction Lipschitz history sharp threshold critical periodic orbit delay iterate nonconvergence signum initial history",
+        "\"implicit nested\" \"noncontracting\" delay sign feedback 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.39281v1 Theorem 1.1 and Section 6: contraction sufficient, noncontracting regime proposed rather than constructed",
+        "Semantic searches for critical delay iteration returned mathematically distinct scalar-flip dynamical systems, rather than this nesting DDE."
+      ],
+      "reasoning": "The claim may be reformulated as an explicit period-two orbit of the substitution map u -> 1+eta*phi(t-u) at eta*M=1, where a unique fixed point coexists. The source predicts periodic delay nesting but does not state these explicit solutions or sharp clipped-history condition. The closest semantic result is not a nesting recurrence; match is only the term critical.",
+      "searches": [
+        "Dynamic invisibility of implicit and nested state-dependent delays Lipschitz initial history sharp counterexample eta L_phi >= 1 sign switching delay",
+        "Bolduc St Aubin Subramanian Krauskopf noncontracting nested delay sign flip history slope critical threshold 2026",
+        "nested state-dependent delay contraction Lipschitz history sharp threshold critical periodic orbit delay iterate nonconvergence signum initial history",
+        "\"nested state-dependent delays\" counterexample noncontracting initial history"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Keyword and semantic searches for nested histories returned unrelated numerical sign-loss methods, rational maps and feedback problems; no matching exact DDE classification was identified.",
+        "This is a continuous parameterized theorem, so no finite classification table could imply it as a special case merely by matching parameter values."
+      ],
+      "reasoning": "This is a continuous family theorem rather than a finite enumerative invariant; no known exact table or record contains its parameter-indexed critical comparison. The reported search coverage does not prove novelty.",
+      "searches": [
+        "state dependent delay tau(t)=tau0+eta h(t-tau0) sign change zero crossing maximal slope one-step nested",
+        "nested state-dependent delay contraction Lipschitz history sharp threshold critical periodic orbit delay iterate nonconvergence signum initial history",
+        "\"nested state-dependent delays\" \"initial history\" \"critical\""
+      ]
+    },
+    "rationale": "Theorem 1.1 of arXiv:2610.39281v1 proves sufficient contraction for invisibility and Section 6 predicts possible periodic nesting beyond it, but neither contains a constructive sharp equality case with distinct DDE trajectories and unique implicit delay. Related smooth DDE studies by Keane et al. 2019 and Humphries et al. 2021 do not imply the model-specific classification. Inspected papers and the stated semantic searches identified no exact or stronger equivalent. Priority remains provisional; elementary fixed-point iteration theory may be relevant but does not by itself establish all DDE claims.",
+    "residual_risks": [
+      "Published noncontracting outlook anticipates existence of periodic delay iterates, although it does not provide the exact counterexample here.",
+      "The elementary period-two iteration calculation might appear in unindexed general numerical fixed-point literature; exact model-specific historical priority cannot be established exhaustively.",
+      "The theorem deliberately does not prove global implicit uniqueness or supercritical high-order solution continuation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strict invisibility theorem and noncontracting period-iteration forecast are known, but no constructed clipped-history endpoint bifurcation or local unique implicit versus cyclic-nesting trajectory split is given",
+        "evidence": [
+          "Theorem 1.1 assumes eta*Lphi<1, eq. (7)",
+          "Section 6 says noncontracting nested delays may have periodic iterates and new dynamics"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39281v1",
+        "material_read": "HTML abstract; Sections 1–6 (including equations (4)-(7), definitions 2.1-2.2, Theorem 1.1, nesting Lemma 3.1, convergence discussion and Section 6); Appendix construction outline",
+        "method": "direct full-text section and equation inspection",
+        "title": "Dynamic invisibility of implicit and nested state-dependent delays in a class of externally forced delay equations",
+        "trigger": "same switched sign-feedback model, identical nesting definitions, contraction theorem and noncontracting outlook"
+      },
+      {
+        "assessment": "Smooth ENSO coupling and continuation study, no clipped switched DDE nested critical-slope classification",
+        "evidence": [
+          "Article formulae and Section 3: numerical bifurcation sets and time-dependent climate forcing"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6661334/",
+        "material_read": "Open-access HTML abstract, Sections 1–3 formulations and numerical bifurcation findings",
+        "method": "primary full-text HTML inspection",
+        "title": "The effect of state dependence in a delay differential equation model for the El Niño Southern Oscillation",
+        "trigger": "earlier implicit and approximated delayed feedback in same climate motivation"
+      },
+      {
+        "assessment": "Smooth feedback and Hopf/fold bifurcations, not signum-nesting operator or exact initial-history threshold",
+        "evidence": [
+          "Equation (2) smooth delayed-state dependence; Section 5 analyzes Hopf and fold bifurcations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.01850",
+        "material_read": "Accessible full arXiv HTML text: Introduction, model equation, bifurcation calculations, and Section 5 conclusions",
+        "method": "preprint full-text inspection",
+        "title": "Interplay between instantaneous and delayed feedback with delayed state dependence",
+        "trigger": "earlier DDE featuring delayed state dependence and sawtooth limiting orbits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef3fbc3f-d082-4a19-b257-c9ea2a48ad9d",
+  "value": {
+    "rationale": "The motivating 2026 source explicitly leaves the noncontracting regime unexplored. This result identifies an exact natural history-regularity boundary in the very model of the source, with sharp immediate trajectory failure on the boundary, and separates unique implicit solvability from convergence of nested approximations. The transition is realized for arbitrarily weak response strength eta by increasing the history slope, a meaningful robustness constraint. The result has specified family and local scope, not a claimed general theorem.",
+    "status": "PASS"
+  }
+}
