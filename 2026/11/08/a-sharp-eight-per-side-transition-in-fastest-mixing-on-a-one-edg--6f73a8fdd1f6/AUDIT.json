@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All 2n eigenvalues and multiplicities are reconstructed from orthogonal symmetry subspaces. Small branch uses a strict norm lower bound; large branch uses an explicit convex subgradient certificate and exact radical feasibility. Global objective equality follows from averaging without a false assertion of full optimizer uniqueness. Pure-Python independent matrix reconstruction checked 196 spectra, 397 sizes and 21000 feasible parameter competitors; the infinite-family assertion is proved algebraically in RESULT.md, not from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao gives the general FMMC SDP and exact complete-bipartite uniform-weight SLEM; intact graph formulas occur in section 7.1 of https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf.",
+        "Boyd–Diaconis–Parrilo–Xiao, https://arxiv.org/pdf/0709.0955, Sections 3.1.2 and 5.3.1, develops symmetry and gives intact K_{m,n} but no deleted-edge case.",
+        "Jafarizadeh, https://arxiv.org/pdf/1008.2588, Section III, treats complete-crossing and matched-straight pseudo-distance-regular multipartite constructions, not an isolated crossing defect."
+      ],
+      "reasoning": "A general convex program can in principle numerically optimize the target graph, but the source does not supply the explicit all-n radical minimum, equality certificate, or sharp n=8 transition. Exact equality was independently deduced rather than read off from a generic program; no inspected stronger closed-form theorem implies it.",
+      "searches": [
+        "\"Fastest Mixing Markov Chain on a Graph\" (Boyd Diaconis Xiao full text)",
+        "\"Fastest mixing Markov chain on graphs with symmetries\" (arXiv:0709.0955v1)",
+        "\"Fastest Mixing Markov Chain on Symmetric K-Partite Network\" (arXiv:1008.2588v1)"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://arxiv.org/pdf/0709.0955",
+      "https://arxiv.org/pdf/1008.2588",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Intact K_{n,n} has optimal SLEM 1/3, whereas the claimed defective graph has 1/sqrt(n) for 3<=n<=7 and a different formula for n>=8.",
+        "The target has an exchange-odd 2x2 matrix with two inequivalent edge classes; no such coefficient evaluation is present in the inspected intact-biclique equations.",
+        "Pseudo-distance-regular networks use full and matched connections between whole classes, not deletion of a single edge."
+      ],
+      "reasoning": "The general spectral norm and symmetry framework is prior art and not claimed new. The precise missing-edge support yields an additional orbit and a distinct optimally active spectral branch, so the displayed proof is not a direct special case of the cited evaluated intact-network formulas.",
+      "searches": [
+        "Boyd–Diaconis–Xiao 2004 §7.1 intact biclique versus single-edge deletion",
+        "Boyd–Diaconis–Parrilo–Xiao 2007 §§3.1.2/5.3.1 versus two-orbit defect",
+        "Jafarizadeh 2010 §III pseudo-distance-regular multipartite classes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target is the spectral norm of P-J/(2n) on a graph with exactly one forbidden crossing edge. The intact biclique in Boyd–Diaconis–Xiao 2004 has one edge orbit, whereas the defect graph has two distinct orbits; Section 7.1 of https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf.",
+        "The permutation-invariant reduction in https://arxiv.org/pdf/0709.0955 §5.3.1 treats K_{m,n}, not the single missing edge."
+      ],
+      "reasoning": "We compared SLEM/spectral-radius, reversible consensus, two-edge-orbit quotient and one-link-failure aliases. No inspected equivalent evaluates the defect-constrained optimizer; different support cannot be identified with the intact-biclique optimizer.",
+      "searches": [
+        "\"fastest mixing Markov chain crown graph one missing edge complete bipartite minus single edge\" (web literature search)",
+        "\"fastest mixing Markov chain K_n,n minus edge symmetric transition optimal\" (web literature search)",
+        "\"fastest mixing Markov chain edge deleted biclique spectral radius single missing link\" (web literature search)",
+        "\"balanced complete bipartite K_{n,n} deleting one edge fastest mixing Markov chain\" (public-result semantic search)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed public-result searches returned papers on other complete-bipartite invariants and Markov chains but no table giving the defective-biclique two-orbit SLEM.",
+        "The inspected arXiv full texts 0709.0955 and 1008.2588 do not display a K_{n,n} minus one edge optimum or such a table."
+      ],
+      "reasoning": "No searched exact database/table or included appendix supplied these numbers. Search absence alone is not novelty evidence; the strong evidence is explicit statement-level noncoverage of the closest full-text sources.",
+      "searches": [
+        "\"fastest mixing Markov chain crown graph one missing edge complete bipartite minus single edge\" (web literature search)",
+        "\"fastest mixing Markov chain K_n,n minus edge symmetric transition optimal\" (web literature search)",
+        "\"fastest mixing Markov chain edge deleted biclique spectral radius single missing link\" (web literature search)",
+        "\"FMMC on near-complete bipartite graph K_n,n minus single edge with holding loops two edge orbits\" (public-result semantic search)"
+      ]
+    },
+    "rationale": "The inspected primary literature establishes the general symmetric-stochastic semidefinite formulation and explicit intact-biclique case, but not the evaluated two-edge-orbit optimum for a single missing crossing edge. The full-text comparison of the bipartite and multipartite examples found no theorem implying the n=8 transition or radical formula. An unrelated fixed-row-mass intact-biclique problem has different feasible supports. A bounded semantic literature search found no exact coverage, but unindexed equivalence remains a material publication-priority risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible literature may already evaluate the same one-edge-defective K_{n,n} mixing design or an equivalent reduced SDP.",
+      "Full global optimizer uniqueness is intentionally not asserted; uniqueness is established only within the automorphism-invariant family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the general SDP, symmetry averaging and intact-biclique exact solution; does not evaluate the one-edge defect in the inspected parts.",
+        "evidence": [
+          "Section 7.1 gives single uniform crossing weight p and SLEM max((n-m)/n,n/(n+2m)); equation not for a missing edge."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full-text introduction and section 7.1, specifically the intact K_{m,n} eigenvalues and optimal p, pages 667-669 and 684-685.",
+        "method": "Public author full-text PDF textual inspection and visual page 685.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Originating FMMC formulation and intact complete-bipartite example"
+      },
+      {
+        "assessment": "Provides tools and intact K_{m,n} solution; no inspected result specializes to single missing crossing edge and sharp n=8 formula.",
+        "evidence": [
+          "ArXiv:0709.0955v1, §3.1.2 equations (10)-(11); §5.3.1 intact K_{m,n} three-block decomposition."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "ArXiv v1 full-text abstract and Sections 1, 3.1.2, 4, 5.3.1; relevant pages 1,9-10,27 and searched PDF text for deleted-edge aliases.",
+        "method": "Original arXiv full-text search, section inspection, visual pages 1,10,27.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Full symmetry and block-diagonalization could subsume the claimed quotient"
+      },
+      {
+        "assessment": "Four pseudo-distance-regular multipartite patterns including a matched-connection variant; none matches an isolated one-edge deletion in a biclique.",
+        "evidence": [
+          "Section III defines complete crossings between consecutive blocks or selected complete/matched crossings; unlike the single-edge-defective support."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+        "material_read": "Original arXiv PDF abstract, introduction, definitions and theorem cases in Section III A-B; visible network diagrams.",
+        "method": "Original arXiv full-text and visual page 6.",
+        "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+        "trigger": "Potentially broader multipartite solved family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6f73a8fd-d1f6-4f9b-9b95-8679d8922d30",
+  "value": {
+    "rationale": "A single failed crossing edge is the smallest natural graph defect in dense balanced two-community mixing. The complete exact FMMC design reveals a previously unprovided n=8 spectral-activity transition, explicit usable stochastic weights, and exact convergence-rate penalty relative to the intact biclique. This classification is not a textbook deduction from the known one-orbit K_{n,n} expression.",
+    "status": "PASS"
+  }
+}
