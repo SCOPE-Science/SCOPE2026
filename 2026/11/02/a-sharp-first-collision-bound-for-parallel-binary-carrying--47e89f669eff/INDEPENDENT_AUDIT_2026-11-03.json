@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:53:09.452789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite nonnegative integer coefficient sequence c, simultaneous carry update conserves N=sum 2^j c_j. If c_j(t+1)>=2, c_{j-1}(t)>=2 since c_j(t) mod2<=1; hence any collision at round t must lie at index >=r+t where r is first initial collision. At t=floor(log2 N)-r, a coefficient >=2 at such an index would contribute >=2^(floor(log2 N)+1)>N, impossible. Binary product convolution has c_0<=1, so if collision occurs r>=1, giving T<=max(0,floor(log2(ab))-1), which implies Iizumi bound. For odd k>=3, a=3, b=(2^k+1)/3 has a carry wave travelling positions 1...k-1, attaining T=k-1. All quantifiers and zero-collision convention explicitly addressed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iizumi Lemma 1 establishes finite termination via total coefficient mass decrease, but no universal depth bound; Remark 6 labels the conjectured bound an empirical observation; Section 9.5 poses it as an open problem."
+        ],
+        "reasoning": "Generic bit-length barriers coupled with one-step collision propagation yield the new proof, but neither qualitative termination nor distribution of probabilistic carry chains implies quantitative first-collision bound.",
+        "searches": [
+          "Resultary: parallel simultaneous binary carrying convolution multiplication number rounds bound Iizumi",
+          "Iizumi DOI 10.1080/27684830.2026.2727395 Definition 4, Lemma 1, Proposition 1, Remark 6, Question 9.5.3",
+          "Izsak–Pippenger DOI 10.1145/2000807.2000822; arxiv:0801.4040"
+        ]
+      },
+      "checked_sources": [
+        "source:assigned Git RESULT.md, VERIFY.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt",
+        "Resultary semantic query parallel simultaneous binary carrying convolution multiplication number rounds bound Iizumi",
+        "Iizumi DOI 10.1080/27684830.2026.2727395 Definition 4, Lemma 1, Proposition 1, Remark 6, Question 9.5.3",
+        "Izsak–Pippenger DOI 10.1145/2000807.2000822; arxiv:0801.4040"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submitted claim proves the numerical bound Iizumi explicitly leaves empirical and extends it to all initial finite coefficient sequences via first-collision r, plus sharper multiplication bound based on product bit length."
+        ],
+        "reasoning": "Prior Proposition 1 already establishes lower-sharpness infinitely often but is not a proof of the universal upper bound. Its implication direction cannot be reversed; full-article indexed sections explicitly raise this missing proof.",
+        "searches": [
+          "Iizumi DOI 10.1080/27684830.2026.2727395 Definition 4, Lemma 1, Proposition 1, Remark 6, Question 9.5.3",
+          "Izsak–Pippenger DOI 10.1145/2000807.2000822; arxiv:0801.4040"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parallel carrying, synchronous carry normalization and binary convolution depth L_par all refer to the exact same recurrence used in Iizumi Definition 4; no reduction to asynchronous standard carry is allowed."
+        ],
+        "reasoning": "A generic nonnegative finite digit sequence is a strictly broader input than a binary multiplication convolution; the first-collision bound applies to it directly, while multiplication forces c_0<=1.",
+        "searches": [
+          "Resultary: parallel simultaneous binary carrying convolution multiplication number rounds bound Iizumi",
+          "Iizumi DOI 10.1080/27684830.2026.2727395 Definition 4, Lemma 1, Proposition 1, Remark 6, Question 9.5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Iizumi reports experiments on 483,533 nontrivial factorizations and recognizes the sharp (3,(2^k+1)/3) infinite family; those values are historical prior work."
+        ],
+        "reasoning": "A finite table cannot prove the all-input bound; the new universal induction is not a re-tabulation. Resultary similar binary-weight products involve a different Hamming-weight invariant.",
+        "searches": [
+          "Resultary: parallel simultaneous binary carrying convolution multiplication number rounds bound Iizumi",
+          "Iizumi DOI 10.1080/27684830.2026.2727395 Definition 4, Lemma 1, Proposition 1, Remark 6, Question 9.5.3"
+        ]
+      },
+      "rationale": "PASS for a direct proof of Iizumi 2026 Question 9.5.3 and a strictly stronger universally sharp product-bit bound. The same simultaneous update, the conjectured upper bound and exact infinite sharpness example are already explicitly present in Iizumi Definition 4, Remark 6, Proposition 1 and Question 9.5.3, and are credited. Iizumi proves qualitative termination but explicitly states the upper bound as empirical/open; finite tests are not his proof. Izsak–Pippenger 2011 studies probabilistic carry propagation in multiplication by constants under a different algorithm. An unindexed earlier deterministic parallel carry-wave theorem remains possible.",
+      "residual_risks": [
+        "The directly requested Taylor & Francis full-article page was blocked; accessible search-indexed full-article sections support the exact open-question comparison but do not justify a whole-document noncoverage certification.",
+        "Independent earlier finite-propagation bound under another term may exist; Iizumi sharpness family is not newly discovered by this work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL_AND_SHARPNESS_EXPLICITLY_CREDITED_OPEN_UPPER_BOUND",
+          "evidence": "Definition 4 update and Lemma 1 termination match; Proposition 1 contains sharp family; Remark 6 says L_par<=floor(log2 a)+floor(log2 b) verified empirically and leaves proof open in 9.5. No blanket claim whole document noncoverage from search snippets.",
+          "identifier_or_url": "https://doi.org/10.1080/27684830.2026.2727395",
+          "material_read": "Search-indexed primary full-article content for Sections 2.2–2.4, Section 4 Proposition 1, Remark 6 and Sections 9.5–10, with original named claims; direct full article page fetch disabled.",
+          "method": "primary publisher indexed full-article textual passages, direct web open blocked",
+          "title": "Binary convolution height: Structural invariants of integer factorisations",
+          "trigger": "exact same parallel-update model and explicitly stated conjecture"
+        },
+        {
+          "assessment": "DIFFERENT_STOCHASTIC_SETTING",
+          "evidence": "This probabilistic chain-law result has a different starting representation and is not the deterministic arbitrary binary convolution first-collision bound.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.4040",
+          "material_read": "Accessible abstract/description of distribution of longest carry-propagation chain for random multiplicands and multiplication by fixed odd constant; not full text read here.",
+          "method": "arXiv primary abstract and theorem scope search",
+          "title": "Carry Propagation in Multiplication by Constants",
+          "trigger": "carry-chain propagation prior literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes a concrete published open question in arithmetic combinatorics and gives the sharper exact bit-length bound for any finite nonnegative coefficient normalization. The natural first-collision index is the mechanism and the known infinite family proves exact optimality, not a textbook inequality alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "source:assigned Git RESULT.md, VERIFY.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt",
+    "Resultary semantic query parallel simultaneous binary carrying convolution multiplication number rounds bound Iizumi",
+    "Iizumi DOI 10.1080/27684830.2026.2727395 Definition 4, Lemma 1, Proposition 1, Remark 6, Question 9.5.3",
+    "Izsak–Pippenger DOI 10.1145/2000807.2000822; arxiv:0801.4040"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only simultaneous binary radix-2 carries, finite nonnegative coefficients and positive products; no signed digits or other carry scheduling.",
+    "Does not solve the separate height-based part of Question 9.5.3 or classify every equality case."
+  ],
+  "residual_risks": [
+    "The directly requested Taylor & Francis full-article page was blocked; accessible search-indexed full-article sections support the exact open-question comparison but do not justify a whole-document noncoverage certification.",
+    "Independent earlier finite-propagation bound under another term may exist; Iizumi sharpness family is not newly discovered by this work."
+  ],
+  "schema_version": 1
+}

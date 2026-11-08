@@ -1,19 +1,21 @@
-# Correctness, originality, and value review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The asserted update is synchronous and applies only to finite nonnegative coefficient sequences. Weighted-value conservation follows from the quotient/remainder decomposition at each position. Any coefficient at least two at round \(t+1\) requires a predecessor at least two one index lower at round \(t\); induction forces surviving nonbinary coefficients into positions at least \(r+t\). At round \(\lfloor\log_2N\rfloor-r\), such a coefficient would alone exceed the preserved value \(N\). This establishes the universal finite bound. In a binary convolution, coefficient zero is at most one, establishing the sharper product-bit bound. Explicit binary digits of \((2^k+1)/3\) for odd \(k\) give a carry wave lasting exactly \(k-1\) rounds, proving uniform sharpness. The verifier checks 1,359 coefficient vectors, 65,025 multiplier pairs, and 25 sharpness-family cases; no finite test is treated as an infinite proof.
+PASS
 
-## Originality: PASS, with residual priority risk
+For finite nonnegative integer coefficient sequence c, simultaneous carry update conserves N=sum 2^j c_j. If c_j(t+1)>=2, c_{j-1}(t)>=2 since c_j(t) mod2<=1; hence any collision at round t must lie at index >=r+t where r is first initial collision. At t=floor(log2 N)-r, a coefficient >=2 at such an index would contribute >=2^(floor(log2 N)+1)>N, impossible. Binary product convolution has c_0<=1, so if collision occurs r>=1, giving T<=max(0,floor(log2(ab))-1), which implies Iizumi bound. For odd k>=3, a=3, b=(2^k+1)/3 has a carry wave travelling positions 1...k-1, attaining T=k-1. All quantifiers and zero-collision convention explicitly addressed.
 
-Iizumi (2026), Definition 4 and Lemma 1, defines the same model and proves termination without the claimed quantitative bound. Its Remark 6 gives the original upper bound as an empirical observation and its Question 9.5.3 explicitly asks for proof. Proposition 1 already proves the sharpness family, which is attributed rather than claimed as new. The stronger index-sensitive theorem and resulting proof of the conjecture were not found in the inspected text or targeted research-index searches. Izsak and Pippenger (2011) investigate the expected longest carry-propagation chain under a different randomized computational schedule, so their distributional results do not imply this deterministic all-input bound. Residual risk: an equivalent first-collision argument might occur implicitly in literature on parallel normalization or be discoverable from an unindexed source; indexed full-text inspection is not a guarantee about every appendix or later publication.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The result settles a precisely formulated new number-theory question, upgrading a finite experimental inequality to a theorem for all positive factors, with a strictly more informative first-collision parameter and a universally sharp product-bit bound. It supplies a finite-speed propagation principle that can be reused to bound parallel carry normalization of general nonnegative integer sequences. The proof does not settle separate height-dependent conjectures or classify equality cases.
+PASS for a direct proof of Iizumi 2026 Question 9.5.3 and a strictly stronger universally sharp product-bit bound. The same simultaneous update, the conjectured upper bound and exact infinite sharpness example are already explicitly present in Iizumi Definition 4, Remark 6, Proposition 1 and Question 9.5.3, and are credited. Iizumi proves qualitative termination but explicitly states the upper bound as empirical/open; finite tests are not his proof. Izsak–Pippenger 2011 studies probabilistic carry propagation in multiplication by constants under a different algorithm. An unindexed earlier deterministic parallel carry-wave theorem remains possible.
 
-## Closest literature and scientific limits
+## value
 
-M. Iizumi, *Binary convolution height: Structural invariants of integer factorisations*, DOI: 10.1080/27684830.2026.2727395, online 2026-09-11, especially Definition 4, Lemma 1, Proposition 1, Remark 6, and Question 9.5.3. A. Izsak and N. Pippenger, *Carry Propagation in Multiplication by Constants*, DOI: 10.1145/2000807.2000822, analyzes a distinct probabilistic task. No independent priority or proof assessment is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closes a concrete published open question in arithmetic combinatorics and gives the sharper exact bit-length bound for any finite nonnegative coefficient normalization. The natural first-collision index is the mechanism and the known infinite family proves exact optimality, not a textbook inequality alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
