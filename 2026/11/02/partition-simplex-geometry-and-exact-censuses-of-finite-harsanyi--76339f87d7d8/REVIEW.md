@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The equality-of-belief-row partition is intrinsic and unique. Harsanyi support confines each block's row vector to its own simplex, and disjoint nonempty block supports make the inverse construction injective even on simplex boundaries. Weighted set partitions prove the labelled generating function, while permutations within and between identical block decorations prove the isomorphism-class product. The fixed-carrier asymptotic is a degree comparison of explicit polynomials. The attached checker independently counted qualifying matrices by direct row support for all twelve cases with at most four states and denominator at most three, checked orbit counts on smaller carriers, and checked the three-state idempotence boundary.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2026 Goldblatt–Thomason paper's Example 4.2/Proposition 4.3 concern semantic definability; its Section 5 introduces finite rational kernels without the fixed-denominator and orbit enumerations. Zhou's 2014 paper gives a finite canonical-*language*-type theorem, a different count whose objects are maximally consistent sets rather than arbitrary transition matrices. The 1986 idempotent-substochastic structural result concerns a weaker matrix equation, with an explicit three-state separator. Several direct published-record and alternative-terminology searches failed to identify the present joint labelled, unlabelled, and geometric classification. Since equivalent older formulas under stochastic-semigroup terminology may exist and the 1986 full text was not accessible in this check, priority is not guaranteed.
+PASS
 
-**Mathematical value — PASS.** Harsanyi introspection is a modally definable condition studied for finite rational processes. The result completely identifies the topology of its finite real model space, counts every rational-grid model including boundary probabilities, counts isomorphism types, and gives the exact fixed-carrier rarity exponent. These are natural global invariants of the whole definable class, rather than a chosen small numerical slice or a mere restatement of the modal axioms.
+Equality of complete belief rows partitions the n states intrinsically. Harsanyi positive-support confinement forces each block to carry a probability vector on its own states; disjoint supports make partition components unique even with zero probabilities. Each component is a product of simplices, of dimension n-number_of_blocks, separated compactly from other components. Stars and bars per block, labeled exponential formula, weight-multiset classification under simultaneous permutations, and degree comparison prove all counting formulas and the d^{-(n-1)^2} rarity exponent. Direct independent grid brute force confirmed n=1..4, d=1..3 counts (1,1,1), (3,4,5), (10,16,23), (41,80,133). A three-state stochastic-idempotent K not Harsanyi separates the stronger condition. Universal formulas are mathematically derived, not extrapolated from this brute test.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Chopoghloo et al. characterize the Harsanyi support condition modally, and Zhou counts logical canonical language types, not all row-stochastic rational-grid matrices. General idempotent-matrix classification is broader but may conceal a prior equivalent special formula; precise same-domain grid/orbit census was not found in Resultary. Credit the model condition and classical combinatorial enumeration methods.
+
+## value
+
+PASS
+
+Complete topology, dimensions, labeled rational-grid models, isomorphism orbits, and rarity probability of a natural modally definable probability-frame class are intrinsic invariants; d is rational probability granularity, not an arbitrary finite slice. This is more than repeating the Harsanyi condition or a textbook matrix idempotence test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
