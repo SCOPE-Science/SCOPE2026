@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every m>=3, distinct iid nodes produce a full rank moment matrix. The finite linear program has an exact dual minimizing the sample L1 norm over constants. An explicit median calculation yields the piecewise population norm N(a,b), and the support-function maximization yields N*(u,v)=2(|v|+sqrt(u^2+v^2)). Uniform empirical convergence on a compact parameter domain and the bivariate CLT (variances 1/3 and 4/45, zero covariance) establish the non-Gaussian weak limit. Folded-normal integration gives the stated CDF and strict positivity for any fixed t at m>t^2. Direct independent LP/analytic checks passed 338 assertions; these are not a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source near-equal-weight result provides high-probability sufficient sample sizes for a bounded relative distortion, rather than an exact fixed-degree m^{-1/2} probability profile.",
+        "Bělík–Narayan–Turnage arXiv:2609.09506 analyze constructed least-squares weights rather than minimum L-infinity corrections over all exact rules."
+      ],
+      "reasoning": "Known generic existence and concentration results imply order bounds in appropriate regimes but do not supply the explicit non-Gaussian sharp law or its one-dimensional CDF; their hypotheses and inequalities have not been shown to yield this equality. The classical functional CLT and convex duality are openly used rather than claimed novel.",
+      "searches": [
+        "arXiv:2610.32699 sections 2.3, Lemma 2.12 and Corollary 2.13",
+        "arXiv:2609.09506 full-text randomized least-squares quadrature analysis",
+        "minimum infinity norm calibration weights moment matching iid sample asymptotic distribution dual L1 empirical process"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.32699",
+      "arXiv:2609.09506",
+      "arXiv:2101.04250"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Positive quadrature feasibility depends on moment target containment in convex hull, and permits arbitrarily uneven positive weights.",
+        "The spherical affine chi-limit covers a different feature distribution; the nonlinear interval curve (x,x²−1/3) is not a spherical affine reparameterization.",
+        "Explicit candidate law depends on a nonelliptical L1 median norm, producing W=2(|G2|+sqrt(G1²+G2²))."
+      ],
+      "reasoning": "The proposed law implies an asymptotically exact threshold for a strict near-equal band and thus more than bare positivity. Conversely, general positivity or an m-order sufficient size bound does not imply a limiting distribution for the optimum infinity-norm correction. There is no decisive known stronger implication; unknown general calibration-weight theorems are a residual risk.",
+      "searches": [
+        "arXiv:2101.04250 random convex hull probability",
+        "arXiv:2609.09506 least-squares positive quadrature",
+        "arXiv:2610.32699 near-equal weights L1-norm discretization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Neumayer–Schäfer–Ullrich arXiv:2610.32699, section on L1 discretization and weight adaptation gives an equivalent generic finite-dimensional minimax/dual framework, but not the evaluated interval-quadratic limit distribution.",
+        "Accessible related mathematical result on spherical affine moment fitting has a chi limit, not the interval quadratic median norm."
+      ],
+      "reasoning": "The generic finite LP dual is explicitly acknowledged as previously known. The source law is obtained by computing a new special L1 norm and two-dimensional dual support; neither a mere renaming of the affine spherical case nor equal to its chi distribution. A more general published calibration limit could still subsume the limit as a specialization.",
+      "searches": [
+        "near-uniform optimal quadrature weights degree-two uniform interval limit non-Gaussian support function Gaussian square root sum",
+        "\"almost equal weights\" \"random quadrature\" central limit moment balancing",
+        "arXiv:2610.32699 Lemma 2.12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches of mathematical-record abstracts returned no matching explicit quadratic median-norm formula, exact distribution or tabulation.",
+        "Known historical quadratic moment feasibility probabilities concern only existence of some nonnegative weights, not their optimal near-equal-width distribution."
+      ],
+      "reasoning": "No directly tabulated sharp relative-weight distribution was located. Negative searches do not certify global novelty; the claim is supported by affirmative mathematical distinction from closest identified results.",
+      "searches": [
+        "random-node quadratic exact quadrature minimal maximum relative weight correction asymptotic distribution",
+        "quadrature calibrated weights alpha x plus beta x squared median L1 dual Gaussian",
+        "\"Tchakaloff\" \"limiting distribution\" weights"
+      ]
+    },
+    "rationale": "The nearest primary preprint establishes positive random-node quadrature and general finite L1 duality, including nonsharp near-uniform concentration; those are treated as prior results. The new claim is only the explicitly evaluated quadratic population median norm, its nonelliptic dual and sharp Gaussian-fluctuation distribution for the optimal uniform-relative-weight band. The second primary preprint controls weights from a particular randomized least-squares construction, and random convex-hull theory treats unconstrained positive representation. The previous accessible related claims include quadratic moment feasibility and a spherical affine chi-law, none of which implies the non-Gaussian degree-two interval law. Exact equivalence to uncatalogued statistical calibration-weight specializations remains a risk, so independent priority verification is advised.",
+    "residual_risks": [
+      "An uncatalogued general result on minimax empirical calibration weights may imply this case after computing the explicit norm.",
+      "No independent priority audit; scientific comparisons do not constitute a global mathematical novelty guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General finite dual and high-probability weight existence are prior; exact quadratic median and limiting distribution not identified",
+        "evidence": [
+          "First submission 2026-10-23; MSC2020 primary 65D32",
+          "Lemma 2.12 finite L1 dual adaptation; Corollary 2.13 near-uniform concentration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.32699",
+        "material_read": "Abstract, main weight-adaptation and L1 discretization discussion, section 2.3, Lemma 2.12 and Corollary 2.13",
+        "method": "Public arXiv full-text HTML and abstract inspection",
+        "title": "Random nodes with positive weights: Richter-Tchakaloff rules and optimal positive quadrature",
+        "trigger": "Closest recent primary paper on random positive quadrature and near-uniform weights"
+      },
+      {
+        "assessment": "Controls a specific least-squares rule rather than determining exact minimum maximum relative correction distribution",
+        "evidence": [
+          "Least-squares quadrature weights and probabilistic control, not a closed non-Gaussian optimum-band law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.09506",
+        "material_read": "Main randomized least-squares construction, weight positivity and concentration conclusions",
+        "method": "Public arXiv full-text HTML inspection",
+        "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+        "trigger": "Alternative near-equal weighting method that may imply or dominate proposed optimum"
+      },
+      {
+        "assessment": "Addresses unconstrained inclusion/positive representation, not optimal closeness of all weights to uniform",
+        "evidence": [
+          "Moment feasibility as convex-hull inclusion does not quantify minimum L-infinity weight displacement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.04250",
+        "material_read": "Abstract, main probability bounds and convex-hull setup",
+        "method": "Public preprint material inspection",
+        "title": "Estimating the probability that a given vector is in the convex hull of a random sample",
+        "trigger": "Could subsume moments matching via convex-hull formulations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4bb5fbae-e245-41a8-9434-76b9901f668a",
+  "value": {
+    "rationale": "A quantitative, asymptotically sharp answer to how close all exact positive weights can remain to equal weights controls noise amplification and uniform sample influence in randomized quadrature. Unlike mere positivity or a general high-probability sufficient condition, the non-Gaussian distribution supplies explicit target confidence thresholds at the actual m^{-1/2} scale. Fixed low-degree quadrature is a natural benchmarking instance with a fully specified calculation, not an arbitrary finite enumeration or textbook rescaling.",
+    "status": "PASS"
+  }
+}
