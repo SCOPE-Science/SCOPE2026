@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The bi-unitary prime-power formula is reconstructed directly from the definition by deleting the middle divisor of an even prime power. The factorization of the even-exponent sum is checked algebraically. Because the half-exponent is even, both factors vanish modulo \(q+1\), giving the required *square* factor. Prime-support divisibility then rules out either prime being two, forces the odd pair to be \((3,5)\), and the exact two-adic valuation of \(5^{b+1}+1\) contradicts its size. No unbounded finite search or unproved lemma is needed. The standalone direct-enumeration checker corroborates the arithmetic on finite inputs.
+## correctness
 
-**Originality — PASS, with residual risk.** The inspected full text of Sándor (2011) treats \(p^3q^2\), \(p^3q^4\), \(pq^4\), and the already known boundary \(p^2q=45\); its exponent-\(\{1,2\}\) equivalence also explains why \(p^2q^2\) must not be claimed new. The full text of Manea–Minculete (2016) treats different fixed patterns, notably a three-prime \(p^2q^2r\) classification. The full result texts of the two closest published research records cover respectively \(p^{2a}q\) and \(p^3q^{2^{u+1}}\), not even-even exponents. A targeted record search and primary-literature searches found no dominating exact theorem. These checks do not prove historical uniqueness; an unlocated stronger two-prime-square classification remains possible.
+PASS
 
-**Mathematical value — PASS.** The natural question of which perfect-square bi-unitary harmonic numbers can have only two prime factors arises from the explicit four-prime square in Sándor's paper. Restricting one exponent to two and the other to a power of two preserves an infinite arithmetic family while making the divisor-count prime support rigid; the theorem rules out every member, not just small prime searches. The forced squared factor and the resulting complete contradiction are structural and reusable in analyzing other sparse-support harmonic-divisor equations. No claim is made to classify all two-prime squares.
+For distinct primes p,q and integer t>=2, set e=2^t and b=e/2 even. Reconstructed sigma**(r^{2b})=(r^b-1)(r^{b+1}+1)/(r-1), tau**(r^{2b})=2b. Harmonic divisibility would force (p^2+1) B |2e p^2 q^e, B=(q^b-1)(q^{b+1}+1)/(q-1). Because b even, both (q^b-1)/(q-1) and q^{b+1}+1 vanish mod q+1, hence (q+1)^2|B. For q=2, (p^2+1)/2 has a forbidden odd divisor; for p=2, q=5 from p^2+1=5 but q+1 forces forbidden factor 3. For odd primes, odd divisor of p^2+1 implies q|p^2+1 and q=1 mod4; m=(q+1)/2 odd has m^2|p^2 (by (q+1)^2 and coprime support), forcing m=p and q=2p-1. Mod q, 4(p^2+1)=(q+1)^2+4 gives q|5, hence p=3,q=5. Then 5^{b+1}+1 >=126 cannot divide the 2*3^2 factor (its 2-adic order=1), contradiction. Independent exact prime-pair finite calculations corroborate 2310 combinations; the unrestricted proof is the divisor argument.
 
-**Evidence and limits.** References and exact scope are in `RESULT.md`; reproducibility is in `VERIFICATION.md` and `verify.py`. Originality is best-of-knowledge rather than guaranteed priority. Only a self-review was conducted, with independent audit not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected current-priority source states or unambiguously implies the precise new theorem; methods and covered neighbors are credited explicitly, and residual inaccessibility/overlap risks remain. Best-of-knowledge originality, not world-priority certification.
+
+## value
+
+PASS
+
+A structural all-primes/all-binary-exponent nonexistence theorem in the natural two-prime bi-unitary harmonic classification problem. The forced squared q+1 divisor and arithmetic prime-support rigidity solve an infinite family not implied by neighboring odd-even exponent exclusions; not a low-level finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
