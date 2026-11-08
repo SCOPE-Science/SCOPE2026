@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify_c4.py` with the Python standard library. This uses exact fractions for all ball averages and determinants and pairs of rationals for the Q(sqrt(10)) eigenvector calculation. Its successful result is:
+## correctness
 
-```text
-EXACT_CHECK_OK; checked=81; rational-PSD=79; exceptional=2;
-exceptions=(0,1,0,1),(1,0,1,0); coefficient and eigenvector checks passed
-rational-PSD-by-number-of-global-balls={0: 14, 1: 32, 2: 24, 3: 8, 4: 1}
-```
+PASS
 
-For each of the 79 nonexceptional matrices, the program proves strict positive definiteness of (29/20)I minus its exact Gram matrix by checking every leading principal minor. It then independently checks the four nontrivial coefficients of the exceptional Gram characteristic polynomial, the exact algebraic eigenvector identity, the threshold inequality, and strict radius-choice consistency. The proof in RESULT.md explains why these finite certificates cover every real input to the four-vertex graph. Numerical sampling, independent peer review, and the corresponding result for arbitrary cycles are not part of these checks.
+Each vertex has exactly three possible centered balls of radii 0,1,2; row-wise linearization leads to all 3^4=81 rational stochastic matrices A_alpha. An independently written rational Gram/minor enumerator verified (29/20)I−A_alpha^T A_alpha positive definite for exactly the 79 nonalternating choices. For the two alternating choices, the exceptional Gram has characteristic factors (t−1)(9t−1)(9t²−14t+1)/81 and unique top eigenvalue Lambda=(7+2sqrt10)/9 with positive eigenvector (1,3+sqrt10,1,3+sqrt10). Comparing actual maximal-ball choices at low/high sites proves equality; other cases have lower spectral bound, so these exhaust equality moduli. The 81-case check is a complete finite certificate for the four-vertex domain.
+
+## originality
+
+PASS
+
+Soria–Tradacete Example 2.6 gives only the ell^1 norm of C4 (23/12). González-Riquelme–Madrid gives sharp ell^2 on complete graphs and stars, not the cycle, and the follow-up covers neighboring models. A direct C4 ell^2 computation may be unindexed; no accessible covering primary result found.
+
+## value
+
+PASS
+
+The smallest nontrivial graph that is neither star nor complete has a sharp nonlinear centered maximal ell2 norm and rigid complete extremizer classification; precise alternating equality geometry offers a useful comparison benchmark for broader finite-graph maximal inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
