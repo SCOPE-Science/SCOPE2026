@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** Every generic planar section vertex is counted by a polyhedral edge crossing the plane. Integer geometry gives precisely twenty-four edges; octahedral symmetry leaves one sign transition at the triangle inequality. A standard exact spherical solid-angle evaluation gives the frequency; a standalone direct edge checker independently confirms the geometric classification on finite tests. Exceptional normal directions are Haar-null. The numerical check does not replace the proof.
+
+**Originality — PASS, provisionally.** The cube's random-section probability is already explicitly published and is not asserted to be new. The concrete new statement is a directionwise complementary side-count relation between the cube and the FCC rhombic dodecahedron, which requires a distinct 24-edge geometry computation. The inspected 2008 FCC Voronoi literature covers fluctuating cell geometry, not random section polygon types. Existing published-finding corpus cube results do not state the rhombic-dodecahedron correspondence. An unindexed equivalent stereological statement remains a priority risk.
+
+**Value — PASS.** This completely classifies a natural central-section observable of the regular FCC Wigner–Seitz cell and discovers an exact correspondence with the equally natural simple-cubic Wigner–Seitz cell under the *same plane normal*. That correspondence explains why both systems share a probability constant while exhibiting complementary section polygon types. The complete classification is useful in interpreting directional stereology of ideal cubic crystals, despite using a relatively short combinatorial argument. The result does not generalize to arbitrary offsets or independently oriented affine distortions.
+
+Self-review: passed. Independent audit: not yet performed.
