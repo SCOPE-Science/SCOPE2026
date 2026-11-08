@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The universal induced-two-edge-matching tail follows by a complete same-edge/shared-endpoint/disjoint-edge analysis. If a pair of disjoint edges has any cross-adjacency, its distance cannot exceed \(5/2\); if not, diameter two forces every cross-endpoint distance to equal two. The conditional tail is an elementary triangle-area calculation. The finite pair comparison defines both graphs explicitly, enumerates every one of their \(1128\) unordered distinct-edge pairs using exact integer distances, and reduces the difference of distance laws to convex-polygon areas. The polygon vertices move affinely between half-integer thresholds, so three exact rational evaluations certify each quadratic branch. The packaged standalone verifier performed these checks with exact rational arithmetic and passed.
+PASS
 
-## Originality
+The four endpoint-route distances for two points on disjoint edges prove that cross-adjacent edge pairs have distance <=5/2, while induced 2K2 edge pairs have two independent uniform half-edge offsets. Their triangular upper tail gives 4 M2(G)(3-t)^2/m^2 for 5/2<=t<=3. Exact 48-edge enumeration classifies all 1128 distinct unordered edge pairs in each graph; rational convex halfplane areas cancel through t<=2 and yield (min(t-2,3-t)^2)/24 for F_S-F_R on [2,3], M2(R)=216, M2(S)=192. Independent code checked 25 rational radius controls including branch boundaries; quadratic-branch argument is analytic, not an inference from samples.
 
-**PASS, subject to historical-priority risk.** The nearest existing general result is Wei–Walteros–Batta's full forward framework for calculating random-edge-location distance distributions on arbitrary networks; such a framework can evaluate either graph but does not present the structural inverse recovery of induced two-edge matchings or the exact Shrikhande/rook cancellation and squared-tent difference. Gamble et al. study distinguishability of strongly regular graphs via quantum walks instead of the arclength-intrinsic metric statistic. Published geometric-topology comparisons distinguish this graph pair by different homotopy invariants. Published records and the present source comparisons did not reveal the stated sharp distance-law identity. A sufficiently explicit but uninspected historical distance-table result could subsume it, and a general distance-law algorithm supplies an indirect route to the finite calculation; this residual coverage risk is acknowledged rather than asserted away.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The Shrikhande/rook pair is a canonical obstruction to reconstruction from degree, vertex distances, and adjacency spectrum. An exact observable that is provably blind on a whole interval and then sharply discriminating is a natural inverse metric-geometric fact, not an arbitrary numerical instance. The universal diameter-two tail identifies what the new observable measures structurally: the exact induced-two-edge-matching count. Its square-tail formula applies to an entire graph class and supplies a reproducible diagnostic threshold.
+Published arbitrary-network random-edge-location distance formulas cover forward CDF calculation, and Shrikhande/rook topology and quantum walks are established, but inspected scientific statements do not identify the inverse induced-2K2 tail or the exact squared-tent graph-pair separation. Priority remains qualified: a previous network distance table could imply it by specialization.
 
-## Limitations
+## value
 
-All graph edges must have equal metric length, and the universal identity requires vertex diameter at most two. The pair comparison does not imply graph reconstruction for arbitrary strongly regular graphs. Some general published distance algorithms can compute this case by specialization, so an older explicit simplification remains possible; no independent historical-priority audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Shrikhande/rook pair is canonical cospectral strongly regular ambiguity; a continuous intrinsic metric invariant distinguishing them after a sharp threshold, and recovering a familiar induced matching invariant for an entire diameter-two graph class, is an independently useful structural exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

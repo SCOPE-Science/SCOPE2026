@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` with standard Python 3; no third-party dependency is required. The code constructs the labeled \(4\times4\) rook graph and the specified \(\mathbb Z_4^2\) Shrikhande graph, verifies degree and pair-common-neighbor data, and exhaustively classifies each of the \(1128\) unordered distinct-edge pairs. Rational polygon clipping computes the exact area where all four endpoint routes exceed a specified radius. Eighteen rational control points on six half-unit radius intervals determine the quadratic spline, since the active clipping configuration can only change at half-integers. The code checks the exact upper-tail geometry and the \(1/96\) diagnostic difference. Finite exact enumeration proves the two explicit graph claims when combined with the half-integer-breakpoint proof. The all-graphs statement uses the independent analytic disjoint-edge route bound in RESULT.md.
+## correctness
 
-Known limits: this test is not an external independent audit; it neither checks every possible graph nor establishes historical publication priority. It does not address arbitrary edge lengths or vertex diameter above two.
+PASS
+
+The four endpoint-route distances for two points on disjoint edges prove that cross-adjacent edge pairs have distance <=5/2, while induced 2K2 edge pairs have two independent uniform half-edge offsets. Their triangular upper tail gives 4 M2(G)(3-t)^2/m^2 for 5/2<=t<=3. Exact 48-edge enumeration classifies all 1128 distinct unordered edge pairs in each graph; rational convex halfplane areas cancel through t<=2 and yield (min(t-2,3-t)^2)/24 for F_S-F_R on [2,3], M2(R)=216, M2(S)=192. Independent code checked 25 rational radius controls including branch boundaries; quadratic-branch argument is analytic, not an inference from samples.
+
+## originality
+
+PASS
+
+Published arbitrary-network random-edge-location distance formulas cover forward CDF calculation, and Shrikhande/rook topology and quantum walks are established, but inspected scientific statements do not identify the inverse induced-2K2 tail or the exact squared-tent graph-pair separation. Priority remains qualified: a previous network distance table could imply it by specialization.
+
+## value
+
+PASS
+
+The Shrikhande/rook pair is canonical cospectral strongly regular ambiguity; a continuous intrinsic metric invariant distinguishing them after a sharp threshold, and recovering a familiar induced matching invariant for an entire diameter-two graph class, is an independently useful structural exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
