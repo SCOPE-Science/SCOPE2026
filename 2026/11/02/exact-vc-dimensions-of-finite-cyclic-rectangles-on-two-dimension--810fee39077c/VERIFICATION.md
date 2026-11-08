@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,31 +19,24 @@
 }
 ---
 
-The standalone Python program `torus_grid_certificate.py` uses only the standard library and exact integer/bit-set operations. It implements the precise trace criterion and exhaustively checks the finite base cases required by the cyclic compression and tie-splitting lemmas.
+# Independent mathematical audit
 
-Execution command:
+## correctness
 
-```text
-python3 torus_grid_certificate.py
-```
+PASS
 
-Executed output:
+For any k-point support, a cyclic rectangle trace is exactly the intersection of two cyclic-interval coordinate masks. Compressing occupied coordinate blocks preserves masks; breaking ties into consecutive individual coordinates can only increase available traces. Any shattered seven-point support would then yield a distinct-coordinate 7x7 permutation support. Complete enumeration of all 7!=5040 permutations excludes such shattering, giving global VCdim<=6. For finite side thresholds, fix one support point at (0,0) by torus translation and exhaust each of seven obstruction grids. Independently reimplemented interval-mask computation and checked every origin-fixed support: 1,3,10,126,1001,33649,42504 (total 77294), plus all 5040 seven-point order types; no forbidden support shattered. Independently verified 5x6 listed six-point shattered witness. Compression/enlargement and listed witnesses establish the all-(m,n) piecewise formula, not an extrapolation from finite grid trends.
 
-```text
-INDEPENDENT_RECTANGLE_TRACES_PASS 1119
-EXPLICIT_LOWER_WITNESSES_PASS 9
-ABSENCE_PASS 1 4 4 1
-ABSENCE_PASS 2 2 3 3
-ABSENCE_PASS 2 3 4 10
-ABSENCE_PASS 2 5 5 126
-ABSENCE_PASS 3 5 5 1001
-ABSENCE_PASS 4 6 6 33649
-ABSENCE_PASS 5 5 6 42504
-SEVEN_POINT_ORDER_TYPES_PASS 5040
-TOTAL_ORIGIN_FIXED_ABSENCE_CASES 77294
-ALL_FINITE_TORUS_VC_CHECKS_PASS
-```
+## originality
 
-`INDEPENDENT_RECTANGLE_TRACES_PASS` compares two distinct implementations on every support of up to four points in four specified small grids. `EXPLICIT_LOWER_WITNESSES_PASS` verifies all traces using both algorithms. Every `ABSENCE_PASS` uses exhaustive combinations, with no randomized or truncated search. The seven-point check exhausts all seven-coordinate permutations after the proved coordinate-tie refinement.
+PASS
 
-The finite computations establish only the finite statements they enumerate; the separate mathematical lemmas in `RESULT.md` transfer these statements to unrestricted finite side lengths. No claims are made about adaptive learning dimensions, an all-coefficient shattering polynomial, fixed-width rectangles, or independent external certification.
+Qualified PASS: continuous two-dimensional torus box VC dimension six is known and explicitly credited, but the all finite cyclic grid threshold table (especially 5x5 versus 5x6) is not established by the inspected continuous result. Equivalent discrete circular-arc order-type work remains a priority risk.
+
+## value
+
+PASS
+
+A complete sharp finite-resolution classification for cyclic rectangles on discrete two-tori, including exceptional 5x5 and the first 5x6 six-point witness. This precise threshold is mathematically natural for sampling range spaces and is not implied by knowing only the continuous torus VC=6; the complete finite obstruction certificates are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
