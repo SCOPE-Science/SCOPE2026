@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For all n>=1, direct local edge-state analysis equates excitation events to increments of closed-neighborhood maxima of an integer height. At time n-1 the last possible new excitation is precisely a strict height record at one endpoint, and the two endpoint events are disjoint. The positive-height reversed-word transfer with a killed boundary yields a unique formal-series kernel solution S(z)=(sqrt((1+z)/(1-3z))-1)/(2z), hence the claimed maximal-entry census and exact n^-1/2 asymptotic. The n=1 edge case is treated separately. Full original-state tests n<=12, independent transfer n<=101 and gradient/maxplus tests n<=8 passed. These finite checks do not replace the general derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff (2016) establishes general excitation-count and graph convergence framework, without the open-path maximal-shell generating function in the inspected material",
+        "Fisch–Gravner (1995) explicitly defines finite free-boundary GH systems and studies broader one-dimensional dynamics; inspected discussion did not give this coefficient identification",
+        "Durrett–Steif (1991) section 5 concerns high-dimensional periodic finite boxes, not open finite paths"
+      ],
+      "reasoning": "General excitation-height dynamics implies finite convergence but does not alone count strict end records. The 1991 infinite-line asymptotic and finite periodic-box statements do not imply the precise open-boundary longest-extinction census. No published theorem encountered had strictly stronger coverage of this numerical invariant.",
+      "searches": [
+        "Gravner Lyu Sivakoff arxiv:1610.07320v1 limiting behavior excitation counts maximum walks",
+        "Fisch Gravner 1995 One-dimensional Deterministic Greenberg Hastings Models finite systems free boundary",
+        "Durrett Steif 1991 Some Rigorous Results for Greenberg Hastings finite box"
+      ]
+    },
+    "checked_sources": [
+      "Durrett & Steif, J. Theor. Probab. 4 (1991) 669–690",
+      "Fisch & Gravner, Complex Systems 9 (1995) 329–348",
+      "Gravner, Lyu & Sivakoff, arXiv:1610.07320v1 (2016-10-24)",
+      "OEIS A025565 and A085455"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Durrett–Steif 1991 Theorem 1 provides one-site infinite-line survival probability of order t^(-1/2) but neither finite open-boundary first-extinction times nor their exact count",
+        "2016 general excitation-count lemma is a tool used in the new proof, not already the exact boundary-record enumerator",
+        "Fisch–Gravner 1995 free-boundary finite system definition overlaps the object but inspected main analyses are qualitative recurrence/fixation, not a sharp maximal shell census"
+      ],
+      "reasoning": "The new statement is strictly more specific than qualitative extinction and has a finite-path all-word sharp-tail enumeration. Prior n^-1/2 probabilities for infinite-line activity have different sample events, constants and time/length interpretations; they do not directly dominate the open-path exact formula. The known integer series is an algebraic equivalent of the *counts*, not an established dynamical consequence without the new correspondence. Historical equivalence remains possible.",
+      "searches": [
+        "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+        "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+        "https://arxiv.org/abs/1610.07320v1",
+        "\"Greenberg Hastings\" finite interval extinction time number configurations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A025565 has coefficients 1,2,4,10,26,... and g.f. z sqrt((1+z)/(1-3z)), as a combinatorial path-counting sequence",
+        "Durrett–Steif (1991), section 2 derives survival of moving wave particles on the infinite line, which is a different event than first-entry n+1 for finite free-boundary P_n"
+      ],
+      "reasoning": "An exact combinatorial alias is acknowledged and excluded from the novelty claim: the sequence and series are known. No inspected source identifies this existing series with the finite-path sharp GH extinction layer. A generic random-walk survival analogy is not the same event or exact count.",
+      "searches": [
+        "\"Greenberg Hastings\" finite path longest extinction initial configurations enumeration exact",
+        "\"Greenberg Hastings\" path \"square root\" generating function duration",
+        "OEIS A025565 known sequence of counts",
+        "Durrett Steif 1991 Greenberg Hastings survival paths wave records"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A025565 lists E_n coefficients and precisely the same algebraic generating function as an ordinary sequence, with UDU-free Dyck-path and other established interpretations",
+        "OEIS A085455 gives signed coefficients whose absolute values are A025565"
+      ],
+      "reasoning": "The coefficient database IS an exact match and cannot be cited as evidence that the enumeration by itself is new. The remaining claimed fact is an exact, independently proved dynamical equivalence linking this sequence to maximal finite-path extinction; no existing GH attribution appears in these entries.",
+      "searches": [
+        "https://oeis.org/A025565",
+        "https://oeis.org/A085455",
+        "\"Greenberg Hastings\" \"record\" \"ballot\" path"
+      ]
+    },
+    "rationale": "The claim is the dynamical identification of a known combinatorial sequence with the exact longest-extinction shell of finite free-boundary three-state excitation, including sharp probability. General maximal-excitation formalism and infinite-line n^-1/2 decay are prior results; A025565 already contains the sequence and its generating function as pure combinatorics and neither is claimed new in isolation. Sources inspected did not furnish this finite-path maximal-shell identity. Residual risk is historical priority in unindexed finite-path wave literature.",
+    "residual_risks": [
+      "An unindexed early finite-path excitation analysis may already contain this dynamical interpretation.",
+      "A025565 fully covers the combinatorial enumeration; originality is restricted to the dynamical interpretation and matching sharp transient probability.",
+      "The inspected 1995 material was concentrated on the most relevant definitions and analysis sections; uninspected auxiliary passages could contain additional enumerations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Infinite-line wave survival and finite periodic high-dimensional box models do not give the finite open-path longest-extinction census",
+        "evidence": "Theorem 1 is Prob(eta_t(0)=1)~sqrt(2/(27 pi t)); section 5 is d>=2 periodic finite boxes",
+        "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+        "material_read": "Full primary PDF introduction, main theorem statements, section 2 wave proof and section 5 scope",
+        "method": "Open PDF text and page image inspection",
+        "title": "Some Rigorous Results for the Greenberg–Hastings Model",
+        "trigger": "Closest classical one-dimensional extinction and wave survival results"
+      },
+      {
+        "assessment": "Defines the exact boundary convention but inspected results concern general threshold/range recurrence and fixation; the finite maximal shell series was not found in inspected material",
+        "evidence": "p.331 explicitly defines finite A with N_x=(x+N) intersect A",
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+        "material_read": "Primary PDF introduction and definitions pp.329–333, later discussion including section 5",
+        "method": "Open PDF, section text and page image inspection",
+        "title": "One-dimensional Deterministic Greenberg–Hastings Models",
+        "trigger": "The same rule and explicit finite free-boundary systems"
+      },
+      {
+        "assessment": "General height-walk framework is prior and credited, but no exact open-path maximal-extinction enumeration or square-root probability was present in examined relevant sections",
+        "evidence": "Maximum-excitation-count lemma and graph synchronization statements",
+        "identifier_or_url": "https://arxiv.org/abs/1610.07320v1",
+        "material_read": "Preprint v1 theorem and lemma statements, excitation-count and graph specialization sections",
+        "method": "Lawful arXiv full text inspection",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "General max-plus excitation count and finite-graph convergence claims"
+      },
+      {
+        "assessment": "Exact coefficient sequence and generating function preexist, so sequence/formula alone not new; database did not provide dynamical longest-extinction identification",
+        "evidence": "A025565 has g.f. z*sqrt((1+z)/(1-3z)); same initial coefficients and several other combinatorial descriptions",
+        "identifier_or_url": "https://oeis.org/A025565",
+        "material_read": "Sequence definition, comments, formula, references and examples",
+        "method": "Primary database entry read",
+        "title": "OEIS A025565",
+        "trigger": "Exact coefficient and generating function search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a387c4e-fac2-4a7b-8842-1c465e29b539",
+  "value": {
+    "rationale": "Exact counts at the sharp extinction-time boundary are a natural infinite-family invariant for dissipative excitable dynamics. The polynomial 1/sqrt(n) extremal-tail probability distinguishes a geometric boundary-wave phenomenon from generic extinction and remains mathematically motivated despite the already-known integer sequence. The object, quantifier and probabilistic observable are not arbitrarily chosen, and no broader theorem is required for this exact natural boundary classification.",
+    "status": "PASS"
+  }
+}
