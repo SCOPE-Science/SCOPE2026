@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The stand-alone file `check_design.py` contains direct symbolic differentiation checks in `sympy` and finite high-precision optimizer/derivative comparisons using `mpmath`. Execute `python check_design.py` from a directory containing the file with Python 3, `sympy`, and `mpmath` installed. The program passed 3,000 assertions, printing the crossover \(b_c=2.3993572805154676678\ldots\), the auxiliary root \(z_0=1.5434046384182084479\ldots\), and the capacity-retention fraction \(0.5802019684911432368\ldots\). It requires no dataset, private credential, network connection, or external dependencies besides those named Python packages.
+## correctness
 
-The proof is in `RESULT.md`. The symbolic calculations check algebraic identities; finite numerical grids do not verify claims for all positive affinities or all gaps. Those claims are established analytically by sign and monotonicity arguments. No independent mathematical audit or publication-priority audit has been carried out.
+PASS
+
+Using Bernoulli tilted odds p_b and thermal q, exact differentiation yields C_b′=Delta-b p_b(1-p_b), a single signed linear numerator in e^z. The derivative of U_b is Delta(1-H_b(z)); H strictly increases above b/2. Bracketing shows b/2<z_C<b<or>z_U at the critical b determined by (b/2)tanh(b/2)=1; the weak-affinity KL quadratic expansion gives sech^2(z0/2). Independent symbolic derivative identities and numeric bracketing confirmed the boundary cases.
+
+## originality
+
+PASS
+
+Lin, Liu and Ma (2026) primary HTML gives exactly the two-state occupations and KL capacity, studying finite-time power/efficiency at fixed model parameters. Main text and appendix A as inspected do not optimize variable design gap under fixed affinity against excess mean energy, nor give bc and the 0.5802 capacity ratio. The result is an algebraic stationary-design consequence of their formulas, not a new thermodynamic model. Broader design-optimization literature remains priority risk.
+
+## value
+
+PASS
+
+Contrasting stored energy and extractable free energy under the same minimal battery model is a meaningful design choice. A unique population-inversion boundary and a 41.98% weak-affinity penalty provide a precise previously unstated benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
