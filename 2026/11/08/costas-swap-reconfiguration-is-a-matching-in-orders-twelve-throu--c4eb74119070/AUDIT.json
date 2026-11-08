@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact-prefix exhaustive Costas recurrence, full transposition enumeration, independently reverse-built enumeration with independent full Costas retest, matching counts and gap histograms. Both embedded standalone C++17 checkers have been executed successfully for n=11,12,13,14. Scope is finite, n=12–14 only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2023 multiplication of indices is a different multi-position permutation operation, rather than one exchange.",
+        "published-finding corpus full transposition S4 Rips result is on all permutations of size four and thus cannot specialize to orders 12-14 Costas arrays."
+      ],
+      "reasoning": "The alternate transformation and broad permutation metrics do not yield local incidence information of the restricted Costas induced subgraph. No dominating stronger theorem was located.",
+      "searches": [
+        "Costas array adjacent swap transposition reconfiguration components graph order 7",
+        "Costas permutations order 8 swap graph local moves connectivity",
+        "Costas arrays distance preserving swaps sharp size threshold",
+        "Ardalani-Pott-2023 A New Transformation for Costas Arrays, Definition 10"
+      ]
+    },
+    "checked_sources": [
+      "Drakakis–Healy–Rickard (2008), primary full available text, especially Table 2",
+      "Ardalani–Pott (2023), primary PDF transformation definition",
+      "Drakakis–Rickard arXiv:0706.1379, relevant sections",
+      "Drakakis arXiv:1102.5727, abstract metadata",
+      "Targeted published mathematical-result searches, summarized under the four originality comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From a graph with 136 edges alone, one cannot conclude all 272 incident endpoints are distinct; the degree bound adds essential information.",
+        "The measured n11 degree-two examples demonstrate that the matching property is not a general tautology for Costas permutations."
+      ],
+      "reasoning": "The new degree-one census plus exact gap spectra is not implied by the 2008 pair totals, the general Costas definition, or the 2023 different operation. No decisive earlier coverage found.",
+      "searches": [
+        "For orders 12, 13 and 14 of Costas permutations, the Hamming-distance-two transposition graph is a matching, with degree at most one; component counts 136, 88, 120 edges, and positional gap distributions.",
+        "Costas array swapping two columns preserves Costas property transposition neighbors degree spectrum isolated pairs and extremal finite threshold",
+        "Drakakis-Healy-Rickard-2008 §§3.2–3.3",
+        "Ardalani-Pott-2023 Definition 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For permutations, Hamming distance exactly two means exchange of the two differing entries, hence its graph is exactly the valid transposition graph.",
+        "2008 Table 2 has only number of such pairs, not incidence at individual arrays."
+      ],
+      "reasoning": "All aliases reduce to the same transposition adjacency. Aggregate Hamming-two counts cannot imply the new maximum degree or component and positional-gap structure; no equivalent covering result was found.",
+      "searches": [
+        "For orders 12, 13 and 14 of Costas permutations, the Hamming-distance-two transposition graph is a matching, with degree at most one; component counts 136, 88, 120 edges, and positional gap distributions.",
+        "Costas array swapping two columns preserves Costas property transposition neighbors degree spectrum isolated pairs and extremal finite threshold",
+        "Costas permutations minimal Hamming distance 2 counting pairwise transposition relationship graph connected components",
+        "Drakakis-Healy-Rickard-2008 Section 3.2 Hamming distance two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2008 Table 2 already lists n12=136, n13=88, n14=120 Hamming-two unordered pairs.",
+        "The published table has no breakdown by individual vertex, degree or positional gap."
+      ],
+      "reasoning": "Prior exact edge counts are fully credited; they do not fix the graph isomorphism type or degree sequences. This is a proper refinement of prior enumeration, not a rediscovery of total numbers.",
+      "searches": [
+        "Drakakis Healy Rickard 2008 Table 2 Hamming distance 2 Costas permutations",
+        "Costas permutations transposition graph degree histogram n12 n13 n14",
+        "For orders 12, 13 and 14 of Costas permutations, the Hamming-distance-two transposition graph is a matching, with degree at most one; component counts 136, 88, 120 edges, and positional gap distributions."
+      ]
+    },
+    "rationale": "The existing 2008 Hamming-two totals 136/88/120 are explicitly acknowledged; the precise new statement is that no two edges share a vertex and the full positional-gap histograms, which those totals do not imply. Relevant primary text and published-finding corpus searches reveal no dominating same-statement finding; unindexed history remains a residual risk.",
+    "residual_risks": [
+      "An earlier unpublished, unindexed, or inaccessible per-array Costas transposition census may already establish degree-one property.",
+      "The 2011 survey has not been fully inspected and is not used for a NOT_COVERING conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers previous edge counts, not new maximum-degree and gap classifications",
+        "evidence": "Table 2 H2 values 140,136,88,120 for n11–14 and discussion of pair-swaps; contains no local degree or switch-graph decomposition.",
+        "identifier_or_url": "https://www.researchgate.net/publication/228340808_A_stochastic_analysis_approach_in_the_search_for_Costas_arrays",
+        "material_read": "Relevant extracted full-text sections 2, 3.2 and 3.3, together with Table 2, including entries for orders 11–17",
+        "method": "Primary full-text extraction and targeted reading of the relevant table and surrounding derivations",
+        "title": "A stochastic analysis approach in the search for Costas arrays",
+        "trigger": "Directly studies Hamming distances and pair transpositions between Costas arrays"
+      },
+      {
+        "assessment": "Not covering: modular multiplication is not a two-entry transposition",
+        "evidence": "Definition 10 uses modular index multiplication rather than exchanging exactly two entries.",
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/E106.A/12/E106.A_2023SDP0005/_pdf",
+        "material_read": "Primary PDF, including definition of index-multiplication transformation and its hypotheses",
+        "method": "Read PDF text and inspect the definition in rendered page 3",
+        "title": "A New Transformation for Costas Arrays",
+        "trigger": "Possible stronger or equivalent operation on Costas permutations"
+      },
+      {
+        "assessment": "Background only, does not provide finite swap graph spectra",
+        "evidence": "Section 2 defines Costas permutations through unique displacement vectors.",
+        "identifier_or_url": "https://arxiv.org/abs/0706.1379",
+        "material_read": "Abstract, introductory section, Section 2 discrete definitions",
+        "method": "Public arXiv HTML, checked submission date 2007-06-10",
+        "title": "On the generalization of the Costas property in the continuum",
+        "trigger": "Verified pre-2016 public source for Costas definition and motivation"
+      },
+      {
+        "assessment": "Background and residual novelty risk; no claim of full-paper exhaustive exclusion",
+        "evidence": "First public posting 2011-02-28; lists general open problems.",
+        "identifier_or_url": "https://arxiv.org/abs/1102.5727",
+        "material_read": "Publication metadata, abstract and topical synopsis; not a full-paper coverage ruling",
+        "method": "arXiv landing page and abstract",
+        "title": "Open problems in Costas arrays",
+        "trigger": "Historical combinatorics survey and possible covering result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4eb7411-9070-4c70-bbcb-b03db10a3f1a",
+  "value": {
+    "rationale": "Valid-to-valid pair swaps are the elementary move motivating earlier Costas heuristic searches. This complete finite obstruction shows no third valid state is reachable by repeated swaps in three consecutive natural orders. The order-eleven counterboundary and exact physical column-gap spectra add structural and algorithmic content beyond preexisting pair counts; no broad-n extrapolation is claimed.",
+    "status": "PASS"
+  }
+}
