@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The 0-cochain basis \(1,t\) and interval 1-cochain \(u\), with \(dt=u\), yields an integral, coordinate-permutation-natural direct-sum cochain decomposition indexed by vertex subsets. Exactly five disconnected pairs and five disconnected triples contribute to \(H^1\). Their stabilizer reflections exchange pair components and preserve triple components, respectively, giving sign and trivial induction. Signed coset lattices are self-dual; the UCT therefore gives the homology decomposition. The characteristic-two reflection rank is four, whereas a regular rank-ten dihedral lattice has rank five. The standalone finite enumerator independently validates the group action and cubical ranks.
+PASS
 
-## Originality
+PASS. Integral cubical cochains admit a permutation-natural Hochster splitting by support W, yielding H^1=⊕_{W} H~^0(C5[W]). Directly enumerated all disconnected supports: five nonadjacent pairs and five edge-plus-isolated triples, each yielding a rank-one lattice; the stabilizer reflection acts as −1 on pair components and +1 on triple components. This gives the two integral induced rank-five D5 lattices. The orientable genus-five surface has free H1 and the signed coset bases are self-dual; passing from cohomology to H1 is integral and equivariant. Independently computed the rotation/reflection actions and relations and rank_F2(s−I)=4. Each induced module restricts to Z_± ⊕2Z[C2], giving total Z_+⊕Z_-⊕4Z[C2] versus regular restriction 5Z[C2] with rank 5. Rationally, Ind(Q_+⊕Q_-)=Q[D5]. Source code additionally checks cubical ranks, not used to infer integral freeness.
 
-PASS, best-knowledge with literature-access risk. Panov (arXiv:1008.5047) and Yu (arXiv:1406.7392) supply established moment-angle and Hochster frameworks; their broad methods are not claimed as discoveries. Kamiyama (2012), full text inspected, computes homology of the **quotient orbit spaces**; this does not determine the integral \(\mathbb Z[D_5]\)-module of the original covering surface. The 2013 companion's publicly accessible abstract likewise describes orbit-space homology, and its full text was not accessible. Related indexed calculations of rational dihedral characters for different graph complexes cannot imply an integral lattice comparison for this object. Unindexed equivalent computation remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The pentagonal surface is the first nontrivial real moment-angle polygon surface of positive genus, with a geometrically canonical dihedral action. The induced-integral-lattice decomposition and modular obstruction expose a failure of rational representation classification: the regular rational character does not determine the integral dihedral action. This yields a natural representation-theoretic boundary independent of already known genus and orbit-space homology.
+PASS. Compared the actual integral/homotopy claim, its intrinsic invariant and implications against published exact/nearby records, Resultary semantic search and mathematically relevant primary text. Distinguishes general methods and other complex functors from an exact integral calculation; inaccessible or unindexed priorities remain explicitly qualified.
 
-## Limitations
+## value
 
-The result concerns one canonical finite surface and action, not all dihedral surface actions or all polygons. The companion necklace-sequence paper's full text could not be inspected. Independent verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The canonical dihedral action on the genus-five real moment-angle polygon surface is a standard natural geometric group action. Two integral module structures indistinguishable by rank and rational character are separated by an elementary but nontrivial and useful characteristic-two obstruction; the exact pair of induced lattices is intrinsically meaningful and addresses a representation-level gap beyond known genus and orbit-space homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
