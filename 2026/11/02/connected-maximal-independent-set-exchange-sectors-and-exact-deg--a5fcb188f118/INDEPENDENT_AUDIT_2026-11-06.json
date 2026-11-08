@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:52:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/connected-maximal-independent-set-exchange-sectors-and-exact-deg--a5fcb188f118/RESULT.md blob 2ef0f7e002f27d99972d6302674d074fad014df2 at fixed commit",
+        "2026/11/02/connected-maximal-independent-set-exchange-sectors-and-exact-deg--a5fcb188f118/verified code blob 072e693b5c921e4c9b8c252618831a2aeb4c3896",
+        "2026/11/02/connected-maximal-independent-set-exchange-sectors-and-exact-deg--a5fcb188f118/verified code blob 5fa2eefe161e49c562b1ef65da71a6613078d149"
+      ],
+      "rationale": "For labeled simple cycles C_n,n>=4, maximal independent sets have clockwise gaps exclusively 2 or 3: independence gives min2, domination max3. Any one-deletion/one-insertion preserving maximal independence must insert adjacent to deleted token (otherwise it remains undominated); gap moves swap adjacent (2,3). With a=3k-n,b=n-2k,a+b=k, anchored circular 2/3 words count n/k*C(k,a) configurations, each has degree twice number r of alternating run-pairs, giving multiplicity n/r*C(a-1,r-1)C(b-1,r-1) and edges n*C(k-2,a-1) from Vandermonde. Adjacent gap swaps while fixing one token then shifting token by 1 proves each mixed sector connected. Pure n=2k,3k sectors have exactly 2,3 isolates. Sum yields component and global coefficient formulas. Independent all-subsets exchange graph brute force n=4..14 corroborates exact distributions and components; source independent gap verifier also inspected, but finite tests do not replace the all-n proof. Five Git tree identities independently reconstructed.",
+      "residual_risks": [
+        "Simple labeled cycles n>=4 and one-delete/one-add moves preserving inclusion maximality; no distance/diameter or arbitrary graph conclusions.",
+        "The minimum independent-domination cardinality sector is already studied in the i-graphs literature; not claimed as new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonsma–Kamiński–Wrochna cover reconfiguration reachability for independent sets on claw-free graphs, which may pass through nonmaximal states.",
+          "Brewster–Mynhardt–Teshima Theorem 3.7 describes special i-graph structures on cycles at k=i(C_n), not all sector degrees."
+        ],
+        "reasoning": "General graph class in an existing result does not imply these stricter maximal-state reconfiguration counts; explicit deletion of maximality makes the state space different. Broader constraints may still imply connectivity in some sectors.",
+        "searches": [
+          "arxiv:1403.0359",
+          "arxiv:2203.16861",
+          "arxiv:2303.08190"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2303.08190",
+        "arxiv:2203.16861",
+        "arxiv:1403.0359",
+        "arxiv:math/0207100",
+        "Resultary query 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=ceil(n/3), the published i-graph results recover a known boundary sector.",
+          "For a,b>0 the degree polynomial depends on both numbers of 2 and 3 gaps and alternation run count, which minimum-sector classification does not supply."
+        ],
+        "reasoning": "The all-k connectivity, pure sector count, and unbounded degree spectrum are not direct corollaries of the stated prior minimum-only theorems.",
+        "searches": [
+          "arxiv:2303.08190",
+          "arxiv:1403.0359",
+          "Resultary semantic query 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brewster–Mynhardt–Teshima define i-graph on minimum-cardinality maximal independent sets only; the present R_n contains every cardinality sector.",
+          "Avis–Hoang token sliding on all independent sets does not require every intermediate set to be maximal/dominating."
+        ],
+        "reasoning": "The minimum sector is an existing special case, explicitly attributed; the all-k degree/count/connectivity law is not an identical theorem in the inspected sources.",
+        "searches": [
+          "maximal independent dominating sets cycle token jump reconfiguration all size sectors degree distribution",
+          "arxiv:2303.08190",
+          "arxiv:2203.16861"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related domination complexes and independent-set spectra but no all-k fixed-cardinality maximal-independent-exchange graph degree polynomial."
+        ],
+        "reasoning": "No full-cardinality table found; run enumeration and familiar circular run counts are not by themselves novel.",
+        "searches": [
+          "maximal independent dominating sets cycle token jump reconfiguration all size sectors degree distribution",
+          "Resultary semantic query 5",
+          "maximal independent dominating cycle reconfiguration degree polynomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct combined claim survives comparison with actual relevant sources; precisely prior components are credited, and inaccessible or possibly dominating material is named as a priority risk, not treated as proof of noncoverage. The all-k connectivity, pure sector count, and unbounded degree spectrum are not direct corollaries of the stated prior minimum-only theorems.",
+      "residual_risks": [
+        "Earlier independent domination reconfiguration work might use an all-maximal-set definition under an alternate name.",
+        "Cycle minimum-cardinality i-graph results and elementary run counting are published prior, acknowledged as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_MINIMUM_SECTOR_ONLY",
+          "evidence": "Paper restricts state vertices to sets of minimum independent domination number i(C_n), while current statement ranges over ceil(n/3)<=k<=floor(n/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.08190",
+          "material_read": "Read full accessible PDF introduction/definitions and cycle classification Theorem 3.7 with neighboring proofs and section, including relevant pages via screenshots",
+          "method": "primary full-text PDF relevant sections and screenshot",
+          "title": "The i-Graphs of Paths and Cycles",
+          "trigger": "Same cycle, maximal-independent dominating sets, plausible exact classification"
+        },
+        {
+          "assessment": "DIFFERENT_STATE_CONSTRAINT",
+          "evidence": "Independent-set token sliding permits states not inclusion-maximal independent; cannot directly assert same sector graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+          "material_read": "Read abstract, model definitions and accessible main result description, not full proof",
+          "method": "preprint abstract and accessible relevant description",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Same token-sliding operation on cycle-like graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/connected-maximal-independent-set-exchange-sectors-and-exact-deg--a5fcb188f118/RESULT.md",
+        "arxiv:2303.08190",
+        "arxiv:2203.16861",
+        "arxiv:1403.0359",
+        "arxiv:math/0207100",
+        "Resultary query 5"
+      ],
+      "rationale": "The exact all-cardinality component classification and complete degree distribution are natural invariants of the reconfiguration graph of maximal independent sets, including nonminimal sectors with unbounded local degrees. This substantially extends the minimum-cardinality-only i-graphs description.",
+      "residual_risks": [
+        "Earlier independent domination reconfiguration work might use an all-maximal-set definition under an alternate name.",
+        "Cycle minimum-cardinality i-graph results and elementary run counting are published prior, acknowledged as such."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Simple labeled cycles n>=4 and one-delete/one-add moves preserving inclusion maximality; no distance/diameter or arbitrary graph conclusions.",
+    "The minimum independent-domination cardinality sector is already studied in the i-graphs literature; not claimed as new.",
+    "Earlier independent domination reconfiguration work might use an all-maximal-set definition under an alternate name.",
+    "Cycle minimum-cardinality i-graph results and elementary run counting are published prior, acknowledged as such."
+  ],
+  "schema_version": 1
+}

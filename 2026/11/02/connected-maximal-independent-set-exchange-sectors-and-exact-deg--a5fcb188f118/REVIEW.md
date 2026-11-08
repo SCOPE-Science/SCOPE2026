@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The gap two/three criterion follows from independence plus domination. Every legal token jump must reach a neighbor of the removed token because that removed vertex must remain dominated. Every slide is a transposition of adjacent unlike gaps; cyclic runs count the degree exactly. The anchored cyclic-word count and Vandermonde identity give the exact degree histogram and edges. Nonwrap adjacent-gap swaps reorder a word while fixing a distinguished token, and one boundary slide advances the distinguished token, proving connectivity of each mixed sector. Pure sectors are correctly isolated. All-parameter proof covers every labelled simple cycle of length at least four; independently structured exhaustive Python (orders 4 through 18) and C++ (orders 4 through 22) computations corroborate the formulas.
+## correctness
 
-**Originality — PASS with residual risk.** The closest direct result, Brewster–Mynhardt–Teshima, *The i-Graphs of Paths and Cycles*, arXiv:2303.08190, classifies only independent dominating sets of the *minimum* feasible cardinality, and therefore does not cover the complete nonminimum-sector degree distributions. Its minimum sector is explicitly credited here. Bonsma–Kamiński–Wrochna, arXiv:1403.0359, and Avis–Hoang, arXiv:2203.16861, allow intermediate independent sets that need not be maximal, so their connectivity results and unrestricted token-slide graph degrees do not imply this restricted graph classification. Goh–Koh–Sagan–Vatter, arXiv:math/0207100, studies counts over bounded-cycle graph families, not fixed-cycle reconfiguration. Research-record queries for maximal-independent-set exchanges, independent domination, cyclic gap words and matching analogues surfaced only noncovering findings; exact statement comparisons rather than title matches were used. Classical circular run counting is acknowledged, not claimed as new. Residual risks include older equivalent restrictions or general theorems about dominating token dynamics not indexed in the searches.
+PASS
 
-**Value — PASS.** This is a natural complete infinite-family classification of legal mobility while maintaining both independence and domination, not only a basic enumeration of maximal sets. It identifies precisely the two frozen periodic extremal sectors, proves all intermediate sectors connected, and gives complete degree profiles, total edges, and connected components. In particular a single connected nonminimum sector has unbounded maximum degree as cycle length increases, behavior invisible from the minimum-only i-graph results. The exact degrees may support study of ergodicity and local move counts in independent dominating-set reconfiguration.
+For labeled simple cycles C_n,n>=4, maximal independent sets have clockwise gaps exclusively 2 or 3: independence gives min2, domination max3. Any one-deletion/one-insertion preserving maximal independence must insert adjacent to deleted token (otherwise it remains undominated); gap moves swap adjacent (2,3). With a=3k-n,b=n-2k,a+b=k, anchored circular 2/3 words count n/k*C(k,a) configurations, each has degree twice number r of alternating run-pairs, giving multiplicity n/r*C(a-1,r-1)C(b-1,r-1) and edges n*C(k-2,a-1) from Vandermonde. Adjacent gap swaps while fixing one token then shifting token by 1 proves each mixed sector connected. Pure n=2k,3k sectors have exactly 2,3 isolates. Sum yields component and global coefficient formulas. Independent all-subsets exchange graph brute force n=4..14 corroborates exact distributions and components; source independent gap verifier also inspected, but finite tests do not replace the all-n proof. Five Git tree identities independently reconstructed.
 
-**Limitations.** Results are exact for cycles and local exchanges; they do not determine diameters or extend to general graphs. The audit is a scholarly self-review, not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct combined claim survives comparison with actual relevant sources; precisely prior components are credited, and inaccessible or possibly dominating material is named as a priority risk, not treated as proof of noncoverage. The all-k connectivity, pure sector count, and unbounded degree spectrum are not direct corollaries of the stated prior minimum-only theorems.
+
+## value
+
+PASS
+
+The exact all-cardinality component classification and complete degree distribution are natural invariants of the reconfiguration graph of maximal independent sets, including nonminimal sectors with unbounded local degrees. This substantially extends the minimum-cardinality-only i-graphs description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
