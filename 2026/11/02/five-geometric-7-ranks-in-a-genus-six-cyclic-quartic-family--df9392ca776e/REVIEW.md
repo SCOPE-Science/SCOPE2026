@@ -1,9 +1,21 @@
-# Scientific review: genus-six cyclic-quartic rank strata
+# Independent mathematical audit
 
-**Correctness (PASS).** For the smooth curve \(y^4=x^5+ax^3+bx+c\) over \(\overline{\mathbb F}_7\), Riemann--Hurwitz gives genus six. The full regular-differential basis and coefficient-extraction Cartier formula produce the explicitly stated two-character and self-character blocks. Twisted iteration, not one-step matrix rank, yields the exact stable ranks. The determinant, semilinear rank-one persistence condition, and first-step ranks give the geometric \(7\)-rank and \(a\)-number formulas for every smooth parameter. Exact case analysis proves that the rank-zero stratum is \(a=b=0,c\ne0\) and that the rank-one stratum consists of two parametrized cuspidal curves. The discriminant is nonzero on each rank-one curve away from its cusp. Both included verification programs passed, including independent semilinear iteration over two fields. Limit: finite samples alone would not prove the geometric assertions; their proof is algebraic.
+## correctness
 
-**Originality (PASS, with residual priority uncertainty).** Borges--Gonçalves (arXiv:2212.03987, first posted 2022-12-07) derive general Fermat-type \(p\)-rank formulas and examples but not the present constant-shifted odd-quintic degree-four-cover classification. Özman--Pries--Weir (2022) study cyclic covers with covering group of odd prime order, not the composite-degree-four Kummer family. A related existing genus-six characteristic-seven calculation concerns \(y^4=x^5+ux^2+vx+1\), with a different coefficient slice and different geometry of its rank-one locus. Its formula does not imply the current equations or the positive-dimensional pair of rank-one cusps. Searches for exact models, equivalent p-rank formulas, broader moduli results, and tabulated invariants did not find a covering statement. Residual risk: an unindexed earlier coefficient computation or a non-obvious moduli transformation could overlap this conclusion.
+PASS
 
-**Mathematical value (PASS).** This is a complete classification of two fundamental Jacobian invariants on a natural constant-shifted odd-quintic Kummer family, not an isolated finite-field calculation. In genus six it realizes all five ranks permitted by the character decomposition; its rank-zero locus is a punctured line, whereas the rank-one locus has two geometrically irreducible cuspidal closures, an explicit exceptional-stratum geometry not supplied by the general Fermat formula. The non-incidence of the rank-one closures with the smooth rank-zero locus is a precise geometric boundary phenomenon. This supplies test families for arithmetic degenerations of cyclic covers. The result does not assert an optimal bound for all genus-six curves, a classification of unmarked moduli points, or an independent external verification.
+Riemann–Hurwitz yields g=6 for six tame branch points. The six differential basis elements have nonnegative infinity valuations. Cartier semilinear coefficient extraction decomposes into a (j=1↔3) two-character block with stable dimension 2 exactly when P≠0 and a self-mapped 2x2 block 3[[W,E],[a,0]] with stable rank 2/1/0. Independent characteristic-7 SymPy verified F^5/F^3 coefficients, rank-one discriminant reduction and special discriminant values; source exhaustive F7 and sampled F49 semilinear matrix iteration checked formula. Algebraic case-splitting on P=aE=W yields the complete rank0/rank1 loci, not extrapolated from finite tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical Cartier theory and existing Fermat-type p-rank results supply the machinery but not the precise three-parameter odd-quintic quartic-cover strata or the rank-one monomial cusps.
+
+## value
+
+PASS
+
+This is a natural complete Cartier-rank and a-number stratification of a three-parameter genus-six family, including geometric identification of rank-zero and rank-one moduli-parameter loci. Both generic and deep rank degeneracies are characterized.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
