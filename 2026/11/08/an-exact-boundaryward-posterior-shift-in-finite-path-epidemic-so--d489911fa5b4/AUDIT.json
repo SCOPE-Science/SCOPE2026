@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Independent left/right rate-lambda infection frontiers give the exact Poisson-tail snapshot likelihood. A gamma-CDF integral and exponential-tilt variance establish strict age decline of every adjacent likelihood ratio; this yields strict posterior MLR ordering for any positive prior. An elementary Poisson upper-tail hazard argument establishes strict spatial log-concavity, leading to exactly one crossing for each s<k/2 and their strict ordering. The limiting ratios and equality cases were checked. Direct finite-state uniformization in verify.py independently agrees with the formula for all tested path states and ages (4137 diagnostics in total). Finite diagnostics are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1304.0018 proposes a general likelihood simulation framework",
+        "arXiv:1906.03052 proposes a general Bayes/likelihood dynamic program for first reaching an infected set before leaving it",
+        "Chinese Physics B 31 (2022) 070203 studies observation-time effects in discrete SIR simulations"
+      ],
+      "reasoning": "Generality of a model or an algorithm is not equivalent to having proved this theorem. The 2013 article is computational and discrete-time; the 2019 event-order likelihood eliminates calendar time and thus cannot by itself imply strict monotone changes with time; the 2022 simulation work neither uses the same process nor provides the asserted exact classification.",
+      "searches": [
+        "epidemic source detection path networks SI time horizon likelihood source Poisson boundary infected prefix",
+        "infection source localization path graph snapshot observation time posterior source boundary infection time SI likelihood monotonic source",
+        "known observation time rumor source SI source estimation path graph"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0909.4370",
+      "https://arxiv.org/abs/1110.6230",
+      "https://arxiv.org/abs/1304.0018",
+      "https://arxiv.org/abs/1906.03052",
+      "https://doi.org/10.1088/1674-1056/ac5985"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0909.4370 line-Poisson calculation concerns correct detection with a rumor-center estimator, not posterior comparison at fixed observed prefix for changing known age",
+        "arXiv:1906.03052 equations (1)–(4) define a time-independent hitting-order probability, versus this result’s fixed-time likelihood of observing a particular infected subset",
+        "arXiv:1304.0018 uses sampled likelihood values for arbitrary networks and lacks an analytical log-concavity/threshold theorem"
+      ],
+      "reasoning": "A theorem calculating unordered path infection order, a general simulation method, or posterior inference at unknown age does not logically imply a strict fixed-age MLR inequality and exactly ordered MAP crossings. The distinction is a change in the observation sigma-field: an exact-age state event is not the same event as reaching the set first or conditioning only on the infection order.",
+      "searches": [
+        "rumor centrality path graph SI observation time likelihood boundary",
+        "infection source path observation time SI exact likelihood",
+        "source localization susceptible infected fixed observation time graph path likelihood rumor center shifts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0909.4370 derives two independent Poisson fronts on an unbounded line in its source-detection calculation; arXiv:1110.6230 models source detection without a known age",
+        "arXiv:1304.0018 defines observation-age-conditioned source likelihoods but estimates them by simulation"
+      ],
+      "reasoning": "Equivalent formulations include conditionally inferring a source from an infected path prefix using independent Poisson fronts, Erlang first-passage tails, monotone-likelihood-ratio posterior ordering, and ordered age thresholds. Although these are mathematically related to classic rumor centrality, no inspected statement proves the exact all-age posterior order with a physical finite-path boundary.",
+      "searches": [
+        "SI epidemic source localization finite path known snapshot age Poisson frontier likelihood",
+        "rumor source age path finite network",
+        "Bayesian epidemic source inference in SI path graph finite boundary observed infected prefix time likelihood Poisson tails monotone likelihood ratio MAP sequential thresholds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant primary works and their theorem/algorithm sections were compared rather than relying on search absence",
+        "The nearest published search summaries concerned deterministic SEIR parameter identifiability or epidemic extinction and did not contain a finite-path source-inference claim"
+      ],
+      "reasoning": "No exact threshold table or matching record was observed for the Poisson-tail equation or ordered MAP transitions. This is an evidence-limited database comparison, not a certificate of uniqueness or proof that all possible sources were indexed.",
+      "searches": [
+        "epidemic rumour origin posterior monotone likelihood ratio path segment conditioned infected prefix source shifts toward boundary as time increases",
+        "SI epidemic source localization known observation time partial infected interval on a finite path boundary endpoint maximum posterior likelihood decreases with observation time",
+        "finite line source infected time SI likelihood origin epidemic"
+      ]
+    },
+    "rationale": "Compared implications of the exact finite-path fixed-age posterior order and MAP staircase against primary SI source-inference works. The oldest authors derive Poisson path fronts, but not an age-indexed finite-boundary posterior theorem; the most relevant general inference framework uses simulation, and the exact general recursion paper optimizes a time-independent first-reached-before-outside event. Searches of closely related aliases and other published research did not uncover a dominating equivalent statement. Priority is provisional, with explicit residual risks, not certified.",
+    "residual_risks": [
+      "Historical priority cannot be globally established by indexed search and the accessed subset of source-inference literature.",
+      "A non-indexed finite-network Bayes-inference note or a theorem about gamma first-passage ratios might subsume a portion of the result.",
+      "Exponential-front independence and Poisson-tail monotonicity are classical; the proposed value and originality specifically attach to their full finite-path source-inference consequence, not to these ingredients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not assert age-indexed finite-path known-boundary posterior stochastic order or the complete threshold staircase. Poisson fronts alone are supporting precedent, not the claimed inference classification.",
+        "evidence": [
+          "arXiv:0909.4370, equations for permitted infection paths, line-graph calculation and rumor-centrality estimation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0909.4370",
+        "material_read": "Abstract and introduction, model and likelihood derivation on pages 4–7, and the two-Poisson-process line-graph detection calculation around page 24",
+        "method": "Read searchable full-text passages and visually checked pages from the open arXiv PDF",
+        "title": "Rumors in a Network: Who's the Culprit?",
+        "trigger": "Seminal SI source detection, regular path and independent Poisson-front argument"
+      },
+      {
+        "assessment": "Specifically assumes infection age unknown and studies rumor-centrality detection effectiveness; no universal fixed-observation-age posterior shift for a known finite-path boundary is stated.",
+        "evidence": [
+          "arXiv:1110.6230, model subsection 2.1 and summary of results"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1110.6230",
+        "material_read": "Abstract, model and problem statement (pages 1–5), summary of main theorems and dependence on unobserved age",
+        "method": "Read searchable full-text passages and visually checked the arXiv first page",
+        "title": "Finding Rumor Sources on Random Trees",
+        "trigger": "Potentially broader theorem for source inference with generic trees and infection times"
+      },
+      {
+        "assessment": "General simulation-based source ranking at known discrete-time threshold, not an exact continuous-time finite-path Poisson likelihood or a monotone posterior theorem; no dominating all-parameter result seen in inspected sections.",
+        "evidence": [
+          "arXiv:1304.0018, algorithm 1 and temporal-threshold definition; experimental and conclusion sections"
+        ],
+        "identifier_or_url": "https://fulir.irb.hr/512/1/IEEE.pdf",
+        "material_read": "Pages 1–5 on prior, inference and temporal threshold, pages 8–9 on likelihood approximation, pages 13–16 on network experiments, and page 20 conclusion",
+        "method": "Read accessible author-version full-text excerpts and visually checked PDF pages 1 and 4",
+        "title": "Statistical inference framework for source detection of contagion processes on arbitrary network structures",
+        "trigger": "Most direct older work allowing a known observation time in the source likelihood"
+      },
+      {
+        "assessment": "The likelihood is the probability of ever reaching an infected set before its complement, independent of age, rather than exact infected-set occupancy at a specified elapsed time. This difference prevents direct implication of the age-dependent likelihood ratio or MAP transitions.",
+        "evidence": [
+          "arXiv:1906.03052, definition (1), proposition 1 and time-invariance statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1906.03052",
+        "material_read": "Abstract, model, sections 2.1–2.2, exact-likelihood proposition in section 3 and discussion of rate/time invariance on pages 3–4",
+        "method": "Read arXiv full-text sections and visually checked pages 1, 3 and 4",
+        "title": "Approximate Identification of the Optimal Epidemic Source in Complex Networks",
+        "trigger": "Could dominate narrow SI-source findings via exact general likelihood recursions"
+      },
+      {
+        "assessment": "Studies partially observed discrete-time SIR and simulation-based source and start-time estimation on larger networks, not the exact homogeneous SI finite-path conditional posterior law or staircase.",
+        "evidence": [
+          "Chinese Physics B 31 (2022) 070203, abstract, methodology and conclusion"
+        ],
+        "identifier_or_url": "https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2022/1674-1056/cpb_31_7_070203.shtml",
+        "material_read": "HTML full-text introduction, model, numerical methods, experimental results and conclusions on time effects",
+        "method": "Read publisher full-text HTML",
+        "title": "Effect of observation time on source identification of diffusion in complex networks",
+        "trigger": "Direct study of the effect of snapshot age on epidemic source localization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d489911f-a5b4-4ca2-bbe8-e5d0813a19f4",
+  "value": {
+    "rationale": "The source of a localized infection is a natural inverse problem; knowledge of epidemic age and the fact that a surveyed infected prefix meets a physical boundary alter posterior localization. The all-prior MLR order and complete, size-independent uniform-prior MAP staircase give exact direction, number and location of posterior reversals, a genuine structural benchmark unavailable from an infected-count-only score or a numerical source ranking. It is not an isolated arbitrary parameter value or small finite enumeration, and the implications and idealized scope are explicitly bounded.",
+    "status": "PASS"
+  }
+}
