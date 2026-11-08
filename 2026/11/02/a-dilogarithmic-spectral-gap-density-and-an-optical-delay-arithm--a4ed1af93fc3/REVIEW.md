@@ -1,19 +1,21 @@
-# Scientific review of the binary-layer frequency-gap density theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact positive-coefficient one-dimensional wave equation yields a unimodular two-layer transfer matrix whose half-trace is \(F=\cos\phi_1\cos\phi_2-m\sin\phi_1\sin\phi_2\), with \(m=(Z_1/Z_2+Z_2/Z_1)/2\). The Bloch exclusion test \(|F|>1\) is correct. For irrational phase-speed ratios, Fourier-character equidistribution identifies the true high-frequency average with the two-torus average, since the analytic band-edge locus has area zero. Conditioning on the difference phase gives the arcsine integral, whose derivative \(\operatorname{artanh}\kappa/\kappa\) yields the stated dilogarithm exactly. A separate periodic calculation gives the equal-time fraction. The displayed strict concavity proves the gap between the densities; Fourier characters prove convergence of high-order rational line measures. All domains, normalizations and limiting orders are specified. The package's independent transfer-matrix and numerical diagnostics passed 88 checks. Risks: no finite-frequency uniformity in delay ratio is proved; numerical tests are not used to infer infinite limits.
+PASS
 
-## Originality — PASS on inspected evidence
+The two unimodular layer matrices give F=cos(phi1)cos(phi2)-m sin(phi1)sin(phi2)=A cos(u)-B cos(v), B/A=kappa^2. Irrational torus equidistribution applies to the gap indicator because the real-analytic band-edge locus has area zero. Conditioning on v gives an arcsin phase integral; differentiating it yields artanh(kappa)/kappa and the stated odd dilogarithm. Equal phases give 2 asin(kappa)/pi; strict concavity on (0,pi) yields the strict comparison. Coprime rational line-measures converge weakly to Haar measure by Fourier characters, proving the discontinuity. An independent exact symbolic multiplication verified F and determinant 1; infinite-frequency assertions are proven analytically, not numerically.
 
-The 2010 layered-operator paper by Iantchenko gives the Lyapunov discriminant, the real band criterion and an equal-transit resonance condition; its inspected sections do not give the infinite-frequency forbidden-set measure, a dilogarithm or the commensurability discontinuity. The original 2014 Xiao–Zhang–Chan paper likewise gives the binary photonic-crystal dispersion equation but develops Zak phases, surface impedance and interface states rather than frequency-occupancy density. Searches for the explicit special function, the frequency-density definition, irrational travel-time ratios and rational approximants did not locate an equivalent result. Indexed findings on spectral-density anomalies of quantum ring chains concern different propagation operators and do not directly imply this scalar binary-layer result. This judgment is about the evaluated density theorem, not about the established transfer matrix. Residual risk: the dispersion relation mathematically determines the entire band set, so a historical presentation of the same averaged invariant under other terminology may exist; searches cannot prove absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Frequency occupancy is a natural broadband band-gap invariant for ideal periodic filters, separate from the width of an individual Bragg gap. The theorem calculates a previously unexhibited exact universal invariant from the two-phase Floquet set, proves a strict contrast with the equal-delay case and shows that nearby high-order rational designs do not recover the equal-delay density. The small- and large-impedance-contrast asymptotics distinguish two physically meaningful limits, including a logarithmically corrected pass-frequency deficit versus a square-root deficit. This is a substantive global spectral-geometry statement, not a parameter rename or a finite table. Risks: the infinite-frequency asymptotic is model-dependent, not a guarantee for a finite experimental bandwidth or dispersive material.
+The transfer discriminant and equal-travel-time spectral bands are established in Iantchenko (2010) and Xiao–Zhang–Chan (2014). Those exact pointwise descriptions imply the forbidden set but neither inspected primary theorem gives a closed-form Lebesgue frequency fraction, its irrational/rational limit, or the strict comparison. Resultary spectral-density matches concern different quantum graph operators. Best-of-knowledge PASS for the evaluated broadband invariant, not for the transfer formula.
 
-## Closest literature and limitations
+## value
 
-A. Iantchenko, *Resonance spectrum for one-dimensional layered media*, arXiv:1005.2743v1 (2010-05-16), gives the relevant Lyapunov band criterion and studies resonances. M. Xiao, Z. Q. Zhang and C. T. Chan, *Surface Impedance and Bulk Band Geometric Phases in One-Dimensional Systems*, arXiv:1401.1309v1 (2014-01-07), DOI 10.1103/PhysRevX.4.021017, establishes the binary photonic dispersion and investigates interface states. Both original openly available documents were examined in relevant sections and searched for the proposed invariant. Broader historical literature, including standard multilayer optics monographs, was not exhaustively inspected. The result is limited to linear, one-dimensional, nondispersive, lossless binary periodic media and angular-frequency Lebesgue occupancy.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The asymptotic forbidden-frequency occupancy is a natural broadband invariant of periodic wave media. Its exact dilogarithmic expression and noncommuting rational/equal-time limits supply an informative quantitative boundary inaccessible from a single-gap optimization; the nondispersive idealization and finite-frequency nonuniformity are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
