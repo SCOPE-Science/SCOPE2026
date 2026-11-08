@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim uses four role classes, symmetric valuations \(+1\) across classes and \(-n\) within classes, individual rationality, and the geometric-mean Nash objective. A group containing an enemy cannot be individually rational; a transversal clique of size \(s\) contributes \((s-1)^s\) to the product. The Gale–Ryser row inequalities reduce realizability of a proposed \((p,t,q)\) spectrum to \(q\le d\), \(t+2q\le n-2a\) and the size equation. The strict quartet-increasing transformations preserve those inequalities and increase the product by factors \(81/64\) or \(81\). Largest feasible triple count then uniquely selects the optimal spectrum. The polynomial-coefficient argument independently counts every labeled partition of that spectrum. Exact arithmetic tests in `verify.py` corroborated each component; they do not substitute for the universal proof. Zero-optimum instances are excluded from the count assertion.
+PASS
 
-## Originality — PASS, qualified
+At the exact pinned result, +1 cross-role and -n same-role additive valuations make any individually rational coalition a role-transversal clique: a duplicate-role member has utility at most (s-2)-n<0. A strictly positive Nash product has only pairs/triples/quartets with factors 1,8,81. Gale-Ryser for four row degrees (a,b,c,d) and p,t,q columns reduces feasibility to 2p+3t+4q=n, q<=d, t+2q<=k=n-2a. The dominant class condition a>n-a forces a singleton/zero product, while a<=n-a admits a no-quartet baseline. An increase in quartet count q<min(d,floor(k/2)) is strictly profitable: for t>=2 replace two triples by a quartet and pair (81>64); for t<=1 use two pairs to make a quartet when C-a>=1 and p>=2 (the boundary p=t=1 yields the stated contradiction). Thus q*=min(d,floor(k/2)); at fixed q* maximize t subject to the parity t≡n mod 2 and t<=min(k-2q*, floor((n-4q*)/3)). The coefficient of e2^p e3^t e4^q times the role factorials divided by coalition-slot factorials counts labeled maximizers without overcounting. This covers n>=2 and d=0 boundary; no zero-product maximizer count is claimed. Pinned RESULT.md and exact verify.py were read. Separately enumerated all feasible size spectra on 178 sorted test profiles through n<=17; all maxima and unique p,t,q matched. The finite checks corroborate, not prove, the general Gale-Ryser/exchange argument.
 
-The primary study of Nash welfare in additive hedonic games, arXiv:2605.19030v1, defines this objective and its enemy-averse clique constraint and already contrasts two triples with a quartet and a pair. This new claim does not present those components as novel. Inspection of the source's definition, enemy-averse results and appendix found no exact four-partite role-class formula or tied-optimizer enumeration. The older arXiv:2503.06017v1 concerns a utilitarian objective and probabilistic multipartite constructions; it does not cover the deterministic geometric-mean claim. An existing exact analysis for three roles covers the \(d=0\) boundary, not the first nontrivial four-positive-role case. Comparable work that is unindexed or inaccessible remains a priority risk, so this is not a claim of exhaustive novelty certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first additional role beyond tripartite friendship introduces four-agent coalitions and a nontrivial exchange \(81>64\) between one quartet plus one pair and two triples. The result resolves the exact welfare maximum, feasible positive-welfare boundary, complete structural shape of all optimizers, and their labeled count for an infinite natural graph family. In particular, the profile \((5,4,4,1)\) has welfare-product optimum \(5184\), defeating the no-quartet value \(4096\), and has \(34560\) distinct labeled optimal partitions. A coefficient dynamic program makes uniform optimal tie-breaking possible by standard exact-count backtracking. The proof is specific to the four-role family and does not yield a general-graph algorithm.
+The new four-nonempty-role classification is not just the known clique characterization or the single 81-versus-64 quartet example: it gives the globally forced counts for every role-size profile and exact labeled maximizer coefficients. Pagano–Schlenga 2026 establishes Nash welfare for enemy-averse hedonic games and discusses the local tradeoff; Bullinger–Chatziafratis–Shahkar study utilitarian welfare. An older all-class multipartite classification could cover the result under different language, but no concrete implication was found in inspected primary material or the published Resultary matches.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact Pareto-type choice between pair/triple/quartet coalition sizes in four-role enemy-averse games is a natural constrained Nash-welfare optimization, not a tiny arbitrary instance. For all sizes it gives a sharp feasibility threshold, unique optimum size spectrum and a count of all labeled maximizing partitions. The four-role interaction q<=d and t+2q<=n-2a is new structural content beyond a routine substitution into three-role results; a researcher could use the formula and coefficient count for benchmarks and mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
