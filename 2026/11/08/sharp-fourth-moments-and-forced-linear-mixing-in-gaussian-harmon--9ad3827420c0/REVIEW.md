@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The Gaussian moment identity is obtained by orthogonal diagonalization, one-coordinate fourth moments, and independence. The critical sharp spectral fourth-power bound is proved by constrained Lagrange multipliers and second variation; the maximum is one-outlier except that the lower-dimensional zero-sum identities are handled directly. The directional eigenvalue bound follows by Cauchy--Schwarz. Exact scalar completion of the square gives the three-term deficit and the complete equality classification; for zero quadratic part the separate lower equality case is explicit. The standalone exact Gaussian integrator independently checks the moment expansion on non-diagonal matrices. The proof, not the finite experiments, covers every dimension.
+
+## Originality — PASS, with residual risk
+Primary-source comparison distinguishes (i) Riener's symmetric polynomial reduction, (ii) Sharma et al.'s bounded-distribution central-moment inequalities, (iii) Pang's full-space pure Gaussian quadratic moments, and (iv) the published real zero-sum fourth-power lemma. None of the inspected statements supplies the sharp mixed harmonic Gaussian norm or the positive forced energy ratio for the linear part. The zero-sum lemma and Gaussian moment formulas are known ingredients, so the new assertion lies in their joint sharp mixed-chaos optimization and rigid exact remainder; novelty is not claimed for each ingredient. Whittle's older general linear/quadratic moment paper remains inaccessible in full and might contain a sharper relevant specialization, though the abstract advertises general bounds rather than a dimension-specific trace-free equality classification. Search failure alone is not treated as novelty proof.
+
+## Mathematical value — PASS
+The space is the canonical orthogonal sum of the first Gaussian chaos and the trace-free (harmonic) part of the second. Hypercontractive estimates do not determine its exact \(L^2\)-to-\(L^4\) norm or extremizers. The theorem gives an explicit dimension-uniform sharp constant, the non-obvious fact that mixing is mandatory at the maximum in every dimension at least three, the exact energy fraction and alignment, and three independent nonnegative quantitative deficits. This natural mixed-degree phenomenon is not a selected arbitrary polynomial slice, and the result is a complete norm classification rather than a numerical constant alone.
+
+## Closest literature and limitations
+The closest established spectral lemma is in *Exact complex Euclidean distortion of zero-sum \(\ell_4\) hyperplanes*, and the closest Gaussian moment comparison is Pang, arXiv:2609.05914, which restricts to pure quadratic forms. Related historical estimates include Sharma et al., arXiv:1503.03786, and Whittle (1960). See the structured scientific comparison in AUDIT.json. The finding is restricted to real Gaussian measure, degree one plus trace-free degree two, and fourth moments.
+
+Self-review: passed. Independent audit: not yet performed.
