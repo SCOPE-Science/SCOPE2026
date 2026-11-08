@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T09:13:28Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md exact beta ratio, diagonal k-step commutator, automorphism integral, Gamma/Gauss identity and normalization",
+        "Independent gamma/product weight calculations for k=1,2,6, tau=0,.9,1.5,3 at multiple indices, verifying tail monotonicity regimes and limits"
+      ],
+      "rationale": "For the normalized Bergman monomial basis, angular orthogonality plus a beta integral produce a k-step weighted shift with squared weights (n+1)/(n+k+1) times product j²/(j²+τ²) through j=n+k+1. The exact adjacent ratio shows weights are increasing iff τ²<=k; when τ²>k they are eventually decreasing so k-step self-commutator is negative in the tail. The limit weight equals |Gamma(1+iτ)|, gives essential norm via compact perturbation of constant shift, and monotonic or tail-above-limit behavior yields operator norm equality exactly in the hyponormal regime. Kernel automorphism transfers the Berezin integral to disk area; dominated convergence and Gauss hypergeometric identity give Gamma(1+iτ)Gamma(2-iτ). Its modulus / essential norm is sqrt(1+τ²)|Gamma(1+iτ)|, an Euler product strictly <1 for τ!=0; Stirling/sinh asymptotics yield sqrt(2pi) k^(3/4) exp(-pi sqrt(k)/2) at τ=sqrt(k). Claims pertain only to boundary Berezin, not global Berezin number.",
+      "residual_risks": [
+        "Kernel limit and Gauss summation rely on standard analytic identities, not the finite convergence tests.",
+        "No global Berezin-number lower bound is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing general hyponormal criteria apply to other Toeplitz symbols or weighted shifts, without the evaluated τ²=k boundary-Berezin joint theorem."
+        ],
+        "reasoning": "General shift monotonicity is classical; the substantive combination is its exact explicit phase curve and vanishing boundary-Berezin ratio within hyponormal operators.",
+        "searches": [
+          "Le–Simanek arXiv:2003.07330 hyponormal Toeplitz weighted Bergman",
+          "Kim–Lee 2022 DOI:10.1007/s43034-022-00241-1"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and phase_toeplitz_check.py",
+        "Sam Looi arXiv:2603.10879",
+        "Trieu Le and Brian Simanek arXiv:2003.07330",
+        "Resultary oscillatory Bergman Toeplitz semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known radial oscillation and quasihomogeneous weighted-shift methods supply separate ingredients."
+        ],
+        "reasoning": "A derivation must still show k-step self-commutator threshold, norm/essential-norm equivalence and the boundary limit together; the inspected cited statements do not directly imply this entire claim.",
+        "searches": [
+          "Looi arXiv:2603.10879 Sections 3.1–3.3",
+          "Classical beta-integral/quasihomogeneous Toeplitz shift theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Looi's radial real oscillatory Bergman symbols also show a diagonal/Berezin attenuation, a mechanism fully anticipated in earlier work."
+        ],
+        "reasoning": "Gamma attenuation for oscillatory symbols is NOT itself original. The nonradial k-step family and sharp τ²=k hyponormal/norm transition were not stated by the inspected radial construction.",
+        "searches": [
+          "Resultary: Hyponormal Toeplitz Bergman quasihomogeneous symbol z^k (1-|z|^2)^{it} weighted shift Berezin boundary attenuation",
+          "Sam Looi arXiv:2603.10879 Sections 3.1–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved Resultary hits concerned Bergman kernel and unrelated weighted-shift spectra; none supplied a (k,τ) phase diagram or Gamma attenuation table."
+        ],
+        "reasoning": "No exact existing table of the entire oscillatory symbol family was identified; negative search alone is not proof of priority.",
+        "searches": [
+          "Resultary search oscillatory Toeplitz Berezin attenuation",
+          "Le–Simanek 2020 Toeplitz hyponormality"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the full theorem, not just its title: Gamma attenuation for oscillatory symbols is NOT itself original. The nonradial k-step family and sharp τ²=k hyponormal/norm transition were not stated by the inspected radial construction. A derivation must still show k-step self-commutator threshold, norm/essential-norm equivalence and the boundary limit together; the inspected cited statements do not directly imply this entire claim.",
+      "residual_risks": [
+        "Specialized literature on quasihomogeneous Toeplitz phase symbols may already imply the exact τ²=k criterion.",
+        "Boundary kernel attenuation has direct prior art; no novelty is claimed for that submechanism alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong mechanism prior art; their real radial symbols do not establish this k-step hyponormal phase transition",
+          "evidence": "Radial symbols, attenuation in Sections 3.1–3.3",
+          "identifier_or_url": "https://arxiv.org/abs/2603.10879",
+          "material_read": "Full-text Sections 3.1–3.3, Propositions 3.3–3.4 and Remark 3.7",
+          "method": "Read accessible full arXiv text of the pertinent sections",
+          "title": "The Berezin liminf criterion fails for radial Toeplitz operators",
+          "trigger": "Highly relevant gamma-type boundary attenuation for oscillatory Bergman symbols"
+        },
+        {
+          "assessment": "Cannot claim a whole-document novelty exclusion; residual risk retained",
+          "evidence": "Scope of Toeplitz hyponormality",
+          "identifier_or_url": "https://arxiv.org/abs/2003.07330",
+          "material_read": "Abstract and cited setting, not all full text",
+          "method": "Source-level scope check",
+          "title": "Hyponormal Toeplitz Operators on Weighted Bergman Spaces",
+          "trigger": "Broader hyponormal weighted shift theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All integer k>=1 and all real tau; critical curve tau²=k",
+        "Boundary Berezin/essential norm tends to zero while operators remain hyponormal"
+      ],
+      "rationale": "A sharp, explicit k–τ operator-theoretic phase boundary with norm equality and an extreme boundary-Berezin counterexample inside the hyponormal class is a motivated structural phenomenon, beyond simply evaluating another gamma integral.",
+      "residual_risks": [
+        "Specialization to unweighted one-variable Bergman disk and a complex unimodular radial phase."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and phase_toeplitz_check.py",
+    "Sam Looi arXiv:2603.10879",
+    "Trieu Le and Brian Simanek arXiv:2003.07330",
+    "Resultary oscillatory Bergman Toeplitz semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Kernel limit and Gauss summation rely on standard analytic identities, not the finite convergence tests.",
+    "No global Berezin-number lower bound is claimed.",
+    "Specialized literature on quasihomogeneous Toeplitz phase symbols may already imply the exact τ²=k criterion.",
+    "Boundary kernel attenuation has direct prior art; no novelty is claimed for that submechanism alone.",
+    "Specialization to unweighted one-variable Bergman disk and a complex unimodular radial phase."
+  ],
+  "residual_risks": [
+    "Specialized literature on quasihomogeneous Toeplitz phase symbols may already imply the exact τ²=k criterion.",
+    "Boundary kernel attenuation has direct prior art; no novelty is claimed for that submechanism alone.",
+    "Kernel limit and Gauss summation rely on standard analytic identities, not the finite convergence tests.",
+    "No global Berezin-number lower bound is claimed."
+  ],
+  "schema_version": 1
+}
