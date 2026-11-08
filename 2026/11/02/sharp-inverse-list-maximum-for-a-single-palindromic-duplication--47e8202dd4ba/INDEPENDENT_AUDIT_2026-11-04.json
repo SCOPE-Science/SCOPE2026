@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Inspected exact channel definition, parent D_i(y)=y[:i+k]+y[i+2k:], and exact collision criterion D_i=D_j iff y_t=y_{t+k} for all i+k<=t<j+k. Two overlapping even palindromes at separation s impose period 2s in the overlap; s=1 forces constant overlap via central adjacency, and s>=2 with 2s|k forces the entire parent-comparison interval k-shift equal. Therefore distinct representative starts have spacing >=s_k in [0,m-2k], giving universal upper bound. For d=s_k the binary period-2d word with marked positions k-1,k has feasible palindrome starts every d; direct mismatch in the comparison interval between any consecutive distinguished starts makes all resulting parents pairwise distinct. Edge m=2k gives exactly one; k=1,2,3 give d=2, k=4 gives d=3, k=12 gives 4, k=24 gives 5. An independently implemented direct inverse enumeration verified binary short-word cases k=1..8 and hundreds of periodic witnesses; finite checks corroborate but never replace the all-parameter reflection proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General zero-column-run upper bound and exact k<=2 special cases are prior.",
+          "Coding capacity and redundancy theorems give different extremal parameters; not direct upper/lower bounds sharp in this precise received-word inverse-list metric."
+        ],
+        "reasoning": "All-block-length formula is not a mechanical specialization of known fixed-k formulas; possible hidden general statement in earlier framework remains a stated risk.",
+        "searches": [
+          "Lenz–Wachter-Zeh–Yaakobi arXiv:1707.00052 and arXiv:1712.09345",
+          "Yohananov–Schwartz arXiv:2312.00394",
+          "Sun–Ge arXiv:2602.01151"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1712.09345",
+        "https://arxiv.org/abs/1707.00052",
+        "https://arxiv.org/abs/2312.00394"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing zero-column machinery explains local collision; no inspected theorem forces the sharp global spacing s_k and all-k binary attainment.",
+          "Capacity and code optimum quantifiers differ from max_y number of distinct one-step parents."
+        ],
+        "reasoning": "The final claim isolates exact-one inverse list, exceeds the already-known k=1,2 special cases, and does not inflate to general channel capacity.",
+        "searches": [
+          "Lenz et al 2017 duplication sphere lemmas 14–15 and Appendix B",
+          "Yohananov–Schwartz 2023 coding capacity",
+          "Sun–Ge 2026 palindromic code bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inverse parents correspond to palindromic deletion spheres; equivalent edit-starts are zero-column/equality runs in palindrome test matrices.",
+          "The inspected paper treats these collision encodings, so the equivalence was explicitly checked; arithmetic all-k spacing sharpness was not found as a stated implication."
+        ],
+        "reasoning": "Compared deletion spheres, reverse-duplication, zero-column matrix and list-decoding terminology; distinguishes reverse complement, tandem, and two-error channels.",
+        "searches": [
+          "Resultary: palindromic duplication inverse list maximum k all block lengths arithmetic spacing minimal 2s not divides k",
+          "Lenz et al arXiv:1712.09345 Lemma 15, Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a noisy tandem-duplication inverse degree, and palindromic two-error code sizes, both different channels or quantities.",
+          "Older exact k=1,2 tables cannot imply the all-k arithmetic threshold for k divisible by 4,12,24."
+        ],
+        "reasoning": "No checked exact table dominates all parameters; negative search does not prove novelty.",
+        "searches": [
+          "Resultary semantic query of exact-one palindromic inverse degree and 2s divisibility",
+          "Lenz et al Lemma 14 small-block table"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge. Lenz, Wachter-Zeh and Yaakobi 2017 give palindromic deletion-sphere sizes for small k and a general zero-column-run upper bound, including adjacency equivalences. These statements do not explicitly contain the sharp all-k worst-case inverse list or the arithmetic suppression at every offset 2s|k with a matching binary construction. Yohananov–Schwartz and Sun–Ge study capacity/code redundancy rather than this exact-one received-word list extremum; recent multiple-error studies address different quantifiers. The prior small-k special cases are acknowledged, and possible general zero-column theorem specialized to same result remains a risk.",
+      "residual_risks": [
+        "The complete 2026 multiple-duplication paper arXiv:2609.00779 was not read in full; different error count described but priority uncertainty remains.",
+        "A stronger pre-existing zero-column-run bound could imply the formula after an unrecognized reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known small-k exact formulas and general zero-column runs; no identified all-k sharp arithmetic s_k formula",
+          "evidence": "Lemma 14 (special k), Lemma 15 (bounds), Appendix B",
+          "identifier_or_url": "https://arxiv.org/abs/1712.09345",
+          "material_read": "Primary PDF Lemmas 14,15 and Appendix B, with surrounding deletion-sphere discussion",
+          "method": "Primary PDF pages and corresponding text read",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "Closest exact inverse deletion sphere and collision bound"
+        },
+        {
+          "assessment": "Provides background and partial bound but not inspected sharp all-k exact inverse-list maximum",
+          "evidence": "2017 Lenz–Wachter-Zeh–Yaakobi sections and appendix",
+          "identifier_or_url": "https://arxiv.org/abs/1707.00052",
+          "material_read": "Primary PDF relevant sphere-size section, Lemma 6 and Appendix 0.A",
+          "method": "Primary PDF sections read",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Original palindromic-duplication sphere framework"
+        },
+        {
+          "assessment": "Asymptotic multi-error code capacity rather than max distinct one-error parents",
+          "evidence": "2023 coding capacity results",
+          "identifier_or_url": "https://arxiv.org/abs/2312.00394",
+          "material_read": "Accessible full arXiv relevant channel definitions, motivation and coding capacity material",
+          "method": "Relevant primary preprint content read",
+          "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+          "trigger": "Possible broader same-channel bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The maximum number of distinct parents of a received palindromic-duplication read is a canonical one-step list-decoding ambiguity invariant. An exact sharp formula for all k, q, m, with an explicit binary extremizer and nontrivial divisibility-sensitive spacing, provides a natural complete infinite-family result. It is not a code size or channel capacity claim and is not implied merely by known adjacent-position collisions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1712.09345",
+    "https://arxiv.org/abs/1707.00052",
+    "https://arxiv.org/abs/2312.00394"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any alphabet q>=2, k>=1, received length m>=2k under exactly one length-k block duplication with reversal, max distinct inverse parents is 1+floor((m-2k)/s_k), s_k=min{s>=2:2s does not divide k}; binary period-2s_k received words attain the maximum for every q.",
+  "limitations": [
+    "Exactly one fixed-length palindromic (reverse not reverse-complement) duplication; m>=2k, q>=2.",
+    "Maximum of distinct inverse sources, not number of positions, forward descendants, or code capacity."
+  ],
+  "residual_risks": [
+    "The complete 2026 multiple-duplication paper arXiv:2609.00779 was not read in full; different error count described but priority uncertainty remains.",
+    "A stronger pre-existing zero-column-run bound could imply the formula after an unrecognized reduction."
+  ],
+  "schema_version": 1
+}

@@ -1,31 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The inverse list is precisely the set of distinct parents at even-palindrome starts. Parent equality for starts \(i<j\) is equivalent to \(y_t=y_{t+k}\) for all \(i+k\le t<j+k\). Composition of the two local palindrome reflections gives period \(2s\) on their union. Adjacent starts collapse because the central equality bridges parity; starts at distance \(s\ge2\) with \(2s\mid k\) collapse because the period spans the full parent-comparison interval. Representatives of different parents are thus separated by \(s_k\). A period-\(2s_k\) two-symbol witness places a pair of adjacent marked residues at the palindrome center; selected starts every \(s_k\) are feasible and yield distinct parents by an explicit symbol-mismatch test. The bounds meet for all \(k,m,q\) in the stated domain. The finite verifier independently tests the channel, collision rule and witness, but does not substitute for proof.
+PASS
 
-## Originality (O): PASS, with specified bibliographic risk
+PASS. Inspected exact channel definition, parent D_i(y)=y[:i+k]+y[i+2k:], and exact collision criterion D_i=D_j iff y_t=y_{t+k} for all i+k<=t<j+k. Two overlapping even palindromes at separation s impose period 2s in the overlap; s=1 forces constant overlap via central adjacency, and s>=2 with 2s|k forces the entire parent-comparison interval k-shift equal. Therefore distinct representative starts have spacing >=s_k in [0,m-2k], giving universal upper bound. For d=s_k the binary period-2d word with marked positions k-1,k has feasible palindrome starts every d; direct mismatch in the comparison interval between any consecutive distinguished starts makes all resulting parents pairwise distinct. Edge m=2k gives exactly one; k=1,2,3 give d=2, k=4 gives d=3, k=12 gives 4, k=24 gives 5. An independently implemented direct inverse enumeration verified binary short-word cases k=1..8 and hundreds of periodic witnesses; finite checks corroborate but never replace the all-parameter reflection proof.
 
-The closest primary source is Lenz–Wachter-Zeh–Yaakobi [1,2]. Its zero-column-run upper bound for palindromic deletion spheres and exact formulas for small block lengths are strictly less specific than a sharp all-length worst-case bound. The present proof adds an arithmetic exclusion of *nonadjacent* palindrome starts at every separation satisfying \(2s\mid k\), and a matching periodic construction. Those ingredients yield the exact maximum for all \(k\), not merely a new presentation of the small-length results. Yohananov–Schwartz [3] and Sun–Ge [4] address code capacity or constructions rather than this inverse-sphere extremum. The 2026 multiple-error abstract [5] describes forward descendants after two operations. Search failures alone are not proof of uniqueness: a hidden specialization of earlier structural theory and the unavailable complete [5] text remain explicit risks.
+## originality
 
-## Value (V): PASS
+PASS
 
-The exact worst-case inverse-list size governs the ambiguity of one palindromic DNA-duplication read before any code restriction. Its sharp, length-uniform value and binary witness are mathematically natural; the divisibility-dependent spacing \(s_k\) reveals an essential structural obstruction invisible to the simple adjacent-position bound. This is a complete infinite-parameter extremal classification with direct significance for list-decoding feasibility, without pretending to establish an optimal code size.
+PASS, best-of-knowledge. Lenz, Wachter-Zeh and Yaakobi 2017 give palindromic deletion-sphere sizes for small k and a general zero-column-run upper bound, including adjacency equivalences. These statements do not explicitly contain the sharp all-k worst-case inverse list or the arithmetic suppression at every offset 2s|k with a matching binary construction. Yohananov–Schwartz and Sun–Ge study capacity/code redundancy rather than this exact-one received-word list extremum; recent multiple-error studies address different quantifiers. The prior small-k special cases are acknowledged, and possible general zero-column theorem specialized to same result remains a risk.
 
-## Literature, verification and limits
+## value
 
-Primary full materials read: [1] arXiv:1707.00052, sphere-size section, Lemma 6, Appendix 0.A; [2] arXiv:1712.09345, Lemmas 14–15, Appendix B; [3] arXiv:2312.00394, motivation, channel definitions and coding-capacity results; [4] arXiv:2602.01151, abstract and code-bound section. The abstract of [5] arXiv:2609.00779 was checked, but its complete text was unavailable. The standalone checker enumerates 832,346 short received words and many periodic and randomized instances. The result is restricted to exactly one duplication with prescribed length. No independent scientific audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The maximum number of distinct parents of a received palindromic-duplication read is a canonical one-step list-decoding ambiguity invariant. An exact sharp formula for all k, q, m, with an explicit binary extremizer and nontrivial divisibility-sensitive spacing, provides a natural complete infinite-family result. It is not a code size or channel capacity claim and is not implied merely by known adjacent-position collisions.
 
-## References
-
-[1] https://arxiv.org/abs/1707.00052
-
-[2] https://arxiv.org/abs/1712.09345
-
-[3] https://arxiv.org/abs/2312.00394
-
-[4] https://arxiv.org/abs/2602.01151
-
-[5] https://arxiv.org/abs/2609.00779
+The dated certificate retains the supplied scientific assessment, sources and limitations.
