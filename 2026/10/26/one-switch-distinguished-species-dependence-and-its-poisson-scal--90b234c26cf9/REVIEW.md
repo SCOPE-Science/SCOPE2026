@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For every fixed \(r\ge2\), \(n\ge2\), and positive probability profile \(t\), conditional multinomial sampling yields the exact formula \(\operatorname{Cov}(B,K)=s^n F(s)\). The polynomial \(F\) is strictly concave on \((0,1)\), satisfies \(F(0)<0\), \(F(1)=0\), and \(F\prime(1)<0\), and hence has precisely one interior root, with strict signs. Uniform compact-parameter expansions of \((1-xt_i/n)^n\) and \(H\prime(z)>0\) establish the sharp \(O_t(n^{-3})\) remainder for the two-term critical probability. The conditional stochastic-order obstruction follows from strict conditional mean ordering and the attainable \(r+1\) support point when \(n\ge r+1\). Exact independent enumeration passes 48 rational cases, with numerical asymptotics auxiliary rather than infinite proofs.
+PASS
 
-## Originality (O): PASS, with residual priority risk
+With B=1-1_{no *} and P(no *)=s^n, Cov(B,K)=s^n[E K-E(K|no *)] holds. Conditional residual observations are iid t and give F(s)=1-s^n+sum((1-t_i)^n-(1-st_i)^n). Its second derivative equals -n(n-1)[s^{n-2}+sum t_i^2(1-st_i)^{n-2}]<0. F(0)=1-E_t K_n<0 for n>=2 and r>=2 positive t; F(1)=0; F′(1)<0. Strict concavity produces exactly one interior zero, with signs negative then positive. The limit H(x)=1-sum exp(-xt_i) has a unique positive root and positive derivative, so the O(1/n) Taylor correction in F(x/n) gives the stated negative second coefficient and O_t(n^-3) in sigma. For n>=r+1 and s<sigma, the conditional mean of K given B=1 is smaller than when B=0; yet K=r+1 has positive probability given B=1 and is impossible given B=0. Thus neither conditional law FOSD-dominates. Independently enumerated 76 exact rational cases (4 profiles, n=2..6 or 5, 4 s choices), also checked sigma_2=1/3, and ran 4 high-precision root profiles at n=100,500,2000 confirming the second-order coefficient. No finite test substituted for the analytic all-parameter argument.
 
-The raw row-sum covariance is already logically encompassed by the published occupancy-indicator covariance matrix and is explicitly not claimed as independently novel. Read primary source and closest full results; no inspected theorem states the unique heterogeneous distinguished-species concentration switch, sharp two-term critical probability, and conditional stochastic-order obstruction. This is a claim-versus-implication evaluation, not a failed-title-search novelty assertion. Unindexed classical finite-urn equivalents remain possible.
+## originality
 
-The closest published raw covariance matrix already implies the row-sum identity; only the strict heterogeneous parameter-switch theorem, its Poisson-scale two-term boundary and conditional stochastic-order phase are assessed as contributions. The 2021 source studies estimator risk and Fisher information; the 2026 frequency-spectrum switch is a different axis of variation. Hidden historical equivalents remain possible, and independent priority assessment has not been performed.
+PASS
 
-## Value (V): PASS
+Best-knowledge PASS for the global unique concentration-path sign transition, its fixed-profile Poisson-scale second coefficient and the conditional first-order stochastic-incomparability regime. Prior occupied-box indicator covariance identities already imply the raw finite Cov(B,K) expression, which is not a new identity. Their pairwise anti-correlation and positive inverse do not mathematically force the row-sum sign or its unique parameter switch. The published equal-box richness--frequency-count switch changes a frequency index instead of distinguished-cell mass. Bogachev--Gnedin--Yakubovich 2006 supplies the cross terms in the variance of the occupied-box count and pursues infinite-box asymptotics, not the present finite-species one-parameter threshold. Complete arXiv 2022 missing-mass paper studies estimator risk, Fisher scoring and bounds, not this conditional covariance. A highly relevant 2009 ecological occurrence/richness study remains full-text inaccessible: its spatial site-incidence design is distinguishable in abstract but the whole-document priority implication is not ruled out. Searches did not expose exact prior dominating theorem; remaining risk is explicitly preserved.
 
-The covariance of a specific species presence with total observed richness is a natural interpretable indicator of competing dominant-species inclusion and community coverage. Its sign need not follow from negative pairwise occupancy dependence. The theorem gives the full unique sign classification for every fixed heterogeneous residual profile and finite sample size, an explicit rare-species critical scaling with nontrivial profile-dependent second term, and a precise stochastic-order limitation; this resolves a motivated finite-species dependence phase diagram, not a tabulation or arbitrary parameter slice.
+## value
 
-## Limitations
+PASS
 
-Fixed residual profile, fixed category number for asymptotics, \(n\ge r+1\) for conditional stochastic incomparability. Tests of 48 finite cases support but do not prove an infinite result. Earlier exact occupancy-indicator covariance formulas cover the algebraic covariance identity.
+Covariance between a particular species being observed and total observed species richness is an interpretable natural indicator in occupancy/ecology: the direct positive contribution of that species competes with negative cross-occupancy correlations. The sharp finite-n one-switch theorem resolves which mechanism wins along any fixed heterogeneous conditional community profile; the Poisson-scale root and explicit second coefficient describe when a rare distinguished species crosses the boundary as sample size grows. Conditional richness distributions can lack even first-order stochastic ordering despite a definite mean sign, giving a meaningful methodological boundary. These precise mathematical facts are not known table recomputation nor a renaming of pairwise covariances, although the raw identity is earlier work. No general ecological causality or empirical dataset claim is made.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T16:03:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen assigned RESULT.md blob 1bdea2c2e5c96120322decad4fbe16f10a77c2b7 (full proof and boundary hypotheses)",
+        "Frozen source verify.py blob 4eae2adcdc72fd3a581bff52dcbbf4357dc67c05 inspected line by line; no opaque code executed",
+        "Fresh independent_species_check.py exact rational enumeration and mpmath root experiment, saved in run artifact folder"
+      ],
+      "rationale": "With B=1-1_{no *} and P(no *)=s^n, Cov(B,K)=s^n[E K-E(K|no *)] holds. Conditional residual observations are iid t and give F(s)=1-s^n+sum((1-t_i)^n-(1-st_i)^n). Its second derivative equals -n(n-1)[s^{n-2}+sum t_i^2(1-st_i)^{n-2}]<0. F(0)=1-E_t K_n<0 for n>=2 and r>=2 positive t; F(1)=0; F′(1)<0. Strict concavity produces exactly one interior zero, with signs negative then positive. The limit H(x)=1-sum exp(-xt_i) has a unique positive root and positive derivative, so the O(1/n) Taylor correction in F(x/n) gives the stated negative second coefficient and O_t(n^-3) in sigma. For n>=r+1 and s<sigma, the conditional mean of K given B=1 is smaller than when B=0; yet K=r+1 has positive probability given B=1 and is impossible given B=0. Thus neither conditional law FOSD-dominates. Independently enumerated 76 exact rational cases (4 profiles, n=2..6 or 5, 4 s choices), also checked sigma_2=1/3, and ran 4 high-precision root profiles at n=100,500,2000 confirming the second-order coefficient. No finite test substituted for the analytic all-parameter argument.",
+      "residual_risks": [
+        "The two-term O_t(n^-3) expansion fixes the strictly positive t profile; no uniformity is claimed when t_i tends to zero or r grows with n.",
+        "The proof establishes first-order stochastic incomparability only for s<sigma and n>=r+1; it gives no likelihood-ratio/negative-association classification beyond that regime.",
+        "Tests are bounded; the all-n statement depends on exact conditional expectation and strict concavity, not on checking finite cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published equal-box result proves Cov(K,K_j) has one sign switch as cell occupancy count j changes at fixed equal probabilities; its K_j is not the indicator of a nominated species.",
+          "The 2006 occupied-box variance paper addresses infinitely many boxes and fixed-n variance pair cross terms, not a finite heterogeneous distinguished cell changing mass.",
+          "Cohen--Routtenberg--Tong 2022 derives a missing-mass CCRB and Fisher-scoring method rather than a richness conditioned on seeing one species theorem."
+        ],
+        "reasoning": "Pairwise occupancy and aggregate-variance formulas dominate only the elementary expression, while the previously published different-coordinate sign switch cannot be specialized to a fixed nominated box and arbitrary residual frequencies. Inaccessible ecological full text is a remaining risk, not claimed as confirmed noncoverage.",
+        "searches": [
+          "Resultary: Conditional expected richness given a distinguished category appears versus absent; Poisson scale transition heterogeneous species",
+          "Resultary: Full covariance of occupancy indicators row sum and sample richness finite multinomial species sampling",
+          "published primary: 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "arXiv:math/0609498v1 Section 2.2",
+          "arXiv:2101.04329v2 Sections I--V"
+        ]
+      },
+      "checked_sources": [
+        "Actual assigned RESULT.md Git blob 1bdea2c2e5c96120322decad4fbe16f10a77c2b7 and AUDIT.json Git blob a37278129942b91d6fbd2cc29f471341eb90fb54",
+        "Resultary full published occupancy-precision RESULT.md at SHA 46a9a524728b65a3fe55c02a79f01028fb30e109",
+        "Resultary full published frequency-count switch RESULT.md at SHA 8838c14cbce160e36ffc784101b18b821bbc369a",
+        "arXiv:math/0609498v1 full HTML Section 2.2 fixed-n variance identity and Section 1 main results",
+        "arXiv:2101.04329v2 full HTML Sections I--V and Appendix C",
+        "Resultary complete successive-discovery and richness/Gini--Simpson mathematical results",
+        "Sizling et al. (2009) DOI 10.1086/599305: abstract only, full text NOT read due VPN block"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A covariance row sum consists of one positive diagonal term and several negative off-diagonal terms; the signs alone do not locate its global switch.",
+          "The published Gini--Simpson result concerns the sample pair-collision U-statistic, and successive-discovery work concerns Cov(D_{n+1},D_{n+2}); neither is the distinguished-presence variable B.",
+          "Sizling et al. (2009) abstract studies species incidence and richness across geographical sites and refers to occurrence-richness correlations, so it is a materially plausible alias but no complete text was read owing to access failures."
+        ],
+        "reasoning": "The strict F″(s)<0 and F′(1)<0 argument, followed by the Poisson-scale implicit-root Taylor expansion, is additional mathematics beyond knowing the finite covariance. Separately, negative conditional mean difference and positive probability of K=r+1 under B=1 establish stochastic incomparability. No inspected primary statement subsumes these three conclusions; the geographically sampled incidence model remains an explicit historical coverage uncertainty.",
+        "searches": [
+          "published primary: 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166/RESULT.md",
+          "published primary: 2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0/RESULT.md",
+          "published primary: 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac/RESULT.md",
+          "web: \"Rarity, Commonness, and the Contribution of Individual Species to Species Richness Patterns\" pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published indicator matrix gives C_ii=(1-p_i)^n[1-(1-p_i)^n] and C_ij=(1-p_i-p_j)^n-(1-p_i)^n(1-p_j)^n; summing a row gives the candidate raw covariance exactly.",
+          "The candidate holds a fixed residual profile t and varies distinguished mass p_*=1-s; F(s) has F(0)<0,F(1)=0,F′(1)<0,F″(s)<0 and a single interior zero.",
+          "Bogachev--Gnedin--Yakubovich (2006) equation (2.14) records the same occupied-box covariance cross terms in the total variance."
+        ],
+        "reasoning": "The raw joint covariance is an equivalent row-sum of known indicator covariance matrices, and its bare formula is explicitly not assessed as new. The stronger quantitative assertion is the universal unique sign-zero location along a fixed heterogeneous profile, together with its two-term asymptotic and conditional order obstruction. Existing matrix formulas, without a sign/monotonicity theorem for the row sum, do not directly imply those conclusions.",
+        "searches": [
+          "Resultary: Unique sign change of covariance between one category occupancy indicator and total number of occupied boxes in multinomial n draws as one cell probability varies fixed residual profile",
+          "Resultary: Full covariance of occupancy indicators row sum and sample richness finite multinomial species sampling",
+          "web: covariance number distinct categories indicator one category appears probability unique sign change sample size multinomial occupancy",
+          "published primary: 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-result hits concerned occupied-box precision matrices, equal-cell frequency-count switches, and adjacent-discovery covariance; none of these retrieved findings lists sigma_n(t), the equation sum exp(-z t_i)=1 or the fixed-profile second coefficient.",
+          "The only exact r=2,n=2 root checked by independent rational arithmetic is sigma=1/3 under uniform residual frequencies, not a located older table."
+        ],
+        "reasoning": "No exact phase table for the heterogeneous designated-cell path was found in these bounded records and web searches. A failed search cannot establish novelty; unindexed classical urn results or tables remain a genuine priority risk.",
+        "searches": [
+          "Resultary: Unique sign change of covariance between one category occupancy indicator and total number of occupied boxes in multinomial n draws as one cell probability varies fixed residual profile",
+          "web: finite multinomial occupancy size biased richness conditional on cell occupied excluded covariance",
+          "web: species presence indicator distinct species sample size covariance threshold",
+          "web: \"conditional species richness\" \"present\" \"absent\" sample"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the global unique concentration-path sign transition, its fixed-profile Poisson-scale second coefficient and the conditional first-order stochastic-incomparability regime. Prior occupied-box indicator covariance identities already imply the raw finite Cov(B,K) expression, which is not a new identity. Their pairwise anti-correlation and positive inverse do not mathematically force the row-sum sign or its unique parameter switch. The published equal-box richness--frequency-count switch changes a frequency index instead of distinguished-cell mass. Bogachev--Gnedin--Yakubovich 2006 supplies the cross terms in the variance of the occupied-box count and pursues infinite-box asymptotics, not the present finite-species one-parameter threshold. Complete arXiv 2022 missing-mass paper studies estimator risk, Fisher scoring and bounds, not this conditional covariance. A highly relevant 2009 ecological occurrence/richness study remains full-text inaccessible: its spatial site-incidence design is distinguishable in abstract but the whole-document priority implication is not ruled out. Searches did not expose exact prior dominating theorem; remaining risk is explicitly preserved.",
+      "residual_risks": [
+        "Sizling et al. 2009 full paper was inaccessible even after preprint/OA and authorized Oxford routes; an equivalent result in its appendices is a live but not dispositive priority risk.",
+        "Unindexed older fixed-sample urn/occupancy texts might give the same concavity argument or asymptotic root under alternative notation.",
+        "The raw covariance identity is known from the occupied-indicator matrix and is not an independent originality contribution.",
+        "The exact phase theorem is only along a fixed residual profile and does not imply a sign classification for arbitrary curves in the simplex."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implied raw Cov(B,K) by row summation; did not formulate unique sign path, sigma_n(t) expansion or stochastic incomparability.",
+          "evidence": [
+            "Diagonal variance and negative off-diagonal occupied-box covariance formulas exactly match the row summands; Neumann-series inverse positivity is a different conclusion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166/RESULT.md",
+          "material_read": "Complete published RESULT.md: main formulas (1)--(7), normalization/positive-definiteness argument, cited prior occupancy variance literature, proof and limitations.",
+          "method": "Retrieved actual complete public GitHub source file at main via read-only repository connector.",
+          "title": "Occupied-box indicators have a strictly positive precision matrix",
+          "trigger": "The same multinomial species presence indicators and their covariance matrix potentially dominate the raw claim."
+        },
+        {
+          "assessment": "Not covering: changes frequency-count index j of uniform occupancy, not one designated species probability with a fixed heterogeneous background.",
+          "evidence": [
+            "The prior statistic K_j counts boxes receiving exactly j balls; the present B marks one fixed category being nonempty."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "material_read": "Full RESULT.md, including Cov(K,K_j) exact formula (1), threshold index (3)--(7), proof, boundary cases and references.",
+          "method": "Retrieved complete public GitHub source file via read-only connector.",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Same type of covariance sign switch might mathematically dominate the nominated species result."
+        },
+        {
+          "assessment": "Known pairwise occupancy covariance contribution to Var(K_n); infinite-urn variance asymptotics do not state finite heterogeneous nominated species one-switch threshold.",
+          "evidence": [
+            "Equation (2.14) is the sum of diagonal occupancy variance and cross terms (1-p_i-p_j)^n-(1-p_i)^n(1-p_j)^n. Theorem 1.1 concerns variance limits under lagged frequency ratios."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0609498v1",
+          "material_read": "Full HTML accessible; inspected introduction and main variance results in Sections 1 and 2.2--2.3, especially fixed-sample formula (2.14) and its asymptotic cross-term treatment.",
+          "method": "Read arXiv HTML primary equations and theorem hypotheses directly.",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Foundational occupancy exact covariance cross-terms potentially imply row-sum and sign properties."
+        },
+        {
+          "assessment": "Different objective: estimator error bounds for missing mass, not fixed-profile Cov(B,K) sign and transition asymptotics.",
+          "evidence": [
+            "Article Sections III--IV derive missing-mass error bounds and scoring; Section V simulations evaluate estimators, without the candidate statistic K conditioned on nominated species presence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2101.04329v2",
+          "material_read": "Full 2022 arXiv HTML article, substantive Sections I--V and Appendix C covariance inequality; missing-mass unbiasedness, mmCCRB formulas, Fisher scoring and experiments.",
+          "method": "Direct arXiv full HTML reading and targeted text/section comparison.",
+          "title": "Non-Bayesian Parametric Missing-Mass Estimation",
+          "trigger": "Directly cited source with same multinomial sampling and unseen-category indicators."
+        },
+        {
+          "assessment": "Different pair of random variables and different parameter; no implication of sigma_n(t).",
+          "evidence": [
+            "Its Cov(D_{n+1},D_{n+2}) is Var(M_n) minus depletion, not Cov(K_n,I_*)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac/RESULT.md",
+          "material_read": "Complete primary RESULT.md, including next-two-discoveries identity, finite positive witnesses and diffuse-tail optimization.",
+          "method": "Read published mathematical source via GitHub connector.",
+          "title": "Exact missing-mass covariance identity and sign reversal for successive species discoveries",
+          "trigger": "Same finite i.i.d. categorical model and a negative-to-positive covariance mechanism."
+        },
+        {
+          "assessment": "Not covering: unconditional positive Cov(K, Gini--Simpson estimator) does not settle signed Cov(K,I_*).",
+          "evidence": [
+            "The comparator uses 1 minus pairwise-collision U-statistic, not a designated occupancy indicator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0/RESULT.md",
+          "material_read": "Full main claim, U-statistic definition, Sections Proof, Relationship to prior work, and Limitations.",
+          "method": "Read entire primary RESULT.md via repository connector.",
+          "title": "Universal positive covariance of sample richness and unbiased Gini--Simpson diversity",
+          "trigger": "Same richness K but different natural diversity statistic; potential general positive sign theorem."
+        },
+        {
+          "assessment": "Plausible but inaccessible full text. Abstract concerns spatial cross-site incidences, not explicitly iid n draws with a controlled single atom; noncoverage of the complete paper is NOT asserted. Retain direct comparison as residual risk.",
+          "evidence": [
+            "2009 Am Nat 174(1):82--93 abstract describes spatial species occupancy versus richness across geographic sites; no stated Poisson-scale fixed-sampling parameter threshold in material seen."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/599305",
+          "material_read": "Abstract and metadata from the publisher, PubMed, and institutional listing; ResearchGate reported public full text but its read link returned 403 and PDF returned 404; arXiv/preprint and lawful OA searches failed.",
+          "method": "Tried preprint and lawful full text first; then authorized Oxford source job 238b184e0dc30f07b7a94359a87c9f16 returned vpn_disconnected. Did not bypass authorization or equate abstract with full-text evidence.",
+          "title": "Rarity, Commonness, and the Contribution of Individual Species to Species Richness Patterns",
+          "trigger": "Same language of individual species presence, overall richness correlation; historical priority may hide under spatial-incidence formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independent exact F(s) derivation and boundary cases in RESULT.md",
+        "Primary occupied-box covariance and richness-frequency comparator results",
+        "2009 ecological site-incidence study abstract as contextual motivation only; mathematical evidence rests on the candidate proof"
+      ],
+      "rationale": "Covariance between a particular species being observed and total observed species richness is an interpretable natural indicator in occupancy/ecology: the direct positive contribution of that species competes with negative cross-occupancy correlations. The sharp finite-n one-switch theorem resolves which mechanism wins along any fixed heterogeneous conditional community profile; the Poisson-scale root and explicit second coefficient describe when a rare distinguished species crosses the boundary as sample size grows. Conditional richness distributions can lack even first-order stochastic ordering despite a definite mean sign, giving a meaningful methodological boundary. These precise mathematical facts are not known table recomputation nor a renaming of pairwise covariances, although the raw identity is earlier work. No general ecological causality or empirical dataset claim is made.",
+      "residual_risks": [
+        "Interpretation is specific to iid finite multinomial sampling, not spatial ecological causation or arbitrary non-iid abundance mechanisms.",
+        "The exact critical root may be computationally implicit for heterogeneous profiles, and no uniform growing-category asymptotic is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The inspected prior row-sum covariance formula itself is not new.",
+    "2009 Sizling et al. full text unavailable after arXiv/OA/authorized Oxford attempts; only abstract was read and implicit historical coverage is a residual risk.",
+    "No assertive publication guard or complete confidentiality-clean replacements for METADATA.json/AUDIT.json were staged, so publication remains not_ready.",
+    "Mathematical results are restricted to fixed r and strictly positive fixed t for the asymptotics; finite checks are not universal certification."
+  ],
+  "schema_version": 1
+}
