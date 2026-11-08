@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix identity \(\mathcal E(\omega)=\det(A^\top A)\|\omega\|_2^2/(\omega^\top A^\top A\omega)\) follows samplewise by a two-by-two Cayley–Hamilton calculation. Isotropic Gaussian directions yield an explicit convergent circle integral, while the four Rademacher vectors collapse to two Rayleigh denominators, making the orientation bounds and equality cases exact. The crossover and its angular measure follow from a strictly monotone rational function. The independent expanded-projector verifier performed 7,904 exact-rational and 1,123 numerical checks, but the proof is analytic and exhaustive for the stated domain.
+PASS
 
-## Originality — PASS, qualified
+Cayley–Hamilton for 2x2 B=A^T A gives samplewise residual E(w)=det(B)||w||²/(w^TBw). A Gaussian direction is uniform on the circle, so integrating 1/(lambda cos² phi+mu sin² phi) yields 1/sqrt(lambda mu) and expected sigma1 sigma2. The four sign vectors reduce to two projective directions with Rayleigh quotients s±b; averaging gives D*s/(s²−b²). For fixed eigenvalues |b| ranges 0 to (lambda−mu)/2, proving the sharp harmonic/arithmetic squared-singular-value extrema and their basis equality cases. Solving E_R=E_G yields sin(2theta) cutoff sqrt(sigma1²+sigma2²)/(sigma1+sigma2). Uniform orientation measure gives the arccos fraction, its high-kappa expansion and orientation average. Independently tested direct projector/closed-form identities and numerical orientation cases; analytic proof covers all stated real A.
 
-The principal source [Saibaba–Międlar, arXiv:2308.05814, sections 2–3 and Appendix C] develops non-Gaussian matrix-sketch bounds and explicitly includes Rademacher probes, but Theorem 5 gives high-probability bounds under sample-size requirements rather than an exact one-probe orientation law. [Diouane et al., arXiv:2206.08793, section 4] considers Gaussian randomized SVD error bounds requiring more than two sketch columns, not the two-dimensional one-column equality. [Halko–Martinsson–Tropp, arXiv:0909.4061, sections 4 and 9–10] provides the underlying projection method and oversampled analysis. Relevant published mathematical records for adaptive randomized pivoting and random ellipsoid sections use different sampling objects and do not imply the signed-probe versus Gaussian range-projection law.
+## originality
 
-The comparison considered exact aliases, the two eigenvalues of the Gram matrix, and both squared residual and projection error formulations. There is no claim that keyword absence certifies novelty. An equivalent earlier specialized finite-dimensional derivation remains a priority risk; independent scientific priority validation is not performed.
+PASS
 
-## Value — PASS
+Standard Gaussian rangefinder analyses and non-Gaussian Rademacher sketch bounds are earlier; the 2x2 matrix identity and angular integral are classical. Saibaba–Miedlar (2023/2025) treats larger sketch regimes and high-probability bounds, not an exact fixed-spectrum one-probe Rademacher-versus-Gaussian orientation crossover. The surviving claim is a self-contained exact comparison with equality cases and adverse-orientation measure. An earlier specialized two-dimensional derivation remains possible.
 
-For the same pair of singular values, the sign sketch's worst expected error grows as \(\kappa^2/2\) times optimal while its best expected error remains below twice optimal; Gaussian's factor is exactly \(\kappa\). The theorem identifies not merely a degenerate example but a sharp orientation-dependent selection frontier and the exact fraction of adverse orientations under random rotations. These facts make the small-sample comparison between two ubiquitous randomized range-finder probes mathematically consequential, without claiming general high-dimensional guarantees.
+## value
 
-## Boundaries and closest literature
+PASS
 
-The theorem applies to the squared Frobenius norm, one sketch column, real matrices with two full-rank columns, and exact arithmetic. It is not a statement about the expected unsquared norm, other distributions, iterative power sketches, or arbitrary rank-two subspaces of many-column matrices. Literature: https://arxiv.org/html/2308.05814v1 ; https://arxiv.org/abs/2206.08793 ; https://arxiv.org/html/0909.4061v2 .
+For fixed singular values, coordinate orientation can make the Rademacher one-probe residual near the optimal rank-one error or quadratic in condition number relative to it, while Gaussian remains linear. The exact all-orientation cutoff and fraction answer a natural small-sample question about two widely used sketch distributions.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

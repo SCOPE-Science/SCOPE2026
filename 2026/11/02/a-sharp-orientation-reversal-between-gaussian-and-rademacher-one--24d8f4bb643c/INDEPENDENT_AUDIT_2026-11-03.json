@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T20:46:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cayley–Hamilton for 2x2 B=A^T A gives samplewise residual E(w)=det(B)||w||²/(w^TBw). A Gaussian direction is uniform on the circle, so integrating 1/(lambda cos² phi+mu sin² phi) yields 1/sqrt(lambda mu) and expected sigma1 sigma2. The four sign vectors reduce to two projective directions with Rayleigh quotients s±b; averaging gives D*s/(s²−b²). For fixed eigenvalues |b| ranges 0 to (lambda−mu)/2, proving the sharp harmonic/arithmetic squared-singular-value extrema and their basis equality cases. Solving E_R=E_G yields sin(2theta) cutoff sqrt(sigma1²+sigma2²)/(sigma1+sigma2). Uniform orientation measure gives the arccos fraction, its high-kappa expansion and orientation average. Independently tested direct projector/closed-form identities and numerical orientation cases; analytic proof covers all stated real A.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halko et al. establish randomized range projection framework.",
+          "Saibaba–Miedlar bound non-Gaussian sketches in other sampling regimes; Diouane et al. analyze Gaussian approximate factorization."
+        ],
+        "reasoning": "The cited bounds do not imply sharp Rademacher orientation equality cases or the Gaussian crossover threshold for rank-one unoversampled sketches.",
+        "searches": [
+          "arXiv:2308.05814",
+          "arXiv:2206.08793",
+          "arXiv:0909.4061",
+          "Gaussian versus Rademacher rank one randomized range finder orientation expected Frobenius projection error"
+        ]
+      },
+      "checked_sources": [
+        "Halko, Martinsson and Tropp, Finding structure with randomness, arXiv:0909.4061",
+        "Saibaba and Miedlar, Randomized low-rank approximations beyond Gaussian random matrices, arXiv:2308.05814",
+        "Diouane et al., A general error analysis for randomized low-rank approximation methods, arXiv:2206.08793",
+        "Resultary semantic search: Gaussian versus Rademacher rank one randomized range finder orientation expected Frobenius projection error"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical identities are sufficient tools to derive all formulas, but no inspected earlier paper states the combined fixed-spectrum Gaussian/Rademacher orientation optimization.",
+          "Changing the input orientation affects Rademacher but not Gaussian despite identical singular values."
+        ],
+        "reasoning": "The result is intentionally a small exact corollary of elementary matrix analysis rather than a new general sketching theorem; the sharp comparison is not directly implied by the literature results inspected without the full 2D calculation.",
+        "searches": [
+          "arXiv:2308.05814",
+          "arXiv:0909.4061",
+          "2x2 Cayley–Hamilton identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Residual is the expected squared Frobenius *projection* error, not spectral loss or unsquared Frobenius norm.",
+          "Gaussian is orthogonally invariant; sign probes are coordinate aligned."
+        ],
+        "reasoning": "Compared exact probe count, input column dimension, orientation and error normalization; general random sketch guarantees are not the same exact quantity.",
+        "searches": [
+          "Gaussian versus Rademacher rank one randomized range finder orientation expected Frobenius projection error",
+          "arXiv:2308.05814",
+          "arXiv:0909.4061"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching 2x2 one-probe orientation exact table was retrieved; closest records concern other Gaussian projection or rank-one geometry.",
+          "Explicit sigma1/sigma2=(10,1) examples give 200/101 and 101/2 versus Gaussian ten."
+        ],
+        "reasoning": "The result is a parameterized analytic boundary, not a table entry; an unindexed earlier elementary calculation is a residual priority risk.",
+        "searches": [
+          "Gaussian versus Rademacher rank one randomized range finder orientation expected Frobenius projection error",
+          "Resultary Gaussian Rademacher rangefinder search"
+        ]
+      },
+      "rationale": "Standard Gaussian rangefinder analyses and non-Gaussian Rademacher sketch bounds are earlier; the 2x2 matrix identity and angular integral are classical. Saibaba–Miedlar (2023/2025) treats larger sketch regimes and high-probability bounds, not an exact fixed-spectrum one-probe Rademacher-versus-Gaussian orientation crossover. The surviving claim is a self-contained exact comparison with equality cases and adverse-orientation measure. An earlier specialized two-dimensional derivation remains possible.",
+      "residual_risks": [
+        "No high-dimensional generalization, sketch oversampling, arithmetic stability or concentration guarantee.",
+        "A previous note might already combine the classical 2D angular integral and Rademacher two-direction calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not provide a stated one-probe 2x2 exact expectation and orientation-transition classification; focuses on broader non-Gaussian sketch bounds",
+          "evidence": "Non-Gaussian Rademacher sketch theorems require sampling assumptions/oversampled regimes",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+          "material_read": "introduction, sampling laws, principal high-probability analysis and sample-size regimes in relevant sections",
+          "method": "primary paper PDF inspected, including original table/theorem contexts",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "closest comparison of Gaussian and sign sketches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For fixed singular values, coordinate orientation can make the Rademacher one-probe residual near the optimal rank-one error or quadratic in condition number relative to it, while Gaussian remains linear. The exact all-orientation cutoff and fraction answer a natural small-sample question about two widely used sketch distributions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Halko, Martinsson and Tropp, Finding structure with randomness, arXiv:0909.4061",
+    "Saibaba and Miedlar, Randomized low-rank approximations beyond Gaussian random matrices, arXiv:2308.05814",
+    "Diouane et al., A general error analysis for randomized low-rank approximation methods, arXiv:2206.08793",
+    "Resultary semantic search: Gaussian versus Rademacher rank one randomized range finder orientation expected Frobenius projection error"
+  ],
+  "disposition": "passed",
+  "final_claim": "For real full-column-rank A with two columns and one unpowered/unsampled range projection, expected squared Frobenius residual under standard Gaussian probe is sigma1*sigma2. Under independent Rademacher entries it is det(B)*s/(s^2-b^2), varies sharply between det(B)/s and s, and admits an explicit orientation crossover and adverse-orientation fraction.",
+  "limitations": [
+    "No high-dimensional generalization, sketch oversampling, arithmetic stability or concentration guarantee.",
+    "A previous note might already combine the classical 2D angular integral and Rademacher two-direction calculation.",
+    "Publication withheld; source AUDIT.json and METADATA.json contain operational scope_run_id that requires guarded sanitization before any public import."
+  ],
+  "residual_risks": [
+    "No high-dimensional generalization, sketch oversampling, arithmetic stability or concentration guarantee.",
+    "A previous note might already combine the classical 2D angular integral and Rademacher two-direction calculation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Does not provide a stated one-probe 2x2 exact expectation and orientation-transition classification; focuses on broader non-Gaussian sketch bounds",
+      "evidence": "Non-Gaussian Rademacher sketch theorems require sampling assumptions/oversampled regimes",
+      "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+      "material_read": "introduction, sampling laws, principal high-probability analysis and sample-size regimes in relevant sections",
+      "method": "primary paper PDF inspected, including original table/theorem contexts",
+      "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+      "trigger": "closest comparison of Gaussian and sign sketches"
+    }
+  ]
+}
