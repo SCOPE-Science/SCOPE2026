@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:44:01.929370Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two agents with identical positive additive values in fixed order 1^a,H,1^b (H≥1 real), cumulative maximum envy after each prefix equals absolute signed bundle gap. For prescribed prefix endpoint −j, j≡a mod2, |j|≤a, the telescoping inequality |z_t|≥(1+z_t²−z_(t−1)²)/2 is sharp via alternation followed by a monotone ramp, giving prefix cost (a+j²)/2. After H, successive minimum absolute distances to the reachable parity lattice δ_t(|H−j|) are simultaneously attainable by moving toward zero and oscillating; minimization over j yields the unrestricted finite formula. For integer m with a,b≥m, the monotone suffix cost reduces j to [0,m], then completes the square to midpoint precompensation. For a=b=m=2h, explicit E*=2h+2ceil(h²/2) and E_greedy=2h+2h² give limit ratio two. Independent rational signed-walk DP matched the closed formula in 343 cases and 150 midpoint checks; finite evidence supports but does not replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberg–Robinson–Teh (2026) considers general item sequences, a pseudopolynomial algorithm and a distinct release-order-choice model with a 3/2 approximation."
+        ],
+        "reasoning": "A broader model capable of numerically optimizing sequences is not an explicit dominating theorem for the fixed one-exceptional family. The free-order guarantee changes a decision variable and cannot imply the prescribed-order optimum.",
+        "searches": [
+          "arxiv:2610.09843 full HTML Section 4 dynamic programming and Section 5 flexible order",
+          "arxiv:2410.14593 Temporal Fair Division of Indivisible Items"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.09843",
+        "https://arxiv.org/abs/2410.14593",
+        "https://www.uni-augsburg.de/de/fakultaet/fai/conferences/sagt-2026/",
+        "Resultary search query: Minimizing cumulative envy one exceptional valued item fixed arrival order two agents identical valuations optimal midpoint precompensation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The related 3/2 factor holds where release order can be chosen; the current ratio ~2 is for a fixed order and a particular greedy policy, so results are not contradictory."
+        ],
+        "reasoning": "Existing DP gives a method but not the optimal midpoint imbalance or twofold greedy loss without an additional derivation. Prefixwise EF1 feasibility differs from integrated absolute envy minimization.",
+        "searches": [
+          "Goldberg Robinson Teh 2026 arxiv2610.09843 Section 4 fixed-order DP",
+          "same manuscript Section 5 choice of release order",
+          "Elkind et al arxiv2410.14593 prefix fairness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With two identical agents the objective is the total absolute value of a constrained signed ±1,±H walk, while arbitrary-good dynamic programming in Goldberg et al. is a more general computational framework."
+        ],
+        "reasoning": "A general DP can compute a numerical instance but does not state the analytic fixed-arrival optimum or asymptotic greedy ratio as an immediate formula. The signed-walk interpretation is noted as the central equivalence.",
+        "searches": [
+          "\"Minimizing Cumulative Envy in Allocating a Sequence of Items\" one exceptional good fixed order",
+          "Resultary: Minimizing cumulative envy one exceptional valued item fixed arrival order two agents identical valuations optimal midpoint precompensation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted checks found no exact all-a,b,H tabulation; source includes examples and special-case optimization but not the stated closed form."
+        ],
+        "reasoning": "The result quantifies infinitely many integer counts and all real H≥1, so a finite table without theorem would not cover it; a known general symbolic formula might, and remains a priority risk.",
+        "searches": [
+          "one heavy item prefix unit values optimize total cumulative envy exact table",
+          "Resultary: Minimizing cumulative envy one exceptional valued item fixed arrival order two agents identical valuations optimal midpoint precompensation"
+        ]
+      },
+      "rationale": "Goldberg–Robinson–Teh 2026 introduces precisely cumulative envy and supplies general dynamic programming and approximation, including special restrictions; its accessible complete arXiv HTML has been inspected for the fixed order problem and adjacent one-exceptional examples. The displayed general fixed-order real-H closed formula, integer midpoint law and explicit myopic gap were not identified in compared primary statements. A release-order optimization theorem cannot imply the optimum for a prescribed fixed order. The possibility of equivalent unindexed signed-walk scheduling identities or supplementary formulas is a residual originality risk, not ground to reject the mathematical result.",
+      "residual_risks": [
+        "An implicit result in unindexed appendices or older signed-walk scheduling literature might subsume the analytic formula.",
+        "The factor-two limit applies only to the specified 1^(2h),2h,1^(2h) family; no universal approximation guarantee is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No inspected formula states the prescribed fixed-order 1^a,H,1^b real-H optimum, midpoint rule, or greedy ratio; source provides general DP and free-order results",
+          "evidence": [
+            "Section 4 fixed-arrival dynamic programming; Section 5 different release-order-choice assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09843",
+          "material_read": "Accessible arXiv HTML full article: definition/introduction, Section 4 fixed-order algorithm and theorems, Section 5 release-order freedom and one-exceptional examples; targeted comparison of exact quantifiers",
+          "method": "Primary full HTML text inspection of the relevant theorems and formulas",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Same objective, agents and sequence allocation; closest possible coverage"
+        },
+        {
+          "assessment": "Prefix EF1 style objectives do not determine the minimum sum of absolute signed gaps",
+          "evidence": [
+            "Temporal fairness rather than integrated cumulative envy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+          "material_read": "Primary abstract and accessible introductory model descriptions",
+          "method": "Compare temporal fairness objective to additive cumulative maximum envy",
+          "title": "Temporal Fair Division of Indivisible Items",
+          "trigger": "Related prefixwise temporal envy fairness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact constructive optimizer for the first natural departure from equal-valued arrival sequences and a sharp quantified near-factor-two failure of myopic balancing isolate a genuine mechanism: creating deliberate early envy reduces later cumulative envy. This precise result could be used when scheduling irrevocable two-party resource allocations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.09843",
+    "https://arxiv.org/abs/2410.14593",
+    "https://www.uni-augsburg.de/de/fakultaet/fai/conferences/sagt-2026/",
+    "Resultary search query: Minimizing cumulative envy one exceptional valued item fixed arrival order two agents identical valuations optimal midpoint precompensation"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact cumulative-envy minimum with one exceptional good between two unit-good blocks, the parity-lattice midpoint law and asymptotic factor-two greedy loss in a stated family.",
+  "limitations": [
+    "Two agents with identical positive additive values, fixed known arrival order, exactly one exceptional H>=1. Midpoint law needs integer m, a,b>=m. Factor-two loss only for a=b=H=2h."
+  ],
+  "residual_risks": [
+    "An implicit result in unindexed appendices or older signed-walk scheduling literature might subsume the analytic formula.",
+    "The factor-two limit applies only to the specified 1^(2h),2h,1^(2h) family; no universal approximation guarantee is claimed."
+  ],
+  "schema_version": 1
+}

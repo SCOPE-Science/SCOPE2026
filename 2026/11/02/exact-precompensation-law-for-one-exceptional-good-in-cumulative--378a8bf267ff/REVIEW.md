@@ -1,13 +1,21 @@
-# Scientific review: exact one-exception temporal envy law
+# Independent mathematical audit
 
-**Correctness — PASS.** For every prescribed reachable unit-prefix endpoint, a telescoping one-step inequality gives a matching sharp lower bound, and a zero-near oscillation followed by a ramp attains it. After the exceptional good, the nearest reachable parity-lattice point is attainable simultaneously at every remaining prefix by zero-seeking steps. The resulting exact minimum yields the integer midpoint formula and the explicit asymptotic greedy comparison. Exact-rational independent-state optimization and a separate constructive witness agree in 891 tested cases; the integer midpoint rule passed 480 cases, and the symmetric identities passed 60. The infinite-domain theorem is based on the written proof, not finite enumeration.
+## correctness
 
-**Originality — PASS, with substantive residual priority risk.** The motivating work by Goldberg, Robinson, and Teh establishes the cumulative maximum-envy objective, hardness, general algorithms, and free-order guarantees. The inspected passages do not supply the closed formula for fixed arrival order, the quadratic midpoint-precompensation law, or the asymptotic myopic-versus-optimal comparison. A known statement restricted to unit/two-unit goods has different value quantifiers; a related statement optimizing also over item order is weaker information about any given fixed order. Search results and these implication comparisons did not reveal coverage. The main manuscript's full theorem and appendix text could not be inspected, so scientific priority is **not** conclusively determined. No claim of independent validation is made.
+PASS
 
-**Value — PASS.** This is an exact, constructive optimization result in the first natural departure from uniform identical valuations: one exceptional good. It isolates a reason to create early, intentional temporary imbalance and quantifies a nearly twofold integrated-envy cost for a canonical myopic rule. The general family, symbolic parity formula, and unbounded asymptotic witness go beyond a single small computation or textbook balancing observation.
+For two agents with identical positive additive values in fixed order 1^a,H,1^b (H≥1 real), cumulative maximum envy after each prefix equals absolute signed bundle gap. For prescribed prefix endpoint −j, j≡a mod2, |j|≤a, the telescoping inequality |z_t|≥(1+z_t²−z_(t−1)²)/2 is sharp via alternation followed by a monotone ramp, giving prefix cost (a+j²)/2. After H, successive minimum absolute distances to the reachable parity lattice δ_t(|H−j|) are simultaneously attainable by moving toward zero and oscillating; minimization over j yields the unrestricted finite formula. For integer m with a,b≥m, the monotone suffix cost reduces j to [0,m], then completes the square to midpoint precompensation. For a=b=m=2h, explicit E*=2h+2ceil(h²/2) and E_greedy=2h+2h² give limit ratio two. Independent rational signed-walk DP matched the closed formula in 343 cases and 150 midpoint checks; finite evidence supports but does not replace the proof.
 
-Closest literature: Goldberg, Robinson and Teh, *Minimizing Cumulative Envy in Allocating a Sequence of Items* (arXiv:2610.09843); Elkind and colleagues, *Temporal Fair Division of Indivisible Items* (arXiv:2410.14593). The former was on the September 16, 2026 SAGT program and uploaded to arXiv October 7, 2026. Remaining risks include uninspected full text and possible prior signed-prefix scheduling identities.
+## originality
 
-Limitations: exactly two agents, identical additive values, unit–exceptional–unit fixed order; the midpoint formula has integer and length assumptions, and the near-twofold gap is asserted only for its specified family. The package does not prove a general competitive ratio or establish prior-work uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Goldberg–Robinson–Teh 2026 introduces precisely cumulative envy and supplies general dynamic programming and approximation, including special restrictions; its accessible complete arXiv HTML has been inspected for the fixed order problem and adjacent one-exceptional examples. The displayed general fixed-order real-H closed formula, integer midpoint law and explicit myopic gap were not identified in compared primary statements. A release-order optimization theorem cannot imply the optimum for a prescribed fixed order. The possibility of equivalent unindexed signed-walk scheduling identities or supplementary formulas is a residual originality risk, not ground to reject the mathematical result.
+
+## value
+
+PASS
+
+An exact constructive optimizer for the first natural departure from equal-valued arrival sequences and a sharp quantified near-factor-two failure of myopic balancing isolate a genuine mechanism: creating deliberate early envy reduces later cumulative envy. This precise result could be used when scheduling irrevocable two-party resource allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
