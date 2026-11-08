@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:43:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized symmetric Gaussian ambiguity is positive and decreases strictly with radius. Threefold angular minimization reduces to e^{-y}+2e^{y/2}; the cosh/sinh comparison for k>=1 establishes the minimizer for every y>0, not just sampled angles. Differentiating the resulting W_R gives h(y)-y/sqrt(T^2+y^2). The scalar T(y)=y sqrt(1-h(y)^2)/h(y) rises strictly from 2 to infinity via P''(t)=e^t-t e^{-t}>0, giving global uniqueness and a->sqrt(3). My independent finite angular comparisons: 9696 inequalities, plus sampled global squeeze bounds and asymptotic a(20)=1.7320507555. The finite grid does not prove the quantified inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alaifari and Yang, Multi-window approaches for direct and stable STFT phase retrieval (2024 preprint, SIAM J Appl Math 2025), https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+          "Hardin, Kendall and Saff, Polarization optimality of equally spaced points on the circle for discrete potentials, arXiv:1208.5261"
+        ],
+        "reasoning": "Polarization changes point locations with different convexity assumptions; Alaifari-Yang fixes a and optimizes data retrieval coverage, not the unique global a-optimum.",
+        "searches": [
+          "Resultary semantic: Gaussian Gabor STFT multi-window phase retrieval equally rotated squeezed windows ambiguity function disk minimum maximin squeezing transition isotropic anisotropic",
+          "primary comparison: Alaifari-Yang rotated Gaussian construction; Hardin-Kendall-Saff circle polarization"
+        ]
+      },
+      "checked_sources": [
+        "Alaifari and Yang, Multi-window approaches for direct and stable STFT phase retrieval (2024 preprint, SIAM J Appl Math 2025), https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+        "Hardin, Kendall and Saff, Polarization optimality of equally spaced points on the circle for discrete potentials, arXiv:1208.5261"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alaifari and Yang, Multi-window approaches for direct and stable STFT phase retrieval (2024 preprint, SIAM J Appl Math 2025), https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+          "Hardin, Kendall and Saff, Polarization optimality of equally spaced points on the circle for discrete potentials, arXiv:1208.5261"
+        ],
+        "reasoning": "Pointwise formula (2.2) makes the denominator meaningful but does not imply monotonicity of the exact optimized bound or T=2; separate trigonometric and P(t) proofs needed.",
+        "searches": [
+          "Resultary semantic: Gaussian Gabor STFT multi-window phase retrieval equally rotated squeezed windows ambiguity function disk minimum maximin squeezing transition isotropic anisotropic",
+          "primary comparison: ETH SAM 2024-30 rev1 Sections 2.1,3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alaifari and Yang, Multi-window approaches for direct and stable STFT phase retrieval (2024 preprint, SIAM J Appl Math 2025), https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+          "Hardin, Kendall and Saff, Polarization optimality of equally spaced points on the circle for discrete potentials, arXiv:1208.5261"
+        ],
+        "reasoning": "Searches for Gaussian triple-window spectral-minimax and corresponding threshold did not uncover an equal W_R(a) maximization; elliptic coverage radius and aggregate minimum are different functionals.",
+        "searches": [
+          "Resultary semantic: Gaussian Gabor STFT multi-window phase retrieval equally rotated squeezed windows ambiguity function disk minimum maximin squeezing transition isotropic anisotropic",
+          "primary comparison: same functional alias maximin STFT ambiguity divided noise denominator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alaifari and Yang, Multi-window approaches for direct and stable STFT phase retrieval (2024 preprint, SIAM J Appl Math 2025), https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+          "Hardin, Kendall and Saff, Polarization optimality of equally spaced points on the circle for discrete potentials, arXiv:1208.5261"
+        ],
+        "reasoning": "Published related Gabor records concern finite cyclic windows/operator span, not continuous three-Gaussian disk infimum.",
+        "searches": [
+          "Resultary semantic: Gaussian Gabor STFT multi-window phase retrieval equally rotated squeezed windows ambiguity function disk minimum maximin squeezing transition isotropic anisotropic",
+          "primary comparison: Resultary Gabor phase retrieval searches 2026-11-03"
+        ]
+      },
+      "rationale": "Best-of-knowledge positive originality for the full final claim after identifying all presently established subclaims; actual source-material inspections and possible dominating alternatives are recorded. Literature gaps are residual risks, not proof of novelty.",
+      "residual_risks": [
+        "Only equal weights, common squeezing and exactly three angles; no optimization over angle placement or statistical reconstruction error.",
+        "An older equivalent minimax Gaussian-window design may exist under polarization or frame theory terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rotating/dilating positive Gaussian ambiguity functions and sum denominator, but fixes dilation and varies number of windows; does not state maximin over all disk directions optimized in a or T=2 transition",
+          "evidence": "Section 2.1 gives A_phi^a=(1/sqrt2)exp[-pi(ax^2+a^{-1}y^2)/2], summed windows at fixed a>1, with division by sum in eq (2.2); Section 4 uses a=15 and N=40.",
+          "identifier_or_url": "ETH SAM 2024-30 rev1; https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+          "material_read": "Full 20-page publicly accessible ETH author manuscript, especially Section 2.1, equations (2.1)-(2.2), Figures 1 and Algorithm 2.1; Sections 3 and 4 numerical coverage",
+          "method": "Full PDF text, keyword and section examination and page image",
+          "title": "Multi-window approaches for direct and stable STFT phase retrieval",
+          "trigger": "Same three-rotated dilated Gaussian ambiguity windows and aggregate inversion denominator"
+        },
+        {
+          "assessment": "Rotational point-position optimization under convexity differs from fixed triple and varying Gaussian squeezing; possible general angular overlap not completely excluded",
+          "evidence": "Potential requires convexity assumptions not obviously fulfilled by e^{y cos t} around all angles.",
+          "identifier_or_url": "arXiv:1208.5261",
+          "material_read": "Bibliographic and cited theorem-scope information only; no whole-paper exclusion claimed",
+          "method": "Literature search and scope comparison",
+          "title": "Polarization optimality of equally spaced points on the circle for discrete potentials",
+          "trigger": "Potential angular polarization may dominate three-direction minimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sum of positive ambiguity windows appears as the inversion divisor in the main multiwindow STFT reconstruction formula. The sharp crossover explains when symmetric windows maximize the worst denominator over a disk and when squeezing gains stability, with a unique design parameter for every radius. This is a full natural parameter continuum, not a merely reparameterized Gaussian integral.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Alaifari and Yang, Multi-window approaches for direct and stable STFT phase retrieval (2024 preprint, SIAM J Appl Math 2025), https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+    "Hardin, Kendall and Saff, Polarization optimality of equally spaced points on the circle for discrete potentials, arXiv:1208.5261"
+  ],
+  "disposition": "passed",
+  "final_claim": "For three unit-norm Gaussian ambiguity functions at angles 0, pi/3, 2pi/3, max_a>=1 min_{disk radius R} sum is uniquely attained at a=1 if pi R^2/2<=2 and at an implicit unique a>1 otherwise, with limiting optimal a=sqrt(3).",
+  "limitations": [
+    "Only equal weights, common squeezing and exactly three angles; no optimization over angle placement or statistical reconstruction error.",
+    "An older equivalent minimax Gaussian-window design may exist under polarization or frame theory terminology."
+  ],
+  "residual_risks": [
+    "Only equal weights, common squeezing and exactly three angles; no optimization over angle placement or statistical reconstruction error.",
+    "An older equivalent minimax Gaussian-window design may exist under polarization or frame theory terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers rotating/dilating positive Gaussian ambiguity functions and sum denominator, but fixes dilation and varies number of windows; does not state maximin over all disk directions optimized in a or T=2 transition",
+      "evidence": "Section 2.1 gives A_phi^a=(1/sqrt2)exp[-pi(ax^2+a^{-1}y^2)/2], summed windows at fixed a>1, with division by sum in eq (2.2); Section 4 uses a=15 and N=40.",
+      "identifier_or_url": "ETH SAM 2024-30 rev1; https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+      "material_read": "Full 20-page publicly accessible ETH author manuscript, especially Section 2.1, equations (2.1)-(2.2), Figures 1 and Algorithm 2.1; Sections 3 and 4 numerical coverage",
+      "method": "Full PDF text, keyword and section examination and page image",
+      "title": "Multi-window approaches for direct and stable STFT phase retrieval",
+      "trigger": "Same three-rotated dilated Gaussian ambiguity windows and aggregate inversion denominator"
+    },
+    {
+      "assessment": "Rotational point-position optimization under convexity differs from fixed triple and varying Gaussian squeezing; possible general angular overlap not completely excluded",
+      "evidence": "Potential requires convexity assumptions not obviously fulfilled by e^{y cos t} around all angles.",
+      "identifier_or_url": "arXiv:1208.5261",
+      "material_read": "Bibliographic and cited theorem-scope information only; no whole-paper exclusion claimed",
+      "method": "Literature search and scope comparison",
+      "title": "Polarization optimality of equally spaced points on the circle for discrete potentials",
+      "trigger": "Potential angular polarization may dominate three-direction minimization"
+    }
+  ]
+}

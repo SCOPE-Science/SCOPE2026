@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For unit-normalized Gaussians, the symmetric ambiguity functions are positive rotated ellipses and decrease radially. A rigorous angular comparison uses the positivity of \(e^{kz}-\cosh z-k\sinh z\) for \(k\ge1\), giving the exact minimum of the three-angle sum. The squeeze optimization is reduced to a scalar logarithmic derivative. Its unique sign change follows from the strict positivity of \(P''(t)=e^t-te^{-t}\), and the critical radius and limiting parameter are derived without numerical extrapolation. The checker passes 8,823 finite assertions but does not replace the proof.
+PASS
 
-## Originality: PASS (subject to historical-priority risk)
+The normalized symmetric Gaussian ambiguity is positive and decreases strictly with radius. Threefold angular minimization reduces to e^{-y}+2e^{y/2}; the cosh/sinh comparison for k>=1 establishes the minimizer for every y>0, not just sampled angles. Differentiating the resulting W_R gives h(y)-y/sqrt(T^2+y^2). The scalar T(y)=y sqrt(1-h(y)^2)/h(y) rises strictly from 2 to infinity via P''(t)=e^t-t e^{-t}>0, giving global uniqueness and a->sqrt(3). My independent finite angular comparisons: 9696 inequalities, plus sampled global squeeze bounds and asymptotic a(20)=1.7320507555. The finite grid does not prove the quantified inequalities.
 
-The 2024 public preprint of Alaifari and Yang derives the rotated-Gaussian ambiguity construction and a threshold-ellipse covering radius but not an aggregate-denominator maximin squeeze transition. Hardin, Kendall and Saff establish a different angular polarization principle under strict-convexity hypotheses that the present Gaussian angular potential does not satisfy globally, and do not optimize squeezing. Search comparisons against published mathematical records, spectral aliases and possible equivalent formulations found no statement establishing the sharp \(T=2\) transition and unique limit \(a_T\to\sqrt3\). This is a best-knowledge originality assessment, not proof that no prior equivalent work exists.
+## originality
 
-## Value: PASS
+PASS
 
-The aggregate ambiguity denominator is the divisor in a direct multi-window inversion formula, so maximizing its worst value over a prescribed disk is a natural stability-oriented design criterion. The exact transition distinguishes when isotropic windows are genuinely optimal from when three squeezed windows offer an improvement, and the asymptotic squeeze gives a parameter-free design limit. The result treats the complete continuum of radii, rather than an arbitrary finite sample or a cosmetic formula rewrite.
+Best-of-knowledge positive originality for the full final claim after identifying all presently established subclaims; actual source-material inspections and possible dominating alternatives are recorded. Literature gaps are residual risks, not proof of novelty.
 
-## Limitations
+## value
 
-No assertion covers arbitrary angle configurations or weights, noise statistics beyond the stated denominator, or full nonlinear reconstruction stability. The result is not independently audited; equivalent work might exist outside indexed records. The source preprint supplies the mechanism but not the optimization classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sum of positive ambiguity windows appears as the inversion divisor in the main multiwindow STFT reconstruction formula. The sharp crossover explains when symmetric windows maximize the worst denominator over a disk and when squeezing gains stability, with a unique design parameter for every radius. This is a full natural parameter continuum, not a merely reparameterized Gaussian integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
