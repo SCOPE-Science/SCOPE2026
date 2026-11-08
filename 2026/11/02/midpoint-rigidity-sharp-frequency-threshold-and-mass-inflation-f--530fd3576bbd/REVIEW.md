@@ -1,15 +1,21 @@
-# Three-node trigonometric SBP: mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three trigonometric traces are unisolvent on the specified frequency interval, so the nodal derivative is unique. A trigonometric cardinal function forces the interior point to be the midpoint from the SBP middle diagonal. Exact computation of the unique centered derivative and boundary diagonals forces all weights; the remaining SBP entries hold identically. Strict positivity is equivalent to \(\omega<2\pi/3\). The mass inequality follows from an explicitly positive derivative of \(H\), and Taylor/endpoint limits establish the quantitative constants. `verify_fsbp.py` cross-checks the exact formulas symbolically and seeded finite instances (668 passing checks). This is not an infinite computational proof.
+## correctness
 
-## Originality — PASS under inspected-source comparison
-The abstract existence theorem in Glaubitz–Nordström–Öffner (arXiv:2203.05479) covers function spaces generally; it does not give the sharp three-node interior-geometry and frequency threshold or norm-mass asymptotics. Haase–Winters–Glaubitz (arXiv:2610.30272v1) focuses on FSBP flux differencing and accuracy for broader spaces, not this classification. Bercik–Patrascu–Zingg (arXiv:2607.08934) treats optimized generalized quadrature, not this fixed three-node restriction. published-finding corpus and literature searches returned neighboring Fourier three-node/frame and quadrature results, but none with the exact SBP equivalence and mass statement. Residual priority risk: an unlocated specialist three-node trigonometric quadrature or FSBP example may contain the explicit answer. Search non-detection cannot establish universal priority.
+PASS
 
-## Mathematical value — PASS
-This is a complete, sharp answer to the minimal-node positive-diagonal norm feasibility question that arises when deploying trigonometric-function-space SBP discretizations. The midpoint rigidity and loss of norm feasibility at \(2\pi/3\) are meaningful geometric/frequency design constraints. The forced constant mass mismatch and its blowup show that trigonometric exact differentiation, SBP energy compatibility, and physical constant quadrature cannot all be achieved in this minimal family. The constraint is practical only for this specifically defined discretization; it does not imply failure with extra nodes or arbitrary norms.
+Unisolvence of evaluations on span{1,cos(omega*x),sin(omega*x)} for 0<omega<pi yields D=Vprime V^{-1}; the middle diagonal SBP equality forces the interior site to 0. The displayed D and diagonal P directly satisfy all nine entries. Endpoint signs give the iff interval 0<omega<2*pi/3. Hprime=2 sin(omega)(omega-sin(omega))>0 proves strict mass inflation; series and critical limits give the stated coefficients. The unbounded-frequency, nondiagnonal norm cases are not asserted. Independent verification: Independently formed the trigonometric sampling matrices in SymPy, verified exact PD+D^T P = diag(-1,0,1); checked the Taylor expansion M=2+(2/45)omega^4+omega^6/126+... and a feasible-frequency example. Inspected verify_fsbp.py and its normalization. No floating-point sample establishes the infinite interval.
 
-## Limits and comparison
-The self-review reconstructs the proof but is not an independent mathematical audit. The baseline general-existence principle and classical trigonometric cardinal interpolation are prior work; only their sharp combined classification and mass consequence are asserted here. These statements do not establish any nonlinear entropy-stability failure or an unrestricted numerical PDE impossibility theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: inspected accessible closely related primary PDFs, searched published mathematical records for aliases/stronger results, and compared implications. Abstract existence via positive quadrature is acknowledged, but substituting a specific 3-node trigonometric nodal matrix is not the entire published sharp iff condition with strict mass inflation. Residual priority limitations are explicit.
+
+## value
+
+PASS
+
+The minimal positive-norm trigonometric SBP construction has a sharp geometric/frequency feasibility classification and an unexpected unavoidable mass defect, two natural design constraints distinct from generic SBP existence. The derived threshold and divergence are not a renamed algebraic identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
