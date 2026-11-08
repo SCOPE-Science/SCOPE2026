@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:03:55.638220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on three prescribed image arrows of a permutation at consecutive positions. Their forced directed graph decomposes into paths plus already closed cycles F, and contracting paths leaves a uniformly random permutation of n-3 components, so E[K_n|those arrows]=F+H_(n-3), valid even for n=3. Sum compatible forced fixed points (binomial position-rank counts), forced transpositions (only reversed rank pairs), and the two possible forced directed 3-cycles to derive the six affine b_sigma(n,i) entries over D=n(n-1)(n-2). Row 123 has nonzero constant numerator, row 132 nonzero position slope, so matrix rank is exactly two for n>=4, one for n=3. Each numerator is 1 mod 3, excluding zeros; direct summation gives constant -2/(3D) peak and valley covariances. Independent exhaustive enumeration of every permutation n=3,...,7 checked all specified-position six-pattern covariance entries; inspected check.py offers a larger finite check but is not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "The cycle-descent generating machinery is broadly powerful and may imply many refined correlations after extracting terms; a newer Gessel–Zhuang result covers peak totals by cycle type.",
+        "reasoning": "These papers are possible structural predecessors. The actually inspected statements cover descent patterns or aggregate peaks, not all six exact fixed-position orientation-resolved covariances. The inaccessible full 1993 paper is a priority risk.",
+        "searches": [
+          "Gessel Reutenauer JCTA 64 1993 doi:10.1016/0097-3165(93)90095-P",
+          "Gessel Zhuang arxiv:2001.00654",
+          "Parviainen 2006 cycles and patterns arxiv:math/0607793;math/0610616"
+        ]
+      },
+      "checked_sources": [
+        "Plethystic formulas for permutation enumeration (https://arxiv.org/abs/2001.00654)",
+        "Counting permutations with given cycle structure and descent set (https://doi.org/10.1016/0097-3165(93)90095-P)",
+        "Linear inversion-gap profile for cycle count in a uniform random permutation (https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051)",
+        "Resultary semantic search matched to this theorem; no direct dominating result retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "Knowing Cov(K,1_{descent at i}) or Cov(K,1_{peak at i}) yields only sums of pattern terms; e.g. both 132 and 231 contribute to peak -2/(3D) but have opposite affine slopes.",
+        "reasoning": "Neither a two-position inversion covariance nor cycle-refined aggregate peaks determines conditional expectations for all six oriented triples. The contracted-arrow lemma is an independent way to resolve this information gap. Generic descent-set machinery may imply aggregate weaker claims, not displayed six-term table as inspected.",
+        "searches": [
+          "Gessel Zhuang Section 7 theorem on peak/descent total counts",
+          "Resultary Linear inversion-gap profile for cycle count in a uniform random permutation",
+          "Gessel Reutenauer 1993 abstract and related descent set results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "Gessel–Reutenauer conditions on descent sets, which merge 132 and 231 at a peak; Gessel–Zhuang refine total peaks; the Resultary finding computes cycle correlation with a single inversion comparison indicator at arbitrary two positions.",
+        "reasoning": "An exact fixed consecutive 3-letter orientation event requires pairwise comparisons jointly, not simply one descent or pair-inversion statistic. Position-dependent six-pattern covariance table is not equivalent to known aggregate peak covariance.",
+        "searches": [
+          "Gessel Reutenauer 1993 Counting permutations with given cycle structure and descent set",
+          "Gessel Zhuang 2020 Plethystic formulas for permutation enumeration Section 7",
+          "Resultary Linear inversion-gap profile for cycle count in a uniform random permutation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "No external six-pattern fixed-window covariance table identified; the evaluated expressions are uniform in n and position i and include a rank-two profile and a no-zero arithmetic congruence.",
+        "reasoning": "A table for finite n cannot imply the complete all-n rank-two statement without the forced-arrows structural derivation.",
+        "searches": [
+          "Resultary: permutation number of cycles and consecutive triple permutation pattern positional covariance exact six patterns",
+          "Gessel Zhuang 2020 cycle-type-refined generating function tables"
+        ]
+      },
+      "rationale": "Cycle/descent-set generating functions and cycle-refined aggregate peak statistics are prior. Their published totals do not distinguish the opposite fixed-position profiles of 132 and 231, both of which share peak descent shape. A related published Resultary inversion-indicator covariance gives two-position comparisons, not all six nonlinear three-order patterns.",
+      "residual_risks": [
+        "A descent set cannot by itself distinguish 132 from 231 as patterns, but a more powerful construction in the inaccessible full paper might.",
+        "Priority is best-of-knowledge, not an exhaustive all-literature assertion; equivalences in historical specialized results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes aggregate peak/decent cycle refinements, not explicit fixed triple 132/231 orientation profiles",
+          "evidence": "Total number of peaks sums both orientations and locations; six-row matrix and its fixed-window slopes remain more refined.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.00654",
+          "material_read": "Accessible full primary PDF, particularly Section 7 total peaks and cycles",
+          "method": "Read primary full text and visually inspected relevant Section 7 page",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "Closest cycle-count and peak/descent refined generating function"
+        },
+        {
+          "assessment": "Potential implied formulas remain uncertain; cannot claim whole-paper NOT_COVERING",
+          "evidence": "A descent set cannot by itself distinguish 132 from 231 as patterns, but a more powerful construction in the inaccessible full paper might.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(93)90095-P",
+          "material_read": "Abstract and bibliographic record; full original unavailable after lawful attempts",
+          "method": "Read abstract only; institution access attempted and reported VPN disconnected",
+          "title": "Counting permutations with given cycle structure and descent set",
+          "trigger": "Classical strongest potential exact joint cycle/descent prior"
+        },
+        {
+          "assessment": "Covers single pairwise-comparison covariance, insufficient to specify triple-order intersections",
+          "evidence": "The formula -(2(j-i)-1)/(2n(n-1)) pertains to indicators 1_{pi_i>pi_j}; the triple event is nonlinear in such indicators.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+          "material_read": "Published summary describing pair-inversion gap formula",
+          "method": "Read Resultary summary only",
+          "title": "Linear inversion-gap profile for cycle count in a uniform random permutation",
+          "trigger": "Same cycle-count covariances with rank comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cycle count of a random permutation is a central statistic and local consecutive patterns are canonical. The exact six-by-position covariance table reveals an unanticipated rank-two dependence, no accidental zeros, opposite location effects for the two peak orientations, and cancellation in the aggregate; these form an analytically proved natural structural classification rather than a finite computation or relabeling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform S_n and consecutive one-line triples; no arbitrary patterns or higher-order joint laws.",
+    "The full 1993 Gessel–Reutenauer original paper was unavailable via attempted authorized access; its deeper implications are a historical-priority risk.",
+    "Published two-position inversion and total-peak correlation results are acknowledged antecedents."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For a uniform permutation, fixing the three images in a consecutive window leaves a uniformly random permutation of the remaining path components. The cycle count equals the number of closed forced cycles plus a uniform-permutation cycle count on \(n-3\) components. Counting fixed points, transpositions and three-cycles jointly with each ordered rank pattern yields the six exact affine numerators; the conditional cycle-count deviations, rank, strict sign statements and peak/valley cancellation follow. Exact tests of the forced-cycle counts and direct exhaustive permutation enumeration corroborate, but do not replace, the symbolic all-size proof. The rank-two conclusion is for \(n\ge4\); \(n=3\) has rank one.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-Gessel–Reutenauer (1993) counts permutations by cycle type and descent set. Since the two orientations \(132\) and \(231\) have the same descent signature, that statistic alone cannot state their two different position-dependent covariance profiles. Parviainen's 2006 articles study aggregate vincular patterns or pattern data in standard cycle form; Gessel–Zhuang (2020) develops powerful generating functions for total peak/descent counts refined by cycle type. These dominate parts of the aggregate phenomenon, especially cycle–peak dependence, and that weaker contribution is not claimed original. The present accepted claim is the full six-pattern-by-position table, exact rank and strict orientation-sensitive sign transitions. The full 1993 primary text could not be inspected; it remains possible that a related refinement appeared elsewhere. None of the inspected full-text statements supplies or directly implies the orientation-resolved table without additional analysis.
+PASS
 
-## Mathematical value — PASS
-A natural and previously unseparated local-versus-global dependence question admits an unexpectedly low-rank answer despite each entry being nonzero. It exhibits sign reversals masked by the position-independent pooled peak statistic, and distinguishes two orientations invisible to a peak/descent indicator. The proof gives an exact finite-size structural bridge between permutation cycles and consecutive pattern geometry.
+Condition on three prescribed image arrows of a permutation at consecutive positions. Their forced directed graph decomposes into paths plus already closed cycles F, and contracting paths leaves a uniformly random permutation of n-3 components, so E[K_n|those arrows]=F+H_(n-3), valid even for n=3. Sum compatible forced fixed points (binomial position-rank counts), forced transpositions (only reversed rank pairs), and the two possible forced directed 3-cycles to derive the six affine b_sigma(n,i) entries over D=n(n-1)(n-2). Row 123 has nonzero constant numerator, row 132 nonzero position slope, so matrix rank is exactly two for n>=4, one for n=3. Each numerator is 1 mod 3, excluding zeros; direct summation gives constant -2/(3D) peak and valley covariances. Independent exhaustive enumeration of every permutation n=3,...,7 checked all specified-position six-pattern covariance entries; inspected check.py offers a larger finite check but is not the all-n proof.
 
-## Scope and limitations
-The theorem concerns the uniform law on \(S_n\), exact first moments for length-three consecutive patterns, and the full domain \(n\ge3\). It does not assert independent priority, multivariate independence, longer-pattern results, or extension to nonuniform permutation models. Historical priority remains subject to independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cycle/descent-set generating functions and cycle-refined aggregate peak statistics are prior. Their published totals do not distinguish the opposite fixed-position profiles of 132 and 231, both of which share peak descent shape. A related published Resultary inversion-indicator covariance gives two-position comparisons, not all six nonlinear three-order patterns.
+
+## value
+
+PASS
+
+The cycle count of a random permutation is a central statistic and local consecutive patterns are canonical. The exact six-by-position covariance table reveals an unanticipated rank-two dependence, no accidental zeros, opposite location effects for the two peak orientations, and cancellation in the aggregate; these form an analytically proved natural structural classification rather than a finite computation or relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
