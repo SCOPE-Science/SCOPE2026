@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the centroid-containment formula
 
-The universal assertion is proved analytically in `RESULT.md` by affine reduction, the two exact conditional integrals, disjoint Cramer bad-sign events, multinomial counting, and Schur concavity. `checker.py` provides additional finite corroboration, not an exhaustive proof.
+# Independent mathematical audit
 
-The standalone checker was executed from the packaged source path with a standard Python interpreter and produced `ALL_CHECKS_PASSED`. It compared the exact two conditional constants against independently implemented midpoint quadrature, verified disjoint bad-sign events in 100000 independently sampled triples, simulated the full Euclidean arclength model on five triangles of different shapes with 170000 samples each, and tested 50000 random balancing/stability cases. Each Monte Carlo comparison used a stated six-standard-deviation tolerance plus \(0.0005\), so the test is deliberately nondeterministic in theory but reproducible with its fixed seed.
+## correctness
 
-The proof does not require scientific software or external datasets. The program uses only Python's standard library. Reproduction: `python3 checker.py` from a directory containing the extracted file. The literature comparison is a priority assessment, not an independent mathematical audit; further historical investigation could identify an earlier equivalent formula.
+PASS
+
+Read the complete RESULT.md at frozen blob 508469895881591bf1871afb45b5cee52b34819d. An affine map preserves independent fractional side coordinates. The two-on-one-side conditional event has integral b=1/9+4 log(2)/27. For one point on each side, the positive barycentric matrix determinant and mutually disjoint three bad Cramer-sign events give c=2 log(2)/3. Multinomial side labels yield P=3b(e2-3e3)+6c e3. Positive coefficients give strict Schur concavity. Triangle inequalities are exactly p_i<1/2, proving the stated unique equilateral maximum and limiting (1/2,1/2,0) minimum. e2's variance identity and AM-GM for e3 give the stability bound. Fresh independent SymPy reconstruction checked both integrals and Cramer numerators; independently sampled geometric containment for three triangle shapes corroborated but is not the all-shape proof.
+
+## originality
+
+PASS
+
+The cited area-uniform triangle-centroid constant is known, but the inspected accessible primary comparisons use area sampling or a nonconstant angular density; neither yields the exact perimeter-arclength shape law or the strict shape majorization simply by substituting the known constant. No direct published match surfaced in targeted result searches. The literature judgement is best-of-knowledge and retains a genuine historical-priority risk.
+
+## value
+
+PASS
+
+The law gives a complete and shape-sensitive exact natural containment probability for a canonical three-point sampling experiment, with the entire sharp range, optimizer, degeneracy mechanism and stability. This is materially different from rederiving the known area-uniform single constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

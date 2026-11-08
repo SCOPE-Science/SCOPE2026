@@ -1,15 +1,21 @@
-# Scientific assessment: perimeter-sampled centroid containment
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim treats a nondegenerate Euclidean triangle, three independent arclength-uniform boundary samples, and the *area* centroid. A legitimate affine change of coordinates preserves conditional uniform fractional positions along any prescribed sides, so the entire dependence on shape is captured by side probabilities. Both nontrivial conditional cases are integrated exactly: two points on one edge give \(b=1/9+4\log(2)/27\); one point on each edge gives \(c=2\log(2)/3\) by Cramer's rule and disjoint bad-sign events. The multinomial decomposition yields the displayed symmetric polynomial. Positive coefficients and two-coordinate balancing prove strict Schur concavity. Valid triangle side proportions satisfy \(p_i<1/2\); this, rather than the entire probability simplex, supplies the lower shape endpoint. The AM–GM bound supplies the stated global stability inequality. Equality and unattained-endpoint claims are proved, not inferred from sampling. The checker independently evaluates conditional integrals and direct Euclidean simulations; these finite checks are corroboration only.
+## correctness
 
-## Originality: PASS, with historical-priority risk
-The directly relevant established result is Prékopa's area-uniform triangle-centroid value \(2/27+20\log(2)/81\), which coincides with the *equal-side-weight* specialization here. This coincidence is explicitly identified and is **not** asserted new. Ionaşcu's 2016 preprint develops exact formulae for area-uniform samples in arbitrary planar regions, including arbitrary triangles and arbitrary interior target points; its boundary density is induced by radial projection of planar area and is not ordinary perimeter arclength for a scalene triangle. Reitzner–Schütt–Werner (2019) treat boundary-uniform random polytope approximation but study face-number and missing-volume asymptotics rather than this fixed-three-point centroid event. The result here evaluates the genuinely different arclength model for all triangle shapes, proves a strict side-length majorization law, and obtains the sharp geometric range and stability. Related published records on conditional areas of vertex-sampled regular-polygon triangles and centerpoint geometry involve different sampling objects. Indexed searches and inspected primary sources did not identify a dominating previously proved side-weight formula. General angular-integral representations could facilitate a separate derivation; they do not explicitly state the evaluated formula and sharp shape order. An older unindexed side-weight result remains a residual risk.
+PASS
 
-## Value: PASS
-A natural question in stochastic convex geometry is how likely an inscribed random triangle is to capture a canonical interior point. For full-boundary arclength sampling, affine invariance is broken, and it is not obvious a priori how the three side lengths govern this probability. The theorem fully determines that statistic for every nondegenerate triangle, its unique maximizer, its unattained sharp infimum, an exact realizability interval, and a quantitative measure of deviation from equality. It also isolates the known area-sampling constant as one distinguished specialization. This is a complete natural-shape classification, not a routine numerical substitution or arbitrary finite slice.
+Read the complete RESULT.md at frozen blob 508469895881591bf1871afb45b5cee52b34819d. An affine map preserves independent fractional side coordinates. The two-on-one-side conditional event has integral b=1/9+4 log(2)/27. For one point on each side, the positive barycentric matrix determinant and mutually disjoint three bad Cramer-sign events give c=2 log(2)/3. Multinomial side labels yield P=3b(e2-3e3)+6c e3. Positive coefficients give strict Schur concavity. Triangle inequalities are exactly p_i<1/2, proving the stated unique equilateral maximum and limiting (1/2,1/2,0) minimum. e2's variance identity and AM-GM for e3 give the stability bound. Fresh independent SymPy reconstruction checked both integrals and Cramer numerators; independently sampled geometric containment for three triangle shapes corroborated but is not the all-shape proof.
 
-## Closest literature and limitations
-Prékopa (1972), Halász–Kleitman (1974), Ionaşcu (arXiv:1612.08619; first posted 2016-12-15), and Reitzner–Schütt–Werner (arXiv:1911.05917; first posted 2019-11-14) provide the relevant background. The theorem does not cover arbitrary polygons, general off-centroid targets, dependent samples, or the full random-area distribution. The global stability coefficient is not claimed best. Historic priority is provisional. Numerical checks are not continuum certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited area-uniform triangle-centroid constant is known, but the inspected accessible primary comparisons use area sampling or a nonconstant angular density; neither yields the exact perimeter-arclength shape law or the strict shape majorization simply by substituting the known constant. No direct published match surfaced in targeted result searches. The literature judgement is best-of-knowledge and retains a genuine historical-priority risk.
+
+## value
+
+PASS
+
+The law gives a complete and shape-sensitive exact natural containment probability for a canonical three-point sampling experiment, with the entire sharp range, optimizer, degeneracy mechanism and stability. This is materially different from rederiving the known area-uniform single constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
