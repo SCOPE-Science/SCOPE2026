@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Phase-preserving position resets with symmetric switch rate nu produce coupled backward equations D m0 double prime+nu(m1-m0)=-1 and D m1 double prime+nu(m0-m1)+rho(m1(0)-m1)=-1. B=[[nu,-nu],[-nu,nu+rho]], E=exp[-a sqrt(B/D)], H=(I-E)B^-1, e=E 1,h=H 1 give m1(0)=h1/e1 and m0(0)=h0+(1-e0)h1/e1. Eigenvalues b_±=nu+rho/2 ±sqrt(nu²+rho²/4) prove M~a/(2 sqrt(D nu)) as nu↓0 and M=T(rho/2)-(rho²/(8 nu))T prime(rho/2)+O(nu^-2) as nu→∞ with T(s)=(exp(a sqrt(s/D))-1)/s. T prime changes sign at z*=1.593624..., so z>z* yields some finite nu below infinite-speed limit and a global finite minimizer by continuity/coercivity. No uniqueness or converse claimed. Independent 2x2 eigenchecks verify fast correction and slow sqrt singularity; slow check requires sufficiently tiny nu due to large regular part.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arutkin–Reuveni derive steady-state spatial densities under independent intensity switching; Bressloff resets phase in a switching-diffusivity process; Santra–Das–Nath use intermittent harmonic confinement."
+        ],
+        "reasoning": "The broad hybrid-process methodology overlaps, but the reset protocol and exact finite-speed optimum criterion differ. An earlier general matrix-resolvent formula might subsume the finite-dimensional calculation.",
+        "searches": [
+          "Arutkin Reuveni arXiv:2509.25365 doubly stochastic resetting",
+          "Bressloff J Phys A 53 275003 2020",
+          "Santra Das Nath arXiv:2104.00609 intermittent harmonic potentials"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.25365 full arXiv HTML",
+        "doi:10.1088/1751-8121/ab97e0 author PDF textual full article",
+        "arXiv:2104.00609 abstract",
+        "Resultary query: Brownian motion telegraph Markov switching phase-dependent reset rate zero rho phase preserving reset MFPT optimal finite switching square root divergence",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arutkin–Reuveni focus stationary distribution; Bressloff 2020 explicitly resets diffusion phase with position and studies optimum over reset rate, not over switching intensity at phase-preserving rate."
+        ],
+        "reasoning": "The existing papers do not directly yield this particular O(nu^-1) correction and threshold for a finite optimum under unchanged phase; cite model distinctions as primary evidence.",
+        "searches": [
+          "arXiv:2509.25365 model equations and future first passage statement",
+          "doi:10.1088/1751-8121/ab97e0 sections 3–4",
+          "arXiv:2104.00609"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both switching reset and switching-diffusion systems admit matrix backward equations; here constant Brownian diffusivity but phase-dependent zero/rho resetting with no phase redraw."
+        ],
+        "reasoning": "The difference in generator and reset boundary condition prevents directly specializing published state-randomizing constant-reset MFPT formulas.",
+        "searches": [
+          "Brownian motion telegraph Markov switching phase-dependent reset rate zero rho phase preserving reset MFPT optimal finite switching square root divergence",
+          "Markov modulated Poisson resetting telegraph environmental phase first passage",
+          "Bressloff 2020 Switching diffusions and stochastic resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved Resultary hits concern other resets/optimizers, not a=a/sqrt(nu) phase-preserving two-intensity MFPT table."
+        ],
+        "reasoning": "The exact matrix expression is a continuous parameter functional-calculus result, not a quoted database value; nonhits cannot prove originality.",
+        "searches": [
+          "Resultary semantic search: Brownian motion telegraph Markov switching phase-dependent reset rate zero rho phase preserving reset MFPT optimal finite switching square root divergence",
+          "telegraph resetting rate square root slow switching mean first passage"
+        ]
+      },
+      "rationale": "Related switching diffusion papers solve MFPT under resetting, but in the inspected Bressloff model the Brownian diffusion coefficient switches and position reset also redraws the phase, whereas the assessed model switches reset *intensity* and preserves phase. Arutkin–Reuveni treat intensity modulation but analyze stationary position laws and list first passage as further direction. Qualified PASS with higher priority risk for uninspected Markov-modulated first-passage works.",
+      "residual_risks": [
+        "General Markov-modulated restart results may imply the matrix backward equations; external publication-priority verification still warranted.",
+        "Threshold equality z=z* and uniqueness of optimum are expressly unproved; no converse below threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary spatial law treated; searched discussion indicates first-passage as prospective work, not the given MFPT threshold.",
+          "evidence": [
+            "Independent intensity changes; target-hitting objective not the stated main theorem."
+          ],
+          "identifier_or_url": "arXiv:2509.25365",
+          "material_read": "Accessible arXiv HTML model, stationary transform and final discussion of first-passage extension",
+          "method": "Primary full-text HTML model comparison",
+          "title": "Diffusion with doubly stochastic resetting",
+          "trigger": "Same fluctuating reset-intensity mechanism"
+        },
+        {
+          "assessment": "Different diffusion-state-dependent D and rate-independent position reset that simultaneously redraws diffusion state; not direct coverage of this phase-preserving modulation.",
+          "evidence": [
+            "Explicitly states phase redraw and diffusion coefficient switching."
+          ],
+          "identifier_or_url": "doi:10.1088/1751-8121/ab97e0; https://www.math.utah.edu/~bresslof/publications/20-10.pdf",
+          "material_read": "Full paper text accessible via author-hosted PDF textual extraction: abstract, model Sections 2–4 including reset protocol and conclusions; screenshot of PDF attempted but source returned 404 to screenshot service",
+          "method": "Full paper text and mathematical reset-operator comparison",
+          "title": "Switching diffusions and stochastic resetting",
+          "trigger": "Closest switching and resetting MFPT calculation"
+        },
+        {
+          "assessment": "Harmonic potential switching is a different drift/confinement process; detailed priority not ruled out.",
+          "evidence": [
+            "Different physical switching mechanism."
+          ],
+          "identifier_or_url": "arXiv:2104.00609",
+          "material_read": "Accessible abstract/model description, not full primary article",
+          "method": "ArXiv abstract and model comparison",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Potential competing finite switching optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact 2x2 matrix MFPT formula and fast-switching sign criterion establish a provable finite optimal switching speed despite diverging low-switching mean; the square-root barrier is a natural singular-stochastic-search invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General Markov-modulated restart results may imply the matrix backward equations; external publication-priority verification still warranted.",
+    "Threshold equality z=z* and uniqueness of optimum are expressly unproved; no converse below threshold.",
+    "Only the frozen assigned source-tree package was assessed; no repository edits, external expert attestation or Lean certification are claimed.",
+    "All finite computations are diagnostic; analytical arguments support all limiting conclusions."
+  ],
+  "schema_version": 1
+}

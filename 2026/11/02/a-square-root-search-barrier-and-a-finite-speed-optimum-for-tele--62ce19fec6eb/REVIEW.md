@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated two-phase Cox intensity and phase-preserving reset generator lead to a coupled inhomogeneous second-order boundary system. The exact mean vector is obtained from the unique bounded solution using the strictly positive square root of a symmetric positive-definite rate matrix. Spectral projector expansions reproduce the \(\nu^{-1/2}\) slow limit and the \(\nu^{-1}\) fast correction, including its sign. Differentiating the standard Brownian restart mean gives the unique positive crossover root; continuity and the opposing endpoint limits prove existence (not uniqueness) of a finite global optimizer in the specified regime. The embedded verifier replayed 739 checks, including exact-segment Monte Carlo. Numerical simulation is not relied on for universal claims.
+## correctness
 
-## Originality — PASS (qualified best-knowledge)
-Arutkin and Reuveni's 2025 paper solves spatial stationarity under an independent fluctuating resetting rate, and identifies its first-passage effect as future work; it does not state this target-hitting threshold. Santra, Das and Nath's 2021 full text establishes numerical switching optimization under intermittent harmonic confinement, **not** free Brownian diffusion with a phase-dependent Poisson resetting clock that persists through phase switches. The preexisting constant-reset optimal dimensionless root is credited, not asserted as new. Bressloff's 2020 switching-diffusivity setting redraws the discrete phase on reset rather than preserving it, but only an accessible model description was inspected. Published mathematical records, alias/parameter searches and recoverable earlier results were compared. General Markov-modulated boundary-resolvent theorems could subsume the matrix representation; no literature-wide priority certification is claimed.
+PASS
 
-## Value — PASS
-This identifies a concrete optimization mechanism that spatial stationary laws alone cannot resolve: switching too slowly leaves a long-tailed no-reset phase, but switching infinitely fast can excessively reset searches to remote targets. The exact sign criterion pins down when a finite refresh rate improves on perfect averaging, and the square-root barrier quantifies the cost of slow environmental modulation. This is a motivated parameter-regime statement rather than a mere reparameterization of the classical optimum.
+Phase-preserving position resets with symmetric switch rate nu produce coupled backward equations D m0 double prime+nu(m1-m0)=-1 and D m1 double prime+nu(m0-m1)+rho(m1(0)-m1)=-1. B=[[nu,-nu],[-nu,nu+rho]], E=exp[-a sqrt(B/D)], H=(I-E)B^-1, e=E 1,h=H 1 give m1(0)=h1/e1 and m0(0)=h0+(1-e0)h1/e1. Eigenvalues b_±=nu+rho/2 ±sqrt(nu²+rho²/4) prove M~a/(2 sqrt(D nu)) as nu↓0 and M=T(rho/2)-(rho²/(8 nu))T prime(rho/2)+O(nu^-2) as nu→∞ with T(s)=(exp(a sqrt(s/D))-1)/s. T prime changes sign at z*=1.593624..., so z>z* yields some finite nu below infinite-speed limit and a global finite minimizer by continuity/coercivity. No uniqueness or converse claimed. Independent 2x2 eigenchecks verify fast correction and slow sqrt singularity; slow check requires sufficiently tiny nu due to large regular part.
 
-## Residual risks and limitations
-No global optimizer uniqueness or absence-of-optimum conclusion below the threshold has been proved. The phase-preserving nature of the reset is essential, and only the two-state symmetric chain with one zero intensity is covered. Full text of the most directly adjacent switching-diffusivity publication could not be inspected; generic matrix-valued first-passage tools may imply part of the proof. Independent priority and correctness review remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Related switching diffusion papers solve MFPT under resetting, but in the inspected Bressloff model the Brownian diffusion coefficient switches and position reset also redraws the phase, whereas the assessed model switches reset *intensity* and preserves phase. Arutkin–Reuveni treat intensity modulation but analyze stationary position laws and list first passage as further direction. Qualified PASS with higher priority risk for uninspected Markov-modulated first-passage works.
+
+## value
+
+PASS
+
+The exact 2x2 matrix MFPT formula and fast-switching sign criterion establish a provable finite optimal switching speed despite diverging low-switching mean; the square-root barrier is a natural singular-stochastic-search invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
