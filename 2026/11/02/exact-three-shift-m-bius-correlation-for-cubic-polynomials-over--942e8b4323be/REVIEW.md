@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact character identity is proved by an invertible fractional-linear change of the parameter outside its one exceptional value, together with complete quadratic-character correlations. The exceptional term cancels the constant contribution. The cubic discriminant reduction is bijective when \(q\equiv2\pmod3\), and the nonsquare discriminant \(-3\) fixes the final sign. Polynomial Möbius signs include repeated-factor zeroes. The standalone finite-field verifier independently uses root and derivative classification in prime fields and character calculations in the field of order \(125\). These computations test, rather than prove, the infinite-field assertion.
+PASS
 
-## Originality — PASS, with residual risk
+Pellet discriminant identity for monic cubics gives μ(f)=−χ(disc f), including zero on repeated factors. Every monic cubic is uniquely depressed after a shift s and has discriminant −4A³−27(B+c)²; for odd q≡2 (mod3), A↦u=−4A³/27 is bijective and the s-choice supplies factor q. The proved three-factor quadratic-character lemma sums over u,v to qχ(−1) for any distinct shifts, with one exceptional v and a Möbius parameter bijection; χ(−3)=−1 fixes final sign, yielding q². Independent direct factorization-pattern enumeration checked all 10 distinct unordered triples over F5 and all 165 over F11, avoiding the discriminant identity as computation.
 
-The closest inspected primary theorem is Carmon–Rudnick's multi-shift correlation estimate: it covers three shifts and degree three, but its error bound does not imply an exact \(q^2\) count or independence from shift spacing. Keating–Rudnick's short-interval and arithmetic-progression results concern asymptotic averages and variances, not the present fixed-degree triple. Mathematical-record and accessible mathematical-record comparisons did not reveal an equivalent exact identity, although incomplete indexing and unlocated historical special-case computations remain genuine risks.
+## originality
 
-## Value — PASS
+PASS
 
-The three-point correlation is a canonical instance of polynomial Chowla-type statistics, and the exact identity is uniform for every triple of distinct shifts. It is a nonzero term at finite degree, identifying a precise small-degree arithmetic effect invisible to error-term estimates and providing a benchmark for general shift-correlation models. The explicit lemma is a structural mechanism, rather than an arbitrary small-field computation.
+Carmon–Rudnick prove general polynomial Möbius multi-shift asymptotic bounds, including the same degree and number of shifts, but their estimate does not determine a signed exact q² term. Keating–Rudnick consider different short-interval and arithmetic-progression statistics. The exact cubic three-shift identity and character lemma were not located in the checked published records or full relevant theorems, with acknowledged possibility of earlier unindexed low-degree computations.
 
-## Scope and remaining limitations
+## value
 
-The result does not determine characteristic-two, fields with \(q\equiv1\pmod3\), repeated or nonconstant shifts, or different polynomial degrees. It has not undergone independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical three-point Chowla-type polynomial Möbius moment has an exact nonzero finite-degree value uniform across all distinct constant shifts. This is a genuine arithmetic correlation that asymptotic cancellation bounds cannot resolve; the character lemma supplies a reusable mechanism. Domain restriction is natural because cubing is bijective precisely at q≡2 mod3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
