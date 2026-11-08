@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:38:35.885228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every finite n>=1, real symmetric commuting A,C share a common orthonormal eigenbasis, and C positive definite gives alpha_i=2c_i-lambda>0 under 0<lambda<2lambda_min(C). Starting from any nonzero x_k, weights p_i=x_{k,i}^2/||x_k||^2 are nonnegative and sum to one. The exact threshold ratio after the pulse/off interval is G(d)=sum_i p_i exp(-alpha_i epsilon+beta_i d), beta_i=2a_i+lambda. G(0)<1. For every d less than d*=epsilon min_{beta_i>0}alpha_i/beta_i every exponential is strictly below 1 (including beta_i<=0); hence no mixture triggers. A state supported on the minimizing eigenmodes reaches G(d*)=1, proving both the sharp minimum and all equality cases; adding any nonminimizing active weight keeps G(d*)<1. If the initial state has a beta_i>0 component, G(d)->infinity so the continuous convex function crosses 1 at finite d. If none, G(d)<1 for all d>=0; its gap is infinite/no next pulse, not 0. For the generic Banno bound set P*=I,Q=2C; lambda*=2c_min, mu=2|a_max|, and d*>=epsilon(2c_min-lambda)/(2a_max+lambda)>=2tau_min as long as beta_max>0. Boundary beta_i=0 has a factor exp(-alpha_i epsilon)<1 forever; tied modal minima allow arbitrary mixtures supported in the tied eigenspaces. Does not claim noncommuting/nonnormal cases, disturbances, uncertain parameters or arbitrary pulse lengths. Direct recomposition of all seven Git blob entries gave exact record-tree SHA 34c2a4904873118bc137b403c95a7a9220cc5fcf; read the full RESULT.md proof and verify_gap.py rather than relying on recorded VERIFY_OK. A separate 500-case test (n=1..9 random alphas/betas positive pulse dissipation) corroborated pre-gap exclusion and later crossing in 471 cases, with 29 no-trigger cases; not used as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banno et al. prove global stability and existence of positive off-interval bounds for general stabilizing linear feedback; their bound is tau_min=(lambda* - lambda)epsilon/[2(mu+lambda)], not a sharp minimum.",
+          "Postoyan et al. compare inter-event times for a sampled-feedback relative-threshold mechanism, not a prescribed-duration pulse followed by unforced flow."
+        ],
+        "reasoning": "The strongest directly relevant source has broader matrix assumptions but a weaker interval conclusion. It does not, by logical implication of its stated bound, give the exact mode-by-mode minimax or the no-trigger set. Generic switching/dwell-time results may subsume portions; no matched domination was found.",
+        "searches": [
+          "Resultary: exact minimum zero-input interval sparse event-triggered control commuting symmetric linear generators modal eigenvalue ratio",
+          "Resultary: diagonal switched systems event triggered dwell time exact spectral threshold min modes",
+          "DOI 10.1002/rnc.6278 Theorem 1 and Section 5",
+          "Postoyan/Sanfelice/Heemels 2019 planar inter-event analysis (portal abstract)"
+        ]
+      },
+      "checked_sources": [
+        "Banno et al. (2022 first online/2023 volume), Sparse event-triggered control of linear systems, DOI 10.1002/rnc.6278, online full text Sections 1–3 and Theorem 1 eqs (2),(5)–(8),(18)–(26), https://onlinelibrary.wiley.com/doi/full/10.1002/rnc.6278",
+        "Banno et al. (2021 ACC), Data-Driven Sparse Event-Triggered Control of Unknown Systems, DOI 10.23919/ACC50511.2021.9482910",
+        "Wang, Azuma, Ariizumi, Asai (2018), Event-triggered Control of Intermittently-actuated Systems, 62nd ISCIE Conference, abstract at https://www.researchgate.net/publication/354054952_Event-triggered_Control_of_Intermittently-actuated_Systems",
+        "Postoyan, Sanfelice, Heemels (2019), Inter-event Times Analysis for Planar Linear Event-triggered Controlled Systems, TU/e research portal, https://research.tue.nl/en/publications/inter-event-times-analysis-for-planar-linear-event-triggered-cont/",
+        "Resultary: exact minimum zero-input interval sparse event-triggered control commuting symmetric linear generators modal eigenvalue ratio",
+        "Resultary: Banno Azuma Ariizumi sparse event triggered control pulse interval Lyapunov threshold exact inter-event time",
+        "Resultary: diagonal switched systems event triggered dwell time exact spectral threshold min modes",
+        "Web targeted searches: diagonal linear systems exact inter-event time, sparse event triggered pulse minimal interval, matching eigenmode gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With P*=I, Q=2C and lambda*=2c_min, journal tau_min=(2c_min-lambda)epsilon/[2(2|a_max|+lambda)]. Under a trigger-capable mode, d*>=epsilon(2c_min-lambda)/(2a_max+lambda)>=2tau_min.",
+          "The 2022 journal explicitly lists the existence of a lower bound for zero-input intervals among the additions to its 2021 conference preliminaries. The 2018 paper describes bounded triggering gaps for a different intermittently actuated/held-input control law."
+        ],
+        "reasoning": "The pre-existing bound supplies a lower guarantee, not equality, a minimizing state, or a classification of infinitely delayed triggers; the exact minimax result is not a formal corollary of that bound alone. Conversely the present formula is not a broader general stability theorem.",
+        "searches": [
+          "Banno et al. (2022 first online/2023 volume), Sparse event-triggered control of linear systems, DOI 10.1002/rnc.6278, online full text Sections 1–3 and Theorem 1 eqs (2),(5)–(8),(18)–(26), https://onlinelibrary.wiley.com/doi/full/10.1002/rnc.6278",
+          "Banno et al. (2021 ACC), Data-Driven Sparse Event-Triggered Control of Unknown Systems, DOI 10.23919/ACC50511.2021.9482910",
+          "Wang, Azuma, Ariizumi, Asai (2018), Event-triggered Control of Intermittently-actuated Systems, 62nd ISCIE Conference, abstract at https://www.researchgate.net/publication/354054952_Event-triggered_Control_of_Intermittently-actuated_Systems",
+          "DOI 10.1002/rnc.6278 introductory note on preliminary versions; Theorem 1 eqs (18)–(26)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banno et al. study the same on/off controller u=Fx while pulsing and u=0 afterwards, with V(x)=x^TP*x and threshold V(x(t_k))exp(-lambda(t-t_k)); their general state-space equations specialize to current A+BF=-C, P*=I, Q=2C.",
+          "In diagonal coordinates the threshold is a weighted sum of exponentials and the minimizing gap is the first modal crossing; this exact initial-direction minimax is not printed in the inspected journal Theorem 1."
+        ],
+        "reasoning": "The present mode-decoupled system is a genuine specialization of the identical event mechanism, not a different system hidden by notation. The known general event mechanism alone does not assert the exact worst-case crossing or equality modes.",
+        "searches": [
+          "Resultary: Banno Azuma Ariizumi sparse event triggered control pulse interval Lyapunov threshold exact inter-event time",
+          "DOI 10.1002/rnc.6278 Section 2 eq (2), Section 3 eqs (5)–(8)",
+          "web search: exact inter event time diagonal sparse event triggered pulse control min spectral gap commuting symmetric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top-ranked records concern operator norm pencils, reset oscillators, switched-delay benchmarks, and unrelated control spectral calculations; no retrieved title/summary states the same pulse/off model with the exact modal gap.",
+          "There is no fixed numerical dataset or finite published table defining the claim: it is an arbitrary-dimensional closed-form symbolic parameter invariant."
+        ],
+        "reasoning": "The database/table check is not a uniqueness proof; available indexed findings and exact-formula searches reveal no previously published equivalent. An unindexed controller special case or appendix could still contain it.",
+        "searches": [
+          "Resultary: exact minimum zero-input interval sparse event-triggered control commuting symmetric linear generators modal eigenvalue ratio",
+          "Resultary: Banno Azuma Ariizumi sparse event triggered control pulse interval Lyapunov threshold exact inter-event time",
+          "Resultary: diagonal switched systems event triggered dwell time exact spectral threshold min modes",
+          "web fast: minimum inter-execution time event triggered control linear diagonalizable spectral explicit sharp"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality attaches only to the sharp infimum over initial states, its equality-mode classification, and the no-trigger support dichotomy in a commuting symmetric pulse/off system. The 2022 journal paper (Theorem 1, eqs 18–26) introduced the same architecture and gave a conservative uniform positive gap, not this exact modal minimax formula. The paper explicitly says its gap-existence result was added beyond its 2021 preliminary version. The 2018 intermittent-actuation abstract refers to a held piecewise-constant input, and 2019 planar inter-event analysis uses a relative sampling threshold. None of three Resultary queries returned a semantically equivalent exact modal formula; searches do not prove priority. The two inaccessible conference full texts and generic diagonal specialization risk remain explicit.",
+      "residual_risks": [
+        "The 2021 conference predecessor was not accessible in full through arXiv/lawful OA; Oxford institutional access was VPN-disconnected. Its complete detailed content was not inspected.",
+        "The 2018 intermittently actuated conference paper was available only as abstract and the 2022 journal citation/comparison; an uninspected appendix might contain an equivalent restricted formula.",
+        "General exact interval theory for diagonal or commuting switched flows could state this as a corollary under other notation; search is not priority proof.",
+        "The result is elementary after simultaneous diagonalization and is only an exact scheduling invariant for the specified fixed-duration, noise-free, commuting symmetric class; no robustness or nonsymmetric stability theorem is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader stability result, weaker bound; no theorem asserting exact min_i alpha_i/beta_i or equality-mode/no-trigger characterization.",
+          "evidence": [
+            "Theorem 1 yields lambda* from Q/P* and tau_min=(lambda*-lambda)epsilon/[2(mu+lambda)], eqs (18)–(26).",
+            "Introduction says existence of a lower bound for zero-input periods is new relative to conference preliminaries."
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rnc.6278",
+          "material_read": "Full open-access HTML article: introduction including preliminary-version note, complete model and controller equations, Section 3.1 Theorem 1 and proof eqs (5)–(26), later discussion/conclusion and references.",
+          "method": "Read the actual mathematical statements and derivation; specialize P*=I, Q=2C and compare a conservative spectral-norm bound with an exact extremal eigenmode crossing.",
+          "title": "Sparse event-triggered control of linear systems",
+          "trigger": "Same state-feedback pulse/off dynamics, Euclidean/Lyapunov exponential threshold and off-time lower bound."
+        },
+        {
+          "assessment": "Uninspected full paper remains priority risk, but 2022 authors describe gap-existence proof as a journal extension.",
+          "evidence": [
+            "2022 Wiley full-text introduction states its added results include existence of a positive zero-input interval lower bound.",
+            "Publisher/ResearchGate bibliographic record for DOI 10.23919/ACC50511.2021.9482910 has no accessible full text in the checked sources."
+          ],
+          "identifier_or_url": "https://doi.org/10.23919/ACC50511.2021.9482910",
+          "material_read": "Public title, DOI/conference details and 2022 full article discussion of what was added; no full PDF available via arXiv or lawful open-access search. Authorized institutional download returned VPN-disconnected.",
+          "method": "Compared documented predecessor relation and journal statement about added lower-bound theorem, without inferring whole-document absence from a snippet.",
+          "title": "Data-Driven Sparse Event-Triggered Control of Unknown Systems",
+          "trigger": "An earlier version by the same authors in the same research program; potential mathematical precedence."
+        },
+        {
+          "assessment": "Abstract and Banno 2022 distinguish the input law; insufficient for a full-paper noncoverage assertion.",
+          "evidence": [
+            "2018 abstract reports a positive lower inter-triggering bound.",
+            "Banno 2022 introduction identifies a piecewise-constant input with non-prescribable nonzero duration as different."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/354054952_Event-triggered_Control_of_Intermittently-actuated_Systems",
+          "material_read": "Accessible conference abstract and Banno 2022 full article comparison; no arXiv or lawful open full text surfaced.",
+          "method": "Compared the described piecewise-constant held feedback against the continuous state-dependent fixed-duration pulse.",
+          "title": "Event-triggered Control of Intermittently-actuated Systems",
+          "trigger": "An earlier cited intermittent-control study with an inter-triggering time lower bound."
+        },
+        {
+          "assessment": "Different relative threshold and sample-and-hold event architecture; no demonstrated implication for prescribed pulse/off times.",
+          "evidence": [
+            "Abstract treats planar closed-loop relative triggering and asymptotic approximate inter-event time rather than an arbitrary-dimensional pulse-plus-zero-input exact minimax."
+          ],
+          "identifier_or_url": "https://research.tue.nl/en/publications/inter-event-times-analysis-for-planar-linear-event-triggered-cont/",
+          "material_read": "Publisher/university research-portal abstract, publication metadata and summary; not full text.",
+          "method": "Compared triggering equations and system architecture as described in abstract.",
+          "title": "Inter-event Times Analysis for Planar Linear Event-triggered Controlled Systems",
+          "trigger": "Potentially stronger inter-event-time classification for linear systems."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum feasible zero-input interval is the natural hard guarantee for intermittent actuators, fixed-duration energy packets and hardware duty-cycle scheduling. The formula isolates the precise worst spectral mode and characterizes all worst-case directions and the genuine never-retrigger subspace, including ties. It turns a qualitative/conservative generic gap guarantee into an exact arbitrary-dimensional answer and quantifies when controller inactivity is indefinitely safe relative to the chosen exponential threshold. Despite the short diagonal argument, the sharp optimand and equality/non-trigger classification are motivated by this precise scheduling question, not an arbitrary numerical slice, parameter substitution or known table. It is not advertised as a novel stability theorem or a robustness guarantee, and the generic literature contains much of the framework.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result is an exact classification only for real symmetric commuting A,C, C positive definite, V=||x||^2, fixed epsilon, and 0<lambda<2lambda_min(C); no general nonnormal/nonsymmetric claim.",
+    "500 numerical cases are finite corroboration only; the entire n proof is the convex-combination argument.",
+    "Full 2021 ACC and 2018 conference primary texts were inaccessible; the former institutional retriever reported VPN disconnected and was not bypassed.",
+    "Historical November continuity gap (earlier 10:34 UTC task) remains unchanged; independent audit is not external expert attestation."
+  ],
+  "schema_version": 1
+}
