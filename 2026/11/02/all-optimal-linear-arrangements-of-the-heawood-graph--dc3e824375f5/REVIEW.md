@@ -1,19 +1,21 @@
-# Review of the Heawood arrangement classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scope is precisely all bijections from the fourteen vertices of the Fano-plane incidence graph to positions 1 through 14. Three-regularity and the absence of cycles shorter than six give the cut profile \(0,3,4,5,6,7,6,7,6,7,6,5,4,3,0\). At cardinality seven the incidence count for a selected three-point/four-line configuration gives the needed edge ceiling; complementary cardinalities follow from cut symmetry. The prefix-cut identity gives an exact lower bound of \(69\). The explicit paired-hexagon orders attain every constrained minimum, and equality at sizes six and eight forces disjoint endpoint hexagons in every optimal order. Every interior prefix must be a single arc. The exact count is \(28\cdot3\cdot96\cdot2\cdot96=1{,}548{,}288\). The independent difference-set subset-DP and binary-vector Fano constructions reproduce the profile, optimum, ordered disjoint hexagon pairs, and count. No unproved extension to other graphs is asserted.
+PASS
 
-## Originality — PASS, with historical uncertainty
+The boundary-cut identity L=sum_{k=1}^{13}|partial S_k| and girth-six edge bounds give beta=(0,3,4,5,6,7,6,7,6,7,6,5,4,3,0), sum 69. Cardinality-7 incidence bound uses at most seven selected point-line incidences, and complements give k>=8. Equality forces first/last six vertices to be six-cycles and all their smaller prefix/suffix subsets to be contiguous arcs. Fano incidence geometry has exactly 28 induced hexagons, three vertex-disjoint mates each, 96 arc orders each and 2 leftover-middle orders; hence 28*3*96^2*2=1548288. Full independently implemented 2^14 subset-cut DP recovers beta, min69 and number1548288, and separately checks 84 ordered disjoint hexagon pairs. This is complete finite exhaustion of the specified single graph, with an analytic characterization.
 
-Horton, Parker, and Borie (2000), DOI `10.1016/S0166-218X(00)00173-6`, Theorems 3.1–3.2, already give the general constrained-cut lower bound and equality criterion, not this specific cut profile or optimizer census. Baez (2015), *Heawood Graph*, already describes the Levi graph and its 28 six-cycles. Dejter, arXiv:`1002.1960` (first posted 2010), Section 1, identifies their disjointness graph as the cubic Coxeter graph, so the number of disjoint partners is also not claimed as new. The present contribution is the necessary-and-sufficient characterization of all optimal arrangements and their exact named-vertex count. Searches for equivalent Fano/Levi-graph layout formulations and exact numerical counts did not identify an existing implication. An unindexed or unpublished earlier enumeration remains a residual originality risk; negative searches do not establish global priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete enumerative refinement of a natural optimization problem for the unique cubic girth-six cage and the Levi graph of the smallest projective plane. The proof shows how a classical Coxeter-graph incidence relation controls all optimal linear arrangements, not just the optimum. The explicit factorization provides an exact benchmark for optimal-order counting and for methods that use nested minimum cuts. The closed count is not a mere symmetry quotient or a recomputation of the known 28 hexagons.
+Horton–Parker–Borie (2000) Section 3 Theorems 3.1–3.2 prove the generic sum-of-minimum-cuts lower bound and nested-minimizer equality criterion, with no Heawood-specific profile or count. Classical Fano geometry/Dejter supplies 28 hexagons and three disjoint mates, but neither yields all 96-by-96 arc-chain equality cases or the 1548288 exact layout count. No matching closed table identified; a specialized unindexed combinatorial layout census remains a risk.
 
-## Limits and verification
+## value
 
-The result concerns one distinguished fourteen-vertex graph, not a family of projective planes. The standalone scripts provide exhaustive finite corroboration of the proved characterization. No independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Heawood graph is the canonical Fano incidence graph, not an arbitrary hand-picked small graph. Its complete optimum layout classification, cutwidth, exact cut-profile and symmetry-explicit multiplicity are natural finite extremal graph invariants that a future graph-layout researcher could use; not merely a one-number program output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

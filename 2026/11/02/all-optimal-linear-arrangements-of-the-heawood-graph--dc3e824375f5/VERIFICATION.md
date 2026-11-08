@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run the supplied scripts from the artifact directory with a standard Python 3 installation:
+## correctness
 
-```
-python3 verify_subset_dp.py
-python3 verify_fano_structure.py
-```
+PASS
 
-The first script uses a cyclic difference-set construction of the fourteen-vertex Fano incidence graph. It checks every one of the \(16{,}384\) vertex subsets, determines the entire edge-boundary profile, counts all prefix-minimizing permutations by dynamic programming, and independently minimizes the total arrangement cost by a different subset recurrence. The assertions check \(69\) for the minimum cost and \(1{,}548{,}288\) for the optimizer count.
+The boundary-cut identity L=sum_{k=1}^{13}|partial S_k| and girth-six edge bounds give beta=(0,3,4,5,6,7,6,7,6,7,6,5,4,3,0), sum 69. Cardinality-7 incidence bound uses at most seven selected point-line incidences, and complements give k>=8. Equality forces first/last six vertices to be six-cycles and all their smaller prefix/suffix subsets to be contiguous arcs. Fano incidence geometry has exactly 28 induced hexagons, three vertex-disjoint mates each, 96 arc orders each and 2 leftover-middle orders; hence 28*3*96^2*2=1548288. Full independently implemented 2^14 subset-cut DP recovers beta, min69 and number1548288, and separately checks 84 ordered disjoint hexagon pairs. This is complete finite exhaustion of the specified single graph, with an analytic characterization.
 
-The second script independently constructs the graph from \(\mathbb F_2^3\), checks the Fano incidence axioms, enumerates all six-cycles as noncollinear point triples and every disjoint pair, verifies that both uncovered vertices meet each hexagon once and each other once, enumerates the permitted \(96\) cyclic-arc orders for each hexagon, and checks a complete optimal layout for each ordered pair. It verifies the product count \(28\cdot3\cdot96^2\cdot2\).
+## originality
 
-Recorded successful output from the actual scripts:
+PASS
 
-```
-EXHAUSTIVE_HEAWOOD_SUBSET_DP_PASS
-subsets=16384 minLA=69 optimal_orders=1548288
-profile=0,3,4,5,6,7,6,7,6,7,6,5,4,3,0
-minimizer_counts=1,14,21,42,98,252,28,168,28,252,98,42,21,14,1
-FANO_DISJOINT_HEXAGON_STRUCTURE_PASS
-Fano_triangles=28 disjoint_ordered_pairs=84
-arc_orders_per_hexagon=96 middle_orders=2 total=1548288
-```
+Horton–Parker–Borie (2000) Section 3 Theorems 3.1–3.2 prove the generic sum-of-minimum-cuts lower bound and nested-minimizer equality criterion, with no Heawood-specific profile or count. Classical Fano geometry/Dejter supplies 28 hexagons and three disjoint mates, but neither yields all 96-by-96 arc-chain equality cases or the 1548288 exact layout count. No matching closed table identified; a specialized unindexed combinatorial layout census remains a risk.
 
-The theorem's exact universal quantifiers concern all permutations of this **one** finite fourteen-vertex graph. These enumerations are exhaustive for that finite instance. The written proof separately establishes the structural characterization and the lower bound, rather than inferring an unbounded statement from sample computations. There is no independent scholarly audit or independent validation claim.
+## value
+
+PASS
+
+The Heawood graph is the canonical Fano incidence graph, not an arbitrary hand-picked small graph. Its complete optimum layout classification, cutwidth, exact cut-profile and symmetry-explicit multiplicity are natural finite extremal graph invariants that a future graph-layout researcher could use; not merely a one-number program output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
