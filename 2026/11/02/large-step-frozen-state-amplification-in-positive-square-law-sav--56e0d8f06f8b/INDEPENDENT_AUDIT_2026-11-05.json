@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C>0, h>0, x0!=0, r0=q(x0), elimination of the positive-root square-law SAV BE equations yields r_{n+1}=r_n/sqrt(1+h(x_n/q(x_n))^2), x_{n+1}=x_n-h(x_n/q(x_n))r_{n+1}; modified-energy decrement equals -(x_{n+1}-x_n)^2/h. For large h, first step sends x1=-sgn(x0)q0 sqrt(h)+x0+O(h^-1/2), r1=O(h^-1/2). A bootstrap keeps |x_j|>=q0 sqrt(h)/2 and opposite sign for j>=1; c(x_j)^2>=1 yields geometric decay of r_j and bounded total later displacement. The second step contributes q0^2/x0+O(h^-1), subsequent steps O(h^-1/2), giving X_h=-sgn(x0)q0 sqrt(h)+x0+q0^2/x0+O(h^-1/2). Algebraic C=x0=1,h=100 bounds X<-73/8 while auxiliary falls to 0; tests at three h values corroborate only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. analyze positivity and the modified energy, not long-time physical-state convergence for arbitrary h.",
+          "Relaxed SAV methods by Jiang–Zhang–Zhao address physical consistency under modified updates."
+        ],
+        "reasoning": "No inspected theorem subsumes fixed-step X_h asymptotic for this unrelaxed positive-root map; general warnings motivate but do not calculate it.",
+        "searches": [
+          "positive SAV unconditional modified energy stability physical solution stationary convergence",
+          "positivity preserving square law scalar auxiliary variable SAV backward Euler positive root stationary limit counterexample",
+          "relaxed scalar auxiliary variable asymptotic behavior dissipative discretization"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01063",
+        "https://doi.org/10.11948/20190373",
+        "https://arxiv.org/abs/2104.06620"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decrease r_{n+1}^2<=r_n^2 does not control E(x_n), as x can move O(sqrt h) on the first step.",
+          "The bootstrap establishes a family of nonzero boundary fixed states (x,0) approached without finite-step contact."
+        ],
+        "reasoning": "Published auxiliary dissipation cannot imply physical convergence; the new precise counterexample does not contradict existing finite-time small-step convergence.",
+        "searches": [
+          "Huang Liu Wang Yan 2610.01063 positivity modified energy lemma",
+          "Bouchriti Pierre Alaa SAV nonphysical equilibria",
+          "positivity preserving square law scalar auxiliary variable SAV backward Euler positive root stationary limit counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang et al. Eq. (3.2) has the positive-root square-law update and dissipation.",
+          "Bouchriti et al. discuss spurious modified stationary equations for earlier SAV methods."
+        ],
+        "reasoning": "The reviewed iteration is a scalar specialization of the published method; the exact frozen limit and large-step expansion are distinct from the scheme definition and generic warning.",
+        "searches": [
+          "positivity preserving square law scalar auxiliary variable SAV backward Euler positive root stationary limit counterexample",
+          "arxiv 2610.01063 positive quadratic auxiliary variable scheme section 3.2",
+          "Bouchriti Pierre Alaa SAV asymptotic stationary equations 2020"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit witness C=1,x0=1,h=100 has certified X<-73/8 and E(X)>41 from inequalities, not a numeric-only table.",
+          "Inspected numerical examples of Huang et al. are PDE gradient-flow simulations rather than this scalar exact witness."
+        ],
+        "reasoning": "No known exact table for this particular positive-root scalar recurrence was identified; prior hidden supplement remains possible.",
+        "searches": [
+          "arxiv 2610.01063 numerical example scalar x dot -x h 100 frozen state",
+          "Bouchriti 2020 scalar SAV counterexample table",
+          "positivity preserving square law scalar auxiliary variable SAV backward Euler positive root stationary limit counterexample"
+        ]
+      },
+      "rationale": "PASS qualified: Huang–Liu–Wang–Yan introduced the same positive-root SAV step and modified-energy dissipation, but their inspected full 17-page paper treats algorithmic positivity and numerical examples, not the shown fixed-step infinite-time scalar amplification. Earlier SAV wrong-equilibrium warnings by Bouchriti et al. concern related general phenomena, not this sharp asymptotic, but priority risk remains.",
+      "residual_risks": [
+        "An earlier general SAV nonphysical steady-state theorem or appendix might supply the scalar counterexample implicitly.",
+        "The theorem is specifically for the positive-root unmodified scalar scheme at large fixed h and does not claim the PDE or small-step regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_EXPLICIT_FROZEN_STATE_THEOREM_IDENTIFIED",
+          "evidence": [
+            "Same scheme and unconditional modified-energy dissipation already known; no matching large-step scalar limit located in full read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01063",
+          "material_read": "Full 17-page arXiv primary PDF: method derivation including equation (3.2), positive roots and energy law, later numerical and conclusion sections",
+          "method": "Read full text and searched for stationary scalar xdot=-x example and infinite-time step-size asymptotic",
+          "title": "Positivity-preserving scalar auxiliary variable schemes for gradient flows via a quadratic reformulation",
+          "trigger": "Same newly introduced square-law SAV method, essential priority source"
+        },
+        {
+          "assessment": "GENERAL_WARNING_KNOWN",
+          "evidence": [
+            "Qualitatively related modified stationary states for other SAV schemes; could be conceptual priority but not checked exact same map."
+          ],
+          "identifier_or_url": "https://doi.org/10.11948/20190373",
+          "material_read": "Bibliographic abstract/results summary: discrete stationary equations can differ from original gradient flow",
+          "method": "Abstract and bibliographic source comparison; complete article not claimed read",
+          "title": "Remarks on the asymptotic behavior of scalar auxiliary variable (SAV) schemes for gradient-like flows",
+          "trigger": "Potentially broader warning against wrong physical attractors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A transparent convex one-variable counterexample to equating auxiliary positivity and modified-energy decay with physical convergence is a motivated stability boundary for a recent numerical integrator; the quantitative sqrt(h) amplification and exact finite h witness are not routine restatements of SAV energy decay.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier general SAV nonphysical steady-state theorem or appendix might supply the scalar counterexample implicitly.",
+    "The theorem is specifically for the positive-root unmodified scalar scheme at large fixed h and does not claim the PDE or small-step regime."
+  ],
+  "schema_version": 1
+}

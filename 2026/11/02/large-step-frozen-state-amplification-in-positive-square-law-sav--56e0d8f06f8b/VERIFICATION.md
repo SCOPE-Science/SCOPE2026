@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-The universal statement is proved by the positive quadratic root, a geometric bootstrap and a two-step asymptotic expansion in `RESULT.md`. No finite run is treated as an infinite proof.
+## correctness
 
-Run `python verify_sav.py` from the extracted package directory. The checker uses Python standard-library modules only and a fixed random seed. It performs 300 sampled modified-energy and positivity checks, one explicit large-step wrong-attractor example, and twelve large-step asymptotic comparisons. The exact parameter and mathematical limits are in `RESULT.md`.
+PASS
 
-The initial source record is arXiv:2610.01063v1, public 2026-10-01. The recent source's later sections were unavailable for complete textual comparison; this limits external priority assessment but does not enter the algebraic proof.
+For C>0, h>0, x0!=0, r0=q(x0), elimination of the positive-root square-law SAV BE equations yields r_{n+1}=r_n/sqrt(1+h(x_n/q(x_n))^2), x_{n+1}=x_n-h(x_n/q(x_n))r_{n+1}; modified-energy decrement equals -(x_{n+1}-x_n)^2/h. For large h, first step sends x1=-sgn(x0)q0 sqrt(h)+x0+O(h^-1/2), r1=O(h^-1/2). A bootstrap keeps |x_j|>=q0 sqrt(h)/2 and opposite sign for j>=1; c(x_j)^2>=1 yields geometric decay of r_j and bounded total later displacement. The second step contributes q0^2/x0+O(h^-1), subsequent steps O(h^-1/2), giving X_h=-sgn(x0)q0 sqrt(h)+x0+q0^2/x0+O(h^-1/2). Algebraic C=x0=1,h=100 bounds X<-73/8 while auxiliary falls to 0; tests at three h values corroborate only.
+
+## originality
+
+PASS
+
+PASS qualified: Huang–Liu–Wang–Yan introduced the same positive-root SAV step and modified-energy dissipation, but their inspected full 17-page paper treats algorithmic positivity and numerical examples, not the shown fixed-step infinite-time scalar amplification. Earlier SAV wrong-equilibrium warnings by Bouchriti et al. concern related general phenomena, not this sharp asymptotic, but priority risk remains.
+
+## value
+
+PASS
+
+A transparent convex one-variable counterexample to equating auxiliary positivity and modified-energy decay with physical convergence is a motivated stability boundary for a recent numerical integrator; the quantitative sqrt(h) amplification and exact finite h witness are not routine restatements of SAV energy decay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

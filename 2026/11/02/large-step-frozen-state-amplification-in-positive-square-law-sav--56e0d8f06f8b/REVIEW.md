@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The quadratic root is unique and positive, and algebraic substitution proves the exact modified-energy identity. For consistently initialized nonzero data, the first-step large-length expansion gives a sign reversal of order \(\sqrt h\). A geometric bootstrap keeps all subsequent states a distance of order \(\sqrt h\) from the minimizer, proves convergence of the state and auxiliary variable, and bounds later displacement. The separately bounded second step gives the exact constant term \(x_0+q_0^2/x_0\). The explicit \(h=100\) case is certified by rational inequalities and no numerical limit assumption. The standalone checker exercises the stated recurrence and the asymptotic rate but is not substituted for the proof.
+## correctness
 
-**Originality (PASS, qualified).** Huang et al., arXiv:2610.01063v1, introduce the positive-root square-law SAV framework. Its accessible abstract, introduction and early derivation cover positivity and modified-energy stability, not the precise large-step frozen-state law proved here. Bouchriti, Pierre and Alaa (2020, DOI 10.11948/20190373) already observe that older SAV schemes can select modified equilibria. Jiang, Zhang and Zhao (2021, arXiv:2104.06620) discuss consistency repairs. Neither the general equilibrium warning nor the correction motivation is equivalent to the explicit consistent-start trajectory with \(X_h=-\operatorname{sgn}(x_0)q_0\sqrt h+x_0+q_0^2/x_0+O(h^{-1/2})\) for this newly defined map. The recent source's later technical sections could not be read during final comparison; independent historical priority is not established.
+PASS
 
-**Value (PASS).** A positive auxiliary root and modified-energy decrease are central advertised properties of the recent numerical method. The theorem supplies a quantitative, robust distinction between those properties and the physical objective: from an exactly consistent initial auxiliary value and a strictly convex physical energy, increasing the fixed step sends the eventual physical energy to infinity linearly. It identifies a structural long-time benchmark relevant to physical-energy consistency and relaxation safeguards, beyond the already known generic possibility of modified equilibria.
+For C>0, h>0, x0!=0, r0=q(x0), elimination of the positive-root square-law SAV BE equations yields r_{n+1}=r_n/sqrt(1+h(x_n/q(x_n))^2), x_{n+1}=x_n-h(x_n/q(x_n))r_{n+1}; modified-energy decrement equals -(x_{n+1}-x_n)^2/h. For large h, first step sends x1=-sgn(x0)q0 sqrt(h)+x0+O(h^-1/2), r1=O(h^-1/2). A bootstrap keeps |x_j|>=q0 sqrt(h)/2 and opposite sign for j>=1; c(x_j)^2>=1 yields geometric decay of r_j and bounded total later displacement. The second step contributes q0^2/x0+O(h^-1), subsequent steps O(h^-1/2), giving X_h=-sgn(x0)q0 sqrt(h)+x0+q0^2/x0+O(h^-1/2). Algebraic C=x0=1,h=100 bounds X<-73/8 while auxiliary falls to 0; tests at three h values corroborate only.
 
-**Limits and closest literature.** The result is restricted to the explicitly written one-dimensional square-law backward-Euler recurrence and exact arithmetic, not to all SAV variants or finite-time small-step accuracy. Principal comparisons were Huang et al. (2026), Bouchriti et al. (2020), Jiang et al. (2021), and Shen et al. (2018). Residual risk: a specialized equivalent scalar result may appear in presently inaccessible portions of a source or earlier literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Huang–Liu–Wang–Yan introduced the same positive-root SAV step and modified-energy dissipation, but their inspected full 17-page paper treats algorithmic positivity and numerical examples, not the shown fixed-step infinite-time scalar amplification. Earlier SAV wrong-equilibrium warnings by Bouchriti et al. concern related general phenomena, not this sharp asymptotic, but priority risk remains.
+
+## value
+
+PASS
+
+A transparent convex one-variable counterexample to equating auxiliary positivity and modified-energy decay with physical convergence is a motivated stability boundary for a recent numerical integrator; the quantitative sqrt(h) amplification and exact finite h witness are not routine restatements of SAV energy decay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
