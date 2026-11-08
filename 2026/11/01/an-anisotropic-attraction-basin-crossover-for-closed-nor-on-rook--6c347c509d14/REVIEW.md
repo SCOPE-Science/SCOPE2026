@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit update formula \(F(S)=R(S)^{\mathrm c}\times C(S)^{\mathrm c}\) gives the entire functional graph after one step. The count of complementary nonempty proper rectangles, the inclusion–exclusion identity for surjective row/column supports, and the distinguished-basin formula have direct self-contained proofs in RESULT.md. Bonferroni's two-event bound proves the uniform equivalent with a vanishing relative error whenever \(2\le a\le b\) and \(b\to\infty\). The two standalone programs independently enumerate the indicated finite boards and agree, including exact basin sizes. Risks: the finite enumerations do not prove the theorem; the analytic argument does.
+## correctness
 
-## Originality — PASS (qualified)
-The 2015 survey and 2020 full-text study give general minterm periodicity and periodic-point bounds, but do not enumerate exact rook-graph two-cycle basins or prove an anisotropic rare-basin crossover. The previous rook-graph open-neighborhood rule is a genuinely different update, and a previously studied closed-neighborhood triangular graph lacks the independent row-and-column support structure essential to the crossover. Published mathematics-record searches did not find an equivalent stronger theorem. Residual risk: the full 2012 general minterm article could not be inspected; an unindexed prior specialization or combinatorial counting derivation might exist. The generic no-fixed-point/two-period implications are not represented as new.
+PASS
 
-## Value — PASS
-The invariant is a complete, individually resolved attraction-basin classification on the canonical family \(K_a\square K_b\), not a single small enumeration. The proof separates exponential proliferation of attractors from uniform probabilistic concentration on one orbit, and identifies a mathematically motivated boundary \(b\asymp2^{a-1}\) between two asymptotic mechanisms (a missing row and a missing column). The sharp crossover distinguishes this two-parameter family from previously studied one-parameter graph families. The conclusion is limited to the stated binary self-inclusive rule.
+With S occupied, closed NOR gives F(S)=R(S)^c x C(S)^c exactly; this implies F^3=F, no fixed configurations, and one empty/full orbit plus (2^a-2)(2^b-2)/2 complementary proper-rectangle pairs. An initial matrix with exact nonempty row/column supports A,B is counted by H(|A|,|B|) inclusion–exclusion, yielding every individual basin H(|A|,|B|)+H(a-|A|,b-|B|). The distinguished basin B=1+(2^b-1)^a+(2^a-1)^b-H(a,b) is >2^(ab-1). For uniformly random states, Bonferroni on events of an empty row and empty column gives epsilon ~ a 2^(-b)[1-(1-2^(-(a-1)))^b] uniformly 2<=a<=b with b→∞, including balanced boards and b/2^(a-1)→lambda. Independent literal cell-wise enumeration checked all states on 2x2,2x3,3x3,3x4 and verified periodicity, cycle counts, and main basins. All-size result follows analytically.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.
+
+## value
+
+PASS
+
+Every attractor and its exact basin on a canonical two-parameter graph family is a natural complete classification. The new feature is concentration of a uniform initial state on one orbit despite exponentially many competing cycles, with a quantitatively sharp exponential aspect-ratio crossover, not a chosen small finite graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

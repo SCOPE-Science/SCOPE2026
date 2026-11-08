@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:10:32.108032Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Steps 1–5, blob 6387c350703d38cb8d3ebbd1aeaeb465d38ff813",
+        "checks/check_direct.py blob d1d6ebde97978f09a5952f60c366b99d7de8f186 and checks/check_projection.cpp blob 307c4bf28c4bb62abe19c4aab0ce0776d612c814",
+        "Independent_check_script_sha256=beb97032be09ee553ab8695378778f4d6be0ed7c28eda0279db40d8fcd4a2663"
+      ],
+      "rationale": "With S occupied, closed NOR gives F(S)=R(S)^c x C(S)^c exactly; this implies F^3=F, no fixed configurations, and one empty/full orbit plus (2^a-2)(2^b-2)/2 complementary proper-rectangle pairs. An initial matrix with exact nonempty row/column supports A,B is counted by H(|A|,|B|) inclusion–exclusion, yielding every individual basin H(|A|,|B|)+H(a-|A|,b-|B|). The distinguished basin B=1+(2^b-1)^a+(2^a-1)^b-H(a,b) is >2^(ab-1). For uniformly random states, Bonferroni on events of an empty row and empty column gives epsilon ~ a 2^(-b)[1-(1-2^(-(a-1)))^b] uniformly 2<=a<=b with b→∞, including balanced boards and b/2^(a-1)→lambda. Independent literal cell-wise enumeration checked all states on 2x2,2x3,3x3,3x4 and verified periodicity, cycle counts, and main basins. All-size result follows analytically.",
+      "residual_risks": [
+        "Closed self-inclusive neighborhoods essential; open-neighborhood NOR differs.",
+        "Uniformity requires a<=b and b→infinity, fair independent initial bits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aledo et al. 2020 primary discusses fixed-point counting and periodic point bounds for general parallel graph dynamical systems.",
+          "2012 Aledo et al. abstract describes generic maxterm/minterm orbit structure; the full text was not accessible."
+        ],
+        "reasoning": "The general theorems can cover at-most-two periodicity and do not establish from their inspected statements the complete rook-specific basin partition or the joint empty-row/empty-column rare-event crossover. The 2012 full-text comparison remains a risk.",
+        "searches": [
+          "Closed neighborhood NOR rook graph K_a Cartesian K_b synchronous Boolean graph dynamics attraction basin complement rectangles",
+          "doi:10.1155/2020/9708347",
+          "doi:10.1016/j.mcm.2011.08.040"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/j.mcm.2011.08.040",
+        "doi:10.1155/2015/594294",
+        "doi:10.1155/2020/9708347",
+        "doi:10.37236/5442"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General minterm results entail short orbit-period restrictions on broad classes of Boolean networks.",
+          "They do not specify which individual rook rectangles capture what number of states or how uniform initial conditions distribute over the cycles."
+        ],
+        "reasoning": "Deductive coverage acknowledged for generic period-two aspect. The full claim requires the row/column support decomposition, inclusion–exclusion and a two-parameter uniform Bonferroni asymptotic, not direct corollaries of general period bounds.",
+        "searches": [
+          "doi:10.1155/2015/594294",
+          "doi:10.1155/2020/9708347",
+          "Closed neighborhood NOR rook graph K_a Cartesian K_b synchronous Boolean graph dynamics attraction basin complement rectangles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aledo–Martínez–Valverde 2015 surveyed minterm/maxterm Boolean networks and eventual one/two-cycle behavior.",
+          "Here exact product structure of row and column complements is special to rook-graph closed neighborhoods."
+        ],
+        "reasoning": "General minterm/Boolean-network equivalence accounts for short periodicity, not each rectangle-indexed attraction fiber or its aspect-ratio concentration. Open vs closed neighborhoods cannot be conflated.",
+        "searches": [
+          "Closed neighborhood NOR rook graph K_a Cartesian K_b synchronous Boolean graph dynamics attraction basin complement rectangles",
+          "doi:10.1155/2015/594294",
+          "closed NOR parallel dynamical systems rook graph row column supports"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ducey–Gerhard–Watson 2016 computes Smith and critical groups of rook graphs, not NOR basin sizes.",
+          "Standard H(r,c) is inclusion–exclusion for matrices with no zero rows or columns."
+        ],
+        "reasoning": "The occupancy formula alone is textbook and not presented as new; the innovation is its natural dynamical interpretation, total basin classification and sharp b/2^(a-1) crossover, not recomputing a known matrix count.",
+        "searches": [
+          "Closed neighborhood NOR rook graph K_a Cartesian K_b synchronous Boolean graph dynamics attraction basin complement rectangles",
+          "doi:10.37236/5442",
+          "rook graph NOR attraction basin table exact occupancy"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.",
+      "residual_risks": [
+        "Full 2012 generic maxterm/minterm study unavailable; may contain an implicit rook-graph specialization.",
+        "Independent occupancy asymptotics might be present in unindexed enumerative combinatorics results; no blanket priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports standard minterm short-period conclusions, no observed individual rook basins.",
+          "evidence": "Boolean graph function types and generic transition restrictions.",
+          "identifier_or_url": "doi:10.1155/2015/594294",
+          "material_read": "Full relevant accessible HTML sections 2–3, including general periodicity",
+          "method": "Publisher primary HTML, relevant sections",
+          "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+          "trigger": "Direct general closed NOR and minterm graph rule"
+        },
+        {
+          "assessment": "Focus on periodic counts, not individual attraction basins; cannot claim whole-document noncoverage solely from overview.",
+          "evidence": "General periodic-point counting bounds.",
+          "identifier_or_url": "doi:10.1155/2020/9708347",
+          "material_read": "Published primary abstract and indexed substantive theorem overview; current run not independently full-paper reread",
+          "method": "Publisher HTML/search overview",
+          "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "Closest broad periodic census"
+        },
+        {
+          "assessment": "Full-text overlap unresolved, retains priority risk.",
+          "evidence": "General maxterm/minterm orbit structure described in abstract.",
+          "identifier_or_url": "doi:10.1016/j.mcm.2011.08.040",
+          "material_read": "Abstract and bibliographic record only",
+          "method": "Published record; Oxford attempt blocked by safety checks",
+          "title": "Parallel discrete dynamical systems on maxterm and minterm Boolean functions",
+          "trigger": "Highly relevant broad orbit-structure article"
+        },
+        {
+          "assessment": "Not a NOR dynamics source in inspected abstract.",
+          "evidence": "Smith and critical groups of Laplacian/adjacency.",
+          "identifier_or_url": "doi:10.37236/5442",
+          "material_read": "Abstract and bibliographic statement only",
+          "method": "Journal search",
+          "title": "The Smith and Critical Groups of the Square Rook's Graph and its Complement",
+          "trigger": "Same graph family, different natural invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Current-run Resultary query Closed neighborhood NOR rook graph K_a Cartesian K_b synchronous Boolean graph dynamics attraction basin complement rectangles",
+        "Named primary sources in originality/source_inspections"
+      ],
+      "rationale": "Every attractor and its exact basin on a canonical two-parameter graph family is a natural complete classification. The new feature is concentration of a uniform initial state on one orbit despite exponentially many competing cycles, with a quantitatively sharp exponential aspect-ratio crossover, not a chosen small finite graph.",
+      "residual_risks": [
+        "Full 2012 generic maxterm/minterm study unavailable; may contain an implicit rook-graph specialization.",
+        "Independent occupancy asymptotics might be present in unindexed enumerative combinatorics results; no blanket priority claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Closed self-inclusive neighborhoods essential; open-neighborhood NOR differs.",
+    "Uniformity requires a<=b and b→infinity, fair independent initial bits.",
+    "Full 2012 generic maxterm/minterm study unavailable; may contain an implicit rook-graph specialization.",
+    "Independent occupancy asymptotics might be present in unindexed enumerative combinatorics results; no blanket priority claim.",
+    "Literature comparison is best-of-knowledge and does not establish absolute historical priority."
+  ],
+  "schema_version": 1
+}
