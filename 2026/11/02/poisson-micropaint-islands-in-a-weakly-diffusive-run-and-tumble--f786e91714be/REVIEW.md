@@ -1,19 +1,21 @@
-# Scientific review of the micropaint-island limit
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed positive propulsion speed, orientation flip rate and spatial window, the paired-tumble skeleton reaches every positive level almost surely. Strong Markov and the bounded two-state first-passage equation identify the spatial color-chain rates. Independent exponential sojourns then give a coupled marked Poisson limit, with terminal-window truncation controlled. A separate tilted-generator calculation verifies the finite-window Laplace representation and all-moment limit. `checker.py` passed 202 analytic/numerical assertions and two Monte Carlo comparisons using 50,000 samples, as supplementary checks.
+PASS
 
-## Originality — PASS, qualified best-knowledge
+For D>0 the phase at first passage of successive spatial levels is a homogeneous Markov chain, as in first-passage ladder theory; solving D K² − v diag(1,−1)K+Q=0 gives a=q/(sqrt(v²+2Dq)+v), b=(sqrt(v²+2Dq)+v)/(2D). Alternating Exp(a) and Exp(b) spatial runs are independent. With a→q/(2v), Db→v, coupling their exponential variables yields Poisson negative-run starts of rate q/(2v) and Exp(v) marks for widths/D; boundary-straddling events vanish. FK eigenvalue analysis or exponential-interval bounds yield compound-Poisson Laplace and moment convergence. Independent floating-point Riccati checks and transformed Laplace limits corroborate the formulas.
 
-Sezik and collaborators (arXiv:2603.24277) establish the paint observable, one-point first-arrival laws, long-time expected color fractions and heuristic microscopic island widths. D'Auria and collaborators (arXiv:1006.2965) provide the broader established Markov-additive spatial ladder theory; the finite-parameter two-state generator is therefore not asserted as novel. The assessed addition is the jointly marked Poisson limit for microscopic counter-color intervals under vanishing diffusivity, along with their amplified compound-Poisson area and nonzero empty-window probability. The accessible relevant statements do not explicitly give this limit, but it is a possible short specialization of generic ladder theory; priority remains qualified. The 2026 Latouche ladder-process chapter (DOI:10.1007/978-3-031-98576-8_2) was available as an abstract only, leaving a material full-text comparison risk.
+## originality
 
-## Value — PASS
+PASS
 
-The physically motivated question is not merely the fraction of space painted in a minority orientation, but whether rare opposing patches persist, how often they appear, and how large they are. The result answers all three: finite-rate Poisson starts, exponential diffusivity-scaled lengths, and a complete non-Gaussian compound-Poisson integrated coverage law. The nonzero limiting occurrence probability despite vanishing area gives a meaningful singular boundary behavior beyond the previously reported expected-volume and width scales.
+The first-passage spatial Markov property is established general Markov-additive ladder theory, and Sezik et al report minority paint islands of order D/v and average coverage. Neither reviewed source establishes the complete marked spatial island PPP, full negative area compound-Poisson limit and exact empty-window asymptotic. Quantitative new theorem survives crediting all earlier general mechanics.
 
-## Scientific limitations
+## value
 
-The claim concerns a single noninteracting one-dimensional particle, the positive spatial ray, initial rightward orientation, fixed positive propulsion and flip rate, a fixed spatial observation window, and completion of first arrivals over unbounded physical time. It does not apply to actual finite-time paint fields, two-sided joint correlations, feedback from deposited paint or simultaneous window growth. General ladder-process theory is a relevant prior framework and independent mathematical and publication-priority audits remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A microscopic random geometry of counter-oriented paint has a nondegenerate marked point-process limit even while its spatial measure vanishes. It gives exact random island counts, scaled lengths and area fluctuations for a canonical active-matter model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

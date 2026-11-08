@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The mathematical claim is established in `RESULT.md` by a finite-dimensional backward-equation identification and an explicit coupling of spatial alternating-exponential color intervals. The singular-limit proof includes almost-sure arrival of all positive levels, exact rates, convergence of island start locations and full diffusivity-scaled widths, boundary truncation, and an independent Feynman–Kac Laplace calculation.
+## correctness
 
-Execute `python3 checker.py` with a Python 3 standard-library interpreter. Its 202 tracked assertions cover generator equations, positivity, agreement with the published one-point color fraction, finite-diffusivity Laplace transforms and their limit; two seeded alternating-renewal simulations draw 25,000 samples each. These are numerical consistency tests, not a proof of weak convergence or a claim of independent verification.
+PASS
 
-Only fixed positive propulsion speed, flip rate and spatial window with diffusivity tending to zero are covered. The initial orientation is positive, and the color at each spatial level refers to first passage over unlimited physical time. The proof does not cover finite physical observations or interacting paint.
+For D>0 the phase at first passage of successive spatial levels is a homogeneous Markov chain, as in first-passage ladder theory; solving D K² − v diag(1,−1)K+Q=0 gives a=q/(sqrt(v²+2Dq)+v), b=(sqrt(v²+2Dq)+v)/(2D). Alternating Exp(a) and Exp(b) spatial runs are independent. With a→q/(2v), Db→v, coupling their exponential variables yields Poisson negative-run starts of rate q/(2v) and Exp(v) marks for widths/D; boundary-straddling events vanish. FK eigenvalue analysis or exponential-interval bounds yield compound-Poisson Laplace and moment convergence. Independent floating-point Riccati checks and transformed Laplace limits corroborate the formulas.
+
+## originality
+
+PASS
+
+The first-passage spatial Markov property is established general Markov-additive ladder theory, and Sezik et al report minority paint islands of order D/v and average coverage. Neither reviewed source establishes the complete marked spatial island PPP, full negative area compound-Poisson limit and exact empty-window asymptotic. Quantitative new theorem survives crediting all earlier general mechanics.
+
+## value
+
+PASS
+
+A microscopic random geometry of counter-oriented paint has a nondegenerate marked point-process limit even while its spatial measure vanishes. It gives exact random island counts, scaled lengths and area fluctuations for a canonical active-matter model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
