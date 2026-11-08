@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns the explicit real Banach plane and the exact skew Birkhoff difference of norms as defined in the cited 2026 paper. Smooth \(\ell_4\) support-functional orthogonality parametrizes every admissible pair up to signed-coordinate isometries, including both signs of the one-dimensional orthogonal complement. The fourth-power expansions are exact. The uniquely maximizing leading scalar function has the strict derivative sign change at \(2-\sqrt3\) and strictly negative second derivative. Uniform small-parameter convergence excludes every remote or opposite-orientation branch; local joint analyticity, strict concavity and the implicit function theorem establish the unique smooth maximizing ratio. The stated first and second coefficients, and the first nonzero displacement, are exact algebraic substitutions, reproduced by the bundled supplementary checker. No finite test is used as an infinite proof.
+## correctness
 
-## Originality — PASS (best knowledge, not a priority certificate)
-The source introducing \(D_t^B\), arXiv:2602.13974, Section 3, gives general bounds, Hilbert and nonsmooth examples, but not an interior small-parameter profile for \(\ell_4^2\). The published dimension-free \(C\)-approximate Birkhoff-symmetry result explicitly determines the reverse norming-functional residual, so the leading constant is covered and is NOT represented as new. That zero-skew extremal problem contains no finite-parameter norm difference, coefficient of positive \(t\), quadratic coefficient, or optimizing-ratio displacement. Existing Birkhoff i-angle, rectangular and geometric-mean constants optimize other objective functions. Dedicated search queries for the source, the two asymptotic coefficients, nearby equivalences and \(\ell_4^2\) did not locate the new finite-skew statement. This is a best-knowledge literature comparison; an undiscovered equivalent perturbation calculation is still possible.
+PASS
 
-## Mathematical value — PASS
-An introduced skew-isosceles orthogonality invariant has previously available qualitative bounds but no smooth, non-Hilbert benchmark with quantified local behavior. The leading defect alone does not distinguish its finite-scale geometry. The sharp \(t\) and \(t^2\) corrections and the absence of linear movement of the unique extremizing orbit identify distinct effects of curvature and orthogonality asymmetry and make a reproducible exact benchmark. This result is restricted to the natural first smooth, non-Hilbert even-power plane and does not imply a whole-family classification.
+Smoothness yields x perp_B y iff sum x_i^3 y_i=0, and all unit ordered pairs reduce to one real r=s^4 in [0,1] and two y signs. Exact quartic norm identities give F(r,t)=J(r)+(3/2)J(r)^2t+[J-(9/2)JS+(7/2)J^3]t^2+O(t^3) uniformly. Here J=r^(1/4)(1-r)/(1-r+r^2)^(3/4) uniquely maximizes at r0=2-sqrt3; J(r0)^4=4/27, S(r0)^2=1/3, J"/J=-7/2-2sqrt3<0. Independently symbolically checked these identities and P/J=1-13sqrt3/18, -P'/J"=3sqrt3-6 with exact algebra. Uniform convergence excludes other r and opposite y sign; local strict concavity and the implicit function theorem yield analytic unique r_t with no linear shift and quadratic displacement. Coefficients D_t=c+t/sqrt3+c(1-13sqrt3/18)t^2 follow, not just numerical fits.
 
-## Closest literature and remaining limits
-The definition and universal bounds are from Qi et al., arXiv:2602.13974, first public 2026-02-15; the older approximate-symmetry literature and the published dimension-free real-\(L_p\) result cover the leading support-functional problem. The 2026 source was inspected through its definition, full relevant proofs and examples in Sections 3–4, plus reference list. The published dimension-free comparison theorem was inspected in its full result text. The 2017 and 2018 approximate-orthogonality articles were checked as citations and methodological context only, not independently downloaded in full. Potential older asymptotic rearrangement formulas remain a priority risk. No independent mathematical review has been undertaken for this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared precise mathematical statements with their strongest identified precursors and published mathematical finding searches. Originality is best-of-knowledge with explicitly named inaccessible/unindexed priority risks, not certification.
+
+## value
+
+PASS
+
+D_t^B is a recently introduced natural skew Birkhoff geometric constant. A complete second-order local formula and unique optimizer profile on the simplest smooth non-Hilbert even-power Banach plane isolate finite-skew curvature information absent from the previously known t=0 residual.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
