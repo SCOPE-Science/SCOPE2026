@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The payoff definitions were compared with the original conformist–rebel model. For at least three actions, a rebel can choose one absent from both neighbors and is optimal precisely when both adjacent actions differ; a conformist is optimal precisely when one neighboring action agrees. The exact equal-edge subsets on a conformist run are the covers of the run by consecutive edges, enumerated by nonadjacent omitted interior edges. Coloring the contracted blocks counts the \(t\)-cycle chromatic polynomial, including the two-block parallel-edge boundary. These steps prove the entire formula, the refined change-edge distribution, run-order invariance, and the repeated-block case for all stated parameters. The independent brute-force best-response implementation and the separate local-rule implementation agree with the formula on the tested ranges. No finite enumeration is used as an infinite proof.
+PASS
 
-## Originality: PASS with residual publication-priority risk
+On simple undirected C_n, n≥3 and m≥3 common labeled actions with at least one rebel, direct best-response comparison gives rebels two unequal incident edges and conformists at least one equal edge. Therefore a conformist run of length 1 precludes equilibrium; runs length≥2 have first/last equal edges and nonadjacent excluded interior equal edges. Counting those independent interior choices gives F_l(z), exponent B counts unequal edges; contraction of equal-edge paths yields the proper cyclic block coloring count (m−1)^t+(−1)^t(m−1), including the two-block boundary. Summing proves the displayed product, the unequal-edge distribution, and order invariance without extrapolating from finite tests. An independent full payoff-search enumeration matched 169 small mixed-type words.
 
-Compared the mathematical implication, not just wording, with Pei–Cao–Zhang (arXiv:2607.10997, full-text model and ring Theorem 4): that theorem gives the zero/nonzero criterion but not the exact number of labeled equilibria or change-edge refinement. Cao–Sanchez–Zhang (arXiv:2607.05932, binary-action model) does not cover the \(m\ge3\) regime. Lee–Shin (arXiv:1907.04320) gives a classical cycle-coloring polynomial, but the present game constraints require an additional exact edge-cover enumeration, so their theorem alone is not the claimed equilibrium census. Ladder-game counting (arXiv:2101.09103) concerns different topology and binary payoffs. Semantic record searches and literature searches using equilibrium counting, conformist/rebel aliases, run polynomials, coloring and Potts terminology found no equivalent result. An unindexed or differently formulated earlier count remains a genuine risk; no uniqueness theorem is claimed.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating ring result resolves equilibrium existence but not multiplicity. This theorem determines the exact population of feasible profiles for every heterogeneous type arrangement on an infinite natural graph family, not an arbitrary finite slice, and reveals that rearranging entire conformist runs preserves the count. It also supplies a computable distribution of disagreement edges and an exact exponential equilibrium probability in the periodic family. These quantitative questions are meaningful for the robustness and diversity of network equilibria, beyond the classical existence criterion.
+Best-of-knowledge PASS for the precise all-run multiplicity and edge-disagreement generating distribution, not the existence criterion or the classical chromatic polynomial. No inspected primary statement covers this combined Nash count; the directly related model paper was only accessible in abstract/excerpts in this run, a material residual risk.
 
-## Boundaries and sources
+## value
 
-The result requires a simple undirected cycle, a common choice set with at least three actions, no fixed players, and at least one rebel. Source inspections covered the original game definition and full ring theorem/proof plus its introductory results, as well as the relevant binary-model material and classical cycle-coloring statement. One thematically adjacent constrained-coloring record was available at summary level only, leaving a residual equivalence risk. All numerical checks and exact path dependencies are documented in VERIFICATION.md and the included verifier.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact count of mixed strategic profiles on a natural heterogeneous graph family, refined by every disagreement count and invariant under run-order permutation, is a useful enumerative game invariant; the 12^r family is an illustrative genuine infinite application rather than an arbitrary tiny slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
