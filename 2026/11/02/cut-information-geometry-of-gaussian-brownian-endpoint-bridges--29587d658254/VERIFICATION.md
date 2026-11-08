@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The mathematical proof uses the exact conditional Brownian bridge splitting, a two-dimensional Gaussian posterior precision calculation, strict AM–GM optimization, singular-support KL divergence, and KL disintegration. These are universal analytic steps; no finite computation is used as a substitute for a theorem.
+## correctness
 
-## Reproduce the finite diagnostic checks
+PASS
 
-Execute `python verify.py` with Python 3 standard library only, with this file and `verify.py` in the same directory. The expected deterministic console output is:
+The full-path left/right pieces include Y0 and Y1; subtracting the affine interpolation at t yields two independent Brownian bridge residuals independent of (Y0,Y1,Xt). Thus CMI of full paths conditional Xt is exactly I(Y0;Y1|Xt), without an infinite mesh limit. The Gaussian posterior precision is J=C^-1+[(1-t),t]^T[(1-t),t]/[t(1-t)], whose off-diagonal equals 1-c/Δ. The resulting partial correlation yields the claimed log(1-rho²) formula. Setting r=(1-t)/t, AM–GM minimizes ar+b/r uniquely at sqrt(b/a), except flat Δ=c. For PSD singular C, c≠0 gives a rank-one non-atomic conditional joint supported on a line singular to the product marginals, hence KL=+infty, while c=0 makes one endpoint deterministic, CMI 0. KL disintegration proves unique closest factorized cut law when finite; no all-time Markov projection is claimed.
 
-```
-PASS 10704 exact-rational assertions
-Example C=I, maximal conditional path information (nats): 0.143841036226
-Unique maximizing cut for (a,b)=(1,4): 1/3
-```
+## originality
 
-The checker uses independent exact-rational formulations of the endpoint conditional correlation, Gaussian path submatrix determinant ratios and posterior precision. It checks the optimizing cut and singular residual-noise positivity. The sampled path checks use one strictly interior observation on each side of the cut, in addition to both endpoints. The Brownian-bridge proof upgrades the finite-dimensional observation to arbitrary entire continuous path segments. The code does not purport to certify an infinite family by finite enumeration.
+PASS
 
-## Scope and remaining risk
+Standard Gaussian MI formula and Raket’s Δ=c Markov criterion are acknowledged prior results. The complete cut-conditioned path dependence profile, correlation-independent sharp cut and singular infinity boundary are not found in the inspected full InfoBridge/field-text works. The inaccessible Baker 1970 general Gaussian MI paper could contain a dominating identity; it cannot be treated as definitively noncovering. Best knowledge supports an original synthesis and optimized classification with stated risk.
 
-The statement is for centered Gaussian endpoint laws, standard unit-time Brownian bridge residuals and fixed interior cuts. The independent audit remains unperformed. The classical Gaussian mutual-information literature, including the older paper by Baker (1970), may have uninspected equivalent formulations; this is a scientific priority limitation rather than evidence of a proof error.
+## value
+
+PASS
+
+Gives exact information cost of making adjacent continuous path segments conditionally independent, its optimizing time and a sharp change from finite to infinite KL across covariance rank. These are natural scalar information quantities for the complete bridge-with-random-endpoint class, not a trivial parameter rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

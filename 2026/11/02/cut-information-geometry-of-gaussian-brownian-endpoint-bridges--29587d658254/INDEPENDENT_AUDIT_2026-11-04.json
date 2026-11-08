@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:07:24.946997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full-path left/right pieces include Y0 and Y1; subtracting the affine interpolation at t yields two independent Brownian bridge residuals independent of (Y0,Y1,Xt). Thus CMI of full paths conditional Xt is exactly I(Y0;Y1|Xt), without an infinite mesh limit. The Gaussian posterior precision is J=C^-1+[(1-t),t]^T[(1-t),t]/[t(1-t)], whose off-diagonal equals 1-c/Δ. The resulting partial correlation yields the claimed log(1-rho²) formula. Setting r=(1-t)/t, AM–GM minimizes ar+b/r uniquely at sqrt(b/a), except flat Δ=c. For PSD singular C, c≠0 gives a rank-one non-atomic conditional joint supported on a line singular to the product marginals, hence KL=+infty, while c=0 makes one endpoint deterministic, CMI 0. KL disintegration proves unique closest factorized cut law when finite; no all-time Markov projection is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "InfoBridge path-level KL concerns endpoint mutual information and diffusion-bridge matching, not conditional full past/future MI given a cut.",
+          "Gaussian field spatial relative entropy treats a different region/covariance geometry."
+        ],
+        "reasoning": "General Gaussian-process KL formulas might imply finite computations, but no inspected theorem dominates the optimized t* and singular PSD classification of this specified one-dimensional bridge endpoint model.",
+        "searches": [
+          "arXiv:2502.01383v4 Sections 2,4.1,B.4",
+          "Schröfl–Floerchinger DOI:10.1007/s00023-024-01522-2 Section 4.3",
+          "published Resultary search: Gaussian Brownian bridge random correlated endpoints conditional mutual information cut Markov reciprocal process KL gluing"
+        ]
+      },
+      "checked_sources": [
+        "InfoBridge arXiv:2502.01383v4 Sections 2,4.1,B.4 (full HTML)",
+        "Raket arXiv:2610.36762v1 abstract (full text inaccessible)",
+        "Baker DOI:10.1137/0119044 abstract only",
+        "Schröfl–Floerchinger DOI:10.1007/s00023-024-01522-2 Section 4.3",
+        "Frozen RESULT.md and exact-rational verify.py",
+        "Resultary Gaussian conditional bridge query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Δ=c iff Markov implies vanishing CMI there; it does not yield non-Markov numerical information, the optimizer, or the singular infinite-KL boundary.",
+          "InfoBridge KL uses distinct factorization constraints and cannot be equated to conditional adjacent-path MI without proving the exact Brownian residual split."
+        ],
+        "reasoning": "The potentially dominating older Gaussian theorem may supply a general conditional information identity but the inspected abstract cannot resolve exact coverage of the optimized full theorem. This is a priority risk, not negative evidence.",
+        "searches": [
+          "arxiv:2610.36762 Proposition 3.2",
+          "arxiv:2502.01383v4 InfoBridge Theorem 4.1",
+          "DOI 10.1137/0119044 Baker 1970"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Raket 2026 Proposition 3.2 proves Δ=c iff Markov, equivalent to zero CMI only, not the amount of positive dependence.",
+          "Gaussian partial correlation is standard and equivalent to the displayed conditional endpoint CMI scalar for each t."
+        ],
+        "reasoning": "The exact scalar pointwise CMI follows from a standard Gaussian identity plus this Brownian reduction, but the optimizer and PSD singular-phase classification are additional conclusions; Baker full text inaccessible and remains a risk.",
+        "searches": [
+          "published Resultary search: Gaussian Brownian bridge random correlated endpoints conditional mutual information cut Markov reciprocal process KL gluing",
+          "Raket Brownian covariances on an interval Markov criterion determinant c",
+          "Baker Mutual Information for Gaussian Processes 1970 DOI:10.1137/0119044"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved published SCOPE/Resultary scalar cut-profile table or exact optimizer; nearest hits concerned unrelated Gaussian magnitude Rényi correlation.",
+          "This finding is a continuous covariance parameter classification, not a finite table."
+        ],
+        "reasoning": "A database table check is largely inapplicable to the all-PSD analytic formula, but a precise search for matching covariance formulas and endpoint bridge classes did not identify coverage.",
+        "searches": [
+          "published Resultary search: Gaussian Brownian bridge random correlated endpoints conditional mutual information cut Markov reciprocal process KL gluing",
+          "Raket 2026 endpoint covariance Markov classification Gaussian bridge matrix a b c"
+        ]
+      },
+      "rationale": "Standard Gaussian MI formula and Raket’s Δ=c Markov criterion are acknowledged prior results. The complete cut-conditioned path dependence profile, correlation-independent sharp cut and singular infinity boundary are not found in the inspected full InfoBridge/field-text works. The inaccessible Baker 1970 general Gaussian MI paper could contain a dominating identity; it cannot be treated as definitively noncovering. Best knowledge supports an original synthesis and optimized classification with stated risk.",
+      "residual_risks": [
+        "Baker 1970 full text remains inaccessible and might imply a stronger Gaussian-process formula.",
+        "Raket 2026 companion source full text inaccessible in this run; no claim of exhaustive absence.",
+        "The unique optimizer applies only positive-definite non-Markov C; the Δ=c flat case deliberately has no unique cut."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different endpoint MI and matching law; not the submitted conditional cut optimizer.",
+          "evidence": "Path-level relative entropy identity is related in technique but specifies a different statistical functional.",
+          "identifier_or_url": "arXiv:2502.01383v4",
+          "material_read": "Full lawful HTML; Sections 2, 4.1 and Appendix B.4.",
+          "method": "Read formula statements and applied conditioning comparison.",
+          "title": "InfoBridge: Mutual Information estimation via Bridge Matching",
+          "trigger": "Nearby continuous-bridge path KL and mutual-information theorem."
+        },
+        {
+          "assessment": "Qualitative Δ=c Markov criterion prior; full-text priority risk explicitly retained.",
+          "evidence": "Source identifies Markov endpoint condition, not a verified full CMI cut profile from material available.",
+          "identifier_or_url": "arXiv:2610.36762v1",
+          "material_read": "Abstract and source statements identifying Proposition 3.2; full text was not accessible in this run.",
+          "method": "OA/preprint attempted; publisher institutional tool returned vpn_disconnected.",
+          "title": "Brownian covariances on an interval: a complete endpoint classification",
+          "trigger": "Same Brownian bridge plus correlated random endpoints and qualitative Markov classification."
+        },
+        {
+          "assessment": "Unresolved priority risk, not declared noncovering.",
+          "evidence": "Abstract announces Gaussian-process MI formulas but cannot establish detailed theorem comparison.",
+          "identifier_or_url": "DOI:10.1137/0119044 (Baker 1970)",
+          "material_read": "Accessible bibliographic abstract only; full primary text not accessed.",
+          "method": "Open access attempted before Oxford; institutional tool returned vpn_disconnected.",
+          "title": "Mutual Information for Gaussian Processes",
+          "trigger": "Plausible dominating general Gaussian MI operator theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives exact information cost of making adjacent continuous path segments conditionally independent, its optimizing time and a sharp change from finite to infinite KL across covariance rank. These are natural scalar information quantities for the complete bridge-with-random-endpoint class, not a trivial parameter rename.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only Gaussian endpoints, ordinary standard Brownian bridge and a single interior cut; not all Gaussian path priors nor all global Markov laws.",
+    "Information infinity is a KL singularity, not a claim about all weaker divergences.",
+    "Access limitations do not establish originality or scientific failure."
+  ],
+  "schema_version": 1
+}
