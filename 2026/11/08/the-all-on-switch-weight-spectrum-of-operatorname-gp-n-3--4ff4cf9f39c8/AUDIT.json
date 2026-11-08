@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact reduction to a reversible degree-eight linear recurrence in the outer-ring indicator; factorization P_3=(t+1)^4 Phi_5 divides t^20+1, proving gcd(n,20)-periodicity. All 256 possible period-twenty words and six weight profiles are exhaustively enumerated by a standalone Python verifier; an independent full closed-neighborhood Gaussian-elimination implementation in C++ checks n=7..100 and brute-forces all subsets for n=7..10. The all-order theorem follows from polynomial divisibility, not finite extrapolation. The index-four comparison to step two is proved by comparing gcd annihilator degrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Zhang, arXiv:2603.20722v1, Theorem 1.1, classify all four perfect codes for 4|n with odd step; this implies the optimal n/2 weight and fourfold multiplicity, which are acknowledged as old.",
+        "Karami (2022), Theorems 3.1–3.4, classifies feasible exact-neighbor equitable two-coloring quotient matrices; it does not count the binary vectors obeying odd closed-neighborhood constraints.",
+        "Torrence–Torrence (2016), Lemma 9, Corollary 10 and Table 1, cover complementary solution symmetry and selected nullities, but not the all-on weight distribution."
+      ],
+      "reasoning": "The known perfect-code theorem covers only the least-weight class at 4|n. General binary nullity results establish number of solutions in selected finite cases, not their individual weights. Exact equitable two-coloring is a different stronger pointwise count property. No inspected broader statement implies the seven-level twenty-period spectrum.",
+      "searches": [
+        "generalized Petersen GP(n,3) efficient dominating sets n divisible by 4",
+        "\"GP(n,3)\" \"perfect code\" efficient domination",
+        "Classification of perfect and total perfect codes in generalized Petersen graphs arXiv 2603.20722",
+        "doi:10.5614/ejgta.2022.10.1.16",
+        "doi:10.2140/involve.2016.9.721"
+      ]
+    },
+    "checked_sources": [
+      "Fu–Yang–Jiang, Ars Combinatoria 84 (2007), 373–383, Theorem 3.1.",
+      "Torrence–Torrence, Involve 9 (2016), 721–732, DOI 10.2140/involve.2016.9.721.",
+      "Karami, Electronic Journal of Graph Theory and Applications 10 (2022), 239–245, DOI 10.5614/ejgta.2022.10.1.16.",
+      "Wang–Zhang, arXiv:2603.20722v1, Theorem 1.1 (2026)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fu–Yang–Jiang (2007), Theorem 3.1, prove ordinary dominating number n-2 floor(n/4) except the n=11 special case; their condition merely requires at least one selected vertex in each closed neighborhood, not an odd number.",
+        "Wang–Zhang (2026), Theorem 1.1, yields four minimal perfect-code patterns for 4|n, a covered subclaim.",
+        "The present direct factor P_3=(t+1)^2 P_2 establishes containment and exact index 4 only at 4|n; the remaining weight split is not obtained by a rank or domination-number formula alone."
+      ],
+      "reasoning": "A dominating set need not be odd dominating, and perfect codes are only the smallest feasible parity solutions when 4|n. Nullity determines total count, not distribution. Even after incorporating all those implications, the weight enumerator at 4|n remains a substantive additional statement.",
+      "searches": [
+        "odd domination number generalized Petersen P(n,3) parity dominating set",
+        "On the Domination Number of Generalized Petersen Graphs P(n,3) 2007",
+        "Classification of perfect and total perfect codes in generalized Petersen graphs 2026",
+        "doi:10.5614/ejgta.2022.10.1.16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Odd dominating sets are exactly all-on Lights Out solution vectors (I+A)s=1 over F_2; Torrence–Torrence (2016), Definitions and Results for Petersen Graphs, explicitly use this matrix formalism and tabulate nullity.",
+        "The earlier GP(n,2) all-on work counts a different step-size graph; its recurrence annihilator is (t+1)^2 Phi_5, whereas the present one is (t+1)^4 Phi_5."
+      ],
+      "reasoning": "These aliases were compared as equations, not titles. At 4∤n the two solution sets coincide, so no separate novelty is claimed there. At 4|n the step-three solution space is an index-four extension and its complete new weight distribution is not supplied by the earlier step-two result.",
+      "searches": [
+        "\"Lights Out\" \"generalized Petersen\" \"n,3\" odd domination",
+        "odd domination number generalized Petersen graphs GP(n,3) lights out all-on",
+        "generalized Petersen graph P(n,3) lights out parity weight enumerator all one game solutions",
+        "Fu-Yang-Jiang:ArsCombinatoria84:373-383:2007-07-31",
+        "doi:10.2140/involve.2016.9.721"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Torrence–Torrence (2016), Table 1, supplies transition-matrix nullity values for n<=40; those values agree with total solution counts but are not weight counts.",
+        "The 2022 GP(n,3) paper has a summary table of exact-neighbor quotient matrices A1–A6, not all-on strategy histograms."
+      ],
+      "reasoning": "Existing identified tables contain only total nullities or coloring matrix existence; no inspected table gives the coefficient distribution at weights n/2, 3n/5, 9n/10, n, 11n/10, 7n/5, 3n/2 for 20|n. Search absence is not proof of historical uniqueness.",
+      "searches": [
+        "generalized Petersen graph GP(n,3) Lights Out solutions weight enumerator",
+        "GP(n,3) all-on Lights Out press patterns n divisible by 20",
+        "periodic all-on Lights Out configuration n modulo 20 generalized Petersen",
+        "Torrence Torrence Table 1 nullity Petersen graphs n<=40"
+      ]
+    },
+    "rationale": "The novelty assessed is the complete inhomogeneous parity-solution weight enumerator for GP(n,3) and, specifically, the index-four enlargement over GP(n,2) at 4|n and its seven-level twenty-period weights. The equality off multiples of four is a consequence of earlier GP(n,2) work and the new polynomial comparison and is not itself claimed as new. Fu–Yang–Jiang prove ordinary domination, Torrence–Torrence give generalized Lights Out nullities and strategies without all-on weights, Karami classifies parameter matrices of exact equitable two-colorings, and Wang–Zhang already classify the four optimal perfect codes when 4|n. The strongest directly known subclaim is explicitly excluded from the novelty assertion. Relevant papers were materially inspected; residual unindexed priority risk remains.",
+    "residual_risks": [
+      "A complete parity-weight enumeration in unindexed or inaccessible older literature could cover the proposed new weight spectrum.",
+      "The ordinary domination and perfect-code results already settle some minima; those covered subclaims are not asserted to be original.",
+      "Only same-model scientific assessment has been performed; independent scholarly priority assessment remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary dominating-set minimum, a weaker membership condition; does not classify parity solutions or their weight spectrum.",
+        "evidence": "Theorem 3.1, page 10, gives the ordinary domination number and special n=11 case.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20084/volume-84-paper-32.pdf",
+        "material_read": "Title and abstract (page 1), example and lemmas (page 4), main lower-bound argument (page 7), conclusion and Theorem 3.1 (page 10); not every intermediate page was inspected.",
+        "method": "Open-access publisher PDF, visually inspected page images",
+        "title": "On the Domination Number of Generalized Petersen Graphs P(n,3)",
+        "trigger": "Same exact graph family and numerical domination invariant"
+      },
+      {
+        "assessment": "Covers complementary strategies, nullities and some solution algorithms, not an all-on Hamming-weight enumerator.",
+        "evidence": "Pages 728–731 explicitly present nullity and strategy tables; no weights of all-on solutions are given.",
+        "identifier_or_url": "https://msp.org/involve/2016/9-5/involve-v9-n5-p01-p.pdf",
+        "material_read": "Abstract, definitions, iterative strategy, Results for Petersen Graphs section, Lemma 9 and Corollary 10, Tables 1–2, references",
+        "method": "Open-access PDF parsed text with page-image checks",
+        "title": "An iterative strategy for Lights Out on Petersen graphs",
+        "trigger": "Same graph family and same Lights Out transition matrix"
+      },
+      {
+        "assessment": "Enumerates which exact equitable two-coloring quotient matrices occur, not every odd closed-neighborhood binary word.",
+        "evidence": "Definition 2.2 imposes constant exact neighbor counts for every color; Theorems 3.3–3.4 concern feasible matrices A4 and A5.",
+        "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/download/1242/pdf_210",
+        "material_read": "Full seven-page PDF text, including Definitions 2.1–2.2, Theorems 3.1–3.4, final table and references; front page visually checked",
+        "method": "Open-access PDF parsed page text and image",
+        "title": "Perfect 2-colorings of the generalized Petersen graph GP(n,3)",
+        "trigger": "Exactly the same graph family with arithmetic conditions mod four and mod five"
+      },
+      {
+        "assessment": "Decisively covers the n/2 minimum and four perfect-code sets at 4|n; does not state nonminimal parity-solution weight counts.",
+        "evidence": "Theorem 1.1 classifies precisely four translates for every odd step when 4|n.",
+        "identifier_or_url": "https://arxiv.org/html/2603.20722v1",
+        "material_read": "Introduction, main Theorems 1.1–1.2, constructions and stated scope; the entirety of the later proofs was not required for this implication check.",
+        "method": "Lawful open-access arXiv HTML full-text page",
+        "title": "Classification of perfect and total perfect codes in generalized Petersen graphs",
+        "trigger": "May dominate the n/2 optimum and exactly four minimum patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ff4cf9f-39c8-4e7e-aa14-e8ffc65ecb8a",
+  "value": {
+    "rationale": "The all-on Lights Out strategy-weight distribution is a canonical natural invariant, simultaneously determining optimal move count, number and shape of optimum strategies, and every attainable nonoptimal cost. The step-three transition adds exactly a two-dimensional binary solution space to step two for multiples of four, and its interaction with the five-phase yields a previously uncovered seven-level twenty-period census with 192 genuinely new strategies. This is a structural infinite-family classification, not a parameter-free textbook restatement or one-off arbitrary finite slice. Known perfect-code minima are acknowledged as prior work.",
+    "status": "PASS"
+  }
+}
