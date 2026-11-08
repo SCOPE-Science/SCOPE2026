@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:48:08.845929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen verification/polyhedral_certificate.py, executed with exact fractions",
+        "Full RESULT.md proof of H^5, graph invariance, scalar recurrence and invariant measures"
+      ],
+      "rationale": "Exhaustive sign-case algebra shows H(x,y)=(|x|-y,x-|y|) satisfies H^5≡0. Its 2-Lipschitz estimate and five translations c=(-3,1) imply F^5(R²)⊂[-93,93]² via 3∑_{j=0}^4 2^j=93. Independently executed the inspected exact-rational polyhedral clipping program and confirmed 9 image counts 4,13,21,29,33,31,28,23,18; final 18 sets consist of five points and thirteen segments each included in one edge of G. On the horizontal segment F² has branches g(t)=-2t-5,-1,-2t-1,-5, leaving only -1, (-5,5) and (-3,1) recurrent, which lift to the claimed fixed and four-cycles. Bounded alternating orbit forces t=-3 by g²(t)=4t+9. Recurrence under invariant Borel probability forces support on these cycles.",
+      "residual_risks": [
+        "Finite graph collapse in 14 steps is NOT the same as uniformly bounded eventual settling; near repelling cycle transient lengths diverge.",
+        "An exact computational certificate relies on inspected full convex-clip invariant; it is not a formal proof-assistant output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 paper theorem restricts to the second quadrant of initial conditions.",
+          "2021 article assumes b≥4; current additive constant is b=3."
+        ],
+        "reasoning": "Neither a quadrant-limited theorem for the same map nor global behavior in a different parameter interval logically covers F^14(R²)⊂G at b=3.",
+        "searches": [
+          "2024 Youtuam et al original PDF full article",
+          "Aiewcharoen et al Mathematics 2021 b>=4",
+          "Resultary near-map local survivor-area findings"
+        ]
+      },
+      "checked_sources": [
+        "Youtuam–Thipar–Thakthuang–Tikjha (2024), Stable Attractors on a Certain Two-dimensional Piecewise Linear Map, original PDF",
+        "Aiewcharoen–Boonklurb–Konglawan (2021), Mathematics 9,1390, b>=4",
+        "Resultary query: absolute value planar map F(x,y)=(|x|-y-3,x-|y|+1) global periodic attractor all initial conditions",
+        "Frozen verification/polyhedral_certificate.py and RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H^5=0 yields F^5(R²)⊂[-93,93]² by a global 2-Lipschitz perturbation estimate.",
+          "Exact full-polygon clipping proves F^9 of the square lies in graph G; g² expands by factor four near -3 for unbounded transient lengths."
+        ],
+        "reasoning": "The new global-cover plus return map are logically necessary extensions beyond old regional orbit identities; merely restating known periodic cycles would be covered, and that part is not treated as novel.",
+        "searches": [
+          "Youtuam et al 2024 section II map and initial conditions",
+          "Aiewcharoen et al 2021 theorem parameter range"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar return on y=-1 has g branches -2t-5, -1, -2t-1, -5, inducing exactly one g-fixed and two g-two-cycles.",
+          "The original 2024 study has this same planar absolute-value map, but restricts starting quadrant."
+        ],
+        "reasoning": "Equivalent two-step scalar recurrences and quadrant aliases were checked; agreement of periodic orbit coordinates does not itself prove every starting point globally enters the graph.",
+        "searches": [
+          "absolute value planar map F(x,y)=(|x|-y-3,x-|y|+1) global periodic attractor all initial conditions",
+          "piecewise affine difference equations x_{n+1}=|x_n|-y_n-b y_{n+1}=x_n-|y_n|+1 b=3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two 4-cycles are explicitly listed in the 2024 predecessor and receive no new-orbit credit.",
+          "The new rational covering certificate produces 18 final point/segment pieces from the entire square, not a finite state table."
+        ],
+        "reasoning": "Known periodic-point tables alone cannot imply a full real-plane basin classification, invariant measures, or the uniform collapse-to-graph result; no complete global table found.",
+        "searches": [
+          "absolute value planar map F(x,y)=(|x|-y-3,x-|y|+1) global periodic attractor all initial conditions",
+          "exact finite 4-cycle orbit lists global b=3 absolute value planar map"
+        ]
+      },
+      "rationale": "The exact two 4-cycles and equilibrium were known for initial points in quadrant II; the global quantifier, uniform graph-collapse bound and classification of invariant Borel probabilities are assessed as distinct and substantial. The b>=4 family is a different parameter and does not cover b=3.",
+      "residual_risks": [
+        "Some additional same-parameter global dynamics could have been published under another absolute-value recurrence title.",
+        "14 steps is a proved bound for graph collapse, not an optimal bound; time to final periodicity is unbounded.",
+        "The exact rational certificate is human-inspectable code, not a formal proof assistant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same attracting cycle coordinates, restricted second-quadrant start only",
+          "evidence": "2024 article introductory standing domain and fixed/4-cycle sections.",
+          "identifier_or_url": "https://eudoxuspress.com/index.php/pub/article/download/54/45/88",
+          "material_read": "Original article PDF with full hypothesis/initial-quadrant and main orbit classifications read in relevant pages",
+          "method": "primary PDF visual/text inspection",
+          "title": "Stable Attractors on a Certain Two-dimensional Piecewise Linear Map",
+          "trigger": "same exact map and listed cycles"
+        },
+        {
+          "assessment": "cannot dominate b=3 result because parameter hypotheses exclude it",
+          "evidence": "Explicit b≥4 title and theorem scope.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/9/12/1390",
+          "material_read": "Primary published theorem statement and parameter setup",
+          "method": "article text inspection",
+          "title": "Global and Local Behavior of the System ... where b≥4",
+          "trigger": "apparently stronger global planar classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2024 same-map second-quadrant source",
+        "Exact rational graph-image proof"
+      ],
+      "rationale": "A complete full-plane orbit and invariant-measure classification for a natural nonsmooth recurrence adds a global statement not implied by previously known second-quadrant cycles. The nilpotent-homogeneous perturbation bound and rational finite graph reduction expose a structural mechanism usable for other piecewise-affine dynamics; exact bound 14 is a certified but unoptimized witness.",
+      "residual_risks": [
+        "Specific b=3 case only; no nearby-parameter stability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite graph collapse in 14 steps is NOT the same as uniformly bounded eventual settling; near repelling cycle transient lengths diverge.",
+    "An exact computational certificate relies on inspected full convex-clip invariant; it is not a formal proof-assistant output.",
+    "Some additional same-parameter global dynamics could have been published under another absolute-value recurrence title.",
+    "14 steps is a proved bound for graph collapse, not an optimal bound; time to final periodicity is unbounded.",
+    "The exact rational certificate is human-inspectable code, not a formal proof assistant.",
+    "Specific b=3 case only; no nearby-parameter stability theorem."
+  ],
+  "schema_version": 1
+}
