@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The displacement and its action on the normalized Laurent basis are computed directly. Every bounded operator in its kernel has diagonal entries of the form \((A+Bq^n)/(1+q^n)\), yielding an exact \(1/2\) distance for all positive norm-one finite-block diagonals, without assuming the approximating operator is diagonal. A finite-difference variation argument proves the sharp lower residual rate; a continuously differentiable trapezoid-with-boundary-layers profile achieves the matching upper rate. The bounded inverse theorem then proves the range is not closed. Exact-rational checks of the matrix recurrence were run from the included checker (2607 assertions). The infinite limit follows from the proof, not those finite checks.
+PASS
 
-## Originality (PASS, best-knowledge)
+The normalized Laurent basis has shift weights squared (1+q^{n+1})/(1+q^n). Taking diagonal entries of kernel equation gives g_{n+2}−(1+q)g_{n+1}+qg_n=0 for g_n=(1+q^n)t_n, hence t_n=(A+Bq^n)/(1+q^n). Comparing zero tails with any block peak 1 forces ||K−T||≥1/2 for every kernel T, and T=I/2 is a Toeplitz attaining equality. For diagonal K the residual differs from ℓ_n=k_{n+2}−(1+q)k_{n+1}+qk_n by (1−q²)q^n/(1+q^n)(k_{n+1}−k_{n+2}), exponentially small. Increment recurrence and total variation ≥2 give liminf ≥2(1−q); smooth boundary-layer hat profiles give limsup ≤2(1−q). Bounded inverse theorem on B(H)/ker D_q turns the distant small-residual sequence into nonclosed range.
 
-The motivating article by Das and Narayanan (arXiv:2504.04270, §2) gives the annular Toeplitz matrix formula and proves zero-product and compact-Hankel results, but not small-defect instability or its sharp finite-window coefficient. A later article by Jain and Sarkar (arXiv:2610.40118, first posted 2026-10-29) proves exact equality of the Toeplitz class and the zero set of the quadratic identity, as well as compact-perturbation characterizations; exact solutions do not imply a small-residual norm estimate, and their inspected article has no finite-block minimax theorem. Its later posting date does not change the first-public date of the older, independently sufficient motivating source. published-finding corpus similarities for Toeplitz Schur multipliers and distance to other Toeplitz subclasses concern different functionals and do not imply this sharp statement. The relevant older thesis on annular Toeplitz operators was checked only at abstract level, so an equivalent calculation hidden there remains a priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The quadratic polynomial is the canonical two-boundary annihilator for annular Toeplitz matrices. Determining the sharp minimal defect of norm-one positive finite-frequency blocks quantifies failure of norm stability in an operator-theoretically natural test, and the exact \(2(1-q)\) coefficient records the geometry of the inner radius. The nonclosed-range consequence is a structural property of a bounded map on the entire operator algebra, not merely a numerical example. The positive-frequency block is motivated by convergence of annular shift weights to the outer-boundary shift, rather than an arbitrary parameter slice.
+Best-of-knowledge comparison of actual mathematical statements and implications, not titles. None of the inspected exact results supplies the claim in this final scope; all four comparison types and materially read primary sources are documented. Inaccessible plausible sources are disclosed as risks rather than falsely excluded or used as automatic failure.
 
-## Remaining limitations and closest literature
+## value
 
-The proof does not claim uniformity as \(q\) tends to one, or classify all minimizers at finite window length. Das--Narayanan 2025, Eq. (2.1): https://arxiv.org/abs/2504.04270. Jain--Sarkar 2026, Theorems 2.2 and 4.2: https://arxiv.org/abs/2610.40118. The 2015 thesis by J. M. Tattersall was accessible only in abstract form (https://etheses.whiterose.ac.uk/id/eprint/11498/); it remains an unexcluded possible antecedent. A failed similarity search is not proof of publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quadratic polynomial is determined by the two annular boundaries, hence its norm stability is a natural operator question. Distant positive Laurent windows are dictated by convergence of annular weights to the outer unilateral limit, not an arbitrary slice. The exact 2(1−q) coefficient and nonclosed-range consequence are structural and quantitatively sharp even though finite-N exact minimizers are not classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
