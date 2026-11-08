@@ -1,0 +1,15 @@
+# Scientific review: branch–leaf covariance under root-weight bias
+
+## Correctness — PASS
+The Hoppe attachment law makes all parent choices independent with weights \(\theta\) for the root and one for every nonroot vertex. For an earlier vertex \(j<i\), conditioning the arrival at time \(i\) to choose the root removes exactly one possible threat to \(j\)'s survival as a leaf. The resulting two-indicator covariance is a positive rational function that telescopes when summed over all \(j<i\). The same finite expression satisfies a separate recursion derived from the leaf-count drift and the mutual exclusivity of choosing a root or a leaf. Both derivations cover real \(\theta>0\) and integer \(n\ge2\); differentiating the exact expression proves the unique maximum only for \(n\ge3\). An independent exact rational parent-vector enumerator passed 1,567 checks. Finite checks are not used to infer the universal theorem.
+
+## Originality — PASS (with residual priority risk)
+Leckey and Neininger, *Asymptotic analysis of Hoppe trees*, arXiv:1202.2439 (2012-02-11), study the root-weight model and leaf-count moments, but the inspected full text does not derive the covariance with root-branch count or optimize it as the weight scales with the tree size. Hiesmayr and Işlak, *Asymptotic results on Hoppe trees and its variations*, arXiv:1712.03572 (2017-12-10), study leaf and root-branch marginals separately; their general weighting framework does not directly imply a cross-covariance identity. A previously published uniform-recursive-tree computation covers the \(\theta=1\) specialization, which is explicitly excluded from the novelty claim. Bivariate weighted-tree enumerators and earlier unpublished theses are remaining possible sources of implicit coverage; they are not claimed to have been exhaustively ruled out.
+
+## Mathematical value — PASS
+The root weight is the model's fundamental shape-bias parameter, while the number of root branches and the total leaves measure local diversification and global termination. Knowing their covariance only at fixed weight hides the macroscopic transition: for fixed positive weight the covariance stays bounded, but at weight proportional to the tree size it grows linearly in the size. The exact optimizer \(\theta=n-2\), and exact maximum \((n-1)/8\), identify where these natural statistics share the strongest absolute dependence. This is a motivated extremal dependence law, not merely an additional value in a table.
+
+## Scope and remaining limitations
+The root weight is positive and constant during the construction of each tree. Nonroot weights are all one. This result concerns covariance, not correlation or joint distribution. The \(n=2\) case is degenerate and has no unique optimizer. All source comparisons are best-knowledge rather than a guarantee of publication priority; the exact \(\theta=1\) identity was already known. Independent verification is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
