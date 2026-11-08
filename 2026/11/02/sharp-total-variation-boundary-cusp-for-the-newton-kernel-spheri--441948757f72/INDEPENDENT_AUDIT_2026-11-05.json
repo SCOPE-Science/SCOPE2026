@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Harmonic mean-value property normalizes interior Newton densities f_rho=||x-rho mu||^{-(d-2)} on normalized sphere, and dominated cusp beta density normalizes rho=1. With u=1-mu.x, a=(d-2)/2 and c=Gamma(d/2)/(sqrt(pi)Gamma((d-1)/2)), the likelihood ratio R=(1-eps+eps^2/(2u))^{-a} crosses 1 exactly at u=eps/2. The positive part on u>eps/2 gives dTV=a eps-2a c eps^{3/2}+O_d(eps^2), using the beta cusp mass c sqrt eps and the 1/u integral 2c/sqrt eps; error is uniform away from the excised cap. The positive signed derivative converges in TV to a nu_1, the negative concentrates weakly to a delta_mu, so the signed derivative is weak but not TV. For d=3 direct antiderivative yields (eps-eps^{3/2})/[2(1-eps)], extended rho=0 to 1/4. Independent adaptive quadrature checked d=3,4,5,7 at eps=.1,.01,.001 and the d3 closed form. No growing-d uniform claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible Sablica–Hornik arXiv article Section 4 describes simulation and cusp convergence, not a TV maximizing cap or the eps^{3/2} term.",
+          "General classical shell theorem guarantees normalization only."
+        ],
+        "reasoning": "Neither the shell theorem nor convergence of distributions implies first-variation constants in TV or the atomic weak derivative.",
+        "searches": [
+          "https://arxiv.org/pdf/2610.32506",
+          "https://arxiv.org/pdf/2301.03870",
+          "Newton kernel directional spherical distribution boundary total variation cusp expansion"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2610.32506",
+        "https://arxiv.org/pdf/2301.03870",
+        "Newton kernel directional spherical distribution boundary total variation cusp expansion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Newton density formula and normalization are antecedents; boundary cap comparison and the cusp mass integrals are extra substantive steps.",
+          "Different spherical families in mixture work do not directly specialize to ||x-rho mu||^{2-d}."
+        ],
+        "reasoning": "The stated TV expansion, maximizer for all rho, and signed derivative do not follow merely from the published normalization or sampler.",
+        "searches": [
+          "https://arxiv.org/pdf/2610.32506",
+          "https://arxiv.org/pdf/2301.03870"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sablica–Hornik define exactly this Newton-kernel spherical family and its boundary cusp; their focus is normalization and direct simulation.",
+          "Baringhaus–Grübel use mixtures for other named spherical law families."
+        ],
+        "reasoning": "Matching the density does NOT imply the sharp total-variation asymptotic from the source normalization or pointwise convergence; the boundary layer is the distinct new claim.",
+        "searches": [
+          "Newton kernel directional spherical distribution boundary total variation cusp expansion",
+          "https://arxiv.org/pdf/2610.32506",
+          "https://arxiv.org/pdf/2301.03870"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned other spherical boundary problems but no table of these total variation constants or d=3 exact identity."
+        ],
+        "reasoning": "The constants are analytical functions of arbitrary d and rho, not a finite tabulation. Search silence is not proof of nonexistence.",
+        "searches": [
+          "Newton kernel directional spherical distribution boundary total variation cusp expansion",
+          "https://arxiv.org/pdf/2610.32506"
+        ]
+      },
+      "rationale": "Independent statement/implication comparisons found no decisive prior coverage of the exact assessed theorem, with explicit caveats. Matching the density does NOT imply the sharp total-variation asymptotic from the source normalization or pointwise convergence; the boundary layer is the distinct new claim.",
+      "residual_risks": [
+        "Unindexed classical potential-theory or probability-distance calculations could imply the same special law.",
+        "Asymptotic error O_d(eps^2) is fixed-d; extension uniform in d and nonradial approach is not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_PRIOR_BUT_BOUNDARY_TV_NOT_STATED",
+          "evidence": [
+            "Source proves normalization and pointwise boundary behavior; inspected sections do not present sharp total variation rate or singular signed derivative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.32506",
+          "material_read": "Accessible full arXiv HTML v1: family definition, Corollary 1 normalization, Section 4 cusp/simulation discussion and related statements",
+          "method": "arXiv HTML full-text sections and find for total variation",
+          "title": "Direct Simulation of Poisson and Newton Kernel Distributions",
+          "trigger": "identical Newton kernel family and radial approach to boundary"
+        },
+        {
+          "assessment": "DIFFERENT_SPHERICAL_FAMILIES",
+          "evidence": [
+            "No identified specialization yielding the Newton boundary TV expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.03870",
+          "material_read": "Accessible abstract and stated classes: von Mises–Fisher, Watson, spherical Cauchy, angular Gaussian; not the same Newton law",
+          "method": "arXiv source/abstract comparison",
+          "title": "Discrete mixture representations of spherical distributions",
+          "trigger": "possible general spherical-mixture implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact statistical distance to an integrable boundary singularity and its nonanalytic eps^{3/2} boundary-layer correction give a natural sensitivity invariant of a newly defined spherical sampling family. The signed derivative reveals a genuine singular perturbation, not just routine normalization of a harmonic kernel.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed integer d>=3 and radial rho up to 1; weak derivative not TV derivative; no d-uniform remainder."
+  ],
+  "schema_version": 1
+}

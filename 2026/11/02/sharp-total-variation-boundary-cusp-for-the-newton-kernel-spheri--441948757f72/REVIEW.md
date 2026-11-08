@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The primary theorem concerns fixed dimensions \(d\ge3\), interior radial parameters \(0\le\rho<1\), and the integrable cusp \(\rho=1\). The full argument independently proves normalization via radial harmonicity, identifies a unique sign-change spherical cap, integrates with the exact beta latitude density, and controls the singular boundary layer uniformly outside the cap. It derives the \(O_d(\varepsilon^2)\) remainder without applying a false uniform Taylor expansion at the pole. Dominated convergence establishes the weak signed first variation; the atom prevents total-variation differentiability. The dimension-three finite-parameter identity follows from explicit antiderivatives. The code reproduces 333 supporting assertions, not an infinite proof.
+PASS
 
-## Originality — PASS, with historical-priority reservations
+Harmonic mean-value property normalizes interior Newton densities f_rho=||x-rho mu||^{-(d-2)} on normalized sphere, and dominated cusp beta density normalizes rho=1. With u=1-mu.x, a=(d-2)/2 and c=Gamma(d/2)/(sqrt(pi)Gamma((d-1)/2)), the likelihood ratio R=(1-eps+eps^2/(2u))^{-a} crosses 1 exactly at u=eps/2. The positive part on u>eps/2 gives dTV=a eps-2a c eps^{3/2}+O_d(eps^2), using the beta cusp mass c sqrt eps and the 1/u integral 2c/sqrt eps; error is uniform away from the excised cap. The positive signed derivative converges in TV to a nu_1, the negative concentrates weakly to a delta_mu, so the signed derivative is weak but not TV. For d=3 direct antiderivative yields (eps-eps^{3/2})/[2(1-eps)], extended rho=0 to 1/4. Independent adaptive quadrature checked d=3,4,5,7 at eps=.1,.01,.001 and the d3 closed form. No growing-d uniform claim.
 
-The closest primary source is Sablica and Hornik, arXiv:2610.32506v1, Corollary 1 and Section 4: normalization and an integrable pointwise cusp are established, but the exact TV cap test, sharp fractional correction, and singular derivative are not stated. The older spherical-mixture framework of Baringhaus and Grübel, arXiv:2301.03870v3, covers other families and does not directly establish this law in the inspected parts. Planar Coulomb-field collision asymptotics use different objects and limiting geometry. Broader potential-theory results may contain an equivalent or dominating formulation, and a negative literature search is not proof of exclusivity.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This answers the natural endpoint-accuracy question arising from a newly introduced probability distribution. The total-variation result gives the **sharp worst-event approximation error** for sampling or approximating the singular but non-atomic endpoint by a regular interior parameter. The first nonanalytic correction and atomic weak derivative reveal a genuinely singular boundary mechanism, and the three-dimensional exact formula offers an explicit benchmark. Dimension-uniform estimates and finite-sample inference are not claimed.
+Independent statement/implication comparisons found no decisive prior coverage of the exact assessed theorem, with explicit caveats. Matching the density does NOT imply the sharp total-variation asymptotic from the source normalization or pointwise convergence; the boundary layer is the distinct new claim.
 
-## Limits of review
+## value
 
-Analytic proof and reproducibility evidence have been checked for this single result; wider historical priority and independent mathematical assessment remain outstanding. No external certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact statistical distance to an integrable boundary singularity and its nonanalytic eps^{3/2} boundary-layer correction give a natural sensitivity invariant of a newly defined spherical sampling family. The signed derivative reveals a genuine singular perturbation, not just routine normalization of a harmonic kernel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
