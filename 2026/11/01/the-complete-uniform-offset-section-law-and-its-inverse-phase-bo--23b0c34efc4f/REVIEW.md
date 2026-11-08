@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed positive or zero absolute projections \(A\ge B\ge C\ge0\), the eight projected cube-vertex heights and twelve edge-crossing intervals yield the two exact laws. Their probabilities sum to one; direct substitution gives \(\mathbb EN=4\) for all real projection triples, including equality boundaries. The normalization and inverse construction cover the entire mean-four probability simplex, while an explicit interval describes exactly the boundary ambiguity. Variance is affine in the probability coordinates and attains its stated sharp extrema at the simplex vertices. Exact rational independent edge tests corroborate the piecewise crossing counts. The analytic proof, not these finite tests, supplies universal quantifiers.
+PASS
 
-## Originality — PASS with stated historical-priority risk
+Read complete RESULT.md and verifier, source tree. Affine cube coordinates make height signs ±A±B±C; a generic level cuts exactly those of 12 edges whose end heights straddle T. Sorting four positive heights gives piecewise intervals: A>=B+C counts 3,4,5,4; A<B+C counts 3,4,5,6. Dividing lengths by W yields each claimed probability, with p3=p5+2p6 and mean four. Conversely solve for A/W=(p3+p4+p5)/2, B/W=(p3+p4)/2,C/W=p3/2 when p6>0; given invertible generator matrix, any positive normalized triple is attained by some normal. On p6=0 set rho=p3=p5 and derive C/W=rho/2, B/W in [rho/2,(1-rho)/2], A/W complementary; unique at rho=1/2, nonunique otherwise. Variance 2(p3+p6) takes 0 at C=0 and 2 at A=B=C, sharp vertices. Independently enumerated all twelve edges for 342 nonzero integer projection triples in [0,6]^3 with exact rational offset intervals and compared laws, including zero projections/ties. Universal law follows piecewise sign-order proof, not the sample.
 
-Bárány and Domokos, *Same average in every direction*, arXiv:2310.18960, prove the constant first moment and give an exact edge-integral for that mean; full text was checked, including the theorems, Section 3 and its proof. They do not derive the complete law or its inverse-image simplex. Brandenburg, De Loera and Meroni, *The Best Ways to Slice a Polytope*, arXiv:2304.14239, provide general slicing chambers but no corresponding probability-simplex or inverse theorem. Heerten, Hübner and Thäle, arXiv:2309.12771, treat typical cells of three-directional Poisson line tessellations, a different sampling space whose concrete probabilities differ. Brandenburg and Meroni, arXiv:2510.09265, classify cube slicing types (verified abstract only) but do not thereby imply weighted offset probabilities. Indexed semantic comparisons for fixed-normal cube section distributions, probability fibers, and equivalent projection parameters gave no stronger covering theorem.
+## originality
 
-The 1991 article by Chakerian and Logothetti, *Cube Slices, Pictorial Triangles, and Probability*, is a plausible historical antecedent; full text could not be obtained from the accessible public sources. Its exact coverage is unknown. Consequently priority is provisional, not certified. The mathematical comparison supporting originality is statement-level, not merely a title search.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge PASS for the joint complete fixed-normal uniform-offset law, all-realized mean-four simplex and inverse-identifiability fibers; previous mean-four theorem is explicitly credited. Plausible 1991 cube/probability source could not be fully inspected; retain specific priority risk rather than falsely describing its content or failing solely for access.
 
-A known average of four conceals the full two-dimensional simplex of achievable side-count distributions. The exact image and inverse fiber classify every direction-dependent law, while the hexagon-probability boundary gives a sharp transition between identifiable and unidentifiable projection profiles. This is a natural and nontrivial geometric-tomography question and supplies more than routine enumeration or recomputation of the known mean. Its variance bound is included as a consequence rather than presented as a standalone flagship result.
+## value
 
-## Limitations
+PASS
 
-This result concerns arbitrary three-dimensional parallelotopes and the prescribed-normal, uniformly distributed offset model. It cannot distinguish projection signs or reconstruct Euclidean side lengths. No claim extends to other random-plane protocols or higher dimensions. Historical-priority verification is incomplete, and independent mathematical audit has not been performed.
+The full side-count distribution is a natural stochastic geometric invariant of fixed-orientation parallelotope sections and refines a known mean theorem. Characterizing its entire feasible simplex plus a sharp inverse-identifiability phase change provides useful inverse stereological information: which unordered normal projection magnitudes can be recovered from section combinatorics. Sharp variance 0..2 and exact boundary fibers are meaningful geometry, not an arbitrary enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
