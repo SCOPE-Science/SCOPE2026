@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python verify.py` with any supported standard Python 3 interpreter. The script uses only the standard library, and its result from the saved package is in `verify_output.txt`. It independently constructs the four-state history chain, solves the stationary system, and solves the two hitting-time systems by exact rational Gaussian elimination before comparing with the theorem's formulas. It covers 625 grid quadruples and 400 seeded rational quadruples, including parameters on both sides of the relevant equalities. A deterministic run reports 1,025 passing parameter tuples.
+## correctness
 
-These finite checks verify the formulas at the tested parameters and detect first-hit convention mismatches, but they are not exhaustive over real parameter space and do not certify historical novelty. The analytic proof in `RESULT.md` establishes the identities for every strictly positive parameter quadruple. No independent mathematical review or external certification has been conducted.
+PASS
+
+The lifted Markov state is (Xt,Xt-1), transitions (a,b)→(x,a) with q_ab∈(0,1). Stationary equal pair probabilities p01=p10=s imply π0=A/(A+B),π1=B/(A+B). First-positive-passage recurrences h1=1+(1−q_ab)h1(0,a), h0=1+q_ab h0(1,a) solve to displayed 4×2 tables; weighted differences factor exactly π1(u−v)^2/u and π0(w−z)^2/(1−z). Positivity makes both zero iff u=v and w=z. Conversely first-order Kemeny identity yields 1+1/(u+1−w), verified by substitution. Independently solved rational sample (u,v,w,z)=(1/2,1/4,1/2,3/4) obtaining θ=(49/22,95/44,57/22,119/44), defects (3/44,5/44). Input verify.py separately solves the stationary and two hitting linear systems; no extension to nonpositive boundary tensors.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: Kemeny constancy for a genuine Markov chain supplies sufficiency when u=v,w=z; no converse for a non-Markov one-time observation follows unless the two quadratic defects are proved. No exactly covering theorem was found in actual indexed results or the inspected relevant primary statements; this is not a historical priority certificate.
+
+## value
+
+PASS
+
+This answers a specific open rigidity question for the smallest nontrivial higher-order Markov model: constancy of stationary-target first-positive hitting time forces genuine first-order memorylessness, with sharp explicit nonnegative quadratic defects. Its condition is not implied by classical Kemeny constancy without proving the converse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
