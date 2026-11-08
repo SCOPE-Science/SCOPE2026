@@ -1,0 +1,19 @@
+# Scientific assessment
+
+## Correctness — PASS
+
+The domain, normalization and conditioning are explicit: a classical positive-parameter two-color Pólya urn, observed at a terminal red draw. De Finetti conditioning gives the posterior \(\operatorname{Beta}(a+1,b)\), not the unconditioned prior. Kirchhoff's theorem and the complete threshold-graph Laplacian eigenbasis give an exact finite-order product. On each fixed conditional Bernoulli slice \(0<p<1\), truncating the last \(\lceil n^{1/3}\rceil\) vertices controls the logarithmic singularity; Hoeffding concentration permits uniform Taylor expansion, a reverse martingale yields an \(O(\log n)\) squared-error bound for the random-denominator replacement, and a triangular Bernoulli array produces the stated Gaussian variance. The uniform integrability of the logarithmic kernel and a summable concentration argument also establish the first-order almost-sure law under the stated coupling. The special variance \(v(1/2)=\pi^2/3\) follows from a hyperbolic integral. The local standalone `verify.py` passed 2,573 exact/algebraic/numerical checks, including exhaustive binary creation strings through order 9 and exact Kirchhoff cofactors. These finite tests are supporting evidence only, not a substitute for the general argument.
+
+## Originality — PASS, with historical-priority limits
+
+The motivating 2026 paper by Yu, Alajaji and Gharesifard derives the Pólya threshold-graph model, beta-binomial dependence and complete Laplacian eigenbasis; it does not state the centered logarithmic spanning-tree complexity CLT or its explicit variance. Diaconis, Holmes and Janson analyze independent threshold-graph creation mechanisms and graphon/Laplacian limits, but their accessible article does not state the second-order tree-count theorem. Go, Khwa, Luo and Stamps (2021) give a deterministic spanning-tree formula (explicitly known earlier), not a conditional Gaussian law. The 1996 Hammer–Kelmans formula is prior deterministic work and is not claimed as a new contribution. The surviving claim is the quenched Gaussian fluctuation theorem with explicit influence kernel and beta mixture. A still-unlocated general log-determinant fluctuation theorem or an earlier specialization could cover the result; neither is asserted absent as a matter of proof. Historical comparison is provisional and no independent audit is claimed.
+
+## Mathematical value — PASS
+
+Spanning-tree complexity is a canonical global network invariant, while the Pólya random-threshold model is a recent dependent construction. The result shows an order-\(n\) non-self-averaging beta-driven law together with a distinct order-\(\sqrt n\) Gaussian fluctuation after conditioning on the latent propensity, including an exact \(\pi^2/3\) variance at propensity \(1/2\). This gives quantitative information not furnished by a deterministic tree-count formula or a first-order graphon limit; it also makes the conditioning-on-connectivity posterior shift explicit. Its scope excludes endpoint-uniformity, finite-memory urns and unconditioned disconnected graphs.
+
+## Sources and residual limits
+
+Primary full text read: Yu–Alajaji–Gharesifard, arXiv:2603.18452v1, especially urn definition, Laplacian spectrum and consensus/connected-graph treatment; Diaconis–Holmes–Janson, https://pmc.ncbi.nlm.nih.gov/articles/PMC2930250/, independent-creation models, graph limits and Laplacian section; Go–Khwa–Luo–Stamps, arXiv:2103.13596v1, threshold-graph spanning-tree enumeration theorem and extensions. The Hammer–Kelmans 1996 deterministic formula was checked through bibliographic/abstract material, not its full paper. A spectral survey posted in October 2026 was identified but its full arXiv text could not be retrieved; possible broader probabilistic predecessors remain a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
