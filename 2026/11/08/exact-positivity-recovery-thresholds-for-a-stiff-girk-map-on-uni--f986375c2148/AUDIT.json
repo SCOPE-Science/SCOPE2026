@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Derivation from exact two-stage RK resolvent; nilpotent Taylor formula and row-sum identity enumerate all entries, whose factored rational signs prove both directions for every real h>=0. Exact package verifier confirms symbolic stage, derivative and full matrices and -7/625 at h=1/2; no finite sampling is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth 1998 Theorems 4–6 establish general positivity criteria and absolute monotonicity radius; 2005 establishes strict step thresholds for broad positive classes",
+        "Original GIRK papers only establish scalar or physical-operator stability, not a Markov stochasticity bound"
+      ],
+      "reasoning": "Qualitative general nonpositivity and absolute monotonicity restrictions can imply existence of some failure but do not imply the exact dimension-four and dimension-five complete upper-step recovery regions for a fixed absorbing generator, nor the exact -7/625 witness. Stable eigenmodes do not imply entrywise positivity.",
+      "searches": [
+        "Tedeschi-Prades Birnstiel Dolag Ercolano Hutchison 2025 GIRK stiff coefficients gamma1 gamma2 1 beta1 1 beta2 -1 b 0 positivity stochastic pure birth",
+        "Chen Li He Wibking Krumholz Bai nonlinear general implicit Runge Kutta 2026 five-state Markov positivity",
+        "doi:10.1016/S0168-9274(98)00050-6",
+        "doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2511.07562v1",
+      "arxiv:2610.18979v1",
+      "doi:10.1016/S0168-9274(98)00050-6",
+      "doi:10.1016/j.apnum.2004.08.026",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact 2025/2026 stiff tableau fixes the rational F but does not calculate F(hQ_n) entries",
+        "General RK positivity radius can be zero even if a fixed generator becomes nonnegative above a positive step threshold; Horváth treats broad problem classes rather than this exact family"
+      ],
+      "reasoning": "Deduction of the new claim requires a separate finite Jordan-block Taylor calculation and exact rational sign factorizations through order four. Prior statements alone neither provide these factors nor specify the sharp recovery cutoff; their own conclusions are weaker or inapplicable to this fixed family.",
+      "searches": [
+        "Tedeschi-Prades Birnstiel Dolag Ercolano Hutchison 2025 GIRK stiff coefficients gamma1 gamma2 1 beta1 1 beta2 -1 b 0 positivity stochastic pure birth",
+        "Chen Li He Wibking Krumholz Bai nonlinear general implicit Runge Kutta 2026 five-state Markov positivity",
+        "Five-state pure-birth Markov generator stiff GIRK Runge Kutta rational stability function (1-z)/(1-2z+2z²), exact positivity restored at h=1/sqrt 2",
+        "arxiv:2511.07562v1 Section II.7 Appendix B",
+        "arxiv:2610.18979v1 Sections 2.4.1 Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct equivalent forms would be positivity of the first-to-last absorbing entry B_5, or positivity of the first four Taylor coefficients of F(-h+hx) and their complementary tail",
+        "The exact B5 factor is 4h^4(2h²-1)(2h²+4h+1)/(1+2h+2h²)^4; no equivalent formula identified in inspected articles"
+      ],
+      "reasoning": "Compared full absorbing-column formula, transition matrix sign and four- and five-state thresholds rather than exact prose labels. No exact equivalent found in the accessible source papers or indexed records; remaining unindexed risk noted.",
+      "searches": [
+        "rational function (1-z)/(1-2z+2z^2) five state birth Markov nonnegative matrix sign threshold 1/sqrt(2)",
+        "nonmonotone timestep positivity RK coefficient four-state pure birth recovery threshold sqrt3",
+        "web: \"1-z\" \"1-2z+2z^2\" positivity Runge Kutta",
+        "web: GIRK stiff coefficients birth chain monotonicity positivity threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed 2026/9/20 record concerns an eight-state [2/2] Padé map, a different rational function",
+        "Closest 2026/10/4 record concerns SSP-SDIRK2(2), a different scheme; original GIRK 2025 Table 1 tabulates coefficient sets, not Markov transitions"
+      ],
+      "reasoning": "Verified the actual rational functions and generator dimensions, rather than treating near-identical topics as duplicates. No exact table for this map and n=2..5 found.",
+      "searches": [
+        "Five-state pure-birth Markov generator stiff GIRK Runge Kutta rational stability function (1-z)/(1-2z+2z²), exact positivity restored at h=1/sqrt 2",
+        "Minimal dimension negative entry rational Runge Kutta Markov matrix pure birth stiff timestep n=5 h 1/2",
+        "Stiff two-stage GIRK nonnegative Markov propagator 4 states 5 states threshold",
+        "rational function (1-z)/(1-2z+2z^2) five state birth Markov nonnegative matrix sign threshold 1/sqrt(2)"
+      ]
+    },
+    "rationale": "Fresh, checked full-text comparison: original 2025 and 2026 GIRK papers contain the stiff tableau and modal stability analysis, Horváth 1998/2005 contain general positivity/absolute-monotonicity criteria, but the exact entrywise unit-rate birth-chain n=2..5 classification for F(z)=(1-z)/(1-2z+2z^2) and the sharp 1/sqrt(2) five-state recovery were not found. Indexed nearest records concern other stability rationals. The possibility of an unindexed equivalent coefficient table remains.",
+    "residual_risks": [
+      "Unindexed numerical-method coefficient tables or alternate phase-type/Markov-transfer treatments might derive the same rational signs.",
+      "The source scheme was first published in 2025 and its coefficient set is not new; novelty is only the fixed birth-chain positivity classification.",
+      "Different physical gas–dust generator structure prevents direct counterexample to the published physical solver."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact stiff coefficients occur in Table 1; focuses on drag convergence, damping, and stability regions; no identified unit-rate birth-chain entrywise classification",
+        "evidence": [
+          "Section II.7 Table 1 shows 1,1,1,-1,b=0 for first Strang scheme",
+          "Appendix B gives scalar RK stability formula and A-/L-stability checks"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.07562v1",
+        "material_read": "Complete arXiv HTML article, particularly Sections II.6–II.7, Table 1 and Appendix B",
+        "method": "Primary full text read and find for positivity, coefficients, stable rational and Markov matrices",
+        "title": "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag",
+        "trigger": "Original introduction of exact stiff coefficients; possible coverage of positivity"
+      },
+      {
+        "assessment": "Establishes branch condition, coefficient set and eigenmode damping for physical charged dust; does not make entrywise Markov birth-chain classification",
+        "evidence": [
+          "Section 2.4.1 Eq. (25): γ1=γ2=β1=1, β2=-1,b=0",
+          "Eq. (21) and Appendix A Eq. (A6): stiff half-step modal parameter magnitude >=1/2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.18979",
+        "material_read": "Primary 23-page PDF page 1, page 5 and Appendix A, with relevant source-text lines for spectral stability",
+        "method": "Opened primary PDF, inspected page images and exact coefficients, matched stiff switch and scalar stability range",
+        "title": "A Nonlinear General Implicit Runge-Kutta Integrator for Multifluid Charged Dust and Gas",
+        "trigger": "Recent reuse of stiff branch and half-step switching"
+      },
+      {
+        "assessment": "General RK qualitative positivity criteria and bounds; no direct tabulation of this stiff rational on absorbing birth generators with n<=5",
+        "evidence": [
+          "Theorems 4–6 characterize general positivity radii and relate them to absolute monotonicity",
+          "Example 2 exhibits nonpositivity for a different Lobatto IIIC method"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Pages 1–4 and 12–17 of the 18-page primary article examined for definitions, Theorems 4–7 and examples",
+        "method": "Primary full-text review of scheme positivity, absolute monotonicity and proof statements",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Potential broader RK positivity theorem covering the exact classification"
+      },
+      {
+        "assessment": "General positive IVP step restrictions and weaker invariant cones; no exact four-/five-state recovery threshold of the present rational stability map",
+        "evidence": [
+          "Theorem 8 addresses general strict positivity thresholds",
+          "Table 1 treats Lobatto, Radau and diffusion test problems rather than this map"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "All 16 pages of accessible primary full text inspected, including Sections 2–4 and Table 1",
+        "method": "Primary full-text reading, comparison of theorems, examples and invariant cones",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Potential exact positivity thresholds and invariant-cone dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f986375c-2148-4ac1-a216-6c613631d51d",
+  "value": {
+    "rationale": "The precise finite equal-rate absorbing chain is a natural positivity test for a stiff spectral integrator used in transfer problems. The full two-through-five-state classification proves a nonmonotone transition (failure then exact recovery), and a sharp first unsafe dimension inside the actual stiff nondimensional window; it distinguishes modal damping from stochasticity without asserting a broader physical claim.",
+    "status": "PASS"
+  }
+}
