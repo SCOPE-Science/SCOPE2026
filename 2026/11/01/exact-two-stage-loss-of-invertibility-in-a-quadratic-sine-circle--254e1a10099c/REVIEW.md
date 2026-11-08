@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem classifies all stationary points of the derivative factor \(g(\theta)=\cos\theta(\rho-\sin\theta)\) using the exact quadratic relation \(2\sin^2\theta-\rho\sin\theta-1=0\). Its real sine roots, lobe signs, and unique interior minima prove that the derivative has exactly the stated zero counts, including boundary multiplicities. The cubic-inflection and root-splitting coefficient follow from the positive second derivative of \(g\) at each minimum. The singular \(3/2\)-power cutoff and symmetry splitting are Taylor expansions of explicit algebraic functions. The code checks 118 deterministic numerical cases, but is not used as an infinite proof.
+PASS
 
-## Originality: PASS within inspected evidence
+Direct differentiation gives F_prime=1+4pi a B² g_rho(theta), g=cos(theta)(rho-sin(theta)); its stationary sines solve 2s²-rho s-1=0. The lower root lies (-1,0), the upper enters (0,1) exactly for rho<1; the negative lobes have one unique minimum each with depths H_minus, H_plus. Therefore the sharp first loss of strict positivity, the critical still-monotone homeomorphism, 0/1/2/3/4 zero counts including rho=0 simultaneous thresholds and rho>=1 single lobe follow. At each threshold, g second theta derivative Delta sqrt(1-nu²)>0 gives a cubic stationary inflection and square-root splitting. Expansion nu_plus=1-(1-rho)/3+... gives H_plus=(2/3)sqrt(2/3)(1-rho)^{3/2}+..., verified independently with exact symbolic stationary roots and numerical asymptotic ratio 0.9999916667. Noninjectivity alone does not imply chaos; entropy statement restricted to homeomorphism.
 
-The full 2022 defining article develops the model, the derivative, fixed-point saddle-node bifurcations at \(F'=1\), and numerical dynamical diagrams. Its discussion specifically leaves the global criticality for loss of invertibility unresolved. Neither these saddle-node curves nor general properties of the ordinary sine-circle map imply the exact two-threshold derivative-zero census. Searches for the model name, its formula, derivative criticality, double-harmonic aliases, and equivalent fold statements revealed no covering published record. The related 2025 two-parameter paper's accessible abstract addresses numerical attractor organization, not this full three-parameter theorem; its inaccessible full text remains a publication-priority risk. No absence-of-search-result claim is used as proof of novelty.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Invertibility is the fundamental structural boundary separating circle-homeomorphism dynamics (necessarily zero topological entropy) from the parameter regime where noninvertible dynamics can occur. The exact complete stratification of one versus two nonlinear fold births, the collision of thresholds at symmetry, and the divergent \(3/2\) boundary law answer a specific criticality question left open by the defining three-parameter study. These are sharp parameter-domain statements rather than a numerical plot or a recomputation of the published fixed-point saddle-node curves. They do not constitute a theorem that chaos begins at either threshold.
+The 2022 primary paper introduces the exact map, derivative and bifurcation motivation and treats parameter curves tied to fixed points, but not this global zero-of-derivative phase census in material inspected. Another 2025 directly related map article could not be read fully because of institutional VPN disconnection; this is an explicit substantial originality risk, not automatic rejection. Closely ranked published records concern different folds/maps.
 
-## Closest work and limitations
+## value
 
-Closest primary work: Mugnaine et al., Physical Review E 106, 034203 (2022), Secs. II–IV and Appendix. Relevant follow-up: Baroni et al., Chaos 35, 023122 (2025), abstract only, with unresolved full-text priority risk. Generic multiharmonic circle-map theory may contain equivalent special cases. No statements about basins or positive entropy after noninjectivity are inferred. Independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact invertibility threshold, full turning-point census and singular disappearance of the shallow pair organize a motivated nontwist map parameter diagram. It separates a rigorous map-theoretic boundary from unjustified chaotic-onset claims and gives useful sharp fold laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

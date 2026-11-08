@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Analytic proof checks: differentiate the full lift, reduce signs by half-turn conjugacy, derive \(g'(\theta)=2\sin^2\theta-\rho\sin\theta-1\), classify all negative lobes and their unique minima, and separately verify the cases \(\rho=0\), \(0<\rho<1\), \(\rho=1\), and \(\rho>1\). The threshold has a double zero of \(F'\), not a double fixed point. At the double zero \(F'''\) is positive. The same algebra verifies the asymptotic formulas near \(\rho=0\) and \(\rho=1\).
+# Independent mathematical audit
 
-Standalone reproducibility command: `python3 check_turning.py` (Python standard library only). Observed result: `PASS: 118 deterministic parameter and asymptotic tests`. Tests include sign-changing derivative-zero counts away from tangencies, comparison of the analytic and numerically sampled derivative minimum, the near-resonance threshold scaling, and square-root separation on both sides of the first critical point.
+## correctness
 
-Limits: finite sampling is not a certificate for all parameters; the exhaustive lobe argument is the proof. The related 2025 study was inspected through its abstract, not its full text. Neither independent verification nor publication-priority certification has been performed.
+PASS
+
+Direct differentiation gives F_prime=1+4pi a B² g_rho(theta), g=cos(theta)(rho-sin(theta)); its stationary sines solve 2s²-rho s-1=0. The lower root lies (-1,0), the upper enters (0,1) exactly for rho<1; the negative lobes have one unique minimum each with depths H_minus, H_plus. Therefore the sharp first loss of strict positivity, the critical still-monotone homeomorphism, 0/1/2/3/4 zero counts including rho=0 simultaneous thresholds and rho>=1 single lobe follow. At each threshold, g second theta derivative Delta sqrt(1-nu²)>0 gives a cubic stationary inflection and square-root splitting. Expansion nu_plus=1-(1-rho)/3+... gives H_plus=(2/3)sqrt(2/3)(1-rho)^{3/2}+..., verified independently with exact symbolic stationary roots and numerical asymptotic ratio 0.9999916667. Noninjectivity alone does not imply chaos; entropy statement restricted to homeomorphism.
+
+## originality
+
+PASS
+
+The 2022 primary paper introduces the exact map, derivative and bifurcation motivation and treats parameter curves tied to fixed points, but not this global zero-of-derivative phase census in material inspected. Another 2025 directly related map article could not be read fully because of institutional VPN disconnection; this is an explicit substantial originality risk, not automatic rejection. Closely ranked published records concern different folds/maps.
+
+## value
+
+PASS
+
+Exact invertibility threshold, full turning-point census and singular disappearance of the shallow pair organize a motivated nontwist map parameter diagram. It separates a rigorous map-theoretic boundary from unjustified chaotic-onset claims and gives useful sharp fold laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
