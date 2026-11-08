@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Finite-field verification
+# Independent mathematical audit
 
-The standalone `verify.py` script requires only standard Python 3. It constructs prime fields and polynomial-quotient realizations of four nonprime finite fields, enumerates every monic quadratic in each tested field, checks the first three critical-orbit character conditions, checks the pair and triple correlations in the proof, and compares the outcomes with all three exact formulas. A separate polynomial-arithmetic implementation verifies actual degree-2, degree-4, and degree-8 irreducibility by Rabin's gcd criterion over the prime fields of sizes 3, 5, 7, and 11.
+## correctness
 
-Successful execution returned:
+PASS
 
-```
-VERIFY_OK fields=14 coefficient_pairs=7190 direct_prime_iterates=4 degree_bound=8
-```
+Writing each monic quadratic uniquely f=(X−a)^2+b, Capelli norm reduction makes three consecutive irreducibility tests exactly χ(−b)=χ(f(b))=χ(f²(b))=−1. In bijective coordinates (t=b−a,x=b), the relevant values are x,x+t²,x+t²(t+1)². The character product indicator has exactly one spurious zero at (t,x)=(0,0); complete x,t quadratic pair sums are 0,q,q and cubic triple sum 1+χ(−1). Expansion yields N1=q(q−1)/2, N2=(q²−1)/4, N3=(q−1)(q+2+χ(−1))/8 for every odd prime power. Independent enumerations checked all p² coefficient choices for p=3,5,7,11,13,17,19 and all pair/triple character correlations.
 
-The tested field orders were 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 9, 25, 27, and 49. The universal proof instead relies on Capelli's lemma, elementary norm identities, and complete quadratic-character-sum evaluations. Exhaustive finite tests do not certify all prime powers or later iterates. Independent validation has not been performed.
+## originality
+
+PASS
+
+The prior finite-field arithmetic dynamics papers establish Capelli/critical-orbit tests, estimates for indefinite stability and probabilistic factorization of a fixed polynomial, not the exact count over all monic quadratics surviving exactly the first three iterates. Jones–Boston 2012 is a particularly relevant inaccessible full primary source; only abstract and metadata were available and institutional retrieval was blocked. Best-of-knowledge new count is qualified by this material priority risk.
+
+## value
+
+PASS
+
+The exact depth-three census is a natural first nontrivial cutoff in the classical stability problem: a genuine triple multiplicative-character correlation creates the q mod4 split absent at first and second stages. This precisely counts survival and failure across a natural arithmetic family and can benchmark longer-iterate heuristics without claiming all-depth stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
