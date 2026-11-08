@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:48:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Over Watson–Crick four-letter alphabet, the reverse-complement involution on 256 four-mers has 136 orbits including 16 fixed words. Imposing all self/cross prefix–suffix nonoverlap lengths 1..3 and pairwise aligned Hamming distance≥2 leaves 56 individually valid orbits (12 singleton,44 doubleton). Their exact compatibility graph has 420 edges; RC-closed codebooks biject to its weighted cliques. The strictly decreasing exclusion/inclusion recursion F(S)=F(S\\{v})+z^{s(v)}F((S\\{v})∩N(v)) gives H(z)=(1,12,88,288,584,760,688,424,160,32), total 3037 and maximum 9 with 32 maximizers; the complement-preserving relabeling group has order 8 and acts in four full orbits, 24/8 structural split. Independent code rebuilt the graph and exact clique polynomial (1318 memo states), matching all ten coefficients. Source direct-word backtracker additionally verifies orbit classes. The finite exhaustive recursion proves exactly length 4, not arbitrary lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted nonoverlap maximum and DNA Hamming bounds provide inequalities on different families; neither all-requirement count H(z) nor the 4 optimum relabeling orbits follows."
+        ],
+        "reasoning": "Dropping RC closure or imposing RC distance changes the search space; even a stronger cardinality bound would not automatically determine every coefficient of the restricted enumeration.",
+        "searches": [
+          "Blackburn Non-overlapping codes theorem general q,n",
+          "King Bounds for DNA Codes with Constant GC-Content",
+          "Mir et al PLoS One 2013"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1303.1026 (Direct nonoverlap predecessor but does not combine RC-closure and Hamming threshold)",
+        "https://arxiv.org/abs/math/0306197 (Code reverse-complement distance criterion not closure; different family)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3875435/ (Relevant application context, not exact four-mer closed nonoverlap census)",
+        "Resultary query: Resultary search: reverse complement closed non-overlapping DNA 4 mer single substitution detection exact enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One may have up to 27 unrestricted nonoverlapping four-mers (Blackburn family), but the RC-closed, distance≥2 maximum is 9 and has full polynomial/orbits; King imposes a different RC criterion."
+        ],
+        "reasoning": "Neither general combinatorial theorem implies the exact 56-vertex compatibility graph, 3037 weighted cliques, or 32 maximizers merely by substituting parameter q=4,n=4.",
+        "searches": [
+          "arXiv:1303.1026 primary Theorems",
+          "arXiv:math/0306197 sections on reverse-complement distance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blackburn uses prefix/suffix nonoverlap but no RC closure or Hamming≥2; King uses complement-distance and constant-GC constraints, not the same closure/nonoverlap definition."
+        ],
+        "reasoning": "A code containing a reverse-complement-fixed word is allowed here but would violate a positive self-RC separation bound; the conditions must not be conflated.",
+        "searches": [
+          "Resultary search: reverse complement closed non-overlapping DNA 4 mer single substitution detection exact enumeration",
+          "Blackburn arXiv:1303.1026",
+          "King arXiv:math/0306197"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching table among returned code records; most discuss deletion/reconstruction or longer blocks.",
+          "Independently enumerated coefficient vector (1,12,88,288,584,760,688,424,160,32) and sum 3037."
+        ],
+        "reasoning": "Existing Hamming bounds, length-four unrestricted code counts and RC distance tables were compared by exact definitions; no direct table found, but undiscovered constrained-code databases remain possible.",
+        "searches": [
+          "Resultary four-mer DNA non-overlap reverse-complement search top 15",
+          "Blackburn and King full primary papers",
+          "Mir barcode design 2013"
+        ]
+      },
+      "rationale": "PASS (qualified): Blackburn 2013/2015 determines general non-overlapping code bounds without Watson–Crick closure or aligned Hamming≥2; King 2003 studies constant-GC DNA codes with Hamming separation from reverse complements, a materially different condition from closure (including allowed self-RC fixed words); Mir et al 2013 investigate longer barcodes. No inspected full primary results determine this exact restricted weighted-clique spectrum; specialist four-mer enumerations remain residual priority risks.",
+      "residual_risks": [
+        "Specialist DNA-code tables could enumerate this exact intersection without corresponding search terms.",
+        "No claim for n>4, GC-balance, melting properties, self-correction of a substitution or chemical validity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct nonoverlap predecessor but does not combine RC-closure and Hamming threshold",
+          "evidence": "Blackburn 2013 arXiv/2015 IEEE publication",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+          "material_read": "Full freely available paper including introduction, general cardinality bounds and constructions; page images of pp 1 and 4 checked",
+          "method": "Open primary PDF, extracted text and PDF page-image comparison",
+          "title": "Non-overlapping codes",
+          "trigger": "Same strict prefix/suffix nonoverlap and short blocklength"
+        },
+        {
+          "assessment": "Code reverse-complement distance criterion not closure; different family",
+          "evidence": "King 2003 EJC R33",
+          "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+          "material_read": "Full public journal PDF, introduction, definitions, reverse-complement separation theorems; page images of pp 1 and 2 checked",
+          "method": "Open primary PDF and page-image verification",
+          "title": "Bounds for DNA Codes with Constant GC-Content",
+          "trigger": "Same four-nucleotide alphabet, RC and Hamming distances"
+        },
+        {
+          "assessment": "Relevant application context, not exact four-mer closed nonoverlap census",
+          "evidence": "Mir et al 2013 PLoS One",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3875435/",
+          "material_read": "Abstract and public description of length-six-to-eight barcode construction",
+          "method": "Public PMC scholarly record",
+          "title": "Short barcodes for next generation sequencing",
+          "trigger": "Biologically motivated short barcode error constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural DNA barcode/synchronizing-code design conflict combines Watson–Crick reversal symmetry, strict frame nonoverlap and single-substitution detection. The complete four-mer cardinality polynomial and symmetries give an exact small-block feasibility benchmark and all optimal codebooks; the finite scope is inherent and mathematically motivated rather than an arbitrary isolated integer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only length-four Watson–Crick alphabet; reverse-complement-fixed codewords allowed; Hamming≥2 detects but need not correct a substitution; no GC, thermodynamic or self-RC separation assumptions.",
+    "Specialist DNA-code tables could enumerate this exact intersection without corresponding search terms.",
+    "No claim for n>4, GC-balance, melting properties, self-correction of a substitution or chemical validity."
+  ],
+  "schema_version": 1
+}

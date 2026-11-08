@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The finite theorem is proved by an exact orbit-to-clique bijection and a terminating integer recurrence, whose full input graph is provided in `adjacency.tsv`. The proof's computational portion is a transparent, finite exhaustive calculation, not a claim of externally certified correctness.
+## correctness
 
-Run `python3 verify_graph.py adjacency.tsv` to regenerate all 136 reverse-complement orbits, select 56 admissible orbits (12 fixed and 44 paired), rebuild the 420-edge compatibility graph, compare the complete text of the graph certificate and derive every coefficient via exact integer polynomial recursion. Actual replay output began with `GRAPH_VERIFY_OK` and reported the vector `(1, 12, 88, 288, 584, 760, 688, 424, 160, 32)` and 1318 distinct memoized states.
+PASS
 
-Run `python3 crosscheck_direct.py` to enumerate all valid codebooks independently by extension with direct Hamming and prefix/suffix tests, without the primary graph recurrence or memoization. Actual replay output began with `DIRECT_CROSSCHECK_OK` and independently reproduced the ten coefficients, total 3037, 32 size-nine maximizers, four eight-element relabeling orbits, and optimal-codeword compositions `(5,2)` in 24 cases versus `(1,4)` in eight cases (first component: fixed words; second: two-word reverse-complement orbits). The four example codebooks are written in `maxima_orbits.tsv`.
+PASS: Over Watson–Crick four-letter alphabet, the reverse-complement involution on 256 four-mers has 136 orbits including 16 fixed words. Imposing all self/cross prefix–suffix nonoverlap lengths 1..3 and pairwise aligned Hamming distance≥2 leaves 56 individually valid orbits (12 singleton,44 doubleton). Their exact compatibility graph has 420 edges; RC-closed codebooks biject to its weighted cliques. The strictly decreasing exclusion/inclusion recursion F(S)=F(S\{v})+z^{s(v)}F((S\{v})∩N(v)) gives H(z)=(1,12,88,288,584,760,688,424,160,32), total 3037 and maximum 9 with 32 maximizers; the complement-preserving relabeling group has order 8 and acts in four full orbits, 24/8 structural split. Independent code rebuilt the graph and exact clique polynomial (1318 memo states), matching all ten coefficients. Source direct-word backtracker additionally verifies orbit classes. The finite exhaustive recursion proves exactly length 4, not arbitrary lengths.
 
-All arithmetic is exact and both programs require only Python 3 standard-library modules. `spectrum.csv` records the complete distribution. No computation for larger word lengths or stricter Hamming distances is implied. An independent scientific audit has not been performed.
+## originality
+
+PASS
+
+PASS (qualified): Blackburn 2013/2015 determines general non-overlapping code bounds without Watson–Crick closure or aligned Hamming≥2; King 2003 studies constant-GC DNA codes with Hamming separation from reverse complements, a materially different condition from closure (including allowed self-RC fixed words); Mir et al 2013 investigate longer barcodes. No inspected full primary results determine this exact restricted weighted-clique spectrum; specialist four-mer enumerations remain residual priority risks.
+
+## value
+
+PASS
+
+PASS: A natural DNA barcode/synchronizing-code design conflict combines Watson–Crick reversal symmetry, strict frame nonoverlap and single-substitution detection. The complete four-mer cardinality polynomial and symmetries give an exact small-block feasibility benchmark and all optimal codebooks; the finite scope is inherent and mathematically motivated rather than an arbitrary isolated integer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
