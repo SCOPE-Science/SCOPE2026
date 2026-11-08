@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:45:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-odd-prime-denominator-valuations-on-prime-power-minus-one--392d2d7a751c/RESULT.md",
+        "2026/11/02/exact-odd-prime-denominator-valuations-on-prime-power-minus-one--392d2d7a751c/verify.py"
+      ],
+      "rationale": "For q=p^m and 1<=r<q, all C(q-1,k) are units modulo p. Exactly k=q-r has denominator k+r=q of valuation m, numerator k valuation s=v_p(r). Every other term has strictly greater valuation because v_p(k+r)<m and v_p(k)>=min(v_p(r),v_p(k+r)). Therefore the sum has valuation s-m and leading unit (-1)^(q-r)(q-r)/p^s mod p. A factorial identity proves the universal denominator divides C(n+r,r), while v_p(C(q-1+r,r))=m-s, giving saturation. Independently computed exact fractions and residues for 80 tested (p,m,r) parameter cases. The proof is uniform for odd primes; the exclusion of p=2 is a novelty-scope choice, not needed by the minimum-term calculation.",
+      "residual_risks": [
+        "An overlooked 19th/20th century p-adic partial-fraction identity may supply the exact row as a corollary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1(vi) of Kellner gives denominator divisibility by binom(n+r,r); Theorem 3.3(vi) gives saturation when p divides ell, while ell=2 and p odd violates that hypothesis.",
+          "Earlier r<=22 and density results do not compute the q-1 exact leading p-adic unit."
+        ],
+        "reasoning": "A general theorem implying odd-p exact saturation in q=p^m-1 row would cover this result, but the inspected stronger statements lack the needed congruence.",
+        "searches": [
+          "Kellner On the Nonintegrality of Certain Generalized Binomial Sums Theorems 2.1, 2.7, 3.3",
+          "Laishram Lopez-Aguayo Pomerance Thongjunthug Progress Towards a Nonintegrality Conjecture arxiv:1903.08043"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Kellner INTEGERS 23 (2023) #A45, https://math.colgate.edu/~integers/x45/x45.pdf",
+        "arxiv:1903.08043"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p-primary upper bound is known; Kellner Theorem 3.3(iii) also yields nonintegrality when r+n is a prime power, which includes r=1 but not arbitrary r."
+        ],
+        "reasoning": "Current theorem explicitly strengthens the general upper bound to equality at odd p for every r<q, and gives leading residue, which is not a corollary of the cited ell-divisor result.",
+        "searches": [
+          "Kellner INTEGERS 23 (2023) #A45 Theorems 2.1,3.3",
+          "arxiv:1508.02927 and arxiv:1903.08043"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S_r(n)=2^n-S_(r,n)(2), so denominator and all negative p-adic valuations agree."
+        ],
+        "reasoning": "Matched the precise complementary sum and used p-adic valuation of an integer plus negative-valuation fraction to compare to Kellner and earlier binomial sums.",
+        "searches": [
+          "\"p-adic valuation sum binomial(n,k) k/(k+r) n=p^m-1\"",
+          "Kellner 2023 S_(r,n)(2) binomial sum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned nearby Domb and binomial congruence results, not this complete row/table."
+        ],
+        "reasoning": "Finite denominator tables would not automatically imply the universal identity for all prime powers; no exact infinite table was located.",
+        "searches": [
+          "Resultary p-adic denominator sums prime power minus one query",
+          "\"prime power binomial sum k/(k+r) valuations\" web 2026-11-04"
+        ]
+      },
+      "rationale": "Kellner 2023 already proves the general binomial denominator bound and several nonintegrality regimes, including full valuation at primes dividing the evaluation parameter ell. The current ell=2 case concerns odd primes p, and the exact q-1 row leading residue and saturation over all 1<=r<q are not claimed in inspected Theorems 2.1, 2.7, 3.3. Existing r=1 nonintegrality is credited. Older special sum evaluations could cover the simple minimum-term argument.",
+      "residual_risks": [
+        "An overlooked 19th/20th century p-adic partial-fraction identity may supply the exact row as a corollary.",
+        "Other prime factors of the reduced denominator are not classified.",
+        "The p=2 restriction is scope for originality and not essential for the displayed minimum-term proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General denominator and related p-adic methods are established; checked claims do not assert the all-odd-p prime-power-minus-one leading unit.",
+          "evidence": [
+            "Theorem 2.1(v),(vi): denominators divide binom(n+r,r); Theorem 3.3(vi): p dividing gcd(ell,B); Theorem 3.3(iii): r+n prime power."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/x45/x45.pdf",
+          "material_read": "Primary PDF introductory definition and Corollary 2.2; Theorems 2.1, 2.3, 2.7, 3.3 and proof of 3.3, Lemma 4.1 with p-adic unique minimal summand; screenshots of p.3, text of §§2–6.",
+          "method": "Full accessible primary PDF with indexed-text section reading and screenshot",
+          "title": "On the Nonintegrality of Certain Generalized Binomial Sums",
+          "trigger": "Same exact family via S_(r,n)(2)"
+        },
+        {
+          "assessment": "Earlier bounded r and density context; no whole-document NOT_COVERING asserted.",
+          "evidence": [
+            "arxiv:1903.08043 abstract and Kellner discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.08043",
+          "material_read": "Abstract and available indexed metadata, not full manuscript.",
+          "method": "Open-access scholarly search",
+          "title": "Progress Towards a Nonintegrality Conjecture",
+          "trigger": "Same binomial-sum nonintegrality problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-odd-prime-denominator-valuations-on-prime-power-minus-one--392d2d7a751c/RESULT.md",
+        "Kellner INTEGERS 23 (2023) #A45, https://math.colgate.edu/~integers/x45/x45.pdf",
+        "arxiv:1903.08043"
+      ],
+      "rationale": "The exact p-primary reduced denominator for all r in a complete infinite prime-power-minus-one row and the nonzero leading digit give a natural arithmetic sharpening of a universal denominator divisibility bound. The proof is short but the exact saturation and all-parameter nonintegrality are not merely a numerical example.",
+      "residual_risks": [
+        "Other prime factors of the reduced denominator are not classified.",
+        "The p=2 restriction is scope for originality and not essential for the displayed minimum-term proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An overlooked 19th/20th century p-adic partial-fraction identity may supply the exact row as a corollary.",
+    "Other prime factors of the reduced denominator are not classified.",
+    "The p=2 restriction is scope for originality and not essential for the displayed minimum-term proof."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The binomial coefficients \(\binom{p^m-1}{k}\) are units modulo \(p\). Among the denominators \(r+k\), exactly one is divisible by \(p^m\), namely at \(k=p^m-r\). This summand has valuation \(\nu_p(r)-m\); ultrametric comparison puts every other nonzero term strictly higher. The same unique term supplies the explicit normalized residue. The denominator bound is independently derived from an exact product of two ordinary binomial coefficients, and the upper bound's \(p\)-valuation is computed directly. The proof covers endpoints \(m=1\), \(r=1\), and \(r=p^m-1\). Exact rational checks in `verify.py` separately corroborate these claims, without serving as an infinite proof.
+## correctness
 
-## Originality — PASS, with literature risk
-The closest paper with the same rational sums is López-Aguayo and Luca (arXiv:1508.02927), whose results show nonintegrality for six fixed shifts and for the opposite range \(n\le r-1\). Laishram et al. (arXiv:1903.08043) prove nonintegrality for \(r\le22\), and a density theorem, not the odd-prime valuation or leading residue for an unbounded shift. Kellner (INTEGERS 23 (2023), #A45) supplies the general denominator bound and, when the prime divides the evaluation argument, certain exact denominator valuations. At the present evaluation \(\ell=2\) the latter statement concerns prime \(2\), not the odd primes of this theorem. The odd-prime saturation and leading-digit congruence do not follow from the cited nonintegrality statements. Literature search and mathematical-record comparison found no same-statement coverage, but this is not a uniqueness proof. The 2018 Thongjunthug article was located by publisher/abstract and cited for its published algorithm; its complete text was not confirmed accessible in this inspection, leaving a limited residual risk.
+PASS
 
-## Mathematical value — PASS
-The conjectural nonintegrality of the binomial sum is a named arithmetic problem. This theorem settles the exact \(p\)-part of the reduced denominator (including its first nonzero unit) for an infinite two-parameter family in every odd characteristic, with arbitrarily large shifts beyond the fixed-shift literature. It establishes equality in an independently proved universal denominator bound. The parameter restriction \(n=p^m-1\) is structurally forced by complete modular nonvanishing of the binomial row and the unique denominator multiple; it is not an arbitrary slice. The statement does not settle arbitrary rows or all denominator primes.
+For q=p^m and 1<=r<q, all C(q-1,k) are units modulo p. Exactly k=q-r has denominator k+r=q of valuation m, numerator k valuation s=v_p(r). Every other term has strictly greater valuation because v_p(k+r)<m and v_p(k)>=min(v_p(r),v_p(k+r)). Therefore the sum has valuation s-m and leading unit (-1)^(q-r)(q-r)/p^s mod p. A factorial identity proves the universal denominator divides C(n+r,r), while v_p(C(q-1+r,r))=m-s, giving saturation. Independently computed exact fractions and residues for 80 tested (p,m,r) parameter cases. The proof is uniform for odd primes; the exclusion of p=2 is a novelty-scope choice, not needed by the minimum-term calculation.
 
-## Residual risks and limits
-Broader character-sum or \(p\)-adic denominator literature could imply the result without mentioning these parameters verbatim. The 2018 algorithm source was not inspected in full. An independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kellner 2023 already proves the general binomial denominator bound and several nonintegrality regimes, including full valuation at primes dividing the evaluation parameter ell. The current ell=2 case concerns odd primes p, and the exact q-1 row leading residue and saturation over all 1<=r<q are not claimed in inspected Theorems 2.1, 2.7, 3.3. Existing r=1 nonintegrality is credited. Older special sum evaluations could cover the simple minimum-term argument.
+
+## value
+
+PASS
+
+The exact p-primary reduced denominator for all r in a complete infinite prime-power-minus-one row and the nonzero leading digit give a natural arithmetic sharpening of a universal denominator divisibility bound. The proof is short but the exact saturation and all-parameter nonintegrality are not merely a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
