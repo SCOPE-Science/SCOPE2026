@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The object is a real linear contraction interpreted as a componentwise harmonic self-map. The singular-value formula for the mean width of its ellipsoid follows from the support function and normalized uniform sphere measure. The scalar function \(H(t)=1-\sqrt{1-t}\) is strictly convex and superadditive on nonnegative inputs with total at most one; the auxiliary function \(q_x(s)=\sqrt{1-x+xs^2}\) is strictly convex for \(0<x<1\). Combining the two inequalities produces a pointwise lower bound by a sum of one-coordinate defects. The beta integral gives the exact gamma coefficient. The two strictness criteria classify all equality matrices and show optimality by rank-\((n-1)\) partial isometries. The operator-norm contraction and nuclear-distance formula are essential; the theorem does not extend by the same argument to arbitrary affine translations or nonlinear profiles. A standalone numerical checker supplements, but does not prove, this analytical argument.
+PASS
 
-## Originality: PASS under inspected evidence
+For every n>=3, 0<r<=1 and real contraction A, SVD gives W(r A B_n)/(2r)=E(sqrt(sum s_j^2 U_j^2)) and Mirsky plus a matching SVD orthogonal factor gives inf_Q ||A-Q||_1=sum_j(1-s_j). For H(t)=1-sqrt(1-t), superadditivity H(sum a_j)>=sum H(a_j) for nonnegative a_j with sum<=1 and the strictly convex scalar chord sqrt(1-x+xs^2)<=(1-s)sqrt(1-x)+s yield the pointwise estimate. The beta(1/2,(n-1)/2) marginal integrates H(U_j^2) to gamma_n=1-Gamma(n/2)^2/(Gamma((n-1)/2)Gamma((n+1)/2)). Strictness excludes any fractional singular value or >=2 deficient singular values; equality occurs exactly at O(n) or rank-(n-1) partial isometries, which prove sharpness. Independent gamma evaluations n=3,4,5 and strict gamma_n<1/n corroborate constants; universality is analytic, not from sampling.
 
-The closest source is Zhong--Kalaj, arXiv:2609.09316 (public 2026-09-08): the accessible abstract states the general sharp mean-width upper inequality and identifies qualitative orthogonal equality. It does not state the sharp nuclear-distance stability coefficient or the rank-\((n-1)\) second equality class for the affine subclass. However, full text could not be read; it is explicitly retained as an originality risk. The published 2025 work of Böröczky--Fodor--Hug was inspected in its theorem statements and mathematical sections: it proves mean-width stability for other convex-body extremal-position problems with different comparison bodies and hypotheses. That work and the 2021 predecessor's accessible abstract do not imply the present Schatten-one deficit and exact gamma coefficient. Actual related-record and exact-formula searches located no dominating statement; searches cannot establish uniqueness. No blanket novelty claim concerning general mean-width stability is made.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating 2026 sharp inequality singles out orthogonal linear profiles as equality cases; an exact quantitative deficit for its natural affine equality-containing subfamily is a meaningful missing datum. The theorem identifies the global best coefficient for **all** affine contractions, determines every equality configuration, and exposes a genuine distinction between perturbative and global stability: the optimal nuclear-distance coefficient is attained only when one singular value collapses to zero, whereas the local coefficient is strictly larger. This is a natural functional of the singular values, not an arbitrarily sampled finite invariant, and it provides an exact obstruction to improving any future stronger inequality encompassing these affine profiles. It does not claim a stability theorem for nonlinear profiles.
+The full affine-nuclear-distance coefficient and rank-deficient equality family are not provided by the accessible general harmonic mean-width theorem or different John/Lowner convex stability metrics. A best-knowledge PASS is qualified by the inaccessible full 2026 motivating paper and possible older equivalent ellipsoid deficit bounds.
 
-## Residual scientific limits
+## value
 
-The full source arXiv:2609.09316 was inaccessible after lawful full-text attempts; this limits certainty about originality. An earlier equivalent sharp ellipsoid/nuclear-distance inequality could remain unindexed. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp all-contraction stability modulus for the natural affine harmonic subclass is motivated by the known qualitative extremal inequality. The exact gamma-function coefficient, globally extremizing codimension-one collapse, and contrast with local slope 1/n identify nontrivial anisotropic stability geometry; the affine scope is explicitly bounded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
