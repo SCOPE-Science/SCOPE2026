@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:45:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — For K_n an isolated seed set fills iff k≥r_n=ceil(phi(n−1)). When the clique has one added external bridge edge, the nonbridge threshold is r_n and its gateway threshold R_n=ceil(phi n), R−r∈{0,1}. Classify local configurations into unassisted U_n=D_n−H_n and externally rescuable E_n=L_n+H_n, where L_n=1[R=r] binom(n−1,r−1)z^{r−1}, H_n=1[R=n]z^{n−1}. Two communities fill iff at least one is unassisted and the other is unassisted or rescuable; two mutually blocked rescuable configurations do not start. Hence F_bridge=U_aU_b+U_aE_b+E_aU_b, and subtracting D_aD_b gives L_aU_b+L_bU_a−H_aH_b. Because R=r and R=n cannot coexist for n≥3, the difference is coefficientwise positive exactly when L_a or L_b appears; strictly negative −z^{a+b−2} when both H appear; zero otherwise. The minimal full-cascade seed size drops by one only in the beneficial case. Independently enumerated 20 combinations of two-clique orders and rational thresholds from actual adjacency/iterative activation and matched the closed polynomial exactly. General proof is the exhaustive local category argument for all a,b≥3, 0<phi≤1; finite tests alone cannot prove that quantification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khoshkhah et al. arxiv:1202.1146 describes irreversible threshold activation and general degree bounds; Singh et al. models stochastic/empirical social network cascades with initiators.",
+          "Published complete multipartite k-conversion criteria concern uniform k-neighbor thresholds on a different graph class."
+        ],
+        "reasoning": "General influence optimization, threshold bounds and clique initiation simulations do not imply the exact coefficients for a single bridge with recomputed degree thresholds. The distinct zero-forcing polynomial is not a stronger theorem about fractional activation.",
+        "searches": [
+          "two cliques bridge edge complex contagion fractional threshold full cascade generating polynomial",
+          "dynamic monopolies majority thresholds Khoshkhah Soltani Zaker arxiv 1202.1146",
+          "collective influence maximization Pei 2017 Sci Rep 7 45240",
+          "Resultary minimum k conversion sets complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Singh et al. (2013), Scientific Reports 3:2330 primary HTML",
+        "Khoshkhah et al. (2012), arxiv:1202.1146",
+        "Pei et al. (2017), DOI:10.1038/srep45240",
+        "Resultary 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+        "Resultary query: two cliques bridge edge complex contagion fractional threshold full cascade generating polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 primary paper focuses on cascade size versus initiator fraction and community structure; the inspected full HTML Sections Introduction and Results do not enumerate every labeled successful seed subset of two cliques.",
+          "The claimed difference polynomial identifies one lost maximal-threshold seed configuration not forced by generic monotone influence results (edge addition changes degrees and integer thresholds)."
+        ],
+        "reasoning": "Prior model studies establish motivation, not a derivation of the exact labeled polynomial or its help/neutral/harm coefficientwise trichotomy. Edge addition is nonmonotone for fixed fractions, so old monotone bootstrap intuition cannot substitute.",
+        "searches": [
+          "two cliques bridge edge complex contagion fractional threshold full cascade generating polynomial",
+          "Singh Sreenivasan Szymanski Korniss 2013 cluster threshold global cascade",
+          "Pei 2017 influence optimization collective influence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Singh et al. Scientific Reports 3:2330 (2013) studies multiple-initiator fractional-threshold cascades and community structure.",
+          "Resultary 2026/10/4 Zero forcing polynomial of bridge barbells enumerates a different color-change forcing process."
+        ],
+        "reasoning": "A successful full-activation seed set is a dynamic monopoly in a deterministic progressive fractional-threshold model. Barbell zero forcing has a distinct rule (one white neighbor of an active blue vertex), so its polynomial is not an equivalent translation.",
+        "searches": [
+          "two cliques bridge edge complex contagion fractional threshold full cascade generating polynomial",
+          "two cliques bridge barbell bootstrap percolation majority seed generating polynomial dynamic monopoly",
+          "Resultary zero forcing polynomial of bridge barbells"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2 gives an explicit polynomial for zero forcing on the same graph.",
+          "No indexed seed-size table for full fractional-threshold cascades on bridged cliques was found."
+        ],
+        "reasoning": "The exact zero-forcing table is inapplicable due to different update rule. Any unindexed matching table remains a priority risk; absence from a finite index is not conclusive.",
+        "searches": [
+          "two cliques bridge edge complex contagion fractional threshold full cascade generating polynomial",
+          "Resultary 2026/10/4 Zero forcing polynomial of bridge barbells",
+          "barbell two complete communities fractional neighbor activation success seed polynomial"
+        ]
+      },
+      "rationale": "PASS, qualified. Prior dynamic-monopoly/threshold-contagion work establishes threshold models and community initiation effects but not a labeled all-seed-set polynomial and exact sign classification under adding one edge. A published Resultary zero-forcing polynomial concerns the same underlying barbell graph but a different forcing rule, and complete multipartite k-conversion deals with different topology. Exact-model queries did not find dominating coverage, though unindexed exact barbell threshold enumeration remains a risk.",
+      "residual_risks": [
+        "Unindexed exact barbell/complex-contagion seed-count formulas might cover this natural special case.",
+        "The theorem requires clique communities and one bridge; no extension to multiple bridges, heterogeneous thresholds or non-clique neighborhoods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes motivation/model but not the exact all-seed-set two-clique bridge sign polynomial in inspected sections.",
+          "evidence": [
+            "Singh–Sreenivasan–Szymanski–Korniss, 2013-07-31, Sci Rep 3, article 2330"
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/srep02330",
+          "material_read": "Full accessible journal HTML, abstract, Introduction, threshold model/multiple-initiator setup, community-clustering results and discussions.",
+          "method": "Open publisher full HTML, inspected model and results",
+          "title": "Threshold-limited spreading in social networks with multiple initiators",
+          "trigger": "Primary full HTML same fractional-neighbor model, multiple initiators and community topology"
+        },
+        {
+          "assessment": "General bounds on dynamic monopolies and update rule, not a certified whole-document comparison.",
+          "evidence": [
+            "Khoshkhah–Soltani–Zaker 2012, arxiv:1202.1146"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.1146",
+          "material_read": "Public abstract, identifying citation and source contextual descriptions, not full primary text in this run.",
+          "method": "Bibliographic record",
+          "title": "On dynamic monopolies of graphs: the average and strict majority thresholds",
+          "trigger": "Original general irreversible threshold graph theory"
+        },
+        {
+          "assessment": "Model comparison only; not a full-text noncoverage finding.",
+          "evidence": [
+            "Pei et al. 2017, Scientific Reports 7, 45240"
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/srep45240",
+          "material_read": "Accessible title, indexed descriptions and publication context; detailed full paper not inspected during this run.",
+          "method": "Research record/abstract",
+          "title": "Efficient collective influence maximization in cascading processes with first-order transitions",
+          "trigger": "Modern general network influence optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — A complete coefficientwise law for all initial sets across all clique sizes and all positive fractions shows how adding a single natural social bridge can increase, preserve or decrease ultimate adoption. This is a motivated exact structural enumeration with a sharp one-seed threshold and one uniquely lost configuration, not simply a textbook monotonicity observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two complete communities with one cross-edge, homogeneous fixed fraction 0<phi≤1, and eventual irreversible adoption only.",
+    "Broad automatic influence or arbitrary network generalizations are not claimed."
+  ],
+  "schema_version": 1
+}

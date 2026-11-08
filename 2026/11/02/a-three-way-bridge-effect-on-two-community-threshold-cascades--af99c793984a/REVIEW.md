@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem uses the explicit integer thresholds \(r_n=\lceil\phi(n-1)\rceil\) and \(R_n=\lceil\phi n\rceil\). Its local unassisted/rescuable dichotomy accounts for every arrangement of ordinary seeds and the bridge seed, including the high-threshold \(R_n=n\) gateway obstruction. The global product formula excludes precisely the mutually blocked case. Algebraic expansion yields the coefficientwise gain/neutral/loss classification and the exact minimum-seed formula. Direct exhaustive adjacency-based iteration in `verify.py` checks \(2{,}211\) exact finite assertions on \(16\) ordered community-size pairs and \(46\) rational thresholds. Infinite scope follows from the proof, not enumeration.
+## correctness
 
-## Originality
-**PASS within searched evidence; historical priority remains provisional.** The 2012 dynamic-monopoly primary paper gives general threshold bounds and terminology, not the exact two-clique seed enumeration. The 2013 multiple-initiator primary paper studies community contagion and numerical tipping, not the bridge-addition polynomial. The 2017 collective-influence study optimizes seeds on broad networks using approximate cavity paths rather than deriving all successful seed sets of a finite bridge barbell. The published zero-forcing barbell polynomial concerns a distinct color-change process and does not imply the result. Earlier related published findings and semantic mathematical-record results were compared for structural overlap. Residual risk includes an unindexed equivalent result or a different formulation in graph contagion literature.
+PASS
 
-## Value
-**PASS.** A lone cross-community tie can promote consensus, be inert, or obstruct it because it simultaneously exposes a gateway to influence and raises its degree-normalized adoption requirement. The exact all-seed-size polynomial resolves this tradeoff in a canonical two-community network and distinguishes loss of one viable seed configuration from the gain of a full class of configurations; a sharp minimum-seed consequence follows. This makes exact seeding reliability and the structural effects of one bridge evaluable at any finite community size, beyond a numerical instance. It does not assert practical predictions for incomplete social networks.
+PASS — For K_n an isolated seed set fills iff k≥r_n=ceil(phi(n−1)). When the clique has one added external bridge edge, the nonbridge threshold is r_n and its gateway threshold R_n=ceil(phi n), R−r∈{0,1}. Classify local configurations into unassisted U_n=D_n−H_n and externally rescuable E_n=L_n+H_n, where L_n=1[R=r] binom(n−1,r−1)z^{r−1}, H_n=1[R=n]z^{n−1}. Two communities fill iff at least one is unassisted and the other is unassisted or rescuable; two mutually blocked rescuable configurations do not start. Hence F_bridge=U_aU_b+U_aE_b+E_aU_b, and subtracting D_aD_b gives L_aU_b+L_bU_a−H_aH_b. Because R=r and R=n cannot coexist for n≥3, the difference is coefficientwise positive exactly when L_a or L_b appears; strictly negative −z^{a+b−2} when both H appear; zero otherwise. The minimal full-cascade seed size drops by one only in the beneficial case. Independently enumerated 20 combinations of two-clique orders and rational thresholds from actual adjacency/iterative activation and matched the closed polynomial exactly. General proof is the exhaustive local category argument for all a,b≥3, 0<phi≤1; finite tests alone cannot prove that quantification.
 
-## Closest literature and scope
-See the four comparisons and source inspections in `AUDIT.json`, and the formal definitions, countervailing effects, examples and limitations in `RESULT.md`. A same-rule earlier single-seed one-edge inhibition result on connected graphs addresses a different extremal question and does not determine the polynomial here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Prior dynamic-monopoly/threshold-contagion work establishes threshold models and community initiation effects but not a labeled all-seed-set polynomial and exact sign classification under adding one edge. A published Resultary zero-forcing polynomial concerns the same underlying barbell graph but a different forcing rule, and complete multipartite k-conversion deals with different topology. Exact-model queries did not find dominating coverage, though unindexed exact barbell threshold enumeration remains a risk.
+
+## value
+
+PASS
+
+PASS — A complete coefficientwise law for all initial sets across all clique sizes and all positive fractions shows how adding a single natural social bridge can increase, preserve or decrease ultimate adoption. This is a motivated exact structural enumeration with a sharp one-seed threshold and one uniquely lost configuration, not simply a textbook monotonicity observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
