@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is a characteristic-\(p\) coprimality argument plus a monic-discriminant composition identity, reproduced fully in RESULT.md. Finite symbolic replay from the standalone `verify.py` extracted from this package checked \(t\in\{2,3,4,5,6,8,9\}\), indices \(3\le n\le43\) of positive degree at most \(65\). It verified polynomial normalization, complex squarefreeness by exact polynomial gcd, all 124 prime-divisor discriminant valuations, and all 74 tested odd-index modular squarefreeness cases.
+## correctness
 
-Replay command: `python verify.py` (Python 3, SymPy required).
+PASS
 
-Actual output: `CHECK_OK t_values=7 squarefree_polynomials=113 valuations=124 odd_mod_prime_checks=74`
+For t>=2 the consecutive generalized Stern pair A_t,m,A_t,m+1 is coprime over every field: Bezout survives X->X^t and the pair recursion passes to (U,XU+V) and (XU+V,V). For any prime p dividing t, the derivative of odd-index A_t,2m+1 = XU+V reduces mod p to U=A_t,m(X^t), which is coprime to XU+V, so every odd-index monic polynomial has squarefree reduction and p-unit discriminant; in particular it is separable in characteristic zero. Any even n=2^r u gives A_t,n(X)=A_t,u(X^{t^r}), degree d=D t^r. Because constant coefficient is 1, its separable composition discriminant has abs value t^{r D t^r}|Disc A_t,u|^{t^r}; thus v_p(Disc)=r d v_p(t). Power-of-two n have polynomial 1 and are excluded. Independently reconstructed polynomials and exact gcd/discriminants with SymPy across t=2,3,4,5,6,9, dozens of nonconstant indices; all checked valuations match, finite tests not the universal proof.
 
-This is not exhaustive verification of the infinite family. The complete proof is mathematical, and independent audit has not been performed. The finding concerns primes dividing the parameter and does not assert exact valuations at other primes.
+## originality
+
+PASS
+
+Dilcher–Ericksen (2014), Propositions 19–20, prove the classical t=2 simple-root theorem and odd discriminants; these are explicit prior work. Their 2015 generalized-parameter paper Section 5, especially Propositions 5.1 and 5.4, covers limited cyclotomic square factors and selected index/parameter families, not arbitrary t,n or the exact p|t valuation law. The new uniform all-parameter result is not implied by those restricted statements, and the 2015 founding paper defines recurrences and coefficient/degree structure. There remains risk of later equivalent universal theorem.
+
+## value
+
+PASS
+
+Simple-root classification across every generalized Stern parameter and index closes a natural known family of repeated-factor questions, explicitly extending earlier partial parameter/index results. The exact prime-divisor discriminant exponents identify arithmetic degeneration under even-index polynomial composition and provide precise p-adic information for prime factors of the parameter, while not claiming the complete discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

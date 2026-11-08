@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:06:18.492108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t>=2 the consecutive generalized Stern pair A_t,m,A_t,m+1 is coprime over every field: Bezout survives X->X^t and the pair recursion passes to (U,XU+V) and (XU+V,V). For any prime p dividing t, the derivative of odd-index A_t,2m+1 = XU+V reduces mod p to U=A_t,m(X^t), which is coprime to XU+V, so every odd-index monic polynomial has squarefree reduction and p-unit discriminant; in particular it is separable in characteristic zero. Any even n=2^r u gives A_t,n(X)=A_t,u(X^{t^r}), degree d=D t^r. Because constant coefficient is 1, its separable composition discriminant has abs value t^{r D t^r}|Disc A_t,u|^{t^r}; thus v_p(Disc)=r d v_p(t). Power-of-two n have polynomial 1 and are excluded. Independently reconstructed polynomials and exact gcd/discriminants with SymPy across t=2,3,4,5,6,9, dozens of nonconstant indices; all checked valuations match, finite tests not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 Integers Proposition 5.1 excludes square cyclotomic factors at special index families; Proposition 5.4 proves no multiple roots under restricted index/parameter conditions.",
+          "2014 Communications in Mathematics Propositions 19–20 treat t=2 and discriminant parity."
+        ],
+        "reasoning": "The prior 2015 statements are restricted, and the older t=2 theorem lacks t>=3. Neither covers arbitrary n,t or r*d*nu_p(t) as a published implication; new proof is a fresh modular-derivative argument.",
+        "searches": [
+          "Dilcher Ericksen Factors and Irreducibility of Generalized Stern Polynomials Integers 15 A50 2015 Section 5",
+          "Dilcher Ericksen Reducibility and irreducibility of Stern 0 1 polynomials 2014 §7",
+          "generalized Stern polynomials squarefree discriminant parameter t prime divisibility all indices"
+        ]
+      },
+      "checked_sources": [
+        "Dilcher–Ericksen, Integers 15 (2015) A50, generalized Stern factors, full PDF §5",
+        "Dilcher–Ericksen, Communications in Mathematics 22 (2014) 77–102, full PDF §7, Proposition 19–20",
+        "Dilcher–Ericksen, Electronic J. Combinatorics 22 (2015) P2.24, abstract and bibliographic record",
+        "Resultary query generalized Stern polynomials squarefree discriminant parameter t prime divisibility all indices",
+        "Pinned record RESULT.md, verify.py, source tree and seven Git blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2014 t=2 statement is a strict subcase, credited in source.",
+          "2015 Proposition 5.4 does not range over every odd index or all t, and notes exceptional parameter types.",
+          "Current result logically extends cited cases using a uniform consecutive-coprimality proof over F_p for arbitrary prime dividing t, then a standard composition discriminant identity to get quantitative exponents."
+        ],
+        "reasoning": "The comparison is mathematical, not inferred from matching titles.",
+        "searches": [
+          "2014 Proposition 19 20 t=2 simple roots odd discriminants",
+          "2015 Proposition 5.4 restricted prime power index root multiplicity",
+          "composition discriminant A_t,u(X^(t^r))"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2014 paper speaks of Stern (0,1) polynomials a(n;x) with recursion X^2, exactly the t=2 specialization.",
+          "Squarefree over characteristic zero, no repeated complex roots and discriminant nonzero are equivalent for nonconstant monic polynomials; p-unit discriminant is stronger."
+        ],
+        "reasoning": "The current theorem strengthens the classical t=2 result to all integer t>=2 and determines local exponents at every p|t, not just qualitative absence of repeated roots.",
+        "searches": [
+          "generalized Stern polynomials squarefree discriminant parameter t prime divisibility all indices",
+          "Dilcher Ericksen generalized Stern simple roots t arbitrary index discriminant",
+          "generalized Stern p-adic discriminant primes dividing parameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2015 Section 5 text explicitly describes exceptional t=8,9,25,32,49,64,81 for its restricted method, rather than complete all-parameter coverage.",
+          "Resultary nearest discriminant result concerned unrelated Chebyshev-like polynomial family, not generalized Stern recurrence."
+        ],
+        "reasoning": "No prior table or formula for all p|t valuations was located; absence is only supporting evidence, with a residual risk of unindexed later literature.",
+        "searches": [
+          "\"generalized Stern polynomials\" \"discriminant\" \"simple\" all parameters",
+          "\"generalized Stern\" \"square-free\" polynomial",
+          "2015 Integers general Stern zero multiplicity"
+        ]
+      },
+      "rationale": "Dilcher–Ericksen (2014), Propositions 19–20, prove the classical t=2 simple-root theorem and odd discriminants; these are explicit prior work. Their 2015 generalized-parameter paper Section 5, especially Propositions 5.1 and 5.4, covers limited cyclotomic square factors and selected index/parameter families, not arbitrary t,n or the exact p|t valuation law. The new uniform all-parameter result is not implied by those restricted statements, and the 2015 founding paper defines recurrences and coefficient/degree structure. There remains risk of later equivalent universal theorem.",
+      "residual_risks": [
+        "Equivalent universal simple-root or parameter-prime discriminant formulas in unindexed post-2015 generalized Stern literature remain possible.",
+        "Only primes dividing t are classified; all other discriminant primes and splitting fields are unaddressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special-index/parameter nonmultiple-root results, not the asserted universal valuation theorem.",
+          "evidence": [
+            "Proposition 5.4 restricts to indices 2^{k+1}±1 and parameter divisibility requirements; commentary lists exceptional t=8,9,25."
+          ],
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/INTEGERS/papers/p50/p50.pdf",
+          "material_read": "17-page complete OA PDF; definitions and Section 5 Propositions 5.1–5.4 plus limitations/exceptional parameter discussion on pages 13–15; pages 1 and 13 visually inspected.",
+          "method": "Lawful Integers primary PDF full text and screenshots",
+          "title": "Factors and Irreducibility of Generalized Stern Polynomials",
+          "trigger": "Same generalized t-family and direct multiple-root question"
+        },
+        {
+          "assessment": "t=2 complete squarefree result is known, not new; odd-index discriminant is an odd integer.",
+          "evidence": [
+            "Proposition 19 explicitly excludes squared nonconstant polynomial factors, and Proposition 20 proves odd discriminants of odd indices."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/143908/ActaOstrav_22-2014-1_7.pdf",
+          "material_read": "Full primary PDF available; §7.1 Propositions 19,20 and their proofs inspected; screenshot of relevant page in prior reading.",
+          "method": "Lawful DML-CZ full-text PDF and screenshot",
+          "title": "Reducibility and irreducibility of Stern (0,1)-polynomials",
+          "trigger": "Exact t=2 precedent and discriminant theorem"
+        },
+        {
+          "assessment": "Defines family and degree/coefficient properties; abstract does not establish all-index squarefreeness.",
+          "evidence": [
+            "Journal abstract announces integer t family, generating function and polynomial degrees."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v22i2p24",
+          "material_read": "Publisher article abstract and scope, and associated formula in research source; full PDF not materially inspected.",
+          "method": "Publisher OA article landing",
+          "title": "Hyperbinary Expansions and Stern Polynomials",
+          "trigger": "Foundational introduction of generalized polynomial sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simple-root classification across every generalized Stern parameter and index closes a natural known family of repeated-factor questions, explicitly extending earlier partial parameter/index results. The exact prime-divisor discriminant exponents identify arithmetic degeneration under even-index polynomial composition and provide precise p-adic information for prime factors of the parameter, while not claiming the complete discriminant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nonconstant polynomials only, t>=2; exact valuations only for p|t; no complete integer discriminant or root location.",
+    "Finite SymPy checks corroborate symbolic proof and are not universal verification."
+  ],
+  "schema_version": 1
+}

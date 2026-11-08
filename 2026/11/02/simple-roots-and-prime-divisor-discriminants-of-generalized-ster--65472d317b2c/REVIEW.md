@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Over every field, adjacent generalized Stern polynomials remain coprime by the two pair recursions and preservation of Bézout identities under substitution. At a prime dividing the parameter, the derivative of every odd-index polynomial reduces to the preceding substituted polynomial, proving nonvanishing resultant and unit discriminant. A standard discriminant-of-composition identity yields exact valuations at all parameter primes for arbitrary even indices. The constant-polynomial boundary is excluded explicitly. An exact symbolic checker tested 113 finite cases; those tests are corroboration, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, with disclosed risks.** The classical parameter-two squarefreeness and parity facts were proved by Dilcher and Ericksen in 2014, Propositions 19–20, and are explicitly not attributed as new. The 2015 generalized-parameter article treats only restricted index families in its Propositions 5.1 and 5.4; it does not establish simple zeros for arbitrary indices and every parameter or the complete parameter-prime discriminant valuation law. The 2015 founding paper develops the recurrence, combinatorics, and degree properties, not this discriminant theorem. Related published mathematical records were searched by aliases and implication comparisons, with no dominating result found. Residual risk remains from unindexed or later literature.
+PASS
 
-**Mathematical value — PASS.** The source literature explicitly investigated the existence of repeated factors but left many parameter/index combinations untreated. A global squarefreeness classification and the exact local discriminant exponents form natural structural invariants of this polynomial family. They include parameters excluded by the earlier conditions and determine exactly how even-index substitution causes collision at primes dividing the parameter.
+For t>=2 the consecutive generalized Stern pair A_t,m,A_t,m+1 is coprime over every field: Bezout survives X->X^t and the pair recursion passes to (U,XU+V) and (XU+V,V). For any prime p dividing t, the derivative of odd-index A_t,2m+1 = XU+V reduces mod p to U=A_t,m(X^t), which is coprime to XU+V, so every odd-index monic polynomial has squarefree reduction and p-unit discriminant; in particular it is separable in characteristic zero. Any even n=2^r u gives A_t,n(X)=A_t,u(X^{t^r}), degree d=D t^r. Because constant coefficient is 1, its separable composition discriminant has abs value t^{r D t^r}|Disc A_t,u|^{t^r}; thus v_p(Disc)=r d v_p(t). Power-of-two n have polynomial 1 and are excluded. Independently reconstructed polynomials and exact gcd/discriminants with SymPy across t=2,3,4,5,6,9, dozens of nonconstant indices; all checked valuations match, finite tests not the universal proof.
 
-The theorem does not determine discriminant factors away from the parameter or root-field Galois groups. The result is a mathematical proof accompanied by finite checks, not an independently certified theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dilcher–Ericksen (2014), Propositions 19–20, prove the classical t=2 simple-root theorem and odd discriminants; these are explicit prior work. Their 2015 generalized-parameter paper Section 5, especially Propositions 5.1 and 5.4, covers limited cyclotomic square factors and selected index/parameter families, not arbitrary t,n or the exact p|t valuation law. The new uniform all-parameter result is not implied by those restricted statements, and the 2015 founding paper defines recurrences and coefficient/degree structure. There remains risk of later equivalent universal theorem.
+
+## value
+
+PASS
+
+Simple-root classification across every generalized Stern parameter and index closes a natural known family of repeated-factor questions, explicitly extending earlier partial parameter/index results. The exact prime-divisor discriminant exponents identify arithmetic degeneration under even-index polynomial composition and provide precise p-adic information for prime factors of the parameter, while not claiming the complete discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
