@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The legal Lucas decompositions for the five offsets are explicit and satisfy all nonadjacency restrictions for indices at least \(13\). The Lucas recurrence gives the checked boundary values \(L_{24}\equiv2\), \(L_{25}\equiv1\pmod{12}\); induction therefore produces the required residue \(L_{13+24m}\equiv5\pmod{12}\). This verifies each of the five divisibility conditions for every \(m\ge0\). The only external theorem used is uniqueness of legal Lucas decompositions, explicitly quoted and referenced.
+## correctness
 
-## Originality — PASS (best-knowledge, not an exhaustive priority guarantee)
-The closest primary paper, Lao et al., arXiv:2606.24006v1, constructs five-term **Zeckendorf**–Niven progressions and proves individual **Lucas**–Niven occurrence in every progression. Its inspected sections do not state the simultaneous Lucas five-term family. Semantic literature searches for Lucas–Niven consecutive 2-progressions, and searches of available mathematical finding records, identified no equivalent theorem; this absence alone does not establish priority. The verified historical comparison and its residual risks are in `AUDIT.json`.
+PASS
 
-## Mathematical value — PASS
-The original source treats both Lucas and Zeckendorf decompositions but constructs a length-five arithmetic run only on the Zeckendorf side. The present theorem closes that natural structural gap with an infinite explicitly parameterized Lucas family, using a different, concise modular mechanism. It is not a mere calculation of a fixed finite run and makes no unproved maximality assertion.
+The quoted uniqueness theorem for Lucas decompositions requires nonadjacent indices and excludes simultaneous indices 0 and 2. Each of the five displayed representations L_j+(23,25,27,29,31) with j=13+24m is legal, with lengths (4,3,4,2,3) for every nonnegative m. The exact recurrence pair L24=103682, L25=167761 reduces to (L0,L1) mod12, whence L_(13+24m)=5 mod12 by induction. This yields divisibility by 4,3,4,2,3 for the offsets and infinitely many strictly increasing starts. Fifteen starts were checked independently, with no claim about maximal possible run length.
 
-## Limits
-The result does not classify all possible Lucas–Niven runs or determine the largest length. An equivalent older theorem using another naming convention remains a priority risk. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete accessible primary preprint by Lao et al. 2026 uses the same canonical Lucas decomposition but separately proves infinitely many single Lucas–Niven values in each arithmetic progression (Section 3) and five-term consecutive arithmetic runs for Zeckendorf–Niven numbers (Theorem 4.4). Those statements do not imply five simultaneous Lucas–Niven values with the claimed exact counts. The paper explicitly distinguishes the two count functions; the requested family is an original further consequence of its setup to the best of verified knowledge.
+
+## value
+
+PASS
+
+The motivating primary work treats both Lucas and Zeckendorf digital Niven properties yet gives an infinite five-term run only in the Zeckendorf setting. An infinite explicitly parameterized Lucas five-run with fixed canonical lengths and a uniform modular mechanism answers that natural missing companion problem; it is not a fixed numerical example or a claim of an unproved optimal length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
