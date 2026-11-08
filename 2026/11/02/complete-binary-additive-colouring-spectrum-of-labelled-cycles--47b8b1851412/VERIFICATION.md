@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. The script builds the eight states, determines every admissible arc directly from the four-bit inequality, discovers all directed simple cycles, and computes the determinant from disjoint cycle families. It enumerates 131064 binary assignments for labelled cycles of lengths 3 through 16 and checks all coefficients against a *separately implemented* transfer trace. It checks the matrix trace polynomial recurrence against explicit transfers through order 36 and exact coefficient symmetry and smallest-weight counts for all even lengths through order 84.
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK determinant_cycles=3 independent_assignments=131064 n=3..16 transfer_n=1..36 recurrence_n=9..84 extremes_even_n=4..84`
+For all simple labelled cycles n>=3, put b_i=f_i-1; the edge condition is b_{i-1}+b_{i+1} != b_i+b_{i+2}. The overlapping 3-bit-state transitions give a bijection with closed walks, and the three directed simple cycles (lengths/weights (4,z),(2,z),(4,z^3)) yield det(I-uM)=1-zu^2-(z+z^3)u^4+z^4u^8 by disjoint-cycle expansion. The formal -u d/du log determinant gives every coefficient after subtracting trace(2)=2z. Odd lengths vanish, bit complementation gives symmetry; cyclic gaps between 1s are <=4, and all minimum-support solutions are 4 rotations for n=0 mod4 and n uniquely short-gap configurations for n=2 mod4. Independently enumerated every bit assignment for n=3..16 and matched polynomial coefficients/extremizers, not extrapolating finite cases to all n.
 
-The finite checks are exact corroboration. They do not themselves establish the infinitely many orders. The transfer bijection, determinant cycle expansion, and cyclic-gap extremal classification supply the general proof. No external certification or independent audit is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge originality is qualified: equivalent formulations, stronger published implications and exact tables were searched and compared at the statement level. The record expressly excludes cited prior components; no located material supplies the claimed precise new remainder. Inaccessible/unindexed specialized literature remains a residual risk, not an automatic scientific rejection.
+
+## value
+
+PASS
+
+A full weighted count of minimum-palette additive labelings of every even cycle is a natural enumerative strengthening of the known fact that exactly two labels suffice, including exact period-four extremizer multiplicities and palindromic weights; these are not provided by the old chromatic-number theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

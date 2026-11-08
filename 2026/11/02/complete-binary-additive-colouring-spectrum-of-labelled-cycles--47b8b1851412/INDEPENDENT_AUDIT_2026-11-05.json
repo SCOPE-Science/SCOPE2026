@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:15:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all simple labelled cycles n>=3, put b_i=f_i-1; the edge condition is b_{i-1}+b_{i+1} != b_i+b_{i+2}. The overlapping 3-bit-state transitions give a bijection with closed walks, and the three directed simple cycles (lengths/weights (4,z),(2,z),(4,z^3)) yield det(I-uM)=1-zu^2-(z+z^3)u^4+z^4u^8 by disjoint-cycle expansion. The formal -u d/du log determinant gives every coefficient after subtracting trace(2)=2z. Odd lengths vanish, bit complementation gives symmetry; cyclic gaps between 1s are <=4, and all minimum-support solutions are 4 rotations for n=0 mod4 and n uniquely short-gap configurations for n=2 mod4. Independently enumerated every bit assignment for n=3..16 and matched polynomial coefficients/extremizers, not extrapolating finite cases to all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Severín establishes minimum palette size for even/odd cycles; Koutsoutis studies all graphs and degree-based existence bound."
+        ],
+        "reasoning": "These theorems are broader in graph class or optimum existence but do not logically determine all weighted assignment multiplicities.",
+        "searches": [
+          "Severin arXiv 1602.07675 Proposition 1 cycles",
+          "Koutsoutis additive chromatic number Delta + 1 arXiv:2610.30174"
+        ]
+      },
+      "checked_sources": [
+        "Severín, arXiv:1602.07675 Proposition 1",
+        "Koutsoutis and Koutsoutis, arXiv:2610.30174",
+        "Czerwiński–Grytczuk–Żelazny, Lucky labelings of graphs (2009)",
+        "Resultary semantic published-record queries: additive chromatic cycle 2-label number of neighbour-sum distinguishing labellings transfer matrix generating function",
+        "Resultary semantic published-record queries: binary additive coloring labelled cycle graph neighborhood sum proper colors",
+        "Resultary semantic published-record queries: Severin On the additive chromatic number of several families of graphs cycles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A nonempty set of labelings with two labels does not determine its cardinality or weight distribution; the rational generating function implies known cycle existence as a corollary."
+        ],
+        "reasoning": "Prior chromatic number is a weaker conclusion than the all-n all-weight polynomial, so matched optimal palette sizes are explicitly prior, not claimed original.",
+        "searches": [
+          "Severin cycle additively colorable two three",
+          "Czerwinski Grytczuk Zelazny lucky labelings 2009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local four-bit inequality is exactly the open-neighbourhood additive-colouring condition, not a proper vertex-colouring constraint."
+        ],
+        "reasoning": "Lucky labeling and additive coloring are synonyms; full bivariate enumeration needs all local configurations, not only the graph chromatic number.",
+        "searches": [
+          "lucky labelling graph adjacent neighbour sum distinguishing labels",
+          "additive coloring cycles transfer matrix",
+          "Resultary binary additive colouring labelled cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Checked semantic published-record results include ordinary graph colouring but no exact matching additive-weight rational function."
+        ],
+        "reasoning": "No indexed count table identified, but finite transfer polynomials could appear in an unindexed sequence database.",
+        "searches": [
+          "Resultary exact additive colouring cycle weight enumerator",
+          "additive neighbor-sum distinguishing labels A-sequence counts cycles"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is qualified: equivalent formulations, stronger published implications and exact tables were searched and compared at the statement level. The record expressly excludes cited prior components; no located material supplies the claimed precise new remainder. Inaccessible/unindexed specialized literature remains a residual risk, not an automatic scientific rejection.",
+      "residual_risks": [
+        "A generic closed-walk trace or sequence enumeration for identical four-bit local constraints might imply this rational function under a different name.",
+        "Only a fixed ordered palette of two labels is counted, not odd-cycle three-label optima or dihedral-equivalence classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines palette minimum, not all-weight counts for every two-label assignment.",
+          "evidence": "Proposition 1: additive chromatic numbers 2 on even cycles and 3 on odd cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.07675",
+          "material_read": "Full accessible preprint including Proposition 1, even/odd cycle additive chromatic numbers; inspected cycle proposition and proof page.",
+          "method": "Read arXiv PDF with targeted theorem search and page view.",
+          "title": "On the additive chromatic number of several families of graphs (Severín)",
+          "trigger": "Same graph family and label definition"
+        },
+        {
+          "assessment": "Degree bound alone is non-enumerative; unseen broader counting propositions remain risk.",
+          "evidence": "Tight chromatic-number upper bound rather than explicit coefficient spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30174",
+          "material_read": "Available bibliographic/abstract claims and citation in actual record; no full article read in this execution.",
+          "method": "Compared theorem scope as stated in abstract to enumerative claim, without treating unseen sections as not covering.",
+          "title": "An elementary proof of a tight Δ+1 bound for the additive chromatic number",
+          "trigger": "Strong general graph theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full weighted count of minimum-palette additive labelings of every even cycle is a natural enumerative strengthening of the known fact that exactly two labels suffice, including exact period-four extremizer multiplicities and palindromic weights; these are not provided by the old chromatic-number theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Severín, arXiv:1602.07675 Proposition 1",
+    "Koutsoutis and Koutsoutis, arXiv:2610.30174",
+    "Czerwiński–Grytczuk–Żelazny, Lucky labelings of graphs (2009)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The claim is limited precisely to the parameters, invariants, equivalence action and finite/infinite boundaries written in RESULT.md; see scientific correctness and priority risks.",
+    "Finite calculations were used as exact certificates only for exhausted finite sets, and not as proofs of unbounded statements."
+  ],
+  "residual_risks": [
+    "A generic closed-walk trace or sequence enumeration for identical four-bit local constraints might imply this rational function under a different name.",
+    "Only a fixed ordered palette of two labels is counted, not odd-cycle three-label optima or dihedral-equivalence classes."
+  ],
+  "schema_version": 1
+}

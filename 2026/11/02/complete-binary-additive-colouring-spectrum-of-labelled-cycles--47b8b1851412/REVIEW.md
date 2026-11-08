@@ -1,15 +1,21 @@
-# Scientific review: binary additive-colouring spectra on cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is precisely formulated for labelled simple cycles with the two-number palette. Translating the inequality from numeric labels to bits yields the exact four-window condition. Its eight-state closed-walk representation is a bijection, and listing all simple directed cycles yields the rational determinant through the disjoint-cycle expansion. The trace–determinant identity establishes every coefficient for every cycle length. The forbidden-window and cyclic-gap arguments establish minimum support and multiplicity. Complementation proves symmetry. The standalone checker independently reconstructs the local rules and enumerates all short assignments. This verifies the critical finite computation without using it as an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-Koutsoutis–Koutsoutis (2026, arXiv:2610.30174) prove a sharp general upper bound on the additive chromatic number, rather than this specific generating function. Severín (2016, arXiv:1602.07675) computes the exact additive chromatic number on cycles, but the checked relevant sections do not enumerate two-label assignments by weight. Comparisons under the terms lucky labeling, additive coloring, neighbourhood sum distinguishing labeling, transfer-matrix enumeration, and constrained cyclic binary word count found no covering formula. A more general existing enumeration or exact-sequence record may imply the result; this residual priority risk is explicitly acknowledged. A negative search alone was not used as a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The new object is the complete count of optimal-palette additive labelings, refining a previously known minimum palette number. The all-weight generating function, exact extremal multiplicities, period-four contrast, coefficient symmetry, and growth law provide naturally motivated structural and enumerative information for an infinite graph family. The period-four multiplicity phenomenon is not implied by the two/three minimum palette-size dichotomy. The result is restricted to a natural small-palette question, not an arbitrary parameter slice.
+For all simple labelled cycles n>=3, put b_i=f_i-1; the edge condition is b_{i-1}+b_{i+1} != b_i+b_{i+2}. The overlapping 3-bit-state transitions give a bijection with closed walks, and the three directed simple cycles (lengths/weights (4,z),(2,z),(4,z^3)) yield det(I-uM)=1-zu^2-(z+z^3)u^4+z^4u^8 by disjoint-cycle expansion. The formal -u d/du log determinant gives every coefficient after subtracting trace(2)=2z. Odd lengths vanish, bit complementation gives symmetry; cyclic gaps between 1s are <=4, and all minimum-support solutions are 4 rotations for n=0 mod4 and n uniquely short-gap configurations for n=2 mod4. Independently enumerated every bit assignment for n=3..16 and matched polynomial coefficients/extremizers, not extrapolating finite cases to all n.
 
-## Limitations and risks
-Only labelled simple cycles with two numeric labels are enumerated; odd cycles have no such assignments. Three-label functions, larger palettes and symmetry-quotient counts remain untreated. A generic pre-existing cyclic-local-constraint enumeration might subsume the rational function. Verification is exact but not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is qualified: equivalent formulations, stronger published implications and exact tables were searched and compared at the statement level. The record expressly excludes cited prior components; no located material supplies the claimed precise new remainder. Inaccessible/unindexed specialized literature remains a residual risk, not an automatic scientific rejection.
+
+## value
+
+PASS
+
+A full weighted count of minimum-palette additive labelings of every even cycle is a natural enumerative strengthening of the known fact that exactly two labels suffice, including exact period-four extremizer multiplicities and palindromic weights; these are not provided by the old chromatic-number theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
