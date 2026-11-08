@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Every update weakly increases cut size, because the closed-minority flip criterion is \\(2s\\ge d\\) and the cut gain is \\(2s-d\\). Private clique blades at fixed hub strictly improve until their exact central count levels; those levels jointly attain the sum of the individual clique maximum cuts. An explicit private-only path reaches this closed set. The hub flips in that set iff all blades have even private sizes and are at their upper Boolean level; an odd private-size blade makes the hub inert. Each even blade has a connected adjacent-level inclusion graph, giving all communicating-class counts; every neutral flip reverses with the same \\(1/N\\) probability, yielding uniform stationarity. For all-even blades, conditional stationary hub-crossing frequency is exactly the product of upper-level proportions divided by N. A density-domination/union-bound argument yields the stated total-variation mixing lower bound without independence assumptions. `check_scc.py` and `check_local.py` were executed from package files and match their recorded outputs, checking 88 entire transition graphs and 637 local/flux tuples. These are finite checks; the proof covers all \\(m\\ge2\\) and \\(r_i\\ge1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1011.5119v1 Theorem 4.1 classifies only one clique and its parity-dependent attractors.",
+        "An earlier friendship-graph result (opaque claim ID 63f34224-0c6c-4e86-97b0-c92ca3b7cd5b) covers all private blade sizes equal to 2.",
+        "An earlier odd-clique-with-one-leaf result (opaque claim ID 8f5b8010-8c5f-425d-b18d-6e7db035a8b6) covers the two-blade subfamily (2a,1).",
+        "Kooij DOI 10.1016/j.laa.2018.11.025 treats structural generalized windmill families; its abstract does not claim this stochastic dynamical classification."
+      ],
+      "reasoning": "Neither one-clique parity analysis nor homogeneous friendship analysis determines whether adding a single odd blade freezes an otherwise recurrent globally moving hub, or the class product structure for arbitrarily many unequal blades. General monotone energy alone guarantees no decrease but does not ensure all maximum cuts are reached or identify class connectivity. The new proof supplies both global reachability and the exact hub-coupling inequalities. The graph-theoretic Kooij abstract is not used as evidence of full-text exclusion.",
+      "searches": [
+        "stochastic minority asynchronous on graphs corona complete graph one pendant leaf per clique vertex recurrent classes fixed states",
+        "stochastic minority dynamics complete split graphs wheel helm corona grid recurrent communicating class",
+        "windmill block graph cliques sharing one hub asynchronous minority 0 temperature Glauber even odd blade parity recurrent class count hypercube layers",
+        "bouquet of cliques rooted one common articulation stochastic minority central hub pinned by odd clique blade all even Markov chain mixing",
+        "exact recurrent communicating classes of stochastic minority on friendship generalized windmill graphs, odd even cliques, number of states stationary hub flip rate",
+        "asynchronous closed-neighborhood minority on friendship graphs K1 join mK2 unique recurrent class 2 times 3 power m, hub switch",
+        "stochastic minority on general one-point unions of cliques with mixed even odd block sizes attractor count",
+        "arxiv:1011.5119v1 Theorem 4.1",
+        "doi:10.1016/j.laa.2018.11.025"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1011.5119v1, full HTML https://ar5iv.labs.arxiv.org/html/1011.5119",
+      "doi:10.1016/j.laa.2018.11.025, abstract",
+      "arxiv:1710.09946, abstract",
+      "Prior local dynamical claim IDs 63f34224-0c6c-4e86-97b0-c92ca3b7cd5b and 8f5b8010-8c5f-425d-b18d-6e7db035a8b6",
+      "Previously checked synchronous clique-windmill claim bfe9315b-1ab6-4d6e-9bc8-b340b8903094"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.1 applies to one clique; by taking one blade it recovers the previously known basic parity effect and does not assert a shared-hub coupling theorem.",
+        "The friendship case \\(r_i=2\\) for every i is recovered by the new formulas (one class of size \\(2\\cdot3^m\\), hub flip rate \\((2/3)^m/(2m+1)\\).",
+        "The odd clique with one leaf \\(r=(2a,1)\\) is recovered (two classes of size \\(\\binom{2a+1}{a}\\)); the new theorem extends to any number of even or odd blades of arbitrary sizes.",
+        "Synchronous open-neighbor majority on clique windmills has a different update kernel, distinct dynamical quantities, and cannot imply the asynchronous minority communicating-class statement."
+      ],
+      "reasoning": "Earlier specific statements are genuine special cases, explicitly acknowledged rather than claimed as new. A logical implication from them to the heterogeneous result would require a general gluing/coupling theorem absent in the inspected prior text. The exact one-vertex population-preserving fragmentation for multiple nontrivial blades and the all-even heterogeneous hub rate remain new claim content. Residual historical coverage risk is recorded below.",
+      "searches": [
+        "arxiv:1011.5119v1 Theorem 4.1 and its proof",
+        "prior claim 63f34224-0c6c-4e86-97b0-c92ca3b7cd5b",
+        "prior claim 8f5b8010-8c5f-425d-b18d-6e7db035a8b6",
+        "prior claim bfe9315b-1ab6-4d6e-9bc8-b340b8903094"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry, arxiv:1011.5119v1, Section 2 specifies closed-neighborhood minority with tie retention and Section 3.1 proves general cut-energy monotonicity.",
+        "Yu, arxiv:1710.09946, abstract describes zero-temperature Glauber dynamics on planar Archimedean and two-uniform lattices, not clique bouquets.",
+        "No searched zero-temperature Ising or block-graph source presented the arbitrary heterogeneous shared-hub decomposition."
+      ],
+      "reasoning": "Binary anti-coordination and zero-temperature antiferromagnetic single-site rules can have identical cut-energy functions but different tie transition kernels. The exact hub-flip criterion and communication structure require the specific self-inclusive minority tie choice. A broader Ising vocabulary alone cannot establish statement coverage; no equivalent covering theorem was located.",
+      "searches": [
+        "asynchronous minority best-response Ising clique with pendant vertices phase transition attractor",
+        "zero-temperature antiferromagnetic dynamics clique bouquet blocks common central vertex parity pinning",
+        "\"zero temperature\" \"windmill graph\" \"Glauber\" 2020",
+        "\"antiferromagnetic\" \"windmill graph\" \"Glauber\" attractors",
+        "\"Glauber dynamics\" \"clique-sum\" zero temperature antiferromagnet",
+        "\"zero temperature\" \"block graphs\" \"Glauber\" spins",
+        "arxiv:1011.5119v1 sections 2 and 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed generalized-windmill record located concerns the dissociation polynomial and maximal dissociation sets, a static invariant rather than a communicating-class census.",
+        "Prior exact friendship dynamical claim 63f34224-0c6c-4e86-97b0-c92ca3b7cd5b is a proper subfamily.",
+        "Prior exact odd-clique-plus-leaf dynamical claim 8f5b8010-8c5f-425d-b18d-6e7db035a8b6 is a proper subfamily.",
+        "No searched table or indexed statement supplied the heterogeneous one-point-union recurrent-class count."
+      ],
+      "reasoning": "The closest indexed windmill titles concern static combinatorial and polytope invariants, not this sequential minority dynamical system. The accessible earlier dynamical claims cover restricted subfamilies, so their tables cannot be substituted for arbitrary mixed clique sizes. Searches are not proof of nonexistence of undiscovered tables.",
+      "searches": [
+        "windmill block graph cliques sharing one hub asynchronous minority 0 temperature Glauber even odd blade parity recurrent class count hypercube layers",
+        "bouquet of cliques rooted one common articulation stochastic minority central hub pinned by odd clique blade all even Markov chain mixing",
+        "exact recurrent communicating classes of stochastic minority on friendship generalized windmill graphs, odd even cliques, number of states stationary hub flip rate",
+        "asynchronous closed-neighborhood minority on friendship graphs K1 join mK2 unique recurrent class 2 times 3 power m, hub switch",
+        "stochastic minority on general one-point unions of cliques with mixed even odd block sizes attractor count",
+        "\"stochastic minority\" \"windmill\" \"clique\" graph",
+        "\"minority\" \"windmill graph\" \"asynchronous\"",
+        "\"minority\" \"friendship graph\" \"recurrent\" \"cliques\"",
+        "local prior-claim text queries: windmill; friendship; recurrent communicating; odd clique; clique bouquet"
+      ]
+    },
+    "rationale": "The principal new object is a heterogeneous one-point union of arbitrary clique blades, not a single clique or homogeneous friendship graph. The complete recurrent-class decomposition, exact parity pinning with arbitrary mixed blades, population-preserving one-vertex fragmentation, and mixed-size all-even hub flux are not implied by the inspected primary clique theorem or the two closer, strictly special earlier dynamical results. Originality is a best-evidence judgment, not a proof of universal historical uniqueness.",
+    "residual_risks": [
+      "Unindexed or inaccessible zero-temperature antiferromagnetic work could contain a logically stronger general cut-landscape theorem specialized to clique bouquets.",
+      "Historical literature priority is not independently certified; the closest relevant secondary windmill graph and lattice Ising papers were available only in abstract during this comparison.",
+      "The mixing lower bound need not be sharp; its upper-order behavior is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS same rule and single-clique subcases, but not the arbitrary multi-blade parity-pinning/class-connectivity theorem.",
+        "evidence": [
+          "https://ar5iv.labs.arxiv.org/html/1011.5119",
+          "Section 2 Definitions 1–3; Section 3.1 Lemma 1 and Corollary 1; Theorem 4.1 and proof."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "material_read": "Accessible HTML abstract/introduction, Sections 2 and 3.1, Section 3.3 overview, Theorem 4.1 and surrounding proof, plus in-document searches for windmill and clique references; other sections are not invoked for universal noncoverage.",
+        "method": "Read source text and locate terms for windmill and cliques; compare hypotheses and proof implications.",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "Exact same closed-neighborhood sequential two-color rule; highly relevant clique special case and general energy lemma."
+      },
+      {
+        "assessment": "Abstract concerns graph constructions, clustering coefficient and transitivity, not the specified stochastic minority attractor census; full-text priority not asserted.",
+        "evidence": [
+          "doi:10.1016/j.laa.2018.11.025",
+          "Publisher abstract for generalized windmill graph families."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.11.025",
+        "material_read": "Accessible abstract and graph-family definitions only; no full text was inspected.",
+        "method": "Read abstract from scholarly landing result and compared described invariants.",
+        "title": "On generalized windmill graphs",
+        "trigger": "Same or closely related windmill graph terminology; possible structural dominance."
+      },
+      {
+        "assessment": "The stated subject is planar lattice dynamics, not general shared-hub clique bouquets; no full-paper exclusion claimed.",
+        "evidence": [
+          "arxiv:1710.09946",
+          "arXiv first-version abstract dated 2017-10-26."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.09946",
+        "material_read": "Accessible abstract; full manuscript not available in consulted text representation.",
+        "method": "Read arXiv abstract and cross-check geometry and rule description.",
+        "title": "Fate of Ising ferromagnets and antiferromagnets by zero-temperature Glauber dynamics on the two-dimensional Archimedean and 2-uniform lattices",
+        "trigger": "Equivalent-model alias (zero-temperature antiferromagnetic dynamics), potential metastability comparisons."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "775e9880-280b-45e9-aec1-4b6a21311426",
+  "value": {
+    "rationale": "Gluing individually simple cliques at an articulation vertex creates a sharp global communication effect: one private vertex added to a blade changes its parity, freezes the hub after recurrence and splits a single irreducible class into \\(2\\binom{2a+1}{a}\\) classes, while the exact number of all recurrent configurations remains unchanged. The result holds for all arbitrary heterogeneous collections of two or more blades and proves global maximum-cut convergence. The exact stationary hub-crossing probability in the all-even case gives a meaningful exponential mixing-time obstruction. These are dynamics/topology invariants and a structural sensitivity phenomenon rather than a mere known clique special case, arbitrary parameter slice or finite enumeration.",
+    "status": "PASS"
+  }
+}
