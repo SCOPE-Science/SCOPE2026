@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification
 
-Execute `python verify_icosahedral_five_cut.py` with Python 3.10+ and SymPy. The executable graph edge list, simplex enumeration, orientation convention, complete acyclic matching construction, exact chain cancellation and Smith normal forms are self-contained in the script. The deterministic JSON output must agree with `verification_output.json`.
+# Independent mathematical audit
 
-The graph has 12 vertices, 30 edges and 20 triangular faces, and its explicit edges are isomorphic to the standard icosahedral graph. Two independent methods enumerate the 300 facets and exactly 2,618 total faces. The face counts in dimensions from \(-1\) through \(6\) are \(1,12,66,220,495,792,732,300\).
+## correctness
 
-The increasing and decreasing order matchings have 1,286 and 1,285 pairs. A complete acyclicity test traverses 13,224 face incidences for each order. The first reduced integral boundary ranks in degrees five and six are five and two, with Smith factors \((1,1,1,1,2)\) and \((1,1)\). The second has ranks five and three with factors \((1,1,1,1,2)\) and \((1,1,1)\). Both satisfy the chain-square-zero assertion and give identical integral homology. Direct full simplicial mod-two boundary ranks in degrees one to six are \((11,55,165,330,461,270)\), providing an independent field check. This is an exact finite computation; no infinite parameter range is certified.
+PASS
 
-The package records the full resulting integral Morse boundary matrices and output marker `ICOSAHEDRAL_FIVE_CUT_INTEGRAL_TORSION_EXACT_VERIFIED`. Neither this certificate nor the review represents an independent external audit.
+Independently reconstructed the exact 12-vertex 30-edge icosahedral graph and ordinary five-cut facet predicate (complements of disconnected induced five-subsets). Enumerated 300 distinct seven-vertex facets and all 2618 faces, dimension-vector 1,12,66,220,495,792,732,300 for dimensions −1..6. Independent direct mod-2 simplicial ranks ∂1..∂6=(11,55,165,330,461,270) corroborate torsion but do not determine integral order. Fresh reimplementation of ordered simplicial Morse matching and signed integral chain cancellation has 1286 matched pairs, critical cells one0, five4, seven5, thirtytwo6 and ∂5 SNF (1,1,1,1,2), ∂6 SNF(1,1), ∂5∂6=0. The image of ∂6 is primitive rank2, equal to the rank2 kernel of ∂5. Thus reduced integral H4=Z/2, H6=Z^30, everything else zero. Pure 6-dimensional shellability would forbid torsion; a wedge of spheres would have torsion-free homology. No higher-graph assertion or integral homotopy classification.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact natural icosahedral ordinary five-cut torsion calculation, not a first-ever torsion cut complex. Bayer et al. Remark 4.2 engineered a 16-vertex graph whose 13-cut is an RP2 triangulation; different graph and threshold. Their Theorem 6.1 requires a complete codimension-one skeleton, but the icosahedron has 732 of 924 possible five-faces, so it cannot imply torsion-freeness or the result. The sequel covers disjoint unions, squared paths, grids. An indexed icosahedral ordinary three-cut computes S7∨6 S8 at a different threshold. No exact five-cut SNF/database result was recovered; absence alone not proof of novelty.
+
+## value
+
+PASS
+
+A smallest Platonic highly symmetric planar triangulation is a motivated natural graph for cut-complex topology; it exhibits genuine integral 2-torsion in degree 4 of a pure degree-6 complex. This proves nonshellability and rules out any wedge-of-spheres homotopy type, upgrading previously synthetic torsion examples into a complete integral invariant of a natural graph/cut parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
