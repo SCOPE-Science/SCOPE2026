@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:45:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rank7 b omits exactly one output, so unique cyclic conjugacy normalizes its image to {1,...,7}; choose repeated output (7), preimage pair C(8,2), bijection of remaining six outputs 6! for exactly 141120 cases without duplication. BFS from full 8-bit set on subset transitions induced by rotation and b gives exact shortest word or non-synchronizing (at most 255 nonempty subsets); no search length cutoff. In this run an independently written C++ complete generator/BFS visited all 141120 normalized cases and matched all 32 bins in repository spectrum.csv, including rare thresholds and no missing values. The 1856 nonsync count equals 1728 mod2 +192 mod4−64 overlap, consistent with primitive/defect-one theorem. This is an exhaustive finite proof for this precise family, not a claim about all binary automata.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Volkov theorem implies primitive+defect1 synchronization; Trahtman and Černý supply slow examples/max, while de Bondt–Don–Zantema classify small critical examples."
+        ],
+        "reasoning": "These cover only structural zero threshold and possible max; exact 141120 normalized-class histogram does not follow from either bound or primitive criterion.",
+        "searches": [
+          "arXiv:2306.13317 primitive automata defect one",
+          "arXiv:1609.06853 slowly synchronizing automata fixed alphabet",
+          "arXiv:0709.1197 Cerny threshold 8"
+        ]
+      },
+      "checked_sources": [
+        "de Bondt–Don–Zantema arXiv:1609.06853 scope and tables",
+        "Volkov arXiv:2306.13317 primitive defect-one theorem",
+        "Trahtman arXiv:0709.1197 slow automata",
+        "Resultary query eight state circular automata second rank seven letter reset threshold full histogram"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Modulo2 and modulo4 congruences account for nonsync=1856, already conceptually justified by Volkov; bounds max49 do not determine 43,44,49 rarity or 31 other bins."
+        ],
+        "reasoning": "The independent all-map exhaustive census establishes data that is not mechanically implied by known max and primitivity theorems.",
+        "searches": [
+          "Volkov synchronization primitive defect one criterion modulo2 modulo4",
+          "Černý 8 state max49 vs exact reset distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sample space is 7*C(8,2)*6! normalized rank7 maps, not all binary automata, and conjugacy uses the centralizer of the eight-cycle."
+        ],
+        "reasoning": "Generic binary automata censuses and fixed alphabet examples use non-equivalent families; a cited Cerny example only proves max49, not each coefficient.",
+        "searches": [
+          "eight state circular automata second rank seven letter reset threshold full histogram",
+          "eight states fixed cyclic permutation rank 7 transformation all shortest reset lengths",
+          "arXiv:1609.06853"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The repository spectrum.csv lists all 32 bins; independent exhaustive BFS reproduces every count. Earlier published small-n tables cited in relevant papers do not show exact same n8 conditional spectrum in inspected sections."
+        ],
+        "reasoning": "Unindexed historical computational datasets could duplicate these numbers; lack of search hits is not novelty proof.",
+        "searches": [
+          "eight state circular automata second rank seven letter reset threshold full histogram",
+          "reset threshold frequency rank seven circular 8 141120 1856 49",
+          "n=8 circular automata full histogram"
+        ]
+      },
+      "rationale": "Černý extremal 49, general rotation-letter synchronization criteria, and the congruence/non-sync principle are prior work; they do not imply exact conditional 8-state histogram. Previous small automata exhaustive tables cited by de Bondt–Don–Zantema top out at smaller n and compare different sampling spaces. Exact 32-bin 8-state rank7 count not located, but unindexed computer tables remain a concrete priority risk.",
+      "residual_risks": [
+        "Potential unpublished or unindexed 8-state automaton threshold tables.",
+        "Completeness applies only to fixed eight-cycle and rank7 map modulo rotations; not all automata.",
+        "Single-source verification logs do not establish originality; independently reproduced all bins here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Extremal constructions and counts for smaller n, not shown to include conditional all n8 rank7 map histogram",
+          "evidence": "Published small n tables and critical slow automata scope",
+          "identifier_or_url": "https://arxiv.org/abs/1609.06853",
+          "material_read": "Accessible publisher/arXiv indexed article material about small n and fixed alphabet extremal automata; full text not read in this run",
+          "method": "Metadata and article theorem scope comparison",
+          "title": "Slowly Synchronizing Automata with Fixed Alphabet Size",
+          "trigger": "Closest prior complete finite slow synchronizer census"
+        },
+        {
+          "assessment": "COVERS primitivity implies synchronization; no duration histogram",
+          "evidence": "Primitive plus rank n−1 letter sufficient for synchronization",
+          "identifier_or_url": "https://arxiv.org/abs/2306.13317",
+          "material_read": "Accessible abstract and theorem statement re primitive automata having defect-one letter, full text not read in this run",
+          "method": "Primary theorem/abstract comparison",
+          "title": "Synchronization of primitive automata",
+          "trigger": "Could dominate nonsynchronization classification"
+        },
+        {
+          "assessment": "Classical n8 extremal bound/prior examples; no full conditional rank7 frequency table identified",
+          "evidence": "Trends and examples of slow automata",
+          "identifier_or_url": "https://arxiv.org/abs/0709.1197",
+          "material_read": "Accessible primary indexed abstract/article summary of examples; full original PDF not read",
+          "method": "Article abstract and metadata",
+          "title": "An efficient algorithm finds noticeable trends and examples concerning the Černý conjecture",
+          "trigger": "Possible historical n8 numeric data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full exact conditional distribution of shortest reset lengths for a canonical constrained eight-state automaton family quantifies rarity of extremal cases (exactly one at 49) and all intermediate thresholds, useful to synchronizing-automata classification and algorithm benchmarking. It is a natural complete finite class rather than an arbitrary slice chosen after computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "de Bondt–Don–Zantema arXiv:1609.06853 scope and tables",
+    "Volkov arXiv:2306.13317 primitive defect-one theorem",
+    "Trahtman arXiv:0709.1197 slow automata",
+    "Resultary query eight state circular automata second rank seven letter reset threshold full histogram"
+  ],
+  "disposition": "passed",
+  "final_claim": "For eight states and fixed rotation letter a, all rank-seven maps b modulo cyclic conjugacy yield exactly 141120 classes; exhaustive shortest-reset threshold histogram has 1856 nonsynchronizing, 139264 synchronizing, exact maximal threshold49, 32 nonzero bins and three threshold>=40 classes at 43,44,49.",
+  "limitations": [
+    "Potential unpublished or unindexed 8-state automaton threshold tables.",
+    "Completeness applies only to fixed eight-cycle and rank7 map modulo rotations; not all automata.",
+    "Single-source verification logs do not establish originality; independently reproduced all bins here.",
+    "No GitHub mutation or dispatcher closeout. Independent finite computations corroborate the inspected proofs only; no Lean or expert attestation asserted.",
+    "Publication not_ready due to public metadata privacy/transport, scientifically passed is not imported acceptance."
+  ],
+  "residual_risks": [
+    "Potential unpublished or unindexed 8-state automaton threshold tables.",
+    "Completeness applies only to fixed eight-cycle and rank7 map modulo rotations; not all automata.",
+    "Single-source verification logs do not establish originality; independently reproduced all bins here."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Extremal constructions and counts for smaller n, not shown to include conditional all n8 rank7 map histogram",
+      "evidence": "Published small n tables and critical slow automata scope",
+      "identifier_or_url": "https://arxiv.org/abs/1609.06853",
+      "material_read": "Accessible publisher/arXiv indexed article material about small n and fixed alphabet extremal automata; full text not read in this run",
+      "method": "Metadata and article theorem scope comparison",
+      "title": "Slowly Synchronizing Automata with Fixed Alphabet Size",
+      "trigger": "Closest prior complete finite slow synchronizer census"
+    },
+    {
+      "assessment": "COVERS primitivity implies synchronization; no duration histogram",
+      "evidence": "Primitive plus rank n−1 letter sufficient for synchronization",
+      "identifier_or_url": "https://arxiv.org/abs/2306.13317",
+      "material_read": "Accessible abstract and theorem statement re primitive automata having defect-one letter, full text not read in this run",
+      "method": "Primary theorem/abstract comparison",
+      "title": "Synchronization of primitive automata",
+      "trigger": "Could dominate nonsynchronization classification"
+    },
+    {
+      "assessment": "Classical n8 extremal bound/prior examples; no full conditional rank7 frequency table identified",
+      "evidence": "Trends and examples of slow automata",
+      "identifier_or_url": "https://arxiv.org/abs/0709.1197",
+      "material_read": "Accessible primary indexed abstract/article summary of examples; full original PDF not read",
+      "method": "Article abstract and metadata",
+      "title": "An efficient algorithm finds noticeable trends and examples concerning the Černý conjecture",
+      "trigger": "Possible historical n8 numeric data"
+    }
+  ]
+}

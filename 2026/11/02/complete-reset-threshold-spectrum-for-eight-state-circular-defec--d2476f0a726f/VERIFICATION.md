@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From this directory, using only a C++17 compiler and the included files:
+## correctness
 
-```sh
-c++ -std=c++17 -O2 verify.cpp -o verify
-./verify > verify_output.txt
-c++ -std=c++17 -O2 crosscheck.cpp -o crosscheck
-./crosscheck > crosscheck_output.txt
-```
+PASS
 
-`verify.cpp` constructs exactly \(7\binom{8}{2}6!=141120\) normalized rank-seven maps, computes every subset transition and shortest path by complete breadth-first search, and prints the complete `threshold,classes` distribution. It also counts the congruence-preserving classes, checks the exact 1856 zero class, and prints selected high-threshold representatives.
+A rank7 b omits exactly one output, so unique cyclic conjugacy normalizes its image to {1,...,7}; choose repeated output (7), preimage pair C(8,2), bijection of remaining six outputs 6! for exactly 141120 cases without duplication. BFS from full 8-bit set on subset transitions induced by rotation and b gives exact shortest word or non-synchronizing (at most 255 nonempty subsets); no search length cutoff. In this run an independently written C++ complete generator/BFS visited all 141120 normalized cases and matched all 32 bins in repository spectrum.csv, including rare thresholds and no missing values. The 1856 nonsync count equals 1728 mod2 +192 mod4−64 overlap, consistent with primitive/defect-one theorem. This is an exhaustive finite proof for this precise family, not a claim about all binary automata.
 
-`crosscheck.cpp` iterates independently over the full \(8^8=16777216\) arrays, retains all and only those with output image \(\{1,\ldots,7\}\), and performs an independent BFS on subsets using a per-state transition loop. Its entire 32-row result was compared to the first program's `threshold,classes` block and to `spectrum.csv`; all agree exactly. Both executions finished with `VERIFY_OK` and `CROSSCHECK_OK`, respectively.
+## originality
 
-The CSV `spectrum.csv` lists all 32 nonzero histogram entries including nonsynchronizability as threshold zero; `rare_witnesses.csv` records representative tuples for each threshold at least 30. The runtime checks cover the entire finite domain, not a random experiment. All these checks are for reproducibility, not external mathematical certification.
+PASS
 
-**Limits:** The proof is specific to eight states, the specified eight-cycle and a rank-seven second map. No claim about higher state counts or other transformation ranks is supported. The congruence criterion has an established literature route through the primitive/defect-one theorem and is not presented as a new result. Independent scientific validation has not been performed.
+Černý extremal 49, general rotation-letter synchronization criteria, and the congruence/non-sync principle are prior work; they do not imply exact conditional 8-state histogram. Previous small automata exhaustive tables cited by de Bondt–Don–Zantema top out at smaller n and compare different sampling spaces. Exact 32-bin 8-state rank7 count not located, but unindexed computer tables remain a concrete priority risk.
+
+## value
+
+PASS
+
+A full exact conditional distribution of shortest reset lengths for a canonical constrained eight-state automaton family quantifies rarity of extremal cases (exactly one at 49) and all intermediate thresholds, useful to synchronizing-automata classification and algorithm benchmarking. It is a natural complete finite class rather than an arbitrary slice chosen after computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

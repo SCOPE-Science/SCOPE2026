@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The normalization is a bijection with \(7\binom{8}{2}6!=141120\) eight-cycle-conjugacy representatives. The exhaustive power-set BFS recognizes every reachable subset and obtains the exact shortest reset threshold. An independently organized base-eight enumeration of all \(8^8\) candidate maps filters the same normalized class and recomputes every histogram coefficient using distinct transition code. Both complete runs produced exactly the same 32 coefficient rows. All 1856 nonsynchronizing cases are also accounted for by a separately justified modular-congruence inclusion-exclusion count. The remaining scientific limits concern only the declared finite class.
+PASS
 
-## Originality (PASS, qualified)
+A rank7 b omits exactly one output, so unique cyclic conjugacy normalizes its image to {1,...,7}; choose repeated output (7), preimage pair C(8,2), bijection of remaining six outputs 6! for exactly 141120 cases without duplication. BFS from full 8-bit set on subset transitions induced by rotation and b gives exact shortest word or non-synchronizing (at most 255 nonempty subsets); no search length cutoff. In this run an independently written C++ complete generator/BFS visited all 141120 normalized cases and matched all 32 bins in repository spectrum.csv, including rare thresholds and no missing values. The 1856 nonsync count equals 1728 mod2 +192 mod4−64 overlap, consistent with primitive/defect-one theorem. This is an exhaustive finite proof for this precise family, not a claim about all binary automata.
 
-The accepted contribution is the complete distribution for **all** rank-seven second letters with the eight-state cyclic first letter, not the known 49-step Černý extremum nor the known primitive/defect-one synchronization criterion. Trahtman's full-text experimental paper discusses extremal behavior at eight states and the 44-step second-highest value; de Bondt–Don–Zantema publish a different broader-alphabet census restricted to at most six states. Volkov proves the general primitive-automaton result which explains the modular zero class; it does not determine the 31 distinct positive thresholds or their multiplicities. Don's structural sufficient conditions and Kisielewicz–Kowalski–Szykuła's algorithmic/random results also do not state this conditional finite table. Searches of related published records, aliases, numeric signatures, and earlier local claims found no equivalent full spectrum. Unindexed historical enumeration data and unpublished results remain a material historical-priority risk; no independence or blanket novelty certification is claimed.
+## originality
 
-## Value (PASS)
+PASS
 
-The complete exact spectrum addresses how quickly an eight-state circular defect-one automaton synchronizes, conditional on synchronization, not only whether or whether eventually it resets. The eight-state prime-power setting is a natural first nontrivial chain of two modular congruence obstructions, and the exact distribution exposes a three-class high-threshold tail. The full classification supplies benchmark data for shortest-reset algorithms and tests structural restrictions on slow circular automata; it is not an arbitrary selected instance with only a routine single-number gain.
+Černý extremal 49, general rotation-letter synchronization criteria, and the congruence/non-sync principle are prior work; they do not imply exact conditional 8-state histogram. Previous small automata exhaustive tables cited by de Bondt–Don–Zantema top out at smaller n and compare different sampling spaces. Exact 32-bin 8-state rank7 count not located, but unindexed computer tables remain a concrete priority risk.
 
-## Limitations
+## value
 
-Only a distinguished eight-cycle plus a rank-seven letter, up to cyclic rotations; finite exact enumeration plus an analytical count of nonsynchronizing cases. No all-length theorem, universal word formula, or historical-priority certification. Both code checks were performed within the same review process, not by an external independent auditor.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full exact conditional distribution of shortest reset lengths for a canonical constrained eight-state automaton family quantifies rarity of extremal cases (exactly one at 49) and all intermediate thresholds, useful to synchronizing-automata classification and algorithm benchmarking. It is a natural complete finite class rather than an arbitrary slice chosen after computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
