@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible exact finite checks
+# Independent mathematical audit
 
-Use Python 3.10 or later to run `python3 verify.py` in the directory containing this file. No network access or third-party packages are needed. A complete, successful execution prints `ROOK_SHRIKHANDE_FOUR_CUT_INTEGRAL_HOMOLOGY_VERIFIED` as its final line; the complete contemporaneous output is provided in `verification_output.txt`.
+## correctness
 
-The checker constructs each graph from an explicit vertex formula and verifies all strongly regular parameters; independently enumerates two equivalent descriptions of the Alexander dual on all 65535 nonempty subsets; counts all faces of the *original* four-cut complex separately; checks that every matched pair is a codimension-one incidence; orients and topologically sorts every Hasse incidence; forms signed integer simplicial chain boundaries; checks \(\partial^2=0\); cancels all matching pairs over the integers using unit pivots and checks \(\partial^2=0\) again; reduces every residual integer matrix using row and column operations with unit invariant factors and zero remainders; calculates mod-two boundary ranks independently from the original dual complex; and checks Alexander-duality indexing and reduced Euler characteristics. This verifies integral homology, not homotopy type or any unstated family result.
+PASS
 
-The finite checks do not establish that the calculation was unpublished and do not constitute external independent validation. Reproduction should be performed with the provided source bytes; expected numerical values are explicitly asserted and full intermediate outputs are printed.
+Independent direct enumeration of all 16-vertex subsets and connected four-sets found 1200 disconnected 4-sets in K4□K4 and 1152 in the Shrikhande graph. The Alexander-dual face vectors are respectively (16,120,560,620,288,48) and (16,120,560,668,288), 1652 nonempty each; independent stage-toggle Morse matchings give 767 and 776 pairs and acyclic complete Hasse graphs (6128 and 6032 incidences). Rook critical cells: one 0-cell, 96 two-cells, 21 three-cells with zero Morse differentials. Shrikhande critical cells: one 0-cell, 69 two-cells, 12 three-cells, 18 four-cells; independent exact signed Morse reductions give rank4 ∂3 and rank6 ∂4, Smith nonzero factors all 1, giving free dual ranks H2=65,H3=2,H4=12. Integer Smith checks exclude torsion. Combinatorial Alexander duality on 16 vertices shifts to Htilde_i(∆4)=Htilde^{13-i}(K), yielding R degrees 10:21,11:96 and S degrees 9:12,10:2,11:65, all free. Facet complements all cardinality 12, hence pure dim11; nonzero lower homology obstructs shellability. Reduced Euler characteristic independently -75 for both.
+
+## originality
+
+PASS
+
+The standard k-cut definition, duality and general topological tools belong to Bayer et al.; its published graph families and the path-grid theorems in the sequel do not contain the two strongly regular examples at k=4. Prior same-graph results concern ordinary independence or scale-two Čech complexes; a general rook k=3 formula is not a four-cut theorem. No exact equivalent table identified; unindexed results remain possible.
+
+## value
+
+PASS
+
+These are the unique two nonisomorphic strongly regular graphs with parameters (16,6,2,2), making them a natural controlled comparison. Their ordinary four-cut complexes have the same purity and reduced Euler characteristic but sharply different *integral* homology, a meaningful discriminating invariant that neither adjacency spectrum nor Euler characteristic detects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

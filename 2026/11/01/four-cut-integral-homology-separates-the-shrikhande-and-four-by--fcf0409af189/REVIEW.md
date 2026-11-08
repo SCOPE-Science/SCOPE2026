@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses the ordinary four-cut convention, not the total variant. The exact graph definitions generate two simple sixteen-vertex six-regular graphs with two common neighbors for each vertex pair. Complete four-set and face enumeration independently constructs each Alexander dual; the two membership algorithms agree on every subset. Each staged acyclic matching is verified by a complete topological sort of its directed Hasse graph (6128 incidences for the rook graph, 6032 for Shrikhande). Exact integer signed chain cancellations leave a zero critical differential for the rook graph and two maps of ranks 4 and 6 with unit Smith factors for Shrikhande. The integral universal coefficient theorem and the sixteen-vertex Alexander-duality degree shift are applied without a characteristic restriction. The full original simplicial boundary matrices independently reproduce mod-two Betti numbers. All computations are replayable from `verify.py` and `verification_output.txt`; neither finite homology nor field homology is misidentified as a homotopy proof.
+PASS
 
-## Originality — PASS against inspected evidence
+Independent direct enumeration of all 16-vertex subsets and connected four-sets found 1200 disconnected 4-sets in K4□K4 and 1152 in the Shrikhande graph. The Alexander-dual face vectors are respectively (16,120,560,620,288,48) and (16,120,560,668,288), 1652 nonempty each; independent stage-toggle Morse matchings give 767 and 776 pairs and acyclic complete Hasse graphs (6128 and 6032 incidences). Rook critical cells: one 0-cell, 96 two-cells, 21 three-cells with zero Morse differentials. Shrikhande critical cells: one 0-cell, 69 two-cells, 12 three-cells, 18 four-cells; independent exact signed Morse reductions give rank4 ∂3 and rank6 ∂4, Smith nonzero factors all 1, giving free dual ranks H2=65,H3=2,H4=12. Integer Smith checks exclude torsion. Combinatorial Alexander duality on 16 vertices shifts to Htilde_i(∆4)=Htilde^{13-i}(K), yielding R degrees 10:21,11:96 and S degrees 9:12,10:2,11:65, all free. Facet complements all cardinality 12, hence pure dim11; nonzero lower homology obstructs shellability. Reduced Euler characteristic independently -75 for both.
 
-The closest primary literature [1] defines ordinary cut complexes, gives Alexander duality and treats graph families not containing this paired four-cut computation; [2] studies ordinary cut complexes of disjoint unions, squared paths and rectangular *path grids*, not the rook graph (a complete-clique Cartesian product) and not Shrikhande. The closest published indexed result on rook graph three-cut homology concerns cutoff three and does not determine cutoff four. Published comparative results for Shrikhande and rook independence or Čech complexes involve different defining simplices. Searches using graph-name aliases, identical strongly regular parameters and the Alexander-dual connected-quartet formulation produced no stronger covering result. Novelty remains a best-evidence conclusion, not a mathematical uniqueness certificate: an unindexed or inaccessible equivalent calculation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The Shrikhande and four-by-four rook graphs are the canonical nonisomorphic pair with the same strongly regular parameters \((16,6,2,2)\). Their four-cut complexes have the same number of vertices, the same total number of dual faces, the same reduced Euler characteristic and equal top dimension, yet different **integral** Betti profiles, including a degree-nine class present only in Shrikhande. This determines an exact natural invariant on both canonical examples, separates graph structures that numerical graph parameters and Euler characteristic fail to separate, and supplies two explicit non-shellability examples. The finite classification is motivated by an existing general graph-complex theory and does not claim an unproved family result.
+The standard k-cut definition, duality and general topological tools belong to Bayer et al.; its published graph families and the path-grid theorems in the sequel do not contain the two strongly regular examples at k=4. Prior same-graph results concern ordinary independence or scale-two Čech complexes; a general rook k=3 formula is not a four-cut theorem. No exact equivalent table identified; unindexed results remain possible.
 
-## Closest literature and risks
+## value
 
-[1] M. Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675, full accessible HTML (Sections 1, 6, 7). [2] M. Bayer et al., *Topology of Cut Complexes II*, arXiv:2407.08158, full accessible HTML (Sections 2, 5). Closest indexed records cover three-cut rook topology, or independence/Čech complexes of the graph pair. Unindexed equivalence and independent verification remain the residual risks; no homotopy type is inferred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These are the unique two nonisomorphic strongly regular graphs with parameters (16,6,2,2), making them a natural controlled comparison. Their ordinary four-cut complexes have the same purity and reduced Euler characteristic but sharply different *integral* homology, a meaningful discriminating invariant that neither adjacency spectrum nor Euler characteristic detects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
