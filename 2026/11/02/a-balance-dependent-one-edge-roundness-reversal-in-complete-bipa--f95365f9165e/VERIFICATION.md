@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-Run `python verify_one_edge_biclique.py` in a directory containing `requirements.txt` and the verification program, after installing the package versions indicated in the requirements file.
+## correctness
 
-The completed test run printed:
+PASS
 
-```text
-EXACT_FORM_AND_DETERMINANT_IDENTITIES_OK 2376
-FULL_MATRIX_CRITICAL_SPECTRA_OK 375
-EXACT_UNBALANCED_REVERSAL_CERTIFICATE_OK K_2,8
-FOUR_AND_FIVE_POINT_ENDPOINTS_OK
-BALANCED_STRICT_IMPROVEMENT_OK
-BALANCED_INVERSE_CUBIC_SENSITIVITY_OK 1.90713910690579
-FIXED_SMALL_PART_CROSSOVER_ASYMPTOTIC_OK
-ALL_ONE_EDGE_BICLIQUE_NEGATIVE_TYPE_CHECKS_OK
-```
+Reconstructed all graph distances for s∈[1,3] and the zero-sum p-distance form. Splitting the distinguished endpoints, equal-part means and fluctuations produces the claimed 3x3 matrix M with m+n−4 positive orthogonal directions; independent symbolic determinant expansion verified det M=−F/((m−1)(n−1)). For 0<p≤1, 0≤h=s^p−1≤a=2^p and the lower 2x2 block is strictly positive; Schur complement makes negative type equivalent to F≤0. Combined with Li–Weston strict exponent inheritance, the endpoint F at p=1 and initial strict negativity imply the unique critical exponent; m=n=2 is checked separately via (2^p−1)^2=s^p and path equality. At intact p0, direct substitution gives F=h(−2a0²+2(m²−m+n²−n)h/T), yielding exact threshold H. Independent symbolic checks verified these identities and sampled (m,n,s)=(2,3,3),(2,8,3),(3,3,2),(5,5,3),(4,10,1.3). The implicit asymptotic and Euclidean rank arguments apply only in their stated regimes.
 
-Exact rational checks compare the block decomposition and determinant against the full powered-distance quadratic form. The sign reversal on the \(K_{2,8}\) deletion-limit metric has an exact integer inequality certificate. Numerical centered-matrix spectra corroborate the all-parameter proof, while multiprecision calculations test but do not prove the asymptotic constants. The universal claim requires the analytical Schur complement, strictness inheritance, and Taylor arguments in `RESULT.md`. Independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Li–Weston supply the strict negative-type interval, and Sánchez already computes the unperturbed complete-bipartite exponent. The perturbed singled-out edge metric is no longer uniformly edge-transitive, and neither inspected theorem provides the exact F and positive/negative response trichotomy, including the K2,8 reversal versus all balanced stretch improvements and inverse-cubic balance limit. Distance energy under edge deletion is a different matrix functional, not negative-type exponent. General distance-matrix methods are credited and could lead to equivalent reductions, so literature priority remains qualified.
+
+## value
+
+PASS
+
+Supremal negative type/generalized roundness is a natural metric-embedding invariant. An intuitively local edge stretch has opposite qualitative impacts depending on graph balance, with exact cutoff and dimensions; the uniform biclique benchmark and balanced asymptotic give a structural sensitivity law, not a tiny arbitrary improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
