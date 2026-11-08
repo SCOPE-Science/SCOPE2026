@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The grounded matrix has two intra-part fluctuation eigenspaces and a positive-definite two-dimensional constant-block restriction. Its exact inverse trace yields the finite allocation formula including empty-part boundaries. Concavity proves the balanced-case endpoint rule; finite-candidate asymptotic expansion and the exact discrete difference prove the square-root limit. The strict examples are exact rational comparisons. The standalone verifier replays exact inverses and full subset checks, but finite checks do not replace those proofs.
+
+**Originality — PASS on inspected evidence, with priority risk.** The general noise-free leader-selection formulations of Lin–Fardad–Jovanović and Fitch–Leonard do not, in the inspected passages and searched full texts, provide the arbitrary-budget complete-bipartite evaluated formula, the balanced endpoint theorem, the highly imbalanced asymptotic allocation, or the disjoint-optima example. The exact path/ring algorithms of Patterson–McGlohon–Dyagilev concern a different graph family. Search of accessible research records did not yield an implication covering the biclique statement. These are scope comparisons, not claims of database completeness.
+
+**Value — PASS.** Complete bipartite networks are a natural model of two-community communication. The theorem identifies exact optimal leader allocations at every budget, shows a genuinely mixed optimum on an asymmetric instance, proves a nonnesting obstruction to greedy budget progression, and exposes a square-root allocation scale rather than a proportionate split. Those structural outputs are not supplied by simply naming the original grounded trace objective.
+
+**Closest literature and limitations.** Relevant primary sources: arXiv:1302.0450, arXiv:1407.1569 and arXiv:1412.6595. A graph-level generic formula is not a priority claim about evaluated specializations. An older or unindexed exact biclique evaluation remains possible. The limiting statement freezes the small-part size and leader budget before enlarging the other part. No statement about leader-controlled gains, normalized disturbance noise or a simultaneous-growth limit is made.
+
+Self-review: passed. Independent audit: not yet performed.
