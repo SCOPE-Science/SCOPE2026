@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For each unchosen edge uv the exact condition \\(d_F(u)+d_F(v)=1\\) yields the W/Y/B local rules and a converse. The 81-state left-to-right automaton has 13 starts, 13 ends, reachable and co-reachable sets each of size 15, and exactly 7 useful states: a six-cycle with permissible endpoints at phases 0,1,3,4, plus the BB self-loop. Walks of \\(\\(n-2\\)\\) transitions yield precisely 4,2,2 nontrivial configurations mod 3, and their selected weights are n by exact six-step weight periodicity. The BB state contributes z^(3\\(\\(n-2\\)\\)). The included standard-library program constructs and checks this finite state reduction and independently exhausts edge subsets for \\(2\\le n\\le7\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grippo et al. 2026 announce a linear-time counting algorithm for generalized series-parallel graphs, which includes the open ladder family, but the accessible material gives no symbolic closed polynomial and no enumeration of all optimal configurations.",
+        "Lin et al. 2017 discuss earlier weighted algorithms for generalized series-parallel graphs and structural conditions; these results permit efficient instances but do not entail the specific periodic closed formula without a further explicit solution."
+      ],
+      "reasoning": "The algorithmic coverage is acknowledged, not erased. An algorithm computing each fixed instance does not by itself identify the exact infinite-family rational generating function or six-phase classification. The inaccessible detailed 2026 paper remains a priority risk, not evidence of noncoverage.",
+      "searches": [
+        "counting perfect edge dominating sets in ladder graphs P2 cartesian Pn exact generating polynomial and minimum cardinality",
+        "\"Counting perfect edge dominating sets: extremal results and linear-time algorithms\" pdf",
+        "\"2607.03894\" \"ladder\"",
+        "Grippo et al. 2026, arXiv:2607.03894, public abstract; full text unavailable",
+        "Lin et al. 2017 author manuscript, section 1 (general-series-parallel polynomial-time methods)"
+      ]
+    },
+    "checked_sources": [
+      "Lin, Lozin, Moyano, Szwarcfiter, 2017/2018, full accessible author manuscript section 1-2, doi:10.1007/s10479-017-2664-3",
+      "Grippo, Lin, Moyano, Vera, 2026, arXiv:2607.03894, public abstract, secondary synopsis, incomplete full text",
+      "Grippo, Lin, Vera, 2025, arXiv:2509.04598, public abstract",
+      "Previously known cyclic-ladder edge domination census (different graph family)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier cyclic-prism claim counts edge subsets on C_n square K_2, with 6 proper sets when 6 divides n, otherwise none. The current graph P_n square K_2 lacks two closing horizontal edges and has 2 or 4 proper sets at every length.",
+        "The cyclic theorem neither states nor algebraically specializes to an edge-deleted graph because the exact adjacency count of every omitted edge depends on the edge set.",
+        "The 2026 general counting algorithm includes open ladders computationally but has not been shown to imply this symbolic classification without new state reduction."
+      ],
+      "reasoning": "The closest prior cyclic theorem is not logically covering: deletion changes both candidate selected edges and their adjacency neighborhoods. The new result is an all-length boundary classification, not a parameter substitution or numerical restatement. Broad algorithmic computability is explicitly acknowledged; uninspected 2026 details remain a residual risk.",
+      "searches": [
+        "cyclic-ladder perfect edge domination polynomial and the open-ladder theorem",
+        "Previously recorded cyclic-ladder exact polynomial: C_n square K_2",
+        "perfect edge domination sets open ladder graph versus circular ladder 3-periodic boundary phase",
+        "2017 full text and 2026 counting abstract as cited"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The open-ladder theorem counts exact edge subsets under the every omitted edge exactly once condition, not the ordinary perfect vertex domination number.",
+        "Lin et al. 2017 section 2 gives the three-state encoding used in the proof but not this open-ladder 3-periodic enumeration.",
+        "Equivalent terms \"perfect edge dominating\", \"edge efficient domination\", \"dominating induced matching\" were compared; the latter is a strictly stronger condition and fails for all these ladders."
+      ],
+      "reasoning": "The assertion is a two-parameter polynomial identity in ladder length and selected-edge cardinality, together with complete state-word classification. Recasting the word \"perfect\" as vertex domination, or replacing it by efficient edge domination, changes the mathematical object. No matching open-ladder statement was identified.",
+      "searches": [
+        "perfect edge dominating subsets of open ladder P_2 square P_n number 3 or 5 with 2 or 4 nontrivial edge sets for every n; vertex state structure",
+        "\"perfect edge dominating sets\" \"ladder\" 2026",
+        "\"perfect edge domination\" Cartesian product P2 Pn",
+        "\"perfect edge dominating sets\" \"two-row ladders\" sequence",
+        "Lin et al. (2017), section 2, accessible author manuscript, observations 1-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact open-ladder sequence, closed polynomial or size-distribution table was identified in those actual searches.",
+        "The checked open-ladder edge-set counts from first principles are 5,3,3,5,3,3 for lengths 2 through 7; those finite values are not asserted to establish novelty."
+      ],
+      "reasoning": "The exact polynomial is not supplied by any found public table or database. Negative search evidence is limited: databases and unindexed literature may contain a matching sequence.",
+      "searches": [
+        "the number of perfect edge dominating sets on Cartesian product P_2 square P_n is 5 for n congruent 2 mod 3 and 3 otherwise",
+        "perfect edge domination polynomial ladder graph edge subsets open strip 3n-2 minimum exactly n",
+        "\"perfect edge domination\" ladder graphs cardinality count",
+        "\"perfect edge dominating sets\" \"prism graph\" exact number"
+      ]
+    },
+    "rationale": "Best-knowledge novelty is the explicit open-ladder cardinality polynomial and complete six-phase classification; it is not implied by prior cyclic-closure enumeration or merely stated by known general-series-parallel counting algorithms. Historical priority is provisional due inaccessible 2026 full text and incomplete coverage of unindexed literature.",
+    "residual_risks": [
+      "The 2026 counting preprint full text was inaccessible; it might include the ladder as an explicit special-case computation.",
+      "General GSP counting algorithms already cover the family computationally; the mathematical contribution is the closed formula and structural minimum-set classification, not algorithmic computability.",
+      "Equivalent statements might occur in unindexed sources or unpublished tables. Negative search results are not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source of foundational three-color rules; no open ladder cardinality polynomial or claimed 3-periodic result located.",
+        "evidence": [
+          "PDF section 2, observations 1-4 and 7 identify the three-state characterization and distinguish efficient from perfect edge domination.",
+          "Introduction discusses general computational algorithms for series-parallel families."
+        ],
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/92507/13/WRAP-perfect-edge-domination-hard-solvable-cases-Lozin-2017.pdf",
+        "material_read": "Full-text author manuscript introduction and section 2 through observations 1-7; PDF page 4 visually inspected; PDF searches for ladder, grid, Cartesian returned no matches",
+        "method": "Accessible open manuscript extracted text, relevant-page visual examination, targeted full-document keyword searches",
+        "title": "Perfect Edge Domination: Hard and Solvable Cases",
+        "trigger": "Same defining PEDS object and vertex-state equivalence"
+      },
+      {
+        "assessment": "Provides broader GSP counting algorithms, but no open-ladder formula appears in accessible material. Whole-document noncoverage is NOT claimed.",
+        "evidence": [
+          "Public abstract says extremal trees, forests and chordal graphs and linear-time counting algorithms for generalized series-parallel and chordal graphs.",
+          "A full-text exact-ladder example, if present, would require revisiting the priority judgment."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.03894",
+        "material_read": "Public arXiv abstract and detailed publicly accessible secondary summary; arXiv PDF and HTML unavailable and publisher-independent open-access full text not found",
+        "method": "Abstract on public arXiv indexes and independent metadata source; direct PDF/HTML attempts failed",
+        "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+        "trigger": "Closest current counting problem; 2026 motivating primary literature"
+      },
+      {
+        "assessment": "Algorithmic study of P6-free graphs and graphs without efficient edge domination; no general open-ladder polynomial identified in accessible statement.",
+        "evidence": [
+          "Public abstract describes cubic-time algorithms for P6-free graphs and ability to count PEDS."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.04598",
+        "material_read": "Public arXiv abstract and submission history; not full text",
+        "method": "Public abstract/metadata read",
+        "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+        "trigger": "Related exact counting and perfect edge domination algorithmic coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf36edf8-4f06-4eb2-852e-1b824c3a15d8",
+  "value": {
+    "rationale": "The open ladder is a natural connected series-parallel family. The complete exact classification reveals only 3 or 5 PEDS irrespective of length, all proper ones have minimum size n, and none is an efficient edge dominating set. The period-three boundary constraint contrasts sharply with stricter periodic closure and is mathematically structural, not a single special-case count or cosmetic rename. The explicit rational bivariate length/cardinality generating function permits exact weight sampling.",
+    "status": "PASS"
+  }
+}
