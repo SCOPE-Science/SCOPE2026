@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Actual reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify_deformations.py` with the Python standard library. The program checks every ordered basis triple for the polynomial sandwich products at each scalar parameter of F2 and F3, in ranks 2 and 3. It checks the full family of annihilator-pair probes that distinguish the displayed cocycle classes. Expected final line: `RECTANGULAR_BAND_DEFORMATIONS_OK`.
+## correctness
 
-The uniform proof of associativity, injectivity into HH², generic determinant, and radical cube zero is given in RESULT.md. Finite checks cannot prove statements for arbitrary ranks and fields. No independent validation has been performed.
+PASS
+
+Matrix units multiply as E_ij P0 E_i′j′=E_ij′ for rank-one sum-functional sandwich P0. For Q vanishing on distinguished rows/columns, star_Q product X(P0+ΣsνQν)Y is associative for all parameters, hence yields simultaneous polynomial integrations. Its infinitesimal Hochschild cocycle F_Q(X,Y)=XQY cannot be a coboundary, since for s∈T left-annihilator, u∈U right-annihilator, (δH)(s,u)=0 but F_Q(s,u)=Q(s,u)e. Nondegenerate Q in square size makes det(P0+tQ)=t^(r−1)det(C), so the generic sandwich algebra is M_r. The augmentation kernel J has J²=U⊗T and J³=0, hence Jacobson radical dim r²−1. Checks include exact finite-field associativity and separation probes; arbitrary field follows algebraically.
+
+## originality
+
+PASS
+
+Qualified PASS: rectangular-band Rees/Munn sandwich constructions and homomorphism classification are classical, and not claimed new. The specific explicit independent HH² classes with simultaneous integrability and flat square smoothing were not established by the inspected Munn/semigroup primary references. Specialized deformation/cohomology literature remains a significant risk.
+
+## value
+
+PASS
+
+Hochschild cohomology measures nontrivial deformations of a natural semigroup algebra. A uniform quadratic lower bound of unobstructed classes and a flat path from a nilpotent-radical band algebra to simple full matrix algebra is a structural algebraic phenomenon, not only repackaging sandwich multiplication.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
