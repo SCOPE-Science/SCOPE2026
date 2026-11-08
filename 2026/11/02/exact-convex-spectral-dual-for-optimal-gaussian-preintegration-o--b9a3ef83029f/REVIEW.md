@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional Gaussian decomposition gives the exact variance reduction \(R(v)=v^\top(A^2+bb^\top)v-\frac12(v^\top Av)^2\). Completing the square produces a global one-parameter upper bound. The top-eigenspace subgradient interval at the unique convex minimizer contains the minimizer's parameter, so the bound is attained by a unit top eigenvector with that Rayleigh quotient. The resulting two-term gap is nonnegative and characterizes every optimizer, including multiple leading eigenvalues. The homogeneous extreme-eigenvalue reduction, weighted-component equality conditions, and rank-two zero-variance example follow by an exact polynomial factorization. The attached verifier tests this algebra and diverse numerical instances; the infinite-dimensional parameter family is justified by the analytic proof, not finite checks.
+## correctness
 
-## Originality — PASS, subject to stated risks
-The closest motivating source, Liu–Owen (arXiv:2202.02682, Section 4/Proposition 4.2), already derives the affine-quadratic Sobol variance-reduction criterion and recommends a top active-subspace eigenvector. That derivation is **not** claimed as original. The checked source does not state the exact scalar spectral dual, its all-optima construction at multiple eigenvalues, the exact global deficit, or the sharp mixed-extrema zero-variance classification. Liu (arXiv:2212.13232) imposes tractability constraints on active-subspace selection rather than solving this unconstrained quadratic optimum. Joint-numerical-range and eigenvalue max principles are classical and might allow a compact general derivation; the detailed Gaussian preintegration and zero-variance consequences were not found in the checked sources. Remaining risk: a mathematically equivalent spectral optimization characterization may occur in broader hidden-convexity literature and has not been exhaustively excluded. Searches through published-finding corpus and accessible same-topic historical claims returned no covering result; similarity searches do not prove global uniqueness.
+PASS
 
-## Value — PASS
-The source describes the Sobol-optimal direction as less computationally tractable and uses an active-subspace proxy. For the exact quadratic benchmark, the result replaces nonconvex optimization on a sphere by a coercive **strongly convex one-dimensional** spectral problem, supplies rigorous candidate certificates, and gives a complete closed form in the important indefinite homogeneous case. For a rank-two indefinite quadratic, an explicit mixture gives zero residual variance whereas the conventional leading active direction retains positive residual variance. This is a substantive algorithmic-design boundary rather than an arbitrary numerical instance or a routine recomputation of a known table.
+For symmetric real A, b and X standard Gaussian, decomposing X=Y+Zv, independent, gives R(v)=v^T B v−0.5(v^TAv)^2 with B=A²+bb^T and exact remaining variance. Completing the square for any scalar t gives R(v)<=0.5t²+lambda_max(B−tA); the latter is strongly convex and coercive, hence has unique minimizer t*. Its eigenvalue subdifferential condition says t* belongs to the range of A Rayleigh quotients on the top eigenspace E*; continuity and extremal compression eigenvectors produce an attaining unit v, proving no dual gap even with eigenvalue multiplicities. Equality in both squares yields the exact two-term nonnegative gap. For b=0, the inequality (lambda−a)(c−lambda)>=0 gives R*=(a²+c²)/2 when a<0<c and mixed extreme eigenvector weights −a/(c−a) and c/(c−a), and endpoint solution when semidefinite. In A=diag(−3,0,2), one such mixed direction leaves zero variance, whereas leading A² eigenvector leaves variance 2. Independently compared spectral minmax against direct direction samples in 60 dense symmetric trials; no finite check proves universal optimization.
 
-## Prior-work limitations
-The explicit quadratic variance-reduction formula, the Gaussian conditioning method, convexity of maximum eigenvalues, and the Rayleigh variational principle are preexisting. The mathematical theorem concerns only exact one-direction Gaussian preintegration of affine quadratics. Novelty is assessed against the inspected sources and accessible claim records, not independently certified against all literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with qualification. Liu–Owen 2023 explicitly gives the affine-quadratic Sobol total-effect/variance-reduction expression in its Section 4, Proposition 4.2, so that objective is known. The new all-instance exact scalar convex spectral dual, complete optimizer and dual-gap certificate, and explicit indefinite-spectrum optimum were not identified in the inspected preintegration analysis. The spectral subgradient argument is a generic convex-analysis method and broader joint-numerical-range hidden convexity might imply its abstract form; distinguish the application from the method.
+
+## value
+
+PASS
+
+Choosing the variance-optimal preintegration direction instead of the natural leading active-subspace heuristic is a motivated numerical-integration decision, and the exact all-dimensional convex spectral dual with a constructive optimality certificate resolves it. The indefinite two-extreme mixture can remove all variance in a rank-two example where standard eigenvector selection cannot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

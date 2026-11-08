@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:46:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-convex-spectral-dual-for-optimal-gaussian-preintegration-o--b9a3ef83029f/RESULT.md",
+        "2026/11/02/exact-convex-spectral-dual-for-optimal-gaussian-preintegration-o--b9a3ef83029f/verify.py"
+      ],
+      "rationale": "For symmetric real A, b and X standard Gaussian, decomposing X=Y+Zv, independent, gives R(v)=v^T B v−0.5(v^TAv)^2 with B=A²+bb^T and exact remaining variance. Completing the square for any scalar t gives R(v)<=0.5t²+lambda_max(B−tA); the latter is strongly convex and coercive, hence has unique minimizer t*. Its eigenvalue subdifferential condition says t* belongs to the range of A Rayleigh quotients on the top eigenspace E*; continuity and extremal compression eigenvectors produce an attaining unit v, proving no dual gap even with eigenvalue multiplicities. Equality in both squares yields the exact two-term nonnegative gap. For b=0, the inequality (lambda−a)(c−lambda)>=0 gives R*=(a²+c²)/2 when a<0<c and mixed extreme eigenvector weights −a/(c−a) and c/(c−a), and endpoint solution when semidefinite. In A=diag(−3,0,2), one such mixed direction leaves zero variance, whereas leading A² eigenvector leaves variance 2. Independently compared spectral minmax against direct direction samples in 60 dense symmetric trials; no finite check proves universal optimization.",
+      "residual_risks": [
+        "The conditional projection is one exact Gaussian direction, fixed before sampling; not a global optimality claim for nonquadratic/non-Gaussian payoffs.",
+        "Repeated eigenvalues require forming v with the stated compressed Rayleigh quotient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convexity of joint numerical ranges is relevant proof technology but inspected abstract does not deliver Gaussian preintegration optimizer formulas.",
+          "Constrained active-subspace preintegration analyzes tractability constraints rather than this unconstrained exact global sphere optimum."
+        ],
+        "reasoning": "A broader variational eigenvalue theorem might dominate the dual algebra; relevant generic machinery is credited and unresolved explicit prior formula retained as risk.",
+        "searches": [
+          "Liu–Owen full PDF Section 4",
+          "Li–Poon Convexity of the Joint Numerical Range DOI 10.1137/S0895479898343516",
+          "Liu arXiv:2212.13232"
+        ]
+      },
+      "checked_sources": [
+        "published Resultary semantic query: optimal Gaussian preintegration quadratic integrand spectral dual maximize variance reduction active subspaces (12 inspected hits)",
+        "https://arxiv.org/pdf/2202.02682",
+        "https://arxiv.org/abs/2212.13232",
+        "https://doi.org/10.1137/S0895479898343516"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known expression R(v)=v^T Bv−0.5(v^TAv)^2 specifies the objective but leaves its maximizing unit vector undetermined.",
+          "Leading gradient-covariance eigenvector is a proxy and can leave variance 2 where the global optimizer gives zero."
+        ],
+        "reasoning": "An objective identity does not entail that the published algorithm has already established exact global spectral optimization, but convex principles may make the proof familiar.",
+        "searches": [
+          "Liu–Owen Proposition 4.2, active-subspace recommendation",
+          "Source global two-term optimality gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Owen already use this variance-reduction objective as a Sobol total-effect criterion.",
+          "The stated result solves its global sphere-constrained optimization exactly as a one-scalar maximum-eigenvalue convex dual; it is equivalent to a special two-matrix joint numerical range optimization."
+        ],
+        "reasoning": "Novelty must concern the exact application-level solution and certificates, not completion of squares or the preexisting objective formula.",
+        "searches": [
+          "published Resultary semantic query: optimal Gaussian preintegration quadratic integrand spectral dual maximize variance reduction active subspaces (12 inspected hits)",
+          "Liu–Owen arXiv:2202.02682 Prop.4.2",
+          "Search joint numerical range of two real symmetric quadratic forms minimax trust-region hidden convexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indefinite extreme-spectrum value 0.5(a²+c²), weights, and zero-variance A=diag(-3,0,2) counterexample are calculated symbolically.",
+          "Published nearest findings concern different quadratic optimization objectives; no matching preintegration closed-form table observed in 12 results."
+        ],
+        "reasoning": "This is a uniform all-dimensional optimizer formula, not just a small isolated numerical example; its 3d example does not establish originality alone.",
+        "searches": [
+          "published Resultary semantic query: optimal Gaussian preintegration quadratic integrand spectral dual maximize variance reduction active subspaces (12 inspected hits)",
+          "Liu–Owen quadratic examples and Prop4.2",
+          "Source RESULT.md rank-two example"
+        ]
+      },
+      "rationale": "PASS with qualification. Liu–Owen 2023 explicitly gives the affine-quadratic Sobol total-effect/variance-reduction expression in its Section 4, Proposition 4.2, so that objective is known. The new all-instance exact scalar convex spectral dual, complete optimizer and dual-gap certificate, and explicit indefinite-spectrum optimum were not identified in the inspected preintegration analysis. The spectral subgradient argument is a generic convex-analysis method and broader joint-numerical-range hidden convexity might imply its abstract form; distinguish the application from the method.",
+      "residual_risks": [
+        "General hidden-convexity/joint numerical range work could state a mathematically equivalent variational identity; source abstract insufficient for exhaustive historical comparison.",
+        "The variance reduction formula itself is known; priority only for the global exact optimization specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_OBJECTIVE_PRIOR_ONLY",
+          "evidence": [
+            "Section 4/Prop4.2 explicitly establishes R(v) formula, but inspected text does not optimize it via the claimed dual or give full multiplicity characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02682",
+          "material_read": "Full primary PDF relevant Section 4 and Proposition 4.2, formula and active-subspace prescription",
+          "method": "arXiv PDF page text and screenshot",
+          "title": "Pre-integration via Active Subspaces",
+          "trigger": "Exact Gaussian quadratic objective, same integrands"
+        },
+        {
+          "assessment": "DISTINCT_CONSTRAINED_OBJECTIVE",
+          "evidence": [
+            "Imposes feasible direction constraints for conditional QMC, while audited theorem takes unconstrained arbitrary real symmetric A,b."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.13232",
+          "material_read": "Preprint abstract and identified constrained-direction objective",
+          "method": "OA abstract and linked preprint material",
+          "title": "Conditional Quasi-Monte Carlo with Constrained Active Subspaces",
+          "trigger": "Potential optimized preintegration direction"
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_METHOD_ANTECEDENT",
+          "evidence": [
+            "Two quadratic-form joint numerical range convexity is a potential tool; same optimal-preintegration direction not verified from unread full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895479898343516",
+          "material_read": "Abstract and bibliographic summary, not complete article",
+          "method": "Publisher abstract",
+          "title": "Convexity of the Joint Numerical Range",
+          "trigger": "Broader hidden convexity may imply abstract extremal construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-convex-spectral-dual-for-optimal-gaussian-preintegration-o--b9a3ef83029f/RESULT.md",
+        "2026/11/02/exact-convex-spectral-dual-for-optimal-gaussian-preintegration-o--b9a3ef83029f/verify.py",
+        "published Resultary semantic query: optimal Gaussian preintegration quadratic integrand spectral dual maximize variance reduction active subspaces (12 inspected hits)",
+        "https://arxiv.org/pdf/2202.02682"
+      ],
+      "rationale": "Choosing the variance-optimal preintegration direction instead of the natural leading active-subspace heuristic is a motivated numerical-integration decision, and the exact all-dimensional convex spectral dual with a constructive optimality certificate resolves it. The indefinite two-extreme mixture can remove all variance in a rank-two example where standard eigenvector selection cannot.",
+      "residual_risks": [
+        "Utility is variance reduction, not all QMC performance/regularity criteria; exact Gaussian and quadratic hypotheses essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The conditional projection is one exact Gaussian direction, fixed before sampling; not a global optimality claim for nonquadratic/non-Gaussian payoffs.",
+    "Repeated eigenvalues require forming v with the stated compressed Rayleigh quotient.",
+    "General hidden-convexity/joint numerical range work could state a mathematically equivalent variational identity; source abstract insufficient for exhaustive historical comparison.",
+    "The variance reduction formula itself is known; priority only for the global exact optimization specialization.",
+    "Utility is variance reduction, not all QMC performance/regularity criteria; exact Gaussian and quadratic hypotheses essential."
+  ],
+  "schema_version": 1
+}
