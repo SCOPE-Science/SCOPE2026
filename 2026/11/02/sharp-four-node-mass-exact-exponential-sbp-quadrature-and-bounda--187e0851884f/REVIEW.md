@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every real \(\lambda>0\), the exact five-function quadrature requirement follows from the SBP bilinear identity plus mass calibration. The four-node symmetric formula follows from exact first and second moments of \(\cosh(\lambda X)\). Strict positivity and interior location follow from the strict bounded-variable variance identity, not sample tests. A nonnegative exponential-polynomial vanishing on any three closed nodes proves universal three-node impossibility. The explicit skew extension constructs the differentiation operator and proves sufficiency. Taylor and large-parameter estimates establish all limiting claims. The independent high-precision decimal verifier printed PASS for nine tested frequencies and four large-parameter asymptotic diagnostics; these checks are supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The general connection of FSBP matrices to positive quadratures and the generalized Gauss–Lobatto existence/minimality framework are **previously known**; this finding does not claim them. Relevant full primary HTML was examined: Haase–Winters–Glaubitz (arXiv:2610.30272v1, sections 1, 2.3 and 5), Hale–Harley–Nchupang–Nordström (arXiv:2604.23306v1, definition and Gauss–Lobatto theorem, example section), Bercik–Patrascu–Zingg (arXiv:2607.08934v1, moment representation theorem and exponential experiments), and Glaubitz–Haase–Öffner–Stafforst (arXiv:2607.13224v1, generalized Gaussian FSBP and exponential examples). Generic moment theory can be applied to the augmented five-function space and already entails an abstract minimum of four closed nodes; this implication is credited. The read sources do not state the exact mass-normalized two-sided exponential weight/node formulas, the quantified three-node mass excess, or their limiting logarithmic boundary-layer laws. Meaning-based mathematical research searches and claim-level comparisons with accessible research records found no direct duplicate. Broad historical exponential-fitting literature remains a nonzero priority risk, including a 2004 frequency-dependent-node paper examined at abstract level only; this does not certify uniqueness in the world's literature.
+PASS
 
-## Mathematical value — PASS
-The extra mass-calibration condition is a natural numerical-integration accuracy criterion, separate from the minimum FSBP derivative-product condition. It has a sharp structural cost of one additional node, provides an explicit positive quadrature and actual derivative matrix at every frequency, and yields the nonpolynomial logarithmic endpoint layer needed to benchmark steep exponential basis adaptation. The three-node unnormalized mass excess shows that the distinction is real and grows strongly at high frequency. This is a targeted exact construction and cutoff, not a general PDE solver or broad convergence result.
+Re-derived the necessary exactness on 1,e^{±lambda x},e^{±2lambda x} from the product-derivative SBP relation plus mass calibration. A nonnegative y^-2(y-e^-lambda)(e^lambda-y)(y-r)^2 provides a strict-integral obstruction for <=3 closed nodes. The induced cosh(lambda X) two-point moment distribution at c and t=m-v/(c-m) yields positive W and w, 0<a<1; all 5 moments and symmetric uniqueness follow. For four full-rank sample columns V, V^T(HV′-BV/2) is skew, and explicit skew extension S gives D=H^-1(B/2+S). Direct Taylor/large lambda expansions give a->1/sqrt5, W->1/6 and lambda(1-a)-log(2lambda)->0, lambda W->1/2. Independently recomputed moments and a skew extension for lambda=.1,.5,1,3,8.
 
-## Closest literature and limitations
-The closest direct umbrella results are arXiv:2604.23306v1 and arXiv:2610.30272v1. Some general existence statements can be recovered through abstract moment theory; those statements are not newly asserted. The contribution is the mass-calibrated explicit classification and sharp scale laws. The proof is exact arithmetic; matrix-conditioning at extreme frequencies and external mathematical priority confirmation remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Abstract four-node cutoff and quadrature-to-FSBP relation follow general function-space Gauss–Lobatto theorems and are expressly prior, not an original principle. The specific symmetric mass-calibrated formulas, quantified three-node excess, and logarithmic layer were not in inspected primary sources. Historical exponential-fitting node formulas remain a priority risk.
+
+## value
+
+PASS
+
+Physical mass calibration is a natural extra integration constraint, and its exact structural cost of one closed node is meaningful. The explicit positive scheme and sharp endpoint-layer law are useful analytic benchmarks for exponential FSBP discretizations without asserting PDE stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

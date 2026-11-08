@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-## Reproduction
-Extract `verify.py` from the same record and run `python verify.py` with Python 3.11+ and the standard library. The program uses 95-digit `decimal` arithmetic, reconstructs the symmetric nodes/weights, evaluates all five moment conditions on nine scale parameters, solves the six-coefficient skew matrix extension system afresh on each, checks the exact differentiated basis and SBP matrix identity, tests positivity and mass discrepancy of the separate three-node derivative-product quadrature, then reports four large-frequency endpoint-layer diagnostics.
+# Independent mathematical audit
 
-An executed run produced `PASS: exact-exponential moments, positive weights, four-point SBP matrices, three-point mass defect, asymptotic trends`. Across the nine frequencies the maximum displayed relative moment discrepancy was below \(2\times10^{-94}\); the skew-system residuals were below \(2\times10^{-90}\). Finite numerical computations cannot prove the theorem for all \(\lambda>0\); its proof is in `RESULT.md`.
+## correctness
 
-## Exact proof components
-The nonnegative exponential-polynomial witness proves the no-three-node claim for every interior node position, with or without positive weights. The strict variance identity guarantees the formulas are admissible for every real \(\lambda>0\); first/second moment matching establishes exactness, and the constructed skew extension establishes the FSBP matrix property. The endpoint-layer coefficient is obtained analytically from the leading hyperbolic moments, not estimated by finite regression.
+PASS
 
-## Limits
-No external or independent audit has been performed. The checks do not certify numerical conditioning, arbitrary precision implementations, unknown prior art, or broader PDE behavior.
+Re-derived the necessary exactness on 1,e^{±lambda x},e^{±2lambda x} from the product-derivative SBP relation plus mass calibration. A nonnegative y^-2(y-e^-lambda)(e^lambda-y)(y-r)^2 provides a strict-integral obstruction for <=3 closed nodes. The induced cosh(lambda X) two-point moment distribution at c and t=m-v/(c-m) yields positive W and w, 0<a<1; all 5 moments and symmetric uniqueness follow. For four full-rank sample columns V, V^T(HV′-BV/2) is skew, and explicit skew extension S gives D=H^-1(B/2+S). Direct Taylor/large lambda expansions give a->1/sqrt5, W->1/6 and lambda(1-a)-log(2lambda)->0, lambda W->1/2. Independently recomputed moments and a skew extension for lambda=.1,.5,1,3,8.
+
+## originality
+
+PASS
+
+Abstract four-node cutoff and quadrature-to-FSBP relation follow general function-space Gauss–Lobatto theorems and are expressly prior, not an original principle. The specific symmetric mass-calibrated formulas, quantified three-node excess, and logarithmic layer were not in inspected primary sources. Historical exponential-fitting node formulas remain a priority risk.
+
+## value
+
+PASS
+
+Physical mass calibration is a natural extra integration constraint, and its exact structural cost of one closed node is meaningful. The explicit positive scheme and sharp endpoint-layer law are useful analytic benchmarks for exponential FSBP discretizations without asserting PDE stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
