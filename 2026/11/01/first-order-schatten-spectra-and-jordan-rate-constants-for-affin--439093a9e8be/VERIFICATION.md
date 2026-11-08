@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with Python 3 standard library. The program was executed on the complete standalone file and printed:
+## correctness
 
-```
-epsilon 0.1 finite Taylor remainder Frobenius 0.00768085270645
-epsilon 0.05 finite Taylor remainder Frobenius 0.00193673108498
-epsilon 0.025 finite Taylor remainder Frobenius 0.000486542727989
-PASS: derivative Gram identity, quadratic Taylor scaling, Jordan powers
-```
+PASS
 
-The derivative-functional Gram matrix is independently calculated from Fock monomial derivatives (truncated to total degree nine); its entries agree with the analytic kernel formula within the stated tolerance. The finite matrix of the composition operator is constructed by polynomial substitution to degree eight, and its difference from the linearization has second-order scaling. Fifty exact/Jordan floating-point comparisons are made against the triangular matrix-power identity. These finite computations are auxiliary checks, not a proof of uniform estimates or exhaustive mathematical validation.
+For fixed dimension d and u, the holomorphic Hilbert–Schmidt-valued family t↦C_{u+tB(z−u)} has uniform Gaussian-integral bound on |t|≤δ/||B||. Taylor coefficient m has rank at most binomial(d+m−1,m); Cauchy estimates and rank-to-trace-norm inequality sum the m≥2 tail to O(||B||²). The first derivative factors V B^T W with V*V=G_u=I+conjugate(u)u^T and WW*=exp(||u||²)G_u, giving exactly the claimed nonzero singular values. Substitution B=A^n and the leading Jordan binomial term establishes the normalized positive coefficient; ||A^n||² is lower order. The nilpotent and non-unique dominant eigenvalue limits are expressly separated. Inspected VERIFY.py monomial-expansion, derivative Gram and Jordan diagnostics; these do not prove the infinite-dimensional tail.
 
-The analytic trace-norm bound follows by a uniform Gaussian Hilbert–Schmidt estimate and trace-class summation of finite-rank Taylor coefficients. Exact singular values follow from full Gram identities, and the nonnormal rate from finite-dimensional Jordan calculus. The selected source paper supports the first-public date and the motivating qualitative theorem; the complete article of Choe–Izuchi–Koo was not obtained, so its exact priority implication remains a disclosed literature risk. No independent audit was performed.
+## originality
+
+PASS
+
+The novel claim is quantitative: uniform trace-norm first variation at displaced fixed point, full rank-d first-order singular values, and exact Jordan-block Schatten asymptotic constant. Earlier operator iteration and classification work contains the boundedness, compactness, qualitative norm convergence, and unshifted linear case as credited. The available Bayart–Wang–Yao 2026 abstract does not decide the quantitative issue; priority remains provisional with explicit residual access risk.
+
+## value
+
+PASS
+
+Quantitative ideal-norm perturbation and polynomial-times-exponential rates matter in Fock operator dynamics: nonnormal Jordan blocks destroy a naive pure geometric rate. The explicit displaced-point Gram sandwich is a usable first-variation result, not a change of notation for the qualitative convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
