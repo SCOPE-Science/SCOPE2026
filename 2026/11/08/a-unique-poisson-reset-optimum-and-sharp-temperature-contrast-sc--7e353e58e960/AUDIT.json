@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "All q in (0,1) are covered. Exact OU variance and centered-Gaussian Jeffreys formula yield the integral. The derivative of the divergence has one positive-to-negative sign change; a strictly monotone Laplace positive/negative ratio forces exactly one frequency maximum. Uniform rational Laplace bounds give q->1, and a dominated-convergence expansion with the derivative zero condition gives q->0 and the sharp second-order maximum. The extracted mpmath verifier passed 36 representative numerical checks, without being treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mori–Olsen–Krishnamurthy 2023 studies total stochastic entropy for Gaussian random resets; even where the reset mechanism overlaps, its rate uses a different state/trajectory functional",
+        "Gupta–Olsen–Krishnamurthy 2025 studies work cost for trap-control protocols, not the specified conditional Gaussian endpoint Jeffreys rate",
+        "Earlier renewal-envelope claims optimize waiting distributions at fixed mean but do not establish Poisson k-optimizer uniqueness."
+      ],
+      "reasoning": "A theorem on all-mean renewal envelopes would cover a frequency optimum only if it supplied a restriction to the exponential subfamily and showed single-peakedness across its means; the compared statements give no such implication. Multiscale two-peak examples demonstrate that their dimension-two result is not an all-dimensional no-peak theorem. Generic Laplace variation-diminishing theory might streamline the proof but was not found giving this exact family and both sharp asymptotic coefficients.",
+      "searches": [
+        "\"Poisson resetting Ornstein Uhlenbeck Gaussian reset variance symmetric Kullback Leibler entropy production rate exactly one optimal reset rate nonmonotonic unique maximum\"",
+        "\"resetting heat engine\" \"optimal resetting rate\" Poisson finite width",
+        "https://doi.org/10.1103/PhysRevResearch.5.023103",
+        "https://www.nature.com/articles/s42005-025-02277-w"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.28445",
+      "https://doi.org/10.1103/PhysRevResearch.5.023103",
+      "https://www.nature.com/articles/s42005-025-02277-w",
+      "https://arxiv.org/abs/2502.06014",
+      "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.5.023103"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Farago 2026 equation 19 assumes a small-temperature and rate-restricted approximation; the exact optimum occurs at dimensionless k diverging as q decreases, outside the formula’s high-frequency validity",
+        "Mori 2023 and Gupta et al. 2025 concern different thermodynamic costs and cannot be substituted without proving equality of observables",
+        "The previously derived exact one-scale fixed-mean renewal bound and two-scale double-peak example are distinct statements, not stronger global Poisson frequency uniqueness claims."
+      ],
+      "reasoning": "The candidate keeps the source’s Gaussian endpoint quantity but optimizes its exact Poisson renewal-clock dependence over all r, proving precisely one maximizer. Fixed-mean renewal optimization quantifies over laws at a fixed mean; it does not imply how a particular exponential law behaves when the mean varies. A multidimensional two-peak construction is consistent with and contextualizes the strict one-scale theorem.",
+      "searches": [
+        "https://arxiv.org/abs/2605.28445",
+        "https://www.nature.com/articles/s42005-025-02277-w",
+        "https://doi.org/10.1103/PhysRevResearch.5.023103",
+        "\"Symmetrized Kullback Leibler divergence Gaussian Ornstein Uhlenbeck resetting Poisson rate unique optimum width contrast\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2605.28445 Sections II.1–II.3, especially equations 10–11 and 17–19; a Gaussian Jeffreys reward and its approximate frequency average are present",
+        "Finite-width conditional Jeffreys reward is not the stationary-mixture Jeffreys divergence or the stochastic path entropy of https://doi.org/10.1103/PhysRevResearch.5.023103"
+      ],
+      "reasoning": "The theorem is invariant under changing the OU time unit to k=r/(2lambda), and under reciprocal variance parameterization b=(1-q)/q. Published near-teleportation scaling is not a theorem covering q in (0,1) and all k; replacing the exact Gaussian variance u_q by its leading 1/q approximation removes the high-frequency decay that creates the optimum.",
+      "searches": [
+        "\"resetting heat engine harmonic Gaussian endpoint KL optimal frequency renewal Poisson unimodality\"",
+        "\"Poisson\" \"symmetrized KL\" \"Ornstein Uhlenbeck\" resetting optimal",
+        "https://arxiv.org/abs/2605.28445"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper contains Gaussian endpoint formulas and limited Poisson approximations, but no exact finite-width optimizer table.",
+        "Searches of published mathematical-record abstracts surfaced no exact q-dependent maximizer or its inverse-square-root asymptotic; this absence is evidence-limited, not proof of nonexistence."
+      ],
+      "reasoning": "The output is an infinite-parameter all-q sign theorem and asymptotic crossover, not an isolated computed table entry. No corresponding previously tabulated exact invariant was identified in checked material.",
+      "searches": [
+        "\"Poisson resetting Ornstein Uhlenbeck Gaussian reset variance symmetric Kullback Leibler entropy production rate exactly one optimal reset rate nonmonotonic unique maximum\"",
+        "\"resetting heat engine harmonic Gaussian endpoint KL optimal frequency renewal Poisson unimodality\"",
+        "\"Symmetrized Kullback Leibler divergence Gaussian Ornstein Uhlenbeck resetting Poisson rate unique optimum width contrast\"",
+        "\"arxiv 2605.28445\" \"optimal reset\" \"temperature ratio\""
+      ]
+    },
+    "rationale": "The 2026 primary paper supplies the finite-width Gaussian endpoint formula and a limited high-width-contrast approximate Poisson expression, but does not prove one optimum for all 0<q<1 or its r~q^(-1/2) singular-width behavior. Exact implication comparisons with relevant renewal-clock and multiscale previous mathematical results show their fixed-mean or two-scale statements neither assert nor entail the one-scale Poisson cadence theorem. Publication priority is qualified by unlocated generic Laplace-transform results and potential later extensions.",
+    "residual_risks": [
+      "A general Laplace-transform variation-diminishing result may subsume the uniqueness argument, but the specific peak-height and optimal-frequency small-q asymptotics were not identified there.",
+      "Only accessible full text and selected high-relevance sections of some broader thermodynamic papers were compared; uninspected appendices or later versions could affect priority.",
+      "The endpoint divergence must not be conflated with actual protocol entropy production, for which this optimum need not apply."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the endpoint formula and approximate Poisson clock, but not a finite-q unique maximizer or small-width optimal rate scale.",
+        "evidence": [
+          "https://arxiv.org/abs/2605.28445 equations 10,11,17–19; Section II.3 states approximate formula is inapplicable in fast-reset regime."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.28445",
+        "material_read": "Available full article text; Section II.1 Gaussian evolution, Section II.2 entropy comparison, Section II.3 harmonic endpoint formula and Poisson approximation, Section III summary",
+        "method": "Full-text article opened and inspected by formulas and discussion including equations 4–5, 10–11, and 17–19",
+        "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+        "trigger": "Same model, Gaussian endpoint divergence, Poisson resetting rate"
+      },
+      {
+        "assessment": "The entropy definition concerns trajectory/stationary reset probability measures; not the conditional per-cycle Gaussian Jeffreys reward maximized here.",
+        "evidence": [
+          "https://doi.org/10.1103/PhysRevResearch.5.023103 general reset entropy and Gaussian reset PDF sections."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.5.023103",
+        "material_read": "Open-access publisher PDF, abstract and sections on stochastic entropy definition, Gaussian reset law and general average entropy; selected relevant formula sections inspected",
+        "method": "Accessible PDF text and page image inspected, then implication against conditional-endpoint objective compared",
+        "title": "Entropy production of resetting processes",
+        "trigger": "Gaussian reset laws and an overarching entropy-production calculation"
+      },
+      {
+        "assessment": "Work of finite-time trap switching and protocol optimization, not the exact conditional endpoint Jeffreys cadence objective.",
+        "evidence": [
+          "https://www.nature.com/articles/s42005-025-02277-w abstract, introduction and results overview."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s42005-025-02277-w",
+        "material_read": "Public article abstract, introduction, model and results overview",
+        "method": "Publisher HTML and publicly available arXiv description inspected",
+        "title": "Thermodynamic Cost of Recurrent Erasure",
+        "trigger": "Same Gaussian reset implementation class with physical work calculations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e353e58-e960-4550-ba6c-5fe847b4d1a2",
+  "value": {
+    "rationale": "The finite-width cutoff is physically meaningful and the source’s small-width rate approximation excludes the fast-reset regime where the optimum actually sits. Strict one-scale uniqueness separates the system from established multidimensional multi-peak behavior and gives experimentally distinguishable inverse-square-root optimal-frequency and two-term peak-height laws.",
+    "status": "PASS"
+  }
+}
