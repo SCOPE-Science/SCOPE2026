@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` using the Python standard library. In the reviewed environment the program returned:
+## correctness
 
-```
-PASS: 255 exact-fraction identities and 4032 independent numerical comparisons
-```
+PASS
 
-The exact checks verify the two-dimensional block's trace and determinant, the proposed minimizing scales, the condition-number values at three rational sample couplings, and equality of both branches at many rational critical parameters. The floating-point comparisons independently evaluate the two roots of the coupled block and compare the proposed optimum to 4,032 alternative scales over several SPD parameter sets. They are diagnostics, not an exhaustive certification of all real parameters.
+A=diag(a,b,c), a>b>c>0, E=(e1e2^T+e2e1^T)/sqrt(2), d=t/sqrt(2a) in (0,sqrt(b)). The scaled SPD matrix is direct sum of c and a 2x2 symmetric block [[theta,d sqrt(theta)],[d sqrt(theta),b]]. Its eigenvalues Lpm=(theta+b ± sqrt((theta-b)^2+4d²theta))/2. Since L+>b>c and L- is strictly increasing, κ=L+/min(c,L-). The within-block ratio L+/L- is strictly minimized at theta=b by AM–GM; the c-crossing theta0=c(b-c)/(b-c-d²) is before b precisely when d≤(b-c)/sqrt(b). Global monotonic branches yield unique theta*=theta0 below threshold, b above; values b/c+d²/(b-c-d²) and (sqrt(b)+d)/(sqrt(b)-d). At t=0 theta in [c,b] all minimize, so uniqueness exclusion is essential. I independently computed full eigenspectrum and checked prescribed optimizers against 801 log-spaced alternatives in each of 16 parameter cases, and traced the exact analytic proof; finite samples are not the continuum proof.
 
-The proof in `RESULT.md`, not finite enumeration, establishes positivity, monotonicity, the unique global optimizer, and the limiting expansion. The assumptions \(a>b>c>0\) and \(0<t<\sqrt{2ab}\) are essential; the uniqueness claim excludes the unperturbed endpoint. The result concerns spectral condition number only, not finite-iteration convergence or an independent audit.
+## originality
+
+PASS
+
+PASS qualified. The motivating Diouane–Gürol–Mouhtal–Orban 2026 article studies this recycled spectral scaling framework but its inspected Section 3.3 works with a fixed separation of selected placements from untouched eigenvalues and uses eigenpair asymptotics/energy-error bounds. The closed global all-positive-theta condition-number minimizer here approaches and then reaches untouched modes. General optimal diagonal preconditioning algorithms and older spectral sensitivity theory do not state the specific two-branch symbolic theorem in inspected sections. A specialized older arrowhead/2x2-congruence theorem could imply it; priority is not certified.
+
+## value
+
+PASS
+
+The smallest SPD spectral recycling model with one selected and two untouched eigenmodes has an exact nontrivial optimizer crossover at one explicit perturbation threshold. The quadratic approach to a nominally excluded eigenvalue tests limits of fixed-gap perturbative scaling recommendations. This is a motivated sharp structural diagnostic, not a claimed general PCG iteration speedup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

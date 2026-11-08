@@ -1,29 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact symmetric preconditioned matrix has a positive definite coupled \(2\times2\) block for \(0<d<\sqrt b\) and an untouched eigenvalue \(c\). Its eigenvalues are obtained by a quadratic identity. The ratio of the two coupled eigenvalues is strictly minimized at \(\theta=b\) by AM–GM. The lower eigenvalue increases monotonically and crosses the untouched value at precisely \(\theta=c(b-c)/(b-c-d^2)\), when that crossing exists. Comparing its location against \(\theta=b\) proves both global branches and uniqueness for positive perturbations. The analytic argument establishes the continuum theorem; 255 exact-fraction identities and 4,032 numerical comparisons independently check the algebra and representative cases.
+PASS
 
-## Originality — PASS, subject to historical-priority limitations
+A=diag(a,b,c), a>b>c>0, E=(e1e2^T+e2e1^T)/sqrt(2), d=t/sqrt(2a) in (0,sqrt(b)). The scaled SPD matrix is direct sum of c and a 2x2 symmetric block [[theta,d sqrt(theta)],[d sqrt(theta),b]]. Its eigenvalues Lpm=(theta+b ± sqrt((theta-b)^2+4d²theta))/2. Since L+>b>c and L- is strictly increasing, κ=L+/min(c,L-). The within-block ratio L+/L- is strictly minimized at theta=b by AM–GM; the c-crossing theta0=c(b-c)/(b-c-d²) is before b precisely when d≤(b-c)/sqrt(b). Global monotonic branches yield unique theta*=theta0 below threshold, b above; values b/c+d²/(b-c-d²) and (sqrt(b)+d)/(sqrt(b)-d). At t=0 theta in [c,b] all minimize, so uniqueness exclusion is essential. I independently computed full eigenspectrum and checked prescribed optimizers against 801 log-spaced alternatives in each of 16 parameter cases, and traced the exact analytic proof; finite samples are not the continuum proof.
 
-The closest motivating study [1] considers recycled scaled spectral preconditioning for perturbed SPD systems, but its Section 3.3 works in a fixed-separated-scaling regime and proves eigenpair sensitivity estimates and energy-error comparisons; it does not provide the explicit all-positive-scaling condition-number optimum for this three-mode off-diagonal perturbation. The predecessor studies [2,3] address choice of cluster placement for finite-iteration CG; [4] studies approximate-eigenpair sensitivity to first order; [5] gives general algorithmic procedures for diagonal-preconditioning optimization but not the explicit collision threshold. The claim does not assert that diagonal scaling, the quadratic eigenvalue formula or general condition-number optimization is new. A specialized older matrix-scaling result could imply it, so the source comparison is qualified rather than a proof of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The object is the smallest SPD example with one recycled direction and two competing untouched eigenvalues: fewer than three modes cannot exhibit an optimizer changing its collision target from one untouched mode to another. The theorem replaces a heuristic scaling choice with an exact global parameter rule. In particular, the optimal scale escapes the fixed-eigenvalue-gap regime of the motivating perturbation theory at quadratic order and reaches exact coincidence with another untouched eigenvalue at a finite, explicit threshold. This supplies a concrete calibration and limitation for spectral recycling; it does not claim a general CG iteration-count improvement.
+PASS qualified. The motivating Diouane–Gürol–Mouhtal–Orban 2026 article studies this recycled spectral scaling framework but its inspected Section 3.3 works with a fixed separation of selected placements from untouched eigenvalues and uses eigenpair asymptotics/energy-error bounds. The closed global all-positive-theta condition-number minimizer here approaches and then reaches untouched modes. General optimal diagonal preconditioning algorithms and older spectral sensitivity theory do not state the specific two-branch symbolic theorem in inspected sections. A specialized older arrowhead/2x2-congruence theorem could imply it; priority is not certified.
 
-## Closest literature and limitations
+## value
 
-[1] Diouane, Gürol, Mouhtal, Orban, *Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems* (2026), arXiv:2610.28808v1, Sections 3.3 and 4, https://arxiv.org/html/2610.28808v1 .
+PASS
 
-[2] Same authors, *A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget* (2026), arXiv:2603.28969, https://arxiv.org/abs/2603.28969 .
+The smallest SPD spectral recycling model with one selected and two untouched eigenmodes has an exact nontrivial optimizer crossover at one explicit perturbation threshold. The quadratic approach to a nominally excluded eigenvalue tests limits of fixed-gap perturbative scaling recommendations. This is a motivated sharp structural diagnostic, not a claimed general PCG iteration speedup.
 
-[3] Same authors, *An Efficient Scaled Spectral Preconditioner for Sequences of Symmetric Positive Definite Linear Systems* (2024), arXiv:2410.02204, https://arxiv.org/abs/2410.02204 .
-
-[4] Giraud and Gratton, *On the Sensitivity of Some Spectral Preconditioners* (2006), doi:10.1137/040617546 .
-
-[5] Qu et al., *Optimal Diagonal Preconditioning* (2022), arXiv:2209.00809 .
-
-Only the special three-dimensional SPD family with one coupling and one adjustable recycled scale is proved. Historical-priority searches are not exhaustive. No independent verification has been undertaken.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

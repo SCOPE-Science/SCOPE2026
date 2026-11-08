@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:58:50.233982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A=diag(a,b,c), a>b>c>0, E=(e1e2^T+e2e1^T)/sqrt(2), d=t/sqrt(2a) in (0,sqrt(b)). The scaled SPD matrix is direct sum of c and a 2x2 symmetric block [[theta,d sqrt(theta)],[d sqrt(theta),b]]. Its eigenvalues Lpm=(theta+b ± sqrt((theta-b)^2+4d²theta))/2. Since L+>b>c and L- is strictly increasing, κ=L+/min(c,L-). The within-block ratio L+/L- is strictly minimized at theta=b by AM–GM; the c-crossing theta0=c(b-c)/(b-c-d²) is before b precisely when d≤(b-c)/sqrt(b). Global monotonic branches yield unique theta*=theta0 below threshold, b above; values b/c+d²/(b-c-d²) and (sqrt(b)+d)/(sqrt(b)-d). At t=0 theta in [c,b] all minimize, so uniqueness exclusion is essential. I independently computed full eigenspectrum and checked prescribed optimizers against 801 log-spaced alternatives in each of 16 parameter cases, and traced the exact analytic proof; finite samples are not the continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diouane et al. imposes fixed eigenvalue separation for perturbative estimates, violated as theta* tends to c and equals b.",
+          "Generic scaling algorithms permit computation but do not state the exact threshold or analytic two-branch formula."
+        ],
+        "reasoning": "Broader algorithmic frameworks are not automatic implication of this exact closed theorem: objective and fixed-gap hypotheses differ.",
+        "searches": [
+          "Diouane et al. 2026 arxiv:2610.28808v1 Section 3.3",
+          "arxiv:2603.28969 PCG iteration budget",
+          "arxiv:2209.00809 optimal diagonal preconditioning"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.28808v1",
+        "https://arxiv.org/abs/2603.28969",
+        "https://arxiv.org/abs/2410.02204",
+        "https://arxiv.org/abs/2209.00809",
+        "https://doi.org/10.1137/040617546",
+        "Resultary semantic query: scaled spectral preconditioner one off-diagonal symmetric 3x3 perturbation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-order eigenpair sensitivity estimates do not prove finite-t global condition-number minimization.",
+          "The theorem’s theta* hits an excluded untouched eigenvalue, so fixed-gap approximations cannot imply that branch."
+        ],
+        "reasoning": "Existing objective-specific criteria neither assert this exact branch nor specialize by simple parameter replacement to it; a broader unlocated theorem could still subsume it.",
+        "searches": [
+          "Diouane et al. 2026 Section 3.3 eigenvalue perturbation and scaling",
+          "Giraud Gratton 2006 eigenpair sensitivity preconditioners",
+          "Qu et al. 2022 diagonal preconditioning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective reduces to min_theta L+(theta)/min(c,L-(theta)), not merely preconditioner eigenpair expansions.",
+          "Qu et al. 2022 addresses general diagonal preconditioning algorithms rather than the displayed threshold."
+        ],
+        "reasoning": "An equivalent 2x2 block with a fixed isolated eigenvalue was considered in searches; no exact older branch/collision formula was identified.",
+        "searches": [
+          "three-mode SPD diagonal congruence scaling single off diagonal eigenvalue crossing",
+          "recycled spectral preconditioning condition number exact optimal scale theta",
+          "arrowhead matrix two by two plus scalar optimal rescaling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary results concern Richardson/Jacobi/CG other optimality criteria, not this theta*(d) crossover."
+        ],
+        "reasoning": "The claim is a continuum formula, not an entry in an exact numeric matrix table; lack of a hit is a residual limitation.",
+        "searches": [
+          "Resultary semantic exact spectral scaling crossover single coupling 3x3",
+          "spectral preconditioning exact 3x3 off diagonal condition number minimizer table"
+        ]
+      },
+      "rationale": "PASS qualified. The motivating Diouane–Gürol–Mouhtal–Orban 2026 article studies this recycled spectral scaling framework but its inspected Section 3.3 works with a fixed separation of selected placements from untouched eigenvalues and uses eigenpair asymptotics/energy-error bounds. The closed global all-positive-theta condition-number minimizer here approaches and then reaches untouched modes. General optimal diagonal preconditioning algorithms and older spectral sensitivity theory do not state the specific two-branch symbolic theorem in inspected sections. A specialized older arrowhead/2x2-congruence theorem could imply it; priority is not certified.",
+      "residual_risks": [
+        "Specialized pre-2026 SPD arrowhead diagonal-congruence scaling literature could imply the branch formula.",
+        "No claim of finite-step PCG improvement; the exact theorem is only condition number for one specified coupling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different perturbative objective and excluded optimizer branch",
+          "evidence": [
+            "Section 3.3 separation condition and PCG energy measures"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.28808v1",
+          "material_read": "Accessible full arXiv HTML, especially Section 3.3 assumptions and related Section 4 outcomes",
+          "method": "Compared chosen preconditioner, fixed-gap hypotheses, and objective",
+          "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+          "trigger": "Direct same spectral recycling framework"
+        },
+        {
+          "assessment": "Finite-step energy-error optimization differs from spectral condition number",
+          "evidence": [
+            "arXiv:2603.28969, statement and Sections 3–4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.28969",
+          "material_read": "Public arXiv main results and energy-error objective",
+          "method": "Compared relevant optimization variable and output",
+          "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+          "trigger": "Predecessor spectral cluster placement"
+        },
+        {
+          "assessment": "General scaling algorithms may compute instances but do not in inspected material present this explicit collision law",
+          "evidence": [
+            "arXiv:2209.00809, diagonal preconditioning scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+          "material_read": "Public article metadata and abstract and relevant algorithmic statement, not full theorem-by-theorem proof",
+          "method": "Compared general computability with exact closed form",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "Potential dominating generic matrix-scaling result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest SPD spectral recycling model with one selected and two untouched eigenmodes has an exact nontrivial optimizer crossover at one explicit perturbation threshold. The quadratic approach to a nominally excluded eigenvalue tests limits of fixed-gap perturbative scaling recommendations. This is a motivated sharp structural diagnostic, not a claimed general PCG iteration speedup.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.28808v1",
+    "https://arxiv.org/abs/2603.28969",
+    "https://arxiv.org/abs/2410.02204",
+    "https://arxiv.org/abs/2209.00809",
+    "https://doi.org/10.1137/040617546",
+    "Resultary semantic query: scaled spectral preconditioner one off-diagonal symmetric 3x3 perturbation"
+  ],
+  "disposition": "passed",
+  "limitations": "Real symmetric SPD dimension 3, single e1–e2 off-diagonal coupling and one fixed recycled eigenvector, θ>0; excludes t=0 uniqueness and finite-iteration PCG error.",
+  "residual_risks": [
+    "Specialized pre-2026 SPD arrowhead diagonal-congruence scaling literature could imply the branch formula.",
+    "No claim of finite-step PCG improvement; the exact theorem is only condition number for one specified coupling."
+  ],
+  "schema_version": 1
+}
