@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All maximal geodesics are 3-vertex L paths in diameter-two R_n. A full packing has n paths, one pivot and one wing in each column. This forces a fixed-point-free permutation of columns and an adjacent-distinct 3-row coloring; the inverse constructs a unique path per pivot, partitions vertices, and proves the bound sharp. Cycle-coloring counts 2^ell+2(-1)^ell and exponential permutation formula gives exact EGF, with verified partial fractions. Independently implemented BFS, exact-cover search and permutation enumeration match every cycle-count coefficient for n=2..7 (total 6,12,216,1440,22320,272160); no finite test is treated as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manuel–Brešar–Klavžar, Lemma 2.3 and Proposition 2.6: general upper bound; square rook transversal rather than maximum packing enumeration",
+        "Iršič–Klavžar–Rus–Tuite (2024) Section 3: vertex general-position polynomial for Cartesian products, not geodesic path packings",
+        "Published results on rook-graph cut complexes and mobile general position analyze other set systems."
+      ],
+      "reasoning": "The present exact characterization and cycle-refined bijection strictly strengthens the 2022 bound for the specified three-row rook family, without contradicting its general result. The identified vertex-position and topology papers address different invariants and do not imply the claimed packing bijection. Other two-row line-graph path packings do not directly imply the stated three-row geometry.",
+      "searches": [
+        "https://arxiv.org/html/2210.15325v3 (whole document)",
+        "Web search: \"K_3\" \"K_n\" \"path packing\" \"perfect\" rook",
+        "Published-record search: rook graph K_3 Cartesian K_n geodesic packing perfect path packing number of maximum geodesic packings derangements chromatic cycle",
+        "Published-record search: geodesic transversal rook graphs maximal geodesics P3-free subsets"
+      ]
+    },
+    "checked_sources": [
+      "Manuel–Brešar–Klavžar, Geodesic packing in graphs, arXiv:2210.15325v3 (complete accessible HTML)",
+      "OEIS A137946 (complete displayed entry, formulas, coefficient triangle and row sums)",
+      "Iršič–Klavžar–Rus–Tuite, General Position Polynomials, DOI 10.1007/s00025-024-02133-3 (open publisher article)",
+      "Published research on integral homology of rook-graph three-cut complexes and geodesic-subpath numbers of bicliques with a deleted matching (different invariants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Geodesic packing in graphs provides upper bounds for Cartesian rook graphs but not the inverse permutation–proper-coloring construction",
+        "OEIS produces the identical coefficients from the characteristic polynomial of K_3 but states no graph-geodesic packing object",
+        "General Position Polynomials counts subsets avoiding geodesic triples, not disjoint families of geodesics"
+      ],
+      "reasoning": "The bound plus known OEIS array does not itself logically identify the geometric extremizers or give a bijection; the inverse geometric construction is proved directly. The equality of numeric generating series is inherited as a known identity and cannot support independent numerical originality.",
+      "searches": [
+        "https://arxiv.org/html/2210.15325v3",
+        "https://oeis.org/A137946",
+        "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+        "Published-record search: general position polynomial Cartesian product complete graphs row column stars enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2210.15325v3 Section 2 establishes the rook-graph upper bound only, while the square rook computation concerns the geodesic transversal",
+        "OEIS A137946 gives exactly the same polynomial coefficient array via a K_3 characteristic-polynomial Sheffer expansion, but does not formulate a maximal-geodesic packing bijection",
+        "Exact-cover packing converts to perfect induced three-vertex L-path tiling in the line graph of K_{3,n}"
+      ],
+      "reasoning": "The graph problem is equivalent to perfect vertex-disjoint induced P3 tilings of a three-row rook graph, and its cycle-refined solution maps bijectively to three-colored derangements. Matching the entire OEIS triangle establishes prior numerical coverage, not the presence of the graph-geodesic correspondence; the novelty claim is narrowed to that combinatorial structural interpretation.",
+      "searches": [
+        "Web search: \"rook graph\" \"P3 packing\" \"perfect\" n 3",
+        "Web search: \"rook graph\" \"geodesic packing\" \"derangements\" colorings",
+        "https://oeis.org/A137946",
+        "https://arxiv.org/html/2210.15325v3",
+        "Published-record search: perfect geodesic packings of three-row rook graphs K_3 □ K_n complete disjoint length-two shortest paths tilings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A137946 displays row n=4 (0,108,108), n=5 (0,720,720), n=6 (0,7920,11160,3240), and n=7 (0,90720,136080,45360)",
+        "OEIS generating series contains (1-3t²-2t³)^(-x), equal to ((1-2t)(1+t)²)^(-x) after factoring"
+      ],
+      "reasoning": "The complete numerical answer and generating-function identity already exist and are expressly not claimed as new. The precise claim being reviewed is an exact new mapping from maximum geodesic packings to these coefficients, so numerical coincidence has been fully disclosed. An existing graph interpretation of that database sequence would cover the claimed new content; the searched entry describes a K_3 matrix/Sheffer construction instead.",
+      "searches": [
+        "https://oeis.org/A137946 (displayed coefficient triangle and row sums)",
+        "https://oeis.org/A137946 (formula and polynomial) ",
+        "Published-record search: perfect geodesic packings of three-row rook graphs K_3 □ K_n complete disjoint length-two shortest paths tilings"
+      ]
+    },
+    "rationale": "The 2022 primary paper only bounds the rook-graph packing number and solves a different transversal problem. OEIS A137946 entirely covers the coefficient sequence/EGF, acknowledged and excluded from novelty. The surviving claim is an explicit graph-geodesic bijection for perfect rook-graph packing; its inverse and uniqueness do not follow as statements from the numerical OEIS formula alone. Full relevant primary text and source/table were inspected, and accessible research searches found no matching graph-geodesic interpretation. Remaining possibility of an older equivalent perfect P3 decomposition is a genuine priority risk.",
+    "residual_risks": [
+      "OEIS A137946 already contains the full numerical triangle and equivalent analytic EGF; only the graph-geodesic interpretation may be original.",
+      "Previously published perfect induced P3 packings or rook-tiling bijections under alternate terminology may cover the same classification.",
+      "Search coverage, including published-finding corpus, cannot establish a universal absence of prior work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General packing upper bound applies; exact three-row extremizer classification and cycle-count bijection not stated.",
+        "evidence": "Lemma 2.3 provides floor(|V|/3) for uniform diameter-two rook graphs; Proposition 2.6 concerns geodesic transversals of K_n square K_n.",
+        "identifier_or_url": "https://arxiv.org/html/2210.15325v3",
+        "material_read": "Full accessible article sections 1–5, especially Section 2 Lemma 2.3, Proposition 2.6, Corollary 2.8.",
+        "method": "Read arXiv HTML full text and analyzed its claimed packing and transversal results.",
+        "title": "Geodesic packing in graphs",
+        "trigger": "Defines the same invariant and examines rook graphs."
+      },
+      {
+        "assessment": "Full coefficient triangle and generating series ARE previously known (2008); they are excluded from novelty. No perfect-geodesic-packing interpretation identified in the displayed entry.",
+        "evidence": "OEIS A137946 rows {0,108,108}, {0,7920,11160,3240} and Sheffer generating expression.",
+        "identifier_or_url": "https://oeis.org/A137946",
+        "material_read": "Complete displayed entry including opening polynomial, rows, row sums, comment, author/date, formula, and examples.",
+        "method": "Compared polynomial and each row n=2..7 symbolically and numerically; factored (1-3t²-2t³).",
+        "title": "OEIS A137946",
+        "trigger": "Exact sequence values and graph-matrix connection posed immediate priority threat."
+      },
+      {
+        "assessment": "Counts selected vertices in general position, a different object from disjoint maximal-geodesic paths.",
+        "evidence": "Definition 1.1 counts general-position vertex subsets; Section 3 treats graph operations.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+        "material_read": "Accessible article abstract and full Sections 1–3 and concluding comparison.",
+        "method": "Read open publisher HTML, reviewed polynomial definitions and Cartesian-product results.",
+        "title": "General Position Polynomials",
+        "trigger": "Plausible nearby geodesic-based enumerator for Cartesian graph products."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e37e9fc-5043-424c-a4a6-71648723bd12",
+  "value": {
+    "rationale": "The three-row rook graph family occurs naturally alongside the motivating 2022 geodesic-packing work; the upper bound becomes a sharp equality with an exact classification of every maximizer and a refined count by cycle structure. The bijection explains the combinatorial geometry of the optimum rather than simply reproducing a table of integers, although numerical sequence novelty is explicitly not claimed.",
+    "status": "PASS"
+  }
+}
