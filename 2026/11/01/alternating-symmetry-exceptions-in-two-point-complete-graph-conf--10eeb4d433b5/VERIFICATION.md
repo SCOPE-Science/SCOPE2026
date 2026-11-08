@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and mathematical verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python's standard library only. It reconstructs all zero-, one-, and two-cells of the unordered two-point discretized complex of each complete graph for \(2\le m\le6\), its barycentric flag chains, and every element of \(\mathfrak S_m\) and \(\mathfrak A_m\). It determines orbit cells without relying on the written orbit table, verifies incidence and the identity \(\partial^2=0\), computes exact rational boundary ranks, and carries out finite elementary free-face collapses. Its `orbit_certificate.json` contains the explicit incidence and collapse tables and is regenerated in the current directory by running the script.
+## correctness
 
-The expected quotient cell counts are checked programmatically, as are the residual configurations: a one-vertex complex for all symmetric quotients and alternating quotients other than \(m=3,4\), and a pair of parallel edges for each of those two alternating exceptions. There are additional exact rational-coordinate sample checks of the analytic deformation for \(m=3,4,5\), all vertex permutations, and three deformation times; they test particle separation, fixing initial data, target membership at time one, and equivariance.
+PASS
 
-The uniform statement for \(m\ge6\) is **proved by the four-label stabilizer argument**, not inferred from the finite verifier. Analytic continuity of the deformation on the complement of collisions is demonstrated in RESULT.md; finite rational samples are corroboration, not a proof of infinite-point continuity. The group actions considered are ordinary vertex permutations on unit-length graph edges. Neither a homology classification of the original configuration spaces nor an independent external mathematical audit is claimed.
+PASS: Checked the continuous configuration-space definition, distinction between unordered and ordered pairs, unit-edge graph realization and ordinary topological versus Borel quotient. The piecewise explicit same-edge homotopy separates x<y to endpoints and incident-edge homotopy scales distances by 1-t+t/max(s,u); limits at common vertices/remote endpoints match, preserve disjoint-carrier configurations pointwise, avoid collisions and commute with vertex permutations. Thus X_m equivariantly strongly deformation retracts to the cubical D_m; barycentric flag vertices have distinct cell dimensions so no inversions. The stabilizer-orbit proof treats each 0<1, 0<2, 1<2, 0<1<2 flag and all m, with split exceptions m=3,4,5 and unsplit m>=6. Inspected finite checker construction of orbit cells/cellular boundaries and explicit elementary quotient collapses for m=2..6. For A4, two triangles attach along an edge but leave two parallel edges after collapses, so pi1=Z; A5 collapses to tree, S_m and larger A_m quotients to contractible triangles. Finite cases do not substitute for the stabilizer proof at all m.
 
-The recorded local run of `python3 verify.py` completed with `RATIONAL_SAMPLE_EQUIVARIANCE_OK` and `VERIFY_OK`. The text file `verification_output.txt` records that run. It may be reproduced by extracting all embedded files into one directory and executing that command.
+## originality
+
+PASS
+
+PASS on a bounded best-of-knowledge primary-source and Resultary comparison. Exact final claim is not an inspected published theorem or a proven corollary of more general hypotheses. The specific prior-covered special cases, exact algebraic input, and source-access limits are stated rather than treated as novel.
+
+## value
+
+PASS
+
+PASS: The complete group-quotient homotopy classification of a canonical infinite family of graph configuration spaces, including exceptional A3/A4 circles, their actual attaching maps, equivariant retraction and integral fundamental groups, gives information not determined by published rational representation characters. The precise exception and stabilizer mechanism are natural for symmetric vertex-relabelling actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
