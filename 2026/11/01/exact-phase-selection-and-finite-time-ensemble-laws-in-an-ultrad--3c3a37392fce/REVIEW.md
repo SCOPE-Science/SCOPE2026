@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stated theorem follows from an explicit Lebesgue pushforward formula, the fact that both cycle atoms swap under one iteration, a probability-preserving parity identity, and a doubling/mirror argument around the unique repelling fixed point. The calculation is valid at the \(I=2B\) plateau transition and for every real \(I>3B/2\), \(B>0\). The exact rational verifier checks representative cases; the proof, not finite tests, establishes universality.
+PASS
 
-## Originality
+The piecewise map F has plateau H on the left, affine branch I-2u on J, plateau L on right; the affine branch takes the interior of K bijectively onto itself with inverse slope 1/2. Consequently F_*lambda_K=(1/2)lambda_K+aδ_H+bδ_L, a+b=1/2 and the two atoms swap. Continuous survivor mass after n steps is 2^-n, giving geometric first-cycle-hitting time and mean 2. Solving w=(a/2+b)+w/4 yields w=1/3+2b/3, with explicit a,b piecewise, and after 2n iterations the distribution is 4^-n lambda+(1-4^-n)(wδ_H+(1-w)δ_L), sharp TV 4^-n due to mutually singular continuous and atomic parts. The centered q=I/3 slope -2 causes paired phases h(q-t)+h(q+t)=1 by finite-doubling until plateaus. Independent exact rational checks cover representative parameter ratios including I=2B, I=3B. Universal analytic proof, not finite extrapolation.
 
-**PASS within the examined evidence.** Ohmori--Yamazaki (arXiv:2004.13224, Section 4) already provide the map, attracting two-cycle, and endpoint regimes. These are not new. Their full preprint and the later arXiv:2212.03455 were inspected for equivalent statistical laws; neither contained the exact parity-basin fractions, all-time uniform-plus-atomic transfer formula, or radius-independent mirror equality. Geometric exit laws for a different planar ultradiscrete map and cycle basins for integer-state affine contractions do not imply the new formula for this interval family. The 2018 Sasaki et al. original report was available only through bibliography and abstract, so an earlier unindexed exact calculation remains a real priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Phase choice is a natural basin statistic for a two-cycle, distinct from the invariant time-average measure. An entire parameter ray has exactly \(1/3\) high-phase probability, followed by a rational crossover to \(2/3\), while every centered initial interval has equal phase probabilities. The exact transient distribution identifies how the phase-dependent atomic ensemble emerges on every iteration with a sharp convergence rate. These assertions provide more structure than the known qualitative attraction result.
+Earlier analysis explicitly establishes the same map, fixed point and attracting two-cycle, so these are prior facts. Best-of-knowledge original content is exact initial-phase probabilities, every-time uniform-plus-atomic transfer, sharp total variation and mirror balance.
 
-## Scope and residual risks
+## value
 
-The probability laws are for uniform initialization on the natural cycle interval only. No independence, noise-robustness, uniqueness of invariant probability, or spatially extended FitzHugh--Nagumo claim is made. The primary 2018 conference report's full text was not examined. Publication priority awaits independent literature verification; correctness was assessed from the written proof and exact rational checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a piecewise-affine model with a known attracting two-cycle, the probability of selecting each parity phase is a natural basin statistic absent from the attractor-existence description. The exact parameter-dependent crossover, simple 4^-n total-variation convergence, geometric first-hit law, and unexpected half-half balance on centered neighborhoods give a complete, usable quantitative phase-selection picture, not a routine restatement of a cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

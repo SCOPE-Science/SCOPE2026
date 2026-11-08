@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:13:42.229805Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md piecewise transfer identity, two-step atom recurrence and mirror-pair argument; blob 84cd2d97afb131aea94ba9f8ddc8fc2096a99e8a",
+        "verify.py blob 82e531ee1cd05f711edc95f7ea8333b472187e43",
+        "Independent rational transfer/parameter checks in independent_scope05_checks.py"
+      ],
+      "rationale": "The piecewise map F has plateau H on the left, affine branch I-2u on J, plateau L on right; the affine branch takes the interior of K bijectively onto itself with inverse slope 1/2. Consequently F_*lambda_K=(1/2)lambda_K+aδ_H+bδ_L, a+b=1/2 and the two atoms swap. Continuous survivor mass after n steps is 2^-n, giving geometric first-cycle-hitting time and mean 2. Solving w=(a/2+b)+w/4 yields w=1/3+2b/3, with explicit a,b piecewise, and after 2n iterations the distribution is 4^-n lambda+(1-4^-n)(wδ_H+(1-w)δ_L), sharp TV 4^-n due to mutually singular continuous and atomic parts. The centered q=I/3 slope -2 causes paired phases h(q-t)+h(q+t)=1 by finite-doubling until plateaus. Independent exact rational checks cover representative parameter ratios including I=2B, I=3B. Universal analytic proof, not finite extrapolation.",
+      "residual_risks": [
+        "Phase weights refer to parity of iteration; invariant time-average on the cycle is 1/2 each, not w.",
+        "Normalized uniform Lebesgue on K only; nonuniform data have different capture law.",
+        "Repelling point q excluded from almost-sure claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohmori–Yamazaki later article studies ultradiscrete bifurcation/stability.",
+          "Resultary exact geometric first-exit law treats a different planar ultradiscrete Selkov map; no reduction to this scalar F."
+        ],
+        "reasoning": "A general renewal rule for expanding branches may suggest geometric tails but does not automatically fix these a,b parameter-dependent phase weights, sharp TV and symmetry.",
+        "searches": [
+          "arxiv:2004.13224 map Eq 39",
+          "arxiv:2212.03455 stability bifurcation ultradiscrete",
+          "Resultary: ultradiscrete FitzHugh Nagumo phase selection exact ensemble"
+        ]
+      },
+      "checked_sources": [
+        "Ohmori–Yamazaki 2020 full arXiv PDF Section 4 Eq(39)",
+        "Ohmori–Yamazaki 2022 paper inspected",
+        "Resultary Selkov planar geometric exit full result",
+        "Sasaki et al. 2018 bibliographic reference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Attraction to L<->H does not imply weight w(I,B); different interval plateau lengths directly affect phase proportions.",
+          "The Selkov 2D survivor-area ratio is not the branch pushforward of this 1D map."
+        ],
+        "reasoning": "The new all-time measure law requires explicit Lebesgue transfer and parity-atom accounting in addition to known cycle existence.",
+        "searches": [
+          "Ohmori Yamazaki arxiv:2004.13224 Eq 39 two cycle",
+          "Resultary Selkov first exit geometric law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohmori–Yamazaki 2020 Section 4 Eq(39) studies F(u)=max(2u,I)-max(2u,B), attracting two-cycle and its parameter regimes.",
+          "The source map and cycle are therefore prior; uniform initial phase basin measures, exact every-time distribution and mirror equality were not found in the inspected section."
+        ],
+        "reasoning": "Existing geometric dynamics identify the attractor, not its parity-resolved Lebesgue basin proportions or distributional transient.",
+        "searches": [
+          "Resultary: ultradiscrete FitzHugh Nagumo one dimensional max plus map two-cycle basin probabilities exact ensemble law",
+          "Ohmori Yamazaki arxiv:2004.13224 phase basins probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary hit is planar Selkov first-exit law with area 79B²/2^(n+1), not the one-dimensional K-uniform phase law.",
+          "No indexed exact probability table for the same scalar map located."
+        ],
+        "reasoning": "The 2018 original report is plausible historical coverage but unavailable in full; do not treat absent table as proof of novelty.",
+        "searches": [
+          "Resultary ultradiscrete FitzHugh Nagumo phase selection geometric capture probabilities",
+          "Sasaki 2018 RIAM ultra discrete model basin fractions"
+        ]
+      },
+      "rationale": "Earlier analysis explicitly establishes the same map, fixed point and attracting two-cycle, so these are prior facts. Best-of-knowledge original content is exact initial-phase probabilities, every-time uniform-plus-atomic transfer, sharp total variation and mirror balance.",
+      "residual_risks": [
+        "Original Sasaki et al. 2018 RIAM report not inspected in full; might include phase-basin fractions.",
+        "Equivalent distributional transfer calculation may be unindexed or part of a broader elementary dynamical analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of F and cycle confirmed; inspected material does not establish claimed uniform-ensemble transfer or basin weights",
+          "evidence": "Eq(39) F=max(2u,I)-max(2u,B)",
+          "identifier_or_url": "https://arxiv.org/abs/2004.13224",
+          "material_read": "Full arXiv PDF located; Section 4 Equation (39), attracting-cycle dynamics, Fig.7 and setup inspected",
+          "method": "arXiv PDF textual reading and page screenshot",
+          "title": "Ultradiscrete Bifurcations for One Dimensional Dynamical Systems",
+          "trigger": "Same exact scalar F and attracting cycle"
+        },
+        {
+          "assessment": "Focus on bifurcations, not exact parity-resolved Lebesgue phase law",
+          "evidence": "Ohmori–Yamazaki 2022 stability study",
+          "identifier_or_url": "https://arxiv.org/abs/2212.03455",
+          "material_read": "PDF abstract, introduction and stability/bifurcation passages; keyword check for probability",
+          "method": "arXiv PDF page/text inspection",
+          "title": "Relation of stability and bifurcation properties between continuous and ultradiscrete dynamical systems via discretization with positivity: one dimensional cases",
+          "trigger": "Potential stronger all-parameter analysis"
+        },
+        {
+          "assessment": "Different planar F_B(X,Y) and conditioning; no implication for scalar F",
+          "evidence": "Planar tail P(tau>6+k)=2^-k",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-geometric-first-exit-law-for-the-ultradiscrete-sel-kov-map--013f8b0ac9e5/RESULT.md",
+          "material_read": "Finding and full proof of survival polygon/area identity",
+          "method": "Published Resultary mathematical RESULT.md full text read",
+          "title": "Exact geometric first-exit law for the ultradiscrete Selkov map",
+          "trigger": "Related geometric survival law and renewal"
+        },
+        {
+          "assessment": "Cannot assert original 2018 paper does not contain an equivalent formula",
+          "evidence": "Identified as predecessor for scalar map",
+          "identifier_or_url": "RIAM Symposium 2018 No.29AO-S7 page81",
+          "material_read": "Bibliographic reference only through Ohmori–Yamazaki 2020; original full text unavailable",
+          "method": "Citation-only identification",
+          "title": "Sasaki, Nishioka, Hongo, Murata RIAM Symposium report",
+          "trigger": "Foundational source possibly containing exact basin statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md all-parameter transfer and mirror argument",
+        "Primary same-model dynamics arxiv:2004.13224"
+      ],
+      "rationale": "For a piecewise-affine model with a known attracting two-cycle, the probability of selecting each parity phase is a natural basin statistic absent from the attractor-existence description. The exact parameter-dependent crossover, simple 4^-n total-variation convergence, geometric first-hit law, and unexpected half-half balance on centered neighborhoods give a complete, usable quantitative phase-selection picture, not a routine restatement of a cycle.",
+      "residual_risks": [
+        "Scope confined to natural interval K and uniform initial ensemble; no noise or spatial-FHN extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Phase weights refer to parity of iteration; invariant time-average on the cycle is 1/2 each, not w.",
+    "Normalized uniform Lebesgue on K only; nonuniform data have different capture law.",
+    "Repelling point q excluded from almost-sure claims.",
+    "Original Sasaki et al. 2018 RIAM report not inspected in full; might include phase-basin fractions.",
+    "Equivalent distributional transfer calculation may be unindexed or part of a broader elementary dynamical analysis.",
+    "Scope confined to natural interval K and uniform initial ensemble; no noise or spatial-FHN extension."
+  ],
+  "schema_version": 1
+}
