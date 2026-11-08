@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3. The program enumerates ordered vertex pairs and their complete distance-extension supports for \(H(d,q)\), for dimensions one through three and alphabet sizes two, three and four, independently checks the closed coordinate-type support formula and invariance for all pairs at a common distance, and checks cycles of lengths five through eight. Captured output is in `verification_output.txt` and ends `ALL_CHECKS_PASS`.
+## correctness
 
-The general equivalence theorem is a mathematical argument based on the three-pebble back-and-forth and explicit three-variable distance formulas, not a computation. No code is claimed to verify all distance-regular graphs or independent priority. Independent mathematical audit was not performed.
+PASS
+
+PASS: For all finite nonempty connected distance-regular graphs, three-variable graph formulas can define each fixed shortest-path distance by recursively reusing the third variable (with proper binding hygiene). For necessity, an existential triple-distance formula detects any missing positive p^h_ij support bit, and a two-vertex sentence detects unequal diameter. For sufficiency, the standard three-pebble EF invariant preserves pairwise distances: with at most two old pebbles remaining, distance regularity and equality of supports guarantee a response to each new distance pair. Equality and adjacency follow from distances 0,1. For H(d,q), coordinate types a,b,c,e prove precisely binary vs >=3 alphabet separation at fixed d. Independently enumerated Hamming graphs d=1..3, q=2,3,4 and compared triple-support formulas; finite enumeration is corroboration only.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): The Boolean support characterization for unrestricted non-counting FO^3 across all connected distance-regular graphs is not a direct statement of the inspected distance-regular graph survey, general pebble-game survey, or Abiad-Dawar-Zapata counting logic characterization. It is substantially weaker than C^3 numerical intersection-table invariance, so C^3 prior results do not entail this iff as an equivalence classification. The proof does invoke classical 3-pebble and distance-regularity facts; no priority guarantee is claimed.
+
+## value
+
+PASS
+
+PASS: Complete classification of elementary equivalence under a natural bounded-variable logic on a major graph family, identifying exactly which algebraic-combinatorial data (positivity vs multiplicity) are expressible. The Hamming binary/nonbinary separation is a precise useful family corollary, not the sole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
