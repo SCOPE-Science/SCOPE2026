@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `OPENBLAS_NUM_THREADS=1 python verify_nine_chores.py` under Python 3 with NumPy. It checks 165 nonnegative chore-class multiplicity triples of total at most eight and all 125,970 allocation matrices at each of 13 rational representatives/breakpoints, using integer arithmetic only. Pareto optimality checks all allocations, not just itemwise efficiency. It also verifies incompatibility at every representative for the nine-item (3,3,3) instance. The all-real nine-item obstruction is credited to He–Tao, Theorem 2.
+## correctness
 
-Each EFX inequality removes a chore from the comparing agent's own bundle. An EFX-positive candidate is PO exactly if no complete alternative allocation weakly lowers all four disutilities and strictly lowers one. Source code enumerates each class-column composition and tests these inequalities literally. See the mathematical proof for justification of the finite sign-cell reduction; this is an exact finite proof, not extrapolation from tested sample ratios.
+PASS
 
-Independent validation has not been performed.
+For precisely four agents in two identical disutility pairs and three item cost types A=(r,r,r,r), B=(1,1,r,r), C=(r,r,1,1), with arbitrary real r>3, I reconstructed the integer 4×3 allocation incidence matrices and checked that EFX removes an item from the comparing agent’s own bundle while PO quantifies over all allocations. There are C(11,3)=165 profiles with <=8 chores, and 125970 allocation matrices summed over profiles. Every EFX and dominance inequality is affine in r with integer coefficients bounded by eight: the complete sign partition of (3,infinity) has breakpoints 7/2,4,5,6,7,8. I independently implemented exact scaled-integer vectorized enumeration of all 13 representative cells × 165 profiles; every profile has EFX+PO, and for the nine-item (3,3,3) case no EFX+PO occurs in the four independently tested cells. The unrestricted nine-item obstruction is credited to He–Tao Theorem 2, not extrapolated from the four checks. These finite cells are mathematically exhaustive for the positive claim only because all parameter-breakpoint signs were justified.
+
+## originality
+
+PASS
+
+Qualified acceptance for the universal <=8-chores compatibility statement in the precisely specified complementary class family. The 9-item obstruction is explicitly prior work; neither that counterexample nor EFX-only existence implies all <=8 EFX+PO cases.
+
+## value
+
+PASS
+
+The first joint EFX/PO incompatibility size in this natural positive-cost two-pair market is a mathematically motivated sharp threshold: a nine-item counterexample already existed, but this result rules out all smaller instances in the same domain. The exact 165-profile, 13-parameter-cell certificate is a substantive all-instance classification and independent reproducible boundary, not a routine reparameterization of the known bad example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

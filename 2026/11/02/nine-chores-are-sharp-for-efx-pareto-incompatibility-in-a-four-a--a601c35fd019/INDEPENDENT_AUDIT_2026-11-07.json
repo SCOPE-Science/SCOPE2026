@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:45:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For precisely four agents in two identical disutility pairs and three item cost types A=(r,r,r,r), B=(1,1,r,r), C=(r,r,1,1), with arbitrary real r>3, I reconstructed the integer 4×3 allocation incidence matrices and checked that EFX removes an item from the comparing agent’s own bundle while PO quantifies over all allocations. There are C(11,3)=165 profiles with <=8 chores, and 125970 allocation matrices summed over profiles. Every EFX and dominance inequality is affine in r with integer coefficients bounded by eight: the complete sign partition of (3,infinity) has breakpoints 7/2,4,5,6,7,8. I independently implemented exact scaled-integer vectorized enumeration of all 13 representative cells × 165 profiles; every profile has EFX+PO, and for the nine-item (3,3,3) case no EFX+PO occurs in the four independently tested cells. The unrestricted nine-item obstruction is credited to He–Tao Theorem 2, not extrapolated from the four checks. These finite cells are mathematically exhaustive for the positive claim only because all parameter-breakpoint signs were justified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He–Tao EFX existence allows allocations that may not be Pareto optimal.",
+          "Tao–Wu–Yu–Zhou EFX+PO concerns 0/1 binary marginal chores, not strictly positive 1/r bi-valued costs."
+        ],
+        "reasoning": "Neither EFX alone nor 0/1 binary-domain joint results logically imply EFX+PO at all 8-item complementary r>3 profiles.",
+        "searches": [
+          "four agents chores EFX Pareto optimal jointly every instance at most eight chores three cost types r>3 nine chores threshold",
+          "arXiv:2308.12177",
+          "He–Tao EFX four-agent bi-valued chores existence Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.08872 (partial; full inaccessible)",
+        "arXiv:2308.12177 (primary PDF)",
+        "Resultary semantic search four agents chores EFX Pareto optimal jointly every instance at most eight chores three cost types r>3 nine chores threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier theorem supplies the 9-chore negative witness and four-agent EFX-only existence, not a positivity theorem at all <=8 multiplicities."
+        ],
+        "reasoning": "This claimed sharp threshold needs an extra exhaustive positive direction; the earlier 9-chore construction by itself leaves the <=8 cases open.",
+        "searches": [
+          "four agents chores EFX Pareto optimal jointly every instance at most eight chores three cost types r>3 nine chores threshold",
+          "arXiv:2606.08872 Theorem 2 / Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He–Tao Theorem 2 provides four-agent (3,3,3) 9-chore EFX/PO incompatibility for r>3.",
+          "The bounded theorem asserts a universal EFX+PO existence over all (a,b,c) with total <=8, a different quantifier."
+        ],
+        "reasoning": "Checking the same cost vectors and removal convention identifies the earlier nine-chore half, but not the new universal lower-threshold half.",
+        "searches": [
+          "four agents chores EFX Pareto optimal jointly every instance at most eight chores three cost types r>3 nine chores threshold",
+          "arXiv:2606.08872",
+          "arXiv:2308.12177"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary four-agent hits concern random serial dictatorship / lotteries, not the 165 complementary chore profiles.",
+          "The complete profile-by-cell incidence test is in the inspected verify_nine_chores.py package."
+        ],
+        "reasoning": "No prior table of this precise 165-profile and 13-parameter-cell EFX/PO census was identified; absence in an index is not proof of novelty.",
+        "searches": [
+          "four agents chores EFX Pareto optimal jointly every instance at most eight chores three cost types r>3 nine chores threshold",
+          "Resultary:2026/10/4/SCOPE-exact-four-agent-random-serial-dictatorship-ordinal-inefficiency--d63734f44c9c"
+        ]
+      },
+      "rationale": "Qualified acceptance for the universal <=8-chores compatibility statement in the precisely specified complementary class family. The 9-item obstruction is explicitly prior work; neither that counterexample nor EFX-only existence implies all <=8 EFX+PO cases.",
+      "residual_risks": [
+        "He–Tao full paper not independently read this execution; its known Theorem 2 counterexample is credited, and its possible additional universal results should be checked at publication.",
+        "A prior unindexed small-market exhaustive EFX+PO census may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_AND_ACCESS_RISK",
+          "evidence": [
+            "Theorem 2 supplies 9-item obstruction; no current full-text negative claim is made."
+          ],
+          "identifier_or_url": "arXiv:2606.08872",
+          "material_read": "Abstract and theorem description via accessible indexed citation; complete arXiv source not accessible in this execution; protected institutional full text unavailable.",
+          "method": "Primary bibliographic/abstract search; authorized retrieval attempted without bypass",
+          "title": "EFX for Additive Chores: Nonexistence, Pareto Incompatibility, and Bi-Valued Existence",
+          "trigger": "Exact same 9-chore counterexample and two-pair cost parameters"
+        },
+        {
+          "assessment": "DIFFERENT_DOMAIN",
+          "evidence": [
+            "Binary 0/1 chores can have zero disutilities; target costs are positive 1,r with r>3."
+          ],
+          "identifier_or_url": "arXiv:2308.12177",
+          "material_read": "Accessible primary PDF relevant definitions and theorem for 0/1 binary disutilities, including visual page inspection.",
+          "method": "Open primary research PDF and inspected theorem statements",
+          "title": "EFX and Pareto-Optimality for Binary Chores",
+          "trigger": "Could be a broader EFX+PO existence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first joint EFX/PO incompatibility size in this natural positive-cost two-pair market is a mathematically motivated sharp threshold: a nine-item counterexample already existed, but this result rules out all smaller instances in the same domain. The exact 165-profile, 13-parameter-cell certificate is a substantive all-instance classification and independent reproducible boundary, not a routine reparameterization of the known bad example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Universal positive theorem is confined to the three specified cost classes and r>3; not unrestricted four-agent chores or 1<r<=3.",
+    "Full same-object 2026 paper inaccessible through authorized source."
+  ],
+  "schema_version": 1
+}

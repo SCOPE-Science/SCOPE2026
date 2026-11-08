@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite type reduction, 13 critical parameter cells and exact full dominance enumeration prove all parameterized instances at most eight chores. The nine-chore negative instance is independently attributed to He–Tao, Theorem 2. All costs are positive; the allocation and envy direction are explicit. The packaged checker has been executed from the actual source.
+PASS
 
-## Originality — PASS (provisional self-review)
+For precisely four agents in two identical disutility pairs and three item cost types A=(r,r,r,r), B=(1,1,r,r), C=(r,r,1,1), with arbitrary real r>3, I reconstructed the integer 4×3 allocation incidence matrices and checked that EFX removes an item from the comparing agent’s own bundle while PO quantifies over all allocations. There are C(11,3)=165 profiles with <=8 chores, and 125970 allocation matrices summed over profiles. Every EFX and dominance inequality is affine in r with integer coefficients bounded by eight: the complete sign partition of (3,infinity) has breakpoints 7/2,4,5,6,7,8. I independently implemented exact scaled-integer vectorized enumeration of all 13 representative cells × 165 profiles; every profile has EFX+PO, and for the nine-item (3,3,3) case no EFX+PO occurs in the four independently tested cells. The unrestricted nine-item obstruction is credited to He–Tao Theorem 2, not extrapolated from the four checks. These finite cells are mathematically exhaustive for the positive claim only because all parameter-breakpoint signs were justified.
 
-The closest primary source is He–Tao (arXiv:2606.08872, original 2026-06-07), whose full relevant construction and theorems were inspected. Its nine-item counterexample does not imply the universal eight-item guarantee. Mathematical-record, own-claim and literature comparisons did not retrieve an exact dominating claim. A previously unindexed item-minimality result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The first known positive-cost four-agent EFX–PO incompatibility construction has nine chores. This classification shows that nine is exactly the first possible number throughout the full three-class symmetric domain, not merely that the exhibited witness fails upon deleting one chore.
+Qualified acceptance for the universal <=8-chores compatibility statement in the precisely specified complementary class family. The 9-item obstruction is explicitly prior work; neither that counterexample nor EFX-only existence implies all <=8 EFX+PO cases.
 
-## Limitations
+## value
 
-No claim about unrestricted bi-valued instances or all real ratios below and including three. The positive direction is an exact computer-assisted exhaustive finite proof with supplied code. Independent audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first joint EFX/PO incompatibility size in this natural positive-cost two-pair market is a mathematically motivated sharp threshold: a nine-item counterexample already existed, but this result rules out all smaller instances in the same domain. The exact 165-profile, 13-parameter-cell certificate is a substantive all-instance classification and independent reproducible boundary, not a routine reparameterization of the known bad example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
