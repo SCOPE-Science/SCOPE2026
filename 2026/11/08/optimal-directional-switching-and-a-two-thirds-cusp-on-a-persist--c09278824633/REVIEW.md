@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+
+The Markov generator is specified on \(2n\) states, with separate rates in each direction; its Fourier eigenvalues are derived from an explicit \(2\times2\) characteristic polynomial. The key nonstandard step is global mode dominance: the square-root real part decreases strictly with spatial sine magnitude, and all negative-cosine modes are bounded away from the best first Fourier mode, including direct checks at sizes 4–7. A one-variable rational change of variables proves a unique cubic optimizer and the comparison with the homogeneous reversal eigenmode. Algebraic expansion yields the \(2/3\)-power law. Standalone full-generator diagonalizations checked 1,344 configurations, but are not treated as infinite proof. Residual scientific risk: errors in the explicit finite-size trigonometric comparison or in the asymptotic expansion, both separately reconstructed and numerically checked.
+
+## Originality — PASS on examined evidence
+
+Closest same-object prior result: Mallmin, Blythe and Evans, arXiv:1810.00813, derive the symmetric ring one-particle spectrum and optimize its relaxation at an exceptional point. That **covers the symmetric limit** but not the theorem's asymmetric two-rate cubic and its singular rounding. Slowman, Evans and Blythe, arXiv:1601.00954, use equal reversing rates for a two-particle jamming model. Mallmin, Blythe and Evans, arXiv:1905.10260, already give the **general two-rate asymmetric Fourier matrix**, specialized in this analysis; they investigate velocity and occupancy large deviations (and illustrate some spectra at finite size) rather than optimizing the complete finite-ring spectral gap. This matrix machinery is not original, whereas the exact unique cubic optimizer and 2/3 bias law require additional nontrivial analysis. Singh, Sabhapandit and Kundu, arXiv:2004.11041, use unequal rates on an inhomogeneous infinite-line model rather than the finite cyclic eigenvalue optimum. Diaconis, Holmes and Neal (2000) analyze nonreversible lifted sampling, not the specific two-rate ring cubic. No covering published statement was identified in the actual searchable comparisons. Search failure does not establish global priority. Residual risk: unindexed spectral results with equivalent formulations, and incomplete access to older general transport literature.
+
+## Mathematical value — PASS
+
+The sharp cubic gives a **natural physical control parameter** for mixing a persistent walker, identifies the exact globally optimal full-chain relaxation rate at each system size, and shows that even infinitesimal orientation asymmetry changes the exceptional-point cusp with a nonanalytic exponent \(2/3\). This is more than a routine first-mode calculation, because global Fourier competition and the homogeneous orientation mode must both be controlled. The result provides a finite-size active-transport benchmark and a precise boundary between symmetric critical damping and biased smooth optimization. It does not claim faster total-variation mixing or an interacting-particle phase transition.
+
+Self-review: passed. Independent audit: not yet performed.
