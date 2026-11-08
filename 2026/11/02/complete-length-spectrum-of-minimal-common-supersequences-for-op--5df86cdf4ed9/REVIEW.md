@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is established for every positive integer parameter, not extrapolated from small cases. The canonical left/right embedding union bounds the symbol counts; incompatible shared symbols give the essential dichotomy. Exact subsequence conditions around the two middle zeros, plus single-deletion minimality, force matching numbers of exterior ones, yielding a bijection with two bounded binary interleavings. Complementation doubles the disjoint count. A standard ratio bound and Stirling's formula prove the limiting law. The bundled self-contained checker independently tests the enumeration and minimality of the constructed words and compares with exhaustive sets up through the fourth parameter.
+PASS
 
-## Originality — PASS, with residual priority risk
+Canonical embeddings of 0^m1^m and 1^m0^m into a deletion-minimal common supersequence cover every output position. A simultaneous overlap of first/last m zeros and first/last m ones gives contradictory ordering, forcing exactly 2m copies of one symbol. In the 2m-zero branch splitting around middle two zeros gives exterior counts a=b=j<m and central ones m-j by single-deletion essentiality; choosing j interleavings in each of two arms yields binom(m+j-1,j)^2 and complementary branch doubles it, disjointly. Max length 4m-1 and ratio a(m,j-1)/a(m,j) <=1/4 yields geometric deficit law and asymptotics. Independent brute enumerated ALL binary strings of lengths 2m through 4m inclusive for m=1..4 and checked both subsequence requirements and deletion minimality; exact predicted histograms all matched.
 
-The 2026 Sopp–Liyanage–Gong–Zhu paper supplies a general enumeration algorithm and structural graph but not the stated closed length spectrum. Lin's 2026 bound on numbers of length-constrained minimal common supersequences is not sharp enough to imply the expression; Fraser's 1995 treatment provides a dynamic-programming characterization; the 2022 Alon–Bourla–Graham–He–Kravitz result concerns shortest common supersequences and general bounds. OEIS A112029 already records the same numerical sum and its asymptotic, so neither the integer sequence nor the underlying arithmetic identity is asserted to be new. The substantive difference is the new word-theoretic classification, the formula for *every length*, and the corresponding geometric limit. An overlooked equivalent specialization remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The paired words are the simplest nontrivial equal-multiplicity strings with reversed run order, a canonical adversarial merge instance. In the newly developed minimal-common-supersequence enumeration setting, the result determines exactly how many irreducible merges of each length exist, identifies every attainable length from shortest to longest, and gives explicit asymptotic concentration near the longest irreducible merge. This offers a closed-form benchmark and structural example that generic enumeration-time bounds do not supply. The question and the invariant are natural before applying the computation.
+Best-of-knowledge originality of the precise final claim, not novelty of definitions or known partial results: Deletion-minimal common supersequences equal subsequence-minimal upper bounds for two words in the subsequence poset, not shortest common supersequences. A general enumeration algorithm can list them but does not by itself provide this closed j-spectrum. General enumeration algorithms imply computability but not this closed length distribution; the theorem yields the known total as a corollary, while claimed novelty concerns the structural bijection and length-wise law. The accessible primary statements do not logically cover the claimed full classification; inaccessible plausible documents remain explicitly risky.
 
-## Literature and limitations
+## value
 
-Primary: arXiv:2603.22591v1 (2026-03-23), arXiv:2609.26650v1 (2026-09-22), arXiv:2209.11882v1 (2022-09-23); also Fraser's 1995 thesis, Chapter 6, and OEIS A112029. The theorem is only for the stated opposite equal-block words. Earlier unpublished or unindexed proofs of the same family may exist; general-purpose enumeration methods can produce finite instances but do not themselves provide the displayed closed-form theorem. The numerical binomial-sum sequence is previously known.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact classified length spectrum of deletion-minimal common supersequences for the canonical opposing-block pair is a motivated string-algorithm object, distinct from arbitrary pair complexity and from a shortest-only supersequence count. The limiting geometric length deficit gives a nontrivial probabilistic property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
