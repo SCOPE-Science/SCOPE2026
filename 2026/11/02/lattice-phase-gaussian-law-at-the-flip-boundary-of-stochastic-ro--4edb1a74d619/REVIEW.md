@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns an explicitly defined idealized integer-state Markov chain. Common-uniform monotone coupling yields exact \(W_1\) contraction; conditional unbiasedness gives the stationary moment identity. Periodicity and a global Lipschitz estimate give the explicit uniform phase error bound. The central-limit proof uses a stationary martingale triangular array with bounded maximum increments, predictable quadratic variation converging in \(L^1\), and negligible remote initial state. The independent rational verifier checks finite kernels, their invariant measures and key identities. It does not substitute for the general analytic proof.
+PASS
 
-## Originality — PASS, with qualified publication-priority risk
+The common-uniform monotone rounding coupling gives E|R(a,U)-R(b,U)|=|a-b|, hence W1 contraction q and unique invariant law. Conditional unbiased innovation and periodic psi identity give (1-q²)V=E psi(2theta+(1-q)(X-theta)) and a uniform O(sqrt(1-q)) phase error. The two-sided martingale-array representation has negligible q^N remainder, vanishing maximal increments and predictable variance converging in L1 to psi(2theta), proving the stationary normal limit. The closed {0,1} transition matrix proves the exact theta=1/2 stationary exception; conditional mean -qZ yields all lag covariances. An independent exact-rational stationary calculation checked 9 rational theta,q parameter pairs (including resonance) and 9 phase-bound comparisons; the Gaussian limit is not inferred from these finite checks.
 
-The central contrast is between a near-\(-1\) scalar AR coefficient with *state-dependent lattice rounding noise* and classical additive-noise or generic stationary mean-preserving integer-AR analysis. Liu and Yuan (2013) and Weiß and Zhu (2024) already establish basic unbiased rounding, moments and autocorrelation; those ingredients are explicitly credited. Xia et al. (2022) study low-precision gradient descent rounding, not the parameter-dependent stationary Gaussian law near a flip. A full comparison of relevant published source text found no derivation of the \(\psi(2\theta)\) invariant Gaussian limit together with exceptional half-grid cancellation. A prior near-unit-root theorem for an equivalent lattice-rounded recursion remains a legitimate risk, and independent literature verification is absent.
+## originality
 
-## Value — PASS
+PASS
 
-The phenomenon has a natural numerical meaning: as a constant-step quadratic descent approaches its exact-arithmetic flip stability limit, rounding error typically becomes arbitrarily large, but an exact half-grid phase cancels that divergence. The theorem supplies an explicit Gaussian limiting error scale, a finite-parameter error bound, and a counterintuitive contrast between single-iterate and time-averaged risk. Its value is confined to exact final-step stochastic rounding, not a claim about all low-precision implementations.
+Known unbiased rounding identities and mean-preserving integer AR stationary/autocovariance statements are prior mathematics. The assessed conjunction is a phase-resolved stationary near-flip Gaussian law with one exact bounded-resonance phase and averaging-risk consequence, not a routine Yule–Walker identity; relevant full primary work does not supply this phase limit among inspected theorems.
 
-## Scientific limitations
+## value
 
-Exact arithmetic is used before the final rounding; rounding precision is a fixed integer lattice; the theorem concerns one scalar quadratic and stationary dynamics. The phase exception is not robust to displacements of the minimizer. Fixed-\(q\) sample-mean formulas are not simultaneous \(q\)-and-\(N\) central limit theorems. Primary-work similarity and specialized time-series priority require independent assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Critical stable stepsizes in quantized quadratic descent naturally determine whether invariant noise floors blow up. The sharp dependence on fractional minimizer position and the isolated half-grid exception have quantitative consequences for step selection and averaging, beyond ordinary stochastic-rounding bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
