@@ -1,0 +1,35 @@
+# The independence matroid of LKJ correlation entries is graphic
+
+## Finding
+For an \(n\times n\) random correlation matrix \(C\sim\operatorname{LKJ}_n(\eta)\), \(n\ge3\), \(\eta>0\), let \(G\) be any simple graph on a subset of \(\{1,\ldots,n\}\). The off-diagonal entries \(\{C_{ij}:\{i,j\}\in E(G)\}\) are **jointly independent if and only if \(G\) is a forest**. Thus the independent sets of correlation-entry coordinates form precisely the graphic matroid of the complete graph. More quantitatively, for every simple cycle \(v_1,\ldots,v_k,v_1\), \(3\le k\le n\),
+\[
+\mathbb E\prod_{j=1}^k C_{v_jv_{j+1}}=(n+2\eta-1)^{1-k}>0,
+\quad v_{k+1}=v_1.
+\]
+Every proper edge subset of a simple cycle is jointly independent and has zero product expectation. The cycle identities therefore certify all minimal failures of joint independence.
+
+## Assumptions and scope
+The LKJ law is the probability measure on strictly positive-definite real symmetric correlation matrices \(C\) with Lebesgue density proportional to \(\det(C)^{\eta-1}\), for any real \(\eta>0\). Set \(\nu=n+2\eta-1>n-1\). All coordinates are ordinary off-diagonal correlations, **not** partial correlations. Independence refers to mutual independence of the full specified collection, not merely pairwise uncorrelatedness or independence.
+
+## Proof
+**1. Restricted Wishart factorization.** For every real \(\nu>n-1\), let \(W\) have the central Wishart \(W_n(\nu,I)\) density, and put \(D_i=W_{ii}\) and \(C_{ij}=W_{ij}/\sqrt{D_iD_j}\). The change of variables \(W\leftrightarrow(D,C)\), using \(\det W=(\prod_iD_i)\det C\), factors the density into independent \(D_i\sim\chi^2_\nu\) and \(C\sim\operatorname{LKJ}_n(\eta)\). Thus for nonnegative integer edge multiplicities \(m_{ij}\), the moment of \(\prod W_{ij}^{m_{ij}}\) equals that of \(\prod C_{ij}^{m_{ij}}\) times \(\prod_i\mathbb ED_i^{d_i/2}\), where \(d_i=\sum_jm_{ij}\).
+
+**2. Forests, integer degrees of freedom.** If \(\nu\) is an integer at least \(n\), represent \(W=XX^{\mathsf T}\), with independent standard Gaussian row vectors \(X_i\in\mathbb R^\nu\). Their normalized directions \(U_i=X_i/\|X_i\|\) are independent uniform unit vectors, and \(C_{ij}=U_i\cdot U_j\). In any forest, select a leaf \(i\) attached to \(j\). Conditional on all directions except \(U_i\), the edge variable \(U_i\cdot U_j\) has a distribution independent of the conditioning directions, by rotational invariance. It is therefore independent of every other forest edge. Repeated leaf elimination proves mutual independence.
+
+**3. Extension to every real \(\nu>n-1\).** Consider arbitrary nonnegative integer powers of the forest-edge correlations. If any edge multiplicity is odd, the subgraph of odd-multiplicity edges is a nonempty forest and has a vertex of odd degree. Changing the sign of that vertex's row/column leaves the LKJ density invariant and reverses the monomial, so its expectation is zero, matching the product of symmetric marginal moments. If all edge multiplicities are even, each \(d_i\) is even. By the Wishart moment-generating function \(\det(I-2T)^{-\nu/2}\), each fixed mixed moment of the off-diagonal \(W\)-entries is a polynomial in \(\nu\). Also \(\mathbb ED_i^{d_i/2}=\nu(\nu+2)\cdots(\nu+d_i-2)\) is polynomial. Thus the mixed moment of the specified correlations is rational in \(\nu\), as is the product of their marginal moments. Equality for every integer \(\nu\ge n\) from step 2 forces equality as rational functions. Since correlations lie in a compact cube, equality of all mixed integer moments determines their joint law, proving forest independence for arbitrary allowed \(\eta\).
+
+**4. Each cycle forces dependence.** The cycle product of Wishart entries is polynomial in \(\nu\). For integer \(\nu\ge n\), expand each \(W_{ab}=\sum_{s=1}^{\nu}X_{as}X_{bs}\). In the cycle product, expectation vanishes unless all coordinate labels match around the entire cycle; each common label contributes one. The expectation is therefore exactly \(\nu\), first for integer \(\nu\) and then for every real \(\nu>n-1\) by polynomial identity. Each cycle vertex appears twice, so \(\mathbb E\prod_j D_{v_j}=\nu^k\). Step 1 yields the stated positive cycle moment \(\nu^{1-k}\). Each marginal correlation has mean zero by sign invariance; the cycle entries therefore cannot be jointly independent. Any graph containing a cycle contains a dependent subcollection. Combining with step 3 completes the if-and-only-if characterization.
+
+## Verification
+The included `verify.py` independently evaluates Gaussian–Wishart monomial moments by exact enumeration of coordinate assignments and rational normalization. It checks path-edge mixed moments and cycle moments at several integer dimensions, with 126 exact comparisons. Its finite calculations corroborate but do not establish the arbitrary-real-parameter theorem; the rational-function and change-of-variables arguments establish that theorem.
+
+## Relationship to prior work
+The LKJ density and its independent vine **partial correlations** arise in Lewandowski, Kurowicka and Joe (2009), and Hanea–Nane (2013) summarize the determinant decomposition and single-entry marginals. These do not say that the original correlation entries indexed by a general edge set form precisely the independence sets of a graphic matroid. Kurowicka (2014) gives marginal density calculations for **chordal** patterns, which may imply the forest direction; only its abstract was accessible, so forest independence is not asserted as a novel standalone ingredient. An earlier exact third-order triangle-moment calculation is also acknowledged. The contribution assessed here is the all-real-parameter **complete if-and-only-if graph classification** together with every cycle's exact obstruction moment, not the individual marginal law or the triangle special case.
+
+## Limitations
+This is a statement solely for the LKJ law, not arbitrary random correlation matrix ensembles or noncentral Wishart models. The independence property does not mean entries on cyclic patterns have nonzero pairwise covariance. The finite exact checker is not a proof of arbitrary real \(\eta\). Historical full-text access to Kurowicka (2014) was unavailable, and an implicit earlier graphic-matroid classification cannot be ruled out without independent bibliographic verification. No independent audit or certification has occurred.
+
+## References
+- Lewandowski, D., Kurowicka, D., Joe, H. (2009), *Generating random correlation matrices based on vines and extended onion method*, Journal of Multivariate Analysis 100, 1989–2001, DOI: 10.1016/j.jmva.2009.04.008.
+- Hanea, A. M., Nane, G. F. (2013), *The asymptotic distribution of the determinant of a random correlation matrix*, arXiv:1309.7268 (initially public September 27, 2013), https://arxiv.org/abs/1309.7268.
+- Kurowicka, D. (2014), *Joint density of correlations in the correlation matrix with chordal sparsity patterns*, Journal of Multivariate Analysis 129, 160–170, DOI: 10.1016/j.jmva.2014.04.006.
