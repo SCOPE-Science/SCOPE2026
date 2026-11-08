@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The reversible optimization is convex in the centered symmetrized operator; averaging under the stationary-preserving graph automorphisms provides a valid global lower-bound reduction. The four eigenvalues are obtained on a direct-sum decomposition whose multiplicities add to the full state dimension. Minimizing the ordinary-block spectral radius yields an exact feasible balance; the remaining one-variable objective is the maximum of a strictly decreasing envelope and a strictly increasing function. Its unique minimizer gives the four stated regimes, the aggregate-flow rigidity and the Metropolis corollary. Exact-rational full-matrix calculations and asymmetric numerical comparisons replay from `verify.py`. A finite test suite is not substituted for the universal proof.
+## correctness
 
-## Originality: PASS on inspected sources, with residual risk
-The 2004 fastest-mixing paper supplies convexity and prescribed-stationarity SDPs; the 2009 paper supplies the uniform-stationary complete-multipartite eigenspace decomposition. Their conclusions do not present the four-phase nonuniform formula for at least four parts, the rigidity of aggregate stationary flow for unrestricted kernels, or the isolated Metropolis condition. A separate three-part biased classification is excluded from the present theorem's domain, and the uniform-stationary point is explicitly inherited prior art. Search and statement-level comparison of domain, parameter reduction and implications did not locate a dominating prior theorem; that is not proof of novelty. The main residual risk is an equivalent result outside the inspected literature.
+PASS
 
-## Mathematical value: PASS
-The graph and stationary law are natural benchmarks for locally implementable Markov-chain design. A complete classification valid for every part size and every positive distinguished mass gives a useful analytic benchmark in place of numerical SDP solving, includes four exact structural transitions and quantifies how standard Metropolis tuning almost always misses the optimal spectral rate. The forced-flow and all-optimizer edge-deletion statements describe robust network-design consequences, not merely restatements of an eigenvalue calculation. The finite-dimensional checks are reproducibility support, not a claim of independent certification.
+Convex stationary-preserving averaging over within-class and ordinary-part permutations justifies unrestricted-to-invariant reduction while preserving total distinguished flow x. Invariant eigenvalue decomposition has λ_A=1-x/a, λ_B=1-x/b-(r-2)t/(r-1), λ_C=1-x/b-t, λ_D=1-x/(ab) with full multiplicity for m>=2, r>=4. Fixed x, balancing ordinary contrast gives t*=2(r-1)(1-x/b)/(2r-3), inside 0<=t<=(r-1)/(r-2)(1-x/b). The scalar f(x)=max{1-x/a, |1-x/(ab)|,(1-x/b)/(2r-3)} is maximum of decreasing envelope and increasing branch, whose intersection/capacity endpoints yield the four rational regimes a=1/(2r-1),1/r,2/3. This proves unique optimal aggregate x; nonnegative flows force ordinary edges absent at x=b. Metropolis parameters x=min(a,b/(r-1)), t=1 can equal full optimality only at a=1/(2r-1), including the other possible x equality failing ordinary contrast. Independently checked exact reduced LP for 42 (r,a) combinations; inspected full source matrix checker; this does not replace the all-a proof.
 
-## Closest literature and limits
-Boyd–Diaconis–Xiao (2004), DOI 10.1137/S0036144503423264; Boyd–Diaconis–Parrilo–Xiao (2009), DOI 10.1137/070689413, §5.4.2; Jafarizadeh (2010), arXiv:1008.2588. The result assumes balanced part sizes, equal ordinary masses, reversibility and SLEM minimization. A fully general asymmetric-kernel optimizer classification, general part sizes and alternative mixing criteria are not provided. Independent mathematical evaluation remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for the distinguished-mass r>=4 formula, forced aggregate flow, support-screening, isolated Metropolis optimum. General SDP, multipartite block decomposition and 2010 path-like K-PPDR results are credited; checked prior does not imply this quantified solution.
+
+## value
+
+PASS
+
+A sharp all-mass analytic phase diagram for fastest reversible chains on an important complete multipartite family is a substantive solved spectral optimization problem. The unique aggregate flow and exactly one Metropolis-optimal bias show structural optimizer rigidity and a sharp high-bias support-screening transition. Parameter r>=4 prevents repackaging the previous three-part result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

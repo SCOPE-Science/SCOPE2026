@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:53:27.334427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Convex stationary-preserving averaging over within-class and ordinary-part permutations justifies unrestricted-to-invariant reduction while preserving total distinguished flow x. Invariant eigenvalue decomposition has λ_A=1-x/a, λ_B=1-x/b-(r-2)t/(r-1), λ_C=1-x/b-t, λ_D=1-x/(ab) with full multiplicity for m>=2, r>=4. Fixed x, balancing ordinary contrast gives t*=2(r-1)(1-x/b)/(2r-3), inside 0<=t<=(r-1)/(r-2)(1-x/b). The scalar f(x)=max{1-x/a, |1-x/(ab)|,(1-x/b)/(2r-3)} is maximum of decreasing envelope and increasing branch, whose intersection/capacity endpoints yield the four rational regimes a=1/(2r-1),1/r,2/3. This proves unique optimal aggregate x; nonnegative flows force ordinary edges absent at x=b. Metropolis parameters x=min(a,b/(r-1)), t=1 can equal full optimality only at a=1/(2r-1), including the other possible x equality failing ordinary contrast. Independently checked exact reduced LP for 42 (r,a) combinations; inspected full source matrix checker; this does not replace the all-a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 and 2009 give methods valid in broader graphs but not closed-form parameter-wide biased r-partite solutions; 2010 explicitly optimizes neighbor-part K-PPDR networks."
+        ],
+        "reasoning": "An algorithmic broadly applicable convex formulation alone does not imply these rational branches and all-optimizer aggregate/support facts as a previously established mathematical result. No directly stronger published exact theorem found.",
+        "searches": [
+          "Boyd–Diaconis–Xiao 2004 general SDP",
+          "Boyd et al 2009 general orbit/SDP",
+          "arXiv:1008.2588"
+        ]
+      },
+      "checked_sources": [
+        "Boyd et al 2004 SIAM Review",
+        "Boyd et al 2009 SIAM J Optim §5.4.2",
+        "arXiv:1008.2588",
+        "Resultary complete multipartite biased reversible mixing search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof explicitly solves two ordinary eigenspaces by t* then unique x scalar crossing, deriving a=1/(2r-1), 1/r, 2/3; all-unrestricted flow rigidity and isolated Metropolis check are extra."
+        ],
+        "reasoning": "The supplied exact solution depends on optimizing the mass-biased quotient and checking Metropolis over the full real parameter interval, not contained as a corollary of the displayed prior uniform bipartite formula.",
+        "searches": [
+          "Boyd et al 2009 pp.812–813",
+          "arXiv:1008.2588 §III, §V",
+          "Boyd et al 2004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform-stationary multipartite blocks are equivalent as a linear-algebra method but have a different stationary measure; 2010 symmetric K-PPDR is a chain of part-community links, not all cross-part links."
+        ],
+        "reasoning": "Neither relabeling nor symmetry reduction converts an arbitrary distinguished bias a into uniform stationary mass while preserving stochasticity and exact eigenvalue minimax. Earlier r=3 formula has different number of parts and mass split.",
+        "searches": [
+          "Resultary: fastest mixing reversible Markov chain complete multipartite one biased distinguished stationary mass Metropolis optimal",
+          "Boyd et al 2009 §5.4.2",
+          "arXiv:1008.2588 §III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Older exact table is for K_{m,n} with uniform stationarity; source gives an exact family over real a and integer r rather than a finite data table."
+        ],
+        "reasoning": "No table or numerical optimization record with the exact all-parameter formula located; lack of a hit is not proof of novelty.",
+        "searches": [
+          "Resultary: fastest mixing reversible Markov chain complete multipartite one biased distinguished stationary mass Metropolis optimal",
+          "Boyd et al 2009 §5.4.2 tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the distinguished-mass r>=4 formula, forced aggregate flow, support-screening, isolated Metropolis optimum. General SDP, multipartite block decomposition and 2010 path-like K-PPDR results are credited; checked prior does not imply this quantified solution.",
+      "residual_risks": [
+        "Specialist complete multipartite biased-chain papers not indexed by surveyed sources may derive an equivalent phase diagram.",
+        "Applies to fixed class size m>=2 and reversible SLEM, not arbitrary stationary vectors, nonreversible kernels or total-variation time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general decomposition, not the mass-biased r>=4 exact classification",
+          "evidence": "Assumes P=P^T and computes uniform complete-bipartite optimum; other multipartite blocks inserted into SDP.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Full primary PDF §5.4.2 pp.812–813 and general method sections",
+          "method": "read and view original pages 20–21",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "same graph family k-partite block diagonalization"
+        },
+        {
+          "assessment": "DIFFERENT part adjacency and uniform stationary law",
+          "evidence": "K-PPDR joins only neighboring part sets; source K_{m,...,m} joins every pair of distinct parts, and has biased stationary law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+          "material_read": "Full arXiv PDF, especially §III Definition of K-PPDR and its Figure 1, compared optimality statements",
+          "method": "read and visually inspect original PDF pp.1,6",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "same terms k-partite and Metropolis"
+        },
+        {
+          "assessment": "COVERS general mathematical technique, not formula",
+          "evidence": "Original SDP and Metropolis framework do not prove exact a/r phase transitions.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+          "material_read": "Primary exposition abstract and references on fixed equilibrium distributions",
+          "method": "read publicly accessible primary paper description",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "general reversible fastest-mixing SDP and Metropolis comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-mass analytic phase diagram for fastest reversible chains on an important complete multipartite family is a substantive solved spectral optimization problem. The unique aggregate flow and exactly one Metropolis-optimal bias show structural optimizer rigidity and a sharp high-bias support-screening transition. Parameter r>=4 prevents repackaging the previous three-part result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Boyd et al 2004 SIAM Review",
+    "Boyd et al 2009 SIAM J Optim §5.4.2",
+    "arXiv:1008.2588",
+    "Resultary complete multipartite biased reversible mixing search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For balanced r-partite graph K_{m,...,m}, r>=4 and m>=2, with distinguished total stationary mass a and others equal, exact four-phase optimal reversible SLEM as function of a,r; unique optimal total distinguished flow even for nonsymmetric kernels, elimination of ordinary-to-ordinary edges for a>=2/3, unique Metropolis optimal mass a=1/(2r-1), global minimum at a=1/r.",
+  "limitations": [
+    "Requires r>=4 parts of equal m>=2 and one distinguished total stationary mass a; ordinary masses identical.",
+    "Only reversible self-loop-allowed SLEM; full space of nonsymmetric optimal matrices not classified."
+  ],
+  "residual_risks": [
+    "Specialist complete multipartite biased-chain papers not indexed by surveyed sources may derive an equivalent phase diagram.",
+    "Applies to fixed class size m>=2 and reversible SLEM, not arbitrary stationary vectors, nonreversible kernels or total-variation time."
+  ],
+  "schema_version": 1
+}
