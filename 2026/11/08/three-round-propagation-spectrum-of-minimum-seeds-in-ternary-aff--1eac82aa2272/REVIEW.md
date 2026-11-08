@@ -1,0 +1,15 @@
+# Scientific review: three-round affine Steiner propagation
+
+## Correctness — PASS
+The result fixes the exact ternary affine geometry, the simultaneous propagation rule and round-zero convention. Unique affine coordinates with sum one turn the rule into coordinatewise addition \(-a-b\), and affine basis symmetry makes the \((u,v)\) orbit profile exact. The round-two list is obtained from a complete classification of pairs of round-one types; the round-three list is obtained from the complete ten-row pair table for the four round-two types. Each such pair has at most eight nonzero coordinates. The eight-coordinate check is exhaustive for every possible overlap pattern in every dimension, and support-minimal witnesses ensure attainability in smaller dimensions. Multinomial orbit sizes give the claimed binomial polynomial. The missing type \((5,1)\) establishes a genuine obstruction for all dimensions at least five, not merely for a tested range. The independent full-vector replay for dimensions one through nine and the exhaustive pair-table replay support, but do not replace, this proof.
+
+## Originality — PASS, provisional
+The closest motivating source, Burgess–Danziger–Jones–Marbach–Pike, arXiv:2608.25627v1, Section 4, establishes minimum lazy seed size and eventual closure in ternary affine systems and a different *sequential-source* burning number. Its complete inspected text does not give the simultaneous first-three-round counts, all-point profiles, or the exact three-round finishing threshold. Nagy–Szemerédi, J. Combin. Designs 30 (2022), study closure and sizes of minimal spreading sets without this early-time stratification. Targeted published-record and literature searches considered terms including 2-line bootstrap percolation, affine ternary line completion, minimum spreading sets, and three-round propagation; no stronger covering assertion was found. The fact that all minimum seeds are affine bases is known and not itself claimed new. Literature indexing and terminology present residual historical-priority risk.
+
+## Mathematical value — PASS
+The quantitative kinetics of a *minimum* seed matter because eventual burning only gives a yes/no criterion. The theorem provides an exact pointwise orbit classification across all dimensions and a degree-eight binomial growth law for the occupied set after three simultaneous rounds. It resolves the natural first dimension where an optimal seed cannot complete within three rounds; the six unburned points at dimension five have an explicit structural explanation. This is not a generic rephrasing of the known affine-spanning result, nor a finite-table extrapolation: it gives a dimension-uniform dynamic classification and proof.
+
+## Limitations and uncertainty
+The complete termination time beyond three rounds is not determined. Other initial seed sizes, non-affine designs and sequential-source dynamics are outside scope. Historical priority is provisional, no independent mathematical audit has occurred, and finite test output is not substituted for a universal argument.
+
+Self-review: passed. Independent audit: not yet performed.
