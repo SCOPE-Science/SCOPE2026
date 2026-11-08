@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:36.994203Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree 825f38017e4895988de833d988d59122e073cd16, RESULT.md blob cb8e27362955daf2b0d1d39db6a0f95d9cf32af0",
+        "Frozen verify.py blob 2e2d75869091ed7ed29893218baa0fe110fb4aa1; independent CASE1_OK"
+      ],
+      "rationale": "The frozen RESULT.md reduces the matrix M_x exactly to Π+r_x(z)(I−Π) with r_x(z)=[1+(2x−1)z+(x²−2x+1/2)z²]/(1+xz)². The diagonal entry test reduces to r_x(z)≥−m/(1−m) and the off-diagonals are positive. The calculated ∂_x r=z³(2x−1)/(1+xz)³≥0 and ∂_z r=[−1+(1−3x)z]/(1+xz)³<0 give the unique success cutoff x*(z,m), whose uniform interval measure yields the exact P branches, endpoint values, and one-third stiff frontier. Taylor expansion at z0 gives the square-root onset. Because −1<r_x(z)<1 for every x in the parameter interval and finite z, the product projector representation has multiplier bounded by q(z)^n for q(z)<1; it eventually lies strictly above the diagonal nonnegativity threshold even for nonstochastic individual factors. Independently derived symbolic derivatives and exact rational endpoint tests in independent_checks.py gave CASE1_OK. Tests only support sampled boundaries; infinite conclusion is the algebraic argument. No proof claims 3-state, stagewise, nonlinear or finite-precision positivity.",
+      "residual_risks": [
+        "No extension beyond fixed finite z, autonomous 2-state generator, exact arithmetic; the uniform recovery time can diverge with z."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source arXiv:2607.18928 establishes underlying tableau and scalar stability; SSP-SDIRK2(2) has a different two-midpoint-step rational function."
+        ],
+        "reasoning": "A broader stability theorem for the same coefficients does not by itself imply entrywise positivity probability with stationary rate imbalance. Same-preprint full text inaccessible, preventing categorical noncoverage claims.",
+        "searches": [
+          "arxiv:2607.18928 (Eisenmann–Jans–Kruse–Podhaisky)",
+          "Resultary semantic query: randomized singly diagonally implicit Runge Kutta two state Markov chain stochastic positivity probability parameter balance one third threshold",
+          "Resultary two-state immunity of SSP-SDIRK2(2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 825f38017e4895988de833d988d59122e073cd16, RESULT.md blob cb8e27362955daf2b0d1d39db6a0f95d9cf32af0",
+        "Frozen verify.py blob 2e2d75869091ed7ed29893218baa0fe110fb4aa1; independent CASE1_OK",
+        "Eisenmann et al arxiv:2607.18928 abstract and author OA publication information",
+        "Horváth 1998 Applied Numerical Mathematics DOI 10.1016/S0168-9274(98)00050-6",
+        "Resultary SSP-SDIRK2(2) and CN Markov positivity results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stability function r_x(z) and Markov spectral projector enable a new exact preimage calculation of the cutoff; neither fact alone states the balance one-third stochastic probability or cumulative recovery."
+        ],
+        "reasoning": "This is a structural specialization with additional balance-dependent inequalities, not merely a relabeled scalar positivity probability; unresolved implicit coverage of inaccessible source remains a named risk.",
+        "searches": [
+          "arxiv:2607.18928",
+          "doi:10.1016/S0168-9274(98)00050-6",
+          "Resultary semantic query: randomized singly diagonally implicit Runge Kutta two state Markov chain stochastic positivity probability parameter balance one third threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A Markov step Π+r(I−Π) is entrywise nonnegative iff r≥−m/(1−m); positivity of the scalar decay multiplier r≥0 is strictly stronger for m>0."
+        ],
+        "reasoning": "Compared aliases cone preservation, absolute monotonicity, two-state stochastic matrices, scalar stability; older RK positivity radii do not compute the random tableau conditional measure for this generator.",
+        "searches": [
+          "Resultary semantic query: randomized singly diagonally implicit Runge Kutta two state Markov chain stochastic positivity probability parameter balance one third threshold",
+          "Horváth 1998 positivity of Runge–Kutta methods",
+          "Horváth 2005 positivity step-size threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact unconditional positivity result for balanced two-state CN handles fixed x=1/2, not uniformly random X in [1/2,1] or its full distribution P_m."
+        ],
+        "reasoning": "No fixed-family P_m all-parameter table was identified; the endpoint x=1/2 is already covered and is not claimed new.",
+        "searches": [
+          "Resultary semantic query: randomized singly diagonally implicit Runge Kutta two state Markov chain stochastic positivity probability parameter balance one third threshold",
+          "Resultary A resolvent-return law for Crank–Nicolson positivity"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the original randomized SDIRK tableau, scalar amplification, A-stability and convergence analysis in Eisenmann–Jans–Kruse–Podhaisky 2026 are fully acknowledged; stochastic matrix positivity probability for imbalanced two-state generators is a different property, because its threshold r≥−m/(1−m), not r≥0. Resultary records on SSP-SDIRK2(2) and Crank–Nicolson concern different rational functions. Exact same primary preprint full text could not be obtained from arXiv/open author OA, and authorized Oxford reported vpn_disconnected, so an undiscovered direct corollary is explicitly a priority risk; this limitation alone does not entail scientific falsity or known coverage.",
+      "residual_risks": [
+        "Identical motivating preprint full source unverified due arXiv/OA retrieval failures and Oxford vpn_disconnected; an exact covered specialization in the full text cannot be categorically excluded.",
+        "No extension beyond fixed finite z, autonomous 2-state generator, exact arithmetic; the uniform recovery time can diverge with z."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar method stability and convergence visible; complete paper unavailable, cannot certify that appendices lack Markov stochasticity.",
+          "evidence": [
+            "arxiv:2607.18928; Oxford status vpn_disconnected, job 45b16c484a945b508c4b7f63c26973fa"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.18928",
+          "material_read": "ArXiv bibliographic abstract and available author-hosted publication description; full primary PDF and HTML unsuccessful, no claims of full-text reading",
+          "method": "arXiv, author OA attempt; authorized Oxford download also attempted",
+          "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+          "trigger": "Identical numerical tableau, possibly dominating theorem"
+        },
+        {
+          "assessment": "Different two-midpoint SSP-SDIRK2(2) method, so its unconditional two-state endpoint positivity does not dominate randomized SDIRK family.",
+          "evidence": [
+            "Resultary result for exact SSP-SDIRK2(2) two-state theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+          "material_read": "Published title and indexed mathematical theorem summary (not a full-source inspection)",
+          "method": "Resultary semantic index search",
+          "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+          "trigger": "Resultary closest positivity question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git tree 825f38017e4895988de833d988d59122e073cd16, RESULT.md blob cb8e27362955daf2b0d1d39db6a0f95d9cf32af0",
+        "Frozen verify.py blob 2e2d75869091ed7ed29893218baa0fe110fb4aa1; independent CASE1_OK",
+        "Eisenmann et al arxiv:2607.18928 abstract and author OA publication information",
+        "Horváth 1998 Applied Numerical Mathematics DOI 10.1016/S0168-9274(98)00050-6",
+        "Resultary SSP-SDIRK2(2) and CN Markov positivity results"
+      ],
+      "rationale": "The fixed two-state chain is the smallest nontrivial probability-preservation testbed and the distinction between stochastic one-step matrices and eventually strictly positive products has direct meaning for probabilistic numerical integration. The sharp balance m=1/3, exact full probability law, and non-Lipschitz square-root onset are not routine stability-radius paraphrases.",
+      "residual_risks": [
+        "Identical motivating preprint full source unverified due arXiv/OA retrieval failures and Oxford vpn_disconnected; an exact covered specialization in the full text cannot be categorically excluded.",
+        "No extension beyond fixed finite z, autonomous 2-state generator, exact arithmetic; the uniform recovery time can diverge with z."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 825f38017e4895988de833d988d59122e073cd16, RESULT.md blob cb8e27362955daf2b0d1d39db6a0f95d9cf32af0",
+    "Frozen verify.py blob 2e2d75869091ed7ed29893218baa0fe110fb4aa1; independent CASE1_OK",
+    "Eisenmann et al arxiv:2607.18928 abstract and author OA publication information",
+    "Horváth 1998 Applied Numerical Mathematics DOI 10.1016/S0168-9274(98)00050-6",
+    "Resultary SSP-SDIRK2(2) and CN Markov positivity results"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Identical motivating preprint full source unverified due arXiv/OA retrieval failures and Oxford vpn_disconnected; an exact covered specialization in the full text cannot be categorically excluded.",
+    "No extension beyond fixed finite z, autonomous 2-state generator, exact arithmetic; the uniform recovery time can diverge with z."
+  ],
+  "schema_version": 1
+}

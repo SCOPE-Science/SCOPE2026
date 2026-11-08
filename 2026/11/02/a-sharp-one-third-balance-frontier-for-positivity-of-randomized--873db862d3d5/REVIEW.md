@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a two-state generator the rank-one stationary projector gives exactly \(M=\Pi+r(I-\Pi)\), so the smallest diagonal is nonnegative precisely when \(r\ge-m/(1-m)\); the off-diagonals are positive. The stage-derived rational multiplier is differentiated and evaluated at both parameter endpoints. Solving its threshold quadratic in the uniform randomizer proves every branch of the probability law. Exact limiting algebra gives the one-third frontier and square-root onset. The idempotent projector gives the cumulative-product identity and a uniform positive-product cutoff. The standard-library checker passed 4,703 additional rational and deterministic approximation checks. No infinite quantifier is inferred from that finite checker.
+## correctness
 
-## Originality — PASS (subject to historical priority risk)
-The July 2026 Eisenmann–Jans–Kruse–Podhaisky source gives the randomized scheme, the scalar amplifier, and A-stability; it does not state a stationary-balance-dependent probability of entrywise-stochastic two-state matrices or the repeated-product dichotomy. Previously studied sign reversal on scalar decay tests \(r<0\), unlike the relevant threshold \(r<-m/(1-m)\); the scalar sign probability alone does not state the one-third balance boundary or the endpoint law for a two-state generator. Published Crank–Nicolson return-resolvent and two-midpoint-step SSP-SDIRK2(2) Markov classifications use different stability maps, and the closest 2024 randomized implicit scheme has a different tableau. Originality is limited to the present combined exact two-state random-matrix classification, not to the projector identity, RK stability function or generic positivity theory. A specialized old theorem might imply the formula; searchable primary literature cannot rule this out.
+PASS
 
-## Mathematical value — PASS
-Whether a numerical transition operator preserves every probability vector is a basic invariant-cone question in conservative kinetics. The exact success probability, sharp one-third rate-imbalance frontier, finite zero-success threshold, and non-Lipschitz onset are directly interpretable as stochastic mesh-step reliability criteria, distinct from scalar A-stability. The distinction between infinitely recurrent unphysical one-step operators and eventually strictly positive accumulated propagators is a useful structural warning against equating local and long-time positivity. The model is intentionally two-state and autonomous; no extension to larger systems is claimed.
+The frozen RESULT.md reduces the matrix M_x exactly to Π+r_x(z)(I−Π) with r_x(z)=[1+(2x−1)z+(x²−2x+1/2)z²]/(1+xz)². The diagonal entry test reduces to r_x(z)≥−m/(1−m) and the off-diagonals are positive. The calculated ∂_x r=z³(2x−1)/(1+xz)³≥0 and ∂_z r=[−1+(1−3x)z]/(1+xz)³<0 give the unique success cutoff x*(z,m), whose uniform interval measure yields the exact P branches, endpoint values, and one-third stiff frontier. Taylor expansion at z0 gives the square-root onset. Because −1<r_x(z)<1 for every x in the parameter interval and finite z, the product projector representation has multiplier bounded by q(z)^n for q(z)<1; it eventually lies strictly above the diagonal nonnegativity threshold even for nonstochastic individual factors. Independently derived symbolic derivatives and exact rational endpoint tests in independent_checks.py gave CASE1_OK. Tests only support sampled boundaries; infinite conclusion is the algebraic argument. No proof claims 3-state, stagewise, nonlinear or finite-precision positivity.
 
-## Closest sources and limitations
-- Eisenmann, Jans, Kruse, Podhaisky (2026), arXiv:2607.18928v1 — same tableau and scalar amplification, distinct matrix-stochasticity question.
-- Bochacik, Przybyłowicz (2024), arXiv:2404.19059 — randomized implicit methods with different stability function.
-- Horváth (1998, 2005) — general Runge–Kutta cone-positivity theory, possible broad earlier implications; limited full-text access.
-- Published two-state Crank–Nicolson and SSP-SDIRK2(2) Markov analyses — distinct rational maps, no equivalent claim in inspected results.
-- Earlier scalar sign-risk computations for this same random tableau — threshold \(r<0\), not stochasticity of a two-state operator.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the original randomized SDIRK tableau, scalar amplification, A-stability and convergence analysis in Eisenmann–Jans–Kruse–Podhaisky 2026 are fully acknowledged; stochastic matrix positivity probability for imbalanced two-state generators is a different property, because its threshold r≥−m/(1−m), not r≥0. Resultary records on SSP-SDIRK2(2) and Crank–Nicolson concern different rational functions. Exact same primary preprint full text could not be obtained from arXiv/open author OA, and authorized Oxford reported vpn_disconnected, so an undiscovered direct corollary is explicitly a priority risk; this limitation alone does not entail scientific falsity or known coverage.
+
+## value
+
+PASS
+
+The fixed two-state chain is the smallest nontrivial probability-preservation testbed and the distinction between stochastic one-step matrices and eventually strictly positive products has direct meaning for probabilistic numerical integration. The sharp balance m=1/3, exact full probability law, and non-Lipschitz square-root onset are not routine stability-radius paraphrases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
