@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The strict 0<K<=2 sine contraction proves global attraction exactly up to and including the endpoint, excluding in-phase. The derivative 1-2h<-1 rules out global attraction beyond it. Taylor expansion of g(v)=2 sin(v)-v gives reciprocal-square increments 2/3+3/(10w)+O(w^-2), whose harmonic sum yields 9/20 log n and a convergent renormalized constant. Near h=1, positive decreasing errors for initial v<=1 give w_n>=w_0+cn; uniform affine-recurrence expansion and summable weighted errors imply the exact crossover (e^{4t}-1)/6. The checker verifies the nontrivial coefficients and finite examples. Finite hitting and in-phase boundary cases are separately excluded as appropriate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.10993v1, Theorem 3.2 requires 0<h<2/Lambda; the two-clock Lambda=2 and equality h=1 is excluded.",
+        "The same paper Theorem 4.1 and Corollary 5.4 impose h<1/Lambda=1/2 for Morse–Smale invertibility.",
+        "The 2015 experimental study gives phase-opposition interpretation but its accessible textual analysis did not provide the evaluated endpoint law."
+      ],
+      "reasoning": "General gradient-descent or Morse–Smale statements require strict inequalities and cannot be invoked at the degenerate endpoint. Generic parabolic-flip methods may explain local powers but do not by themselves establish global attraction or the finite-time parameter crossover.",
+      "searches": [
+        "Buescu D Aniello Oliveira Morse Smale dynamics Huygens networks 2026 theorem 3.2 two oscillator",
+        "critical flip parabolic sine circle map logarithmic phase locking",
+        "2015 Oliveira Melo Huygens synchronization of two clocks sine phase update"
+      ]
+    },
+    "checked_sources": [
+      "Buescu, D Aniello, Oliveira, arXiv:2610.10993v1, October 7 2026, https://arxiv.org/html/2610.10993v1",
+      "Oliveira, Melo, Scientific Reports 5 11548 2015, https://doi.org/10.1038/srep11548",
+      "Zhai, Xiao, Zheng, Chinese Physics B 32 060505 2023, https://doi.org/10.1088/1674-1056/acc062"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 strict descent estimate is c_h=h(1-h Lambda/2)>0, which becomes zero at h=1 for Lambda=2; it does not establish endpoint convergence.",
+        "Zhai–Xiao–Zheng use |1-KR cos(theta*)|<=1 to locate instability; a neutral multiplier -1 is not sufficient to deduce convergence or its logarithmic coefficient.",
+        "An existing published period-two classification applies above the threshold h>1, not at equality."
+      ],
+      "reasoning": "The new endpoint theorem is not a special case of the cited strict-parameter stability theorems. The already-known local multiplier and bifurcating period-two orbit are explicitly excluded from the originality claim. Specific remaining risk is uninspected historical local flip theory or hidden exact-sine-map computations.",
+      "searches": [
+        "\"Huygens synchronization\" two clocks phase opposition coupling 2015",
+        "\"Synchronization–desynchronization transitions\" sine circle 2023 critical K 2",
+        "\"Morse–Smale dynamics in discrete Huygens networks\" 2026 optimal step size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sine-circle-map analyses use the equivalent phase update theta -> theta + K sin theta, with K=2h; Zhai–Xiao–Zheng (2023), Sections 3 and 5.2, analyze the local multiplier threshold K=2.",
+        "The complete October 2026 source derives the two-vertex quotient and gives strict descent below the endpoint (Sections 2, 3, 5)."
+      ],
+      "reasoning": "After the exact parameter identification K=2h, linear flip at K=2 was already known. The accepted statement is not this standard flip: it includes global attraction at equality, its evaluated two-term asymptotic, and a finite-time scaling function. Neither inspected source establishes those implications.",
+      "searches": [
+        "\"x+K sin x\" \"K=2\" \"convergence\" circle map",
+        "\"critical period doubling sine circle endomorphism\" reciprocal square asymptotic",
+        "\"Huygens two oscillator\" \"critical flip\" relaxation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked literature consists of qualitative stability thresholds, rather than a tabulated exact critical asymptotic constant or crossover function.",
+        "The nearest identified related results describe critical inverse-square laws for different maps with different normal-form coefficients."
+      ],
+      "reasoning": "No exact match to the evaluated coefficient pair or scaling law was identified. Absence from searches is not conclusive historical novelty; the proof is independent of any empirical table.",
+      "searches": [
+        "\"z+2 sin z\" critical fixed point",
+        "\"2/3\" \"9/20\" sine map logarithmic",
+        "two-clock Huygens h=1 antiphase algebraic convergence"
+      ]
+    },
+    "rationale": "Primary full-text comparisons establish strict parameter gaps at the exact h=1 threshold; independently derived global attraction, evaluated 9/20 logarithmic correction, and fixed-time crossover are not implied by the local multiplier criterion or already published h>1 period-two family. This is best-knowledge originality, not definitive historical priority.",
+    "residual_risks": [
+      "Historical zero-frequency sine circle map and parabolic flip literature may contain equivalent asymptotic formulas not found in inspected sources.",
+      "Original 2015 paper has some mathematical display equations inaccessible in the retrieved text, preventing full mathematical negative coverage assessment.",
+      "Generic one-dimensional flip normal-form methods independently imply local leading algebraic order; no claim of new general mechanism or of definitive global priority is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not establish h=1 endpoint global convergence or two-term critical physical-clock rate; strict descent is stated only for h<1.",
+        "evidence": [
+          "Theorem 3.2 c_h=h(1-h Lambda/2)>0 and h<2/Lambda; for two-clock Lambda=2 gives h<1.",
+          "Corollary 5.4 covers h<1/(2+2cos(pi/(N+1))), N=1 gives h<1/2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+        "material_read": "Full HTML manuscript sections 2, 3, 4, 5.2, 5.4, 6, 7, references (not merely abstract)",
+        "method": "Compared exact two-vertex specialization of Theorem 3.2 and Corollary 5.4, boundary equality, and Section 7 limits",
+        "title": "Morse–Smale dynamics in discrete Huygens networks",
+        "trigger": "Same two-clock phase quotient, sufficient strict descent and exact finite-step thresholds"
+      },
+      {
+        "assessment": "No matching exact critical rate in accessible text; incomplete access to displayed equations retains a priority risk.",
+        "evidence": [
+          "Describes experimental near-antiphase synchronization and pulse exchange, published July 23, 2015."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/srep11548",
+        "material_read": "Accessible body text, experimental setup, results and conclusions; some mathematical formulas embedded as unreadable images",
+        "method": "Read accessible scholarly text and searched for endpoint discrete sine-map rates",
+        "title": "Huygens synchronization of two clocks",
+        "trigger": "Original two-clock phase-opposition physical model cited by October 2026 article"
+      },
+      {
+        "assessment": "Previously covers the K=2 local multiplier instability threshold and associated period doubling, not global attraction exactly at K=2 or evaluated inverse-square and crossover laws.",
+        "evidence": [
+          "Section 5.2 uses the local criterion |1-KR cos(theta*)|<=1 and threshold KR=2."
+        ],
+        "identifier_or_url": "https://www.cpsjournals.cn/en/article/doi/10.1088/1674-1056/acc062",
+        "material_read": "Accessible complete textual article, particularly Sections 3, 4, 5 and 6",
+        "method": "Matched sine-circle map normalization, invertibility and local fixed-point multiplier to h=1",
+        "title": "Synchronization–desynchronization transitions in networks of circle maps with sinusoidal coupling",
+        "trigger": "Classical sine-circle-map zero-frequency flip and coupled oscillator dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e796da7f-332f-4bb6-8290-5c2c5ec05afb",
+  "value": {
+    "rationale": "The sharp closed global-locking threshold at the finite physical update where strict potential descent fails, the evaluated critical logarithmic correction, and the explicit parameter/time crossover answer a natural borderline-stability problem. These facts distinguish algebraic convergence from the subcritical exponential regime; they are not an arbitrary code-generated slice or routine numerical gain. Scope is explicitly the two-clock quotient.",
+    "status": "PASS"
+  }
+}
