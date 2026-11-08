@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:41:51.111865Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tridiagonal determinant recurrence yields J^N(U_N(lambda/2J)+i g U_{N-1}(lambda/2J)). Every eigenvalue has strictly negative imaginary part by terminal nonzero eigenvector component. Substitution lambda=-2iJ sinh u yields g=cosh((N+1)u)/sinh(Nu) for even N, and g=sinh((N+1)u)/cosh(Nu) for odd N. The even log has strictly positive second derivative and one minimum; the odd function is strictly increasing. Nonvanishing second derivative at the minimum implies algebraic multiplicity exactly two; irreducible tridiagonal eigenspace dimension one implies a defective second-order EP. Pointwise monotonicity in real N and exponential q_N=e^(-2Nu_N) imply q_N~1/(4N) and the stated logarithmic threshold correction. Independent finite matrix/Chebyshev eigenchecks returned g2=2,g4=1.55302604,g6=1.39202881,g100=1.03542380. The claims are only on the negative imaginary axis; no global off-axis collision assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burke et al. analyze a finite lattice with a single local imaginary potential, including an edge case; Downing–Saroka consider balanced gain and loss at different endpoints."
+        ],
+        "reasoning": "A generic local-loss characteristic polynomial could encode all thresholds, but the read Burke appendix does not spell out the parity law or logarithmic correction; balanced PT gain/loss is a different matrix.",
+        "searches": [
+          "non-Hermitian scattering tight binding lattice impurity edge exact spectrum Appendix D",
+          "Downing Saroka Exceptional points in oligomer chains 2021",
+          "Riberi Exactly Solvable Absorbing Quantum Walk 2026"
+        ]
+      },
+      "checked_sources": [
+        "Burke–Wiersig–Haque, Non-Hermitian scattering on a tight-binding lattice, arXiv:1910.07439, full main and Appendix D",
+        "Wiersig, Role of nonorthogonality of energy eigenstates in quantum systems with localized losses, Phys Rev A 98 (2018) abstract",
+        "Downing–Saroka arXiv:2112.04305 abstract, different PT-balanced chain",
+        "Resultary search of terminal-loss EP"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For impurity at edge q=1, Burke Appendix D recognizes an EP and localized state; this overlaps the even-N existence conclusion directly."
+        ],
+        "reasoning": "The known existence of an EP is a covered corollary and not new. It does not by itself imply all odd-N simplicity, exact multiplicity-root count, unique thresholds or their logarithmic coefficient. More extensive derivations in Wiersig 2018 could create further overlap; full text unavailable.",
+        "searches": [
+          "Wiersig 2018 localized losses energy eigenstates exceptional point",
+          "Burke Wiersig Haque 2019 finite-size EP edge impurity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burke–Wiersig–Haque Section III and Appendix D explicitly mention exceptional points for an edge-site lossy impurity; their primary text discusses primarily central impurity and qualitative edge-site EP."
+        ],
+        "reasoning": "The same-model edge EP existence is covered by prior work; the present all-length one-versus-two negative-imaginary pole count, dimension-specific minimum formula and log(4N)/(2N) threshold require comparison to exact formulas, not merely mention of an EP.",
+        "searches": [
+          "single terminal absorbing finite tight binding chain exceptional point imaginary poles",
+          "Burke Wiersig Haque 2019 edge loss Appendix D",
+          "Wiersig 2018 localized losses edge chain",
+          "published Resultary semantic search: non-Hermitian uniform finite path terminal loss imaginary axis eigenvalues exceptional point logarithmic size shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Burke Appendix D reports qualitative edge impurity EP position and asymptotics near a finite value, but no explicit g_N table or coefficient log(4N)+1 identified."
+        ],
+        "reasoning": "Numerical EP plots are not the same as an exact minimum for each even N and asymptotic constant; prior exact tables would be stronger coverage if found.",
+        "searches": [
+          "finite lossy chain exceptional point threshold as function of N",
+          "Burke Wiersig appendix D impurity at q=1",
+          "published Resultary semantic search: non-Hermitian uniform finite path terminal loss imaginary axis eigenvalues exceptional point logarithmic size shift"
+        ]
+      },
+      "rationale": "Earlier localized-loss tight-binding work already discusses an edge impurity and an associated EP; this fact is explicitly credited, including Burke–Wiersig–Haque (2019, Appendix D) and Wiersig (2018). The remaining claim is exact all-N parity root-count classification and sharp logarithmic finite-length threshold, neither furnished by the read Appendix D or other inspected material. This is a substantially qualified PASS with direct same-model priority risk, not a claim to have discovered edge-loss EPs.",
+      "residual_risks": [
+        "Burke–Wiersig–Haque explicitly precedes edge-loss EP discovery; originality pertains only to exact parity counting/finite-size logarithmic coefficient.",
+        "Wiersig 2018 full text and other specialized edge-loss spectral sources not completely inspected; potential earlier exact threshold formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS existence of edge-site exceptional point and qualitative localized mode; no all-even-N threshold minimization with logarithmic correction located in read text",
+          "evidence": "Burke–Wiersig–Haque arXiv:1910.07439, Appendix D Effect of impurity location",
+          "identifier_or_url": "https://arxiv.org/abs/1910.07439",
+          "material_read": "Full openly rendered original article: I–V and Appendices A–D, especially Appendix D lines on moving impurity to q=1 and EP, Appendix C parity at central site",
+          "method": "read original primary full text on arXiv abstract/text rendition",
+          "title": "Non-Hermitian scattering on a tight-binding lattice",
+          "trigger": "Same tight-binding local loss; Appendix D treats edge impurity"
+        },
+        {
+          "assessment": "May include exact boundary-chain spectrum or EP conditions; no whole-document noncoverage claim",
+          "evidence": "Wiersig, Physical Review A 98, 052105 (2018)",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.98.052105",
+          "material_read": "Journal abstract only, full text unavailable in run",
+          "method": "publisher metadata and abstract",
+          "title": "Role of nonorthogonality of energy eigenstates in quantum systems with localized losses",
+          "trigger": "Earlier same edge-local-loss setup cited by Burke"
+        },
+        {
+          "assessment": "Different Hamiltonian with two conjugate end potentials; does not alone imply this passive single-end-loss spectrum",
+          "evidence": "Downing–Saroka, Communications Physics 2021",
+          "identifier_or_url": "https://arxiv.org/abs/2112.04305",
+          "material_read": "Abstract and publicly accessible description of balanced-end gain/loss model",
+          "method": "primary abstract/landing",
+          "title": "Exceptional points in oligomer chains",
+          "trigger": "Length-parity exceptional points in chains"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact all-length parity selection, unique finite-length EP and logarithmic correction determine a physically natural absorbing-boundary spectral boundary with analytic sharp constant; the two-site example and generic EP existence alone are not claimed new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Burke–Wiersig–Haque, Non-Hermitian scattering on a tight-binding lattice, arXiv:1910.07439, full main and Appendix D",
+    "Wiersig, Role of nonorthogonality of energy eigenstates in quantum systems with localized losses, Phys Rev A 98 (2018) abstract",
+    "Downing–Saroka arXiv:2112.04305 abstract, different PT-balanced chain",
+    "Resultary search of terminal-loss EP"
+  ],
+  "disposition": "passed",
+  "final_claim": "A uniform N-site nearest-neighbor chain with one terminal Markovian loss -i kappa/2 has exactly one simple negative-imaginary eigenvalue for odd N, and 0, one defective double, or two such locations for even N according to g=kappa/(2J) relative to g_N=min cosh((N+1)u)/sinh(Nu). The even-length thresholds decrease to 1 as 1+[log(4N)+1+o(1)]/(2N).",
+  "limitations": [
+    "Burke–Wiersig–Haque explicitly precedes edge-loss EP discovery; originality pertains only to exact parity counting/finite-size logarithmic coefficient.",
+    "Wiersig 2018 full text and other specialized edge-loss spectral sources not completely inspected; potential earlier exact threshold formulation.",
+    "Independent bounded checks do not prove unrestricted quantifiers; inspected primary literature is not exhaustive."
+  ],
+  "residual_risks": [
+    "Burke–Wiersig–Haque explicitly precedes edge-loss EP discovery; originality pertains only to exact parity counting/finite-size logarithmic coefficient.",
+    "Wiersig 2018 full text and other specialized edge-loss spectral sources not completely inspected; potential earlier exact threshold formulation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS existence of edge-site exceptional point and qualitative localized mode; no all-even-N threshold minimization with logarithmic correction located in read text",
+      "evidence": "Burke–Wiersig–Haque arXiv:1910.07439, Appendix D Effect of impurity location",
+      "identifier_or_url": "https://arxiv.org/abs/1910.07439",
+      "material_read": "Full openly rendered original article: I–V and Appendices A–D, especially Appendix D lines on moving impurity to q=1 and EP, Appendix C parity at central site",
+      "method": "read original primary full text on arXiv abstract/text rendition",
+      "title": "Non-Hermitian scattering on a tight-binding lattice",
+      "trigger": "Same tight-binding local loss; Appendix D treats edge impurity"
+    },
+    {
+      "assessment": "May include exact boundary-chain spectrum or EP conditions; no whole-document noncoverage claim",
+      "evidence": "Wiersig, Physical Review A 98, 052105 (2018)",
+      "identifier_or_url": "https://doi.org/10.1103/PhysRevA.98.052105",
+      "material_read": "Journal abstract only, full text unavailable in run",
+      "method": "publisher metadata and abstract",
+      "title": "Role of nonorthogonality of energy eigenstates in quantum systems with localized losses",
+      "trigger": "Earlier same edge-local-loss setup cited by Burke"
+    },
+    {
+      "assessment": "Different Hamiltonian with two conjugate end potentials; does not alone imply this passive single-end-loss spectrum",
+      "evidence": "Downing–Saroka, Communications Physics 2021",
+      "identifier_or_url": "https://arxiv.org/abs/2112.04305",
+      "material_read": "Abstract and publicly accessible description of balanced-end gain/loss model",
+      "method": "primary abstract/landing",
+      "title": "Exceptional points in oligomer chains",
+      "trigger": "Length-parity exceptional points in chains"
+    }
+  ]
+}

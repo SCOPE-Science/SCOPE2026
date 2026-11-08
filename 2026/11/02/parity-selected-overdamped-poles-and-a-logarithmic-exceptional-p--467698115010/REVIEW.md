@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The terminal-loss characteristic determinant is independently reconstructed from the three-term Chebyshev recurrence. Under the exact change of variables \(\lambda=-2iJ\sinh u\), the even- and odd-length root equations are explicit. The strict second derivative of the even-length log-ratio gives one nondegenerate minimum; the odd-length ratio has positive derivative. Irreducible tridiagonal recurrence forces eigenspaces to be one-dimensional and hence establishes a genuine algebraic-order-two exceptional point. The finite-size law is recovered from an exact exponential minimizer equation. A standalone 495-comparison numerical checker independently verifies finite matrices and representative parameters. Bounds: only purely imaginary eigenvalues are classified, and neither numerical tests nor the review certify complete spectral collision structure.
+## correctness
 
-## Originality
-PASS on inspected evidence, not a statement of comprehensive historical priority. The closest 2007 finite-path trapping article studies decay domains with two endpoint traps. The 2021 all-length oligomer exceptional-point theorem uses balanced endpoint gain and loss, not a lone passive terminal absorber except for a shifted two-site special case. A 2026 semi-infinite absorbing-walk study does not settle the finite-parity threshold in its available abstract. Search comparisons of aliases, equivalent Chebyshev spectral forms, broad literature and existing published findings did not identify the joint even/odd pole law and logarithmic finite-size correction. The complete text of some plausible historical studies remained unavailable, and publication priority is a residual risk.
+PASS
 
-## Mathematical value
-PASS. The number of strictly overdamped poles is an intrinsic spectral signature of terminal quantum capture. Its parity-dependent transition is a structural classification rather than an isolated numerical threshold. The strict length ordering and coefficient of the logarithmic finite-size shift quantify how a finite absorbing chain approaches its semi-infinite boundary-mode regime. These results distinguish a real Jordan spectral transition from a smooth optimum for average capture time.
+Tridiagonal determinant recurrence yields J^N(U_N(lambda/2J)+i g U_{N-1}(lambda/2J)). Every eigenvalue has strictly negative imaginary part by terminal nonzero eigenvector component. Substitution lambda=-2iJ sinh u yields g=cosh((N+1)u)/sinh(Nu) for even N, and g=sinh((N+1)u)/cosh(Nu) for odd N. The even log has strictly positive second derivative and one minimum; the odd function is strictly increasing. Nonvanishing second derivative at the minimum implies algebraic multiplicity exactly two; irreducible tridiagonal eigenspace dimension one implies a defective second-order EP. Pointwise monotonicity in real N and exponential q_N=e^(-2Nu_N) imply q_N~1/(4N) and the stated logarithmic threshold correction. Independent finite matrix/Chebyshev eigenchecks returned g2=2,g4=1.55302604,g6=1.39202881,g100=1.03542380. The claims are only on the negative imaginary axis; no global off-axis collision assertion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier localized-loss tight-binding work already discusses an edge impurity and an associated EP; this fact is explicitly credited, including Burke–Wiersig–Haque (2019, Appendix D) and Wiersig (2018). The remaining claim is exact all-N parity root-count classification and sharp logarithmic finite-length threshold, neither furnished by the read Appendix D or other inspected material. This is a substantially qualified PASS with direct same-model priority risk, not a claim to have discovered edge-loss EPs.
+
+## value
+
+PASS
+
+The exact all-length parity selection, unique finite-length EP and logarithmic correction determine a physically natural absorbing-boundary spectral boundary with analytic sharp constant; the two-site example and generic EP existence alone are not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
