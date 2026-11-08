@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The full Jacobian is orthogonally reduced to mode matrices with trace (1-r)+delta*w and determinant delta*[r+(1-r)*w]. Exact Jury bounds prove Schur stability for every mode at delta<1, uniform mode proves instability at delta>1, and equality case strictly damps w<1. Calculus classifies all C_r thresholds. Packaged standard-library checker independently verifies exact rational Jury identities and Moore-torus eigenmodes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dress & Lin 2011 Theorem 3 and §4 analyze the uncoupled two-dimensional system and note coupled synchronization/pattern formation as future work.",
+        "Published record 2026/9/17/SCOPE-log-slope-no-pattern-spatial-memory--5ddf2e7adc1e is a spatial-memory PDE/ODE uniqueness result, not the present discrete-time ideal-storage map.",
+        "Published record 2026/10/11/SCOPE-parity-selective-equilibrium-stabilization-in-a-coupled-gumowski--a66693793989 analyzes different coupled Gumowski–Mira dynamics with parity-dependent stabilization."
+      ],
+      "reasoning": "The isolated-map theorem covers only the homogeneous mode. Generic master-stability reductions do not imply the needed strict inequalities for all transverse eigenvalues; those are model-specific and established here. The closest retrieved results involve different equations and hypotheses.",
+      "searches": [
+        "ideal storage model logistic S R feedback lattice positive stochastic coupling Neimark Sacker local stability diffusion independent",
+        "spatial coupling of ideal-storage oscillators reaction diffusion spectral stability uniform fixed point all stochastic averaging matrices",
+        "Global logarithmic-slope obstruction to spatial-memory steady patterns logistic monotone spatial coupling no Turing equilibrium",
+        "\"ideal storage model\" coupling \"Schur\" \"stability\"",
+        "Dress Lin 2011 ideal storage model Neimark Sacker bifurcation parameter boundaries stability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.38710v1 (2026-10-28)",
+      "doi:10.4230/DagSemProc.10231.8 (2010 open-access paper)",
+      "doi:10.1142/S0218127411029197 (2011 author-supplied text)",
+      "Published mathematical research records with the scientific identifiers cited in the broader-coverage check"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dress & Lin 2011 analyzes isolated map; its determinant stability criterion is only the uniform-mode necessary condition.",
+        "Dress et al. 2010 sets up the diffusion-coupled lattice but leaves mathematical analysis of the coupled spectral behavior undeveloped.",
+        "Hordijk 2026 observes spiral formation at parameters inside the Neimark–Sacker regime but gives no proof excluding nonuniform linear instabilities from stable parameter regimes."
+      ],
+      "reasoning": "Prior local stability plus the existence of spatial averaging does not logically imply all-mode stability: the coupling could affect transverse multipliers. The new determinant/trace identities and three strict Jury inequalities close that implication for this map; hence the all-network conclusion is not an immediate corollary of the cited isolated result.",
+      "searches": [
+        "ISCAM ideal storage cellular automaton diffusion coupling homogeneous equilibrium no Turing instability Schur stability synchronous modes",
+        "ideal storage model logistic S R feedback lattice positive stochastic coupling Neimark Sacker local stability diffusion independent",
+        "Dress Lin 2011 ideal storage model Neimark Sacker bifurcation parameter boundaries stability",
+        "\"ideal storage cellular automaton\" \"Turing\" instability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hordijk 2026 §2.1–3.3 describes the model and the empirical bifurcation window without giving the full coupled Jacobian spectrum.",
+        "Dress et al. 2010 §3–5 describes the same coupled equations and simulations; no exact spectrum-boundary statement appears in the inspected material."
+      ],
+      "reasoning": "Reformulated the theorem as absence of diffusion-driven linear instability, modewise Schur stability for all symmetric stochastic couplings, and stability equality with the isolated oscillator. These are equivalent via the uniform mode and the explicit three Jury inequalities; no same-model statement was retrieved.",
+      "searches": [
+        "ISCAM ideal storage cellular automaton diffusion coupling homogeneous equilibrium no Turing instability Schur stability synchronous modes",
+        "ideal storage model logistic S R feedback lattice positive stochastic coupling Neimark Sacker local stability diffusion independent",
+        "ideal storage cellular automaton transverse spectral Schur boundary",
+        "arxiv:2610.38710v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked 2010 and 2026 sources present numerical diagrams and snapshots, not an all-network eigenmode table or exact Lambert-W onset chart.",
+        "Targeted mathematical-record searches did not retrieve an exact ISCAM stability table."
+      ],
+      "reasoning": "The claim is analytic and applies to uncountably many couplings and all network sizes. No exact table, parameter chart, or theorem that dominates it was found in inspected sources.",
+      "searches": [
+        "ISCAM ideal storage cellular automaton diffusion coupling homogeneous equilibrium no Turing instability Schur stability synchronous modes",
+        "spatial coupling of ideal-storage oscillators reaction diffusion spectral stability uniform fixed point all stochastic averaging matrices",
+        "\"ideal storage cellular automaton\" \"linear stability\" spectrum",
+        "arxiv:2610.38710v1",
+        "doi:10.4230/DagSemProc.10231.8"
+      ]
+    },
+    "rationale": "The 2011 source covers the isolated 2x2 map, and 2010/2026 papers present the coupled model and empirical spirals, but the inspected primary material and targeted scientific literature searches do not cover the all-network exclusion of diffusion-driven onset. Classical Jury and mode decompositions are treated as prior methods. Remaining specialized-priority risk is explicitly recorded.",
+    "residual_risks": [
+      "An older specialized coupled-map lattice master-stability treatment not indexed in searched sources could contain equivalent all-mode inequalities.",
+      "The 2011 publisher PDF itself was not separately obtained, although substantial author-supplied full-text material was available.",
+      "No independent scientific priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary model and experimental motivation, no all-mode coupled stability classification",
+        "evidence": [
+          "§2.1 gives the logistic map; §2.3 gives averaged-rate coupling; §3.1–3.3 gives sampled spiral windows."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.38710v1",
+        "material_read": "Full available HTML: model §2.1–2.3, results §3.1–3.3, conclusions §4 and cited 2010/2011 references",
+        "method": "arXiv HTML, equations and prose",
+        "title": "Spontaneous Spirals in Spatial Systems",
+        "trigger": "2026 source on ISCAM spirals and local Neimark–Sacker window"
+      },
+      {
+        "assessment": "Coupled model established; relevant spectral theorem not present in inspected source",
+        "evidence": [
+          "§3 defines the averaged-rate update and §4 contains only a mathematical-analysis heading before §5 experimental results."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/16dagstuhl-seminar-proceedings/dsp-vol10231/DagSemProc.10231.8/DagSemProc.10231.8.pdf",
+        "material_read": "Eight-page OA PDF text including pp. 2–3 model setup, section 4 mathematical-analysis heading, and pp. 3–7 experiments; page 3 visual inspected",
+        "method": "Publisher open-access PDF text plus rendered page inspection",
+        "title": "The Ideal Storage Cellular Automaton Model",
+        "trigger": "Original model description and possible prior coupled stability theorem"
+      },
+      {
+        "assessment": "Proves relevant isolated-map bifurcation, not the full coupled spatial-mode exclusion",
+        "evidence": [
+          "§3 gives isolated two-dimensional eigenvalue theory; concluding future-work paragraph identifies coupled-array pattern formation as future direction."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220272976_DYNAMICS_OF_A_DISCRETE-TIME_MODEL_OF_AN_IDEAL-STORAGE_SYSTEM_DESCRIBING_HETERO-CATALYTIC_PROCESSES_ON_METAL_SURFACES",
+        "material_read": "Available author-supplied full-text preview: definitions, equilibrium and stability discussion, §3 Neimark–Sacker theorem, §4 parameter examples and §5 future coupling directions",
+        "method": "Readable web full-text preview, publisher PDF not separately obtained",
+        "title": "Dynamics of a Discrete-Time Model of an Ideal-Storage System Describing Hetero-Catalytic Processes on Metal Surfaces",
+        "trigger": "Closest possible stronger isolated-map bifurcation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f1d95cae-516a-4c1d-854f-bae6960ae0b7",
+  "value": {
+    "rationale": "The result distinguishes the source model’s spiral onset from any linear diffusion-driven Turing mechanism, uniformly across all finite symmetric averaging topologies and coupling values; the exact two-boundary parameter chart and critical-mode identification are natural stability invariants and enable parameter choice without finite-lattice sampling.",
+    "status": "PASS"
+  }
+}
