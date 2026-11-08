@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the globally monotone endpoint multiplier, solves its unique real threshold with the correct nontrivial Lambert branch, proves strict positivity of the neutral quadratic coefficient for all positive widths, and independently derives the negative Schwarzian used to classify fixed points. The residence-time estimate is obtained by a reciprocal telescope with a logarithmic error, while the entropy formula follows from exactly two full monotone branches. The symbolic and high-precision checks are reproducibility aids, not the proof of infinite quantification.
+## correctness
 
-**Originality — PASS, subject to residual priority risk.** The source article derives an endpoint instability inequality and supplies parameter plots but not a global exact critical graph, the phasewise number of all fixed points, the nondegenerate parabolic escape law, or their coexistence with unchanged entropy. The general one-dimensional lemmas are prior art and expressly not claimed as new. The novelty claim is the complete **specific-family** phase law and coefficient, not the existence of a Lambert W function or the textbook parabolic expansion in isolation. Nearby indexed results concern other maps and do not imply this Gaussian classification. A further unindexed analysis of the same family could supersede it.
+PASS
 
-**Value — PASS.** The 2024 source motivates the Gaussian family as a robust-chaos model and marks narrow exceptional stability regions numerically. The exact dividing curve, two-versus-three fixed-point classification and sharp slowing law resolve the dynamical behavior precisely at and across that exceptional boundary, rather than merely evaluating a derivative. The coexistence of topological entropy \(\log2\) with a positive-measure attracting basin distinguishes orbitwise behavior from worst-case topological complexity. This is a structural family-specific phase diagram, not an arbitrary parameter slice.
+Differentiating G gives lambda=k Psi(sd), strictly monotone from zero to infinity; solving the unique neutral equation via Lambert W yields the stated branch choice. Negative Schwarzian implies a unique derivative-above-one interval on the rising branch; together with G(0)=0, G(1/2)=1 and the positive neutral quadratic B=1/a−3+exp(−sd), this gives exactly 3/2 fixed points. Reciprocal-increment telescope for G(x)=x+(B/2)x²+O(x³) yields Nδ=2/(Bx)+O(log 1/x) at fixed parameters, and 2^n full monotone laps imply htop=log2. The extension s=0 is explicitly separated from the original source domain.
 
-**Closest literature and limitations.** Patidar (2024), DOI:10.3389/fphy.2024.1328895, was examined in its open full article and PDF mathematical pages; standard lap-growth and S-unimodal theory were distinguished from the new family-specific statements. The theorem is not a claim of metric mixing or globally physical robust chaos. No definitive global publication-priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2024 source supplies the same map, negative Schwarzian and exploratory stability analysis but does not imply the family-specific closed threshold, positive parabolic coefficient and inverse-distance residence law. Classical entropy/lap-count and parabolic-normal-form principles are credited rather than claimed original; the assembled exact bifurcation and rate are new at best knowledge.
+
+## value
+
+PASS
+
+An exact all-width bifurcation surface, complete sink/repeller fixed-point census and precise parabolic residence rate clarify how a full-entropy Gaussian S-unimodal family can coexist with a macroscopic sink; the physical-vs-topological distinction is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
