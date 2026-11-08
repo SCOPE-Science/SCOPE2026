@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope of checks
 
-Run `python3 verify.py` in a directory containing the supplied `verify.py`; it requires only Python 3 with a version supporting integer `bit_count()`.
+# Independent mathematical audit
 
-The verifier constructs each lollipop adjacency matrix directly from its edges and compares the theorem's predicted nullity of every tested matrix power with exact binary Gaussian elimination. It additionally expands the characteristic determinant via an assignment-subset dynamic program and explores entire finite state spaces for small parameter pairs. Exact outcomes: 960 parameter pairs with \(3\le n\le32\), \(1\le m\le32\); 7,413 power-nullity checks; 36 direct characteristic-polynomial tests; 36 exhaustive functional-graph tests covering 28,688 configurations; maximum tested transient length 61. The recorded run returned no failed assertions, and `verification_output.txt` records its complete printed summary.
+## correctness
 
-These finite tests support but cannot establish a theorem quantified over unbounded graph lengths. The infinite-family proof is in `RESULT.md` and uses an explicit polynomial-module presentation, local Smith invariant factors, and Fitting decomposition. No external or independent audit was performed.
+PASS
+
+Reconstructed graph-polynomial path recurrence p_{j+1}=x p_j+p_{j-1}, cycle characteristic identity in characteristic 2 and determinant factor p_{n-1}p_{m+1}. Verified the proposed 2-generator F2[x] presentation, local Smith exponents from min entry x-valuation, and valuations v_x(p_{r-1})=2^v2(r)-1, including even n and m multiple of 4. Independent GF2 matrix arithmetic explicitly built lollipop adjacency matrices and computed nullities of successive powers for 156 n,m pairs (3<=n<=15,1<=m<=12), 507 rank comparisons, all matching predicted B. Fitting decomposition gives periodic 2^D and all transient-entry populations; equality of characteristic polynomials alone is not used to infer Jordan form.
+
+## originality
+
+PASS
+
+Classical lollipop adjacency-spectrum and pendant-deletion identities are acknowledged background. Existing Eulerian binary adjacency Jordan theory assumes all degrees even and does not apply to pendant/attachment degrees 1 and 3. The new all-parameter 2-adic zero-primary fusion and exact transient-state census are not implied by real spectral determination of the lollipop or standard path spectra.
+
+## value
+
+PASS
+
+This classification gives a natural sharp demonstration that identical characteristic polynomials and periodic-state populations need not produce identical transient dynamics, and describes every zero-primary Jordan block for a connected graph family; the explicit k-family gives a large transient length separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

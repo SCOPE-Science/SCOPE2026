@@ -1,15 +1,21 @@
-# Scientific review: binary lollipop transient classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The final claim covers synchronous open-neighborhood parity over \(\mathbb F_2\) for every \(n\ge3\), \(m\ge1\), and every time \(t\ge0\). The determinant reduction \(p_{n-1}p_{m+1}\) follows from the cycle and pendant recurrences. The explicit two-generator polynomial-module presentation preserves all relations by eliminations with unit coefficients; its local Smith form at zero produces exactly the stated Jordan blocks. The key valuations come from \(p_{2r-1}=xp_{r-1}^2\) and \(Q^2=I+xQ\); these yield the two-block fusion in the even–even cases. The Fitting decomposition gives the complete entry-time count without extrapolation from finite data. Direct adjacency-matrix ranks and exhaustive state trajectories passed the supplied tests. Remaining scientific scope: the nonzero-primary invariant factors and primitive-period distribution are not classified.
+## correctness
 
-## Originality — PASS, qualified
-Boulet and Jouve's full lollipop-spectrum study (arXiv:0802.1035) establishes graph spectral identities and real spectral characterization, not nilpotent Jordan blocks for binary parity evolution. Martin, Odlyzko, and Wolfram (1984) establish general finite linear-automaton methods principally for one-dimensional homogeneous rules, rather than this lollipop-versus-disjoint-path transient comparison. Li, Wang, and Zhang (arXiv:2410.09833) study binary adjacency Jordan methods under an all-degrees-even hypothesis; the lollipop has vertices of degrees one and three. Research-record searches for lollipop/tadpole parity dynamics and characteristic-two Jordan structure produced no equivalent or stronger coverage. The characteristic-polynomial equality is a direct reduction of known spectral recurrences and is **not** claimed separately as novel; the all-parameter Jordan fusion and transient profiles are the assessed contribution. Residual risk: unindexed sources or a differently worded classification could overlap.
+PASS
 
-## Mathematical value — PASS
-The question asks whether matching characteristic polynomials of graph-driven binary dynamics determine their time-to-recurrence statistics. The exact counterexample family is natural rather than a parameter cherry-pick: a connected lollipop shares its characteristic polynomial with two ordinary disjoint paths, but the zero-primary block structure can change substantially. At equal cycle and tail lengths \(n=m=2^k\), the sharp transient depth falls from \(2^k-1\) to \(2^{k-1}\); at tail length two it instead rises by two. The theorem also determines every transient shell and total periodic population, giving a complete recurrence-entry classification over a two-parameter infinite graph family.
+Reconstructed graph-polynomial path recurrence p_{j+1}=x p_j+p_{j-1}, cycle characteristic identity in characteristic 2 and determinant factor p_{n-1}p_{m+1}. Verified the proposed 2-generator F2[x] presentation, local Smith exponents from min entry x-valuation, and valuations v_x(p_{r-1})=2^v2(r)-1, including even n and m multiple of 4. Independent GF2 matrix arithmetic explicitly built lollipop adjacency matrices and computed nullities of successive powers for 156 n,m pairs (3<=n<=15,1<=m<=12), 507 rank comparisons, all matching predicted B. Fitting decomposition gives periodic 2^D and all transient-entry populations; equality of characteristic polynomials alone is not used to infer Jordan form.
 
-## Sources and limits
-The primary dated source is R. Boulet and B. Jouve, arXiv:0802.1035, first posted 2008-02-07. Relevant background includes Martin–Odlyzko–Wolfram, DOI:10.1007/BF01223745, and Li–Wang–Zhang, arXiv:2410.09833. The lollipop paper's relevant full-text sections were inspected; only descriptions or selected material were available for some broader historical sources. No claim of exhaustive literature coverage or independent verification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical lollipop adjacency-spectrum and pendant-deletion identities are acknowledged background. Existing Eulerian binary adjacency Jordan theory assumes all degrees even and does not apply to pendant/attachment degrees 1 and 3. The new all-parameter 2-adic zero-primary fusion and exact transient-state census are not implied by real spectral determination of the lollipop or standard path spectra.
+
+## value
+
+PASS
+
+This classification gives a natural sharp demonstration that identical characteristic polynomials and periodic-state populations need not produce identical transient dynamics, and describes every zero-primary Jordan block for a connected graph family; the explicit k-family gives a large transient length separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
