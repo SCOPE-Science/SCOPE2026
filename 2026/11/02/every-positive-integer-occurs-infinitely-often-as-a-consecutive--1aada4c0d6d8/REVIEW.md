@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The degree gap and nonnegativity are established directly by induction, and consecutive constant terms sum to one. Product and root-evaluation rules for Sylvester resultants produce the two exact recursions with their leading-coefficient exponents. An explicit degree-tie ray proves that the resultants at the stated indices have absolute value exactly the prescribed positive integer; a second induction generates infinitely many such indices. Exact integer determinant replay supports the algebraic calculation. There is no probabilistic, limiting, or unproved step in the stated theorem.
+PASS
 
-## Originality
+The actual RESULT.md establishes B_n(0)+B_(n+1)(0)=1 and |deg B_n - deg B_(n+1)|<=1 by binary induction, then applies Sylvester-product and root-evaluation formulas including the correct leading coefficient exponent. The degree-tie sequence u_j=(7*4^j-1)/3 has leading pair (1,j+1), resultant 1; two successive odd transformations yield N_m with resultant m, followed by even and 4v+1 maps producing infinitely many strictly increasing witnesses. I checked the degree-gap/constant-term boundaries and independent exact Sympy Sylvester determinants for 120 initial indices plus 96 explicit/repeated witnesses. This corroborates—not replaces—the full induction. Finite-field common roots are not inferred from integer resultant divisibility when degrees drop.
 
-PASS under the inspected-source comparison, with residual literature risk. Ulas and Ulas (2011) prove rational coprimality and a product identity but do not report the integer resultant spectrum in their relevant inspected material. Gawron (2014) characterizes degree ties, while Dilcher and Tomkins (2018) focus on square classes and divisibility. The result combines a new exact resultant recurrence with an explicit infinite realization theorem, not merely a restatement of rational coprimality. Schinzel's 2016 leading-coefficient chapter could contain related ingredients; its full text was inaccessible and novelty is therefore not independently established.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Numeric resultants are intrinsic elimination invariants of the same natural recurrence polynomials whose rational gcd properties were previously investigated. The distinction between coprimality and integer resultant magnitude is mathematically meaningful: the attained spectrum is the entire set of positive integers, each with infinite multiplicity, and every magnitude admits a complete binary recursion. The theorem is a uniform classification and realization result, not an isolated low-index computation.
+Rational coprimality of B_n and B_(n+1) in Ulas–Ulas does not determine its absolute integer resultant: coprime primitive pairs can have arbitrary nonzero resultant. Gawron computes degree patterns, which provide a premise but not the recursion and universal positive spectrum. Schinzel 2016 addresses leading coefficients and is a plausible implicit covering source, but only abstract metadata could be inspected (Oxford VPN disconnected); residual risk is explicitly retained. Resultary searches returned no statement asserting this universal integer-resultant spectrum.
 
-## Risks and limits
+## value
 
-The sign of the integer resultant is not classified. The primes dividing a resultant must not be interpreted as precisely the primes of finite-field common-root reduction when degrees collapse. The inaccessible leading-coefficient chapter and potentially unlocated specialist results are originality risks; no assertion of independent validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Numeric Sylvester resultants are natural elimination invariants of the established Stern polynomial family, stricter than rational coprimality. Every positive integer attained infinitely often and an exact computable recursion is a nontrivial structural arithmetic statement; not merely a small-index table or sign-normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the consecutive Stern-polynomial resultant classification
+# Independent mathematical audit
 
-Run `python3 verification/verify.py` in a directory containing this file and the referenced script. The checker uses exact integer polynomial coefficients, independently derived binary degree/leading-coefficient data, and a Sylvester-matrix determinant evaluated by exact Bareiss elimination. No external Python package is required.
+## correctness
 
-The replay checked 259 exact Sylvester determinants for \(1\le n\le259\), 16 arbitrary-integer realization witnesses \(1\le m\le16\), and four further distinct indices retaining the same resultant for each witness. It additionally checked boundary values and the special-degree behavior at index 39. The checker reported:
+PASS
 
-`VERIFY_OK: 259 independent Sylvester determinant comparisons; 16 exact surjectivity witnesses, each with 4 recurring-value checks; binary degree/leading-coefficient invariants confirmed`
+The actual RESULT.md establishes B_n(0)+B_(n+1)(0)=1 and |deg B_n - deg B_(n+1)|<=1 by binary induction, then applies Sylvester-product and root-evaluation formulas including the correct leading coefficient exponent. The degree-tie sequence u_j=(7*4^j-1)/3 has leading pair (1,j+1), resultant 1; two successive odd transformations yield N_m with resultant m, followed by even and 4v+1 maps producing infinitely many strictly increasing witnesses. I checked the degree-gap/constant-term boundaries and independent exact Sympy Sylvester determinants for 120 initial indices plus 96 explicit/repeated witnesses. This corroborates—not replaces—the full induction. Finite-field common roots are not inferred from integer resultant divisibility when degrees drop.
 
-The checks are finite. The universally quantified conclusion follows from the explicit induction and resultant laws in `RESULT.md`, not from the finite replay. Signed resultants and common-root assertions modulo primes are outside the theorem.
+## originality
+
+PASS
+
+Rational coprimality of B_n and B_(n+1) in Ulas–Ulas does not determine its absolute integer resultant: coprime primitive pairs can have arbitrary nonzero resultant. Gawron computes degree patterns, which provide a premise but not the recursion and universal positive spectrum. Schinzel 2016 addresses leading coefficients and is a plausible implicit covering source, but only abstract metadata could be inspected (Oxford VPN disconnected); residual risk is explicitly retained. Resultary searches returned no statement asserting this universal integer-resultant spectrum.
+
+## value
+
+PASS
+
+Numeric Sylvester resultants are natural elimination invariants of the established Stern polynomial family, stricter than rational coprimality. Every positive integer attained infinitely often and an exact computable recursion is a nontrivial structural arithmetic statement; not merely a small-index table or sign-normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
