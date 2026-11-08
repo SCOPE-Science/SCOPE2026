@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The three-edge path obstruction is forced by the rectangular closure of two positive corners; every star-forest labeling is realized by selecting the endpoints of its positive edges. The component enumeration is a labeled exponential-formula identity. The VC extremal construction and upper bound agree, while the Littlestone upper bound counts distinct concepts and the lower bound builds two full-depth subtrees. Boundary sizes and the treatment of the empty concept are explicit. Independently enumerated small cases agree with the complete proofs.
+
+**Originality — PASS with stated search limits.** The closest inspected primary work (Block et al., Cryptology ePrint 2020/1605 and ITC 2021) defines Cartesian rectangles and studies induced-path-free graph partitions/covers, not shattering traces or online dimension. Its induced-path condition allows a four-cycle, whereas the present criterion forbids a non-induced three-edge path, so its result neither states nor implies the present classification. Semantic research-record searches and targeted literature searches did not find an equivalent complete shattering, generating-function and Littlestone theorem. An earlier result under terminology such as Boolean outer-product concepts remains a historical-priority risk. The fixed-cardinality \(2\times2\) rectangle concept class is not the unrestricted class here.
+
+**Mathematical value — PASS.** This is a structural all-support characterization for a natural rank-one Boolean hypothesis class. It resolves every coefficient of its shattering polynomial simultaneously, gives a closed two-row specialization, and determines a sharp all-parameter separation between static and adaptive learning dimensions. The key graph obstruction is stronger than the induced-\(P_4\)-free property studied for edge covers, so the result is not merely a restatement of an existing partition bound.
+
+**Limits.** Unrestricted full Cartesian products, with distinct empty concepts identified, are essential. The formula is not asserted for fixed-size factors or restricted host graphs. Finite checks corroborate but do not replace the proof; external independent mathematical review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

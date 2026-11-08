@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Necessity comes from three-edge-path corner forcing; sufficiency assigns factor sets to endpoints of positive star-forest edges. The bipartite-component exponential formula counts unique labeled components, and the VC maximum follows from forest edge count with a disjoint two-star witness. The Littlestone hypothesis-count upper bound is strict below 2^(p+q), and induction constructs both depth-(p+q-2) branches after querying cell (1,1). Base p=q=1, p=1 negative branch and all empty traces checked. The standalone checker independently enumerated all 74,954 supports for grids up to 4x4 and ten exact minimax online ranks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper treats cover/partition numbers for general bipartite graphs rather than pointwise trace shattering for all rectangle concepts.",
+        "General hypothesis counting only gives online-depth at most p+q−1, while the explicit root-query construction provides the lower bound."
+      ],
+      "reasoning": "No stronger source inspected entails the complete unrestricted bipartite star-forest support criterion or full joint generating function; the 2021 result has different quantifiers and a different graph property.",
+      "searches": [
+        "Littlestone dimension combinatorial rectangles n by m equals n+m-1",
+        "online mistake tree rank of outer product Boolean matrices all rectangles m+n-1",
+        "VC dimension all combinatorial rectangles on X times Y equals |X|+|Y|-2",
+        "Littlestone dimension combinatorial rectangles m+n-1 Boolean rectangles",
+        "https://doi.org/10.4230/LIPIcs.ITC.2021.16"
+      ]
+    },
+    "checked_sources": [
+      "https://eprint.iacr.org/2020/1605",
+      "https://doi.org/10.4230/LIPIcs.ITC.2021.16",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITC.2021.16",
+      "published-finding corpus:2026/9/7/SCOPE008",
+      "published-finding corpus:2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "C4 is induced-P4-free, so is admissible under the prior property, whereas its three consecutive edges force an unsatisfiable one-negative labeling of the full four-edge support.",
+        "The new formula counts precisely support subsets, not edge biclique covers or partitions."
+      ],
+      "reasoning": "Neither an exact induced-P4-free decomposition nor its partition/cover bounds imply a trace-shattering criterion requiring the absence of a noninduced three-edge path. The generating function and exact online rank require separate constructive arguments.",
+      "searches": [
+        "https://eprint.iacr.org/2020/1605",
+        "https://doi.org/10.4230/LIPIcs.ITC.2021.16",
+        "combinatorial rectangles A times B rank-one binary matrices incidence shattering iff bipartite star forest P4",
+        "exact shattering complex combinatorial rectangles all subsets Cartesian product iff graph is star forest and full two-sort exponential generating function",
+        "shattering of combinatorial rectangles star forests VC dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An unrestricted rank-one binary matrix is exactly an indicator of A×B. A length-three path in the support is the minimal forbidden trace: positive opposite corners force the negative cross-corner.",
+        "The 2020/1605 text concerns edge covers and partitions by P4-free (induced-path-free) graphs; a four-cycle passes that predicate but fails trace shattering."
+      ],
+      "reasoning": "Comparing rank-one Boolean matrices, outer products, edge-rectangle traces and induced-P4-free covers revealed no equivalence in inspected records; induced-P4-free is strictly weaker than the no-three-edge-simple-path condition on bipartite supports.",
+      "searches": [
+        "combinatorial rectangles A times B rank-one binary matrices incidence shattering iff bipartite star forest P4",
+        "shattering polynomials of rank one Boolean matrices rectangle hypothesis classes",
+        "exact shattering complex combinatorial rectangles all subsets Cartesian product iff graph is star forest and full two-sort exponential generating function",
+        "VC dimension combinatorial rectangles subsets [n]x[m] rank one binary matrices star forests P4 shattering",
+        "shattered sets of combinatorial rectangles bipartite star forest",
+        "https://eprint.iacr.org/2020/1605"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/7/SCOPE008 classifies small finite binary low-rank matrix forms, not the complete Cartesian-rectangle concept family.",
+        "published-finding corpus rook or matching-polytope datasets cover different combinatorial objects."
+      ],
+      "reasoning": "No exact table of the all-parameter shattering-support coefficients or all-p,q online depths was returned by the actual searches; search absence alone cannot prove global novelty.",
+      "searches": [
+        "shattering polynomials of rank one Boolean matrices rectangle hypothesis classes",
+        "shattering profile star forest of complete bipartite graph with generated binary rank one concepts",
+        "published-finding corpus:2026/9/7/SCOPE008",
+        "published-finding corpus:2026/10/11/SCOPE-exact-rank-stratified-vertex-degrees-of-rectangular-matching-pol--9771e7447af5"
+      ]
+    },
+    "rationale": "Actual published-finding corpus semantic searches and complete-text focused primary-paper comparisons did not identify a theorem characterizing every shattered query subset for all unrestricted Boolean Cartesian rectangles, the all-parameter two-sort enumerator, and sharp online ranks. Established induced-P4 cover theory uses a distinct predicate; fixed-cardinality rectangle families are not logically dominating. An alternate-terminology prior result remains possible.",
+    "residual_risks": [
+      "Historical priority not exhaustively resolved, especially under Boolean rank-one outer-product traces or star-forest incidence complexes.",
+      "Focused primary full-text inspections are not a line-by-line check of every appendix.",
+      "Small computer enumeration confirms sample cases only, not a claim of independent external audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING on material inspected: studies induced-P4-free partition/cover numbers, not all-support shattering or two learning dimensions",
+        "evidence": [
+          "Eprint history gives 2020-12-27 received, 2021-03-02 revised.",
+          "Paper formalizes Cartesian rectangles as A×B and induced-P4-free graph decomposition; these differ on bipartite C4."
+        ],
+        "identifier_or_url": "https://eprint.iacr.org/2020/1605",
+        "material_read": "Abstract, introduction, definitions and sections on rectangles/P4-free partitions and relevant appendices; targeted full-text searches for VC, shatter, Littlestone, star forest; not a page-by-page reading of every proof",
+        "method": "Accessible open PDF and extracted text with targeted passages around rectangle definition and graph condition",
+        "title": "P4-free Partition and Cover Numbers and Application",
+        "trigger": "Same combinatorial rectangles and P4-free bipartite graph theme, potential stronger or equivalent coverage"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected portions: bipartite induced-P4-free cover and partition parameters, not the shattering-support polynomial or online depth",
+        "evidence": [
+          "Published 2021-07-19 by Dagstuhl, DOI 10.4230/LIPIcs.ITC.2021.16.",
+          "The use of induced P4 differs from forbidding three-edge paths as subgraphs; C4 separates them."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITC.2021.16",
+        "material_read": "Introduction and relevant definitions and graph-partition statements plus targeted searches of full 25-page PDF; not every mathematical appendix checked page by page",
+        "method": "Downloaded accessible publisher PDF, inspected text and relevant page images",
+        "title": "P4-free Partition and Cover Numbers & Applications",
+        "trigger": "Peer-reviewed version of closest open preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41f165ae-6da1-4091-8bff-7068fed7c130",
+  "value": {
+    "rationale": "The natural unrestricted rank-one Boolean rectangle class has a complete support-by-support graph shattering criterion, which yields all two-sort polynomial coefficients, a closed two-row formula, and exact VC and online dimensions. This separates induced-path partition theorems from trace shattering and gives a sharp one-unit static/online learning gap for every nondegenerate two-factor grid. The statement is not a renaming of a generic counting bound.",
+    "status": "PASS"
+  }
+}
