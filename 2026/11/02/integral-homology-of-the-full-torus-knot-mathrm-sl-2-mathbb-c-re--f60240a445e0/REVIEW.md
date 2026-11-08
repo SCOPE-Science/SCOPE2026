@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full reduced variety is explicitly decomposed into one commuting component isomorphic to \(\mathrm{SL}_2(\mathbb C)\) and \(g\) mutually disjoint noncommuting components isomorphic to \(Q\times Q\); this is a proved primary-source component theorem, not an inferred stratification. Each pair of intersection quadrics embeds as diagonal and antidiagonal graphs. The nontrivial sign in the induced second-homology map follows from the antipodal degree \(-1\) on \(S^2\). The resulting integer block matrix has Smith form \(\operatorname{diag}(1,2)\), making \(H_2\) exactly \((\mathbb Z/2\mathbb Z)^g\). The other degrees follow from exact Mayer–Vietoris sequences and a primitive degree-zero incidence map. Compatible semialgebraic triangulation justifies using Mayer–Vietoris for this closed cover. Standalone exact-arithmetic tests confirmed the integer matrices for ten coprime exponent pairs; these checks do not prove the geometric hypotheses.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest full text, Liriano (arXiv:2610.32064v1), computes the singular locus homology \(H_0=H_2=\mathbb Z^{2g}\), not the integral homology of the full representation variety; its Lemmas 1–2 provide the input geometry but no integer gluing calculation. Florentino–Lawton (DOI:10.1007/s00009-025-02947-7) proves path connectedness and component counts; Muñoz (arXiv:0901.1783) treats the distinct character quotient. Actual mathematical-record searches for torus-knot full representation-space homology, aliases and second-homology torsion did not retrieve an equivalent statement. This is not proof of universal historical priority: further classical sources could imply the calculation.
+PASS
 
-**Mathematical value — PASS.** The complete integral homology of the entire natural representation variety, uniform over all coprime torus knots, answers a motivated topological question not settled by the singular-locus theorem. The degree-two torsion is invisible to rational Betti numbers and character-variety component counts; its precise rank and geometric origin are mathematically informative.
+The theorem is about Hom(<x,y|x^p=y^q>, SL2(C)) reduced analytic topological space, not character quotient. Primary Liriano Lemmas 1–2 supply A≅SL2(C)≃S3 and g disjoint components Y_i≅Q×Q (Q≃S2) meeting A in two connected branches each, diagonal and antidiagonal Q. A finite closed semialgebraic cover admits compatible CW model, so integral Mayer–Vietoris applies. Antipodal U↦-U on Q induces degree -1 on H2(S2); the H2 intersection gluing per component is [[1,1],[1,-1]], of Smith (1,2), creating exactly one Z/2 in H2 per component, with no H2 kernel. H0 incidence has rank g, kernel Z^g and primitive image, giving H1=Z^g; H3 from A and H4 from Q×Q yield Z and Z^g. Higher homology vanishes. Independently calculated SNF of these blocks for coprime examples (2,3),(3,4),(5,7), not a substitute for the geometric component cover.
 
-**Scientific limits and residual risks.** The claim requires the published reduced component-and-intersection theorem, and no stronger assertion about cup products, homotopy type, scheme nilpotents, arbitrary knots, or the intrinsic topology of a character quotient is made. Originality remains qualified by incomplete access to every historical topology source. Independent validation has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Liriano 2026 focuses on singular locus and computes its free homology, explicitly supplying component intersection geometry but not integral full representation-variety homology. Prior Florentino–Lawton and Muñoz concern connectivity or character quotient. The new full-space torsion calculation follows by integral MV and is provisionally original. Potential older full-representation topology remains historical-priority risk.
+
+## value
+
+PASS
+
+A natural and distinct topological space associated with classical torus knot groups has previously unaccounted integral 2-torsion. The exact all-(p,q) classification makes explicit a difference from rational invariants and singular-locus homology. This is a structural answer, not mere change of coefficient convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

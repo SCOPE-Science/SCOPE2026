@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and exact boundaries
+# Independent mathematical audit
 
-The standalone `verify.py` was run with Python 3 and SymPy against the actual local artifact. It returned `VERIFY_OK` for coprime exponent pairs \((2,3),(2,5),(2,7),(3,4),(3,5),(3,7),(4,5),(5,6),(5,7),(7,8)\). For each pair it enumerates parity-admissible labels, constructs the full degree-two diagonal/antidiagonal inclusion matrix and the degree-zero incidence matrix, and computes exact integer Smith normal forms. The degree-two blocks yield \(g\) invariant factors equal to \(2\); the degree-zero map has \(g\) invariant factors equal to \(1\) and one zero row.
+## correctness
 
-The **all-parameter argument** is the uniform Mayer–Vietoris proof in RESULT.md, not finite extrapolation from those ten examples. Essential noncomputational inputs are the rigorously established geometric component decomposition and intersection graphs in Liriano's 2026 Lemmas 1–2, the antipodal map's integral degree \(-1\), the ordinary topology of the complex affine quadric and \(\mathrm{SL}_2(\mathbb C)\), and compatible semialgebraic triangulation for closed subvariety inclusions. These are stated explicitly in the proof and can be independently reconstructed.
+PASS
 
-The computation does not establish complete priority over inaccessible historical papers, determine cup products or unreduced representation schemes, or count independent external validations. No independent audit has been performed.
+The theorem is about Hom(<x,y|x^p=y^q>, SL2(C)) reduced analytic topological space, not character quotient. Primary Liriano Lemmas 1–2 supply A≅SL2(C)≃S3 and g disjoint components Y_i≅Q×Q (Q≃S2) meeting A in two connected branches each, diagonal and antidiagonal Q. A finite closed semialgebraic cover admits compatible CW model, so integral Mayer–Vietoris applies. Antipodal U↦-U on Q induces degree -1 on H2(S2); the H2 intersection gluing per component is [[1,1],[1,-1]], of Smith (1,2), creating exactly one Z/2 in H2 per component, with no H2 kernel. H0 incidence has rank g, kernel Z^g and primitive image, giving H1=Z^g; H3 from A and H4 from Q×Q yield Z and Z^g. Higher homology vanishes. Independently calculated SNF of these blocks for coprime examples (2,3),(3,4),(5,7), not a substitute for the geometric component cover.
+
+## originality
+
+PASS
+
+Liriano 2026 focuses on singular locus and computes its free homology, explicitly supplying component intersection geometry but not integral full representation-variety homology. Prior Florentino–Lawton and Muñoz concern connectivity or character quotient. The new full-space torsion calculation follows by integral MV and is provisionally original. Potential older full-representation topology remains historical-priority risk.
+
+## value
+
+PASS
+
+A natural and distinct topological space associated with classical torus knot groups has previously unaccounted integral 2-torsion. The exact all-(p,q) classification makes explicit a difference from rational invariants and singular-locus homology. This is a structural answer, not mere change of coefficient convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
