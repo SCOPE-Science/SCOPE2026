@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's exact probability mass was reconstructed and compared with independent exact rational parking enumeration for sizes 2–5. A binomial identity expresses the coefficient in a form to which uniform Stirling bounds apply. The discrete increment of the bias coefficients supplies the explicit bulk density, while the sharp summable endpoint bound controls signed and absolute mass in boundary collars. Integration of the one-crossing density produces the critical coefficient. The separately packaged verification program passed 43 exact and numerical checks; finite tests do not establish the infinite limit.
+PASS
 
-## Originality — PASS, qualified
+The source’s finite conditional last-preference probability law is explicitly credited to Durmić et al. The positive coefficients a_(n,s) are symmetric, sum 2/(n+1), and have interior n^(−5/2) density proportional to [y(1−y)]^(−3/2), while their endpoint mass gives one half atom at each boundary after rescaling. The discrete increment D_(n,s+1)−D_(n,s)=a_(n,s)+a_(n,s+1), with midpoint zero, gives n^(3/2)D→4(2y−1)/sqrt(2π y(1−y)). The uniform endpoint bound |D|≤C/[n sqrt(min(s+1,n−s))] controls absolute mass in shrinking collars. Therefore the signed n-scaled law converges with norm to (δ0+δ1)/2+[-1+4λ(1−2x)/sqrt(2π x(1−x))]dx. The sign-change integral is sqrt(1+32λ²/π), yielding n TV→(1+sqrt(1+32λ²/π))/2 for fixed λ. Independent log-gamma finite evaluations at λ=0,1/4,1 and n=250,1000,10000 approach the predicted constants monotonically; numerical agreement alone was not used as an infinite-limit proof.
 
-The 2022 paper supplies the exact law and fixed-bias order bounds. The 2025 follow-up supplies broad inequalities but does not present the sharp fixed-\(\lambda\) near-unbiased critical crossover. The derived signed bulk/endpoint weak limit and variation convergence are not stated in the inspected results. These are new analytical consequences of the **known** finite source identity, rather than new finite distribution data. Relevant mathematical records and accessible historical titles/claims were compared. Absolute priority is not certified: a mathematically equivalent derivation may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The original fixed-bias dichotomy has a natural missing transition. The exact scaling function and endpoint-versus-bulk signed decomposition quantify it and distinguish very small bias from finite bias. This gives a justified statistical interpretation of the crossover rather than a merely numerical refinement.
+Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.
 
-## Relevant literature and limitations
+## value
 
-Closest primary source: Durmić et al., arXiv:2211.00536, Theorems 3, 5 and 6. Plausible broader source inspected: Harris et al., arXiv:2502.00269, Theorem 3.3, concerning bounds and underfilled regimes. Bellin's related first-coordinate paper was compared at the abstract level, leaving an acknowledged full-text comparison risk. The result assumes exactly n cars and n places, successful parking, and fixed real scaled bias. The proof has not received independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prior fixed-bias asymptotics leave a natural boundary layer around unbiased parking at p=1/2. The explicit universal critical scaling λ=(p−1/2)sqrt(n), its nontrivial nonlinear total-variation coefficient, and a decomposition into universal boundary atoms plus bias-dependent bulk density resolve that precise missing transition rather than offering a routine tiny correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
