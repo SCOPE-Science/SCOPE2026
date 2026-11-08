@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Use Python 3 to execute `python3 verify_torus.py` from the unpacked result directory. No third-party dependencies are required. The checks actually executed in this package returned:
+## correctness
 
-`VERIFY_OK independent_angle_moments=30 rational_and_inverse_checks=274`
+PASS
 
-The script exactly checks cleared-denominator polynomial identities for the normalized fourth moment and the sixth-minus-six-times-fourth moment, their endpoint and transition values, the rational two-moment collision, and exact feasibility of the collision's squared radii. For ten positive embedded-ring geometries it integrates the two independent surface coordinates by a 64-point periodic trapezoid rule in each angle, using a direct angular-difference average. The resulting 30 numerically integrated moments agree with their separate analytic formulas to specified floating tolerances. It also tests rational representatives of the ambiguity involution and an inverse inequality.
+For a smooth embedded ring-torus surface R>r>0, sampling density on the meridian is [1+(r/R)cos theta]/2pi, not uniform theta. Independent pair chord D=|X-Y| has m2=2(R²+2r²), m4=(12R^4+52R²r²+39r^4)/2, m6=(40R^6+312R^4r²+516R²r^4+187r^6)/2, obtained from radial A and covariance tensors with central symmetry. The scale-free K(x) increases until x=2/13 then decreases; K(x)=K(y) for x!=y is equivalent to y=(4-9x)/(52x+9), giving exact multiplicity and feasible K range. T(x)=J(x)-6K(x) has derivative 3(51x²+8)/[16(1+2x)^4]>0 and decreasing derivative with inf 59/432 at x=1, proving optimal inverse Lipschitz constant 432/59. Explicit rational ambiguity witness x=1/16,y=55/196 was independently checked. Fresh symbolic independent checks verify K,J,T derivatives and distinct m6. The Hölder 1/2 boundary follows sqrt x; claims concern first three consecutive even chord moments only.
 
-These are finite diagnostic computations. The theorem for all positive real \(0<r<R\), its uniqueness, and optimality are established by the algebraic proof in `RESULT.md`. No programmatic search over parameters is treated as an exhaustive proof. No independent human verification or historical-priority certification has been performed.
+## originality
+
+PASS
+
+Tu–Fischbach derive forward radial volume-distance distributions for balls, not area-sampled nonconvex ring-torus inverses. Lellouche–Souris provide a generic convolution approach and examples for rectangles, balls and hyperspheres, but their inspected indexed full text does not identify this surface-torus two-to-one K involution or sharp third-moment stability. Generic shape moments can compute forward polynomials, not by themselves settle the noninjective/injective boundary.
+
+## value
+
+PASS
+
+The inverse question how many low even chord-distance moments determine a two-parameter ring torus is geometrically natural. The second/fourth moments have a strict twofold ambiguity over an explicit interval and a nontrivial aspect involution; the sixth gives exact uniqueness plus an optimal inverse stability coefficient. That is an independently useful inverse-geometric classification, not mere moment tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
