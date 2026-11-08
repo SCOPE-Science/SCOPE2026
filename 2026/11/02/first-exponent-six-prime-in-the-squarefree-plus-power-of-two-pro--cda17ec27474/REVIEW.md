@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The progression sieve follows an exact modular-inverse formula for every possible squared-prime divisor, and an explicit lower bound on the marked indices enforces positivity. The sieve covers every candidate in the stated \(10^9\) range, not a sample. Trial division covers all potential prime factors of all remaining candidates. The complete certificate gives exactly nine integer obstructions and exactly two prime ones, both directly checked to succeed at exponent six. The proof explicitly excludes prime \(2\), prime \(3\), and the automatic exponent-four obstruction.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The October 2026 primary paper determines the first five exponent layers only below \(10^8\), then explicitly poses the first exponent-six example as a computational research direction. Its specific conclusion, figures, tables, and proof do not imply a smallest prime or the exact census through \(10^9\). Hercher's much broader representability verification through \(2^{50}\) proves existence, not the prime-restricted minimal-exponent classification. OEIS A377587 concerns different global odd-integer minima. Published mathematical-research-record searches for the exact numbers and equivalent descriptions did not identify the same claim. Prior unpublished computations or missing index entries remain possible.
+PASS
 
-**Mathematical value — PASS.** This is an exact, motivated finite threshold for an explicit open computational direction in the same congruence class, rather than an arbitrary digit cutoff. It identifies the first appearance of a new least-exponent stratum and a complete tenfold extension of the existing restricted-prime search. Its proof gives a small exhaustive certificate obtained by modular arithmetic, not a merely partial search. It does not solve the general Erdős conjecture.
+Since p congruent 7 mod36, exponent a=4 always gives 9|p-16, and for a in {0,1,2,3,5}, 4 or 9 cannot divide the remainder. Any nonsquarefree positive remainder has a prime-square divisor q^2 with q>=5 and q<=floor(sqrt(10^9)); gcd(36,q^2)=1 yields a unique progression index k mod q^2 by inverse 36. The checker marks only positive remainders >=q^2 and scans every k=0,...,27,777,777 (27,777,778 integers), all prime q<=31623. Independent newly executed full exact mask sieve reproduced precisely nine integer five-obstruction candidates and precisely two prime survivors; complete deterministic trial division and factorization confirmed exponent 6 for both. Their lower exponent obstructions are explicit and the all-k range is exhaustive within <=10^9; this does not depend on a heuristic cutoff or primality assumptions.
 
-**Residual limitations.** The classification is finite, and the independent priority assessment is incomplete. The successful self-review is not independent scientific certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for the precise quantified final claim after comparing same-object and broader primary literature; the prior components/techniques are explicitly credited and residual historical-priority risk is retained.
+
+## value
+
+PASS
+
+The prior same-congruence investigation established the classification below 10^8 and explicitly proposed locating the next first-exponent threshold. The first least-exponent-six prime is a concrete natural invariant of the prime-restricted squarefree-plus-power-of-two problem; the complete nine-candidate and two-prime range certificate is an independently usable sharp finite answer, not an arbitrary unmotivated window. No general conjecture is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

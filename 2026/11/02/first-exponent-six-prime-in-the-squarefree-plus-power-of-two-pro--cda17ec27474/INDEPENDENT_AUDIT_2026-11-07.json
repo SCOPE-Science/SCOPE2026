@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:47:00.401855Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Since p congruent 7 mod36, exponent a=4 always gives 9|p-16, and for a in {0,1,2,3,5}, 4 or 9 cannot divide the remainder. Any nonsquarefree positive remainder has a prime-square divisor q^2 with q>=5 and q<=floor(sqrt(10^9)); gcd(36,q^2)=1 yields a unique progression index k mod q^2 by inverse 36. The checker marks only positive remainders >=q^2 and scans every k=0,...,27,777,777 (27,777,778 integers), all prime q<=31623. Independent newly executed full exact mask sieve reproduced precisely nine integer five-obstruction candidates and precisely two prime survivors; complete deterministic trial division and factorization confirmed exponent 6 for both. Their lower exponent obstructions are explicit and the all-k range is exhaustive within <=10^9; this does not depend on a heuristic cutoff or primality assumptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hercher verifies representability for all odd n up to 2^50, a broader existence result. Harman–Paquin reduce the five obstruction exponents and discuss unbounded least exponent."
+        ],
+        "reasoning": "Representability of every odd n under a high bound is weaker than the exact minimal power and prime-congruence census. Broader existence cannot imply the two exceptions and least one.",
+        "searches": [
+          "Resultary semantic search: primes congruent 7 modulo 36 squarefree plus powers of two first exponent six 189954151",
+          "arXiv:2411.01964",
+          "arXiv:2610.07214"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07214",
+        "arXiv:2411.01964",
+        "OEIS A377587",
+        "Resultary semantic search: primes congruent 7 modulo 36 squarefree plus powers of two first exponent six 189954151"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary same-problem article reports no exponent-six primes below 10^8 and lists locating the first above that as future work."
+        ],
+        "reasoning": "Its congruence simplification is prior and reused, but cannot settle the range (10^8,10^9] without the new exact sieve; the current theorem supplies that exhaustive computation.",
+        "searches": [
+          "arXiv:2610.07214 Sections 5,7",
+          "Resultary semantic search: primes congruent 7 modulo 36 squarefree plus powers of two first exponent six 189954151"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Harman–Paquin formulate exactly p congruent 7 mod36 and first usable squarefree exponent, classify below 10^8; Hercher treats odd integers rather than prime-restricted first exponents."
+        ],
+        "reasoning": "The same prime-congruence problem is in Harman–Paquin but their smaller finite range does not reach p=189954151. Hercher full-range existence bounds do not determine this minimum in the restricted prime sequence.",
+        "searches": [
+          "Resultary semantic search: primes congruent 7 modulo 36 squarefree plus powers of two first exponent six 189954151",
+          "arXiv:2610.07214",
+          "arXiv:2411.01964"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited earlier prime table stops at 10^8; OEIS A377587 tabulates smallest odd integers needing exponents and is not the same prime-restricted progression."
+        ],
+        "reasoning": "No indexed exact 189954151 and 998649907 prime list was found by the actual semantic search. A private unindexed computation remains possible.",
+        "searches": [
+          "Resultary semantic search: primes congruent 7 modulo 36 squarefree plus powers of two first exponent six 189954151",
+          "OEIS A377587",
+          "arXiv:2610.07214 Section 5 and 7"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the precise quantified final claim after comparing same-object and broader primary literature; the prior components/techniques are explicitly credited and residual historical-priority risk is retained.",
+      "residual_risks": [
+        "Unpublished or unindexed computations may contain the two primes already.",
+        "Finite theorem <=10^9 does not settle all primes or unrestricted Erdős conjecture; prime/progression positivity boundary is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS below 10^8 and reduction, not new exponent-six minimum",
+          "evidence": "explicit classification under 10^8 and future search beyond it",
+          "identifier_or_url": "https://arxiv.org/html/2610.07214",
+          "material_read": "Accessible complete rendered article, emphasizing Section 5 finite classification and Section 7 further computations",
+          "method": "read primary HTML theorems, tables, boundaries and future problems",
+          "title": "The One-Power Erdős Conjecture for Primes p≡7 (mod 36)",
+          "trigger": "exact prime class and first exponent threshold"
+        },
+        {
+          "assessment": "Dominates representability range, not prime-restricted minimal exponent census",
+          "evidence": "existence through 2^50 does not specify smallest exponent by p",
+          "identifier_or_url": "https://arxiv.org/abs/2411.01964",
+          "material_read": "Published abstract/theorem summary and cited 2025 journal statement on odd integers through 2^50; not a full audited article",
+          "method": "read accessible abstract and theorem-level source metadata",
+          "title": "On the Sum of Squarefree Integers and a Power of Two",
+          "trigger": "potential dominating finite existence computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prior same-congruence investigation established the classification below 10^8 and explicitly proposed locating the next first-exponent threshold. The first least-exponent-six prime is a concrete natural invariant of the prime-restricted squarefree-plus-power-of-two problem; the complete nine-candidate and two-prime range certificate is an independently usable sharp finite answer, not an arbitrary unmotivated window. No general conjecture is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.07214",
+    "arXiv:2411.01964",
+    "OEIS A377587",
+    "Resultary semantic search: primes congruent 7 modulo 36 squarefree plus powers of two first exponent six 189954151"
+  ],
+  "disposition": "passed",
+  "final_claim": "Among primes p congruent to 7 modulo 36 and <=10^9, exactly 189954151 and 998649907 have no squarefree positive p-2^a for 0<=a<=5; both first succeed at a=6, so 189954151 is the first exponent-six prime in that progression.",
+  "limitations": [
+    "Only primes p≡7 mod36 up to 10^9; does not assert all such primes have a usable exponent beyond the range.",
+    "Correctness and finite checks do not establish external mathematical certification or historical priority. No stronger experimental or formal-verification conclusion is drawn."
+  ],
+  "residual_risks": [
+    "Unpublished or unindexed computations may contain the two primes already.",
+    "Finite theorem <=10^9 does not settle all primes or unrestricted Erdős conjecture; prime/progression positivity boundary is essential."
+  ],
+  "schema_version": 1
+}
