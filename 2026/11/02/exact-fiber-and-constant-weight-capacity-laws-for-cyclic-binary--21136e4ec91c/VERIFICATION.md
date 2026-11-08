@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify.py` with standard Python 3 and no third-party dependencies. The code constructs every binary word for each \(2\le n\le14\), computes its cyclic integer window sums for every \(1\le\ell\le n\), groups equal outputs, and compares actual fibers with the claimed binomial histogram, capacity and constant-weight generating polynomial. It verifies singleton and maximum-fiber counts and total preimage mass. An independently implemented inverse recurrence is tested for every output through \(n=8\).
+# Independent mathematical audit
 
-Actual result:
+## correctness
 
-```
-VERIFY_OK source_words= 425984 profiles= 381082 inverse_cases= 3036 all_n=2..14 all_ell=1..n
-```
+PASS
 
-The main proof of all-length correctness is the residue-class difference argument in RESULT.md. The finite tests verify implementation details and boundary examples but cannot substitute for that proof. They do not test noisy, incomplete or unindexed read data. The case \(n=12\), \(\ell=6\) gives exactly \(2187\) read outputs, \(1394\) singleton outputs and maximum fiber size \(20\). The case \(n=12\), \(\ell=5\) has \(4096\) distinct outputs.
+PASS. For binary indexed cyclic read R_ell(x)_i=sum_{j=0}^{ell-1}x_{i+j}, 1<=ell<=n, consecutive differences imply that equal reads force a_i=x_i′-x_i to satisfy a_{i+ell}=a_i; this is a class constant on each of d=gcd(n,ell) length-L=n/d residue cycles. Equality of one read imposes sum of the class constants zero. Mixed binary classes admit no nonzero shift; pure all-zero/all-one classes can be exchanged provided h of p pure classes remain ones, yielding binomial(p,h) fibers and the exact histogram. Counting mixed patterns m=2^L-2 and p+1 pure output possibilities gives A=(2^L-1)^(d-1)(2^L+d-1), singleton 2(2^L-1)^d-(2^L-2)^d, maximal fiber binom(d,floor(d/2)), injective iff d=1. Weight-refined enumeration by M(z)=(1+z)^L-1-z^L yields the displayed rational expression that is exactly a polynomial, while fixed-L/fixed-ell limits follow algebraically. L=1 corresponds to ell=n and gives n+1 total outputs; ell=1 injective. Independent enumeration confirms representative gcd classes, but unrestricted classification is from the exact difference identity.
+
+## originality
+
+PASS
+
+PASS, qualified. The closest weighted-read and transverse-read papers (Chee et al. 2021/2023; Yerushalmi et al. 2024) treat linear noncyclic reads, sometimes mentioning but not solving their cyclic analogue. Existing cyclic substring-composition profiles discard output ordering, and circulant kernel/linear inverse alone does not supply binary list-size and fixed-weight output enumerators. A classical circulant tomography or binary convolution theorem might encode equivalent formulas; searches and relevant source passages do not establish coverage.
+
+## value
+
+PASS
+
+PASS. Complete fibers and fixed-composition zero-error capacity give a useful exact invariant for a naturally motivated periodic version of molecular/memory read channels, with strong gcd-dependent ambiguity not present in coprime lengths. The polynomial is independently informative to constant-weight coding and is not mechanically provided by standard linear nullity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

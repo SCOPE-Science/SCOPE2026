@@ -1,12 +1,21 @@
-# Review of exact cyclic binary weighted-read fibers
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof begins with the identity \(R_\ell(x)_{i+1}-R_\ell(x)_i=x_{i+\ell}-x_i\). Equality of read vectors forces a difference constant on each of the \(\gcd(n,\ell)\) residue cycles, with zero sum across cycles. Binary feasibility fixes mixed cycles and allows only compensating flips of pure cycles. This yields exhaustive fibers of size \(\binom ph\), their number, and weight-enumerated capacities. The apparently rational fixed-weight expression is a polynomial by the preceding finite geometric sum. All boundary choices \(1\le\ell\le n\) are covered. The included independent enumeration and inversion code passed all cases through length \(14\), with the inverse decoder checked through length \(8\). Risks: the proof models complete, indexed, noiseless circular observations, not unknown-phase or partial readings.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary work is Yerushalmi–Etzion–Yaakobi, arXiv:2401.15368v1, whose channel is linear and whose principal results concern asymptotic read-channel capacity. Chee–Vardy–Vu–Yaakobi explicitly mention the cyclic analogue but do not study it in the inspected material (2023 journal paper, Secs. I–III). Banerjee et al., arXiv:2401.15939v1, use a padded linear observation injective in the absence of error. The closest published noncyclic \((3,2)\) transverse-read fiber theorem yields Fibonacci worst-case lists, but its stride and endpoint assumptions differ. The previous cyclic substring-composition studies count unindexed multisets or factor histograms, not the ordered cyclic Hamming-weight vector. Targeted published-research-index and primary-literature searches did not locate an equivalent complete fiber or fixed-weight output enumerator. Residual risk: a classical circulant linear inverse or discrete tomography source may already imply the formula without the weighted-read terminology.
+PASS
 
-## Mathematical value — PASS
-The result completes a naturally identified cyclic counterpart of the weighted-read model. The exact all-length code capacity, complete list-size distribution, sharp maximal ambiguity, fixed-weight capacity polynomial, and coprime/resonant rate dichotomy provide structural information not supplied by ordinary linear capacity estimates. The weight refinement matters because constant-composition coding is a natural constraint in molecular and memory readout systems. No generalization to corrupted or unindexed reads is claimed; these are genuinely different channels.
+PASS. For binary indexed cyclic read R_ell(x)_i=sum_{j=0}^{ell-1}x_{i+j}, 1<=ell<=n, consecutive differences imply that equal reads force a_i=x_i′-x_i to satisfy a_{i+ell}=a_i; this is a class constant on each of d=gcd(n,ell) length-L=n/d residue cycles. Equality of one read imposes sum of the class constants zero. Mixed binary classes admit no nonzero shift; pure all-zero/all-one classes can be exchanged provided h of p pure classes remain ones, yielding binomial(p,h) fibers and the exact histogram. Counting mixed patterns m=2^L-2 and p+1 pure output possibilities gives A=(2^L-1)^(d-1)(2^L+d-1), singleton 2(2^L-1)^d-(2^L-2)^d, maximal fiber binom(d,floor(d/2)), injective iff d=1. Weight-refined enumeration by M(z)=(1+z)^L-1-z^L yields the displayed rational expression that is exactly a polynomial, while fixed-L/fixed-ell limits follow algebraically. L=1 corresponds to ell=n and gives n+1 total outputs; ell=1 injective. Independent enumeration confirms representative gcd classes, but unrestricted classification is from the exact difference identity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified. The closest weighted-read and transverse-read papers (Chee et al. 2021/2023; Yerushalmi et al. 2024) treat linear noncyclic reads, sometimes mentioning but not solving their cyclic analogue. Existing cyclic substring-composition profiles discard output ordering, and circulant kernel/linear inverse alone does not supply binary list-size and fixed-weight output enumerators. A classical circulant tomography or binary convolution theorem might encode equivalent formulas; searches and relevant source passages do not establish coverage.
+
+## value
+
+PASS
+
+PASS. Complete fibers and fixed-composition zero-error capacity give a useful exact invariant for a naturally motivated periodic version of molecular/memory read channels, with strong gcd-dependent ambiguity not present in coprime lengths. The polynomial is independently informative to constant-weight coding and is not mechanically provided by standard linear nullity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

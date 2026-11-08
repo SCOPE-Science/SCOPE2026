@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:44:17.757026Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For binary indexed cyclic read R_ell(x)_i=sum_{j=0}^{ell-1}x_{i+j}, 1<=ell<=n, consecutive differences imply that equal reads force a_i=x_i′-x_i to satisfy a_{i+ell}=a_i; this is a class constant on each of d=gcd(n,ell) length-L=n/d residue cycles. Equality of one read imposes sum of the class constants zero. Mixed binary classes admit no nonzero shift; pure all-zero/all-one classes can be exchanged provided h of p pure classes remain ones, yielding binomial(p,h) fibers and the exact histogram. Counting mixed patterns m=2^L-2 and p+1 pure output possibilities gives A=(2^L-1)^(d-1)(2^L+d-1), singleton 2(2^L-1)^d-(2^L-2)^d, maximal fiber binom(d,floor(d/2)), injective iff d=1. Weight-refined enumeration by M(z)=(1+z)^L-1-z^L yields the displayed rational expression that is exactly a polynomial, while fixed-L/fixed-ell limits follow algebraically. L=1 corresponds to ell=n and gives n+1 total outputs; ell=1 injective. Independent enumeration confirms representative gcd classes, but unrestricted classification is from the exact difference identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 Chee et al. PDF page 2 explicitly says the cyclic version is possible but chooses a practical noncyclic version and imposes n-ell=kδ.",
+          "Yerushalmi–Etzion–Yaakobi 2024 defines noncyclic (ell,δ)-read codes and proves asymptotic capacities for that observation, not full n-window periodic outputs."
+        ],
+        "reasoning": "Strongest applicable preexisting theorems use a different endpoint/stride observation map; their capacity does not logically imply all cyclic binomial fibers.",
+        "searches": [
+          "arxiv:2401.15368 Weighted Read Channel 2024",
+          "Chee Vardy Vu Yaakobi 2023 Transverse-Read-Codes for Domain Wall Memories",
+          "arxiv:2401.15939 zero-padded nanopore reads"
+        ]
+      },
+      "checked_sources": [
+        "Chee–Vardy–Vu–Yaakobi 2023 IEEE JSAIT author-hosted PDF pp. 784–785",
+        "Yerushalmi–Etzion–Yaakobi arxiv:2401.15368 weighted-read-channel PDF",
+        "Banerjee et al arxiv:2401.15939 zero-padded nanopore model",
+        "Levinson–Markel arxiv:2011.10130 DFT inversion",
+        "Resultary semantic cyclic binary sliding read query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear no-wrap channel endpoint identities do not enforce residue classes around a full cycle; the cyclic gcd resonance is absent.",
+          "DFT inversion from chosen low frequencies is a different mask and only uniqueness bounds, not the integer-weight binomial fiber enumerator."
+        ],
+        "reasoning": "The original cyclic integer constraint and class-shift conservation are needed; earlier noncyclic capacity or Fourier support results do not yield the exact fixed-weight generating polynomial.",
+        "searches": [
+          "Chee et al 2023 Section II definitions and cyclic comment",
+          "Yerushalmi et al 2024 Sections II-III",
+          "arxiv:2011.10130 binary DFT inversion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observation equals integer circular convolution with an ell-consecutive boxcar; Fourier zeros correspond to residue-class kernel dimensions gcd(n,ell)-1.",
+          "Its binary fibers require pure/mixed residue-class feasibility; a linear nullity formula does not automatically count binomial exchange lists."
+        ],
+        "reasoning": "The aliases produce the exact kernel but not necessarily the enumerative theorem; compared ordered vs rotation-quotiented and histogram-only channels explicitly.",
+        "searches": [
+          "cyclic binary sliding window sums inverse fibers gcd length constant weight capacity",
+          "discrete circular boxcar convolution 0-1 inverse fibers",
+          "cyclic zero-error codes indexed binary weight reads"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior read-channel capacity tables index noncyclic (ell,δ) choices or unordered factor count profiles.",
+          "Present exact A_12,6=2187, singleton=1394, max list=20 follows its own all-n gcd classification."
+        ],
+        "reasoning": "No prior table with the full integer circular output enumerator was identified in checked sources; not proof of absence.",
+        "searches": [
+          "Resultary semantic cyclic binary sliding window sums inverse fibers gcd length constant weight capacity",
+          "Chee 2023 and 2024 weighted read capacity tables",
+          "cyclic substring composition histogram profile"
+        ]
+      },
+      "rationale": "PASS, qualified. The closest weighted-read and transverse-read papers (Chee et al. 2021/2023; Yerushalmi et al. 2024) treat linear noncyclic reads, sometimes mentioning but not solving their cyclic analogue. Existing cyclic substring-composition profiles discard output ordering, and circulant kernel/linear inverse alone does not supply binary list-size and fixed-weight output enumerators. A classical circulant tomography or binary convolution theorem might encode equivalent formulas; searches and relevant source passages do not establish coverage.",
+      "residual_risks": [
+        "Equivalent integer-circulant convolution or discrete tomography count may exist in older unindexed literature.",
+        "Only complete ordered noiseless cyclic reads with a known starting origin; no unknown rotations, errors, erased windows or nonbinary alphabet."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT DIFFERENCE: restricts to noncyclic with endpoint n-ell=kδ; cyclic version proposed as possibility",
+          "evidence": [
+            "Chee, Vardy, Vu, Yaakobi (2023), page 785: cyclic variant possible, practical paper uses noncyclic."
+          ],
+          "identifier_or_url": "https://ymchee66.github.io/home/PDF/transverse-readj.pdf",
+          "material_read": "Primary open PDF pages 784-785, Section II definitions, cyclic-versus-noncyclic choice and (ell,δ) model",
+          "method": "Author-hosted primary PDF text and screenshot; relevant definitions checked against indexed cyclic map",
+          "title": "Transverse-Read-Codes for Domain Wall Memories",
+          "trigger": "Same weighted binary read model; explicit mention of cyclic variant"
+        },
+        {
+          "assessment": "NONCYCLIC COUNTERPART; results do not evaluate all complete periodic outputs",
+          "evidence": [
+            "Yerushalmi, Etzion, Yaakobi, arxiv:2401.15368v1, Sections II-III, defines (ell,δ) capacity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.15368",
+          "material_read": "Open full PDF relevant Sections I–III, example noninjective (4,2) read and Definitions 1-2 on no-wrap/stride model",
+          "method": "arXiv PDF text and screenshot; equations compared",
+          "title": "The Capacity of the Weighted Read Channel",
+          "trigger": "Nearest capacity study with same weight observable"
+        },
+        {
+          "assessment": "POSSIBLE METHOD PREDECESSOR; no conclusion about all uninspected results",
+          "evidence": [
+            "Levinson and Markel, arxiv:2011.10130, sampled Fourier masks distinct from circular boxcar."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.10130",
+          "material_read": "Bibliographic and quoted results concerning selected low-frequency DFT; full text not used to assert noncoverage",
+          "method": "Open bibliographic search and statement comparison",
+          "title": "Binary Discrete Fourier Transform and its Inversion",
+          "trigger": "Potential equivalent Fourier/linear inversion formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Complete fibers and fixed-composition zero-error capacity give a useful exact invariant for a naturally motivated periodic version of molecular/memory read channels, with strong gcd-dependent ambiguity not present in coprime lengths. The polynomial is independently informative to constant-weight coding and is not mechanically provided by standard linear nullity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No noisy, partial, rotation-unindexed or general nonbinary read channel.",
+    "Priority remains qualified for classical circulant integer-tomography aliases."
+  ],
+  "schema_version": 1
+}
