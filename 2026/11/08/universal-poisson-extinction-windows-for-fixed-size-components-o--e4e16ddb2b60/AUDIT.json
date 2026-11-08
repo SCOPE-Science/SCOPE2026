@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Cayley enumeration produces (k^{k-2}/k!)n d^{k-1}(1+O(1/d)) embedded trees. Exact incident-edge counts yield mean lambda=e^{-c}/(k k!). Disjoint embedded trees have joint isolation likelihood equal to product times q^{-b} with uniformly bounded b, and overlap is incompatible, so all factorial moments tend to lambda^r. Cyclic components have expected count O(p). k=1 has its own factorial moments, and k=2 isolated vertices have an exact vanishing relative variance. A Python checker passes 96 exact finite and finite-size analytic diagnostics. No step treats finite computation as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Penrose 2015 Theorem 2.2 covers random point-process connection graphs.",
+        "Diskin–Krivelevich 2024 study supercritical p d approximately one with expansion conditions.",
+        "Chakraborty–Luh–Singh 2026 Theorem 4 is restricted to power-cycle hosts and isolated vertices at connectivity."
+      ],
+      "reasoning": "The broadly formulated 2015 theorem is not directly a superseding result for arbitrary deterministic n-vertex regular hosts; the fixed-host 2024 work has stronger geometry and a distinct p regime. Remaining risk of implicit subsumption is explicitly reported.",
+      "searches": [
+        "Poisson counts components of fixed order k in bond-percolated arbitrary deterministic regular graphs with degree d much larger than log n, at logarithmic late extinction window",
+        "Penrose fixed order k component Poisson random connection model comparison band random graph deterministic power cycle",
+        "arXiv:2408.04597",
+        "arXiv:1507.07132"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.42107v1",
+      "https://arxiv.org/abs/1507.07132",
+      "https://arxiv.org/abs/2408.04597"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cycle-power connectivity result at k=1: q^d=e^{-t}/n.",
+        "Penrose fixed-order Poisson approximation for sampled-vertex random connection models, not prescribed regular hosts.",
+        "Growing-degree regular host paper at p d≈1 under expansion, not p d∼log n/k."
+      ],
+      "reasoning": "The k=1 cycle-power special case is already covered and is credited. For k>=2 the component-size extinction windows are different, and no inspected prior theorem directly implies the claimed unrestricted host-uniform limiting law. If Penrose’s general theory can be reduced to all prescribed regular hosts, originality would require reassessment.",
+      "searches": [
+        "Poisson law for isolated edges components of size two in bond percolation on arbitrary high-degree regular graphs near disappearance window",
+        "Poisson counts components of fixed order k in bond-percolated arbitrary deterministic regular graphs with degree d much larger than log n, at logarithmic late extinction window",
+        "Penrose fixed order k component Poisson random connection model comparison band random graph deterministic power cycle",
+        "arXiv:2610.42107 Theorem 4",
+        "arXiv:1507.07132 Theorem 2.2",
+        "arXiv:2408.04597"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Penrose Theorem 2.2 studies k-components in i.i.d./Poisson sample random connection models.",
+        "Theorem here studies independent deletion of edges of an arbitrary fixed regular host and computes a universal e^{-c}/(k k!) mean."
+      ],
+      "reasoning": "Similar k-component Poisson phenomena are genuinely prior art, but the random-locations assumptions cannot be discarded by simple relabeling. This theorem supplies a deterministic-regular-host model and a precise hierarchy of extinction centers. It is not claimed that a wholly different coupling or reduction is impossible.",
+      "searches": [
+        "Poisson law for isolated edges components of size two in bond percolation on arbitrary high-degree regular graphs near disappearance window",
+        "Exact count of isolated two-vertex components in percolated regular graph universal critical threshold log n plus log log n",
+        "Poisson counts components of fixed order k in bond-percolated arbitrary deterministic regular graphs with degree d much larger than log n, at logarithmic late extinction window",
+        "universal law e^{-c}/(k k!) for isolated tree components of size k graph percolation p=(log n+(k-1)log log n+c)/(kd)",
+        "arXiv:1507.07132 Theorem 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected literature gives an exact isolated-vertex Poisson mean for cycle powers, not a tabulation of k>=2 constants for all deterministic regular hosts.",
+        "Closest indexed records concern other graph observables."
+      ],
+      "reasoning": "This is a theorem for infinitely many n and all fixed component sizes, not recomputation of finite tables. No exact covering table was located; search non-detection alone is not novelty proof.",
+      "searches": [
+        "Band random graphs power cycles subcritical component counts isolated edges Poisson limit before connectivity",
+        "Exact count of isolated two-vertex components in percolated regular graph universal critical threshold log n plus log log n",
+        "universal law e^{-c}/(k k!) for isolated tree components of size k graph percolation p=(log n+(k-1)log log n+c)/(kd)"
+      ]
+    },
+    "rationale": "Theorem statements and directly relevant Poisson proof of the motivating band-graph paper, Penrose’s strong related theorem for randomly sampled vertices, and the 2024 growing-degree regular-host supercritical result were compared at the statement and assumption level. The new quantification over arbitrary fixed regular hosts and precise k>=2 extinction window is not directly furnished by the inspected sources; historical priority remains provisional.",
+    "residual_risks": [
+      "Penrose 2015 proves a general fixed-component Poisson phenomenon in a related but different random-vertex construction; an unrecognized reduction may imply some special cases.",
+      "An older deterministic-host Poisson component theorem could be absent from the accessed searches.",
+      "The k=1 cycle-power case is prior work and is not separately novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 4 and Section 4.1 establish Poisson isolated vertices in cycle powers with critical mean degree log n; no fixed k>=2 Poisson law at p d~(log n)/k stated in those inspected sections. A proof of absence from every possible textual formulation is not claimed.",
+        "evidence": [
+          "Theorem 4: q^{2m}=e^{-t}/n and N_iso => Poisson(e^{-t}); Sections 4.1, 4.4; arXiv:2610.42107v1 lines 196-224 and 649-675."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.42107v1",
+        "material_read": "Abstract; full displayed model and Theorems 3 and 4; Section 4.1 factorial-moment proof; targeted excerpts from Section 4.4 and full-text keyword searches for other component sizes.",
+        "method": "Read full HTML section text and compare the precise parameter window and component-order quantifiers",
+        "title": "Band Random Graphs: Connectivity, Geometry, and Transport",
+        "trigger": "Same bond-percolation operation, same d>>log n regime, isolated-component limit at connectivity"
+      },
+      {
+        "assessment": "Theorem 2.2 gives fixed-component Poisson approximations for random Poisson/i.i.d. sampled vertex locations with graph edges conditional on locations. It does not directly assert a deterministic fixed-vertex host percolation theorem nor compute this extinction-window constant. An as-yet-unproved reduction is a residual coverage risk.",
+        "evidence": [
+          "arXiv:1507.07132, Theorem 2.2 fixed-order component counts; Poisson/i.i.d. point vertex models and conditions on connection functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.07132",
+        "material_read": "Abstract; Introduction; Section 2 Theorem 2.2 parts (a)(i)-(iii), hypotheses and degree-count context; Section 6 factorial-component moment passage.",
+        "method": "Read online full-text rendering and compare model generation and theorem assumptions",
+        "title": "Inhomogeneous random graphs, isolated vertices, and Poisson approximation",
+        "trigger": "A highly relevant existing general fixed-order component Poisson theorem"
+      },
+      {
+        "assessment": "Deals with phase transition p d approximately one under expansion/small-set conditions; not directly covering fixed-k extinction at p d of logarithmic order on arbitrary regular hosts.",
+        "evidence": [
+          "arXiv:2408.04597, abstract and theorem regime p=(1+epsilon)/d."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.04597",
+        "material_read": "Full accessible abstract and primary theorem conditions, including p=(1+epsilon)/d and expansion criteria.",
+        "method": "Compared scale and structural assumptions of stated principal results",
+        "title": "Components, large and small, are as they should be I: supercritical percolation on regular graphs of growing degree",
+        "trigger": "Percolation on deterministic regular hosts with growing degree"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e4e16ddb-2b60-4a43-8abb-fa9a4b6de817",
+  "value": {
+    "rationale": "A natural sequence of disappearance windows for connected components of each fixed size is determined with logarithmic-logarithmic centers and exact geometry-independent constants, uniformly over connected or disconnected arbitrary regular hosts. The k=2 window also has diverging isolated vertices. These provide structurally informative connectivity obstructions beyond the isolated-vertex analysis of a recent band-percolation model.",
+    "status": "PASS"
+  }
+}
