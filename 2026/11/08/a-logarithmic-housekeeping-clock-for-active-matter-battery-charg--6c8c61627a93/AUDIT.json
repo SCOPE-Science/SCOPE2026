@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Exact reduction from Lin et al. equations (1),(4),(7),(16) yields a normalized positive ratio. Bernoulli KL strict convexity gives f(0)=f′(0)=0, f′(1)=1 and 0<rho<1. A factored derivative proves the ideal monotonicity and eventually decreasing housekeeping threshold, with compact positivity forcing the unique global small-cost maximum. Tail expansions establish the sharp logarithmic location and efficiency loss. The linear-response threshold is globally decreasing because 4-e^s-(3+2s)e^(-s)<0 for every s>0, with a unique finite maximum. The full-domain analytical proof is supplemented by 458 deterministic checks in verify.py; no finite test is treated as proof of an infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 Lei et al. paper explicitly optimizes RC charging power and multi-step control; its constant-voltage efficiency is monotone without a constant active maintenance cost",
+        "The 2026 Lin et al. paper discusses maximum full efficiency and Eq. (17) for efficiency at maximum *power*, not the optimized full-efficiency duration"
+      ],
+      "reasoning": "Power optimality and full fuel-efficiency optimality are different objectives. The known one-exponential power clock is a strict lower bound for the new linear-response efficiency-optimal clock at every finite positive housekeeping rate. No identified broader theorem states the finite-affinity rho-dependent logarithmic optimizer law.",
+      "searches": [
+        "\"Universal power-efficiency trade-off in battery charging\" Lei 2026",
+        "\"RC circuit\" \"charging power\" \"efficiency at maximum power\" 0.358 housekeeping",
+        "\"RC charging\" \"leakage power\" \"optimal charging time\" efficiency",
+        "\"exponential charging\" \"housekeeping\" \"logarithm\" efficiency"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.00428v1",
+      "https://arxiv.org/abs/2610.00428",
+      "https://doi.org/10.15302/frontphys.2025.042202",
+      "https://www.alphaxiv.org/abs/2610.00428"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin et al. Eqs. (1),(4),(7),(16)-(17) imply the forward objective and finite-optimum existence but state neither the rho-dependent leading clock nor the two-term efficiency loss",
+        "Lei et al. Section 2 describes a monotone passive efficiency and maximum-power clock, not a finite housekeeping-efficiency maximum"
+      ],
+      "reasoning": "The parent gives enough premises to derive the new result but not an explicit stronger optimization theorem: it neither determines an exact optimizer branch for full fuel efficiency nor resolves its singular zero-housekeeping limit. The new proof establishes globality and quantified asymptotics, and explicitly limits all-cost uniqueness to linear response.",
+      "searches": [
+        "arxiv:2610.00428v1 (primary HTML inspected)",
+        "2025 Lei Lin Ou Ma power efficiency constant voltage full text (journal page inspected)",
+        "\"constant housekeeping power\" \"logarithmic\" \"optimal charging time\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin et al., arXiv:2610.00428v1, Eq. (16) provides the exact forward full-efficiency objective, not its optimal-time logarithmic selection",
+        "Lei et al., DOI 10.15302/frontphys.2025.042202, Section 2 provides the passive RC power-efficiency relation without source housekeeping"
+      ],
+      "reasoning": "Fixed-affinity Markov charging is equivalent to a single-exponential charging coordinate with Bernoulli-KL stored energy. Linear response reduces to a quadratic single-exponential RC-type energy, but the claimed housekeeping-controlled optimal stopping curve is a separate optimization statement and the finite-affinity coefficient rho is not reducible to the passive RC 1/2 except in the weak-drive limit.",
+      "searches": [
+        "\"Active-Matter Battery\" \"charging time\" \"housekeeping\" optimum asymptotic",
+        "battery housekeeping dissipation optimal charge time logarithm housekeeping cost two-state",
+        "finite-time active battery housekeeping loss optimal charging duration strict unique logarithmic",
+        "active matter battery 2610.00428 max efficiency charging time uniqueness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lin et al. Figure 3(b) plots maximal full efficiency versus a normalized housekeeping ratio but does not tabulate or classify the unique optimal-time curve",
+        "The theorem computes a continuous sharp asymptotic and monotonic curve, not an entry in a numerical database"
+      ],
+      "reasoning": "Numerical curves of efficiency values do not constitute the exact clock law or an exact uniqueness classification. No matching exact tabulation was identified in checked material.",
+      "searches": [
+        "\"Active-Matter Battery\" \"chi\" \"log\" optimal",
+        "active matter battery 2610.00428 max efficiency charging time uniqueness",
+        "For active-matter battery stationary two-state stochastic charging with constant housekeeping power, unique optimal full efficiency charging time diverges logarithmically in inverse housekeeping cost; exact weak-drive optimizer branch and efficiency loss chi log(1/chi)"
+      ]
+    },
+    "rationale": "The source model reports a full fuel-efficiency formula and a finite optimum, but not an exact global optimal-time branch or the finite-affinity logarithmic zero-maintenance expansion. The passive RC predecessor addresses power-efficiency and multistep charging but not positive constant source-housekeeping selection. Searches of the source, related primary work, and semantic earlier results identified no matching theorem; an unindexed general charging theorem remains a priority risk.",
+    "residual_risks": [
+      "An unindexed exact optimizer theorem for parasitic/housekeeping costs in one-exponential charging could cover part of the limiting classification.",
+      "The original forward efficiency formula implicitly defines the maximizing duration, so novelty concerns proving and resolving its sharp optimizer asymptotics, not introducing a new dynamics or stored-energy definition.",
+      "No independent publication-priority evaluation has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes all model premises, existence of finite full-efficiency maximum, numerical comparison, and maximum-power efficiency; does not present claimed logarithmic optimal-time law or complete limiting-model monotonicity",
+        "evidence": [
+          "arXiv:2610.00428v1, first public 2026-09-30, Eqs. (1),(4),(7),(9),(16),(17), Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00428v1",
+        "material_read": "HTML main text model equations (1)-(17), discussion of Figure 3, and Appendix A around equations (19)-(20)",
+        "method": "Primary HTML full-text mathematical comparison of forward energy and optimization statements",
+        "title": "Active-Matter Battery",
+        "trigger": "exact same two-state model and housekeeping efficiency"
+      },
+      {
+        "assessment": "Derives passive RC power-efficiency curve and multi-step charging strategy; no constant source-housekeeping stopping law or finite-affinity Bernoulli-KL coefficient",
+        "evidence": [
+          "Frontiers of Physics 20 (2025) 042202, Sections 2-4 and formulas (7)-(11)"
+        ],
+        "identifier_or_url": "https://doi.org/10.15302/frontphys.2025.042202",
+        "material_read": "full HTML article through abstract, Section 2 constant-voltage formulas, Section 3 multi-step control, conclusions",
+        "method": "Primary publication HTML comparison of objective, constraints, and optimizer",
+        "title": "Universal power-efficiency trade-off in battery charging",
+        "trigger": "single-exponential RC charging analogue specifically acknowledged in the parent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c8c6162-7a93-4b16-ad1e-9e55778ce314",
+  "value": {
+    "rationale": "Positive maintenance cost singularly regularizes the infinite-duration ideal optimum. The new exact logarithmic clock and h log(1/h) best-efficiency penalty specify an operational stopping law in all finite-affinity two-state batteries; its coefficient depends only on the measurable ideal efficiency rho. The all-housekeeping linear-response curve proves a strict and continuous transition from near-ideal slow charging to maximum-power timing. The question is motivated by the parent paper Figure 3 and is not an arbitrary parameter table, a simulation-only extrapolation, or merely a reexpression of an existing power optimum.",
+    "status": "PASS"
+  }
+}
