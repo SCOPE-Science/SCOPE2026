@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every positive axis triple, the 14 oriented facet normals and 24 square-triangle edges classify every generic projection into 6 or 8 silhouette edges, determined by a strict weighted triangle inequality. A Haar-uniform view separates each pair of edge-adjacent outward normals with probability their angle divided by pi; summation gives the exact Bernoulli parameter. The sharp lower bound follows from unique constrained maximum of sum arcsin sqrt(t_i), and the strict upper endpoint and entire attainable interval follow from boundary values and continuity. The code directly checks original projected hulls and the independent spherical-cone formula. Exceptional directions are null; simulations are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Glisse--Lazard (2007) gives general expected silhouette complexity bounds, using the known edge-normal spherical-lune method; our proof credits that method.",
+        "Glisse--Lazard--Michel--Pouget (2016) studies a Poisson-sphere random polytope and maximization over directions rather than a fixed cuboctahedron over axis stretches.",
+        "Indexed triaxial-octahedron result supplies a law for a different six-vertex object; the cuboctahedron has twelve vertices, different facet types, and six/eight shadow support."
+      ],
+      "reasoning": "A general edge-dihedral mean identity can be specialized but does not already contain the sharp family-dependent inequality and its equality/attainability classification. The known octahedral result does not dominate the cuboctahedral claim by affine change of coordinates or polarity: their face-incidence structures differ.",
+      "searches": [
+        "arxiv:cs/0702087",
+        "doi:10.20382/jocg.v7i1a5",
+        "orthogonal projection affine cuboctahedron anisotropic scaling hexagon octagon probability silhouette solid angle",
+        "2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cs/0702087",
+      "https://arxiv.org/abs/1006.2973",
+      "https://jocg.org/index.php/jocg/article/view/3009",
+      "https://mathworld.wolfram.com/ArchimedeanSolid.html",
+      "Published scientific record: 2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b",
+      "Published scientific record: 2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General silhouette literature derives expected complexity bounds for many polytopes, not the sharp optimized cuboctahedral two-parameter law.",
+        "A previously established geometric result proves direction-independent *central-section* complexity, not projected-shadow probability.",
+        "The indexed random central four-cube face-vector law concerns a dimension-four hyperplane section, not a projection of a 3D cuboctahedron."
+      ],
+      "reasoning": "The new conclusion is a family-specific **rigidity theorem**: only equal axis stretches minimize the octagon probability, with a sharp unattained upper endpoint and complete attained interval. This requires proving the six/eight support and optimizing a trigonometric function under a reciprocal-axis simplex constraint; these are not directly asserted in any compared statement.",
+      "searches": [
+        "arxiv:cs/0702087",
+        "arxiv:1006.2973",
+        "doi:10.20382/jocg.v7i1a5",
+        "2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For axis stretches, the event is \\(\\max_i |u_i|/a_i>\\sum_{j\ne i}|u_j|/a_j\\). Polarity turns projected cuboctahedra into sections of their stretched rhombic-dodecahedral duals.",
+        "Relevant archive claims already establish a deterministic central-section octagon count for the cuboctahedron, which is a different operation and is not part of the new assertion."
+      ],
+      "reasoning": "The dual-section reformulation was explicitly considered. Searches for the rhombic-dodecahedron and cuboctahedron duality did not find the sharp distribution and unique axis-stretch extremizer. The established constant central-section count of the cuboctahedron is separately credited/excluded.",
+      "searches": [
+        "projection shadow central section cuboctahedron exact Haar law hexagon octagon",
+        "affine image cuboctahedron projection face count via cone x>y+z",
+        "cuboctahedron central plane sections solid angle section combinatorics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram MathWorld Archimedean Solid table lists cuboctahedral face and edge counts (8 triangles, 6 squares, 24 edges).",
+        "A search found static orthogonal projection illustrations for truncated cuboctahedron, a distinct Archimedean solid, but no probability table for the cuboctahedron axis-stretch family."
+      ],
+      "reasoning": "A face/edge census is not a probability law or extremal classification. Searches for an exact axis-stretched cuboctahedron shadow table were negative; this is absence of identified coverage, not proof of novelty.",
+      "searches": [
+        "rectified cube cuboctahedron random direction shadow polygon vertices six eight arctangent",
+        "random central sections of cuboctahedron square hexagon octagon probability",
+        "https://mathworld.wolfram.com/ArchimedeanSolid.html"
+      ]
+    },
+    "rationale": "The novelty assessed is the sharp, rigid minimization of the full six/eight-vertex shadow probability over every positive diagonal stretch of the cuboctahedron. The generic edge-angle expectation is explicitly credited as background. Searches did not identify a source stating a covering affine-cuboctahedron extremum; general silhouette bounds and a triaxial octahedron probability law concern different statements. Residual literature risk remains.",
+    "residual_risks": [
+      "Published general silhouette results already give an edge-dihedral *mean* formula; readers may regard direct specialization as computational rather than conceptually novel. The strict global axis-family extremum is not supplied by that generic formula without additional optimization.",
+      "A highly related published triaxial-octahedron shadow result was visible in a mathematical index, but its public repository full text could not be fetched; different face incidence and six-vertex octahedron mean it does not obviously cover the cuboctahedral theorem.",
+      "Unindexed historical projection tables or a published stronger affine-polytope silhouette theorem may exist. Failure of search cannot establish absolute publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General expected complexity upper bounds and a known edge-angle averaging technique; no specific axis-stretched cuboctahedron projection extremum identified.",
+        "evidence": [
+          "arxiv:cs/0702087v1, public 2007-02-14",
+          "Discussion of Kettner--Welzl convex polyhedron random orthographic silhouettes and dihedral summation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cs/0702087",
+        "material_read": "PDF title and date, abstract, Introduction and definitions, discussion of existing convex-polytope spherical-angle methods, main bounds (pages 1, 3--5).",
+        "method": "Full-text parsed PDF with page screenshot of the introduction.",
+        "title": "An Upper Bound on the Average Size of Silhouettes",
+        "trigger": "General random-direction silhouette expectations may cover the new probability law."
+      },
+      {
+        "assessment": "Develops polyhedral Coxeter orbits and quasi-regular geometry, not Haar projection vertex counts or their sharp affine extremizers.",
+        "evidence": [
+          "arxiv:1006.2973, public 2010-06-15",
+          "No projection or shadow theorem in the inspected sections; geometric classification instead."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1006.2973",
+        "material_read": "PDF abstract, introduction, octahedral Coxeter construction and an illustrated 3D example (pages 1--4 and 9).",
+        "method": "Parsed PDF and page screenshots; targeted searches for projection, shadow and cuboctahedron.",
+        "title": "Quasi Regular Polyhedra and Their Duals with Coxeter Symmetries Represented by Quaternions II",
+        "trigger": "Could describe the cuboctahedral family and projected combinatorial types."
+      },
+      {
+        "assessment": "Averaging over random Poisson-sphere polytopes with maximum-view silhouette complexity, not a fixed affinely stretched cuboctahedron.",
+        "evidence": [
+          "Journal of Computational Geometry 7 (2016), 86--99, first publisher date 2016-03-18",
+          "Theorem 1 establishes expected worst-view silhouette complexity order \\(\\Theta(\\sqrt n)\\)."
+        ],
+        "identifier_or_url": "https://jocg.org/index.php/jocg/article/download/3009/2717/7784",
+        "material_read": "Published PDF abstract, Introduction and stated main theorem, including literature comparison of average-size versus worst-viewpoint approaches (first two pages).",
+        "method": "Publisher open-access PDF parsed text and page screenshot.",
+        "title": "Silhouette of a Random Polytope",
+        "trigger": "A broad silhouette theorem might imply the proposed exact fixed-polytope law."
+      },
+      {
+        "assessment": "Different regular octahedral base polytope; cannot conclude direct coverage of cuboctahedral six/eight law from indexed record, but residual risk is retained.",
+        "evidence": [
+          "Indexed claim discusses triaxial octahedron shadow, not twelve-vertex cuboctahedron."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-triaxial-octahedron-shadow-bound-and-quadratic-shape-stabi--c544249c351b",
+        "material_read": "Indexed mathematical summary including explicit octahedral hexagon probability and equality claim; repository full text unavailable.",
+        "method": "Indexed mathematical abstract; full text was unavailable through the public publisher-repository page.",
+        "title": "Sharp triaxial octahedron shadow bound and quadratic shape stability",
+        "trigger": "Potential stronger published mathematical record on a related axis-stretched polyhedron."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f100489-c7d8-458a-90cc-36658f9afa03",
+  "value": {
+    "rationale": "This resolves the full projection-vertex-count distribution for the naturally parametrized two-dimensional moduli family of all three-axis stretches of a canonical Archimedean solid, and gives a globally sharp, uniquely rigid extremum that identifies the regular shape. This goes beyond a special numerical count: the complete attained interval and equality cases provide a geometric-probability benchmark and compare distinct affine shapes.",
+    "status": "PASS"
+  }
+}
