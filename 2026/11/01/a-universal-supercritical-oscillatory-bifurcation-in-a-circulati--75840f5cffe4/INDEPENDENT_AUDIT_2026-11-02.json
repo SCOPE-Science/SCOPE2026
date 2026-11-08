@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:57:03.280596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every fixed c>0, the clipped cyclic logistic map is analytic near interior homogeneous fixed point q=1-1/r. Fourier diagonalization gives multipliers 1-t and 1-t±iκt (κ=sqrt(3)c,t=r-1), unit-circle crossing exactly at r_c=1+2/(1+κ²)<3, transverse outward derivative one, and a third multiplier strictly within unit disk at r_c. The exact quadratic Fourier equations give center-manifold U=-(2r_c/t_c)|Z|²+O(|Z|³); outside resonances c=1/3,1/sqrt(3), eliminating the conjugate-square term with p=β/(barλ²-λ) yields l1=Re(barλ[γ+2βbar p])=-(κ²+3)^3/(1+κ²)^2<0. Independent SymPy algebra recomputed p, l1 and c=1 value -27/2; numerical crossing and exact Fourier substitution checks from the inspected package were distinguished from proof. The nonresonant Neimark–Sacker theorem and transverse contraction then give a nearby attracting invariant Jordan curve for sufficiently small r-r_c>0. Clipping is inactive near onset; no global basin or resonant circle assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baron–Galla, arXiv:2609.24402, studies disordered interacting logistic maps and system-size effects, rather than universal three-node rational Lyapunov coefficient.",
+          "The classical Neimark–Sacker theorem determines the bifurcation type only once the map-specific cubic coefficient has been checked."
+        ],
+        "reasoning": "Linear crossing or generic bifurcation theory does not imply supercriticality throughout c>0 without the specific negative rational first Lyapunov coefficient.",
+        "searches": [
+          "three cyclic logistic maps antisymmetric circulating coupling Neimark Sacker bifurcation first Lyapunov coefficient invariant circle",
+          "Baron Galla The disordered logistic map 2026 arxiv 2609.24402",
+          "Neimark Sacker theorem center manifold supercritical coupled logistic maps"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2020/4103606",
+        "https://doi.org/10.20537/nd1402001",
+        "https://arxiv.org/abs/2609.24402",
+        "https://www.scholarpedia.org/article/Neimark-Sacker_bifurcation",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact current Fourier polynomial has Z′=(1-t+iκt)Z+r(-2+iκ)UZ-r(1+iκ)conj(Z)^2; the conjugate-square and UZ terms determine its sign.",
+          "At the critical multiplier λ=(κ+i)/(κ-i), reduction yields l1=-(κ²+3)^3/(κ²+1)^2<0 for all nonresonant κ>0. None of the compared systems shares this nonlinear Fourier coupling."
+        ],
+        "reasoning": "The previous theorems are not dominating implications. At most they supply bifurcation methodology, while the current map needs its own center-manifold coefficient and transverse contraction check.",
+        "searches": [
+          "three cyclic logistic maps antisymmetric circulating coupling Neimark Sacker bifurcation first Lyapunov coefficient invariant circle",
+          "Mareno English 2020 coupled logistic Neimark Sacker fixed point normal form",
+          "Dementyeva Kuznetsov Savin Sedova 2014 quasiperiodic three coupled logistic maps equation 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mareno–English, DOI 10.1155/2020/4103606, Section 1 and Section 3 define a two-map coupled system with symmetric coupling; current map has three cyclic modes and skew differences.",
+          "Dementyeva et al. (2014), DOI 10.20537/nd1402001, use additive linear unidirectional coupling, not c*x_j*(x_{j+1}-x_{j-1})."
+        ],
+        "reasoning": "Fourier reparameterization of the three-site map does not identify it with a two-site symmetric map or an additively coupled quadratic model; their cubic normal-form coefficients cannot be substituted.",
+        "searches": [
+          "three cyclic logistic maps antisymmetric circulating coupling Neimark Sacker bifurcation first Lyapunov coefficient invariant circle",
+          "circulating three logistic maps antisymmetric Neimark Sacker first Lyapunov coefficient",
+          "\"1+2/(1+3c^2)\" \"logistic map\"",
+          "\"antisymmetric\" \"three\" \"logistic\" \"Neimark\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest findings concern other nonlinear rings and border-collision maps, not the exact three-logistic antisymmetric update.",
+          "No matching exact l1(c) table was located in the inspected primary comparison sources."
+        ],
+        "reasoning": "There is no demonstrated exact formula table or global-parameter sign theorem for this model in the searched records; unsuccessful search is not proof of uniqueness.",
+        "searches": [
+          "three cyclic logistic maps antisymmetric circulating coupling Neimark Sacker bifurcation first Lyapunov coefficient invariant circle",
+          "circulating three logistic maps antisymmetric Neimark Sacker first Lyapunov coefficient",
+          "Resultary semantic search three cyclic logistic antisymmetric circulating coupling first Lyapunov coefficient",
+          "\"(3+3c^2)^3\" \"logistic\""
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the source logistic-map models are not equivalent under natural parameter substitution: the inspected 2020 study uses two symmetric coupled maps and a symmetry-broken fixed-point Neimark–Sacker event, the 2014 three-map paper has additive linear unidirectional coupling, and the 2026 disordered-map work gives broader instability motivation but no identified theorem fixing the exact cubic coefficient for this multiplicatively circulating three-site family. Unindexed directed cyclic competition work remains priority risk.",
+      "residual_risks": [
+        "An unindexed three-species discrete Lotka–Volterra, cyclic competition, or skew-coupled logistic-map study may have an equivalent coefficient under different normalization.",
+        "The classical Neimark–Sacker conclusion assumes the stated local nonresonance; c=1/3 and 1/sqrt(3) remain intentionally excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different two-dimensional symmetric coupling; source does not yield three-node skew-circulation l1 by specialization.",
+          "evidence": "Abstract specifies a strongly coupled 2-parameter system; Section 1 equations (1)–(3), model epsilon∈[0,1], r∈(0,4); qualitative NS pertains a symmetry-broken state.",
+          "identifier_or_url": "https://doi.org/10.1155/2020/4103606",
+          "material_read": "Full open-access Wiley HTML: abstract, model equations in Section 1, fixed point and center-manifold/Neimark–Sacker analysis in Sections 3–4, concluding parameter discussion.",
+          "method": "Publisher HTML full-text direct read and mathematical model comparison",
+          "title": "Flip and Neimark–Sacker Bifurcations in a Coupled Logistic Map System",
+          "trigger": "Closest model with actual supercriticality calculations"
+        },
+        {
+          "assessment": "Three-node additive unidirectional quadratic map, not the bilinear antisymmetric coupling claimed here.",
+          "evidence": "The publication explicitly calls its model three linearly coupled logistic maps and explores three-frequency quasiperiodicity.",
+          "identifier_or_url": "https://doi.org/10.20537/nd1402001",
+          "material_read": "Original model description and available primary equation (2.1) and bifurcation discussion, as accessible in earlier primary material and journal page.",
+          "method": "Journal 2014 article and full-text relevant equation comparison",
+          "title": "Quasiperiodic dynamics of three coupled logistic maps",
+          "trigger": "Exactly three coupled logistic units; potential dominating normal form"
+        },
+        {
+          "assessment": "General model/thematic overlap, but no established theorem implying this exact finite cubic coefficient from accessible statements.",
+          "evidence": "The source concerns disordered interacting maps rather than this special three-component balanced cyclic normal form.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24402",
+          "material_read": "Original arXiv abstract and reported large-network instability scope; no entire theorem-level PDF reinspection in this run.",
+          "method": "ArXiv metadata and abstract; limited comparison, no blanket noncoverage claim",
+          "title": "The disordered logistic map",
+          "trigger": "Large-network motivation potentially covering arbitrary couplings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A balanced three-site directed logistic ring is the smallest circulation network with a nontrivial oscillatory Fourier pair. The exact onset before the scalar flip and universally negative first Lyapunov coefficient across every positive nonresonant coupling resolve the nonlinear bifurcation type rather than just reporting linear instability. The sharp all-coupling sign and attracting-circle conclusion constitute a motivated structural dynamical classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1155/2020/4103606",
+    "https://doi.org/10.20537/nd1402001",
+    "https://arxiv.org/abs/2609.24402",
+    "https://www.scholarpedia.org/article/Neimark-Sacker_bifurcation",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Local fixed-point bifurcation only; resonances at c=1/3 and 1/sqrt(3) excluded from attracting-circle assertion, no global attraction or heterogeneous larger networks.",
+    "First Lyapunov coefficient depends on specified Fourier amplitude normalization; the sign is invariant."
+  ],
+  "residual_risks": [
+    "An unindexed three-species discrete Lotka–Volterra, cyclic competition, or skew-coupled logistic-map study may have an equivalent coefficient under different normalization.",
+    "The classical Neimark–Sacker conclusion assumes the stated local nonresonance; c=1/3 and 1/sqrt(3) remain intentionally excluded."
+  ],
+  "schema_version": 1
+}

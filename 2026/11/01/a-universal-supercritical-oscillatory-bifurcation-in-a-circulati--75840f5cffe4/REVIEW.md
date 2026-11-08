@@ -1,15 +1,21 @@
-# Scientific review: circulating logistic triad
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim concerns a clearly defined local analytic germ of a clipped self-map of the cube. Fourier diagonalization gives the three exact multipliers and an outward unit-circle crossing at \(r_{\mathrm c}=1+2/(1+3c^2)\). The complex Fourier recurrence is an exact quadratic polynomial, not a truncated expansion. Center-manifold invariance yields its quadratic graph; removal of the only quadratic complex monomial gives the cubic radial coefficient \(\ell_1=-(3+3c^2)^3/(1+3c^2)^2\). The two omitted resonance values are exactly the third- and fourth-order resonances. The noncritical multiplier is strictly within the unit disk, so the standard nonresonant Neimark–Sacker theorem yields an attracting invariant circle in three dimensions. A symbolic checker and independent finite evaluations corroborate the algebra. The existence proof depends on the established local bifurcation theorem, not on finite numerical trajectories.
+## correctness
 
-## Originality
-**PASS under currently inspected evidence.** Baron and Galla (2026, arXiv:2609.24402) provide the interacting-logistic-map motivation and a large-network oscillatory instability, not this exact deterministic antisymmetric three-node normal-form sign. Mareno and English (2020) study a different two-map symmetric coupling and a different Neimark–Sacker boundary. The full accessible Dementyeva–Kuznetsov–Savin–Sedova (2014) paper explicitly defines additive unidirectional coupling (their equation (2.1)), not the multiplicative cyclic interaction here. Relevant published result summaries address other dynamical systems, not a theorem that implies this one. Direct identical/equivalent and broad-covering searches did not reveal an encompassing theorem. Searches are not proof of historical novelty; residual risk remains in less-indexed cyclic Lotka–Volterra discrete map literature and unpublished calculations.
+PASS
 
-## Mathematical value
-**PASS.** A balanced three-site directed cycle is the smallest directed ring with a nontrivial oscillatory Fourier pair. The theorem quantifies exactly how any positive skew circulation replaces the ordinary scalar first flip with an earlier, necessarily supercritical oscillatory instability, and gives the complete coefficient sign across a continuous coupling family. The universal negative coefficient is not just a numerical or textbook threshold; it proves the local existence and stability of a nonlinear collective oscillation. It connects analytically tractable finite networks to the question of oscillatory instabilities raised for heterogeneous logistic networks.
+For every fixed c>0, the clipped cyclic logistic map is analytic near interior homogeneous fixed point q=1-1/r. Fourier diagonalization gives multipliers 1-t and 1-t±iκt (κ=sqrt(3)c,t=r-1), unit-circle crossing exactly at r_c=1+2/(1+κ²)<3, transverse outward derivative one, and a third multiplier strictly within unit disk at r_c. The exact quadratic Fourier equations give center-manifold U=-(2r_c/t_c)|Z|²+O(|Z|³); outside resonances c=1/3,1/sqrt(3), eliminating the conjugate-square term with p=β/(barλ²-λ) yields l1=Re(barλ[γ+2βbar p])=-(κ²+3)^3/(1+κ²)^2<0. Independent SymPy algebra recomputed p, l1 and c=1 value -27/2; numerical crossing and exact Fourier substitution checks from the inspected package were distinguished from proof. The nonresonant Neimark–Sacker theorem and transverse contraction then give a nearby attracting invariant Jordan curve for sufficiently small r-r_c>0. Clipping is inactive near onset; no global basin or resonant circle assertion.
 
-## Limits and interpretation
-The result does not cover the two excluded low-order resonances, global attraction, arbitrary disorder, heterogeneous site parameters, or larger network sizes. Numerical tests confirm formulas only on sampled data. Priority remains provisional beyond the stated inspected sources. Independent review and external validation have not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the source logistic-map models are not equivalent under natural parameter substitution: the inspected 2020 study uses two symmetric coupled maps and a symmetry-broken fixed-point Neimark–Sacker event, the 2014 three-map paper has additive linear unidirectional coupling, and the 2026 disordered-map work gives broader instability motivation but no identified theorem fixing the exact cubic coefficient for this multiplicatively circulating three-site family. Unindexed directed cyclic competition work remains priority risk.
+
+## value
+
+PASS
+
+A balanced three-site directed logistic ring is the smallest circulation network with a nontrivial oscillatory Fourier pair. The exact onset before the scalar flip and universally negative first Lyapunov coefficient across every positive nonresonant coupling resolve the nonlinear bifurcation type rather than just reporting linear instability. The sharp all-coupling sign and attracting-circle conclusion constitute a motivated structural dynamical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

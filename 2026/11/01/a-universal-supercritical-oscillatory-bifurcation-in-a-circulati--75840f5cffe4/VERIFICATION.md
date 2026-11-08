@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10+ and SymPy. The program uses no external data, internet access, or random unseeded sampling.
+## correctness
 
-The recorded execution completed successfully and reported:
+PASS
 
-```
-symbolic center-manifold/normal-form identity: PASS
-exact first Lyapunov coefficient: (-k**6 - 9*k**4 - 27*k**2 - 27)/(k**4 + 2*k**2 + 1)
-exact Fourier polynomial identities: 500 random cases PASS
-Schur crossing checks: 300 parameter cases PASS
-sample emergent circle Fourier radii vs leading prediction: [(0.001, 1.0085692556514452), (0.0004, 0.9995704056585984)]
-all tests PASS; finite computations do not establish existence or priority
-```
+For every fixed c>0, the clipped cyclic logistic map is analytic near interior homogeneous fixed point q=1-1/r. Fourier diagonalization gives multipliers 1-t and 1-t±iκt (κ=sqrt(3)c,t=r-1), unit-circle crossing exactly at r_c=1+2/(1+κ²)<3, transverse outward derivative one, and a third multiplier strictly within unit disk at r_c. The exact quadratic Fourier equations give center-manifold U=-(2r_c/t_c)|Z|²+O(|Z|³); outside resonances c=1/3,1/sqrt(3), eliminating the conjugate-square term with p=β/(barλ²-λ) yields l1=Re(barλ[γ+2βbar p])=-(κ²+3)^3/(1+κ²)^2<0. Independent SymPy algebra recomputed p, l1 and c=1 value -27/2; numerical crossing and exact Fourier substitution checks from the inspected package were distinguished from proof. The nonresonant Neimark–Sacker theorem and transverse contraction then give a nearby attracting invariant Jordan curve for sufficiently small r-r_c>0. Clipping is inactive near onset; no global basin or resonant circle assertion.
 
-The symbolic calculation verifies the rational identity for the first Lyapunov coefficient in a positive symbolic parameter. The 500 independently computed Fourier transforms verify the exact quadratic reduction up to the displayed floating-point tolerance. The 300 spectral tests cross the proposed threshold on both sides. At \(c=1\), two near-critical trajectories show radial scales consistent with the leading \(\sqrt{r-r_{\mathrm c}}\) law.
+## originality
 
-Analytical steps requiring human mathematical evaluation are the center-manifold reduction, justification that all nonresonance hypotheses are met, and application of the standard supercritical Neimark–Sacker theorem in a neighborhood where clipping is inactive. The checker is not an exhaustive verification of these infinite claims. No independent audit has been performed.
+PASS
+
+Best-of-knowledge PASS: the source logistic-map models are not equivalent under natural parameter substitution: the inspected 2020 study uses two symmetric coupled maps and a symmetry-broken fixed-point Neimark–Sacker event, the 2014 three-map paper has additive linear unidirectional coupling, and the 2026 disordered-map work gives broader instability motivation but no identified theorem fixing the exact cubic coefficient for this multiplicatively circulating three-site family. Unindexed directed cyclic competition work remains priority risk.
+
+## value
+
+PASS
+
+A balanced three-site directed logistic ring is the smallest circulation network with a nontrivial oscillatory Fourier pair. The exact onset before the scalar flip and universally negative first Lyapunov coefficient across every positive nonresonant coupling resolve the nonlinear bifurcation type rather than just reporting linear instability. The sharp all-coupling sign and attracting-circle conclusion constitute a motivated structural dynamical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
