@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For kappa,v,lambda>0, D>=0, reflection-symmetric relative increments, uniform initial angular phase and past-convolution stationary selection, the active coordinate Z satisfies |Z|<=v/kappa. The orientation jump generator has eigenvalue -a_j on exp(i*j*theta), a_j=lambda(1-mu_j). Applying the joint stationary generator to rotation-invariant monomials Z^p conjugate(Z)^q exp(i(q-p)theta) produces ((p+q)kappa+a_|p-q|)R_pq=v[pR_(p-1,q)+qR_(p,q-1)]. Solving degrees 1-4 yields R11=v²/[kappa(kappa+s)] and R22=2v^4(3kappa+t)/[kappa²(kappa+s)(3kappa+s)(2kappa+t)]. Independent Gaussian OU term with variance D/kappa per coordinate yields m2=R11+2D/kappa and m4=R22+8D R11/kappa+8D²/kappa². For U=cos Psi, mu2=2E[U²]-1, so Jensen and |U|<=1 imply mu2 in [2mu1²-1,1] and t in [0,2lambda(1-mu1²)]. Equality measures are respectively reflection-symmetric fixed-angle turns and endpoint {0,pi} weighted turns, unique as symmetric angular laws. The t-dependent ratio (3kappa+t)/(2kappa+t) has strictly negative derivative, so every point of the full sharp interval is reached by mixing extremes. Exact quotient m4/m2²=2(kappa+s)(3kappa+t)/[(3kappa+s)(2kappa+t)] gives the [2,3] high-tumble crossover as s->infinity, t->eta, with finite eta attained by mixtures. Inverse formula t=kappa(3-2C)/(C-1) is algebraically valid for all finite positive parameters; C>1. Independently computed the rational recurrence and derivative in SymPy (difference identically 0), and sampled 90,000 paths at kappa=1.35,v=2.1,lambda=1.8,mu1=0.3,mu2=0.3; observed m2=1.250803 vs predicted 1.251596 and m4=2.062051 vs predicted 2.064923, within MC standard errors 0.00235/0.00596. Simulations are corroborative only; universal claim follows from generator/Jensen proof. A separate wrong-first-moment uniform comparison was discarded, not treated as a mismatch.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality is confined to the sharp, attained fourth-radial-moment envelope over ALL reflection-symmetric correlated relative turning kernels with a prescribed first Fourier mode, uniqueness of both endpoint turning laws, high-rate second-mode memory crossover, and moment-based mu2 inversion. The generator technique, Fourier attenuation, Gaussian OU convolution and Jensen moment bounds are established mathematical methods. Smith et al. 2022 already solve the +/-90-degree endpoint; Frydel 2023 gives stationary moment recurrences for independent orientation redraws; Sun et al. 2024/2025 and Guéneau et al. 2026 give broader dimensional or complete distributions for redraw dynamics; Britton et al. 2026 treat arbitrary correlated turn distributions in FREE motion and calculate high moments, not harmonic stationary extrema. The separately indexed October 2026 Sun-Ye-Chen work concerns 1D fixed-velocity-state trap dynamics. None of the actually inspected primary full-text models and the bounded indexed searches establish the all-kernel fixed-mu1 sharp trapped envelope by direct specialization. The particularly relevant 2026 Britton paper could not be fully read due arXiv/OA retrieval restrictions and Oxford VPN disconnected; this is a material named priority risk, not an automatic scientific veto.
+
+## value
+
+PASS
+
+The stationary radial cloud width m2 measures only the first angular harmonic of turning persistence, but m4 changes strictly and nontrivially with the second harmonic while all mechanical parameters and m2 are fixed. The exact attainable interval and unique extremal jump protocols solve a physically natural inverse/design question over a continuum of turning kernels, not an arbitrary special parameter slice. The high-rate athermal limit retains a tunable normalized fourth-moment ratio anywhere from 2 to 3, making non-Gaussian residual orientation memory quantitatively detectable despite vanishing cloud size; the pair of measured moments identifies mu1 and mu2 when model coefficients are known. This is a natural finite-order structural invariant and sharp classifier with plausible uses in experiment design and benchmarking. It is not a full-law reconstruction, a distributional CLT, a new generator method, or an optimized robustness/noise theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
