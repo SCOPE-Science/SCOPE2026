@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:52:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/complete-core-leaf-profile-of-ordinary-p-3-convex-sets-in-sunlet--a2aac0f79fa9/RESULT.md at cee6a8611931dc24cf27d27764642f895841c83e Git blob 69930d8e204675b00cde6b61f8d450d864cf360c",
+        "2026/11/02/complete-core-leaf-profile-of-ordinary-p-3-convex-sets-in-sunlet--a2aac0f79fa9/verify.py Git blob 4811c42c7b37c05971c0e99ed3f837f291f46101",
+        "independent_checks_py_output.txt"
+      ],
+      "rationale": "For n>=3 a core indicator a_i and pendant indicator b_i define an ordinary P3-convex vertex set exactly when any a_i=0 has a_{i-1}+a_{i+1}+b_i<=1. For a nonconstant core, this forbids cyclic 101, giving exactly m positive 1-runs separated by m 0-runs of lengths >=2. Stars-and-bars counts (n/m)*binom(t-1,m-1)*binom(n-t-m-1,m-1) labelled cores; exactly n-2m pendant vertices are independently selectable. Together with all-zero and all-one cores this proves the bivariate B_n(x,y) identity for every n. Cyclic overlap transfer matrix gives characteristic lambda*(lambda^3-(1+z)^2 lambda^2+z(1+z)^2 lambda-z(1+z)) and stated scalar recurrence with formal seeds Q0=3,Q1=(1+z)^2,Q2=(1+z)^4-2z(1+z)^2. Independent adjacency brute-forcing verified each coefficient for n=3..8, totals 22,64,184,524,1488,4224; finite checks only corroborate infinite combinatorial proof.",
+      "residual_risks": [
+        "Not a claim about induced P3 convexity or graph automorphism orbit counts; scalar recurrence already known."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General #P-completeness and dynamic algorithms for P3 convex sets on trees/threshold graphs do not provide a formula for the non-tree C_n corona K1. Induced-path convexity and convex partitions are different invariants.",
+          "Counting P3-convex sets in graphs"
+        ],
+        "reasoning": "General #P-completeness and dynamic algorithms for P3 convex sets on trees/threshold graphs do not provide a formula for the non-tree C_n corona K1. Induced-path convexity and convex partitions are different invariants.",
+        "searches": [
+          "sunlet graph ordinary P3 convex sets bivariate core leaf polynomial generating function OEIS A073313",
+          "broader results from closest literature: arxiv:2603.04706v1"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify.py",
+        "independent_checks.py R4_SUNLET adjacency exhaustive n3..8",
+        "Dourado et al. arxiv:2603.04706v1 full text",
+        "OEIS A073313 entry",
+        "Resultary sunlet P3 convex bivariate query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known scalar recurrence is a consequence of the joint identity, not a proof of its multivariate refinement. Dourado et al. algorithms can in principle count finite cases but are not equivalent to the closed all-order run classification."
+        ],
+        "reasoning": "Known scalar recurrence is a consequence of the joint identity, not a proof of its multivariate refinement. Dourado et al. algorithms can in principle count finite cases but are not equivalent to the closed all-order run classification.",
+        "searches": [
+          "sunlet graph ordinary P3 convex sets bivariate core leaf polynomial generating function OEIS A073313",
+          "primary theorem comparison: arxiv:2603.04706v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A073313 gives only scalar total with x=y=1 and related recurrence. Specialization loses information on selected cores and leaves. No checked prior equivalence recovers joint coefficients.",
+          "arxiv:2603.04706v1"
+        ],
+        "reasoning": "OEIS A073313 gives only scalar total with x=y=1 and related recurrence. Specialization loses information on selected cores and leaves. No checked prior equivalence recovers joint coefficients.",
+        "searches": [
+          "sunlet graph ordinary P3 convex sets bivariate core leaf polynomial generating function OEIS A073313",
+          "aliases: 2-neighbor closed sets, ordinary P3-convexity, cycle-corona convex subset polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A073313 pre-records scalar totals and recurrence; that exact database coverage is credited. Search of OEIS and Resultary for sunlet bivariate P3-convexity did not recover joint B_n(x,y)."
+        ],
+        "reasoning": "OEIS A073313 pre-records scalar totals and recurrence; that exact database coverage is credited. Search of OEIS and Resultary for sunlet bivariate P3-convexity did not recover joint B_n(x,y).",
+        "searches": [
+          "sunlet graph ordinary P3 convex sets bivariate core leaf polynomial generating function OEIS A073313",
+          "exact source coefficients/thresholds and standard databases: arxiv:2603.04706v1"
+        ]
+      },
+      "rationale": "The scalar specialization and third-order scalar recurrence coincide with OEIS A073313, a prior known integer sequence, and are explicitly NOT original. Dourado–Grippo–Lin–Protti (2026) develops counting ordinary P3-convex sets, with general hardness and particular family algorithms, but their accessible full article does not provide the cyclic sunlet core–leaf bivariate refinement. The source proof adds the nontrivial invariant that free pendants depend solely on number of core runs, not their lengths; neither scalar OEIS data nor general tree algorithms imply joint coefficients. Best-of-knowledge O passes for the joint polynomial only.",
+      "residual_risks": [
+        "An older cycle-corona/P3-closure polynomial with equivalent bivariate data might exist under different terminology.",
+        "Not a claim about induced P3 convexity or graph automorphism orbit counts; scalar recurrence already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and family algorithms, not the all-order bivariate sunlet formula",
+          "evidence": [
+            "Dourado, Grippo, Lin, Protti (2026) define ordinary P3-convex sets and study #P-completeness",
+            "Their tree and threshold methods do not state bivariate sunlet polynomial"
+          ],
+          "identifier_or_url": "arxiv:2603.04706v1",
+          "material_read": "Accessible full research manuscript text: definitions, introduction, hardness result, tree/threshold algorithms and stated theorems; no term sunlet found",
+          "method": "Read open full-text scholarly mirror and search within article for specific family",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same ordinary P3-convexity invariant; general hardness and algorithms"
+        },
+        {
+          "assessment": "Scalar count and recurrence are prior; bivariate structural refinement is not provided",
+          "evidence": [
+            "OEIS A073313 lists 3,4,8,22,64,184,... (formal lower indices consistent)",
+            "The known scalar recurrence is specifically disclaimed as novel"
+          ],
+          "identifier_or_url": "https://oeis.org/A073313",
+          "material_read": "Sequence entry definition, initial terms and recurrence",
+          "method": "Read publicly accessible OEIS entry",
+          "title": "OEIS A073313: Binomial transform of generalized Lucas numbers",
+          "trigger": "Exact scalar counts 22,64,184,... and scalar recurrence in theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/complete-core-leaf-profile-of-ordinary-p-3-convex-sets-in-sunlet--a2aac0f79fa9/RESULT.md",
+        "Relevant prior work: arxiv:2603.04706v1"
+      ],
+      "rationale": "Sunlets C_n corona K1 are a canonical unicyclic graph family where core and pendant roles are mathematically distinct; P3-convexity is a general difficult counting invariant. The exact full bivariate core–leaf distribution and cyclic-run proof refine a known scalar sequence with natural structural information, independent of unmotivated numerical recomputation.",
+      "residual_risks": [
+        "An older cycle-corona/P3-closure polynomial with equivalent bivariate data might exist under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older cycle-corona/P3-closure polynomial with equivalent bivariate data might exist under different terminology.",
+    "Not a claim about induced P3 convexity or graph automorphism orbit counts; scalar recurrence already known.",
+    "Publication not_ready because no privacy-neutral public replacements or verified complete Git-tree manifest are supplied; source GitHub unchanged."
+  ],
+  "schema_version": 1
+}

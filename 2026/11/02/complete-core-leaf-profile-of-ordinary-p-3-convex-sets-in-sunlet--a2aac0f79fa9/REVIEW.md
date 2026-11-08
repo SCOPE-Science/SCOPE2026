@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns labelled \(n\)-sunlets for all integers \(n\ge3\) and two commuting variables that distinguish core and leaf selections. For every excluded core vertex, the selected neighbours must sum to at most one; this forbids cyclic \(101\) in the core. Every nonconstant admissible core pattern has exactly \(m\) positive one-runs and \(m\) zero-runs of length at least two. Stars-and-bars and a distinguished-run count give \(\frac nm\binom{t-1}{m-1}\binom{n-t-m-1}{m-1}\) labelled patterns. Exactly two leaves per zero-run are forced unselected, so the remaining \(n-2m\) leaves are independent free choices. These steps prove the full bivariate identity without computational extrapolation. The standard-library verifier separately exhausts direct graph definitions for \(3\le n\le9\) and compares the cyclic transfer, binomial sum, and recurrence for \(3\le n\le22\). The first total sequence agrees with the independently listed OEIS A073313.
+## correctness
 
-## Originality — PASS (specific and qualified)
-The claim of originality is **only** the complete two-variable core–leaf enumerator and its cyclic-run/free-leaf classification. OEIS A073313, recorded since 2002, already contains exactly the scalar specialization and its recurrence; it is explicitly credited, not claimed as a discovery. Dourado et al. (arXiv:2603.04706v1, public March 5, 2026) introduce the counting framework, give general hardness results and algorithms on trees and threshold graphs, but the examined definitions, theorem descriptions and tree methods do not supply a sunlet core–leaf formula. Earlier ordinary \(P_3\)-convex enumerations for ladders and cyclic prisms are for different graph families; a sunlet eccentric-subgraph index concerns a different invariant. Searches for sunlets/cycle-coronas, two-neighbour closed sets, exact scalar sequence and mathematical-record semantic equivalents did not identify the claimed joint polynomial. The complete current and historical literature under every alternative label was not exhaustively inspected; the possibility of an equivalent unlocated result remains.
+PASS
 
-## Mathematical value — PASS
-The 2026 counting problem is \(\#\mathsf P\)-complete in general, making natural explicit families useful. Sunlets are a canonical non-tree unicyclic family, and core-versus-leaf selection is a graph-structurally meaningful refinement absent from a scalar counting sequence. The theorem gives a complete natural bivariate classification for every order and explains a nonobvious uniformity: the number of free leaves depends only on the number of core runs, not the lengths of those runs. It refines a known integer sequence rather than recomputing its known coefficients alone. No generalization to arbitrary unicyclic graphs or assertion of publication-sized impact is made.
+For n>=3 a core indicator a_i and pendant indicator b_i define an ordinary P3-convex vertex set exactly when any a_i=0 has a_{i-1}+a_{i+1}+b_i<=1. For a nonconstant core, this forbids cyclic 101, giving exactly m positive 1-runs separated by m 0-runs of lengths >=2. Stars-and-bars counts (n/m)*binom(t-1,m-1)*binom(n-t-m-1,m-1) labelled cores; exactly n-2m pendant vertices are independently selectable. Together with all-zero and all-one cores this proves the bivariate B_n(x,y) identity for every n. Cyclic overlap transfer matrix gives characteristic lambda*(lambda^3-(1+z)^2 lambda^2+z(1+z)^2 lambda-z(1+z)) and stated scalar recurrence with formal seeds Q0=3,Q1=(1+z)^2,Q2=(1+z)^4-2z(1+z)^2. Independent adjacency brute-forcing verified each coefficient for n=3..8, totals 22,64,184,524,1488,4224; finite checks only corroborate infinite combinatorial proof.
 
-## Closest literature and limits
-Dourado et al., arXiv:2603.04706v1, develops the general counting problem. OEIS A073313 already records the scalar count and scalar recurrence in unrelated sequence language. Centeno et al. (2010) concern partitions into convex classes rather than this joint count. Related exact counts of convex sets on ladders and prisms do not include pendant-core joint counts on sunlets. No external independent mathematical verification or full historical-priority assessment has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar specialization and third-order scalar recurrence coincide with OEIS A073313, a prior known integer sequence, and are explicitly NOT original. Dourado–Grippo–Lin–Protti (2026) develops counting ordinary P3-convex sets, with general hardness and particular family algorithms, but their accessible full article does not provide the cyclic sunlet core–leaf bivariate refinement. The source proof adds the nontrivial invariant that free pendants depend solely on number of core runs, not their lengths; neither scalar OEIS data nor general tree algorithms imply joint coefficients. Best-of-knowledge O passes for the joint polynomial only.
+
+## value
+
+PASS
+
+Sunlets C_n corona K1 are a canonical unicyclic graph family where core and pendant roles are mathematically distinct; P3-convexity is a general difficult counting invariant. The exact full bivariate core–leaf distribution and cyclic-run proof refine a known scalar sequence with natural structural information, independent of unmotivated numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
