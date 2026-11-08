@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The reproducing kernel follows from the degree-three orthogonal polynomial and the multiplicity-free Johnson decomposition, with diagonal trace fixing normalization. The hypergeometric backward ratio supplies an exact polynomial telescoper and a three-boundary absolute-sum formula. Sixth-order moment convergence proves the Gaussian and Poisson regimes; one simple Charlier root at the Poisson mean three supplies the stated derivative jump. The packaged rational checker evaluates all finite identities in 784 cases and verifies full projection idempotence on three small spaces. Unproved limits: no classification of all cusps or extension to higher harmonic degrees.
+
+**Originality (PASS, bounded historical assessment).** The most directly related second Johnson projection finding covers a degree-two kernel with two boundary masses; it neither implies the third-projector three-boundary evaluation nor the sparse cubic Poisson cusp. Classical Johnson scheme sources provide the kernel framework without these sharp endpoint results. A 2022 review addresses different \(L^q\)-type orthogonal-polynomial norms and flags the substantial difficulty of discrete polynomial norm questions. A stronger unlocated higher-degree summation formula is the principal historical priority risk; absence of a search match is not novelty proof.
+
+**Value (PASS).** A canonical harmonic projection's sharp endpoint norm is an invariant relevant to Fourier truncation and stability on Johnson slices. The three-boundary identity reduces a sign-sensitive sum of length \(k+1\) to three explicit masses. The new sparse-to-dense Poisson–Gaussian profile has a genuine derivative discontinuity with an exact jump, illustrating arithmetic threshold structure unavailable from the degree-two bulk formula. This is not merely a recomputation of an association-scheme eigenvalue table.
+
+**Scope and limitations.** Only the canonical third projection, n at least twice k, and the stated growing regimes are covered. Numerical tests corroborate but do not prove the asymptotics. Residual priority uncertainty remains because comprehensive historical uniqueness cannot be certified from finite searches.
+
+Self-review: passed. Independent audit: not yet performed.
