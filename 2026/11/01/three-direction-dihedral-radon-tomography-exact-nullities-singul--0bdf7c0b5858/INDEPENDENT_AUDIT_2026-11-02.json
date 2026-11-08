@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:45:14.858619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Counting distinct left cosets yields R_H*R_H as right convolution with sum_H. On G_n the two constant modes have eigenvalues n alpha+2(beta+gamma) and n alpha; for each k=1..n−1 the 2×2 Hermitian Fourier block has eigenvalues b±|beta+gamma exp(2πika/n)|, b=beta+gamma. The zero count of n|ka is gcd(a,n)−1, including even n and gcd>1. For coprime a the minimum is 2−2cos(pi/n), maximum n+4 at unit weights. With A=n alpha, optimal A=delta=b−sqrt(b²−4beta gamma sin²(pi/n)), uniquely maximized delta at beta=gamma, proving the one-parameter optimal ratios and n vs n^(3/2) growth. Independently constructed all distinct coset-incidence matrices and numerical SVD for n=3..10, every a, and verified ranks and exact condition-number formula. Full all-n proof is symbolic Fourier analysis; finite SVD corroborates only tested cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ilmavirta full transform uses all n reflection subgroups and yields injectivity; it does not specify the minimal two-reflection+rotation complete-row family and its weighted spectrum in sections inspected.",
+          "Resultary 58911b2d31f1 optimizes view weights for cyclic square-grid projective lines, an abelian tomography model."
+        ],
+        "reasoning": "Full-data injectivity is weaker than selected-view injectivity and gives no quantitative sharp singular-value bounds; grid projective weighting cannot be directly specialized to dihedral noncommutative cosets.",
+        "searches": [
+          "Resultary query: dihedral group finite Radon transform three cyclic subgroups two reflections optimal condition number nullity gcd",
+          "Ilmavirta arXiv:1411.3829 §7.3",
+          "Resultary 58911b2d31f1"
+        ]
+      },
+      "checked_sources": [
+        "Ilmavirta arXiv:1411.3829, Proposition 5.1 and §7.3",
+        "Resultary 58911b2d31f1, 7d6c365ba4ff semantic result summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For gcd(a,n)=1, the claim gives kappa_unweighted=sqrt((n+4)/(2−2cos(pi/n))) and optimum squared=1+2/(1−cos(pi/n)) at beta=gamma and n alpha=(beta+gamma)(1−cos(pi/n)).",
+          "The inspected Ilmavirta proof establishes injectivity using more than these selected directions."
+        ],
+        "reasoning": "Knowing invertibility for a larger collection of coset sums does not imply injectivity, kernel dimension gcd(a,n)−1 or optimal scalar weighting for a three-family subcollection; separate Fourier-block calculation is genuinely needed.",
+        "searches": [
+          "Ilmavirta Proposition 5.1 and §7.3",
+          "Resultary query: dihedral group finite Radon transform three cyclic subgroups two reflections optimal condition number nullity gcd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ilmavirta defines coset sums over cyclic subgroups, and Proposition 5.1 gives injectivity for the full dihedral Radon transform.",
+          "Resultary 7d6c365ba4ff describes three-tap convolution on elementary generalized dihedral groups, not n coset-sum rows for each of three directions."
+        ],
+        "reasoning": "Compared group-coset incidence operator, paired-Fourier-block normal spectrum, and sparse three-tap convolution: even when Fourier algebra overlaps, their domains and measurement operators are different, so published three-tap nullities do not imply this law.",
+        "searches": [
+          "Resultary query: dihedral group finite Radon transform three cyclic subgroups two reflections optimal condition number nullity gcd",
+          "Ilmavirta arXiv:1411.3829",
+          "Resultary 7d6c365ba4ff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching complete n-by-a nullity plus three-family singular-value/weight table was returned by the targeted Resultary search.",
+          "The source states the full n-dependent 2n eigenvalue multiset with multiplicity convention."
+        ],
+        "reasoning": "An exact cyclic-grid Fourier table is not the dihedral coset table: same parameter n or cosine alone is not equivalence. Unindexed tomography tables remain possible.",
+        "searches": [
+          "Resultary query: dihedral group finite Radon transform three cyclic subgroups two reflections optimal condition number nullity gcd",
+          "Ilmavirta 2015 finite group examples",
+          "Resultary 58911b2d31f1",
+          "Resultary 7d6c365ba4ff"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for selected three maximal cyclic coset directions, exact gcd nullity and unique direction-family scalar weighting; full-data dihedral injectivity and related projective grids already known.",
+      "residual_risks": [
+        "Unindexed weighted finite tomography or equivalent cycle Laplacian spectra may contain the exact formula. Published Resultary matched records were read as summaries, not complete papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_INJECTIVITY_ONLY",
+          "evidence": [
+            "Prop.5.1 covers all cyclic directions; no three-family weighted spectral optimization is given in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.3829",
+          "material_read": "Full accessible paper material in Introduction, Proposition 5.1, §7.3 and nearby definitions and dihedral examples",
+          "method": "PDF textual inspection, page screenshots including p.12 and maximal-geodesic section",
+          "title": "On Radon transforms on finite groups",
+          "trigger": "Direct prior: dihedral coset Radon transforms"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR",
+          "evidence": [
+            "Uniform weights are optimal for projective cyclic square-grid lines; dihedral coset family permits nonuniform optimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-scalar-view-conditioning-and-a-smallest-prime-barrier-for--58911b2d31f1",
+          "material_read": "Resultary indexed title and scientific result summary; full result not read",
+          "method": "Resultary semantic search",
+          "title": "Sharp scalar-view conditioning and a smallest-prime barrier for projective cyclic Radon transforms",
+          "trigger": "Published analogous weighted discrete tomography"
+        },
+        {
+          "assessment": "DIFFERENT_TRANSFORM",
+          "evidence": [
+            "Three unit taps on F_p^d⋊C2; not the specified full cyclic-coset measurements."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-three-tap-fourier-rank-census-on-elementary-generalized--7d6c365ba4ff",
+          "material_read": "Resultary title and scientific summary; full scientific text not accessible in this execution",
+          "method": "Resultary semantic search",
+          "title": "Complete three-tap Fourier-rank census on elementary generalized dihedral groups",
+          "trigger": "Same group family and three-tap Fourier words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-group inverse problem asks the smallest number of complete maximal cyclic directions that recover arbitrary data; the exact nullity law and sharp optimal measurement weighting quantify stability rather than merely injectivity, improving asymptotic growth by sqrt(n). This is an infinite-family structural tomography result, not a formal relabeling of full-group Radon injectivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only full coset families, unnormalized sums, scalar positive weight per family; not arbitrary row weighting.",
+    "Published prior full-dihedral transform is not minimal three-family theorem."
+  ],
+  "schema_version": 1
+}
