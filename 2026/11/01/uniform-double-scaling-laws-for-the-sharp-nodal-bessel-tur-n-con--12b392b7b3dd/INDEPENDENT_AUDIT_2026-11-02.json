@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:50:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The exact Bessel recurrence gives Phi=1-nu^2/x^2+(Jnu'/Jnu)^2 and x Phi'/2=1-(1+x Jnu'/Jnu)Phi. Source uniqueness is supplied by Aktaş-Baricz; uniform oscillatory differentiated Debye expansion on a compact subset t>1 localizes the stationary minimizer at phase n*pi+O(1/nu), t=t_nu,n+O(nu^-2). The explicit Debye sine coefficient B=1/(8u)+5/(24u^3) solves the phase correction to -(9t^2+22)/(24(t^2-1)^(3/2)), yielding location coefficient -t(9t^2+22)/(24(t^2-1)^2) and minimum coefficient -(9t^2+10)/(12 t^2(t^2-1)^2). Parity of Debye terms justifies O_K(nu^-4) remainders, not merely O(nu^-3). Independent SciPy and symbolic checks corroborated 5 integer/noninteger large-order pairs without substituting finite samples for asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aktaş-Baricz supplies unique nodal minima and fixed-order behavior; DLMF provides input asymptotics; Dunster 2024 uniformly expands Bessel zeros not normalized Turan extrema."
+        ],
+        "reasoning": "No inspected broader theorem supplies a formula or uniform remainder for the optimized Turan minimum at n/nu bounded away from 0 and infinity.",
+        "searches": [
+          "arxiv:2609.39008 Aktaş Baricz oscillatory Turan nodal minima",
+          "DLMF 10.19.5-10.19.7 Debye expansions",
+          "arxiv:2405.08208 Dunster 2024"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.39008",
+        "https://arxiv.org/abs/2405.08208",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375",
+        "https://dlmf.nist.gov/10.19",
+        "Resultary semantic query: Resultary: sharp nodal normalized Bessel Turan minima simultaneous order index large Debye double scaling uniform ν n/ν",
+        "Resultary semantic query: Resultary: sharp nodal normalized Bessel Turan minima simultaneous order index large Debye double scaling uniform ν n/ν",
+        "Resultary semantic query: Resultary 2026/10/11/SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375",
+        "Resultary semantic query: Resultary SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n/nu→kappa positive the claimed deficit tends 1/t(kappa)^2, while the fixed-mu far-tail law has a nonuniform O_mu remainder and cannot be evaluated at mu→∞."
+        ],
+        "reasoning": "Published unique minimizer theorem and Debye expansions are essential lemmas, but a distinct uniform stationarity calculation is necessary to derive the two outputs; inspected prior propositions do not imply them directly.",
+        "searches": [
+          "arxiv:2609.39008 Theorem 2 nodal convexity, §8 order variation",
+          "Resultary SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375",
+          "arxiv:2405.08208 uniform Bessel zeros"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dunster 2024 gives j_nu,n zeros; proposed alpha_nu,n solves a distinct Turan-stationarity equation and beta is a quotient of adjacent orders, both with explicit new corrections."
+        ],
+        "reasoning": "Zero locations and WKB phase have an overlapping eta variable, but no algebraic identity making Turan minima equal zero positions or prior coefficients was found.",
+        "searches": [
+          "Resultary: sharp nodal normalized Bessel Turan minima simultaneous order index large Debye double scaling uniform ν n/ν",
+          "arxiv:2405.08208 Dunster Bessel zero uniform asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary prior gives fixed-order inverse-square deficit mu^2/(pi^2 n^2), with constants depending on mu; not the simultaneous interior ratio profile."
+        ],
+        "reasoning": "No exact table covering all positive real orders and all n/nu in compact K emerged; failed search is not a novelty proof.",
+        "searches": [
+          "Resultary: sharp nodal normalized Bessel Turan minima simultaneous order index large Debye double scaling uniform ν n/ν",
+          "Resultary 2026/10/11/SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375"
+        ]
+      },
+      "rationale": "PASS, qualified: Debye/Olver-Dunster results control Bessel function values or zeros, not their optimized normalized Turanian minimum; the Aktas-Baricz nodal theorem supplies qualitative convexity/uniqueness, not the joint order-index profile. The earlier published fixed-order inverse-square Turan minimum explicitly has order-dependent error, and cannot imply a uniform n/nu positive scaling or the two correction coefficients. A generic algebraic derivation using known Debye expansions is a legitimate new asymptotic statement, though hidden prior equivalent expansions remain possible.",
+      "residual_risks": [
+        "Earlier unindexed asymptotics could derive the same double-scaling Turan minimum indirectly from Debye expansions.",
+        "Uniform fourth-order remainder relies on differentiable Debye expansion and even/odd parity on a fixed compact subset t>1; no turning-point/far-tail claim.",
+        "Numerical extrema near Bessel poles are sensitive to root bracket; comparisons used near phase-center root and analytic uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Proves convexity/uniqueness and qualitative fixed-order trend; does not state simultaneous ν,n scaling correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39008",
+          "material_read": "Primary arXiv text §§2 and 8 including exact nodal derivatives, unique branch minimum, and open directions",
+          "method": "Full accessible rendered primary text, compared formulas",
+          "title": "Turán type inequalities for oscillatory special functions",
+          "trigger": "Same normalized Bessel nodal minima"
+        },
+        {
+          "assessment": "NOT_SAME_OBJECT",
+          "evidence": "Uniformly controls zeros of J, not optimized normalized Turanian minima; no claimed implication without stationarity.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.08208",
+          "material_read": "Abstract, Introduction and displayed uniform zero expansion, definitions of Liouville variable eta and Theorem scope",
+          "method": "Read accessible arXiv HTML text and formulas",
+          "title": "Error bounds for a uniform asymptotic approximation of the zeros of J_nu(x)",
+          "trigger": "Strong prior uniform large order/index oscillatory Bessel approximation"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Fixed-order asymptotic only; priority caution for any uninspected full-text variants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375",
+          "material_read": "Resultary semantic record/title/summary and statements cited in inspected RESULT.md; no independent entire source package re-read",
+          "method": "Semantic record and comparison with stated theorem",
+          "title": "Inverse-square convergence of sharp cylinder-function Turán minima",
+          "trigger": "Published closest same observable at fixed order"
+        },
+        {
+          "assessment": "INPUT_LEMMA",
+          "evidence": "Expansion input standard, not prior optimized minimum.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.19",
+          "material_read": "Debye coefficient and parity structure cited in source proof and DLMF formula references",
+          "method": "Compared explicit displayed terms in inspected RESULT.md with DLMF cross-reference",
+          "title": "NIST DLMF §10.19 large order oscillatory expansions",
+          "trigger": "Classical nonstandard analytic input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The best constants in the normalized oscillatory Turan inequality have independent order and nodal-index scales. The complete interior double-scaling profile and both sharp nu^-2 corrections quantify a nonconstant crossover omitted by the fixed-order/fixed-index endpoints. This is a natural parameter-uniform structural asymptotic, not a numeric instance or a restatement of a Bessel zero expansion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.39008",
+    "https://arxiv.org/abs/2405.08208",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375",
+    "https://dlmf.nist.gov/10.19",
+    "Resultary semantic query: Resultary: sharp nodal normalized Bessel Turan minima simultaneous order index large Debye double scaling uniform ν n/ν",
+    "Resultary semantic query: Resultary: sharp nodal normalized Bessel Turan minima simultaneous order index large Debye double scaling uniform ν n/ν",
+    "Resultary semantic query: Resultary 2026/10/11/SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375",
+    "Resultary semantic query: Resultary SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375"
+  ],
+  "disposition": "passed",
+  "final_claim": "For positive real Bessel order nu increasing with n/nu in a fixed compact positive interval, the unique normalized Turan minimum on the nth positive nodal interval has explicitly displayed uniform nu^-2 corrections in both minimizer alpha_nu,n/nu and value beta_nu,n, with O_K(nu^-4) remainder and a nonconstant eta^-1(n/nu) limit.",
+  "limitations": [
+    "Earlier unindexed asymptotics could derive the same double-scaling Turan minimum indirectly from Debye expansions.",
+    "Uniform fourth-order remainder relies on differentiable Debye expansion and even/odd parity on a fixed compact subset t>1; no turning-point/far-tail claim.",
+    "Numerical extrema near Bessel poles are sensitive to root bracket; comparisons used near phase-center root and analytic uniqueness.",
+    "Public-intended METADATA.json and AUDIT.json contain scope_run_id operational provenance identifiers. No complete sanitized replacement bytes with verified original Git-blob guards and UTF-8 SHA-256 were staged for both files; no public publication authorization."
+  ],
+  "residual_risks": [
+    "Earlier unindexed asymptotics could derive the same double-scaling Turan minimum indirectly from Debye expansions.",
+    "Uniform fourth-order remainder relies on differentiable Debye expansion and even/odd parity on a fixed compact subset t>1; no turning-point/far-tail claim.",
+    "Numerical extrema near Bessel poles are sensitive to root bracket; comparisons used near phase-center root and analytic uniqueness."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE",
+      "evidence": "Proves convexity/uniqueness and qualitative fixed-order trend; does not state simultaneous ν,n scaling correction.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.39008",
+      "material_read": "Primary arXiv text §§2 and 8 including exact nodal derivatives, unique branch minimum, and open directions",
+      "method": "Full accessible rendered primary text, compared formulas",
+      "title": "Turán type inequalities for oscillatory special functions",
+      "trigger": "Same normalized Bessel nodal minima"
+    },
+    {
+      "assessment": "NOT_SAME_OBJECT",
+      "evidence": "Uniformly controls zeros of J, not optimized normalized Turanian minima; no claimed implication without stationarity.",
+      "identifier_or_url": "https://arxiv.org/abs/2405.08208",
+      "material_read": "Abstract, Introduction and displayed uniform zero expansion, definitions of Liouville variable eta and Theorem scope",
+      "method": "Read accessible arXiv HTML text and formulas",
+      "title": "Error bounds for a uniform asymptotic approximation of the zeros of J_nu(x)",
+      "trigger": "Strong prior uniform large order/index oscillatory Bessel approximation"
+    },
+    {
+      "assessment": "PARTIAL_COVERAGE",
+      "evidence": "Fixed-order asymptotic only; priority caution for any uninspected full-text variants.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-inverse-square-convergence-of-sharp-cylinder-function-tur-n-mini--7a66df847375",
+      "material_read": "Resultary semantic record/title/summary and statements cited in inspected RESULT.md; no independent entire source package re-read",
+      "method": "Semantic record and comparison with stated theorem",
+      "title": "Inverse-square convergence of sharp cylinder-function Turán minima",
+      "trigger": "Published closest same observable at fixed order"
+    },
+    {
+      "assessment": "INPUT_LEMMA",
+      "evidence": "Expansion input standard, not prior optimized minimum.",
+      "identifier_or_url": "https://dlmf.nist.gov/10.19",
+      "material_read": "Debye coefficient and parity structure cited in source proof and DLMF formula references",
+      "method": "Compared explicit displayed terms in inspected RESULT.md with DLMF cross-reference",
+      "title": "NIST DLMF §10.19 large order oscillatory expansions",
+      "trigger": "Classical nonstandard analytic input"
+    }
+  ]
+}
