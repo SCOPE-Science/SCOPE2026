@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For N>=3 the Moore neighborhood has eight distinct sites. Every middle-column site of color i sees exactly a_(i+1)+b_(i+1)+c_(i+1) predator sites in three adjacent columns. The consequent 10-composition, 100-pair transfer counts ordered labeled states with weights 3!/(a0!a1!a2!), so F_N=tr(B^N) for every N>=3. From the exact generated 100x100 integer matrix, SymPy coefficient arithmetic verifies det(XI-B)=X^45(X-6)P18(X)Q18(X)^2. The graph has a 72-state primitive component and separate six-loop singleton; a certified Sturm bracket isolates the unique P root above 8, giving Perron dominance and exponential asymptotics. The exact checker also matches independent brute-force enumerations of every state on 3x3 and 3x4 rings. No extrapolation from finite experiments is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen (1988), abstract: arbitrary-rule transfer-matrix traces and recurrences for one-dimensional cylinders",
+        "Banks-Djirar (1992) PDF, section 3: extension to two-dimensional binary automata using graph overlap",
+        "published-finding corpus closest the published finding “Exact finite-cutoff zeta and Perron correction for a countable-map survivor”, concerning a different expanding interval map"
+      ],
+      "reasoning": "The standard transfer principle applies abstractly, so it covers the existence of a finite recurrence but supplies no explicit polynomial, growth constant, or counts for this nonlinear three-color threshold-four strip. No stronger exact classification for this same automaton and geometry was found. General algorithms are acknowledged prior art.",
+      "searches": [
+        "Web query: Cylindrical cellular automata 1988 Jen characteristic matrix fixed points arbitrary cylinder",
+        "Web query: Banks Djirar 1992 Fixed Points and Shift Cycles in Cellular Automata 2D",
+        "published-finding corpus query: three-state cyclic cellular automaton exact zeta fixed point counts 3xN Moore torus threshold 4 Perron root 8.624522"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.37990v1 full HTML",
+      "Banks-Djirar (1992) scanned PDF selected substantive pages",
+      "Jen (1988) journal abstract",
+      "Bello-Sivakoff (2021) abstract",
+      "published-finding corpus relevant retrieved summaries and relevant previously reported mathematical claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Muñoz-Nuño 2026 reports sampled eventual fixed-point basins for square tori and one 9x12 rectangle, not counts of already-fixed states on 3xN",
+        "Prior 4x4 torus result fixes only one 4x4 geometry and a temporal convergence bound, with 99819 fixed configurations; it does not imply all 3xN counts",
+        "Prior complete-graph cyclic rule result concerns graph K_N, matching 3x3 only, not 3xN at N>=4",
+        "Banks-Djirar presents a graph method, not evaluated transfer polynomials for this target"
+      ],
+      "reasoning": "Sampling a basin of attraction is not the same as enumerating fixed states. A single-size exact census or complete-graph analysis does not determine the stationary-pattern entropy of a different infinite strip. A generic graph enumeration recipe entails computability but not the present explicit evaluated invariant.",
+      "searches": [
+        "arXiv:2610.37990v1 inspected sections II, V.2, V.11",
+        "Previously reported four-by-four fixation census: 603c9c52-29dd-43d3-8637-e890e2cf3c68",
+        "Previously reported complete-graph cyclic rule theorem: 01f472ca-ead4-49b1-ad78-1249e245f2f7",
+        "Banks-Djirar 1992 Section 3 PDF pp. 11-12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.37990v1, Section II rule and Section V census: no exact spatial fixed-point generating function for the three-row strip",
+        "Banks and Djirar (1992), pp. 4 and 11 of the PDF: general fixed-point neighborhood transition theory, not this three-color Moore rule",
+        "Nearest published-finding corpus item: the published finding “Exact temporal trace complexity for all 18 ternary semigroup cellular automata”, concerns a different three-element semigroup CA and temporal time traces, not this stationary strip"
+      ],
+      "reasoning": "Spatial shift periodic-point enumeration, stationary subshift entropy and cyclic Moore automaton fixed states are the principal equivalent formulations. Their core object is the same three-row threshold-four rule; inspected sources did not supply the exact polynomials or count sequence. The cited ternary semigroup time-trace problem is not equivalent.",
+      "searches": [
+        "published-finding corpus query: three color cyclic dominance threshold 4 Moore neighborhood fixed configurations 3 by N torus periodic strips enumeration transfer matrix zeta function",
+        "published-finding corpus query: 3-by-n strip threshold cyclic cellular automaton fixed configurations eigenvalue transfer matrix",
+        "Web query: cyclic cellular automaton three color threshold 4 fixed point enumeration rectangular torus transfer matrix strip"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-table source arose matching the joint initial counts or Perron constant in the retrieved results",
+        "Direct independent ordered-state enumeration confirmed 2070 (3x3) and 9636 (3x4); this establishes numerical reproducibility, not priority"
+      ],
+      "reasoning": "The targeted numeric and name/parameter searches did not locate a published table of these counts. Absence of indexed matching tables alone is not a uniqueness proof; it is combined with the primary-source statement comparison.",
+      "searches": [
+        "Web query: \"2070\" \"9636\" \"cyclic cellular automaton\"",
+        "Web query: \"8.624522\" cyclic automaton fixed strip",
+        "published-finding corpus query: 3-row periodic strip cyclic dominance frozen configurations 2070 9636 67263 fixed configuration sequence"
+      ]
+    },
+    "rationale": "The 2026 model paper investigates periods and sampled basins, not three-row exact stationary-state counts. The 1988/1992 graph-transfer literature gives general counting machinery, which is not claimed as new. The object-specific 100-state count compression, two degree-18 factors, all-width counts and exact entropy are not stated in the inspected primary material or nearby published findings. This is best-knowledge originality, not historical priority certification.",
+    "residual_risks": [
+      "A specialized preexisting exact enumeration of the same width-three CCA may be unindexed or omitted by keyword searches.",
+      "Jen (1988) and the related Banks-Djirar (1993) report were not exhaustively read; the latter bibliographic abstract gives only generic fixed-point methods.",
+      "The 1992 graph-method prior art may make this a relatively incremental finite-state enumeration, although the exact growth constant and complete sequence remain natural new object-specific invariants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes rule and sampling emphasis; does not state an exact 3xN fixed-configuration enumeration, polynomial factorization or spatial entropy",
+        "evidence": [
+          "Section II equations (1)-(2) gives successor rule",
+          "Section V.2 tabulates eventual attractor types from samples on 5x5 to 9x9",
+          "Section V.11 studies 9x12 simulation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.37990v1",
+        "material_read": "Full HTML text including model Section II, attractor census Section V.2 and rectangular torus Section V.11, abstract, discussion and limitations",
+        "method": "Read textual full article sections and search for fixed-state enumeration, strip and transfer formulas",
+        "title": "Symmetry-resolved periods in a cyclic-dominance automaton: separating intrinsic from lattice-induced periodicity",
+        "trigger": "Exact underlying three-color threshold dynamics and possibility of a stationary-state classification"
+      },
+      {
+        "assessment": "Provides earlier graph-based fixed-point method and extensions to 2D binary local rules, not the specific three-color Moore threshold-four 3xN polynomial evaluation",
+        "evidence": [
+          "Section 2 defines binary fixed neighborhoods",
+          "Section 3 begins with five-bit nearest-horizontal/vertical-neighbor rules",
+          "No specific target count formula on inspected pages"
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/79286/1/acse%20research%20report%20459.pdf",
+        "material_read": "Original scanned PDF, with abstract and representative methodological pages 4, 11, and graph example page 16 viewed as images; not an assertion of exhaustive reading",
+        "method": "Inspected PDF screenshots, including the local binary-rule definition and Section 3 on two-dimensional overlap graphs",
+        "title": "Fixed Points and Shift Cycles in Cellular Automata",
+        "trigger": "Potentially dominating general two-dimensional cellular-automaton fixed-point enumeration"
+      },
+      {
+        "assessment": "General method precedes this calculation; abstract does not give this specific rule and exact factors",
+        "evidence": [
+          "Abstract describes trace-of-a-matrix fixed point count for arbitrary local rules",
+          "This result does not claim that general theorem as new"
+        ],
+        "identifier_or_url": "https://scixplorer.org/abs/1988CMaPh.118..569J/abstract",
+        "material_read": "Bibliographic record and substantive abstract only; full paper not read",
+        "method": "Read journal-record abstract describing transfer trace and characteristic recurrence for 1D finite cylinders",
+        "title": "Cylindrical cellular automata",
+        "trigger": "Potential prior general transfer trace result"
+      },
+      {
+        "assessment": "Different infinite-tree and stochastic-asymptotic questions; not direct exact strip census",
+        "evidence": [
+          "Tree phase-transition abstract studies almost-sure color activity, not all stationary 3xN configurations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.06404",
+        "material_read": "Abstract via bibliographic portal only",
+        "method": "Compared geometry and stated infinite-tree probabilistic phase criteria with periodic three-row torus fixed-point enumeration",
+        "title": "Cyclic cellular automata and Greenberg-Hastings models on regular trees",
+        "trigger": "Potential threshold-four fixation comparison in classical model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24a3474f-1bb8-45ab-b20b-c534ccc6c43d",
+  "value": {
+    "rationale": "At threshold 4 the cyclic Moore model lies at the boundary between band propagation and observed large-domain fixation. Width-three periodic strips are the narrowest genuine eight-neighbor toroidal strips, making their entire stationary-state counting sequence and entropy a natural benchmark. The object-specific simplification to ten count types, exact degree-18 spectral factors and sharp exponential rate answer a nontrivial all-width invariant unavailable from finite basin simulations or a single-size census. No new generic transfer method is claimed; the value is the evaluated invariant and structural compression.",
+    "status": "PASS"
+  }
+}
