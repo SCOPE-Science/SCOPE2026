@@ -1,0 +1,15 @@
+# Assessment of source-side optimality on two-by-many bicliques
+
+## Correctness
+**PASS.** The count-state transition kernels are exactly binomial with probabilities \(j/2\) and \(i/a\). The displayed first-step recurrence is triangular after removing its self-loop and therefore gives exact rational expectations. The coupling to independent half-probability geometric clocks bounds the smaller-side start by \(\lceil\log_2a\rceil+3\). The larger-side start has a geometric waiting phase of mean \(a^2/(2a-1)\), followed by at least one further round. These bounds separate all \(a\ge12\). Exact rational arithmetic separates the nine values \(3\le a\le11\), independently cross-checked using fully labelled Markov states for small orders. A monotone coupling gives the stated asymptotic gap. The \(a=2\) boundary was verified.
+
+## Originality
+**PASS, with historical priority provisional.** Geneson et al., *Randomized Zero Forcing* (2026), Section 3.6, study the same process, provide a finite table, prove a big-O bound and formulate the general source-location conjecture. Neither their finite table nor their coarse bound implies a strict inequality for all \(a\) when the smaller part has size two. The present argument establishes the width-two conjectural direction for every unbounded \(a\). Chan et al. (2019), Section 2.3, study a distinct sender-based forcing rule and conjecture the reverse source preference there; the two stochastic rules cannot be interchanged. A search of relevant indexed results revealed no covering theorem. Priority risk remains from inaccessible or unindexed later work.
+
+## Mathematical value
+**PASS.** The main result establishes an infinite slice of a stated 2026 conjecture, not a new name for an existing bound. It identifies the mechanistic reason for source-side asymmetry: when a large-part source starts, infection of that entire part is blocked until one of two smaller-part vertices is infected, while a small-part source starts many independent large-part infection clocks immediately. The linear gap \(a/2+O(\log a)\) quantifies this structural disparity. The direction reverses the conjectured source preference for the older sender-based model, emphasizing that changing the update rule materially changes the optimization question.
+
+## Closest literature and limitations
+The exact 2026 RZF paper is the closest source. Its Table 2 contains bounded numerical examples, and Conjecture 3.12 proposes the general comparison. The 2019 probabilistic-zero-forcing paper gives a general Markov method but uses the sender-based transition probabilities, with a different conjecture. The present result is restricted to equal-weight bidirected \(K_{a,2}\), with one initially blue vertex; it does not decide the general case \(K_{a,b}\) for \(b\ge3\). Finite calculations support, but do not substitute for, the analytic infinite-parameter step. Independently confirmed priority and independent proof audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

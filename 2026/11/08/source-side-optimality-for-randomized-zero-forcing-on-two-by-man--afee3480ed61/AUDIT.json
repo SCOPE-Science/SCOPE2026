@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For (i,j) blue vertices in the size-a and size-two parts, the next-round increments are independently Bin(a-i,j/2) and Bin(2-j,i/a). Removing the positive-probability self-loop yields an exact triangular recurrence. Direct rational certification for all a=3..11 shows H_0<7/2<T_A, independently checked with labelled-subset transition matrices for a=2..6. For a>=12 the small-part start has expectation at most ceil(log_2 a)+3 by coupling to a independent Geom(1/2) clocks, whereas the larger-part start needs at least a^2/(2a-1)+1 rounds. An elementary dyadic inequality separates those bounds for every a>=12. Monotone coupling supplies the matching upper comparison T_A<=a^2/(2a-1)+T_B and the a/2+O(log a) difference. The a=2 equality is exact.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Geneson et al. (2026) Theorem 3.7 is an O(min(a log b,b log a)) upper bound, and the source comparison is presented as Conjecture 3.12.",
+        "Chan et al. (2019) Section 2.3 treats sender-based probabilistic zero forcing, not the current recipient-side RZF transitions."
+      ],
+      "reasoning": "An upper bound on propagation time does not imply a comparison of two singleton starts. General finite-state Markov methods can compute each numerical case but do not settle a uniform parameter inequality without further analysis. The earlier sender-side model even has an opposite source-location conjecture.",
+      "searches": [
+        "published-finding corpus: RZF randomized zero forcing bipartite graph starting in smaller vs larger part conjecture propagation time",
+        "Web: \"randomized zero forcing\" \"complete bipartite\" \"starting\" \"smaller\" 2026",
+        "Geneson et al. 2026, Section 3.6 Theorem 3.7 and Conjecture 3.12"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.16300v1, Sections 1 and 3.6, original RZF model/conjecture/table",
+      "arXiv:1906.11083v1, Sections 1--2.3, sender-based PZF Markov chains",
+      "Published mathematical record: Transmission zero forcing of complete multipartite graphs (different deterministic invariant)",
+      "Published mathematical record: Exact discounted hitting domination of complete bipartite graphs (different discounted hitting problem)",
+      "Published mathematical record: Fort hypergraph and fractional zero forcing of double stars (different deterministic invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Geneson et al. (2026) poses the general source-side comparison as a conjecture, and supplies finite data rather than an all-parameter proof.",
+        "Chan et al. (2019), Conjecture 2.6, favors starting in the larger part under the genuinely different PZF update rule.",
+        "Relevant published-index records concern transmission zero forcing or discounted hitting domination, not the recipient-side stochastic stopping times."
+      ],
+      "reasoning": "The present theorem is a strict infinite subfamily of a published conjecture, not merely a numerical improvement to the 2026 O-bound. A general Markov expectation formula requires the new geometric-clock and waiting-time inequalities to establish this order; different forcing rules cannot be reduced by title similarity.",
+      "searches": [
+        "published-finding corpus: Randomized Zero Forcing Geneson Hicks Lichtenberg Moon Robles 2026 Conjecture 3.12",
+        "published-finding corpus: synchronous progressive randomized blue-coloring complete bipartite graph K_{a,2} exact expected infection time",
+        "Web: \"probabilistic zero forcing\" \"complete bipartite\" expected propagation source color"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Geneson et al. (2026), Section 3.6, exact recipient-side update rule, Table 2 and Conjecture 3.12.",
+        "The labelled-subset and count-state recurrences use identical recipient infection probabilities and agree on orders 4--8."
+      ],
+      "reasoning": "Equivalently the question compares hitting times of (a,2) for a two-coordinate synchronous binomial pure-birth chain. The source paper displays finite comparisons but does not prove all-a strict source-location optimality for the width-two part. Sender-based probabilistic zero forcing is a different chain.",
+      "searches": [
+        "published-finding corpus: randomized zero forcing bidirected complete bipartite K_{a,2} expected propagation starting smaller part exact formula conjecture Geneson Hicks 2026",
+        "Web: \"randomized zero forcing\" \"K_{a,2}\"",
+        "Web: \"randomized zero forcing\" \"K_{m,2}\" propagation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 paper tabulates a bounded collection of expected times for complete bipartite graphs, including the size-two column.",
+        "Exact rational certificates for every integer 2--11 reproduce the corresponding bounded numerical cases from the same recipient-side model."
+      ],
+      "reasoning": "Earlier table entries cover their listed finite instances. The candidate does not claim those as individually novel; it proves strict optimality for arbitrarily large a and a linearly growing difference. Searches of relevant indexed results found no all-a covering table or closed inequality.",
+      "searches": [
+        "published-finding corpus: expected propagation time randomized zero forcing bidirectional complete bipartite graph K_{n,2} smaller initial part optimal",
+        "Web: \"Geneson\" \"Hicks\" \"Lichtenberg\" \"Moon\" \"Robles\" \"Conjecture 3.12\"",
+        "Geneson et al. (2026) Table 2 and section 3.6"
+      ]
+    },
+    "rationale": "The most relevant 2026 primary text states a full source-location conjecture and a bounded numerical table, but not the new all-parameter proof in the two-vertex-side family. The 2019 complete-bipartite work treats a different stochastic forcing rule. Multiple actual index and web searches found no theorem covering the recipient-side strict width-two inequality. Best-knowledge assessment; priority may be affected by unindexed or newer work.",
+    "residual_risks": [
+      "The assessed literature and semantic searches cannot exclude an unindexed or newly posted proof of the width-two claim.",
+      "The general source-side conjecture for smaller parts of size three or more remains unresolved by this argument.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_MOTIVATION_NOT_COVERING: the exact source-side comparison is conjectured for the general bipartite graph; the paper provides a finite table and a coarse asymptotic bound, not this infinite width-two proof.",
+        "evidence": "Section 3.6 Theorem 3.7, Conjecture 3.12, and Table 2; February 18, 2026 first arXiv submission.",
+        "identifier_or_url": "arXiv:2602.16300v1 | https://arxiv.org/abs/2602.16300",
+        "material_read": "Accessible primary full-text HTML, Introduction and Definitions 1.1--1.2, Section 2 reachability, Section 3.6 including Theorem 3.7, Conjecture 3.12 and Table 2; other section headings surveyed.",
+        "method": "Read accessible primary HTML text and compare precise transition probabilities, size-two examples, and theorem/conjecture implications.",
+        "title": "Randomized Zero Forcing",
+        "trigger": "Defines the exact RZF process and poses the source-location conjecture for complete bipartite graphs."
+      },
+      {
+        "assessment": "DIFFERENT_MODEL_NOT_COVERING: sender-based PZF uses attempts from blue vertices with different success probabilities. Its source-side conjecture points in the opposite direction and does not imply the RZF theorem.",
+        "evidence": "Section 1 rule and Section 2.3 Proposition 2.5, Table 2.4, Conjecture 2.6.",
+        "identifier_or_url": "arXiv:1906.11083v1 | https://arxiv.org/html/1906.11083v1",
+        "material_read": "Accessible primary full-text HTML Section 1 (sender-based forcing rule), Section 2 (Markov chain formulation) and Section 2.3 (complete-bipartite state formula, Table 2.4 and Conjecture 2.6).",
+        "method": "Compared update probability formulas and the directional source conjecture in the graph K_{m,n}.",
+        "title": "Using Markov chains to determine expected propagation time for probabilistic zero forcing",
+        "trigger": "Earlier expected propagation time results for complete bipartite graphs might contain a stronger theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "afee3480-ed61-4a49-8bb8-bf14aac374b4",
+  "value": {
+    "rationale": "This establishes an infinite, motivated slice of a stated 2026 open source-location conjecture, with a sharp first-order growth law a/2 for the advantage. Its two-sided proof explains the structural mechanism: a large-part start must wait geometrically for activation of the smaller part, but a small-part start initiates independent infections in the large part immediately. This also contrasts with an earlier opposite conjecture in a genuinely different forcing dynamics; it is not a textbook identity or a tabular recomputation.",
+    "status": "PASS"
+  }
+}
