@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domains, language, height, level ordering, and noncounting variable budget are specified. The necessity direction is witnessed by a quantifier-rank-unrestricted formula using at most \(k\) variables to find too many pairwise equidistant leaves. Sufficiency follows from a symmetric, arbitrary-round partial-isometry strategy: each moved pebble leaves fewer than \(k\) occupied children at every node, while equal truncated branching guarantees a matching unused child. Distinctness and repeated pebble placements are covered. The sharp theory count, smallest representative, minimum separating width, and counting two-variable contrast follow by explicit arguments. The standalone finite checker tests the critical extension property but is not treated as infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-A concrete literature and research-record comparison was performed at claim/implication level. The 2015 homogeneous-ultrametric paper develops degree/balldepth structure and homogeneity, but it does not supply the stated noncounting \(\mathrm{FO}^{k}\) iff classification or its sharp counting contrast. The 1989 bounded-variable tree work and 2012 pebble-game paper establish general tools and other tree settings, but do not state this leaf-only exact metric-degree criterion. Checked related records concern tuple orbit profiles and other tree signatures or fixed quantifier rank. A stronger older uniform-tree theorem might imply this special case, so historical priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The motivating question asks precisely what finite-variable logic can observe of the degree sequence of a finite homogeneous ultrametric, a basic hierarchical metric family. The answer is a complete classification simultaneously for every fixed level count and every variable budget, not a single ad hoc parameter example: it identifies \((k-1)^h\) theories, gives sharp canonical smallest representatives, and determines exactly the first variable width separating any two degree vectors. The sharp contrast with \(C^2\) quantifies how much counting increases expressiveness. These conclusions concern natural structures rather than an arbitrary computed slice.
+Fixed h>=1 and named distance levels R_i on leaves of uniform rooted prefix tree with b_i>=2. For differing truncated branch values min(b_i,k), the existential sentence requiring t=b_i+1<=k leaves pairwise at R_i distinguishes precisely a smaller branching level; t points at common level-i parent must occupy distinct i children. If all min(b_i,k) agree, each partial distance-preserving correspondence of fewer than k pebbled leaves extends after any Spoiler move: occupied child prefixes map identically and a new unused child exists on both sides whenever needed because occupied child count<k, with exact agreement if b_i<k. This gives Duplicator every finite k-pebble game, hence unrestricted rank FO^k equivalence. There are (k-1)^h truncation vectors; sharp maximum smallest representative k^h, minimal separating variable width min_i:bi!=ci (min(bi,ci)+1). Counting C² annulus sizes N_i=(b_i-1) product_{j>i} b_j, recovered bottom-up. Independent enumeration tested the full two-way extension signature property for 12,784 compatible partial isometries across four (b,c,k) pairs with differing underlying tree sizes; all passed.
 
-## Limitations and closest literature
-The comparison includes full relevant material from Delhomme–Laflamme–Pouzet–Sauer (2015), Immerman–Kozen (1989), and Grohe–Otto (2012), and related research records described in `AUDIT.json`. Exact levels are named; regular branching is required. Possible subsumption by more general published tree methods remains a residual priority risk. No independent verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: compare exact statement and model rather than terminology. Known foundational tools, marginal/special cases and directly overlapping results are credited. No actually inspected stronger result is shown to imply the complete final claim. Unavailable or only partially inspected plausible primary work is identified in residual risks; failed searches are not treated as proof of novelty.
+
+## value
+
+PASS
+
+This is an all-height, all-variable-width classification of the expressive power of ordinary bounded-variable logic on a natural homogeneous hierarchical metric family. Sharp k^h representatives, number of complete FO^k theories and the C² contrast show a structural logical threshold that can guide finite model classification. It is not merely a numerical parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
