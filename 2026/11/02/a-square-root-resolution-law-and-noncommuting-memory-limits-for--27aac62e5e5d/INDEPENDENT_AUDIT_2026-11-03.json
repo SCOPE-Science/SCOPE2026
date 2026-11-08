@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:48:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary lag-k covariance is e^{-αh|k|} exp(kωhJ) plus τI at lag0; in the circular polarization basis, spectra are f±=τ+g(φ∓θ), g(φ)=(1-r²)/(1−2r cosφ+r²). Gaussian block KL between forward and order-reversed paths has a trace ratio formula with determinants equal, and absolute covariance summability plus a positive spectral floor justify the Toeplitz-to-circulant per-step limit. The frequency integral (1/4π)∫(f+−f−)²/(f+f−) equals the stated closed expression by Fourier convolution of Poisson kernels. Independently integrating this spectral ratio numerically matched the closed form at nonresonant parameters. For τ>0, Puiseux expansion of K=sqrt(c[4τ+c(1−τ)²]), ν=2τe^-2αh/(c+τ(1+e^-2αh)+K), and sin²θ gives Eτ/h=2ω²/α[1−(3/2)sqrt(2ατ)sqrt h+O(h)]; independent high-resolution checks agree. At each fixed m, Σ_m(0)=11^T⊗I+τI positive, forward/reverse covariance difference O_m(h), hence Gaussian KL quadratic O_m(h²). For τ=0, exact E0=4e^-2αh sin²ωh/(1-e^-2αh), with linear h correction. All limits keep α>0, ω≠0 and τ>0 fixed before h→0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2604.07867: general Gaussian time-reversal framework.",
+          "https://arxiv.org/abs/2606.23619: noise-induced memory and temporal/spatial resolution inequalities.",
+          "https://arxiv.org/abs/2212.05125: continuous stationary diffusion entropy production."
+        ],
+        "reasoning": "Prior broad frameworks cover foundational aspects of the problem, but the checked text does not supply the exact specialized coefficient and m/h iterated limit classification as a stated consequence.",
+        "searches": [
+          "noisy rotational Ornstein Uhlenbeck observed time series entropy production full history square root sampling resolution Gaussian spectral",
+          "thermodynamic inference noisy trajectory memory temporal spatial resolution exact square root"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.07867",
+        "https://arxiv.org/abs/2606.23619",
+        "https://arxiv.org/abs/2212.05125",
+        "https://arxiv.org/abs/1807.00694",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2604.07867: path KL via Kalman innovations in a much broader Gaussian framework.",
+          "https://arxiv.org/abs/2606.23619: noisy trajectory inference bounds and memory trade-offs.",
+          "https://arxiv.org/abs/2212.05125: established continuous diffusion dissipation 2ω²/α."
+        ],
+        "reasoning": "The limiting housekeeping rate and general Gaussian formula are known, but the exact rational closed form and sqrt(h) loss require a nontrivial spectral factorization; no inspected prior statement directly supplies both coefficient and noncommuting fixed-m limits.",
+        "searches": [
+          "https://arxiv.org/abs/2604.07867",
+          "https://arxiv.org/abs/2606.23619",
+          "https://arxiv.org/abs/2212.05125",
+          "https://arxiv.org/abs/1807.00694",
+          "noisy rotational Ornstein Uhlenbeck observed time series entropy production full history square root sampling resolution Gaussian spectral"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2604.07867: general Gaussian state-space reversed-path and Kalman-innovation formulas.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a: published hidden OU trend-reversal boundary concerns correlation, not KL irreversibility."
+        ],
+        "reasoning": "General innovation formulas can compute a special case but do not automatically state the closed root expression or nonanalytic exact sampling coefficient.",
+        "searches": [
+          "noisy rotational Ornstein Uhlenbeck observed time series entropy production full history square root sampling resolution Gaussian spectral",
+          "Kalman innovation reverse path KL entropy production Gaussian hidden OU with additive noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a: published OU autocorrelation trend reversal, different invariant.",
+          "No indexed table of explicit coefficient (3/2)sqrt(2ατ) for rotational Gaussian KL was retrieved."
+        ],
+        "reasoning": "The result concerns a continuum asymptotic spectral invariant rather than finite table entries; missing hits do not demonstrate absolute novelty.",
+        "searches": [
+          "noisy rotational Ornstein Uhlenbeck observed time series entropy production full history square root sampling resolution Gaussian spectral",
+          "rotational OU noisy observations spectral KL exact expression tables"
+        ]
+      },
+      "rationale": "The Gaussian pathwise entropy and Kalman innovations machinery, OU housekeeping production, and noise-induced memory are established prior art. The precise all-history rotational OU spectral expression, leading sqrt(h) deficit coefficient and order-of-limits contrast do not appear in inspected primary statements. Broad Gaussian state-space approaches may imply the expression by specialization; this is a residual priority risk.",
+      "residual_risks": [
+        "General Gaussian spectral relative-entropy theorem could imply this as a non-obvious specialization; priority comparison is not exhaustive.",
+        "Limit is for fixed positive τ, isotropic planar OU and phase nonresonance at each fixed h; no general hidden-model theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework includes abstract Gaussian entropy production but no displayed exact rotating OU fine-sampling sqrt coefficient",
+          "evidence": [
+            "Section VI Gaussian state-space and Eq. 71 reverse KL expressions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.07867",
+          "material_read": "Accessible full arXiv HTML, Gaussian/Kalman innovation section VI and principal path-KL formulae",
+          "method": "Read relevant full primary text and compared exact Gaussian formula with special OU claim",
+          "title": "Stochastic Thermodynamics for Autoregressive Generative Models: A Non-Markovian Perspective",
+          "trigger": "Direct stronger general Gaussian path-reversal framework"
+        },
+        {
+          "assessment": "Noise-induced memory/competing resolutions known; inspected claims do not give present exact OU coefficient",
+          "evidence": [
+            "Noisy finite-time inference bounds and trajectory memory examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.23619",
+          "material_read": "Accessible primary preprint complete main theorem and numerical noise/memory discussions",
+          "method": "Read preprint sections on noisy observations, temporal-resolution bounds and hidden memory",
+          "title": "Thermodynamic inference from noisy single-molecule time series",
+          "trigger": "Most relevant new work on noisy time reversal"
+        },
+        {
+          "assessment": "Explains standard continuum target rather than localization-noise discretization",
+          "evidence": [
+            "Entropy production of stationary diffusions via stationary current."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.05125",
+          "material_read": "Accessible primary abstract and main stationary-diffusion entropy framework",
+          "method": "Read relevant assumptions and main identity",
+          "title": "The entropy production of stationary diffusions",
+          "trigger": "Possibly broader exact OU housekeeping formula"
+        },
+        {
+          "assessment": "Provides OU background but not observed reverse-path KL with independent measurement errors",
+          "evidence": [
+            "Nonreversible OU covariance/current formulae."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+          "material_read": "Accessible preprint overview and principal OU stationary formulae",
+          "method": "Read relevant primary presentation",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes",
+          "trigger": "Known nonreversible OU stationary theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This precisely resolves a natural statistical-thermodynamics sampling paradox: arbitrarily fine short-memory observations lose physical-time arrow-of-time signal under fixed sensor noise even as the entire noisy time history recovers the full diffusion housekeeping production. The explicit nonanalytic 3/2 coefficient quantifies a resolution cost not available from generic memory bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2604.07867",
+    "https://arxiv.org/abs/2606.23619",
+    "https://arxiv.org/abs/2212.05125",
+    "https://arxiv.org/abs/1807.00694",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a"
+  ],
+  "disposition": "passed",
+  "final_claim": "For stationary isotropic planar rotating Ornstein-Uhlenbeck diffusion with independent fixed positive isotropic Gaussian observation noise, the full-history time-reversal Gaussian KL rate has an explicit rational-root spectral closed form, and its physical-time small-spacing limit is (2ω²/α)[1-(3/2)sqrt(2ατ) sqrt(h)+O(h)]. Every fixed observation block has D_m(h,τ)=O_m(h²), causing the fine-resolution and infinite-memory limits to differ (0 versus 2ω²/α). Noiseless samples have a linear, not sqrt, correction.",
+  "limitations": [
+    "Fixed α>0, ω≠0, τ>0 under h→0, isotropic stationary 2D OU and independent instantaneous isotropic Gaussian sensor noise."
+  ],
+  "residual_risks": [
+    "General Gaussian spectral relative-entropy theorem could imply this as a non-obvious specialization; priority comparison is not exhaustive.",
+    "Limit is for fixed positive τ, isotropic planar OU and phase nonresonance at each fixed h; no general hidden-model theorem."
+  ],
+  "schema_version": 1
+}
