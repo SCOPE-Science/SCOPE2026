@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim is reconstructed from the explicit \(GP(8,3)\) edge formula and the induced-component criterion. Independent enumeration methods agree on the full face vector. The verifier checks a 3400-pair matching globally for acyclicity, reconstructs both integral Morse differential matrices by signed gradient paths, and checks Smith determinantal divisors. Primitive unit cancellations and the vanishing of the first relevant Whitehead products upgrade the result from integral homology to a wedge of three six-spheres. Exhaustive enumeration gives exactly 96 automorphisms; two independent Lefschetz methods agree on all of them. Squared character norm equals one and the kernel contains exactly two elements. Original simplicial boundaries yield consistent mod-two ranks. All arithmetic is exact; no extrapolation from samples is used.
+## correctness
 
-## Originality (PASS; residual bibliographic risk)
-The closest paper addressing higher independence complexes, Deshpande–Singh (arXiv:2001.05448), classifies complete multipartite, fully whiskered, path, cycle, and perfect-tree graphs, not this girth-six cubic incidence graph. Deshpande–Shukla–Singh (arXiv:2001.06775) gives a sphere-wedge classification for chordal graphs, which does not include \(GP(8,3)\). Paolini–Salvetti (DOI:10.2140/agt.2018.18.3943) deals with Artin/Coxeter graph families and their homological correspondences, not the graph and action studied here. Searches for Möbius–Kantor, \(GP(8,3)\), two-independence, higher independence, homotopy type, and equivariant homology identified no covering statement. Indexed calculations of ordinary independence and matching complexes do not imply the higher-independence homotopy or the full character.
+PASS
 
-## Value (PASS)
-The Möbius–Kantor graph is the canonical cubic arc-transitive Levi graph of the \((8_3)\) configuration, and the first higher-independence parameter is naturally distinguished from ordinary independent sets. Its exact integral sphere-wedge type and irreducible full-automorphism representation describe natural invariants invisible to ordinary Betti numbers. The graph is outside the explicit published higher-independence families considered. The quotient rational-acyclicity consequence and nontrivial central kernel give further structural significance to this exact finite classification, rather than a routine scalar recomputation.
+For GP(8,3), independently enumerated all 6812 nonempty Ind_2 faces from induced-degree condition, tested 35104 oriented Hasse incidences for acyclicity and recovered one critical vertex, a 4-cell, four 5-cells and six 6-cells. Independently computed exact Morse Smith factors d5=(1), d6=(1,1,1,0), with composition zero; cellular cancellations yield 3 S^6. Independent graph automorphism enumeration gives 96 actions; fixed-face Lefschetz computation gives trace counts {-3:2,-1:30,0:32,1:30,3:2}, norm square 96, trace sum zero and exactly two trace-3 elements. These prove absolutely irreducible 3-dimensional rational action, kernel of size two and rationally acyclic quotient.
 
-## Sources and limits
-Full-text examinations covered the family-classification introduction and results of arXiv:2001.05448, the chordal classification in arXiv:2001.06775, and the relevant discrete-Morse and graph-independence sections of Paolini–Salvetti's 2018 paper. Salvetti's 2016 founding chapter was accessible only through its abstract and bibliographic information; institutional retrieval was unavailable. This leaves a publication-priority risk, but no identified theorem covers the specified object and action. The new computation is internally reproducible and not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison. The existing Ind_1 result gives wedge^4 S3 + S4, not 3 S6 or a full 96-element irreducible character. No implication from one functor to the other was established.
+
+## value
+
+PASS
+
+Classifies a natural highly symmetric cubic graph higher-independence complex beyond the ordinary case, and determines the complete irreducible rational full-symmetry module and quotient homology; these are substantive integral/equivariant invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
