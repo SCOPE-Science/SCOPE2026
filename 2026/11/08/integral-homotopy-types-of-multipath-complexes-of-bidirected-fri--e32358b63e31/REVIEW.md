@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The arc convention and cycle-exclusion rule are explicit. An order-preserving hub-pattern map partitions the face poset into four locally classified types: no hub arcs, one arc, a hub-in/out pair from different petals, or a hub-in/out pair within one petal. The matching is specified on each fiber; its critical cells and acyclicity follow from the independent peripheral choices and the least-index-missing-orientation rule, while the patchwork lemma gives global acyclicity. The simplicial map to the peripheral cross-polytope boundary is a retraction and forces the unique possible cellular differential to vanish. Since every top attaching map into a sphere has degree zero, the claimed integral homotopy wedge follows for every stated parameter. Independent face enumeration, explicit gradient-DAG acyclicity and finite-field ranks were checked through the specified finite ranges. Residual risk: the all-parameter result uses the stated standard discrete-Morse patchwork theorem; the executable tests do not prove that theorem.
+
+## Originality — PASS (best-knowledge assessment)
+The closest January 2026 primary paper classifies homology/connectivity of individual bidirected polygons, while the 2022/2024 paper's decomposition theorem addresses graph modules without providing the multi-triangle hub result. The published comparisons distinguish ordinary matching complexes of undirected Dutch windmills and multipath complexes of bidirected double stars. No source identified in targeted searches states or implies the integral friendship-family wedge classification. Risk: a less visible general cactus or directed-path-complex theorem could cover it despite the checked literature; mathematical originality is not independently certified.
+
+## Value — PASS
+The family is intrinsic (the Dutch-windmill/friendship graph, not an arbitrary parameter slice), contains an unbounded number of intersecting directed cycles, and is not just a disjoint join of polygon complexes. The answer determines a two-adjacent-degree sphere wedge for every size, showing the lower sphere persists under the hub interaction while exactly two new top spheres appear per petal. The proof supplies a reusable split-homology mechanism: a retraction onto a natural join-of-zero-spheres subcomplex forces the top Morse attachments to vanish. This is substantial beyond routine tabulation, even though it does not classify more general cactus graphs.
+
+## Closest literature and limits
+Caputi–Collari–Smith, arXiv:2601.05670v1 (2026), §§1–3 (bidirected single-cycle homology, T-operations and open homotopy question), and Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1, §§2,4–5 (multipath definitions, dynamical-region decomposition and graph examples). The comparison is by graph hypotheses and implication, not just titles. The construction is for fully bidirected triangular bouquets only. The finite checks cover at most six petals; unrestricted correctness rests on the written proof.
+
+Self-review: passed. Independent audit: not yet performed.
