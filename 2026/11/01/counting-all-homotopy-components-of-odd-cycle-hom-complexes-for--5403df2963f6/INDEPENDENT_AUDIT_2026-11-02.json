@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T03:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 4c6472e701cef22d5e77f22bd16dadcaa968e0c7",
+        "Frozen theta_hom_checker.py Git blob 7086505f0e068411497ea0a72519e029464d6b30",
+        "https://arxiv.org/pdf/2408.04802 Theorem 5.1 (published component homotopy criterion)"
+      ],
+      "rationale": "Orient all r paths from common a to b and encode every edge homomorphism into Cq by unique ±1 increments (q odd>=5). Each path sum si has parity Li, |si|<=Li and all si congruent mod q, so w_i=(si−s1)/q∈Z; conversely all Tw displacement solutions yield colorings. Recoloring an internal vertex swaps neighboring +/− increments and preserves all si; signed-word adjacent swaps connect all path arrangements of fixed sums. Recoloring an endpoint shifts all sums by the same 2 with unchanged winding. Tw is a single step-two arithmetic progression; when it has >=2 members, a feasible sequence of terminal moves and internal swaps moves root color by 2 mod q, hence visits every root color and connects the entire winding fiber. When Tw is singleton, endpoint moves are frozen and exactly q independent root-color components persist. Fujii–Iwamasa–Kimura–Nozaki–Suzuki Theorem 5.1 gives contractible iff orientation has a directed cycle, otherwise S1. A directed cycle in a theta graph uses one fully forward and one fully backward branch, exactly the condition max lower interval endpoint=min upper endpoint, i.e. |Tw|=1. Consequently c=# {w:tw>=2} circles and p=q*#{w:tw=1} point components; unfeasible w excluded and empty Hom handled. The general component-type theorem is correctly credited, while the winding-count part is independently derived.",
+      "residual_risks": [
+        "Component homotopy types rely on the published general theorem of Fujii et al., not on a checker Euler-characteristic inference.",
+        "The odd q>=5 hypothesis is essential for the unique signed ±1 edge labeling and cyclic root-color increments; q even and triangles are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fujii et al Theorem 5.1 classifies each connected component of Hom(G,Cq) as contractible or S1 according to directed cycles; theorem itself supplies no complete parameter counts for generalized theta graphs.",
+          "The square-free sequel extends classification of possible component types, not an inspected all-path-length interval formula."
+        ],
+        "reasoning": "The imported general theorem is powerful but needs the new exact winding-fiber connectivity and Tw arithmetic to yield c and p. No stronger explicit theta count was identified in material read.",
+        "searches": [
+          "Resultary semantic: Hom generalized theta graphs odd target cycles count components winding vector intervals contractible circles",
+          "https://arxiv.org/pdf/2408.04802",
+          "https://arxiv.org/abs/2412.19039"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: Resultary semantic: Hom generalized theta graphs odd target cycles count components winding vector intervals contractible circles",
+        "https://arxiv.org/pdf/2408.04802",
+        "https://arxiv.org/abs/2412.19039",
+        "https://arxiv.org/abs/math/0408015",
+        "https://arxiv.org/abs/1408.2812"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fujii Theorem 5.1 determines a component type given a coloring orientation, but does not identify how many connected components share a winding vector.",
+          "Reconfiguration path algorithms need not yield the explicit criterion one component iff tw>=2 and q isolated if tw=1."
+        ],
+        "reasoning": "The new theorem is the simultaneous arithmetic component count, not the prior point-or-circle dichotomy; the argument from endpoint moves and common displacement interval is genuinely additional mathematics.",
+        "searches": [
+          "Resultary semantic: Hom generalized theta graphs odd target cycles count components winding vector intervals contractible circles",
+          "https://arxiv.org/pdf/2408.04802",
+          "https://arxiv.org/abs/1408.2812"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Integer relative winding vectors are equivalently homotopy classes of terminal-to-terminal signed walks modulo target-cycle winding.",
+          "For r=2 the source graph is a cycle, a previously computed Hom-between-cycles special case, explicitly excluded from added scope."
+        ],
+        "reasoning": "Signed-walk winding/reconfiguration and Hom-complex connectivity aliases were searched; the result is restricted to r>=3 where simultaneous multiple branches change the component-count problem.",
+        "searches": [
+          "Resultary semantic: Hom generalized theta graphs odd target cycles count components winding vector intervals contractible circles",
+          "https://arxiv.org/abs/math/0408015",
+          "https://arxiv.org/abs/1408.2812"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cycle-versus-cycle tables concern r=2 source; the example Theta(3,4,6), C5 yields two circles and ten isolated components, from arithmetic count.",
+          "The independent direct enumeration for (2,2,2),q5 yields one circle, no contractible components."
+        ],
+        "reasoning": "The all-r all-Li all-odd-q formula is a closed interval count not an isolated finite table. Existing cycle special cases are credited, not claimed novel.",
+        "searches": [
+          "Resultary semantic: Hom generalized theta graphs odd target cycles count components winding vector intervals contractible circles",
+          "https://arxiv.org/abs/math/0408015",
+          "https://arxiv.org/pdf/2408.04802"
+        ]
+      },
+      "rationale": "No stronger or equivalent covering result was established in the actual comparisons of statements/implications; this is a best-of-knowledge assessment with the precise unread-primary-source and alias risks separately documented.",
+      "residual_risks": [
+        "A general graph-homomorphism reconfiguration algorithm may implicitly compute the same winding counts after specialization; equivalent explicit all-parameter counts may be unindexed.",
+        "The circle-versus-point dichotomy is strictly imported from Fujii et al and is not itself a novel claim.",
+        "Only r>=3 branches and odd q>=5 are asserted; cycle-source r=2 is prior-covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVIDES_IMPORTED_COMPONENT_TYPE_NOT_EXACT_THETA_COUNT",
+          "evidence": [
+            "Theorem 5.1 says a component is contractible iff its induced orientation contains a directed cycle and otherwise has S1 type; no all-theta branching arithmetic count appears in the inspected relevant statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.04802",
+          "material_read": "Public primary 13-page PDF, especially definition of cycle-induced orientation and Section 5 Theorem 5.1; PDF page 11 inspected visually to verify theorem.",
+          "method": "Full source obtained and relevant theorem/proof sections materially read, with PDF page screenshot",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are cycles",
+          "trigger": "Exact published theorem used for component homotopy type"
+        },
+        {
+          "assessment": "UNRESOLVED_FULLTEXT_PRIORITY_RISK",
+          "evidence": [
+            "Broader codomain criterion may supply alternative algorithms; no claim about total absence of implicit theta counts in unread text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.19039",
+          "material_read": "Title, abstract-level scope and citation only; complete paper was not established as materially inspected.",
+          "method": "Public metadata/description-level comparison",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "Potential stronger Hom-to-square-free classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 4c6472e701cef22d5e77f22bd16dadcaa968e0c7",
+        "Frozen theta_hom_checker.py Git blob 7086505f0e068411497ea0a72519e029464d6b30",
+        "https://arxiv.org/pdf/2408.04802 Theorem 5.1 (published component homotopy criterion)",
+        "Resultary semantic search: Resultary semantic: Hom generalized theta graphs odd target cycles count components winding vector intervals contractible circles",
+        "https://arxiv.org/pdf/2408.04802",
+        "https://arxiv.org/abs/2412.19039",
+        "https://arxiv.org/abs/math/0408015",
+        "https://arxiv.org/abs/1408.2812"
+      ],
+      "rationale": "The multi-branch theta network is a standard family with several independent cycles, and graph-homomorphism Hom complexes have rich disconnected topology. The explicit interval formula simultaneously counts all contractible and circular components across arbitrarily many branches and edge lengths, distinguishing frozen winding classes from flexible ones. This improves a mere component-type dichotomy into a practical, nontrivial infinite-family topology classification.",
+      "residual_risks": [
+        "It does not classify even-cycle targets, q=3, or graphs with cross-branch edges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only ordinary Lovasz Hom complexes, odd target cycles at least five, and >=3 internally disjoint branches each >=2 edges.",
+    "General theorem of Fujii et al is explicitly needed for the component homotopy type; new proof is the arithmetic component count."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed increment model is unique for odd cycle targets with length at least five. Internal recolorings swap adjacent opposite signs and preserve each path sum; endpoint recolorings move all sums by two and preserve their relative winding differences. The connectivity argument explicitly handles both possibilities for the cardinality of the feasible-displacement arithmetic progression: one common component for two or more feasible values, or precisely one component for each target rotation when only one value is feasible. The cited published Theorem 5.1 of Fujii et al. distinguishes component homotopy types by directed cycles, and the proof identifies directed cycles precisely with singleton feasible intervals. The independently implemented exhaustive checker confirms 19 nontrivial cases (6,950 homomorphisms; 51,624 CW cells). The finite tests are not offered as an infinite proof.
+## correctness
 
-## Originality — PASS with residual bibliographic risk
-Earlier work on cycle-source Hom complexes (Čukić–Kozlov) has only two source paths. The full-text cycle-codomain theorem (Fujii–Iwamasa–Kimura–Nozaki–Suzuki, 2024 preprint) establishes the already-known point/circle dichotomy and componentwise directed-cycle criterion, not the parameterized number of components for a multi-branch source graph. The full-text square-free-codomain successor gives more general homotopy and algorithmic mechanisms, not this explicit theta-family winding-vector enumeration. Broad published homomorphism reconfiguration algorithms might yield the count after additional specialization; an unnoticed equivalent formulation is a residual risk. Mathematical comparison was by implications and definitions, not just title strings.
+PASS
 
-## Value — PASS
-The family is structurally natural (parallel paths and several independent graph cycles), and determining all connected components is materially stronger than classifying their individual possible homotopy types. The formula predicts coexistence of noncontractible and contractible components (not just connectivity) for all parameter values, reduces large graph-coloring complexes to short integer interval arithmetic, and distinguishes the unique feasible-displacement boundary from flexible regimes. It is a complete infinite-family classification, not a renamed known theorem or arbitrary fixed-instance census.
+Orient all r paths from common a to b and encode every edge homomorphism into Cq by unique ±1 increments (q odd>=5). Each path sum si has parity Li, |si|<=Li and all si congruent mod q, so w_i=(si−s1)/q∈Z; conversely all Tw displacement solutions yield colorings. Recoloring an internal vertex swaps neighboring +/− increments and preserves all si; signed-word adjacent swaps connect all path arrangements of fixed sums. Recoloring an endpoint shifts all sums by the same 2 with unchanged winding. Tw is a single step-two arithmetic progression; when it has >=2 members, a feasible sequence of terminal moves and internal swaps moves root color by 2 mod q, hence visits every root color and connects the entire winding fiber. When Tw is singleton, endpoint moves are frozen and exactly q independent root-color components persist. Fujii–Iwamasa–Kimura–Nozaki–Suzuki Theorem 5.1 gives contractible iff orientation has a directed cycle, otherwise S1. A directed cycle in a theta graph uses one fully forward and one fully backward branch, exactly the condition max lower interval endpoint=min upper endpoint, i.e. |Tw|=1. Consequently c=# {w:tw>=2} circles and p=q*#{w:tw=1} point components; unfeasible w excluded and empty Hom handled. The general component-type theorem is correctly credited, while the winding-count part is independently derived.
 
-## Scientific limitations
-Only odd codomain cycles of length at least five, with at least three internally disjoint source paths each having length at least two, are covered. The proof invokes the already published cyclic-target component-type theorem. An independent expert assessment and exhaustive worldwide novelty check have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No stronger or equivalent covering result was established in the actual comparisons of statements/implications; this is a best-of-knowledge assessment with the precise unread-primary-source and alias risks separately documented.
+
+## value
+
+PASS
+
+The multi-branch theta network is a standard family with several independent cycles, and graph-homomorphism Hom complexes have rich disconnected topology. The explicit interval formula simultaneously counts all contractible and circular components across arbitrarily many branches and edge lengths, distinguishing frozen winding classes from flexible ones. This improves a mere component-type dichotomy into a practical, nontrivial infinite-family topology classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
