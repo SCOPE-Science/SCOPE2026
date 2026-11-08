@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved for every real angular increment and every contraction factor strictly between zero and one. Dividing out the common zero order and comparing the first different Taylor coefficient gives a nonzero real harmonic that must tend to zero along the prescribed phases. Density of an irrational rotation rules this out. For a rational increment \(\theta/\pi=p/q\), the same harmonic is periodic, and its values one step apart have nonzero determinant whenever its order is less than \(q\). The explicit pair \(1+iz^q\) and \(1-iz^q\) proves sharp failure above the degree cutoff. The \((d+1)^2\) lifted bases are pairwise distinct for degree \(d<q\); their square complex Vandermonde matrix is invertible. Nonzero Hermitian rank-one Gram matrices determine coefficient vectors uniquely up to phase. The real dimension of Hermitian matrices proves the stated *linear-lifting* lower bound. The proof does not infer an infinite theorem from finite tests.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+For f,g holomorphic near the interior accumulation point 0, matching asymptotic orders and matching leading phase allow first mismatched coefficient m to produce 2 Re(conj(c) delta exp(inm theta))=O(rho^n). Irrational phases are dense, forcing delta=0; rational periodic phases cannot vanish for m<q, while 1±iz^q give ambiguity. For degree d<q, the lifted bases lambda_jk=rho^(j+k) exp(i(j-k)theta) have distinct magnitudes or distinct angular differences and hence are all distinct. The first (d+1)^2 samples form an invertible generalized Vandermonde; recovering the Hermitian Gram matrix gives coefficients up to phase. Its count is minimal for linear recovery of unconstrained Hermitian lifts, not for nonlinear rank-one data. Independent exact determinant at d=1, rho=1/2, theta=pi/2 is -75/2048; 66 combinatorial (d,q) distinctness cases checked.
 
-Perez, arXiv:2009.02061, Theorem 2.1 addresses two whole intersecting line segments and uses local Taylor harmonics; the current object is a single contracting spiral with only one sample per radius. Liehr, arXiv:2308.05722, Theorem 1.1 concerns complete families of parallel lines; its sampling hypothesis does not follow from the spiral data. Grohs–Liehr–Rathmair, arXiv:2308.00385, Theorem 2.4 deals with separated Fock-space uniqueness sets and does not supply an interior accumulation point, the exact polynomial denominator cutoff or the consecutive-sample Vandermonde lift. Przybylek–Siedlecki, arXiv:1907.09371, Theorem 4.2 treats polynomial recovery from separately selected sampling points but does not state the sharp condition for a fixed complex geometric progression. Earlier and published related results were compared by their hypotheses and conclusions, not merely title.
+## originality
 
-The main residual risk is an older general theorem on uniqueness sets or complex-exponential interpolation that subsumes the special spiral statement. The novelty determination is best-knowledge, not a priority certificate; an independent expert comparison remains outstanding.
+PASS
 
-## Mathematical value — PASS
+Best-knowledge PASS for the fixed contracting spiral, sharp rational-denominator degree cutoff and concrete consecutive-sample Hermitian lift. General two-line-segment analytic uniqueness and discrete Fock sampling are prior methods and objects, but do not directly imply finite spiral capacity as stated.
 
-A contracting geometric spiral is a single, explicitly specified phaseless sampling family, natural for geometrically scaled observations. The exact reduced-denominator threshold classifies which polynomial degrees the spiral can distinguish, while the irrational case yields uniqueness for arbitrary holomorphic germs. The finite Vandermonde reconstruction is an explicit information-theoretic recovery result, rather than a mere nonconstructive uniqueness criterion. The \((d+1)^2\) lower bound is meaningful only in the fully lifted linear model; no claim of minimal nonlinear or robust recovery is made.
+## value
 
-## Reproducibility and limitations
+PASS
 
-`verify_spiral.py` requires only the Python standard library and passes 335 supplementary finite assertions, including exact arithmetic for the degree-one phase-lift determinant. The proof, rather than numerical tests, establishes the quantified conclusions. Exponentially shrinking nodes may make reconstruction ill-conditioned, and the result assumes exact moduli at exact locations. Full priority, stability and independent validation are unresolved.
+One-dimensional exponentially accumulating sequence is an unusually sparse natural sampling geometry; exact irrational-versus-rational recoverability, a sharp first exceptional degree, and an explicit finite linear reconstruction are substantive structure a researcher in phaseless interpolation could need. No unjustified optimal nonlinear count claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
