@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:17:00.665893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked independent-root-split recurrence with uniform K in [0,n-1] and singleton leaf base L_1=1, P_1=0. The exact GF for the mixed moment has A=(P(z)+zP’(z))/3+R(z), with [z^n]R=-(n+1)/9+2/(3n) for n>=2. Subtract means gives the covariance at every n; distribution polynomial F_n=v^(n-1)/n sum F_kF_(n-1-k) yields conditional numerator totals 0/80 at P<=10 and 1040/80 at P<=11 for L=3/4 (totals 2880/272), hence CDF crossing. Classical second moment formulas give Var(P)/n² ->7-2π²/3, Var(L)/n->2/45. Independent exact-fraction recurrence reproduced 49 nontrivial sizes and the n=7 crossing. Experiments do not replace the all-n generating-function proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neininger–Rüschendorf multivariate contraction survey, BST examples; Holmgren–Janson 2014 Remark on total path length."
+        ],
+        "reasoning": "Contraction methods and general BST joint-moment machinery can in principle derive cross moments; inspected Holmgren–Janson and Neininger–Rüschendorf discussions did not supply the exact leaf/path covariance plus the n=7 conditional CDF failure. This is a qualified absence of direct implication, not a claim that those methods cannot prove it.",
+        "searches": [
+          "Random binary search tree key bearing leaves internal path length exact covariance stochastic order leaf count path length",
+          "number of leaves internal path length covariance binary search tree",
+          "random binary search tree leaf count path length exact joint moments",
+          "arxiv:1406.6883"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1406.6883v1",
+        "https://doi.org/10.1017/S0001867800000203",
+        "https://www.math.uni-frankfurt.de/~neiningr/multsur.pdf",
+        "Resultary semantic published-finding search: Random binary search tree key bearing leaves internal path length exact covariance stochastic order leaf count path length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Drmota–Hwang 2005, Advances in Applied Probability 37, DOI:10.1017/S0001867800000203; Resultary 6d69fbada9a9."
+        ],
+        "reasoning": "Drmota–Hwang concerns level-profile correlations; a sum of level sizes weighted by depth is P but the leaf restriction is not determined by these covariance statements. The related root-imbalance result likewise gives no leaf-conditional CDF ordering. The n=7 coefficient obstruction needs the independent bivariate subtree recurrence.",
+        "searches": [
+          "Random binary search tree key bearing leaves internal path length exact covariance stochastic order leaf count path length",
+          "number of leaves internal path length covariance binary search tree",
+          "random binary search tree leaf count path length exact joint moments",
+          "arxiv:1406.6883"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holmgren–Janson arXiv:1406.6883, statements about fixed fringe counts and growing toll; Resultary 6d69fbada9a9 and ab0acf44833f."
+        ],
+        "reasoning": "Holmgren–Janson 2014 treats fixed-size fringe-tree counts; a key-bearing leaf is a size-one fringe tree, but whole-tree internal path length has growing size toll and cannot be identified with a fixed fringe count. Resultary 6d69fbada9a9 concerns squared root imbalance rather than leaves.",
+        "searches": [
+          "Random binary search tree key bearing leaves internal path length exact covariance stochastic order leaf count path length",
+          "number of leaves internal path length covariance binary search tree",
+          "random binary search tree leaf count path length exact joint moments",
+          "arxiv:1406.6883"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 6d69fbada9a9, 3b3e0426b1ba, ab0acf44833f are different BST/recursive-tree statistics."
+        ],
+        "reasoning": "Searches for the rational covariance, n=7 leaf-conditional distributions and parameter aliases retrieved nearby dependence statistics but no identical table in the checked literature or published Resultary entries; non-detection is not a proof of priority.",
+        "searches": [
+          "Random binary search tree key bearing leaves internal path length exact covariance stochastic order leaf count path length",
+          "number of leaves internal path length covariance binary search tree",
+          "random binary search tree leaf count path length exact joint moments",
+          "arxiv:1406.6883"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical claims, implications, aliases and relevant primary texts; general tools are credited and historical priority is qualified. Holmgren–Janson 2014 treats fixed-size fringe-tree counts; a key-bearing leaf is a size-one fringe tree, but whole-tree internal path length has growing size toll and cannot be identified with a fixed fringe count. Resultary 6d69fbada9a9 concerns squared root imbalance rather than leaves.",
+      "residual_risks": [
+        "A stronger older BST additive-function mixed-moment theorem may imply the covariance after an easy specialisation.",
+        "The Bóna–Pittel leaf-distance paper arXiv:1412.2796 was only checked in abstract; no full-text noncoverage judgment.",
+        "The n=7 CDF crossing is a counterexample to universal order, not a complete conditional-order classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No direct all-size mixed total-path/leaf covariance or n=7 conditional CDF crossing in inspected parts",
+          "evidence": [
+            "Fringe covariance theorems and growing-toll caveat in arXiv:1406.6883v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1406.6883v1",
+          "material_read": "Accessible public HTML introduction, exact fixed-fringe covariance statements, and remarks on total path length growing toll",
+          "method": "Read primary author theorem and definitions and compare variable tolls",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "Exact BST leaf and additive functional covariance"
+        },
+        {
+          "assessment": "Profile size/width results do not themselves imply the specified two-statistic formula",
+          "evidence": [
+            "Drmota–Hwang (2005), profile dependence; no claimed exhaustive full-text coverage"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0001867800000203",
+          "material_read": "Abstract, relevant bibliographic and mathematical context available in source and search results",
+          "method": "Compared depth-profile statistics against terminal-leaf counts",
+          "title": "Profiles of Random Trees: Correlation and Width of Random Recursive Trees and Binary Search Trees",
+          "trigger": "Closest tree profile cross-moment work"
+        },
+        {
+          "assessment": "Discusses joint costs but no directly matching conditional leaf/path distribution in inspected passages",
+          "evidence": [
+            "Multivariate BST/Quicksort discussion, sections 4.1–4.2"
+          ],
+          "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/multsur.pdf",
+          "material_read": "Accessible relevant BST/Quicksort passages and survey summary",
+          "method": "Reviewed the indicated multivariate cost examples and their input variables",
+          "title": "A Survey of Multivariate Aspects of the Contraction Method",
+          "trigger": "General multivariate BST methods may imply joint moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Leaf count is a natural branching/shape statistic; path length is expected search cost. An exact n-dependent negative covariance and a rigorously crossing conditional distribution distinguish weak negative dependence from stochastic monotonicity and quantify asymptotic decorrelation, a substantive question about two canonical BST functionals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A stronger older BST additive-function mixed-moment theorem may imply the covariance after an easy specialisation.",
+    "The Bóna–Pittel leaf-distance paper arXiv:1412.2796 was only checked in abstract; no full-text noncoverage judgment.",
+    "The n=7 CDF crossing is a counterexample to universal order, not a complete conditional-order classification."
+  ],
+  "schema_version": 1
+}

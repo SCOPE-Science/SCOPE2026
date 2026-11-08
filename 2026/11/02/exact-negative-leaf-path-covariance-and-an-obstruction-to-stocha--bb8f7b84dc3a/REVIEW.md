@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact independent-root-split recurrences lead to a mixed-moment ODE with unique power-series solution; subtracting exact means gives covariance for all n>=2. Exact n=7 bivariate distribution recurrence supplies rational CDF crossing. Standard second-moment recurrences yield variance constants, hence asymptotic correlation. The standalone checker enumerates 8! permutations, checks bivariate recursion and 100 sizes of exact moment identities; finite checks corroborate, not replace, the proof.
+PASS
 
-## Originality — PASS (best-knowledge, not absolute priority)
+Checked independent-root-split recurrence with uniform K in [0,n-1] and singleton leaf base L_1=1, P_1=0. The exact GF for the mixed moment has A=(P(z)+zP’(z))/3+R(z), with [z^n]R=-(n+1)/9+2/(3n) for n>=2. Subtract means gives the covariance at every n; distribution polynomial F_n=v^(n-1)/n sum F_kF_(n-1-k) yields conditional numerator totals 0/80 at P<=10 and 1040/80 at P<=11 for L=3/4 (totals 2880/272), hence CDF crossing. Classical second moment formulas give Var(P)/n² ->7-2π²/3, Var(L)/n->2/45. Independent exact-fraction recurrence reproduced 49 nontrivial sizes and the n=7 crossing. Experiments do not replace the all-n generating-function proof.
 
-Searched published-finding corpus formulas, aliases and nearest published claims as well as full-text Holmgren–Janson (2014), Drmota–Hwang (2005), and relevant multivariate BST survey sections. Available results treat separate random recursive tree statistics, squared-root split imbalance, fixed fringe-count covariances, or level profiles. None of the inspected statements directly implies the explicit leaf-count/total-path covariance and n=7 CDF obstruction; unlocated general joint BST moments remain a priority risk.
+## originality
 
-Closest identified literature: Holmgren–Janson (2014) for fixed fringe-count covariance and its path-length caveat, Drmota–Hwang (2005) for BST level-profile correlations, and Neininger–Rüschendorf for multivariate cost recurrences. Closest research records are 6d69fbada9a9 (squared root-split imbalance and path length) and ab0acf44833f (root degree versus leaves in the **different** recursive-tree model). Historical generic BST mixed moment formula coverage remains a possible limitation; the Bóna–Pittel leaf-distance paper was only checked at abstract level.
+PASS
 
-## Value — PASS
+Best-of-knowledge comparison of mathematical claims, implications, aliases and relevant primary texts; general tools are credited and historical priority is qualified. Holmgren–Janson 2014 treats fixed-size fringe-tree counts; a key-bearing leaf is a size-one fringe tree, but whole-tree internal path length has growing size toll and cannot be identified with a fixed fringe count. Resultary 6d69fbada9a9 concerns squared root imbalance rather than leaves.
 
-Terminal-node count measures branching/shape while internal path length measures sorting/search cost. Their exact finite negative covariance and vanishing Pearson correlation distinguish absolute dependence from asymptotic decorrelation; the n=7 crossing rules out the tempting stronger monotone conditional-risk interpretation. This is a natural two-statistic dependence question, not an arbitrary parameter slice.
+## value
 
-## Scope and remaining limits
+PASS
 
-All probability statements are about random binary search trees with distinct keys and uniform insertion permutation. Exact enumeration covers only \(n\leq8\), whereas the covariance theorem for all \(n\geq2\) follows from a separate algebraic proof. Negative covariance does not imply stochastic ordering; the latter fails at \(n=7\).
+Leaf count is a natural branching/shape statistic; path length is expected search cost. An exact n-dependent negative covariance and a rigorously crossing conditional distribution distinguish weak negative dependence from stochastic monotonicity and quantify asymptotic decorrelation, a substantive question about two canonical BST functionals.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
