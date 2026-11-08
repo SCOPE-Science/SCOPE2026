@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Exact Sherman–Morrison formula on the mean-zero subspace; exact potential variance and balanced-exterior penalty; all odd s excluded by an analytic derivative/second-difference split for n>=13 and direct exhaustive small cases n=3..12; even s optimized by cubic finite difference with proved strict threshold. The complete infinite-family argument does not depend on enumeration. Executed standard-library verifier passed 5868 independent rational checks, including grounded inverse resistances for small graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qi, Zhou, Du, arXiv:1304.7546; extremal unicyclic graphs with prescribed matching number.",
+        "Abbas, Egerstedt, Robust Graph Topologies for Networked Systems (2012): indexed §4 studies petal/star link additions.",
+        "Kooij and Achterberg, 2023, general NP-hardness for edge augmentation, doi:10.1016/j.orl.2023.10.002."
+      ],
+      "reasoning": "Unrestricted unicyclic minimization and fixed-matching-number minimization do not optimize the restricted family obtainable by adding exactly one edge to a given path. General NP-hardness does not imply any concrete restricted-case solution, and star/petal graph augmentation uses different initial graphs. No inspected broad result supplies an implication covering the exact path-chord maximizer.",
+      "searches": [
+        "Web: Kirchhoff index path adding single edge optimal location minimize Kirchhoff index chord endpoints unicyclic",
+        "Web: Minimizing the effective graph resistance by adding links is NP-hard",
+        "Web: The Kirchhoff indices and the matching numbers of unicyclic graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1304.7546",
+      "https://ir.cwi.nl/pub/28632/28632.pdf",
+      "https://arxiv.org/pdf/2503.21409",
+      "https://repository.gatech.edu/server/api/core/bitstreams/a34a558e-8c73-4469-8866-48012421c2da/content (indexed text only)",
+      "https://doi.org/10.1016/j.orl.2023.10.002 (abstract only)",
+      "https://mathworld.wolfram.com/KirchhoffIndex.html (general invariant table)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "de Ridder et al. discuss a general minimization oracle and quantum selection, not the exact maximizing chord on \\(P_n\\).",
+        "Zhou et al. derive general marginal-gain and gradient-based search, not an explicit one-eighth path endpoint theorem.",
+        "Abbas–Egerstedt sections 4 and 5 give stepwise optimal graph processes for star/petal structures and attachment of paths to other networks, not this fixed-path closure problem."
+      ],
+      "reasoning": "The prior methods can in principle evaluate candidate chords, but a method capable of solving finite cases does not itself imply the claimed infinite-family closed formula or strict uniqueness. No inspected theorem has hypotheses that dominate the present exact path-chord endpoint statement.",
+      "searches": [
+        "Web: 2019 quantum algorithm for minimising effective graph resistance upon edge addition full text",
+        "Web: efficient algorithms minimising Kirchhoff index adding edges 2025 arxiv PDF",
+        "Web: robust graph topologies for networked systems Abbas Egerstedt 2012 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching fixed-path closed endpoint classification was returned by these searches.",
+        "de Ridder et al. 2019: https://ir.cwi.nl/pub/28632/28632.pdf , §2 and selection algorithms; general edge-choice algorithm.",
+        "Zhou et al. 2025: https://arxiv.org/pdf/2503.21409 , introduction and algorithm sections; general approximate edge-selection methods."
+      ],
+      "reasoning": "Single-edge augmentation, adding a chord, and minimizing total effective resistance are equivalent formulations for this graph. General algorithms produce or approximate an optimizer for a supplied graph but do not state or imply the analytic eight-step endpoint formula without solving the path instance. The rank-one resistance identity itself is prior art and is not claimed as novel.",
+      "searches": [
+        "Research-record search: Kirchhoff index minimum path add one edge optimal chord endpoints positions one eighth path",
+        "Web: \"Kirchhoff\" \"path\" \"adding an edge\" \"optimal\" endpoints",
+        "Web: \"Kirchhoff index\" \"shortcut\" \"path\" optimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical research index returned semantic neighbors about paths/graph invariants but no claim of optimal one-chord path placement.",
+        "Wolfram MathWorld Kirchhoff Index tabulates the baseline \\(K(P_n)\\), not a path-chord optimization table.",
+        "The accessible historical comparison includes a distinct result for two parallel paths joined by two cross-links; its graph family is not the single-path one-chord family."
+      ],
+      "reasoning": "A tabulated or known baseline Kirchhoff index of a path and general resistance identities are insufficient to determine the exact unique new-edge optimizer. The distinct two-cross-link ladder result cannot be specialized by relabeling or parameter restriction to the present path augmentation without changing topology and the optimization domain.",
+      "searches": [
+        "Research-record search: optimal single shortcut to path minimize Kirchhoff index effective resistance chord",
+        "Research-record search: unicyclic graphs path chord spectral resistance optimal 8k+2",
+        "Web: MathWorld Kirchhoff index path graph table"
+      ]
+    },
+    "rationale": "The unique exact one-chord path placement at k=floor((n-2)/8), its eight-step threshold and asymptotic 9/16 gain were not implied by inspected primary comparisons. The general rank-one resistance gain and unicyclic resistance formulas are expressly treated as prior methods, not as original results. Originality is provisional pending wider independent literature review.",
+    "residual_risks": [
+      "A closed form for augmenting a path may appear in unindexed or differently named literature.",
+      "The 2012 archival PDF could not be visually inspected due to HTTP 403; the available indexed sections provide partial material.",
+      "The 2023 hardness article was accessible only in public summary/intro form and is not represented as wholly inspected.",
+      "No independent mathematical or priority review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in the inspected theorem and graph-family statements; optimizes among all unicyclic graphs of prescribed matching number rather than chords of a fixed path.",
+        "evidence": [
+          "2013-04-29 first public arXiv date",
+          "Introduction explains fixed-order/matching-number target",
+          "Section 3 compares generic unicyclic graph classes and attaches paths to their distinguished centers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.7546",
+        "material_read": "Open-access arXiv rendered text: introductory definitions, preliminaries and specific extremal graph families, main-result discussions and representative tables in Sections 2 and 3.",
+        "method": "HTML/article text with full indexed mathematical sections",
+        "title": "The Kirchhoff indices and the matching numbers of unicyclic graphs",
+        "trigger": "Closest archival unicyclic Kirchhoff-index extremal study; potential stronger classification"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material; gives a quantum search method for general graph edge augmentation rather than explicit path placement.",
+        "evidence": [
+          "§2 names the path as an extremal baseline Kirchhoff graph, not an exact augmented-path solution",
+          "Algorithms implement selection over an edge database."
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/28632/28632.pdf",
+        "material_read": "PDF abstract, introduction, related-work §2, algorithm outline and substantial PDF sections including page 6.",
+        "method": "Open-access PDF, parsed lines and visually inspected pages 1 and 6",
+        "title": "A Quantum Algorithm for Minimising the Effective Graph Resistance upon Edge Addition",
+        "trigger": "Exactly one link is added; could contain closed special-case solutions"
+      },
+      {
+        "assessment": "NOT_COVERING in the inspected material; rigorous speed/approximation results rather than a full exact unit-path shortcut classification.",
+        "evidence": [
+          "Paper emphasizes near-linear-time greedy and gradient algorithms",
+          "No fixed-path optimization theorem surfaced in searched text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2503.21409",
+        "material_read": "PDF full text available, introduction pp.1-2, core formulation, algorithm section and page 8; text searched for path/cycle special cases.",
+        "method": "arXiv OA PDF parsed text, visually inspected pages 1 and 8",
+        "title": "Efficient Algorithms for Minimizing the Kirchhoff Index via Adding Edges",
+        "trigger": "Recent strong general edge-augmentation results could subsume exact path instance"
+      },
+      {
+        "assessment": "No exact path-chord endpoint formula found in inspected material; whole-document visual exclusion not claimed.",
+        "evidence": [
+          "§4 Theorem 5 concerns adding links to petal/star structures",
+          "§5 attaches paths to an arbitrary graph, a different variation",
+          "Uncertainty remains from inaccessible visual rendering."
+        ],
+        "identifier_or_url": "https://repository.gatech.edu/server/api/core/bitstreams/a34a558e-8c73-4469-8866-48012421c2da/content",
+        "material_read": "Indexed PDF text including introduction, §4 graph processes for fan/petal/star families, and §5 network symmetry/paths; rendered screenshot request failed with HTTP 403.",
+        "method": "Accessible indexed PDF textual sections; visual page access unavailable",
+        "title": "Robust Graph Topologies for Networked Systems",
+        "trigger": "Early primary network robustness paper gives optimal single-link additions for graph families"
+      },
+      {
+        "assessment": "Inapplicable to exact special-family classification; a general NP-hardness statement does not solve the path case.",
+        "evidence": [
+          "Abstract states computational hardness of adding fixed number of links to a general graph",
+          "Full material inaccessible, so not classified as globally not-covering."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.orl.2023.10.002",
+        "material_read": "Publisher-indexed abstract and beginning of problem definition; full publisher text not accessible.",
+        "method": "Public landing indexed extract",
+        "title": "Minimizing the effective graph resistance by adding links is NP-hard",
+        "trigger": "Possible broader algorithmic hardness theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "60416c4d-d674-4dff-9d29-48921969e634",
+  "value": {
+    "rationale": "A natural practical one-link design optimization on a path is solved exactly for every length, including the first non-endpoint optimum at n=10, unique optimizer, modulo-eight transition, and a 9/16 asymptotic reduction of total effective resistance. The exact location is not a routine restatement of the resistance-update identity and supplies a benchmark for one-edge graph augmentation algorithms.",
+    "status": "PASS"
+  }
+}
