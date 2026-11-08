@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Candidate intervals are disjoint for f>=8; distinct-pair interval sumsets reduce greedy membership to exact cover/disjointness. The 57-component, 1640-sum affine interval verifier compares endpoint slopes and shifted intercepts: no crossings after f=14, and checks f=8..15; this is a legitimate all-f certificate, not finite extrapolation. Four repeated nonempty 3M-blocks from the certified prefix invoke van Berkel--Bosma Theorem 15 to extend indefinitely. A distinct-gap-size argument rules out a shorter tail period, and the last transient gap proves exact preperiod. Independently computed 250 greedy terms for each f=8..19. Reliance on the published four-block theorem was checked for stated hypotheses in RESULT.md, but the primary paper theorem proof was not available in full this run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The existing continuation theorem is conditional on repeated blocks; independently established blocks are required for this pair. Third off-diagonal theorem covers g=2f+3 only."
+        ],
+        "reasoning": "Conditional continuation plus previously known cases do not imply fourth-family affine-interval coverage.",
+        "searches": [
+          "arxiv:2609.18522 Theorem 15 referenced in assigned proof",
+          "Resultary 2026/10/4 third off-diagonal"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.18522 abstract only",
+        "Resultary:9165cf5d8d0c third off diagonal",
+        "Resultary:dc29809f76be first two off diagonals",
+        "Git source RESULT.md blob 9a52183c5bc838b6b031f009aa5c6844c71510d0",
+        "Git verifier blob 953a0cd4b4ac3f96fbb11a959597434c42136307"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior general paper reports computational evidence and a continuation lemma, not a direct theorem for every f>=8 at 2f+4."
+        ],
+        "reasoning": "The fourth-family result needs its own interval certificate and is not an automatic specialization of proved diagonal-range claims.",
+        "searches": [
+          "arxiv:2609.18522 abstract",
+          "Resultary 9165cf5d8d0c and dc29809f76be"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "van Berkel--Bosma arXiv:2609.18522 describes greedy strict distinct-pair sum sequences and conjectured general periodicity."
+        ],
+        "reasoning": "Compared same sequence convention, seeds, minimum period and characteristic-word periodicity; matching definition alone does not cover this fourth off-diagonal formula.",
+        "searches": [
+          "Resultary semantic query greedy 2-sumfree fourth off diagonal g=2f+4",
+          "arxiv:2609.18522 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary first two off-diagonal record dc29809f76be and third record 9165cf5d8d0c contain adjacent infinite families, no table for g=2f+4."
+        ],
+        "reasoning": "No exact fourth family table was found; absence is only bounded search evidence.",
+        "searches": [
+          "Resultary exact second diagonal, first two off-diagonals, third off-diagonal",
+          "web search \"2-sumfree\" \"2f+4\" 2026"
+        ]
+      },
+      "rationale": "Theorem is an additional natural fourth off-diagonal g=2f+4, rather than a renaming of earlier g<=2f or first three off-diagonal identities. Best-of-knowledge originality is qualified because the 2026 primary theorem text could not be retrieved for full inspection; indexed primary abstract frames full periodicity as conjectural, and published Resultary findings cover earlier diagonals only.",
+      "residual_risks": [
+        "Exact primary statement and proof of arXiv:2609.18522 Theorem 15 not directly accessible for this audit; dependency must be checked before independent formal reuse.",
+        "Other independently discovered fourth-off-diagonal results may not be indexed.",
+        "Finite direct 250-term checks do not prove tail periodicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_NOT_FULLY_READ",
+          "evidence": "Abstract presents universal periodicity as conjecture; no whole-document NOT_COVERING conclusion; continuation theorem remains a proof dependency.",
+          "identifier_or_url": "arxiv:2609.18522",
+          "material_read": "Primary arXiv abstract, dates, conjectures and indexed summary; actual Theorem 15 proof unavailable",
+          "method": "arXiv and lawful OA full-text attempts yielded no retrievable PDF/HTML",
+          "title": "Periodicity conjectures for all 2-sumfree sequences",
+          "trigger": "Directly used four-block continuation theorem and same seeds"
+        },
+        {
+          "assessment": "COVERS adjacent third off-diagonal only",
+          "evidence": "Its g=2f+3 formula does not establish g=2f+4.",
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-exact-periodicity-of-the-third-off-diagonal-greedy-2-sumfree-fam--9165cf5d8d0c",
+          "material_read": "Published full finding summary: g=2f+3, f>=6, modulus 5f+5, exact preperiod",
+          "method": "Resultary semantic query",
+          "title": "Exact periodicity of the third off-diagonal greedy 2-sumfree family",
+          "trigger": "Nearest published same-object all-f family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact infinite-parameter family advances a specifically conjectured periodicity program, giving full term membership and sharp period/preperiod rather than a bounded computation. A uniform affine-interval certificate is substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2609.18522 abstract only",
+    "Resultary:9165cf5d8d0c third off diagonal",
+    "Resultary:dc29809f76be first two off diagonals",
+    "Git source RESULT.md blob 9a52183c5bc838b6b031f009aa5c6844c71510d0",
+    "Git verifier blob 953a0cd4b4ac3f96fbb11a959597434c42136307"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer f>=8 the strict greedy 2-sumfree sequence with seeds (f,2f+4) is exactly the stated finite component prefix P_f and translated periodic four-component Q_f with modulus 5f+7; its successive-difference word has minimal preperiod 2f+10 and minimal period f+5.",
+  "limitations": [
+    "Exact primary statement and proof of arXiv:2609.18522 Theorem 15 not directly accessible for this audit; dependency must be checked before independent formal reuse.",
+    "Other independently discovered fourth-off-diagonal results may not be indexed.",
+    "Finite direct 250-term checks do not prove tail periodicity."
+  ],
+  "residual_risks": [
+    "Exact primary statement and proof of arXiv:2609.18522 Theorem 15 not directly accessible for this audit; dependency must be checked before independent formal reuse.",
+    "Other independently discovered fourth-off-diagonal results may not be indexed.",
+    "Finite direct 250-term checks do not prove tail periodicity."
+  ],
+  "schema_version": 1
+}
