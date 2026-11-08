@@ -1,15 +1,21 @@
-# Scientific review: a four-pole weighted Bergman spectral crossover
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The squared norm's angular interaction is obtained from exact beta moments of the monomial basis; the corresponding real Hessian at four equally spaced poles has the stated two nontrivial Fourier eigenvalue branches. Both curvature integrals are strictly positive throughout the asserted weight range. Crucially, the ratio of adjacent-pole and opposite-pole curvature integrals is a strict expectation of an increasing rational function under a decreasing-likelihood-ratio family, establishing **one and only one** crossing for all positive exponents. Exact rational bounds for the signs at exponents two and three locate it inside that interval. Taylor's theorem gives the sharp local quadratic coefficient, and beta concentration gives the high-weight condition-number law. A standalone checker independently verifies the pair-energy Hessian numerically and supplies rational endpoint certificates. Finite numerical checks alone do not prove global monotonicity; that part is established analytically.
+## correctness
 
-## Originality
-**PASS relative to compared sources.** Corbett, arXiv:2609.21121v1, Sections 1, 2.3 and 3, addresses global equispaced-pole minimization and Hessian positivity for concave weights but not the moving soft-mode threshold in the four-pole, nonconcave power-weight regime. Abakumov, Borichev and Fedorovskiy, arXiv:2009.01898v1, Theorem 1 and Lemma 12, establish the earlier minimization and interaction convexity boundary, not the new unique Hessian-mode crossover. The closest mathematical record, *Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles*, has a different quantifier: all polygon sizes at the one **fixed** power exponent, rather than a fixed square across every positive weight. Its fixed-weight eigenvalue law does not imply the threshold or high-weight spectral degeneracy. Searches for a weight-dependent four-pole square Hessian crossing revealed no stronger or equivalent coverage. Unindexed historical results or an equivalent treatment under different energy nomenclature remain residual risks; negative searches alone are not novelty proof.
+PASS
 
-## Value
-**PASS.** The natural regular four-pole minimizer is globally known for all admissible weights, but local reconstruction/stability properties can vary dramatically without changing the optimizer. The theorem gives the complete weight-wise **soft-mode phase diagram**, a unique locally isotropic weight, a sharp local stability coefficient and a high-weight loss-of-conditioning law. These are exact structural facts, not a routine restatement of the global minimization theorem.
+Radial monomial moments (alpha+1)B(p,alpha+1) yield a pair interaction with curvature u_alpha at right-angle separations and v_alpha at opposite separations. The real four-by-four Hessian is twice a four-cycle Laplacian with edge weight u plus two opposite chords with weight v, so Fourier vectors give 0,4(u+v),4(u+v),8u. Dividing the positive integrals expresses u/v as the mean of R(t)=4t(1+t)^4/(1+t^2)^3 under a measure proportional to (1-t)^{alpha+1}/(1+t)^3; R is strictly increasing, and increasing alpha strictly shifts mass toward zero. Hence u/v decreases strictly and continuously from 2 to 0. Exact endpoint integrals give positive u2-v2 and negative u3-v3 with rational pi/log2 bounds, guaranteeing a unique crossing in (2,3). Taylor’s theorem gives sharp half-minimal-eigenvalue local stability, while beta moment expansion gives u~4/alpha,v→1 and condition number alpha/8. An independent quadrature/Hessian eigensystem computation across weights and root-finding at alpha=2.727841735937447 supports these identities; only the analytic monotonicity proves uniqueness.
 
-## Limits and relationship to literature
-The claim concerns four unit-residue Cauchy poles and the normalized squared weighted Bergman norm. It does not cover arbitrary pole residues, all polygon sizes, global second-order stability away from the square, or higher-order isotropy. The approximate crossover decimal is auxiliary and is not a closed-form evaluation; root existence and uniqueness are exact. The full relevant sections of the 2020 and September 2026 primary papers, plus the closest published fixed-exponent record, were inspected. One additional September 2026 general Chui paper was identified indirectly but did not yield readable full text and has a different stated global-minimization focus; equivalent coverage not indexed by the search remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete published fixed-weight N-pole Fourier Hessian theorem was read in full: it explicitly fixes weight (1-|z|²), i.e. alpha=1, and establishes the least first mode at that exponent, not a continuous-alpha crossing. General Chui global equispaced optimality/convexity papers treat minimization, but that does not determine the ordering of the two Hessian eigenfamilies as alpha>1 varies. The new statement is a sharp one-parameter modal transition for exactly four poles; not the existence of a global minimizer.
+
+## value
+
+PASS
+
+The crossover is a motivated spectral-stability phase transition: it exactly identifies when the geometrically soft deformation switches representation and when the local Hessian is isotropic. Both the unique critical weight and the large-alpha conditioning law provide useful precise local quantitative information not implied by global optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

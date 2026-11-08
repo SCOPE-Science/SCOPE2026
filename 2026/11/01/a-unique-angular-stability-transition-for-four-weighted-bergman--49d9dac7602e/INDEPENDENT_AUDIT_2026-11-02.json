@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:52:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Radial monomial moments (alpha+1)B(p,alpha+1) yield a pair interaction with curvature u_alpha at right-angle separations and v_alpha at opposite separations. The real four-by-four Hessian is twice a four-cycle Laplacian with edge weight u plus two opposite chords with weight v, so Fourier vectors give 0,4(u+v),4(u+v),8u. Dividing the positive integrals expresses u/v as the mean of R(t)=4t(1+t)^4/(1+t^2)^3 under a measure proportional to (1-t)^{alpha+1}/(1+t)^3; R is strictly increasing, and increasing alpha strictly shifts mass toward zero. Hence u/v decreases strictly and continuously from 2 to 0. Exact endpoint integrals give positive u2-v2 and negative u3-v3 with rational pi/log2 bounds, guaranteeing a unique crossing in (2,3). Taylor’s theorem gives sharp half-minimal-eigenvalue local stability, while beta moment expansion gives u~4/alpha,v→1 and condition number alpha/8. An independent quadrature/Hessian eigensystem computation across weights and root-finding at alpha=2.727841735937447 supports these identities; only the analytic monotonicity proves uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global minimization at the regular polygon does not impose which nonzero Hessian eigenvalue is smallest, and local Hessian positivity need not imply order.",
+          "The fixed-weight full Fourier spectrum contains alpha=1 information but not alpha variable."
+        ],
+        "reasoning": "A global minimization theorem is logically too weak to imply the exact critical alpha* or the isotropic Hessian there. No inspected stronger full-parameter modal law dominates.",
+        "searches": [
+          "Corbett Two new proofs Chui conjecture weighted Bergman 2609.21121",
+          "Abakumov Borichev Fedorovskiy Chui conjecture Bergman spaces 2009.01898",
+          "Resultary:fixed-weight full Fourier Hessian"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026:RESULT.md (blob 2e11fc066de4775fa499c31baae9c54f81d3c6eb)",
+        "SCOPE2026:CHECK.py (blob 794fcb326be81416d0bcfa07ca5e602114e226f2)",
+        "Resultary:Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles (blob 3244d6f893a6c03be4a46a5efacaf22cc014f64d)",
+        "arxiv:2609.21121v1",
+        "arxiv:2009.01898v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At alpha=1, Resultary determines first mode as minimal for any N; the present two-mode formula specializes compatibly.",
+          "At alpha→infinity, u~4/alpha and v~1 imply alternating mode is softer; this regime is absent from alpha=1 source."
+        ],
+        "reasoning": "Prior fixed-weight spectrum implies only the common special case. Corbett’s general minimization ensures stationarity/positivity, not equality of positive modal curvatures at a unique exponent. Full Corbett text unavailable, so possibility of an equivalent secondary computation is retained as risk.",
+        "searches": [
+          "Corbett arxiv:2609.21121",
+          "Abakumov et al arxiv:2009.01898",
+          "Resultary 2026/10/11 fixed-weight Hessian full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full Resultary/2026 RESULT.md at 2026/10/11/...9aca32c3cb4f explicitly assumes alpha=1 and all integer N, and has fixed-weight Fourier eigenvalues.",
+          "The new claim holds at fixed N=4 for all real alpha>0 and identifies a unique crossing beyond alpha=2."
+        ],
+        "reasoning": "A general-N formula at alpha=1 is not equivalent to a varying-alpha phase transition at N=4. In particular, its fixed smallest first Fourier mode does not contradict the large-alpha switch to alternating soft mode.",
+        "searches": [
+          "Resultary:weighted Bergman four poles unit circle Hessian eigenvalue crossing",
+          "Resultary:Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles",
+          "Corbett 2609.21121 four-pole Hessian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numeric transition is not a discrete existing table entry; the exact result is uniqueness of u=v and its analytic characterization.",
+          "The full fixed-weight source presents the alpha=1 spectrum but no critical-alpha table."
+        ],
+        "reasoning": "No identified database or tabulated computation supplies the unique continuous parameter crossover. A decimal root alone is not accepted as the contribution.",
+        "searches": [
+          "Resultary:four pole Bergman angular condition number",
+          "critical weight alpha 2.727841735934586 Bergman poles",
+          "Chui conjecture Hessian spectrum alpha"
+        ]
+      },
+      "rationale": "The complete published fixed-weight N-pole Fourier Hessian theorem was read in full: it explicitly fixes weight (1-|z|²), i.e. alpha=1, and establishes the least first mode at that exponent, not a continuous-alpha crossing. General Chui global equispaced optimality/convexity papers treat minimization, but that does not determine the ordering of the two Hessian eigenfamilies as alpha>1 varies. The new statement is a sharp one-parameter modal transition for exactly four poles; not the existence of a global minimizer.",
+      "residual_risks": [
+        "Full Corbett 2026 manuscript, the most plausible stronger work in this specific weighted pole family, could not be retrieved (institutional VPN disconnected); a hidden continuous-alpha Hessian statement cannot be ruled out solely from its abstract.",
+        "Hessian isotropy is to second order near the square only; no global stability or higher-order rotational isotropy is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all N at the single exponent alpha=1; does not cover unique transition for N=4 across alpha>0",
+          "evidence": "Assumptions explicitly fix weight 1-|z|^2; limitations explicitly make no statement for other weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f",
+          "material_read": "Entire RESULT.md including stated theorem, assumptions, proof, local-stability and limitations",
+          "method": "Read actual GitHub file blob 3244d6f893a6c03be4a46a5efacaf22cc014f64d",
+          "title": "Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles",
+          "trigger": "Direct same-object and Hessian-spectrum result"
+        },
+        {
+          "assessment": "Potential priority overlap unverified at full-text level; abstract speaks to global minimization not exact four-pole continuous-alpha modal crossing",
+          "evidence": "Local spectral crossover not stated in indexed material; full-text absence is explicitly a residual risk.",
+          "identifier_or_url": "arxiv:2609.21121v1",
+          "material_read": "Accessible indexed abstract and title plus pinned source comparison; full text unavailable",
+          "method": "ArXiv/OA attempts followed by authorized Oxford institutional retrieval; returned vpn_disconnected",
+          "title": "Two new proofs of Chui’s Conjecture in Weighted Bergman Spaces",
+          "trigger": "Same weighted Bergman pole extremization, possible broader Hessian calculations"
+        },
+        {
+          "assessment": "Global minimizer and convexity result does not in accessible evidence supply the alpha-dependent crossing",
+          "evidence": "Convexity regime alpha<=1 is separate from crossing in (2,3).",
+          "identifier_or_url": "arxiv:2009.01898v1",
+          "material_read": "Indexed abstract and source’s cited theorem/Lemma 12 context, not original full text",
+          "method": "Literature search and pinned research package reading",
+          "title": "Chui’s conjecture in Bergman spaces",
+          "trigger": "Original weighted Hilbert-space global minimization and pair-interaction convexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crossover is a motivated spectral-stability phase transition: it exactly identifies when the geometrically soft deformation switches representation and when the local Hessian is isotropic. Both the unique critical weight and the large-alpha conditioning law provide useful precise local quantitative information not implied by global optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026:RESULT.md (blob 2e11fc066de4775fa499c31baae9c54f81d3c6eb)",
+    "SCOPE2026:CHECK.py (blob 794fcb326be81416d0bcfa07ca5e602114e226f2)",
+    "Resultary:Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles (blob 3244d6f893a6c03be4a46a5efacaf22cc014f64d)",
+    "arxiv:2609.21121v1",
+    "arxiv:2009.01898v1"
+  ],
+  "disposition": "passed",
+  "final_claim": "For four unit-residue boundary Cauchy poles at the regular square in the weighted Bergman norm with exponent alpha>0, the rotation-reduced angular Hessian has eigenvalues 4(u_alpha+v_alpha) twice and 8u_alpha once; the softest mode crosses exactly once at alpha*=2.7278417359... in (2,3), with isotropic centered Hessian there and large-alpha condition number asymptotic alpha/8.",
+  "limitations": [
+    "Full Corbett 2026 manuscript, the most plausible stronger work in this specific weighted pole family, could not be retrieved (institutional VPN disconnected); a hidden continuous-alpha Hessian statement cannot be ruled out solely from its abstract.",
+    "Hessian isotropy is to second order near the square only; no global stability or higher-order rotational isotropy is claimed."
+  ],
+  "residual_risks": [
+    "Full Corbett 2026 manuscript, the most plausible stronger work in this specific weighted pole family, could not be retrieved (institutional VPN disconnected); a hidden continuous-alpha Hessian statement cannot be ruled out solely from its abstract.",
+    "Hessian isotropy is to second order near the square only; no global stability or higher-order rotational isotropy is claimed."
+  ],
+  "schema_version": 1
+}
