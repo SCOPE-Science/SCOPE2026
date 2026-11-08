@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The reproduction command is `python verify.py` (Python 3 with NumPy). The script explicitly constructs the \(2(a+b)\)-dimensional modular map, verifies predicted exact matrix orders for all \(a,b\in\{1,\dots,7\}\) and \(s\in\{1,\dots,10\}\), checks the two scalar congruences against matrix identity for 2,250 exponent choices, and directly iterates 407,376 configurations across twelve smaller instances. It verifies that each enumerated instance has at least one orbit with the full predicted primitive period. See the adjacent `verification.txt` for the recorded four success lines.
+# Independent mathematical audit
 
-The mathematical inference for all parameters is supplied separately by the polynomial identity, the exact valuation table, the matrix-squaring lemma, and the proper-subgroup argument in `RESULT.md`. The code examines finite instances only and is not an infinite proof; this result has not undergone an independent audit.
+## correctness
+
+PASS
+
+For a,b,s>=1 the bipartite adjacency matrix satisfies A^3=ab A and A^4=ab A^2. Matrix Cayley-Hamilton over integer polynomial ring gives q_{t+1}(z)=(z+2)q_t(z)-q_{t-1}(z) and p_t=(q_t-q_{t-1}-1)/z. Exact T^t-I block expression reduces identity mod 2^s to simultaneous divisibility 2^s|q_t(z) and 2^s|gcd(a,b)p_t(z), so collapsing to a 2x2 z-only cat map would be incorrect. Explicit factorization and parity gives base orders 2,4,3 with exact valuation anchors; binomial lifting from h>=2 gives one extra 2-adic valuation per squaring. This proves all five arithmetic regimes with odd z=3 mod4 s=1 boundary. T is invertible shear product so all states are periodic, and a finite group cannot be union of two proper kernels, giving some primitive cycle of full matrix order. Independent modular exponentiation checked 150 cases a,b<=5,s<=6 and distinguished K1,4 from K2,2 although same ab=4.
+
+## originality
+
+PASS
+
+General symplectic shear construction, matrix-Fibonacci recurrence, and two-dimensional Arnol'd cat-map period theory are prior. The gcd(a,b) congruence and its complete parity-/valuation-stratified exact order for all complete bipartite graphs and powers of two are not implied by cited circulant/complete-graph examples. The same z but different orders directly rules out reducing this classification to a scalar cat-map parameter. Residual risk: earlier modular graph dynamical systems may have an equivalent complete-bipartite formula.
+
+## value
+
+PASS
+
+Complete-bipartite graph cat-map couplings are a natural structured graph family, and exact finite-ring orders control all possible periods and recurrence horizons. The theorem establishes a sharp five-regime arithmetic phase diagram and demonstrates that shore gcd rather than edge count alone changes global dynamics. Its exact orbit-realization result is meaningful, not a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

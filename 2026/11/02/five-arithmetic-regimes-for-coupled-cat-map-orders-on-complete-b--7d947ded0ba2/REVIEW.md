@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Cayley--Hamilton reduction and \(A^3=abA\) give a necessary-and-sufficient pair of scalar congruences, rather than a one-way divisibility estimate. Their explicit low-power factorizations and sharp matrix squaring lift prove the full six-case formula for all positive \(a,b,s\). The finite-field order is checked independently of the lifting argument in 490 finite instances, and 407,376 states are explicitly simulated. The union-of-proper-subgroups argument establishes a full-order orbit; the proof does not infer infinite validity from the tests.
+PASS
 
-## Originality — PASS (subject to historical risk)
+For a,b,s>=1 the bipartite adjacency matrix satisfies A^3=ab A and A^4=ab A^2. Matrix Cayley-Hamilton over integer polynomial ring gives q_{t+1}(z)=(z+2)q_t(z)-q_{t-1}(z) and p_t=(q_t-q_{t-1}-1)/z. Exact T^t-I block expression reduces identity mod 2^s to simultaneous divisibility 2^s|q_t(z) and 2^s|gcd(a,b)p_t(z), so collapsing to a 2x2 z-only cat map would be incorrect. Explicit factorization and parity gives base orders 2,4,3 with exact valuation anchors; binomial lifting from h>=2 gives one extra 2-adic valuation per squaring. This proves all five arithmetic regimes with odd z=3 mod4 s=1 boundary. T is invertible shear product so all states are periodic, and a finite group cannot be union of two proper kernels, giving some primitive cycle of full matrix order. Independent modular exponentiation checked 150 cases a,b<=5,s<=6 and distinguished K1,4 from K2,2 although same ab=4.
 
-The general block symplectic coupling and matrix-Fibonacci period criterion already occur in Axenides--Floratos--Nicolis, and two-dimensional generalized cat-map period classifications occur in Chen and Li--Tan--Feng--Lü; neither is claimed as new. The closest accessible published result on complete-graph couplings treats a different graph family and was accessible only by its published summary. Neither the inspected relevant primary full texts nor the published-result semantic searches identified a theorem determining all complete-bipartite orders by these exact valuation cases. The inability to read the complete-graph result in full and possible differently named graph lifts remain residual risks.
+## originality
 
-A concrete non-implication witness is that \(K_{1,4}\) and \(K_{2,2}\) have the same product \(ab=4\) but exact orders \(2^{s+1}\) and \(2^s\). A two-dimensional cat-map classification depending only on the corresponding scalar product cannot supply this family classification.
+PASS
 
-## Value — PASS
+General symplectic shear construction, matrix-Fibonacci recurrence, and two-dimensional Arnol'd cat-map period theory are prior. The gcd(a,b) congruence and its complete parity-/valuation-stratified exact order for all complete bipartite graphs and powers of two are not implied by cited circulant/complete-graph examples. The same z but different orders directly rules out reducing this classification to a scalar cat-map parameter. Residual risk: earlier modular graph dynamical systems may have an equivalent complete-bipartite formula.
 
-The least modulus-period is a natural invariant of an invertible finite-torus dynamical system, important for exact recurrence and finite precision. The result closes this question for a genuine infinite family of nonregular and regular graph couplings, including a nontrivial mod-four regime split and valuation-driven exceptional plateaus. The same-product different-order phenomenon shows that the graph geometry matters, beyond a scalar two-dimensional factor. No claim is made about arbitrary adjacency matrices or full shorter-orbit distributions.
+## value
 
-## Closest literature and limits
+PASS
 
-Rivas--Saraceno--Ozorio de Almeida (1999), Nance (2011), Chen (2014), Li--Tan--Feng--Lü (2017), Axenides--Floratos--Nicolis (2022), and Manolas--Floratos (2026) were compared as stated in `RESULT.md`. Some primary sources supply a general recurrence but not this exact special-case classification; a complete-graph published research summary could not be inspected in full. No external independent validation has occurred.
+Complete-bipartite graph cat-map couplings are a natural structured graph family, and exact finite-ring orders control all possible periods and recurrence horizons. The theorem establishes a sharp five-regime arithmetic phase diagram and demonstrates that shore gcd rather than edge count alone changes global dynamics. Its exact orbit-realization result is meaningful, not a parameter renaming.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
