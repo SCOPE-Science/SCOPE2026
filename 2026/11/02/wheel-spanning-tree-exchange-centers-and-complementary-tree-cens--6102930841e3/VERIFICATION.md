@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify/verify_wheel_metric.py` and `python3 verify/verify_wheel_complement_count.py` with Python 3; both use only the standard library. The first enumerates wheel spanning trees for rim sizes 3–10 and checks eccentricity, radius, diameter, and peripheral counts; for rim sizes 3–5 it explicitly generates all one-edge exchanges and breadth-first-searches all shortest paths. The second directly enumerates every two-coloring of rim edges and spokes for sizes 3–8, checks both colors are spanning trees, and compares this with the two alternating-boundary constructions; for rim sizes 9–14 it verifies all constructed completions.
+## correctness
 
-Representative results: for \(m=6\) the wheel has 320 spanning trees, radius 4, diameter 6, and 124 peripheral spanning trees. For \(m=10\) the corresponding values are 15125, 7, 10, and 2044. The direct exhaustive check returns `ALL_WHEEL_TREE_METRIC_CHECKS_PASS`; the complementary-tree checker returns `ALL_WHEEL_COMPLEMENT_CHECKS_PASS`.
+PASS
 
-The mathematical proof separately covers every integer \(m\ge3\). Finite enumerations are consistency checks rather than a substitute for the unbounded arguments. No independent scholarly audit has been performed.
+For every wheel with m>=3 rim vertices and unrestricted graphic-matroid basis-exchange edges, distance(T,U)=m-|T∩U| by successive fundamental-cycle replacement. Maximizing disjoint-from-T edges equals graphic-matroid rank of H_T=E(W)\T, i.e. m+1-c(H_T); with m edges on m+1 vertices, beta(H_T)=c(H_T)-1 and ecc=m-beta. Every complementary cycle either the whole rim (no spokes) or a hub-plus-rim path; rim degree at most two forces distinct complementary cycles to meet only at the hub, so 3beta<=m. q=floor(m/3) disjoint hub triangles plus r leftover spokes give a complement of a spanning tree attaining q. A complementary spanning-tree pair gives ecc=m. For nonconstant cyclic binary rim words, precisely two alternating boundary-spoke completions yield two spanning trees; monochromatic rim words yield none, giving peripheral 2^(m+1)-4 and unordered pairs 2^m-2. Independent all-tree exact enumeration for m=3..6 checked each eccentricity by actual max over all spanning trees and predicted radius/diameter/count; original finite verifiers separately inspected, not substituted for proof.
+
+## originality
+
+PASS
+
+Direct statement-level primary comparisons and Resultary semantic searches support best-of-knowledge originality: Mahoney qualitative general center conditions, not exact wheel calculation; possible unindexed older wheel-basis-graph formula or complementary-tree count. Checked unrestricted versus triangle-restricted exchange distinction.
+
+## value
+
+PASS
+
+Exact all-parameter radius, center characterization, and complete complementary-tree census of a canonical graphic-matroid basis graph; interesting extremal cotree cycle packing and binary boundary-run mechanism. General exchange distance is textbook background and not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

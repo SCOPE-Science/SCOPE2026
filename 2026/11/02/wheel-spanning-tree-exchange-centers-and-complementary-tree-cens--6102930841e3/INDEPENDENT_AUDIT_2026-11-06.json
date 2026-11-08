@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:17:01.006054Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every wheel with m>=3 rim vertices and unrestricted graphic-matroid basis-exchange edges, distance(T,U)=m-|T∩U| by successive fundamental-cycle replacement. Maximizing disjoint-from-T edges equals graphic-matroid rank of H_T=E(W)\\T, i.e. m+1-c(H_T); with m edges on m+1 vertices, beta(H_T)=c(H_T)-1 and ecc=m-beta. Every complementary cycle either the whole rim (no spokes) or a hub-plus-rim path; rim degree at most two forces distinct complementary cycles to meet only at the hub, so 3beta<=m. q=floor(m/3) disjoint hub triangles plus r leftover spokes give a complement of a spanning tree attaining q. A complementary spanning-tree pair gives ecc=m. For nonconstant cyclic binary rim words, precisely two alternating boundary-spoke completions yield two spanning trees; monochromatic rim words yield none, giving peripheral 2^(m+1)-4 and unordered pairs 2^m-2. Independent all-tree exact enumeration for m=3..6 checked each eccentricity by actual max over all spanning trees and predicted radius/diameter/count; original finite verifiers separately inspected, not substituted for proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahoney, Tree Graphs and Orthogonal Spanning Tree Decompositions, Portland State dissertation 2016 DOI 10.15760/etd.2939 §§4.2, B.6 full https://web.pdx.edu/~caughman/mahoneyDissertation.pdf"
+        ],
+        "reasoning": "General basis-exchange distance and center criteria establish the reduction but not the maximum disjoint wheel cycles or the binary-word enumeration, which are necessary quantitative steps.",
+        "searches": [
+          "Mahoney 2016 section 4.2 graph tree centers",
+          "Resultary meaning search query: wheel graph spanning tree unrestricted basis-exchange eccentricity radius complementary spanning trees count"
+        ]
+      },
+      "checked_sources": [
+        "Mahoney, Tree Graphs and Orthogonal Spanning Tree Decompositions, Portland State dissertation 2016 DOI 10.15760/etd.2939 §§4.2, B.6 full https://web.pdx.edu/~caughman/mahoneyDissertation.pdf",
+        "Benjamin and Yerger (2006), Combinatorial Interpretations of Spanning Tree Identities, Bulletin ICA 47, 37–42; institutional abstract",
+        "Resultary wheel-spanning-tree/basis-exchange center/eccentricity and complementary-count queries; no statement-equivalent hit, nearest wheel symmetric-edge-polytope records do not concern basis-exchange trees"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mahoney, Tree Graphs and Orthogonal Spanning Tree Decompositions, Portland State dissertation 2016 DOI 10.15760/etd.2939 §§4.2, B.6 full https://web.pdx.edu/~caughman/mahoneyDissertation.pdf",
+          "Resultary wheel-spanning-tree/basis-exchange center/eccentricity and complementary-count queries; no statement-equivalent hit, nearest wheel symmetric-edge-polytope records do not concern basis-exchange trees"
+        ],
+        "reasoning": "Mahoney ensures how complement cyclicity affects eccentricity in any graph, but precise radius requires wheel-specific cycle packing. Restricted hub-triangle exchange adjacency is different and cannot yield unrestricted metric claims.",
+        "searches": [
+          "Mahoney 2016 Lemmas 4.4,4.7, Theorem 4.8",
+          "wheel graph spanning tree fundamental triangle restricted exchanges"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mahoney, Tree Graphs and Orthogonal Spanning Tree Decompositions, Portland State dissertation 2016 DOI 10.15760/etd.2939 §§4.2, B.6 full https://web.pdx.edu/~caughman/mahoneyDissertation.pdf"
+        ],
+        "reasoning": "Equivalently complementary spanning trees are bases of both graphic and cographic matroids on 2m edges; their exact count concerns orthogonal tree decompositions, not the classical total wheel-tree count.",
+        "searches": [
+          "Resultary meaning search query: wheel graph spanning tree unrestricted basis-exchange eccentricity radius complementary spanning trees count",
+          "web: orthogonal spanning tree pairs wheel graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Benjamin and Yerger (2006), Combinatorial Interpretations of Spanning Tree Identities, Bulletin ICA 47, 37–42; institutional abstract"
+        ],
+        "reasoning": "Standard tables count all spanning trees, not peripheral trees. Even if numbers appeared in an unindexed OEIS entry, that alone would not supply the exact all-m eccentricity and center formula; residual lookup risk remains.",
+        "searches": [
+          "wheel tree graph radius sequence peripheral complementary trees 2^(m+1)-4",
+          "Benjamin Yerger wheel spanning tree identities"
+        ]
+      },
+      "rationale": "Direct statement-level primary comparisons and Resultary semantic searches support best-of-knowledge originality: Mahoney qualitative general center conditions, not exact wheel calculation; possible unindexed older wheel-basis-graph formula or complementary-tree count. Checked unrestricted versus triangle-restricted exchange distinction.",
+      "residual_risks": [
+        "Mahoney qualitative general center conditions, not exact wheel calculation; possible unindexed older wheel-basis-graph formula or complementary-tree count. Checked unrestricted versus triangle-restricted exchange distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic acyclic-complement/periphery direction; no exact all-m radius or 2^(m+1)-4 wheel census in reviewed sections",
+          "evidence": "Mahoney distinguishes cyclic/acyclic edge complements in tree graph eccentricity",
+          "identifier_or_url": "https://web.pdx.edu/~caughman/mahoneyDissertation.pdf",
+          "material_read": "Full 94-page dissertation; Section 4.2 pp.31–34, Lemmas 4.4, 4.7 and Theorem 4.8, plus wheel appendix B.6",
+          "method": "Full text, within-document find and PDF screenshots",
+          "title": "Tree Graphs and Orthogonal Spanning Tree Decompositions",
+          "trigger": "Same tree exchange graph and complementary cycles"
+        },
+        {
+          "assessment": "Total wheel spanning trees, not the count whose complements are also spanning trees",
+          "evidence": "Benjamin–Yerger 2006 total complexity formulas",
+          "identifier_or_url": "https://scholarship.claremont.edu/hmc_fac_pub/1050/",
+          "material_read": "Institutional bibliographic record and abstract",
+          "method": "accessible abstract/metadata",
+          "title": "Combinatorial Interpretations of Spanning Tree Identities",
+          "trigger": "Classical wheel spanning-tree counts potentially dominating census"
+        },
+        {
+          "assessment": "Different polytope radius, not the combinatorial basis-exchange graph distance",
+          "evidence": "Nearest wheel polytope claims are Euclidean geometry, not tree-exchange graph metric",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Indexed title/summary of nearest wheel edge polytope and spanning-tree polytope entries",
+          "method": "semantic search result summaries, not primary full papers",
+          "title": "Resultary wheel graph search entries",
+          "trigger": "Alias search for wheel basis exchange and periphery count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-parameter radius, center characterization, and complete complementary-tree census of a canonical graphic-matroid basis graph; interesting extremal cotree cycle packing and binary boundary-run mechanism. General exchange distance is textbook background and not claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mahoney, Tree Graphs and Orthogonal Spanning Tree Decompositions, Portland State dissertation 2016 DOI 10.15760/etd.2939 §§4.2, B.6 full https://web.pdx.edu/~caughman/mahoneyDissertation.pdf",
+    "Benjamin and Yerger (2006), Combinatorial Interpretations of Spanning Tree Identities, Bulletin ICA 47, 37–42; institutional abstract",
+    "Resultary wheel-spanning-tree/basis-exchange center/eccentricity and complementary-count queries; no statement-equivalent hit, nearest wheel symmetric-edge-polytope records do not concern basis-exchange trees",
+    "git SCOPE-Science/SCOPE2026@fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/wheel-spanning-tree-exchange-centers-and-complementary-tree-cens--6102930841e3/RESULT.md",
+    "actual read-only source tree 0e435c5185a74d53bd4b3b28b94ca33c9377c525",
+    "Resultary query: wheel graph spanning tree unrestricted basis-exchange eccentricity radius complementary spanning trees count"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Mahoney qualitative general center conditions, not exact wheel calculation; possible unindexed older wheel-basis-graph formula or complementary-tree count. Checked unrestricted versus triangle-restricted exchange distinction.",
+    "Only immutable audited Git source tree is evaluated. Bounded independently run enumeration/checks corroborate but do not prove infinite cases; no formal/Lean or expert attestation was claimed."
+  ],
+  "schema_version": 1
+}
