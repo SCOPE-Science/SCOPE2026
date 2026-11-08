@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The mathematical statement is restricted to 31 iteration depths. A proof establishes that all length-\(n\) factors (for \(n<2^h\)) arise at explicitly bounded starting positions, using the unique possible position of valuation at least \(h\). Independently, a prefix-inheritance lemma shows that injectivity at one length, provided every factor already has at least \(k\) ones, holds for all greater lengths. Thus proving a collision at length \(s(k)-1\) and injectivity with the density condition at length \(s(k)\) is logically sufficient. Two independently written, actually executed programs verify these 62 decisive instances. Their factor counts agree with the published \(4n\) complexity formula, and the first five thresholds reproduce published values. All witnesses and verifier source code are included. Residual correctness risks concern human review of the program and arithmetic covering proof, not a missing infinite extension.
+## correctness
 
-## Originality: PASS
-The 2018 Defant--Kravitz paper defines and studies the sorting maps but does not study paperfolding factor injectivity. Campbell--Rampersad (arXiv:2604.25811v2) proves only the single-iteration paperfolding threshold and gives *numerical suggestions*, without proofs, for iterations 2--5, explicitly introducing the invariant and calling for evaluation. The present claim proves those four assertions for all lengths and gives 26 more thresholds, at iterations 6--31, with no detected statement-equivalent prior table. Public mathematical research-record searches returned unrelated paperfolding and sorting findings; those were compared by implications, not merely titles. Residual priority risk remains that a supplementary or later source contains these exact higher-depth values or the propagation argument.
+PASS
 
-## Value: PASS
-The object and invariant are expressly motivated in Section 5 of the 2026 source: the precise length from which \(k\)-fold partial sorting stops identifying distinct paperfolding factors. The 31-term exact profile resolves an entire dyadic range of iteration depths, converting four previously unproved computations into theorems and revealing sharp jumps at depths 2, 4, 8 and 16. These are exact natural thresholds for all factor lengths, not small experimental counts or arbitrary unrelated examples. No grand generalization beyond \(k\le31\) is needed for this finite extremal problem to be meaningful.
+PASS. In binary words T^k deletes the first min(k,#ones) ones and appends them. For n<2^h, each length-n paperfolding window has at most one position divisible by 2^h; all other digits are determined by starting residue mod 2^(h+1). Shifts through five periods realize both values at that possible exception, making factor enumeration mathematically exhaustive. The prefix-heredity lemma proves that injectivity at length m and at least k ones in each m-factor propagate to every longer n. Fresh independent generation of the paperfolding prefix through 5P, for all 31 thresholds, explicitly found a predecessor collision and injectivity at each threshold with the one-count condition and correct 4n factor counts: 62 decisive lengths. These finite exhaustive certificates together with the covering/inheritance proofs establish all n, not a finite extrapolation.
 
-## Closest literature and limits
-Campbell--Rampersad, arXiv:2604.25811v2, Sections 3, 5 and 7, is the closest comparison: the single-iteration threshold is not novel; the four next values were already proposed computationally, and only their rigorous proof and deeper terms are new. Defant--Kravitz, arXiv:1809.09158, supplies the sorting operator. Allouche's 1992 \(4n\) complexity theorem serves as an independent consistency anchor. Other possible unpublished computations cannot be excluded. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Campbell-Rampersad 2026 Section 5 proves s(1)=8, lists k=2..5 thresholds 13,14,25,26 as computer observations, and raises the higher-iteration question; those numerical values alone are prior but their all-length proofs were not given. This record proves those four and supplies 26 more certified values for k=6..31. Defant-Kravitz define tortoise/hare on words, and Allouche gives paperfolding 4n factor complexity. An unpublished high-k table or newer manuscript could overlap.
+
+## value
+
+PASS
+
+PASS. The invariant is explicitly asked about in a contemporary study of paperfolding factors under iterated sorting, and the 31 exact sharp thresholds include multiple dyadic jumps, not just a trivial first case. Exhaustiveness and an infinite-length propagation argument convert finite observed data into logically certified cutoffs for 31 natural depths; no arbitrary all-k theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

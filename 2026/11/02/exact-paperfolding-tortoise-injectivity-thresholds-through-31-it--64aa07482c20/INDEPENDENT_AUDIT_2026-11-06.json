@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:54:45.131788Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In binary words T^k deletes the first min(k,#ones) ones and appends them. For n<2^h, each length-n paperfolding window has at most one position divisible by 2^h; all other digits are determined by starting residue mod 2^(h+1). Shifts through five periods realize both values at that possible exception, making factor enumeration mathematically exhaustive. The prefix-heredity lemma proves that injectivity at length m and at least k ones in each m-factor propagate to every longer n. Fresh independent generation of the paperfolding prefix through 5P, for all 31 thresholds, explicitly found a predecessor collision and injectivity at each threshold with the one-count condition and correct 4n factor counts: 62 decisive lengths. These finite exhaustive certificates together with the covering/inheritance proofs establish all n, not a finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounded complexity loss and tortoise definitions do not force threshold injectivity at every iteration.",
+          "Allouche establishes 4n factor count, not T^k image collisions."
+        ],
+        "reasoning": "None of the inspected general statements implies the 31 specific sharp injectivity thresholds; the propagation lemma is a separate ingredient.",
+        "searches": [
+          "Campbell-Rampersad 2026 arxiv:2604.25811v2 full HTML",
+          "Defant-Kravitz arxiv:1809.09158",
+          "Allouche 1992 factor complexity paper"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 146c24b3a4120a4d226f84d9a665e2d65db995ca",
+        "Frozen threshold_table.csv fc586bca312a92a33067ac2b53438511ecd7aa35",
+        "Frozen verify_prefix.py 36e3e092d66289fd81a1900c1449f67823bcc410",
+        "Frozen verify_skeleton.py e2869b44a429810c25c1c0f48cc4b10a98bc2259",
+        "Independent 62 decisive tests scope_worker07_independent_20261106T0341_results.json",
+        "Campbell-Rampersad arxiv:2604.25811v2 full HTML Sections 3 and 5",
+        "Defant-Kravitz arxiv:1809.09158",
+        "Allouche 1992 factor complexity",
+        "Resultary semantic query paperfolding tortoise thresholds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Injectivity of T on F_n does not automatically imply injectivity of T^k on F_n because T(F_n) need not be contained in F_n.",
+          "Factor complexity 4n is a useful independent count consistency check, not a collision exclusion."
+        ],
+        "reasoning": "Prior results do not imply higher-k thresholds without factor-specific collision and one-count arguments.",
+        "searches": [
+          "Campbell-Rampersad single iteration injectivity theorem",
+          "Allouche 4n factor complexity",
+          "Defant-Kravitz general T-map"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campbell-Rampersad supplies only the first proven paperfolding injectivity threshold and four unproved computer observations.",
+          "Resultary query returned automata threshold records, but no paperfolding/tortoise exact table."
+        ],
+        "reasoning": "Previously reported numbers k2..5 are not new numerical observations; the new all-length proofs and all k6..31 certified numbers are not present in inspected primary sections.",
+        "searches": [
+          "Campbell-Rampersad arxiv:2604.25811v2 Sections 3,5,7 full HTML",
+          "Resultary paperfolding word tortoise operator iterated T^k factor injectivity thresholds sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "k1=8 was already rigorously proved; k2..5=13,14,25,26 were already reported experimentally and are explicitly credited.",
+          "The 26 further values k6..31 have no matching retrieved table."
+        ],
+        "reasoning": "Exact numerical equality for k2..5 was known experimentally but not proved; novelty lies in rigorous cutoffs and deeper entries. No unindexed or later table can be ruled out exhaustively.",
+        "searches": [
+          "Campbell-Rampersad 2026 Section 5 displayed k=1..5 table",
+          "Resultary iteration-depth paperfolding query"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. Campbell-Rampersad 2026 Section 5 proves s(1)=8, lists k=2..5 thresholds 13,14,25,26 as computer observations, and raises the higher-iteration question; those numerical values alone are prior but their all-length proofs were not given. This record proves those four and supplies 26 more certified values for k=6..31. Defant-Kravitz define tortoise/hare on words, and Allouche gives paperfolding 4n factor complexity. An unpublished high-k table or newer manuscript could overlap.",
+      "residual_risks": [
+        "31-depth table is a finite-in-k classification; no formula or assertion for all k.",
+        "The predecessor collisions and k-one counts were independently recomputed on complete factor sets using the five-period coverage lemma; code is independently replayable but not formal verification.",
+        "A later or unindexed higher-iteration table could contain overlapping results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Section 5 proves k1 threshold and reports four further computer observations, not full 31 certification",
+          "evidence": [
+            "k1=8 rigorously known; k2=13, k3=14, k4=25, k5=26 stated as computational suggestions; new k6..31 absent from inspected material."
+          ],
+          "identifier_or_url": "arxiv:2604.25811v2",
+          "material_read": "Full accessible arXiv HTML, materially inspected Sections 3, 5 and their paperfolding threshold discussion",
+          "method": "Primary full HTML source reading",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Precisely the same binary tortoise operator on paperfolding factors"
+        },
+        {
+          "assessment": "Definitions/finite-word sorting properties but not regular paperfolding factor threshold classification",
+          "evidence": [
+            "No retrieved text asserts regular paperfolding factor injectivity cutoffs for 31 iterations."
+          ],
+          "identifier_or_url": "arxiv:1809.09158",
+          "material_read": "Accessible original abstract and mathematical formulation, not the complete original full article",
+          "method": "Primary arXiv abstract and relevant definition comparison",
+          "title": "Stack-sorting for words",
+          "trigger": "Defines the foundational tortoise mapping"
+        },
+        {
+          "assessment": "Known exact complexity, does not imply injectivity",
+          "evidence": [
+            "4n counts alone cannot prove injectivity of iterated relocation maps."
+          ],
+          "identifier_or_url": "Allouche, Bull. Aust. Math. Soc. 46 (1992), 23-32",
+          "material_read": "Factor-complexity 4n statement as quoted in Campbell-Rampersad; complete original paper not read",
+          "method": "Second-hand primary attribution via inspected Campbell-Rampersad",
+          "title": "The number of factors in a paperfolding sequence",
+          "trigger": "Classical factor complexity identity used as sanity check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The invariant is explicitly asked about in a contemporary study of paperfolding factors under iterated sorting, and the 31 exact sharp thresholds include multiple dyadic jumps, not just a trivial first case. Exhaustiveness and an infinite-length propagation argument convert finite observed data into logically certified cutoffs for 31 natural depths; no arbitrary all-k theorem is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 146c24b3a4120a4d226f84d9a665e2d65db995ca",
+    "Frozen threshold_table.csv fc586bca312a92a33067ac2b53438511ecd7aa35",
+    "Frozen verify_prefix.py 36e3e092d66289fd81a1900c1449f67823bcc410",
+    "Frozen verify_skeleton.py e2869b44a429810c25c1c0f48cc4b10a98bc2259",
+    "Independent 62 decisive tests scope_worker07_independent_20261106T0341_results.json",
+    "Campbell-Rampersad arxiv:2604.25811v2 full HTML Sections 3 and 5",
+    "Defant-Kravitz arxiv:1809.09158",
+    "Allouche 1992 factor complexity",
+    "Resultary semantic query paperfolding tortoise thresholds"
+  ],
+  "disposition": "passed",
+  "final_claim": "For regular binary paperfolding factors and k-fold tortoise T moving the leftmost 1 to the end, s(k) is finite and equals the explicit 31-entry integer table [8,13,14,25,26,28,29,49,50,52,53,56,57,58,61,97,98,100,101,104,105,106,109,112,113,114,116,117,121,122,125] for k=1..31, where s(k) is the least length after which T^k is injective on factors at every larger length.",
+  "limitations": [
+    "31-depth table is a finite-in-k classification; no formula or assertion for all k.",
+    "The predecessor collisions and k-one counts were independently recomputed on complete factor sets using the five-period coverage lemma; code is independently replayable but not formal verification.",
+    "A later or unindexed higher-iteration table could contain overlapping results.",
+    "This is a bounded best-of-knowledge originality assessment, not a guarantee that no unlocated prior theorem applies.",
+    "Finite tests are corroboration; universal reasoning is the mathematical proof and exact finite certificates where applicable."
+  ],
+  "schema_version": 1
+}
