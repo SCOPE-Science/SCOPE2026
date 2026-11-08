@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The two exact subset probability laws are derived from the stated algorithms and all pivot denominators are positive under SPD. The Schur complement leaves exactly one diagonal residual det(A)/w_ij. Harmonic-mean equality is exact. The upper optimization uses distances of rank-one Gram projectors, which satisfy triangle inequalities, and a monotone squared-side transfer to a degenerate triangle followed by a nonnegative fully factored rational certificate. Regularized collinear unit-vector Gram matrices give a sharp limit 6/5. The 682 exact assertions in verify.py replayed from the package; finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al., arxiv:2207.06503, Thms. 3.1 and 4.5: dimension-free error-control bounds and k-DPP rank-complexity comparison.",
+        "Epperly, arxiv:2608.20633, Thm. 1.2 and Cor. 1.3: global RPCholesky expected trace and tail bounds, not fixed-budget three-point DPP comparison.",
+        "Steinerberger, arxiv:2404.11487, Thm. §2.1: squared residual-diagonal weights for Frobenius control; different rule and error norm."
+      ],
+      "reasoning": "The global guarantees compare each sampler to optimal low-rank approximation after sufficient steps; they do not order the two algorithms at precisely k=2 on all 3x3 correlation matrices nor yield the tight 6/5 factor or equality class. The adaptive QR equivalence likewise does not imply a k-DPP comparison.",
+      "searches": [
+        "randomly pivoted Cholesky practical comparison DPP general expected error bounds",
+        "A new analysis of the randomly pivoted Cholesky algorithm 2026 trace spectral norm bounds",
+        "randomly pivoted partial Cholesky random how alternative pivot weights"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.06503: sections 1.1, 3, 4.3-4.4",
+      "arxiv:2005.03185: sections 3 and 4.3",
+      "arxiv:2404.11487: sections 1-2",
+      "arxiv:2608.20633: sections 1.2-1.6, 2",
+      "Published mathematical claims index: four semantic queries and comparison against nearest relevant claims",
+      "Accessible prior mathematical-claim corpus: searches for aliases, source identifiers, and neighboring numerical linear algebra results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The identity that products of pivot numerators equal the selected principal determinant (Epperly, arxiv:2608.20633, Eq. 2.2) explains the relation between the two distributions but leaves path-dependent residual-trace denominators.",
+        "General DPP error bounds target optimal low rank, not a fixed k=2 comparison to RPCholesky.",
+        "The new ratio requires both the 3x3 Schur complement calculation and a global extremal inequality restricted by Gram-matrix realizability."
+      ],
+      "reasoning": "The prior distributions imply the starting probability formulas but not by simple substitution the lower ordering, strict equality locus, or sharp 6/5 factor. The latter follows only after the additional three-projector distance geometry and exact degeneracy optimization; no published directly dominating statement was located.",
+      "searches": [
+        "arxiv:2207.06503 §4.4 DPP determinant subset law and §1.1 Cholesky pivot rule",
+        "arxiv:2608.20633 §2 ordered sequence probability determinant over residual trace products",
+        "arxiv:2005.03185 Theorem 7 Nyström k-DPP expected error guarantee"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al., arxiv:2207.06503, §1.1 and §4.4: sequential residual-diagonal sampling and determinant-weighted DPP are different methods.",
+        "Dereziński–Mahoney, arxiv:2005.03185, §§3–4: fixed-size DPP, Nyström and general error guarantees.",
+        "Source contrast uses normalized equal-diagonal three-point PSD kernels with rank-two sampling, not arbitrary row-volume selection or one-step spectral error."
+      ],
+      "reasoning": "Re-expressed the claim as an ordering of expected Nyström trace errors, a harmonic-mean inequality for the three residual traces, and a chordal-distance inequality among rank-one projectors. None of the checked source statements is the sharp claim or an equivalent restatement. The standard definitions alone do not determine the 6/5 optimum.",
+      "searches": [
+        "randomly pivoted Cholesky versus k-DPP sampling expected Nyström trace norm error three by three equal diagonal kernel matrix",
+        "sequential residual diagonal pivoting vs volume sampling expected error 3x3 matrix k=2",
+        "three by three equal-diagonal positive definite Nyström RPCholesky versus determinant volume sampling comparison Jensen arithmetic harmonic mean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding \"Worst-case sharpness of multistage adaptive randomized pivoting\" concerns error-factor sharpness for rectangular projections, not this k-DPP/3-correlation-kernel ratio.",
+        "Published finding \"Deflation-history contamination can make weighted-mass ACA arbitrarily suboptimal\" concerns stale weighted-mass cross approximation and a Frobenius gap, not these trace errors and sampling laws.",
+        "Prior result \"A sharp angular-information threshold for planar Gaussian Nyström covariance design\" concerns Gaussian sketch covariance design, not sequential Cholesky or determinant sampling."
+      ],
+      "reasoning": "Searched concrete aliases/parameters/equivalences and examined recoverable own claim statements for overlap. A partitioned database or the absence of search matches does not prove uniqueness. No exact table or same claim was identified, and no stronger theorem in a record was found to dominate it.",
+      "searches": [
+        "Exact 3 by 3 correlation matrix randomly pivoted Cholesky 2 pivot vs k determinantal point process expected trace residual ratio bounded six fifths",
+        "three-dimensional correlation kernels determinantal point process outperforms residual-diagonal sequential Cholesky in expected trace error sharp factor 6/5",
+        "sequential sampling without replacement residual diagonals vs k-DPP trace-error distribution 3x3",
+        "Prior claim-content search: pivot; Cholesky; Nystr; determinantal; volume sampl; correlation matrix; trace error"
+      ]
+    },
+    "rationale": "Searched aliases and implication-level coverage against published computational-mathematics records and the accessible comparison corpus of prior scientific claims, and compared the relevant original algorithms and their mathematical analyses. The known RPCholesky and DPP laws are different but the exact three-point correlation-kernel dominance, equality locus, and sharp 6/5 ratio require an additional projector-triangle extremal argument not located in the inspected sources. Novelty remains qualified by possible unlocated equivalent specialist calculations.",
+    "residual_risks": [
+      "Prior specialists may have derived an equivalent three-point volume sampling inequality in differently named column-subset literature; exact-paper completeness cannot be proven from available retrieval.",
+      "A direct corollary of an uninspected general dominance theorem for equal-diagonal low-dimensional matrices could subsume this result; no such theorem was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUND DEFINITIONS AND BOUNDS, NOT THE SHARP 3-POINT CORRELATION RATIO",
+        "evidence": [
+          "Section 1.1 defines RP pivot proportional to current residual diagonal; §4.4 defines k-DPP via determinant normalized over subsets; Theorem 4.5 gives generic rank sampling accuracy."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+        "material_read": "arXiv hosted full-text HTML, Sections 1.1, 3, 4.3, 4.4, including pivot and DPP formulae and stated sampling bounds",
+        "method": "section reading and searches for DPP, determinant and expected-error comparisons",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Same algorithm and comparator, closest primary source"
+      },
+      {
+        "assessment": "GENERAL k-DPP NYSTROM GUARANTEES, NOT THE RP COMPARISON",
+        "evidence": [
+          "§4.3 Definition 5 and Theorem 7 provide the Nyström formula and k-DPP low-rank error bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.03185",
+        "material_read": "arXiv full-text HTML, Sections 3 and 4 including §4.3 Theorem 7 and Nyström definition",
+        "method": "read relevant full-text sections and theorem statements",
+        "title": "Determinantal Point Processes in Randomized Numerical Linear Algebra",
+        "trigger": "Primary determinant sampling and Nyström expected trace context"
+      },
+      {
+        "assessment": "DIFFERENT FROBENIUS-OBJECTIVE RULE, NO SAME k-DPP COMPARISON",
+        "evidence": [
+          "Section 2.1 uses squared residual diagonals to control Frobenius norm. No DPP comparison found in the full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.11487",
+        "material_read": "arXiv full-text HTML, Sections 1–2 including the main Frobenius norm result",
+        "method": "read algorithm/claims and search for DPP references",
+        "title": "Randomly Pivoted Partial Cholesky: Random How?",
+        "trigger": "Potentially broader sampling-power generalization"
+      },
+      {
+        "assessment": "GLOBAL COMPLEXITY BOUNDS, NO FIXED 3x3 SHARP COMPARISON",
+        "evidence": [
+          "§2 Eq. (2.2) proves determinant numerator for each pivot order; §1.2 bounds expected residual to optimal rank-r error, rather than pointwise risk ordering with DPP."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20633",
+        "material_read": "arXiv full-text HTML, Sections 1.2–1.6 and §2 probability of ordered pivot tuples",
+        "method": "read exact formulae and coverage of DPP versus RP, including Theorem 1.2 and Corollary 1.3",
+        "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+        "trigger": "Potential 2026 stronger coverage of RPCholesky and path laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "579efcd9-ed6a-4cf3-9d2f-4cdc4c87b32a",
+  "value": {
+    "rationale": "At the first nontrivial rank-two/three-point sampling budget, this classifies exactly which of two practical Nyström pivot-selection laws has lower expected trace risk on all equal-self-similarity kernels and quantifies the maximal 20% shortfall. The lower equality class and nearly collinear sharp family give actionable structural benchmarking. The restriction to a natural matrix class is essential, as a diagonal counterexample reverses dominance when diagonals are unequal. No downstream theorem or computational speed claim is required for the precise natural performance invariant.",
+    "status": "PASS"
+  }
+}
