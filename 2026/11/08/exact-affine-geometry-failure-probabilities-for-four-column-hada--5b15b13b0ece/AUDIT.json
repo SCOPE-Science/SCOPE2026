@@ -1,0 +1,173 @@
+{
+  "correctness": {
+    "rationale": "All N=2^d, d>=3, 4<=m<=N, distinct four-column supports are exhausted by two affine orbits. The plane orbit reduces to occupancy of four equally sized Walsh types; the independent orbit reduces to affine rank of eight cube vertices, with exactly 12 coplanar quadruples. Inclusion-exclusion gives both closed binomial formulas. For m^2/N->0, product asymptotics give the exponential ratio. Direct exact verifier reproduces all 70 supports and sampling sizes on N=8, two canonical supports and all sampling sizes on N=16, and all 12 cube planes; 450 assertions. Modular rank equals rational rank since 4x4 integer sign determinants have magnitude <=16, smaller than the modulus 101. Analytic proof, not finite enumeration, supports all dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tropp arXiv:1011.1595 Section 1.1 defines SRHT and proves generic subspace preservation via matrix concentration; general sufficient bounds do not specify exact finite combinatorial rank failure by affine orbit.",
+        "Balabanov et al. arXiv:2210.11295v1 Section 2 equation (2.1) defines standard SRHT with and without replacement and Theorem 2.1 treats block SRHT oblivious embedding, not exact four-coordinate rank laws.",
+        "Ipsen–Wentworth SIAM J. Matrix Anal. Appl. 35 (2014) abstract describes bounds depending on leverage/coherence; full text not accessed."
+      ],
+      "reasoning": "Broader high-probability sketching theorems concern upper bounds on failure or condition numbers; they do not imply exact q_plane and q_indep or their 9/2 and exponentially growing ratios. Full-content inaccessibility of the directly related Ipsen–Wentworth article remains explicitly recorded.",
+      "searches": [
+        "Rank of uniformly randomly row-subsampled Walsh Hadamard for fixed four-sparse coordinate subspace 4-column failure probability occupancy 4 and 8 types",
+        "Unbiased randomized Hadamard subspace embedding two four-dimensional coordinate subspaces same leverage scores exponentially different singularity probabilities",
+        "Tropp Improved analysis SRHT arxiv:1011.1595",
+        "Balabanov Beaupere Grigori Lederer arxiv:2210.11295",
+        "Ipsen Wentworth coherence orthonormal columns arxiv:1203.4809"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1011.1595 (relevant PDF sections)",
+      "arxiv:2210.11295v1 (relevant PDF sections)",
+      "arxiv:1203.4809 (publisher abstract only)",
+      "doi:10.1080/03081087.2016.1250863 (abstract only)",
+      "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4 (complete public RESULT.md)",
+      "2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1 (complete public RESULT.md)",
+      "2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e (result abstract)",
+      "2026/10/4/SCOPE-exact-singular-minors-for-the-near-consecutive-four-row-harmonic--bb8a5601ae6d (result abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "SRHT concentration/bounds cannot imply a unique per-orbit exact rank-failure distribution: they control maximum error or failure from above rather than determine the combinatorial occupancy distribution.",
+        "Four-sparse exact Fourier support requires all coefficients nonzero, whereas a plane face in the independent Walsh cube has rank deficiency witnessed by a two-term dependence.",
+        "Ipsen–Wentworth abstract does not specify the claimed explicit formulas; full text not inspected, preventing a definitive exclusion.",
+        "Huckle–Kravvaritis abstract concerns spectra of leading principal Sylvester Hadamard submatrices; this statement requires arbitrary row subsets and selected four columns."
+      ],
+      "reasoning": "The exact claim is simultaneously about all d>=3, all 4<=m<=2^d, and the two XOR column orbits, and supplies closed finite probabilities plus asymptotic separation for equally leveraged subspaces. None of the materially compared accessible conclusions directly entails that classification. Publication precedent remains qualified.",
+      "searches": [
+        "Subsampled randomized Hadamard transform exact rank deficiency probability four coordinate columns parallelogram xor relation finite hypercube rows",
+        "Exact failure probability four-column SRHT sketch n=8 m=4 54/70 12/70 affine dependent",
+        "Walsh Hadamard row sampling coordinate subspace embedding failure dependence additive quadruple, affine independent independent",
+        "For a four-column submatrix of the Sylvester Hadamard matrix, exact probability that m uniformly sampled rows give rank less than four, parallelogram versus affine-independent frequency sets",
+        "Rank of uniformly randomly row-subsampled Walsh Hadamard for fixed four-sparse coordinate subspace 4-column failure probability occupancy 4 and 8 types",
+        "Unbiased randomized Hadamard subspace embedding two four-dimensional coordinate subspaces same leverage scores exponentially different singularity probabilities",
+        "\"subsampled Hadamard\" \"rank deficient\" columns sampling exact",
+        "\"Walsh\" \"singular\" \"four columns\" sampling rows",
+        "\"subsampled randomized Hadamard transform\" failure four sparse rank probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Four-column singularity is equivalently existence of a nonzero real coefficient vector annihilated by all sampled Walsh row characters; for the independent four-character model, singularity means sampled cube points have affine dimension at most two.",
+        "The published four-sparse Walsh theorem (public RESULT.md, 2026/10/4) classifies Fourier zeros with all four time-domain coefficients nonzero, but cube face and diagonal planarities have two-term null vectors and thus fall outside its assumptions.",
+        "Two affine orbits are distinguished by the four-frequency XOR; the first gives the four-state occupancy event, the second the eight-corner affine plane event."
+      ],
+      "reasoning": "The relevant equivalent Fourier-zero and interpolation formulations were checked against the nearest available mathematical notes. Four-nonzero-coefficient uncertainty results cannot yield the full sampled rank census, since the rank dependencies in this candidate have zeros among coefficient entries.",
+      "searches": [
+        "Subsampled randomized Hadamard transform exact rank deficiency probability four coordinate columns parallelogram xor relation finite hypercube rows",
+        "Walsh Hadamard row sampling coordinate subspace embedding failure dependence additive quadruple, affine independent independent",
+        "For a four-column submatrix of the Sylvester Hadamard matrix, exact probability that m uniformly sampled rows give rank less than four, parallelogram versus affine-independent frequency sets",
+        "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly read eight-point Walsh spectrum RESULT.md counts 8-by-8 orthogonal character restrictions in F_2^4; it does not enumerate random four-column rank for arbitrary m and d.",
+        "A ternary affine-plane four-by-four Fourier-minor census is in a different field, and a near-consecutive cyclic-DFT minor count studies a different matrix.",
+        "No exact q_plane(N,m) and q_indep(N,m) table was identified in searched accessible records."
+      ],
+      "reasoning": "Adjacent singular-minor and Walsh-spectral tables have different objects, fields, row/column counts, and implications. Negative searches are not proof of originality; strongest recovered accessible tables were checked for statement containment.",
+      "searches": [
+        "Exact failure probability four-column SRHT sketch n=8 m=4 54/70 12/70 affine dependent",
+        "For a four-column submatrix of the Sylvester Hadamard matrix, exact probability that m uniformly sampled rows give rank less than four, parallelogram versus affine-independent frequency sets",
+        "Rank of uniformly randomly row-subsampled Walsh Hadamard for fixed four-sparse coordinate subspace 4-column failure probability occupancy 4 and 8 types",
+        "2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1",
+        "2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e",
+        "2026/10/4/SCOPE-exact-singular-minors-for-the-near-consecutive-four-row-harmonic--bb8a5601ae6d"
+      ]
+    },
+    "rationale": "Claim-specific searches and material comparisons found no implication of the exact two-orbit rank-failure laws. Classic SRHT and block-SRHT primary sources establish general embedding bounds; Ipsen–Wentworth state generic coherence-dependent rank/conditioning estimates, not the class-specific binomial counts in the accessible material; older Sylvester leading-principal-submatrix spectral analysis has a different object. A four-sparse Walsh exact Fourier support classification excludes the null coefficient patterns responsible for the four-corner dependencies, and an eight-point orthogonal Walsh spectrum census is not an exact arbitrary-row four-column singularity probability. No claim of categorical publication novelty or independent audit is made; specialist minor-counting and inaccessible sources remain residual risk.",
+    "residual_risks": [
+      "Publication-precedence risk: the 2012 Ipsen–Wentworth full text was not accessible, although abstract scope appears to be bounds rather than exact formulas.",
+      "Publication-precedence risk: full 2017 Huckle–Kravvaritis article was not inspected; accessible abstract emphasizes principal submatrices.",
+      "An equivalent four-column Hadamard-rank enumeration under alternative coding-theoretic terminology may exist beyond the searched sources.",
+      "No independent specialist validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Standard SRHT map and concentration guarantee, not an exact per-affine-orbit sampled four-column rank distribution",
+        "evidence": [
+          "ArXiv PDF lines 50–76 on page 2 (1-indexed) explicitly define the scaled RHD sketch.",
+          "The introduction describes matrix Chernoff-based preservation bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1011.1595",
+        "material_read": "PDF page 2, Section 1.1 definition and surrounding theorem/introduction; PDF landing and theorem summary",
+        "method": "Read arXiv PDF text and rendered page screenshot",
+        "title": "Improved analysis of the subsampled randomized Hadamard transform",
+        "trigger": "Original standard SRHT formula and rank preservation bounds"
+      },
+      {
+        "assessment": "Defines standard SRHT with and without replacement, and proves OSE bound for a different block construction; not the exact rank-failure classification",
+        "evidence": [
+          "v1 PDF header: arXiv:2210.11295v1, 20 Oct 2022.",
+          "Section 2 equation (2.1) and Theorem 2.1 lines 113–223."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.11295",
+        "material_read": "PDF first page and Section 2 pp. 3–4, equations (2.1)–(2.3), Theorem 2.1",
+        "method": "Read arXiv v1 PDF text and rendered page screenshot; verified v1 public date 20 October 2022",
+        "title": "Block subsampled randomized Hadamard transform for low-rank approximation on distributed architectures",
+        "trigger": "Middle-period motivating SRHT paper and sample-without-replacement definition"
+      },
+      {
+        "assessment": "Only generic coherence-based upper-bound statement compared; full-text coverage not determined",
+        "evidence": [
+          "Publisher abstract describes nonnecessarily tight condition-number bounds in terms of coherence and leverage scores.",
+          "Full primary PDF could not be inspected; publication precedence risk retained."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120870748",
+        "material_read": "Accessible publisher abstract and bibliographic material; attempted open arXiv PDF but unavailable, institutional retrieval blocked",
+        "method": "Read publisher abstract; attempted arXiv open and authorized full-text retrieval without success",
+        "title": "The Effect of Coherence on Sampling from Matrices with Orthonormal Columns, and Preconditioned Least Squares Problems",
+        "trigger": "Full-rank guarantees based on coherence and leverage, directly near value interpretation"
+      },
+      {
+        "assessment": "Abstract emphasizes leading principal submatrix spectra; no evidence of arbitrary four-column random row-subset failure counts, but complete text uninspected",
+        "evidence": [
+          "Publisher summary describes leading principal submatrices and upper/lower corner relations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1250863",
+        "material_read": "Official publisher abstract and university research profile summary only",
+        "method": "Read article metadata and abstracts; full text unavailable",
+        "title": "Properties of submatrices of Sylvester Hadamard matrices",
+        "trigger": "Plausible older minor-spectrum result"
+      },
+      {
+        "assessment": "Requires exactly four nonzero time coefficients and classifies Fourier support, not arbitrary row-subset rank of four Walsh columns",
+        "evidence": [
+          "Its assumptions require four nonzero coefficients.",
+          "Its affine-independent zero-pattern theorem excludes the two-term null vectors supported by planes x=+1 and x=y."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4/RESULT.md",
+        "material_read": "Complete public mathematical RESULT.md with assumptions, proof, and limitations",
+        "method": "Read published full mathematical statement via read-only repository file retrieval",
+        "title": "Four-sparse Walsh spectra are controlled by affine dimension on (Z/2Z)^d",
+        "trigger": "Same four-frequency affine orbit and Walsh zero patterns"
+      },
+      {
+        "assessment": "Classifies orthogonal 8-column spectra on 8-point subsets of F_2^4, not exact sampled rank of four columns for every size m",
+        "evidence": [
+          "Its event is orthogonality of 8 distinct frequency characters on an 8-point sample; ours is full column rank of 4 characters on random m-point samples."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1/RESULT.md",
+        "material_read": "Complete public mathematical RESULT.md with proof and limitations",
+        "method": "Read published full mathematical statement via read-only repository file retrieval",
+        "title": "Exact Walsh-spectrum multiplicities for eight-point subsets of the Boolean four-cube",
+        "trigger": "Exact singular/orthogonal Walsh restriction combinatorics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b15b13b-0ece-4b35-88ed-b94469bc7c8f",
+  "value": {
+    "rationale": "Rank loss is the sharp failure event for embedding a fixed coordinate subspace and a fundamental property of randomized numerical linear-algebra sketches. Four-coordinate supports are the first size exhibiting distinct affine types. The exact finite-N full-parameter laws reveal a substantial 9/2 failure-ratio already in dimension 8 and an exponential asymptotic separation even with identical leverage/coherence, a motivated benchmark that general bounds cannot resolve. This classification is nontrivial beyond a one-off finite census; it applies to all Walsh orders and admissible sample sizes. Not a claim about general condition numbers or runtime.",
+    "status": "PASS"
+  }
+}
