@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact-rational checker `verify_path_cutting.py` is self-contained (Python 3 standard library). It separately constructs the actual stopping-time distribution by an explicit recursive examination of every possible first cut, tracking whether each original target remains. Its independent second calculation constructs generating polynomials from Bernoulli success probabilities \(1/(k+1)\). Across 55 ordered positive arm-length pairs of total sizes \(3\) through \(12\), all probability coefficients agree exactly. The checker also verifies normalization, the exact one-cut mass, the exact expectation and both sharp total-variation equalities; 964 assertions pass. Four additional finite-sum numerical checks compare expectation formulas. No Monte Carlo approximation is needed.
+## correctness
 
-Reproduce: `python3 verify_path_cutting.py` in the directory containing the bundled file.
+PASS
 
-These finite computations confirm small cases of the claimed identity but are not exhaustive over infinitely many arm lengths. The mathematical proof in `RESULT.md` derives the finite identity without computational enumeration, and separately proves the interior limiting law, endpoint TV approximation, and independent-Bernoulli central limit theorem. No external or independent review was performed.
+For the uniform vertex-cutting process, condition first on which current source-component vertex is selected. When one target remains active on an arm of length c and the other arm is inert of length d, F_c(d;z)=z(c+1+sum_{h<d}F_c(h;z))/(c+d+1), solving to Q_c(d)=(c+1)prod_{k=c+1}^{c+d}(1+z/k). Conditioning on the first cut with two active endpoint targets gives E[z^(S-1)] as the sum of two Bernoulli PGFs minus one. Coefficient comparison yields P(S=1)=1/N and exact TV(S-1,A)=a/N, TV(S-1,B)=b/N. Taylor logs of products yield macroscopic interior PGF and normalized positive-Poisson mixture. At a/N->0, TV transfer to independent Bernoulli A with mean H_N-H_(a+1)->infty and asymptotic variance proves the Gaussian crossover. Independent exact-rational Markov recursion checked 36 ordered (a,b) cases; asymptotic quantifiers rely on proof.
+
+## originality
+
+PASS
+
+Burghart establishes the cutting model and a centered-source limiting Poisson law. The new theorem recovers that limit at x=1/2, but extends to exact finite asymmetric PGFs, TV coupling and boundary Gaussian scaling. Compared Burghart full preprint/conference material and related root-cutting record literature; no decisive covering theorem found. Broad general record-cutting formulas remain a residual originality risk.
+
+## value
+
+PASS
+
+An exact two-target stopping-time distribution and sharp finite TV errors for arbitrary asymmetric path arms answer a natural extension of the original random graph-cutting observable, and expose a qualitative interior-to-endpoint Poisson-to-Gaussian transition. The exact finite identity is independently useful to probabilistic path-cutting research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

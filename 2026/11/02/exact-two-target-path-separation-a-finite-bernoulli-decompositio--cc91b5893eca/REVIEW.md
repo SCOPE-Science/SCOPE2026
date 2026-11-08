@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The source-preserving, target-discarding Markov chain is defined with exact quantifiers and an explicit stopping rule. The one-target recurrence and telescoping product yield an exact two-target polynomial law for all positive arm lengths; coefficient comparison gives the sharp total-variation constants. The interior mixture follows from summable Taylor errors and harmonic sums; the boundary Gaussian limit uses a diverging independent-Bernoulli variance and a vanishing TV transfer. The bundled independent rational recurrence passed 964 assertions on 55 cases. Tests do not replace the full proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Burghart's arXiv:2111.02968, Section 2, Proposition 1 already proves the centered-path limiting positive-Poisson law. It is not claimed as new. The present result specifies an exact finite two-arm PGF, exact TV errors, all unequal macroscopic source fractions, and the sublinear boundary Gaussian regime, none stated as such in the inspected full arXiv original or its sections on further examples and questions. Other cutting/record machinery could imply the result after extra work. Broader equivalent representations and unpublished earlier treatments remain a residual risk; search absence cannot certify novelty.
+PASS
 
-**Value — PASS.** This is a natural two-target separation statistic of an established cutting model, and moving the source is a geometric structural parameter, not an arbitrary numerical slice. The exact distributional decomposition identifies which arm contributes to stopping, an optimal and quantitatively sharp error for replacing the whole stopping time by a one-arm sum, and a change from tight mixed truncated-Poisson laws to Gaussian fluctuations at the boundary. These results distinguish two physically different source-placement regimes and support calculations beyond the centered case.
+For the uniform vertex-cutting process, condition first on which current source-component vertex is selected. When one target remains active on an arm of length c and the other arm is inert of length d, F_c(d;z)=z(c+1+sum_{h<d}F_c(h;z))/(c+d+1), solving to Q_c(d)=(c+1)prod_{k=c+1}^{c+d}(1+z/k). Conditioning on the first cut with two active endpoint targets gives E[z^(S-1)] as the sum of two Bernoulli PGFs minus one. Coefficient comparison yields P(S=1)=1/N and exact TV(S-1,A)=a/N, TV(S-1,B)=b/N. Taylor logs of products yield macroscopic interior PGF and normalized positive-Poisson mixture. At a/N->0, TV transfer to independent Bernoulli A with mean H_N-H_(a+1)->infty and asymptotic variance proves the Gaussian crossover. Independent exact-rational Markov recursion checked 36 ordered (a,b) cases; asymptotic quantifiers rely on proof.
 
-**Source comparisons and scientific limitations.** F. Burghart, arXiv:2111.02968 (complete readable 28-page original), contains the symmetric asymptotic special case and general methods but no explicit full asymmetric finite PGF or TV/normal crossover in the inspected sections. Janson's 2006 classical tree-cutting/records article concerns related stopping models; accessible descriptive material does not establish or exclude these two-target formulas. The present result does not cover arbitrary graphs or weighted cuts. Historical novelty requires external checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Burghart establishes the cutting model and a centered-source limiting Poisson law. The new theorem recovers that limit at x=1/2, but extends to exact finite asymmetric PGFs, TV coupling and boundary Gaussian scaling. Compared Burghart full preprint/conference material and related root-cutting record literature; no decisive covering theorem found. Broad general record-cutting formulas remain a residual originality risk.
+
+## value
+
+PASS
+
+An exact two-target stopping-time distribution and sharp finite TV errors for arbitrary asymmetric path arms answer a natural extension of the original random graph-cutting observable, and expose a qualitative interior-to-endpoint Poisson-to-Gaussian transition. The exact finite identity is independently useful to probabilistic path-cutting research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
