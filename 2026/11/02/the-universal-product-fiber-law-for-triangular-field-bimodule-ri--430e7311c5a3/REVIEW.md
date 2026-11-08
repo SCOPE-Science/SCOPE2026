@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes diagonal product factors, then counts solutions to the middle bimodule equation. The only exceptional case is when both scalar multipliers vanish, and the correction has exactly \(QT\) instances. The explicit twisted bimodule is associative because the Frobenius action is a field automorphism. The center calculation is intrinsic, and complete enumeration of the two \(256\)-element rings corroborates the formula and center sizes. The universal statement is symbolic, not an extrapolation from finite computations.
+## correctness
 
-## Originality — PASS, qualified
-Dolžan (arXiv:2504.12886) studies the same fixed-target probability, but the inspected full text calculates semisimple and local cases rather than the nonlocal triangular-bimodule formula. Its general annihilator identity is a relevant predecessor. The closest distinct mathematical-record search result concerns commutator fibers, not multiplication fibers. No equivalent claim appeared in the queried published research records or accessible primary literature. Historical priority is not independently certified; a more general prior theorem might imply the result.
+PASS
 
-## Mathematical value — PASS
-The formula classifies the complete multiplication-fiber distribution for an infinite family of finite rings. Its invariance under changing bimodule actions is demonstrated by nonisomorphic rings of equal order whose centers differ, showing a genuine limit on reconstruction from product probabilities.
+Fixing ax=u and cz=w gives c_Q(u)c_T(w) corner choices. When left a or right z is nonzero, the corresponding unital field action is bijective and the middle equation ay+bz=v has exactly m pairs. For the QT exceptional corner choices a=z=0 (possible only u=w=0), replace m by m² if v=0 or zero otherwise. For F4⊕F4 with untwisted vs Frobenius-twisted right action, commutation with a diagonal idempotent kills off-diagonal central coordinates, and comparing components forces 4 vs 2 centers. Independently enumerated 65536 pairs for EACH ring; target fiber multiset 144×144, 336×96, 528×15, 4624×1, all pointwise equal. The universal formula follows from proof, not finite enumeration.
 
-## Limits
-The result applies only to the specified field-corner triangular rings. The example is not asserted to be minimal. A separate expert audit and complete global literature search have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dolžan studies fixed-target finite-ring multiplication probabilities but inspected Sections 2–4 address generic identities, simple rings and local rings, not two-field nonlocal upper-triangular bimodules. Resultary Kronecker path-algebra result concerns commutator fibers (a different operation). The center-blindness witness is not implied by generic zero-product probability; possible prior quiver-ring counting identities remain a residual risk.
+
+## value
+
+PASS
+
+An exact product distribution for an entire natural radical-square-zero ring family reveals a genuine limit of a finite-ring statistical invariant: it cannot determine the center, even for rings of equal order with fixed diagonal fields. The two nonisomorphic examples are structurally motivated rather than an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
