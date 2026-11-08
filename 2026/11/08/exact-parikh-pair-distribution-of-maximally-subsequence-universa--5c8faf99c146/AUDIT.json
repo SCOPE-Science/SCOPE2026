@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Greedy arch count equals subsequence-universality index by constructive matching and the completion-letter absent-subsequence witness. Exactly k occurrences of b force unique factorization into k arches ba or a^(u+1)b and terminal a^v, with sum of extras r. Pair counts split into T=binom(k,2) cross-arch pairs and sum_i epsilon_i(1+(k-i+1)u_i). Formal geometric products give the exact all-k>=4,r expression; reversal proves reciprocal symmetry and coefficient extraction proves all edge formulas. An independently defined brute subsequence test agreed for 6,441 words across 25 pairs, and did not substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.06717, Sections 3-5: exact existence/universality criteria, fixed-pattern additive probability approximation, bounded-parameter exact counting",
+        "arxiv:2304.04583: total-length counting and ranking of universal words"
+      ],
+      "reasoning": "The 2026 study covers arbitrary A,B,C but decides extrema or approximates a fixed-pattern probability, rather than providing exact cardinality of those attaining the maximum universality index. Its bounded-count exact procedure could in principle evaluate finite cases but does not state or imply the all-k,r coefficient product. Adamson counts broader length-n k-universal sets in aggregate, which does not determine the finer three-coordinate histogram.",
+      "searches": [
+        "published-finding corpus: binary Parikh matrices subsequence universality exact distribution fixed number of 01 subsequences probability fixed 010 pattern",
+        "published-finding corpus: binary words with exactly k occurrences of b that contain every length-k scattered subword; inversion distribution q generating",
+        "Web: subsequence universality binary words fixed Parikh matrix exact number counts universal representatives 01 scattered count"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.06717",
+      "https://arxiv.org/abs/2304.04583",
+      "https://arxiv.org/abs/2510.07159",
+      "https://arxiv.org/abs/2402.05657",
+      "https://oeis.org/A083906",
+      "published-finding corpus published finding: Closed-form law for binary subsequence universality",
+      "published-finding corpus published finding: Exact full-support insertion radius of subsequence universality",
+      "Prior exact length-three Parikh-class exception formula (only used to exclude k=3 scope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fazekas–Huang–Mercaş arxiv:2610.06717 Sections 2–5",
+        "Duncan Adamson arxiv:2304.04583 Sections 2–3",
+        "Richomme arxiv:2510.07159 Section 4.2",
+        "Renard–Rigo–Whiteland arxiv:2402.05657 Sections 1–2",
+        "Earlier length-three Parikh-class exact-exception formula (index 3 only); no implication for arbitrary k>=4"
+      ],
+      "reasoning": "Universal index and the arch criterion are established premises. Knowing that a Parikh class has at least one maximally universal word, knowing all words are maximally universal, or knowing an aggregate number of k-universal words at length n does not fix how many maximally universal words belong to each C. The exact formula follows from an additional multiplicity-saturation restriction, unique arch-shape analysis and joint q,z weighting. This additional implication was not found as a result in the inspected literature. The separate prior exact 3-universal Parikh-class enumeration is confined to index 3; this statement starts at index 4 and supplies the full distribution simultaneously for unbounded index k.",
+      "searches": [
+        "published-finding corpus: maximal arch index at limiting letter count binary Parikh matrix exact number for given ab pair count C",
+        "published-finding corpus: exact number of 3 subsequence universal binary words in each Parikh matrix class A B C gaussian binomial minus six indicators",
+        "Web: subsequence universality binary words fixed Parikh matrix exact number counts universal representatives 01 scattered count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2510.07159 (partition/2-binomial Parikh-class representation)",
+        "arxiv:2402.05657 (q-Parikh matrices weight subsequence embeddings inside a fixed word)",
+        "https://oeis.org/A083906 (all-word inversion distribution, not conditioned universality)"
+      ],
+      "reasoning": "By swapping b and a and reversing, the ab-count/ba-inversion and Young-diagram area formulations describe the same statistic; these broad transformations do not impose the k-universal filter. The claimed coefficient isolates that filter at saturated multiplicity. Existing unrestricted Gaussian coefficients count all words and are strictly broader in ambient set but do not supply the filtered count.",
+      "searches": [
+        "published-finding corpus: Gaussian q generating polynomial of k-universal words with multiplicity min(A,B)=k, inversion statistic",
+        "published-finding corpus: maximally universal binary words with fixed letter multiplicity and fixed binary Parikh matrix enumerator",
+        "Web: subsequence universal binary words enumerator by number of 01 subsequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus finding titled Closed-form law for binary subsequence universality, aggregate bivariate generating series (1+z)/(1-z-2uz^2)",
+        "https://oeis.org/A083906: inversion count table without k-universality"
+      ],
+      "reasoning": "The closest published published-finding corpus record enumerates universality indices by length and not the joint letter content/ab coordinate. The known inversion tables enumerate unfiltered binary words. Neither directly lists or determines the claimed conditioned coefficients without additional derivation.",
+      "searches": [
+        "published-finding corpus: q^(k(k-1)/2) coefficient z^r of (1-z)^(-1) product_j=1^k (1+q/(1-z*q^j)) enumerates k-universal binary word ab subsequence counts",
+        "published-finding corpus: Exact inversion enumerator for k-subsequence universal binary words with precisely k letters b and A letters a, q product over arches",
+        "Web: binary k subsequence universal words enumerator by number of 01 subsequences"
+      ]
+    },
+    "rationale": "The exact Parikh-class histogram of maximally k-universal representatives for all k>=4,r>=0, refined by ab count C, is not stated or implied without an additional computation in the inspected 2026 existence/forall criteria, Adamson total-length counting/ranking, Richomme partition description, or q-Parikh per-word deformation. Classical greedy arch factorization itself is excluded from novelty. Search absence is not a global priority proof. A prior special-case exact census for universality index three is not part of this claim, whose range starts at four.",
+    "residual_risks": [
+      "Unindexed older partition/subsequence-universality enumerator may contain an equivalent identity",
+      "General fixed-pattern counting machinery can compute finite instances but no all-parameter closed expression was identified",
+      "Best-knowledge originality assessment is not an independent historical-priority certification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Class existence, forall threshold and fixed-pattern approximation do not imply the submitted exact conditional generating polynomial as a stated result",
+        "evidence": [
+          "Theorem 5.7 concerns fixed-pattern additive approximations",
+          "Section 2 introduces binary Parikh classes and greedy arches",
+          "Section 5 boundary procedure allows exact finite calculations but no all-k product"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+        "material_read": "HTML full text, introduction, definitions/arch preliminaries, Sections 3, 4 and 5 including exact boundary-count and additive probability lemmas",
+        "method": "Read full available source text and compared theorem statements and proof scope to conditional exact k,r,C counts",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Same binary Parikh matrix coordinates and 2026 universality theorem"
+      },
+      {
+        "assessment": "Total-length counting does not state joint letter and scattered ab-pair histograms",
+        "evidence": [
+          "U(n,k,sigma) is counted and ranked at fixed length, without ab coordinate"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Available full source text including enumeration and ranking sections 2–3",
+        "method": "Read counting/ranking theorems; compared counted parameter dimensions",
+        "title": "Ranking and Unranking k-Subsequence Universal Words",
+        "trigger": "Exact count of all k-universal words at a given total length"
+      },
+      {
+        "assessment": "Partition bijection does not supply k-universality filtered coefficients",
+        "evidence": [
+          "Partition area/class size relates to all words with given A,B,C"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+        "material_read": "Available full HTML text including Section 4.2 on bounded partitions",
+        "method": "Read partition/class statements and compared whether universality was filtered",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "Potential equivalence of binary Parikh class sizes and partitions"
+      },
+      {
+        "assessment": "Distinct generating variable and quantifier; no direct coverage",
+        "evidence": [
+          "q-deformed binomial counts weight embeddings rather than conditional populations of source words"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05657",
+        "material_read": "Available full HTML text, introduction and construction Sections 1–2",
+        "method": "Compared q-weight target (pattern embeddings in one word) with present generating weight (word count by ordinary ab statistic)",
+        "title": "q-Parikh Matrices and q-deformed binomial coefficients of words",
+        "trigger": "Potential q-deformation equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c8faf99-c146-4c6b-8eeb-a8d45aa68143",
+  "value": {
+    "rationale": "Exact all-k>=4,r,C conditioned distributions answer a natural density/counting question inside binary Parikh-matrix classes recently investigated for exists/forall universality. A complete uniform coefficient product and edge stratification exploit the mathematically meaningful saturation boundary min(|w|a,|w|b)=k. The result determines finer information not recoverable merely from the aggregate count at fixed word length, without claiming a full unsaturated census.",
+    "status": "PASS"
+  }
+}
