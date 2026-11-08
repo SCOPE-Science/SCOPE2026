@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-## Direct checks
+# Independent mathematical audit
 
-Run the standalone Python 3 standard-library program `python verify_hyperbolic_acuteness.py` from the same directory as this document. The program checks the one-dimensional exact gap integral independently against an absolutely convergent odd dilogarithm series at five positive radii. It also constructs the Poincaré geodesic as a Euclidean circle orthogonal to the unit-disk boundary, computes the two initial geodesic tangent vectors at each vertex, and compares the resulting direct acuteness frequency with the theorem at four radii using 25,000 independently sampled triangles per radius.
+## correctness
 
-The actual completed run printed:
+PASS
 
-```
-INDEPENDENT_GAP_INTEGRALS_AND_ODD_DILOG_SERIES_PASSED 5
-DIRECT_POINCARE_GEODESIC_TANGENT_MONTE_CARLO_PASSED 0.3 25000
-DIRECT_POINCARE_GEODESIC_TANGENT_MONTE_CARLO_PASSED 1.0 25000
-DIRECT_POINCARE_GEODESIC_TANGENT_MONTE_CARLO_PASSED 2.0 25000
-DIRECT_POINCARE_GEODESIC_TANGENT_MONTE_CARLO_PASSED 3.0 25000
-SMALL_RADIUS_COEFFICIENT_DIAGNOSTICS_PASSED
-ALL_CHECKS_PASSED
-```
+For independent uniform-arclength vertices on the hyperbolic radius-R geodesic circle, polar angles are iid uniform and cyclic gap density is 1/(2π²). The hyperbolic cosine law yields the exact sign factor 4s²sin(u/2)sin(w/2)[cos(v/2)+s²sin(u/2)sin(w/2)], s=sinh R. Only one gap may exceed π. The (t,x) Jacobian 2 and allowed |x|<acos(κ cos t), κ=1+2/s², give the conversion 6J(κ)/π², with J'(κ)=−atanh(1/κ)/κ and J=(Li₂(z)−Li₂(−z))/2 for z=1/κ. This proves P=1/4+3(Li₂(z)−Li₂(−z))/π², strict increase and the stated R↓0/R→∞ asymptotics. Independently integrated J and dilog series at R=.35,1,2.4 with error below 10⁻³⁶; finite quadrature does not prove the all-radius theorem. Curvature −1, intrinsic angles and circle-boundary arclength sampling are essential.
 
-## Limits of checking
+## originality
 
-The quadrature is finite, the series is truncated after an explicit large number of terms, and the simulations are finite and random. They do **not** prove any statement for the continuum of all radii; this requires the analytic trigonometric factorization, exact change-of-variables Jacobian, integral differentiation, and derivative and endpoint arguments in `RESULT.md`. Historical novelty is provisional and independently validated publication priority has not been established.
+PASS
+
+Best-of-knowledge statement-level comparison of actual published records and inspected accessible primary mathematics supports a distinct contribution. Evidence and residual priority risks follow; absence from search results is not proof of historical novelty. The equivalent nonacute event corresponds to one cyclic gap greater than π with a hyperbolic right-angle threshold, and the gap integral is the same Li₂ difference. The published 5/8 result uses uniform feasible triangle-angle coordinates; it is a different probability measure and cannot represent a nonconstant function of R.
+
+## value
+
+PASS
+
+An explicit non-elementary but closed analytic law for a canonical random-hyperbolic-geometry observable, together with strict radius identifiability and sharp Euclidean-to-large-radius crossover, supplies a useful benchmark for geometric probability. The computation requires coupling geodesic angle geometry with the boundary spacing distribution, rather than a routine curvature rescaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

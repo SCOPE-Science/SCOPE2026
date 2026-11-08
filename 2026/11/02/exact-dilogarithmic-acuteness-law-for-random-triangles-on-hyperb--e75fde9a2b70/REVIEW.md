@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized gap density \(1/(2\pi^2)\) is explicitly derived from three independent circle angles, and the hyperbolic cosine-law numerator factors with a strictly positive scalar into the angle-sign criterion. The three gap-greater-than-half-circle events are disjoint, so the correction is counted exactly three times. The \(2\)-Jacobian and \(2\arccos\)-length establish the coefficient \(6/\pi^2\) in the correction integral. Differentiating the integral gives the inverse hyperbolic tangent, which integrates to the stated odd dilogarithm difference. The derivative is positive for all admissible radii; the small and large-radius expansions follow with explicit remainder orders. The standalone standard-library checker independently compares the integral and series and simulates actual Poincaré geodesic angles; all checked cases passed. Finite simulation is not treated as proof of the universal statements.
+PASS
 
-## Originality — PASS, with historical-priority limitations
+For independent uniform-arclength vertices on the hyperbolic radius-R geodesic circle, polar angles are iid uniform and cyclic gap density is 1/(2π²). The hyperbolic cosine law yields the exact sign factor 4s²sin(u/2)sin(w/2)[cos(v/2)+s²sin(u/2)sin(w/2)], s=sinh R. Only one gap may exceed π. The (t,x) Jacobian 2 and allowed |x|<acos(κ cos t), κ=1+2/s², give the conversion 6J(κ)/π², with J'(κ)=−atanh(1/κ)/κ and J=(Li₂(z)−Li₂(−z))/2 for z=1/κ. This proves P=1/4+3(Li₂(z)−Li₂(−z))/π², strict increase and the stated R↓0/R→∞ asymptotics. Independently integrated J and dilog series at R=.35,1,2.4 with error below 10⁻³⁶; finite quadrature does not prove the all-radius theorem. Curvature −1, intrinsic angles and circle-boundary arclength sampling are essential.
 
-The most directly comparable primary source, Beardon (2022), treats existence and geometry of hyperbolic circumcircles but does not formulate a random acuteness probability for fixed circumradius. Lv and Guo (2016) instead impose uniform measure in a feasible *triangle-angle coordinate region* and obtain \(5/8\) for that different random-triangle convention; its inspected original PDF shows why the fixed value cannot imply the present strictly radius-dependent law. Besau–Rosen–Thäle (2021) concerns random inscribed-polytope asymptotics, not an exact three-point acuteness law. Geometric and dilogarithm identities are standard and are not presented as new. Targeted primary and public-archive queries, including nonacute/obtuse and circle/circumradius aliases, did not reveal coverage; a negative search does not certify historical priority. The underlying comparator analysis, sources inspected, and remaining risks appear in AUDIT.json.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A fixed geodesic circumcircle with independent arclength sampling is a natural, fully specified geometric probability model. The formula classifies the complete acuteness probability profile and makes circle radius identifiable from one observable. The strict transition from Euclidean probability \(1/4\) to asymptotically all-acute hyperbolic triangles, with both exact small-radius curvature corrections and sharp leading exponential tail, is more substantial than an isolated special value or routine substitution. It does not require a separate general theorem to be a meaningful exact classification.
+Best-of-knowledge statement-level comparison of actual published records and inspected accessible primary mathematics supports a distinct contribution. Evidence and residual priority risks follow; absence from search results is not proof of historical novelty. The equivalent nonacute event corresponds to one cyclic gap greater than π with a hyperbolic right-angle threshold, and the gap integral is the same Li₂ difference. The published 5/8 result uses uniform feasible triangle-angle coordinates; it is a different probability measure and cannot represent a nonconstant function of R.
 
-## Limits and closest sources
+## value
 
-The result is limited to three independent arclength-uniform boundary vertices in the curvature \(-1\) hyperbolic plane; it does not address interior-uniform sampling, complete angle distributions, or arbitrary curves. Principal comparisons: Beardon (2022), DOI 10.1007/s00013-022-01761-x; Lv–Guo (2016), MathSciDoc 1608.35129; Besau–Rosen–Thäle (2021), DOI 10.1007/s00208-021-02257-9. Historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit non-elementary but closed analytic law for a canonical random-hyperbolic-geometry observable, together with strict radius identifiability and sharp Euclidean-to-large-radius crossover, supplies a useful benchmark for geometric probability. The computation requires coupling geodesic angle geometry with the boundary spacing distribution, rather than a routine curvature rescaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
