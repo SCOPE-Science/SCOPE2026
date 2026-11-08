@@ -1,0 +1,21 @@
+# Scientific review: exact stationary cut-entanglement statistics
+
+## Correctness — PASS
+The precise model, \(0<p<1\), uniform unordered Bell selection and matching-family initial conditions are specified. All nontrivial matching transitions are exhausted: pair creation and deletion have activity ratio \((1-p)/[p(N-1)]\), while one-pair moves and two-pair swaps are symmetric. This proves detailed balance and unique stationary matching law. Marking disjoint cross-cut bonds gives every factorial moment and the probability-generating polynomial without approximation. The total-pair saddle has a unique interior maximizer and negative second derivative, giving controlled first two moment asymptotics; substituting into a direct conditional-variance identity proves the explicit cut-variance coefficient and sharp Fano bound. The standalone exact enumeration and large-size checks passed. Risk is only that the theorem does not extend to nonuniform measurement choices or endpoints of the probability interval; these cases are not claimed.
+
+## Originality — PASS (qualified)
+The relevant Holdhusen--McAmis--Rahmani September 2026 primary article explicitly introduces this stochastic matching process and calculates the all-to-all mean and an approximate combinatorial entropy; its examined model, main results and supplemental combinatorial derivations do not present the exact reversible invariant measure, full finite-size cut-entropy distribution or strict sub-Poisson coefficient. Classical monomer--dimer Gibbs theory (Heilmann--Lieb) and mean-field monomer-number limit theorems (Alberici and coworkers; Chen) cover the general equilibrium matching framework and the total-pair saddle, and therefore are explicitly credited rather than repackaged as novel. The new combined statement derives the Gibbs identification for the specific monitored quantum matching dynamics and converts it to **cut-entanglement counting statistics** and a sharp quantitative Fano law. Searches for corresponding physical and mathematical formulations found no decisive prior implication of the combined result. Residual risk: a more general full counting-statistics theorem for marked complete-graph matchings might give the latter formulas after the dynamical identification, and some relevant primary monomer--dimer works were available only in abstract or metadata form.
+
+## Value — PASS
+Trajectory-to-trajectory entropy fluctuations are a physically natural observable in a monitored circuit that uniquely maps to matchings, whereas the motivating paper mainly gives the mean and scaling phases. The full finite-size polynomial determines all stationary entropy probabilities and moments for any bipartition, without a trajectory simulation or uncontrolled independence assumption. The variance coefficient shows an explicit universal sub-Poisson fluctuation suppression and proves that the equal-half bipartition has the largest asymptotic Fano ratio. The Gibbs reversibility itself reveals a nonobvious exact equilibrium structure in a measurement-driven dynamic. These are substantive structural and quantitative results in the original model, not a chosen arbitrary integer case.
+
+## Closest literature and limitations
+- Holdhusen, McAmis, Rahmani (arXiv:2609.28743, September 2026): same matching automaton; source for model and mean, not for the new stationary distribution and full cut-statistics statement in inspected sections.
+- Heilmann and Lieb (1972), monomer--dimer Gibbs theory: general framework; the static counting after identifying the invariant measure is standard combinatorics.
+- Alberici, Contucci, Fedele, Mingione (2016) and Chen (2016): mean-field monomer/dimer number limit theorems, not claimed as new here.
+- Lam and Sen (2024 online/2025 journal): disordered matching-model free-energy and dimer-number fluctuations on constrained graph classes, not the physical cut entropy under this Bell update rule.
+- Zhu (2026): a distinct quantum measurement-only model involving two- and three-site measurements.
+
+The theorem does not address spatially weighted \(\alpha>0\) Bell selection, full Bell-label dynamics, boundary probabilities \(p=0,1\), or a central limit theorem for cut entropy. Priority still calls for external expert review.
+
+Self-review: passed. Independent audit: not yet performed.
