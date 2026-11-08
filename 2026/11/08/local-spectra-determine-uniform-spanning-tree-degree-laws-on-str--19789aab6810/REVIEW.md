@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The stated domain excludes disconnected and complete degenerate strongly regular graphs. The Laplacian identity, transfer-current kernel, rank-one constant vector, remaining eigenvalues, inverse spectrum recovery, and trace-cube/triangle formula are reconstructed algebraically in `RESULT.md`. The distinct sixteen-vertex graph structures and the resulting polynomials were checked independently from weighted matrix-tree cofactors in `verify.py` with 551 exact assertions. Checking seven weights on a degree-six polynomial makes the finite graph checks exact, while the general statement rests on the symbolic argument. The first two moments are fixed by the local adjacency first two traces; the third factorial cumulant difference is fixed by the third trace. No numerical experiment is used as an infinite proof.
+
+## Originality
+**PASS, with historical-priority risk.** A general degree-PMF framework in Rapoport (2023) and a general expectation/variance framework in Fita Sanmartín--Schnörr--Hamprecht (2024) cover the underlying tools, not the stated equivalence of strongly regular root-degree laws with neighborhood spectra, nor the third-order separator and explicit Shrikhande--rook difference. The 2016 Pozrikidis paper also treats arbitrary-network degree distributions by Laplacian derivatives, but its full text was not accessible for detailed comparison. An existing special-case rook-degree calculation supplies the rook polynomial and is expressly excluded from independent novelty; its statement does not imply the local-spectrum recovery result or Shrikhande law without further analysis. Targeted record searches for the graph pair, local spectra and the factorial-cumulant effect found no direct result. General formulas nevertheless leave possible earlier implicit derivations.
+
+## Value
+**PASS.** A random-spanning-tree root-degree statistic detects neighborhood spectrum that is invisible to the global adjacency spectrum and strongly regular parameters. This is a natural completeness statement within a graph class, not an ad hoc calculation. The classical Shrikhande--rook pair makes the distinction concrete: two ordinary moments provably cannot separate it, but the third can, and the full probability-generating-function discrepancy is exact. The phenomenon may be useful for stochastic graph invariants and for distinguishing parameter-equivalent regular graphs.
+
+## Closest literature and limitations
+Rapoport (arXiv:2312.14992) provides the general finite-graph degree framework; Fita Sanmartín et al. (arXiv:2409.13472) provide degree moments; Nachmias--Peres (arXiv:2011.08833) concerns high-degree asymptotics; Pozrikidis (DOI:10.1088/1751-8113/49/12/125101) provides an older network degree-distribution method but only its abstract and partial introduction were accessible. The new equivalence fixes the strongly regular parameters and does not claim full graph reconstruction. An independent audit and exhaustive historical-priority certification remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
