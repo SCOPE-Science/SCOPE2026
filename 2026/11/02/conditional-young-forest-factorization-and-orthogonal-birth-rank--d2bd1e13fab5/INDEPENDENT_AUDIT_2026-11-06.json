@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:52:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/conditional-young-forest-factorization-and-orthogonal-birth-rank--d2bd1e13fab5/RESULT.md blob 7e8167909166074e38de5ce80a0a96e5ca0e024e at fixed commit",
+        "2026/11/02/conditional-young-forest-factorization-and-orthogonal-birth-rank--d2bd1e13fab5/verified code blob 78be4a00916222553c846bac1e55038fb1061c5e"
+      ],
+      "rationale": "In the uniform independent-parent recursive tree, conditioning on the whole labeled forest of younger vertices fixes internal child-parent edges and the independent events that each component root chooses one of the i old labels; given that, choices of old parent are independent uniform. Each young component contributes its size to S_i-1 with Bernoulli(1/i), proving the product conditional PGF for all n and i, including i=1 and i=n. Each S_j,j>i is measurable from the younger forest; tower property gives E[S_i|later sizes]=n/i and pairwise zero covariances. Two-color Pólya urn yields beta-binomial variance n(n-i)(i-1)/(i^2(i+1)). Double counting ancestors gives the weighted path mean/variance; n=4 joint S2=3,S3=2 witness disproves independence. Independent exhaustive parent enumeration n=2..7 checked complete forest-stratum PGFs and mixed moments, not just marginals. All tree files and blobs reconstructed.",
+      "residual_risks": [
+        "Uniform random recursive trees with independent uniform older parents; weights deterministic or exogenous.",
+        "Conditional independence applies to root-attachment indicators, never to all subtree sizes; finite enumeration is supplementary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dobrow–Fill’s classical unweighted path length moment is contained as the specialization a_i=1; that component is acknowledged prior.",
+          "Holmgren–Janson theorem 1.4 treats asymptotic moments/CLTs of aggregated fringe counts, not exact all-weight diagonal covariance."
+        ],
+        "reasoning": "General Pólya-urn marginals imply variance of one S_i but do not by themselves show zero cross-covariance or the full conditional young-forest factorization. Broader martingale orthogonality results remain possible.",
+        "searches": [
+          "arxiv:1406.6883",
+          "Dobrow Fill 1999 Total Path Length Random Recursive Trees",
+          "arxiv:1406.7614"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1406.6883",
+        "arxiv:1406.7614",
+        "doi:10.1017/S0963548399003855",
+        "doi:10.1017/S0963548308009243",
+        "Resultary query 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full conditional PGF implies mean-independence from the entire later subtree-size vector, which is stronger than isolated marginal Pólya-urn formulas.",
+          "Known total path length variance occurs as a corollary, but not vice versa."
+        ],
+        "reasoning": "The new fine conditional statement is not a routine algebraic rewriting of existing global path-length mean and variance formulas.",
+        "searches": [
+          "arxiv:1406.6883",
+          "doi:10.1017/S0963548399003855",
+          "Resultary semantic query 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holmgren–Janson count fringe subtrees aggregated by size/type; their quantities X_{n,k} sum over birth labels rather than S_i at a fixed birth index.",
+          "Grübel–Michailow work with boundary masses in Harris coordinates and asymptotic measures."
+        ],
+        "reasoning": "Aggregation loses birth labels and cannot identify exact sigma-field conditional distribution of one S_i given F_i.",
+        "searches": [
+          "random recursive tree subtree sizes birth label zero covariance conditional younger forest",
+          "arxiv:1406.6883",
+          "arxiv:1406.7614"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closely matched root-degree/leaf covariance and root-attachment/path-length profiles, but not pairwise zero covariance of birth-ranked sizes."
+        ],
+        "reasoning": "The cross-label covariance identity is not present in retrieved indexed results; no definitive exhaustive historical priority is inferred.",
+        "searches": [
+          "random recursive tree subtree sizes birth label zero covariance conditional younger forest",
+          "Resultary semantic query 3",
+          "random recursive tree labels subtree size covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct combined claim survives comparison with actual relevant sources; precisely prior components are credited, and inaccessible or possibly dominating material is named as a priority risk, not treated as proof of noncoverage. The new fine conditional statement is not a routine algebraic rewriting of existing global path-length mean and variance formulas.",
+      "residual_risks": [
+        "An older birth-indexed recursive-tree martingale or conditional urn identity may be equivalent under another filtration.",
+        "The unweighted total path length formula and one-subtree beta-binomial law are already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_AGGREGATED_STATISTIC",
+          "evidence": "Its X_{n,k} counts all fringe trees of a given size and is not the fixed birth-index subtree S_i nor its conditional young-forest law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.6883",
+          "material_read": "Read full accessible PDF abstract, definitions, Theorem 1.4, and following covariance/CLT statements on aggregated fringe counts, with relevant page screenshot",
+          "method": "primary PDF full text inspected in relevant sections",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "Same random-recursive-tree model and fringe sizes"
+        },
+        {
+          "assessment": "PLAUSIBLE_GENERAL_BACKGROUND_PARTIAL_ACCESS",
+          "evidence": "The indexed result concerns limiting boundary subtree measures rather than the exact finite labeled conditional generating function.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.7614",
+          "material_read": "Read accessible abstract and relevant summary identifying boundary and coordinate representation; not a full-text claim of noncoverage",
+          "method": "preprint abstract/relevant available text",
+          "title": "Random Recursive Trees: A Boundary Theory Approach",
+          "trigger": "Potential general subtree-mass representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/conditional-young-forest-factorization-and-orthogonal-birth-rank--d2bd1e13fab5/RESULT.md",
+        "arxiv:1406.6883",
+        "arxiv:1406.7614",
+        "doi:10.1017/S0963548399003855",
+        "doi:10.1017/S0963548308009243",
+        "Resultary query 3"
+      ],
+      "rationale": "The conditional full young-forest factorization is a natural fine-grained law for birth-ranked fringe sizes, yielding a diagonal covariance matrix despite nonindependence and arbitrary deterministic birth-weighted total path variances. This supplies useful exact structural information beyond classical unweighted path length.",
+      "residual_risks": [
+        "An older birth-indexed recursive-tree martingale or conditional urn identity may be equivalent under another filtration.",
+        "The unweighted total path length formula and one-subtree beta-binomial law are already known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform random recursive trees with independent uniform older parents; weights deterministic or exogenous.",
+    "Conditional independence applies to root-attachment indicators, never to all subtree sizes; finite enumeration is supplementary.",
+    "An older birth-indexed recursive-tree martingale or conditional urn identity may be equivalent under another filtration.",
+    "The unweighted total path length formula and one-subtree beta-binomial law are already known."
+  ],
+  "schema_version": 1
+}
