@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct rank-two Johnson-neighborhood calculation shows that after two positive answers the surviving centers lie either in a four-pair rectangle or in a star with one exceptional pair. Every next split in the latter family leaves a branch of at most two centers, prohibiting depth five in the original class. Small cardinalities and identical neighborhoods handle the lower parameters; complete depth-three and depth-four certificates establish sharpness at five and seven labels, and induced embeddings propagate the lower bounds. Exact recurrences through nine labels agree with the unrestricted proof.
+## correctness
 
-**Originality — PASS under accessible comparisons.** The closest primary source, Adler–Benediktsson–Macpherson (2020), studies exactly the same rank-two Johnson adjacency concepts and already determines the VC behavior, but does not give the Littlestone dimension formula. Searches using line graph, triangular graph, thicket dimension, Littlestone dimension and online adjacency dimensions did not reveal an equivalent earlier result. The earlier intersection geometry is acknowledged. A separate prior result under different stability terminology remains possible.
+PASS
 
-**Value — PASS.** The result establishes a uniform exact online-shattering threshold for an unbounded canonical graph family, identifies both exceptional small regimes and the first occurrence of depth four, and extends a nontrivial constant mistake bound to every induced subgraph. The parameter \(n\) ranges over all integers at least two; this is not an arbitrary finite computation.
+For open Johnson rank-two neighborhoods the positive fiber after a first pair e splits, under a second adjacent f, into a punctured star plus one exceptional pair; any further query leaves one child with at most two centers. Disjoint e,f leave exactly four hypotheses. Thus Ldim of each first-positive class is <=3 and the full class <=4. n=2 gives 0, n=3,4 gives 1 (for n=4 complementary center pairs have identical neighborhoods), and n=5,6 cannot reach 4 by hypothesis-count. The actual 8-leaf J(5,2) and 16-leaf J(7,2) certificates in lower_certificates.json realize depths 3 and 4 and embed into larger n. Independently recomputed exact adaptive recurrence for n=2..9 and checked finite certificate structure; it returned 0,1,1,3,3,4,4,4. Restriction to induced subgraphs only carries upper bound, not claimed exact Ldim.
 
-**Limitations.** Only open neighborhoods of \(J(n,2)\) are classified. Higher-rank Johnson graphs and arbitrary induced subgraphs are not classified exactly. Historical priority and independent validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source Adler–Benediktsson–Macpherson determines VC dimension/density of this same Johnson/line-graph adjacency concept family, but that static shattering statement does not determine the complete adaptive Littlestone profile or its threshold n=7. Checked paper sections and terms for online dimension. Best-of-knowledge original online classification, residual alias/undiscovered priority risk.
+
+## value
+
+PASS
+
+Exact, sharp adaptive learnability invariant for all n>=2 in an unbounded, highly symmetric family; identifies exceptional n=3,4 and n=5,6 and first depth four at seven. Different from textbook static VC bounds and gives nontrivial constant dimension for every induced subgraph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
