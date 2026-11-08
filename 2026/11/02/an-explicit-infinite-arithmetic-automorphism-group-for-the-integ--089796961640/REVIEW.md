@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The right annihilator is exactly the four-dimensional kernel of the reduction \(\mathbb Z[R_8]\to\mathbb Z[R_4]\), hence invariant. A direct bilinear calculation reduces every kernel automorphism to the 64 integer-linear relations \(\delta_{2j-i}=T_j\delta_i\). The displayed rank-two fixed spaces and signed-operator relations solve these equations with four and only four integer parameters. The determinant factorization is an exact integer identity; adjoining the known quotient automorphisms completes the proof of sufficiency and necessity. Exhaustive finite parameter checks are corroborative, not the universal proof. The proof concerns additive, multiplication-preserving integral bijections only.
+## correctness
 
-**Originality — PASS, subject to residual historical priority uncertainty.** Sangare–Ta's 2026 Problem 4.14 leaves even-half-order integral dihedral automorphism groups unsolved; their Corollary 4.18 provides a faithful injection for \(R_8\), but not its image. The new arithmetic family and its eight-coset description explicitly determine this missing image. Bardakov–Passi–Singh's 2020/2022 Theorem 6.4 computes only the smaller quotient \(R_4\). Searches for the exact norm equation, arithmetic matrix image, order-eight algebra automorphism group, and relevant equivalents did not establish prior coverage. An implicit equivalent in older specialized algebra literature remains possible; search absence is not a priority proof.
+PASS
 
-**Value — PASS.** This is an exact solution for the first nontrivial unclassified integral even-dihedral case singled out by a recent research problem, rather than a generic finite computation: the automorphism group is infinite and admits a concrete faithful arithmetic four-dimensional normal form. It distinguishes the integral algebra automorphisms from the finite quandle symmetries and supplies an explicit infinite unipotent subgroup.
+I=span(b_i=e_i−e_(i+4)) is exactly the right annihilator, hence characteristic, and B/I≈Z[R4] whose affine quotient automorphism group has 8 elements. A quotient-trivial map has e_i↦e_i+δ_i∈e_i+I; multiplicativity reduces to δ_(2j−i)=T_jδ_i. T_0²=T_1²=1 and T_0T_1=−T_1T_0 determine the plus-eigenspace choices δ0,δ1 and force the remaining δi, giving all 4 integral parameters. The induced U on I has det U=[(2a+1)(2c+1)+8bd]², so integral bijectivity is exactly the displayed norm-one criterion. Affine P,Q generate the eight quotient lifts, giving unique normal form; faithfulness of restriction uses distinct right operators. Choosing a=c=d=0, b=n gives distinct square-zero unipotent shears. Independent integer checks covered all 64 basis multiplication identities for 625 quadruples, 32 lifts and determinant identities; infinite criterion follows from the algebraic proof, not the finite sample.
 
-**Limits.** No larger even-dihedral classification, abstract finite presentation, or independent audit is claimed. Direct computation tests only bounded parameters. The original 2026 paper's Section 4.3 is the primary scientific comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest full 2026 Sangare–Ta preprint explicitly leaves even-half-order integral automorphisms as Problem 4.14, and its Corollary 4.18 proves only the faithful GL4(Z) embedding for R8. Bardakov–Passi–Singh previously computed R4; this is used rather than claimed new. Determining the precise image, norm-one kernel, full normal form and infinitude is not implied by an injection. A separate hidden R8 full solution is still possible and not categorically excluded.
+
+## value
+
+PASS
+
+This answers a plainly articulated natural open low-order case in integral quandle-ring symmetry theory: not just an example of an extra automorphism but the entire infinite arithmetic group and faithful matrix realization. It is a complete intrinsic classification of a mathematically motivated object, with a new infinite shear family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
