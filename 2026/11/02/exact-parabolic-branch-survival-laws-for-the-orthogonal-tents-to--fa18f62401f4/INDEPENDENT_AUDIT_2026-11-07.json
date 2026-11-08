@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:48:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The area-preserving change t=(x-y) mod 1 and s=min(t,1-t) reduces consecutive visits to A3 to two equal-length vertical fiber families. The exact first-visit interval has length 1/2-s, giving S1=1/4. Two-step dynamics preserves t and translates y by ±(1-4s) mod1. The explicit two-visit intervals and restriction from four visits rule out additional mod-one wraps, so repeated intersection successively clips one endpoint: the even/odd surviving widths are triangular with apex 1/4 and roots ((k-1)/(4k-3), k/(4k-1)) and ((2k-1)/(2(4k-1)),(2k+1)/(2(4k+1))) respectively. Both sides contribute equally; triangle integration yields S_2k=(2k-1)/(4(4k-1)(4k-3)), S_(2k+1)=k/(2(16k²-1)), hence n S_n→1/16. Initial A3 probability 1/4 gives Pr(tau>=n)=4S_n, first exit =4(S_n-S_(n+1)), divergent mean. Boundary/singularity fibers are null. Independently checked 98 rational triangle/base area identities; examined the original-map integer grid comparator for up to 13 visits. Exact all-n result rests on the fiber-induction proof, not numerical agreement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source §3 identifies all A^k via piecewise-linear boundaries; §6.2 proves sharp O(1/n) correlation decay and uses τ^k area<=c/k."
+        ],
+        "reasoning": "The broad prior mixing law and exact partition geometry are acknowledged. The stated 1/n rate does not determine the probability constant or parity correction. A complete prior polygon description could still logically yield the new formula after summing cell areas; that precise implication was not demonstrated by the inspected source, hence residual risk rather than definitive noncoverage.",
+        "searches": [
+          "Resultary: orthogonal tents non-monotonic toral map A3 neutral branch survival escape exact formula",
+          "web: arXiv:2303.08515 loss exponential mixing exact escape triangles L_k"
+        ]
+      },
+      "checked_sources": [
+        "Myers Hill–Sturman–Wilson 2023 full §3, §6.2, appendix mathematical passages",
+        "Earlier 2021/2022 related map bibliographic material",
+        "Resultary search for A3 survivor/escape exact laws and near aliases",
+        "Assigned RESULT.md and checker.py source; independent 98 rational triangle checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary paper explicitly constructs τ^k as a triangular wedge in subannulus Q, transformed to y=1/(4k)-x/(2k) over x∈[1/4,1/2] in Section 6.2; separately describes four components of A^k and their L_k boundaries."
+        ],
+        "reasoning": "The wedge yields a restricted-area tail (integral 1/(64k)); the full A3 survivor includes other portions, has parity-resolved exact S_n and first-exit law. The full formula is not logically implied by the one displayed τ^k area identity alone; a derivation from all the original boundary data remains plausible and is a meaningful priority qualification.",
+        "searches": [
+          "Resultary: orthogonal tents non-monotonic toral map A3 neutral branch survival escape exact formula",
+          "web: original toral paper Section 3 Figure 5 Section 6.2 Appendix 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Myers Hill et al arXiv:2303.08515 §3 (pp8-10) define A^k escape-time cells and Figure 5 partition of A3; §6.2 calls τ^k=union_{i>=k}(A^i cap Q)."
+        ],
+        "reasoning": "The current S_n is the Lebesgue mass of full cumulative A3 survivor, equivalently tail of their escape-time partition, NOT a return-time-to-induced-section probability and not the correlation coefficient. The source τ^k is restricted to one annulus Q, so its area alone is not the full S_n at each n.",
+        "searches": [
+          "Resultary: orthogonal tents non-monotonic toral map A3 neutral branch survival escape exact formula",
+          "web: orthogonal tents A3 parabolic escape time partition triangular wedge exact area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior paper Figure 5 pictures escape-time cells and appendix enumerates geometric boundary lines but no found exact all-n rational S_(2k),S_(2k+1) table. Assigned script tests first six areas."
+        ],
+        "reasoning": "A plot/partition and coarse asymptotic estimate is not an exact survivor-area sequence. Conversely, unlisted area evaluation from existing boundaries could make this a direct corollary; priority not certified.",
+        "searches": [
+          "Resultary: orthogonal tents non-monotonic toral map A3 neutral branch survival escape exact formula",
+          "web: OTM exact neutral A3 survivor 1/4 1/12 1/30 3/140"
+        ]
+      },
+      "rationale": "PASS, qualified by strong same-model antecedent. Myers Hill–Sturman–Wilson 2023 treat the identical neutral branch A3 in this toral shear map, partition escape times into cells A^k with explicit boundary lines (Section 3/Figure 5, appendix), and obtain 1/n correlation-order obstructions via triangular wedges (Section 6.2). Their paper therefore already supplies essential geometry; it does NOT follow just from O(1/n) that the exact global survivor area has the two parity formulas or asymptotic coefficient 1/16. The inspected text evaluates wedges restricted to a subannulus for correlation lower bounds, not the complete two-sided surviving A3 fiber measure for every n. The assigned proof makes the all-branch integration and first-exit distribution explicit. The prior polygon partition may facilitate a shorter derivation and is a substantive possibility of corollary coverage, expressly retained as a risk.",
+      "residual_risks": [
+        "Highly relevant 2023 primary text already gives exact A^k polygon boundaries. Full survivor formulas could be derivable as a direct corollary by area summation even though absent verbatim; a detailed complete polygon-area priority check remains warranted.",
+        "The proof assumes there are no additional mod-one return lifts after the narrowed four-visit support; explicit two-visit intervals and drift show the clipping, but formal computer verification is not provided.",
+        "Scope is consecutive A3 survival only, not general induced recurrence or global correlation coefficient; generic parameter shears not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL, STRONG_GEOMETRIC_ANTECEDENT; no located all-time full A3 S_n parity formula. Corollary risk flagged.",
+          "evidence": "§3 lines around 811–827: A^k sets of constant escape time; §6.2 lines around 3940–4018: τ^k subannulus Q and triangular wedge equation.",
+          "identifier_or_url": "arXiv:2303.08515; https://www.researchgate.net/publication/369266179_Loss_of_Exponential_Mixing_in_a_Non-Monotonic_Toral_Map",
+          "material_read": "Full accessible public original text, §3 pp8–10 Figure 5, §6.2 pp39–41, explicit τ^k triangular wedge and Appendix 8.1 line equations.",
+          "method": "Public full-text transcription and relevant section/appendix reading",
+          "title": "Loss of Exponential Mixing in a Non-Monotonic Toral Map",
+          "trigger": "identical shear model and A3 escape-time partition"
+        },
+        {
+          "assessment": "BACKGROUND_GENERAL_SHEAR; exact symmetric A3 survivor law unverified in this source.",
+          "evidence": "Broader nonmonotonic toral maps and mixing, rather than claimed rational finite-time neutral law.",
+          "identifier_or_url": "arXiv:2112.07346",
+          "material_read": "Abstract and bibliographic context of earlier family paper, not full text.",
+          "method": "Open bibliographic/abstract comparison",
+          "title": "A Continuous Family of Non-Monotonic Toral Mixing Maps",
+          "trigger": "broader shear family possible special-case coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Consecutive trapping survival in a parabolic neutral branch is a natural dynamical invariant of a known polynomial-mixing map. Complete finite-time parity formulas, the exact 1/16 tail coefficient and divergent conditional mean sharpen the previously established escape partition/correlation-rate geometry and could be used as precise renewal-tail inputs. Does not claim a new global mixing theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Highly relevant 2023 primary text already gives exact A^k polygon boundaries. Full survivor formulas could be derivable as a direct corollary by area summation even though absent verbatim; a detailed complete polygon-area priority check remains warranted.",
+    "The proof assumes there are no additional mod-one return lifts after the narrowed four-visit support; explicit two-visit intervals and drift show the clipping, but formal computer verification is not provided.",
+    "Scope is consecutive A3 survival only, not general induced recurrence or global correlation coefficient; generic parameter shears not classified."
+  ],
+  "schema_version": 1
+}
