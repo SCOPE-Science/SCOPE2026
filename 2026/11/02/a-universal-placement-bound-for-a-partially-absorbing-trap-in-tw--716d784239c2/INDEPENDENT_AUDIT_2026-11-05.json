@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:46:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2/check.py",
+        "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC."
+      ],
+      "rationale": "Reconstructed the positive Sturm–Liouville quadratic form, Neumann endpoints, interface continuity and delta-sink jump. At a fixed trial positive eigenvalue below each side mixed eigenvalue, logarithmic impedances ell and m increase/decrease with trap x, so ell+m is uniquely minimized at ell=m. Strict eigenvalue-impedance monotonicity converts that to unique global maximizing location. With k=2z/L, the slower segment has phase kx and the fast half gives right input phase alpha_r(z)=arctan(sqrt(r)tan(z/sqrt(r))), yielding kx=k(L/2-x)+alpha, the formula for x* and strength. alpha<z and alpha/z decreases strictly in z for r>1; z increases with kappa, giving x* decreasing from L/2 to pi L/(4z_inf). As r->infinity, z_inf->t0 solving tan t0=-t0; bound pi/(4t0)=0.38713253 sharp. Inspected transfer-matrix checker source and independent_checks.py verifies eigenvalue relation and competing positions for sample parameters; finite samples are not universal proof.",
+      "residual_risks": [
+        "Statement depends on equal halves, positive piecewise-constant Fickian diffusion, a single positive delta absorber and Neumann endpoints.",
+        "Optimality proof relies on positivity of trial ground eigenfunction, correct impedance domain and monotonicity; tests cannot certify all continuous parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Relevant prior results on weakly reactive targets, many small traps or 2D narrow-capture eigenvalues hold under different hypotheses.",
+          "They lack an exact single-delta two-layer formula over all positive kappa with a universal limiting bound."
+        ],
+        "reasoning": "An asymptotic small-trap expansion does not dominate the exact all-reactivity single-sink claim, although a general point-interaction optimization theorem could.",
+        "searches": [
+          "Tung Lawley 2026 §II–III",
+          "Grebenkov Kolokolnikov arXiv:2609.39990",
+          "Kolokolnikov Titcombe Ward doi:10.1017/S0956792505006145"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: two layer diffusion partially absorbing delta trap optimal location reflecting ends piecewise diffusivity",
+        "https://arxiv.org/pdf/2601.08740",
+        "https://arxiv.org/abs/2609.39990",
+        "https://arxiv.org/abs/1608.07335",
+        "https://doi.org/10.1017/S0956792505006145",
+        "https://doi.org/10.1016/j.mcm.2010.02.025",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same general trap-optimization idea, but different objective in mean capture time and different nonperturbative parameter domains.",
+          "Candidate uses impedance balancing and phase monotonicity to prove a new exact max/min condition and contrast-uniform bound."
+        ],
+        "reasoning": "Prior general background alone cannot recover the precise x* and sharp t0 without a specialized spectral calculation.",
+        "searches": [
+          "arXiv:2601.08740 eigenvalue small-target setup",
+          "arXiv:2609.39990 mean capture time",
+          "doi:10.1017/S0956792505006145 planar eigenvalue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-dimensional Fickian generator is not the Itô/Stratonovich heterogeneous generator addressed by Kazakevicius–Ruseckas.",
+          "Tung–Lawley present space-dependent diffusivity search but in small-target/weak-reactivity regimes rather than this all-strength spectral optimization."
+        ],
+        "reasoning": "Same diffusion coefficients or partially absorbing terminology do not imply equivalence of generators/objectives/boundary problems.",
+        "searches": [
+          "Resultary: two layer diffusion partially absorbing delta trap optimal location reflecting ends piecewise diffusivity",
+          "arXiv:2601.08740",
+          "arXiv:2609.39990",
+          "arXiv:1608.07335"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published findings concern a biased delta-interface Neumann-truncation asymptotic and heterogeneous multiple traps, not movable point-sink optimization in equal two layers."
+        ],
+        "reasoning": "The radius ratio 0.3871325 is a transcendental optimized geometry constant, not a recomputation of a located database table; search nonmatch alone is not novelty proof.",
+        "searches": [
+          "Resultary: two layer diffusion partially absorbing delta trap optimal location reflecting ends piecewise diffusivity",
+          "one-dimensional two-phase single delta trap placement Neumann spectral optimum tan t=-t"
+        ]
+      },
+      "rationale": "General diffusion and trap optimization is prior, but the inspected heterogeneous search papers address stochastic interpretation or weak-trap/small-target asymptotics, and the original multi-trap principal-eigenvalue papers differ in geometry. None inspected has the all-reactivity one-dimensional two-layer unique optimum or contrast-independent sharp displacement limit.",
+      "residual_risks": [
+        "Older interior point-trap Sturm–Liouville literature may give an equivalent minimax impedance result, and two relevant historical papers were not obtained in full.",
+        "No conclusion extends to unequal layer lengths or nonlinear target functionals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SCALING",
+          "evidence": "Results emphasize asymptotic small target or weak reactivity rather than all-strength optimum one-point placement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.08740",
+          "material_read": "Full primary PDF with abstract, spectral setup in §II, small/weakly reactive escape formulas §III, discussion and first rendered page",
+          "method": "Read lawful arXiv PDF text, inspected first page and equations",
+          "title": "Stochastic search with space-dependent diffusivity",
+          "trigger": "Heterogeneous diffusivity and partially reactive targets"
+        },
+        {
+          "assessment": "PARTIAL_INSPECTION_DIFFERENT_OBJECTIVE",
+          "evidence": "Many-small-trap mean capture time, not a proved full-document absence of candidate spectral result.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39990",
+          "material_read": "Primary abstract and objective/assumption description; complete document not re-read in this run",
+          "method": "Read OA abstract and compare number/size of traps and MFPT objective",
+          "title": "Minimizing capture time with many small traps in heterogeneous media",
+          "trigger": "Closely related heterogeneous trap optimization"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR",
+          "evidence": "Stratonovich versus Fickian laws have different generator and equilibria.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.07335",
+          "material_read": "Primary open text of stochastic convention, Fokker–Planck operator and stationarity",
+          "method": "Read primary abstract and model equation, compare generator",
+          "title": "Influence of external potentials on heterogeneous diffusion processes",
+          "trigger": "Possible generator alias under heterogeneous noise"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "No whole-document noncoverage claim; likely different regime.",
+          "identifier_or_url": "https://doi.org/10.1017/S0956792505006145",
+          "material_read": "Publisher abstract: 2D small interior Dirichlet holes; full text not obtained",
+          "method": "Read abstract and compare dimensional/sink assumptions",
+          "title": "Optimizing the fundamental Neumann eigenvalue for the Laplacian in a domain with small traps",
+          "trigger": "Potential broader principal eigenvalue optimization"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "A historical risk remains; spherical traps and objective are related but not identical.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mcm.2010.02.025",
+          "material_read": "Bibliographic metadata and available abstract only; full text unavailable",
+          "method": "Read abstract and bibliographic metadata",
+          "title": "Optimizing the principal eigenvalue of the Laplacian in a sphere with interior traps",
+          "trigger": "Potential older exact interior trap result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2/RESULT.md",
+        "https://arxiv.org/pdf/2601.08740",
+        "https://arxiv.org/abs/2609.39990",
+        "https://arxiv.org/abs/1608.07335",
+        "https://doi.org/10.1017/S0956792505006145",
+        "https://doi.org/10.1016/j.mcm.2010.02.025"
+      ],
+      "rationale": "An exact material-contrast-driven spectral design theorem, including unique point-sink optimum for every absorption strength and a nontrivial sharp location bound independent of arbitrarily large diffusivity contrast. Natural physical mathematical spectral objective; unlike simple homogeneous rescaling, the contrast changes optimal placement.",
+      "residual_risks": [
+        "Prior specialized mathematics may still dominate this claim despite the best-of-knowledge search.",
+        "Older interior point-trap Sturm–Liouville literature may give an equivalent minimax impedance result, and two relevant historical papers were not obtained in full.",
+        "No conclusion extends to unequal layer lengths or nonlinear target functionals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-placement-bound-for-a-partially-absorbing-trap-in-tw--716d784239c2/check.py",
+    "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC.",
+    "https://arxiv.org/pdf/2601.08740",
+    "https://arxiv.org/abs/2609.39990",
+    "https://arxiv.org/abs/1608.07335",
+    "https://doi.org/10.1017/S0956792505006145",
+    "https://doi.org/10.1016/j.mcm.2010.02.025"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Statement depends on equal halves, positive piecewise-constant Fickian diffusion, a single positive delta absorber and Neumann endpoints.",
+    "Optimality proof relies on positivity of trial ground eigenfunction, correct impedance domain and monotonicity; tests cannot certify all continuous parameters.",
+    "Older interior point-trap Sturm–Liouville literature may give an equivalent minimax impedance result, and two relevant historical papers were not obtained in full.",
+    "No conclusion extends to unequal layer lengths or nonlinear target functionals."
+  ],
+  "schema_version": 1
+}

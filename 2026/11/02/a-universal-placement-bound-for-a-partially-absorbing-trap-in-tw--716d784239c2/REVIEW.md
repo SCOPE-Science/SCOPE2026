@@ -1,19 +1,21 @@
-# Review: optimal point trapping in two-layer diffusion
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The closed positive quadratic form defines the claimed eigenvalue, and the interface and absorber flux jumps match the transfer-matrix implementation. The derivative identity for two one-sided Neumann–Dirichlet logarithmic derivatives proves strict global minimization of the strength required to attain a trial eigenvalue, not merely local stationarity. Analytic phase matching yields the unique optimizer for every positive reactivity and diffusivity ratio. Strict phase monotonicity and the limiting root of \(\tan t=-t\) prove the universal bound; the transfer-matrix checker separately passed 2578 diagnostic assertions.
+PASS
 
-## Originality
+Reconstructed the positive Sturm–Liouville quadratic form, Neumann endpoints, interface continuity and delta-sink jump. At a fixed trial positive eigenvalue below each side mixed eigenvalue, logarithmic impedances ell and m increase/decrease with trap x, so ell+m is uniquely minimized at ell=m. Strict eigenvalue-impedance monotonicity converts that to unique global maximizing location. With k=2z/L, the slower segment has phase kx and the fast half gives right input phase alpha_r(z)=arctan(sqrt(r)tan(z/sqrt(r))), yielding kx=k(L/2-x)+alpha, the formula for x* and strength. alpha<z and alpha/z decreases strictly in z for r>1; z increases with kappa, giving x* decreasing from L/2 to pi L/(4z_inf). As r->infinity, z_inf->t0 solving tan t0=-t0; bound pi/(4t0)=0.38713253 sharp. Inspected transfer-matrix checker source and independent_checks.py verifies eigenvalue relation and competing positions for sample parameters; finite samples are not universal proof.
 
-**PASS on inspected sources, subject to historical priority risk.** Kazakevičius–Ruseckas (2016, arXiv:1608.07335v1) analyze heterogeneous diffusion in a different stochastic convention with external potentials. Tung–Lawley (2026, arXiv:2601.08740v1) derive weak-reactivity/target-size asymptotics for escape statistics; their full text does not state an all-reactivity, two-layer one-point placement law or sharp universal location bound. Grebenkov–Kolokolnikov (2026, arXiv:2609.39990v1) treats many-trap mean capture time, not the single point-sink principal eigenvalue maximization. Kolokolnikov–Titcombe–Ward (2005) optimizes small absorbing holes in a planar region; its two-dimensional small-hole limit does not dominate the present statement. An older Cheviakov–Ward (2011) sphere interior-trap paper was only partially accessible, so equivalent historical formulations outside the inspected texts remain a risk. Database comparisons were performed against published semantically related mathematical results and accessible prior claims; absence of a matching search result alone was not treated as novelty proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** This resolves a motivated spectral design problem with material contrast rather than a homogeneous rescaling: the exact optimum for every partial absorption strength is offset toward slower diffusivity and has a surprisingly contrast-independent sharp lower-location bound. Its weak- and strong-absorption laws quantify practical placement tradeoffs. This is a finite-parameter exact theorem; no broader theorem or empirical performance claim is required for its utility.
+General diffusion and trap optimization is prior, but the inspected heterogeneous search papers address stochastic interpretation or weak-trap/small-target asymptotics, and the original multi-trap principal-eigenvalue papers differ in geometry. None inspected has the all-reactivity one-dimensional two-layer unique optimum or contrast-independent sharp displacement limit.
 
-## Limits and comparison risk
+## value
 
-The bound assumes equal layer lengths, piecewise-constant Fickian diffusion, one delta absorber, and two reflecting endpoints. Mean-first-passage minimizers and Ito/Stratonovich formulations are different observables/operators. Some older full papers could not be inspected, so independent historical priority and external auditing remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact material-contrast-driven spectral design theorem, including unique point-sink optimum for every absorption strength and a nontrivial sharp location bound independent of arbitrarily large diffusivity contrast. Natural physical mathematical spectral objective; unlike simple homogeneous rescaling, the contrast changes optimal placement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

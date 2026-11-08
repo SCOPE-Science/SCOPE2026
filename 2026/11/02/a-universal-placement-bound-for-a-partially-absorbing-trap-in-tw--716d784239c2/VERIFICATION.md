@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducible checks and limitations
+# Independent mathematical audit
 
-Run `python check.py` with Python 3, NumPy, and SciPy from the extracted package directory. The 2578 diagnostic assertions cover independent flux transfer-matrix eigenvalues, 35 sampled competitors in both material layers for each of 64 parameter families, weak-strength asymptotics, and physical scaling. The analytic proof, not the finite enumeration, supports universal existence, uniqueness, and the sharp constant. The code does not inspect publication priority; external review has not been performed.
+## correctness
+
+PASS
+
+Reconstructed the positive Sturm–Liouville quadratic form, Neumann endpoints, interface continuity and delta-sink jump. At a fixed trial positive eigenvalue below each side mixed eigenvalue, logarithmic impedances ell and m increase/decrease with trap x, so ell+m is uniquely minimized at ell=m. Strict eigenvalue-impedance monotonicity converts that to unique global maximizing location. With k=2z/L, the slower segment has phase kx and the fast half gives right input phase alpha_r(z)=arctan(sqrt(r)tan(z/sqrt(r))), yielding kx=k(L/2-x)+alpha, the formula for x* and strength. alpha<z and alpha/z decreases strictly in z for r>1; z increases with kappa, giving x* decreasing from L/2 to pi L/(4z_inf). As r->infinity, z_inf->t0 solving tan t0=-t0; bound pi/(4t0)=0.38713253 sharp. Inspected transfer-matrix checker source and independent_checks.py verifies eigenvalue relation and competing positions for sample parameters; finite samples are not universal proof.
+
+## originality
+
+PASS
+
+General diffusion and trap optimization is prior, but the inspected heterogeneous search papers address stochastic interpretation or weak-trap/small-target asymptotics, and the original multi-trap principal-eigenvalue papers differ in geometry. None inspected has the all-reactivity one-dimensional two-layer unique optimum or contrast-independent sharp displacement limit.
+
+## value
+
+PASS
+
+An exact material-contrast-driven spectral design theorem, including unique point-sink optimum for every absorption strength and a nontrivial sharp location bound independent of arbitrarily large diffusivity contrast. Natural physical mathematical spectral objective; unlike simple homogeneous rescaling, the contrast changes optimal placement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
