@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:52:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md full proof blob 0c155dc4ee2b1091db8d9537aedd59062efe904d",
+        "check.py source inspected blob cd5bae5502b0163d540fb01c0c8cd0484c66fcb6",
+        "Independent numerical root/Poisson comparison k=γ=1"
+      ],
+      "rationale": "For fully reset position and orientation of planar active Brownian particle with k,γ,v>0, D≥0, independent IID interreset T>0 and E T=m, first moments solve the linear moment ODE giving F(t)=v(e^(−γt)−e^(−kt))/(k−γ), resonance F(t)=vt e^(−kt); G(t)=∫₀ᵗF. Renewal reward gives M(T)=E G(T)/m with finite absolute reward. F has one maximum t₀; H(t)=tF(t)−G(t) has derivative tF′(t) and a unique later positive zero τ. C(t)=F(τ)t for t≤τ and G(t) for t≥τ is the least relevant concave upper envelope. Jensen yields exact supremum F(τ) when m≤τ, and G(m)/m when m≥τ, with equality only deterministic T=m for m≥τ and nonattainment for m<τ; two-point epsilon/τ laws approach bound as epsilon→0. The Poisson rate optimum is r=√(kγ), M=v/(√k+√γ)^2, strictly below best renewal. At k=γ, τk≈1.7932821329 and F≈0.2984256075 v/k vs 0.25 v/k. This is a physical-time signed displacement theorem, not a phase-resolved stationary mean.",
+      "residual_risks": [
+        "The theorem assumes instantaneous full resets with no cost; small-mean burst-clock supremum ceases to be reachable under positive reset overhead.",
+        "Any assertion of a unique maximizing strictly positive T law at m<τ would be false; the source carefully states nonattainment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guéneau et al. resets driving noise, not the complete position and heading; regenerative reward differs.",
+          "General concave-majorant theory may imply optimum as a method, but does not calculate F, τ or compare Poisson sharp constant."
+        ],
+        "reasoning": "Broader control theories can methodologically imply the Jensen step yet need exact model-specific derivation.",
+        "searches": [
+          "Shee arXiv:2409.06920 harmonic active Brownian",
+          "Guéneau Majumdar Schehr arXiv:2306.09453 active particle harmonic trap resetting noise",
+          "Renewal convex envelope moment constraint optimization"
+        ]
+      },
+      "checked_sources": [
+        "Shee arXiv:2409.06920v1 full HTML",
+        "Eule–Metzger New J Phys 18 033006 (2016)",
+        "Guéneau–Majumdar–Schehr arXiv:2306.09453",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shee yields M_P(r) but not the upper envelope over all clocks of fixed mean.",
+          "Jensen plus unique tangency yields a conditional phase diagram and equality classifications not implied by optimizing r alone."
+        ],
+        "reasoning": "The explicit analytic response is a needed non-textbook ingredient; the known general result alone does not supply it.",
+        "searches": [
+          "Shee arXiv:2409.06920 Section 3 reset optimum",
+          "Eule Metzger 2016 renewal reward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shee studies same SDE and Poisson reset mean, not an arbitrary IID law with prescribed E T=m.",
+          "Eule–Metzger gives general regenerative reset framework."
+        ],
+        "reasoning": "Generic renewal reward plus model-specific response yields new explicit tangency boundary and nonattainment; no exact same-model statement in relevant inspected Shee parts.",
+        "searches": [
+          "Shee Active Brownian particle under stochastic position and orientation resetting in a harmonic trap arXiv:2409.06920",
+          "Eule Metzger Non-equilibrium steady states of stochastic processes with intermittent resetting 2016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact tabulated all-renewal mean-constrained transition surfaced in Resultary; hits concerned other harmonic Langevin systems.",
+          "Known Poisson optimum is a strict comparator, not the claimed global value."
+        ],
+        "reasoning": "The concrete ξ-root and gain are not a rediscovery of the known Poisson parameter value; all-renewal laws have different attainable envelope.",
+        "searches": [
+          "Resultary: active Brownian fixed mean reset clock alignment",
+          "Shee arXiv:2409.06920 Poisson optimal rate"
+        ]
+      },
+      "rationale": "Qualified PASS: Shee derived exactly this full-reset active-Brownian harmonic-trap model and optimized Poisson clocks, while renewal-reward and concave-envelope optimization are classical methods; no inspected primary source states the fixed-mean all-renewal sharp tangency transition and equality/nonattainment laws for this model.",
+      "residual_risks": [
+        "Generic classical moment-problem or convex-envelope theorem can supply the method with a suitably inserted model response; historical priority of the specialized phase diagram remains qualified.",
+        "Model differs from non-full-reset noise-resetting literature; identification of which state is reset matters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME MODEL POISSON RESULT PRIOR; all-renewal fixed-mean optimum not in inspected analysis",
+          "evidence": "Source maximizes with exponential clocks; current theorem treats all IID positive reset laws at fixed mean.",
+          "identifier_or_url": "https://arxiv.org/html/2409.06920v1",
+          "material_read": "Accessible full arXiv HTML, model definitions, Section 3 mean and Poisson resetting optimum",
+          "method": "primary full-text HTML reading",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "exact same stochastic model and Poisson optimization"
+        },
+        {
+          "assessment": "METHOD PRIOR; potential general envelope implication a residual risk",
+          "evidence": "General regeneration and reset-time distribution results are not explicit active Brownian fixed-mean tangency.",
+          "identifier_or_url": "doi:10.1088/1367-2630/18/3/033006",
+          "material_read": "Published abstract/model framework; no complete full-text comparison claimed",
+          "method": "bibliographic/abstract comparison",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "generic renewal resetting could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact concave-envelope/Jensen proof",
+        "Shee same-model Poisson law"
+      ],
+      "rationale": "Naturally optimizes mean signed directional displacement at a fixed physical reset rate in a standard active Brownian harmonic model, exhibits an exact attainable/unattainable protocol transition, explicit threshold and a nontrivial 19.37% gain over all Poisson clocks. This is not just differentiation of the already known Poisson formula.",
+      "residual_risks": [
+        "The objective is signed time-averaged alignment, not first-passage or cost-adjusted efficiency."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Qualified, bounded best-of-knowledge originality; not a formal proof certificate or guarantee of absolute historical priority.",
+    "No public scientific source files changed; publication_plan is staged and not executed."
+  ],
+  "schema_version": 1
+}

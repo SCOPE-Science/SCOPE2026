@@ -1,19 +1,21 @@
-# Scientific review of the renewal-clock alignment theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stochastic dynamics and reset independence give the unreset mean response \(F(t)\) exactly. The renewal-reward identity for positive finite-mean clocks is applicable because the cycle's absolute reward has finite expectation. The response has one turning point, implying a unique tangency and a pointwise concave majorant of its integrated reward. Jensen's inequality and the explicit approximating two-atom law prove the complete sharp optimization including equality and nonattainment. The Poisson formula and resonant limit follow by direct integration. The standalone script independently checks 2,390 finite/symbolic consequences. Those diagnostics do not substitute for the universal proof.
+PASS
 
-## Originality
+For fully reset position and orientation of planar active Brownian particle with k,γ,v>0, D≥0, independent IID interreset T>0 and E T=m, first moments solve the linear moment ODE giving F(t)=v(e^(−γt)−e^(−kt))/(k−γ), resonance F(t)=vt e^(−kt); G(t)=∫₀ᵗF. Renewal reward gives M(T)=E G(T)/m with finite absolute reward. F has one maximum t₀; H(t)=tF(t)−G(t) has derivative tF′(t) and a unique later positive zero τ. C(t)=F(τ)t for t≤τ and G(t) for t≥τ is the least relevant concave upper envelope. Jensen yields exact supremum F(τ) when m≤τ, and G(m)/m when m≥τ, with equality only deterministic T=m for m≥τ and nonattainment for m<τ; two-point epsilon/τ laws approach bound as epsilon→0. The Poisson rate optimum is r=√(kγ), M=v/(√k+√γ)^2, strictly below best renewal. At k=γ, τk≈1.7932821329 and F≈0.2984256075 v/k vs 0.25 v/k. This is a physical-time signed displacement theorem, not a phase-resolved stationary mean.
 
-**PASS, with residual priority risk.** Shee (2024, arXiv:2409.06920v1) gives the Poisson active Brownian mean and its rate optimum, but not the fixed-mean optimization over all renewal clocks. Eule and Metzger (2016) give a general renewal-resetting theory and restricted-family constrained search comparisons, not this explicit full-position/heading-reset alignment frontier. Guéneau, Majumdar and Schehr (2023) reset the *driving noise* rather than the particle's full state and compare periodic and Poisson noise protocols, not this optimization. Accessible mathematical research records on fixed-mean quantum detection and renewal first passage have distinct reward objectives and hypotheses. The concave-envelope method itself is standard, and an unindexed general optimal-renewal-control theorem could subsume some or all of the phase classification; independently established publication priority is not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The source model explicitly studies maximizing mean displacement by Poisson rate selection. Under the natural constraint of fixed mean reset expenditure, the answer is a complete, analytically sharp protocol classification, including a nonattained low-mean plateau, a deterministic high-mean optimizer, and a strict universal improvement over optimized Poisson resetting. The matched-timescale benchmark quantifies a nontrivial \(19.37\%\) performance gap. This is a motivated control question rather than a chosen arbitrary invariant.
+Qualified PASS: Shee derived exactly this full-reset active-Brownian harmonic-trap model and optimized Poisson clocks, while renewal-reward and concave-envelope optimization are classical methods; no inspected primary source states the fixed-mean all-renewal sharp tangency transition and equality/nonattainment laws for this model.
 
-## Scientific limitations
+## value
 
-Only long-run signed alignment is optimized. Renewal clocks are exogenous, independent, i.i.d., and have positive finite mean; position and heading are reset together at zero duration and zero overhead. Phase-resolved deterministic cycling is not claimed to converge to a time-independent distribution. General heuristic optimal-control methods and inaccessible or unindexed specialized work remain priority risks. Numerical diagnostics are finite and cannot prove uniqueness or global optimality by themselves.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Naturally optimizes mean signed directional displacement at a fixed physical reset rate in a standard active Brownian harmonic model, exhibits an exact attainable/unattainable protocol transition, explicit threshold and a nontrivial 19.37% gain over all Poisson clocks. This is not just differentiation of the already known Poisson formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
