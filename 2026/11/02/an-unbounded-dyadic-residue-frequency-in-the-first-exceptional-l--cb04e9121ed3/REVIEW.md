@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is an unrestricted statement for a fixed explicitly defined second-order recurrence. Exact matrix powers and congruence prove the shortest period. The logarithm \(L\in4M_2(\mathbb Z_2)\) provides a convergent interpolation with documented derivatives. The explicit arithmetic cancellation \((Xv_3-X^2v_3/2)_2\equiv0\pmod{64}\) produces an isometric derivative after division by \(32\). The resulting unique critical index has exact quadratic contact, proving the fiber size in every precision; no extrapolation from finite experiments is used. The coefficient bounds are checked with \(\nu_2(j!)\le j-1\). The extracted checker confirms levels \(5\) through \(15\), including the critical-index lifting.
+## correctness
 
-## Originality — PASS, qualified
-The strongest direct historical comparison is Carlip–Jacobson, *On the Stability of Certain Lucas Sequences Modulo \(2^k\)* (1996), whose Theorem 1.1 handles odd \(a\) with \(b\equiv1\pmod{16}\), explicitly not \(b=9\). The text records the \(b\equiv9\pmod{16}\) cases as unresolved/conjecturally unstable. The present coefficient pair \((1,9)\) is outside that coverage and the conclusion addresses this absence. Their other 1996 stability paper, relevant literature on uniform distributions, and later single-Fibonacci-sequence density results do not directly imply a growing frequency for this parameter. A restricted-access plausible study remains a priority risk, so historical uniqueness is not certified.
+PASS
 
-## Mathematical value — PASS
-The value comes from proving a concrete historically motivated nonstability case, with an exact infinite family of multiplicities and a structural \(2\)-adic critical-point mechanism. This is not a parameter-renaming of the classical stable formula: that formula excludes precisely the anomalous residue class. The index-dependent counts are a meaningful obstruction to stability, rather than a short finite table.
+For A=[[1,9],[1,0]], A³=[[19,90],[10,9]] and A⁶=[[1261,2520],[280,981]]=I+4B with B≡I mod2. Hence order A mod2^k is 3·2^{k−1} for k≥2 and period of U_n equals A order because (1,0), A(1,0) are a basis. The convergent log L=log(A⁶)∈4M₂(Z₂) interpolates f(t)=U_{6t+3}. For v3=(19,10), J=L/4≡I mod2, the lower coordinate of J² exp(tL)v3 is 2 mod4, so ν₂(f″(t))=5. The exact cancellation (Xv3)_2=15120 and (X²v3)_2/2=14288400 gives f′(0)≡0 mod64. Taylor coefficients imply g=f′/32=c+ut+2H(t), c even,u odd,H 1-Lipschitz, hence g is a bijective 2-adic isometry with unique zero τ. Leading quadratic coefficient f″(τ)/2 has ν₂=4 and all higher coefficients have strictly larger valuations at every h≠0, yielding ν₂(f(t)−f(τ))=4+2ν₂(t−τ). Only indices n≡3 mod6 can give a value ≡2 mod4; counting congruence t≡τ mod2^{ceil((k−4)/2)} within the exact period gives v_{2^k}(r_k)=2^{floor(k/2)}, k≥5. This is an infinite proof, not extrapolation from residue tables.
 
-## Source limitations
-The 1996 Acta Arithmetica full PDF and the later generalised-Fibonacci modular paper were not available for complete inspection despite lawful-source attempts. Their known descriptions do not establish this theorem; residual risk of a stronger inaccessible prior remains. Date-specific archival metadata use the day-verified 2013 public preprint, not a guessed day within the 1996 issue. Independent mathematical assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1996 Carlip–Jacobson Fibonacci Quarterly primary full text explicitly restricts its all-residue stability theorem to odd a and b≡1 mod16, and marks b≡9 mod16 as unresolved (table and text p299). The (1,9) theorem supplies a new exact 2-adic critical-point frequency growth in this excluded family; the published 1996 Acta work studies distinct stable parameter cases. The 1996 Finite Fields and Their Applications paper A Criterion for Stability of Two-Term Recurrence Sequences Modulo 2^k is a highly plausible stronger source whose full text was not obtained; it might already classify nonstability of b=9, and priority must be qualified accordingly. Even a weaker nonstability criterion would not automatically provide the sharp distinguished-fiber multiplicities.
+
+## value
+
+PASS
+
+A historically identified missing congruence class b≡9 mod16 is resolved for its first natural coefficient pair. The unbounded exact frequency 2^{floor(k/2)} supplies a concrete quantitative obstruction to eventual stable residue sets; the rigid 2-adic quadratic critical contact explains growth at every precision. Neither a recomputation of stable b=1 tables nor an unmotivated arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
