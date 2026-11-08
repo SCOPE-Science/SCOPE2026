@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact finite prefix and periodic block are reconstructed from residue slices modulo six. Restricted interval arithmetic produces exact affine formulas for all distinct triple sums of C and distinct pairs of C plus B. An exact partition of (h,11h+3] proves the finite base. Modular disjointness of 2C+R, C+2R and 3R prevents any periodic member from being a forbidden triple; shifting the largest periodic summand yields an infinite covering induction. The unique 4h-6 gap proves the least eventual period. Standalone symbolic checker verifies all affine comparisons for every k>=2; direct independent bitset enumeration corroborates 399 parameter values and longer windows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van Berkel and Bosma state the theorem for S_{f,g,g+d} when g>=max(f+1,d-1); for (f,g,d)=(1,2,6k+3), this fails for k>=2.",
+        "Shtrezi proves exact results for (1,g,g+1); the only seed with g=2 has h=3, outside h>=17.",
+        "The primary source reports finite tables for f<=25 and d<=25, not a theorem for every k>=2."
+      ],
+      "reasoning": "Neither theorem has hypotheses that include this entire arithmetic progression, and the finite table cannot imply an unbounded parameter result. The full downstream comparison remains subject to the primary-text access risk.",
+      "searches": [
+        "arXiv:2609.16843v1 On t-sumfree sequences Section 1 Theorem 3 and Theorem 5",
+        "arXiv:2606.17447v1 The greedy 3-sumfree sequence S_{1,g,g+1}",
+        "published-finding corpus: van Berkel Bosma 3-sumfree S_{1,2,h} periodic classification exceptional triples"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.16843v1",
+      "arXiv:2606.17447v1",
+      "OEIS:A026471",
+      "arXiv:2609.18522",
+      "published-finding corpus:2026/10/4/SCOPE-exact-periodicity-of-the-third-off-diagonal-greedy-2-sumfree-fam--9165cf5d8d0c",
+      "published-finding corpus:2026/9/18/SCOPE-complete-f1-greedy-2-sumfree-periodicity--056019251c4e",
+      "published-finding corpus:2026/9/20/SCOPE-first-two-off-diagonal-2-sumfree-families--dc29809f76be"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus near matches include 2026/10/4/SCOPE-exact-periodicity-of-the-third-off-diagonal-greedy-2-sumfree-fam--9165cf5d8d0c; 2026/9/18/SCOPE-complete-f1-greedy-2-sumfree-periodicity--056019251c4e; 2026/9/20/SCOPE-first-two-off-diagonal-2-sumfree-families--dc29809f76be. Each is strict 2-sumfree.",
+        "The newer arXiv:2609.18522 paper is explicitly about 2-sumfree, not 3-sumfree sequences."
+      ],
+      "reasoning": "A condition excluding distinct pair sums differs from excluding distinct triple sums, so the published-finding corpus two-sumfree claims do not imply this result. The seed families in the relevant three-sumfree theorems are disjoint or have inapplicable hypotheses.",
+      "searches": [
+        "published-finding corpus: greedy strict t-sumfree sequences finite certificate period 2-sumfree",
+        "published-finding corpus: strict greedy 3-sumfree seed 1 2 h h congruent 5 modulo 6 ultimately periodic 2026",
+        "arXiv:2609.18522 Periodicity conjectures for all 2-sumfree sequences",
+        "arXiv:2606.17447 The greedy 3-sumfree sequence S_{1,g,g+1}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The title, abstract, and introduction of arXiv:2609.16843 define periodicity equivalently via its characteristic word and first differences, and state general parameter-range results.",
+        "An explicit periodic set formula for all k>=2 implies characteristic-word periodicity and first-difference periodicity; the converse would not imply these exact term positions or least period.",
+        "The targeted queries revealed no indexed identical infinite family."
+      ],
+      "reasoning": "Aliasing from strict greedy 3-sumfree to characteristic-word periodicity and periodic first differences was considered. Searches found no exact family; absence is not used as a standalone novelty proof.",
+      "searches": [
+        "published-finding corpus: strict greedy 3-sumfree sequence f g h exceptional triples not proven ultimately periodic 2026 van Berkel Bosma",
+        "published-finding corpus: 3-sumfree greedy sequence S_{1,2,6k+5} 5h-1 periodic exact progression h=6k+5",
+        "web: \"strict 3-sumfree\" \"1,2\" \"6k+5\" periodic",
+        "web: \"3-sumfree\" \"1,2,17\" 84",
+        "arXiv:2609.16843v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A026471 treats the initial seed (1,2,3), not (1,2,h) for h>=17.",
+        "The source reports computer-supported periodicity for many individual triples with small f and d; this does not certify a formula for an unbounded progression.",
+        "No published-finding corpus hit gave the seed (1,2,6k+5) all-k classification."
+      ],
+      "reasoning": "Small tabulated members, even if previously checked, would be special cases and were not claimed as a new small numerical census. The claimed contribution is the all-k structural classification, least period and density.",
+      "searches": [
+        "OEIS:A026471 strict 3-sumfree sequence",
+        "arXiv:2609.16843v1 small-triple census",
+        "published-finding corpus: greedy 3-sumfree 1 2 17 1 2 23 modulus 84 114"
+      ]
+    },
+    "rationale": "Explicit infinite family outside the g>=max(f+1,d-1) coverage of arXiv:2609.16843; another 2026 seed-family theorem requires h=g+1 and cannot cover h=6k+5 with g=2. The accessible published-finding corpus hits concern strict 2-sumfree rather than strict 3-sumfree sequences. No statement implying the entire claimed formula, least period, and density was located. The historical-priority risk of unindexed work and incompletely accessible sections is recorded.",
+    "residual_risks": [
+      "The full later sections of the van Berkel--Bosma primary article were not successfully fetched; an unindexed special uniform theorem or an appendix computation might alter priority.",
+      "Unpublished computations and unindexed articles cannot be excluded by a published-finding corpus or web search.",
+      "Portions of the seed family at small k may have appeared in individual published or unpublished finite tables."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Main published three-sumfree theorem excludes the current parameters; finite tables are not an infinite formula; unresolved risk from inaccessible later sections",
+        "evidence": [
+          "Theorem 3: f>=1, g>=max(f+1,d-1), d>=1; Theorem 5: at most 12 exceptions for f<=25 and d<=25.",
+          "Theorem 6 finite repeating-block certification method; current proof uses different explicit affine interval structure."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.16843",
+        "material_read": "arXiv HTML abstract/introduction and theorem statements (lines 25-159); Section 6/7 complete material could not be reopened",
+        "method": "direct HTML reading of the beginning of the primary paper; targeted source searches",
+        "title": "On t-sumfree sequences",
+        "trigger": "Same strict greedy three-sumfree object and general periodicity question"
+      },
+      {
+        "assessment": "Not covering: its third initial term is g+1, whereas ours is 6k+5 with second term 2",
+        "evidence": [
+          "Theorem 1: explicit residues modulo 10g+3 for (1,g,g+1); for g=2 only h=3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.17447",
+        "material_read": "Full public preprint excerpt including the theorem, restricted interval identities, and substantial proof of the two propositions",
+        "method": "lawful open full-text reproduction available via ResearchGate result; crosschecked abstract and arXiv identifier",
+        "title": "The greedy 3-sumfree sequence S_{1,g,g+1}",
+        "trigger": "Another explicit infinite three-sumfree seed theorem"
+      },
+      {
+        "assessment": "Different seed (1,2,3); no coverage of h>=17",
+        "evidence": [
+          "The sequence starts 1,2,3,4,5,13 and has a 23-modulus eventual pattern."
+        ],
+        "identifier_or_url": "https://oeis.org/A026471",
+        "material_read": "OEIS sequence definition, initial terms, comments and references",
+        "method": "public sequence-index retrieval",
+        "title": "OEIS A026471",
+        "trigger": "Check named initial strict greedy three-sumfree example"
+      },
+      {
+        "assessment": "Only pair-sum exclusions, not this triple-sum process",
+        "evidence": [
+          "The abstract explicitly concerns 2-sumfree sequences S_{f,g}."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.18522",
+        "material_read": "Abstract and source metadata",
+        "method": "public indexed arXiv source",
+        "title": "Periodicity conjectures for all 2-sumfree sequences",
+        "trigger": "Closest indexed family of uniform periodicity results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bf1a2d5f-3a79-41c2-bdee-bed8dde6732b",
+  "value": {
+    "rationale": "The motivating recent preprint frames ultimate periodicity of strict greedy three-sumfree sequences as a central open problem and proves only a restricted parameter region plus finite examples. An explicit, natural h=6k+5 infinite seed line outside its general theorem, with exact full membership, least period and density, has structural value and is not implied by individual census cases. It offers a useful restricted-sumset interval mechanism for other seed families.",
+    "status": "PASS"
+  }
+}
