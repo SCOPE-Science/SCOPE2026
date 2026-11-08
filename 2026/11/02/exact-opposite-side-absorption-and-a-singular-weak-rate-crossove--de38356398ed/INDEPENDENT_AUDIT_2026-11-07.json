@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:59:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For whole-line Brownian motion generator D∂xx with transparent inactive point gate, symmetric gamma, Poisson position resets r to x0>0 leaving gate state unchanged, conditioned on incoming side at active absorption: first-zero Laplace modes a=sqrt(r/D), b=sqrt((r+2gamma)/D); no-reset inactive-origin ODE yields (b-a)/(b+a). Keeping the two gate states in renewal matrix R=r(rI-Q)^(-1) gives F_A=(1-z)(1-exp(-bx0))/4, F_I=F_A+exp(-bx0)/(2(1+z)); their stationary mean is P_-=[1-z+z²exp(-bx0)/(1+z)]/4, z=a/b. Algebraic derivatives give decrease with r and x0 and increase with gamma, with 0<P<1/4; as r,gamma->0 at r/gamma->c, P->1/[4(1+sqrt(c/(c+2)))]. Independently solved the six-condition left/right backward boundary-value system (not just copied renewal), matching exact expression to ~5e-16 at four separated parameter tuples. Principal qualifier: the closest published study states a simulation trend for initial-side capture vs gamma opposite to this analytic result; its discrete-time crossing procedure and pathwise definition must be reconciled. Independent continuum BVP and derivation support the mathematical claim, not unqualified numerical agreement with that publication.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 source derives Laplace transforms of unmarked passage times; its Section III.3 examines side from simulations without a closed split.",
+          "Mercado-Vásquez/Boyer model has reflecting inactive boundary and gate redraw; Bressloff has reflecting/absorbing gated boundary."
+        ],
+        "reasoning": "General reset and gate formulas are prerequisites but do not determine the pathwise incoming-direction mark. No inspected stronger analytical split law implies the exact expression, subject to a possible specialized flux theorem.",
+        "searches": [
+          "arxiv:2512.09739v2 Sections II, III.1, III.2, III.3 and Appendix B",
+          "arxiv:2107.02148",
+          "arxiv:2009.02739"
+        ]
+      },
+      "checked_sources": [
+        "Pinned full RESULT.md and verify.py Git blobs",
+        "arxiv:2512.09739v2 full OA HTML, Section III.3 Figure5",
+        "arxiv:2107.02148 PDF original",
+        "arxiv:2009.02739 PDF original",
+        "Resultary Search: stochastic resetting transparent blinking target Brownian opposite side arrival splitting probability capture switching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Total absorption-time distribution marginalizes incoming side and therefore alone cannot reconstruct side splitting.",
+          "Source Fig5 claim of gamma behavior is not proof of a formula; if sampling exact same event, its qualitative conclusion conflicts with derivative of audited formula."
+        ],
+        "reasoning": "Published unmarked renewal law does not logically imply the marked law without an extra boundary-flux decomposition. The discrepancy with their numerical trend has to remain a risk; it is not silently reinterpreted as prior proof or disproof.",
+        "searches": [
+          "arxiv:2512.09739 Section III.3 and Appendix B",
+          "arxiv:2107.02148 model boundary conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The previous article explicitly considers incoming-side probability and whole-line transparent inactivity, same D=σ²/2 and reset/gate semantics.",
+          "Earlier model reports numerical initial-side fraction π_ic; the present P_- is complementary only if incoming-side conventions are identical."
+        ],
+        "reasoning": "Exact observable alias checked: opposite-side capture is 1-π_ic for the identical pathwise mark. A source simulation statement about its monotonicity conflicts with the audited analytic law and is explicitly flagged.",
+        "searches": [
+          "Resultary Search: stochastic resetting transparent blinking target Brownian opposite side arrival splitting probability capture switching",
+          "arxiv:2512.09739 Section III.3 side-of-arrival probability",
+          "Brownian incoming flux splitting with transparent inactive gate and reset-preserved target state"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Figure5 numerical side-of-capture curves are not an exact algebraic table, and their stated gamma trend differs.",
+          "Independent exact diffusion BVP matches closed form at four parameter sets."
+        ],
+        "reasoning": "Numerical figure is directly relevant evidence but does not constitute an exact table or coverage theorem; discrepancies and possible discretization/mismatch require follow-up scrutiny.",
+        "searches": [
+          "Resultary Search: stochastic resetting transparent blinking target Brownian opposite side arrival splitting probability capture switching",
+          "arxiv:2512.09739 Figure 5 incoming-side Monte Carlo data"
+        ]
+      },
+      "rationale": "Same-model Żbik–Dybiec–Capała–Palmowski–Sokolov paper develops total first-passage transforms and simulates incoming-side fractions in Section III.3 Figure5, but supplies no analytical closed form, exact conditional probabilities or joint weak-rate crossover. However its simulation description claims increasing gamma makes initial-side probability grow, in conflict with present opposite-side formula; this is retained as a substantive comparison risk rather than called confirming evidence. Other cited gating models use reflecting inactive targets or gate-redraw resets, where opposite-side mark is absent. Best-of-knowledge original analytic split result with unresolved prior-model discrepancy, not a claim of established numerical concordance.",
+      "residual_risks": [
+        "Only symmetric two-state gate, transparent inactive point, whole-line Brownian D>0, r,gamma,x0>0, gate unaffected by reset; incoming side is a pathwise mark, not X_(tau-)<0.",
+        "Published same-model simulated monotonicity trend apparently contradicts the analytic law; possible event/detection sampling discretization or modeling convention difference remains to be investigated before any public synchronization.",
+        "No guarantee of historical uniqueness against general flux-splitting formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_NO_CLOSED_DIRECTION_FORMULA; NUMERICAL_MONOTONICITY_CONFLICT",
+          "evidence": [
+            "arXiv:2512.09739v2, February 20 2026, lines 309–311: Figure5 π_ic initial-side fraction claimed increasing with gamma; under complementary definitions this conflicts with strictly increasing P_- (opposite side).",
+            "Sections III.1 and Appendix B provide total absorption transforms, not a formula for side mark."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.09739",
+          "material_read": "Complete OA HTML: model II, analytical III.1, numerical III.2 crossing implementation, comparison III.3 including Figure5 and Appendix B unmarked formulas",
+          "method": "Full arXiv HTML mathematical reading with line-specific side-of-capture comparison",
+          "title": "Hitting the blinking target under stochastic resetting",
+          "trigger": "Exact same target/reset model and same direction observable"
+        },
+        {
+          "assessment": "DIFFERENT_REFLECTING_GATE_AND_REDRAW_PROTOCOL",
+          "evidence": [
+            "Inactive target reflects and gate is reinitialized under resetting; no negative-side incoming event."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.02148",
+          "material_read": "Full OA paper model, resetting and target boundary sections, relevant formulas",
+          "method": "Original arXiv PDF text and relevant page reading",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "Potential broader gated splitting result"
+        },
+        {
+          "assessment": "BACKGROUND_UNMARKED_FIRST_PASSAGE_ONLY",
+          "evidence": [
+            "Gated reflecting/absorbing model lacks the transparent whole-line incoming-side observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.02739",
+          "material_read": "Full PDF model boundary conditions and mean first-passage treatment",
+          "method": "Original arXiv PDF text and relevant page reading",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "General gated Brownian first-passage literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The opposite-side mark is a natural observable explicitly simulated in the earlier same-model paper but not supplied by its unmarked passage transforms. Exact sensitivity, conditional-state split, and noncommuting weak-rate/rapid-switching limits reveal different behavior of marked and unmarked observables and dependence on whether gate is reset. This precise fact can be used in transport experiments and model comparisons.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned full RESULT.md and verify.py Git blobs",
+    "arxiv:2512.09739v2 full OA HTML, Section III.3 Figure5",
+    "arxiv:2107.02148 PDF original",
+    "arxiv:2009.02739 PDF original",
+    "Resultary Search: stochastic resetting transparent blinking target Brownian opposite side arrival splitting probability capture switching"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric two-state gate, transparent inactive point, whole-line Brownian D>0, r,gamma,x0>0, gate unaffected by reset; incoming side is a pathwise mark, not X_(tau-)<0.",
+    "Published same-model simulated monotonicity trend apparently contradicts the analytic law; possible event/detection sampling discretization or modeling convention difference remains to be investigated before any public synchronization.",
+    "No guarantee of historical uniqueness against general flux-splitting formulas."
+  ],
+  "residual_risks": [
+    "Only symmetric two-state gate, transparent inactive point, whole-line Brownian D>0, r,gamma,x0>0, gate unaffected by reset; incoming side is a pathwise mark, not X_(tau-)<0.",
+    "Published same-model simulated monotonicity trend apparently contradicts the analytic law; possible event/detection sampling discretization or modeling convention difference remains to be investigated before any public synchronization.",
+    "No guarantee of historical uniqueness against general flux-splitting formulas."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SAME_MODEL_NO_CLOSED_DIRECTION_FORMULA; NUMERICAL_MONOTONICITY_CONFLICT",
+      "evidence": [
+        "arXiv:2512.09739v2, February 20 2026, lines 309–311: Figure5 π_ic initial-side fraction claimed increasing with gamma; under complementary definitions this conflicts with strictly increasing P_- (opposite side).",
+        "Sections III.1 and Appendix B provide total absorption transforms, not a formula for side mark."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2512.09739",
+      "material_read": "Complete OA HTML: model II, analytical III.1, numerical III.2 crossing implementation, comparison III.3 including Figure5 and Appendix B unmarked formulas",
+      "method": "Full arXiv HTML mathematical reading with line-specific side-of-capture comparison",
+      "title": "Hitting the blinking target under stochastic resetting",
+      "trigger": "Exact same target/reset model and same direction observable"
+    },
+    {
+      "assessment": "DIFFERENT_REFLECTING_GATE_AND_REDRAW_PROTOCOL",
+      "evidence": [
+        "Inactive target reflects and gate is reinitialized under resetting; no negative-side incoming event."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2107.02148",
+      "material_read": "Full OA paper model, resetting and target boundary sections, relevant formulas",
+      "method": "Original arXiv PDF text and relevant page reading",
+      "title": "Search of stochastically gated targets with diffusive particles under resetting",
+      "trigger": "Potential broader gated splitting result"
+    },
+    {
+      "assessment": "BACKGROUND_UNMARKED_FIRST_PASSAGE_ONLY",
+      "evidence": [
+        "Gated reflecting/absorbing model lacks the transparent whole-line incoming-side observable."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2009.02739",
+      "material_read": "Full PDF model boundary conditions and mean first-passage treatment",
+      "method": "Original arXiv PDF text and relevant page reading",
+      "title": "Diffusive search for a stochastically-gated target with resetting",
+      "trigger": "General gated Brownian first-passage literature"
+    }
+  ]
+}
