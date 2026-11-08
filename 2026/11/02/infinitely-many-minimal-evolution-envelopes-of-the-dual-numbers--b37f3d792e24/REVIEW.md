@@ -1,11 +1,21 @@
-# Scientific review: infinitely many minimal evolution envelopes of the dual numbers
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit embeddings and natural-basis squares satisfy the multiplication identities through a nonsingular Vandermonde system, establishing an embedded ideal exactly equal to the square. The dual numbers are not themselves an evolution algebra, proving dimension-three minimality. The isomorphism invariant uses the canonical residue map of the characteristic ideal and the scalar ambiguity of its radical generator; a direct diagonal computation gives a strictly decreasing value on the integer family. Both exact rational and symbolic computations were replayed successfully. The finite tests only corroborate the proof.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 Costoya–Fernández Ouaridi–Viruel paper proves the general envelope construction and minimal dimensions; none of that existence/dimension theory is claimed as new. The October 2026 survey's fully inspected Question 42 still raises uniqueness of minimal evolution envelopes as a live research question. The distinct claim here is infinitely many isomorphism classes of **minimal** envelopes for the fixed algebra of dual numbers, separated by a residue multiplication-pencil invariant. Actual searches compared equivalent formulations (Waring decompositions, algebra extensions), broader construction theorems, and published research records. The full text of the foundational 2026 preprint could not be inspected, so the residual risk of implicit prior coverage remains, but its abstract and the later survey's explicit open question favor an uncovered contribution. An independent priority search has not been certified.
+PASS
 
-**Value — PASS.** Uniqueness of minimum evolution envelopes is explicitly singled out in current primary literature. The familiar two-dimensional dual-number algebra has *infinitely many* inequivalent minimal envelopes rather than a single canonical one. The intrinsic scalar-form pencil extracts a concrete isomorphism obstruction that may help classify other small-dimensional evolution envelopes. The result does not classify all envelopes and is restricted to \(\mathbb C\).
+PASS. The Vandermonde system V(w)=(1,0,0), V(z)=(0,1,0), V row coordinates (1,b_i,b_i^2), b=(1,2,m), has determinant (m-1)(m-2) nonzero for every integer m>=3. The products of iota(s+t epsilon) use those first three moment sums, so E_m^2=iota(A) is the desired ideal, with independent w,z and zero annihilator. A two-dimensional perfect evolution algebra has independent squares and no nonzero square-zero element, whereas A is perfect and epsilon^2=0; hence minimum envelope dimension 3. Because D=E² is characteristic with canonical unit and radical line, B0 residue form is invariant under isomorphism and B1 radical coefficient changes by an overall scalar; T=B0^-1 B1 transforms by conjugacy/scaling, making tr(T)^2/tr(T²) intrinsic. Eigenvalues -(m+2)/(2m), -(m+1)/m, -3/2 yield I=2(3m+2)^2/(7m²+6m+4), derivative -4(3m+2)(5m-6)/(...)²<0 for m>=3, giving pairwise nonisomorphism. Independently simplified exact rational expressions symbolically. No all-envelope classification is claimed.
 
-Closest sources: Costoya, Fernández Ouaridi and Viruel, arXiv:2609.32784, first public 2026-09-26 (abstract and cited discussion); Kaygorodov, Martín González and Viruel, arXiv:2610.22248v1, Question 42, page 26 (full page inspected). Related research-record search found minimal-dimension results for square-zero local algebras but not this infinite family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS restricted to infinitely many pairwise nonisomorphic minimum-dimensional evolution envelopes of one fixed dual-number algebra. Prior Waring-rank embeddings and the minimum dimension three are explicitly covered. The current invariant separation is the assessed residual novelty, not the known existence/minimum dimension theorem. General original embedding paper full text was inaccessible.
+
+## value
+
+PASS
+
+PASS. A canonical small nonsemisimple commutative algebra is a natural test of uniqueness of minimum evolution embeddings. Explicit infinitely many distinct minimum envelopes and a coordinate-free pencil invariant are useful moduli information beyond an existing minimum-dimension theorem. The result is a structural infinite family, not an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
