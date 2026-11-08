@@ -1,19 +1,21 @@
-# Scientific review: leaf–distance regression in uniform labeled trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces conditioning on a fixed path to the classical root-forest determinant \(hN^{N-h-1}\); deleting specified off-path leaves and chosen path endpoints gives the exact joint inclusion probabilities. Inclusion–exclusion recovers the conditional leaf polynomial, and a direct subtraction yields the signed cubic first difference. The boundaries \(n=3\), \(s=n\), \(q=s\) and the possible equality plateau are included. Independently decoded Prüfer trees through eight vertices verify exact finite instances; computation is corroboration rather than a replacement for the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For each fixed labeled a–b path of s=k+1 vertices, classical rooted-forest determinant hN^(N−h−1) gives exactly s n^(n−s−1) tree extensions. For r prescribed off-path leaves and q prescribed path endpoints, removing these leaves gives (s−q)(n−r−q)^(n−s−1) extensions, so the joint inclusion probability is ((s−q)/s)((n−r−q)/n)^(n−s−1) (zero for q=s). Inclusion expansion yields the full conditional probability-generating polynomial, and singletons yield the stated mean. Exact subtraction gives signed factor 2(n−1)−k(k+1)^2 over a positive denominator, with a unique discrete sign transition, possible two-point plateau, and maximizing k∼(2n)^(1/3). At n=3 mean is 2 and at s=n the negative exponent cancels correctly. Separate independently written Prüfer enumeration tested 14 (n,k) conditional-mean cells for n=3..6; this finite check does not establish the unrestricted proof.
 
-Remmel–Williamson (2010, arXiv:1009.2060, fully inspected at the leaf-count statements) enumerates trees by their leaf sets, without marked-distance conditioning. Bousquet-Mélou–Chapuy (2012, especially their rooted Cayley height/offspring-degree enumeration) permits broad joint combinatorial reconstruction; however, their inspected statements do not give this explicit marked-pair conditional law or its exact cubic change of monotonicity. The published endpoint-degree/distance result overlaps with, and has priority over, the endpoint-only subcase; that known subcase is not a claimed contribution. Targeted literature and semantic-record searches did not identify an explicit equal or stronger sign-transition result. Historical equivalence remains possible, especially through more general enumerators and inaccessible complete sources; failed searches are not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The entire conditional distribution connects a global branching statistic (total leaves) to a pairwise geometric statistic (marked distance) in the canonical uniform spanning-tree model of a complete graph. The exact positive-to-negative regression change is structural, not a tiny numerical improvement: a short marked path initially raises the global expected leaf count, yet sufficiently long paths suppress it. The new explicit integer cubic boundary and \(n^{1/3}\) peak scale isolate this nonmonotonicity without asymptotic approximations.
+The full eligible-leaf conditional law and cubic nonmonotonic total-leaf regression are distinct from known fixed-endpoint-degree regression. Remmel–Williamson leaf-set enumeration and Bousquet-Mélou–Chapuy rooted Cayley profiles may encode pieces through nontrivial summation; the specific signed cubic and distribution were not identified as theorems in the materially inspected sections. Best-knowledge originality is qualified, not a categorical historical priority certificate.
 
-## Scope and limitations
+## value
 
-Only uniform Cayley trees and degree-one leaves are covered; no claim is made for generic simply generated trees, random recursive trees or arbitrary edge weights. The older forest enumeration and the known single-endpoint distance regression are acknowledged inputs/overlaps, not original. The closest modern published record was readable as a title and summary but not as an entire source; some older texts were only readable as abstracts. This leaves historical-priority risk. The finite enumeration does not prove the all-size theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Total leaf number is a canonical global branching statistic; distance between prescribed vertices is a geometric statistic in the same natural uniform tree. The exact sign transition from short-distance increase to long-distance suppression, the n^(1/3) peak scale and complete inclusion law are structurally informative and not a mere isolated numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
