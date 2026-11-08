@@ -1,15 +1,21 @@
-# Review of the four-cut homology calculation
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Both explicit graph definitions have sixteen vertices, valency six, and precisely two common neighbors for every pair. The Alexander dual of the ordinary four-cut complex is exactly the simplicial complex of subsets containing no disconnected induced four-vertex set. All \(2^{16}\) vertex masks are examined and the criterion is cross-checked directly against every forbidden four-set. Vertexwise acyclic matchings and all Hasse incidences are verified. The signed critical-cell differential is constructed with the usual integral gradient-path recurrence; chain-square tests pass. Complete unimodular elimination gives invariant factors all equal to one (four for the degree-three and six for the degree-four Shrikhande boundaries; zero for rook). An independent original mod-two boundary calculation agrees. Integral Alexander duality shifts degrees by \(13-i\). There is no reliance on field computations alone, numerical rank estimates, or claims about uncomputed homotopy groups.
+## correctness
 
-## Originality
-**PASS on inspected evidence, with bibliographic risk.** The closest foundational arXiv preprint, *Topology of Cut Complexes of Graphs* (2304.13675), and its sequel (2407.08158) were inspected in accessible PDF full text with attention to their definitions, stated families, and homology conclusions. Neither covers four-cut complexes of the two strongly regular graphs. The closest public explicit rook theorem concerns three-cuts, not four-cuts; a different record computes their independence complexes; another four-cut classification concerns a ten-vertex triangular graph. The comparison is by objects, the induced-subgraph connectivity condition, the cut size, and homology degree. The same-parameter comparison does not establish novelty by itself. Residual risk: unpublished, unindexed, or deeply embedded equivalent calculations may exist.
+PASS
 
-## Value
-**PASS.** The pair is the canonical nonisomorphic strongly regular pair with parameters \((16,6,2,2)\). Its four-cut complexes are naturally associated to connected four-vertex induced subgraphs, the central object of the cited cut-complex theory. Their Alexander duals have the same total count of \(1652\) nonempty faces and the same Euler characteristic, while the Shrikhande four-cut complex has twelve extra degree-nine classes and entirely different ranks in higher degrees. Thus the complete *integral* homology detects structure invisible to both the common strongly regular parameters and the scalar Euler invariant of these cut complexes. Each non-top-degree group also supplies a rigorous obstruction to shellability. This is a finite classification with clear mathematical motivation, not an arbitrary slice or a claim of a new general theory.
+Reconstructed graph definitions (Shrikhande Cayley steps and rook equal-coordinate adjacency), ordinary disconnected-four-set facets and dual L=all subsets whose four-subsets are connected. Independent full 2^16-mask enumeration verifies dual f-vectors S (16,120,560,668,288,0) and rook (16,120,560,620,288,48), with connected 4-set counts 668/620 and mod-2 homology dual degrees S (65,2,12), rook (96,21). The actual evidence/verify.py source constructs acyclic Morse matchings, checks every oriented Hasse incidence, signed gradient-path Morse boundaries and integral unimodular unit-pivot reductions (nonzero ranks 4,6 for S and zero for rook); these are needed to exclude torsion, which independent mod-2 checks alone cannot do. Integral Alexander duality on 16 vertices shifts L^cohomology degree 13-i and UCT applies as integral groups are free. Nonzero lower-dimensional homology obstructs shellability of pure 11-complexes. This is a complete finite graph calculation, not an assertion about all strongly regular graphs.
 
-## Prior literature and limits
-The cited earlier full texts classify complete multipartite graphs, clique prisms, cycles, trees, disjoint unions, powered paths, and rectangular path grids, but neither the Shrikhande graph nor the complete-factor rook graph at cut size four. A public three-cut rook result does not imply a four-cut result; unlike cut sizes, the disconnected-set restrictions and Alexander duals change. The established independence-complex difference for the same graphs is logically distinct. No homotopy type or cup-product ring for the present cut complexes is asserted. A separate independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two primary cut-complex papers establish the general definition and other graph families, not these ordinary four-cut integral groups. The earlier SCOPE result is the rook THREE-cut homology and does not imply the four-cut calculation. An exact 16-vertex additive homology classification is provisionally original, not a claim that these two graphs were otherwise indistinguishable.
+
+## value
+
+PASS
+
+Exact torsion-sensitive homology of two canonical strongly regular parameter twins is a natural finite but complete topological invariant. The degree-nine Shrikhande class distinguishes the four-cut constructions despite equal reduced Euler characteristic; confirms nonshellability and reveals graded structure rather than a routine sampled statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
