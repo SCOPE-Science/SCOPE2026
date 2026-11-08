@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The independent parent-choice coupling gives an exact local covariance: forcing vertex \(t\) to attach to \(j\) changes the depth of the entire descendant subtree, whose conditional expected final size is \(n/t\). Summation, finite harmonic identities, and one reciprocal-square difference prove the covariance formula and single sign switch. Euler–Maclaurin-scale elementary expansions establish the \(\sqrt{n/\log n}\) boundary. The finite enumerations in `verify.py` independently check the formulas but do not assert infinite certification.
+## correctness
 
-**Originality: PASS (qualified).** An earlier root-only identity is recovered at birth rank one, but root-only coverage does not imply the birth-rank-dependent transition or its location. Janson's inspected abstract concerns the degree-frequency process, not this mixed statistic. published-finding corpus searches for nonroot degree, total path length, and rank threshold found no direct equivalent in the returned summaries. Direct inspection of every older monograph and paywalled article was not possible; undetected equivalents are a residual priority risk.
+PASS
 
-**Mathematical value: PASS.** The birth-rank crossover is a natural qualitative distinction in random recursive-tree genealogies: the same local structural statistic changes the sign of its association with global path cost as the vertex ages. The nontrivial \(\sqrt{n/\log n}\) scale and exact finite-size formula make the statement useful for degree–depth dependence and age-profile analyses rather than being a mere isolated small-number calculation.
+The exact independent-parent construction yields E final subtree size n/t, and conditioning on parent P_t=j changes the expected depths of the entire subtree. The local covariance n/[t(t-1)](1+H_{j-1}-H_{t-1}) sums by finite harmonic rearrangement to the formula. Neighbor difference [n-j(j+1)]/[j^2(j+1)] implies increasing-then-decreasing profile; root negative and n-1 positive force unique sign crossing (possibly one zero). The uniform estimates for j near a sqrt(n/log n) give normalized limit (1-a^{-2})/2. n and n-1 endpoint identities checked. An independently implemented exhaustive enumeration over every parent history n=3..7 verifies exact covariances all j; finite data are supplementary.
 
-Independent coverage, broad universal tree models, and full joint laws are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This strengthens an existing published root-only attachment covariance identity to every birth rank and classifies a mesoscopic sign reversal. Janson global degree-frequency theorem addresses another statistic; an earlier bivariate age/path-length formula in recursive-tree literature remains possible.
+
+## value
+
+PASS
+
+Vertex age is intrinsic to recursively grown trees, and its degree versus global total-depth dependence changes sign at a nontrivial sqrt(n/log n) scale; complete exact profile plus sharp crossover is useful for structural-probabilistic age correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:58:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact independent-parent construction yields E final subtree size n/t, and conditioning on parent P_t=j changes the expected depths of the entire subtree. The local covariance n/[t(t-1)](1+H_{j-1}-H_{t-1}) sums by finite harmonic rearrangement to the formula. Neighbor difference [n-j(j+1)]/[j^2(j+1)] implies increasing-then-decreasing profile; root negative and n-1 positive force unique sign crossing (possibly one zero). The uniform estimates for j near a sqrt(n/log n) give normalized limit (1-a^{-2})/2. n and n-1 endpoint identities checked. An independently implemented exhaustive enumeration over every parent history n=3..7 verifies exact covariances all j; finite data are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published root-attachment study establishes exact negative root contribution and a stronger stochastic order restricted to root."
+        ],
+        "reasoning": "Its j=1 special case is recovered, but it does not imply the sign crossing for j>1 or sqrt(n/log n) crossover.",
+        "searches": [
+          "random recursive tree outdegree vertex birth index covariance total path length depth sign transition",
+          "Resultary root attachments path length recursive trees"
+        ]
+      },
+      "checked_sources": [
+        "Janson DOI:10.1002/rsa.20046",
+        "Resultary root attachments 3b3e0426b1ba",
+        "Smythe–Mahmoud recursive trees survey",
+        "Resultary query: random recursive tree outdegree vertex birth index covariance total path length depth sign transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary root attachment profile is exact at j=1 and is acknowledged; distinct local age j remains."
+        ],
+        "reasoning": "The general vertex-attachment coupling and harmonic calculation prove additional statements not implied by root-only results.",
+        "searches": [
+          "random recursive tree outdegree vertex birth index covariance total path length depth sign transition",
+          "Resultary top 12 age rank covariance search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson (2005) defines global outdegree-frequency random variables, not singled-out birth-rank degree."
+        ],
+        "reasoning": "A global degree-frequency covariance cannot directly recover the covariance at a fixed marked birth rank without extra joint path-length information.",
+        "searches": [
+          "random recursive tree outdegree vertex birth index covariance total path length depth sign transition",
+          "random recursive trees degree total path length mixed moment marked vertex age"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Janson Theorem 1.1 and moment treatment concern frequency counts by degree."
+        ],
+        "reasoning": "No table inspected for all marked-vertex child-count vs total path-length covariances or their sign thresholds; absence from one paper is not universal proof.",
+        "searches": [
+          "random recursive tree outdegree vertex birth index covariance total path length depth sign transition",
+          "Janson Asymptotic degree distribution in random recursive trees DOI 10.1002/rsa.20046"
+        ]
+      },
+      "rationale": "This strengthens an existing published root-only attachment covariance identity to every birth rank and classifies a mesoscopic sign reversal. Janson global degree-frequency theorem addresses another statistic; an earlier bivariate age/path-length formula in recursive-tree literature remains possible.",
+      "residual_risks": [
+        "Age-index joint degree/path-length statistics may be encoded in older bivariate generating functions.",
+        "Only uniform independent-parent recursive trees; no stochastic monotonicity of covariance sign is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not direct same marked mixed covariance",
+          "evidence": "Degree count frequencies over all vertices, rather than D_{n,j} for a given birth rank against L_n.",
+          "identifier_or_url": "https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+          "material_read": "Author-hosted full PDF; theorem 1.1, variables, main moment calculations",
+          "method": "lawful OA author PDF full-text extraction",
+          "title": "Asymptotic degree distribution in random recursive trees",
+          "trigger": "possible older exact recursive-tree degree results"
+        },
+        {
+          "assessment": "Strong exact root-only prior; nonroot sign reversal not covered",
+          "evidence": "Equation (1) gives Cov(1_{P_t=1},T_n)=-n(H_{t-1}-1)/(t(t-1)); no all-j profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+          "material_read": "Entire RESULT.md including proof and relationship to prior work",
+          "method": "public primary published record full source",
+          "title": "Root attachments have an exact negative path-length profile in random recursive trees",
+          "trigger": "same model and root j=1 boundary"
+        },
+        {
+          "assessment": "Historical risk retained, no noncoverage verdict",
+          "evidence": "Survey covers standard recursive trees but accessible excerpts do not resolve exact mixed covariance.",
+          "identifier_or_url": "https://doi.org/10.1214/ts/1177010254",
+          "material_read": "Citation and scope metadata only; complete text not checked",
+          "method": "bibliography",
+          "title": "A survey of recursive trees",
+          "trigger": "plausible older bibliography and general theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Vertex age is intrinsic to recursively grown trees, and its degree versus global total-depth dependence changes sign at a nontrivial sqrt(n/log n) scale; complete exact profile plus sharp crossover is useful for structural-probabilistic age correlations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Janson DOI:10.1002/rsa.20046",
+    "Resultary root attachments 3b3e0426b1ba",
+    "Smythe–Mahmoud recursive trees survey",
+    "Resultary query: random recursive tree outdegree vertex birth index covariance total path length depth sign transition"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform recursive trees n>=3, Cov(D_{n,j},L_n)=n/j-1+sum_{s=j}^{n-1}(1/s-n/s^2), has a unique interior negative-to-positive sign crossover, and least positive rank j_n~sqrt(n/log n); j=n has covariance zero.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No full joint law, no preferential attachment generalization.",
+    "Finite n<=7 enumeration corroborates but is not an infinite proof."
+  ]
+}
