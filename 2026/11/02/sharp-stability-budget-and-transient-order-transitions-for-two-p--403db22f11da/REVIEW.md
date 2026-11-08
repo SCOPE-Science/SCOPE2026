@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact monodromy matrix has trace \(1-s\) and determinant \(ab\), yielding the strict Jury inequalities \(ab<1\) and \(s<2+ab\). Optimization over \(0<ab\le s^2/4\) proves the piecewise sharp spectral-radius formula and the precise nonattainment at \(s=1\). At a repeated-root optimum, the nilpotent part squares to zero and has Frobenius norm \(1+a\). Its reciprocal singular values give the stated exact finite-horizon operator norm and first-small order comparison. The separate computational program checks these deductions; it is not the proof of the quantifiers.
+## correctness
 
-**Originality — PASS (qualified).** Full-text excerpts were inspected from Arjevani–Shamir–Srebro (2018, arXiv:1806.10188), Stich–Karimireddy (2019, arXiv:1909.05350), Wu et al. (2022, arXiv:2202.08550), and Goujaud et al. (2022, PMLR 151). Constant-step delayed-gradient theory and sufficient variable-step conditions do not state the fixed-sum exact optimality plus order-sensitive transient norm. Cyclic heavy-ball optimization evaluates a different current-gradient recurrence; its general spectral tools are acknowledged, but do not supply the orientation-sensitive norm law for the present stale-gradient matrix. Standard Schur/Jury theory covers the eigenvalue check, not the complete budget-constrained and transient-order theorem as a statement. Searches found no direct equivalent; that does not prove exhaustive novelty. Specialized periodic-delay literature remains a priority risk.
+PASS
 
-**Value — PASS.** Delayed updates arise naturally in asynchronous and stale-gradient optimization. The theorem gives an exact stability-budget gain of \(3/2\), an optimal allocation transition, the sharp unreachable zero-rate edge, and an order-sensitive finite-horizon comparison which distinguishes equal asymptotic eigenvalue data. These clarify when aggressively unequal positive learning rates help or harm deterministic scalar dynamics. The scope is restricted to a natural minimal linear model, not a claim about general-purpose algorithms.
+For normalized a,b>0 the two-update transfer P=M(b)M(a), M(c)=[[1,−c],[1,0]], has trace 1−s, determinant p=ab and characteristic z²−(1−s)z+p. Quadratic Jury gives p<1 and s<2+p. With 0<p≤s²/4, root-radius is strictly decreasing in p to repeated root p=(1−s)²/4 then increasing as sqrt(p), proving piecewise exact optimum and the s=1 unattained infimum. Strict stability is achievable iff 0<s<3 versus equal-rate s<2. At s>.5≠1 the critical pairs are (s±sqrt(2s−1))/2 and N=P−(1−s)I/2 has N²=0, ||N||_F=1+a_first. Singular-value determinant-one calculation yields exact ||P^m||2 and strict smaller-first-rate transient advantage for every m≥1. Independent exact matrix checks covered six critical parameter families, 18 finite-horizon singular norms and the (1/4,9/4) witness. No noisy/nonquadratic/general delay result follows.
 
-**Limits.** The scheme is one-dimensional, deterministic, two-periodic and assumes one-iteration gradient delay. The rate metric is the spectral radius of the two-step state transfer, not the one-step objective, global nonlinear convergence, or a noise-robust bound. The literature search is finite and no independent priority/validity validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard quadratic Jury criteria, Floquet monodromy, delayed quadratic error models and critical damping are prior. The combined fixed-total-rate complete phase diagram with sharp alternating stability-budget three, the nonattained s=1 optimum, and identical-spectral-radius yet strictly ordered exact Euclidean transient norms is not supplied by inspected fixed-step delay or current-gradient cyclic-step literature. A specialized older periodic-control derivation could still subsume it.
+
+## value
+
+PASS
+
+Alternating step sizes offer a provable 50% enlargement of the stable two-update budget in the simplest stale-gradient model, while the exact order-sensitive transient law identifies a robust finite-time choice invisible to spectral radius. This is a meaningful complete model classification rather than mere repetition of Schur conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

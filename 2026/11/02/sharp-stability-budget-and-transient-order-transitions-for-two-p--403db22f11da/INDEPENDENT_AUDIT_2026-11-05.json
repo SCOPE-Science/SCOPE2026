@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:57:41Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Exact SymPy 2×2 transfer, nilpotent identity across six critical-rate families, 18 full-period singular-value comparisons and explicit s=5/2 rate-order witness."
+      ],
+      "rationale": "For normalized a,b>0 the two-update transfer P=M(b)M(a), M(c)=[[1,−c],[1,0]], has trace 1−s, determinant p=ab and characteristic z²−(1−s)z+p. Quadratic Jury gives p<1 and s<2+p. With 0<p≤s²/4, root-radius is strictly decreasing in p to repeated root p=(1−s)²/4 then increasing as sqrt(p), proving piecewise exact optimum and the s=1 unattained infimum. Strict stability is achievable iff 0<s<3 versus equal-rate s<2. At s>.5≠1 the critical pairs are (s±sqrt(2s−1))/2 and N=P−(1−s)I/2 has N²=0, ||N||_F=1+a_first. Singular-value determinant-one calculation yields exact ||P^m||2 and strict smaller-first-rate transient advantage for every m≥1. Independent exact matrix checks covered six critical parameter families, 18 finite-horizon singular norms and the (1/4,9/4) witness. No noisy/nonquadratic/general delay result follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arjevani–Shamir–Srebro treat tight convergence for delayed SGD with fixed-step rates; Wu et al delay-adaptive asynchronous methods; broader rate bounds not the exact two-period monodromy optimizer."
+        ],
+        "reasoning": "Sufficient robust delayed-SGD convergence results do not determine the exact fixed-sum two-period spectral and ordered transient extrema; no checked stronger result implies them.",
+        "searches": [
+          "arxiv:1806.10188",
+          "arxiv:1909.05350",
+          "arxiv:2202.08550",
+          "Resultary: two-periodic stale delayed gradient descent scalar quadratic optimal learning rates stability Schur Floquet transient nilpotent order"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1806.10188 inspected primary PDF",
+        "arxiv:1909.05350",
+        "arxiv:2202.08550 inspected PDF",
+        "PMLR:151/goujaud22a",
+        "Resultary semantic Resultary: two-periodic stale delayed gradient descent scalar quadratic optimal learning rates stability Schur Floquet transient nilpotent order ; Resultary: delayed quadratic gradient descent alternating a b fixed budget stability 3 nilpotent transient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-step delayed SGD rate theorem does not optimize independent a,b with fixed sum; current-gradient heavy-ball has a different state update and transfer matrix."
+        ],
+        "reasoning": "Prior methods supply general tools but do not by stated implication cover the nontrivial ordered nilpotent spectral optimum and transient norm.",
+        "searches": [
+          "arxiv:1806.10188 mathematical model and fixed delay proofs",
+          "PMLR:151/goujaud22a current-gradient cyclic step framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The update is a positive two-period linear delay equation whose Floquet product is a 2×2 transfer matrix; strict Schur/Jury stability and repeated-root nilpotent Jordan blocks are classical."
+        ],
+        "reasoning": "The new theorem solves a constrained product optimization and exact order-dependent finite-horizon singular norm, neither a trivial restatement of the Jury criterion nor a current-gradient heavy-ball acceleration theorem.",
+        "searches": [
+          "Resultary: two-periodic stale delayed gradient descent scalar quadratic optimal learning rates stability Schur Floquet transient nilpotent order",
+          "Resultary: delayed quadratic gradient descent alternating a b fixed budget stability 3 nilpotent transient",
+          "arxiv:1806.10188",
+          "arxiv:2202.08550"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claims are an analytic continuous two-parameter phase diagram, not a standard named integer sequence or precomputed finite table."
+        ],
+        "reasoning": "No matching exact table of the optimized radius, critical allocation and all-m norm was found in the conducted queries; lack of hits does not certify novelty.",
+        "searches": [
+          "Resultary: delayed quadratic gradient descent alternating a b fixed budget stability 3 nilpotent transient",
+          "search fixed sum alternating delayed gradient spectral radius threshold 3 1/2"
+        ]
+      },
+      "rationale": "Standard quadratic Jury criteria, Floquet monodromy, delayed quadratic error models and critical damping are prior. The combined fixed-total-rate complete phase diagram with sharp alternating stability-budget three, the nonattained s=1 optimum, and identical-spectral-radius yet strictly ordered exact Euclidean transient norms is not supplied by inspected fixed-step delay or current-gradient cyclic-step literature. A specialized older periodic-control derivation could still subsume it.",
+      "residual_risks": [
+        "A classical periodic delayed-difference-equation design paper might already contain the same fixed-sum spectral optimization.",
+        "The exact transient comparison is for Euclidean full two-state operator norms at integer numbers of periods, not arbitrary finite-time objective loss or robust multi-rate control."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies fixed learning-rate delayed SGD and rate bounds, not the complete exact alternating scalar fixed-sum spectral and transient optimizer.",
+          "evidence": "Fixed-delay iteration and Theorem 1 context; inspected pages do not present two-rate constrained optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.10188",
+          "material_read": "Primary arXiv PDF introduction, theorem framework and representative proof/model pages; PDF pages were visually inspected.",
+          "method": "lawful arXiv PDF text and page screenshots",
+          "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+          "trigger": "Same one-step delayed gradient update family"
+        },
+        {
+          "assessment": "Different asynchronous delay-adaptive learning setting; no matching two-period stale scalar Floquet phase chart in material read.",
+          "evidence": "Actual delay schedule and conditions rather than exact repeated transfer.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.08550",
+          "material_read": "Primary PDF abstract and introductory model discussion, including page screenshot.",
+          "method": "arXiv PDF text/screenshot",
+          "title": "Delay-Adaptive Step-sizes for Asynchronous Learning",
+          "trigger": "Related adaptive delay-dependent schedules"
+        },
+        {
+          "assessment": "Analyzes cyclic step sizes for current-gradient heavy-ball, not stale-gradient update x_(k−1).",
+          "evidence": "Different transfer determinant and iteration timing.",
+          "identifier_or_url": "https://proceedings.mlr.press/v151/goujaud22a.html",
+          "material_read": "Primary PMLR article landing description and source overview.",
+          "method": "conference primary webpage summary",
+          "title": "Super-Acceleration with Cyclical Step-sizes",
+          "trigger": "Similar two-rate acceleration and critical damping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Alternating step sizes offer a provable 50% enlargement of the stable two-update budget in the simplest stale-gradient model, while the exact order-sensitive transient law identifies a robust finite-time choice invisible to spectral radius. This is a meaningful complete model classification rather than mere repetition of Schur conditions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1806.10188 inspected primary PDF",
+    "arxiv:1909.05350",
+    "arxiv:2202.08550 inspected PDF",
+    "PMLR:151/goujaud22a",
+    "Resultary semantic Resultary: two-periodic stale delayed gradient descent scalar quadratic optimal learning rates stability Schur Floquet transient nilpotent order ; Resultary: delayed quadratic gradient descent alternating a b fixed budget stability 3 nilpotent transient"
+  ],
+  "disposition": "passed",
+  "final_claim": "Complete strict stability and fixed-sum spectral-rate optimization for positive two-periodic one-stale-step scalar quadratic gradient descent, including a sharp stable sum supremum three and unequal-order exact finite-horizon norms.",
+  "limitations": [
+    "A classical periodic delayed-difference-equation design paper might already contain the same fixed-sum spectral optimization.",
+    "The exact transient comparison is for Euclidean full two-state operator norms at integer numbers of periods, not arbitrary finite-time objective loss or robust multi-rate control."
+  ],
+  "schema_version": 1
+}
