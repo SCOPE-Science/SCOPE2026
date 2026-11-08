@@ -1,0 +1,15 @@
+# Scientific review: sharp unbordered subsequence universality
+
+## Correctness — PASS
+The greedy arch lemma gives the sharp lower bound \(qk\). For \(q\ge3\), the explicit complete-alphabet block construction is border-free by its periodic positions of the initial symbol and different terminal symbols. For \(q=2\), any length-\(2k\) universal word consists of \(k\) unlike pairs and necessarily has a one- or two-letter border when \(k\ge2\); the displayed length-\(2k+1\) construction attains the bound. At that length, localization of the lone surplus position reduces all unbordered witnesses, under reversal/complement, to \(001c_1\bar c_1\cdots c_m\bar c_m\). Direct prefix/suffix comparisons yield the stated necessary-and-sufficient halfword tests. The four orientations are disjoint. Reproducing `verify_unbordered.py` corroborated the universal and border checks exhaustively for binary \(k\le9\), all normalized codes to \(k=14\), and the nonbinary construction for \(q\le8\), \(k\le15\). No finite test is used to prove the infinite theorem.
+
+## Originality — PASS, with residual bibliographic risk
+The relevant arch theorem and general universality enumeration occur in Adamson, *Ranking and Unranking k-subsequence universal words* (arXiv:2304.04583). Gabric, *Ranking and unranking bordered and unbordered words* (arXiv:2305.03000), studies unrestricted unbordered words; Adamson et al., *k-Universality of Regular Languages* (arXiv:2311.10658), addresses regular-language universality. Material read from their primary articles does not yield this minimum-length alphabet dichotomy or the exact constrained binary boundary classification. Semantically searched research records on unbordered \(k\)-universal words, border-free arches, and shortest subsequence-universal words; the closest results instead concern unconstrained arch distributions, editing radius, and shortest absent subsequences. Recovered earlier related mathematical claims on circular, constrained-pattern, palindromic, and composition-based universality likewise neither imply nor duplicate the present characterization. An unindexed equivalent theorem remains possible, and the broadest cited paper was inspected for its relevant sections, not all bibliography branches.
+
+## Value — PASS
+The natural intersection of two established structural properties has a sharp alphabet-size phase transition, an explicit constructive optimum for all alphabets and lengths, and an exact classification/enumeration of all shortest binary witnesses. The binary one-symbol penalty has an intrinsic border obstruction; the classification is more informative than a single extremal example and can serve as a boundary case for constrained universal-word enumeration and unbordered coding.
+
+## Scientific limitations
+The closed formula \(4|\mathcal C_k|\) is a complete finite-vector specification, not an elementary closed form in \(k\). No asymptotic enumeration or cross-bifix-free code optimum is asserted. Unindexed earlier work remains an originality risk. Direct brute-force verification is finite.
+
+Self-review: passed. Independent audit: not yet performed.
