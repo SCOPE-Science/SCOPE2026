@@ -1,15 +1,21 @@
-# Review of the exact intrinsic cube vertex-distance law
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-face metric is established without finite-grid extrapolation: the candidate distance is realized by a straight feasible two-face unfolding and is globally 1-Lipschitz by facewise gluing. Thus no longer face sequence can beat it. Symmetry reduces the surface measure to a square and two congruent triangles per opposite face. Their radial angular widths integrate exactly to the claimed law. The moment calculation and the sharp terminal corner asymptotic are independent analytic checks. The bundled `verify_cube.py` performs supplementary quadrature and randomized consistency checks; no numerical output is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with priority qualification
-The closest source-unfolding result (Miller–Pak, arXiv:math/0312253) supplies general wavefront machinery and cube examples but not the fixed-vertex probability law. Goldstone–Roca–Suzzi Valli (arXiv:2003.06096) examines paths between opposite-face interiors and the incidence of four-face minimizers. Mathai–Moschopoulos–Pederzoli (1999) computes ambient Euclidean distances, which are not intrinsic: the opposite cube vertex is at ambient distance \(\sqrt3\) but surface distance \(\sqrt5\). The public-index, synonym, and implication comparisons identified no equivalent or dominating explicit distribution. The earlier ambient-distance paper could only be read in abstract, and unindexed priority remains uncertain.
+PASS
 
-## Value — PASS
-This computes the *entire* natural metric-measure radial invariant of a cubic surface, rather than a chosen sample point or isolated integral. It identifies all three positive geometric transition radii, the nontrivial one-sided curvature changes of the CDF, an exact second moment, and the sharp maximum-distance tail coefficient. The square–triangle geometric decomposition also provides a compact benchmark for source wavefront calculations on polyhedra.
+PASS. On the unit cube boundary with fixed origin vertex, incident-face intrinsic distance is √(u²+v²); opposite face x=1 has squared distance 1+u²+v²+2min(u,v). The candidate is globally 1-Lipschitz under face gluing and realized by feasible unfolded paths, so is the true intrinsic shortest distance. Splitting opposite-face square by u<v maps uniform radial areas to right triangle T={(1,0),(1,1),(2,1)}. Hence F(r)=1/2 area([0,1]²∩B_r)+area(T∩B_r), whose polar integration gives the three Φ_c branches and density. Uniform coordinate moments yield E[D²]=(2/3+7/3)/2=3/2. Direct one-sided differentiations give jumps −1 at 1 and √2 and +5/6 at √5; a local wedge calculation gives tail (5/12)ε². Independent square/triangle grid checked multiple thresholds; analytical face metric and integration establish all r.
 
-## Limitations
-The source is a fixed vertex of a unit cube, not a variable point or a random pair. Surface intrinsic and ambient metrics are intentionally distinguished. No independent mathematical validation or definitive literature-priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge novelty of exact piecewise intrinsic vertex-to-uniform-surface-point cube law with two curvature-transition jumps and upper-tail coefficient. General polyhedral shortest paths, opposite-face internal point-to-point paths, and Euclidean random-cube distances are distinct established work.
+
+## value
+
+PASS
+
+PASS. The cube fixed-vertex surface distance is a fundamental intrinsic rather than ambient observable; its exact three-branch distribution, second-moment identity, two transition jumps and farthest-tail asymptotic provide a complete area law with independently motivated geometric use. It is neither a mere textbook planar disk area nor arbitrary isolated numeric value because the nontrivial part is establishing globally shortest paths across faces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

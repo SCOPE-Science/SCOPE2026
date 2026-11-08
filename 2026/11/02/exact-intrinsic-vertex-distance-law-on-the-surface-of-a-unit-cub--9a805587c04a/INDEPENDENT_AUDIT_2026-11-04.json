@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:49:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. On the unit cube boundary with fixed origin vertex, incident-face intrinsic distance is √(u²+v²); opposite face x=1 has squared distance 1+u²+v²+2min(u,v). The candidate is globally 1-Lipschitz under face gluing and realized by feasible unfolded paths, so is the true intrinsic shortest distance. Splitting opposite-face square by u<v maps uniform radial areas to right triangle T={(1,0),(1,1),(2,1)}. Hence F(r)=1/2 area([0,1]²∩B_r)+area(T∩B_r), whose polar integration gives the three Φ_c branches and density. Uniform coordinate moments yield E[D²]=(2/3+7/3)/2=3/2. Direct one-sided differentiations give jumps −1 at 1 and √2 and +5/6 at √5; a local wedge calculation gives tail (5/12)ε². Independent square/triangle grid checked multiple thresholds; analytical face metric and integration establish all r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miller–Pak provides source-unfolding machinery, Goldstone et al discuss a different source/target selection, and Mathai et al measure Euclidean chord distance."
+        ],
+        "reasoning": "The broad geodesic algorithm permits pointwise distance computation but not the formula for normalized face-area distribution without deriving the square+triangle decomposition and integrating.",
+        "searches": [
+          "Miller Pak arXiv:math/0312253",
+          "Goldstone et al arXiv:2003.06096",
+          "Mathai Moschopoulos Pederzoli 1999 random points cube"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0312253",
+        "https://arxiv.org/abs/2003.06096",
+        "https://doi.org/10.6092/issn.1973-2201/1104",
+        "Resultary semantic search (cube geodesic vertex surface uniform distance)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact geometric identity F(r)=1/2|[0,1]^2∩B_r|+|triangle((1,0),(1,1),(2,1))∩B_r| yields two -1 F second derivative jumps and terminal tail 5/12 epsilon². Prior papers inspected at available level do not state those consequences."
+        ],
+        "reasoning": "The law is not an immediate specialization of ambient chord statistics or a theorem about arbitrary opposite-face source points.",
+        "searches": [
+          "Miller Pak source unfolding",
+          "Goldstone Roca Suzzi Valli opposite face paths",
+          "Mathai random cube distance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source is a cube VERTEX; the random endpoint is uniformly surface distributed and the metric is geodesic on its boundary. Goldstone et al study endpoints in interiors of opposite faces; their abstract does not establish this single-vertex CDF."
+        ],
+        "reasoning": "Equivalent law is the area of intrinsic metric balls about a cube vertex. General opposite-face path surveys can aid distance field calculation but do not directly evaluate the entire distribution.",
+        "searches": [
+          "Resultary: cube geodesic intrinsic vertex surface uniform distance distribution",
+          "Miller Pak math/0312253 cube unfolding",
+          "Goldstone Roca Suzzi Valli 2003.06096 shortest paths on cubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary cube items involve central sections, widths and geometric invariants, not a unit-cube vertex-source intrinsic distribution. Known cube random-distance paper is Euclidean ambient, different observable."
+        ],
+        "reasoning": "No table of the identical piecewise CDF was identified in sources actually searched. This is a bounded comparison, not a certification of novelty.",
+        "searches": [
+          "Resultary semantic cube geodesic surface uniform vertex distribution",
+          "Mathai et al DOI 10.6092/issn.1973-2201/1104"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty of exact piecewise intrinsic vertex-to-uniform-surface-point cube law with two curvature-transition jumps and upper-tail coefficient. General polyhedral shortest paths, opposite-face internal point-to-point paths, and Euclidean random-cube distances are distinct established work.",
+      "residual_risks": [
+        "Older cube-net and wavefront sources may state the special-case formula under different terminology.",
+        "Full text of Goldstone–Roca–Suzzi Valli not obtained; no whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_METHOD",
+          "evidence": [
+            "Does not evaluate this three-branch probability law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0312253",
+          "material_read": "Full available paper, source unfolding framework and examples",
+          "method": "Read full arXiv PDF",
+          "title": "Metric combinatorics of convex polyhedra: cut loci and nonoverlapping unfoldings",
+          "trigger": "Same polyhedral intrinsic unfolding theory and cube examples"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "Describes paths between points in opposite face interiors; cannot claim whole-paper noncoverage from abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.06096",
+          "material_read": "Accessible abstract and bibliographic material only; full PDF/HTML could not be retrieved in this run",
+          "method": "OA/arXiv attempts and abstract inspection",
+          "title": "Shortest Paths on Cubes",
+          "trigger": "Closest cube geodesic path-specific paper"
+        },
+        {
+          "assessment": "DIFFERENT_AMBIENT_METRIC",
+          "evidence": [
+            "Euclidean straight-line random distance, not intrinsic boundary geodesic with fixed vertex."
+          ],
+          "identifier_or_url": "https://doi.org/10.6092/issn.1973-2201/1104",
+          "material_read": "Accessible bibliographic description and measure/metric definitions; complete primary text not claimed as read",
+          "method": "Bibliographic and source-description inspection",
+          "title": "Distance between random points in a cube",
+          "trigger": "Plausible similarly titled cube distance distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The cube fixed-vertex surface distance is a fundamental intrinsic rather than ambient observable; its exact three-branch distribution, second-moment identity, two transition jumps and farthest-tail asymptotic provide a complete area law with independently motivated geometric use. It is neither a mere textbook planar disk area nor arbitrary isolated numeric value because the nontrivial part is establishing globally shortest paths across faces.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only cube vertex fixed and surface-uniform point, intrinsic metric, not cuboid or random pair.",
+    "Goldstone et al arXiv:2003.06096 full text inaccessible during run; abstract not evidence of whole-document noncoverage."
+  ],
+  "schema_version": 1
+}
