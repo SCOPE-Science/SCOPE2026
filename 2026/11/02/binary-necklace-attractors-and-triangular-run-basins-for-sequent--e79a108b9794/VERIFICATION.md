@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`; its central recurrence and every quantifier are stated explicitly. The following independently structured computational cross-checks can be rerun from the packaged standalone sources:
+## correctness
 
-```sh
-python3 checks/check_python.py
-c++ -O2 -std=c++17 -Wall -Wextra -pedantic checks/check_cpp.cpp -o check_cpp
-./check_cpp
-```
+PASS
 
-The Python implementation separately calculates local populations for the sequential sweep and checks every state for \(3\le n\le12\); it also tests fiber counts and per-cycle triangular-run basin sizes using its own orbit traversal. Its captured output is `checks/python_results.txt`. The C++ implementation separately recomputes each vertex update and traverses all configurations for \(3\le n\le18\); it checks one-step image cardinality, rotation action, predecessor fibers and the partition into basins. Its captured output is `checks/cpp_results.txt`. Both emit a final PASS line.
+For the ordered (1,3) closed-neighborhood update on C_n, n>=3, the exact local identity T(a,c,b)=a if c=b, else b gives y_n=y_1 after a sweep; on x_n=x_1 the map is the one-site rotation on n-1 bits. The first-transition decomposition of nonperiodic predecessors gives r(y) and the sum of s(s+1)/2 over cyclic run lengths; convexity proves the maximal basin 1+d(d-1)/2 for primitive period d>=2. This proves 2^(n-1) periodic configurations and Mobius primitive period counts. Independent direct-update finite enumeration n=3..9 agreed with image, rotations, fibers, and orbit basins. Finite checks support but do not prove arbitrary n.
 
-These are finite experiments. They do not certify infinite families independently or replace the explicit mathematical proof. There is no claim that checked finite instances establish a novelty or significance judgment.
+## originality
+
+PASS
+
+Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.
+
+## value
+
+PASS
+
+This upgrades a known existence example for a single long cyclic attractor to an exact phase portrait for an infinite Boolean-dynamics family, including every orbit and its individual transient basin. Run-sensitive basin geometry can distinguish orbits of identical period; the extremal basin bound has a natural dynamical interpretation. Classical Mobius necklace counting alone is not claimed as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
