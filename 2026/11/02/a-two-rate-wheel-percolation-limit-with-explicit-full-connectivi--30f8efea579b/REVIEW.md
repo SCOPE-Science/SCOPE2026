@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite mean follows from a partition of rim component sizes for a fixed root and the independently absent spokes. Joint Bernoulli point-process convergence gives the limiting marked-circle object; the limiting functional is continuous almost surely. A cyclic-word transfer matrix gives the full-connectivity atom, and the length-biased root interval gives the mean. The critical component-count and boundary cases (zero/one cut, zero spokes) are treated explicitly. The supplied checker independently enumerates every edge state for small wheels and tests the matrix formula. No finite experiment is used to establish the infinite limit.
+PASS
 
-## Originality — PASS, qualified
+Each rim component of length ℓ<n containing a root vertex has probability ℓ(a/n)^2(1-a/n)^(ℓ-1); the whole rim is one component precisely with 0 or 1 failed rim edges, probability (1-a/n)^n+n(a/n)(1-a/n)^(n-1). Missing all ℓ spokes has probability (1-b/n)^ℓ, giving finite mean; zero hub fraction iff no spokes. Independent Bernoulli lattice cut and spoke processes converge jointly to independent Poisson circle processes, and the marked arc-mass functional is a.s. continuous away from collisions. For full mass, cyclic merged label words have no adjacent cut labels and at least one spoke, with transfer M=[[b,a],[b,0]] and exponential trace sum for m>=1 giving the stated two eigenvalue formula. A uniformly chosen point lies in a unit arc with probability (1+a)e^-a, otherwise size-biased arc length density a² ℓ e^-aℓ on (0,1), giving E H=1-(1+a)e^-(a+b)-a²/(a+b)²[1-(1+a+b)e^-(a+b)]. Exactly two cuts and marks on just one arc yield positive interior mass. Independent full 2n-edge enumeration n=3..6 at two rational rate pairs verifies finite mean and zero mass.
 
-The new statement is not merely an instance of a *common-parameter* wheel reliability polynomial: the two edge classes have opposite critical scaling, and the result identifies the random macroscopic hub-connected fraction and closed boundary masses. The closely related 2020/2021 papers by Mann and coauthors treat percolation in networks composed of homogeneous weak-cycle/clique motifs rather than this root-specific two-rate wheel scaling. Earlier Allard et al. methods handle finite-graph component distributions and are not presented as new here. Primary sections on network model, giant-component equations, and higher-order cycles were inspected. No located prior statement implies the complete displayed limiting theorem without a separate analysis, but broad reliability and circle-covering literature create a residual priority risk. Nonappearance in searched records does not establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Wheel graphs are the elementary finite network combining a macroscopic cycle with a single hub. Separately rare rim failures and sparse hub links remain order-one in the joint critical window; unlike ordinary concentration regimes, they lead to substantial random connected mass even at infinite order. Explicit disconnection and full-connectivity probabilities, together with an exact expected reached fraction at both finite and limiting sizes, quantify network reliability and identify when deterministic mean-field predictions miss extensive fluctuations. The formulas compare two distinct mechanisms and are not a routine parameter substitution in a fixed-parameter formula.
+Qualified PASS for an explicit two-rate, root-specific, growing-wheel critical window with Poisson arc-mark distribution, both boundary atoms and exact means. Existing Mann et al work analyzes percolation giant components of random ensembles containing homogeneous cycle/clique motifs and uses common edge occupation, not the same root-specific opposite critical rim/spoke scaling. Allard et al broadly handle finite arbitrary graphs and thus can calculate each fixed wheel, but a general finite recursion does not directly present the Poisson scaling limit and transfer-matrix boundary masses. Classical circle-covering theory may contain equivalent marked-spacing probabilities.
 
-## Limits and closest sources
+## value
 
-The theorem applies only to complete wheels with independent edge failures and fixed positive rates. It does not supply an interior probability density or a general-network theorem. Closest sources: Mann et al. (2020), arXiv:2006.06744; Mann et al. (2021), arXiv:2102.09261; Allard et al. (2012), arXiv:1201.4369; Allard et al. (2015), arXiv:1509.01207; and the standard wheel reliability polynomial. Broader graph-reliability treatments might contain an equivalent special calculation not identified in this comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wheel graphs combine a macroscopic cycle and an attached hub naturally. Competing O(1) rim cuts and hub contacts give a genuinely nonconcentrating macroscopic connected mass; the explicit two endpoint atoms and finite/limiting mean identify two reliability mechanisms and sharpen mean-field intuitions. This is a self-contained natural asymptotic invariant, without claiming general network results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
