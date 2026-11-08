@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the sharp coefficient formula
+# Independent mathematical audit
 
-The proof in RESULT.md is analytical, with all real parameters quantified over \(0\le\alpha<1\) and \(0\le\mu\le1\). The exact Carathéodory–Schur coefficient identity, the modulus monotonicity reduction, and the two parameter-case inequalities establish the unrestricted scalar bound. Two explicit scalar extremizers attain its two branches; radial slicing and the Hahn–Banach construction prove the corresponding Banach-space sharpness.
+## correctness
 
-The independent computational corroboration is the standalone standard-library Python script `CHECK.py`:
+PASS
 
-```
-python3 CHECK.py
-```
+For 0<=alpha<1, 0<=mu<=1, c=1-alpha and B=1+2c, the Carathéodory/Schur expansion expresses (mu a2a4-a3²)/c²=Kt⁴+At²v-v²+(4mu/3)tw, v=(1-t²)x, w=(1-t²)[(1-|x|²)y-tx²]. The quadratic majorant in rho=|x| is convex nondecreasing on [0,1] because 0<=4mu/3<=4/3. The resulting u=t² envelope is bounded by max(1,-K) from H<=2max(1,|K|), with switch mu*=3c/(1+2c). Generalized Koebe and odd functions attain each branch; scalar slices and rank-one derivative inversion give the radial extension on every nonzero complex Banach ball, not nonradial maps. Independent symbolic rational coefficient expansion confirmed the Schur-parameter identity; bounded sample alpha,mu verified envelope, not a substitute for global inequalities.
 
-Its output is `PASS: 9193 exact-rational assertions`. Its rational-series recurrence independently reconstructs the coefficients and checks the purported algebraic identity on rational grid points, confirms extremal values and phase transition, and verifies sample inequalities. These finite checks are **not** an exhaustive proof over all holomorphic functions or continuous parameters. No third-party formal certification or independent mathematical audit is claimed.
+## originality
 
-The 2026 source is arXiv:2610.33031v1; the older \(\mu=1\) comparison is arXiv:1508.05839. The 2021/2022 comparison DOI:10.1080/17476933.2021.1931149 was only accessible via abstract/listing, not complete full text; this limits originality assurance but does not alter the complete mathematical proof above.
+PASS
+
+An October 2026 primary paper on the same Banach-space Hankel functional proves c²(9-8mu) as an upper bound, sharp at mu=1. The result under review gives a strictly smaller sharp bound for 0<alpha<1, mu<1, and an explicit unique extremal-type transition. The classical mu=1 case is old and expressly excluded from novelty.
+
+## value
+
+PASS
+
+A sharp parameter-resolved coefficient extremal, its attainable switching curve and radial dimension-free lift resolve a concrete gap in a recent bound. Its mathematical significance is exact starlike extremality, not an unsupported claim about arbitrary holomorphic maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
