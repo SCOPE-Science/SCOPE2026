@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The interval property for one-counts of circular length-\(t\) windows is valid for all binary words, including nonprimitive and constant words. Extension by one letter changes either extreme by zero or one. The two possible starting parities under the substitution \(0\mapsto01\), \(1\mapsto00\) produce the displayed exact extrema recurrences. Summing telescopes to the universal transport law; the period-doubling one-count recurrence gives the closed form for every rank. The checker independently verifies 510 binary inputs at lengths 1–8 and every circular length at substitution ranks 0–11. Computation is finite corroboration, not the unrestricted proof.
+PASS
 
-## Originality — PASS (qualified)
+Circular binary t-window one-counts form an unbroken integer interval because successive windows change count by at most 1; the minimum and maximum each advance by 0 or 1 with length. Under μ all even positions are zero and odd positions complement the original; even windows sample m odd positions and odd windows sample r or r+1. The two odd-start parity intervals abut/overlap, giving the displayed minima and maxima and exact lengthwise a_w recurrences, even at r=0 and m=n. Summing odd lengths telescopes the L_w differences to |w|_1 and gives universal S transport. For P_k one-count q_k=(2^k−(−1)^k)/3 and the S recurrence solve to the closed form. Independent direct cyclic rolling-window profiles tested all 254 nonempty binary words lengths 1..7; complete universality is proven by the algebraic argument, not enumeration.
 
-Cassaigne–Fici–Sciortino–Zamboni (arXiv:1402.5843, §5.1) count conjugacy classes among factors of an infinite fixed point, rather than Parikh classes of circular windows of complete finite iterates. Parreau–Rigo–Rowland–Vandomme (arXiv:1405.3532, §§4–5) study two-block Abelian and \(2\)-Abelian complexity of infinite-word factors. The finite cyclic and arbitrary-input claims are not consequences of their inspected results. Related accessible prior classifications address other invariants or other recursively generated families.
+## originality
 
-The complete text of Blanchet-Sadri–Seita–Wise (2016) could not be inspected, so potential stronger historical coverage remains a risk. A negative search is not proof of absolute novelty.
+PASS
 
-## Value — PASS
+Infinite-word 2-Abelian and conjugacy complexity publications concern different equivalence relations and infinite-factor domains; they do not directly imply arbitrary finite-circular-input transport. The original infinite period-doubling construction is classical, credited. The 2016 Blanchet-Sadri/Seita/Wise paper addresses Abelian complexity of binary uniform morphic words; its complete text could not be accessed after open alternatives and authenticated institutional access was unavailable. This is a specific historical-priority risk, not itself a disproof of novelty.
 
-The count \(S(w)\) is a natural length-tagged composition spectrum for circular binary data. The result determines the entire period-doubling spectrum at every rank via exact extrema recurrences and yields a closed form for its sum. The universal input-word transfer identity explains why this particular morphism creates a term linear in the original number of zeros and makes the all-ranks logarithmic average exact.
+## value
 
-## Closest literature and limits
+PASS
 
-The source comparison distinguishes finite circular factors from factors of the infinite fixed point, conjugacy from Abelian equivalence, and \(2\)-Abelian from Abelian equivalence. The result is not an explicit digit formula for an individual length, and it does not classify arbitrary prefixes or multiplicities. Independent mathematical validation and complete historical-priority verification remain outstanding.
+The arbitrary-input morphic transport identity and complete finite-circle lengthwise spectrum are a useful and reusable exact relation in combinatorics on words; the nontrivial summation of all cyclic Parikh classes is motivated by the classical period-doubling word, not an arbitrary numerical slice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
