@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The local product expansion yields a centered commutator h^2 K/2 plus O(h^3) uniformly; a noncommutative subset expansion controls all multi-perturbation effects by O(h^2) globally, negligible under h^(-3/2) scaling. Independent Rademacher triangular-array CLT proves the full covariance and centered Gaussian limit. Orthogonality of centered summands and Cauchy–Schwarz give exact limiting second moment. Invertibility gives positive constant iff K is nonzero, and the oscillator constant is computed exactly as 1/2. The standalone exact finite-grid second-moment verifier passed all seven tests and local symbolic coefficient tests; it is not used as an infinite-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. bound individual qDRIFT trajectories by martingale concentration, not the exact integral coefficient.",
+        "Veldman–Zuazua give randomized time-splitting rates for a different operator selection.",
+        "Berger (1984) §§5–6 analyzes random matrix factors I+A/sqrt(n)+B/n and stochastic Lie–Trotter limits; the present factors are I+C/n+epsilon K/(2 n^2)+O(n^(-3)), which have A=0 in that direct framework and a different normalized defect."
+      ],
+      "reasoning": "A generic concentration upper bound—even if it yields an order in an adapted case—cannot yield an exact nonzero limit or full covariance without additional equalities; no stronger source currently inspected implies all of them. In particular, setting its leading noise A to zero yields a deterministic limit, whereas the proposed result is a Gaussian first fluctuation around this deterministic limit at a second normalization; an augmented-state reduction is not excluded.",
+      "searches": [
+        "random order product formula mean squared commutator stochastic error asymptotic variance Lie-Trotter",
+        "randomized operator splitting independent order per time block 3/2 strong convergence exact covariance CLT",
+        "https://arxiv.org/abs/2008.11751",
+        "central limit theorem products of random matrices Berger stochastic Lie-Trotter 1984"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/0910.4145v1",
+      "https://arxiv.org/abs/1805.08385",
+      "https://arxiv.org/abs/2109.07987",
+      "https://arxiv.org/html/2109.13798v2",
+      "https://arxiv.org/abs/2008.11751",
+      "https://doi.org/10.1090/S0002-9947-1984-0752503-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mean cancellation leaves an independent centered local commutator of order h squared, yielding accumulated rms order h to the 3/2.",
+        "The proposed theorem supplies covariance and equality of the asymptotic risk constant rather than only an upper bound.",
+        "Berger Theorems IV/VI yield an order-one stochastic product limit for random increments of order n^(-1/2), and discuss a stochastic Lie–Trotter product, without stating the present h^(-3/2) rescaled deterministic-deviation covariance."
+      ],
+      "reasoning": "Prior ensemble weak error O(h squared) does not logically force a trajectory-level Gaussian CLT or determine the norm-risk coefficient. The general concentration paper covers a distinct random algorithm; broader stochastic product principles may subsume the CLT and are listed as a material publication risk.",
+      "searches": [
+        "fair forward reverse Lie Trotter splitting Gaussian trajectory error asymptotic h three halves commutator integral covariance exact root mean square constant",
+        "https://arxiv.org/abs/1805.08385",
+        "https://arxiv.org/abs/0910.4145",
+        "https://arxiv.org/abs/2008.11751"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Childs et al. prove ensemble-channel order using cancellation; Zhang analyzes random order with mixed-state error.",
+        "The exact candidate is a CLT for an individual random product with commutator-integral covariance."
+      ],
+      "reasoning": "Averaged-channel or expected-matrix results are not distributional equivalents. Random-order Lie splitting and unbiased commutator perturbations are aliases. No inspected statement gives the proposed trajectory-law equality; generic stochastic-product CLTs remain a risk.",
+      "searches": [
+        "randomized Lie-Trotter random ordering central limit theorem commutator exact covariance single trajectory Gaussian error",
+        "random Lie product random ordering Baker Campbell Hausdorff commutator Brownian stochastic limit",
+        "https://arxiv.org/abs/1805.08385",
+        "https://arxiv.org/abs/0910.4145"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is a continuous asymptotic limit, not a catalogued finite invariant or numerical table.",
+        "The two-by-two oscillator value is analytically derived from an orthogonally propagated commutator."
+      ],
+      "reasoning": "The exact coefficient is an integral for all fixed finite matrices, with the oscillator merely a reproducible illustrative specialization; no existing database table was found that resolves that general formula.",
+      "searches": [
+        "randomized Lie Trotter splitting central limit theorem commutator",
+        "fair forward reverse Lie Trotter splitting Gaussian trajectory error asymptotic h three halves commutator integral covariance exact root mean square constant",
+        "https://arxiv.org/abs/2109.07987"
+      ]
+    },
+    "rationale": "The focal fair reverse/forward algorithm and weak-order improvement are known; this claim concerns the individual path distribution, sharp commutator covariance and strictly positive exact asymptotic squared-error constant for every noncommuting real finite-matrix pair, not implied by the inspected ensemble-channel or concentration bounds. The available comparisons are substantial but not an exhaustive publication survey. Berger (1984) is a closely related general product CLT for n^(-1/2) stochastic local increments; direct substitution does not yield the n^(-3/2) fluctuation about a deterministic drift here.",
+    "residual_risks": [
+      "An equivalent general product-array central limit theorem could subsume the fair Lie splitting as an immediate corollary.",
+      "The full technical proof of the Chen et al. qDRIFT concentration paper was not obtained; only abstract and detailed overview were read.",
+      "A specialist review of older numerical analysis of randomized operator splitting may identify an earlier exact covariance result.",
+      "Berger (1984), Theorem VI and §6, may subsume the proposed Gaussian first-error limit after nontrivial augmented-state or renormalized-product reduction, despite not stating its exact coefficient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers random-order algorithm and mixture-state error bounds, but not a trajectory Gaussian limit or exact covariance integral for the fair Lie reversal.",
+        "evidence": [
+          "§II formulates randomized product orders and bounds on the randomized channel/mixture; its stated estimates are norm bounds rather than a CLT with sharp coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0910.4145v1",
+        "material_read": "Full HTML text, §II randomized simulation algorithms and bounds, around lines 63–154",
+        "method": "Public HTML full-text section reading",
+        "title": "Randomized Algorithms and Lower Bounds for Quantum Simulation",
+        "trigger": "Earlier randomized-order Hamiltonian products"
+      },
+      {
+        "assessment": "Proves averaged-channel convergence improvement; this does not determine individual-trajectory fluctuation law or exact Frobenius-risk constant. Algorithm itself is prior art.",
+        "evidence": [
+          "The product-formula averaging argument cancels the leading local commutator on average; a random individual path retains centered commutator fluctuations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.08385",
+        "material_read": "Full publicly accessible article text, randomization and comparison theorems, §2, introduction and main results",
+        "method": "Public HTML article text and theorem comparison",
+        "title": "Faster quantum simulation by randomization",
+        "trigger": "Same fair forward/backward first-order algorithm, main plausible coverage"
+      },
+      {
+        "assessment": "Random Hamiltonian-term sampling is different from independently choosing reversal of both fixed factors; published variance estimates do not supply proposed exact covariance.",
+        "evidence": [
+          "The sampled Hamiltonian component itself is random in that method; the two deterministic generators are both applied each step in the proposed model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.07987",
+        "material_read": "Full publicly accessible article text, §§2–3 on random term selection and variance",
+        "method": "Public HTML full-text section reading",
+        "title": "A Partially Random Trotter Algorithm for Quantum Hamiltonian Simulations",
+        "trigger": "Random splitting algorithm with bias and variance results"
+      },
+      {
+        "assessment": "Randomly selects active matrix subcomponents and treats expected control-solution discrepancies; does not derive this fair two-order Lie Gaussian limit.",
+        "evidence": [
+          "The article defines random split operator selection rather than the two-order fair pair; its error quantity is not the exact Frobenius covariance integral."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.13798v2",
+        "material_read": "Full publicly accessible article text, §§2–3 framework and error estimates",
+        "method": "Public HTML full-text section reading",
+        "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+        "trigger": "Randomized operator/time-splitting with control motivation"
+      },
+      {
+        "assessment": "Studies qDRIFT individual-realization matrix martingale concentration, a distinct random operation; insufficient material to exclude a more general underlying theorem, so residual risk retained.",
+        "evidence": [
+          "Available abstract characterizes martingale concentration of single random qDRIFT trajectories, not a displayed exact Gaussian covariance/CLT for fair Lie reversal."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.11751",
+        "material_read": "Abstract and detailed journal article overview, not full technical proof",
+        "method": "Public arXiv abstract and publisher article overview",
+        "title": "Concentration for random product formulas",
+        "trigger": "Potentially stronger single-realization random product result"
+      },
+      {
+        "assessment": "The random matrix factors addressed in main CLT have size I+A/sqrt(n)+B/n, and §6 gives stochastic Lie–Trotter product limits. This is a significant general precursor but its unmodified theorem yields a deterministic limit when the present much smaller centered n^(-2) perturbation is substituted; the exact h^(-3/2) trajectory fluctuation and sharp risk constant are not explicitly provided. Possible indirect specialization is acknowledged.",
+        "evidence": [
+          "Intro describes D=I+A/sqrt(n)+B/n+o(n^(-1)), mean A=0.",
+          "Section 6 equation (6.1) treats exponents proportional to a centered increment divided by sqrt(n); §6 product formula remains a stochastic limit, unlike the deterministic leading limit examined here."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1984-0752503-3",
+        "material_read": "Full publisher-paper text publicly reproduced in the author-posted HTML, Introduction, Theorems IV/VI, §§5–6 around pages 788–795",
+        "method": "Full HTML text inspection of author-uploaded paper",
+        "title": "Central limit theorem for products of random matrices",
+        "trigger": "General prior stochastic-matrix-product CLT and stochastic Lie–Trotter theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "38d8d842-5ab3-43cf-b3c3-400a333a979c",
+  "value": {
+    "rationale": "It resolves the natural question whether second-order ensemble error of random-order Lie products reflects single-run accuracy. It does not: exact h^(3/2) Gaussian path fluctuations have a computable nonzero commutator-controlled risk, with a sharp if-and-only-if commutation boundary; this provides an actionable error diagnostic for a canonical integrator across arbitrary fixed matrix dimensions.",
+    "status": "PASS"
+  }
+}
