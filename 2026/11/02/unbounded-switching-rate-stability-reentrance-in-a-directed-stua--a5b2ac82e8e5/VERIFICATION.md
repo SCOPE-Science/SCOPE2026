@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python verify_switching.py` with Python 3 standard library. It reconstructs the two complex two-by-two variational blocks for sample strictly positive parameters, forms the half-step exponentials directly, and checks the exact real trace/determinant identity against the product in 60 direct comparisons. It also verifies the analytical discriminant and averaged generator identities, prints and asserts interleaved stable/unstable examples at \(u=1/20\), \(v=1000\), and checks fast-switching stability. The program is a finite numerical *consistency* and exact-to-floating-identity check. The infinite quantified alternation follows from the explicit asymptotic proof in RESULT.md, not the run log.
+## correctness
 
-The global nonlinear dynamics, basin sizes, unit-circle-boundary nonlinear behavior and fixed-reactive-coupling total number of windows are **not** established. Neither source screening nor these computations certify historical priority. Independent audit has not been performed.
+PASS
+
+Proof checked: rotating-frame radial/tangent derivative of z|z|² is (3ρ,φ), giving J0=diag(-2,0) and Jh=[[3u,-v],[3v,u]]. Fourier eigenvalues of directed 3-cycle are λ,conj λ. Traceless C²=Δ²I and real tr(conj C C)=2h yield det=e^(-2Bτ), real tr=e^(-Bτ)[(1+r)cosh(2ξτ)+(1-r)cos(2ητ)]. Real 2×2 Schur test yields exact strict criterion. Large-v asymptotics make positive-phase peaks violate while interlaced troughs satisfy criterion for any prescribed finite N, with one chosen finite v; does not imply infinitely many windows at fixed v. Source verification code was read but not executed; exponential formulas independently inspected algebraically.
+
+## originality
+
+PASS
+
+Pereti–Fanelli considers symmetric diffusive network swapping and critical rate, not the directed cubic three-oscillator model and N-window reentrance. Related 2026 general directed higher-order synchronization primary source could not be read in full; residual risk explicitly retained. Exact model-specific Floquet law is not asserted novel merely by parameter mismatch: general average criteria do not determine full Floquet trace or arbitrarily many alternations.
+
+## value
+
+PASS
+
+Exact local Floquet boundary and unbounded number of rate-dependent stability reversals in a simple directed nonlinear coupling system reveal a mathematically motivated mechanism not resolved by fast-switching averaging; not a global stability assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
