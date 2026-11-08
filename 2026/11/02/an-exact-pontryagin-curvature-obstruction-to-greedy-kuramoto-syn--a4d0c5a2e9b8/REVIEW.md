@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Differentiation of the squared order parameter gives exactly the Kuramoto drift coefficient \(3K/2\). Pontryagin maximization for a Euclidean ball, together with the adjoint equation, forces Hessian-gradient collinearity on an optimal greedy arc. The nonzero exact cross product at a regular state contradicts that necessity. The strict inequality follows from existence of a minimizing control. The real-analytic zero-set principle turns the explicit witness into an open dense statement. The packaged symbolic identities were rerun and passed.
+## correctness
 
-**Originality — PASS under inspected evidence.** The primary 2026 work explicitly reports numerical greedy suboptimality and qualitatively anticipates generic failure; neither observation is claimed here as a discovery. Its analysis does not state or prove this exact Pontryagin collinearity obstruction, explicit radical witness, or the parameter-uniform open-dense local-target theorem. Closest mathematical database records concern phase-locking stability or unrelated optimization, not minimum-time Kuramoto curvature. Priority risk persists for general optimal-control literature, where the maximum principle itself is standard.
+PASS
 
-**Mathematical value — PASS.** This resolves an exact structural issue behind numerical evidence: greedy ascent fails the necessary extremal equations at nearly every three-oscillator configuration, irrespective of coupling and available power. The theorem offers a cheap analytical diagnostic before applying dynamic programming, without asserting a fully optimized policy or a quantitative time gain.
+From f=(3+2 Σ cos(θ_i−θ_j))/9 the drift is c∇f with c=3K/2. Along a greedy arc u=U g/||g||, U=√P, g=∇f and H=Hess f, PMP p=λg (since optimal ball-maximizer equals greedy) and costate p˙=−cHp force λ˙g+λ(2c+U/||g||)Hg=0. Since factor is >0 this requires Hg collinear with g; the symbolic witness violates it. Exact independent SymPy differentiation verified g, Hg and all 3 cross-product components, and real-analytic identity theorem makes nonvanishing open dense. Nearby greedy reachability and convex compact controls ensure attainable minimum; therefore its failure of PMP implies strict time-gap. No global optimal synthesis or remote-target conclusion.
 
-**Literature boundaries.** O'Keeffe, arXiv:2608.10354v1, Sections II, III and VII, already has the source model, HJB formulation, exact gradient-flow identity, dynamic-programming comparisons, and informal geometric interpretation. Pontryagin conditions are standard and do not establish originality independently. This result is limited to nearby target thresholds and N=3.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority: compared actual claims and implications of identical/nearby primary sources, searched semantic published record corpus and theorem aliases, and explicitly separated existing methodology/qualitative findings from the exact new result. No located prior implication dominates this final scoped theorem; genuine inaccessible and general-coverage risks remain recorded.
+
+## value
+
+PASS
+
+Provides a parameter-uniform exact control-geometric obstruction, analytic genericity and radical witness for a natural 3-node synchronization problem where the same-source HJB paper only offered qualitative/numerical evidence of greedy failure; useful local diagnostic before numerical optimal control, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
