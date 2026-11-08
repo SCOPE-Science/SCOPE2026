@@ -1,0 +1,20 @@
+# Self-review
+
+## Correctness — PASS
+The weighted monomial norms give \(K_\beta(z,w)=(1-z\overline w)^{-\beta-1}\) with exactly the declared probability-measure normalization. Differentiating the absolutely locally convergent monomial series gives the coefficient series with prefactor \((\beta+1)_m/m!\); Euler and Pfaff identities give the Jacobi numerator. Orthogonality gives simple negative scalar roots. The monotonicity calculation in RESULT.md is a complete proof: pairwise orthogonality of the divided monic-polynomial factors and parameter differentiation give a strictly positive integral formula for each root's derivative. Legendre parity, the Jacobi large-weight coefficient limit and strict root motion prove every finite parameter transition and its strict boundary exclusion. The asymptotic threshold uses the correct finite orthonormal Jacobi tridiagonal coefficients, a uniform row-sum lower bound, and a localized alternating-sine Rayleigh upper bound. The fixed-order Laguerre scaling follows from coefficient convergence and simple-root perturbation. The extracted standalone `CHECK.py` passed 383 assertions. The checker is supporting finite evidence, not the infinite proof.
+
+## Originality — PASS relative to inspected material
+The August 2026 paper of Gehlawat–Jain–Sarkar defines the general canonical kernel and gives derivative formulas, but its explicit zero classifications concern the upper half-plane, not the weight-varying disk. The closely related published *Exact zero fibres of pure-jet Bergman Gram kernels on the disk* covers \(\beta=1\) and explicitly does not classify general weighted disks; its statement does not imply the sharp arbitrary-weight finite threshold count or high-order weight-to-order boundary. Another related published result treats two separated jets on a weighted upper half-plane, not a single pure jet in the disk. Classical Jacobi identities, root monotonicity, Laguerre scaling and varying-parameter extreme-zero background are acknowledged as prior theory, not assigned novelty. The new application is the precise complete weighted kernel zero-fibre phase law. No independent priority audit has been carried out. Residual risks include an older unindexed weighted-jet kernel evaluation or a fuller implied formulation in the classical Jacobi literature.
+
+## Mathematical value — PASS
+Off-diagonal zeros of canonical differential-evaluation Gram kernels govern whether their reproducing kernel is zero-free; unlike a mere unweighted count, varying a natural Bergman weight changes how many distinct zero fibres can occur. The result exactly classifies all changes at all derivative orders using explicit algebraic transition parameters and settles when every polynomial zero becomes geometrically attainable. The universal ratio \(2+2\sqrt2\) quantifies a sharp high-jet weight barrier, and Laguerre scaling gives actual zero locations at large weight. This is a natural phase classification, not an arbitrary finite sample or a reformulation of the previous fixed-weight count.
+
+## Closest literature and scope limits
+- Gehlawat, Jain and Sarkar, arXiv:2608.13193v1, §§2–4: general ξ-Bergman Gram kernels and upper-half-plane examples.
+- Published *Exact zero fibres of pure-jet Bergman Gram kernels on the disk*, published-finding corpus identifier `98259fe7e47b`: \(\beta=1\) special case; no arbitrary-weight phase diagram.
+- Published *Parity law for zeros of separated weighted Bergman jet Gram kernels*, identifier `48a4d84c1cc7`: weighted upper-half-plane mixed jets, different zero geometry.
+- DLMF §§18.5, 18.9, 18.16 and the classical Jacobi zero literature: polynomial identities and standard recurrence/zero properties.
+
+The theorem concerns radial power-weighted disks and pure equal-order jets; it does not cover arbitrary weighted domains or mixed sequences. The high-order result is leading order only, and a previously unindexed equivalent application remains a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
