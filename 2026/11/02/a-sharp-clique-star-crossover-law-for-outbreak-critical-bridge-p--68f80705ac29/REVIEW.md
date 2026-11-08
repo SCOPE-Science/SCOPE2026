@@ -1,11 +1,21 @@
-# Scientific review: clique–star epidemic bridge placement
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is stated only for finite symmetric graphs and the strict mean-field spectral stability domain. The rank-one Schur complement proves the exact critical coupling, the two block resolvent calculations prove that nonconnector vertices are strictly inferior (including one-leaf stars), and the numerator sign comparison plus a sharp quadratic cutoff proves every parameter branch. The explicit seven-vertex rational values and standard-library verifier check independent consequences. The finite checks supplement, not replace, the universal algebraic proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The known spectral invasion criterion, general connected-network coupling framework and use of resolvent centrality are acknowledged as background, not new theorems. Dung–Phuc's community spectral comparison, Wang et al.'s general weighted network coupling bounds and perturbations, and Sahneh–Scoglio–Chowdhury's general coupling model do not state the exact clique–star two-parameter placement classification in the material inspected. Relevant mathematical centrality work by Aprahamian–Higham–Higham and Sharkey concerns different comparisons. Searches for equivalent cut-vertex, Katz/closed-walk and clique–star formulations found no decisive encompassing earlier theorem. This is best-knowledge originality, not an exhaustive priority certificate; an unlocated equivalent treatment is a genuine risk.
+PASS
 
-**Mathematical value — PASS.** A network whose dense core and high-degree star compete is a natural benchmark for epidemic interconnection design. The result identifies an explicit, sharp structural leaf-count frontier separating no reversal from a genuine recovery-ratio-dependent reversal, plus a universal receiver-independent critical-link formula. Its finite seven-vertex example exhibits the phenomenon exactly. The sharp complete classification is a motivated structural fact, rather than just an isolated numerical threshold or an unqualified claim about exact stochastic epidemics.
+Reconstructed rank-one Schur complement: for q above both source and recipient spectral radii, qI−A of coupled graph stays positive definite iff w² D_u(q) D_v^H(q)<1; equality is linearized SIS/NIMFA threshold, not stochastic epidemic survival. In isolated clique and star blocks the connector diagonal resolvents are f=(q−r+2)/[(q+1)(q−r+1)], g=q/(q²−s), and after their unit bridge D_a=f/(1−fg), D_c=g/(1−fg). Strict block formulas show every other clique vertex is inferior to a and every leaf inferior to c, including s=1. Sign(D_a−D_c) equals sign[s(r−2)+(r−1−s)q]. For s≥r, q*=s(r−2)/(s−r+1) lies above rho(T) exactly when C_r(s)=−s²+(r²−3r+4)s−r+1>0, equivalent to r≤s<ζ_r. All other cases have unique a or c stated. Independently symbolically simplified f−g and ratio (q*²−q*−s)/C_r(s)=s/(s−r+1)², and inverted full rational 7x7 adjacency at r=s=3 q=5/2,3,4: (Da,Dc)=(78/31,70/31),(2/3,2/3),(39/118,20/59). The universal claim rests on algebraic inequalities, not these finite examples.
 
-**Scientific limits.** No exact finite Markov-chain persistence, nonlinear prevalence, multi-link, directed or heterogeneous-curing conclusion follows. The new result is a model-specific spectral threshold and endpoint ranking theorem. Literature coverage is careful but incomplete; independent scientific verification is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the exact all-size clique–star leaf-count frontier and q-dependent identity of the bridge endpoint minimizing mean-field spectral invasion weight. Not new: basic NIMFA spectral threshold, Schur complement, resolvent centrality, or general inter-network coupling.
+
+## value
+
+PASS
+
+PASS: a clique weakly linked to a star is a structurally motivated competition between a dense core and a high-degree hub. The theorem gives a sharp integer leaf-count phase frontier and a genuine reversal in optimal one-contact attachment as the recovery/transmission ratio changes, not an arbitrary slice or merely a software benchmark. It is a useful exact stress test for network intervention rankings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
