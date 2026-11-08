@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each feasible chain the convex spectral norm admits dihedral symmetrization without relaxing any individual rim floor. All nontrivial wheel eigenvalues split into one radial and m-1 Fourier modes, leaving a 2-variable minimax. Explicit V-shaped rim minimization, a uniform lower bound suppressing the negative radial branch, and three algebraic switch conditions prove the closed four-piece formula, optimal invariant probabilities and all endpoints for every m>=4. Independent finite LP enumeration checked 1,833 numerical cases, including transition points, and 48 exact-rational cases; tests are supplementary rather than proof. The proof does not assert universal uniqueness of nonsymmetric optima.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd--Diaconis--Xiao (2004), DOI 10.1137/S0036144503423264, sets up the general convex SDP framework, but does not state a solved parameter-dependent constrained wheel theorem.",
+        "Jafarizadeh arXiv:2501.02117 studies a distinct friendship-graph topology and constrained probabilities among friends, rather than a cycle with one common hub."
+      ],
+      "reasoning": "A general convex formulation containing the constraint is an algorithmic framework, not a published exact phase classification for this instance. The friendship graph has disjoint peripheral edges, unlike the wheel cycle, so its nontrivial Fourier eigenvalues and thresholds do not imply the claimed wheel formula.",
+      "searches": [
+        "Fastest mixing Markov chains with fixed edge probabilities wheel or fan graph Fourier and spectral optimization",
+        "Dihedral wheel random walk with prescribed minimal cycle transition and optimal central hub holding probability",
+        "Boyd Diaconis Xiao 2004 FMMC convex semidefinite arbitrary edge constraints",
+        "Jafarizadeh friendship graph fixed transition probabilities Pareto fastest mixing 2025"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0709.0955",
+      "https://doi.org/10.1137/070689413",
+      "https://doi.org/10.1137/S0036144503423264",
+      "https://arxiv.org/abs/2501.02117"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known unconstrained optimum has p=1/m and q=tau_1, giving exactly the first branch. Enforcing q>=tau>tau_1 rules it out.",
+        "The new remaining branches have q=tau, p=1-(a+b)tau/2, then p=(2-b tau)/(m+2), then p=1-2tau. These are independent constrained optima whose exact thresholds do not follow from an unconstrained minimizing point alone.",
+        "For odd m, b<4 creates a nontrivial final zero-holding regime; even m has b=4 and the final regime collapses to the endpoint."
+      ],
+      "reasoning": "The prior wheel paper is relevant enough that overlap must be characterized precisely. Its eigenvalues and unconstrained optimum imply the first plateau but, as inspected, do not state the constrained optimal-value function, crossing thresholds, or parity-dependent terminal regime. The present derivation explicitly minimizes the new constrained function and credits the old spectral reduction.",
+      "searches": [
+        "Wheel graph symmetric stochastic matrix with ring edge lower bounds optimize SLEM spectral radius Pareto frontier transition probabilities",
+        "arxiv:0709.0955 section 5.3.3 wheel p q SLEM unconstrained optimizer",
+        "Dihedral wheel random walk with prescribed minimal cycle transition and optimal central hub holding probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd--Diaconis--Parrilo--Xiao, arXiv:0709.0955, section 5.3.3, pp. 28--29, gives the exact two-parameter Fourier eigenvalues and solves the unconstrained wheel FMMC; its spectrum is the starting identity for the new claim.",
+        "The individual rim-edge probability floor is equivalent after symmetry averaging to q>=tau, but is not equivalent to the unconstrained problem when tau exceeds the unconstrained optimal rim probability tau_1."
+      ],
+      "reasoning": "The existing wheel Fourier representation and dihedral reduction are fully credited. The new exact statement is the globally optimal SLEM for the additional coordinate-wise rim lower bound over all symmetric chains, with three floor-induced transitions. The unconstrained statement covers precisely the first plateau and not the remaining continuum.",
+      "searches": [
+        "Constrained fastest mixing Markov chain wheel graph minimum peripheral rim edge transition probability local exploration tradeoff four phase SLEM hub spoke ring",
+        "Wheel graph symmetric stochastic matrix with ring edge lower bounds optimize SLEM spectral radius Pareto frontier transition probabilities",
+        "wheel fastest mixing Markov chain constrained rim transition minimum probabilities",
+        "arxiv:0709.0955 wheel Fourier spectrum section 5.3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published mathematical research records returned a wheel symmetric-edge-polytope ellipsoid result, a tetrahedral orbit-polytope FMMC result, and other network/spectral studies, without an exact individual-rim-floor wheel FMMC phase table.",
+        "The closest wheel ellipsoid study addresses an optimal enclosing ellipsoid of a different convex body, not stochastic transition design."
+      ],
+      "reasoning": "The searched mathematical-record entries do not contain the four threshold expressions or a stronger wheel edge-floor classification. This is limited evidence, not a proof of global priority; no exhaustive external database coverage is asserted.",
+      "searches": [
+        "Constrained fastest mixing Markov chain wheel graph minimum peripheral rim edge transition probability local exploration tradeoff four phase SLEM hub spoke ring",
+        "Wheel graph symmetric stochastic matrix with ring edge lower bounds optimize SLEM spectral radius Pareto frontier transition probabilities",
+        "Fastest mixing Markov chains with fixed edge probabilities wheel or fan graph Fourier and spectral optimization",
+        "Dihedral wheel random walk with prescribed minimal cycle transition and optimal central hub holding probability"
+      ]
+    },
+    "rationale": "The exact wheel Fourier spectrum and unconstrained first-phase minimum of Boyd et al. (arXiv:0709.0955) are acknowledged as prior results. The added edgewise minimum rim transition and the three additional sharp optimal-value regimes were not supplied by the inspected relevant primary full texts or targeted mathematical-record queries. This is a qualified same-model priority assessment, not a proof of publication novelty.",
+    "residual_risks": [
+      "Specialist literature may contain this exact constrained wheel calculation under different language or as an illustrative parametric SDP example not recovered by the searches.",
+      "Because the published wheel spectrum already reduces the problem to two variables, some parts may be considered a straightforward constrained-optimization consequence rather than an entirely new general phenomenon.",
+      "All originality conclusions are limited by the inspected corpus; no independent priority certification exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_ANTECEDENT_NOT_FULL_COVERAGE: spectrum and floor-free solution are explicitly prior work; q>=tau tradeoff and its phase diagram not present in the inspected wheel section.",
+        "evidence": [
+          "Section 5.3.3, pp. 28--29: wheel transition probabilities p and q, eigenmodes and unconstrained SLEM optimum.",
+          "arXiv v1 was publicly posted 2007-09-06."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Full author-available arXiv PDF, especially section 5.3.3 and its wheel Fourier spectral formulas and unconstrained exact solution; associated abstract and version dates",
+        "method": "Read PDF extracted text and the wheel section/page images; compare eigenvalues, objective, feasibility set and solved constraints",
+        "title": "Fastest mixing Markov chain on graphs with symmetries",
+        "trigger": "Identical wheel network, SLEM optimization and symmetry reduction"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NO_EXPLICIT_WHEEL_FLOOR_FORMULA",
+        "evidence": [
+          "The general FMMC semidefinite formulation permits linear feasibility constraints but does not give a sharp three-transition wheel floor frontier."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+        "material_read": "Full author-hosted PDF; optimization formulation, examples and problem extension descriptions",
+        "method": "Read author-hosted full text, distinguish an abstract optimization method from explicit constrained wheel thresholds",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Broader convex/SDP formulation potentially implying the constrained problem"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_AND_CONSTRAINT; not covering the wheel cycle Fourier phase diagram",
+        "evidence": [
+          "Friendship graphs consist of triangular petals sharing a center; the graph is not K_1 join C_m for m>=4, and its constrained edge classes produce a different spectral objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.02117",
+        "material_read": "Full public arXiv PDF, introductory formulation and friendship graph spectral/optimization sections (including pp. 1--4)",
+        "method": "Read PDF extracted text and page images; compare graph structure, imposed probability restrictions and optimizer consequences",
+        "title": "Fastest Mixing Reversible Markov Chain on Friendship Graph: Trade-Off between Transition Probabilities among Friends and Convergence Rate",
+        "trigger": "Strongly related edge-probability-constrained fastest-mixing tradeoff"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bf3349aa-8c4f-4b55-92ec-fbcb24b4020a",
+  "value": {
+    "rationale": "A lower bound on each rim transition encodes a natural local-exploration requirement in a hub-mediated network. The complete formula quantifies the cost of that constraint for every wheel size and every feasible floor, including three exact phase boundaries and a parity-sensitive final zero-holding phase. It supplies globally optimal feasible kernels, not only a computational solution or small-graph numerical increment; it does not claim a new graph spectrum or general SDP formulation.",
+    "status": "PASS"
+  }
+}
