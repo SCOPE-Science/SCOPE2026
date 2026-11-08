@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For the positive block T_a on l1⊕C^m, any eigenvector has a nonzero eigenvector of the m-cycle, and the unilateral-shift recurrence x_n=c λ^(-n-1) is summable on the unit circle precisely when the discrete Fourier coefficient c vanishes. The explicit inverse DFT b_j=1+(1/m)Σ_{k∈A}ζ^(jk) is real and ≥1/m, and has coefficients m at zero, zero at designated frequencies and one elsewhere. Real DFT invertibility yields independent codimension |E| equations. Nonnegative column sums give the exact power norm and linear growth. Rank-one finite perturbation of the shift-plus-permutation block preserves Fredholm essential spectrum and index; approximate shift eigenvectors give the unit-circle approximate spectrum. The standalone finite checker passed 38474 supplementary tests; universal claims rest on the displayed proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dobrick (2026), arXiv:2610.10093v1, Theorem 1.2: every positive Banach-lattice operator has cyclic full peripheral spectrum. Theorem 2.3 establishes spectral inheritance under positive domination, with proofs through critical minorants in Section 3.",
+        "Glück (2021), arXiv:2102.03772, Theorem 1.1: realization of unions of finite subgroups as the full peripheral spectrum of an irreducible stochastic l1 operator.",
+        "Glück (2015), arXiv:1503.02430, Theorems 5.2–5.3: point-spectrum cyclicity under growth/ergodic assumptions on KB-spaces."
+      ],
+      "reasoning": "The new full peripheral spectrum is exactly the unit circle and satisfies all full-spectrum cyclicity conclusions. Because the constructed operators have power norms growing linearly, older point-spectrum cyclicity theorems with boundedness hypotheses do not apply. None of these broader results implies the prescribed finite point-spectrum realizations, nor the codimension and exact norm formulas.",
+      "searches": [
+        "On the Cyclicity Conjecture Dobrick 2026 point spectrum",
+        "A note on the spectrum of irreducible operators and semigroups Glück 2021",
+        "On the Peripheral Spectrum of Positive Operators Glück 2015"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10093v1 (full HTML manuscript; Sections 1–3, Appendices A–B)",
+      "arXiv:1503.02430 (full text relevant sections)",
+      "Glück 2014 author-hosted preprint (full text; page 2 visually inspected)",
+      "arXiv:2102.03772 (full text relevant sections)",
+      "Published mathematical-result index searches with explicit semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dobrick (2026), Theorem 1.2, concerns the full peripheral spectrum. Theorem 2.3 and Section 3 concern positive domination, minorants and ultrapowers, not rank-one Fourier eigenvalue strata.",
+        "Glück (2015) contains the subgroup-minus-one and isolated missing-power special cases, which are acknowledged and not presented as new.",
+        "Glück (2021) restricts full peripheral spectra of stochastic irreducible operators, whereas the new models are reducible and not power-bounded."
+      ],
+      "reasoning": "There is no logical implication from cyclicity of full peripheral spectrum to cyclicity of point spectrum. Neither a subgroup-minus-one construction nor one four-cycle counterexample entails realization of every conjugate-invariant selection together with exact parameter codimension and arbitrarily small positive rank-one coupling.",
+      "searches": [
+        "arXiv:2610.10093 peripheral spectrum versus point spectrum",
+        "arXiv:1503.02430 Example 5.4 and Example 6.2 peripheral point spectrum",
+        "arXiv:2102.03772 Theorem 1.1 peripheral spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Glück (2015), arXiv:1503.02430, Example 5.4 realizes G minus identity for a subgroup G; Example 6.2 realizes a specific missing-square pattern.",
+        "Glück (2014) Markov note, Example 2.1 uses a four-cycle and a sequence tail, with eigenvalue i but not -1."
+      ],
+      "reasoning": "A subgroup with its identity removed is generally much more constrained than an arbitrary conjugation-symmetric subset of a fixed root group. The four-cycle missing-square example is a specific preexisting instance, while the new theorem proves every subset pattern and full Fourier-stratum codimensions on l1. The proof does not merely rename these cases.",
+      "searches": [
+        "positive operators peripheral point spectrum not cyclic without power bounded example ℓ1 unilateral shift rank one permutation",
+        "positive operators prescribed arbitrary finite symmetric peripheral point spectra",
+        "positive operator arbitrary finite peripheral point spectra conjugate symmetric subset unit roots rank one leakage",
+        "arXiv:1503.02430 Sections 5–6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published mathematical finding records closest to these queries treated harmonic eigenspaces for positive contraction semigroups and periodic weighted-shift norm growth, rather than free finite root-subset selection.",
+        "No exact inverse-eigenvalue table or example with the stated DFT strata was located by the specific full-text and semantic queries."
+      ],
+      "reasoning": "These searches provide absence of a located exact table, not proof of novelty. The positive parameter subspaces and their dimensions are derived independently; no external tabulation is used.",
+      "searches": [
+        "positive operators peripheral point spectrum not cyclic prescribed arbitrary conjugation invariant subsets roots of unity nilpotent rank one perturbation of unilateral shift cyclic permutation",
+        "positive operator arbitrary finite peripheral point spectra conjugate symmetric subset unit roots rank one leakage",
+        "positive Banach lattice operator finite rank positive perturbations power bounded shift arbitrary peripheral eigenvalue subset Fourier",
+        "\"peripheral point spectrum\" \"any\" \"subset\" \"roots of unity\""
+      ]
+    },
+    "rationale": "The closest inspected historical counterexamples establish either G without the identity, or individual missing-power examples, rather than every conjugation-symmetric subset of a fixed finite root set in one l1 rank-one family with exact strata and power norms. The 2026 cyclicity theorem concerns full peripheral spectrum and hence does not imply constraints on our point spectrum. The 2021 irreducible stochastic realization theorem also concerns full peripheral spectra. Searches of published records found no dominating equivalent claim, but a disguised older Fourier/block example remains a priority risk; the full 2026 motivating manuscript has now been read and does not state the inverse classification.",
+    "residual_risks": [
+      "An older positive block-operator example might implicitly encode the same Fourier-zero inverse classification.",
+      "This is a same-model best-knowledge originality comparison, not independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FULL_TEXT_NOT_COVERING: the manuscript proves cyclicity of full peripheral spectrum, not arbitrary finite point-spectrum pattern realizations.",
+        "evidence": [
+          "Submitted 2026-10-07; primary MSC 47B65. Abstract announces cyclicity of full peripheral spectrum for all positive Banach-lattice operators.",
+          "Theorem 1.2 is full-spectrum cyclicity, Theorem 2.3 spectral inheritance, Example 3.2 irrational rotation on C(T), and Section 3 uses positive minorants/ultrapowers; none states the rank-one Fourier coupling or inverse eigenvalue theorem."
+        ],
+        "identifier_or_url": "arXiv:2610.10093v1",
+        "material_read": "Full arXiv HTML preprint, including introduction, Theorems 1.2 and 2.3, Example 3.2, Section 3 critical-minorant and ultrapower argument, and Appendices A and B.",
+        "method": "Public arXiv full HTML manuscript, theorem/example/appendix inspection and search for rank-one, unilateral shift and point-spectrum classification.",
+        "title": "On the Cyclicity Conjecture",
+        "trigger": "Recent positive-operator cyclicity theorem directly motivating the gap between spectrum and eigenvalues."
+      },
+      {
+        "assessment": "DIRECTLY_RELEVANT_BUT_NOT_COVERING_THE_INVERSE_CLASSIFICATION.",
+        "evidence": [
+          "Example 5.4 yields G without 1 for any nontrivial closed subgroup G; Example 6.2 gives a four-cycle missing-square example.",
+          "Theorems 5.2–5.3 require growth/ergodic assumptions for point-spectrum cyclicity on KB-spaces."
+        ],
+        "identifier_or_url": "arXiv:1503.02430",
+        "material_read": "Full text sections 5 and 6, including Theorems 5.2–5.3, Example 5.4 and Example 6.2, plus related introductory statements.",
+        "method": "Public arXiv full text in HTML/text rendering, theorem and example comparison.",
+        "title": "On the Peripheral Spectrum of Positive Operators",
+        "trigger": "Plausible prior general counterexamples for noncyclic peripheral point spectra."
+      },
+      {
+        "assessment": "CONTAINS_PRECEDENT_EXAMPLE_ONLY; no all-subsets inverse classification or l1 power-growth stratification.",
+        "evidence": [
+          "Dated 2014-03-01. Example 2.1 uses a cyclic four-component with a sequence tail to preserve i while excluding -1."
+        ],
+        "identifier_or_url": "https://www.uni-ulm.de/fileadmin/website_uni_ulm/mawi.inst.020/glueck/Dateien_fuer_Homepage/Artikel_und_Preprints/J_Glueck_Markov_Operators_with_Non_Cyclic_Peripheral_Point_Spectrum.pdf",
+        "material_read": "Full text and displayed Example 2.1 on PDF page 2, including its explicit positive boundary map, and its discussion of the missing-square eigenvalue.",
+        "method": "Publisher-author open-access PDF text and visual page inspection.",
+        "title": "A Markov Operator and a Markov Semigroup on C(K) with Non-Cyclic Peripheral Point Spectrum",
+        "trigger": "Original cited example potentially dominating positive shift-coupling counterexamples."
+      },
+      {
+        "assessment": "NOT_COVERING; full peripheral spectra of irreducible stochastic operators, not arbitrary point eigenvalue subsets.",
+        "evidence": [
+          "Theorem 1.1 realizes finite unions of finite subgroups as entire peripheral spectrum, not point spectrum."
+        ],
+        "identifier_or_url": "arXiv:2102.03772",
+        "material_read": "Full text introduction, Theorem 1.1, construction and resolvent argument in Section 2; semigroup scope statements.",
+        "method": "Public arXiv full text in HTML/text rendering.",
+        "title": "A note on the spectrum of irreducible operators and semigroups",
+        "trigger": "General positive operator spectral realization theorem possibly stronger than the new statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34e3bcbb-4eec-44c8-b4a6-5ca463ccf1e1",
+  "value": {
+    "rationale": "The object is a canonical one-way rank-one positive coupling from a finite periodic component to a unilateral shift on the standard KB Banach lattice l1. Its natural invariant—the peripheral point eigenvalue set—is classified for every conjugate-invariant subset of the fixed finite root group, with exact algebraic strata and codimensions. The single model provides arbitrarily small positive perturbations of a power-bounded isometry while the eigenvalue pattern changes arbitrarily and operator powers grow at an explicitly computable linear rate; thus it sharply explains the necessity of growth hypotheses for point-spectrum cyclicity in this setting. It is not only a single counterexample or a known subgroup-minus-one construction.",
+    "status": "PASS"
+  }
+}
