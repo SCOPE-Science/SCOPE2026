@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Exact y-coordinate Rayleigh reduction, necessary-and-sufficient Schur-complement PSD criterion, Cauchy–Schwarz and completed-square inequality give unique minimizers for all positive cost vectors. Rescaling and exact conditional expectation give stated optimization and its narrowly defined Kaczmarz projection certificate. Tested 1367 square-price candidate designs and 12980 competitor cases; universal scope comes from proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd 2006 provides general convex formulations for optimizing algebraic connectivity.",
+        "Sarkar 2026 explicitly proves the general per-expected-work cost-normalized E-design SDP and dual framework.",
+        "Shafi–Arcak–El Ghaoui (2010) gives general network edge-weight spectral LMI constraints and mentions network costs; it does not state the star optimum."
+      ],
+      "reasoning": "General SDPs imply that the posed problem is convex but do not present, as an explicit prior result, the square-root polygon inequality, all-price unique optimizer, and work-normalized value. Novelty is restricted to this natural complete closed-form specialization, not the generic SDP or E-design reduction.",
+      "searches": [
+        "weighted star Laplacian exact cost-constrained algebraic connectivity maximum = budget/(sum costs - squared dominating square-root-cost gap/(m+1))",
+        "E-optimal experimental design star graph edge differences with heterogeneous sampling costs and asymmetry",
+        "doi:10.1016/j.laa.2006.03.006",
+        "doi:10.21203/rs.3.rs-10036143/v1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.laa.2006.03.006 full PDF",
+      "arxiv:math/0702226v1 full HTML",
+      "doi:10.1137/15M1025487 full PDF",
+      "doi:10.21203/rs.3.rs-10036143/v1 public full text",
+      "Shafi–Arcak–El Ghaoui 2010 full author-hosted PDF",
+      "Published mathematical classification: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics (2026), statements compared",
+      "Published graph spectral-design classifications for double stars with homogeneous spoke prices and vertex-diagonal gains on stars, statements compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gower–Richtárik equation (5.4) is an eigenvalue maximizing SDP for sampling distributions.",
+        "Sarkar gives a general cost-sensitive E-optimal design formulation; the stated star-specific optimizer is not there.",
+        "A previously published inverse-positive SPD coordinate-sampling optimum involves a different matrix class.",
+        "Accessible prior double-star conductance result assumes at least two leaves per hub and common price within each hub leaf class, not arbitrarily distinct prices on a one-hub star. A separate star result optimizes vertex-diagonal gains, not edge conductances; neither directly implies this closed form."
+      ],
+      "reasoning": "The general SDP prior art formally contains this finite-dimensional instance as an optimization problem, but no inspected theorem supplies the explicit solution by substitution, a stronger evaluated classification or the square-root price boundary. The new claim evaluates rather than originates the general formulation. Price-imbalance equivalence to a known graph weight allocation might exist in unindexed work and is explicitly recorded as risk.",
+      "searches": [
+        "For normalized star incidence Kaczmarz, unique cost-sensitive sampling maximizes smallest nonzero eigenvalue of sum p_i P_i divided by expected cost; uniform unless sqrt(c_max)>sum other sqrt(c_i)",
+        "weighted star Laplacian exact cost-constrained algebraic connectivity maximum = budget/(sum costs - squared dominating square-root-cost gap/(m+1))",
+        "doi:10.1137/15M1025487",
+        "doi:10.21203/rs.3.rs-10036143/v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The star graph Rayleigh quotient converts exactly into the unit-row Kaczmarz information matrix, divided by 2.",
+        "Gower–Richtárik 2015 Section 5.1 covers a general unpriced spectral sampling SDP; no evaluated star catalogue found.",
+        "The nearest published coordinate-probability classification instead studies inverse-positive SPD coordinate-descent sampling, which is not the singular incidence comparison frame."
+      ],
+      "reasoning": "The Laplacian and Kaczmarz statements here are equivalent under normalized star incidence rows. The closest indexed coordinate-descent result concerns an SPD Hessian and a different objective, and cannot directly imply the star price threshold.",
+      "searches": [
+        "For normalized star incidence Kaczmarz, unique cost-sensitive sampling maximizes smallest nonzero eigenvalue of sum p_i P_i divided by expected cost; uniform unless sqrt(c_max)>sum other sqrt(c_i)",
+        "cost-sensitive sampling probabilities of normalized star incidence rows randomized Kaczmarz largest eigenvalue of weighted Laplacian",
+        "arxiv:math/0702226v1",
+        "doi:10.1137/15M1025487",
+        "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Keyword and semantic searches for heterogeneous-price star Laplacian algebraic connectivity did not return an explicit matching table or formula. The closest identifiable spectral allocation records concern geometrically weighted shifts, complete-bipartite hitting domination, and weighted odd cycles, whose claims do not imply the star design theorem.",
+        "Separate known classifications of star vertex-diagonal gains and double-star homogeneous-spoke conductances solve different spectral design problems; those claims do not imply the exact individual-price star formula."
+      ],
+      "reasoning": "No exact graph-table result covering the weighted star design was found in the inspected corpus. This is absence of found coverage, not a proof of external uniqueness.",
+      "searches": [
+        "weighted star Laplacian exact cost-constrained algebraic connectivity maximum = budget/(sum costs - squared dominating square-root-cost gap/(m+1))",
+        "star graph cost-weighted algebraic connectivity maximization exact optimal edge weights square-root dominance threshold",
+        "minimum cost edge weights for star graph Laplacian spectral gap at least one SDP"
+      ]
+    },
+    "rationale": "The inspected general connectivity SDP, Kaczmarz sampling SDP and 2026 cost-normalized E-design paper do not evaluate the heterogeneous star-incidence design or prove its sharp square-root threshold, optimizer uniqueness and exact formula. Compared relevant published graph-weight and sampling results, including near-neighbor index hits; residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "A graph-theoretic E-design or weighted-star algebraic-connectivity exact solution might be indexed under unrelated vocabulary; broad searches cannot guarantee uniqueness.",
+      "The full published literature beyond the four inspected primary texts was not exhaustively surveyed.",
+      "The 2026 general cost-normalized E-design framework may support a later derivative solution even though it does not state this evaluated formula.",
+      "An extension of the separately studied homogeneously priced double-star spectral-gap formula to arbitrary individual spoke prices might lead to the same expression, but that general extension was not a prior statement in accessible claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general connectivity convex optimization and graph symmetry examples, but no all-price star Laplacian minimum-cost PSD classification or square-root threshold",
+        "evidence": [
+          "Available online 2006-05-05 on title page",
+          "The abstract optimizes algebraic connectivity over convex hulls of graph Laplacians and exploits graph symmetries; the studied graph-family constraint differs from arbitrary positive edge prices"
+        ],
+        "identifier_or_url": "doi:10.1016/j.laa.2006.03.006; https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "Full text, abstract, introduction, convexification/symmetry discussion, examples and appendices; title and first-online date on PDF page 1",
+        "method": "Open-access 15-page primary PDF text and page images",
+        "title": "Upper bounds on algebraic connectivity via convex optimization",
+        "trigger": "Direct algebraic connectivity maximization and its SDP/convex interpretation"
+      },
+      {
+        "assessment": "Original norm-based randomized Kaczmarz analysis; no star-incidence square-root price-dominance sampling law",
+        "evidence": [
+          "Section 2 introduces randomized norm-weighted row selection and convergence",
+          "The present work optimizes a different independent row law under heterogeneous work costs"
+        ],
+        "identifier_or_url": "arxiv:math/0702226v1; https://arxiv.org/html/math/0702226v1",
+        "material_read": "Full public HTML sections 1–4, including randomized row sampling, rate, optimality discussion and experiments",
+        "method": "arXiv version 1 full text published 2007-02-08",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "One-step row projection and sampling-rate interpretation"
+      },
+      {
+        "assessment": "The paper explicitly solves an abstract maximum-smallest-eigenvalue sampling SDP; it does not evaluate the cost-normalized star incidence instance or establish the stated price-threshold formula",
+        "evidence": [
+          "Section 5.1 writes maximum smallest eigenvalue as a semidefinite program",
+          "Section 5.2 gives convenient probabilities rather than this heterogeneous price formula"
+        ],
+        "identifier_or_url": "doi:10.1137/15M1025487; https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+        "material_read": "Full accessible 31-page primary PDF, with detailed reading of Section 5.1 and equation (5.4) for optimal sampling probabilities",
+        "method": "PDF text plus page-image inspection of page 16 (section 5.1)",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Potentially covering optimal probability-selection SDP"
+      },
+      {
+        "assessment": "General cost-normalized E-optimal design SDP is prior art. The paper presents no explicit closed-form for a star-incidence row catalogue or the sharp square-root price dominance condition. Only this specific exact evaluation is asserted as new",
+        "evidence": [
+          "Introduction and Section 2 explicitly identify optimal sampling per work as cost-sensitive E-design",
+          "Examples concern coordinate and sparse block catalogues, not the star-incidence complete parameter solution"
+        ],
+        "identifier_or_url": "doi:10.21203/rs.3.rs-10036143/v1; https://www.researchgate.net/publication/408033023_Cost-sensitive_spectral_sampling_algorithms_for_randomized_block_Kaczmarz_methods",
+        "material_read": "Public full text including introduction, spectral design and dual formulations, algorithms, numerical examples, conclusion; searched star/incidence/network terminology",
+        "method": "Publicly readable full-text HTML; first publicly posted 2026-06-24",
+        "title": "Cost-sensitive spectral sampling algorithms for randomized block Kaczmarz methods",
+        "trigger": "Direct generalization to work-normalized E-optimal row and block sampling"
+      },
+      {
+        "assessment": "Provides general convex edge and node weight formulations and discusses costs, but examples are path, two-cluster, cycle-with-chord, with no star and no all-heterogeneous-price formula",
+        "evidence": [
+          "Section III derives graph Laplacian eigenvalue LMIs",
+          "Section IV allows network cost constraints in general",
+          "Section V examples explicitly disregard cost and treat three nonstar network structures"
+        ],
+        "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+        "material_read": "Accessible complete 8-page primary PDF; introduction, weighted Laplacian definitions, Section III LMI, Section IV edge-weight and cost constraints, numerical examples and conclusion",
+        "method": "Author-hosted scholarly PDF with full text and title-page screenshot",
+        "title": "Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+        "trigger": "Closer primary study of cost-constrained edge weighting and graph Laplacian eigenvalues"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c1d4e46c-6551-4c86-a7e2-cf566194b54f",
+  "value": {
+    "rationale": "Complete all-price, all-size cost-constrained algebraic-connectivity classification with an exact nonobvious sharp dominance phase boundary and a unique positive allocation, plus an exact one-step Kaczmarz work-normalized spectral certificate. It answers a natural design problem rather than a reparameterized general SDP; does not overclaim exact runtime optimality.",
+    "status": "PASS"
+  }
+}
