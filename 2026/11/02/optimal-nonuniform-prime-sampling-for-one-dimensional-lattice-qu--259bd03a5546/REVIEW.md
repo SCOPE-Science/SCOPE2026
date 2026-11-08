@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the exact worst-case expected absolute error, not its square or an RMS surrogate. Fourier aliasing and nonnegative identical-phase extremizers prove that the apparent Cauchy--Schwarz bound is actually attained for all candidate sampling vectors. Distinct-prime least-common-multiple reduction produces the positive definite quadratic matrix \(D+uu^{\mathsf T}\). Its Sherman--Morrison inverse gives a unique minimizer, while \(c\le K\le p_{\min}\) proves strict positivity of every optimal probability. The derivative of the weight formula proves monotonicity for \(s>1\), and the prime number theorem establishes the sharp positive limiting gap. The analytic proof includes the single-prime boundary. An independently runnable standard-library script passed 402 exact and numerical groups, but finite tests are not used to assert the infinite result.
+PASS
 
-## Originality — PASS, qualified
+For 1D real periodic Korobov smoothness alpha>1/2, Fourier aliasing Q_p-I=sum_{p|m,m!=0} hat f(m). Choosing all nonnegative Fourier coefficients proportional to omega_nu(m)|m|^{-2alpha} attains both triangle and Cauchy–Schwarz bounds for expected absolute error, giving E^2=2zeta(s)nu^T A nu, s=2alpha, A=diag(u_p(1-u_p))+uu^T, u_p=p^{-s}. Positive definite quadratic inverse gives unique w/W by Sherman–Morrison; K=#primes<=p_min and s>1 imply 1-c u_p>0, so no boundary optimum. w_p increases strictly with p. PNT uniform weighted prime sums produce the sharp nontrivial limiting ratio; single-prime edge case covered. Independent exact rational n=12,s=2 gives nu_7=2/7,nu_11=5/7, ratio 301/247; n=30 probabilities positive and increasing. These finite tests are not PNT proof.
 
-Full-text comparisons were made with Kuo--Nuyens--Wilkes (arXiv:2304.10413), Kritzer--Kuo--Nuyens--Ullrich (arXiv:1706.04502), Dick--Goda--Suzuki (arXiv:2109.11694), Nuyens--Wilkes (arXiv:2308.03138) and Goda--Krieg (arXiv:2411.19164). The closest source makes the prime choice uniform and presents a worst-case error formula but does not give the nonuniform minimax solution or the limiting relative penalty. Other compared methods change the generator, the shift, the error criterion or the asymptotic question. Searches for nonuniform random-prime probability optimization and related terms yielded no directly equivalent statement. This is a best-knowledge assessment, not a proof of priority: general quadratic optimal-design results and hard-to-find specialized lattice studies remain meaningful risks.
+## originality
 
-## Value — PASS
+PASS
 
-The prime distribution is an actual design choice in a published integration algorithm; the result replaces an ad hoc uniform choice by an explicitly computable unique optimal law. It proves a strict and quantitatively nonvanishing smoothness-dependent improvement (about \(8.0\%\) at \(\alpha=1\), and \(34.5\%\) at \(\alpha=2\)) in the precise worst-case error criterion, not just a finite numerical gain. It also identifies the limitation that evaluating a larger random prime costs more nodes, which is outside this risk-only optimization.
+Kuo–Nuyens–Wilkes 2023 random-prime fixed-vector paper samples primes uniformly and analyzes error; its inspected PDF formulas do not optimize unrestricted nonuniform 1D prime probabilities. Distinct work changes generator, shifts or RMS criteria. General quadratic optimal design supplies machinery but not the established prime-specific positivity and asymptotic ratio.
 
-## Literature and limitations
+## value
 
-The result is limited to the one-dimensional, unshifted, single-prime periodic Korobov setting with \(\alpha>1/2\). No novelty or performance claim is made for higher dimensions, general weights, random shifts, independent randomized generators, RMS error or work-normalized cost. Publication priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Selecting the prime distribution is a genuine design variable in randomized lattice integration; the optimized absolute-error objective, unique distribution and nonvanishing asymptotic uniform-sampling penalty give immediately useful exact guidance under explicitly stated cost-free sampling assumptions. Not a generic renaming of linear algebra because positivity and Fourier attainment require arithmetic structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

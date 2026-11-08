@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:00:39.541495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1D real periodic Korobov smoothness alpha>1/2, Fourier aliasing Q_p-I=sum_{p|m,m!=0} hat f(m). Choosing all nonnegative Fourier coefficients proportional to omega_nu(m)|m|^{-2alpha} attains both triangle and Cauchy–Schwarz bounds for expected absolute error, giving E^2=2zeta(s)nu^T A nu, s=2alpha, A=diag(u_p(1-u_p))+uu^T, u_p=p^{-s}. Positive definite quadratic inverse gives unique w/W by Sherman–Morrison; K=#primes<=p_min and s>1 imply 1-c u_p>0, so no boundary optimum. w_p increases strictly with p. PNT uniform weighted prime sums produce the sharp nontrivial limiting ratio; single-prime edge case covered. Independent exact rational n=12,s=2 gives nu_7=2/7,nu_11=5/7, ratio 301/247; n=30 probabilities positive and increasing. These finite tests are not PNT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuo–Nuyens–Wilkes fixes uniform prime sampling and bounds worst-case error; the 2017 and 2021 methods use randomized generating vectors/number of nodes or other objective."
+        ],
+        "reasoning": "Uniform-case bounds are not a theorem of unrestricted distribution optimality; no inspected dominating parameter theorem yields the exact Sherman–Morrison law and PNT constant.",
+        "searches": [
+          "arXiv:2304.10413",
+          "arXiv:1706.04502",
+          "arXiv:2109.11694"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md 6fe05370ca53d4626f42db30a840673c842cdf5d",
+        "Frozen verify.py 773dfe7bd5a897be80d2646a5a0b5bb02cc8e71b",
+        "arXiv:2304.10413",
+        "arXiv:1706.04502",
+        "arXiv:2109.11694",
+        "arXiv:2308.03138",
+        "Resultary query: random prime lattice quadrature nonuniform prime sampling minimax Korobov expected absolute error"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary random-prime article analyzes a uniform law, and the 2023 shifted lattice paper addresses a different smoothness/shifting regime.",
+          "If one imports the standard quadratic inverse result, the prime positivity and strict size monotonicity are additional checked arguments; PNT limit further distinguishes the claim."
+        ],
+        "reasoning": "General proof tools and special uniform laws do not already assert the full unshifted one-dimensional positive minimizer and strict fixed-alpha uniform penalty.",
+        "searches": [
+          "arXiv:2304.10413",
+          "arXiv:1706.04502",
+          "arXiv:2308.03138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is worst-case E|error|, not sqrt(E error^2), so uniform-prime analyses with differing randomness objectives need not imply optimal distribution.",
+          "Fourier extremizer here aligns real nonnegative coefficients, reducing absolute error precisely to a number-theoretic positive quadratic form."
+        ],
+        "reasoning": "Explicitly separated RMS, shifted lattice and node-cost optimization aliases from the fixed one-draw prime-distribution problem.",
+        "searches": [
+          "arXiv:2304.10413",
+          "random prime lattice quadrature nonuniform prime sampling minimax Korobov expected absolute error",
+          "arXiv:1706.04502"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned Resultary records were unrelated prime statistics/phase minimax, not a tabulation of all n and alpha prime-optimal weights; the article displays uniform probabilities."
+        ],
+        "reasoning": "No exact database for the joint n,alpha optimized probability vector in bounded searches; unindexed optimal design tables remain possible.",
+        "searches": [
+          "random prime lattice quadrature nonuniform prime sampling minimax Korobov expected absolute error",
+          "Resultary published semantic search prime sampling Korobov",
+          "arXiv:2304.10413"
+        ]
+      },
+      "rationale": "Kuo–Nuyens–Wilkes 2023 random-prime fixed-vector paper samples primes uniformly and analyzes error; its inspected PDF formulas do not optimize unrestricted nonuniform 1D prime probabilities. Distinct work changes generator, shifts or RMS criteria. General quadratic optimal design supplies machinery but not the established prime-specific positivity and asymptotic ratio.",
+      "residual_risks": [
+        "A previous generalized nonuniform prime lattice optimal-design result could imply the same matrix optimizer, even without the particular s=2alpha asymptotic statement.",
+        "The objective excludes cost per sampled node and any random shift or RMS guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_UNIFORM_PRIME_CASE",
+          "evidence": "The sampled prime distribution is uniform in the analyzed algorithm; no nonuniform full-simplex minimax statement in the inspected central result.",
+          "identifier_or_url": "arXiv:2304.10413 (first posted 2023-04-20)",
+          "material_read": "Open-access PDF first two pages, algorithm and Proposition 2.2/error definition; page screenshot inspected",
+          "method": "Public arXiv PDF text extraction and page screenshot",
+          "title": "Random-prime--fixed-vector randomised lattice-based algorithm for high-dimensional integration",
+          "trigger": "Same randomized prime-lattice integration method"
+        },
+        {
+          "assessment": "PARTIAL_READ_NONCOVERING_NOT_ASSERTED",
+          "evidence": "Different rate/generator optimization; unread details remain a historical-priority limit.",
+          "identifier_or_url": "arXiv:1706.04502",
+          "material_read": "Accessible public abstract, reference context and frozen package discussion; full proof not read this run",
+          "method": "Public arXiv landing/source comparison",
+          "title": "Lattice rules with random n achieve nearly the optimal O(n^(-alpha-1/2)) error independently of the dimension",
+          "trigger": "Broader random number of nodes lattice integration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Selecting the prime distribution is a genuine design variable in randomized lattice integration; the optimized absolute-error objective, unique distribution and nonvanishing asymptotic uniform-sampling penalty give immediately useful exact guidance under explicitly stated cost-free sampling assumptions. Not a generic renaming of linear algebra because positivity and Fourier attainment require arithmetic structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md 6fe05370ca53d4626f42db30a840673c842cdf5d",
+    "Frozen verify.py 773dfe7bd5a897be80d2646a5a0b5bb02cc8e71b",
+    "arXiv:2304.10413",
+    "arXiv:1706.04502",
+    "arXiv:2109.11694",
+    "arXiv:2308.03138",
+    "Resultary query: random prime lattice quadrature nonuniform prime sampling minimax Korobov expected absolute error"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=2, one-dimensional unshifted periodic Korobov ball alpha>1/2 and one-draw worst-case expected absolute error only. PNT is cited standard input, not independently reproved."
+  ],
+  "residual_risks": [
+    "A previous generalized nonuniform prime lattice optimal-design result could imply the same matrix optimizer, even without the particular s=2alpha asymptotic statement.",
+    "The objective excludes cost per sampled node and any random shift or RMS guarantee."
+  ],
+  "schema_version": 1
+}
