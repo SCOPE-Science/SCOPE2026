@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+A factor longer than one must have different endpoint symbols. The key border lemma for a factor with two or three one-markers restricts all possible proper borders by marker count and rules them out if the leading zeros exceed the last internal gap. Reversal and consecutive-marker cases give six necessary/sufficient candidates; the full 4-gap formula holds without restrictions other than nonnegativity. The four-deficit argument proves the minimum and all minimizers, including a separately excluded small boundary case. Uniform gap compositions converge to Dirichlet(1,1,1,1), and the piecewise simplex formula follows from the candidates except on null equality hyperplanes. Twenty-four disjoint coordinate-order chambers yield exact means and variance. The standalone, independent prefix-function implementation exhausts 31,465 words; a separate rational integration routine verifies moments. A finite check is corroborating evidence rather than a proof for arbitrary length.
+
+## Originality — PASS, qualified
+The unbordered-factor literature checked includes the unbordered factors of automatic sequences (Goč–Mousavi–Shallit, arXiv:1211.1301), general expected longest-factor bounds (Loptev–Kucherov–Starikovskaya, arXiv:1504.07406; Cording–Gagie–Knudsen–Kociumaka, arXiv:1704.04472), general quasilinear algorithms (Kociumaka et al., 2018), and run-length encoded structure/algorithms (Sekizaki–Mieno, arXiv:2507.16285). The papers inspected do not assert the fixed-three-one six-candidate spectrum, classify *all* minimizers, or compute the exact conditional Dirichlet limit moments. A general algorithm to evaluate a given string does not entail a symbolic infinite-family classification. An inaccessible SPIRE 2015 manuscript was compared through its author-hosted publication abstract, not treated as full-text negative evidence. Unindexed equivalent results cannot be excluded.
+
+## Value — PASS
+The exact longest-unbordered-factor invariant measures border avoidance in sparse strings, a model fundamentally different from independent uniform random strings. The sharp minimum and complete extremizer family explain the low-complexity boundary, while the positive limiting variance displays a persistent macroscopic fluctuation absent from a naive concentration ansatz. The full infinite-family result provides a tractable structural benchmark for compressed-string methods and fixed-composition random-string analysis; neither merely computes a small special case nor renames an earlier theorem.
+
+## Limits and references
+The work covers exactly three ones and linear contiguous factors. Its conditional probabilistic model cannot be replaced by independent fair letters. References and hypotheses appear in RESULT.md. Verification is reproducible with VERIFY.py; independent validation is not asserted. Residual historical-priority risk remains for undiscovered equivalent formulations.
+
+Self-review: passed. Independent audit: not yet performed.
