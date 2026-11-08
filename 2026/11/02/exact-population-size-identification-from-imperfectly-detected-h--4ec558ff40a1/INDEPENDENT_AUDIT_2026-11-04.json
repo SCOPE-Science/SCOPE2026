@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:54:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned RESULT.md proof and boundary hypotheses",
+        "Actual pinned verification script and VERIFICATION.md (finite evidence only)",
+        "Independent reconstruction and exact/numeric checks in /mnt/data/scope_checks_20261104.py",
+        "Pinned 2026/11/02/exact-population-size-identification-from-imperfectly-detected-h--4ec558ff40a1",
+        "Independent exact Fraction detailed-balance and inversions for six independently chosen finite population/rate/detection instances; singleton and unbounded edge examples agree."
+      ],
+      "rationale": "PASS: For the finite irreducible birth–death chain, G(k)=Na-(a+b)k and the exact quadratic generator yield E[X]=Nr and V=Nr(1-r)(A+Nh)/(A+h), r=a/A, A=a+b. Positive-lag covariance is V exp(-At). Independent freshly redrawn binomial thinning gives m=pNr, v=p²V+m(1-p), c_j=p²V exp(-j A Δ). Thus q=c2/c1, s=c1²/c2=p²V, p=1-(v-s)/m and A=-log(q)/Δ. For each integer N, r_N=m/(Np), R_N=s/(pm-m²/N), h=A(R_N-1)/(N-R_N). Necessary and sufficient positive-rate inequalities 1<R_N<N reduce algebraically to strict L<N<U, L=(s+m²)/(pm), U=m²/(pm-s) only when pm>s. This proves the complete interval including N≥2, boundary exclusion, singleton/unbounded regimes and redundant further positive lags; no finite-data inference claim. Independently reconstructed detailed-balance stationary laws, exact moments and size inequalities for 6 parameter choices (N=2,3,4,6,7), including singleton N=4 example.",
+      "residual_risks": [
+        "Exact structural moments assume stationary homogeneous positive rates and independent fresh binomial detection; no finite-sample estimation guarantees.",
+        "Condition L<N<U applies to exact population moments and not full observation law, where additional identifiability may hold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dennis et al (Biometrics 71 2015) obtain p from covariance when latent abundance is fixed across visits.",
+          "Resultary 2026/9/21 RESULT.md identifies arbitrary closed latent abundance by two repeat visits and entire observed law."
+        ],
+        "reasoning": "These are broader in permitted abundance law, but specialize to a different no-movement observation model. They do not dominate the inverse fiber for a nontrivial recruiting Markov process with distinct lag covariances.",
+        "searches": [
+          "Royle N-mixture 2004 binomial abundance observation",
+          "Dennis Morgan Ridout 2015 moment estimates N-mixture",
+          "Resultary SCOPE two-visit Nmixture nonparametric identification"
+        ]
+      },
+      "checked_sources": [
+        "Kirman 1993 QJE DOI 10.2307/2118498",
+        "Moran et al arxiv:2004.06667",
+        "Holehouse–Moran arxiv:2201.09573 full model sections",
+        "Carro–Toral–San Miguel DOI 10.1038/srep24775",
+        "Royle 2004 DOI 10.1111/j.0006-341X.2004.00142.x",
+        "Dennis et al 2015 DOI 10.1111/biom.12246",
+        "Resultary 2026/9/21 closed N-mixture full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published N-mixture p recovery under X_1=X_2 differs from latent X_{t+Δ} Markov dependence; Holehouse–Moran supplies finite-state dynamics but no observation thinning."
+        ],
+        "reasoning": "Neither known dynamic solution alone nor closed thinning alone yields the exact identified integer fiber without deriving the stationary variance, cross-lag elimination, and strict feasibility inequalities; those are performed in this claim.",
+        "searches": [
+          "Holehouse Moran arXiv:2201.09573 full primary",
+          "Dennis Morgan Ridout doi:10.1111/biom.12246 full HTML",
+          "Resultary published 2026/9/21 full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holehouse & Moran solve latent Markov dynamics, not unknown detection inversion; published two-visit Resultary RESULT.md theorem is a static latent N model.",
+          "Exact L<N<U for time-dependent count uses two distinct positive lags, not two conditionally independent observations of a fixed N."
+        ],
+        "reasoning": "The static closed N-mixture p-recovery formula can resemble the displayed p formula but only after replacing the latent same-visit covariance with the nontrivial c1²/c2 elimination. Static full-law identification and dynamic four-moment fibers are non-equivalent.",
+        "searches": [
+          "Kirman recruitment noisy voter continuous time unknown population binomial thinning second order moments lag autocovariance identified set N",
+          "Kirman recruitment model identifiability autocovariance unknown N thinning",
+          "Holehouse Moran finite N binary choice model arXiv:2201.09573",
+          "Royle 2004 N-mixture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest two-visit closed N-mixture publication is not a table of feasible recruitment populations.",
+          "Pinned package gives symbolic singleton N=4 and infinitely many N≥3 examples."
+        ],
+        "reasoning": "No exact table or prior database containing the whole L<N<U classification was identified; this negative search is not a novelty proof.",
+        "searches": [
+          "Resultary semantic query Kirman recruitment noisy voter continuous time unknown population binomial thinning second order moments lag autocovariance identified set N",
+          "Kirman stationary birth death inverse population size L U noisy voter"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: earlier Kirman/noisy-voter work gives latent finite-state distributions and relaxation, but not the inverse fiber of unknown N and p from precisely m,v,c1,c2. The published two-visit closed N-mixture theorem identifies p and full abundance distribution for a fixed latent count between visits; it does not imply this moving birth–death, unequal-lag exponential-covariance inverse set, nor the finite-vs-unbounded N phase. The reused binomial thinning formula alone is not the novel assertion. Earlier detection-identifiability or latent Markov inference could overlap; full Kirman 1993 paper not inspected.",
+      "residual_risks": [
+        "Exact structural moments assume stationary homogeneous positive rates and independent fresh binomial detection; no finite-sample estimation guarantees.",
+        "Historical Kirman 1993 full technical source not read; older incomplete-observation identifiability literature may contain an equivalent statement.",
+        "Condition L<N<U applies to exact population moments and not full observation law, where additional identifiability may hold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS_PRIOR_LATENT_DYNAMICS; four observed moments/inverse population interval not found in materially read sections.",
+          "evidence": "Section II equations (1)-(5) solve finite N Markov dynamics; no detected-binomial observation model in inspected setup.",
+          "identifier_or_url": "https://oms-inet.files.svdcdn.com/staging/files/2201.09573.pdf",
+          "material_read": "Primary PDF introduction, model setup, birth–death equations, stationary/dynamic representation and searched detection/inference terms; not a claim of whole-document negative coverage.",
+          "method": "Read PDF text and visually inspected first model page.",
+          "title": "Exact time-dependent dynamics of discrete binary choice models",
+          "trigger": "same finite-N Kirman recruitment dynamics"
+        },
+        {
+          "assessment": "RELATED_STATIC; population is closed within replicate visits; not same evolving-count inverse.",
+          "evidence": "Dennis et al summarize repeated visits and covariance-based detection/infinite abundance estimator diagnostics.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1111/biom.12246",
+          "material_read": "Full publisher HTML summary and methods discussion (Sections 2-7 outline; not all technical equations).",
+          "method": "Read publisher HTML material.",
+          "title": "Computational aspects of N-mixture models",
+          "trigger": "binomial detection identification and infinite estimates"
+        },
+        {
+          "assessment": "NOT_COVERING_DYNAMIC_FIBER; full-law closed count more permissive in N distribution but different temporal model.",
+          "evidence": "Theorem explicitly assumes Y1,Y2 conditionally independent given fixed N and identifies full abundance law, not CTMC X_t with recruitment and L<N<U.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b",
+          "material_read": "Read complete published RESULT.md including theorem, proof, literature boundaries.",
+          "method": "Actual GitHub file content via repository read.",
+          "title": "Two visits identify a nonparametric closed binomial N-mixture",
+          "trigger": "published SCOPE related claim with stronger unrestricted abundance"
+        },
+        {
+          "assessment": "LIKELY_RELATED; general dynamics are prior, incomplete document comparison.",
+          "evidence": "2020 source develops relaxation spectrum and correlations, not an explicit unknown-binomial-detection inverse theorem in examined material.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.06667",
+          "material_read": "Full abstract and available mathematical description; no full technical text inspected.",
+          "method": "Read arXiv abstract and source bibliographic context.",
+          "title": "Schrödinger’s ants: A continuous description of Kirman’s recruitment model",
+          "trigger": "relaxation/autocorrelation prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual pinned RESULT.md mathematical motivation",
+        "Kirman 1993 QJE DOI 10.2307/2118498"
+      ],
+      "rationale": "PASS: The sharp integer inverse fiber and exact partial-identifiability boundary are motivated by a natural observation model for recruitment dynamics; the singleton/unbounded cases, all-lag nonimprovement, and explicit parameter reconstruction provide substantive understanding beyond routine moment arithmetic. Not an empirical or finite-sample stability theorem.",
+      "residual_risks": [
+        "Exact structural moments assume stationary homogeneous positive rates and independent fresh binomial detection; no finite-sample estimation guarantees.",
+        "Historical Kirman 1993 full technical source not read; older incomplete-observation identifiability literature may contain an equivalent statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact structural moments assume stationary homogeneous positive rates and independent fresh binomial detection; no finite-sample estimation guarantees.",
+    "Historical Kirman 1993 full technical source not read; older incomplete-observation identifiability literature may contain an equivalent statement.",
+    "Condition L<N<U applies to exact population moments and not full observation law, where additional identifiability may hold."
+  ],
+  "schema_version": 1
+}

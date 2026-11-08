@@ -1,19 +1,21 @@
-# Scientific review: exact population-size identification from imperfectly detected herding dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite irreducible birth–death chain has exact drift \(Na-(a+b)k\), giving stationary mean \(Nr\) and positive-lag covariance \(V e^{-(a+b)t}\). The second-moment generator gives \(V=Nr(1-r)(A+Nh)/(A+h)\). Fresh binomial detection rescales cross-lag covariance by \(p^2\) and contributes \(m(1-p)\) only to same-time variance. Consequently the two positive lags identify \(A\) and \(s=p^2V\), and the same-time variance identifies \(p\). Reconstructing positive \(a,b,h\) for each integer \(N\) is equivalent to the strict inequalities \(L<N<U\). Both directions of the equivalence are proved in RESULT.md; finite checks only corroborate it. The standalone check.py separately evaluates 1,100 exact stationary detailed-balance laws and two boundary examples. The result is an exact-moment theorem, not finite-sample statistical consistency.
+PASS
 
-## Originality — PASS within material inspected; historical priority remains provisional
+PASS: For the finite irreducible birth–death chain, G(k)=Na-(a+b)k and the exact quadratic generator yield E[X]=Nr and V=Nr(1-r)(A+Nh)/(A+h), r=a/A, A=a+b. Positive-lag covariance is V exp(-At). Independent freshly redrawn binomial thinning gives m=pNr, v=p²V+m(1-p), c_j=p²V exp(-j A Δ). Thus q=c2/c1, s=c1²/c2=p²V, p=1-(v-s)/m and A=-log(q)/Δ. For each integer N, r_N=m/(Np), R_N=s/(pm-m²/N), h=A(R_N-1)/(N-R_N). Necessary and sufficient positive-rate inequalities 1<R_N<N reduce algebraically to strict L<N<U, L=(s+m²)/(pm), U=m²/(pm-s) only when pm>s. This proves the complete interval including N≥2, boundary exclusion, singleton/unbounded regimes and redundant further positive lags; no finite-data inference claim. Independently reconstructed detailed-balance stationary laws, exact moments and size inequalities for 6 parameter choices (N=2,3,4,6,7), including singleton N=4 example.
 
-Kirman (1993) introduced the recruitment model; Moran et al. (2020) and Holehouse–Moran (2022) supply stationary-law and relaxation machinery. Carro–Toral–San Miguel (2016) analyze noisy-voter correlations. Royle (2004), Dennis–Morgan–Ridout (2015), and the published closed binomial N-mixture identifiability result address related detection/abundance questions, but different latent dynamics or information classes. The present precise claim is the complete integer inverse fiber of four stationary mean/variance/two-lag covariance summaries under unknown freshly redrawn detection, including singleton, bounded and unbounded fibers. Those features were not established in inspected material. The original 1993 technical full text was not accessible, and wider detection/inference literature could contain a stronger theorem; failed searches do not establish universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Unknown detection, unknown group size, and imitation confound behavioral recruitment inference. An exact open integer interval provides a rigorous feasibility diagnostic, a precise possible-identification case (a singleton) and a nonidentifiability boundary (unboundedly many compatible group sizes). It also proves the intrinsic inability of *any number* of additional second-order lags to resolve this ambiguity, motivating designs that collect higher-order or intervention information. Its scope is a natural calibrated observational problem rather than an arbitrary algebraic restriction.
+PASS, best of knowledge: earlier Kirman/noisy-voter work gives latent finite-state distributions and relaxation, but not the inverse fiber of unknown N and p from precisely m,v,c1,c2. The published two-visit closed N-mixture theorem identifies p and full abundance distribution for a fixed latent count between visits; it does not imply this moving birth–death, unequal-lag exponential-covariance inverse set, nor the finite-vs-unbounded N phase. The reused binomial thinning formula alone is not the novel assertion. Earlier detection-identifiability or latent Markov inference could overlap; full Kirman 1993 paper not inspected.
 
-## Limitations and closest work
+## value
 
-All parameter rates must be strictly positive, the latent process stationary, and binomial indicators independently redrawn at each census. The result identifies population size only if its open interval contains a single integer. There is no estimate of robustness under measurement noise. Sources: https://doi.org/10.2307/2118498; https://arxiv.org/abs/2004.06667; https://arxiv.org/abs/2201.09573; https://doi.org/10.1038/srep24775; https://doi.org/10.1111/j.0006-341X.2004.00142.x; https://doi.org/10.1111/biom.12246.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The sharp integer inverse fiber and exact partial-identifiability boundary are motivated by a natural observation model for recruitment dynamics; the singleton/unbounded cases, all-lag nonimprovement, and explicit parameter reconstruction provide substantive understanding beyond routine moment arithmetic. Not an empirical or finite-sample stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
