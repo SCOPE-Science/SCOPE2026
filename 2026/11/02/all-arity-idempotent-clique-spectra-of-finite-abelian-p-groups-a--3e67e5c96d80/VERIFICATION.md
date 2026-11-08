@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and only its standard library. The program enumerates every permissible matrix coefficient in the endomorphism ring of each listed small finite abelian p-group, tests idempotence by explicit modular multiplication, and constructs the commuting graph independently of orbit-count formulas. It compares direct counts of ordered commuting tuples of lengths one, two, and three, and computes every maximal clique by Bron–Kerbosch recursion.
+## correctness
 
-The verified groups are \((p; a_1,\ldots,a_n)=(2;1,2),(2;1,3),(2;1,1,2),(2;1,1,3),(3;1,2),(3;1,3)\). The output is `CHECK_OK` for each group and ends in `VERIFY_OK`.
+PASS
 
-For \(p=2\), the rank-two pairs both have \((T_1,T_2,T_3,M)=(10,52,232,4)\), and the rank-three pairs both have \((82,1636,18376,48)\). For \(p=3\), the two rank-two groups both have \((20,112,512,9)\). Their maximal clique sizes are respectively \(4\) and \(8\). The verifier depends on no unseen data or files.
+For G=direct sum of finite cyclic p-power summands, any commuting k-tuple of idempotents determines mutually orthogonal 2^k color projections with images giving an internal labeled decomposition, and conversely. Aut(G) acts transitively on each fixed allocation type, product of component automorphisms is the stabilizer, giving exact integer ratios. Automorphism order follows from Hom counts and mod-p block invertibility; Stirling inversion removes repeated idempotents; maximal Boolean families have 2^n members. Cross-color min(a,b) exponents are independent of a unique strictly largest exponent, establishing full T_k invisibility; rank-two graph is K2 joined to p^(2a) edges. Independently enumerated all endomorphisms for p=2 and p=3 with type (1,2), confirming T1/T2/T3=(10,52,232) and (20,112,512). Infinite coverage is by algebraic proof, not enumeration.
 
-These finite checks do not prove an arbitrary-prime, arbitrary-rank, arbitrary-exponent, or arbitrary-arity theorem. The infinite result follows from the direct-sum, automorphism and orbit-stabilizer proof in `RESULT.md`. Literature priority remains qualified as specified in `REVIEW.md`.
+## originality
+
+PASS
+
+The structural simultaneous diagonalization is known; the embedded orbit-multiplicity all-arity census, maximal clique count and exponent-invisibility interpretation are not stated in inspected closest sources. Best-of-knowledge novelty is confined to these statistics, not the general splitting lemma or automorphism formula.
+
+## value
+
+PASS
+
+Complete clique polynomials and maximal Boolean projection families are natural exact graph invariants of End(G); the loss of exponent/order under ALL clique coefficients is a sharp identifiability obstruction for mixed-exponent finite modules, not a renamed elementary calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

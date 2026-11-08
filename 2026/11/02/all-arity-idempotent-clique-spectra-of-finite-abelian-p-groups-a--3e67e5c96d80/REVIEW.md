@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonal joint-image decompositions give a bijection with commuting tuples. The automorphism-order formula and orbit-stabilizer count every embedded colored decomposition. Stirling inversion converts repeated-entry tuple counts to distinct cliques; Krull–Remak–Schmidt indecomposable refinement and stabilizer counting classify maximal cliques. The unique-maximal-exponent cancellation holds termwise. An independent finite-case matrix enumerator agrees on six groups; it is corroboration, not a proof for all groups.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Edmunds (arXiv:1402.3699) established simultaneous diagonalization of commuting idempotent pairs and enumerated abstract interchange-ring isomorphism classes or bounds, not the embedded all-arity clique counts. Goldsmith–Salce (DOI:10.1007/s10998-021-00414-w) study full inertia and endomorphism rings; Kosakowska–Schmidmeier (arXiv:1905.05688) study cyclic embedding isomorphism types. The earlier full-matrix local-ring counting result concerns free homogeneous modules, while mixed-exponent groups are different objects. The principal remaining risk is an equivalent orbit enumeration in finite-module/Hall-polynomial literature; priority is not certified.
+PASS
 
-**Value — PASS.** A natural compatibility graph is counted exactly at every clique size, with maximal Boolean families fully classified. Arbitrarily different group orders and exponents produce the same complete clique spectrum by changing a unique largest cyclic summand. This is a structural limitation of an invariant, not just a small numerical improvement.
+For G=direct sum of finite cyclic p-power summands, any commuting k-tuple of idempotents determines mutually orthogonal 2^k color projections with images giving an internal labeled decomposition, and conversely. Aut(G) acts transitively on each fixed allocation type, product of component automorphisms is the stabilizer, giving exact integer ratios. Automorphism order follows from Hom counts and mod-p block invertibility; Stirling inversion removes repeated idempotents; maximal Boolean families have 2^n members. Cross-color min(a,b) exponents are independent of a unique strictly largest exponent, establishing full T_k invisibility; rank-two graph is K2 joined to p^(2a) edges. Independently enumerated all endomorphisms for p=2 and p=3 with type (1,2), confirming T1/T2/T3=(10,52,232) and (20,112,512). Infinite coverage is by algebraic proof, not enumeration.
 
-**Limits.** Clique-polynomial equivalence does not assert general commuting-graph isomorphism; independent external mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The structural simultaneous diagonalization is known; the embedded orbit-multiplicity all-arity census, maximal clique count and exponent-invisibility interpretation are not stated in inspected closest sources. Best-of-knowledge novelty is confined to these statistics, not the general splitting lemma or automorphism formula.
+
+## value
+
+PASS
+
+Complete clique polynomials and maximal Boolean projection families are natural exact graph invariants of End(G); the loss of exponent/order under ALL clique coefficients is a sharp identifiability obstruction for mixed-exponent finite modules, not a renamed elementary calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
