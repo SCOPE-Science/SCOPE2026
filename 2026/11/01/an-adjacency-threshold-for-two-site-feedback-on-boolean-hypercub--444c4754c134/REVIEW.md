@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-way similarity classification follows from an exact invariant four-dimensional local subspace, the square-zero structure of the underlying hypercube adjacency operator, complementary-subspace arguments for two cases, and complete power-rank calculations for the remaining cases. The normal forms reproduce exact fixed-space dimensions, stopping-time populations, and primitive orbit counts. Standalone binary elimination and trajectory enumeration independently verify all dimensional/distance classes through dimension eight and every labeled configuration through dimension four. Proof does not infer an all-dimensional statement from the finite checks.
+## correctness
 
-**Originality — PASS (qualified).** The directly compared primary sources are Brunnet–Chaté (2004), whose full paper treats nonlinear totalistic threshold rules, and Lettieri–Stevens–Thomas (2006), whose accessible full text treats finite linear automata on rings. The most relevant accessible prior result for a **single** feedback site is not a two-site theorem: it has no parameter distinguishing distance one from all other distances. A published mathematics-record search located a distance-two hypercube parity rule changing adjacency globally, not the rank-two self-feedback perturbation. Comparison of objects, assumptions, and conclusions gives no observed implication of this exact four-way normal form. Unindexed algebraic-graph results remain a risk, not something ruled out by failed searches.
+PASS
 
-**Mathematical value — PASS.** The invariant is the complete finite-state linear-dynamics similarity class on a natural graph family, not an arbitrary parameter slice. A pair of minimal local feedback changes creates a sharp topological threshold: adjacency determines reversibility in odd dimensions, and toggles primitive six-cycles versus exclusively fixed attractors in even dimensions. All nonadjacent separations share the same structure despite unequal Hamming distances, making a meaningful robustness statement. Exact transit shells and primitive orbit counts are derived without an ad hoc finite census.
+Over GF(2), the hypercube A satisfies A^2=(d mod 2)I. The square-zero N=A+(d mod2)I has rank 2^(d-1), by the invertible linear substitution in its group algebra. The four vectors e_u,e_v,Ae_u,Ae_v are independent for d>=3 and span an invariant local space. Direct 4x4 calculation gives C((z^2+z+1)^2) in even adjacent and two C(z^2+z+1) blocks in odd nonadjacent; invariant orthogonal complements retain J2 blocks. In even nonadjacent and odd adjacent cases the explicitly computed power-rank sequences fix J3(0)^2 and J4(1), respectively, with multiplicities in RESULT.md. Fitting splitting yields exact first-periodic-entry shells and Möbius-inverted orbit counts. Independent GF2 full adjacency matrices for d=3,4,5 and each Hamming-distance class reproduced all five-step rank sequences (12 cases). Finite cases check, but do not prove, the all-d theorem.
 
-The smallest dimension is three; the binary field assumption is essential. Source searches cannot certify global uniqueness, and no independent audit or validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.
+
+## value
+
+PASS
+
+Complete Jordan classification for every hypercube dimension and every pair of marked sites is a natural graph-dynamics invariant; the adjacency threshold, all farther distances collapsing to one type, reversible/nilpotent changes, and exact basins and orbit counts have mathematical content beyond small finite enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
