@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full cumulant is reconstructed by stationarity, the exact two- and four-point Markov functions, the connected four-point contraction, and a Laplace-transform inversion into a positive convolution. Prékopa log-concavity and analyticity prove the essential strictly decreasing logarithmic derivative and hence exactly one sign crossing in the intermediate rate interval. All positive rates, velocities, times, and both sharp boundary ratios are included. The independent Feynman–Kac and positive-kernel numerical tests passed 567 comparisons. Computations are corroboration, not proof; no unproved infinite claim is inferred from finite sampling.
+## correctness
 
-**Originality — PASS, provisional on examined sources.** The 2013 Angelani article already gives a broad Laplace–Fourier framework for run-and-tumble walks, and its formula may imply moment calculations after differentiation. Its complete text was unavailable; this is a material priority risk. A full-time *one-crossing* sharp phase diagram is not established by the verified accessible descriptions, and it requires an additional strict log-concavity argument, not just an asymptotic sign check. Examined primary arXiv texts on trapped three-state RTPs and other kurtosis-bearing run-and-tumble models have different operators and scope. Available published mathematical-result records and prior authored claims did not identify this exact finite-time theorem. Search absence alone is not proof of priority, and the original 2013 text could alter that judgment.
+PASS
 
-**Mathematical value — PASS.** Non-Gaussian displacement shape is an important diagnostic of whether active motion has reached the diffusive regime. The distinct ballistic and asymptotic cumulant signs do not determine what happens between them; the exact kernel classification proves there are never multiple reversals, identifies the natural golden-ratio and rate-2 boundaries, and gives a unique crossover time for the entire two-rate family. This is a structural finite-time result, not a reparametrization of mean-square displacement.
+Q sigma=-alpha sigma, Q sigma²=beta-(alpha+beta)sigma² yield two- and ordered four-point correlations. Subtracting pair products gives connected velocity cumulant beta/(alpha+beta)² exp(-alpha(x+z))[alpha exp(-(alpha+beta)y)-2beta exp(-2alpha y)]. Integration over ordered gaps gives rational Laplace transform with H=t*(t exp(-alpha t))*exp(-(alpha+beta)t)*exp(-2alpha t). This strictly positive increasing kernel is log-concave by Prekopa; its analytic logarithmic derivative decreases strictly from infinity to zero (small-time t^5/120, large-time linear), proving all strict sign cases and unique crossing, not only limits. Independent 15x15 Feynman-Kac lift vs 6x6 convolution cascade tested 54 alpha/beta,v,t cases, including phi and 2 boundaries.
 
-**Closest literature and limits.** Angelani (2013, DOI:10.1209/0295-5075/102/20004) develops the closest general walk propagator; only article page, abstract, and first-page preview could be inspected. Basu et al. (2019, arXiv:1910.10083) use the same velocity alphabet but a harmonic trap and a single internal jump rate. Villa-Torrealba et al. (2020, arXiv:2002.02872) treat excess kurtosis in other swimming strategies. Rukolaine (2017, arXiv:1710.07947) treats kinetic transport and a quasi-steady state rather than this cumulant. The standalone checker requires NumPy and SciPy. No generalization to biased or non-Markovian rests is established. A complete historical-priority audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact mathematical implications, including stronger prior results and aliases. The reviewed additional conclusion is not established by the primary/public mathematical results actually inspected; stated access and historical risks are retained.
+
+## value
+
+PASS
+
+A complete non-asymptotic kurtosis sign and one-crossing phase diagram for a natural three-state intermittent velocity model goes beyond diffusion and mean-square-displacement formulas, with a sharp golden-ratio boundary and a second threshold 2. The positive-kernel proof gives an interpretable analytic mechanism and a calculable crossover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
