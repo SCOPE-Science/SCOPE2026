@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify_heptagon.py` using Python 3's standard library. The certificate computes exact rational enclosures for \(\pi\), \(\sin(j\pi/7)\), and \(\cos(j\pi/7)\) for \(j=1,\ldots,6\), with a uniform fixed-point scale of \(10^{18}\), outward rounding, and explicit analytic Taylor/alternating-series remainders.
+## correctness
 
-The program exhausts 511 bounded four-support chord configurations. Its output reports exactly seven edge-supported winners and 504 strict competitors; every competitor has a certified area difference exceeding \(1/40\) in unit-circumradius normalization. The closest indexed competitor is \(\{0,3,7,11\}\), whose certified gap lower bound at scale \(10^{18}\) is 25947319986048213.
+PASS
 
-The reduction to the 511 candidates is proved geometrically in `RESULT.md`. The symbolic trigonometric and cubic identities are written there and do not depend on finite numerical sampling. The computation itself is exhaustive **only for that finite support-index list**, and it does not verify any unrestricted enclosing-quadrilateral theorem or the general chord conjecture.
+Every chord line direction of a regular heptagon corresponds to one of 14 distinct support normals j*pi/7, odd j supporting heptagon edges at h=cos(pi/7) and even j at h=1. A minimized enclosure can be made support-tight; adding a missing heptagon-edge support strictly improves any containing triangle, so four-support cases suffice. Four ordered supports bound a polygon iff each cyclic index gap is <7; exact combination enumeration yields 511. For successive normal gaps delta, independently derived area equals sum of [h_i h_{i+1}−(h_i²+h_{i+1}²) cos(delta)/2]/sin(delta). The seven cyclic normal sets of type {1,3,7,11} have equal area c²[tan(pi/7)+3tan(2pi/7)], ratio 4/7+3/(7cos(2pi/7)), solving 49r³−84r+8=0, and all others differ by >1/40. Independently reimplemented full rational fixed-point certificate with Machin π bounds and Taylor enclosures; ran all 511 candidates: 7 winners, 504 others, minimum rigorous lower excess 25947319986048213/10^18. Finite enumeration is exhaustive only because geometric support reduction covers all candidates.
 
-An independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the same regular-heptagon numerical benchmark was published by Vígh, so the approximate number alone is not original. The exact closed algebraic ratio, seven support configurations and certified 1/40 separation were absent from the inspected full original and are not implied by universal bounds or an optimized parallelogram formula.
+
+## value
+
+PASS
+
+PASS: resolves an explicit natural benchmark of the recent Kuperberg chord-conjecture program exactly, classifies all optimizers and supplies a certificate separating 504 competitors; the numerical observation alone was incomplete. A sharp self-contained finite result with a mathematical role needs no new universal conjecture proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

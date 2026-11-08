@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The discrete 14-normal reduction is exact for the chord directions of a regular heptagon. Formula (1) calculates every supporting quadrilateral area. The rational certificate checks all 511 bounded configurations, finds seven analytically equal optimizers, and verifies a strict area gap greater than \(1/40\) for each of the other 504. Its trigonometric intervals are rational enclosures, not floating-point estimates. The area-to-algebraic-root derivation is also independent of the enumerator.
+## correctness
 
-**Originality — PASS, with priority risk.** Vígh's 2026 paper reports the heptagon benchmark numerically as about \(1.2588\) and defines the chord-enclosure optimization, but does not state the exact closed form, seven-optimum classification or rigorous runner-up gap. Published regular-polygon parallelogram results solve a more restricted optimization, and the exact midpoint-truncated-pentagon enclosure treats a different body. Related universal bounds do not imply this exact claim. Historical unindexed computations and specialists' notes may nonetheless overlap.
+PASS
 
-**Mathematical value — PASS.** This is a motivated sharp benchmark in the recently formulated chord-quadrilateral conjecture. The algebraic expression and complete support-direction rigidity, with a quantitative forbidden gap, go beyond a rounded numerical constant and can guide geometric extremizer comparisons. It does not settle the unrestricted or universal conjectures.
+Every chord line direction of a regular heptagon corresponds to one of 14 distinct support normals j*pi/7, odd j supporting heptagon edges at h=cos(pi/7) and even j at h=1. A minimized enclosure can be made support-tight; adding a missing heptagon-edge support strictly improves any containing triangle, so four-support cases suffice. Four ordered supports bound a polygon iff each cyclic index gap is <7; exact combination enumeration yields 511. For successive normal gaps delta, independently derived area equals sum of [h_i h_{i+1}−(h_i²+h_{i+1}²) cos(delta)/2]/sin(delta). The seven cyclic normal sets of type {1,3,7,11} have equal area c²[tan(pi/7)+3tan(2pi/7)], ratio 4/7+3/(7cos(2pi/7)), solving 49r³−84r+8=0, and all others differ by >1/40. Independently reimplemented full rational fixed-point certificate with Machin π bounds and Taylor enclosures; ran all 511 candidates: 7 winners, 504 others, minimum rigorous lower excess 25947319986048213/10^18. Finite enumeration is exhaustive only because geometric support reduction covers all candidates.
 
-**Limitations.** The source's numerical value is prior work. The gap \(1/40\) is certified rather than sharp. The classification is for chord-restricted quadrilaterals of regular heptagons (and their affine images), not for arbitrary input polygons or arbitrary side directions. Independent mathematical verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the same regular-heptagon numerical benchmark was published by Vígh, so the approximate number alone is not original. The exact closed algebraic ratio, seven support configurations and certified 1/40 separation were absent from the inspected full original and are not implied by universal bounds or an optimized parallelogram formula.
+
+## value
+
+PASS
+
+PASS: resolves an explicit natural benchmark of the recent Kuperberg chord-conjecture program exactly, classifies all optimizers and supplies a certificate separating 504 competitors; the numerical observation alone was incomplete. A sharp self-contained finite result with a mathematical role needs no new universal conjecture proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

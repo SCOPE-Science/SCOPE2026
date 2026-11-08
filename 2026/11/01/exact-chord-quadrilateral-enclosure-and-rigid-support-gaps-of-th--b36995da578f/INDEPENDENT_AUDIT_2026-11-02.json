@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T04:55:11.387656Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every chord line direction of a regular heptagon corresponds to one of 14 distinct support normals j*pi/7, odd j supporting heptagon edges at h=cos(pi/7) and even j at h=1. A minimized enclosure can be made support-tight; adding a missing heptagon-edge support strictly improves any containing triangle, so four-support cases suffice. Four ordered supports bound a polygon iff each cyclic index gap is <7; exact combination enumeration yields 511. For successive normal gaps delta, independently derived area equals sum of [h_i h_{i+1}−(h_i²+h_{i+1}²) cos(delta)/2]/sin(delta). The seven cyclic normal sets of type {1,3,7,11} have equal area c²[tan(pi/7)+3tan(2pi/7)], ratio 4/7+3/(7cos(2pi/7)), solving 49r³−84r+8=0, and all others differ by >1/40. Independently reimplemented full rational fixed-point certificate with Machin π bounds and Taylor enclosures; ran all 511 candidates: 7 winners, 504 others, minimum rigorous lower excess 25947319986048213/10^18. Finite enumeration is exhaustive only because geometric support reduction covers all candidates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vígh proves q_ch(P)<=sqrt2 |P| universally and addresses the five-vertex extremum 3/sqrt5, not a sharp seven-vertex ratio.",
+          "Resultary 2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad gives minimum over parallelograms only."
+        ],
+        "reasoning": "A minimum over the restricted parallelogram subclass is an upper bound for unrestricted chord quadrilaterals, not a formula for nonparallel sides. Universal <sqrt2 likewise cannot determine the exact heptagon optimizer.",
+        "searches": [
+          "Vígh arXiv:2610.08168 quadrilateral chord conjecture universal sqrt2 upper bound",
+          "Resultary minimum-area enclosing parallelograms regular polygons full source"
+        ]
+      },
+      "checked_sources": [
+        "Vígh arXiv:2610.08168v1 full primary HTML",
+        "Resultary regular-polygon parallelogram RESULT.md actual blob",
+        "Resultary heptagon exact-chord query",
+        "Fodor–Grundbacher general bound described in Vígh bibliography (not claimed independently read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vígh gives general enumeration strategy and empirical values, not these 511 exact interval comparisons or rigidity.",
+          "Parallelogram result restricts opposite normals to be antiparallel; seven optimum normal sets are not parallelograms."
+        ],
+        "reasoning": "Known general algorithm and approximate numerical output do not prove a unique algebraic minimum or strict quantitative gap; exhaustive certified finite reduction adds essential content.",
+        "searches": [
+          "Compare Vígh §2 finite enumeration proposal versus full fixed rational certificate",
+          "Resultary parallelogram regular polygon formula 2026/10/11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vígh arXiv:2610.08168v1 §2 defines q_ch(P) for chord-parallel sides; numerical heptagon optimum reported about 1.2588.",
+          "Exact q_ch(P_7) chord-constrained definition in the final source agrees with Vígh’s setup."
+        ],
+        "reasoning": "The problem and numerical benchmark are known; the ratio as a real cubic root, minimizer classification, and certified uniform competitor gap are strictly stronger and not present as a table of exact results.",
+        "searches": [
+          "Resultary: regular heptagon chord quadrilateral minimum area exact 1.25880377 seven supports",
+          "Vígh 2026 chord-constrained quadrilateral q_ch(P_7) affine-regular seven-gon numeric value"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Vígh §2 reports affine-regular heptagon ratio 1.2588..., without a cubic minimal polynomial or seven-orbit proof.",
+          "Independent rational 511-case enumeration reproduced the seven winners and strict >1/40 gap."
+        ],
+        "reasoning": "The numerical record is covering for the approximate value, but not the exact optimizer, certificate, or gap. An old unindexed algebraic heptagon table remains a risk.",
+        "searches": [
+          "Resultary: regular heptagon chord quadrilateral minimum area exact 1.25880377 seven supports",
+          "Vígh arXiv:2610.08168v1 §2 numerical experiments table regular heptagon"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the same regular-heptagon numerical benchmark was published by Vígh, so the approximate number alone is not original. The exact closed algebraic ratio, seven support configurations and certified 1/40 separation were absent from the inspected full original and are not implied by universal bounds or an optimized parallelogram formula.",
+      "residual_risks": [
+        "Vígh already records the same decimal benchmark; priority applies only to exact certificate and minimizer/gap classification.",
+        "An unindexed computation might already derive the algebraic heptagon specialization.",
+        "Result remains chord-constrained, not the global unrestricted enclosing quadrilateral."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NUMERICAL_COVERAGE_ONLY: 1.2588... known; exact polynomial, seven optimizers and >1/40 certificate not stated.",
+          "evidence": [
+            "arXiv:2610.08168v1 §2, value for affine-regular 7-gon; §4 general sqrt2 bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08168v1",
+          "material_read": "Full 2026 primary HTML §§1–5, especially chord definition, numerical experiments and quadrilateral upper bound.",
+          "method": "Read definitions, numeric experiment table and all theorem statements; compared claimed quantifiers with explicit exact ratio and gap.",
+          "title": "A note on Kuperberg’s quadrilateral conjecture",
+          "trigger": "Exact q_ch invariant, same regular heptagon value"
+        },
+        {
+          "assessment": "NOT_IMPLYING: parallelogram optimum is not the general four-chord-support optimum.",
+          "evidence": [
+            "Resultary record 827c68cd7bad, RESULT.md Finding/Proof"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+          "material_read": "Actual complete RESULT.md through GitHub connector; blob 4821bf465e0a3cb465fc2452730deac23e3c52fe.",
+          "method": "Read formula for min area under opposite-parallel side constraint and edge-contact proof.",
+          "title": "Exact minimum-area enclosing parallelograms for regular polygons",
+          "trigger": "Same input polygons but a constrained enclosing shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: resolves an explicit natural benchmark of the recent Kuperberg chord-conjecture program exactly, classifies all optimizers and supplies a certificate separating 504 competitors; the numerical observation alone was incomplete. A sharp self-contained finite result with a mathematical role needs no new universal conjecture proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unit-circumradius regular heptagon only, with supporting directions restricted to vertex chords.",
+    "Rational strict gap >1/40 is a bound, not asserted to be exact runner-up gap.",
+    "Not a proof of Kuperberg’s universal conjecture.",
+    "Vígh already records the same decimal benchmark; priority applies only to exact certificate and minimizer/gap classification.",
+    "An unindexed computation might already derive the algebraic heptagon specialization.",
+    "Result remains chord-constrained, not the global unrestricted enclosing quadrilateral."
+  ],
+  "schema_version": 1
+}
