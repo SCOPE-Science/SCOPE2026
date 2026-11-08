@@ -1,19 +1,21 @@
-# Review of the octahedral maximal-norm result
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ball structure on the octahedron is explicit (one, five, or six vertices). Independent row-radius choice reduces the unrestricted real-input norm to the maximum singular norm of 729 nonnegative rational matrices. A standalone integer-only checker establishes 726 strict positive-definiteness certificates at squared level \(141/100\); each of the three remaining matrices is handled analytically by an orthogonal two-by-two block reduction, with unique top eigenvalue \((21+6\sqrt6)/25\). Direct substitution verifies that the positive top eigenvector activates exactly its chosen ball radii. The proof then obtains every equality case from simplicity and separation. The checker was executed on its actual packaged source.
+PASS
 
-## Originality — PASS, qualified
+PASS: For each nonnegative input the six output maxima over radius 0,1,2 are the maximum of 3^6 linear row-average operators in squared l2 norm. Nonnegative matrices permit extending the supremum to their top singular values for arbitrary real inputs. The source integer Sylvester certificate chooses B=30A and H=1269I-B^TB; I independently reconstructed all 729 exact integer matrices and checked six exact leading principal minors for every selection: 726 strictly positive definite and precisely three antipodal-pair radius-0/radius-1 exceptions. The latter reduce to 2x2 block [[1,0],[sqrt(8)/5,3/5]] with squared top singular value (21+6 sqrt(6))/25>141/100. Orthogonal antisymmetric and low-zero-sum modes give singular values 1 and 1/5, so top eigenspace is simple. At g=(1,1,(sqrt(6)-2)/2 repeated four times), active-radius inequalities and exact Gram eigenvector give attainment and all three nonnegative rays; independent coordinate signs are harmless under |f|.
 
-The relevant primary literature was inspected beyond abstracts: arXiv:1410.6204 (graph-ball definitions, the general strong/weak results, four-vertex examples and star cases); arXiv:2005.03146 (Theorem 4, Corollary 5, and the strong \(\ell^2\) proofs for complete graphs and stars); and arXiv:2011.02630 (strong-type sections and its star/complete-graph results). Their statements are not equivalent to, or stronger than, this octahedral exact strong \(\ell^2\) statement. Focused queries under the aliases octahedral graph, complete tripartite \(K_{2,2,2}\), cocktail-party graph, and the exact radical found no covering primary result. These negative searches do not establish global uniqueness; equivalent earlier calculations could be unindexed. Accessible earlier internal mathematical claims were checked for overlap separately without changing or reassessing their content.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The octahedral graph is the unique six-vertex four-regular simple graph, the one-skeleton of a Platonic solid, and the first three-pair matching-complement graph. Its intermediate centered ball omits exactly one antipode, producing a different stability geometry from the complete-graph and star cases. The exact strong \(\ell^2\) constant, full rigid equality pattern, and strict increase over the established complete \(K_6\) value settle a natural sharp invariant on this canonical object. A finite graph is not dismissed solely for its size: here the exact constant is motivated by a named symmetric graph and distinguishes the location of maximizing mass. The method's 726 strict certificates are mathematical evidence, not themselves the value claim.
+Best-of-knowledge noncoverage after actual subject/statement/implication comparisons. Relevant known special cases and technical mechanisms credited; no proof of universal publication priority is claimed.
 
-## Closest work and limits
+## value
 
-The strongest directly applicable published comparison is González-Riquelme--Madrid's complete-graph formula, yielding \(\sqrt{4/3}\) for \(K_6\). Soria--Tradacete's bounds and four-cycle example do not give this exact octahedral constant. The work concerns only the unweighted six-vertex graph and the centered real strong \(\ell^2\) norm; larger matching complements and other measures remain open here. Priority uncertainty and lack of independent review remain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The octahedral K_{2,2,2} graph is a natural first noncomplete, nonstar six-vertex symmetric graph; the sharp strong-l2 maximal norm and complete antipodal equality classification are not inherited from K6, giving a useful exact test and contrast for graph-ball maximal operator theory. Complete finite 729-choice enumeration is genuinely exhaustive for this operator, with its analytical reduction supplied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

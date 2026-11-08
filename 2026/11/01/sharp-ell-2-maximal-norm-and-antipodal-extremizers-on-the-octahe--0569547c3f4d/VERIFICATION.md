@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact certificate is the included standalone `octave_certificate.py`. It requires Python 3 standard libraries only. Running `python3 octave_certificate.py` on the packaged file prints:
+## correctness
 
-`CERTIFICATE_OK all=729 strict=726 exceptional=3 witness=exact`
+PASS
 
-It enumerates each of the \(3^6=729\) matrices of radius choices, scales them by 30 to integral entries, and uses exact fraction-free Bareiss determinants to verify that all six leading principal minors of \(1269I_6-B_s^{\mathsf T}B_s\) are strictly positive for every one of the 726 nonexceptional choices. It separately checks that the other three choices are exactly the radius-zero-on-one-antipodal-pair configurations, and checks the winning algebraic eigenvector equations over \(\mathbb Q(\sqrt6)\).
+PASS: For each nonnegative input the six output maxima over radius 0,1,2 are the maximum of 3^6 linear row-average operators in squared l2 norm. Nonnegative matrices permit extending the supremum to their top singular values for arbitrary real inputs. The source integer Sylvester certificate chooses B=30A and H=1269I-B^TB; I independently reconstructed all 729 exact integer matrices and checked six exact leading principal minors for every selection: 726 strictly positive definite and precisely three antipodal-pair radius-0/radius-1 exceptions. The latter reduce to 2x2 block [[1,0],[sqrt(8)/5,3/5]] with squared top singular value (21+6 sqrt(6))/25>141/100. Orthogonal antisymmetric and low-zero-sum modes give singular values 1 and 1/5, so top eigenspace is simple. At g=(1,1,(sqrt(6)-2)/2 repeated four times), active-radius inequalities and exact Gram eigenvector give attainment and all three nonnegative rays; independent coordinate signs are harmless under |f|.
 
-The logical scope is the six-vertex problem only. Exhaustiveness is mathematical because there are exactly three distinct centered balls at each vertex and every real nonnegative input has a maximizing coordinatewise radius choice. Floating-point computations are not used to establish the exhaustive bound. The analytic two-dimensional block proof and active-radius inequalities establish attainment and all extremizers. No external independent validation is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage after actual subject/statement/implication comparisons. Relevant known special cases and technical mechanisms credited; no proof of universal publication priority is claimed.
+
+## value
+
+PASS
+
+PASS: The octahedral K_{2,2,2} graph is a natural first noncomplete, nonstar six-vertex symmetric graph; the sharp strong-l2 maximal norm and complete antipodal equality classification are not inherited from K6, giving a useful exact test and contrast for graph-ball maximal operator theory. Complete finite 729-choice enumeration is genuinely exhaustive for this operator, with its analytical reduction supplied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
