@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The five powered-distance eigenbranches follow from the explicitly stated intersection array, Boolean inclusion filtration and polynomial recurrence. The analytic derivative bound makes the fourth branch strictly increasing on all nonnegative exponents. The exact rational-power certificate verifies opposite signs at \(71/200\) and \(89/250\) and strictly negative values for each competing nonconstant branch throughout that bracket; this combines with the classical Schoenberg theorem and fractional-power closure to prove the claimed sharp all-bandwidth Gaussian positivity and the endpoint nullity \(165\). The standalone checker independently reconstructs all 462 graph vertices, BFS distances, intersection identities, and representative full spectra. Numerical diagonalizations do not replace the exact sign certificate or analytic argument.
+PASS
 
-## Originality
+The combinatorial distance formula d(A,B)=min{2(5−|A∩B|),2|A∩B|+1} yields distance classes 0..5 and intersection array {6,5,5,4,4;1,1,2,2,3}. The inclusion filtration gives adjacency eigenvalues (6,−5,4,−3,2,−1) with multiplicities (1,10,44,110,165,132). Independently recomputing the distance-polynomial recurrence gives nonconstant coefficient rows exactly (−5,19,−35,40,−20), (4,10,10,−5,−20), (−3,3,3,−12,8), (2,−2,−7,−2,8), (−1,−5,5,10,−10). Fourth branch derivative positive for all p>=0 by 5^8>2^6·3^7, crosses zero in rational bracket (71/200,89/250), and independently high-precision root≈0.355636232374. The source exact rational-power integer certificate is inspectable and establishes all four competitor branches negative throughout the bracket, a genuinely finite exact sign test rather than sampled values. Fractional-power closure extends negative type downwards; Schoenberg equivalence to all-bandwidth Gaussian PSD and distinct squared-Euclidean point Fourier argument give Gaussian strict PD. At alpha only the multiplicity-165 harmonic vanishes on zero-sum vectors, so centered rank 461−165=296. The independent recurrence and numerical signs corroborate; large-graph BFS/numerical eigen checks in original script were inspected but not replayed separately here.
 
-**PASS under bounded source access.** Murugan's 2011 generalized-roundness work gives the first-singular-distance-power characterization for vertex-transitive graphs. Aalipour et al. (2015), Section 3.2, provide the odd-graph distance formula and general Johnson/Kneser eigenspace machinery. Neither inspected primary treatment establishes the exact \(KG(11,5)\) crossing, the rigorous four-competitor ordering, or the non-top \(j=4\) endpoint nullity. The closest accessible earlier harmonic bridge concerns the top odd-graph harmonic (\(j=5\) here) and a different smaller graph; it does not supply this result. Search failure is not a novelty proof, and an equivalent specialized computation in older literature remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Universal Gaussian positivity and squared-Euclidean rank are canonical invariants of a finite metric, and \(O_6\) is a standard, highly symmetric odd graph. The theorem identifies a genuine off-top mode obstruction and the exact sharp kernel exponent rather than just a finite numerical eigenvalue. Its endpoint embedding dimension \(296\) and spectral mechanism may inform larger odd-graph comparisons. The scope is one graph, not an all-order classification.
+Known odd/Kneser graph distance-regular and Johnson-scheme diagonalization, the vertex-transitive generalized-roundness determinant test, and Schoenberg kernel correspondence are classical. The unique fourth-level first crossing for KG(11,5), rigorous strict comparison with all four competitors and its embedding dimension do not follow as a stated conclusion of inspected general results. A related prior published finding focuses on the top odd-graph harmonic and a different smaller graph; its full mathematical text has not been independently inspected in this run, so strong-coverage risk remains bounded but real.
 
-## Sources and limitations
+## value
 
-Primary scientific sources inspected: M. K. Murugan, *Generalized roundness of vertex transitive graphs* (arXiv:1112.5657, Sections 2–4), and G. Aalipour et al., *On the distance spectra of graphs* (arXiv:1509.01196, especially Section 3.2, Theorems 3.9–3.10). The crucial root and sign comparisons are certified inside `check_odd6.py`, while the full mathematical argument is in `RESULT.md`. The result has not undergone independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact maximal negative-type exponent and Gaussian kernel positivity frontier are canonical metrics of a natural vertex-transitive odd graph. The first failure at the fourth rather than top Johnson harmonic is a meaningful structural warning against simpler top-mode heuristics; endpoint embedding rank is exact and potentially reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
