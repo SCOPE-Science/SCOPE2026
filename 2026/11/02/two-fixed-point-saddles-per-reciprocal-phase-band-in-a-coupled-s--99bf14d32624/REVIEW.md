@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The real-analytic implicit-function theorem gives the unique second-coordinate branch near the origin. On that branch the reciprocal phase is strictly decreasing and dominates the derivative of the inverse-sine branch; exactly two roots therefore occur in every sufficiently high full phase band. Series inversion proves the position splitting, while the explicit Jacobian establishes the two real saddle multipliers and opposite orientation. Counting complete bands with a bounded endpoint correction proves the inverse-distance counting law. The independent symbolic/numerical checker passed 186 specified assertions; the proof of the infinite statement is analytic.
+PASS
 
-## Originality — PASS (within inspected evidence)
+For every fixed a,b>0 the second fixed-point equation G(x,y)=y-sin^2(b*pi*y+a*x)=0 has G_y(0,0)=1, yielding a unique small analytic graph Y(x)=a^2*x^2+2*a^3*b*pi*x^3+O(x^4). The phase theta=a*pi/x+b*Y(x) has theta'=-a*pi/x^2+O(x) strictly below -alpha' for alpha=arcsin(sqrt(x)); the two equations theta=n*pi+/-alpha each cross once in every sufficiently high band. Taylor substitution proves x_{n,+/-}=a/n -(+/-)a^(3/2)/(pi*n^(5/2))+O(n^-7/2), y=a^4/n^2+O(n^-3), and N(epsilon)=2a/epsilon+O(1). Direct Jacobian trace/eigenvalue scale gives lambda_unstable=-sigma*2*pi*n^(3/2)/sqrt(a)+O(n^1/2), lambda_stable=2*a^2*b*pi/n+O(n^-2), opposite determinant signs. Independent scipy root searches with a=b=1 at n=30,80,150 for each sign confirmed positions, both residuals and real saddle signs. Finite tests corroborate; analytic monotonicity supplies the all-n conclusion.
 
-Zhu et al. (Mathematics 2023, DOI 10.3390/math11143171) supply the exact map and study numerical hyperchaotic behavior, but the accessible abstract, model equation and indexed section outline do not present the local two-saddle spectrum. Full-text access was blocked, leaving a real residual overlap risk. Liu et al. (Entropy 2024, DOI 10.3390/e26070603) use a distinct, non-equivalent singular trigonometric map. Nearby generic sine-reciprocal root observations do not entail these coupled two-dimensional multipliers and orientation signs. A matched-parameter theorem from an unindexed publication remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural analytic question is how fixed points accumulate at the map's excluded singular boundary, where numerical Lyapunov and bifurcation studies do not resolve local stationary structure. This result supplies a complete two-per-band census near the boundary with leading count \(2a/\varepsilon\), a nonzero pair separation of order \(n^{-5/2}\), and opposite saddle orientation with respective expanding and contracting multipliers of orders \(n^{3/2}\) and \(n^{-1}\). These are dynamical invariants of the published family, not arbitrarily selected parameter evaluations. The result does not claim global orbit classification, nonstationary statistics, security guarantees or uniform-in-parameter bounds.
+Best-of-knowledge originality of the precise final mathematical addition, not its known source definition; checked actual primary statements/implications and Resultary semantic neighbors; residual access and priority risks remain explicit. The claimed formulas require IFT, strict phase monotonicity and Jacobian asymptotics absent from the inspected source material; prior model publication is credited.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A local fixed-point census and sharp two-branch asymptotic/saddle spectrum for a natural singular planar sine-square map reveal bifurcation geometry invisible to numerical chaos indicators. Phase-dependent orientation and the n^(3/2) versus n^-1 multipliers are motivated dynamical invariants, not just restatements of the formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

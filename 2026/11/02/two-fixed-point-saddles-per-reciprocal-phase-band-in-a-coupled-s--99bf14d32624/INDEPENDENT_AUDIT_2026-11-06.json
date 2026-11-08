@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every fixed a,b>0 the second fixed-point equation G(x,y)=y-sin^2(b*pi*y+a*x)=0 has G_y(0,0)=1, yielding a unique small analytic graph Y(x)=a^2*x^2+2*a^3*b*pi*x^3+O(x^4). The phase theta=a*pi/x+b*Y(x) has theta'=-a*pi/x^2+O(x) strictly below -alpha' for alpha=arcsin(sqrt(x)); the two equations theta=n*pi+/-alpha each cross once in every sufficiently high band. Taylor substitution proves x_{n,+/-}=a/n -(+/-)a^(3/2)/(pi*n^(5/2))+O(n^-7/2), y=a^4/n^2+O(n^-3), and N(epsilon)=2a/epsilon+O(1). Direct Jacobian trace/eigenvalue scale gives lambda_unstable=-sigma*2*pi*n^(3/2)/sqrt(a)+O(n^1/2), lambda_stable=2*a^2*b*pi/n+O(n^-2), opposite determinant signs. Independent scipy root searches with a=b=1 at n=30,80,150 for each sign confirmed positions, both residuals and real saddle signs. Finite tests corroborate; analytic monotonicity supplies the all-n conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General oscillatory phase root methods are available, but without the nontrivial coupling solution Y(x) and two-dimensional Jacobian they do not give the two spectra."
+        ],
+        "reasoning": "The implicit branch and exact stable multiplier depend on the coupled second equation; a generic one-dimensional sine-root lemma would not determine them.",
+        "searches": [
+          "coupled sine square map fixed points near origin reciprocal phase singularity two saddles Zhu Deng Zhang Zhu",
+          "General results and stronger/duality coverage in cited primary sources"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math11143171",
+        "doi:10.3390/e26070603",
+        "Resultary semantic search:coupled sine square map fixed points near origin reciprocal phase singularity two saddles Zhu Deng Zhang Zhu"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhu et al. Equation (1) is antecedent model, not itself a proof of the n^-5/2 split or n^(3/2),n^-1 multipliers."
+        ],
+        "reasoning": "The claimed formulas require IFT, strict phase monotonicity and Jacobian asymptotics absent from the inspected source material; prior model publication is credited.",
+        "searches": [
+          "coupled sine square map fixed points near origin reciprocal phase singularity two saddles Zhu Deng Zhang Zhu",
+          "Direct final-claim implication comparisons with cited theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original published map is exactly F_(a,b), but cited work investigates encryption and chaotic dynamics rather than this local fixed-point graph.",
+          "The second comparison map has reciprocal singularity in a different component and cosine-square structure."
+        ],
+        "reasoning": "Exact model identity does not imply an already proved fixed-point census. Distinct singular equations cannot be equated by a title match; the local branch and phase-splitting identities were separately derived.",
+        "searches": [
+          "coupled sine square map fixed points near origin reciprocal phase singularity two saddles Zhu Deng Zhang Zhu",
+          "Aliases and equivalent formulations in cited primary sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source presents no exact high-band two-saddle table in the material inspected; Resultary semantic search returned off-topic planar fixed-point work."
+        ],
+        "reasoning": "Local fixed-point densities and multipliers are not lookup quantities in the cited chaos diagnostics. Exhaustive priority against inaccessible full article or unindexed material is not asserted.",
+        "searches": [
+          "coupled sine square map fixed points near origin reciprocal phase singularity two saddles Zhu Deng Zhang Zhu",
+          "Known exact tables/database and prior computed instances"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final mathematical addition, not its known source definition; checked actual primary statements/implications and Resultary semantic neighbors; residual access and priority risks remain explicit. The claimed formulas require IFT, strict phase monotonicity and Jacobian asymptotics absent from the inspected source material; prior model publication is credited.",
+      "residual_risks": [
+        "The full source 2023 paper and any appendices were not inspected page-by-page in this execution; earlier uncited local fixed-point work could overlap.",
+        "Uniformity in a,b is not established and not claimed; the result is local near (0,0)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model definition already published; no evidence in read material of asymptotic local two-saddle spectrum",
+          "evidence": [
+            "Equation (1) defines the studied sine-square map; article advertises chaotic indicators and applications."
+          ],
+          "identifier_or_url": "doi:10.3390/math11143171",
+          "material_read": "Published model equation and accessible abstract/description (full publisher article not inspected here)",
+          "method": "Web search and accessible publisher record",
+          "title": "Zhu, Deng, Zhang and Zhu, Construction of a New 2D Hyperchaotic Map with Application in Efficient Pseudo-Random Number Generator Design and Color Image Encryption",
+          "trigger": "Same exact map and parameters"
+        },
+        {
+          "assessment": "Different reciprocal coordinate and cosine-square equation; no implication proved",
+          "evidence": [
+            "Section 2.1 uses different trigonometric recurrence; variable exchange alone does not produce the source equations."
+          ],
+          "identifier_or_url": "doi:10.3390/e26070603",
+          "material_read": "Abstract and accessible comparison description in reviewed package",
+          "method": "Bibliographic/title and mathematical model comparison",
+          "title": "Liu, Ning and Zhu, A Secure Image Encryption Scheme Based on a New Hyperchaotic System and 2D Compressed Sensing",
+          "trigger": "Related trigonometric encryption model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local fixed-point census and sharp two-branch asymptotic/saddle spectrum for a natural singular planar sine-square map reveal bifurcation geometry invisible to numerical chaos indicators. Phase-dependent orientation and the n^(3/2) versus n^-1 multipliers are motivated dynamical invariants, not just restatements of the formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full source 2023 paper and any appendices were not inspected page-by-page in this execution; earlier uncited local fixed-point work could overlap.",
+    "Uniformity in a,b is not established and not claimed; the result is local near (0,0).",
+    "Source file blobs read at the frozen Git commit; independent raw Git tree identity was unavailable, so publication import is not ready.",
+    "Scientific PASS does not establish a public publication, external certification, or validated first-publication date."
+  ],
+  "schema_version": 1
+}

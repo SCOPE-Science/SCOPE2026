@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytical argument in `RESULT.md` covers every fixed positive parameter pair and all sufficiently high reciprocal-phase bands, with a parameter-dependent onset. Existence and uniqueness rely on the implicit-function theorem and derivative domination, not sampling.
+## correctness
 
-Run `python checks/verify_singular_fixed_points.py` using Python, SymPy and mpmath. In the recorded run, the checker passed 186 assertions: exact symbolic differential and determinant identities, the implicit Taylor jet, and high-precision solutions in three phase bands at each of three positive parameter pairs. Tested parameter pairs are \((0.8,0.6)\), \((1.2,1.1)\) and \((2.1,1.5)\); indices are 100, 200, 400 for the first two pairs and 400, 800, 1600 for the last. All root residuals were less than \(10^{-65}\), with explicit checks of real-eigenvalue type, orientation and the asymptotic coefficients.
+PASS
 
-The checker is not a machine proof of infinitely many fixed points. No independent review has been performed. The source's complete 2023 full text was unavailable for a definitive priority check, so priority remains provisional.
+For every fixed a,b>0 the second fixed-point equation G(x,y)=y-sin^2(b*pi*y+a*x)=0 has G_y(0,0)=1, yielding a unique small analytic graph Y(x)=a^2*x^2+2*a^3*b*pi*x^3+O(x^4). The phase theta=a*pi/x+b*Y(x) has theta'=-a*pi/x^2+O(x) strictly below -alpha' for alpha=arcsin(sqrt(x)); the two equations theta=n*pi+/-alpha each cross once in every sufficiently high band. Taylor substitution proves x_{n,+/-}=a/n -(+/-)a^(3/2)/(pi*n^(5/2))+O(n^-7/2), y=a^4/n^2+O(n^-3), and N(epsilon)=2a/epsilon+O(1). Direct Jacobian trace/eigenvalue scale gives lambda_unstable=-sigma*2*pi*n^(3/2)/sqrt(a)+O(n^1/2), lambda_stable=2*a^2*b*pi/n+O(n^-2), opposite determinant signs. Independent scipy root searches with a=b=1 at n=30,80,150 for each sign confirmed positions, both residuals and real saddle signs. Finite tests corroborate; analytic monotonicity supplies the all-n conclusion.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final mathematical addition, not its known source definition; checked actual primary statements/implications and Resultary semantic neighbors; residual access and priority risks remain explicit. The claimed formulas require IFT, strict phase monotonicity and Jacobian asymptotics absent from the inspected source material; prior model publication is credited.
+
+## value
+
+PASS
+
+A local fixed-point census and sharp two-branch asymptotic/saddle spectrum for a natural singular planar sine-square map reveal bifurcation geometry invisible to numerical chaos indicators. Phase-dependent orientation and the n^(3/2) versus n^-1 multipliers are motivated dynamical invariants, not just restatements of the formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
