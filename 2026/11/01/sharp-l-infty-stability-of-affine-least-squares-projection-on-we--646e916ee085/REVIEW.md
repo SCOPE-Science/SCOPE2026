@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct Schur-complement inversion of the positive Gram matrix yields the kernel. Convexity reduces all row norms to center and outer vertices, where exact affine-absolute integrals yield the sharp formula. Explicit sign inputs attain equality. The positivity and balancing corollaries follow from kernel mass one and strict monotonicity of the leaf formula. Reconstructed rational test matrices passed 27,416 independently calculated assertions. The tests check finite instances and are not substituted for the proof of all degrees and all positive masses.
+## correctness
 
-## Originality
-PASS within the inspected evidence, with publication-priority uncertainty. Kayumov's interval L-spline analysis (arXiv:math/0408418), Oswald's 2006 triangulation counterexample (arXiv:math/0611573), and Hangelbroek–Narcowich–Sun–Ward's general kernel least-squares stability theorem (arXiv:1005.2424) concern bounds or different geometries, not the exact weighted metric-star formula. Searches for graph-spline projectors, weighted star orthoprojector norms, the explicit \(7/3\) envelope, the equal-arm \(17/9\) benchmark, and shortest-edge maximizers did not reveal a dominating theorem. The short-interval theory of Oskolkov and the quantum-graph spline literature of Pesenson remain relevant risks; neither an inaccessible source nor an unsuccessful search is proof of novelty.
+PASS
 
-## Value
-PASS. This is a sharp classification across every finite star degree and arbitrary independent positive edge masses. It resolves the whole mesh-balance minimax problem, characterizes all worst output locations and input signs, gives a sharp positivity-defect coefficient, and identifies the exact crossing of amplification two. The results are relevant to maximum-norm stability and overshoot in nodal linear least-squares approximation on branched one-dimensional domains, rather than a numerical recomputation of a known universal estimate.
+Direct nodal Gram matrix G00=M/3, G0i=m_i/6, Gii=m_i/3 has Schur complement M/4 and invertible diagonal leaf block. Its inverse yields the row kernel at center 4-6s and leaf endpoint (-2+3s) on other edges, [-2+3(1+1/q)s] on its own edge, normalized by total M. Exact absolute affine integration gives center row 5/3 and leaf row (7+3q)/[3(1+q)]; convexity along every edge and differing endpoint signs excludes interior maxima. Strict decrease in q proves minimum-mass leaves, balance minimum, >2 iff q*<1/3, and negativity defect via P1=1. The d=1 two-endpoint special case is proved. Independent Gram inverses and row norms over 180 random positive-mass stars, degrees 1..12, differed by at most 1.34e-15 and recovered all maximizing leaves.
 
-## Limitations
-The formula concerns a single junction, one linear element per edge, and constant positive edge density. It does not cover general graphs or variable densities along an edge. Independent external audit has not been performed; a prior unindexed equivalent treatment remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Interval P1-spline constants 3 and Oswald’s higher-dimensional finite-element counterexample do not determine arbitrary positive edge-mass vector star norms, min-mass norming leaves or balanced minimizers. Published simplex positivity-defect Resultary finding is not a consequence/reformulation because its nodal coupling differs. Best of knowledge with risk of older graph-specific spline calculations.
+
+## value
+
+PASS
+
+Arbitrary edge-length/density weighting is natural in metric graph discretization, and min-mass instability with a unique optimal balancing vector precisely identifies a design mechanism. The sharp positivity failure threshold and complete norming evaluation set are useful exact data, not simply a finite example or unit-edge specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

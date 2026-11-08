@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:57:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/sharp-l-infty-stability-of-affine-least-squares-projection-on-we--646e916ee085/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/sharp-l-infty-stability-of-affine-least-squares-projection-on-we--646e916ee085/verify_star.py"
+      ],
+      "rationale": "Direct nodal Gram matrix G00=M/3, G0i=m_i/6, Gii=m_i/3 has Schur complement M/4 and invertible diagonal leaf block. Its inverse yields the row kernel at center 4-6s and leaf endpoint (-2+3s) on other edges, [-2+3(1+1/q)s] on its own edge, normalized by total M. Exact absolute affine integration gives center row 5/3 and leaf row (7+3q)/[3(1+q)]; convexity along every edge and differing endpoint signs excludes interior maxima. Strict decrease in q proves minimum-mass leaves, balance minimum, >2 iff q*<1/3, and negativity defect via P1=1. The d=1 two-endpoint special case is proved. Independent Gram inverses and row norms over 180 random positive-mass stars, degrees 1..12, differed by at most 1.34e-15 and recovered all maximizing leaves.",
+      "residual_risks": [
+        "Boundary d=1 is special: center and leaf both norming; data may be discontinuous for sign-input extremizers.",
+        "Variable density along edges, vertex atoms, and multiple junctions outside domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oswald treats arbitrary simplicial triangulations in Euclidean d>1; Hangelbroek et al give manifold projection boundedness criteria, not exact edge-mass star norm."
+        ],
+        "reasoning": "General boundedness/nonuniformity is not the parametric sharp formula; risk of an unlocated exact graph-star specialization remains.",
+        "searches": [
+          "Oswald 2006 counterexample L infinity projection linear splines",
+          "Hangelbroek Narcowich Sun Ward kernel approximation manifolds II bounded L2 projector"
+        ]
+      },
+      "checked_sources": [
+        "Sharp L infinity norms of L2 projection piecewise affine splines on weighted metric star shortest edge",
+        "weighted star metric graph orthogonal projection L infinity operator norm mass ratios",
+        "Oswald 2006 L2 orthogonal projector triangulated spaces"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An interval sharp uniform supremum 3 does not fix the d>=2 star constant (7+3q*)/[3(1+q*)].",
+          "The star inverse depends on M, m_i and yields strict ordering of leaf row norms."
+        ],
+        "reasoning": "Prior qualitative boundedness cannot force balancing criterion or positivity threshold q*<1/3.",
+        "searches": [
+          "de Boor Shadrin Kayumov spline projectors interval 3",
+          "Sharp L infinity norms of L2 projection piecewise affine splines on weighted metric star shortest edge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Star projector represented by (d+1)x(d+1) arrowhead Gram inverse; exact row L1 norm is (7+3q*)/[3(1+q*)].",
+          "Kayumov interval L-spline bound 3 is over all partitions, not one weighted metric star."
+        ],
+        "reasoning": "Reformulation as arrowhead mass-matrix Schur complement was considered; no located prior formula with min-mass leaf extremizers.",
+        "searches": [
+          "L2 projector onto continuous piecewise linear star functions weighted edge masses reproducing kernels",
+          "Sharp L infinity norms of L2 projection piecewise affine splines on weighted metric star shortest edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary identified related simplex finite-element positivity constants but no weighted metric-star table.",
+          "Claim holds for all d and continuous positive m_i, so discrete tables cannot by themselves establish the full result."
+        ],
+        "reasoning": "No known exact database/table logically covering the full positive-mass family; absence is not evidence of absolute novelty.",
+        "searches": [
+          "Sharp L infinity norms of L2 projection piecewise affine splines on weighted metric star shortest edge",
+          "sharp weighted star L2 spline projection min-edge mass norm"
+        ]
+      },
+      "rationale": "Interval P1-spline constants 3 and Oswald’s higher-dimensional finite-element counterexample do not determine arbitrary positive edge-mass vector star norms, min-mass norming leaves or balanced minimizers. Published simplex positivity-defect Resultary finding is not a consequence/reformulation because its nodal coupling differs. Best of knowledge with risk of older graph-specific spline calculations.",
+      "residual_risks": [
+        "Best-of-knowledge originality; incomplete older specialist full-text coverage remains a priority limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "This is a negative global triangulation statement, not sharp weighted star graph formula",
+          "evidence": [
+            "Abstract states dimension>1 unbounded mesh effect and univariate bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+          "material_read": "Primary arXiv abstract: no uniform L-infinity projector bound on triangulated domains dimension>1, in contrast with 1D bound 3",
+          "method": "Original 2006 arXiv abstract",
+          "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+          "trigger": "Possible wider finite-element stability theorem"
+        },
+        {
+          "assessment": "No arbitrary star or mass-balancing theorem; d=1 star matches 5/3 for one undivided interval",
+          "evidence": [
+            "The undivided single edge yields 5/3, unlike supremum over all interval knot sequences 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Primary abstract on second-order L-splines: uniform exact linear interval spline constant 3",
+          "method": "Original arXiv abstract",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Sharp interval endpoint constant comparator"
+        },
+        {
+          "assessment": "Different geometric object and normalization; no star sharp norm or edge-mass extremizer data",
+          "evidence": [
+            "In simplex case defect grows as d/e, whereas star norm stays <7/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Resultary entry summary and dimension d simplex norm 1+2C_d",
+          "method": "Published Resultary semantic result",
+          "title": "Exact positivity defect and max norm of affine least-squares projector on a simplex",
+          "trigger": "Published related sharp projector positivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/sharp-l-infty-stability-of-affine-least-squares-projection-on-we--646e916ee085/RESULT.md",
+        "https://arxiv.org/abs/math/0611573",
+        "https://arxiv.org/abs/math/0408418",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+      ],
+      "rationale": "Arbitrary edge-length/density weighting is natural in metric graph discretization, and min-mass instability with a unique optimal balancing vector precisely identifies a design mechanism. The sharp positivity failure threshold and complete norming evaluation set are useful exact data, not simply a finite example or unit-edge specialization.",
+      "residual_risks": [
+        "Single-junction stars only; one-edge case already a simple path, so value primarily in d>=2 general weighted classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Boundary d=1 is special: center and leaf both norming; data may be discontinuous for sign-input extremizers.",
+    "Variable density along edges, vertex atoms, and multiple junctions outside domain.",
+    "Single-junction stars only; one-edge case already a simple path, so value primarily in d>=2 general weighted classification.",
+    "Source package contains public operational identifiers; scientific pass is not publishing authority."
+  ],
+  "schema_version": 1
+}
