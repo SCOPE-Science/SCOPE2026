@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every m>=2, a TRD set in F_m has exactly the form apex plus a nonempty union of whole blades: no apex-free set can both totally dominate the peripheral blades and leave the apex nonisolated outside; with apex present, the outside is isolate-free iff no blade is split. This classifies 2-block partitions by subtracting 2^m-1 TRD apex blocks from 4^m choices. For k>=3 any split blade in the apex block would require its unique mate in two distinct partners, impossible; hence the apex block is a singleton and other blocks are unordered unions of whole blades. The resulting bijection yields S(m,k-1), star coalition graphs, unique maximum and Bell total. The exceptional m=1 triangle is treated separately. A separate graph-adjacency implementation checked all vertex subsets and unordered partitions for m=1..5, including every coalition edge; the infinite result follows from the proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The originating paper gives a general maximum-degree upper bound at minimum degree two; with F_m of maximum degree 2m this does not force the exact value m+1 or count partitions.",
+        "Its explicit complete, complete-bipartite, star, path and cycle computations do not include multiple-triangle friendship graphs.",
+        "For m>=2, F_m is not complete multipartite: peripheral nonadjacency is not transitive."
+      ],
+      "reasoning": "Broad general inequalities and specific graph-class exact values do not yield the new complete classification. In particular a bound on the coalition number cannot imply the Stirling counts, the Bell sum, uniqueness of the optimum or the associated coalition-graph isomorphism types.",
+      "searches": [
+        "arXiv:2412.18623v2 Section 2, Section 3, Section 4",
+        "doi:10.1007/s40314-025-03439-w full sections 2–5",
+        "complete total restrained coalition graph star classification of friendship graphs",
+        "total restrained coalition partition number complete multipartite graph complete bipartite total restrained domination"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2412.18623v1 first-public-date metadata, 2024-12-17",
+      "arXiv:2412.18623v2 full HTML https://arxiv.org/html/2412.18623v2",
+      "doi:10.1007/s40314-025-03439-w full journal HTML https://link.springer.com/article/10.1007/s40314-025-03439-w",
+      "Published mathematical research records searched for friendship, windmill, total restrained coalitions and Stirling counting; closest differently themed statements compared by implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior C_tr(K3)=2 is the m=1 boundary and is explicitly not claimed as new.",
+        "Known complete-graph, complete-bipartite, star, path and cycle formulas do not imply the friendship-graph counts for m>=2.",
+        "The new statement additionally counts all partitions and determines every coalition graph, information not implied by a scalar coalition-number bound."
+      ],
+      "reasoning": "After excluding the already known one-blade boundary, the new proof shows a classification of all multi-blade vertex partitions by Stirling classes plus the two-block exceptional count, not a restatement of a preexisting scalar invariant. The full conclusion does not follow from the checked primary statements.",
+      "searches": [
+        "arXiv:2412.18623v2 Proposition 3.4, Observations 3.5–3.6, Theorems 3.8 and 3.10, Section 5",
+        "doi:10.1007/s40314-025-03439-w complete HTML",
+        "complete total restrained coalition graph star classification of friendship graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining predicate is a two-block TRD union; the proof checks the equivalent apex-plus-whole-blades condition exactly.",
+        "The originating paper introduces a total restrained coalition graph as the graph on coalition blocks, with edges for TRD unions.",
+        "No indexed equivalent friendship-graph all-partitions theorem was retrieved."
+      ],
+      "reasoning": "Equivalent wordings considered include trc-partition, total restrained domination coalition, coalition graph, friendship, triangle windmill and K1 join m disjoint edges. Ordinary coalition and ordinary total-coalition invariants do not impose the same complement restraint and cannot be substituted for the claim. No equivalence found that turns the complete spectrum into a previously checked theorem.",
+      "searches": [
+        "total restrained coalition number friendship graphs windmill graph triangles sharing vertex",
+        "Stirling numbers enumerate total restrained coalition partitions of friendship windmill graphs K1 join disjoint edges",
+        "\"friendship graph\" \"total restrained\" \"coalition number\"",
+        "arXiv:2412.18623v2 Definitions 1.1–1.2 and Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No preexisting count table for all friendship-graph total restrained coalition partitions appears in the primary full text.",
+        "Separate graph-level enumeration gives all counts for m=1..5; these are internally checked data only and are not a historical novelty certificate."
+      ],
+      "reasoning": "No exact table or database entry covering the infinite block-count spectrum was identified in these searches. A finite table could not imply the all-orders Stirling/Bell formula without an independent general result. Unindexed tables remain a residual priority risk.",
+      "searches": [
+        "coalition partitions graph windmill K1 join mK2 cardinality",
+        "total restrained coalition number friendship graphs windmill graph triangles sharing vertex",
+        "\"friendship graph\" \"total restrained coalition\" partitions",
+        "arXiv:2412.18623v2 Section 3 table and examples"
+      ]
+    },
+    "rationale": "The full arXiv and later publisher text of the originating paper were compared by implication, including its known triangle case, exact values for basic graph classes, degree bounds and proposed coalition-graph study. Indexed searches for friendship/windmill graphs, restrained coalition partitions, Stirling numbers and coalition graph stars returned no statement implying the all-block-count classification. Friendship graphs with at least two blades are not complete multipartite. This is best-knowledge noncoverage, not a guarantee of historical priority.",
+    "residual_risks": [
+      "A poorly indexed graph-coalition paper could use alternative notation and already contain an equivalent friendship-graph formula.",
+      "This is not a full mathematical-literature priority certificate; independent external review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact definitions and the previously known triangle boundary, but does not establish partition spectra or coalition-graph realizations for friendship graphs with multiple blades. Broad bounds do not give the census.",
+        "evidence": [
+          "Definition 1.2 specifies non-TRD blocks with TRD two-block unions.",
+          "Section 3 gives C_tr for K_n, K_{p,q}, stars, paths and cycles, not F_m for m>=2.",
+          "Section 5 poses the study of total restrained coalition graphs as a further direction."
+        ],
+        "identifier_or_url": "arXiv:2412.18623v2 (https://arxiv.org/html/2412.18623v2)",
+        "material_read": "Full HTML article sections 1–5, particularly Definitions 1.1–1.2, Lemma 2.9, Theorem 2.13, Section 3 (complete graphs, complete bipartite graphs, stars, paths, cycles), Section 4 and Section 5 coalition-graph proposal.",
+        "method": "Read publicly accessible arXiv HTML text and compare objects, theorems, partition parameters and implications. The original submission date was checked on the arXiv abstract page.",
+        "title": "Total restrained coalitions in graphs",
+        "trigger": "Exact originating definition, graph-family values, degree bounds and the proposed study of total restrained coalition graphs potentially dominate the proposed theorem."
+      },
+      {
+        "assessment": "The same graph classes and general bounds appear; no friendship-graph Stirling/Bell classification or complete list of coalition graphs. Journal publication 2025-10-15 is later than the verified arXiv submission 2024-12-17.",
+        "evidence": [
+          "Section 3 concerns complete graphs, complete bipartite graphs, stars, paths and cycles.",
+          "Section 5 calls for study of associated coalition graphs.",
+          "Journal metadata gives primary MSC 05C60 and an online date of 2025-10-15."
+        ],
+        "identifier_or_url": "doi:10.1007/s40314-025-03439-w (https://link.springer.com/article/10.1007/s40314-025-03439-w)",
+        "material_read": "Publisher-hosted full HTML: introduction, bounds, Section 3 graph-class formulas, Section 4 extremal characterization, Section 5 closing questions and publication metadata.",
+        "method": "Read openly accessible journal HTML, not merely abstract or search snippets.",
+        "title": "Total restrained coalitions in graphs (online journal version)",
+        "trigger": "Check whether a later journal version adds friendship graphs, enumerative results or a stronger theorem covering the new claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "67483069-0271-48de-8ae7-668291bfe6dd",
+  "value": {
+    "rationale": "The theorem naturally and completely classifies a new domination-coalition partition invariant on friendship graphs, not merely one small example: every block-count multiplicity is determined, with a Stirling/Bell spectrum, unique maximal partition and all realizable coalition graphs. The 2024 originating paper explicitly proposed study of associated total restrained coalition graphs; the star-only realization and exact counts address that motivation. The precise friendship-graph family is a standard infinite graph family and the full spectrum is not implied by the preceding scalar graph-class cases.",
+    "status": "PASS"
+  }
+}
