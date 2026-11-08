@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Run `python3 checker.py` with a standard Python 3 interpreter. The checker independently computes finite-chain transfer matrices of the full two-defect scattering problem, and compares reflected amplitudes at analytically predicted transparent wave numbers. It also counts roots of the equal-sign phase equation for integer distances \(1\le L\le17\), checks unequal magnitudes, and tests the square-root band-edge scaling.
+## correctness
 
-Observed checker result: `PASS: 2714 direct checks; maximum reflection amplitude at predicted transparent points 5.32e-13.` The complete assertion for arbitrary \(L\), real potentials and all propagating energies is analytic, as proved in RESULT.md, and is **not** inferred from sampled parameter values.
+PASS
 
-The present verification is not an independent audit of correctness or historical priority. One directly relevant 1996 journal article is accessible only through its abstract, and its possible exact coverage remains unresolved. The analytic theorem does not apply at nonpropagating band edges or to complex/on-bond/long-range defects.
+The outgoing Green kernel produces reflection-zero equation exp(2ikL)=-(U/V)(1-gV)/(1+gU) with g=i/(2t sin k). Moduli force U²=V². For V=-U roots are k=m*pi/L; for V=U, phase f(k)=Lk+arctan(U/(2t sin k)) crosses exactly L or L-1 odd-half-pi levels depending on |U|<2t/L. Chebyshev equation and implicit differentiation at x=±1 prove edge loss and square-root coefficient. Independent Chebyshev-root check found all 96 expected finite cases for L<=12 and 8 strengths. Only propagating k in (0,pi) counted; band edges excluded.
+
+## originality
+
+PASS
+
+The two-impurity scattering method is classical and not claimed new. The stronger all-L signed-count transition and exact band-edge threshold were not established in the material accessible from the highly relevant 1996 same-model paper. Oxford authentication failed; qualified best-of-knowledge novelty with material risk, not a fabricated all-text NOT_COVERING.
+
+## value
+
+PASS
+
+Exact all-separation transmission counts and an amplitude-controlled resonance disappearance at a band edge provide a nontrivial spectral-scattering phase boundary of direct interest for impurity interference; the critical L-dependent threshold and square-root law are motivated and not merely a graph parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

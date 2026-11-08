@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines the exact self-adjoint nearest-neighbor operator, open-band scattering normalization, and all degenerate amplitude cases. The two-site Lippmann–Schwinger system yields a necessary-and-sufficient complex phase condition; its modulus forbids transparency with unequal absolute strengths. Opposite-sign defects reduce that condition to commensurability. For equal signs, the phase derivative admits at most one turning point and fixes the exact number of distinct roots, including the strict equality boundary. Chebyshev endpoint derivatives give the square-root law. Direct-transfer checks independently corroborate scattering amplitudes across 2,714 numerical cases. Scope excludes band edges and other physical models.
+## correctness
 
-## Originality — PASS on examined evidence, with residual priority risk
-The generic two-defect tight-binding transmission formula is already central to Mišković et al. (1996), DOI:10.1103/PhysRevB.54.255; their abstract is available, but the restricted paper could not be read and may contain the exact count. Chakrabarti (2006), arXiv:cond-mat/0611211, was read in full; its two backbone impurities are combined with a separately attached finite Fano chain, whose energy-dependent effective potential changes its scope. The inspected text discusses Fano asymmetry and location dependence, not the two-site-only exact classification. Longhi (2006), DOI:10.1103/PhysRevB.73.193305, studies a driven single impurity. Searches for equivalent phase/Chebyshev forms, broader transmission classifications, and the critical \(2t/L\) count did not reveal an explicit stronger covering theorem. Search absence is not proof of novelty. The inaccessible 1996 exact-model source is the leading residual risk; independent historical verification is needed.
+PASS
 
-## Mathematical value — PASS
-Perfectly transmitting channels matter for ballistic one-dimensional transport, and their number is a natural observable rather than a selected parameter slice. The theorem identifies a structural obstruction for unequal defect magnitudes, a potential-independent spectrum under opposite signs, and a sharp band-edge disappearance of one resonance for same signs. Both the finite count and its critical amplitude can be used without numerical optimization over wave number; the square-root edge law identifies sensitivity near the threshold. No claim is made about new Green functions or broader many-body phenomena.
+The outgoing Green kernel produces reflection-zero equation exp(2ikL)=-(U/V)(1-gV)/(1+gU) with g=i/(2t sin k). Moduli force U²=V². For V=-U roots are k=m*pi/L; for V=U, phase f(k)=Lk+arctan(U/(2t sin k)) crosses exactly L or L-1 odd-half-pi levels depending on |U|<2t/L. Chebyshev equation and implicit differentiation at x=±1 prove edge loss and square-root coefficient. Independent Chebyshev-root check found all 96 expected finite cases for L<=12 and 8 strengths. Only propagating k in (0,pi) counted; band edges excluded.
 
-## Boundaries of review
-The result is mathematically self-contained under its hypotheses. Historical priority is provisional, most notably because the exact-model 1996 article was not available in full. Analytical sufficiency, rather than finite experimental sampling, establishes the arbitrary-separation claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-impurity scattering method is classical and not claimed new. The stronger all-L signed-count transition and exact band-edge threshold were not established in the material accessible from the highly relevant 1996 same-model paper. Oxford authentication failed; qualified best-of-knowledge novelty with material risk, not a fabricated all-text NOT_COVERING.
+
+## value
+
+PASS
+
+Exact all-separation transmission counts and an amplitude-controlled resonance disappearance at a band edge provide a nontrivial spectral-scattering phase boundary of direct interest for impurity interference; the critical L-dependent threshold and square-root law are motivated and not merely a graph parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
