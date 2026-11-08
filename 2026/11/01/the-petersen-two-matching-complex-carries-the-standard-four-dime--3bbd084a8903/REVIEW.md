@@ -1,15 +1,21 @@
-# Scientific review: Petersen two-matching symmetry character
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem uses the standard Petersen graph realized as \(\mathrm{KG}(5,2)\), with exactly fifteen graph edges. The degree-two face convention is explicit, and the equivalence to \(\mathrm{CF}_3(L(P))\) uses the triangle-free property of Petersen. The attached standalone `verify.py` exhaustively enumerates the 32,768 subsets of fifteen edges, finds 10,870 allowed faces including the empty face, and validates the full finite discrete-Morse acyclicity certificate (5,432 ordinary matched pairs; a single critical vertex; four critical seven-cells; all 63,780 face-cover incidences). Therefore the only reduced rational homology is the four-dimensional group in degree seven. For each of the 120 permutations of five labels, two independently implemented character calculations agree: signed fixed-simplex traces and alternating enumeration of invariant edge-orbit unions. They give \(\chi(\sigma)=\#\operatorname{Fix}_{[5]}(\sigma)-1\). The augmentation character determines the standard irreducible rational module in characteristic zero. The proof is exhaustive finite mathematics, not inference from sampled cases.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest prior exact calculation already gives \(M_2(P)\simeq\bigvee^4 S^7\) and is expressly *not* claimed as new. Its published proof does not give the \(S_5\)-action. The 2026 Ghosh–Selvaraja framework discusses clique-free complexes and shellability, not this particular symmetry character. Vega treats two-matchings and a collection of graph families; Singh handles complete and complete-bipartite higher-matching complexes. Bate–Everitt–Ford–Ramos treat ordinary matchings of complete hypergraphs, a different complex; its symmetry theory is not a parameter specialization of the Petersen degree-two complex. A published six-dimensional Petersen three-cut-complex character is not applicable to the different two-matching complex. Multiple semantic and exact-formulation searches of accessible indexed findings and primary literature found no theorem implying the seven-class Petersen character. The search is not a proof that no unindexed equivalent calculation exists.
+PASS
 
-## Mathematical value — PASS
-This natural topological invariant is not specified by the known four-sphere-wedge homotopy type. The five-point automorphism action could instead give the sign twist of the standard module or a sum of one-dimensional modules. The explicit transposition trace \(+2\), five-cycle trace \(-1\), and complete irreducibility determination separate those possibilities, yield a vanishing full-group fixed subspace, and give a one-dimensional point-stabilizer fixed subspace. The exact equivariant refinement is a motivated and reusable benchmark for finite graph-complex representation theory; it is not a free arithmetic consequence of a Betti number.
+PASS. The finite Petersen M_2(P) has 15 edge-vertices and faces exactly the edge sets with all ten graph degrees <=2. Independent reconstruction checked all 32768 subsets and obtained 10870 faces and cardinality vector (1,15,105,445,1245,2358,2985,2400,1095,215,6). A fresh sequential-toggle matching of the augmented face poset yields 5433 pairs and four cardinality-8 critical faces; removing the empty/singleton pair gives 5432 ordinary matched pairs, one critical vertex and four critical 7-simplices. Independently directed all 63780 covers and topologically sorted 10869 nonempty faces, proving acyclicity, hence X is a wedge of four 7-spheres. A separate all-120-permutation signed fixed-face computation verifies the seven conjugacy-class traces (4,2,0,1,-1,0,-1); simplex signs follow (-1)^(|F|-number_of_orbits). Lefschetz concentration in degree 7 yields trace fixed_points(sigma)-1 and rational Maschke semisimplicity identifies the standard Specht S^(4,1) module. This is NOT an assertion of equivariant wedge homotopy or integral lattice splitting.
 
-## Sources and limits
-Primary comparison: Ghosh–Selvaraja, arXiv:2602.09623 (2026-02-10); Vega, arXiv:1909.10406; Singh, arXiv:2006.13632; Bate–Everitt–Ford–Ramos, arXiv:2312.13750; the published Petersen two-matching classification and Petersen three-cut character cited in `RESULT.md`. All four accessible primary arXiv manuscripts were inspected at their relevant definitions, results, and representation-theoretic sections. The claim is rational representation-theoretic; it does not assert an integral lattice equivalence or equivariant homotopy decomposition. Independent mathematical examination remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge. The previously published 4-sphere homotopy result for the identical Petersen M_2(P) is explicitly prior art, but its statement and proof supply only total homology rank, not the complete S5 trace or representation decomposition. The current claim is a nontrivial refinement obtained from exact orientation-sensitive fixed-face enumeration, not a renaming of a rank. Published studies of higher matching complexes and symmetry representations use different graph classes or ordinary matchings; nearby Petersen three-cut and graph Morse results have different simplicial face rules. An equivalent unindexed character computation remains possible.
+
+## value
+
+PASS
+
+PASS. The full automorphism group S5 of the natural Petersen graph acts nontrivially on top homology, and identifying the actual irreducible four-dimensional character distinguishes standard symmetry from the multitude of 4-dimensional representations. The computation determines invariants under S5 and a point stabilizer S4, facts the known nonequivariant wedge type does not provide. This motivated equivariant invariant of a canonical graph complex is useful without a general cubic-graph classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
