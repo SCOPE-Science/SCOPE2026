@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Fourier decomposition is explicit for every integer alphabet size, including composite sizes; its eigenvalue multiplicities add to the matrix size. The scalar parity-sector root is shown unique in the relevant nested interval by an alternating-tail derivative bound. The finite-difference inequality proves that every remaining sector is strictly positive through the threshold. Binary-subcube nesting forbids the rest of the parameter interval. The rank follows from the exact top-sector multiplicity. The standalone checker reproduces exact rational identities and selected direct Fourier sums. All quantified conclusions follow from proof, not finite testing.
+## correctness
 
-## Originality
-**PASS, within bounded comparison.** The strongest overlapping earlier claim covers the binary alphabet only and only the restricted range \(0<u\le1/16\); this new claim covers all alphabet sizes and the whole admissible/forbidden interval \(0\le u\le1\), and determines the \((s-1)^n\) endpoint nullity. Feragen et al. prove all-bandwidth geodesic-space obstructions, and Jayasumana et al. formulate the generic all-bandwidth Schoenberg criterion; neither derives these precise finite-product thresholds. The closest other retrieved claims treat Hamming-shell concentration, Turán masses, and Krawtchouk projection norms, not this squared-distance kernel. An equivalent treatment in older Hamming association-scheme literature remains possible.
+PASS
 
-## Value
-**PASS.** Squared intrinsic Hamming distance is a natural alternative to the ordinary Hamming/Laplacian kernel, but its exponential does not automatically preserve positive definiteness. The result provides the **sharp usable bandwidth** for every categorical alphabet without dependence on alphabet size, a nontrivial structural conclusion; the exact boundary-nullspace dimension explains a loss of covariance rank. This is a complete classification rather than a narrow numerical threshold or routine special case.
+For n≥2,s≥2, 0≤u≤1 including 0^0 convention, Fourier characters of (Z/sZ)^n with j nontrivial coordinates yield eigenvalues λ_{n,s,j}=Σ_{a,b} C(n−j,a)C(j,b)(s−1)^a(−1)^b u^{(a+b)²}, multiplicity C(n,j)(s−1)^j, and top sector B_n. Inductively B_n(1/n)>0, B_n(1/(n−1))<0 for n≥3, derivative negative on [0,rho_{n−1}], so unique rho_n in bracket and strictly decreasing. For j<n and u≤rho_n, grouped H_{j,0}=B_j>0 and for a≥1 H_{j,a}≥u^{a²}(2−(1+u³)^j)>0; n2 handled separately. Therefore only top sector vanishes at rho_n and nullity is (s−1)^n. For rho_n<u≤rho_{n−1}, B_n<0; for larger u<1, a binary (n−1)-subcube is indefinite by induction; u=1 is rank-one and u=0 identity. Independently evaluated root brackets n=2..15, monotone roots and all Fourier signs at sampled s=2,3,5; rho_2≈0.543689013, rho_15≈0.066806098. Finite checks corroborate, not establish, the all-dimensional induction.
 
-## Closest literature and limits
-Feragen–Lauze–Hauberg (2014 preprint; CVPR 2015), Jayasumana et al. (2014 preprint), and an earlier restricted binary-cube cutoff were compared at the level of theorem implications. The first two do not state a finite Hamming-product criterion, while the earlier binary cutoff is subsumed only as a proper subrange and alphabet specialization. Literature comparisons are bounded; the checker is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for a complete all-alphabet finite Hamming Gaussian PSD phase diagram and boundary rank, not for Fourier diagonalization or the general negative-type Gaussian criterion.
+
+## value
+
+PASS
+
+The exact bandwidth set for an important discrete Gaussian kernel on the entire Hamming product is a natural analytic/combinatorial invariant. Alphabet-independent sharp cutoff despite alphabet-dependent boundary nullity, disconnected inclusion of u=1, and complete exclusion above rho_n give a reusable precise feasibility classification beyond standard Fourier transform or qualitative negative-type facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
