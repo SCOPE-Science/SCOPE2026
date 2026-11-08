@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Reconstructible exact proof: fourth spherical moments give unbiasedness, one-probe second moment, and E[q(u)q(v)] from Haar-frame conditional uniformity; Hilbert-Schmidt matrix inner products yield exact cross covariance, the sign frontier and the optimal risk ratios. All dimensions and boundaries are covered analytically. Actual package script checks the algebra and deterministic special cases; simulations are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feng–Wang give dimension-dependent variance and bias upper bounds for an estimator with two independent Stiefel frames and mixed directions.",
+        "Maritan et al 2024 derive incremental-contraction bounds and discuss orthonormal direction sampling."
+      ],
+      "reasoning": "Neither general bound or algorithm is a dominating theorem for the exact finite-k Frobenius risk difference for the calibrated rank-one projector M(u), since their estimators and normalization differ. A general bound in terms of dimension does not classify a sign reversal that depends on trace and Frobenius invariants.",
+      "searches": [
+        "orthogonal Stiefel frame zeroth-order Hessian estimator exact Frobenius MSE traceless trace phase transition",
+        "orthogonal frame curvature probes Hessian estimation negative correlation variance reversal traceless indefinite d2 d3 rank one projector spherical Stein",
+        "arXiv:2205.14737, theorem 3 variance bound",
+        "Maritan et al 2024 sections II and II-B"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2201.10780",
+      "https://arxiv.org/abs/2205.14737",
+      "https://www.researchgate.net/publication/379845109_Novel_Bounds_for_Incremental_Hessian_Estimation_With_Application_to_Zeroth-Order_Federated_Learning",
+      "https://arxiv.org/abs/2107.03941",
+      "Earlier publicly indexed mathematical findings on random Hessian estimation and Haar moments"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang 2022 formula (1) uses independently sampled v,w; Feng–Wang 2022 Hessian uses two independent Stiefel frames and mixed second differences.",
+        "Maritan et al 2024 equation (3) updates an old Hessian by one rank-one residual and reports benefit from orthonormal direction selection, but does not assert an all-symmetric-H exact risk comparison for M."
+      ],
+      "reasoning": "The precise new implication uses E[q(u)q(v)] for two columns of one Haar frame and the negative inner product between the calibrated matrices at orthogonal directions. These identities do not arise from the cited independent two-direction products or the incremental estimator, and no stronger theorem from these inspected sources subsumes the exact sharp cutoff. An older uninspected theorem may still exist.",
+      "searches": [
+        "random orthogonal direction Hessian finite difference estimator covariance Frobenius variance traceless matrix dimensions two three four variance inflation versus independent samples",
+        "orthogonal Stiefel frame zeroth-order Hessian estimator exact Frobenius MSE traceless trace phase transition",
+        "arXiv:2201.10780",
+        "arXiv:2205.14737",
+        "https://www.researchgate.net/publication/379845109_Novel_Bounds_for_Incremental_Hessian_Estimation_With_Application_to_Zeroth-Order_Federated_Learning"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A single-direction estimator is uniquely specified by q(u) and a calibrated rank-one projector. Wang 2022 formula (1) uses independent v,w and v tensor w; Feng–Wang 2022 constructs a separate two-frame mixed-difference Hessian.",
+        "The 2024 Maritan–Schenato–Dey formula (3) is incremental, adjusting an existing Hessian estimate via the residual u^T(H-H_previous)u."
+      ],
+      "reasoning": "Unit-vector spherical Stein/spherical-fourth-moment calibration is an equivalent representation of M(u), but it is not the mixed v,w or recursive update. Existing bounds on a different algorithm do not imply the sign of the exact pair covariance of M. The risk ordering is on the same estimator with different cross-probe dependence.",
+      "searches": [
+        "random orthogonal direction Hessian finite difference estimator covariance Frobenius variance traceless matrix dimensions two three four variance inflation versus independent samples",
+        "matrix-valued unbiased Hessian estimator using one spherical directional curvature q(u) uu transpose and identity correction, Haar orthogonal frame, exact Frobenius variance trace anisotropy",
+        "arXiv:2201.10780; formula (1)",
+        "arXiv:2205.14737; Hessian estimator definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A previously published AdaHessian study concerns diagonal RMS/Hutchinson curvature leakage rather than full-matrix spherical calibration.",
+        "Available earlier mathematical claims were compared for spherical Hessian trace–anisotropy and orthogonal-frame risk, without treating a nonmatch as proof of uniqueness."
+      ],
+      "reasoning": "No exact risk table or claim covering the two threshold values or dimension-four switch was found in the accessible records. Database partition and failed searches are not uniqueness proofs; the comparison is statement-specific.",
+      "searches": [
+        "stochastic Hessian estimation on sphere degree two spherical harmonic orthogonality increases variance dimension 3",
+        "random orthogonal direction Hessian finite difference estimator covariance Frobenius variance traceless matrix dimensions two three four variance inflation versus independent samples",
+        "matrix-valued unbiased Hessian estimator using one spherical directional curvature q(u) uu transpose and identity correction, Haar orthogonal frame, exact Frobenius variance trace anisotropy"
+      ]
+    },
+    "rationale": "Relevant published-record and prior-literature searches, together with substantive material from three pertinent primary studies, distinguish this exact calibrated single-frame quadratic estimator from two-direction, two-frame and incremental Hessian algorithms. All exact boundaries and maximal ratios are absent from the inspected statements. Since the moment identities are standard, those are not claimed as new; specialized older equivalence remains a disclosed risk.",
+    "residual_risks": [
+      "Older works on spherical fourth moments or Stiefel random matrix estimators may contain an equivalent finite-k matrix-risk law in different notation.",
+      "No inaccessible publisher source is treated as a whole-document noncoverage certificate.",
+      "The distinction between algorithms is crucial; assertions about other unbiased Hessian estimators or nonlinear functions would not be justified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The mixed independent-vector tangent estimator differs from calibrated single-vector quadratic M(u). No trace–anisotropy Haar-frame comparison found in inspected material.",
+        "evidence": [
+          "Eq. (1) specifies independent v,w, with v tensor w and O(1) zeroth-order evaluations.",
+          "First posted 2022-01-26 in arXiv record."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.10780",
+        "material_read": "Introduction, estimator formula (1), independent tangent vector sampling, stabilizing Euclidean differences and corresponding estimator discussion",
+        "method": "Read publicly available preprint text and formula excerpts from the author copy and arXiv-associated rendering",
+        "title": "On Sharp Stochastic Zeroth Order Hessian Estimators over Riemannian Manifolds",
+        "trigger": "Same zeroth-order Hessian problem, plausible single-direction-equivalent formula"
+      },
+      {
+        "assessment": "Its Hessian estimator and evaluation budget differ: two independent Stiefel frames generate mixed-direction estimates, not an average of calibrated single curvature q(u) rank-one matrices.",
+        "evidence": [
+          "The paper quotes Hessian variance scaling with d^2/k^2 and requires Theta(k^2) mixed evaluations.",
+          "First posted 2022-05-29 in arXiv record."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.14737",
+        "material_read": "Estimator construction and Hessian variance bound, contrast between gradient k-direction and Hessian two-frame mixed-direction sampling, stated bias/variance results",
+        "method": "Read accessible preprint text and substantive mathematical statements with arXiv record",
+        "title": "Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+        "trigger": "Orthogonal-direction Hessian estimator, potentially dominating variance reduction"
+      },
+      {
+        "assessment": "Its estimator is an iterative residual rank-one update and its comparison is convergence/query complexity; its discussed orthonormal method is not the unbiased per-probe full-matrix calibration in this finding.",
+        "evidence": [
+          "Equation (3) is H_j=H_{j-1}+[q(u)-u^T H_{j-1}u]uu^T.",
+          "Section II-B proposes merged orthonormal bases for this iterative method and separate finite-difference gradient estimation."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/379845109_Novel_Bounds_for_Incremental_Hessian_Estimation_With_Application_to_Zeroth-Order_Federated_Learning",
+        "material_read": "Selected sections of the full public HTML manuscript, including background, equations (1) and (3), section II-B on orthonormal search directions, and Appendix A analytical scheme",
+        "method": "Read publisher-author open text reproduced as HTML on ResearchGate, lines around 287-360, 629-679 and 1373-1475",
+        "title": "Novel Bounds for Incremental Hessian Estimation With Application to Zeroth-Order Federated Learning",
+        "trigger": "Paper discusses orthonormal Hessian probe ensembles and single directional curvature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7dfacf2f-8e4f-4233-92a8-0dd15e97dccc",
+  "value": {
+    "rationale": "A fixed-query full-Hessian estimator on quadratic black-box oracles is a natural model for zeroth-order optimization. The exact low-dimensional sharp criterion and dimension-four universal threshold resolve whether Haar-orthogonal frame probes can increase error; the 4/3 extremal inflation and PSD robustness are practically interpretable mathematical boundaries, rather than a parameter substitution or arbitrary slice.",
+    "status": "PASS"
+  }
+}
