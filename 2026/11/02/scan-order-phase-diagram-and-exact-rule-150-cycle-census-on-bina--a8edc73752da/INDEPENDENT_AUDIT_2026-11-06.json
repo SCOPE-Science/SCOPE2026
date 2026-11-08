@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:15:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the full scope n>=3, every permutation of n once-only Rule 150 updates repeated on a binary cycle. Each update swaps edge differences y_{i-1},y_i; the even-parity edge vector has two vertex anchors. Source/sink conjugations reduce any schedule with k cyclic ascents to two edge rotations of lengths k and m=n-k. Requiring their t-power return and zero anchor cocycle imposes two parity constraints on gcd(k,t)+gcd(m,t) periodic edge-pattern bits. The constraint determinant is n*t/(g*h) mod 2, giving rank 1+epsilon, hence exactly 2^(g+h-epsilon) complete fixed states including both anchor choices. Faithful permutation action on even-parity edge words and the terminal anchor parity prove the stated lcm/twice-lcm order; Eulerian cyclic-ascent counting gives n*A(n-1,k-1). I separately implemented direct vertex scan, bitmatrix nullities, predicted orders, and brute orbit checks for all 870 scan permutations n=3..6 (50,352 state evaluations); all matched. The finite checks corroborate, do not prove the arbitrary-n result. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree 9bac983eb5a27b5c32560e887fb524e1b91331dd",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General cycle-equivalence theorems give conjugacy classes of scan products; the global Rule 150 generated group classifies the action of *all* local products, not each full one-pass product."
+        ],
+        "reasoning": "These broader results explain a proof ingredient and may reduce representatives but do not by themselves compute the two rotation-anchor return constraints. A broader group-theoretic identity could in principle imply the answer; inspected statements do not.",
+        "searches": [
+          "arxiv:0802.4412 cycle equivalence source-sink moves",
+          "arxiv:0808.1238 Theorem 5.4 dynamics group Rule 150",
+          "Rule 150 sequential asynchronous update order cyclic ascent scan primitive cycle period enumeration",
+          "asynchronous rule 150 every update permutation Coxeter element fixed points cycle length eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:0808.1238",
+        "arxiv:1511.06966",
+        "arxiv:0802.4412",
+        "Resultary two semantic search queries: ['Rule 150 sequential asynchronous update order cyclic ascent scan primitive cycle period enumeration', 'asynchronous rule 150 every update permutation Coxeter element fixed points cycle length eigenvalues']"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identity scan corresponds to k=n-1 or k=1, a strict subcase; group orbit counts need not determine fixed points of individual scan elements.",
+          "The full formula gives orders 5,8,3 at n=6 for k=1,2,3, which fixed-identity results cannot supply."
+        ],
+        "reasoning": "The old fixed-order formula and known commutation/conjugacy do not immediately imply every cyclic-ascent gcd parity and exact period count; claim is a nontrivial quantitative extension, with possible hidden equivalence risk.",
+        "searches": [
+          "arxiv:1511.06966 Theorem 4.1 fixed identity-order scan",
+          "arxiv:0808.1238 Section 5 Theorem 5.4",
+          "arxiv:0802.4412 cycle-equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Macauley–McCammond–Mortveit identify Rule 150 local boundary swaps and generated dynamics group; Defant arxiv:1511.06966 Theorem 4.1 enumerates the identity scan only."
+        ],
+        "reasoning": "Equivalent coordinate language is an even-parity edge vector with two cyclic rotations and an anchor cocycle, or source/sink conjugacy of Coxeter elements. The exact all-scan fixed-power formula and valuation-dependent order were not located in inspected prior theorems. No negative novelty proof follows from search.",
+        "searches": [
+          "arxiv:0808.1238 Section 5 Rule 150 block swaps",
+          "Rule 150 sequential asynchronous update order cyclic ascent scan primitive cycle period enumeration",
+          "asynchronous rule 150 every update permutation Coxeter element fixed points cycle length eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic queries returned parity automata period spectra, Coxeter conjugacy and cellular automata findings but none asserts the all-permutation cyclic-ascent primitive-count formula.",
+          "No natural exact database table enumerates arbitrary n and all scan permutations; small finite lists cannot settle the universal formula."
+        ],
+        "reasoning": "Published-record searches and prior finite scan tables cannot substitute for the full all-n phase diagram. Mathematically comparable Resultary hits concern different rules or global-generated dynamics.",
+        "searches": [
+          "Rule 150 sequential asynchronous update order cyclic ascent scan primitive cycle period enumeration",
+          "asynchronous rule 150 every update permutation Coxeter element fixed points cycle length eigenvalues"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.",
+      "residual_risks": [
+        "An implicit Coxeter-element eigenvalue classification or equivalence in older cellular-automaton literature may cover part or all of the census.",
+        "Only once-per-site binary scan permutations on finite simple cycles, no arbitrary repeated-site scan words, characteristic extensions, or infinite lattices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers local swap mechanism and generated dynamics group, not a formula for each full simple scan product",
+          "evidence": "Section 5, Theorem 5.4",
+          "identifier_or_url": "https://arxiv.org/pdf/0808.1238",
+          "material_read": "Full PDF Sections 1 and 5, including Theorem 5.4, group action and boundary swaps",
+          "method": "public arXiv PDF text plus rendered screenshot",
+          "title": "Dynamics Groups of Asynchronous Cellular Automata",
+          "trigger": "Same Rule 150 and generated group"
+        },
+        {
+          "assessment": "Exactly enumerates the fixed identity scan; arbitrary permutations not derived",
+          "evidence": "Theorem 4.1",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.06966",
+          "material_read": "Full PDF Theorem 4.1 and surrounding definition of identity scan",
+          "method": "public arXiv PDF text plus rendered screenshot",
+          "title": "Flexible Toggles and Symmetric Invertible Asynchronous Elementary Cellular Automata",
+          "trigger": "Rule 150 periodic populations under an update sequence"
+        },
+        {
+          "assessment": "General conjugacy antecedent credited; whole-document exclusion not asserted",
+          "evidence": "Source-to-sink cycle equivalence",
+          "identifier_or_url": "https://arxiv.org/abs/0802.4412",
+          "material_read": "Abstract and stated cycle-equivalence theorem as accessible; full proof not relied on for negative coverage",
+          "method": "publisher/arXiv listing and reference comparison",
+          "title": "Cycle Equivalence of Graph Dynamical Systems",
+          "trigger": "Source/sink conjugacy comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question asks for the entire primitive-period census and exact global order of a natural reversible asynchronous binary automaton under *all* one-pass schedules; it reveals genuine k-dependent orbit phases while the one-scan fixed-point count ignores the schedule. Explicit gcd/parity and Eulerian law provide a useful structural classification, not an arbitrary small-instance enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:0808.1238",
+    "arxiv:1511.06966",
+    "arxiv:0802.4412",
+    "Resultary two semantic search queries: ['Rule 150 sequential asynchronous update order cyclic ascent scan primitive cycle period enumeration', 'asynchronous rule 150 every update permutation Coxeter element fixed points cycle length eigenvalues']"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An implicit Coxeter-element eigenvalue classification or equivalence in older cellular-automaton literature may cover part or all of the census.",
+    "Only once-per-site binary scan permutations on finite simple cycles, no arbitrary repeated-site scan words, characteristic extensions, or infinite lattices."
+  ],
+  "residual_risks": [
+    "An implicit Coxeter-element eigenvalue classification or equivalence in older cellular-automaton literature may cover part or all of the census.",
+    "Only once-per-site binary scan permutations on finite simple cycles, no arbitrary repeated-site scan words, characteristic extensions, or infinite lattices."
+  ],
+  "schema_version": 1
+}

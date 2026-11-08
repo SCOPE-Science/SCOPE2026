@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For binary Rule 150 on \(C_n\), the local update swaps two incident edge-difference bits. On even-sum edge patterns this is a permutation, with the omitted constant vertex bit tracked by a single affine cocycle. Cyclic orientation classes reduce every one-pass scan to a canonical left/right two-rotation form. The two exact linear return constraints have rank \(1+\epsilon_t\), establishing the complete fixed-power formula and hence the primitive-period census. The order argument checks edge-action faithfulness for all \(n\ge3\), the remaining anchor cocycle, and the sharp equal/unequal \(2\)-adic cases. The included verifier directly reconstructs the binary matrices and obtains successful finite checks; these checks support rather than replace the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Verified the full scope n>=3, every permutation of n once-only Rule 150 updates repeated on a binary cycle. Each update swaps edge differences y_{i-1},y_i; the even-parity edge vector has two vertex anchors. Source/sink conjugations reduce any schedule with k cyclic ascents to two edge rotations of lengths k and m=n-k. Requiring their t-power return and zero anchor cocycle imposes two parity constraints on gcd(k,t)+gcd(m,t) periodic edge-pattern bits. The constraint determinant is n*t/(g*h) mod 2, giving rank 1+epsilon, hence exactly 2^(g+h-epsilon) complete fixed states including both anchor choices. Faithful permutation action on even-parity edge words and the terminal anchor parity prove the stated lcm/twice-lcm order; Eulerian cyclic-ascent counting gives n*A(n-1,k-1). I separately implemented direct vertex scan, bitmatrix nullities, predicted orders, and brute orbit checks for all 870 scan permutations n=3..6 (50,352 state evaluations); all matched. The finite checks corroborate, do not prove the arbitrary-n result. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree 9bac983eb5a27b5c32560e887fb524e1b91331dd
 
-The closest primary results were read beyond abstracts. Macauley, McCammond and Mortveit, arXiv:0808.1238, Section 5 (especially pages 13–15), already establish the complete Rule 150 dynamics group and explain local boundary swaps. This work makes the combinatorial coordinates natural, and is explicitly credited. Their Theorem 5.4 is a group classification, not a formula for the complete fixed-power counts of an arbitrary specified simple scan. Macauley and Mortveit, arXiv:0802.4412, establish general cycle equivalence under source/sink shifts; they do not provide the fixed-power census for Rule 150. Defant, arXiv:1511.06966, Theorem 4.1, provides exact counts for the identity order, which is a proper special case of this all-order theorem. The new contribution is not independent of their methods, but the explicit arbitrary-scan closed formula, exact map order, and Eulerian distribution were not identified in these inspected primary texts or the accessible prior-claim comparisons. A historical equivalent using Coxeter elements or affine permutation representations remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result classifies all \(n!\) possible sequential schedules on an infinite family under one exact invariant, rather than giving a routine new single example. The same six-vertex system can have global order five, eight or three depending solely on scheduling. The two-rotation/cocycle decomposition provides a mechanism for the phase boundary and the formula gives exact primitive orbit populations for every order and every period. This resolves a natural extension of the 2015 identity-scan enumeration, with clear structural explanation and finite checkability.
+Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.
 
-## Limits
+## value
 
-The published 2008 group results imply broad structure but are not represented here as absent prior art. The new theorem does not extend to Rule 105, arbitrary fair update words, or other finite fields. No independent validation is implied by exhaustive checks at small sizes. Bibliographic completeness is limited by discoverability of all historical terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question asks for the entire primitive-period census and exact global order of a natural reversible asynchronous binary automaton under *all* one-pass schedules; it reveals genuine k-dependent orbit phases while the one-scan fixed-point count ignores the schedule. Explicit gcd/parity and Eulerian law provide a useful structural classification, not an arbitrary small-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
