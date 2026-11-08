@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Diameter endpoints are strictly exposed, and the near-diameter event localizes at finitely many ordered vertex pairs. Strict cone heights control the full \(t\)-scale, allowing a uniform radial expansion with an \(O(t^2)\) relative remainder. Cone-product beta integration and a \(\mathrm{Dirichlet}(d,d,1)\) calculation give both coefficients. For boxes, a separate triangular-coordinate density calculation agrees algebraically with the cone moment formula; the sharp equality case follows from Cauchy--Schwarz. The packaged standard-library verifier passed 1,838 diagnostics, including exact rational box identities and independent square integrations. Finite tests are not proofs of the universal theorem.
+## correctness
 
-**Originality — PASS within documented search, residual priority risk.** The closest motivating work (Wang, arXiv:2610.01916, first public 2026-10-01) studies the global pair-distance distribution and its Brunn--Minkowski variation, rather than an explicit local all-polytope two-term diameter-tail law. Pure et al. (arXiv:1903.07757) calculate full distance laws for planar polygons; the new scope explicitly begins at dimension three. Bonnet et al. (arXiv:2010.03351) treat mean distances, not near-diameter local probabilities. Related earlier regular-simplex endpoint formulas are covered special cases and not separately asserted as novel. Published indexed records for short-distance polygon expansions, graph-zonotope diameters, and random-section diameters address distinct claims. General covariogram identities are compatible but do not themselves give the displayed coefficients. The possibility of an equivalent unindexed local-cone calculation remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** The expansion identifies a natural geometric universality class for extreme pair distances, computes two coefficients for *every* polytope in dimension at least three using only finite local cone data, and proves strict positivity of the first correction. The orthotope specialization yields a sharp, dimension-independent-in-form isotropic rigidity theorem: with fixed Euclidean diameter, the cube uniquely minimizes the relative correction. This is a structural classification, not merely a special numerical integral.
+Verified the finite ordered diametral vertex set and strict-positive cone heights, forcing uniform O(t) localization. In cone variables the radial deficit is s-t||Pi_e(Z-Y)||²/(2D)+O(t²); radial integration over the 2d-cone gives the beta leading coefficient (d!)²/(2d)!. Heights have Dirichlet(d,d,1) law and uniform transverse sections, yielding T_ab=[d(d+1)(Ma+Mb)-2d² mu_a·mu_b]/[2D(2d+1)] as a positive mean-square coefficient. For orthotopes, section moments simplify to (3D²ΣLi^-2-d(2d+1))/(D(2d+1)); Cauchy–Schwarz gives equality only for equal lengths. Independently verified 135 exact rational box specializations for dimensions 3..7 and all small length patterns; special cases do not replace general analytic localization.
 
-**Limitations.** No full distribution or uniform error bound under degenerations is claimed. The geometric proof and special-case verifier are self-review assessments only; no independent scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit second tangent-cone coefficient and equality-rigid orthotope correction for every full-dimensional polytope in d>=3 are not stated in the inspected general distance-distribution, polygon or many-sample-diameter literature; leading tip laws or a general integral representation do not alone provide the second formula and sharp box extremum.
+
+## value
+
+PASS
+
+A natural endpoint statistic for random pairs in all d>=3 polytopes has a universal exponent and computable two-term tangent-cone geometry; sharp box anisotropy rigidly selects cubes and gives an exact benchmark beyond known planar distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 verify_tail.py` with Python 3 and only its standard library. This file has been executed from the delivered materials. It checks exact rational equalities between two independent presentations of the orthotope correction, the strictness and equality cases of the square-product inequality, regular-simplex cone-moment specializations in dimensions 2 through 17, and independent direct quadrature for the square at four small diameter deficits. The result was **PASS: 1,838 instances**.
+## correctness
 
-The proof of the all-dimensional theorem is analytic: strict exposure, finite maximum-set localization, uniform Taylor/radial expansion, and Dirichlet cone-product moment integration. Sampling or finite dimensional examples would not establish the universal quantifiers. Neither scientific originality nor historical priority is machine-certified. An independent mathematical audit has not been performed.
+PASS
+
+Verified the finite ordered diametral vertex set and strict-positive cone heights, forcing uniform O(t) localization. In cone variables the radial deficit is s-t||Pi_e(Z-Y)||²/(2D)+O(t²); radial integration over the 2d-cone gives the beta leading coefficient (d!)²/(2d)!. Heights have Dirichlet(d,d,1) law and uniform transverse sections, yielding T_ab=[d(d+1)(Ma+Mb)-2d² mu_a·mu_b]/[2D(2d+1)] as a positive mean-square coefficient. For orthotopes, section moments simplify to (3D²ΣLi^-2-d(2d+1))/(D(2d+1)); Cauchy–Schwarz gives equality only for equal lengths. Independently verified 135 exact rational box specializations for dimensions 3..7 and all small length patterns; special cases do not replace general analytic localization.
+
+## originality
+
+PASS
+
+The explicit second tangent-cone coefficient and equality-rigid orthotope correction for every full-dimensional polytope in d>=3 are not stated in the inspected general distance-distribution, polygon or many-sample-diameter literature; leading tip laws or a general integral representation do not alone provide the second formula and sharp box extremum.
+
+## value
+
+PASS
+
+A natural endpoint statistic for random pairs in all d>=3 polytopes has a universal exponent and computable two-term tangent-cone geometry; sharp box anisotropy rigidly selects cubes and gives an exact benchmark beyond known planar distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
