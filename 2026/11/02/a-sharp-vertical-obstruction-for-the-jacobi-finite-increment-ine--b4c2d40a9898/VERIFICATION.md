@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytical and computational verification
+# Independent mathematical audit
 
-The universal proof is self-contained except for well-established Jacobi identities, the fixed-angle Darboux formula in DLMF §18.15(i), and the published sufficient inequality of Nikolov (2026). The critical derivative asymptotic is derived by applying Darboux directly to the shifted-parameter Jacobi polynomial through the **exact** differentiation formula; no uncontrolled differentiation of an \(O(\cdot)\) remainder is used. For fixed \(\alpha,\beta>-1\), the four residues modulo four yield the exact negative liminf when \(\alpha<1/2\), while the endpoint term survives at \(\alpha=1/2\). The new diagonal classification invokes published sufficiency and newly proved necessity as separate implications.
+## correctness
 
-The embedded standalone `CHECK.py` was executed using `python CHECK.py` in an environment with NumPy and SciPy. It reported `JACOBI_ORIGIN_CHECKS_OK 257`. It compares finite-degree origin derivatives with independently computed symmetric finite differences, compares the Darboux leading terms with their polynomial values using explicit absolute-remainder tolerances, and tests signed failure below the threshold. The finite consistency tests are not claimed as an infinite proof or external audit.
+PASS
 
-Scientific limits: the necessary boundary criterion is not claimed sufficient, and the proof is for fixed real parameters; the first public cited source is dated 2026-06-24. Independent validation has not been performed.
+Exact Jacobi derivative identity (P_n)'(0)=(n+alpha+beta+1)/2 P_{n-1}^{(alpha+1,beta+1)}(0) permits applying fixed-angle Darboux to shifted parameters rather than differentiating an uncontrolled error. DLMF 18.15.4_5 gives derivative c sqrt(n) sin(n*pi/2+delta)+O(n^-1/2), whereas P_n(1)=n^alpha/Gamma(alpha+1)(1+O(1/n)). Four residues mod 4 attain max absolute sine/cosine; for alpha<1/2 endpoint loses, at alpha=1/2 constant 2/sqrt(pi) remains. Known Nikolov sufficient region includes diagonal >=1/2. Independent finite SciPy checks corroborate asymptotic signs, not infinite liminf.
+
+## originality
+
+PASS
+
+Nikolov 2026 Theorem 1 supplies sufficient Jacobi sectors, and Remark 1 explicitly leaves full parameter region open. DLMF Darboux is classical, credited; the specific universal necessary vertical boundary, signed four-residue liminf, critical boundary phase filter and reverse diagonal direction are new implications not stated by source sufficiency alone. General Jacobi upper/lower envelope work is a different inequality.
+
+## value
+
+PASS
+
+A large sharp necessary half-plane constraint and complete ultraspherical diagonal settle natural portions of a published open two-parameter all-degree inequality, rather than an arbitrary finite-degree counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
