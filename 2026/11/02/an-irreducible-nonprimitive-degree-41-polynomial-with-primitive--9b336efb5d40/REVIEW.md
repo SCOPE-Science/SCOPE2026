@@ -1,19 +1,21 @@
-# Scientific review: primitive-constant polynomial counterexample
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The field is well-defined because \(3^{20}\equiv40\pmod{41}\). Four explicit powers of \(\lambda=2+16w\) exclude every maximal proper subgroup of the cyclic group of order \(1680\), proving its primitivity. Iterating the \(1681\)-Frobenius adds the nonzero constant \(32w\) and gives \(41\) distinct conjugates, proving irreducibility without relying on a computer irreducibility test. Independent exact modular polynomial arithmetic then checks that the root's \((1681^{41}-1)/83\)-rd power is \(1\). Since \(83\) is prime and divides \(1681^{41}-1\), the root cannot generate the full multiplicative group. A separate finite enumeration checks all \(41^2\) constants and finds exactly \(64\) primitive coefficients with the specified order obstruction. The modular-exponent identity and the exhaustive count are exactly reproducible using the supplied code.
+PASS
 
-## Originality — PASS, qualified
+In K=F41[w]/(w^2-3), 3 is nonsquare and lambda=2+16w has order 1680 by direct prime-factor tests. For alpha satisfying alpha^41+alpha+lambda=0, Q=41^2 Frobenius gives alpha^(Q^j)=alpha+j(lambda-lambda^41), with nonzero shift 32w, hence 41 distinct conjugates and irreducible degree 41. Independent exact polynomial quotient exponentiation verified X^((1681^41-1)/83)=1 modulo X^41+X+lambda, so root order cannot be maximal. Independent distinct C++ enumeration of all 1681 coefficient pairs found 384 primitive constants and exactly 64 with this specified order-83 modular-power obstruction, matching the source census; this is exhaustive finite algebra, not heuristic sampling. Does NOT assert all nonprimitive constants counted.
 
-Sharma's 2026 Conjecture 4.2 asserts universal primitivity in precisely this family. Its displayed numerical evidence ends at \(p=37\), whereas the verified counterexample is at \(p=41\). Proposition 4.1 proves only irreducibility and is fully compatible with this example. Searches for the specific conjecture, the \(41\)-degree polynomial, the order-\(83\) obstruction, and related Artin–Schreier formulations found no prior covering counterexample. Cohen's arbitrary-trace theorem establishes *existence* of a primitive element with a prescribed trace; it does not imply universal primitivity of this fixed polynomial family. A closely named Artin–Schreier research record addresses Goss's magic-index problem, not multiplicative order of this polynomial's roots. Full older cyclotomic literature was not comprehensively inspected; priority remains subject to that risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The counterexample settles the truth value of a specifically published, recent universal conjecture, not a routine special case or a small numerical refinement. Its characteristic is the next prime beyond the paper's tested range, and its fully irreducible polynomial isolates the failed assertion as primitivity rather than irreducibility. The exact \(64\)-of-\(384\) order-\(83\) obstruction count indicates that the failure is a significant natural stratum, not a single accidental coefficient. This does not resolve the paper's separate weaker existence conjecture.
+IMPORTANT PRIOR OVERLAP: Formal proof published September 19–20, 2026 in the-omega-institute/trureturing already refutes Sharma Conjecture 4.2 with p=41 and an order-83 obstruction, using a different primitive constant lambda=5+w. Thus the conjecture refutation, p=41, and 83 mechanism are NOT new, independent of whether terminology differs. The present exact lambda=2+16w witness and, materially, the complete 64/384 frequency for this natural family and given divisor were not supplied or implied by the inspected earlier formal counterexample. On the final compound claim, this surviving exact quantitative invariant provides best-of-knowledge O PASS, with strong prior overlap acknowledged; do not market the refutation as first.
 
-## Closest literature and limitations
+## value
 
-Primary comparison: Avnish K. Sharma, *Primitive Polynomials of the Form \(g(x)+\lambda\) over Finite Fields: Non-Existence Results and Conjectures*, arXiv:2608.07262, Proposition 4.1, Conjecture 4.2 and Table 6 (2026). Background: Stephen D. Cohen, *Primitive elements and polynomials with arbitrary trace*, Discrete Math. 83 (1990), 1–7. The enumeration counts only the specified order-\(83\) obstruction, not all possible nonprimitive cases, and no assertion is made about characteristics other than \(41\). Independent priority or mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete count 64 among all 384 primitive coefficients quantifies how often a specific cyclotomic order obstruction destroys an attractive universal primitivity conjecture at the first prime after its reported test range. This natural coefficient-family census is usable independent of the already-known single counterexample; exact finite result is not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

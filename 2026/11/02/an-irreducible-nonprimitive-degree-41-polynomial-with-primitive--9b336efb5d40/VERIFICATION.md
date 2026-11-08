@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python's built-in arbitrary-precision integers and tuples representing \(\mathbb F_{41^2}\). It checks the quadratic-field nonsquare criterion, the four group-order tests for \(2+16w\), nonvanishing of its Frobenius difference, divisibility by \(83\), and the full \(41\)-coefficient identity
-\[
-X^{(1681^{41}-1)/83}\equiv1\pmod{X^{41}+X+2+16w}.
-\]
-The recorded result was:
+## correctness
 
-```
-lambda power obstructions: [(2, (40, 0)), (3, (20, 25)), (5, (18, 0)), (7, (15, 26))]
-VERIFY_OK prime=41 primitive_constant_order=1680 irreducible_degree=41 nonprimitive_divisor=83 modular_identity=1 exponent_decimal_digits=131
-```
+PASS
 
-The separate source `census.cpp` loops through all \(1681\) coordinate pairs, checks the primitive-element condition with the exact factorization of \(1680\), and evaluates the same order-\(83\) polynomial power for every primitive constant. Compile with `g++ -O3 -std=c++17 census.cpp -o census` (Boost.Multiprecision header required), then run `./census`. The result was:
+In K=F41[w]/(w^2-3), 3 is nonsquare and lambda=2+16w has order 1680 by direct prime-factor tests. For alpha satisfying alpha^41+alpha+lambda=0, Q=41^2 Frobenius gives alpha^(Q^j)=alpha+j(lambda-lambda^41), with nonzero shift 32w, hence 41 distinct conjugates and irreducible degree 41. Independent exact polynomial quotient exponentiation verified X^((1681^41-1)/83)=1 modulo X^41+X+lambda, so root order cannot be maximal. Independent distinct C++ enumeration of all 1681 coefficient pairs found 384 primitive constants and exactly 64 with this specified order-83 modular-power obstruction, matching the source census; this is exhaustive finite algebra, not heuristic sampling. Does NOT assert all nonprimitive constants counted.
 
-```
-CENSUS_OK primitive_constants=384 order_83_obstructions=64
-```
+## originality
 
-The irreducibility argument is symbolic and holds because the Frobenius difference is nonzero; the computed exponent identity is an exact finite-field arithmetic witness, not a probabilistic or finite-sample proxy for an unverified universal identity. The census establishes an exhaustive count only for characteristic \(41\) and the particular \(83\) obstruction, not a classification of all reasons for nonprimitivity or a statement about other primes.
+PASS
+
+IMPORTANT PRIOR OVERLAP: Formal proof published September 19–20, 2026 in the-omega-institute/trureturing already refutes Sharma Conjecture 4.2 with p=41 and an order-83 obstruction, using a different primitive constant lambda=5+w. Thus the conjecture refutation, p=41, and 83 mechanism are NOT new, independent of whether terminology differs. The present exact lambda=2+16w witness and, materially, the complete 64/384 frequency for this natural family and given divisor were not supplied or implied by the inspected earlier formal counterexample. On the final compound claim, this surviving exact quantitative invariant provides best-of-knowledge O PASS, with strong prior overlap acknowledged; do not market the refutation as first.
+
+## value
+
+PASS
+
+The complete count 64 among all 384 primitive coefficients quantifies how often a specific cyclotomic order obstruction destroys an attractive universal primitivity conjecture at the first prime after its reported test range. This natural coefficient-family census is usable independent of the already-known single counterexample; exact finite result is not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
