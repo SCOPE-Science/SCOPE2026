@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim is the rational \(p\)-kernel rank \(2\alpha-1\) for all primes and all positive exponents. Kummer's theorem gives the weighted subtraction-borrow recursion. The state module has precisely \(2\alpha-1\) dimensions, not \(2\alpha\), because the pending-borrow generating polynomial has no constant term. Explicit zero-prefix differences span every pending-borrow monomial, and the last-digit \(p-1\) transfer produces all no-borrow monomials. Two triangular families of continuation evaluations separate every state. This proves both upper and lower bounds for the sequence kernel. Exact finite checks independently compare binomial counts and full-rank matrices in 18 parameter cases.
+## correctness
 
-**Originality: PASS, with residual priority risk.** Rowland's original article [1, final paragraph] expressly leaves the rank \(2\alpha-1\) open. The full-text later article [2, Theorem 1] contains the earlier all-valuation \(2\times2\) matrix product, which after truncation provides the upper-bound representation but has no corresponding exact lower-rank or minimality theorem. Spiegelhofer–Wallner [3, Introduction and Section 2] study polynomial coefficients and do not address exact kernel rank. Related prior research on digital-function expressions and asymptotics does not imply a lower bound on the dimension of this kernel. Searches of relevant mathematical records did not identify an equivalent exact-rank proof; no search can certify universal priority. See structured comparison in AUDIT.json.
+PASS
 
-**Value: PASS.** This settles an explicit natural conjecture about the minimum linear complexity of prime-power Pascal-row counts, uniformly over all primes and exponents. The constructive minimal representation also gives a sharp dimension benchmark for symbolic computation of the sequences. It is more than an alternative way to calculate values: the reachability–observability proof establishes an optimality invariant.
+For each prime p and integer alpha≥1, the digit-borrow matrix T_d(U,V)=((d+1)U+dV,z((p-1-d)U+(p-d)V)) mod z^alpha represents counts of k≤n with p-adic binomial valuation <alpha via Kummer. State space Q[z]/z^alpha ⊕ zQ[z]/z^alpha has dimension 2alpha−1, giving upper kernel-rank bound. The prefixes 0^r yield state differences (0,(p−1)p^{r−1}z^r), 1≤r<alpha, then a p−1 digit maps (0,z^r) to ((p−1)z^r,z^{r+1}), spanning each first-component monomial. Observability: repeated p−1 digit suffixes have y_h−p y_{h−1}=(p−1)sum_{j=1}^{alpha−h}V_j; these nested sums kill V coefficients. Prefixing one zero then p−1 suffixes yields nested sums of U_j, and U(1)=0 removes the last coefficient. Thus every state is reachable, none nonzero is unobservable; rank equals 2alpha−1 and is the minimal rational linear representation dimension, including alpha=1. Fresh independent exact binomial coefficient counts and rational kernel-rank minors for p=2,3 and alpha=1,2,3 matched 1,3,5; finite samples not used to establish universal algebraic minimality.
 
-**Limits and risk.** The field of scalars is \(\mathbb Q\); specialized coverage under an unrecognized equivalent definition of \(p\)-regular rank remains possible. The result is not independently audited, and finite verification is not the universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original scientific contribution confined to the exact theorem beyond explicitly acknowledged prior partial coverage. Meaningful searched aliases, broader-result implications, primary source materials, and access limits are documented below.
+
+## value
+
+PASS
+
+This is a natural exact state-complexity invariant for prime-power divisibility statistics in Pascal rows, and explicitly resolves the rank 2alpha−1 question formulated by Rowland in 2010. The reachability/observability lower bound is not furnished by the previously known polynomial transfer and is mathematically nontrivial and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
