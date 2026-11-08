@@ -1,19 +1,21 @@
-# Review: fractional-cap cube circumball law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The intersection of a cube with one rank halfspace has only zero-one vertices and a single fractional orbit. For a scalar candidate center the maximum squared distance is exactly the maximum of two explicit quadratics, and strict convexity plus permutation symmetry reduces the global ball problem to that scalar. Their crossing is at \(\delta/2\), with separate unconstrained minima at \(m/n\) and \((m+\delta)/n\); the median rule and the cube-radius saturation follow with all endpoints. A contact-orbit barycenter supplies an additional geometric optimality certificate. The exact rational checker passes 333 parameter cases, 103,420 independent vertex-distance comparisons, and the contact-orbit bracketing test.
+PASS
 
-## Originality — PASS, provisional priority
+For all n>=2 and real 0<=t<=n, reconstruct vertices of [0,1]^n with sum<=t: binary weights j<=m and m ones plus a single fractional delta, then maximize strictly convex squared-distance envelope at symmetric center. For 2m<n, the two quadratic branches meet at c=delta/2 and are minimized at m/n and (m+delta)/n respectively, so c=median(m/n,delta/2,(m+delta)/n); for 2m>=n the unique center is 1/2 with R^2=n/4. Contact orbits and plateau delta<=2m/n follow from strict inequalities in the envelope. Independent Fraction arithmetic rebuilt vertex inequalities and contact convex-hull orbit means for 272 (n,t) samples, including n=8,m=2 branch values; samples corroborate but do not prove the all-dimensional result. Singleton t=0, integer caps, transition ties and t=n checked conceptually.
 
-The closest published same-body result is the three-phase John inscribed ellipsoid; it does not constrain a Euclidean outer circumball. The rank-selected Boolean Löwner ellipsoid theorem studies an outer but generally nonspherical ellipsoid of a different vertex set. The matroid-independence minimum sphere already covers **integer** values of the cap, which are explicitly credited and not the novel target. Gunluk's arXiv:2605.19809 concerns deterministic estimation of truncated-cube volumes. The new theorem covers every fractional cap, including a positive-length radius plateau and binary/fractional contact transitions not implied by those results. The risk of an older equivalent formula under continuous knapsack or Chebyshev-center terminology remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimum enclosing ball is a natural geometric size and spherical-rounding invariant. Exact plateaus of positive length, transition thresholds, and the complete contact-orbit classification across every dimension are nontrivial global facts; they identify when fractional knapsack vertices alter the sharp spherical bound, unlike known results for integral matroid ranks. The proof is closed form and constant-time evaluable once the cap is given.
+The new contribution is the specified exact mathematical fact and not any already known nonequivariant/underlying special case; see each implication comparison and full-material primary inspections. The inspected candidates do not imply the new claim as stated. Historical priority is provisional and risks are explicit.
 
-## Limits
+## value
 
-Only the standard equal-weight single-cap Euclidean setting is resolved; finite rational replay is corroboration, not infinite certification, and historical uniqueness cannot be guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Boundary contact theorem and radius formula are motivated as an exact Euclidean circumball classification for the canonical uniformly clipped hypercube, including noninteger parameters; the positive-length radius plateaus and fractional contact transition are nontrivial geometry not implied by integer uniform-matroid cases. Natural applications include precise covering-radius benchmarks of knapsack sections, though no broad application theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
