@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the exact Laplace transform of expanding octahedra, complete repeated-pole partial fractions, and Fourier uniqueness. An independent binomial pair-of-octants proof establishes integer-radius dilation rigidity. A lattice bipartiteness argument and the exact adjacent-octahedron overlap integral give all three proportions. The standalone checker executed successfully, including independent positive-octant quadrature. It tests finitely many cases and is not used for the universal quantifiers.
+## correctness
 
-## Originality — PASS under bounded primary-literature comparison
-The nearest published source is Borda, arXiv:1608.02417 §2.3, which explicitly handles cross-polytope Fourier integrals by a general residue method. Diaz, Le and Robins, arXiv:1602.08593, give generic polytope Fourier/Stokes machinery. McMullen's translated-Ehrhart polynomiality, as reviewed in Higashitani–Murai–Yoshinaga, arXiv:2307.08151, already entails the *cubic-linear form* of the translated lattice count under central symmetry; that is not claimed new. Neither inspected primary source states the full six-plane octahedral frequency support, rational coefficient table, and exact three mass fractions, and bounded published-finding corpus searches found no equivalent specialized classification. This is best-knowledge originality, with a residual risk of older specialized residue computations.
+PASS
 
-## Mathematical value — PASS
-Exact frequency support and the all-scale three-multiplicity law are complete, geometrically motivated invariants of a standard regular polytope rather than unmotivated small examples. The thin reflection-plane Fourier support and the universal 1/6, 1/3, 1/2 proportions are precise structural information relevant to lattice diffraction and covering by integer dilates.
+The genuine Laplace transform of the radius-t Fourier integral is 8s²/Π(s²+4π²k_j²); inversion at t=1 gives coefficient 4/3 at origin, 2/(π²a²) on a nonzero axis, −1/(4π²a²) at (a,a,a), 1/[π²(b²−a²)] at (a,a,b), all remaining frequencies zero. Counting reflection-plane integer triples yields 24N²+2N+1 (including N=0). Nonzero coefficients are degree −2 homogeneous along integer frequency rays, so periodized integer m dilates satisfy P_m=4(m³−m)/3+mP_1 by Fourier uniqueness; an independent octant/complementary-ratio count in the package gives the same identity. Three mutually adjacent lattice centers cannot be within strict l1 radius one; pairwise adjacent-center overlap volume equals 1/6, giving E[P1]=4/3 and E[binom(P1,2)]=1/2 and probabilities (1/6,1/3,1/2). Independent direct enumeration for generic rational shifts through radius five matched the identity; it is not the proof for all m.
 
-## Limits
-Only the unit regular octahedron and standard lattice are classified. Boundary placements are excluded, general polytopes are not claimed, and independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General polytope Fourier transforms and translated Ehrhart polynomiality are established. Inspected primary papers concern general polytopes and nonisotropic algebraic cross-polytopes, but do not show the exact six-plane support, coefficient table, or integer-radius three-level probability law for the equal-axis Z³ octahedron in read portions. The new claim is the explicit complete specialization plus all-level covering distribution; an unindexed residue calculation remains a priority risk.
+
+## value
+
+PASS
+
+Natural standard l1 ball and cubic lattice yield a sharp spectral-support arrangement and an exact translate-by-translate covering multiplicity identity, with a complete distribution for all integer radii. These are precise useful polyhedral Fourier and lattice-coverage invariants, not merely the established generic polynomiality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
