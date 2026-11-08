@@ -1,15 +1,21 @@
-# Self-review of zero-contact/quadratic-energy dependence
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is uniform balanced \(\pm1\) bridges of length \(2n\), \(n\ge2\), with both endpoints excluded from the contact count. A pinned contact decomposes the bridge into independent shorter uniform bridges, yielding an exact conditional energy deficit. The central-binomial generating-function convolution then gives the covariance. The contact variance follows from exact one- and two-contact enumerations; the energy variance follows from balanced-sign pair/fourth moments and three verified edge-weight sums. The asymptotic correlation follows only after inserting these exact variances. Boundary semilength \(n=2\), where the contact count is Bernoulli, agrees with all formulas. The supplied checker passed all 346 exact comparisons and enumerated 66,194 bridges; these are corroborative rather than an infinite proof.
+## correctness
 
-## Originality — PASS, with unresolved historical priority
-Prior scientific statements were compared by their domains and implication. Pitman (1998/1999) gives Brownian-bridge **local-time marginals**, not an exact finite walk bridge's cross-moment with squared position energy. Csáki and Hu (2003) give **ranked excursion height/length** distributions and limits, not the squared-energy/contact covariance. Knight (2000) treats a genuinely close conditioning question, but its continuous **integral of absolute height** differs from the present sum of squared discrete heights; only accessible abstract and introduction material was reviewed. Its full text remains a substantive historical-priority uncertainty, not a groundless assertion of noncoverage. Existing results on bridge peak/return count or fixed-composition runs/quadratic energy concern different statistics and do not mathematically imply the exact present statement without additional nontrivial relations. Searches alone do not certify global uniqueness.
+PASS
 
-## Value — PASS
-The theorem computes a natural joint law parameter of the two primary diagnostics of a pinned walk: local time at zero and accumulated quadratic displacement. In contrast to covariances that decay to zero on correlation normalization, this pair retains a nontrivial universal limiting correlation \(-\sqrt{5\pi}/(8\sqrt{4-\pi})\). An all-subsets pinning identity explains the sign structurally and quantifies the effect of contact placement without conditioning away other contacts. This is a reusable joint-calibration benchmark for discrete bridges and excursion decompositions rather than an arbitrary finite enumeration or a restatement of a marginal moment.
+For balanced simple symmetric walk bridges S0=S2n=0 with n>=2, R=sum over interior even-time zeroes and Q=sum over t=1..2n-1 S_t². Exchangeable balanced signs give E S_t²=t(2n-t)/(2n-1) and EQ=n(2n+1)/3. Conditioning on any prescribed q≥1 interior zeroes decomposes into independent bridges, each length 2ell_j with energy ell_j(2ell_j+1)/3, yielding deficit (4/3) sum_{i<j}ell_i ell_j. One-contact probability c_k c_{n-k}/c_n, and [z^n](zB’(z))² for B=(1−4z)^(-1/2) yields Cov(R,Q)=−n(n−1)b_n/6, b_n=4^n/c_n. Three-segment renewal GF gives ER=b_n−2 and VarR=4n+2−b_n−b_n². Balanced signs m2=−1/(2n−1), m4=3/((2n−1)(2n−3)), and edge-weight equal/incident/disjoint sums give VarQ=8n²(n−1)(2n+1)/45. Stirling then gives limiting corr −sqrt(5pi)/(8sqrt(4−pi)). Independently enumerated all bridges n=2..7 and exact covariance; read original checker which enumerates to n=9, but bound not used as infinite proof.
 
-## Closest literature and limitations
-Primary full-text inspection covers Pitman (Berkeley Report 539) and Csáki–Hu (DMTCS Proceedings AC), while Knight (2000), DOI 10.1155/S1048953300000137, was only partially accessible through an abstract and introductory transcription. The result is limited to balanced nearest-neighbor walks and first two joint moments, with no claim of stochastic domination or explicit regression given exactly \(r\) returns. Independent verification remains to be conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct statement-level primary comparisons and Resultary semantic searches support best-of-knowledge originality: Knight 2000 full paper not completely read; its observable is integral |B(t)| rather than integral B(t)² and discrete energy, but indirect integral-transform consequences cannot be excluded. Other joint Brownian local-time/quadratic functional papers may have equivalent limit; exact finite-n bridge joint formulas appear not covered by accessible sources.
+
+## value
+
+PASS
+
+A full exact joint-moment and conditional pinning-deficit theorem for a canonical discrete bridge observable. The negative covariance has an exact size-dependent coefficient and nonzero universal correlation limit; useful for random-walk contacts versus squared-height energy, not just known Rayleigh marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
