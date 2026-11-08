@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:14:15.870482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the known symmetric-gate exact mean time T_h(x), independently checked the two expressions and root equations. B(x)=(exp x-1)/x² is uniformly coercive; rare-limit E_h=T_h-1/(2h) is bounded below by B. The compact C² expansions H+hJ and B+exp(x)/(x sqrt(2h)) imply convergence of all global minimizers to unique nondegenerate roots x_s=1.6244614336663, x_b=1.5936242600400; local implicit-function uniqueness follows at sufficiently small/large h. IFT expansions x_s-0.2262351716h+O(h²), and x_b-x_b/sqrt(2h)+O(h^-1) have opposite sides of x_b, forcing nonmonotonicity without all-h uniqueness. Independent numerical minimization at h=.0005,.001,.01,100,10000 agreed with limiting directions and scales. Finite samples do not prove global branch behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mercado–Vásquez and Boyer 2021 already derive exact gated MFPT and report nonmonotone optimizer when varying individual transition rates; a separate 2025 blinking target treatment analyzes hitting-time laws."
+        ],
+        "reasoning": "Earlier nonmonotonicity while one transition is held fixed changes the stationary active fraction and does not logically imply the constant-duty-cycle sign change, though a general Markov gating optimizer theorem could.",
+        "searches": [
+          "blinking gated Brownian target symmetric switching resetting optimal rate nonmonotone asymptotic",
+          "Mercado Vasquez Boyer equal switching rates nonmonotone optimal resetting 50% active"
+        ]
+      },
+      "checked_sources": [
+        "Mercado-Vásquez and Boyer, Search of stochastically gated targets with diffusive particles under resetting, arXiv:2107.02148",
+        "Żbik et al., Hitting the blinking target under stochastic resetting, arXiv:2512.09739",
+        "Mercado-Vásquez and Boyer, First Hitting Times to Intermittent Targets, DOI:10.1103/PhysRevLett.123.250603"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mercado–Vásquez and Boyer 2021 already derive exact gated MFPT and report nonmonotone optimizer when varying individual transition rates; a separate 2025 blinking target treatment analyzes hitting-time laws."
+        ],
+        "reasoning": "Differentiating known mean-time gives a candidate critical equation, but global compactness, endpoint uniqueness and positive/negative correction signs require additional inequalities. Numerical nonmonotonicity on another parameter path does not prove this theorem.",
+        "searches": [
+          "blinking gated Brownian target symmetric switching resetting optimal rate nonmonotone asymptotic",
+          "Mercado Vasquez Boyer equal switching rates nonmonotone optimal resetting 50% active"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mercado–Vásquez and Boyer 2021 already derive exact gated MFPT and report nonmonotone optimizer when varying individual transition rates; a separate 2025 blinking target treatment analyzes hitting-time laws."
+        ],
+        "reasoning": "Half-line reflecting/transparent and full-line transparent-gate formulations can yield the same T_h; the published mean-time formula and generic existence of optimal resetting are not new. The claim fixes both switch rates equal and changes their common speed.",
+        "searches": [
+          "blinking gated Brownian target symmetric switching resetting optimal rate nonmonotone asymptotic",
+          "Mercado Vasquez Boyer equal switching rates nonmonotone optimal resetting 50% active"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mercado–Vásquez and Boyer 2021 already derive exact gated MFPT and report nonmonotone optimizer when varying individual transition rates; a separate 2025 blinking target treatment analyzes hitting-time laws."
+        ],
+        "reasoning": "Published numerical optimum plots do not provide the two exact limiting optimizer roots with first-order displacement signs on the symmetric path. Search did not locate an exact tabulation of both constants.",
+        "searches": [
+          "blinking gated Brownian target symmetric switching resetting optimal rate nonmonotone asymptotic",
+          "Mercado Vasquez Boyer equal switching rates nonmonotone optimal resetting 50% active"
+        ]
+      },
+      "rationale": "Best-of-knowledge acceptance for the stated narrowly quantified original contribution; known antecedents and overlapping results explicitly excluded. Published mathematical records were queried by equivalent statements; primary literature inspected to the material actually accessible, without implying that lack of a hit guarantees novelty.",
+      "residual_risks": [
+        "The full 2021/2025 primary texts could contain symmetric-switching optimization not excluded by abstract-level inspection.",
+        "No uniqueness of minimizer or turning point is established across intermediate h."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clearly covers mean-time formula and general nonmonotone optimum; unverified complete absence of symmetric protocol treatment is a priority risk",
+          "evidence": [
+            "2021 abstract explicitly says nonmonotone optimizer in target rates; Eq.26 cited in reviewed package"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.02148",
+          "material_read": "Full arXiv abstract and published article bibliographic record; original Eq.26 identified and matched from reviewed package, but full manuscript could not be downloaded in this run",
+          "method": "ArXiv and publisher/secondary record; Oxford VPN disconnected",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "exact same Brownian target with resetting"
+        },
+        {
+          "assessment": "Potential direct overlap in moments, no whole-paper noncoverage conclusion",
+          "evidence": [
+            "Title and source identification"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.09739",
+          "material_read": "ArXiv record mentioned in reviewed references; full 2025 paper not retrieved in this run",
+          "method": "Bibliographic/targeted source query",
+          "title": "Hitting the blinking target under stochastic resetting",
+          "trigger": "recent same mechanism"
+        },
+        {
+          "assessment": "Supplies gate background; not an exact optimizer theorem in the material read",
+          "evidence": [
+            "Physical Review Letters 123 (2019) 250603 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.123.250603",
+          "material_read": "Publisher abstract and citation: Brownian search with switching target without the reviewed resetting optimizer",
+          "method": "Publisher abstract",
+          "title": "First Hitting Times to Intermittent Targets",
+          "trigger": "preceding stochastic gate kinetics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A constant active duty cycle of one half isolates target temporal correlation from equilibrium occupation; reentrance of the optimizer under this natural controlled perturbation is a nontrivial optimization phenomenon with sharp endpoint calibration. It is not a new MFPT formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full 2021/2025 primary texts could contain symmetric-switching optimization not excluded by abstract-level inspection.",
+    "No uniqueness of minimizer or turning point is established across intermediate h.",
+    "Scientific file texts were read at the frozen commit; checks independently reimplemented in private scope_worker10_checks.py where applicable. Opaque package checker scripts were not executed.",
+    "All findings are best-of-knowledge scientific assessments, not formal-proof, first-publication, or externally certified claims."
+  ],
+  "schema_version": 1
+}

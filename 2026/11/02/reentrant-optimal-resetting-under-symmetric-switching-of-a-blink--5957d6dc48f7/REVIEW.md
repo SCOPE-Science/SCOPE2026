@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact MFPT comes from the published gated-search formula. A uniform coercive bound on the renormalized mean time rules out escaping minimizers in the rare-gate limit. Local \(C^2\) expansions and strictly nondegenerate unique limiting optima yield precise endpoint expansions through the implicit-function theorem. Their signs force nonmonotonic optimal rate under symmetric gate speeding. The standalone verifier passed 1411 finite consistency assertions; it is not a proof of the global claims.
+## correctness
 
-**Originality: PASS, qualified best-knowledge.** Mercado-Vásquez and Boyer (2021) previously derived the exact MFPT and studied numerically optimal resetting with *one* gate transition changing at fixed other transition; that is not claimed. The 2025 blinking-target full text likewise provides renewal/moment formulas. The new evaluated object is the symmetric equal-transition path with fixed active fraction and the analytic singular-limit/global-minimizer reentrance proof. Related general optimal-reset and gated-target work may contain an implication not located in the checked record.
+PASS
 
-**Value: PASS.** Changing switch speed at invariant duty cycle isolates temporal gating correlations and proves they can make optimal resetting vary nonmonotonically. The endpoint constants and strict approach directions motivate rate selection when reaction targets blink much slower/faster than diffusion.
+Using the known symmetric-gate exact mean time T_h(x), independently checked the two expressions and root equations. B(x)=(exp x-1)/x² is uniformly coercive; rare-limit E_h=T_h-1/(2h) is bounded below by B. The compact C² expansions H+hJ and B+exp(x)/(x sqrt(2h)) imply convergence of all global minimizers to unique nondegenerate roots x_s=1.6244614336663, x_b=1.5936242600400; local implicit-function uniqueness follows at sufficiently small/large h. IFT expansions x_s-0.2262351716h+O(h²), and x_b-x_b/sqrt(2h)+O(h^-1) have opposite sides of x_b, forcing nonmonotonicity without all-h uniqueness. Independent numerical minimization at h=.0005,.001,.01,100,10000 agreed with limiting directions and scales. Finite samples do not prove global branch behavior.
 
-**Risks and limits.** No all-speed uniqueness or unique turning point is proved; no correlated reset clock, drift, partial absorption, or target-state resetting covered. Bibliographic coverage is qualified, particularly for broader gated diffusion theorems. Independent scientific validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge acceptance for the stated narrowly quantified original contribution; known antecedents and overlapping results explicitly excluded. Published mathematical records were queried by equivalent statements; primary literature inspected to the material actually accessible, without implying that lack of a hit guarantees novelty.
+
+## value
+
+PASS
+
+A constant active duty cycle of one half isolates target temporal correlation from equilibrium occupation; reentrance of the optimizer under this natural controlled perturbation is a nontrivial optimization phenomenon with sharp endpoint calibration. It is not a new MFPT formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
