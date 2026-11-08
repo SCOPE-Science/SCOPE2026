@@ -1,11 +1,21 @@
-# Scientific assessment: two-row product modal-atom dichotomy
+# Independent mathematical audit
 
-**Correctness — PASS.** Explicit formulas name ordered column-colour types at modal depth one. If the support is not invariant under transposition, a depth-two formula distinguishes rows; otherwise equal ordered types form a colour-preserving bisimulation. This reconstructs the exact atom partition. Surjective occupancy and transpose-orbit counting yield the finite random law; omission probabilities yield the asymptotic expansion. The standalone finite checker exhaustively compares 17,208 valuations with actual modal partition refinement, with a separate 511/65,535-support computation for three/four colours. Finite checks are corroborative, not substitutes for the infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** Aghamov–Kudinov–Nguyen–Piribauer (EPTCS 447, 2026) motivate product modalities but analyze their axioms rather than exact generated Boolean subalgebras. Shapirovsky–Sliusarev (arXiv:2404.01670) establish qualitative local-tabularity criteria; these do not imply the exact transpose-support dichotomy or Stirling occupancy law. Targeted equivalence, stronger-coverage, exact-count and implication searches did not reveal a covering statement. Residual risk: an equivalent special-case bisimulation or occupancy classification in older literature may exist.
+PASS
 
-**Value — PASS.** The modal-atom count is the exact number of logically distinguishable worlds. Its two-row classification gives a sharp bound uniform in the number of columns, a depth-two definability theorem, a nonmonotonicity example, and a complete probability law; each addresses a natural structural question in finite modal product semantics.
+Depth-one propositional/vertical formulas identify each realized ordered pair of colours; if the top-row support E differs from its transpose, a depth-two horizontal diamond picks one row, hence 2|E| atoms. If E=E^T, matching ordered-pair labels across rows defines a modal bisimulation giving |E| atoms. The asymmetric support upper bound is sharply attained, explaining nonmonotonicity. Standard surjective occupancy yields exactly t!S(m,t) words per fixed t-type support, and transpose-invariant supports are counted by coefficients of (1+z)^q(1+z^2)^[q(q-1)/2]. The first missing ordered type gives the stated positive leading expectation correction. Independent direct refinement on all 526 nonempty supports for q=2,3 confirmed the atom-count dichotomy.
 
-**Scope and limitations.** Exactly two worlds in one factor, two ordinary relational modalities, and a fixed propositional colour count for asymptotics. The result does not classify wider grids or three-modality neighborhood full products. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Aghamov et al (arxiv:2606.31852, EPTCS 447) analyze modal axioms for neighborhood full products, while Shapirovsky–Sliusarev arxiv:2404.01670 study qualitative local tabularity. Neither accessible inspected theorem supplies the precise two-row S5 frame support-vs-transpose atom dichotomy, the depth-two sharpness, or exact occupancy probability law. Earlier specialized bisimulation-count literature remains a plausible risk.
+
+## value
+
+PASS
+
+Sharp finite-modal atoms and depth, the nonmonotone column phenomenon, an exact occupancy distribution, and a positive leading asymptotic correction are concrete structural and probabilistic invariants for a natural S5 product frame; they go beyond a standard qualitative finite-model property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
