@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Exact finite checks
+# Independent mathematical audit
 
-Run `python3 check_dyadic_spectra.py` in the directory containing the two files. Only Python 3 standard-library modules are needed. This code reduces all character sums modulo the cyclotomic polynomial \(X^{2^{k-1}}+1\), which is an exact zero test for primitive \(2^k\)-th roots. It does not use floating-point approximations.
+## correctness
 
-The checked program produces:
+PASS
 
-```
-DYADIC_PARABOLA_SPECTRA_OK 1 2 bases 4
-DYADIC_PARABOLA_SPECTRA_OK 2 4 bases 64
-DYADIC_PARABOLA_SPECTRA_OK 3 8 bases 16384
-DYADIC_GAUSS_ZERO_CLASSIFICATION_OK 4 16 frequencies 256
-DYADIC_GAUSS_ZERO_CLASSIFICATION_OK 5 32 frequencies 1024
-DYADIC_GAUSS_ZERO_CLASSIFICATION_OK 6 64 frequencies 4096
-```
+For every k>=1, the normalized quadratic Gauss sum at a nonzero frequency difference is zero precisely when after removing their common 2-power either m=1 and U+V odd or m>=2 and U odd. At m>=2 an odd U cancels by half-period translation; if U even and V odd the two surviving terms in the squared modulus give 2^(m+1)>0. The lowest-differing-bit orthogonality rule forces two occupied child prefixes per occupied node; a full N=2^k family uniquely yields a 1-Lipschitz f on residues mod 2^(k−1) and one of four terminal H/V edges per residue. The count of f is 2^(2^k−2), times 4^(2^(k−1)) terminal choices, hence 2^(2^(k+1)−2). End k=1 is four edges. Exact checks of all Gauss sums for k=1..5 and constructed spectra k<=3 corroborate, not prove, the all-k statement.
 
-For each modulus from \(2\) through \(64\), every two-coefficient quadratic sum is compared against the claimed valuation/lowest-differing-bit rule. The program enumerates every predicted spectrum for moduli \(2\), \(4\), and \(8\), checking pairwise orthogonality and nonduplication. At moduli \(2\) and \(4\) it also independently checks every possible subset of the full frequency square of the requisite cardinality, verifying completeness. The unlimited-level theorem follows from the symbolic proof in `RESULT.md`; these tests are finite corroboration only.
+## originality
 
-No external validation or independent mathematical audit has been performed.
+PASS
+
+Best-of-knowledge: odd-prime parabola spectra are characterized by strictly contracting graphs, but characteristic-two Gauss zeros have distinct last-bit Hamming edge behavior. The 1D cyclic p-adic spectral/tiling theorems and finite-field extension theorems do not classify ambient two-coordinate quadratic-graph spectral partners; no implication to this exact dyadic count identified.
+
+## value
+
+PASS
+
+Characteristic-two boundary is structurally different from the known odd-prime result: a complete, unique dyadic-binary classification and closed enumeration of every orthonormal ambient spectral partner for the natural quadratic graph, including vertical top-bit frequency edges.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

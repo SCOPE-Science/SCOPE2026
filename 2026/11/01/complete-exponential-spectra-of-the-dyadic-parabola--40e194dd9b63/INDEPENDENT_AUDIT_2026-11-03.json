@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:11:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Inspected pinned RESULT.md and standalone check_dyadic_spectra.py; independently computed exact cyclotomic cancellations for k=1..5.",
+        "Enumerated all four, 64 and 16,384 constructed spectra at k=1,2,3 respectively and checked pairwise orthogonality and distinctness.",
+        "Independently reconstructed the prefix-tree capacity induction and k=1 Hamming-edge boundary."
+      ],
+      "rationale": "For every k>=1, the normalized quadratic Gauss sum at a nonzero frequency difference is zero precisely when after removing their common 2-power either m=1 and U+V odd or m>=2 and U odd. At m>=2 an odd U cancels by half-period translation; if U even and V odd the two surviving terms in the squared modulus give 2^(m+1)>0. The lowest-differing-bit orthogonality rule forces two occupied child prefixes per occupied node; a full N=2^k family uniquely yields a 1-Lipschitz f on residues mod 2^(k−1) and one of four terminal H/V edges per residue. The count of f is 2^(2^k−2), times 4^(2^(k−1)) terminal choices, hence 2^(2^(k+1)−2). End k=1 is four edges. Exact checks of all Gauss sums for k=1..5 and constructed spectra k<=3 corroborate, not prove, the all-k statement.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A. Fan, S. Fan, R. Shi, Compact Open Spectral Sets in Q_p, arXiv:1511.04837v3 Thm 1.3 classifies C subset cyclic Z/p^γ (one-dimensional); A. Iosevich, D. Koh, Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields, arXiv:0804.4505v1 Theorem 1 concerns L²→L^r finite-FIELD extension."
+        ],
+        "reasoning": "Both broad results concern different ambient objects and invariants. The graph E_k lives in (Z/2^k)^2; its basis partners are sets of pairs (u,v), not 1D spectra of a subset of Z/2^k.",
+        "searches": [
+          "arXiv:1511.04837v3 Theorems 1.1–1.3, §4–5",
+          "arXiv:0804.4505v1 quadratic surface extension Theorem 1",
+          "Resultary query dyadic quadratic graph Fourier spectra"
+        ]
+      },
+      "checked_sources": [
+        "Published SCOPE, Complete exponential spectra of the parabola over odd prime-power rings, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-exponential-spectra-of-the-parabola-over-odd-prime-powe--2cf08dd7e325",
+        "A. Fan, S. Fan, R. Shi, Compact Open Spectral Sets in Q_p, arXiv:1511.04837v3",
+        "A. Iosevich, D. Koh, Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields, arXiv:0804.4505v1",
+        "Published SCOPE, Parity-sharp fourth moments of the dyadic quadratic graph, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published SCOPE, Complete exponential spectra of the parabola over odd prime-power rings, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-exponential-spectra-of-the-parabola-over-odd-prime-powe--2cf08dd7e325 requires p odd; 2 invertible for completing squares; A. Fan, S. Fan, R. Shi, Compact Open Spectral Sets in Q_p, arXiv:1511.04837v3 one-dimensional spectral tiling equivalence."
+        ],
+        "reasoning": "Substituting p=2 into an odd-prime theorem is invalid because 2 not invertible; horizontal/vertical terminal pairs violate its graph-only conclusion, so it cannot imply this dyadic classification.",
+        "searches": [
+          "Published odd-prime spectra full RESULT.md versus dyadic RESULT.md",
+          "Fan–Fan–Shi Theorem 1.3 versus 2D quadratic graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published SCOPE, Complete exponential spectra of the parabola over odd prime-power rings, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-exponential-spectra-of-the-parabola-over-odd-prime-powe--2cf08dd7e325 full RESULT.md read; odd-p theorem explicitly restricts to odd p; A. Fan, S. Fan, R. Shi, Compact Open Spectral Sets in Q_p, arXiv:1511.04837v3 Thm 1.3 is one-coordinate cyclic spectral-set characterization."
+        ],
+        "reasoning": "Compared valuation cancellation and binary prefix-tree/Hadamard alternatives. The top-bit Hamming-edge criterion does not follow from the odd-p strict graph contraction.",
+        "searches": [
+          "Resultary semantic: dyadic parabola mod 2^k exponential orthogonal basis spectrum quadratic graph Fourier vanishing terminal pairs 1-Lipschitz",
+          "web: Hadamard matrix quadratic graph Z/2^k orthogonal frequency basis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE, Parity-sharp fourth moments of the dyadic quadratic graph, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292 computes sharp fourth-moment extension norm, not a basis-partner table.",
+          "Constructed exhaustive small counts 4,64,16384 were independently checked."
+        ],
+        "reasoning": "The small numeric counts alone are finite; the claimed all-k formula does not follow from available extension norm tables.",
+        "searches": [
+          "Resultary semantic query: dyadic parabola exact spectrum count 4 64 16384",
+          "Published dyadic fourth moments of quadratic graph"
+        ]
+      },
+      "rationale": "Best-of-knowledge: odd-prime parabola spectra are characterized by strictly contracting graphs, but characteristic-two Gauss zeros have distinct last-bit Hamming edge behavior. The 1D cyclic p-adic spectral/tiling theorems and finite-field extension theorems do not classify ambient two-coordinate quadratic-graph spectral partners; no implication to this exact dyadic count identified.",
+      "residual_risks": [
+        "Possible older implicit classification in p-adic Hadamard matrix or spectral-partner literature unindexed by searched terms.",
+        "Distinct ambient frequencies can restrict to identical functions, but the theorem counts only mutually orthogonal frequency sets, not equivalence classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ODD_PRIME_ONLY",
+          "evidence": [
+            "Theorem assumes p odd and strictly contracting frequency graph; m=1 binary terminal four-edge freedom is absent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-exponential-spectra-of-the-parabola-over-odd-prime-powe--2cf08dd7e325",
+          "material_read": "Entire RESULT.md with proof and reference list",
+          "method": "direct full GitHub raw text read",
+          "title": "Complete exponential spectra of parabola over odd prime-power rings",
+          "trigger": "closest same parabola and full basis-partner object, p odd"
+        },
+        {
+          "assessment": "DIFFERENT_AMBIENT_OBJECT",
+          "evidence": [
+            "Theorem 1.3 characterizes spectral subsets C of cyclic Z/p^γ, not bases of a graph subset of (Z/2^k)^2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1511.04837v3",
+          "material_read": "Full HTML text, Theorems 1.1–1.4 and Sections 2,4,5, canonical p-homogeneous trees",
+          "method": "arXiv lawful full HTML",
+          "title": "Compact Open Spectral Sets in Q_p",
+          "trigger": "possible broader p-adic 2-adic spectral classification"
+        },
+        {
+          "assessment": "NOT_BASIS_PARTNER_CLASSIFICATION",
+          "evidence": [
+            "Theorem 1 is a norm/extension bound over finite fields, not a prime-power ring orthogonal partner enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0804.4505v1",
+          "material_read": "Complete HTML article, Theorem 1, hypotheses on F_q^d, finite-field estimates",
+          "method": "arXiv lawful full HTML",
+          "title": "Extension theorems for Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields",
+          "trigger": "quadratic Fourier extension potential dominance"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Exact L²→L⁴ norm does not classify size-N mutually orthogonal ambient frequency sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292",
+          "material_read": "Entire RESULT.md proof of fourth-moment sharp bound",
+          "method": "published full GitHub raw file read",
+          "title": "Parity-sharp fourth moments of the dyadic quadratic graph",
+          "trigger": "same graph and characteristic-two modulus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Dyadic parabola is a canonical finite-ring quadratic graph and its 2-adic Gauss cancellation is a mathematical reason for the case split.",
+        "All-level exact enumeration can be reused in finite harmonic analysis and spectral-set classification, without asserting a general polynomial theorem."
+      ],
+      "rationale": "Characteristic-two boundary is structurally different from the known odd-prime result: a complete, unique dyadic-binary classification and closed enumeration of every orthonormal ambient spectral partner for the natural quadratic graph, including vertical top-bit frequency edges.",
+      "residual_risks": [
+        "Possible older implicit classification in p-adic Hadamard matrix or spectral-partner literature unindexed by searched terms.",
+        "Distinct ambient frequencies can restrict to identical functions, but the theorem counts only mutually orthogonal frequency sets, not equivalence classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Published SCOPE, Complete exponential spectra of the parabola over odd prime-power rings, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-exponential-spectra-of-the-parabola-over-odd-prime-powe--2cf08dd7e325",
+    "A. Fan, S. Fan, R. Shi, Compact Open Spectral Sets in Q_p, arXiv:1511.04837v3",
+    "A. Iosevich, D. Koh, Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields, arXiv:0804.4505v1",
+    "Published SCOPE, Parity-sharp fourth moments of the dyadic quadratic graph, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the graph of squaring over cyclic rings of order 2^k; no symmetry quotient or other polynomial curves.",
+    "Finite computed k<=5 cases cannot certify the infinite result without the induction already given."
+  ],
+  "residual_risks": [
+    "Possible older implicit classification in p-adic Hadamard matrix or spectral-partner literature unindexed by searched terms.",
+    "Distinct ambient frequencies can restrict to identical functions, but the theorem counts only mutually orthogonal frequency sets, not equivalence classes."
+  ],
+  "schema_version": 1
+}
