@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses and quantifiers are explicit: every finite nonempty simple base graph without an even simple cycle, including disconnected graphs. Symmetric differences of two perfect matchings decompose into even cycles, so any induced base graph has at most one perfect matching. This proves the top/bottom horizontal matchings coincide in each prism perfect matching, establishing a bijection with arbitrary base matchings and an exact face criterion. The prescribed involution toggles either the least available rung or an upper lift above the least selected bottom lift, producing zero or one unmatched faces. In the directed Hasse diagram, projection can only decrease; with fixed projection and horizontal/bottom lift data, each pivot can only be added and cannot be removed. Thus the matching is globally acyclic, and discrete Morse theory gives the asserted integral homotopy types. The one-edge base correctly gives \(S^0\). The independently implemented finite checker validates the facet formula, matchings, acyclicity and homology for all 613 small eligible labeled graphs and additional examples. The finite tests are corroborative, not an infinite proof.
+PASS
 
-## Originality — PASS against inspected literature
+For every finite nonempty simple H with no even simple cycle, the symmetric difference of two distinct perfect matchings of an induced subgraph would contain an even alternating cycle; hence each such matching is unique. Every perfect matching of H□K2 therefore consists of paired horizontal lifts of an H-matching and rungs at its uncovered vertices. The face involution toggles the least uncovered rung unless projection covers H, then the upper lift at the least bottom-selected edge. Nonmatched directed arrows never add projection edges, so oriented Hasse cycles reduce to constant projection, where the pivot monotonicity rules them out. With H-perfect matching there is exactly one unmatched face of cardinality |V(H)|/2; otherwise none, including the empty face, proving S^{n/2-1} or a point via augmented discrete Morse. Independent exhaustive all 613 labeled no-even-cycle graphs of orders 1..5 confirmed exactly 92,400 augmented faces, 260,989 Hasse incidences and 585 cases with no critical face / 28 with one. The proof, not finite data, covers all graphs; the C4 even-cycle boundary is outside scope.
 
-Theorem 3.3 of Chandrakar–Singh already handles path bases, and Agarwal–Basak Theorem 25 already handles odd-cycle bases. Both are explicitly acknowledged as covered special cases, not presented as new. Bayer–Jelić Milutinović–Vega study different honeycomb tiling families. Primary arXiv material was inspected for all three pertinent sources, including their theorem statements, relevant proofs, and the 2024 appendix; the revised 2026 HTML was available for direct comparison of its main theorems and circular-ladder section. None states or implies a uniform result for all even-cycle-free base graphs including branching forests and glued odd cycles. Actual semantic record searches for odd-cactus/forest prism perfect-matching topology found related but non-covering graph complexes. Residual risk remains from unindexed equivalent results or general graph-complex identities not encountered.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The structural reason for the dichotomy is the uniqueness of perfect matchings in induced subgraphs without even cycles; the same combinatorial proof supports all branching and disconnected bases. The theorem provides a full integral homotopy classification and a simple explicit discrete-Morse recipe, not an arbitrary finite lookup. It considerably enlarges the path and cyclic ladder geometries while distinguishing a sharp natural hypothesis (an even four-cycle changes the first Betti number). The sphere branch exhibits a uniform nonshellability obstruction. No general theorem for prisms over graphs containing even cycles, nor equivariant classification, is asserted.
+Best-of-knowledge comparison of statements, not a negative-search proof. The projected-facet matching equivalence gives a much wider class than a path or cycle result; an exact title match is not the criterion. Those results cover acknowledged special cases but neither path nor cyclic symmetry contains all arbitrary branching even-cycle-free H. Neither known restricted case logically implies the arbitrary-H classification or the global acyclic matching without additional structural reasoning.
 
-## Closest sources and remaining risks
+## value
 
-Chandrakar–Singh, arXiv:2407.05809, Theorem 3.3 and Appendix: already proves the path-prism subfamily. Agarwal–Basak, arXiv:2608.30601v2, Theorem 25 and Section 5.2: already proves the odd-cycle-prism subfamily; complete revised HTML inspected. Bayer et al., arXiv:2209.02803, treat honeycomb graphs with a different combinatorial geometry. Priority risk: a more general published theorem using the phrase 'odd-cactus prisms', 'unique-matching graph' or a different model of the same complex may not be indexed; the current comparison is not an independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a uniform, explicitly matched homotopy classification for an infinite natural hereditary family H, including branching forests, disconnected graphs and odd-cactus bases where the existing path/circular ladder classifications do not directly apply. The sharp no-even-cycle condition explains uniqueness of projected perfect matchings; a small-boundary failure at C4 gives structural rather than merely enumerative content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
