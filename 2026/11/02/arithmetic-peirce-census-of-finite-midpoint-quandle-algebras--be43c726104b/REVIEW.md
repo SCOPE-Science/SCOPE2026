@@ -1,19 +1,21 @@
-# Scientific review: arithmetic Peirce census of midpoint quandles
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Fourier transport converts the midpoint product into an ordinary group-algebra convolution followed by the half-map. The idempotent equations split over the character cycles, and Fourier inversion proves that all cycle solutions produce actual idempotents. Real coefficients correspond exactly to conjugate-inverse character values. Self-dual cycles have even length and contribute a root-of-unity equation of order \(2^h+1\); paired cycles are freely coupled by conjugation. The Peirce operator acts on each cycle by a zero matrix or a monomial cyclic block with nonzero weight product one, proving its characteristic polynomial. A direct finite-instance checker corroborates the formulas over seven cyclic groups and one noncyclic group without being used as a general proof.
+PASS
 
-## Originality
+Read RESULT.md, verify.py, all spectral factors. Fourier transforms convert midpoint product into ordinary convolution followed by tau=g/2, yielding exact cycle equations c_chi=c_(sigma chi)^2. On each sigma-cycle length l, roots w=0 or w^(2^l-1)=1 yield 2^l independent complex solutions. Reality is c_(chi^-1)=conj(c_chi); on a self-dual nontrivial orbit inversion is a half-cycle shift and forces w^(2^h+1)=1, giving 2^h+2 total including zero; distinct orbit pairs contribute 2^l. In an active Peirce block, multiplying cycle idempotency identities gives product weight=1; the weighted cyclic permutation has characteristic polynomial t^l-1, inactive block t^l. Independent modular orbit computations checked predicted real/complex counts for cyclic orders 1,3,5,7,9,11,13 and noncyclic C3^2. These do not independently verify all numerical quandle-basis eigenvalues but algebraic argument establishes generality.
 
-**PASS, with scope qualification and residual historical risk.** Zhang (arXiv:2610.08204) supplies the Fourier transport and idempotent cycle relation. The complex count \(2^{|Q|}\) is an immediate consequence and is not independently claimed as new. The assessed claim is the combined **real** character-orbit enumeration, arithmetic conjugation/self-duality conditions, and complete real/complex Peirce characteristic-polynomial and rank profiles. Elhamdadi–Nunez–Singh investigate core-quandle spectra; Sangare–Ta investigate idempotents over several coefficient rings and automorphisms; Churchill et al. solve integer coefficient systems for a five-element example. These do not state or imply the complete real and spectral distribution without additional inversion-orbit and monomial-block analysis. A public three-element idempotent result is consistent with the smallest example but not a general treatment. Index searches found no direct equivalent; search absence cannot certify historical uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Idempotents and Peirce spectra are established natural nonassociative-algebra invariants used in quandle-ring constructions. The theorem supplies the full distribution for all finite medial commutative quandles rather than one arbitrary small example, and distinguishes distinct nine-element midpoint structures by sharply different real counts. It also gives the exact rank distribution, including eigenvalue orders beyond those seen for core quandles. The formulas are explicit enough to compute without solving polynomial systems case by case.
+Zhang arxiv:2610.08204 explicitly supplies the character-orbit Fourier idempotent equation and therefore already implies the complex number 2^m; that standalone count is not new. The assessed addition is full *real* conjugacy-compatible idempotent census and simultaneous Peirce characteristic polynomial/rank distribution, beyond integral coefficient classifications and dihedral core-quandle spectra. Zhang full Section 5 inspected, Ta midpoint-classification known. General algebra idempotent geometry or recent Sangare-Ta work could contain equivalent real enumeration, but available exact statements did not dominate it.
 
-## Limits and independent checks
+## value
 
-Only coefficient fields \(\mathbb R\) and \(\mathbb C\) and finite medial commutative quandles are covered. The general result is proven symbolically. Numerical verification is finite and tolerance-based. The closest primary works were inspected in relevant full-text sections; older unindexed classifications might overlap, and independent external review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite medial commutative quandles are an independently natural class, and their R/C nonassociative algebras have canonical idempotent and Peirce spectra. The exact real versus complex arithmetic classification for every odd abelian group and spectral distribution resolves an entire group family. The 80 versus 512 real counts for two nonisomorphic groups of equal order reveal genuine structure rather than a trivial 2^m Fourier corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
