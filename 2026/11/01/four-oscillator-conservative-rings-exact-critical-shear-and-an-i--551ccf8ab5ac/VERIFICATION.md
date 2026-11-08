@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The embedded `check.py` is a standalone, locally executable diagnostic. Running `python check.py` with NumPy and SciPy performed 2,000 vector-field cross-checks, 12 direct-ODE trajectory checks of invariant quantities, three parameter-pair critical coefficient/scaling checks, and five finite midpoint-quadrature tests of the conditional Haar period tail. All of these completed successfully on the preserved source code. The derived algebraic formulas, Morse classification, and coarea integrability argument are mathematical proofs and do not depend on sampling.
+# Independent mathematical audit
 
-No numerical experiment was used to assert that all parameter values or all initial phases were exhaustively enumerated. No independent external mathematical audit has been performed. The 2018 SIAM article was inspected through a lawful institutional text copy of the relevant sections, but this does not establish universal historical priority against every earlier paper.
+## correctness
+
+PASS
+
+Differentiate bond phases y_j=θ_{j+1}−θ_j to obtain dot y_j=F(y_{j+1})−F(y_{j−1}), conserving y1+y3=a. Torus coordinates u,v yield dot u=A(a)sin v, dot v=B(a)sin u and H=B cos u−A cos v. Solving B=0 and A=0 gives exactly two leaves a_±; independently differentiated AB at a_- and verified |(AB)'|=4cd, nonzero shear κ=4cd/sqrt(c²+d²). On a shear leaf the moving angle rotates with speed κ sin(frozen angle), primitive P=2π/(κ|sin w|), whose exact Haar distribution gives inverse-time tail and divergent mean. Otherwise H is Morse with 2 centers and 2 saddles; by coarea E[P] reduces to integral P(E)² dE, locally finite because saddle period diverges logarithmically. Center period 2π/sqrt(|AB|) therefore tends to π/sqrt(cd)|a−a±|⁻½. Assumption is conditional Haar on leaf and reduced modulo overall phase; no full-space claim.
+
+## originality
+
+PASS
+
+Pikovsky 2026 develops general conservative nearest-neighbor phase differences and Burylko et al 2018 present four-oscillator periodic foliation and integrals in a specialized model. Neither inspected result computes the location of the two mixed-coupling shear leaves or this conditional Haar primitive-period law and its moment contrast. These exact quantitative laws are plausibly new; older specialized integrable oscillator work remains a priority risk.
+
+## value
+
+PASS
+
+The exact exceptional-shear probability tail reveals infinite mean periods on codimension-one conserved leaves despite almost-everywhere finite mean periods on regular neighboring leaves. Coupling-dependent locations and universal power-law coefficient quantify a real degenerate integrable bifurcation, beyond known integrability statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
