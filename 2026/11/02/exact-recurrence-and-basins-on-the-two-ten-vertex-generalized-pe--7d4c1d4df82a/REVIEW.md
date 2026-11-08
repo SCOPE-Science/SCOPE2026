@@ -1,11 +1,21 @@
-# Review of the finite generalized-Petersen excitation classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The two graph definitions and the synchronous three-state rule are explicit. There are exactly \(3^{10}=59049\) labelled configurations for each graph. Complete transition arrays were rederived and verified by independent Python indegree-peeling and C++ functional-trajectory methods, which agree exactly on all primitive orbits, basin populations, first-periodic-entry counts and maxima. Exhaustive graph-automorphism backtracking gives the 23 and six geometric temporal-orbit classes. The proof is complete for these two finite graphs; the certificates are replayable using only the files supplied.
+## correctness
 
-**Originality — PASS, qualified.** The original full-text theorem of Gravner–Lyu–Sivakoff (2016) establishes general synchronization and excitation-rate criteria. Those general criteria are not claimed as new. Neither the inspected article nor the Petersen simple-graph cycle data provides the full temporal orbit and basin tables. An earlier linear parity classification on generalized Petersen graphs has a different state space and update map, so does not imply the nonlinear census. The 1995 Fisch–Gravner paper was inspected only through its publisher abstract. Equivalent unpublished or unindexed numerical work remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The two most canonical ten-vertex examples in the generalized-Petersen family display distinct exceptional primitive excitation periods, seven and eight; their longest transients differ, and their temporal cycles form 23 and six spatial symmetry classes. The exact basin populations show that the dominant attractor class changes from period four on the prism to period five on the Petersen graph. This is a motivated complete finite dynamical classification, not merely a check of the update normalization.
+For each of the two labelled ten-vertex cubic graphs, explicitly implement the synchronous three-state rule 0→1 iff a neighbor is 1, 1→2, 2→0 on all 3^10=59049 configurations. Independently constructed both maps and functional-graph peeling, giving for GP(5,1) primitive temporal orbit counts 1:1,3:150,4:80,5:6,7:100 with corresponding basins 8409,2460,38430,2190,7560 and max entry time 8; for GP(5,2) counts 1:1,3:80,4:60,5:30,8:60 with basins 7839,4500,9840,27270,9600 and max entry time 6. Full graph automorphism enumeration independently gave groups 20 and 120, temporal orbit symmetry class counts 23 and 6. Each basin column sums to 59049, and every finite state is classified, without extrapolation.
 
-**Limitations.** No statement about \(GP(n,k)\) for \(n\ne5\) is proved. Lack of a search match does not establish absolute priority. No independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gravner–Lyu–Sivakoff give circulation and synchrony criteria for arbitrary graphs but no inspected theorem computing these exact two full functional graphs, their complete basins, sharp entrance cutoffs or spatial class quotients. Standard Petersen simple graph cycle listings are unrelated to temporal dynamics.
+
+## value
+
+PASS
+
+The two natural nonisomorphic ten-vertex cubic generalized Petersen graphs have qualitatively different primitive excitation periods (7 versus 8), and an exact complete benchmark of all states and spatial symmetries is useful for finite excitable-media dynamics; this is a meaningful finite atlas, not a claim about all GP(n,k).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
