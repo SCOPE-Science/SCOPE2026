@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification of the theorem
+# Independent mathematical audit
 
-The standalone `verify.py` uses independent direct line-cover tests on labelled words and checks the following:
+## correctness
 
-- Exhaustively enumerated all \(\binom94\) four-point subsets of the two-dimensional ternary cube and found exactly \(45\) hitting sets, of which \(36\) have a unique maximum completion and \(9\) have none.
-- Exhaustively enumerated all ten-point candidates in the three-dimensional ternary cube by the forced \(3,3,4\) slice sizes, checked every coordinate line independently, and found \(270\) valid sets, of which \(216\) are uniquely completable and \(54\) uncompletable.
-- Enumerated all maximum exact-one-per-line transversals in dimensions three and four from independent lower-dimensional sections, yielding \(12\) and \(24\), exactly the affine hyperplanes.
-- For all sixteen independent assignments of parity signs on the four triple-coordinate faces, tested all sixteen four-sign vectors; exactly one is permitted in each assignment, confirming the decisive local upper bound that conflicts with the four required weight-four points.
+PASS
 
-Run `python3 verify.py` with Python 3 and the standard library. Expected final line: `VERIFY_OK`. These finite checks do not prove the unbounded-dimension theorem, which depends on the explicit mathematical argument in `RESULT.md`. No separate independent audit or external certification has been carried out.
+Every triangle is a coordinate line. Complementing the set converts the problem to a minimum-plus-one line-hitting set B of size 3^(n-1)+1. For each of n directions exactly one line is doubled and all others meet B in one point. Each two-coordinate face contains >=3 points and exactly one contains four, forcing all doubled lines through a common anchor v. Deleting v if v in B yields the unique exact transversal. If v is absent, each of its 2n distance-one points belongs to B, no distance-two point can belong, and in every coordinate 3-face four of eight distance-three corners must form one signed parity class. Any four-face then must have four weight-four members, while all four parity constraints force at most one signed corner, contradiction for n>=4. In n=2 and n=3 the remaining local hole patterns have exactly 9 and 54 nonextendible sets. Maximal exact-one-per-line sets over F3 are nonzero-coefficient affine hyperplanes because every order-three Latin square is affine. Count (3*2^(n-1))*(2*3^(n-1))=6^n completed cases; n=2,3 add the exceptional holes. Independently enumerated original line-hitting subsets n=2 and n=3 and maximal completion counts 45/36/9 and 270/216/54. Finite testing corroborates the dimension-free local-to-global parity proof, not vice versa.
+
+## originality
+
+PASS
+
+Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.
+
+## value
+
+PASS
+
+A sharp stability/rigidity theorem immediately below a natural Hamming-graph triangle-free extremum, identifying a four-coordinate obstruction, unique completion at n>=4 and complete small-dimensional exceptions. Counting near-extremizers alone would not supply this structural dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

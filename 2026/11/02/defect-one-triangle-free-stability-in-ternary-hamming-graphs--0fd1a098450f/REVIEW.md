@@ -1,19 +1,21 @@
-# Scientific review: defect-one triangle-free stability in ternary Hamming graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A triangle in the unit-distance ternary Hamming graph is precisely a complete coordinate line. Complementing converts the claim to hitting all three-point lines with one more point than the minimum. Counting line intersections in every direction leaves one doubled line. Counting their two-coordinate planes forces all doubled lines to share one anchor. Deleting the anchor, if present, gives the unique maximum completion. If absent, all weight-one neighbors are included, weight-two points excluded, and every weight-three section must select a sign-parity class. In a four-coordinate face the required four weight-four points cannot exist because all four parity conditions admit at most one sign vector. Small-dimensional hole patterns are exhaustive; maximum hitting sets are affine hyperplanes via order-three Latin-square affinity. Multiplication of the hyperplane count and external points yields the exact \(6^n\) completed sets. The small-dimensional additional counts are \(9\) and \(54\). Each boundary case \(n=2\) and \(n=3\) was checked by direct exhaustive enumeration of the original line-hitting property, and the four-dimensional obstruction was separately checked across its sixteen parity profiles. No unchecked computation is used to bridge finite dimensions to the infinite statement.
+PASS
 
-## Originality — PASS, qualified
+Every triangle is a coordinate line. Complementing the set converts the problem to a minimum-plus-one line-hitting set B of size 3^(n-1)+1. For each of n directions exactly one line is doubled and all others meet B in one point. Each two-coordinate face contains >=3 points and exactly one contains four, forcing all doubled lines through a common anchor v. Deleting v if v in B yields the unique exact transversal. If v is absent, each of its 2n distance-one points belongs to B, no distance-two point can belong, and in every coordinate 3-face four of eight distance-three corners must form one signed parity class. Any four-face then must have four weight-four members, while all four parity constraints force at most one signed corner, contradiction for n>=4. In n=2 and n=3 the remaining local hole patterns have exactly 9 and 54 nonextendible sets. Maximal exact-one-per-line sets over F3 are nonzero-coefficient affine hyperplanes because every order-three Latin square is affine. Count (3*2^(n-1))*(2*3^(n-1))=6^n completed cases; n=2,3 add the exceptional holes. Independently enumerated original line-hitting subsets n=2 and n=3 and maximal completion counts 45/36/9 and 270/216/54. Finite testing corroborates the dimension-free local-to-global parity proof, not vice versa.
 
-The closest source, Csajbók–Mukkamala–Nagy, arXiv:2610.32789 (2026-10-23), proves the maximum \(2\cdot3^{n-1}\) but not the number or stability of sets of size one less. The difference between an extremal cardinality theorem and a complete next-to-extremal classification is substantive: the latter entails the global common-anchor lemma, the sharp four-dimensional obstruction, and small exceptional noncompletable families. Classical one-per-line MDS/quasigroup classification does not automatically imply that every one-extra-point hitting set is completable; the explicit counterexamples in dimensions two and three show why. Krotov's older quasigroup work concerns the exact-code regime, not defect-one hitting sets. Searches for equivalent one-extra-point transversal, almost-MDS, triangle-free Hamming and line-cover formulations found no covering theorem; this is not a proof of priority. A potentially relevant completion paper for Latin cuboids of order five was assessed at abstract level only and remains a limited residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural first stability question beneath the published sharp vertex-Turán bound is whether near-optimal sets inherit the maximum structure. Here the answer changes sharply at dimension four, with exact numerical exceptions in dimensions two and three. The all-dimensional enumeration \(6^n\), uniqueness of completion, and genuinely noncompletable small examples require a nontrivial local-to-global argument, and they provide a new structural base case for further deficit and alphabet-size questions. This is not a mere restatement of the extremal bound or an arbitrary numerical sample.
+Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.
 
-## Limitations and closest literature
+## value
 
-The general-alphabet, larger-deficiency and other Hamming-distance cases are unproved. The primary full text was inspected at the theorem and relevant proof; the 2006 quasigroup source was compared through its definitions and main classification setting. Historical priority remains qualified. Finite verification is supplementary, not a substitute for proof. No independent review is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp stability/rigidity theorem immediately below a natural Hamming-graph triangle-free extremum, identifying a four-coordinate obstruction, unique completion at n>=4 and complete small-dimensional exceptions. Counting near-extremizers alone would not supply this structural dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

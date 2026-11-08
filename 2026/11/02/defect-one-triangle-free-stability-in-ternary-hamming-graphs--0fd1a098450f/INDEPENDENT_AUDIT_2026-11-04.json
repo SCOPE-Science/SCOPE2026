@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:51:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every triangle is a coordinate line. Complementing the set converts the problem to a minimum-plus-one line-hitting set B of size 3^(n-1)+1. For each of n directions exactly one line is doubled and all others meet B in one point. Each two-coordinate face contains >=3 points and exactly one contains four, forcing all doubled lines through a common anchor v. Deleting v if v in B yields the unique exact transversal. If v is absent, each of its 2n distance-one points belongs to B, no distance-two point can belong, and in every coordinate 3-face four of eight distance-three corners must form one signed parity class. Any four-face then must have four weight-four members, while all four parity constraints force at most one signed corner, contradiction for n>=4. In n=2 and n=3 the remaining local hole patterns have exactly 9 and 54 nonextendible sets. Maximal exact-one-per-line sets over F3 are nonzero-coefficient affine hyperplanes because every order-three Latin square is affine. Count (3*2^(n-1))*(2*3^(n-1))=6^n completed cases; n=2,3 add the exceptional holes. Independently enumerated original line-hitting subsets n=2 and n=3 and maximal completion counts 45/36/9 and 270/216/54. Finite testing corroborates the dimension-free local-to-global parity proof, not vice versa.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Csajbók--Mukkamala--Nagy prove the sharp maximum size 2q^(n-1) for general q, but not the one-less layer in the accessible statement."
+        ],
+        "reasoning": "More general q in a maximum-size bound is not stronger in the deficit-one classification; affine quasigroup characterization supplies only the maximum objects.",
+        "searches": [
+          "arXiv:2610.32789 Theorem 1.3",
+          "arXiv:math/0607284",
+          "maximum triangle-free induced subgraph ternary Hamming graph near maximum stability defect one"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen Git RESULT.md, VERIFY.py and all metadata/review/verification files",
+        "arXiv:2610.32789 accessible abstract and specific cited theorem (full unavailable)",
+        "arXiv:math/0607284 original full PDF relevant definitions",
+        "DOI:10.1002/jcd.21954 abstract only",
+        "Resultary semantic queries on near-maximum ternary Hamming/line blocking"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximum size of 2*3^(n-1) and affine exact transversals do not determine whether every defect-one set extends uniquely; n=2,3 provide counterexamples."
+        ],
+        "reasoning": "The new local-hole parity and four-face contradiction are essential extra content not supplied by the published cardinality inequality.",
+        "searches": [
+          "arXiv:2610.32789 Theorem 1.3",
+          "arXiv:math/0607284"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triangle-free complements correspond exactly to coordinate-line hitting sets; minimum hitting sets correspond to order-three distance-two MDS codes / Latin quasigroups."
+        ],
+        "reasoning": "An exactly transversal MDS classification is not equivalent to classifying all minimum-plus-one hitting sets. Explicit n=2,3 noncompletable examples show why completion is an additional theorem.",
+        "searches": [
+          "arXiv:2610.32789",
+          "arXiv:math/0607284",
+          "Ternary order-3 coordinate line blocking sets size 3^(n-1)+1 unique completion dimension 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small n=2 and n=3 line-cover totals independently reproduced; no previously published exact defect-one table discovered in searched materials."
+        ],
+        "reasoning": "Known Latin/MDS code enumerations cover exact transversals. Failure to locate a broader defect-one table is not a novelty proof; this remains an explicitly qualified historical risk.",
+        "searches": [
+          "ternary line-hitting sets n 2 n 3 45 270",
+          "Resultary search:Ternary order-3 coordinate line blocking sets size 3^(n-1)+1 unique completion dimension 4",
+          "arXiv:math/0607284"
+        ]
+      },
+      "rationale": "Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.",
+      "residual_risks": [
+        "The same 2026 primary Hamming-graph paper has not been compared through the entire primary text; implicit stability corollary remains possible. Oxford access returned vpn_disconnected, not a scientific disproof.",
+        "A historical one-extra-point transversal theorem under almost-MDS or covering terminology could be equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible published statement establishes maximum size 2q^(n-1), not the defect-one count, four-dimensional rigidity or exceptional n2/n3 holes. A complete primary-text comparison is still needed to rule out an implicit stronger statement.",
+          "evidence": [
+            "arXiv:2610.32789, stated Theorem 1.3 maximal cardinality, compared against n-specific near-maximum enumeration."
+          ],
+          "identifier_or_url": "arXiv:2610.32789; Csajbók--Mukkamala--Nagy (2026-10-23)",
+          "material_read": "Public arXiv metadata/abstract and separately stated Theorem 1.3, §3.1 as cited in assigned package; complete full text could not be obtained in this execution",
+          "method": "arXiv abstract and theorem comparison in source record; direct OA attempt unsuccessful; authorized Oxford retrieval returned vpn_disconnected and was not bypassed",
+          "title": "Triangle-Free Sets in Exact-Distance Hamming Graphs",
+          "trigger": "Identical ternary Hamming graph and immediate maximum triangle-free bound"
+        },
+        {
+          "assessment": "Concerns exact-one-per-line quasigroup/MDS objects; does not in inspected material classify transversals with one additional point and no exact completion.",
+          "evidence": [
+            "Abstract and introduction explicitly focus on reducibility of n-ary quasigroups and relation to distance-two MDS codes."
+          ],
+          "identifier_or_url": "arXiv:math/0607284; https://arxiv.org/pdf/math/0607284; Krotov",
+          "material_read": "Full accessible arXiv PDF, abstract, introduction and relevant definitions concerning quasigroups and distance-two MDS codes; full proof of all lemmas not audited",
+          "method": "Primary full text plus PDF screenshot page 1, compare code cardinality/domain",
+          "title": "On reducibility of n-ary quasigroups",
+          "trigger": "MDS/Latin quasigroup equivalent to exact coordinate-line transversal"
+        },
+        {
+          "assessment": "Order-five Latin structures are not the same as a one-extra-point cover of all ternary coordinate lines. Hidden corollaries not excluded.",
+          "evidence": [
+            "The alphabet size and completion problem differ from this ternary Hamming near-extremal setting."
+          ],
+          "identifier_or_url": "DOI:10.1002/jcd.21954; Perezhogin--Potapov--Vladimirov",
+          "material_read": "Publisher abstract and bibliographic metadata only",
+          "method": "Abstract-only comparison; no unsupported full-document noncoverage",
+          "title": "Every latin hypercube of order 5 has transversals",
+          "trigger": "Completion/Latin cuboid terminology potentially equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp stability/rigidity theorem immediately below a natural Hamming-graph triangle-free extremum, identifying a four-coordinate obstruction, unique completion at n>=4 and complete small-dimensional exceptions. Counting near-extremizers alone would not supply this structural dichotomy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen Git RESULT.md, VERIFY.py and all metadata/review/verification files",
+    "arXiv:2610.32789 accessible abstract and specific cited theorem (full unavailable)",
+    "arXiv:math/0607284 original full PDF relevant definitions",
+    "DOI:10.1002/jcd.21954 abstract only",
+    "Resultary semantic queries on near-maximum ternary Hamming/line blocking"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The same 2026 primary Hamming-graph paper has not been compared through the entire primary text; implicit stability corollary remains possible. Oxford access returned vpn_disconnected, not a scientific disproof.",
+    "A historical one-extra-point transversal theorem under almost-MDS or covering terminology could be equivalent."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only alphabet F3, unit Hamming distance and deficiency exactly one below the maximum; no larger alphabets/other distance/deficit asserted.",
+    "Full text of the October 2026 closest extremal paper was not newly accessible; its abstract and cited theorem boundary were compared with documented residual priority risk.",
+    "Independent finite line-cover computations handle n=2,3 only; all-n proof rests on the four-coordinate obstruction and Latin-square affinity."
+  ]
+}
