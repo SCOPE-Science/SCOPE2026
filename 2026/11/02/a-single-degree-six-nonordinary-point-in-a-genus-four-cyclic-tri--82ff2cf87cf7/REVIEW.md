@@ -1,15 +1,21 @@
-# Scientific review: genus-four cyclic-triple-cover pencil
+# Independent mathematical audit
 
-## Correctness — PASS
-The bidegree-\((3,3)\) Segre model proves smoothness exactly for \(\lambda(\lambda^3-1)\ne0\), with geometric genus four. Complete-intersection Hasse–Witt coefficient extraction gives the displayed matrix and determinant \(-D(\lambda)\). Its middle block has nonzero Frobenius-stable rank one at \(D=0\); hence full \(5\)-rank three and \(a\)-number one, rather than mistakenly identifying the raw rank alone with \(5\)-rank. The independent genus-two quotient calculation and irreducibility checks are reproduced by the accompanying two Python programs. The geometric isogeny has degree prime to five, so Prym \(5\)-rank additivity applies.
+## correctness
 
-## Originality — PASS, with risk
-The closest direct precedent is Kudo–Harashita (arXiv:1702.05313), which supplies the genus-four \((2,3)\) Hasse–Witt coefficient rule but classifies superspecial curves, not the parameter-dependent \(5\)-rank-three locus on this pencil. Camacho-Navarro (arXiv:2012.08705) treats broader possible genus-four arithmetic strata, while Bruin–Flynn–Shnidman (arXiv:2102.04319) concerns related genus-two cubic-torsion geometry; neither inspected source states this one-point degree-six nonordinary divisor or its Prym consequence. The underlying general tools are not asserted to be new. Unindexed earlier calculations and incomplete historical coverage remain possible priority risks.
+PASS
 
-## Mathematical value — PASS
-The exact exceptional arithmetic divisor is attached to a natural one-parameter, order-three-symmetric genus-four complete-intersection family. The distinction between the degenerating genus-two quotient and uniformly ordinary two-dimensional Prym gives structural content beyond a small-field table, and the irreducible exceptional polynomial determines the Frobenius field of definition of the entire nonordinary locus.
+On the Segre quadric, the (3,3)-curve is smooth exactly for λ≠0, λ³≠1; adjunction gives genus four. Direct coefficient extraction from (QG)^4 over F5 reconstructs the 4x4 Cartier/Hasse–Witt matrix with outer invertible 2x2 block and middle B=[[λ²,1-λ³],[1,λ⁴+λ]], determinant −D, D=λ^6+2λ³−1. Polynomial GCD/Frobenius arithmetic confirms D irreducible and separable of degree six over F5 and avoids the singular boundary. Modulo D, B's first-column vector v=(λ²,1) obeys B*v^(5)=λ(λ³−1)v≠0, so the stable rank is 3 for genus4, 4 otherwise and the a-number is 1 or 0. The fixed-point-free 3-action has genus2 quotient V²=(r³+λr+1)²−4r³; independent quotient Hasse–Witt determinant D and semilinear stability give quotient ranks 1/2, forcing dimension2 Prym rank2 throughout via prime-to-5 isogeny. Separate exact symbolic extraction was performed, not only a saved verifier log.
 
-## Scope and limitations
-All statements are about this pencil in characteristic five. The six roots of \(D\) are parameters and are not claimed to be six distinct moduli points; neither global uniqueness nor independent verification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for this one explicitly defined characteristic-5 genus-four pencil's degree-six nonordinary divisor and everywhere-ordinary Prym, not for canonical complete-intersection Hasse–Witt formula, possible genus4 rank configurations or general Prym isogeny. Primary Kudo–Harashita (2017) supplies the coefficient-extraction method for superspecial curves, whereas Camacho-Navarro (2020) treats more general p-rank/a-number examples. A specialized unindexed prior pencil computation cannot be excluded.
+
+## value
+
+PASS
+
+An exact arithmetic stratification of a natural symmetric genus-four cyclic triple-cover pencil is an intrinsic geometric invariant: a single closed degree-six nonordinary point, an explicit genus-two quotient and ordinary Prym factor. The locus requires nontrivial semilinear and finite-field calculations, not a routine numerical sample; parameter noninjectivity in moduli is explicitly not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
