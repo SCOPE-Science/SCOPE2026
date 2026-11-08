@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The denominator roots lie in the open right half-plane, ensuring an everywhere-defined row-stochastic rational map for CTMC generators. The first four nonconstant Taylor coefficients are positive, giving the \\(n\\le5\\) statement through shortest positive-rate paths, including unreachable states. A six-state absorbing pure-birth generator has exact transient Jordan derivatives \\(c_0,\\ldots,c_4\\) and positive complementary entries \\(b_1,\\ldots,b_4\\); \\(b_5=h^5P(h)/D(h)^5\\), where \\(P\\) is strictly increasing from \\(P(0)<0\\). Hence the complete nonnegative-step set is \\(\\{0\\}\\cup[\\alpha,3]\\), with \\(\\alpha\\) the unique positive root and \\(h>3\\) excluded by a negative diagonal. Five exact symbolic derivative identities and five complement identities were checked independently; the packaged rational-matrix verifier compares 504 entries at 14 steps, corroborating but not substituting for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lóczi–Ketcheson (2013) studies maximal absolute-monotonicity radii of rational functions rather than the sharp finite Markov state-space requirement.",
+        "Zappavigna et al. (2012) provide negative diagonal-Padé examples on Metzler systems that are not conservative generators.",
+        "The 2015 TR-BDF2 analysis pertains to another integrator."
+      ],
+      "reasoning": "A zero uniform absolute-monotonicity radius concerns unrestricted positivity requirements and does not entail a numerical dimension-six lower bound for conservative generators, the five-state guarantee or the exact special-chain stochasticity set. The stronger-sounding broad positivity results have different hypotheses or maps, so they do not dominate this claim.",
+      "searches": [
+        "stability function Padé [1/2] absolute monotonicity complex poles directed path Markov positivity",
+        "Zappavigna Colaneri Kirkland Shorten 2012 Padé [1/2] conservative generators dimension 6",
+        "Radau IIA Padé [1/2] minimal state-space dimension for Markov positivity and nonnegativity window",
+        "https://arxiv.org/abs/1303.6651"
+      ]
+    },
+    "checked_sources": [
+      "Zappavigna et al. (2012), Essentially Negative News About Positive Systems, https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "Brugnano et al. (2013), Radau collocation methods, https://arxiv.org/abs/1302.1037",
+      "Lóczi and Ketcheson (2013), absolute monotonicity, https://arxiv.org/abs/1303.6651",
+      "Bonaventura and Della Rocca (2015), TR-BDF2 positivity, https://arxiv.org/abs/1510.04303",
+      "Eight-state [2/2] Padé published-finding corpus public theorem, 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The public [2/2] theorem uses a vanishing coefficient at degree six and a negative coefficient at degree seven, yielding an eight-state obstruction.",
+        "For [1/2] Radau IIA the coefficients through degree four are positive and degree five is negative, yielding a distinct six-state mechanism.",
+        "The 2012 examples fail the row-sum-zero CTMC hypothesis; the 2013 Radau implementation source lacks the exact conservative dimension characterization."
+      ],
+      "reasoning": "Neither a counterexample for [2/2] nor a nonconservative positive-system counterexample logically implies the sharp cutoff for [1/2] among all CTMC generators. A generic low absolute-monotonicity radius also cannot establish the five-state universal lower bound or a complete safe-step interval. No inspected stronger theorem has hypotheses and conclusions sufficient to imply both pieces.",
+      "searches": [
+        "Radau IIA third order directed continuous time Markov chain pure birth chain nonnegative positivity dimension threshold absolute monotonicity rational function",
+        "stability function Padé [1/2] absolute monotonicity complex poles directed path Markov positivity",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+        "https://arxiv.org/abs/1302.1037"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The [1/2] Radau map has numerator 6+2z and denominator z²-4z+6; its first wrong-signed Maclaurin coefficient is degree five.",
+        "The [2/2] Gauss–Legendre published result uses numerator 12+6z+z², denominator 12-6z+z² and sharp dimension eight.",
+        "No matching statement was identified in the retrieved published-finding corpus searches for conservative pure-birth chains and [1/2] Radau."
+      ],
+      "reasoning": "Alternate descriptions include endpoint stochasticity of an implicit RK integrator, Markov positivity of subdiagonal [1/2] Padé, and sign preservation of a pure-birth chain. None of the searched records gave the six-state local threshold or the complete polynomial interval, and the closest eight-state result concerns a non-equivalent rational function.",
+      "searches": [
+        "Radau IIA third order directed continuous time Markov chain pure birth chain nonnegative positivity dimension threshold absolute monotonicity rational function",
+        "third-order Radau IIA positivity pure birth generator Jordan block entrywise negative for every small time step dimension",
+        "two-stage Radau IIA [1/2] Padé six-state conservative Markov generator pure birth negative probability at arbitrarily small steps",
+        "Radau IIA Padé [1/2] minimal state-space dimension for Markov positivity and nonnegativity window",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published [2/2] Padé record gives a sharp threshold of eight states and a different sixth-degree root polynomial.",
+        "published-finding corpus records for SSP-SDIRK2(2) and Crank–Nicolson treat other endpoint maps.",
+        "No inspected database entry or cited table contained the exact polynomial \\(P(h)=h^5+30h^4+180h^3+360h^2+180h-72\\) for six-state Radau IIA."
+      ],
+      "reasoning": "A matching table would need the same method, conservative Q, first sign loss near zero and the exact safe-step classification; the closest indexed tables have different maps and polynomials. An unsuccessful table search is not conclusive evidence of nonexistence.",
+      "searches": [
+        "R(z)=(6+2z)/(z²-4z+6) minimum CTMC dimension stochasticity threshold positive step interval",
+        "Radau IIA Padé [1/2] minimal state-space dimension for Markov positivity and nonnegativity window",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ]
+    },
+    "rationale": "An inspected published eight-state [2/2] Padé theorem is an important structural analogue but uses a different stability map with its first negative coefficient at degree seven rather than five. The inspected 2012 positivity paper establishes unconstrained Metzler counterexamples for diagonal Padé maps without the Markov conservation condition. General rational absolute-monotonicity statements do not settle minimum CTMC dimensions or exact nonnegative-step intervals for this [1/2] map. No equivalent theorem was identified in relevant source and semantic searches, but priority remains qualified by possible unindexed work.",
+    "residual_risks": [
+      "An unindexed earlier treatment of Radau IIA on finite conservative Markov generators might already establish an equivalent state-space threshold or a stronger family-wide theorem.",
+      "Available source comparisons do not constitute a comprehensive priority search across all numerical-method proceedings, dissertations and unpublished notes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different diagonal Padé method and nonconservative generators; not a covering theorem for sharp CTMC six-state Radau IIA.",
+        "evidence": [
+          "Zappavigna–Colaneri–Kirkland–Shorten, Linear Algebra and its Applications 436 (2012), 3425–3442; public deposit 2012-06-19."
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Open full PDF extracted text and relevant Padé-positivity discussion, especially its matrix examples and rational-map section.",
+        "method": "Examined the published statement and the particular Metzler/nilpotent construction; compared stability functions and row-sum conditions.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Older positivity obstruction for Padé numerical maps may dominate the candidate."
+      },
+      {
+        "assessment": "Same integrator family but different topic; no equivalent classification in inspected material.",
+        "evidence": [
+          "Brugnano–Iavernaro–Magherini, first version 2013-02-05."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.1037",
+        "material_read": "Accessible arXiv full-text formulation and method/implementation sections.",
+        "method": "Compared method tableau/stability description and searched for Markov positivity and dimension thresholds.",
+        "title": "Efficient implementation of Radau collocation methods",
+        "trigger": "A Radau IIA source using the same integrator."
+      },
+      {
+        "assessment": "General radius results do not imply the claimed sharp finite CTMC dimension or witness interval.",
+        "evidence": [
+          "Lóczi–Ketcheson, first public version 2013-03-26."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+        "material_read": "Accessible preprint text, the problem formulation, relevant method parameters and results.",
+        "method": "Compared unrestricted radius statements with conservative finite-generator dimension and complete safe-step range.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Classical absolute monotonicity could imply a stronger uniform positivity theorem."
+      },
+      {
+        "assessment": "Different time integrator; does not cover the precise six-state [1/2] Radau CTMC claim.",
+        "evidence": [
+          "Bonaventura–Della Rocca, first public 2015-10-14."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+        "material_read": "Accessible preprint exposition of numerical positivity and SSP results.",
+        "method": "Compared method definition and mathematical scope against the Radau IIA end-step map.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Closest positivity analysis of an implicit L-stable method."
+      },
+      {
+        "assessment": "Genuine analogy but neither the same map nor a statement implying this six-state theorem.",
+        "evidence": [
+          "The [2/2] map has the first negative coefficient at degree seven, giving an eight-state boundary."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Full public RESULT.md, including two theorems, detailed proof, exact witness entries and scope.",
+        "method": "Compared rational functions, first wrong-signed Taylor coefficients, dimension arguments and step-window polynomial.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest semantic published-finding corpus result: small-step Markov positivity for another implicit rational map."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "747848f9-b91f-4170-a78e-875b1d48f401",
+  "value": {
+    "rationale": "The least state-space dimension that permits arbitrarily-small-step Markov positivity loss is a natural structural invariant of a numerical integrator. A sharp threshold for a standard third-order L-stable Radau method is significant for stochastic numerical simulation, especially because on a simple birth process the safe-step set is re-entrant and reducing the step can introduce a negative transition. The result gives a universal five-state boundary and a complete six-state exact polynomial classification; neither is a mere restatement of the [2/2] counterpart.",
+    "status": "PASS"
+  }
+}
