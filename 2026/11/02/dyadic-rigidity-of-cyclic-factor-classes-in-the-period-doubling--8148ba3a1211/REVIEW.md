@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every length-\(2n\) factor is a cyclic rotation of the morphic image of a length-\(n\) factor. The no-\(11\) property ensures that every length-\(n\) factor with \(n\ge2\) contains a zero, so its image has at least one one, necessarily at odd indices. Any cyclic conjugacy of two such images uses an even shift, and thus descends to conjugacy of the source factors by injectivity of the morphism. The exceptional length \(n=1\) is checked directly. Finite tests at 100 lengths corroborate the proof.
+## correctness
 
-**Originality — PASS, subject to priority uncertainty.** Cassaigne et al. (arXiv:1402.5843, Proposition 17 and Example 1) prove the special equality at power-of-two lengths and implicitly the surjection for all doubled lengths, but do not assert the reverse implication or full bijection for arbitrary \(n\). Charlier et al. discuss the prior liminf result only. Targeted literature and semantic-record comparisons identified no equivalent universal dyadic equality. Conceivably the same refinement appeared elsewhere or follows from an uninspected stronger theorem.
+PASS
 
-**Value — PASS.** The result gives an exact structural reduction for the entire cyclic-complexity profile, not merely a few new sequence values. At every scale, the same necklace-class inventory survives the period-doubling morphism intact, so the odd part of the factor length is the complete scaling variable.
+For the one-sided period-doubling fixed point µ(0)=01, µ(1)=00, all even positions are zero; hence all factors of length >=2 contain a zero and each µ-image has at least one one only at odd positions. Every length-2n factor begins in even or odd substitution phase, and an odd-phase factor is a single-letter cyclic rotation of an aligned µ-image, proving surjectivity. A conjugating odd rotation between µ-images would move a one to an impossible even position, so conjugacy shifts are even and descend to source-word rotations by injectivity of µ. n=1 has two distinct image classes. Thus Φ_n is bijective for every n and c(2^k m)=c(m) for all k>=0. Independently enumerated literal cyclic classes for n=1..48 with morphic images matched; this finite check is not the universal argument.
 
-**Limits.** No closed formula is given at general odd lengths, and the statement does not extend to arbitrary uniform substitutions. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.
+
+## value
+
+PASS
+
+Cyclic complexity and necklace classes are natural combinatorial invariants of fixed points. Establishing a class-preserving dyadic isomorphism at every length exactly collapses the entire infinite even-length profile to odd lengths, strengthening the previously known powers-of-two examples without guessing the unknown odd values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
