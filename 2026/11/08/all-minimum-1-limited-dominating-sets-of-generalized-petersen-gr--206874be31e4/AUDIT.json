@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For 2n-vertex cubic GP(n,2), crossing edges give |D|>=n; equality is precisely a perfect matching cut. Encode every column in two bits. The 256-state directed de Bruijn graph checks the exact crossing-degree-1 condition, and a full Tarjan enumeration proves precisely two singleton loops and two primitive five-cycles are cyclic. Every cyclic n-word is a closed walk entirely within one such component, yielding two constant sets and ten 5-periodic sets only when 5 divides n. The supplied executable verifies the entire finite lemma plus direct independent enumeration n=5..10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Radić–Radić–Tepeh establish general cubic cut identities and exact values on generalized Blanuša and flower snarks.",
+        "Radić–Tepeh establish Goldberg snark values and computational complexity.",
+        "Tepeh studies Cartesian products including prisms GP(n,1), not step-two inner cycles of GP(n,2).",
+        "Bouquet–Picouleau analyze general decision complexity rather than exact GP(n,2) counts."
+      ],
+      "reasoning": "No full-length-specific enumeration or universally stronger specialized classification appears in inspected papers. General cubic equality classification subsumes the lower-bound/equality setup but not the labelled multiplicity or period-five mechanism. General algorithms without outputs for this family are not an explicit implication of the theorem.",
+      "searches": [
+        "arxiv:2610.26259v1 Structural aspects of 1-limited domination",
+        "arxiv:2610.01796v1 On 1-limited and (1,2)-domination",
+        "arxiv:2606.22428v1 k-limited Cartesian products",
+        "\"perfect matching cut\" \"generalized Petersen\" classification"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.01796",
+      "https://arxiv.org/abs/2610.26259",
+      "https://arxiv.org/abs/2606.22428",
+      "https://arxiv.org/abs/1906.11966",
+      "https://doi.org/10.1002/jgt.23167",
+      "https://doi.org/10.1016/j.amc.2025.129700"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of 2610.26259 states a general boundary degree identity; Proposition 3 characterizes when equality is possible, not how many bipartitions do so.",
+        "Theorem 1 of 1906.11966 gives gamma_[1,2](GP(n,2)) depending on n mod 6, a distinct parameter.",
+        "The perfect-matching-cut paper gives complexity classifications, and the Erveš–Tepeh record concerns cubic (1,2) parameter/induced-cycle relationships."
+      ],
+      "reasoning": "Neither generic existence equivalence nor [1,2]-domination values imply the exact labelled optimum-set count. Five-cycle branching is established by the separate exhaustive finite-state proof. Full text for Erveš–Tepeh was not available, leaving limited residual priority uncertainty.",
+      "searches": [
+        "arxiv:2610.26259v1 Theorem 1 and Proposition 3",
+        "arxiv:1906.11966v1 Theorem 1",
+        "doi:10.1002/jgt.23167 perfect matching-cut",
+        "doi:10.1016/j.amc.2025.129700 induced cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Radić–Radić–Tepeh (2026), section 2, proves equality corresponds to a perfect matching cut in cubic graphs.",
+        "Beggas et al. (2019), Theorem 1, computes a different [1,2]-domination parameter constrained on outside vertices."
+      ],
+      "reasoning": "The known cubic equivalence reduces the new counting problem to enumerating matching cuts; it does not supply the period-five two-orbit classification. The square-bracket [1,2] constraint is not the round-bracket (1,2) constraint, and its 2019 formula does not bound or enumerate these sets.",
+      "searches": [
+        "arxiv:2610.01796v1 on (1,2)-domination equivalence",
+        "arxiv:2610.26259v1 Theorem 1 Proposition 3",
+        "\"(1,2)\" \"GP(n,2)\" domination",
+        "\"[1,2]-Domination in Generalized Petersen Graphs\" arxiv:1906.11966"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search hits treated graph homology, matching complexes, or other domination parameters rather than an exact table of the 2/12 optimum counts.",
+        "Direct exhaustive low-order counts are verified independently in artifacts/verify.py, not borrowed from any table."
+      ],
+      "reasoning": "No exact enumerative table or stronger parameter census was identified. Absence of a hit does not prove absolute historical novelty; an unindexed prior table is a residual risk.",
+      "searches": [
+        "\"generalized Petersen graphs G(n,2) 1-limited (1,2) domination 12 optimum sets divisible by five\"",
+        "\"perfect matching-cut of generalized Petersen graph P(n,2) count perfect cuts two 5-periodic families\"",
+        "\"P(n,2)\" \"perfect matching cut\"",
+        "\"generalized Petersen\" \"1-limited\" domination"
+      ]
+    },
+    "rationale": "Closest 2026 cubic papers give lower bounds, a generic perfect-matching-cut equality equivalence, and snark-specific numbers; none gives the full labelled GP(n,2) optimum-set multiplicities or 5-divisibility condition. Existing [1,2]-domination work on the same graph refers to another invariant; matching-cut complexity papers do not enumerate these partitions. Comparison with published records and the directly relevant results revealed no covering statement; priority is provisional.",
+    "residual_risks": [
+      "Unindexed earlier perfect-matching-cut classifications of generalized Petersen graphs may exist.",
+      "Full text of the Erveš–Tepeh 2026 induced-cycles cubic article was not accessible; bibliographic material alone does not resolve its full content.",
+      "A prior specialized census could imply the theorem without using the present domination terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General complexity and Goldberg values; no GP(n,2) all-optimum census.",
+        "evidence": [
+          "arXiv:2610.01796v1, introduction and section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01796",
+        "material_read": "Full open HTML introduction, definition, theorem scope, Goldberg-snark arguments and references",
+        "method": "Direct open-text reading and section/keyword checking",
+        "title": "On 1-limited and (1,2)-domination in cubic graphs",
+        "trigger": "Same definition and primary recent motivation"
+      },
+      {
+        "assessment": "Known generic perfect-matching equality lemma; no GP(n,2) count.",
+        "evidence": [
+          "arXiv:2610.26259v1, section 2 and section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.26259",
+        "material_read": "Full accessible arXiv rendering, introduction, Theorem 1, Proposition 3, section 3 applications and reference list",
+        "method": "Direct reading and search for generalized Petersen and matching cut",
+        "title": "Structural aspects of 1-limited domination in cubic graphs",
+        "trigger": "Direct cubic equality and perfect-matching cut relation"
+      },
+      {
+        "assessment": "General product cases are not GP(n,2) step-two graphs.",
+        "evidence": [
+          "arXiv:2606.22428v1, sections 1 and 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+        "material_read": "Full accessible open rendering introduction and results on Cartesian products and prisms",
+        "method": "Direct section inspection",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Potential product-based stronger coverage"
+      },
+      {
+        "assessment": "[1,2] imposes a bound on neighbors of outside vertices, a different invariant.",
+        "evidence": [
+          "arXiv:1906.11966v1, section 1 and Theorems 1-2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.11966",
+        "material_read": "Accessible complete paper text, definitions and Theorems 1-2",
+        "method": "Direct comparison of quantified vertex conditions and theorem statements",
+        "title": "[1,2]-Domination in Generalized Petersen Graphs",
+        "trigger": "Same graph family and visually similar domination notation"
+      },
+      {
+        "assessment": "No exact GP(n,2) enumeration.",
+        "evidence": [
+          "Bouquet and Picouleau (2024), definitions and complexity results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.23167",
+        "material_read": "Accessible OA text, introduction, exact distinction of cut definition and complexity statements",
+        "method": "Reading primary full-text introduction and theorem scope",
+        "title": "The complexity of the perfect matching-cut problem",
+        "trigger": "Dual matching-cut formulation"
+      },
+      {
+        "assessment": "No claim of GP(n,2) count in inspected material; possible uninspected coverage remains.",
+        "evidence": [
+          "Erveš and Tepeh (2026), abstract as indexed; full article not inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2025.129700",
+        "material_read": "Publisher bibliographic abstract and secondary references only; requested full text inaccessible",
+        "method": "Abstract/reference inspection, without full-document noncoverage assertion",
+        "title": "Induced cycles vertex number and (1,2)-domination in cubic graphs",
+        "trigger": "Possible stronger cubic structural relation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "206874be-31e4-46a9-be40-7417c11ae651",
+  "value": {
+    "rationale": "Gives exact all-parameter minimum-solution census for the canonical GP(n,2) family and, equivalently, a complete classification of perfect-matching boundaries. The nontrivial period-five jump 2 vs 12 distinguishes the Petersen/dodecahedral congruence cases despite an unchanged optimum weight. This is structurally richer than a routine bound and links two independently motivated graph invariants.",
+    "status": "PASS"
+  }
+}
