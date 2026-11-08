@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes scalar-coupling lift, elementary four-class sign-group matching for all 3x3 real symmetric matrices, binomial complete-graph law, exact Walsh covariance under every mask and a strict crossed-order certificate for all dimensions at least four. CLT plus second-moment convergence gives the exact reflected-quantile limit. The two independent exact arithmetic implementations agree through n=12, and checker passes 832 assertions; finite checks are supplemental, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hutch++ 2020 uses low-rank deflation with independent random residual probes, and provides query-complexity bounds in another design space.",
+        "Switzer et al. 2021 uses distance coloring and masked probing vectors rather than two fully uniform sign cube marginal laws."
+      ],
+      "reasoning": "General algorithms may yield better error for some costs, but they do not logically imply the exact optimum within the constrained two-marginal family. Comparing such algorithms does not establish superiority of this construction in practice.",
+      "searches": [
+        "complete graph Hutchinson Rademacher two-probe optimal antithetic coupling",
+        "symmetric Rademacher quadratic complete graph complete-graph optimal variance against balanced sign flips",
+        "complete graph four-vertex complete graph Hutchinson estimator trace two samples fixed sign flip variance",
+        "arxiv:2010.09649",
+        "arxiv:2106.01275",
+        "arxiv:2109.10659"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2005.10009v2",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/",
+      "https://arxiv.org/html/2106.01275v2",
+      "https://epubs.siam.org/doi/abs/10.1137/21M1447623",
+      "Hardy--Littlewood--Pólya, Inequalities (rearrangement inequality)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published source assumes independent probe copies for derived concentration inequalities, not optimal dependence.",
+        "Published hierarchical probing modifies vector patterns and suppresses selected edges; it does not compare fixed sign flips to arbitrary couplings of two uniform full-vector probes.",
+        "A separate weighted five-cycle exact variance frontier applies to a five-cycle, not arbitrary dimension-three matrices or complete graphs."
+      ],
+      "reasoning": "Neither independent-sample concentration, low-rank approximation, nor graph coloring implies the dimensions at most three all-matrix optimality or exact complete-graph strictness. The universal rearrangement bound *does* yield the abstract optimal coupling and is expressly excluded from novelty; application to complete-graph plus proof of strictness and sharp minimal dimension are additional mathematical assertions.",
+      "searches": [
+        "arxiv:2005.10009v2 Theorem 9 Corollary 11",
+        "arxiv:2106.01275v2 §2.2",
+        "arxiv:2010.09649 Algorithm 1",
+        "two sample Hutchinson optimal transport coupling Rademacher complete graph sign flips"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A fixed sign flip is a translation on the sign cube; arbitrary coupling is a doubly stochastic transport between scalar response levels.",
+        "Hardy--Littlewood--Pólya rearrangement covers the scalar transport step, not explicitly the minimum-dimension rigidity or the strict family result."
+      ],
+      "reasoning": "Compared optimal transport/rearrangement, antithetic Rademacher quadratics, deterministic mask translations, and reflected chi-square asymptotics. The broad scalar transport lemma is known and not treated as novel; a direct statement asserting the dimensions at most three versus all complete-graph (dimensions at least four) threshold was not found.",
+      "searches": [
+        "Hutchinson estimator dependent Rademacher probe antithetic optimal transport coupling 2023 2024",
+        "Hutchinson trace estimator probe correlations negative covariance sign flip Hadamard orthogonal 2022",
+        "Hutchinson antithetic Rademacher quadratic complete graph complete-graph coupling sign flip two probes",
+        "countermonotone squared normal chi square covariance 0.5606716 trace estimator",
+        "arxiv:2005.10009v2 §§1--2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finite binomial response masses (n-2j)^2 and exact four-vertex complete graph variances 12, 8, 6 are supplied and independently computed in the checker.",
+        "Targeted record search yielded no exact existing table for this constrained trace-estimation family."
+      ],
+      "reasoning": "A generic table of complete-graph cut weights or classical Gaussian quantiles does not by itself state the optimal variance comparison. Failure to find a match is not proof of uniqueness; this check is qualified by residual precedence risk.",
+      "searches": [
+        "complete graph Hutchinson Rademacher two-probe optimal antithetic coupling",
+        "symmetric Rademacher quadratic complete graph complete-graph optimal variance against balanced sign flips",
+        "complete graph four-vertex complete graph Hutchinson estimator trace two samples fixed sign flip variance",
+        "countermonotone squared normal chi square covariance 0.5606716 trace estimator",
+        "minimum covariance two iid chi-square 1 quantile reflected"
+      ]
+    },
+    "rationale": "Named primary sources establish independent-probe bounds, low-rank Hutch++, and coloring-based probing but do not state the sharp four-vertex obstruction or all-complete-graph strict coupling gap. The scalar antitone rearrangement inequality is fully acknowledged as classical; the precise low-dimensional rigidity and binomial family classification are the claimed contribution. Relevant related weighted-five-cycle claim was checked for implication and does not cover arbitrary 3x3 or complete graphs. An earlier direct classification remains possible.",
+    "residual_risks": [
+      "Classical rearrangement and standard binomial computations could have been combined explicitly in an earlier specialist treatment not located by these queries.",
+      "One later Hutch++ variant was examined at abstract level only; there is no evidence it is a direct coverage match.",
+      "The result describes a class-constrained variance optimum and not algorithmic speedups or unrestricted query complexity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper analyzes independent identically distributed probe averages and concentration inequalities, not arbitrary two-probe dependence or the minimal dimension for fixed-mask failure.",
+        "evidence": [
+          "arXiv:2005.10009v2 §§1,2.2 explicitly define independent copies for multi-probe estimator",
+          "Theorem 9 and Corollary 11 are tail inequalities for Rademacher chaos and iid averages"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.10009v2",
+        "material_read": "Abstract, introduction, §2.2, Theorem 9, Corollary 11, Remark 13, Lemma 14",
+        "method": "Read arXiv full-text HTML at the cited sections, not merely search snippets",
+        "title": "On randomized trace estimates for indefinite matrices with an application to determinants",
+        "trigger": "Most directly relevant 65C05 primary source, including indefinite Rademacher quadratic forms"
+      },
+      {
+        "assessment": "The method uses a low-rank projection/pilot and independent stochastic residual probes; complexity guarantees over different algorithm classes do not state the two-uniform-probe copula frontier.",
+        "evidence": [
+          "Algorithm 1 uses separate i.i.d. random matrices and projection",
+          "§1.3 compares decompositions and probing, not the reflected-quantile optimum of two fixed marginal quadratic responses"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/",
+        "material_read": "Full-text HTML abstract, introduction, Algorithm 1, related work, §2 preliminaries and §3 opening",
+        "method": "Read open-access PMC HTML technical material",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Broadly stronger trace estimation complexity algorithms could subsume a two-probe comparison"
+      },
+      {
+        "assessment": "Coloring of inverse-matrix sparsity and masked stochastic probing is structurally distinct from complete-graph full Rademacher marginals with arbitrary two-probe dependence.",
+        "evidence": [
+          "§2.2 creates masked random probes from deterministic color vectors",
+          "§3.1 optimizes graph coloring, not countermonotone quadratic-response coupling"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2106.01275v2",
+        "material_read": "Introduction, §2 background including §2.1--2.3, §3 opening and §3.1",
+        "method": "Read arXiv full-text HTML relevant technical sections",
+        "title": "Probing for the Trace Estimation of a Permuted Matrix Inverse Corresponding to a Lattice Displacement",
+        "trigger": "Relevant structured probe design and graph-coloring variance reductions"
+      },
+      {
+        "assessment": "Only abstract-level evidence; adaptive allocation and Nyström++ concern a separate low-rank estimator class, not a decisive overlap match.",
+        "evidence": [
+          "DOI:10.1137/21M1447623 describes low-rank-stage adaptive and Nyström++ schemes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.10659",
+        "material_read": "Journal landing-page abstract and bibliographic description; relevant preprint identified, not examined in full",
+        "method": "Read available abstract and comparison of algorithm objectives",
+        "title": "Improved Variants of the Hutch++ Algorithm for Trace Estimation",
+        "trigger": "Check later low-rank estimator variants and stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e737dede-e370-4306-9341-a6469c83f8f6",
+  "value": {
+    "rationale": "The first dimension at which no fixed coordinate sign flip is globally variance-optimal is a natural sharp boundary for a common low-cost antithetic design. The unweighted four-vertex complete graph example is the smallest symmetric-matrix witness, and the infinite complete-graph family has exact variance and asymptotic formulae. It quantifies the avoidable gap between mask design and joint-law design without claiming better runtime or unrestricted estimator optimality.",
+    "status": "PASS"
+  }
+}
