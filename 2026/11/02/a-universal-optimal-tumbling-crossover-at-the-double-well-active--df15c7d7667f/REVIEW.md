@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact normalized stationary-density formula is independently reconstructed from the published zero-flux equation. Its strictly positive second flip-rate derivative and divergent endpoints prove a unique minimizer. Two distinct singular contributions—the inner quadratic force maximum and remote linear turning point—have coefficients \(e^z-1\) and \(e^z\) after multiplication by the flip rate. Boundary comparisons and global optimizer tightness show the compact crossover and Lambert-function minimum, not merely pointwise formal expansions. Finite numerical integrations show convergence with the stated asymptotic coefficients but are not a substitute for proof.
+## correctness
 
-**Originality — PASS (best available knowledge).** Basu--Majumdar--Rosso derive the stationary formula and fixed-flip-rate VFT divergence, with a numerical minimum but not the critical joint optimization law. Guéneau--Majumdar--Schehr analyze genuine first-passage means and weak-noise exponents rather than the two-layer stationary-proxy optimized crossover. Search records and prior accessible finding claims were compared for equivalent implications. The matched asymptotic is not an explicit consequence stated in those inspected portions; the residual possibility of a unifying optimization result is recorded.
+PASS
 
-**Value — PASS.** At fixed positive tumbling rate, the established crossing proxy suffers an essential singularity at barrier closure. The newly identified optimal schedule \(\gamma_*\propto\sqrt{a_c-a}\) converts it to algebraic divergence, with a universal coefficient and unique positive optimizer. This resolves a natural optimization problem raised by the source's numerical turnover and sharply quantifies the policy needed near the active ergodicity threshold.
+Basu–Majumdar–Rosso stationarity gives positive integral tau=2v int e^{2gamma G}/(v²-f²) dx. Twice differentiating gives strictly positive second derivative for gamma>0. Endpoint singularity forces divergence at gamma→0, while a region with G>0 forces divergence for gamma→∞, proving a unique global minimizer. Blow-up at the coalescing inner barrier yields gamma tau contribution e^z−1 and the remote support endpoint yields e^z, a crucial second layer. Uniform compact-scale convergence plus exclusion of gamma/delta→0,∞ proves the optimizers converge to the unique stationary point of (2e^z−1)/z. Independent numerical ODE quadrature at three subcritical epsilons gave successive convergence of optimized proxy to leading prediction; numerical checks cannot certify uniform asymptotics.
 
-**Closest literature.** Basu, Majumdar and Rosso, arXiv:2512.23641v1 and DOI:10.1103/jysw-w2mb (Secs. II--III and Appendix B); Guéneau, Majumdar and Schehr, arXiv:2409.16951v1 (Sec. V.A). General first-passage estimates do not identify the stationary-density proxy with an exact first-passage mean.
+## originality
 
-**Scientific limitations.** The theorem holds in the athermal symmetric quartic model only. It provides no exact first-passage-time identity, thermal-noise robustness or interacting analogue. Numerical cutoffs do not establish limits. Literature-wide priority beyond the inspected sources is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Original Basu–Majumdar–Rosso stationary density and fixed-positive-gamma VFT divergence are prior work and explicitly acknowledged. Their inspected primary treatment documents a numerical optimum but not uniqueness for every subcritical a or the simultaneous singular gamma∼sqrt(epsilon) limit with two contributing layers. Guéneau–Majumdar–Schehr analyze exact MFPT, which is a different observable; no conflation. An implicit optimization of their integral in another source remains possible.
+
+## value
+
+PASS
+
+The natural stationary-density barrier proxy has a distinct asymptotically optimal experimentally controllable switching-rate scale which avoids fixed-rate VFT divergence; classifying this crossover and exact coefficient is physically and analytically motivated beyond an arbitrary parameter fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

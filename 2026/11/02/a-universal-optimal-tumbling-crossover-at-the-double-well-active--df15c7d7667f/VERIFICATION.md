@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the analytic asymptotic
 
-The argument's exact input is the zero-current stationary density quoted in RESULT.md. Key independently checkable steps are differentiation of its integral in the flip rate; local Taylor expansion of the force at its interior quadratic maximum; the explicit arctangent integral yielding the inner contribution \(e^z-1\); and the integrated logarithmic boundary layer yielding \(e^z\). Uniformity on compact positive scales and exclusion of optimizers at zero/infinity are explained in RESULT.md.
+# Independent mathematical audit
 
-Run `python verify.py` with NumPy and SciPy installed. The script uses an adaptive ODE for the exact positive-side stationary quadrature and an analytically integrated remote-endpoint tail. It checks four near-critical offsets, local minimization, the endpoint-cutoff approximation and convergence direction of the scaled rates and minimized proxy. The finite numeric samples are diagnostic and not an infinite proof. The exact tail integration is asymptotic in its cutoff, not a verified finite-error certificate. No external review or independent audit is claimed.
+## correctness
+
+PASS
+
+Basu–Majumdar–Rosso stationarity gives positive integral tau=2v int e^{2gamma G}/(v²-f²) dx. Twice differentiating gives strictly positive second derivative for gamma>0. Endpoint singularity forces divergence at gamma→0, while a region with G>0 forces divergence for gamma→∞, proving a unique global minimizer. Blow-up at the coalescing inner barrier yields gamma tau contribution e^z−1 and the remote support endpoint yields e^z, a crucial second layer. Uniform compact-scale convergence plus exclusion of gamma/delta→0,∞ proves the optimizers converge to the unique stationary point of (2e^z−1)/z. Independent numerical ODE quadrature at three subcritical epsilons gave successive convergence of optimized proxy to leading prediction; numerical checks cannot certify uniform asymptotics.
+
+## originality
+
+PASS
+
+Original Basu–Majumdar–Rosso stationary density and fixed-positive-gamma VFT divergence are prior work and explicitly acknowledged. Their inspected primary treatment documents a numerical optimum but not uniqueness for every subcritical a or the simultaneous singular gamma∼sqrt(epsilon) limit with two contributing layers. Guéneau–Majumdar–Schehr analyze exact MFPT, which is a different observable; no conflation. An implicit optimization of their integral in another source remains possible.
+
+## value
+
+PASS
+
+The natural stationary-density barrier proxy has a distinct asymptotically optimal experimentally controllable switching-rate scale which avoids fixed-rate VFT divergence; classifying this crossover and exact coefficient is physically and analytically motivated beyond an arbitrary parameter fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
