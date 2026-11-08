@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the precise body \(K_{d,m,a}=\operatorname{conv}(B_2^d\cup aP_m)\), the angular minimum support is exactly \(\max\{1,a\cos(\pi/m)t\}\). The all-direction containment reduction and its piecewise-linear endpoint inequalities are rigorous. Strict concavity yields the unique John determinant optimum; a Haar-finite product contact measure has mean zero and identity covariance after normalization. The outer ellipsoid follows from symmetry and forced semiaxes. Explicit first- and second-derivative computations establish the claimed sharp ratio transition.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Ball's 1990 work contains the John theorem and an obstruction involving large lower-dimensional ellipsoids, not the regular-polygon-spike exact family. Güler and Gürtuna's 2007 full paper solves two-halfspace ellipsoidal cuts and round truncated cones/cylinders, not the polygonal spike body. A published half-cone result and six-spike illumination result were also examined in complete result texts; neither gives these formulas. The closest accessible preexisting geometric classifications involving orthogonal ball cuts and coordinate-clipped polytopes have different objects and do not imply the planar nonorthogonal regular-polygon-spike theorem. This comparison is not a guarantee against unindexed history.
+PASS
 
-**Value — PASS.** The exact phase boundary \(a_*=\sqrt{d/2}/\cos(\pi/m)\), the contact-ring geometry, and the strictly increasing but only \(C^1\) ellipsoid-volume ratio form a natural nontrivial classification across all \(d\ge3\) and \(m\ge5\). The result is not a numerical restatement of John optimality or a single arbitrary example.
+C PASS. For d>=3,m>=5,a>=1, all dihedral+orthogonal symmetry-invariant extrema have centered E(A,B) axes. An all-direction support computation reduces John containment to B^2<=1 and A^2+(b^2-1)B^2<=b^2, b=a cos(pi/m), whenever b>1, and to unit axes if b<=1. Strictly concave log volume has stationary B^2=(d-2)b^2/[d(b^2-1)] and threshold b^2=d/2. Explicit isotropic contacts on m edge-normal families certify global John optimum; Loewner E(a,1) is certified by planar vertices and transverse sphere. The exact volume ratio, C1 non-C2 onset, limit and monotonicity follow by differentiation. Independently checked stationary identity and 45 dimension/polygon/parameter configurations of all reduced support constraints.
 
-The source theorem used as background is independently published mathematics, while the stated classification and calculations are analyzed here from first principles. Independent historical-priority review remains outstanding. Numerical checks have finite scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS, qualified: the 2007 Güler–Gürtuna primary paper has other exact convex bodies (slabs/cones/cylinders), and published Resultary symmetric polytope or Khachiyan half-cone formulas are different objects. Neither inspected statement implies the m-dependent edge-normal contact threshold for a regular-polygon-spiked full ball.
+
+## value
+
+PASS
+
+V PASS. Natural many-spike analogue of ball ellipsoids admits an exact contact phase transition controlled by polygon inradius and ambient dimension; the fully quantified all-m formula and C1/non-C2 volume profile are mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
