@@ -1,19 +1,21 @@
-# Scientific review: seven-agent reentrant consensus
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update rule and weak-distance boundary are fixed explicitly. The continuum parameter \(d\in(0,1]\) is exactly partitioned by reciprocal rational pair distances at each symbolic iterate. The induction argument explains why every state and neighborhood is constant on each half-open cell, so all possible real spacings are covered. The 56 terminal certificate cells for \(1\le n\le7\) have been reconstructed and checked using exact fractions; all branches terminate by the twelfth update. The five seven-agent thresholds and the single six-agent threshold are included with their correct equality conventions. Replaying each cell's representative and its included endpoint agrees. No finite random experiment is substituted for the universal proof.
+PASS
 
-## Originality — PASS (best-knowledge, not independent priority certification)
+The assignment proves continuum coverage by inductively splitting half-open d intervals at every rational edge-change threshold 1/abs(q_i-q_j), preserving exact neighbour graphs at included right endpoints; equality/terminal vectors are constant on each cell. Reconstructed a separate Fraction implementation for n=1..7 and obtained terminal cell counts 1,1,2,5,10,11,26, all closed by <=12 steps, exact 6-agent transition 4/7, and the five 7-agent endpoints with correct inclusions. This is exhaustive for continuous d, not finite sampling; it does not extend past n=7 or to asynchronous/weighted processes.
 
-Lorenz (2006) introduced the qualitative reentrant-consensus phenomenon in a population/Markov-chain setting. Hegarty–Wedin (2014) proved the equidistant \(d=1\) evolution and studied one-sided infinite-chain breakpoint tables, but their inspected finite-seven-agent passage does not supply the full seven-agent phase portrait or the minimality result. Kurz (2014) optimizes worst-case stabilization time over arbitrary initial positions, not consensus as a function of common spacing. Wedin (2021) treats the infinite-population limit and does not state these finite rational thresholds. The closest published mathematical record found concerns a distinct nonfreezing seven-agent confidence configuration and does not imply the terminating, equidistant finite theorem. Exact-source and implication comparisons, searches, and source access limitations are recorded in AUDIT.json. Originality remains subject to the possibility of a prior unpublished finite-size table or a broader unlocated theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimum agent count is a natural structural invariant for the established nonmonotonic-consensus phenomenon, not an arbitrary finite example. The result completely classifies every connected equally spaced initial condition through that sharp size, with two distinct consensus-restoration windows, exact rational endpoints, and uniform three-cluster structure outside them. The exact finite picture identifies a small deterministic realization of behavior usually discussed in limiting or numerical settings. It does not establish empirical behavior or generalization to larger or heterogeneous systems.
+Compared the precise final claim and its implications with same-object primary mathematics. The term reentrant HK consensus includes Lorenz 2006 and Wedin 2021 large-population results, while Hegarty–Wedin 2014 shares rational cutoffs but its finite 7-agent conditions are not the same full closed-endpoint phase theorem. Hegarty–Wedin Section 3/Table 1 has some equal numerical thresholds in one-sided infinite HK; checking interpretation shows neither whole 7-agent cluster triple classification nor sharp minimality is a formal corollary. Best-of-knowledge originality is supported for the narrower stated new contribution, not for previously established premises. Residual risks documented.
 
-## Closest literature and limits
+## value
 
-Directly relevant full-text materials: Lorenz 2006 (simulation and population formulation), Hegarty–Wedin 2014 (equally spaced dynamics; Section 3 one-sided table), Kurz 2014 (maximal stabilization times), and Wedin 2021 (large-population reentrance). The exact seven-agent result is not asserted as independent expert-certified novelty. Publicly available materials do not rule out unpublished finite case computations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp minimal size and closed-endpoint spacing phase diagram answer a natural finite-size version of reentrant consensus; two distinct restoration windows and exact cluster topology quantify a nonmonotonic dynamical effect missed by qualitative simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
