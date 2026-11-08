@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The arbitrary-contrast, arbitrary-separation theorem follows from an exact four-entry free resolvent subtraction, the strict negative derivative of the Birman--Schwinger matrix, and the rank-one band-edge singularity. The regular edge quadratic form is identified with a weighted-path effective-resistance pseudoinverse on the Euclidean mean-zero subspace. Strict inequalities exclude zero-edge eigenvalues, and one-dimensional Jacobi uniqueness gives simple discrete modes. Diagonalization of the path Laplacian gives the contiguous-segment ceiling and all sharp thresholds. The included `check.py` passed 104 independent finite-dimensional tests. These are not infinite-dimensional proof certificates.
+PASS
 
-## Originality — PASS on currently inspected evidence
+PASS. For every finite p>=1, strictly positive independent spring contrasts and integer gaps in the infinite equal-mass nearest-neighbor chain, reconstructed H=H0+BAB* and the above-band resolvent. The exact identity S M(t) S=coth(t/2)E(t)-I and strict dM/dlambda<0 prove that localized modes are counted by the strict band-edge Birman-Schwinger crossings. The divergent rank-one term contributes one mode; compression of the remaining finite form to 1-perp yields -2D-I-A^-1, and path resistance D_ij=(e_i-e_j)^T L^+(e_i-e_j) gives 4L^+-I-A^-1. Strict crossings exclude zero threshold directions, the Jacobi recurrence gives simplicity, and free tails rule out in-band localized eigenfunctions. For consecutive equal-strength bonds the path eigenvalues 4 sin^2(k pi/(2p)) give N=ceil[(2p/pi)atan(sqrt(alpha))] and strict alpha>tan^2(k pi/(2p)) thresholds including equality; monotonicity follows from form order.
 
-The 2011 source [1] reports one-/two-particle granular defect modes and few-site approximations; the older substitutional-defect sources [2,3] address other lattices and general existence bounds. An existing two-reinforced-bond theorem already establishes its full two-bond threshold: it is explicitly acknowledged and subsumed, not counted as new. The present theorem is the genuinely stronger exact arbitrary-number inertia classification and the entire analytical localized-mode staircase for a contiguous region. Primary source [1] was examined in the full accessible text and relevant model/discussion; older sources [2,3,4] could only be assessed from publicly available abstracts/metadata. An older all-cluster theorem not surfaced by the searches remains a priority risk; novelty is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The number of physically resolvable above-band localized modes is a natural discrete invariant of a reinforced spring segment; existing treatments often calculate individual small-defect spectra or numerical modes. The theorem supplies a sharp design-independent count for arbitrary reinforcement patterns and a one-parameter sequence of *all* emergence thresholds for an extended contiguous segment. It predicts the long-segment mode density and a monotone sensitivity to gap and stiffness changes. These statements are not merely rescalings of a single- or two-bond example.
+PASS (best-of-knowledge, with specified residual risks). Equivalent formulations include the number of isolated eigenvalues above [0,4] of a finite-rank positive bond perturbation, Birman-Schwinger positive inertia at the band edge, and Dirichlet-to-Neumann/transfer-matrix threshold counting. None of the specifically inspected historical cases treats the all-p weighted-path inverse formula. The general resolvent principle and effective resistance identities are standard and stronger frameworks; they must be combined with this particular one-dimensional band-edge compression and all-gap inertia. No inspected published all-p theorem was found that already supplies the precise count, but broad lattice perturbation literature remains a risk. General bounds or two-particle experiments do not imply exact all-p staircase. Conversely, p=2 is implied by new p>=2 formula and is not claimed separately.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. An all-p, arbitrary-gap-and-contrast exact localized-mode count for the canonical discrete harmonic chain is a meaningful structural spectral result; the band-edge equality law and complete mode staircase supply information not obtainable from a few isolated-defect calculations. A practical researcher can determine whether each additional stiff bond produces a bound mode without numerically resolving arbitrarily near-edge eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
