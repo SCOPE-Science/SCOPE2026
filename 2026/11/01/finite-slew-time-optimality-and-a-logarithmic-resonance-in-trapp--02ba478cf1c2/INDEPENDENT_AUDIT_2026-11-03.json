@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:56:47.102241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Itô gives y_dot=D1/tau-(tau^{-1}+mu a)y and x_dot=-2mu a x+2(D+y). Endpoint-independent slew and amplitude imply every admissible a(t)<=min(ai+Rt,af)=a*(t), even nonmonotone controls. Subtracting y equations yields a positive Volterra integral of (a*-a)y*, and subtracting x equations yields a positive integral of the y difference plus (a*-a)x*: hence x>=x*>xf and y>=y*>yf, with strictness unless protocols agree a.e. Derivative integrating factors show E*(t) strictly decreases; endpoint forces T>=t_R; threshold forces T>=t_eps; ramp-hold attains max. On holding, delta_y=delta_y0 exp(-ell s), delta_x=delta_x0 exp(-m s)+2delta_y0(exp(-ell s)-exp(-m s))/(m-ell), and at m=ell it is (delta_x0+2delta_y0 s)exp(-ms). For fixed physical parameters, m<ell,m>ell and critical m=ell yield the claimed sharp times, and the critical inversion ms-log(ms)=log(2dy/(m eps))+o(1) has an authentic loglog term. Independently solved the ramp ODE by SciPy and optimized the specified benchmark, obtaining T=1.71582033156873 versus 1.715820331569 in the source.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Casert–Whitelam (2024) studies learned rapid/heat-minimizing stiffness protocols and ideal step benchmark, without the same pointwise finite-slew global-duration theorem in inspected material.",
+          "Davis–Proesmans–Fodor studies response-theory dissipation; Gupta–Klapp–Sivak addresses excess work and different control geometry."
+        ],
+        "reasoning": "Known work on arbitrary protocols may appear broader physically but differs in objective/constraints; numerical fastest traces do not imply an exact Lipschitz-rate endpoint theorem.",
+        "searches": [
+          "active Ornstein Uhlenbeck particle harmonic trap stiffness finite slew rate bounded control time optimal ramp hold covariance log log resonance",
+          "arxiv:2402.18823 supplementary S3B",
+          "arxiv:2305.11078",
+          "arxiv:2304.12926"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2402.18823",
+        "https://arxiv.org/abs/2305.11078",
+        "https://arxiv.org/abs/2304.12926",
+        "Resultary: active Ornstein Uhlenbeck particle harmonic trap stiffness finite slew rate bounded control time optimal ramp hold covariance log log resonance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 primary manuscript gives the same x,y moment closure and optimization of a different cost; the new proof is a control-order comparator with finite actuator cap.",
+          "The source explicitly does not claim the step response, prior moment equations, heat objective, or generic comparison as original."
+        ],
+        "reasoning": "Same SDE and tolerance are not sufficient for an implication to the sharp finite-slew optimizer; the new endpoint restriction and resonant inversion are not asserted in the inspected source passages.",
+        "searches": [
+          "Casert and Whitelam 2024 Eq. (3), Fig.1",
+          "Davis et al. 2024",
+          "Gupta et al. 2023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two moment ODEs are exactly a cooperative triangular positive system with a control-dependent negative drift.",
+          "Pointwise maximal stiffness is a comparison-control policy, equivalent to a finite-slew state-to-state time-optimal control problem."
+        ],
+        "reasoning": "Prior general comparison theorems could reproduce monotonicity, but matching the full constrained endpoint problem and three asymptotic constants requires an explicit implication not identified.",
+        "searches": [
+          "active Ornstein Uhlenbeck particle harmonic trap stiffness finite slew rate bounded control time optimal ramp hold covariance log log resonance",
+          "Casert Whitelam arxiv:2402.18823 covariance dynamics",
+          "positive control systems bang-bang actuator rate bounded time optimal transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim concerns an all-parameter functional optimum and asymptotic time law, not an unknown finite database or classification table."
+        ],
+        "reasoning": "An exact-value table is inapplicable as a primary coverage mode: reproducing one benchmark arrival time cannot settle global optimality or the critical all-epsilon loglog law.",
+        "searches": [
+          "active Ornstein Uhlenbeck particle harmonic trap stiffness finite slew rate bounded control time optimal ramp hold covariance log log resonance",
+          "Casert Whitelam article Figure 1 and covariance equations"
+        ]
+      },
+      "rationale": "Best-knowledge new sharp finite-slew reachability result; same AOUP covariance equations and step response were known from Casert–Whitelam, not claimed new. Generic positive-system order principles might imply the ramp bound, but no prior source found combining exact endpoint reachability and resonant asymptotics. Avoid attributing standard comparison method to the new work.",
+      "residual_risks": [
+        "A general order-preserving positive-system reachability theorem might imply the ramp comparison under equivalent controls.",
+        "Casert–Whitelam supplementary S3B was not read in complete form; no universal claim of noncoverage.",
+        "Fixed-parameter epsilon→0 asymptotics are not uniform in moving resonance; do not claim full distribution/heat optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_NONCOVERAGE_WITH_RESIDUAL_SUPPLEMENT_RISK",
+          "evidence": "Equation (3) on p2 reproduces x,y ODE, heat controls may jump and are not rate bound; no matching exact ramp-hold theorem in inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.18823",
+          "material_read": "Primary full document accessible, material read in introduction/Section II pp1–2 and relevant optimization passages; Section S3B supplement not obtained in full",
+          "method": "Lawful arXiv PDF text and screenshot page 2",
+          "title": "Learning protocols for the fast and efficient control of active matter",
+          "trigger": "Identical OU harmonic stiffness SDE, same moments and time objective"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE_ACCESS_LIMIT",
+          "evidence": "Optimization of slow-driving dissipation is not the exact finite-slew covariance tolerance problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.11078",
+          "material_read": "Abstract and accessible bibliographic statement; complete full text not materially read",
+          "method": "Public abstract",
+          "title": "Active Matter under Control: Insights from Response Theory",
+          "trigger": "Related controlled active matter"
+        },
+        {
+          "assessment": "DIFFERENT_TRAP_OBJECTIVE",
+          "evidence": "Work optimization for bistable moving landscape rather than pointwise stiffness slew time minimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.12926",
+          "material_read": "Abstract and accessible scope information; not all appendices read",
+          "method": "Public abstract",
+          "title": "Efficient control protocols for an active Ornstein–Uhlenbeck particle",
+          "trigger": "Other OU particle control protocols"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite actuator slew is a physically motivated constraint absent from the fast-step benchmark. Exact minimum time under arbitrary nonmonotone admissible competing protocols is a useful reachability fact, and the logarithmic resonance reveals a concrete Jordan-forcing slowdown at a natural parameter coincidence. It is narrow but structural and not a numerical protocol fit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2402.18823",
+    "https://arxiv.org/abs/2305.11078",
+    "https://arxiv.org/abs/2304.12926",
+    "Resultary: active Ornstein Uhlenbeck particle harmonic trap stiffness finite slew rate bounded control time optimal ramp hold covariance log log resonance",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/01/finite-slew-time-optimality-and-a-logarithmic-resonance-in-trapp--02ba478cf1c2"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A general order-preserving positive-system reachability theorem might imply the ramp comparison under equivalent controls.",
+    "Casert–Whitelam supplementary S3B was not read in complete form; no universal claim of noncoverage.",
+    "Fixed-parameter epsilon→0 asymptotics are not uniform in moving resonance; do not claim full distribution/heat optimality."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A general order-preserving positive-system reachability theorem might imply the ramp comparison under equivalent controls.",
+    "Casert–Whitelam supplementary S3B was not read in complete form; no universal claim of noncoverage.",
+    "Fixed-parameter epsilon→0 asymptotics are not uniform in moving resonance; do not claim full distribution/heat optimality.",
+    "Finite experiments are corroboration only; each universal claim uses its proof or proved finite reduction.",
+    "No expert, Lean or independent external publication certification is asserted."
+  ]
+}
