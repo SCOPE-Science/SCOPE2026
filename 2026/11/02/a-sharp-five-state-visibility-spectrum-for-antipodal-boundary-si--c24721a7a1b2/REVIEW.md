@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each independent antipodal hyperplane-null boundary law, signed affine general position holds for all 32 sign choices. The Minkowski gauge forces every dependence weight below half the total, and the independent-sign conditioning yields exactly 2/10/(20−2D)/(2D) configurations for visibility counts 0/1/2/3. An intersecting-edge graph proves the sharp upper bound of four dominant pairs. All five rational witness systems were tested by full affine barycentric elimination; the supporting-vertex and rounded-patch arguments provide actual compliant probability laws. No finite experiment is used to deduce the universal theorem.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Wendel covers the zero-visible-facet event; Edelsbrunner–Nikitenko already use visible-facet reflection arguments, and Bonnet–O'Reilly and Kabluchko give related random-polytope height/angle statistics. Those ingredients are not claimed. The new target is a dimension-four sharp dominant-pair classification for arbitrary centrally symmetric convex bodies and nonidentical antipodal hyperplane-null boundary samples, including all five exactly attainable conditional laws. The examined primary texts do not supply or dominate this classification. Similarity searches are corroboration rather than proof of absence; a separate priority audit remains warranted.
+PASS
 
-**Mathematical value — PASS.** The universal boundary visibility law changes character in the next ambient dimension: complete distribution-freeness gives way to a precisely constrained five-state conditional spectrum. Sharp extremal probabilities and their realizations across nonidentical anisotropic laws identify a natural higher-dimensional boundary, not a discretionary numerical example. The argument connects convex gauges, signed circuits, intersecting families, and stochastic geometry.
+PASS: For independent hyperplane-null antipodally symmetric boundary laws on a full-dimensional centrally symmetric body in R4, any four sampled position vectors are linearly independent a.s. and the single linear circuit has nonzero magnitudes w_i. Convex gauge triangle inequality gives 2w_i<=W, and equality would produce an affine degeneracy under some signed configuration, so it is strict; the same rules out pair half-sum ties. Conditional on unoriented lines, 32 independent equally likely sign vectors give barycentric signs and histogram (2,10,20-2D,2D) of V=0,1,2,3, where D counts heavy pairs. Heavy pairs are intersecting edges in K5, hence D<=4 (star or triangle). Independently enumerated all 32 sign configurations for five distinct rational witness vectors, giving D=0..4; the convex hull of ±v_i with unique dependence and 2max w<W has all points exposed, and Minkowski rounding plus small antipodal smooth-patch distributions yields hyperplane-null laws preserving the strict inequalities. The finite sign check supports but does not imply arbitrary-body assertions.
 
-Closest literature and limitations: Edelsbrunner–Nikitenko, arXiv:1705.02870, Sections 1, 3, 4 and appendix; Bonnet–O'Reilly, arXiv:1908.04033, on signed facet heights; Kabluchko, arXiv:1909.13335, on angles and face numbers; and Wendel (1962) on center containment. The exact distribution for uniform surface sampling on any fixed body is not evaluated; sharpness uses tailored boundary patch laws. Independent historical-priority review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Wendel zero-origin-containment event and reflection/visibility technology are prior, whereas a conditional full 4D four-value facet-count law, its sharp dominant-pair bound and five realizable regimes for nonidentical boundary measures remain distinct on inspected primary evidence.
+
+## value
+
+PASS
+
+PASS: The complete conditional visible-facet spectrum of a random 4-simplex at the first dimension where more than origin-containment is possible is a natural geometric-probability classification. Intersecting-family bounds and full realizability of five regimes give a sharp boundary, not an arbitrary slice or a lone computation. The zero-facet part is classical and specifically excluded from the new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

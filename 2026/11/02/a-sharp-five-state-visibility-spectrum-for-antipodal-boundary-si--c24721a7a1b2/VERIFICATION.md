@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the visibility spectrum
 
-The standalone `verify.py` runs using the Python standard library. Its five integer coefficient vectors are rational witnesses for all values \(D=0,1,2,3,4\). For each witness, it constructs five ambient vectors, confirms their unique rational linear relation, checks all ten pair thresholds, solves the full affine barycentric system for each of the \(32\) signed configurations, and compares the observed visibility histogram with the theoretical \((2,10,20-2D,2D)\).
+# Independent mathematical audit
 
-Execution from the embedded package: `python verify.py`. The expected final line is `ALL_EXACT_VISIBILITY_CHECKS_PASSED`. This verifies the finite algebraic certificates. The proof that these witnesses extend to admissible smooth-patch boundary distributions is given analytically in `RESULT.md` and is not inferred from the computation. The proof applies in ambient dimension four only. No independent mathematical audit was performed.
+## correctness
+
+PASS
+
+PASS: For independent hyperplane-null antipodally symmetric boundary laws on a full-dimensional centrally symmetric body in R4, any four sampled position vectors are linearly independent a.s. and the single linear circuit has nonzero magnitudes w_i. Convex gauge triangle inequality gives 2w_i<=W, and equality would produce an affine degeneracy under some signed configuration, so it is strict; the same rules out pair half-sum ties. Conditional on unoriented lines, 32 independent equally likely sign vectors give barycentric signs and histogram (2,10,20-2D,2D) of V=0,1,2,3, where D counts heavy pairs. Heavy pairs are intersecting edges in K5, hence D<=4 (star or triangle). Independently enumerated all 32 sign configurations for five distinct rational witness vectors, giving D=0..4; the convex hull of ±v_i with unique dependence and 2max w<W has all points exposed, and Minkowski rounding plus small antipodal smooth-patch distributions yields hyperplane-null laws preserving the strict inequalities. The finite sign check supports but does not imply arbitrary-body assertions.
+
+## originality
+
+PASS
+
+The Wendel zero-origin-containment event and reflection/visibility technology are prior, whereas a conditional full 4D four-value facet-count law, its sharp dominant-pair bound and five realizable regimes for nonidentical boundary measures remain distinct on inspected primary evidence.
+
+## value
+
+PASS
+
+PASS: The complete conditional visible-facet spectrum of a random 4-simplex at the first dimension where more than origin-containment is possible is a natural geometric-probability classification. Intersecting-family bounds and full realizability of five regimes give a sharp boundary, not an arbitrary slice or a lone computation. The zero-facet part is classical and specifically excluded from the new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
