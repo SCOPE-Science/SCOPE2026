@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Both modal drifts are Hurwitz for every admitted parameter, so the invariant covariance exists uniquely. Solving the 2-by-2 Lyapunov equations yields the stated closed-form local variance, including the \(v=0\) boundary. Exact differentiation produces a quadratic sign numerator with exactly one positive root when the antisymmetric prey forcing is nonzero. The two degenerate forcing regimes and the equal-endpoint maximum suppression law follow by direct algebra. Full four-dimensional Lyapunov replay with exact rational arithmetic, 200 seeded comparisons and 120 peak/gain comparisons passes. Risk: none identified within the explicitly stated additive linear model; finite checks do not establish infinite quantification, which rests on the analytical proof.
+PASS
 
-## Originality — PASS (qualified)
+Orthogonal plus/minus transformation diagonalizes drift and noise covariance into two Hurwitz 2x2 Ornstein–Uhlenbeck blocks with A=a+2u and minus V=2v. Solving continuous Lyapunov equations yields P(A,V;Q,R)=[Q(V²+AV+bc)+b²R]/[2(A+V)(AV+bc)], valid even V=0 without division by V. Local prey variance is half sum of plus P(a,0) and minus P(A,2v). The derivative numerator b[cQ(V²-bc)-bR(A²+2AV+bc)] is a quadratic in V with unique positive zero for Q>0, negative throughout for Q=0<R, identically zero for Q=R=0. For R=0, V*=sqrt(bc), endpoints V=0 and infinity equal, gain=Qbc/[4A(A+sqrt(bc))²]. Inspected actual verification program and independently computed full 4x4 stationary Lyapunov covariance for bounded rational cases, agreeing with formula and optimum; universal proof is algebraic, not finite numerics.
 
-The literature already contains stochastic predator–prey metapopulation modeling (Bonsall–Hastings 2004) and related two-patch equilibrium fluctuation covariance systems (Quévreux–Barbier–Loreau 2020/2021; Quévreux–Pigeault–Loreau 2021). Those primary full texts were read for model, equations, results, discussion and relevant appendices. Their conclusions address population noise scaling, synchrony, and perturbation transmission; the explicit universal predator-migration variance optimizer, predator-noise radical and perfect-correlation trichotomy were not found. General Lyapunov methods may imply the result **after additional specialization, calculation and optimization**, so historical-priority uncertainty remains; absence from search is not proof of global novelty. The existing mathematical and ecological machinery is explicitly credited.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The stationary local fluctuation level is a natural ecological stability statistic. The exact interior optimal predator mobility and its independence from prey migration and prey damping give a structural, falsifiable design boundary; equal variability at zero and infinite migration shows why monotone mobility intuition fails. Spatial noise correlation and direct predator noise yield a complete, motivated boundary classification rather than an arbitrary isolated numerical example. The result is restricted to the ideal linearized symmetric model and says nothing about extinction risk or nonlinear optimal dispersal.
+Two-patch trophic stationary covariance via Lyapunov equations is strongly established. The candidate structural optimum and complete Q/R forcing trichotomy require a particular derivative optimization not located in inspected synchrony and perturbation sources. This is a narrow but legitimate specialization, rather than a claim of new Lyapunov machinery.
 
-## Residual scientific limitations
+## value
 
-The optimization is for local prey variance, not synchrony or total-community stability. Full historical priority remains subject to independent review; the 2021 trophic covariance framework is the strongest related predecessor, although the examined statements do not give the claimed rate. No nonlinear inference or empirical parameter calibration is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact optimal predator mobility for stationary *local prey variance* is a meaningful natural stability statistic. The universal square-root rate with zero predator forcing, matching zero- and infinite-dispersal endpoint variances, exact gain and degenerate noise trichotomy are structural, not an arbitrary tiny numerical effect. The result sharply documents how noise-correlation changes optimal dispersal in a well-defined linear model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

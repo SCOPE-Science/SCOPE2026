@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:46:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-predator-dispersal-optimum-and-a-sharp-noise-correla--82e30d8bc63d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-predator-dispersal-optimum-and-a-sharp-noise-correla--82e30d8bc63d/verify.py",
+        "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC."
+      ],
+      "rationale": "Orthogonal plus/minus transformation diagonalizes drift and noise covariance into two Hurwitz 2x2 Ornstein–Uhlenbeck blocks with A=a+2u and minus V=2v. Solving continuous Lyapunov equations yields P(A,V;Q,R)=[Q(V²+AV+bc)+b²R]/[2(A+V)(AV+bc)], valid even V=0 without division by V. Local prey variance is half sum of plus P(a,0) and minus P(A,2v). The derivative numerator b[cQ(V²-bc)-bR(A²+2AV+bc)] is a quadratic in V with unique positive zero for Q>0, negative throughout for Q=0<R, identically zero for Q=R=0. For R=0, V*=sqrt(bc), endpoints V=0 and infinity equal, gain=Qbc/[4A(A+sqrt(bc))²]. Inspected actual verification program and independently computed full 4x4 stationary Lyapunov covariance for bounded rational cases, agreeing with formula and optimum; universal proof is algebraic, not finite numerics.",
+      "residual_risks": [
+        "Exact result is about centered Gaussian deviations in an additive-noise linearization; no population nonnegativity or nonlinear extinction inference.",
+        "Optimum is local patch prey variance, not synchrony or sum-mode variance; correlated prey/predator within patch not admitted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonsall–Hastings addresses stochastic population variability and environmental/demographic noise; follow-on trophic papers employ Lyapunov covariance and migration.",
+          "Their published focus is synchrony and perturbation not the exact parameter-independent local variance minimizing rate."
+        ],
+        "reasoning": "Broader covariance machinery does not automatically provide the exact minimizer of this distinct scalar functional or its boundary forcing classification.",
+        "searches": [
+          "doi:10.1111/j.0021-8790.2004.00874.x",
+          "doi:10.1101/2020.01.21.914093",
+          "J Theor Biol 528 (2021) 110836"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: two patch predator prey stochastic linear OU predator migration stationary prey variance optimum spatial correlated noise",
+        "https://doi.org/10.1111/j.0021-8790.2004.00874.x",
+        "https://doi.org/10.1101/2020.01.21.914093",
+        "https://sete-moulis-cnrs.fr/fr/content_page/download/605/955/30",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-predator-dispersal-optimum-and-a-sharp-noise-correla--82e30d8bc63d/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Lyapunov equations are general enough to calculate local variances after specialization.",
+          "The candidate optimizes a specific rational expression and separates noise-correlation regimes; prior theorem on synchrony does not state a dominating bound on local prey variance."
+        ],
+        "reasoning": "The special model is covered methodologically but the exact optimization conclusion is not shown to be a corollary of the read prior statements.",
+        "searches": [
+          "Quévreux–Barbier–Loreau 2021 linear covariance setup",
+          "Quévreux–Pigeault–Loreau 2021 covariance equations (11)–(13)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quévreux–Barbier–Loreau analyze linear trophic metacommunity fluctuations, covariance and synchrony, with a related OU block system.",
+          "Their inspected stated objectives are synchrony and perturbation transfer, not global minimization of local prey variance over predator migration."
+        ],
+        "reasoning": "Same covariance method may be a potential route to derive the optimizer, but an explicit published optimizer/trichotomy was not found. Mathematical implication requires differentiating a different objective.",
+        "searches": [
+          "Resultary: two patch predator prey stochastic linear OU predator migration stationary prey variance optimum spatial correlated noise",
+          "doi:10.1101/2020.01.21.914093",
+          "doi:10.1086/714131"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby findings concern mean-nullcline covariance identities and noise-stability boundaries in nonlinear predator–prey models, different objects and optimization targets."
+        ],
+        "reasoning": "No exact optimum table or published specialization returned. A hidden routine exercise in a covariance appendix remains a risk.",
+        "searches": [
+          "Resultary: two patch predator prey stochastic linear OU predator migration stationary prey variance optimum spatial correlated noise",
+          "predator prey two patch stationary OU prey variance dispersal unique optimum sqrt(bc)/2"
+        ]
+      },
+      "rationale": "Two-patch trophic stationary covariance via Lyapunov equations is strongly established. The candidate structural optimum and complete Q/R forcing trichotomy require a particular derivative optimization not located in inspected synchrony and perturbation sources. This is a narrow but legitimate specialization, rather than a claim of new Lyapunov machinery.",
+      "residual_risks": [
+        "The 2021 trophic metacommunity papers have closely related linear covariance formulas; an unexamined appendix could contain this exact optimizer or a dominating statement.",
+        "The narrow closed-form optimization may have been reported under synchrony/noise suppression terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ECOLOGICAL_CONTEXT",
+          "evidence": "Not an exact linear two-patch stationary local-prey covariance minimizer.",
+          "identifier_or_url": "https://doi.org/10.1111/j.0021-8790.2004.00874.x",
+          "material_read": "Primary abstract, methods and noise formulation, relevant results descriptions",
+          "method": "Read accessible primary article text and compare model, loss and state variables",
+          "title": "Demographic and environmental stochasticity in predator–prey metapopulation dynamics",
+          "trigger": "Ecological stochastic patch coupling with dispersal"
+        },
+        {
+          "assessment": "STRONG_PRIOR_METHOD_RESIDUAL_IMPLICATION_RISK",
+          "evidence": "Linearized covariance mechanism known; exact local variance optimum not located in inspected passages.",
+          "identifier_or_url": "https://doi.org/10.1101/2020.01.21.914093",
+          "material_read": "Accessible preprint abstract, model equations, synchrony and perturbation results context; full appendices not independently re-read in this execution",
+          "method": "Read accessible primary preprint passages and corresponding journal abstract",
+          "title": "Synchrony and perturbation transmission in trophic metacommunities",
+          "trigger": "Very close two-patch OU model/covariance equations"
+        },
+        {
+          "assessment": "RELEVANT_PARTIAL_READ",
+          "evidence": "Covariance method shared, but a full result/appendix priority check remains important.",
+          "identifier_or_url": "https://sete-moulis-cnrs.fr/fr/content_page/download/605/955/30",
+          "material_read": "Public article abstract and model/synchrony description; full PDF not independently re-read in this run",
+          "method": "Compare published model and quantity optimized",
+          "title": "Predator avoidance and foraging for food shape synchrony and response to perturbations in trophic metacommunities",
+          "trigger": "Similar trophic metacommunity OU Lyapunov covariance with predator dispersal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-predator-dispersal-optimum-and-a-sharp-noise-correla--82e30d8bc63d/RESULT.md",
+        "https://doi.org/10.1111/j.0021-8790.2004.00874.x",
+        "https://doi.org/10.1101/2020.01.21.914093",
+        "https://sete-moulis-cnrs.fr/fr/content_page/download/605/955/30"
+      ],
+      "rationale": "The exact optimal predator mobility for stationary *local prey variance* is a meaningful natural stability statistic. The universal square-root rate with zero predator forcing, matching zero- and infinite-dispersal endpoint variances, exact gain and degenerate noise trichotomy are structural, not an arbitrary tiny numerical effect. The result sharply documents how noise-correlation changes optimal dispersal in a well-defined linear model.",
+      "residual_risks": [
+        "Prior specialized mathematics may still dominate this claim despite the best-of-knowledge search.",
+        "The 2021 trophic metacommunity papers have closely related linear covariance formulas; an unexamined appendix could contain this exact optimizer or a dominating statement.",
+        "The narrow closed-form optimization may have been reported under synchrony/noise suppression terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-predator-dispersal-optimum-and-a-sharp-noise-correla--82e30d8bc63d/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-predator-dispersal-optimum-and-a-sharp-noise-correla--82e30d8bc63d/verify.py",
+    "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC.",
+    "https://doi.org/10.1111/j.0021-8790.2004.00874.x",
+    "https://doi.org/10.1101/2020.01.21.914093",
+    "https://sete-moulis-cnrs.fr/fr/content_page/download/605/955/30"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Exact result is about centered Gaussian deviations in an additive-noise linearization; no population nonnegativity or nonlinear extinction inference.",
+    "Optimum is local patch prey variance, not synchrony or sum-mode variance; correlated prey/predator within patch not admitted.",
+    "The 2021 trophic metacommunity papers have closely related linear covariance formulas; an unexamined appendix could contain this exact optimizer or a dominating statement.",
+    "The narrow closed-form optimization may have been reported under synchrony/noise suppression terminology."
+  ],
+  "schema_version": 1
+}
