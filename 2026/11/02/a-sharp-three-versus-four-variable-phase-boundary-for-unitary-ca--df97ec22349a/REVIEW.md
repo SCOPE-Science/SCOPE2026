@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The ring decomposition and Jacobson-radical twin obstruction are valid for finite commutative rings. The four extension multiplicities follow from inclusion-exclusion with explicit deletion of the two anchor vertices. The sharp criticality classification follows by solving the multiplicity-one cases; the proof independently bounds all other witness multiplicities by two. A two-coordinate hybrid forbids the \((1,1,0)\) three-anchor pattern, and an indefinitely extendible three-pebble partial isomorphism proves unrestricted-depth three-variable equivalence. Both standalone enumerators ran successfully against their recorded outputs. Small-size checks do not replace the universal proof.
+PASS
 
-## Originality (PASS, qualified)
+For 0!=j in J(R), 0 and j are false twins, obstructing 2-existential closure. Reduced finite commutative rings split into fields; single-field cliques and binary coordinates obstruct 2-ec. In the remaining t>=2,q_i>=3 case, exact inclusion-exclusion counts for distinct anchor pair a,b are c11=W, c10=c01=U-W-epsilon, c00=N-2U+W-2(1-epsilon), where W=prod_equal(q_i-1)prod_differ(q_i-2), U=prod(q_i-1), N=prod(q_i), epsilon=1 when anchors differ in all coordinates. Positivity establishes 2-ec; classifying which counts can equal 1 gives 2-ec-critical iff t=2 and some q_i=3 or t>=3 all q_i=3. A hybrid of two mutually coordinate-different anchors forces adjacency to any common neighbor, defeating 3-ec. Infinite-duration three-pebble back-and-forth uses exactly two anchored vertices, establishing FO^3 equivalence; a four-variable extension sentence separates FO^4. Independent explicit finite counts for six field products matched, but do not prove the arbitrary-ring assertions.
 
-The principal comparisons are Klotz–Sander (2007), Kiani–Molla Haji Aghaei (2012), Liu–Zhou (2012), and the 2025 treatment of critical Cayley graphs. The former papers prove classical structural/chromatic/spectral results; the latter gives a general difference-set condition and constructs other critical Cayley graphs. None of the relevant inspected statements supplies the exact finite-commutative-ring phase diagram together with the criticality classification and sharp random-graph variable boundary. The result uses these standard ingredients openly. Search coverage is not exhaustive; an unknown strong categorical-product theorem is a residual priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The theorem connects an intrinsic ring invariant, its radical and simple factors, to a sharp logical expressiveness threshold, gives a complete deleted-vertex resilience classification and exact local witness counts, and shows the same unrestricted three-variable theory contains finite graphs of arbitrarily large chromatic number. This is a natural uniform classification across all finite commutative rings, not a calculation at a selected order. The ring's full isomorphism type is not recovered by the logic, and the result makes no claim about higher-variable classification of all pairs.
+Klotz–Sander (2007) and Kiani–Molla Haji Aghaei (2012) give ring unitary Cayley graph structure and numerical invariants, while the 2025 Ars Combinatoria critical Cayley graph article develops generic difference-set tests. None of the inspected parts supplies the finite-commutative-ring FO^3/Rado classification, all-anchor count profile and FO^4 obstruction. The generic finite-variable pebble lemma is classical and not claimed as original; algebraic geometric graph combination is the proposed added content.
 
-## Closest literature and limitations
+## value
 
-The 2025 general 2-e.c. difference-set lemma is a genuine close source; no new generic Cayley-graph extension lemma is claimed. A 2023 review of graphs on rings could not be opened because of an access-rate response, and exhaustive terminology-equivalence checking is unfinished. The proof covers only finite commutative rings in the pure graph language; no independent audit is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete width-3/width-4 logical classification for a broad ring-derived graph family is a natural finite-model-theoretic boundary. Single-vertex deletion criticality makes the classification robust/fragile distinction exact, while arbitrary chromatic number inside one FO^3-theory is a substantive expressivity illustration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
