@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "An accepted deposition blocks future cross-interval interactions. For a vacant segment of length m>=2 with occupied endpoints, the two edge vacancies have accepted rate 1/2 each and the m-2 interior vacancies rate 1 each, yielding exact first-success recurrences. Their difference equals 1/(m-1)!, and a formal generating-function ODE solves to A(z)=(e^{-z}/(1-z)^2-e^z)/2. The first ring deposition leaves a same-species interval of length L-1, giving the exact stated expression. The finite-size difference is strictly positive for all L>=3. A local-minimum-of-first-clock barrier argument establishes the line limit. A standalone exact independent finite-state calculation passed 324 rational comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Penrose and Sudbury study single-species monomer blocking, dimers and annihilation, not repeated proposals of two incompatible species.",
+        "Do Amaral and dos Santos study one attempt per site, not the repeated-proposal process."
+      ],
+      "reasoning": "Neither assessed theorem states an all-cycle repeated-two-species ring law or implies its proof under the same transition generator. The older monomer/dimer paper was assessed from its abstract/model description only, so an implicit general-purpose derivation remains a residual historical risk.",
+      "searches": [
+        "Penrose Sudbury exact and approximate deposition annihilation processes on graphs monomers dimers",
+        "random sequential adsorption two colours nearest-neighbour exclusion finite cycles exact formula",
+        "arxiv:math/0503519",
+        "arxiv:2306.09786"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2211.04622, full relevant sections including Eq (47)",
+      "arxiv:2306.09786, accessible rendered full text",
+      "arxiv:math/0503519, abstract and model description only",
+      "accessible prior mathematical claims on complete multipartite repeated adsorption and one-attempt 1D adsorption"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 paper says the finite-size formula is supported by high-precision data and a three-site approximation appears exact.",
+        "The 2023 model has one attempted deposition per site and can retain AXA, unlike the repeated process.",
+        "An accessible older exact law for repeated adsorption on complete multipartite graphs contains the triangle and four-cycle as small special cases, but not cycles of length at least five."
+      ],
+      "reasoning": "The published numerical conjecture does not contain a verified all-size argument or the boundary-conditioned generating functions. An exact theorem on a different transition mechanism cannot imply the ring theorem. Exact results for special small graphs are subsumed here but do not dominate an all-cycle proof; novelty is not claimed for those cases.",
+      "searches": [
+        "arxiv:2211.04622 original one-dimensional finite cycle saturation statement",
+        "arxiv:2306.09786 one attempt per site source",
+        "2005 Penrose Sudbury deposition paper title and abstract",
+        "finite complete multipartite graph repeated AB adsorption versus cycle C_L"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 proposal mechanism includes repeated attempts and rejects forbidden deposits without state change.",
+        "The 2023 one-attempt model explicitly contrasts AXA configurations that fill under repeated attempts."
+      ],
+      "reasoning": "Independent equal-rate Poisson streams yield the same accepted-jump law as uniform site-and-species trials after deleting rejected events. The 2023 one-attempt dynamics is not equivalent because a refused site never retries; its occupation formula cannot be transplanted.",
+      "searches": [
+        "repeated-attempt AB adsorption cycles vs exponential race / rejected proposals",
+        "arxiv:2211.04622 Section II model and Section V equation (47)",
+        "arxiv:2306.09786 Section 1 distinction between one and multiple attempts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Equation (47) of arXiv:2211.04622 displays the same exact expression and calls its support strong numerical evidence, not proof.",
+        "The same source identifies an even-cycle derangement count as the candidate blocked-site probability."
+      ],
+      "reasoning": "The closed numerical formula and its combinatorial resemblance are explicitly credited to the 2022 source, so neither is claimed as an original guess or new table. The new contribution is the complete all-length proof, exact boundary-conditioned generating functions, and derived strict factorial finite-size behavior.",
+      "searches": [
+        "Martins Dickman Ziff finite periodic L coverage Eq 47 derangements",
+        "antagonistic random sequential adsorption 1-1/(2e) finite cycle proof",
+        "2022 paper Section V equation (47)"
+      ]
+    },
+    "rationale": "The main ring expression was conjectured numerically by Martins-Dickman-Ziff (2022), and is explicitly acknowledged as prior. Their discussion does not provide a proof. The work supplies the all-size proof, two new boundary-conditioned generating functions, strict finite-size monotonicity, and factorial error. The 2023 one-attempt AB model is not dynamically equivalent; 2005 monomer/dimer processes do not state the claimed process. Published-record searches and recoverable own history did not identify stronger coverage, subject to the stated residual risks.",
+    "residual_risks": [
+      "The 2022 paper mentions a forthcoming one-dimensional study which could contain a proof; no accessible identified publication was located in the searches performed.",
+      "The broad 2005 graph-deposition paper was not read in full, so an implicit extension cannot be ruled out solely from its abstract.",
+      "Search and recorded nonmatches do not certify historical uniqueness; independent prior-art review remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact expression and limiting numeric value are prior conjectures; no finite-ring proof or auxiliary segment generating functions are presented in the inspected relevant sections.",
+        "evidence": [
+          "Section II specifies repeated attempts at vacant sites and rejection of forbidden colours.",
+          "Section V explicitly calls formula (47) strong numerical evidence and the three-site approach an approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.04622",
+        "material_read": "Accessible arXiv-rendered article text, Sections I, II, V and conclusion; specifically Section V equation (47) and prose immediately before/after it",
+        "method": "Read full relevant text via accessible article rendering",
+        "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+        "trigger": "Exact same repeated-proposal species rules and proposed finite-ring formula"
+      },
+      {
+        "assessment": "Not covering: it changes the process to one attempt per site; an initial refusal cannot be corrected by later same-type proposals.",
+        "evidence": [
+          "Introduction explicitly states one-attempt restriction and distinguishes AXA from repeated-attempt filling.",
+          "The density formula is for the modified one-shot process."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.09786",
+        "material_read": "Accessible full arXiv-rendered text, introduction, model rules, main events, density derivation, and discussion",
+        "method": "Read article rendering, with direct comparison of site-attempt rules",
+        "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+        "trigger": "Same species exclusion geometry and exact one-dimensional coverage calculation"
+      },
+      {
+        "assessment": "Models described are monomer/dimer hard-core blocking and annihilation, not explicitly repeated two-species neighbour-compatible adsorption; not treated as a proof of noncoverage of its uninspected sections.",
+        "evidence": [
+          "Abstract names monomer neighbor blocking, dimer deposition and annihilation as its processes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+        "material_read": "arXiv title, abstract, model summary and MSC; no claim of full text inspection",
+        "method": "Read paper abstract and available article-level model information",
+        "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+        "trigger": "General probabilistic adsorption paper on graphs cited by nearby literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2812e348-7b2e-4ae3-9c1a-8e29e79116c6",
+  "value": {
+    "rationale": "The numerical exact finite-ring coverage expression and its 1/(2e) limit are an explicit motivated unresolved analytical step in the primary 2022 article. The proof identifies a reusable shielded-interval mechanism and supplies boundary-conditioned generating functions, strict monotonicity and factorial corrections. This closes a specific modeled jamming-density gap, rather than extracting an arbitrary isolated finite computation.",
+    "status": "PASS"
+  }
+}
