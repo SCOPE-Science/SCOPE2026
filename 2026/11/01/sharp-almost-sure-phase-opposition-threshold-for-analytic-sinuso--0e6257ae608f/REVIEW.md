@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed all-parameter result follows from the explicitly derived identity (1), the positive-definite spectral bound, finite binary critical set, vanishing-step argument, and the analytic Luzin \(N^{-1}\) property. The local avoidance mechanism uses the endomorphism center-stable theorem for arbitrary unstable fixed points, including singular derivatives, as documented by Muşat--Boumal's Theorem 5. The critical strictness was checked for the literal integral remainder, not inferred from the source's vanishing descent coefficient. A finite-check script independently supports the algebra but does not establish convergence or null sets.
+PASS
 
-## Originality
+For F_h(z)=z+hKA sin z modulo 2π, u=A sin z, w=Ku, q=u^TKu, Taylor integral identity separates V(z)−V(F_hz) into h(1−hΛ/2)q + (h²/2)(Λq−w^TAw) + h²Σ_i a_i w_i²∫(1−t)(1+cos(z_i+thw_i))dt, all nonnegative when h≤2/Λ and strictly positive whenever sin z≠0 (K invertible and nonconstant cosine segment). Compactness and vanishing increments force every orbit to converge to one of finitely many binary equilibria, even at equality. All other binary equilibria have expanding derivative direction by symmetric congruence. Analytic nonzero Jacobian determinant at zero makes all preimages of null sets null; an endomorphism center-stable theorem gives null basin of each unstable fixed point despite singular derivatives. For h>2/Λ p* derivative has eigenvalue <−1, so same N^-1 argument makes its basin null. Direct independent numerical integration at critical parameter for nontrivial points verified Taylor equality to high precision; analysis does not infer measure theory from numerics.
 
-**PASS subject to the stated residual risks.** Buescu--D'Aniello--Oliveira (arXiv:2610.10993v1) prove the open Lyapunov interval and full-measure basin in the diffeomorphic subinterval, but their statements do not cover strict descent at the closed critical endpoint or full-measure attraction there. Schaeffer--McCalla exclude the endpoint in Theorem 3.2. Muşat--Boumal provide the general null-basin theorem but not the endpoint cosine remainder or its combination with all-trajectory convergence in this family. Closest indexed discrete oscillator critical-relaxation records treat different coupling and parameter regimes; accessible own results on noninjectivity, supercritical cycles, and phase-network locking do not imply the closed basin threshold.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result determines the exact inclusive global-attraction boundary for a natural class of coupled phase networks, including every positive-weight finite tree, precisely where general second-order descent bounds lose strictness and standard diffeomorphic basin proofs stop applying. The distinction between loss of invertibility at one spectral threshold and loss of full-measure attraction at a later threshold is a substantive dynamical phenomenon.
+The directly relevant 2026 Buescu–D’Aniello–Oliveira source proves descent only for 0<h<2/Λ, and full measure only for the diffeomorphic interval h<1/Λ; a supercritical local sink-loss result alone does not imply basin measure zero. Muşat–Boumal 2026 provides general noninvertible center-stable and Luzin N^-1 tools, which are credited, but no source supplied the cosine strict-remainder identity at the critical h and complete global phase-family threshold. Published neighboring oscillator records concern different coupling or critical-relaxation regimes.
 
-## Closest literature and limitations
+## value
 
-The main source proves strict descent only for \(0<h<2/\Lambda\), full-measure basin only for \(0<h<1/\Lambda\), and local loss of sink status when \(h>2/\Lambda\). The present proof closes the endpoint and gives a measure-theoretically sharp transition for the specified equilibrium, not classification of all large-step attractors. The general center-stable and Luzin arguments are credited to Muşat--Boumal and its predecessors. The finite code does not replace the infinite-dimensional-parameter or measure arguments. Broader historical coverage may remain unidentified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inclusive threshold 2/Λ for almost-everywhere attraction of a prescribed phase-opposition state is a natural stability boundary for positive-weight tree phase networks. Exact endpoint descent persists when the usual quadratic descent coefficient vanishes; noninvertibility occurs at smaller steps than loss of almost-global attraction. Closing this measure-theoretic gap is meaningful beyond a local multiplier check and does not purport to classify supercritical attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
