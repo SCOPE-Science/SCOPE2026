@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with Python 3.10 or newer; it requires only the Python standard library. It reconstructs base adjacency from labeled edge-bit masks, attaches private complete graphs, enumerates vertex subsets and independently computes the forcing closure and minimal-fort predicates. It compares the exact complete coefficient distributions to the separate uniform/mixed generating-function formulas. The test includes all graphs of orders one through four, mixed clique sizes, uniform orders two and three, and seven examples with five original vertices.
+## correctness
 
-Actual completed output:
+PASS
 
-```
-VERIFY_OK: 104 graph-corona instances, 537504 direct vertex subsets; uniform and mixed clique sizes; all zero-forcing coefficients and all minimal-fort coefficients
-```
+For each private clique C_v of order r_v>=2, a fort with at least two C_v vertices contains a two-vertex fort; minimality forces exactly that pair. With at most one C_v vertex, outside peripheral vertices force core membership equivalent to a unique peripheral choice, giving an exact lift of a fort of G and preserving minimality. A zero-forcing set intersects every fort, proved by the first-force/stalled-white argument. At v not in the induced base forcing set, exactly one clique vertex and core v are white, weight r_v z^(r_v-1); at v in it, local weight z^r_v(r_v+1+z). Multiply to prove the full nonuniform polynomial, minimum exponent, and multiplicity; r_v=2 boundary included. Independently enumerated 74 labelled graph/corona parameter instances with 1<=n<=3 and r_v in {2,3}: direct forts, minimal subset check, greedy forcing sets, and complete coefficients all agree. This finite enumeration corroborates, does not prove, the all-graph theorem.
 
-The program checks formulas on a finite list only. The general result is proved in `RESULT.md` by graph-theoretic bijections and the fort-hitting equivalence. The checker does not determine whether an identical all-parameter theorem was published elsewhere; publication-priority uncertainty persists. The definition of standard zero forcing (unique white neighbor) matters, and sizes of attached cliques below two are outside the theorem.
+## originality
+
+PASS
+
+Beyond the known scalar zero-forcing number of connected clique-coronas and the known local peripheral-pair fort construction, the complete minimal-fort classification and full coefficientwise transfer are not implied by the inspected sources: the arguments work with arbitrary disconnected/isolated base vertices and nonuniform r_v>=2. Prior-source comparison is of exact theorems, not shared wording.
+
+## value
+
+PASS
+
+The invariant is the natural complete zero-forcing polynomial for a major graph operation; a coefficientwise reduction from a general base to a corona, with an exhaustive fort classification and nonuniform clique orders, is useful for enumerating forcing sets and proving structural transfer, not merely a reparametrized scalar minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

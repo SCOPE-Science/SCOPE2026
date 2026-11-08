@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All hypotheses and quantifiers have been checked for an arbitrary finite simple base graph of positive order (including isolated vertices and disconnected bases) and private clique sizes at least two. The local-pair fort, the core/private singleton correspondence, and its minimality equivalence are proved by outside-neighbor counts; the fort-hitting characterization is established directly by the stalled-white-set argument. The independent local-case partition yields every coefficient with no double counting. Leading exponents prove the minimum and its multiplicity. The attached `VERIFY.py` tests 104 graph-corona instances and 537,504 vertex subsets, comparing both full distributions. Finite enumeration is corroboration rather than a proof for infinite families.
+PASS
 
-## Originality — PASS (provisional publication priority)
+For each private clique C_v of order r_v>=2, a fort with at least two C_v vertices contains a two-vertex fort; minimality forces exactly that pair. With at most one C_v vertex, outside peripheral vertices force core membership equivalent to a unique peripheral choice, giving an exact lift of a fort of G and preserving minimality. A zero-forcing set intersects every fort, proved by the first-force/stalled-white argument. At v not in the induced base forcing set, exactly one clique vertex and core v are white, weight r_v z^(r_v-1); at v in it, local weight z^r_v(r_v+1+z). Multiply to prove the full nonuniform polynomial, minimum exponent, and multiplicity; r_v=2 boundary included. Independently enumerated 74 labelled graph/corona parameter instances with 1<=n<=3 and r_v in {2,3}: direct forts, minimal subset check, greedy forcing sets, and complete coefficients all agree. This finite enumeration corroborates, does not prove, the all-graph theorem.
 
-The closest directly inspected primary source is Becker et al., *On the Number of Minimal Forts of a Graph*, arXiv:2404.05963v1 (2024-04-09), Section 5.2, Propositions 22 and 23 and adjoining comments (PDF pp. 13–15). It gives the existence of peripheral minimal forts and a cycle-base lifting construction. It warns that the lifted construction can fail for general bases with a single pendant attached vertex. It does not classify **all** minimal forts for arbitrary bases with private cliques of size at least two or derive the exact zero-forcing polynomial for these coronas. The 2016 Javaid et al. theorem yields the uniform scalar zero-forcing minimum but no coefficientwise formula. Boyer et al. (2018) define the zero-forcing polynomial without this transfer; Abara–Pelayo (2022) address maximal failed sets of graph products. Searches included possible corona/blowup, fort-transversal, polynomial-substitution, and full-strength implication formulations. The strongest identified comparisons are narrower, not equivalent. Unindexed literature and later journal revisions remain residual risks; no independent publication-priority certification has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact fort-hypergraph classification and full zero-forcing polynomial reduction work for **every** graph, not merely one family, and permit heterogeneous private clique orders. The polynomial computes every size-count and the exact multiplicity of minimum forcing sets; the scalar minimum had already been known. The essential threshold at private clique size two explains a genuine structural boundary. This is substantially more informative than a routine minimum-parameter corollary or a table of special examples.
+Beyond the known scalar zero-forcing number of connected clique-coronas and the known local peripheral-pair fort construction, the complete minimal-fort classification and full coefficientwise transfer are not implied by the inspected sources: the arguments work with arbitrary disconnected/isolated base vertices and nonuniform r_v>=2. Prior-source comparison is of exact theorems, not shared wording.
 
-## Verification limits
+## value
 
-The independent calculations only cover bounded graph sizes and do not certify the infinite theorem or publication priority. The proof provides the infinite coverage. The attached reproducer was run successfully. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant is the natural complete zero-forcing polynomial for a major graph operation; a coefficientwise reduction from a general base to a corona, with an exhaustive fort classification and nonuniform clique orders, is useful for enumerating forcing sets and proving structural transfer, not merely a reparametrized scalar minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
