@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The projective fixed-point bijection is reversible and chooses exactly one nonzero idempotent on each fixed direction. The fixed equation is a nonzero homogeneous cubic, giving the unconditional upper bound three. Sharp three-transitivity supplies all simultaneous fixed-line probabilities, and every possible squaring collision is counted by the exact projective fiber structure. Factorial-moment inversion gives a unique distribution. Exhaustive prime-field and extension-field calculations agree with all frequencies. Limits: finite checking supplements but does not replace the all-field proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest directly relevant 2026 primary survey gives expectation one (Remark 23) and existence of idempotent-free two-dimensional perfect algebras; neither specifies the full numerical distribution. Earlier isomorphism-class enumeration uses a different counting measure. A known exact variance/second factorial moment is not enough to recover four probabilities, since after normalization and the first two moments there remains one free parameter; the third factorial moment supplies essential independent information. Searches for the projective fixed-point formulation and probability one-third found no equivalent exact law. Possible older projective dynamical-system statistics remain a priority risk. A negative search is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The result gives exact frequencies for every possible nonzero idempotent count in the first nontrivial dimension over every finite field. The universal one-third idempotent-free fraction quantifies a previously known existence phenomenon, and the parity-dependent disappearance of the two-idempotent outcome exposes a structural feature of the squaring map. The even-characteristic distribution equals the uniform \(S_3\) fixed-point law exactly, while odd fields have an explicit \(O(q^{-1})\) correction, refining the 2026 survey's asymptotic prediction in its first nontrivial dimension. These are natural algebraic invariants of the uniform structure-matrix model, not arbitrary parameter slices.
+A≠singular in GL2(Fq) defines projective fixed lines of [v]↦[Av^{[2]}]; each fixed line lifts to one nonzero idempotent, so N is the number of rational roots of a nonzero cubic (N≤3). PGL2(Fq) is sharply 3-transitive on ordered triples of distinct P1 points; a k-tuple of fixed points is feasible iff coordinatewise squaring yields distinct images. For even q, squaring is bijective and T1,T2,T3=(q+1,(q+1)q,(q+1)q(q−1)); for odd q, fiber collisions yield T2=q²+1 and T3=(q−1)(q²−2q+3). Exact factorial-moment inversion gives the claimed 4-value distribution, including P0=1/3 in both characteristics, zero P2 in even characteristic. Independent prime-field matrix/projective-root enumeration q=3,5,7,11 and direct raw vector-idempotent enumeration q=2,3,5,7 agree. Proof handles all finite extension fields and q=2; finite samples do not stand in for it.
 
-## Closest literature and limitations
-Kaygorodov–Martín González–Viruel (2026), §2.1.5 and Remark 23, establish existence and the mean, not the distribution. Wei–Zou (2023) treat the orbit count of algebra isomorphism classes, not the raw uniformly sampled invertible-matrix law. A possible unlocated earlier classification of postcomposed squaring maps on the projective line could imply this result; it was not identified in available searches. The law does not extend as stated to sampling isomorphism classes or dimensions above two.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison of actual published records and inspected accessible primary mathematics supports a distinct contribution. Evidence and residual priority risks follow; absence from search results is not proof of historical novelty. The algebra problem is exactly fixed-point-count distribution for uniform g∈PGL2(Fq) postcomposed with coordinatewise projective squaring; both aliases were examined. In even characteristic Frobenius squaring permutes P1 and the resulting law matches the fixed-point distribution of S3. The other assigned geometric discriminant strata do not imply rational fixed-point counts, since separable cubics have variable Frobenius splitting.
+
+## value
+
+PASS
+
+This is the complete natural law of rational idempotent counts in the first nontrivial random perfect evolution-algebra dimension, quantifying the chance of idempotent-free structures beyond existence and mean one. Exact characteristic-two S3 fixed-point law and odd-characteristic correction distinguish arithmetic regimes and supply explicit data for the survey's asymptotic conjecture. No paper-sized future application is needed for this self-contained invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
