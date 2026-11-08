@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For bounded finite-state breaks, the mass after m sticks is exp(-S_m), giving exact early-box and late-tail probability bounds and a uniform O_P(log log n) coupling. The finite-state Poisson equation and bounded martingale FCLT imply a Green--Kubo Brownian limit for S, with inverse coefficient s/mu^(3/2). Borel--Cantelli at exponential sample sizes yields the a.s. logarithmic law. Exact rational verification checks stationary and covariance formulae, but finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2010 Bernoulli-sieve paper explicitly assumes independent residual factors and iid perturbed-renewal increments; its broad limit classifications are conditional on those assumptions.",
+        "Finite-state Markov additive functional CLTs are standard and used in the proof, but their conclusions alone do not assert a sampled random-discrete-measure occupancy limit.",
+        "De Blasi--Mena--Prünster analyze geometric stick-breaking with a single random success probability, not an ergodic dependent Markov sequence.",
+        "Alsmeyer--Iksanov--Marynych (2016), section 4, proves a deterministic-frequency occupancy approximation for a box-size-threshold process and uses it with iid-factor renewal fluctuation arguments; it does not establish the dependent Markov nested-sample-size FCLT."
+      ],
+      "reasoning": "The proof combines a model-specific uniform sampled occupancy/renewal sandwich with a Markov additive FCLT. A stronger theorem for arbitrary stationary ergodic frequency sequences might cover it, but no such decisive statement was located in the searched and inspected sources. The 2016 universal comparison supplies a closely related proof mechanism, but does not directly conclude the claimed Markov process limit; the new sampling-time uniform coupling is proved explicitly.",
+      "searches": [
+        "Markov renewal random environment Bernoulli sieve occupied boxes",
+        "occupancy Markov stick breaking asymptotic cluster count CLT",
+        "dependent residual allocation Markov occupancy CLT number occupied boxes stationary Markov chain",
+        "arxiv:1001.4920v1 section 2.1",
+        "arxiv:1601.04274v1 Theorem 2.2 and section 4 Proposition 4.1 Karlin approximation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.16561v1",
+      "arxiv:1001.4920v1",
+      "doi:10.1007/s10463-021-00791-6",
+      "doi:10.1007/s13171-020-00236-x",
+      "arxiv:0801.4725 (abstract comparison)",
+      "arxiv:1601.04274v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new statement has time-index t over all [0,1] and a general Green--Kubo long-run variance, with explicit two-state lambda factor.",
+        "The iid prior gives K_n central limit results for lambda=0, which are acknowledged as subsumed special cases.",
+        "The geometric fully dependent case has no two-state positive-transition stationary Markov modulation; the older clumping work studies occupation laws of a different nonexchangeable model.",
+        "The 2016 functional theorem is for threshold-in-occupancy-size conditional on total sample n, whereas this theorem varies sample size as n^t, with a serial-covariance correction outside the iid W_i hypothesis."
+      ],
+      "reasoning": "The old iid conclusion does not imply lambda != 0 cases by mere substitution: it uses the marginal one-step variance instead of serial covariance. Additional Markov FCLT and a uniform coupled-occupancy argument establish the distinct conclusion. Priority to general results remains a risk, rather than being ruled out by search absence. Its proof ideas overlap, but different time-indexed random variables and non-iid environments prevent a direct theorem-to-theorem implication.",
+      "searches": [
+        "arxiv:2601.16561v1 main text and appendix B.8",
+        "arxiv:1001.4920v1 theorem 1.1 and Corollary 1.2",
+        "De Blasi Mena Prünster geometric stick-breaking distinct values asymptotic 2022",
+        "Dietz Lippitt Sethuraman Stick-Breaking processes Clumping Markov Chain Occupation Laws",
+        "arxiv:1601.04274v1 section 1.1 definition of K_n^*(t), Theorem 2.2 and section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gnedin--Iksanov--Marynych theorem 1.1 proves a renewal-count/occupancy limit under iid residual factors; the model expressly uses independent copies W_k.",
+        "The new formula collapses to the iid Bernoulli-sieve coefficient when the two-state transition rows coincide (lambda=0).",
+        "The 2026 Markov stick-breaking article states a new Markov-dependent construction but does not give a functional logarithmic cluster-count CLT in the inspected portions.",
+        "Alsmeyer--Iksanov--Marynych (2016) define K_n^*(t) as the number of boxes with 1 through floor(n^t) occupants in a fixed sample of n, not the distinct box count for the first ceil(n^t) observations; their factors W_i are independent copies."
+      ],
+      "reasoning": "Stationary Markov factors with lambda != 0 have nonzero serial correlations and are not iid. A scalar iid CLT is not the same statement as a dependence-sensitive functional process limit. No identified prior is equivalent to the full claim. A functional occupancy threshold over box sizes is not the same random process as cumulative discovery under nested observation counts.",
+      "searches": [
+        "\"Markov stick-breaking\" \"central limit\" clusters",
+        "\"dependent Bernoulli sieve\" \"central limit\"",
+        "arxiv:1001.4920v1 theorem 1.1",
+        "arxiv:2601.16561v1 section 7 and appendix B.8",
+        "arxiv:1601.04274v1 theorem 2.2 and K_n^*(t) definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article reports finite-sample and posterior cluster-count behavior; it does not provide an asymptotic table of this Markov covariance-adjusted Brownian coefficient.",
+        "The exact two-state value 51/250 is derived algebraically from the stationary law and transition eigenvalue, not obtained from a previously published data table."
+      ],
+      "reasoning": "No matching exact coefficient, table entry, or finite-statistic database result was found. This is corroborative rather than a uniqueness proof.",
+      "searches": [
+        "\"Markov stick-breaking\" \"log n\" number clusters",
+        "\"Markov stick-breaking\" \"diversity\" asymptotics",
+        "Two-state Markov residual allocation Bernoulli sieve occupancy variance inflation (1+lambda)/(1-lambda) Gaussian",
+        "Gil-Leyva et al appendix B.8 characterization of K_n"
+      ]
+    },
+    "rationale": "The inspected 2026 Markov-stick-breaking paper supplies kernels and finite-sample clustering tools, not the stated functional logarithmic diversity CLT. The 2010 Bernoulli sieve central-limit theorem assumes iid factors, whereas the present stationary finite-state Markov dependence changes long-run covariance. This is a provisional historical assessment subject to broader stationary occupancy literature. The inspected arXiv:1601.04274v1 gives an iid-factor functional theorem for boxes with occupancy at most n^t after a fixed n draws, not nested sample-size K_{ceil(n^t)} for stationary Markov factors.",
+    "residual_risks": [
+      "Potential broader existing theorems for occupancy under arbitrary stationary random frequency sequences could imply the result.",
+      "The 2022 geometric species-diversity and 2023 Markov clumping full texts were not inspected; conclusions are limited to their available abstracts.",
+      "No independent mathematical audit or exhaustive historical priority check has occurred.",
+      "The universal 2016 Karlin occupancy comparison is conceptually close; a sufficiently general published extension with stationary dependent breaks and nested sample sizes might subsume the application."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "New construction and finite-sample cluster methods, no stated functional logarithmic sampled-species CLT found in inspected material",
+        "evidence": [
+          "first posted 2026-01-23",
+          "section 7 discusses posterior number of clusters",
+          "appendix B.8 gives a representation via size-biased weights and geometric gaps"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.16561v1",
+        "material_read": "Full HTML navigation, introduction, section 7 concluding remarks, appendix B.8 and targeted passages on K_n, clustering comparisons and Markov kernels",
+        "method": "read primary lawful open HTML and search within full text",
+        "title": "Markov stick-breaking processes",
+        "trigger": "direct new Markov stick-breaking construction, sample cluster count"
+      },
+      {
+        "assessment": "Gives significant iid Bernoulli-sieve results; stated factor and increment independence exclude the dependent Markov case",
+        "evidence": [
+          "equation (1) explicitly defines independent copies W_k",
+          "section 2.1 assumes iid perturbation pairs",
+          "Corollary 1.2(a) provides iid finite-variance CLT"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1001.4920v1",
+        "material_read": "Introduction, Theorem 1.1, Corollary 1.2 and section 2.1 independence assumptions",
+        "method": "read primary lawful open HTML",
+        "title": "Limit theorems for the number of occupied boxes in the Bernoulli sieve",
+        "trigger": "classical central limit and potential dominating occupancy theorem"
+      },
+      {
+        "assessment": "Geometric single-parameter model has a different dependence mechanism; material does not establish Markov functional law",
+        "evidence": [
+          "abstract describes a random success probability and logarithmic growth regimes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10463-021-00791-6",
+        "material_read": "bibliographic record and abstract",
+        "method": "search and abstract comparison; full text not inspected",
+        "title": "Asymptotic behavior of the number of distinct values in a sample from the geometric stick-breaking process",
+        "trigger": "potentially dominating logarithmic species-diversity theorem"
+      },
+      {
+        "assessment": "Nonexchangeable stick-breaking limits for occupation laws of inhomogeneous Markov chains; no matching sampled-species functional CLT visible from abstract, unresolved full-text coverage risk",
+        "evidence": [
+          "abstract identifies clumped occupation laws, not conditional iid samples from Markov break weights"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13171-020-00236-x",
+        "material_read": "bibliographic record and abstract",
+        "method": "search and abstract comparison; full text not inspected",
+        "title": "Stick-Breaking Processes, Clumping, and Markov Chain Occupation Laws",
+        "trigger": "Markovian stick breaking title could imply a broader result"
+      },
+      {
+        "assessment": "Establishes an iid-factor functional limit for occupancy-size cutoff after n draws, with general fixed-frequency approximation; does not state nested sample-count Markov-environment limit or its Green--Kubo coefficient",
+        "evidence": [
+          "Section 1.1 explicitly takes independent copies W_i",
+          "definition K_n^*(t) counts boxes with 1 to floor(n^t) occupants in the same sample of n",
+          "Theorem 2.2 yields an iid Brownian FCLT for that different process",
+          "Section 4 generalizes deterministic-frequency box-count comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1601.04274v1",
+        "material_read": "Full lawful HTML introduction and definitions, theorem 2.2, section 4 heading/Proposition context and proof outline in section 6",
+        "method": "primary HTML reading and in-document searches of Karlin approximation and K_n^*(t)",
+        "title": "Functional limit theorems for the number of occupied boxes in the Bernoulli sieve",
+        "trigger": "potentially broader functional occupancy theorem with universal approximation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ee7071bb-744c-46b8-aea6-262111ac5203",
+  "value": {
+    "rationale": "Species-count growth is explicitly an inferential quantity in the recent Markov-stick-breaking model. The theorem provides a natural full logarithmic-scale process limit, identifies its serial-dependence correction, and shows at fixed break marginal the Gaussian diversity fluctuations can be tuned without changing first-order growth. This distinguishes dependent priors at a structural level beyond finite-sample simulation.",
+    "status": "PASS"
+  }
+}
