@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The paper `RESULT.md` gives a dimension-independent analytic proof. In particular, apply the exact centroid identity to all within-block and cross-block pairs, and conclude \(D^2v^2\ge\Sigma\). The positive-semidefinite construction uses two orthogonal centered equilateral-simplex Gram matrices and a nonnegative rank-one centroid-separation matrix. It realizes the lower bound for all admissible parameters, including the transition \(\Sigma=v^2\).
+## correctness
 
-The equality proof requires no assumption that a competing embedding respects the finite metric's permutation symmetry. Exact equality in the centroid identity and individual squared-distance constraints forces the optimizer's three pair-orbit distances, shared or separated centroids, and the stated affine dimension. The graph specialization sets \((u,w,v)=(1,2,1)\).
+PASS
 
-`checker.py` can be replayed with `python3 checker.py` using only the Python standard library. During the self-review it returned:
+For a,b>=2 and u,w,v>0 with u,w<=2v, the stated three-orbit distances define a metric. Universal Hilbert centroid identity averages squared A–B distances into within-A variance, within-B variance, and nonnegative squared centroid displacement, proving D^2 v^2>=Σ for every noncontracting embedding and D>=1. Two orthogonal regular simplices of edges u,w with centroid separation sqrt(max(0,v^2−Σ)) give cross-distance max(v,sqrtΣ) and attain D=max(1,sqrtΣ/v). For Σ>v^2, every inequality is equality: all within-block distances attain lower bounds, all cross distances the upper bound, centroids agree, and double-centering forces the simplex spaces orthogonal. Σ=v^2 and Σ<v^2 yield isometric dimension a+b-2 versus a+b-1. Substituting split graph intrablock lengths 1,2 and cross1 gives c2=sqrt(5/2−1/(2a)−2/b), with Σ>=5/4. Independent arithmetic checks of Σ, branch and constructive conditions for five parameter tuples; the source rational Gram checker was inspected, not used as a replacement for the arbitrary-Hilbert inequality.
 
-`CHECK_OK rational_matrix_cases= 2448 identity_cases= 448 validated_relations= 244464 branches= <,=,>`
+## originality
 
-The checker uses exact rational arithmetic to test the constructed Gram matrices, rank conditions, triangle constraints, distortion formula, and independent centroid identities. It is a finite numerical certificate for sampled rational inputs, **not** an exhaustive proof over all real metric parameters and Hilbert spaces. Originality remains qualified by Robertson's earlier equal-intrablock case and possible other historical equivalent formulations. No independent mathematical audit has been performed.
+PASS
+
+Robertson (arXiv:2309.16070) Theorem 4.3 already computes Hilbert point-metric distortion of complete bipartite graph and snowflaked variants: a common within-block distance case, hence this included case is NOT novel. The independently variable within-block edge lengths, the split-graph specialization, and strong all-optimizer equality/dimension classification were not in the primary theorem inspected. Negative-type variational characterization is broader conceptual background but does not supply those evaluated mixed-parameter identities without added work. Relevant Resultary hits were Banach–Mazur distortion of Lipschitz-free spaces, a different invariant. Historical priority remains provisional.
+
+## value
+
+PASS
+
+A nonuniform two-block equilateral metric is a natural finite-metric and graph-metric family; the least nonlinear Hilbert distortion and uniqueness of all optimal geometric configurations are central and not determined merely by finite dimensional embeddability. The two independent radii and exact phase boundary show when an optimal representation collapses the centroids, and yield a sharp split graph constant for arbitrary block sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
