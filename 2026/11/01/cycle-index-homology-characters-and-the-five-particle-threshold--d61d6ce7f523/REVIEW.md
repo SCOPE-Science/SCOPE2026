@@ -1,15 +1,21 @@
-# Scientific review: arm-permutation homology of star configurations
+# Independent mathematical audit
 
-## Correctness — PASS
-Farley–Sabalka's radial-tree corollary reduces the rational Lefschetz number to a degree-zero minus degree-one trace, and gives the nonequivariant Euler series. The topological fixed locus for every arm permutation is explicitly partitioned into clopen strata indexed by orbit counts, each with contractible radial factors. Their Euler series gives the stated character. The two cycle-index averages yield the partition expression and the first invariant at exactly five particles. Independently enumerated signed cubical fixed-cell traces for all 66 permutations in five nontrivial instances agree with the formula; these tests corroborate rather than establish the infinite claim.
+## correctness
 
-## Originality — PASS, with residual risk
-The most relevant primary sources [1–5] were inspected beyond title or abstract. Farley–Sabalka's rank and freeness theorem does not determine group actions; Lütgehetmann's representation-stability framework is qualitative, An–Maciążek's presentations are not the character, Wawrykow studies ordered configurations, and Ramos–Yun's explicit star calculation addresses the two-particle case. A previously recorded three-particle star character is acknowledged as a special case and not claimed new. No covering all-particle theorem was found after searching the star-configuration, graph braid, cycle-index, equivalence, and symmetry literature and mathematical research records. Unindexed or conceptually stronger prior work remains a residual originality risk.
+PASS
 
-## Value — PASS
-A single character identity solves the full two-parameter arm-equivariant first-homology problem for stars and yields a sharp, universal new threshold: exactly five unordered particles are needed to support a rational arm-symmetric loop class. This is a structural representation-theoretic refinement not supplied by existing ranks or small-particle cases. The invariant threshold is motivated directly by detecting symmetric particle motions rather than selecting an arbitrary finite count.
+The radial one-essential-vertex tree model supplies connected 1-dimensional homotopy and H1 rank =1-C(n+m-1,m-1)+(m-1)C(n+m-2,m-1); the Euler generating series for r fixed arms is (1+(1-r)t)/(1-t)^r, with r=0,1,2 verified directly. For an arm permutation with c_l cycles, invariant unordered configurations split into clopen components indexed by complete l-point orbits on each nonfixed cycle; each factor over radial coordinates is an open-interval unordered configuration space, contractible, and the remaining points lie on the c1-arm fixed star. Thus the fixed Euler generating function is (1+(1-c1)t)prod_l(1-t^l)^(-c_l). A finite equivariant CW model and finite-order Lefschetz give trace H1=1-chi(fixed space), proving the all-m,n character. Averaging over S_m, the ordinary and marked-point cycle-index identities yield 1-p_m(n)-p_m(n-1)+sum_{j<n}p_{m-1}(j). Direct independent bounded partition recurrence yields zero for n=1,2,3,4 and one for n=5 across m=3..8; algebraic bounded-partition identities show this holds for every m>=3. Inspected complete signed-cell Abrams checker over 66 finite permutations; its finite cases cannot prove the universal assertion.
 
-## Limitations
-The statement is rational and first-homological, specific to unordered configurations of stars; the finite tests are not a proof of all-parameter claims. Independent mathematical audit has not been performed. Potential equivalent work outside accessible indexed sources cannot be ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A bounded comparison of precise mathematical statements and implications finds no identified earlier theorem covering the full new claim; known special cases and foundational tools are acknowledged; inaccessible source scopes and possible hidden prior art are explicitly residual risks.
+
+## value
+
+PASS
+
+Configuration spaces of stars are natural and structurally basic graph braid spaces. The full rational first-homology character for arbitrary arm count, particle count, and arm permutation is a usable representation-theoretic invariant rather than another nonequivariant rank. The sharp first invariant particle number five identifies a genuine symmetry transition independent of m>=3; the problem is motivated by known lower-particle representation computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
