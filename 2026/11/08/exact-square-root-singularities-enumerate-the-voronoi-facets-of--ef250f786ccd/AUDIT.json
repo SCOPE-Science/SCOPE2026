@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact law is uniform volume of a disk intersecting the centered lattice Voronoi cell. Its radial angular derivative is the complement of a finite union of angular intervals. The strict obtuse-superbase condition ensures every facet perpendicular foot is in its relative interior, hence a newly born forbidden arc has unmasked width 2 sqrt(2 epsilon/d)+O(epsilon^3/2). For 2m paired facets the angular derivative loses 4m sqrt(2 epsilon/d), while pre-existing interval endpoints are locally Lipschitz even at Voronoi vertices. Nonfacet radii therefore have zero square-root coefficient. Degeneracies of multiple facet distances and vertices are explicitly included. The attached verifier tests the sign, normalization, lengths and exact reflection identity, but finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2201.05150v3 classifies planar lattices by obtuse superbases and root invariants, independent of random-distance radial derivatives.",
+        "arXiv:1810.09646v3 Proposition 5.16 already covers the qualitative injectivity corollary; the accepted main claim is only the precise local analytic fingerprint."
+      ],
+      "reasoning": "The inverse-geometry results are broader in reconstructing a lattice from qualitative data, but do not imply the new numeric coefficient nor the complete support classification of the square-root defect. In particular the present formula covers all degenerate length multiplicities.",
+      "searches": [
+        "two-dimensional flat torus distance histogram reconstruct isometry class up to reflection from circle section of Voronoi cell",
+        "two dimensional flat Euclidean torus is uniquely determined up to isometry by distribution of intrinsic geodesic distance between two independent uniform points, Voronoi facet distance square-root singularities",
+        "arXiv:2201.05150v3, Theorems 2.9 and 3.7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.7014v1",
+      "arXiv:1407.5607v1",
+      "arXiv:1810.09646v3 Proposition 5.16",
+      "arXiv:1810.09646v5 Example 3.18",
+      "arXiv:2201.05150v3",
+      "Public record: Sharp flat-torus systolic profile by modular distance (2026-09-20)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 preprint asserts equality of global distance distributions iff equality of lattice point sets after alignment, thereby covering the uniqueness corollary.",
+        "The later example reports nonisometry of lattices spanned by (1,0),(1/3,1) and (1,0),(2/3,1), but reflection x -> -x followed by a determinant-minus-one integral basis change identifies them.",
+        "Planar obtuse-superbase geometry identifies 4- or 6-facet Voronoi cells but contains no angular square-root birth calculation."
+      ],
+      "reasoning": "The accepted statement distinguishes facet births from vertex events by a uniform local asymptotic and identifies the exact coefficient -4m sqrt(2/d). This is not supplied by the qualitative inverse theorem or by a root-invariant lattice classification; conversely the already-known lattice reconstruction is not claimed to be new.",
+      "searches": [
+        "arXiv:1810.09646v3 Proposition 5.16, pp.37-38 (2021 preprint text)",
+        "arXiv:1810.09646v5 Example 3.18, p.21",
+        "arXiv:2201.05150v3, Sec.2 and Thm.3.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1810.09646v3, Proposition 5.16 already recovers lattice point set using first three qualitative critical radii and an ordinary circular-lens area example.",
+        "The paper does not state a uniform limit of [Theta(d+eps)-Theta(d-eps)]/sqrt(eps) at every radius, nor a zero-for-nonfacets theorem."
+      ],
+      "reasoning": "Known global injectivity is a related *stronger consequence in another direction*, but it does not imply the precise local coefficient formula or exclude spurious vertex singularities. The one-threshold circle-lens formula has a calculable coefficient in a special case, whereas this claim uniformly treats all genuine facets, repeated distances and simultaneous vertex events.",
+      "searches": [
+        "radial angular defect square-root cusp exact lengths multiplicities Voronoi relevant lattice vectors flat torus geodesic distance distribution inverse",
+        "Web: Voronoi polygon radial distribution facet edge distances square root singularities inverse lattice",
+        "arXiv:1810.09646v3, Proposition 5.16 and proof"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved public record titled Sharp flat-torus systolic profile by modular distance (2026-09-20) studies systolic bounds, not radial singularities.",
+        "Related mathematical records include a rectangular flat-torus inverse law in dimensions at least three, a Klein-bottle inverse law, and metric-graph distance-law inversions."
+      ],
+      "reasoning": "No matching table of radial angular sqrt coefficients or all-facet distance multiplicities found in the actual published-finding corpus search results. Absence of a hit alone does not prove novelty; primary text comparison supplies substantive evidence.",
+      "searches": [
+        "two dimensional flat Euclidean torus is uniquely determined up to isometry by distribution of intrinsic geodesic distance between two independent uniform points, Voronoi facet distance square-root singularities",
+        "reconstruct arbitrary planar lattice from angular radial distribution of Voronoi cell, detect facet distances as branch point singularities",
+        "Memoli Needham Example 3.18 flat tori vectors (1,0) (1/3,1) (2/3,1) reflection isometric counterexample invalid"
+      ]
+    },
+    "rationale": "The accepted statement is only the exact two-sided sqrt coefficient at every planar lattice Voronoi facet distance, with multiplicities and a proof that no nonfacet radius (including vertex collision thresholds) has this coefficient. Mémoli-Needham arXiv:1810.09646v3 Proposition 5.16 already claims recovery of a planar lattice-point set from qualitative critical radii; that qualitative reconstruction and the resulting isometry rigidity are explicitly credited and excluded from claimed originality. Their proof gives one circular-lens formula and qualitative collision counting, not the uniform facet-only sqrt coefficient. Kurlin classifies 2D lattices from the facet vectors but does not extract them from this derivative. The original 2018/v5 counterexample tori are reflection-isometric, proved by exact transformation. Search results did not locate a stronger quantitative theorem; residual priority risk remains.",
+    "residual_risks": [
+      "Historical work on precise radial regularity of lattice Voronoi cell volume not fully exhausted; same coefficient could have appeared under a different terminology.",
+      "The exact-law singularity detection is not robustly quantifiable from finite samples without additional regularity/noise analysis.",
+      "Older preprint v3 partially overlaps the method through circular-lens geometry, although the accepted coefficient law and universal nonfacet-zero theorem are not stated there."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports classical Voronoi halfspaces/obtuse superbase context, no radial random-distance coefficient",
+        "evidence": [
+          "arXiv:1405.7014v1, §2 and §§3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.7014",
+        "material_read": "Introduction and Voronoi relevant vector discussion, pp.1–5; definitions and nearest-point conditions",
+        "method": "Lawful open arXiv full-text inspection",
+        "title": "Finding a closest point in a lattice of Voronoi’s first kind",
+        "trigger": "2014 archive source on Voronoi facet vectors"
+      },
+      {
+        "assessment": "Mean distance and antipodal structure, does not address Voronoi square-root threshold multiplicities",
+        "evidence": [
+          "arXiv:1407.5607v1, Theorems 1.1 and 1.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.5607",
+        "material_read": "Abstract, Introduction and main theorem statements and proof context",
+        "method": "Lawful open arXiv full-text inspection",
+        "title": "On the distribution of distances in homogeneous compact metric spaces",
+        "trigger": "2014 archive study of distance laws on homogeneous spaces"
+      },
+      {
+        "assessment": "Covers global lattice reconstructibility, but not the exact everywhere sqrt coefficient or no-spurious-vertex theorem. This coverage forces narrowing of the new claim.",
+        "evidence": [
+          "arXiv:1810.09646v3, Proposition 5.16, pp.37–38"
+        ],
+        "identifier_or_url": "https://ru.scribd.com/document/809348085/Distance-Distributions-and-Inverse-Problems-for-Metric-Measure",
+        "material_read": "Pages 37–38, Proposition 5.16, including detailed proof and its circle-lens example and critical-radius counting",
+        "method": "Accessible full preprint v3 text transcribed on public page, read relevant proof continuously",
+        "title": "Distance distributions and inverse problems for metric measure spaces (2021 preprint)",
+        "trigger": "Direct highly relevant former Proposition 5.16 on flat-torus inverse distances"
+      },
+      {
+        "assessment": "The claimed counterexample lattices are explicitly reflection-isometric; the main finding does not rely on the asserted nonisometry. No universal local singularity coefficient in that example.",
+        "evidence": [
+          "arXiv:1810.09646v5, Example 3.18"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.09646",
+        "material_read": "Page 21, complete Example 3.18 and its explicit two generating sets and diagram caption",
+        "method": "Lawful open arXiv PDF, text and actual page image",
+        "title": "Distance distributions and inverse problems for metric measure spaces (later arXiv version)",
+        "trigger": "Potential contradiction in Example 3.18 involving flat-torus nonisometry"
+      },
+      {
+        "assessment": "Supports 4/6 facet reconstruction and uniqueness up to isometry, but not distributional threshold formulas",
+        "evidence": [
+          "arXiv:2201.05150v3, Theorems 2.9, 3.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.05150",
+        "material_read": "Sections 2–3, Theorem 2.9, Theorem 3.7 and root invariant discussion, including pages 8–13",
+        "method": "Lawful open arXiv full PDF and relevant page image",
+        "title": "Mathematics of 2-dimensional lattices",
+        "trigger": "Definitive geometry of 2D Voronoi relevant vectors and obtuse superbases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef250f78-6ccd-4f5c-aecb-aad62fcdcaf9",
+  "value": {
+    "rationale": "This is an exact quantitative local classification of which radii of a natural intrinsic distance histogram detect Voronoi facet births, and with what multiplicities. It yields a geometrically interpretable, collision-tolerant square-root signature and rules out fake signals at Voronoi vertices. These precise coefficients and no-spurious-vertex guarantee are motivated by reconstruction and provide stronger explicit information than the earlier qualitative first-three-critical-radius inversion; their value does not rest on claiming the already-known injectivity theorem as new.",
+    "status": "PASS"
+  }
+}
