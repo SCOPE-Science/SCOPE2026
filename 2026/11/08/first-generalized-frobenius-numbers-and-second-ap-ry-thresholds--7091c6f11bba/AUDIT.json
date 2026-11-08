@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each residue, partition pairs by x-y=r+tm. Strict inequalities exclude all |t| branches except t=0,-1 from the two cheapest weights. Their second order statistic gives the exact four-branch second Apéry list; comparison at adjacent indices and a complete residue sum give g1 and n1. All boundaries 3≤m,2≤h<m are handled. Independent integer dynamic programming verified 3916 parameter pairs / 238876 residues / 24283898 states in actual embedded verify.py and checks.txt; finite evidence is corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Komatsu–Ying, Section 2 Lemma 1 provides g_p=max Ap_p-m and n_p=sum Ap_p/m-(m-1)/2 in general, but not the explicit Apéry entries. Section 3 Theorem 1 is restricted to <a,a+d,a+2d>.",
+        "An ordinary numerical-semigroup general three-generator algorithm is not a symbolic parameterwise closed classification."
+      ],
+      "reasoning": "The general identities are explicitly credited and used, not claimed as new. The published theorem only intersects this new family at the small arithmetic-progression subcase (m,h)=(3,2); it does not entail the two-parameter classification or divisibility jump.",
+      "searches": [
+        "First generalized Frobenius number and second Apéry set of numerical semigroup <m,m+1,hm−1>, for 2≤h≤m−1; exact floor formula with correction if h+1 divides m",
+        "Exact p=1 Frobenius number and genus for the three-generator numerical semigroups S=<m,m+1,hm-1>, m>=3 2<=h<m, including second Apéry table and correction 1 if h+1 divides m",
+        "https://arxiv.org/abs/2206.13052",
+        "\"a\" \"a+1\" \"ha-1\" generalized Frobenius number"
+      ]
+    },
+    "checked_sources": [
+      "Komatsu and Ying arXiv:2206.13052 full HTML",
+      "Komatsu and Ying Symmetry 2023 15(7):1328 partial indexed text",
+      "published-finding corpus exact-family/alias/implication searches",
+      "Prior mathematical claims on numerical semigroup invariants",
+      "General web searches for denumerants, second Apéry sets and near-arithmetic numerical semigroups"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Indexed full paper https://arxiv.org/abs/2206.13052; arXiv initial 2022-06-27; Section 3, Theorem 1 covers only arithmetic triples.",
+        "Lemma 1 is a general conversion from explicit p-Apéry data to p-Frobenius/genus. Theorem 1 gives different p-Apéry entries for arithmetic triplets only."
+      ],
+      "reasoning": "Present result supplies a new exact second threshold list for each residue; applying known Lemma 1 afterwards is not a new claim by itself. The theorem does not purport to improve any arithmetic-progression result nor cover arbitrary p. A general computability method is not a known stronger parametric closed formula.",
+      "searches": [
+        "https://arxiv.org/abs/2206.13052",
+        "First generalized Frobenius number and second Apéry set of numerical semigroup <m,m+1,hm−1>, for 2≤h≤m−1; exact floor formula with correction if h+1 divides m",
+        "Exact p=1 Frobenius number and genus for the three-generator numerical semigroups S=<m,m+1,hm-1>, m>=3 2<=h<m, including second Apéry table and correction 1 if h+1 divides m"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Indexed full paper https://arxiv.org/abs/2206.13052; arXiv initial 2022-06-27; Section 3, Theorem 1 covers only arithmetic triples.",
+        "Indexed comparisons to three-coin denumerants, one-representation gaps, p=1 Apéry and first generalized Frobenius numbers returned no claim for identical generators."
+      ],
+      "reasoning": "The same invariant under denumerant, k-Frobenius, first generalized Frobenius, second Apéry and unique representation aliases is searched; no exact equivalent found.",
+      "searches": [
+        "Semigroup <a,a+1,ka−1> unique representations, second smallest residue Apéry, maximum of one-representation gaps",
+        "p-Frobenius number of the triple (a,a+1,ha-1) and second representation thresholds",
+        "second Apéry set representation-counting numerical semigroup <a,a+1,ka-1>, near arithmetic triple first generalized Frobenius",
+        "\"numerical semigroup\" \"n,n+1,kn-1\" representations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus-indexed Uniform Wilf gap 2 for multiplicity-5 embedding-dimension-3 semigroups and Exact subthreshold Frobenius correction for primitive Pythagorean quadruples concern different generators and invariants.",
+        "Search-engine queries for exact parameter strings found no relevant tabulation, theorem or full classification."
+      ],
+      "reasoning": "Comparison is of objects and numerical invariants, not mere titles. Closest indexed results concern different generators and different invariants, and no known-table recomputation was identified.",
+      "searches": [
+        "First generalized Frobenius number and second Apéry set of numerical semigroup <m,m+1,hm−1>, for 2≤h≤m−1; exact floor formula with correction if h+1 divides m",
+        "Semigroup <a,a+1,ka−1> unique representations, second smallest residue Apéry, maximum of one-representation gaps",
+        "Exact p=1 Frobenius number and genus for the three-generator numerical semigroups S=<m,m+1,hm-1>, m>=3 2<=h<m, including second Apéry table and correction 1 if h+1 divides m",
+        "second Apéry set representation-counting numerical semigroup <a,a+1,ka-1>, near arithmetic triple first generalized Frobenius",
+        "\"m,m+1,hm-1\" \"genus\" numerical semigroup"
+      ]
+    },
+    "rationale": "Komatsu–Ying 2022/2023 supplies general p-Apéry identities and exact p-Frobenius values for a genuine arithmetic triple, not the non-arithmetic family <m,m+1,hm-1> for 3≤m and 2≤h<m. Indexing and broad published-literature searches found no familywide closed second Apéry/g1/n1 formula with the divisibility correction. Accessible own historical claims concern different parameter families. No unindexed-coverage guarantee is made.",
+    "residual_risks": [
+      "An unindexed or older result could have an equivalent exact family specialization under a different alias.",
+      "Published 2023 journal webpage could not be freshly retrieved in full due rate limiting; its indexed Theorem 1 and abstract were checked.",
+      "An algorithmic three-generator general theory might implicitly yield the specialization by substantial further evaluation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_BUT_NOT_COVERING",
+        "evidence": [
+          "Lemma 1 supplies general g_p and n_p conversion from p-Apéry data.",
+          "Theorem 1 and supporting tables are specialized to <a,a+d,a+2d>, not <m,m+1,hm-1> except the isolated intersection (3,2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+        "material_read": "Substantial arXiv HTML: introduction, Section 2 Lemma 1, Section 3 Theorem 1 and its proof and residue tables, and Section 4 outline.",
+        "method": "Read arXiv full-text HTML (sectioned article) rather than abstract only.",
+        "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+        "trigger": "Same generalized invariant and three-generator Apéry method"
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_PARTIAL_ACCESS",
+        "evidence": [
+          "2023 15(7):1328 abstract and extracted Theorem 1 specify arithmetic triples.",
+          "Potential uninspected additions in the final version are retained as a risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15071328",
+        "material_read": "Public search-indexed abstract, contents outline and Theorem 1 extract; full journal page fetch returned rate limit.",
+        "method": "Web search extracts and publication metadata, not a claimed full-text inspection.",
+        "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+        "trigger": "2023 published version of motivating source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7091c6f1-1bba-4035-98c2-83fb11268103",
+  "value": {
+    "rationale": "This determines a motivated natural three-generator near-multiple family, not an arbitrary finite slice: every threshold for the second representation, the first generalized Frobenius number and its full genus for an infinite two-parameter range. The divisibility criterion h+1|m pinpoints a structurally surprising one-unit jump and supports further representation-level study. No downstream theorem is required for a useful exact natural invariant classification.",
+    "status": "PASS"
+  }
+}
