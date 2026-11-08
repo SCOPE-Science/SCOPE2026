@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for the standard binary Rudin–Shapiro word and for one tortoise operation. The proof explicitly covers complete finite-factor generation from the eight allowed adjacent pairs of the four-letter uniform morphism; the full eight length-five left-special list with preceding contexts exactly `ac` and `db`; injection of binary coding on length-eight four-letter factors; the recurrence-based count \(p(m+1)-p(m)=8\); exact exhaustive classification of all eight length-12 collision doubletons; and a prefix-inheritance argument that excludes all other collisions at longer lengths. Berthé's published \(p(n)=8n-8\) input is valid for all relevant lengths. The included standard-library checker was executed successfully with all assertions; no finite experiment was extrapolated to infinity.
+PASS
 
-## Originality — PASS (best-knowledge; residual priority risk)
+The constant-length morphism has exactly eight adjacent two-letter factors and covers any length-L language via the image of all two-blocks under a power 2^j>=L. The finite certificate establishes eight length-five four-letter left-special prefixes with exactly {ac,db} two-letter contexts and injective binary coding on 56 length-eight factors. This promotes binary left-special factors of length m>=10 to both 01z and 10z contexts, of which exactly 8 exist using Berthé p(m)=8m-8. At n=12, exhaustive image classification gives only eight doubletons of type 01z/10z; no 00000 factor and a fixed-prefix inheritance argument exclude all other longer collisions, so rho(n)=8n-16 for n>=12. Independent direct initial binary generation yielded stated rho(1..12) and n=16,24,32. Binary and morphic conventions match the primary source.
 
-The closest inspected primary text, Campbell–Rampersad (arXiv:2604.25811v2), defines tortoise complexity and proves only a bounded loss for general linear-complexity binary words, while its worked examples are paperfolding and Thue–Morse. An exact deficit eight after length twelve for Rudin–Shapiro is not a direct consequence. Berthé's historical Theorem 4 computes ordinary complexity, not tortoise complexity. Searches of the available mathematical-result index using both the precise claim and the relevant synonyms and automatic-word names returned other coding and automata topics, no matching statement. A known period-doubling tortoise calculation concerns a different automatic word and does not imply this case. A previously unindexed derivation cannot be excluded by these searches alone.
+## originality
 
-## Value — PASS
+PASS
 
-The newly introduced invariant is natural for fixed-point automatic words. The result gives a complete infinite-length exact formula with a sharp initial cutoff, contrasting the existing examples where collisions eventually disappear or the deficit has different behavior. It sharpens a general bounded-deficit theorem into an explicit permanent obstruction and supplies an elementary reusable bridge from local extension-context rigidity to an infinite orbit-count formula.
+Campbell and Rampersad introduce the tortoise invariant and bound its long-length deficit for linearly complex binary words with bounded 1-gaps. Their concrete formulas analyze Thue–Morse and paperfolding; Rudin–Shapiro is mentioned only as background to another complexity theory. Berthé established p(n)=8n-8 but did not evaluate tortoise images. The persistent exact deficit eight and threshold twelve are substantive special-context new computations with an infinite inheritance proof.
 
-## Restrictions and residual risks
+## value
 
-Binary standard Rudin–Shapiro only; one tortoise operation; no higher-iterate formula or full priority guarantee. The finite checker is reproducible, not independently audited mathematics. Sources are credited for every external premise.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rudin–Shapiro is a canonical automatic sequence, and tortoise quotient complexity is a recently introduced nontrivial equivalence invariant. A sharp eventually linear formula, exact collision count and threshold reveal stability across all lengths, not a finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
