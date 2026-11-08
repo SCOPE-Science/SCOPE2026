@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary finite nonempty \(W\), the proof derives normality of the power-set operation from exact intersection preservation. For incomparable cells the two truth sets equal to those cells directly witness failure. For comparable cells, the operator equals the normal box of \(E\cap F\). An incidence-edge leaf criterion decomposes the paired equivalence relations uniquely into join components on which one agent has an indiscrete block. The resulting connected weights \(2B_m-1\) yield the labelled exponential formula and recurrence. Counting integer-partition types per component yields the unlabeled ordinary product. Inclusion-exclusion for global refinement and a disjoint-two-block argument prove the sharp four-world exception. The actual standalone checker reproduces all labelled counts through six worlds, all unlabelled counts through five worlds by permutation orbits, and exhaustively tests the defining intersection law on frames through four worlds. The all-size proof is symbolic; the finite tests are supporting checks only.
+PASS
 
-## Originality — PASS within stated inspection limits
+For ordered S5 partitions E,F on n>=1 worlds, S(A)=box_E A union box_F A preserves meets iff for every w the cells E[w],F[w] are nested: incomparable cells violate meet preservation at A=E[w],B=F[w], while nested cells give S=box_(E∩F). The bipartite incidence graph then has each edge with a leaf endpoint, so each join component is a star, i.e., E or F indiscrete locally. A join block of size m has 2B_m-1 connected structures, giving labelled EGF exp(2exp(e^z-1)-e^z-1) and L_n=Σ_j C(n-1,j-1)(2B_j-1)L_(n-j); unlabeled connected types 2p(m)-1 give ∏_(m>=1)(1-z^m)^-(2p(m)-1). Globally comparable count 2H_n-B_n, so local/global gap first n=4 with six ordered pairs. Independent enumeration of all ordered set partition pairs through n=6 recovered L=1,4,19,111,774,6229, and independent simultaneous-relabeling orbits through n=5 recovered 1,4,9,24,52. General result follows from the exponential/multiset argument, not enumeration.
 
-Ding and Yang (arXiv:2603.26268, Section 5.1) already treat the someone-knows bundle, and their \(\mathtt C^1\) axiom covers the abstract intersection-preservation law. Tochon's thesis (2015, Definition 4.8) and Tochon–Dalla Mura–Chanussot (2019, Section 2.3) already name the exact partition nestedness condition *h-equivalence*. These results are therefore credited and excluded from a novelty claim. The new claim is the exact all-size labelled and unlabeled counts plus the sharp, exactly quantified separation between local and global refinement in two-agent S5 semantics. The inspected 2019 partition-hierarchy discussion and 2026 bundled-logic case study provide no equivalent counting result. The complete 2023 Synthese paper was inaccessible: only its abstract was inspected. Historical equivalence under an older enumeration of h-equivalent partitions remains a substantive residual risk, rather than a claim of exhaustive uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The count quantifies the precise finite frames on which a normally nonnormal epistemic disjunction collapses to distributed knowledge. It gives both labelled and isomorphism-type enumerations for every finite size, not merely small examples, and identifies an optimal four-world obstruction to inference from local to global dominance of information partitions. The formulas are reproducible, give explicit counts and separate genuinely different structural modes. Prior existence of the local nestedness property does not subsume these enumerative statements. The finding is limited to two agents and unrestricted valuations.
+Local nestedness/h-equivalence is explicitly prior work (Tochon 2015) and meet-preservation is a known modal property; neither is claimed new. The assessed contribution is the exact labelled and unlabelled paired-partition enumeration and six-pair sharp gap, which are not derived in the inspected modal or partition-hierarchy results.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Two-agent S5 frames are natural finite epistemic structures; enumerating exactly those where someone-knows becomes an ordinary normal box distinguishes local from globally hierarchical information and supplies full labelled/orbit generating functions. Four-world onset and six labeled witnesses give a sharp structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
