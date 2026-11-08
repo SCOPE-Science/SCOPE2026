@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(1/2<a<1\) and \(0<c<1/2\), each branch sends points to the opposite half, so two-step dynamics reduces exactly to the continuous increasing polynomial \(G_{k,c}(u)=1-2c(1-2ku^2)^2\). Fixed points solve \(c=(1-u)/[2(1-2ku^2)^2]\). Its derivative has exactly the asserted one-minimum, one-maximum geometry once \(k>3/8\), and gives one, two, or three distinct roots according to the strict fold comparisons. Since every iterate of a continuous increasing self-map of an interval is monotone after its first step, all trajectories approach such a root and no higher periods exist. Return derivative signs classify all hyperbolic orbits. The exact cusp factorization and quartic recurrence give a rigorous reciprocal-square proof of the signed \(n^{-1/2}\) asymptotic. Symbolic identities and a broad rational exact-root sample passed in the embedded verifier; samples only support the proof, not replace it.
+PASS
 
-## Originality — PASS within inspected evidence
+Because the two branches exchange strict halves, every full orbit reduces to the two-step scalar return G_{k,c}(u)=1−2c(1−2ku²)² on u∈[0,1]. G is continuous strictly increasing on the interior and maps the interval into itself, so every sequence of iterates is monotone from its first step and tends to a fixed point: no higher periods or nonconvergence. The equation G(u)=u is c=C_k(u)=(1−u)/[2(1−2ku²)²], with C′ numerator −1+8ku−6ku². Its two critical points for k>3/8 yield exact 1/2/3-root count and attractor/repeller separation. Independent symbolic factorization confirmed cusp G−u=−(u+2)(3u−2)^3/64, shifted recurrence v_{n+1}=v_n−9v_n³/8−27v_n⁴/64, hence reciprocal-square increments approach 9/4 and signed sqrt(n) limit ±2/3. At (a,c)=(9/16,7/16), three exact roots and outer multiplier 1/2 were checked. Numeric tests are not the continuum proof.
 
-The complete author-accessible text of Lawnik, Moysis and Volos (2023), DOI 10.3390/sym15071311, was examined at its defining equation (15), fixed-point lemma, phase diagrams, Lyapunov diagrams and conclusions. It proves fixed-point freedom and presents numerical parameter experiments, but does not give the exact two-cycle census or cusp asymptotics. Published studies of piecewise-smooth unimodal bistability address different defining families. Comparable indexed results on a fractional-exponent fixed-point diagram of the same paper, a rational neuron map, and planar Duffing/Bogdanov maps do not imply this claim. An author's related 2024 article was accessible only through abstract and catalog information; its full-text comparison remains a priority risk, as does unindexed literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source treats absence of equilibria and Lyapunov diagrams as evidence relevant to chaotic behavior. The present theorem identifies a natural parameter rectangle where all orbits instead converge to two-cycles, and separates a physically meaningful bistability wedge from a codimension-two cubic cusp. It supplies global dynamics, basin separation, exact algebraic transition boundaries, and an unusual universal critical clock, rather than a numerical refinement of a known example. The rational two-attractor witness makes the structural feature independently reproducible.
+The 2023 Lawnik–Moysis–Volos defining paper provides the fixed-point-free family and chaotic/regular parameter diagrams, but no inspected exact 2-cycle fold/cusp/critical clock law. The related published Resultary fractional-power fixed-point phase diagram treats 0<d<1, distinct exponent and invariant, so it does not imply this quadratic period-two statement. A 2024 author-related article has an open accepted manuscript but only its abstract was materially reviewed in this execution; possible overlap is retained as risk.
 
-## Closest literature and limitations
+## value
 
-The defining paper [1], 2005 piecewise-smooth bistability study [2], and 2024 follow-up [3] are cited in RESULT.md. The present proof is self-contained but establishes no statements for other powers, other partitions, stochastic perturbations or cryptographic security. The later paper's full manuscript was inaccessible, and an independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact complete dynamics in an ostensibly chaotic fixed-point-free quadratic family is structurally revealing: a precise three-cycle-count wedge and two disjoint attracting cycles bounded by folds, with a codimension-two algebraic cusp and sharp n^(−1/2) relaxation law. These are natural global invariants and concrete counterbalance to Lyapunov-only classifications, not a routine small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

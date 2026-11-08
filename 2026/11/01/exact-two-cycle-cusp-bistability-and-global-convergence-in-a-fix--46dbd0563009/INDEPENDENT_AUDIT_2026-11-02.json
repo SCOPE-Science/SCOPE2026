@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:44:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Because the two branches exchange strict halves, every full orbit reduces to the two-step scalar return G_{k,c}(u)=1−2c(1−2ku²)² on u∈[0,1]. G is continuous strictly increasing on the interior and maps the interval into itself, so every sequence of iterates is monotone from its first step and tends to a fixed point: no higher periods or nonconvergence. The equation G(u)=u is c=C_k(u)=(1−u)/[2(1−2ku²)²], with C′ numerator −1+8ku−6ku². Its two critical points for k>3/8 yield exact 1/2/3-root count and attractor/repeller separation. Independent symbolic factorization confirmed cusp G−u=−(u+2)(3u−2)^3/64, shifted recurrence v_{n+1}=v_n−9v_n³/8−27v_n⁴/64, hence reciprocal-square increments approach 9/4 and signed sqrt(n) limit ±2/3. At (a,c)=(9/16,7/16), three exact roots and outer multiplier 1/2 were checked. Numeric tests are not the continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 original paper introduces family and illustrates Lyapunov/phase diagrams",
+          "2024 related paper abstract discusses transformed functions and numerical examples"
+        ],
+        "reasoning": "Original general chaos map framework contains the definition but no extracted global parameter-complete algebraic census. 2024 manuscript not fully read; no categorical noncoverage claimed.",
+        "searches": [
+          "A Family of 1D Chaotic Maps without Equilibria 2023 quadratic Lyapunov phase",
+          "Discrete one-dimensional piecewise chaotic systems without fixed points 2024 quadratic maps"
+        ]
+      },
+      "checked_sources": [
+        "Lawnik–Moysis–Volos Symmetry 15 (2023) 1311, full text Eq.15",
+        "Lawnik et al Nonlinear Dynamics 112 (2024), abstract and OA manuscript pointer",
+        "Sushko–Agliari–Gardini DCDS-B 5 (2005), bibliographic results",
+        "Resultary e0bdfaa72c7e fractional-power family"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 paper proves fixed-point freedom and supplies sample diagrams",
+          "Current return G increasing implies global convergence and exact root census; different smoothness from border-collision models"
+        ],
+        "reasoning": "Absence of fixed points and sample chaos diagrams do not imply no periods above 2, exact fold curves, or cusp n^-1/2 asymptotics. Independent monotone return analysis is necessary.",
+        "searches": [
+          "Lawnik Moysis Volos 2023 no equilibria fixed points bifurcation",
+          "Sushko Agliari Gardini 2005 bistability border-collision unimodal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lawnik–Moysis–Volos, Symmetry 15(7) 1311, equation (15)",
+          "Return map under alternating halves is an increasing one-dimensional quartic"
+        ],
+        "reasoning": "A period-two orbit of the original fixed-point-free map is a fixed point of its 2-step return. Literature on quartic interval saddle-node cusps might rename this exact system; current proof provides exact parameter identification.",
+        "searches": [
+          "fixed-point-free piecewise quadratic map two-cycles cusp bistability Lawnik Moysis Volos",
+          "Lawnik 2023 equation 15 quadratic return map global two cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e concerns d<1",
+          "No matching quadratic two-cycle parameter table retrieved"
+        ],
+        "reasoning": "The fractional-power fixed-point census cannot be mapped to the strict quadratic regime and period-two invariant by mere parameter relabeling. Search cannot exclude all historical numerical tables.",
+        "searches": [
+          "Resultary: fixed-point-free piecewise quadratic map two-cycles cusp bistability Lawnik Moysis Volos",
+          "exact cusp a 5/8 c 3/8 map Lawnik period two"
+        ]
+      },
+      "rationale": "The 2023 Lawnik–Moysis–Volos defining paper provides the fixed-point-free family and chaotic/regular parameter diagrams, but no inspected exact 2-cycle fold/cusp/critical clock law. The related published Resultary fractional-power fixed-point phase diagram treats 0<d<1, distinct exponent and invariant, so it does not imply this quadratic period-two statement. A 2024 author-related article has an open accepted manuscript but only its abstract was materially reviewed in this execution; possible overlap is retained as risk.",
+      "residual_risks": [
+        "The 2024 related author's accepted manuscript is available via institution but was not read; detailed theorem overlap is not ruled out.",
+        "Some older interval quartic cusp bifurcation results may encode this model under alternative coordinates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_SAME_MODEL; EXACT_CUSP_AND_CENSUS_NOT_IN_INSPECTED_RESULTS",
+          "evidence": [
+            "Lawnik–Moysis–Volos (2023), Eq.15, Lemma1, Sections4–6"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15071311",
+          "material_read": "Complete accessible 2023 journal article model equation (15), fixed-point lemma, diagrams and conclusions examined",
+          "method": "Compared defining formulas and studied outputs to global period-two claims",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Defines precisely the audited piecewise family"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT_COMPARISON",
+          "evidence": [
+            "Lawnik–Moysis–Baptista–Volos, Nonlinear Dynamics 112 (2024) 6679–6693"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-024-09349-6",
+          "material_read": "2024 publisher and open-author-manuscript descriptions/abstract read; accepted manuscript itself not read",
+          "method": "Recorded that abstract emphasizes transformations, examples and bifurcation diagrams; no full-text noncoverage asserted",
+          "title": "Discrete one-dimensional piecewise chaotic systems without fixed points",
+          "trigger": "Author-related later paper with plausible hidden exact cycles"
+        },
+        {
+          "assessment": "DISTINCT_EXPONENT_REGIME",
+          "evidence": [
+            "Resultary record e0bdfaa72c7e"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e",
+          "material_read": "Resultary title and scientific summary only",
+          "method": "Compared exponent domain, invariant (fixed points versus two-cycles) and claimed implications",
+          "title": "Complete fractional-power fixed-point phase diagram for a discontinuous interval family",
+          "trigger": "Same seed family in published prior research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact complete dynamics in an ostensibly chaotic fixed-point-free quadratic family is structurally revealing: a precise three-cycle-count wedge and two disjoint attracting cycles bounded by folds, with a codimension-two algebraic cusp and sharp n^(−1/2) relaxation law. These are natural global invariants and concrete counterbalance to Lyapunov-only classifications, not a routine small numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lawnik–Moysis–Volos Symmetry 15 (2023) 1311, full text Eq.15",
+    "Lawnik et al Nonlinear Dynamics 112 (2024), abstract and OA manuscript pointer",
+    "Sushko–Agliari–Gardini DCDS-B 5 (2005), bibliographic results",
+    "Resultary e0bdfaa72c7e fractional-power family"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the specified piecewise quadratic fixed-point-free map with 1/2<a<1 and 0<c<1/2, all orbits converge to 2-cycles; exactly one, two or three primitive 2-cycles occur according to two explicit fold curves. There is a two-attractor bistability wedge and a unique parabolic cusp at (a,c)=(5/8,3/8), with sqrt(n)(u_n−2/3)→sign(u_0−2/3)2/3 for the normalized left-side return.",
+  "limitations": [
+    "Strict stated parameter rectangle and quadratic exponent only; no claims of stochastic stability, high-power maps or cryptographic security."
+  ],
+  "residual_risks": [
+    "The 2024 related author's accepted manuscript is available via institution but was not read; detailed theorem overlap is not ruled out.",
+    "Some older interval quartic cusp bifurcation results may encode this model under alternative coordinates."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFINES_SAME_MODEL; EXACT_CUSP_AND_CENSUS_NOT_IN_INSPECTED_RESULTS",
+      "evidence": [
+        "Lawnik–Moysis–Volos (2023), Eq.15, Lemma1, Sections4–6"
+      ],
+      "identifier_or_url": "https://doi.org/10.3390/sym15071311",
+      "material_read": "Complete accessible 2023 journal article model equation (15), fixed-point lemma, diagrams and conclusions examined",
+      "method": "Compared defining formulas and studied outputs to global period-two claims",
+      "title": "A Family of 1D Chaotic Maps without Equilibria",
+      "trigger": "Defines precisely the audited piecewise family"
+    },
+    {
+      "assessment": "UNRESOLVED_FULL_TEXT_COMPARISON",
+      "evidence": [
+        "Lawnik–Moysis–Baptista–Volos, Nonlinear Dynamics 112 (2024) 6679–6693"
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/s11071-024-09349-6",
+      "material_read": "2024 publisher and open-author-manuscript descriptions/abstract read; accepted manuscript itself not read",
+      "method": "Recorded that abstract emphasizes transformations, examples and bifurcation diagrams; no full-text noncoverage asserted",
+      "title": "Discrete one-dimensional piecewise chaotic systems without fixed points",
+      "trigger": "Author-related later paper with plausible hidden exact cycles"
+    },
+    {
+      "assessment": "DISTINCT_EXPONENT_REGIME",
+      "evidence": [
+        "Resultary record e0bdfaa72c7e"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e",
+      "material_read": "Resultary title and scientific summary only",
+      "method": "Compared exponent domain, invariant (fixed points versus two-cycles) and claimed implications",
+      "title": "Complete fractional-power fixed-point phase diagram for a discontinuous interval family",
+      "trigger": "Same seed family in published prior research"
+    }
+  ]
+}
