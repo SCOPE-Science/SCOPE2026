@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exactly stated three-equal-strength, geometric-progression Debye model, the reduction to a rational function of \(\cosh t\) is algebraically exact. Its derivative has sign opposite to a quadratic with discriminant \(4c(c-4)\), so the threshold and complete mode count are analytic and do not depend on finite sampling. Both stationary-root positivity and curvature signs follow from explicit formulas, and the threshold horizontal-shoulder case is distinguished from a peak. A separately implemented finite numerical verifier reports `VERIFY_OK checks=506`; it supplements rather than replaces the universal proof.
+PASS
 
-## Originality — PASS on inspected evidence, provisional
+PASS. With t=log(omega tau0), a=log r and c=cosh a, the three Debye terms become Δepsilon/2 times sech(t-a)+sech t+sech(t+a), an even function. Writing z=cosh t≥1 gives G_c(z)=1/z+2cz/(z²+c²-1). Its derivative equals a strictly negative prefactor times Q_c(z²/(c²-1)) with Q_c(u)=(1+2c)u²+2(1-c)u+1 and discriminant 4c(c-4). For c<4 no roots, c=4 a double root at z²=5 gives two non-extremal horizontal shoulders, and c>4 two simple roots z²>1 generate exactly two minima and two outer maxima around the ever-strict central maximum. Thus r*=4+sqrt15 and the complete explicit extrema coordinates. Expansion near c=4 gives ±(sqrt5/6)sqrt(c-4) splitting, while large-r positions are (1/2)log r and log r and loss minimum is asymptotic to 2Δepsilon/sqrt r. Independent numerical root/discriminant checks agree; finite computations not used for arbitrary-r proof.
 
-The 1957 polar-rotator work treats physically generated distributions and explicitly a two-loss-region criterion; the 2003 factorized-dielectric paper contains general superposed Debye models; the 2009 mathematical mixture criterion addresses two components; and the 2016 water spectroscopy paper treats different overlapping relaxation components. Their assumptions and stated conclusions do not imply the exact equal-strength three-geometric-time peak-count threshold or its extremal locations without a new computation. Searches for synonymous forms, hyperbolic-secant mixture thresholds, and tables produced no established identical formula. This is not proof of independent historical priority: older specialist spectroscopy and mixture papers may contain an equivalent unstated or difficult-to-locate result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest symmetric model with three independently resolvable dielectric relaxation processes is physically motivated by overlapping loss bands. A sharp critical adjacent time ratio separates one observed loss maximum from three, including the otherwise ambiguous flat shoulder at the boundary. A complete algebraic classification and quantitative asymptotics are materially stronger than numerical peak plotting; the result is a natural finite-parameter spectral classification, not an arbitrary chosen frequency sample.
+PASS (best of knowledge). Multi-Debye superposition and general mixture-mode methods are established prior art. The inspected primary works treat two-mode loss or generic two-unimodal mixtures and do not state the exact symmetric three-term threshold 4+sqrt15. Specialist prior calculations or stronger 3-mixture results remain possible.
 
-## Source and scope limits
+## value
 
-The theoretical conclusion is limited to ideal, uncoupled and equal-amplitude Debye responses. In particular, experimental peak resolvability also depends on noise, coupling and instrumental bandwidth. The 1957 primary PDF was examined as searchable text but selected page images could not be rendered; that source's detailed graphical model comparisons have not been independently visualized. The 2003 source was read as full available manuscript text. Full-text portions of the 2009 mixture article and the 2016 arXiv paper were examined, including their statements and examples; neither is a full literature census. Historical priority is not externally certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The exact threshold for resolving three equal-strength geometrically spaced Debye relaxation peaks, including the shoulder bifurcation and high-separation minima, is a natural classification of a standard physical response model and a useful exact boundary; the elementary reduction does not make the classification arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
