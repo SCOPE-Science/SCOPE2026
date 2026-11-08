@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final result concerns finite-dimensional (dimension at least two) unitary renewal resetting with strictly positive finite-time survival. The last-renewal expansion and invertibility of the averaged channel lead to a unique propagator. Its positivity is **exactly** the positive-semidefiniteness of the excess unnormalized last-reset operator: a negative eigenvector can be tested against a pure state rotated to its orthogonal complement. If this operator is positive, the propagator is manifestly a convex combination of a unitary channel and a replacement channel, so it is completely positive. The adjacent reset-hazard expansion has positive coefficients for nondecreasing hazards. For a bit-flip qubit and a pure reset, the second-step test has exact negative eigenvalue \(p(q-p)\) whenever \(0\le q<p<1\). These are universal analytic arguments; 13,298 finite numerical checks provide only reproducibility tests. The result excludes sure finite-time resets and nonunitary between-reset maps.
+PASS
 
-## Originality — PASS, qualified best knowledge
+From renewal-event recursion ν_k=Σ_{j≤k}S_{j-1}r_j ν_{k-j} with ν_0=1, last-reset conditioning gives Φ_t(X)=S_t U^t X U^{-t}+tr(X)A_t, tr A_t=1−S_t. On traceless operators Φ_s is S_s Ad(U^s) and preserves trace, so for S_s>0 its unique inverse exists. Φ_t Φ_s^{-1}(Y)=a Ad(U^{t−s})Y+tr(Y)Q, a=S_t/S_s>0; Q≥0 makes a CPTP unitary/replacement mixture, while any negative Q eigenvector can be exposed by an input rank-one projector orthogonal to it (d≥2), proving positive iff CP iff Q≥0. Adjacent Q expands to ν_{t+1}τ+Σ_{k=1}^t ν_k S_{t−k}(r_{t+1}−r_{t+1−k})Ad(U^{t+1−k})τ, nonnegative for nondecreasing hazards; composition handles all intervals. For qubit bit-flip, pure τ, p=r1>r2=q, Q has negative eigenvalue p(q−p) while every trace distance contracts by S_t. Domain d≥2, r_j<1 at each finite age, fixed unitary/reset density. No conclusion on process tensors, sure resets or nonunitary gates.
 
-The principal comparison is Carollo–Wald, arXiv:2601.13367, including its main text and supplemental renewal/divisibility calculations. They develop the channels and use numerical witnesses and a special divisible periodic process, but do not identify the model-wide matrix-order equivalence, increasing-hazard guarantee or explicit decreasing-hazard obstruction. Their displayed linear ramp is an instance of our guarantee, not a source of a claimed new renewal formula. Settimo et al., arXiv:2506.08103, establish picture inequivalence but not the present criterion. Megier–Smirne–Vacchini (2020) handle semi-Markov master equations and an always-divisible diagonalizing jump model; Megier et al. (2021) consider trace-distance properties. None of those inspected statements dominates the claimed all-unitary noncommuting-reset theorem. Related indexed mathematical records on quantum resetting, restart detection, and qubit divisibility were searched and compared by claims. Residual risk: general results on affine replacement maps or semi-Markov positivity might implicitly yield the order characterization; the search does not certify worldwide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result closes a natural testability gap in the motivating analysis: an exact necessary-and-sufficient criterion for all time pairs and all dimensions in the unitary-reset model, replacing merely sampled nondivisibility witnesses. A simple monotone-hazard design rule guarantees CPTP propagators even for noncommuting reset states, and the sharp decreasing-hazard counterexample reveals positive-indivisibility invisible to two-state trace-distance tests. The guarantee also applies directly to the motivating paper's entanglement-enhancing ramp, separating one-time CP-divisibility from broader temporal memory. This is structural and operational, not an arbitrary finite enumeration.
+Best-of-knowledge model-specific renewal last-reset Loewner criterion and all-dimensional rising-hazard guarantee survive comparison with general quantum semi-Markov and discrete resetting literature. Published 2026 Carollo–Wald introduces same discrete resetting system and a ramp, so novelty excludes the renewal map and ramp definition. Its full text remained inaccessible: only abstract/metadata and source-package quotations were readable; it could contain relevant sufficient conditions. No full-document noncoverage claim is made. The exact two-step trace-distance-invisible failure is an independent structural witness.
 
-## Residual limitations
+## value
 
-The result is not a characterization of Heisenberg divisibility or process-tensor Markovianity, and the rising-hazard condition is sufficient rather than necessary for fixed systems. Wider nonunitary and sure-reset cases remain outside scope. No independent literature-wide validation or external certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact necessary-and-sufficient operator-order criterion replaces sample numerical divisibility witnesses by a concrete test in any finite dimension. The hazard monotonicity theorem gives a simple noncommuting-reset CPTP design guarantee, and the p>q qubit example shows that trace-distance monotonicity alone cannot diagnose failure. Both are motivated by physical renewal resetting rather than arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
