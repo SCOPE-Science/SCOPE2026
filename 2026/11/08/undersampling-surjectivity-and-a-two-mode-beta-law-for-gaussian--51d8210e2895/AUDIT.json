@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For \\(k<n\\) and non-scalar symmetric \\(A\\), a Haar-random kernel is almost surely noninvariant. Choosing \\(w\\in\\ker S\\) with \\(x=PAw\\ne0\\) gives the exact identity \\(r_S(w+tx)=\\|x\\|^2/(t x^{\\mathsf T}Px)+(x^{\\mathsf T}PAx)/(x^{\\mathsf T}Px)\\), which proves every real value. For \\(n=2\\), \\(k\\ge2\\), the symmetric numerator is indefinite exactly when the squared Gaussian-column correlation exceeds \\(4mM/(m+M)^2\\); the correlation follows the \\(\\operatorname{Beta}(1/2,(k-1)/2)\\) law. Endpoint beta integration gives the sharp large-\\(k\\) constant. The embedded checker completed 11,209 tests; no finite experiment substitutes for the almost-sure or asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "limitations": [
+    "Real Gaussian sketched one-vector coefficient only; post-sketch choice of start; exact probability in the injective case established only for \\(n=2\\) and \\(k\\ge2\\); finite precision and similarity-restored algorithms outside scope.",
+    "Independent audit not performed."
+  ],
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Similarity restoration makes the corrected matrix similar to the orthogonal Ritz projection; its safety guarantee is for a modified method, not the raw sketched quantity.",
+        "Published matrix-function error bounds tolerate spurious eigenvalues and are not two-mode probability formulas; fixed-subspace embedding statements constrain a predetermined space rather than all starts."
+      ],
+      "reasoning": "Stronger norm-preservation and numerical-range theorems for properly embedded fixed subspaces are inapplicable to the quantified event over every vector after S is drawn, particularly in the nullspace construction. Corrections that alter the projection are not the original scalar r_S(v).",
+      "searches": [
+        "https://arxiv.org/html/2601.10248v1 §2 Theorem 2",
+        "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596 §§4–7",
+        "https://arxiv.org/html/2302.07466v3 §3.2",
+        "randomized Arnoldi sketched Ritz values positive definite numerical range negative Rayleigh quotient 2026"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "primary full text read",
+        "id": "arXiv:2601.10248v1"
+      },
+      {
+        "assessment": "primary full text read",
+        "id": "doi:10.1002/nla.2596"
+      },
+      {
+        "assessment": "primary full text read",
+        "id": "arXiv:2302.07466v3"
+      },
+      {
+        "assessment": "top 12 hits compared by claim and implied parameters",
+        "id": "Published research records query: sketched Arnoldi one-vector projected numerical range over all vectors after Gaussian sketch arbitrary real values positivity all-start beta sample correlation"
+      },
+      {
+        "assessment": "top 12 hits compared by matrix-pencil claim",
+        "id": "Published research records query: Wishart Jordan product diagonal positive eigenvalues exact beta law singular undersampling Gaussian sketch"
+      },
+      {
+        "assessment": "top 15 hits compared by all-start quantifier",
+        "id": "Published research records query: simultaneous all starting vectors Gaussian sketch Ritz value positivity Wishart 2x2 beta sample correlation probability"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A fixed-start distribution is a marginal probability in (S,v); an all-start failure is a property of the entire matrix S and requires testing an indefinite quadratic form.",
+        "Existing sources state that sketching may send Ritz values outside the numerical range and that corrections repair this, but not an exact two-mode all-start chance nor universal underdetermined real range."
+      ],
+      "reasoning": "Out-of-range Ritz examples show possibility but cannot imply probability-one real surjectivity for all non-scalar A, nor a beta CDF with precise exponent. Conversely a probabilistic fixed-start failure does not yield the existential failure probability without controlling all directions. The new scalar-pencil derivation supplies both missing quantitative assertions.",
+      "searches": [
+        "sketched Ritz values numerical range negative despite positive definite probabilistic Gaussian Arnoldi",
+        "https://arxiv.org/html/2601.10248v1 §2",
+        "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596 §6",
+        "sketched Arnoldi one-vector projected numerical range over all vectors after Gaussian sketch arbitrary real values positivity all-start beta sample correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A negative all-start Ritz value is equivalent to indefiniteness of (PA+AP)/2 on directions with positive P-denominator; for two modes this reduces to a Gaussian sample-angle correlation threshold.",
+        "Closest indexed matches on Gaussian sign concentration and SPD Jacobi concern different operators and notions of positivity."
+      ],
+      "reasoning": "Explicitly compared generalized Rayleigh quotients, the Jordan product (PA+AP)/2, Gaussian-column angle thresholds and the uniform-start quantifier. A fixed-start Student-type tail averages over one chosen vector; it is not the probability that an indefinite matrix exists for at least one vector. No matching equivalence identified.",
+      "searches": [
+        "sketched Arnoldi one-vector projected numerical range over all vectors after Gaussian sketch arbitrary real values positivity all-start beta sample correlation",
+        "Wishart Jordan product diagonal positive eigenvalues exact beta law singular undersampling Gaussian sketch",
+        "simultaneous all starting vectors Gaussian sketch Ritz value positivity Wishart 2x2 beta sample correlation probability",
+        "https://arxiv.org/html/2601.10248v1 §§2.1–2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched published mathematical summaries by the full beta-parameter family, one-vector Ritz terminology, Wishart Jordan-product aliases and all-start existential risk. Closest indexed records address Gaussian sign concentrations and SPD preconditioners, without an all-start Ritz law.",
+        "The classical Beta(1/2,(k-1)/2) angle identity is covered, and the theorem explicitly treats it as background."
+      ],
+      "reasoning": "No located table or database gave this exact sketched-Ritz probability or its sharp sample-size dependence. Search incompleteness is not a proof of historical uniqueness.",
+      "searches": [
+        "sketched Arnoldi one-vector projected numerical range over all vectors after Gaussian sketch arbitrary real values positivity all-start beta sample correlation",
+        "Wishart Jordan product diagonal positive eigenvalues exact beta law singular undersampling Gaussian sketch",
+        "simultaneous all starting vectors Gaussian sketch Ritz value positivity Wishart 2x2 beta sample correlation probability",
+        "randomized Rayleigh Ritz negative eigenvalues positive definite sketch probability beta distribution",
+        "two by two Wishart Jordan product negative eigenvalue beta correlation probability numerical range"
+      ]
+    },
+    "rationale": "The quantifier-swapped uniform-start event is mathematically different from the fixed-predetermined-start conditional law. Three relevant primary full texts explain sketched Ritz instability, corrections, and fixed-subspace embedding, but do not provide the complete real-surjectivity statement for every undersampled non-scalar SPD operator or the exact two-mode existential positivity probability. The sample-correlation beta identity itself is classical and is not claimed as new; combining it with a global generalized-Rayleigh sign certificate yields the stated numerical reliability classification. Indexed record searches found no implication-level covering claim; an unindexed equivalent elementary matrix-pencil calculation remains a genuine residual priority risk.",
+    "residual_risks": [
+      "The elementary two-dimensional event could have appeared in older unindexed Wishart, random-matrix or generalized Rayleigh quotient literature under another name.",
+      "Search coverage is not a certificate of historical originality.",
+      "Some prior sketches analyze fixed starting vectors; broad literature statements need not include all-start uniform quantification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Discusses the loss of similarity and numerical-range containment and provides a correction restoring standard Ritz values; theorems do not quantify the existential all-start event or beta law for uncorrected one-vector sketches.",
+        "evidence": [
+          "arXiv:2601.10248v1 §1 (outlying Ritz and numerical ranges), §2.1 (sketched coefficient), §2.2 Theorem 2 (similarity-restoring correction); https://arxiv.org/html/2601.10248v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.10248v1",
+        "material_read": "The full HTML preprint was accessible; inspected the introduction, §2.1 randomized Arnoldi definition, §2.2 Theorem 2 and its proof, §3 discussion and §4 numerical-range comparisons, with references checked by text search.",
+        "method": "Open-access full-text section and formula review",
+        "title": "Restoring similarity in randomized Krylov methods with applications to eigenvalue problems and matrix functions",
+        "trigger": "Direct 2026 motivating source: one-vector randomized Arnoldi coefficient and numerical-range escape"
+      },
+      {
+        "assessment": "Studies why spurious sketched Ritz values need not damage matrix-function approximation. No quantified two-mode all-start beta sign failure or almost-sure full real range in an undersampled sketch is stated or implied by its error bounds.",
+        "evidence": [
+          "DOI:10.1002/nla.2596 §§3–7, first online 2024-11-11; https://onlinelibrary.wiley.com/doi/10.1002/nla.2596"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596",
+        "material_read": "The full published open-access HTML was accessible; inspected introduction, §3 sketched Arnoldi relations, §4 rank-one modifications, §6 outlying spurious Ritz values and §7 stability, by section review and text search.",
+        "method": "Published primary open-access full text",
+        "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+        "trigger": "Prior primary study of spurious outlying sketched Ritz values and numerical ranges"
+      },
+      {
+        "assessment": "Derives sketched projection methods and embedding-condition estimates for prescribed Krylov subspaces, not the post-sketch all-start negative Ritz risk.",
+        "evidence": [
+          "arXiv:2302.07466v3 §3.2 Algorithm 3, §§2–4; https://arxiv.org/html/2302.07466v3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.07466v3",
+        "material_read": "The open arXiv HTML was accessible; inspected §2–3 definitions and embedding conditions, §3.2 randomized FOM Algorithm 3, and §4 noise discussion.",
+        "method": "ArXiv open-access full-text inspection",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Original randomized Arnoldi and sketched projection formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "51d8210e-2895-4230-a362-78f569373498",
+  "value": {
+    "rationale": "An all-start sign safety property is a natural uniform numerical-algorithm reliability question which does not follow from prescribed-start embedding or fixed-start probability analysis. The complete rank obstruction explains that reducing sketch rows below dimension can destroy every finite range bound, while the two-mode exact beta tail quantifies how adding rows restores uniform positivity with sharp sample-size exponential rate. Such distinctions are useful for specifying sketch-reuse or adversarial-start safeguards; no assertion about practical fixed-start algorithm failure or higher-dimension exact probability is made.",
+    "status": "PASS"
+  }
+}
