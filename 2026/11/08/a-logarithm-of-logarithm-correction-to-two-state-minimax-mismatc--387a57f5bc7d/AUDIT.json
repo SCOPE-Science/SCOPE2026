@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exact two-state semigroup transition formula is checked directly; conditional entropy is strictly concave via an exact total-variance identity, giving one interior optimizer. A Fano bound plus fixed-interior tests shows boundary concentration, evaluation of the derivative at every epsilon=Ct shows epsilon/t -> infinity, and the stationary equation gives epsilon log(1/t) -> a/(a-b). Taylor errors O(t^2/epsilon)+O(epsilon t log(1/epsilon)) are o(t), yielding a fully specified absolute o(t) remainder. The symmetric case is exact by channel symmetry. The extracted standalone verifier passed 135 high-precision deterministic tests but no infinite claims rest solely on it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yousef, Ansbacher, Wolpert, arXiv:2610.03478v3, Supplemental Section SX, equations (S126) and (S144)–(S153): minimax equals maximum conditional entropy; leading maximal escape-rate coefficient; qualitative optimizer concentration.",
+        "Nedić et al., doi:10.37190/0208-4147.00246, Sections 2–3: concavity, connected-channel optimal input, commitment-capacity interpretation and iteration.",
+        "The two-state rare-entrance sliding-count estimate 2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1 concerns a different finite-window Rayleigh quotient. The geometric-gap shift entropy 2026/10/11/SCOPE-log-periodic-second-order-entropy-law-for-geometric-gap-shifts--166969f68799 has a log-log term from combinatorial return times, not Markov endpoint equivocation."
+      ],
+      "reasoning": "The arXiv source covers arbitrary finite-state Markov generators but only to leading t log(1/t) order and qualitative concentration. Neither such weaker asymptotic nor the more general fixed-channel concavity and iterative optimization implies the new coefficient, relative optimizer scale or fixed-rate symmetric discontinuity. Search results with log-log terms had different invariants; no stronger statement was observed, with a residual risk of unlocated binary channel asymptotic formula.",
+      "searches": [
+        "\"minimax entropy production\" \"log\" \"prior\" binary",
+        "\"binary asymmetric channel\" \"maximum conditional entropy\" optimal input",
+        "commitment capacity continuous time Markov chain escape rates short time asymptotic loglog",
+        "2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1",
+        "2026/10/11/SCOPE-log-periodic-second-order-entropy-law-for-geometric-gap-shifts--166969f68799"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03478v1 (full accessible v3 HTML and Supplemental SX)",
+      "doi:10.37190/0208-4147.00246 (full published OA PDF)",
+      "Indexed publication 2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1",
+      "Indexed publication 2026/10/4/SCOPE-exact-odds-parametrization-of-the-confidential-blackwell-pareto--8400806a0122",
+      "Indexed publication 2026/10/11/SCOPE-log-periodic-second-order-entropy-law-for-geometric-gap-shifts--166969f68799",
+      "Indexed publication 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "Available published claim records on minimax, equivocation, conditional entropy and log-log asymptotics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yousef, Ansbacher, Wolpert, arXiv:2610.03478v3, Supplemental Section SX, equations (S126) and (S144)–(S153): minimax equals maximum conditional entropy; leading maximal escape-rate coefficient; qualitative optimizer concentration.",
+        "Nedić et al., doi:10.37190/0208-4147.00246, Sections 2–3: concavity, connected-channel optimal input, commitment-capacity interpretation and iteration.",
+        "arXiv:2610.03478v3 Section SX ends its CTMC analysis at (S153), with concentration but no rate; the present claim specifies a/((a-b)log(1/t)) and an absolute o(t) cost error."
+      ],
+      "reasoning": "The known upper/lower bounds give F(t)/(t log(1/t)) -> max(a,b) and epsilon_t -> 0 only, not F(t)-at log(1/t) to order t or the logarithmic prior law. The 2025 full-support uniqueness and numeric iteration do not give an explicit singular asymptotic. These prior results are consistent with, but strictly weaker than, the audited theorem; symmetric a=b is separately treated. There remains ordinary literature-discovery uncertainty outside inspected works.",
+      "searches": [
+        "Yousef Ansbacher Wolpert minimax entropy production maximum conditional entropy short-time correction logarithm prior",
+        "two state Markov semigroup a b unequal transition rates optimum equivocation logarithm loglog",
+        "commitment capacity continuous time Markov chain escape rates short time asymptotic loglog",
+        "\"binary channel\" \"maximum equivocation\" near identity asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yousef, Ansbacher, Wolpert, arXiv:2610.03478v3, Supplemental Section SX, equations (S126) and (S144)–(S153): minimax equals maximum conditional entropy; leading maximal escape-rate coefficient; qualitative optimizer concentration.",
+        "Nedić et al., doi:10.37190/0208-4147.00246, Sections 2–3: concavity, connected-channel optimal input, commitment-capacity interpretation and iteration.",
+        "Indexed publication 2026/10/4/SCOPE-exact-odds-parametrization-of-the-confidential-blackwell-pareto--8400806a0122 gives a Blackwell Pareto-frontier odds formula, with a different channel and no continuous-time small-time limit."
+      ],
+      "reasoning": "The same quantity can be called minimax mismatch cost, maximum endpoint equivocation, or commitment capacity of the near-identity binary channel. The main paper contains the generic equivalence and a leading-order CTMC result, but no logarithmic boundary-layer optimization or t log log t subleading claim in its inspected main and supplemental sections. The 2025 DMC theory gives generic capacity identities and an algorithm, not the stated singular binary semigroup expansion. A generic implicit variational characterization is not by itself the claimed sharp asymptotic classification.",
+      "searches": [
+        "Yousef Ansbacher Wolpert minimax entropy production maximum conditional entropy short-time correction logarithm prior",
+        "two state Markov semigroup a b unequal transition rates optimum equivocation logarithm loglog",
+        "maximum equivocation binary asymmetric channel small crossover probabilities optimal input distribution asymptotic log log",
+        "\"maximum equivocation\" \"log log\" \"channel\"",
+        "\"conditional entropy\" \"loglog\" \"asymmetric channel\" short time",
+        "2026/10/4/SCOPE-exact-odds-parametrization-of-the-confidential-blackwell-pareto--8400806a0122"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed publication records were searched using minimax, CTMC, escape rate, log-log and equivocation terminology. A result on endpoint positivity for two-state Markov chains, 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7, studies integration maps, not entropy.",
+        "Yousef, Ansbacher, Wolpert, arXiv:2610.03478v3, Supplemental Section SX, equations (S126) and (S144)–(S153): minimax equals maximum conditional entropy; leading maximal escape-rate coefficient; qualitative optimizer concentration."
+      ],
+      "reasoning": "The claim is a continuum parameter-uniform asymptotic and is not naturally a tabulated finite spectrum or numerical database entry. No inspected database/table provided its coefficient or prior concentration rate; the closest indexed publications do not assert these quantities. No failed search alone is taken as uniqueness proof.",
+      "searches": [
+        "Yousef Ansbacher Wolpert minimax entropy production maximum conditional entropy short-time correction logarithm prior",
+        "commitment capacity continuous time Markov chain escape rates short time asymptotic loglog",
+        "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+      ]
+    },
+    "rationale": "Direct comparison with the full relevant recent arXiv primary and 2025 full OA maximum-equivocation paper distinguishes the quantified logarithmic optimizer boundary layer and universal asymmetric t log log(1/t) correction from only known leading CTMC law, qualitative concentration and generic algorithms. The inspected indexed publications did not contain an implication of the quantified second-order theorem. Publication priority is not independently certified; see residual risks.",
+    "residual_risks": [
+      "A previously derived binary asymmetric-channel commitment-capacity singular expansion could cover the claimed result, even if not found in sampled indexed sources.",
+      "The asymptotic for a>b is not uniform as a approaches b and does not imply a crossover theorem.",
+      "Semantically retrieved database records and targeted literature do not prove absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives first-order maximal escape-rate coefficient and concentration on fastest state but not the fixed two-rate prior scaling or log-log next order.",
+        "evidence": [
+          "arXiv submission history: 2026-10-02 v1; v3 2026-10-06.",
+          "Equations S126, S144 and S145–S153 establish the known functional and first-order/qualitative conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.03478v3",
+        "material_read": "Full accessible main text and complete supplemental SX (especially S126 and S128–S153); other supplementary sections inspected for scope and optimizer claims.",
+        "method": "Read full arXiv HTML with section navigation and direct review of equations and comparison of known theorem strength.",
+        "title": "Minimax entropy production for arbitrary processes",
+        "trigger": "Same minimax entropy functional; recently published primary physical result."
+      },
+      {
+        "assessment": "General maximum conditional-entropy capacity and optimizer algorithm; no small-time Markov singular expansion found.",
+        "evidence": [
+          "doi:10.37190/0208-4147.00246, Section 1.1 equation (1.4), Section 2, Section 3 Theorem 3.1.",
+          "No Markov-semigroup short-time asymptotic appears in the inspected sections."
+        ],
+        "identifier_or_url": "https://www.math.uni.wroc.pl/~pms/files_doi/g00246/g00246.pdf",
+        "material_read": "Published 12-page open-access PDF, including full introductory definitions, Sections 2–3 concavity, uniqueness and convergence theorem, and references.",
+        "method": "Inspected PDF text and rendered page images, including page 3; searched specifically for binary/Markov/short-time statements.",
+        "title": "Notes on conditional entropy and commitment capacity",
+        "trigger": "Potentially dominating maximum-equivocation characterization for binary channels."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "387a57f5-bc7d-4c3c-9a5e-ff0d53d7d13b",
+  "value": {
+    "rationale": "The motivated unresolved quantity after the published maximal-escape leading law is the actual rate of optimizer concentration and first singular finite-time correction. The new t log log(1/t) term dominates an order-t correction and persists at every fixed rate contrast, whereas the balanced chain has no such term; this precise symmetry singularity impacts quantitative short-time minimax/commitment cost. It is a nonuniform boundary-layer asymptotic rather than a textbook fixed-input Taylor expansion.",
+    "status": "PASS"
+  }
+}
