@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The main invariant counts ordinary commutation in \(A_n=\bigwedge V/J^5\), with \(q\) odd and \(n\ge1\). The proof separates exterior degrees two and four, counts a disjoint three-way partition of linear-part pairs, and uses the independently justified rank \(\binom{n-1}{3}\) of wedging a fixed nonzero vector with cubic forms. This yields exactly the displayed commuting-pair count. The dominance boundary follows from an exact ratio and the uniform inequalities \(r\le n-1\) for \(n\le5\) and \(r\ge n+4\) for \(n\ge6\). For the full five-generator algebra, the five-dimensional cubic-form duality to alternating two-forms supplies the only possible wedge-map ranks \(0,2,4\), giving all four centralizer dimensions. The alternating-form counts add to all \(q^{10}\) cubic forms. Direct finite-field wedge-matrix calculations corroborated these formulas (see `VERIFICATION.md` and `verify.py`). The proof does not rely on experimental extrapolation. Limitation: characteristic two is outside the statement.
+PASS
 
-## Originality — PASS (best-knowledge, not a priority certificate)
+Ordinary commutator in odd characteristic equals 2 times product of odd parts. In Lambda(V)/J^5, the wedge equations are v∧w=0 and v∧t+u∧w=0. For nonzero v, rank of u↦v∧u on Lambda^3 is r=choose(n-1,3). Disjoint degree-one strata give q^(2h)+(q^n-1)(q+1)q^(2h-r) commuting odd-component pairs; dividing by q^(2(n+h)) gives stated cp. For n<=5 r<=n-1 yields ratio>1; for n>=6 r>=n+4 yields ratio<1, q odd prime power. In E5 full, even and top degree are central; nonzero linear parts induce commutator rank 8, whereas zero linear parts give trivector wedge maps dual to alternating forms rank 0/2/4. Radical dimensions and GL_4/Sp_4 orbit orders give exactly four centralizer-dimension multiplicities. Characteristic 2 explicitly excluded.
 
-The closest directly relevant primary treatments are Domokos–Zubor, *Commutative subalgebras of the Grassmann algebra* (arXiv:1403.2916, §§1–2, 7), and Bovdi–Leung, *Maximal commutative subalgebras of a Grassmann algebra* (arXiv:1803.03457, §§1–5). Their results address maximal commutative **subalgebra dimensions and constructions**, not the number of commuting **element pairs** or the complete element-centralizer dimension distribution. Fulman–Guralnick's commuting-pair results concern classical matrix and classical Lie-algebra families. Buckley–MacHale's comparison theorem concerns probabilities under subrings/quotients, not exact counts for these exterior quotients. Semantic literature searches for Grassmann commuting pairs, quartic exterior truncations, equivalences and rank spectra returned no covering statement; a separate published result concerned weight-zero Rota–Baxter operators on a four-dimensional exterior algebra in characteristic two, which neither implies nor is implied by this count. The only overlapping previously examined claim concerns **commuting endomorphism retractions** of the two-generator exterior algebra, a different object and operation. Residual risk: an unindexed finite-ring point-count formula might implicitly specialize to this result; the full text of the Buckley–MacHale comparison paper was not accessible in this check. Absence of a search hit is not regarded as a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Ordinary commuting probability is a canonical finite-ring invariant, and low augmentation quotients are natural neighborhoods of the exterior algebra's radical. Degree four is the first truncation at which linear and cubic odd terms can interact, so the formula is not an arbitrary coefficient slice. The exact all-rank count reveals a previously unforced phenomenon: for every odd finite field, at five generators the strict commuting-pair majority has nonzero linear support, while at six the strict majority lies in the degree-one-zero stratum. The full five-generator centralizer spectrum exhibits two distinct nonzero ranks for cubic wedge multiplication and determines every centralizer multiplicity for this first nontrivial case. These are exact invariants potentially useful in evaluating commuting graphs, probabilistic centralizer statistics, and comparisons of finite exterior-algebra quotients. The general supercommutation rule and alternating-form rank classification are cited as inputs, not claimed as discoveries.
+The odd wedge reduction, maximal commutative-subalgebra dimensions and alternating-form classification are known ingredients. The all-rank commuting-pair probability, six-generator dominance crossover and E5 centralizer multiplicities are not implied by the inspected stronger-object literature.
 
-## Sources and risks
+## value
 
-Primary sources were read in accessible full HTML where available: https://arxiv.org/abs/1803.03457 and https://arxiv.org/abs/1403.2916. Related context: https://arxiv.org/abs/1611.05499 and the 2017 Buckley–MacHale general comparison result. The present claims do not determine higher-order truncation counts or arbitrary-rank full exterior-algebra centralizer spectra; no independent publication-priority validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp universal six-generator majority transition for a canonical radical quotient and the complete natural centralizer spectrum of the smallest full exterior algebra with two nonzero alternating-form ranks; exact pair counts rather than a textbook supercommutativity observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

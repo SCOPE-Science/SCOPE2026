@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The supplied `verify.py` uses only standard Python and runs with `python3 verify.py` in the same directory. Its bitmask exterior product independently implements monomial signs and square-zero wedge products; finite-field ranks are computed by pivoting, not read from a hard-coded formula.
+# Independent mathematical audit
 
-Four exhaustive odd-component censuses were run: \((n,q)=(2,3),(3,3),(3,5),(4,3)\). The count of commuting pairs obtained by summing raw matrix-kernel sizes matched the stated formula in each case. For five generators, every cubic \(3\)-vector over \(\mathbb F_2\) and \(\mathbb F_3\) was enumerated, producing alternating-form ranks \(0,2,4\) with exact distributions \((1,155,868)\) and \((1,2420,56628)\). Further random-rank checks covered generators \(5,6,7\) and prime fields of orders \(3,5\). For the full five-generator algebra, direct \(32\times32\) associative commutator matrices were computed for forced rank-zero, rank-two and rank-four cubic forms and further random elements over both odd fields. The two independently derived five-generator commuting-pair formulas agreed at three field orders. The program terminated with `VERIFY_OK`.
+## correctness
 
-The exhaustive domains do not certify arbitrary finite extensions or unbounded generator rank; the general proof uses basis extension and finite-dimensional alternating forms. Independent audit has not been performed.
+PASS
+
+Ordinary commutator in odd characteristic equals 2 times product of odd parts. In Lambda(V)/J^5, the wedge equations are v∧w=0 and v∧t+u∧w=0. For nonzero v, rank of u↦v∧u on Lambda^3 is r=choose(n-1,3). Disjoint degree-one strata give q^(2h)+(q^n-1)(q+1)q^(2h-r) commuting odd-component pairs; dividing by q^(2(n+h)) gives stated cp. For n<=5 r<=n-1 yields ratio>1; for n>=6 r>=n+4 yields ratio<1, q odd prime power. In E5 full, even and top degree are central; nonzero linear parts induce commutator rank 8, whereas zero linear parts give trivector wedge maps dual to alternating forms rank 0/2/4. Radical dimensions and GL_4/Sp_4 orbit orders give exactly four centralizer-dimension multiplicities. Characteristic 2 explicitly excluded.
+
+## originality
+
+PASS
+
+The odd wedge reduction, maximal commutative-subalgebra dimensions and alternating-form classification are known ingredients. The all-rank commuting-pair probability, six-generator dominance crossover and E5 centralizer multiplicities are not implied by the inspected stronger-object literature.
+
+## value
+
+PASS
+
+A sharp universal six-generator majority transition for a canonical radical quotient and the complete natural centralizer spectrum of the smallest full exterior algebra with two nonzero alternating-form ranks; exact pair counts rather than a textbook supercommutativity observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
