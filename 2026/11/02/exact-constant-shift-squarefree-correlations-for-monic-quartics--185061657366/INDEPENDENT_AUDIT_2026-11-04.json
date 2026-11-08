@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:00:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd q two-point Hermite interpolation determines one monic quartic for each ordered distinct repeated-root pair, yielding q(q-1) incidences. Any multiple counting occurs precisely through squares of split monic quadratics; these contribute q(R4(c)+R4(-c))/2 to subtract. Irreducible quadratic square cases add q(H(c)+H(-c)) through their unique rational critical point. The formula B=q(q-1)+q(H(c)+H(-c)-(R4(c)+R4(-c))/2) gives three cases for q congruent 1 mod 8 (fourth power, square not fourth, nonsquare) and q(q-1) for other odd q. For characteristic two, f'=aT^2+d; if a=d=0 exactly q^2 quartics are simultaneously nonsquarefree, otherwise the shifted polynomials cannot both have a repeated root. Inclusion-exclusion gives C=q^4-2q^3+B; covariance (B-q^2)/q^4. Independent polynomial-gcd enumeration confirmed all nonzero shifts for q=2,3,5,7; the bundled independent finite-field quotient checker and 12-field/88-shift claimed output were read, but not wholly rerun. General prime powers rely on analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keating–Rudnick arXiv:1504.03444 Appendix A Theorem A.2 gives a singular-series asymptotic with error O(n q^(2n/3)) for shifted squarefree pairs.",
+          "Carmon–Rudnick arXiv:1205.1599 estimates Mobius correlation, not this exact pair count."
+        ],
+        "reasoning": "At n=4 the general error does not fix q-scale shifts of the exact B count, and thus does not dominate the new parameter-dependent equality.",
+        "searches": [
+          "Resultary: monic quartic f and f+c simultaneously squarefree exact finite field correlations constant shifts",
+          "Keating–Rudnick arXiv:1504.03444 Appendix A Theorem A.2 (same pair-squarefree observable)",
+          "Carmon–Rudnick arXiv:1205.1599",
+          "Carmon arXiv:1409.3694",
+          "Almousa–Wood arXiv:1210.0472"
+        ]
+      },
+      "checked_sources": [
+        "Keating–Rudnick arXiv:1504.03444 full PDF Appendix A Theorem A.2",
+        "Carmon–Rudnick arXiv:1205.1599 abstract",
+        "Carmon arXiv:1409.3694 abstract",
+        "Almousa–Wood arXiv:1210.0472 abstract",
+        "Resultary quartic/squarefree query",
+        "Frozen RESULT.md, verify.py, VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known q^4-q^3 single-polynomial marginal implies C=q^4-2q^3+B by inclusion-exclusion but provides no B.",
+          "Keating–Rudnick same-object asymptotic does not imply the three exact B values, because the error obscures these corrections."
+        ],
+        "reasoning": "The novel exact element is the repeated-root joint incidence and its residue-class split, not the trivial inclusion-exclusion or marginal squarefree identity.",
+        "searches": [
+          "Resultary: monic quartic f and f+c simultaneously squarefree exact finite field correlations constant shifts",
+          "Keating–Rudnick arXiv:1504.03444 Appendix A Theorem A.2 (same pair-squarefree observable)",
+          "Carmon–Rudnick arXiv:1205.1599",
+          "Carmon arXiv:1409.3694",
+          "Almousa–Wood arXiv:1210.0472"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keating–Rudnick Appendix A writes sum_f mu(f)^2 mu(f+J)^2, equivalent to present C_q(c) when n=4, J=c.",
+          "Pair indicator covariance is exactly (B-q^2)/q^4 using known marginal q^4-q^3."
+        ],
+        "reasoning": "The pair-squarefree observable is NOT new in itself; this assessment concerns exact fixed-degree and fourth-power-class values rather than a renamed existing asymptotic.",
+        "searches": [
+          "Resultary: monic quartic f and f+c simultaneously squarefree exact finite field correlations constant shifts",
+          "Keating–Rudnick arXiv:1504.03444 Appendix A Theorem A.2 (same pair-squarefree observable)",
+          "Carmon–Rudnick arXiv:1205.1599",
+          "Carmon arXiv:1409.3694",
+          "Almousa–Wood arXiv:1210.0472"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical exact quartic constant-translation table surfaced in Resultary search; returned quartic Fourier-extension papers concern different observables.",
+          "Frozen formula B_q(c)=q(q-5) for fourth powers, q(q+3) for square non-fourth when q=1 mod8, q(q-1) otherwise odd, q^2 even; independently tested q2,3,5,7."
+        ],
+        "reasoning": "This is an exact natural degree-four distribution and not a retrieval from an established root-multiplicity table; potential historical duplicate tables remain a residual risk.",
+        "searches": [
+          "Resultary: monic quartic f and f+c simultaneously squarefree exact finite field correlations constant shifts",
+          "Keating–Rudnick arXiv:1504.03444 Appendix A Theorem A.2 (same pair-squarefree observable)",
+          "Carmon–Rudnick arXiv:1205.1599",
+          "Carmon arXiv:1409.3694",
+          "Almousa–Wood arXiv:1210.0472"
+        ]
+      },
+      "rationale": "Keating–Rudnick Appendix A studies precisely the same pair-squarefree count for arbitrary J; their singular series gives an asymptotic with O(n q^(2n/3)), not the exact degree-four fourth-power-class spectrum. Carmon–Rudnick concern Mobius autocorrelation, not the exact pair indicator count; Almousa–Wood counts single polynomial root types. The narrowed exact calculation appears original best-knowledge, with older discriminant/translation literature priority caveat.",
+      "residual_risks": [
+        "Historical exact discriminant or shifted-squarefree tables may use an equivalent form and were not exhaustively found.",
+        "Independent finite calculation covered q=2,3,5,7, not all finite fields; universal proof relies on incidence identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object but only asymptotic and singular-series precision, not the exact quartic fourth-power spectrum",
+          "evidence": "Appendix A, Theorem A.2: sum_f mu(f)^2 mu(f+J)^2 and O(n q^(2n/3)) remainder",
+          "identifier_or_url": "https://arxiv.org/abs/1504.03444",
+          "material_read": "Full available arXiv primary PDF examined, including Appendix A and Theorem A.2 statement and its error term",
+          "method": "arXiv open PDF/text and PDF page screenshot",
+          "title": "Squarefree polynomials and Möbius values in short intervals and arithmetic progressions",
+          "trigger": "Direct same pair-squarefree observable in Appendix A"
+        },
+        {
+          "assessment": "Studies signed Mobius correlation, which does not directly determine pair squarefree indicators",
+          "evidence": "arXiv:1205.1599 main abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1599",
+          "material_read": "Accessible public abstract and theorem-summary material, not full paper read",
+          "method": "public search/abstract",
+          "title": "The autocorrelation of the Möbius function and Chowla's conjecture for the rational function field",
+          "trigger": "Potential stronger squarefree-pair coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural constant-shift correlation of squarefree degree-four polynomials has exact arithmetic phase behavior: characteristic two independence and a fourth-power sensitive three-level law iff q=1 mod 8. This sharp fixed-degree count is not recoverable from a coarse asymptotic error term and is relevant to finite-field sieve/correlation models.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Keating–Rudnick arXiv:1504.03444 full PDF Appendix A Theorem A.2",
+    "Carmon–Rudnick arXiv:1205.1599 abstract",
+    "Carmon arXiv:1409.3694 abstract",
+    "Almousa–Wood arXiv:1210.0472 abstract",
+    "Resultary quartic/squarefree query",
+    "Frozen RESULT.md, verify.py, VERIFICATION.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical exact discriminant or shifted-squarefree tables may use an equivalent form and were not exhaustively found.",
+    "Independent finite calculation covered q=2,3,5,7, not all finite fields; universal proof relies on incidence identities."
+  ],
+  "residual_risks": [
+    "Historical exact discriminant or shifted-squarefree tables may use an equivalent form and were not exhaustively found.",
+    "Independent finite calculation covered q=2,3,5,7, not all finite fields; universal proof relies on incidence identities."
+  ],
+  "schema_version": 1
+}
