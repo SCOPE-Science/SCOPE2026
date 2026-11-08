@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:57:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md proof Lemmas 1–2 and two/three toggler classification",
+        "Inspected verify_tripartite_recurrence.py Git blob fcfe505348ed11d06e6a6bee1d28d3d0f1486b54",
+        "Independent explicit update enumeration in independent_checks.py (31 triples)"
+      ],
+      "rationale": "Each part has identical external neighborhood; at a genuine temporal two-cycle a changing part must switch uniform opposite bits. One toggler cannot reverse with its other parts static. Two togglers must oppose in phase and have equal sizes p; the static third part remains arbitrary exactly for |2j-r|<p, giving B(p,r). Three togglers are possible in exactly one orbit when a unique part is strictly largest. These cases exhaust all cycles and treat ties strictly. Independently enumerated labelled binary transitions for all 31 sorted size triples 1<=a<=b<=c<=5 with total<=12, including (1,1,1),(1,1,2),(1,1,3), agreeing with the binomial formula. No inference from bounded enumeration to all sizes.",
+      "residual_risks": [
+        "Only complete three-part positive-size graph, synchronous strict majority and tie-preservation; transient basin census excluded"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General symmetric threshold theorems bound eventual period by two but do not compute how many primitive two-cycles exist on every K_(a,b,c).",
+          "Published complete multipartite C-colorings classifies equilibria, not temporal orbits."
+        ],
+        "reasoning": "The period bound is broader in allowed graphs but weaker in the exact orbit count; neither it nor a static coloring classification logically implies the binomial orbit formula.",
+        "searches": [
+          "arXiv:1108.2974 Kuhlman et al., Theorem 3.1",
+          "arXiv:1405.2486 Benjamini et al.",
+          "Resultary: Majority C-colorings of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Full published majority-C coloring RESULT.md and parity automata RESULT.md",
+        "arXiv:1108.2974 (bibliographic/abstract, full text uninspected)",
+        "Resultary specific tripartite majority queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Static coloring result Theorem counts palette configurations with at least half same neighbors (state condition).",
+          "Parity automata result reduces update to GF(2) linear algebra; nonlinear strict-majority tie-retention cannot be obtained by that reduction."
+        ],
+        "reasoning": "No implication from either related theorem to the binomial B(p,q) part-size phase transition. Goles–Olivos period two guarantee is necessary but not numerically sufficient.",
+        "searches": [
+          "Resultary: 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+          "Resultary: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "arXiv:1108.2974"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published complete-multipartite majority-C result counts static locally satisfactory colorings, not temporal binary majority two-cycles.",
+          "The stored balanced K_(p,p,p) 3(2^p-2) case agrees but does not determine unequal part sizes."
+        ],
+        "reasoning": "Static satisfaction/majority coloring is not a two-step orbit condition; no equivalent all-three-variable temporal census was found among reviewed exact statements.",
+        "searches": [
+          "Resultary: complete tripartite Kabc synchronous majority dynamics tie retaining primitive two-cycle count",
+          "Resultary: primitive two-cycle exact count synchronous open neighborhood majority complete tripartite graph Kabc tie retention",
+          "Resultary: Majority C-colorings of complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published parity-automata theorem tabulates F_0=Ax and F_1=(I+A)x over GF(2) and can have four-cycles, unlike strict majority.",
+          "The static-coloring table counts stable color classes and excludes temporal primitive orbits."
+        ],
+        "reasoning": "These close-looking same-graph tables use different update maps or invariants and cannot substitute for the proposed strict-majority two-cycle census.",
+        "searches": [
+          "Resultary: Sharp period-four census for complete multipartite parity automata",
+          "Resultary: Majority C-colorings of complete multipartite graphs",
+          "arXiv:1102.5361 Adams et al."
+        ]
+      },
+      "rationale": "The previously known equal-three-part and equilibrium cases and general period<=2 theorem are explicitly excluded from novelty. Full three-parameter *temporal* orbit counting for the nonlinear tie-preserving rule differs from irreversible conversion, static majority C-coloring and GF(2) parity dynamics even on the same graph. Best-of-knowledge; obscure threshold-network classification might cover it.",
+      "residual_risks": [
+        "An unindexed early closed census for complete tripartite threshold networks cannot be excluded",
+        "The balanced specialization is known and not a novel standalone result"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static majority-C colorings are not iterative strict-majority two-cycles; classification does not count the dynamic orbit.",
+          "evidence": "Result says <=2 colors, even-size half-splits, product binomial for static colorings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+          "material_read": "Entire RESULT.md theorem, proof, verification limits and references read from pinned Git blob ba25a539a8da1ac31b823e2e2ece6d428083f04d.",
+          "method": "Read-only GitHub file fetch and mathematical comparison",
+          "title": "Majority C-colorings of complete multipartite graphs",
+          "trigger": "Exactly the same complete multipartite graph and local-majority terminology"
+        },
+        {
+          "assessment": "Exact orbit counts for XOR parity, not strict-majority threshold; no direct coverage.",
+          "evidence": "Explicit F_0=Ax, F_1=(I+A)x and possible period four unlike majority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "material_read": "Finding, assumptions, proof GF(2) reduction and cycle-count formulas read in RESULT.md (blob 4141a9effe5bda16943402a845d7b918d704970e).",
+          "method": "Read-only primary research record text",
+          "title": "Sharp period-four census for complete multipartite parity automata",
+          "trigger": "Same graph family and a temporally periodic synchronous Boolean update"
+        },
+        {
+          "assessment": "General period restriction is compatible with but does not count the Kabc cycles; uninspected passages remain a priority caveat.",
+          "evidence": "arXiv:1108.2974, 2011.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "Public abstract and stated Theorem 3.1 context only; full PDF not inspected in this run.",
+          "method": "Bibliographic and theorem-index comparison",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "General threshold-network period restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned structural toggler proof, exact binomial B(p,q) formula",
+        "Known distinction between period-two existence theorem and cycle multiplicities"
+      ],
+      "rationale": "The exact closed all-size primitive-cycle census distinguishes equality-driven exponential oscillation from a unique unequal-size orbit, revealing a structural phase transition in a canonical nonlinear majority network. Counts are labelled temporal orbits, not a routine fixed-point count.",
+      "residual_risks": [
+        "No transient basin sizes or update rules beyond the specified tie rule are classified"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only complete three-part positive-size graph, synchronous strict majority and tie-preservation; transient basin census excluded",
+    "An unindexed early closed census for complete tripartite threshold networks cannot be excluded",
+    "The balanced specialization is known and not a novel standalone result",
+    "No transient basin sizes or update rules beyond the specified tie rule are classified"
+  ],
+  "schema_version": 1
+}

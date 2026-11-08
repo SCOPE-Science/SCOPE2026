@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem counts only primitive **temporal** two-cycles for three positive part sizes. The proof first establishes that a changing part is uniform in both phases, a consequence of identical neighborhoods and preservation of uniformity under ties. One toggling part is impossible. Two toggling parts must be in opposite phases, and stability of the third part forces their sizes equal even when its static pattern is uniform. The exact two strict flip inequalities are equivalent to the stated open central binomial window, without missing boundary equalities. When all three parts toggle, the unique initially-one part must be strictly largest, which is also sufficient. These disjoint exhaustive alternatives prove the formula with no asymptotic or enumeration assumption. Direct labeled-state checks on 89 small triples and independently weighted aggregated checks on 1,137 wider triples agree. The computer checks are finite stress tests, not the universal proof.
+PASS
 
-## Originality — PASS (with residual historical risk)
+Each part has identical external neighborhood; at a genuine temporal two-cycle a changing part must switch uniform opposite bits. One toggler cannot reverse with its other parts static. Two togglers must oppose in phase and have equal sizes p; the static third part remains arbitrary exactly for |2j-r|<p, giving B(p,r). Three togglers are possible in exactly one orbit when a unique part is strictly largest. These cases exhaust all cycles and treat ties strictly. Independently enumerated labelled binary transitions for all 31 sorted size triples 1<=a<=b<=c<=5 with total<=12, including (1,1,1),(1,1,2),(1,1,3), agreeing with the binomial formula. No inference from bounded enumeration to all sizes.
 
-The newly assessed proposition is the parameter-complete **primitive two-cycle count for unequal tripartite part sizes**, including the sharp all-distinct equals-one law and the two-equal binomial-window transition. The fully balanced case is previously established and excluded from the originality assertion. The nearby complete-multipartite work by Adams et al. addresses irreversible one-way conversion; it cannot have a primitive two-cycle. Kuhlman et al. and Benjamini et al. supply general two-period bounds but no three-size counting identity in the inspected text. Voutsadakis (2004) computes cycles for functions on complete graphs depending on total ones, but this does not compress the part-excluding tripartite update to a single total. A published complete-multipartite majority-C-coloring result supplies fixed-point counts, not temporal two-cycles. A separate published multipartite parity-automaton result counts XOR cycles, not majority cycles. Meaning-based searches for equivalent tripartite threshold orbits, equal-part reductions, aliases, and stronger formulas did not expose the asserted count. This is a bounded originality assessment, not mathematical proof of novelty; unindexed earlier threshold-network work remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Three-part complete graphs are natural structured interaction networks where identical neighborhoods invite a precise phase decomposition. The count yields a complete infinite three-parameter family beyond the balanced case. The all-distinct regime always has exactly one oscillation even as part sizes grow, whereas the two-equal regime can have exponentially many. The strict central-binomial window also exposes a parity transition, such as \(K_{1,1,2s}\) versus \(K_{1,1,2s+1}\). This is a structural classification and a natural oscillatory invariant; fixed-point counts, the general period-two theorem, and finite numerics alone are not used to justify its value.
+The previously known equal-three-part and equilibrium cases and general period<=2 theorem are explicitly excluded from novelty. Full three-parameter *temporal* orbit counting for the nonlinear tie-preserving rule differs from irreversible conversion, static majority C-coloring and GF(2) parity dynamics even on the same graph. Best-of-knowledge; obscure threshold-network classification might cover it.
 
-## Closest sources and limits
+## value
 
-The closest directly inspected primary sources are Adams et al., arXiv:1102.5361 (irreversible multipartite conversion); Kuhlman et al., arXiv:1108.2974 (general period bounds); Benjamini et al., arXiv:1405.2486 (majority dynamics with ties); *Majority C-colorings of complete multipartite graphs* (static states); , Voutsadakis (2004) on full-complete-graph symmetric threshold networks, and *Sharp period-four census for complete multipartite parity automata* (different XOR rule). The equal-part specialization was established separately, and is not novel here. No claim is made about attraction basins, transient depths or more than three parts. The possibility of inaccessible or equivalently formulated prior art remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact closed all-size primitive-cycle census distinguishes equality-driven exponential oscillation from a unique unequal-size orbit, revealing a structural phase transition in a canonical nonlinear majority network. Counts are labelled temporal orbits, not a routine fixed-point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

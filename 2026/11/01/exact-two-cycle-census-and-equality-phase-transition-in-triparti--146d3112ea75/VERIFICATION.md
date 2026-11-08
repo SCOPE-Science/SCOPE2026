@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The scientific claim is the exact number of primitive temporal two-cycle orbits of synchronous strict-neighbor majority, with tie retention, on complete tripartite graphs of all positive part sizes. All hypotheses, strict boundary inequalities and count normalization are specified in `RESULT.md`.
+## correctness
 
-To replay finite evidence, run:
+PASS
 
-```sh
-python3 verify_tripartite_recurrence.py
-```
+Each part has identical external neighborhood; at a genuine temporal two-cycle a changing part must switch uniform opposite bits. One toggler cannot reverse with its other parts static. Two togglers must oppose in phase and have equal sizes p; the static third part remains arbitrary exactly for |2j-r|<p, giving B(p,r). Three togglers are possible in exactly one orbit when a unique part is strictly largest. These cases exhaust all cycles and treat ties strictly. Independently enumerated labelled binary transitions for all 31 sorted size triples 1<=a<=b<=c<=5 with total<=12, including (1,1,1),(1,1,2),(1,1,3), agreeing with the binomial formula. No inference from bounded enumeration to all sizes.
 
-No third-party packages are needed. The program performs two independent enumeration strategies: direct binary-state majority on 89 sorted part-size triples (1,236,504 labelled state tests) and a weighted part-count update on 1,137 triples. Every comparison of actual and closed-form primitive two-orbit counts passed. The output file `verification_output.txt` is an included replay result and can be regenerated from the program. The program also checks a known fixed-state count as an auxiliary consistency test; that is not part of the new originality claim.
+## originality
 
-The infinite-parameter proof is mathematical, not empirical: changing parts must be uniform, one toggler is impossible, two togglers require opposite phase and equal sizes, and three togglers require a unique largest part. The open inequality is essential, including ties and smallest allowed sizes. The stated test ranges are finite; neither exhaustive checks nor a successful log establishes originality or an all-size theorem on its own.
+PASS
 
-Independent audit has not been performed.
+The previously known equal-three-part and equilibrium cases and general period<=2 theorem are explicitly excluded from novelty. Full three-parameter *temporal* orbit counting for the nonlinear tie-preserving rule differs from irreversible conversion, static majority C-coloring and GF(2) parity dynamics even on the same graph. Best-of-knowledge; obscure threshold-network classification might cover it.
+
+## value
+
+PASS
+
+The exact closed all-size primitive-cycle census distinguishes equality-driven exponential oscillation from a unique unequal-size orbit, revealing a structural phase transition in a canonical nonlinear majority network. Counts are labelled temporal orbits, not a routine fixed-point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
