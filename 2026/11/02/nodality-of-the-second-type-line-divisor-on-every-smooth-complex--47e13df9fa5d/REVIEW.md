@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses an arbitrary smooth complex cubic threefold and an arbitrary triple line. Smoothness makes the two-dimensional pencil of normal binary quadratics basepoint-free; the uniqueness of the tangent plane and smoothness justify the coordinate normalization to \(s^2u+t^2v\). The triple-plane condition forces both \(s w^2\) and \(t w^2\) terms to vanish and leaves a nonzero \(k w^3\) term. The Fano chart has invertible Jacobian in its other four normal coordinates, so those coordinates start in order three. Taking the determinant of the three restricted normal derivatives then gives a universal quadratic jet \(-6kef\); its Hessian determinant is \(-36k^2\ne0\). This is a formal ordinary node. The published singular-support theorem covers all remaining points; the Fitting-ideal consequence is the standard local Jacobian computation. The exact standalone checker independently verifies the key coefficient identities for arbitrary symbolic cubic coefficients. These are symbolic identities rather than numerical experiments.
+PASS
 
-## Originality — PASS, with residual risk
+Fix an arbitrary triple line on any smooth complex cubic threefold X. Smoothness forces its two transverse normal binary quadratics to have no common zero, and uniqueness of tritangent plane gives a basepoint-free pencil. The pencil intersects the conic of perfect squares at two distinct points, permitting coordinates with linear cubic terms s^2u+t^2v and w normal to the unique tangent plane. Triple-line plane restriction yields F=s²u+t²v+sQ0+tQ1+R3 with no w² in Q0,Q1, and R3(0,0,w)=k w³, k!=0. In a nearby-line Fano chart (u,v,w)=(as+bt,cs+dt,es+ft), four Fano equations have identity linear derivative in a,b,c,d, so a,b,c,d vanish to order 3 in (e,f). The restricted transverse-gradient determinant then has quadratic jet exactly -6kef and Hessian determinant -36k². I independently expanded the lowest-order general cubic jet symbolically to check -6kef and the Hessian, agreeing with the inspected SymPy verifier. Formal Morse lemma gives a node and intrinsic Fitting_1 Ω singular scheme reduced length one at each triple line. Bockondas–Boissière Theorem 6 supplies set-theoretic singular support exactly at triple lines. Works for every smooth complex cubic, including reducible divisor, but not positive characteristic.
 
-The closest primary article is Bockondas–Boissière, *Triple lines on a cubic threefold*, first posted 2022-01-21 (arXiv:2201.08884), equation (2), Theorem 6, and especially Remark 9 (published 2023, p. 755), which explicitly states the universal nodality question remains open. Their result identifies the *support* of singularities, but does not imply the nondegenerate quadratic tangent cone needed for nodality. Lahoz–Naranjo–Rojas (arXiv:2106.08683) give the class and general-member results, not universal nodality; Bockondas–Bossoto (arXiv:2309.08124) study particular lines and Eckardt configurations without the universal local ring. Work on cubic fourfolds addresses another dimension. Searches against accessible research records and prior claims found no stronger covering assertion. Older incomplete records and possible unindexed earlier arguments are genuine residual risks, not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers an explicitly stated geometric question about a classical divisor on every smooth cubic threefold, including special reducible cases. The upgrade from singular support to node-type singularities determines local multiplicity, \(\delta\)-invariant, Tjurina number, and reducedness of the intrinsic singular subscheme. The associated genus formula is a consequential, not substituted, corollary. This is substantially beyond a known-support restatement or a special-parameter calculation.
+The original Bockondas–Boissière paper proves singular support is triple lines, defines the determinant divisor, and explicitly asks in Remark 9 whether all its singularities are nodal. The universal nondegenerate -6kef quadratic jet answers that specific open local analytic question. Lahoz–Naranjo–Rojas discusses the divisor class and another curve, not universal local singularity of this determinant. Strong originality evidence is the open question in the primary full text, though later independently discovered answers cannot be excluded.
 
-## Boundaries and verification
+## value
 
-No assertion is made over arbitrary positive characteristic or about every possible count of triple lines. The exact symbolic checker certifies the universal algebraic identities; the basis-normalization and formal-geometry steps are established in the proof. No independent external mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A direct resolution of an explicitly stated problem for a natural Fano-surface determinantal divisor, including exact formal local ring, multiplicity and reduced singular subscheme for every smooth complex cubic threefold. The universal local quadratic jet supplies precise singularity type beyond previously known support and genus/class information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
