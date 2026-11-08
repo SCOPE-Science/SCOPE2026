@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all v,D,alpha,r>0 and eta in [0,1], apply the explicitly written Markov generator to y,s,ys,y². Fair invariant sign balance gives reset source r/2 for each sign independent of eta. These yield EYS=v/(r+2alpha) and EY²=2D/r+2v²/[r(r+2alpha)]. Conditional semigroup regression gives C_eta(t)=V exp(-rt)+[v²/(r+2alpha)] times the positive exponential convolution exactly for every t≥0. Strict positivity of the integrand difference for eta1<eta2 at t>0 proves monotonicity; elementary positive-leading-term cases prove slowest-rate and resonant t exp(-rt) behavior; Tonelli proves integrated covariance. Independently implemented checker.py passed 1080 generator semigroup comparisons, nine Fourier resolvent comparisons, and three 100000-sample stationary event-driven covariance tests. These finite checks are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bressloff 2024 develops generator/Itô calculus for velocity-jump processes and includes resetting to a prescribed full state, not probabilistic reversal of a retained orientation.",
+        "Evans 2018 section 6 covers general velocity reset protocol but solves survival and stationary equations, not all stationary lag-correlations."
+      ],
+      "reasoning": "A general jump-process generator method is broad enough to permit deriving this statement, but possessing a general tool is not an explicit or equivalent theorem. A stronger published general covariance result specialized to the current reset kernel was not located; residual implicit coverage remains plausible.",
+      "searches": [
+        "telegraph noise position resetting stochastic stationary correlation orientation reversal memory decay 2(alpha+eta r)",
+        "thermal run and tumble motion with resetting at rate r and velocity reversal probability eta has identical stationary distribution but strictly eta-dependent temporal covariance and sharp crossing at r=2(alpha+eta r)",
+        "arxiv:2411.15544v1: run-and-tumble stochastic resetting full-state generator",
+        "arxiv:1808.06450v2: general velocity resetting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1808.06450v2",
+      "arxiv:2407.03762v1",
+      "arxiv:2411.15544v1",
+      "Six recorded scientific semantic queries in the indexed published literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The stationary invariance premise is directly covered by Evans 2018 and explicitly excluded from novelty.",
+        "Pal et al. 2024 introduce the thermal model and compute absorption-time transforms, from which no unrestricted-time stationary covariance identity follows as a simple specialization.",
+        "Generator methods can recover the present formulas after new covariance-moment closure and spectral analysis; no checked primary result states the complete quantified ordering plus resonance."
+      ],
+      "reasoning": "The new theorem requires stationary cross moment E[YS], propagator conditional regression with reset-flip-dependent orientation rate, and global strict lag comparison. Existing stationary Fourier transforms alone do not encode these dynamics, and first-passage computations are different observables. Thus the full statement is not a displayed corollary of the inspected results, although broader unlocated Markov results could still cover it.",
+      "searches": [
+        "run tumble active Brownian thermal fluctuations reset orientation flipping probability stationary spatial distribution temporal two-time covariance",
+        "telegraph noise position resetting stochastic stationary correlation orientation reversal memory decay 2(alpha+eta r)",
+        "thermal run and tumble motion with resetting at rate r and velocity reversal probability eta has identical stationary distribution but strictly eta-dependent temporal covariance and sharp crossing at r=2(alpha+eta r)",
+        "run-and-tumble resetting two-point stationary displacement correlations distinguish velocity flipping protocols despite same invariant position law",
+        "arxiv:1808.06450v2 sections 3/6/7",
+        "arxiv:2407.03762v1 sections II/III/IV",
+        "arxiv:2411.15544v1 stochastic resetting sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Evans and Majumdar 2018: equal-time joint position/velocity distribution independent of reset reversal probability, but survival/first passage depends on it.",
+        "Pal et al. 2024: Brownian plus telegraph dynamics, positional resetting with optional velocity flip; derivations concern first-passage law and mean time.",
+        "Checked relevant published active-particle and telegraph-noise claims for the same position-reset/velocity-flip process; no equivalent covariance theorem was identified."
+      ],
+      "reasoning": "A stationary equal-time Fourier transform or a first-passage Laplace transform does not determine the non-equilibrium stationary two-time covariance without its transition semigroup. Although both sources supply model ingredients, neither inspected text states the exact positive-lag ordering, one-lag parameter identification, or resonant spectral boundary.",
+      "searches": [
+        "run and tumble particle with position resets and partial velocity reversal: stationary joint distribution independent of flip probability but position autocorrelation has a transition between reset and orientation relaxation rates",
+        "run tumble active Brownian thermal fluctuations reset orientation flipping probability stationary spatial distribution temporal two-time covariance",
+        "exact stationary two time position autocovariance for 1D run-and-tumble particle with stochastic position reset and probabilistic velocity reversal eta; dynamical relaxation crossover and stationary law invariance",
+        "arxiv:1808.06450v2 sections 3 and 6",
+        "arxiv:2407.03762v1 sections II-IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved physical-time-correlation result concerns a deterministic quadratic-reset hybrid oscillator, not a thermally diffusive velocity-jump particle.",
+        "Closest autocorrelation spectral-transition result concerns critical Ornstein–Uhlenbeck sensors without an orientation-flip-at-reset protocol.",
+        "Closest reversible-chain two-autocorrelation result concerns sample variance, not particle two-time displacements."
+      ],
+      "reasoning": "The searched claims are about different generators, stochastic dynamics or observables and do not imply the explicit C_eta(t) or its strict η-dependence. Database partition and finite search cannot prove uniqueness.",
+      "searches": [
+        "run and tumble particle with position resets and partial velocity reversal: stationary joint distribution independent of flip probability but position autocorrelation has a transition between reset and orientation relaxation rates",
+        "exact stationary two time position autocovariance for 1D run-and-tumble particle with stochastic position reset and probabilistic velocity reversal eta; dynamical relaxation crossover and stationary law invariance",
+        "run-and-tumble resetting two-point stationary displacement correlations distinguish velocity flipping protocols despite same invariant position law"
+      ]
+    },
+    "rationale": "Best-knowledge statement-level comparison: Evans–Majumdar already prove the protocol-independent stationary law in the athermal model; Pal et al. introduce the thermal extension but focus on absorption and first-passage optimization; Bressloff provides general calculus but a different full-state reset rule. The present claim is explicitly limited to the strictly ordered all-positive-lag stationarity covariance, its single-lag injectivity, its exact Green–Kubo integral, and the resonant relaxation threshold. Six actual semantic scholarly searches and published-literature comparisons did not reveal an encompassing published theorem. Non-detection is not proof of priority; implicit generator-theory coverage is a residual risk.",
+    "residual_risks": [
+      "A general earlier matrix-generator or Markov-reset spectral theorem may imply the all-lag formula without naming this particular model.",
+      "The searched literature is a finite collection; no database search proves publication priority.",
+      "No independent external expert novelty adjudication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the stationary protocol-insensitivity premise, but NOT the positive-lag covariance theorem or sharp decay crossover",
+        "evidence": [
+          "Sections 3 and 6, stationary state independent of η; section 6 focused on survival and first passage; conclusion restates static invariance and survival difference."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.06450v2",
+        "material_read": "Full freely accessible HTML structure; model, stationary distribution, general resetting, survival results and conclusion; comparisons around stationary η-independence",
+        "method": "Read primary arXiv HTML sections 2-7 and searched text for autocorrelation and correlation",
+        "title": "Run and tumble particle under resetting: a renewal approach",
+        "trigger": "Same exact positional reset plus η-probabilistic direction reversal, athermal baseline"
+      },
+      {
+        "assessment": "COVERS the model and absorption first-passage statistics, not an unrestricted stationary two-time covariance or η-ordering",
+        "evidence": [
+          "Section II specifies D, velocity v, flip rate and reset flip probability; sections III-IV compute FPT moment generating functions and optimal search rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.03762v1",
+        "material_read": "Primary HTML abstract, model section II, first-passage transform section III, results IV, conclusion and available appendix sections",
+        "method": "Read accessible arXiv original HTML and inspect for two-time stationary correlation",
+        "title": "Is active motion beneficial for target search with resetting in a thermal environment?",
+        "trigger": "Same exact thermal RTP with position resets and optional orientation reversal; motivating source"
+      },
+      {
+        "assessment": "General stochastic calculus but distinct complete-state resetting and no inspected formula for the present stationary two-time covariance",
+        "evidence": [
+          "Introduces pathwise RTP jump calculus, diffusion and reset mechanisms; reset discussed as predetermined complete state; no autocorrelation statement found by search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.15544",
+        "material_read": "Accessible full arXiv parsed text, introduction and resetting calculus, plus targeted text searches",
+        "method": "Read relevant theoretical and reset sections; searched for autocorrelation",
+        "title": "Stochastic calculus of run-and-tumble motion: an applied perspective",
+        "trigger": "Potential dominating generator treatment covering active switching and resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f3cc5401-e836-4636-8466-3a6c9971c602",
+  "value": {
+    "rationale": "Already-known η-independence of the stationary state poses a natural experimentally relevant identifiability gap. The all-lag theorem shows strict protocol differentiation invisible to all one-time observations, a single-lag identifiability theorem (when other parameters are known), and a complete nontrivial orientation-memory to reset-memory relaxation crossover at eta_c=1/2-alpha/r with a resonant t exp(-rt) boundary, plus a Green–Kubo integral. These distinguish dynamic behavior of physically identical stationary ensembles, rather than computing an arbitrary finite parameter slice. No independent audit or broad universality claim is made.",
+    "status": "PASS"
+  }
+}
