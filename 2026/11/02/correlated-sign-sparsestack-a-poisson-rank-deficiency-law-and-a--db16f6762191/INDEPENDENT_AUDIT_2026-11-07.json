@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:42:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each column, scaling away the common sign gives the signed incidence vector e_u+sigma e_v of a bipartite multigraph. On a connected component with e edges and v vertices, left-kernel propagation has dimension one exactly for balanced cycle sign products, yielding contribution e-v+1_balanced to column nullity; trees contribute zero and each balanced unicyclic component contributes one. For fixed c<1, edge-labeled 2l-cycle factorial moments converge to independent Poisson variables with rates c^(2l)/(2l), including parallel-pair 2-cycles. Expected bicyclic kernels are O_c(1/r) and long-cycle tails are summable for c<1. Independent sign products thin each length with probability (1+rho^(2l))/2, giving Pois[-(log(1-c²)+log(1-rho² c²))/4]. Appending columns is nullity-monotone, and comparison to every fixed c0<1 proves divergence at c>=1 as c0 approaches one. This proves rank only for fixed coordinate subspaces, not conditioning or embeddings; finite graph-vs-matrix checks did not substitute for Poisson limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jeendgar et al. analyze FP16 GPU embedding distortion and solve performance; Heidary gives more general embedding guarantees, which do not determine this coordinate-specific nullity probability."
+        ],
+        "reasoning": "An OSE guarantee is not an exact distribution of rank failure at a scaling where subspace embeddings may fail. Existing generic sparse-rank results may still implicitly entail the restricted graph calculation.",
+        "searches": [
+          "Jeendgar Flint Anzt SparseStack low-precision arXiv:2606.20195",
+          "Heidary SparseStack optimal oblivious subspace embedding arXiv:2609.02978"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 22653b292e9531ef46643cee03486bf4c6e58aff and verify_sparse_stack.py 6c63e15ee9b5349d3ab414ac0e29811f6c460d5d",
+        "arXiv:2606.20195 (Jeendgar–Flint–Anzt)",
+        "arXiv:2609.02978 (Heidary)",
+        "Resultary semantic signed bipartite Poisson nullity search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary SparseStack construction defines a two-block sign-hash model, while its embedding quality is a different observable; signed incidence/cycle counting supplies proof ingredients."
+        ],
+        "reasoning": "Prior construction plus known general theorems may permit an easy specialization but does not by itself state the rho-resolved distribution. The special rho=0 component is particularly vulnerable to classical signed random graph literature.",
+        "searches": [
+          "arXiv:2606.20195 Jeendgar Flint Anzt",
+          "arXiv:2609.02978 Heidary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Signed incidence nullity equals cycle-excess corrected by balanced components; sparse bipartite graph cycle intensities c^(2l)/(2l) are classical."
+        ],
+        "reasoning": "A signed graph incidence specialization could give the entire formula; no searched record was found explicitly coupling 2-block hashing, sign bias rho and all c<1. This is conditional priority evidence, not proof of first discovery.",
+        "searches": [
+          "Resultary: two block sparse signed bipartite incidence matrix Poisson rank nullity balanced cycles correlated signs subcritical",
+          "Web: signed incidence matrix balanced cycles Poisson rank nullity sparse bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned distinct signed-graph and rank examples, but no matching two-block correlation-by-density table."
+        ],
+        "reasoning": "There is no natural exhaustive finite table that settles an n→infinity Poisson law; searched finite-rank tables are not stronger coverage.",
+        "searches": [
+          "Resultary signed bipartite matrix nullity sign correlation Poisson search",
+          "SparseStack rank-deficiency exact table sign reused vs independent"
+        ]
+      },
+      "rationale": "PASS, qualified: neither the primary SparseStack performance analysis nor its general oblivious embedding bounds specifies the rank-nullity law for a two-block coordinate restriction with correlated relative signs. Classical signed-graph rank and sparse-cycle Poisson limits are antecedents, so the potential advance is their explicit correlation-resolved synthesis and exact half-density boundary. A same-model preprint could not be read fully and older random signed-incidence literature could subsume the formula.",
+      "residual_risks": [
+        "Full Jeendgar et al. source could not be inspected; arXiv/open routes unavailable and institutional retrieval vpn_disconnected (job 650a4450ccfe4318fcadf63cee7e2ea8).",
+        "An older random signed incidence/sparse multigraph rank theorem might imply the rho=0 or full rho formula.",
+        "The Poisson law is asymptotic for fixed c,rho and says nothing about spectral distortion or dense subspaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_NOT_FULLY_READ_PRIORITY_RISK",
+          "evidence": [
+            "Describes multi-block SparseStack embedding quality and FP16 rounding; no full-text noncoverage assertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.20195",
+          "material_read": "Primary arXiv abstract, indexed scientific description and bibliographic scope; original full paper inaccessible",
+          "method": "arXiv preprint and lawful OA investigated; authorized institutional access returned vpn_disconnected",
+          "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+          "trigger": "Exact SparseStack construction underlying the claimed rank model"
+        },
+        {
+          "assessment": "PARTIAL_READING",
+          "evidence": [
+            "Studies oblivious subspace embeddings, distinct in strength/observable from coordinate-specific exact nullity distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.02978",
+          "material_read": "Abstract/scope and source bibliographic information, not full text",
+          "method": "Web search and source bibliography",
+          "title": "SparseStack Is an Optimal Oblivious Subspace Embedding",
+          "trigger": "Potential general theorem dominating the proposed rank result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural coordinate-subspace failure mode of an actually studied sparse randomized linear-algebra sketch has a sharp full-rank probability, including a parameter-interpolating sign correlation and a threshold at half the total row count. These are design-relevant structural quantities not implied by norm-distortion estimates or a finite matrix experiment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Jeendgar et al. source could not be inspected; arXiv/open routes unavailable and institutional retrieval vpn_disconnected (job 650a4450ccfe4318fcadf63cee7e2ea8).",
+    "An older random signed incidence/sparse multigraph rank theorem might imply the rho=0 or full rho formula.",
+    "The Poisson law is asymptotic for fixed c,rho and says nothing about spectral distortion or dense subspaces."
+  ],
+  "schema_version": 1
+}
