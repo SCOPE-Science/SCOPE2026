@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:51:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned snapshot RESULT.md; 2bd71127bae7d113a653c4f138684bbb260dd554",
+        "Assigned snapshot verification script; 8a224c299e8e43a6c7704de54d38c337f0c1acaf",
+        "Independent local direct mathematical checks independent_checks.py"
+      ],
+      "rationale": "The RESULT.md reconstructs an infinite-shift gcd for every k>=1 by a reversible integral order-four recurrence for F_n^3 with characteristic polynomial (t^2-4t-1)(t^2+t-1). Thus a fixed-window gcd reduces to its first window and four boundary differences. The four exact differences simplify to gcd(x^3,y^3-1,3x*gcd(x+y,2)), x=F_k,y=F_{k+1}. Cassini and doubling identities determine H(k), local valuations at p=2,3 isolate the 8|k extra 3, and an explicit telescoper P(Y,X+Y)-P(X,Y)=2X^3 proves that halving occurs exactly when 6|k. Therefore G3(k)=3^[8|k] H(k)/2^[6|k], H=2 for k odd divisible3, 1 for other odd k, L_(k/2) for k=2 mod4, F_(k/2) for k=0 mod4. Independent from-scratch integer calculations confirmed the formula for k<=120 with 20 shifted windows per k, including k=6:2,k=8:9,k=24:216. The finite test alone is not the all-k proof.",
+      "residual_risks": [
+        "Finite independent checks corroborate but do not prove universal analytic quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guyer & Mbirika (2021) concerns GCDs of ordinary Fibonacci, Lucas, generalized FIRST powers.",
+          "Adegoke (2017) gives cubic Fibonacci/Lucas sum evaluations, not an all-n gcd classification.",
+          "Mbirika–Spilker (2022) expressly asks about cubes."
+        ],
+        "reasoning": "The earlier larger classes refer to recurrence initial conditions or window length but at lower exponent; these statements do not dominate third-power 2-/3-adic valuations. No stronger known cubic shifted-gcd theorem was identified.",
+        "searches": [
+          "arxiv:2104.12262",
+          "arxiv:1706.08469",
+          "greatest common divisor sums consecutive Fibonacci cubes sliding windows every length exact formula Lucas powers 3"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2204.12626 Question 6.1 and primary PDF",
+        "arxiv:2104.12262 first-power GCD",
+        "arxiv:1706.08469 cubic Fibonacci sums",
+        "Resultary semantic Q2: greatest common divisor sums consecutive Fibonacci cubes sliding windows every length exact formula Lucas powers 3",
+        "Fresh web: \"GCD of sums of k consecutive cubes\" Fibonacci Lucas Mbirika Spilker 2025 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct question/conjecture in 2204.12626 is not a proved result; the printed parity factor fails at k=6.",
+          "Published square-window divisibility does not imply exact cubic-window gcds, and cubic addition formulas do not control every shifted gcd without valuations and recurrence reduction."
+        ],
+        "reasoning": "The theorem genuinely settles a prior specific higher-power question across odd and even k. The required local analysis goes beyond applying the known first/square-power results.",
+        "searches": [
+          "arxiv:2204.12626 §6.1",
+          "arxiv:2104.12262",
+          "arxiv:1706.08469"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arxiv 2204.12626 §6.1 presents a cubic-window question/conjecture, rather than an established theorem; the proposed even-length factor differs from k=6 direct gcd 2.",
+          "The source proves general first- and second-power cases, not every third-power window."
+        ],
+        "reasoning": "The shift index n=0 versus n=1 is equivalent via the unit-constant fourth-order recurrence. Cubic sum identities alone do not yield a uniform gcd of an infinite shifted family.",
+        "searches": [
+          "greatest common divisor sums consecutive Fibonacci cubes sliding windows every length exact formula Lucas powers 3",
+          "\"GCD of sums of k consecutive cubes\" Fibonacci",
+          "arxiv:2204.12626 Question 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct k=6,8,24 examples were recomputed as 2,9,216; numeric coincidences by themselves do not prove an all-length theorem.",
+          "Resultary related Fibonacci cubic reciprocal tails are not window gcd tables."
+        ],
+        "reasoning": "No exact identified published table with an all-k proof; a finite OEIS list cannot by itself imply the universal formula. Absence is a bounded-search observation only.",
+        "searches": [
+          "OEIS Fibonacci window gcd cubes sequence",
+          "greatest common divisor sums consecutive Fibonacci cubes sliding windows every length exact formula Lucas powers 3",
+          "arxiv:2204.12626"
+        ]
+      },
+      "rationale": "Mbirika–Spilker arxiv:2204.12626, §6.1, explicitly POSES cubic shifted-window gcd extension and prints conjectural even-length expressions, which give incorrect k=6; it is not an existing proved solution. Guyer–Mbirika arxiv:2104.12262 treats first powers; Adegoke arxiv:1706.08469 treats cubic sums, not simultaneous all-shift gcds. The new proof supplies all lengths and corrected 2-/3-adic factors. Same-assignment record 3 repeats its even Fibonacci branch but adds Lucas, and is not an earlier published source. Residual unindexed resolutions remain possible.",
+      "residual_risks": [
+        "An unindexed later answer to Mbirika–Spilker Question 6.1 could cover the exact formula.",
+        "The Lucas/Fibonacci even-window companion in current same assignment overlaps this theorem on its Fibonacci branch, but does not provide an external earlier priority claim.",
+        "Not generalized initial conditions, Lucas cube windows or higher powers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CUBIC_QUESTION_NOT_COVERING; conjectural formula wrong at k=6",
+          "evidence": "§6.1 Question 6.1 and surrounding text; proposed cubic expression is a conjecture, not established theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "Full 15-page primary arXiv PDF text including principal square-power results and Question 6.1; visually inspected original PDF page 14 (zero-based 13) containing cubic conjectures.",
+          "method": "lawful arXiv full PDF, text inspection and page screenshot",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Exactly same type of shifted-window GCD and explicit cubic extension"
+        },
+        {
+          "assessment": "FIRST_POWER_ONLY",
+          "evidence": "2021 first-power gcd theorem, no cubic classification in compared main results.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.12262",
+          "material_read": "Available primary theorem statements and formulas on first-power window gcds; compared actual exponents and scopes.",
+          "method": "arXiv lawful OA text",
+          "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+          "trigger": "Broader shifted-window theorem with similar title"
+        },
+        {
+          "assessment": "SUM_NOT_GCD",
+          "evidence": "Adegoke 2017 evaluates sums, not gcd across all shifts of fixed length.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.08469",
+          "material_read": "Abstract and main announced cubic-sum scope; not a full all-shift gcd theorem.",
+          "method": "lawful OA primary source preview; not claimed entire document read",
+          "title": "Factored closed-form expressions for the sums of cubes of Fibonacci and Lucas numbers",
+          "trigger": "Cubic powers with comparable sequence arithmetic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual assigned mathematical RESULT.md",
+        "Cited specialist literature compared in originality"
+      ],
+      "rationale": "The invariant G3(k) for infinite shifts of a fixed-length sum of cubic Fibonacci numbers is precisely the natural higher-power window-gcd problem posed in the closest specialist article. This result resolves every positive length, including odd widths missing from the earlier cubic conjecture, and exposes sharp arithmetic factors 3 at 8|k and 1/2 at 6|k. The recurrence reduction and polynomial telescoper are instructive structural techniques. The result is not just a finite table or routine substitution into square-window formulas.",
+      "residual_risks": [
+        "Mathematical significance is specific to the precisely stated object/parameter family; broader implications are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Literature queries and text inspections are not exhaustive publication-priority certification.",
+    "Source VERIFICATION.md records Lean and expert attestation as not_performed; no new formal/expert status claimed."
+  ],
+  "schema_version": 1
+}
