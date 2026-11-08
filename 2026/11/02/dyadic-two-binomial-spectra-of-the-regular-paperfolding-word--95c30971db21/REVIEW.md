@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every factor is shown to be a rotation of one of four explicitly realizable cyclic templates. The template weights split into three layers; a coprimality argument establishes all distinct outer values. Reverse-complement symmetry equates the relevant profile sets. The balanced layer follows from an explicitly proved signed-prefix recursion and a weighted-moment induction. The independent finite implementations in `checker.py` match at nine dyadic lengths. The full claim rests on the proof, not finite checks.
+## correctness
 
-**Originality — PASS, qualified.** Allouche's known \(4n\) factor count and Madill--Rampersad's abelian complexity do not imply the scattered-pair classification. Rigo--Salimov's foundational binomial-complexity results concern Sturmian and Thue--Morse words, not paperfolding. Relevant literature and semantic research records were searched for synonyms and stronger implications; no covering claim was identified. A missing equivalent source remains a residual historical-priority risk.
+PASS
 
-**Value — PASS.** The theorem gives a complete infinite-family binomial-profile count for a classical automatic word, separating linear-size injective off-balance layers from a logarithmic-size central collapse. The central values themselves form a closed arithmetic progression, giving more structure than an aggregate count. This extends the natural Abelian-complexity problem rather than choosing an arbitrary finite slice.
+PASS: RESULT.md constructs four realizable cyclic templates for all n=2^k factors, computes their weights, proves outer-layer injectivity via T_{s+1}=T_s+nV_s-r and gcd(n,r)=1, and equates paired q-sets by reverse-complement symmetry. For balanced templates it proves a complete signed-prefix range [-1,k-1] using even/odd interleaving and evaluates the base moment by induction. The formula q=T-r(r+1)/2 correctly converts the moment to scattered 01 count; binomial equivalence on binary length-n words is characterized by (r,q). A genuinely separate literal-prefix and template implementation matched the exact spectra for k=2..8, yielding totals 11,20,37,70,135,264,521. The unrestricted claim follows from the template/induction argument, not those finite checks.
 
-**Scientific limitations.** Only dyadic lengths and scattered patterns of length at most two are covered. It is not a claim of an arbitrary-length complexity formula or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Prior ordinary and Abelian factor complexity and scattered-binomial equivalence theorems do not entail the dyadic (number of ones, scattered 01) spectrum; the directly inspected primary sources treat either coarser invariants or distinct words. No stronger coverage identified in actual searches; missing synonyms remain possible.
+
+## value
+
+PASS
+
+PASS: Binary paperfolding is a classical Toeplitz/automatic sequence with established ordinary and Abelian complexity. Resolving the next ordered-scattered-pair invariant at a complete unbounded family of natural dyadic lengths is a motivated refinement, and the collapse of the balanced layer to k+1 arithmetically spaced values versus n outer values is structural, not merely an isolated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
