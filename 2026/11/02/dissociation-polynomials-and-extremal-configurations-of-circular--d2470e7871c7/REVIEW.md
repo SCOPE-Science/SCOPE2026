@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local three-rung condition is equivalent to induced degree at most one. The sixteen-state transfer bijection counts every labeled cyclic configuration once. The exact determinant identity is certified via integer Newton power sums and polynomial uniqueness at 33 evaluation points; the coefficient degree ceiling is at most 32. Formal log differentiation proves the generating formula and recurrence for all relevant orders. The extremal argument uses an injection from double to empty rungs and exhausts its equality cases. Exhaustive checks directly from graph adjacency for \(3\le n\le10\) agree at every coefficient; these are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to priority uncertainty
-Tu–Xiao–Lang (2023, DOI: 10.3934/math.2023507) provide cubic-graph dissociation bounds, not the inspected specialized prism polynomial. OEIS A007040 already gives the singleton cyclic-pattern count and a separate maximal-independent-set prism interpretation; neither is claimed new. Other graph-family polynomials do not imply the present all-cardinality answer. Targeted comparisons in available mathematical records and indexed literature found no equivalent full statement. Residual risk: an unindexed earlier prism transfer-enumeration theorem may exist, and algorithmic three-path-cover papers were not all available in full text.
+PASS
 
-## Mathematical value — PASS
-The full size distribution of dissociation sets on a natural infinite cubic graph family is a motivated invariant in the 2023 cubic-counting literature. The explicit rational transfer reduction, six-step recurrence, sharp maximum, and classification of all optimum configurations give structural and computational information absent from general bounds. The two even-order exceptional maxima distinguish dissociation from the prior maximal-independent-set enumeration.
+Encoding each circular-ladder rung by a 2-bit mask yields a 16-state pair transfer T with triple-mask admissibility iff induced selected degree<=1, so D_n(z)=tr T(z)^n for n>=3. Independently rebuilt T and computed all 16 Newton characteristic coefficients at 33 integer z values 0..32, verifying det(I-uT)=Q(u,z) exactly: each coefficient has z degree <=32, hence equality at 33 points is an algebraically exhaustive polynomial identity. Log determinant gives full all-n rational generating formula and recurrence. A double-selected rung forces two adjacent empties, proving |S|<=n. At equality either every rung is singleton with cyclic binary layers avoiding constant triples (OEIS A007040) or even n alternates empty/double rung (two extra configurations). Hence max count L_n+3*1_{3|n}-1+2*1_{2|n}. Independent brute-force all subsets n=3..8 matched all coefficients and maxima.
 
-## Scope and limitations
-No claim is made about unlabeled symmetry or arbitrary cubic graphs. The Lucas cyclic-word subcount is known prior art. The polynomial identity has an exact finite-dimensional certificate and a general mathematical proof, but independent mathematical audit has not been performed. Publication priority remains open to unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+OEIS A007040 explicitly supplies the cyclic singleton-word counts and maximal-independent-set prism interpretation (prior, not novel). This claim adds full dissociation polynomial for all prism sizes plus double/empty configurations and six-step rational characteristic identity. Published fan/windmill polynomial formulas concern different graph families. No identical full prism dissociation polynomial located, although a hidden earlier transfer enumeration remains a risk.
+
+## value
+
+PASS
+
+Circular ladders are canonical 3-regular graph families. An exact polynomial classifies ALL dissociation-set sizes, not only a coefficient or extremal number, and a structural theorem identifies every maximum configuration and separates the two even-order patterns invisible to the known OEIS count. The all-n invariant is independently useful in extremal cubic-graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

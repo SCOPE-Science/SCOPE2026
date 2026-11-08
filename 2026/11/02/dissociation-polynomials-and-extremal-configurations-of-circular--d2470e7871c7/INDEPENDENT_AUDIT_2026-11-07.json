@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:52:32.856488Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "OEIS A007040, Number of marked cyclic binary strings with no run longer than two; comments relating to maximal independent sets of prism graphs",
+        "Tu–Xiao–Lang (2023), Counting the number of dissociation sets in cubic graphs, AIMS Mathematics 8, DOI:10.3934/math.2023507",
+        "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+        "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "Pinned Git RESULT.md blob 61cf0ea014012af13f94f30997d78a237fe58f0d"
+      ],
+      "rationale": "Encoding each circular-ladder rung by a 2-bit mask yields a 16-state pair transfer T with triple-mask admissibility iff induced selected degree<=1, so D_n(z)=tr T(z)^n for n>=3. Independently rebuilt T and computed all 16 Newton characteristic coefficients at 33 integer z values 0..32, verifying det(I-uT)=Q(u,z) exactly: each coefficient has z degree <=32, hence equality at 33 points is an algebraically exhaustive polynomial identity. Log determinant gives full all-n rational generating formula and recurrence. A double-selected rung forces two adjacent empties, proving |S|<=n. At equality either every rung is singleton with cyclic binary layers avoiding constant triples (OEIS A007040) or even n alternates empty/double rung (two extra configurations). Hence max count L_n+3*1_{3|n}-1+2*1_{2|n}. Independent brute-force all subsets n=3..8 matched all coefficients and maxima.",
+      "residual_risks": [
+        "Formal transfer formula assumes n>=3; n=3 horizontal neighbors distinct.",
+        "Exact finite algebraic characteristic certificate supports infinite recurrence; bounded subset tests alone would not."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tu–Xiao–Lang (2023), Counting the number of dissociation sets in cubic graphs, AIMS Mathematics 8, DOI:10.3934/math.2023507",
+          "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+          "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc"
+        ],
+        "reasoning": "General cubic graph dissociation bounds and fan/windmill exact generating functions do not specialize to every labelled prism coefficient without additional transfer-state analysis.",
+        "searches": [
+          "prism circular ladder dissociation polynomial Lucas number maximal sets"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A007040, Number of marked cyclic binary strings with no run longer than two; comments relating to maximal independent sets of prism graphs",
+        "Tu–Xiao–Lang (2023), Counting the number of dissociation sets in cubic graphs, AIMS Mathematics 8, DOI:10.3934/math.2023507",
+        "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+        "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "Pinned Git RESULT.md blob 61cf0ea014012af13f94f30997d78a237fe58f0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OEIS A007040, Number of marked cyclic binary strings with no run longer than two; comments relating to maximal independent sets of prism graphs",
+          "Tu–Xiao–Lang (2023), Counting the number of dissociation sets in cubic graphs, AIMS Mathematics 8, DOI:10.3934/math.2023507"
+        ],
+        "reasoning": "OEIS plus trivial two even-order configurations gives the maximum coefficient, so that subclaim alone is not novel. The 16-state determinant identity and complete D_n polynomial are a stronger independent conclusion not implied by that one sequence.",
+        "searches": [
+          "prism circular ladder dissociation polynomial Lucas number maximal sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A007040, Number of marked cyclic binary strings with no run longer than two; comments relating to maximal independent sets of prism graphs"
+        ],
+        "reasoning": "The singleton-rung optimum sets biject cyclic binary words with no length-3 constant run and are entirely covered by OEIS. But dissociation allows rung pairs and the full polynomial contains non-independent subsets; the extra even-n optima and full D_n are not equivalent to A007040.",
+        "searches": [
+          "prism circular ladder dissociation polynomial Lucas number maximal sets",
+          "OEIS A007040 prism maximal independent sets cyclic words run three"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A007040, Number of marked cyclic binary strings with no run longer than two; comments relating to maximal independent sets of prism graphs"
+        ],
+        "reasoning": "The OEIS table exactly covers the cyclic binary-word component of max-count and is credited. It does not tabulate every dissociation coefficient D_n(z), nor the two even-n double/empty maxima.",
+        "searches": [
+          "prism circular ladder dissociation polynomial Lucas number maximal sets",
+          "dissociation sets circular ladder prism D_n(z) full polynomial"
+        ]
+      },
+      "rationale": "OEIS A007040 explicitly supplies the cyclic singleton-word counts and maximal-independent-set prism interpretation (prior, not novel). This claim adds full dissociation polynomial for all prism sizes plus double/empty configurations and six-step rational characteristic identity. Published fan/windmill polynomial formulas concern different graph families. No identical full prism dissociation polynomial located, although a hidden earlier transfer enumeration remains a risk.",
+      "residual_risks": [
+        "Known cyclic words and prism maximal independent set formulas must not be advertised as new.",
+        "Prior unlabeled or graph-polynomial publications not exhaustively screened."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS singleton cyclic-word count; does not cover complete dissociation polynomial.",
+          "evidence": "Entry states n>=3 counts maximal independent vertex sets on n-prism and Lucas_n + 2*cos(2*pi*n/3), not the full prism dissociation polynomial.",
+          "identifier_or_url": "https://oeis.org/A007040",
+          "material_read": "Entire OEIS entry including definitions, all comments, formulas, references, 2017 prism maximal-independent interpretation",
+          "method": "Full primary database entry reading",
+          "title": "OEIS A007040",
+          "trigger": "Exact coincidence with claimed cyclic binary maximum count"
+        },
+        {
+          "assessment": "General inequalities only in accessible material; no whole-text exclusion.",
+          "evidence": "This family is cubic, but the published abstract does not present the claimed 16-state exact rational Q.",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.2023507",
+          "material_read": "Journal abstract/metadata, full original article not inspected",
+          "method": "Journal primary index inspection",
+          "title": "Counting the number of dissociation sets in cubic graphs",
+          "trigger": "Broader cubic family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A007040, Number of marked cyclic binary strings with no run longer than two; comments relating to maximal independent sets of prism graphs",
+        "Tu–Xiao–Lang (2023), Counting the number of dissociation sets in cubic graphs, AIMS Mathematics 8, DOI:10.3934/math.2023507",
+        "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+        "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "Pinned Git RESULT.md blob 61cf0ea014012af13f94f30997d78a237fe58f0d"
+      ],
+      "rationale": "Circular ladders are canonical 3-regular graph families. An exact polynomial classifies ALL dissociation-set sizes, not only a coefficient or extremal number, and a structural theorem identifies every maximum configuration and separates the two even-order patterns invisible to the known OEIS count. The all-n invariant is independently useful in extremal cubic-graph enumeration.",
+      "residual_risks": [
+        "Transfer methods are standard; novelty/value is the completed specialized exact invariant, not method alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "OEIS A007040, Number of marked cyclic binary strings with no run longer than two; comments relating to maximal independent sets of prism graphs",
+    "Pinned Git RESULT.md blob 61cf0ea014012af13f94f30997d78a237fe58f0d",
+    "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+    "Resultary/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+    "Tu–Xiao–Lang (2023), Counting the number of dissociation sets in cubic graphs, AIMS Mathematics 8, DOI:10.3934/math.2023507"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 labelled prisms only; no quotient by rotations/reflections.",
+    "OEIS sequence component is definitively prior art; historical originality confined to exact all-set distribution and structural extension."
+  ],
+  "residual_risks": [
+    "Formal transfer formula assumes n>=3; n=3 horizontal neighbors distinct.",
+    "Exact finite algebraic characteristic certificate supports infinite recurrence; bounded subset tests alone would not.",
+    "Known cyclic words and prism maximal independent set formulas must not be advertised as new.",
+    "Prior unlabeled or graph-polynomial publications not exhaustively screened.",
+    "Transfer methods are standard; novelty/value is the completed specialized exact invariant, not method alone."
+  ],
+  "schema_version": 1
+}
