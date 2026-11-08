@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using a standard Python 3 interpreter; no nonstandard libraries or external data files are needed. The checker computes exact integer degree/mixing counts from the cyclic gap constraints for all cycle orders from 3 to 180. Independently, for all cycle orders from 3 to 27 it enumerates triples on the original cycle, runs breadth-first shortest-path tests with the third selected vertex forbidden, constructs actual legal token-slide edges, and compares vertex and endpoint-degree edge counts with the formulas. It also confirms all degree-sum handshakes and small-cycle boundary cases. The executed checker returned:
+## correctness
 
-```
-EXACT_GAP_COMPOSITION_AND_HANDSHAKE_OK n=3..180
-INDEPENDENT_ORIGINAL_GRAPH_BFS_AND_SLIDES_OK n=3..27
-PARITY_AND_SMALL_BOUNDARIES_OK
-VERIFY_OK
-```
+PASS
 
-The infinite formulas follow from the symbolic proofs in `RESULT.md`, not the finite test range. The procedure provides reproducible computation, not independent mathematical certification. No independent audit has been performed.
+The visibility criterion for three occupied cycle vertices is the exhaustive positive cyclic gap constraints a,b,c<=floor(n/2), with sum n; each clockwise slide transfers one gap unit subject to min1/maxh. Counting oriented ordered compositions and dividing by three gives all degree counts. Boundary gap classifications and edge-type handshakes give each exact even/odd joint-degree matrix. At n=3..6 all exceptional cases were separately checked. Independent original-cycle geodesic BFS and slide graph construction for n=3..24 match the complete vertex/edge-type tables; the all-n formulas follow from the gap and handshake proof rather than test extrapolation.
+
+## originality
+
+PASS
+
+Primary same-model 2026 mutual-visibility cycle manuscript provides the gap criterion and layer connectedness; prior visibility polynomial counts configurations by size, and related local distance/isometry result gives graph metric. None of the inspected or accessible statements supplies these complete endpoint-degree transition matrices. Best-knowledge PASS with limited full-text access.
+
+## value
+
+PASS
+
+Three-token mutual visibility is the maximum nontrivial layer for cycles. The complete endpoint-degree adjacency matrix characterizes a natural reconfiguration Markov chain far beyond connectivity or pairwise distance, including parity-sensitive transitions and stationary bottleneck mass; a researcher may need these exact edge counts, without implying spectral mixing times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
