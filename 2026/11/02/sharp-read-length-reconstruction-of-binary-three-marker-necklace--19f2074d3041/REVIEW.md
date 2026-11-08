@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies complete cyclic factors with multiplicities and the promise of exactly three ones. The proof supplies a local-factor enumeration separating zero-, one-, two-, and three-marker windows. For a pairwise-distinct gap triple, the reversal-discrepancy threshold is forced by the two smallest gap lengths. A triple-marker read fixes all gaps; absent such reads, the uniform two-thirds budget forces a repeated-gap profile determined by two-marker factor counts. Explicit residue-class witnesses establish the matching lower bound. All boundaries at lengths three through eight, periodic words, and zero gaps are treated. A standalone verifier successfully checked complete small finite instances and separate general-formula witnesses. The finite run is corroboration, not a substitute for the all-length proof.
+PASS
 
-## Originality — PASS, subject to literature risk
+Reconstructed the exhaustive oriented-factor proof: zero-marker counts depend on unordered gaps, one-marker adjacent thresholds cannot separate reversal before x+y+3, two-marker factors need at least the two shortest gaps plus three symbols, and the first three-marker factor fixes oriented cyclic gaps. At K=floor(2n/3), no such factor forces the four enumerated repeated-gap profiles; the 10^d1 marginals then reconstruct the unique necklace. Explicit distinct-gap reversal pairs in each residue class prove sharpness; n=3,4,5, adjacent gaps and periodic cases handled. Independent complete rotation-class enumeration n=3..15 reproduced R(n), while universal theorem rests on the symbolic proof.
 
-The closest inspected primary source (Ota–Manada, DOI 10.1587/transfun.2023TAP0015) establishes a general weighted-automaton condition and algorithm for reconstructing binary circular words, but does not state or algebraically derive the exact uniform three-marker read threshold, the chirality threshold, or the residue-class sharpness witnesses. Their primitive-input assumption also excludes the three equally spaced markers when periodic. Marcovich–Yaakobi (arXiv:1912.11108) concerns linear multispectra and error-aware coding, not this exact cyclic sparse-content classification. Relevant published-finding corpus records concern different read channels (linear two-window spectra, deletion reconstruction, and multi-strand reading); none found has the same objects and implications. General reconstruction algorithms remain an important background subsumption risk, as a specialization may have been derived elsewhere without matching terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For sparse circular markers the read-length budget controls whether complete factor frequencies determine the actual ordering. The theorem gives an explicit sharp uniform formula in this natural three-marker model, a constructive decoder, and an exact *per-instance* obstruction caused by orientation reversal. The density-sensitive two-thirds threshold directly quantifies the read length needed for guaranteed sparse circular assembly; the structural gap argument is independent of a finite census. This is a motivated inverse problem rather than an arbitrary parameter slice.
+A general binary circular-string automaton decides each primitive instance, but no inspected source states the weight-three exact all-n 2n/3 threshold and exact n-max-gap orientation obstruction. This is a qualified closed-form structural specialization, not a claim to invent cyclic assembly.
 
-## Limits and closest literature
+## value
 
-The claims do not extend to noisy or missing reads, higher weight, or unordered composition. Ota–Manada's general reconstruction algorithm potentially contains algorithmic specializations, so the literature comparison cannot rule out an unlocated explicit formulation. Kingsford–Schatz–Pop (2010) was inspected in full-text HTML through its discussion of Eulerian de Bruijn assembly, repeat ambiguities, graph simplifications and reconstruction counts. It addresses generic circular sequence reconstruction and does not state the specialized three-marker reconstruction formula. More broadly, an earlier equivalent specialization could remain unlocated. No independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full multiplicity oriented cyclic k-reads and exactly three sparse markers define a natural reconstruction inverse problem. The exact uniform minimal read budget, individual chirality obstruction, and explicit decoding mechanism could be directly used in sparse circular sequence assembly; not a numerical table or a renamed generic algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

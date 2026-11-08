@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification methods and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.9 or later. The script is self-contained, deterministic, and uses only `collections` and `itertools`. It reconstructs the literal cyclic factor multispectrum for each weight-three necklace (not merely an abbreviated count statistic).
+## correctness
 
-The executable checks all rotation classes through length 25, all read lengths through the claimed sharp threshold, all chiral classes through length 50 at the proposed individual boundary, three residue-class families of sharp witnesses for parameters 2 through 64, and the constructive two-branch read decoder through length 30. The computed proof-support output is:
+PASS
 
-```text
-VERIFY_OK exhaustive_necklaces=772 exact_all_length_thresholds_n=3..25 chiral_orientation_cases=5944 explicit_sharpness_pairs=189 decoder_cases=1356 spectrum_comparisons=22010
-```
+Reconstructed the exhaustive oriented-factor proof: zero-marker counts depend on unordered gaps, one-marker adjacent thresholds cannot separate reversal before x+y+3, two-marker factors need at least the two shortest gaps plus three symbols, and the first three-marker factor fixes oriented cyclic gaps. At K=floor(2n/3), no such factor forces the four enumerated repeated-gap profiles; the 10^d1 marginals then reconstruct the unique necklace. Explicit distinct-gap reversal pairs in each residue class prove sharpness; n=3,4,5, adjacent gaps and periodic cases handled. Independent complete rotation-class enumeration n=3..15 reproduced R(n), while universal theorem rests on the symbolic proof.
 
-These finite checks detect many possible off-by-one, boundary, and factor-multiplicity errors. They are not exhaustive over unbounded length. The all-length proof is the combinatorial factor-count analysis in `RESULT.md`; it does not depend on any extrapolation from the test output.
+## originality
+
+PASS
+
+A general binary circular-string automaton decides each primitive instance, but no inspected source states the weight-three exact all-n 2n/3 threshold and exact n-max-gap orientation obstruction. This is a qualified closed-form structural specialization, not a claim to invent cyclic assembly.
+
+## value
+
+PASS
+
+Full multiplicity oriented cyclic k-reads and exactly three sparse markers define a natural reconstruction inverse problem. The exact uniform minimal read budget, individual chirality obstruction, and explicit decoding mechanism could be directly used in sparse circular sequence assembly; not a numerical table or a renamed generic algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
