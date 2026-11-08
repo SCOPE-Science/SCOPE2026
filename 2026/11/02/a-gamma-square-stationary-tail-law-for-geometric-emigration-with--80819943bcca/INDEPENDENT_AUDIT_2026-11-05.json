@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:58:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The chain Y_next=sum_{j=1}^{(Y+1-K)_+}X_j, K geometric((1-p)p^k), X offspring geometric(2^{-k-1}), has exact conditional PGF and for invariant H(s) transformed h(u)=H(1-1/u). Monotonicity at infinity forces H(p)=1-a^-2 with a=p/(1-p), ruling out a<=1. For a>1, E Delta=1-a+O(p^y), E Delta^2=2y+O(1), E|Delta|^6=O(y^3), yielding negative Foster drift for V=(1+y)^eta, 1<eta<min(a,2), hence unique stationary law. The stationary deficit recurrence g(u+1)=u^-2+((u+1)(u-a)/u^2)g(u) has exact gamma multiplier R(u)=u Gamma(u-a)/Gamma(u). Grid iteration and beta integral yield g(u)~Gamma(a)^2 Gamma(2-a) u^{1-a} for 1<a<2; monotone Tauberian inversion gives P_pi(Y>n)~Gamma(a)^2 n^{1-a}. At a=2 logarithmic generating singularity and truncated-tail sum~log n; for a>2 mean=1/(a-2). Direct independent exact PGF calculations checked 24 separate rational instances. Gamma-ratio series and beta integral analytically checked; finite tests are not an infinite-tail proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carper analyzes post-offspring immigration J>0, Yanev–Yanev model reproduction before migration with general regular-variation conclusions, and Kosygina–Peterson Markovian cookie branching does not give the exact fixed process gamma-square constant."
+        ],
+        "reasoning": "Neither visible stronger theorem is shown to imply exactly this pre-emigration transition mechanism plus a=p/(1-p), full recurrence threshold and Gamma(a)^2 constant.",
+        "searches": [
+          "https://arxiv.org/abs/2609.06311",
+          "https://doi.org/10.1081/SAP-120030453",
+          "https://arxiv.org/abs/1504.06280"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob da31276b7c992520ff8ddd96623c2fec7e042e50",
+        "https://arxiv.org/abs/2609.06311",
+        "https://doi.org/10.1081/SAP-120030453",
+        "https://arxiv.org/abs/1504.06280"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Carper explicitly sets positive post-reproduction immigration and notes the zero-immigration case needs separate treatment; Yanev’s prior transfer law has a different order, with no implied exact coefficient Gamma(a)^2."
+        ],
+        "reasoning": "The proof needs a distinct stationary PGF affine recurrence and beta identity; inspected prior results cannot be applied without modifying hypotheses or proving a nontrivial reduction.",
+        "searches": [
+          "https://arxiv.org/abs/2609.06311",
+          "https://doi.org/10.1081/SAP-120030453"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing immigration/emigration order changes the transition kernel and source recurrence; the target offspring count is (y+1-K)_+ before reproduction with J=0 after."
+        ],
+        "reasoning": "Compared models at the one-step kernel and PGF level rather than matching words geometric emigration.",
+        "searches": [
+          "critical branching one potential immigrant before geometric emigration stationary heavy tail Gamma",
+          "https://arxiv.org/abs/2609.06311",
+          "critical branching process with migration negative immigration stationary tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing nearby stationary mean formulas involve a distinct post-offspring immigrant; none of the inspected exact tables provide both H(p)=1-a^-2 and Gamma-square constant for this kernel."
+        ],
+        "reasoning": "Exact Markov kernels differ, so a numerical match in a parameter regime would not establish coverage; no identical table detected.",
+        "searches": [
+          "stationary geometric branching emigration Gamma(a)^2 polynomial tail",
+          "geometric emigration p/(1-p) stationary mean (a-2)^-1"
+        ]
+      },
+      "rationale": "Carper September 2026 treats positive post-reproduction immigration; its full relevant model/limits do not imply this chain with no post-reproduction immigrant, a mechanism explicitly marked as requiring other analysis. Yanev–Yanev 2004 accessible full text studies a reproduction-then emigration–immigration transition order with other emigration laws, and does not state the same exact Gamma-square constant for this pre-reproduction emigration model. The general theory of branching with emigration/immigration is a significant residual priority risk.",
+      "residual_risks": [
+        "Older general Markov-process emigration/immigration literature might contain an implication under a distinct equivalent migration convention; historical priority qualified.",
+        "No pointwise a=2 tail equivalent or transient mixing theorem is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses additional post-reproduction immigrant with P(J>0)=1 in core results; the exact no-post-immigration stationary gamma-square tail is not derived",
+          "evidence": [
+            "Source states P(J=0)>0 requires separate analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.06311",
+          "material_read": "Accessible full-text sections 2, 3.2 and 4.2 including mechanism assumptions and zero post-immigration discussion",
+          "method": "Primary full-text model and theorem comparison",
+          "title": "A Branching Process with Geometric Emigration and the “Have Your Cookie and Eat It” Random Walk",
+          "trigger": "same critical geometric offspring and geometric emigration, potential domination"
+        },
+        {
+          "assessment": "Migration takes place after offspring reproduction and uses different emigration/immigration law; general asymptotic laws are prior but do not specify the exact target kernel and Gamma(a)^2 coefficient",
+          "evidence": [
+            "Original theorem conditions do not identify the exact target pre-reproduction PGF."
+          ],
+          "identifier_or_url": "https://doi.org/10.1081/SAP-120030453",
+          "material_read": "Accessible author-posted complete text: model and Theorem 2.1 plus governing transition conventions",
+          "method": "Primary full-text comparison",
+          "title": "A Critical Branching Process with Stationary-Limiting Distribution",
+          "trigger": "most plausible older stationary critical branching emigration literature"
+        },
+        {
+          "assessment": "Different model and no directly stated gamma-square stationary asymptotic for the geometric pre-emigration chain",
+          "evidence": [
+            "Branching-with-migration technique is prior mathematics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.06280",
+          "material_read": "Abstract and main structure around excited-walk branching construction",
+          "method": "Primary statement comparison",
+          "title": "Excited random walks with Markovian cookie stacks",
+          "trigger": "related branching-like Markov chain reductions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing the post-reproduction immigrant is a natural mechanistic boundary; the exact recurrence threshold a=1, heavy-tailed finite invariant phase 1<a<=2, and finite-mean transition a=2 provide a sharp phase diagram. The exact gamma-square constant is a meaningful unknown invariant for stationary critical branching processes, not simply a relabeled general Tauberian theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob da31276b7c992520ff8ddd96623c2fec7e042e50",
+    "https://arxiv.org/abs/2609.06311",
+    "https://doi.org/10.1081/SAP-120030453",
+    "https://arxiv.org/abs/1504.06280"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older general Markov-process emigration/immigration literature might contain an implication under a distinct equivalent migration convention; historical priority qualified.",
+    "No pointwise a=2 tail equivalent or transient mixing theorem is asserted."
+  ],
+  "residual_risks": [
+    "Older general Markov-process emigration/immigration literature might contain an implication under a distinct equivalent migration convention; historical priority qualified.",
+    "No pointwise a=2 tail equivalent or transient mixing theorem is asserted."
+  ],
+  "schema_version": 1
+}
