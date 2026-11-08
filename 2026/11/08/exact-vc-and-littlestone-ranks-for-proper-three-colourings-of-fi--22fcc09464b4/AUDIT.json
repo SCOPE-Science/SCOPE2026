@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Each shattered support has at most one literal per vertex. Consecutive triples force the alternating prescribed-colour pattern, and the four-consecutive support is impossible; cyclic window counting gives the exact upper bound, with the triangle treated separately. Alternating-colour selected runs in 1110 blocks provide every trace and can be joined across free vertices. An adaptive depth-(n-1) tree fixes the initial colour and queries two choices at each of the next n-2 vertices; the last is always completable. The cycle chromatic-polynomial count and colour permutation symmetry show that every root-positive branch has fewer than 2^(n-1) concepts, ruling out depth n. The standalone verifier independently checks finite cases and witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2109.04805 Theorem 3.10 gives equal VC and Littlestone dimensions for linear zero-set families; the present dimensions differ for n>=5, so that theorem cannot entail them under its hypotheses.",
+        "arXiv:2203.12211, Definitions 1.5 and 1.9, and Corollary 1.10, supply general dimension definitions and upper-bound methods without a cyclic proper-colouring specialization."
+      ],
+      "reasoning": "Neither stronger general dimension theorem gives a dominating exact result for this restricted nonlinear coloring family. General combinatorial counting bounds can be used in its proof but do not provide the two evaluated invariants.",
+      "searches": [
+        "Littlestone dimension VC dimension proper colorings of cycle graphs with vertex color equality membership queries",
+        "arXiv:2109.04805 zero-set Littlestone VC theorem",
+        "arXiv:2203.12211 tree dimension Sauer-Shelah"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1708.05118 (first public date 2017-08-17)",
+      "arXiv:2109.04805 (2021-09-10)",
+      "arXiv:2203.12211 (2022-03-23)",
+      "Mathematical statements on path and tree proper-colouring one-hot incidence and other cycle concepts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Path analogue: VC n-floor(n/4), Littlestone n, versus cycle VC floor(3n/4), Littlestone n-1; adding the closing edge deletes legal colourings and changes the static cyclic-window obstruction.",
+        "arXiv:1708.05118 studies inference of an unknown graph from random colouring samples; graph recovery performance does not imply the exact dimensions of the fixed-graph hypothesis class.",
+        "arXiv:2203.12211 develops dimension bounds for general binary-tree leaf sets, not specialized cycle-colouring ranks."
+      ],
+      "reasoning": "The path theorem cannot be transferred by relabeling because the last-to-first adjacency imposes a new constraint. The proof identifies a cyclic four-window bound and exhibits a matching cyclic support; an independent root-balance argument sharpens online rank. Broad theory supplies useful definitions, but not the specialized values.",
+      "searches": [
+        "query tests whether a cycle vertex has prescribed color, shatter function of proper three-colorings and online mistake-tree dimensions",
+        "VC dimension of graph q-colorings as binary one-hot color membership concepts, connected paths and forests; shattering list coloring and online mistakes",
+        "arXiv:1708.05118 graph-structure learning from H-colourings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present hypotheses are graph homomorphisms C_n to loopless K_3, one-hot encoded on vertex–colour tests. The accessible matched claims on this topic concern tree/path proper-colouring families, not cycles.",
+        "arXiv:1708.05118 fixes proper-colouring objects but asks for unknown-graph recovery, not one-hot hypothesis shattering."
+      ],
+      "reasoning": "An equivalent result would have to reproduce static floor(3n/4) AND adaptive n-1 for the cyclic coordinate-colour incidence system. No retrieved statement does so; indexed absence is not proof of priority.",
+      "searches": [
+        "proper 3 coloring antiferromagnetic Potts states on cyclic words, VC dimension floor(3n/4), Littlestone n-1 for indicator of spin at each position",
+        "bounded alternation cyclic graph homomorphisms to K3 binary one-hot encoded coloring concepts shattering capacity",
+        "\"cycle\" \"proper three-colorings\" \"Littlestone\" \"VC\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Comparison with accessible mathematical claims found an exact theorem for the path analogue and separate results for graph path/cycle set systems, but no cycle proper-colouring formula.",
+        "Fresh published-source searches returned the general papers arXiv:1708.05118, arXiv:2109.04805 and arXiv:2203.12211; their inspected statements are not tables for these two values."
+      ],
+      "reasoning": "Finite table entries, even if available elsewhere, would not automatically imply the present all-order theorem. No accessible exact table or formula was found that covers its whole quantification; undiscovered tables remain a risk.",
+      "searches": [
+        "VC and Littlestone dimensions of proper 3-colorings of cycle graphs, cyclic constraints",
+        "\"cycle graph\" \"vertex-colour\" \"shattering\"",
+        "\"three-colorings\" \"floor(3n/4)\""
+      ]
+    },
+    "rationale": "Three accessible primary works cover graph-structure recovery from proper-colouring samples, linear zero-set set systems, and general binary-tree dimension bounds; none implies the exact fixed-cycle one-hot colouring statement. Comparisons with the path colouring analogue identify the nontrivial effect of the closing edge on both dimensions. Searches for cycle colouring, three-state Potts configurations, one-hot graph homomorphism incidence, and precise dimension formulas did not locate an equivalent statement. Historical uniqueness is not certified.",
+    "residual_risks": [
+      "Historical synonym or later literature not indexed by accessible search may contain an equivalent exact all-order theorem.",
+      "No independent external audit of the original proof or checker has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected sections; remainder not exhaustively read",
+        "evidence": "The target is recovery of unknown graph G from random H-colouring samples, not shattering by single vertex–colour equality observations.",
+        "identifier_or_url": "arXiv:1708.05118",
+        "material_read": "Title, abstract, sections 1 and 1.1 definitions and main results; searched full PDF text for VC dimension and Littlestone terminology",
+        "method": "Open-access arXiv PDF, inspected visible first page and extracted text sections, phrase searches",
+        "title": "Structure Learning of H-colorings",
+        "trigger": "Same proper-colouring hypothesis objects and potentially broader learning claims"
+      },
+      {
+        "assessment": "NOT_COVERING under the stated zero-set hypotheses",
+        "evidence": "Theorem 3.10 yields equal dimensions for zero sets of linear combinations; it cannot yield the present strict gap for n>=5.",
+        "identifier_or_url": "arXiv:2109.04805",
+        "material_read": "Abstract, introduction and Theorem 3.10 overview, preliminaries with definitions; searched full PDF text for coloring terminology",
+        "method": "Open-access arXiv PDF, visual page and textual inspection",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Exact VC and online dimensions of naturally defined concept families"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material; not a cycle-colouring classification",
+        "evidence": "Corollary 1.10 bounds shatter functions, and Definitions 1.5/1.9 define complexity; neither gives closed formulas for cycle colouring.",
+        "identifier_or_url": "arXiv:2203.12211",
+        "material_read": "Abstract, definitions of VC and online dimensions, main combinatorial upper bound and introductory applications",
+        "method": "Open-access arXiv PDF, visual page and textual inspection",
+        "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+        "trigger": "General tree-shattering bounds might dominate this result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "22fcc094-64b4-42be-9b4c-807caea23830",
+  "value": {
+    "rationale": "The same natural finite cyclic constraint family now has a complete two-invariant classification at every order and an unbounded adaptive-vs-static gap. The proof isolates the decisive cyclic four-consecutive obstruction and the symmetry-versus-online-tree mechanism. A previously studied path colouring family has different exact expressions; the closing edge forces a structural boundary change, not a cosmetic parameter substitution. The exact smallest separated cycle is n=5. This is a natural complete classification rather than an arbitrary finite case.",
+    "status": "PASS"
+  }
+}
