@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim applies to finite connected loopless positive-mass metric graphs, one affine element per edge, real orthogonal projection in arclength \(L^2\), and \(L^\infty\) operator norm. Exact hat integrations yield \(M=(2D+W)/6\). The row-stochastic Neumann majorant is valid because \(\|D^{-1}W/2\|_\infty=1/2\). It gives the strict universal constant three, with separate arguments for bipartite and nonbipartite graphs. The hypercube's radial resolvent, signed neighbor kernels, exact shell counts, weighted-distance moment identities, and ratio recursion yield the finite exact norms and \(6/d\) deficit. The current standalone checker passed 3,093 exact-rational assertions. These finite checks corroborate but do not substitute for the analytic proof. No infinite-dimensional generality is asserted.
+PASS
 
-## Originality — PASS, qualified
+Nodal Gram mass M=(2D+W)/6. Evaluation kernel K_o on edge uv is 6[(1−t)B_ou+tB_ov], B=(2D+W)^{-1}. With stochastic D^{-1}W, C=(2D−W)^{-1} strictly positive and |B|≤C entrywise, giving norm≤3 via CD1=1; connected bipartite edge sign cancellation or an odd closed walk proves strict <3. On Q_d, C_{ov}=a_{dist(o,v)}, solve 2d a_k−k a_{k−1}−(d−k)a_{k+1}=δ_{k0}. Alternating signs give exact norm 3Σ binom(d,k)(d−k)(a_k²+a_{k+1}²)/(a_k+a_{k+1}). Resolvent distance moments S0=1/d, S1=1/(d+2), S2=(3d+2)/((d+2)(d+4)), plus r_k≤(k+1)/d bound deficit between 6/(d+2)−6S2/d and 6/(d+2). Independent exact rational radial checks d≤12 and small graph comparisons corroborated.
 
-The interval theorem recorded by Kayumov/Oskolkov has the same numerical upper constant but concerns knot sequences on an interval, whereas the present general theorem addresses arbitrary connected branching with independent positive edge masses and proves new sharpness via high-degree hypercubes. Arioli–Benzi gives a compatible mass matrix for metric graphs, not the present projector norm or the hypercube asymptotic. Previous sharp metric-star, complete-multipartite and windmill calculations are restricted subfamilies. Literature searches using the aliases *graph-spline orthoprojector*, *mass matrix inverse*, *maximum-norm finite-element stability*, *hypercube affine projector* and *sharp constant three* disclosed no covering statement. Because full access to all older finite-element papers was not obtained, unindexed equivalent derivations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem asks whether the sharp interval linear-spline stability constant survives arbitrary branching and positive weighting. The answer is a uniform dimension-free bound without degree or geometry restrictions, and the bound is proved optimal in a highly regular, leaf-free graph sequence. The explicit hypercube norms and the first-order deficit \(6/d\) show how the worst-case sensitivity develops; this is more than routine evaluation of an isolated graph or a numerical approximation.
+The sharp norm constant three is already known for interval piecewise-linear splines (Oskolkov, reported by Kayumov) and is not asserted new in itself. The extension to all finite branching metric graphs and exact hypercube resolvent/deficit are the distinct statements. General finite-element matrix assembly (Arioli–Benzi) does not on its own imply the L∞ endpoint norm or hypercube rate.
 
-## Scientific limits and closest literature
+## value
 
-The theorem is limited to one affine element per graph edge with constant positive densities; higher-degree and variable-within-edge cases remain open here. Kayumov (arXiv:math/0408418) discusses sharp interval constants; Arioli–Benzi (DOI:10.1093/imanum/drx029) derives metric-graph mass matrices. Crouzeix–Thomée (DOI:10.2307/2007825) is a broader finite-element stability reference without a completed full-text inspection for this comparison. Earlier independent derivations are an originality risk. All classifications concern the final unified claim only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A graph-independent sharp stability constant is a natural numerical analysis invariant, and hypercubes supply explicit extremizing high-degree graph geometry and a quantified dimension gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
