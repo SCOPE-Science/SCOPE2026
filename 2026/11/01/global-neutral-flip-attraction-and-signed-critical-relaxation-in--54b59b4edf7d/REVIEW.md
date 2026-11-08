@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The log-odds identity converts every primitive two-cycle to a symmetric pair around the equilibrium and an exact secant-slope equation. Strict convexity of the logit derivative proves the sharp uniqueness/existence threshold, and the classical continuous-interval no-two-cycle convergence theorem establishes the global neutral endpoint. The fifth-order expansion of the exact log-odds map gives a strictly positive cubic contraction on the second iterate. Summing the reciprocal-square recurrence yields the universal critical rate, its signed square-root correction and the symmetric logarithmic term. The source and reproducible exact-jet verifier provide separately reconstructed algebraic checks; finite numerical trajectories do not prove asymptotic assertions. Critical assumptions: \(0<b<1\), \(a=2/[b(1-b)]\) for rates, and avoidance of finite-time hits for inverse-square claims.
+## correctness
 
-**Originality — PASS on inspected evidence.** The source paper already proves the complete symmetric endpoint and explicitly conjectures global convergence for general \(b\). The later FoReL paper proves global convergence under a strictly attracting fixed-point hypothesis, excluding the neutral equality. These earlier results are credited in the finding. The added claim is the all-asymmetry neutral endpoint together with its exact rate and odd/even subleading structure, not the known strict stability regime or a generic normal-form principle. The all-parameter two-cycle count supports the global proof; it is not presented as an unrelated new periodic-orbit count. Closest research-record analogues concern a different rational flip map, and a distinct replicator-map symmetry threshold, neither of which implies these constants for the entropic congestion map. Residual risk: an unindexed technical note or generalized normal-form result specialized to this map may already include the formulas.
+PASS
 
-**Mathematical value — PASS.** The neutral parameter is the exact boundary of stable learning in a natural two-link congestion model and was left at equality in the asymmetric global-convergence conjecture. The theorem identifies whether oscillations at the neutral flip decay or persist, quantifies the physical iteration count needed to approach equilibrium, and exposes a sign-sensitive term that disappears at equal splitting. It also locates the onset and amplitude of the unique competing two-cycle. This is a motivated all-parameter boundary classification, rather than a renamed textbook example or an arbitrary finite coefficient computation. No claim is made about off-diagonal game states or the eventual stability of the two-cycle far above onset.
+The exact logit identity logit(f(x))-logit(x)=-a(x-b) forces any two-cycle to have endpoints b±d and a=Q_b(d)=[L(b+d)-L(b-d)]/d. Since L‴(x)=2/x³+2/(1-x)³>0, Q_b increases strictly from 2/[b(1-b)] to infinity, proving the exact unique-cycle boundary. At and below a_c absence of a primitive 2-cycle invokes classical Coppel convergence; strict sign of f(x)-x toward b excludes boundary limits for interior trajectories. At critical a_c, the induced exact T_b(u)=u-2(expm1(u))/(1+b expm1(u)) has second-iterate jet u-gamma u³+delta u⁴+eta u⁵, gamma=4(1-3s)/3>0, delta=2(2b-1)(1-3s)/3, eta=(3-5s)/15. Independently expanded to order five at b=1/2,1/3,1/5 and confirmed these coefficients; the inverse-square increment is 2gamma-2delta u+(3gamma²-2eta)u²+O(u³). Summation gives n(x_n-b)²→s²/gamma, the parity-signed sqrt(m) correction and (b=1/2) 3/20 log(m) with bounded residual. Analytic iterates have countably many finite-time preimages of b; excluded from reciprocal-square formula. Near-birth expansion of Q_b gives d²/(a-a_c)→3s³/[2(1-3s)]. Exact global proof, not long-trajectory extrapolation, establishes all b and a.
 
-**Closest literature and limitations.** Chotibut–Falniowski–Misiurewicz–Piliouras, arXiv:1807.06831v1, Theorem 3.9 and Conjecture 3.10; Bielawski et al., arXiv:2102.07974v1, Theorem 6.2 and Corollary 6.3; related routing-game dynamics, arXiv:1906.02486. The all-parameter proof uses the classical interval-map Coppel theorem. Critical relaxation is proven for every non-exceptional interior start; the exceptional set is countable. Publication priority cannot be established solely from database search. Independent external audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison across equivalence, broader coverage, exact results and claimed implication finds no decisive existing result that covers the final scoped theorem in accessible inspected material; precise covered ingredients and full-text access risks are explicitly recorded. This is a best-knowledge scientific judgment, not an attestation of independence or a guarantee of historical priority.
+
+## value
+
+PASS
+
+Directly resolves the asymmetric neutral-equality case singled out as Conjecture 3.10 in the original game-theoretic dynamics paper, beyond later strictly attracting theorem, and quantifies the physically relevant decay time and asymmetric sign bias. The universal critical constant, signed sqrt correction, symmetry-specific logarithm and unique two-cycle birth are natural sharp transition data, not arbitrary coefficient calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
