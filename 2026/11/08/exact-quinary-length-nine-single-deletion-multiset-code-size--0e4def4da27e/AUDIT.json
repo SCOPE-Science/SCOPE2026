@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Exact bijection between deletion-correcting codes and binary feasible solutions is proved: all 495 common one-deletion-output cliques are constrained. The 143-code construction is rigorously shown by mod-five relabeling and independently pair-checked over 10,153 pairs. The included checker.py globally optimizes the complete 715-variable clique MILP at objective 143 with dual bound -142.99999999999955 and zero MIP gap. The separately constructed checker_edges.py uses 4,950 pair inequalities and independently globally optimizes at 143 with dual bound -142.99999999999983. Both programs were executed successfully from their package paths. The proof is computational, dependent on soundness of HiGHS branch-and-bound, without an independently checkable exact rational unsatisfiability proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.05636 Section 5.5 explicitly says no all-q>=5 analogue of the triangular/tetrahedral exact independence formulas is known.",
+        "arXiv:2603.18322 Sections 3-6 give polynomial Sidon codes, deletion-ball enumerators, asymptotic volume upper/lower bounds, not the finite n=9 optimum."
+      ],
+      "reasoning": "The stronger general results inspected give constructions or nonsharp bounds and do not entail upper bound 143. The all-n conjecture is not a theorem; this work addresses precisely its first uncomputed parameter.",
+      "searches": [
+        "Kreindel Barouch Essayag Zabokritskiy conjecture 21 quinary n=9 optimum",
+        "https://arxiv.org/html/2601.05636v2 Section 5.5 and conclusion",
+        "https://arxiv.org/html/2603.18322v1 Sections 3-6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.05636v2",
+      "https://arxiv.org/html/2603.18322v1",
+      "Published indexed findings on quinary codes, multiset deletion codes, and simplex-grid independence (relevant result IDs recorded privately)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 14 in arXiv:2601.05636 covers the size of the checksum class, not optimality of arbitrary nonlinear codes at n=9.",
+        "General bounds summarized by arXiv:2603.18322 provide no finite instance establishing equality."
+      ],
+      "reasoning": "The new contribution is the unrestricted 143 upper bound; the known 143 construction alone cannot imply it. Sequence-code results have different objects; multiset three-survivor results have a different deletion radius. Both independent integer formulations optimize over all 715 vectors, rather than checksum classes.",
+      "searches": [
+        "https://arxiv.org/html/2601.05636v2 Conjecture 21, Proposition 14 and bounds",
+        "https://arxiv.org/html/2603.18322v1 Section 5",
+        "quinary multiset length nine 143 independence number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kreindel et al., arXiv:2601.05636, Section 5.5, identifies the single-deletion simplex-grid independence problem and reports q=5 only at n<=8; Conjecture 21 covers all lengths.",
+        "The incidence model of 495 extension cliques is equivalent to adjacency in the 4-dimensional simplex grid, not an ordinary sequence-deletion problem."
+      ],
+      "reasoning": "The same code parameter can be called the independence number of the 4-dimensional discrete simplex transfer graph at layer nine. Neither the exact n<=8 table nor the statement of Conjecture 21 implies its n=9 optimum; the included upper-bound calculation is the missing finite instance.",
+      "searches": [
+        "S_5(9,1) = 143 quinary length nine multiset single-deletion code exact independence number four-dimensional simplex graph",
+        "quinary multiset deletion code first unresolved blocklength nine 143 prime field additive syndrome",
+        "https://arxiv.org/html/2601.05636v2 Section 5.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2601.05636 lists q=5 exact values only n=1,2,3,4,5,6,7,8 = 1,5,7,16,26,42,66,99; the first missing n=9 has 715 candidates and 143 checksum words.",
+        "No relevant published checked table was found including 143 at n=9."
+      ],
+      "reasoning": "The first missing quinary entry is not a recomputation of the displayed table. The 143 lower construction is old, but the exact maximum upper bound is not in that table. Absence from searched tables cannot establish uniqueness or priority.",
+      "searches": [
+        "quinary single deletion n=9 optimal 143 Kreindel conjecture",
+        "five symbol multiset 1 deletion length nine 143 optimal simplex five dimensional independence number 2026",
+        "https://arxiv.org/html/2601.05636v2 quinary table n=1..8"
+      ]
+    },
+    "rationale": "The motivating January 2026 article gives the construction but only exact quinary optima for n<=8 and explicitly poses the all-length optimality as Conjecture 21; this identifies n=9 as the first missing nontrivial entry. Its March 2026 companion gives broader volume bounds, not this exact finite upper bound. Neither accessible published material nor searched indexed results/own claims gave an equivalent bound, although this is not proof of worldwide novelty.",
+    "residual_risks": [
+      "An unpublished, inaccessible or unindexed finite calculation could already establish this value.",
+      "The upper bound is reproducible numerical mixed-integer branch-and-bound; a separately checkable exact rational refutation certificate is not embedded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS known checksum construction and n<=8 exact table, NOT the n=9 exact upper bound",
+        "evidence": "Section 5.5 displays only n=1..8, then conjectures all other n; last paragraph says higher-dimensional exact formulas absent.",
+        "identifier_or_url": "arXiv:2601.05636v2 https://arxiv.org/html/2601.05636v2",
+        "material_read": "Introduction, definitions, Sections 5.1 and 5.5, Conjecture 21, conclusions and balance construction",
+        "method": "Full accessible arXiv HTML relevant sections read and compared at statement level",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Exact matching alphabet, radius, table and explicit prime-field conjecture"
+      },
+      {
+        "assessment": "General constructions, enumerations and nonsharp bounds, not the exact q=5,n=9 single-deletion optimum",
+        "evidence": "Section 5 gives sphere-packing/code-anticode/average-ball bounds; conclusion identifies gaps.",
+        "identifier_or_url": "arXiv:2603.18322v1 https://arxiv.org/html/2603.18322v1",
+        "material_read": "Abstract, introduction, definitions, Section 5 volume bounds, Section 6 conclusions",
+        "method": "Full accessible arXiv HTML pertinent sections read and compared",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Same authors, same objects, newer general code bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0e4def4d-a27e-4e0a-b699-c7ad4f05d17e",
+  "value": {
+    "rationale": "A natural complete exact optimum, at the first blocklength missing from the source paper’s explicit quinary table, gives a concrete new instance of its named open Conjecture 21. It tests whether the prime-field syndrome construction remains unrestricted-optimal, with relevance to unordered-deletion coding benchmarks. Not claimed to solve the infinite conjecture.",
+    "status": "PASS"
+  }
+}
