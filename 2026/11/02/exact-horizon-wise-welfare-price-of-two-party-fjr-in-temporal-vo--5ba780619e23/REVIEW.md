@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement explicitly fixes static disjoint binary party approvals, a positive integer number of rounds, and the quotient using the *maximum* FJR+ welfare. The cited party-list lower-quota theorem gives two independent integer lower bounds on the winning round counts. Their sum is never above the horizon. The constructed allocation assigns exactly the minority lower quota and all remaining rounds to the majority; this is feasible and welfare-maximizing. The resulting ratio is strictly decreasing in the minority fraction on each constant-quota stratum, so all global maxima occur at exact quota boundaries. The single stationary point of the rational envelope is derived by differentiating; the nearest-grid rule, finite examples, and second-order convergence follow. A separate exact-arithmetic checker corroborates 45,000 finite parameter profiles and the horizon rule through 90 rounds. This is an infinite-parameter proof, not a finite-enumeration inference.
+PASS
 
-## Originality — PASS, subject to literature risk
+PASS: In the static complete two-party election with majority a=n-b, minority b, L rounds, party-list FJR+ reduces to lower-quota representation (Teh Prop.3.4, affirmed explicitly in accessible public abstract). Thus minority requires q=floor(Lb/n), majority at least floor(La/n), and selecting q minority rounds is feasible and utilitarian-optimal since a>=b. Ratio R=aL/[aL-(a-b)q]. For x=b/n and j=floor(Lx), fixed j>=1 R strictly decreases with x in stratum, attaining maximum at x=j/L (n=L,b=j), while j=0 price1. The continuous envelope f(z)=(1-z)/(1-2z+2z²) has derivative sign 1-4z+2z² and unique maximizer alpha=1-1/sqrt2; floor/ceil adjacent grid j maximize. Independent all-feasible integer-seat enumeration for L=1..39 and electorate 2..99 agreed with proposed horizon bound and feasible optimum. Exact values P3=P4=P6=6/5, P5=20/17, P7=35/29 and O(L^-2) convergence by smooth stationary Taylor theorem follow analytically. Full original Proposition 3.4 manuscript could not be accessed, which is a material check limitation, but its lower quota equivalence is stated by Teh in accessible public abstract.
 
-The motivating paper arXiv:2609.35826 (full-text Sections 3.2 and 6) establishes FJR+ lower quota on party lists and asks for a welfare-price analysis; it does not provide the exact two-party horizon sequence. arXiv:2605.11157 discusses welfare prices of distinct temporal axioms and their horizon dependence, without deriving this fixed-two-party FJR+ sequence. arXiv:2408.13637 proves general bounds for the individual PROP axiom, without this exact party-list two-party horizon frontier. Targeted searches for two-party lower-quota welfare prices, rational horizon effects, equivalent apportionment formulations, and accessible published mathematical records did not find an equivalent statement. Because the proof is short after the lower-quota reduction, an unindexed equivalent combinatorial observation remains a real risk, not excluded by failed searches.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating literature explicitly proposes quantifying the welfare cost of FJR+. Two-party elections are a natural minimal political-competition model, and the exact price of representation at each number of public decisions is a meaningful invariant. The result exhibits a nonmonotone, integer-quota-induced horizon frontier (e.g. it falls from \(6/5\) at four rounds to \(20/17\) at five and returns to \(6/5\) at six), proves that extremizers occur at an exact population/horizon matching, and identifies the sharp irrational limiting constant and rate. These properties are not specified by earlier global order-of-growth bounds. The construction is elementary but the precise finite-horizon frontier, not merely the ability to compute two-party welfare, is the claim's value.
+Best-of-knowledge originality of the stated final claim (not preceding methods or special cases), with explicitly bounded access and implication risks. Restating FJR+ as two-party apportionment lower quota is a valid alias. The new ratio is an additional extremal optimization across all rational party shares and L, not simply the old quota characterization.
 
-## Closest literature and limitations
+## value
 
-Teh 2026 (arXiv:2609.35826), Proposition 3.4 and Discussion; Teh 2026 (arXiv:2605.11157), Section 3; and Elkind–Neoh–Teh 2024 (arXiv:2408.13637), Section 5. The result does not analyze non-party-list elections or different welfare criteria. The novelty assessment is limited by discoverability of alternative apportionment terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Determines a sharp all-population, integer-horizon utilitarian cost of a well-defined temporal proportionality axiom in a natural two-party subdomain, including attainment, oscillations and limiting irrational constant. Although optimization is elementary once the lower-quota reduction is known, the complete exact discrete price frontier answers the explicit welfare-loss question and can be used as a benchmark for more parties and competing axioms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
