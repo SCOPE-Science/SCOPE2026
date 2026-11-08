@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact ETDRK2 recurrence reconstructed from phi-functions. With \\(q=H(1-z)\\) and \\(B\\le H\\le1\\), positivity follows from \\(z(3+3q+q^2)\\le3\\). The remaining upper-squared-energy bound reduces exactly to \\(P=(2-z(1+W^2))/(1-z)\\ge1/8\\) on the unit cube, verified via a complete 729-coefficient rational Bernstein certificate in the standalone standard-library proof checker. The exact energy factorization yields descent; the derivative at \\(u=1\\) tends to \\((1-2/\\alpha)^2>1\\) for every \\(0<\\alpha<1\\) (and explicit Heun \\(\\alpha=0\\) gives a multiplier greater than one for \\(h>1\\)), producing strict energy-increasing interior starts. Checked script exits with VERIFY_OK. Applies only to the specified one-step input interval.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fu–Shen–Yang (2024) Theorem 2.2 requires a sufficient Lipschitz/stabilization condition and positive-definiteness of a tableau-dependent matrix. It does not identify the necessary minimal stabilizer for the untruncated scalar potential.",
+        "Fu–Yang (2022) established unconditional energy decay for suitably stabilized ETDRK2 in general phase-field models, but only the abstract and subsequent primary-literature descriptions were accessible."
+      ],
+      "reasoning": "A broader PDE theorem could subsume sufficiency if it explicitly allowed \\(\\alpha=1\\) and this non-Lipschitz cubic at all needed stages; nothing inspected establishes that implication. Even a general sufficiency theorem would not by itself imply failure for every \\(\\alpha<1\\). The 2022 source is a residual historical-priority risk, not declared non-covering without full text.",
+      "searches": [
+        "Fu Yang exponential time differencing ETDRK2 sharp beta 1 cubic reaction Allen Cahn positive energy unconditional versus maximum bound principle",
+        "ETDRK2 exponential Runge Kutta Allen Cahn scalar cubic double-well energy unconditional stabilization splitting coefficient sharp threshold",
+        "arXiv:2402.15142v1 Theorem 2.2",
+        "doi:10.1016/j.jcp.2022.110943"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11532v1, introduction and Section 4.1 (2026-10-08)",
+      "Fu–Shen–Yang, arXiv:2402.15142v1, published manuscript equations (2.10)-(2.11), (2.16)-(2.17), Theorem 2.2, https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+      "Fu–Yang, J. Comput. Phys. 454 (2022), 110943, DOI 10.1016/j.jcp.2022.110943 (abstract and later descriptions; full text not inspected)",
+      "Published result (2026-09-18): Sharp pointwise-reversal threshold for stabilized CN/AB Allen-Cahn stepping"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 work provides exactly the recurrence but applies coefficient positivity and a generic Lipschitz bound for sufficient stabilization.",
+        "The 2026 paper explicitly discusses stabilized unconditional ETDRK2 as previously established, and separately proves step-size restrictions without stabilization.",
+        "The closest indexed Allen–Cahn result is for CN/AB, not the same iteration or precise one-step energy criterion."
+      ],
+      "reasoning": "Neither an implication from a sufficient stabilization condition to the exact necessary endpoint nor one from an unstabilized finite-time-step condition to all h is valid. The present claim has a separate finite exact polynomial proof and a local multiplier counterexample. It is a restricted scalar statement, not represented as an advance over full PDE sufficiency results.",
+      "searches": [
+        "scalar stabilized exponential Heun ETD2 double well potential one-step energy stable if and only if beta >= 1",
+        "sharp threshold beta=1 scalar Allen Cahn quartic potential ETDRK2 one-step unconditional energy dissipation for initial data between minus one and one splitting alpha stabilizer Bernstein polynomial",
+        "arXiv:2610.11532v1 Section 4.1",
+        "arXiv:2402.15142v1 equations (2.10)-(2.11)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact statement is an if-and-only-if sharp stabilizer on a scalar one-step quartic energy. The 2026 paper reports general time-step bounds for unstabilized methods and earlier stabilization; the inspected 2024 source gives general sufficient conditions, not an exact scalar threshold.",
+        "The only closely retrieved Allen–Cahn numerical record concerns a two-level CN/AB method rather than the exponential Runge–Kutta update."
+      ],
+      "reasoning": "The proposed sharp lower bound is not logically implied merely by a sufficient upper stabilizer bound or by conditional time-step estimates. Equivalence under alternate ETDRK2 notations was checked by comparing phi-function coefficients and the original scalar stage formulas.",
+      "searches": [
+        "sharp stabilization parameter for ETDRK2 Allen Cahn scalar gradient u'=u-u^3 unconditional original quartic energy monotonicity beta one",
+        "scalar stabilized exponential Heun ETD2 double well potential one-step energy stable if and only if beta >= 1",
+        "sharp threshold beta=1 scalar Allen Cahn quartic potential ETDRK2 one-step unconditional energy dissipation for initial data between minus one and one splitting alpha stabilizer Bernstein polynomial",
+        "arXiv:2610.11532v1",
+        "arXiv:2402.15142v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematical records include a sharp CN/AB Allen–Cahn reversal threshold but no matching ETDRK2 exact stabilizer classification or tabulated scalar energy frontier.",
+        "The inspected 2026 paper tabulates time-step cutoffs for methods without this exact scalar stabilization classification."
+      ],
+      "reasoning": "No matching numerical table or result was located by method name, sharp stabilization threshold, scalar double-well energy, or equivalent phi-function recurrence. Absence from search is not proof of novelty; the priority risk is explicitly retained.",
+      "searches": [
+        "sharp stabilization parameter for ETDRK2 Allen Cahn scalar gradient u'=u-u^3 unconditional original quartic energy monotonicity beta one",
+        "sharp threshold beta=1 scalar Allen Cahn quartic potential ETDRK2 one-step unconditional energy dissipation for initial data between minus one and one splitting alpha stabilizer Bernstein polynomial",
+        "scalar stabilized exponential Heun ETD2 double well potential one-step energy stable if and only if beta >= 1"
+      ]
+    },
+    "rationale": "Full 2026 and 2024 primary ETDRK2 sources were inspected, 2022 precursor abstract and subsequent descriptions examined, relevant scientific record queries searched, and 57 accessible prior ledger claims compared for substantive implication. No inspected source shows the sharp scalar one-step if-and-only-if stabilizer; general sufficient energy results and unrelated CN/AB threshold do not imply it. Unavailable 2022 full text creates a genuine but nondecisive historical-priority risk.",
+    "residual_risks": [
+      "An older 2022 JCP ETDRK2 article could contain a specialized unstated/implicit scalar threshold; complete article text was inaccessible, and its abstract was not treated as proof of noncoverage.",
+      "An equivalent scalar stabilized exponential-Heun analysis may occur under alternate integrator naming outside indexed search.",
+      "The exact threshold is scoped to one-step input in [-1,1], and is not asserted as a global-in-time PDE result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general step-size restrictions and acknowledges stabilized ETDRK2 energy results; no scalar necessary-and-sufficient \\(\\alpha=1\\) frontier located in inspected article.",
+        "evidence": "arXiv:2610.11532v1, Introduction (preceding stabilized literature), Section 4.1 (second-order tableau), Table 3 (step-size bounds)",
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.11532",
+        "material_read": "Full available article including Introduction, ETDRK definitions, Section 4.1, numerical comparison table, and cited references",
+        "method": "Read primary full-text web rendering, checked ETDRK2 and stabilization claims against exact sharpness statement",
+        "title": "A unified framework for original energy dissipation of equilibrium-preserving exponential Runge–Kutta methods for L2 gradient flows",
+        "trigger": "Emerging 2026 paper on original-energy ETDRK criteria and stabilizer comparisons"
+      },
+      {
+        "assessment": "The method used here agrees with equations (2.10)-(2.11), but the sufficient general theorem does not state the exact scalar threshold or necessary failure below it.",
+        "evidence": "arXiv:2402.15142v1, equations (2.10)-(2.11), Theorem 2.2; https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+        "identifier_or_url": "https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+        "material_read": "Original primary PDF: model setup, Section 2.2 equations (2.10)-(2.17), Section 2.3 Theorem 2.2 and proof, inspected related literature and numerical figures; not all pages read line by line",
+        "method": "Read and inspected PDF text and page image, cross-compared scalar phi-function recurrence and sufficient stabilization hypotheses",
+        "title": "Higher-Order Energy-Decreasing Exponential Time Differencing Runge-Kutta Methods for Gradient Flows",
+        "trigger": "Closest fully accessible prior theorem for stabilized ETDRK2 and splitting conventions"
+      },
+      {
+        "assessment": "Known suitable-stabilizer sufficiency; precise hypotheses and possible implicit scalar sharp-threshold content unresolved.",
+        "evidence": "Journal of Computational Physics 454 (2022) 110943 abstract; arXiv:2610.11532v1 introduction; arXiv:2402.15142v1 section 2.2",
+        "identifier_or_url": "https://doi.org/10.1016/j.jcp.2022.110943",
+        "material_read": "Public abstract and detailed references/descriptions in two later inspected primary studies; complete primary article text unavailable",
+        "method": "Compared available abstract and later scientific summaries, attempted authorized full-text retrieval without access",
+        "title": "Energy-decreasing exponential time differencing Runge–Kutta methods for phase-field models",
+        "trigger": "Earliest directly relevant original analysis of energy-decreasing stabilized ETDRK2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc907224-a5c8-4d73-a39d-2203bc0ad002",
+  "value": {
+    "rationale": "A sharp stabilizer frontier for a named widely studied second-order energy-dissipative exponential integrator on the canonical scalar quartic double well is operationally meaningful: \\(\\alpha\\ge1\\) is universally single-step energy safe for bounded starts, whereas every smaller alpha fails at sufficiently large h. The certificate is structural, not an isolated numeric parameter choice. The overshoot example explicitly rules out conflating energy descent with a maximum-bound principle; this fact informs correct use of conditional-step energy arguments.",
+    "status": "PASS"
+  }
+}
