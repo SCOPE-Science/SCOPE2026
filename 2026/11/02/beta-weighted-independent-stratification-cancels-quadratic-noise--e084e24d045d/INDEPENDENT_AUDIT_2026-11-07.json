@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:16:38.321281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified unbiasedness by importance-density cancellation of each cell residual r_i=f(x_i+hu)-[(1-u)f(x_i)+uf(x_i+h)] and trapezoidal endpoint integral. For quadratic f, r_i(u)=-a h^2 u(1-u) so its Beta(2,2) density 6u(1-u) makes the random term constant. For C^3 f, dividing the interpolation remainder by q yields -h^2 f_second/12-h^3(1+u) f_third/36+o(h^3) uniformly after endpoint extension; using Var_{Beta(2,2)} U=1/20 gives m^7 Var Q_m -> (1/25920) int_0^1 f_third^2. Independent bounded summands yield the triangular-array Lindeberg CLT for positive asymptotic variance, and Hoeffding with independent cell range width <= M h^4/6 yields 2exp(-72m^7 t^2/M^2). Cauchy–Schwarz forces q=6u(1-u) uniquely among fixed positive densities for pathwise quadratic exactness or universal O(m^-7). Checked uniform-sampling comparator variance 1/720 int f_second^2 under m^5. Exact rational independent moments and cubic variance a^2/(720m^7) match.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leluc et al 2022 adaptive algorithm and variance bounds",
+          "Wu arXiv:2011.15086 uses antithetic randomized trapezoidal nodes"
+        ],
+        "reasoning": "General control variate and adaptive-importance frameworks are broader methodologically but were inspected for mathematical implication; neither inspected theorem specializes directly to the specific fixed Beta residual estimator and exact constant/uniform finite-cell rate.",
+        "searches": [
+          "Leluc Portier Segers Zhuman arXiv:2205.11890 adaptive importance sampling control variates",
+          "stratified randomized quadrature beta distribution importance sampling linear interpolation exact quadratic variance m^-7"
+        ]
+      },
+      "checked_sources": [
+        "Kunsch arXiv:2309.09059",
+        "Wu arXiv:2011.15086",
+        "Leluc et al arXiv:2205.11890",
+        "Resultary semantic query: stratified randomized quadrature beta distribution importance sampling linear interpolation exact quadratic variance m^-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform residual estimator has m^-5 variance constant (1/720) int f_second^2",
+          "Beta weighted residual estimator has m^-7 variance constant (1/25920) int f_third^2"
+        ],
+        "reasoning": "All cited sources cover general or different randomized rules; a method capable of being adapted is not the same as a prior statement logically proving this particular sharp all-integrand theorem. Novelty remains best-of-knowledge.",
+        "searches": [
+          "Kunsch arXiv:2309.09059 Sections on stratified residual quadrature",
+          "Wu arXiv:2011.15086 randomized trapezoidal",
+          "Leluc et al arXiv:2205.11890 adaptive quadrature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kunsch arXiv:2309.09059 uses stratified/uniform residual sampling",
+          "Claim uses fixed Beta(2,2) q=6u(1-u), cancels quadratic interpolation noise"
+        ],
+        "reasoning": "Generic importance-sampling zero-variance principles explain the density choice for one quadratic, but do not themselves establish the all-C3 m^-7 law, Gaussian limit, concentration, and restricted uniqueness together.",
+        "searches": [
+          "stratified randomized quadrature beta distribution importance sampling linear interpolation exact quadratic variance m^-7",
+          "Kunsch 2023 linear Monte Carlo quadrature residual stratification",
+          "zero variance importance density proportional to interpolation residual"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search primarily found unrelated Beta-variance and Romberg quadrature findings",
+          "Kunsch/Wu/Leluc full texts inspected; no exact m^-7 constant table found"
+        ],
+        "reasoning": "The result concerns an arbitrary C3 integrand with a functional sharp variance limit and cannot be preempted by a finite numeric table absent an explicit dominating theorem.",
+        "searches": [
+          "stratified randomized quadrature beta distribution importance sampling linear interpolation exact quadratic variance m^-7",
+          "published Resultary exact quadrature variance beta interpolation"
+        ]
+      },
+      "rationale": "No inspected current-priority source states or unambiguously implies the precise new theorem; methods and covered neighbors are credited explicitly, and residual inaccessibility/overlap risks remain. Best-of-knowledge originality, not world-priority certification.",
+      "residual_risks": [
+        "Exact finite-sample arithmetic is assumed; cancellation near Beta endpoints can cause floating-point ill-conditioning.",
+        "Specialized importance-sampling literature might contain an equivalent beta-residual rule not located.",
+        "No minimax optimality claim outside independent fixed-density endpoint-linear residual family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses independent uniform residual sampling, not this fixed quadratic-killing Beta density",
+          "evidence": "Kunsch 2023 section on independent stratified rules",
+          "identifier_or_url": "arXiv:2309.09059",
+          "material_read": "Full open PDF, stratification/control-variate construction and confidence sections",
+          "method": "PDF page text and relevant figure/equations visually inspected",
+          "title": "Linear Monte Carlo quadrature with optimal confidence intervals",
+          "trigger": "closest published stratified-control-variate method"
+        },
+        {
+          "assessment": "Different randomized nodes/estimator; no exact current beta residual theorem",
+          "evidence": "Wu 2020 randomized trapezoidal construction",
+          "identifier_or_url": "arXiv:2011.15086",
+          "material_read": "Full open PDF, problem setup, random antithetic evaluation pairs and variance/error formulas",
+          "method": "PDF text and page image inspection",
+          "title": "A randomised trapezoidal quadrature",
+          "trigger": "randomized endpoint rule comparator"
+        },
+        {
+          "assessment": "ADAPTIVE importance-sampling framework rather than the fixed per-cell beta annihilation and sharp C3 variance coefficient",
+          "evidence": "Leluc et al 2022 adaptive control-variate algorithm",
+          "identifier_or_url": "arXiv:2205.11890",
+          "material_read": "Full open PDF introductory algorithm and variance methodology",
+          "method": "PDF text and page image inspection",
+          "title": "A Quadrature Rule combining Control Variates and Adaptive Importance Sampling",
+          "trigger": "plausible general dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An implementable one-interior-sample-per-cell randomized quadrature with guaranteed polynomial annihilation, sharp order-seven variance, a nondegenerate CLT, nonasymptotic concentration, and a precise uniqueness class. The statistical improvement over ordinary independent uniform residual stratification is a motivated accuracy/computational-cost comparison, not an arbitrary moment exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional uniform mesh, one independent Beta(2,2) node per cell, exact endpoint/interior evaluations, C3 integrands.",
+    "CLT requires integral of f triple derivative squared >0; zero gives exact lower-order cancellation, not nondegenerate Gaussian.",
+    "Exact finite-sample arithmetic is assumed; cancellation near Beta endpoints can cause floating-point ill-conditioning.",
+    "Specialized importance-sampling literature might contain an equivalent beta-residual rule not located.",
+    "No minimax optimality claim outside independent fixed-density endpoint-linear residual family."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The estimator follows by exact importance integration of the linear-interpolation residual. The quadratic residual has shape \(u(1-u)\), and the beta density makes the weighted correction deterministic. A uniform cubic Taylor expansion after interpolation, the exact beta variance \(1/20\), and independence give the sharp \(m^{-7}\) variance constant \(1/25920\). The proof separately establishes uniqueness over positive fixed importance densities, Lindeberg convergence, and Hoeffding's inequality. A reproducible rational verifier checks the identities. Computation does not replace the analytic argument.
+PASS
 
-## Originality
+Verified unbiasedness by importance-density cancellation of each cell residual r_i=f(x_i+hu)-[(1-u)f(x_i)+uf(x_i+h)] and trapezoidal endpoint integral. For quadratic f, r_i(u)=-a h^2 u(1-u) so its Beta(2,2) density 6u(1-u) makes the random term constant. For C^3 f, dividing the interpolation remainder by q yields -h^2 f_second/12-h^3(1+u) f_third/36+o(h^3) uniformly after endpoint extension; using Var_{Beta(2,2)} U=1/20 gives m^7 Var Q_m -> (1/25920) int_0^1 f_third^2. Independent bounded summands yield the triangular-array Lindeberg CLT for positive asymptotic variance, and Hoeffding with independent cell range width <= M h^4/6 yields 2exp(-72m^7 t^2/M^2). Cauchy–Schwarz forces q=6u(1-u) uniquely among fixed positive densities for pathwise quadratic exactness or universal O(m^-7). Checked uniform-sampling comparator variance 1/720 int f_second^2 under m^5. Exact rational independent moments and cubic variance a^2/(720m^7) match.
 
-**PASS, qualified.** The closest inspected methods are Kunsch's independent uniform residual stratification, Wu's randomized trapezoidal quadrature, and the broad adaptive importance-sampling/control-variate construction of Leluc and coauthors. They establish context or broader technique but their inspected statements do not directly give the exact beta-residual quadrature, its simultaneous sharp uniqueness, variance law, CLT and concentration result. Established zero-variance importance-sampling principles are acknowledged, not represented as new. Relevant published-result searches found no directly equivalent statement; an unlocated equivalent formulation in the wider quadrature literature remains possible, and independent publication-priority review has not occurred.
+## originality
 
-## Value
+PASS
 
-**PASS.** With only endpoint linear interpolation and one independent interior sample per cell, the rule annihilates quadratic residual noise, increases the smooth-integrand variance exponent from five to seven relative to uniform residual sampling, and provides exact asymptotic constants and a nonasymptotic concentration certificate. The comparison addresses a natural sampling-design question without claiming global optimality among arbitrary quadrature algorithms. Numerical stability at samples close to endpoints is not established.
+No inspected current-priority source states or unambiguously implies the precise new theorem; methods and covered neighbors are credited explicitly, and residual inaccessibility/overlap risks remain. Best-of-knowledge originality, not world-priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An implementable one-interior-sample-per-cell randomized quadrature with guaranteed polynomial annihilation, sharp order-seven variance, a nondegenerate CLT, nonasymptotic concentration, and a precise uniqueness class. The statistical improvement over ordinary independent uniform residual stratification is a motivated accuracy/computational-cost comparison, not an arbitrary moment exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
