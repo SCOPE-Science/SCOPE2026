@@ -1,21 +1,21 @@
-# Scientific assessment: star-graph continuous-map monoids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result works with the defining inverse-image-of-simplices continuity condition. Two distinct double fibers would require disjoint edges in a star, which is impossible. The proof partitions all maps into injective maps and maps with one double fiber, and counts each with explicit, disjoint parameter choices. Independently, idempotency reduces to fixing each image vertex, and regularity reduces to existence of a continuous section. The proof identifies the unique nonregular configuration and computes its rank polynomial. Each step is reversible, including the one-edge boundary. The symbolic argument covers all branching-star sizes, whereas exhaustive verification only covers small sizes.
+PASS
 
-The supplied `verify.py` directly tests the defining continuity condition, without relying on the classification, for all partial maps with \(1\le m\le6\). It checks idempotency by composition's image-fixing criterion and, for \(1\le m\le5\), tests every possible section for regularity. All coefficients match. The verifier is evidence of finite consistency rather than an infinite proof.
+Under simplex-preimage continuity, every non-injective element has exactly one doubled fiber {center,leaf}; when its image is center, no other image exists; when leaf, remaining source leaves inject into other target leaves. Injective maps split by whether center is in image. This yields P=F_{m,m+1}+2mt+tF_m+m²t²+m²tF_{m−1}. Idempotents consist of partial identities and fixed-point double fibers, giving E=(1+t)^(m+1)+mt(1+(1+t)^(m−1)). Regularity iff a continuous section exists; each doubled-fiber map has a section, whereas the injective nonregular maps have rank r≥2, image all leaves, and domain containing center, giving N=Σ binom(m,r)binom(m,r−1)r!t^r. The proof counts partial labeled maps for m≥3 (m=1,2 boundary checks), not ordinary homomorphisms. Independent exhaustive definition-level enumeration at m=3: P=(1,28,90,60,6), E=(1,10,12,7,1), nonregular coefficients rank2=18, rank3=18, matching formulas.
 
-## Originality — PASS, with historical limitations
+## originality
 
-The closest sources are Margolis–Rhodes (2021), which introduces inverse-image simplex continuity and the general degree-two transformation framework, and Margolis–Rhodes (2026, arXiv:2609.39370), which supplies the singular/injective decomposition and specifically develops explicit enumerations for paths and cycles. Neither source's inspected statements supply the complete rank, idempotent, and regular/nonregular rank enumerators for branching stars. The 2026 structural decomposition is an essential antecedent, but the case analysis and exact star rank distributions are additional evaluated results. The cases \(m=1\) and \(m=2\) are covered boundary cases and are not advanced as novel.
+PASS
 
-The 2026 source's abstract, introduction, decomposition lemma, and ideal-structure discussion were read directly. Its full enumeration section could not be reopened during comparison, and older 2021 material was only partially accessible. A possibly equivalent unindexed enumeration remains a genuine priority risk. This review establishes no absolute historical uniqueness claim.
+Classical Margolis–Rhodes general fiber structure is prior. An exact star rank/idempotent/nonregular census was not found in consulted results; arXiv 2609.39370 is a particularly plausible near source whose FULL text was not accessible via arXiv/OA, and authorized Oxford was blocked by disconnected VPN. Best knowledge PASS is qualified: access alone does not establish coverage or novelty; pre-publication full-text comparison remains high priority.
 
-## Mathematical value — PASS
+## value
 
-The star is the first branching tree beyond the previously enumerated path and cycle graph families. A full rank census of its semigroup elements gives a natural new infinite family of finite monoid orders, while the independent idempotent census measures a key intrinsic invariant. More significantly, the rank-resolved nonregularity formula identifies one and only one combinatorial obstruction: an injection carrying a center-containing domain to an independent leaf image of size at least two. This yields the entire regular-element distribution, not just a small case count or a renaming of a general theorem.
+PASS
 
-The result does not address arbitrary trees, unlabelled conjugacy orbits, Green's multiplication tables, or Krohn–Rhodes complexity. It does not assert a publication or independently refereed certification.
+Star K_{1,m} is the smallest branching graph family under inverse-image simplex continuity. Full labeled rank, idempotency and regularity polynomials give concrete semigroup invariants beyond generic fiber lemma; regularity has a clean structural obstruction. These are meaningful complete natural classifications, not isolated small instances.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
