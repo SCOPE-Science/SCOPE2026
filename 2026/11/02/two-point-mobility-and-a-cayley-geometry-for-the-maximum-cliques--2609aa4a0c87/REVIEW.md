@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph uses explicit quadratic-residue adjacency on \(\mathbb F_{41}\), and the five-clique search examines every increasing five-set exactly once. Every five-clique is checked for outside common neighbors, proving maximality and excluding six-cliques. The orbit of \(B=\{0,1,2,10,33\}\) under the \(205\)-element affine group is bijective onto all five-cliques, making the two-exchange graph an explicit Cayley graph. The complete group breadth-first search proves the distance-shell and diameter claims; an independently written C++17 exhaustive five-subset and pairwise-intersection verifier agrees. No unbounded inference is made.
+PASS
 
-## Originality — PASS (qualified)
+For residues modulo 41 form Q as all 20 nonzero squares and exhaustively enumerate increasing five-cliques (the source second verifier iterates all C(41,5)=749398 five-subsets). Exactly 205 five-cliques are found, none extendable to six. Independently constructed all 205 five-cliques by growing common neighbor sets and confirmed no six extension. The affine subgroup with multipliers {1,10,16,18,37} maps B={0,1,2,10,33} to 205 distinct cliques, proving regular action. For each pair, no intersection of size 4, and exactly 820 edges at intersection size 3; all degrees 8. The eight displayed affine generators are inverse closed. Independent BFS on the actual exchange adjacency yields (1,8,36,98,62) from B; regular Cayley symmetry yields that shell count from every clique and exact radius/diameter 4. This is a finite complete proof backed by exhaustive enumeration, not a finite sample of an infinite family.
 
-The most relevant predecessor, Ito–Ono–Otachi (arXiv:1412.3976v1), gives one-token clique reconfiguration definitions, equivalences and reachability algorithms, not a simultaneous two-vertex exchange classification on \(P_{41}\). Hoang (arXiv:2604.03567v2) studies which target graphs can be realized by one-token clique reconfiguration and also does not give this classification. The known fact \(\omega(P_{41})=5\) is not credited as novel. Named direct searches and mathematical-record comparisons located no exact or stronger covering result. The possibility of an equivalent unindexed Cayley-graph computation remains a genuine residual risk; publication priority has not been independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The prime-order Paley graph on \(41\) vertices is the smallest one in the standard prime-order sequence \(5,13,17,29,37,41\) with clique number five. The exact contrast between isolated optimal configurations under one replacement and universal accessibility under two replacements is a natural structural reconfiguration question. Identifying the complete state graph as a Cayley graph on \(\mathbb F_{41}\rtimes C_5\), with eight explicit generators and sharp four-step diameter, is a reusable algebraic description rather than an arbitrary count.
+Best-of-knowledge distinct claim after comparison with directly relevant primary sources and published mathematical findings. Prior special cases and baseline formulas are explicitly credited. Complete historical originality is not certified.
 
-## Scope and remaining risks
+## value
 
-This is a complete finite classification, not a theorem for all Paley parameters. Known clique-size tables and related general frameworks may contain implicit partial information; a matching exact two-exchange/Cayley classification was not identified. The 1988 Paley clique-number paper was accessible only through its bibliographic record/abstract during this comparison, so unseen material remains a possibility. The result is reproducible by the two included source programs but has received no independent scholarly audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Paley(41) is the first standard prime-order Paley example with maximum clique size five, so its optimal-clique reconfiguration under a minimal simultaneous exchange is a natural finite graph problem. A sharp local mobility transition from 205 isolated vertices under one exchange to a connected vertex-transitive Cayley geometry under two exchanges, with full metric shells, gives a structural benchmark. Does not falsely claim a general Paley theorem or novelty of clique number five.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
