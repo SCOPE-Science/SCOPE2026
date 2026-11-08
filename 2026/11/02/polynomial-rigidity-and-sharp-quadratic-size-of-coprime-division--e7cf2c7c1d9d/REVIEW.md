@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The necessity argument splits into the prime divisor of the fixed offset and the prime divisor of \(bT(0,b)+1\). The latter works for arbitrary integer-coefficient polynomials because \(Y T(0,Y)+1\) is unbounded if \(T(0,Y)\ne0\). The sufficiency argument gives an explicit nonnegative Bézout witness. The \(X\)-degree lower bound is exact. See `RESULT.md` and `checker.py`.
+## correctness
 
-## Originality
-PASS on inspected evidence. Kato's original Theorem 2 gives the general division-preserving transformation and Corollary 3 its choice \(T=X,s=1\); the present characterization of all fixed-offset polynomial choices and degree optimality is additional. Visser's Section 8.8 concerns logical strength, not polynomial resource bounds. Semantic searches returned unrelated coprime-density findings; older formulations in elementary number theory may have anticipated the criterion. Exact priority needs independent verification.
+PASS
 
-## Value
-PASS. The result answers a natural resource-optimality question prompted by a recent weak-arithmetic proof: whether other polynomial multipliers or nonunit offsets give equally universal coprime lifts, and whether the quadratic divisor growth can be reduced in that template. It provides a sharp classification rather than a numerical instance.
+For s>1 choose a=b=p for any prime p|s, forcing both coordinates divisible by p. For s=1 write S(Y)=T(0,Y). If S is nonzero, bS(b)+1 has unbounded absolute value over positive b, so choose b with a prime divisor p and a=p>=2; modulo p both coordinates vanish. Therefore S=0 and X|T. Conversely for T=XU and all required inputs, positivity implies integer u=U(a,b)>=1. Setting m=abu gives (a^2u)(b^2u)=(m+1)(m-1)+1, an explicit nonnegative witness of gcd 1 (and cop predicate). Nonzero U forces X-degree(XT)>=2, attained T=X. The semiring weak-arithmetic corollary is restricted to nonnegative-coefficient T; the mixed-sign polynomial assertion is only standard integer truth. Independently verified symbolic Bezout identity and modular obstruction examples.
 
-## Limits
-No optimality beyond the fixed-offset common-multiplier polynomial template. Mixed-sign polynomials are treated on standard integers only; the statement formalized in \(\mathrm{PA}^{-}\) uses nonnegative-coefficient semiring terms. Finite computational checks do not establish the universal conclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Kato’s t=x,s=1 instance and general quotient-preservation are known; new claim is full characterization of universally coprime signed-coefficient polynomial multipliers with fixed offset and sharp within-template X-degree.
+
+## value
+
+PASS
+
+The precise size and structure of coprime lifts is motivated by a concrete weak-arithmetic restricted/full division construction. The all-polynomial classification shows that Kato’s quadratic divisor cannot be improved anywhere in the natural fixed-offset common-multiplier polynomial class, identifying a structural necessity beyond the example; its limited domain and elementary character are explicitly acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
