@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The global maximum and its equality normals are established in König--Koldobsky, arXiv:1806.08659, with the three-dimensional result due earlier to Pełczyński. For the side-two cube, the two explicit perimeter branches, corresponding to four and six section edges, reduce near the maximum to the uniform local formula \(P_*-P=2\sqrt2\max(r,q)+O((r+q)^2)\). Both expansions remain uniform at the boundary \(r=q\). The exact normal-coordinate Jacobian equals \(((1+r)^2+1+q^2)^{-3/2}\). Integrating a square of side \(\varepsilon/(2\sqrt2)\) across 48 signed-permutation chambers gives the coefficient \(3\sqrt2/(8\pi)\). The conditional uniform-square law yields equal section-type probabilities and the \(\operatorname{Beta}(2,1)\) shortfall. A standalone verifier independently reconstructs projected polygon edges and runs Haar-orientation simulations; those tests do not substitute for the analysis.
+## correctness
 
-## Originality (PASS relative to identified evidence)
-Lonke (arXiv:math/9812123) obtains expected section-face counts rather than perimeter-conditioned laws. König--Koldobsky (arXiv:1806.08659) proves the extremal perimeter and gives the deterministic orientation formula; the present law is therefore a *derived* probabilistic refinement, not a new maximizing-normal theorem. Inspection of its full relevant three-dimensional argument and targeted full-text term searches showed no Haar probability asymptotic or marked square limit. The published rectangular-box hexagon probability result concerns an unconditional statistic; the orthotope projection-perimeter moment result concerns a different operation. Semantic database and literature searches found no equivalent joint law. Negative search evidence cannot exclude unindexed stereological prior work.
+PASS
 
-## Mathematical value (PASS)
-The singular, non-smooth maximum lies exactly on the transition between quadrilateral and hexagonal sections. The new marked limiting law quantifies the actual frequency of near-maximal sections, resolves the proportion arising on each side of the topology-change seam, and gives the full conditional distribution of local orientation defects. These are natural geometric probability statistics not determined by an unconditional face count or a deterministic maximum alone. A separate previous marked upper-tail computation for cube-section *area* has an unequal limiting type split, whereas the perimeter tail has a one-half split: the two metrics produce demonstrably different conditional shape laws.
+For the side-two cube with U uniform on S², sort a≥b≥c≥0 and normalize (a,b,c)=(1+r,1,q). Independently derived/intersected 500 generic cube-edge hulls: the given quadrilateral perimeter 4[√((1+r)²+1)+√((1+r)²+q²)]/(1+r) (r≥q) and given three-term hexagon formula (r<q) agreed to at most 1.43×10⁻¹⁴; the section has six edges exactly when q>r. In symbolic two-ray expansions r=t,q=st and r=st,q=t for 0≤s≤1, both first derivatives are -2√2; the second coefficients are 2s²+5√2/2 and 3√2s²/2+√2s+2, uniformly bounded, including seam r=q. Hence P*-P=2√2 max(r,q)+O((r+q)²) uniformly at the 12 signed-permutation maximizers. König–Koldobsky supplies the strict global maximum P*=4(1+√2) (rescaled from side one), so compactness forces every sufficiently small deficit there. The ordered sign chamber map u=(1+r,1,q)/√((1+r)²+1+q²) has exact area density ((1+r)²+1+q²)^(-3/2)=1/(2√2)+O(r+q). With h=ε/(2√2), each of 48 chambers contributes h²/(2√2)+O(h³) area, divided by 4π: 3√2/(8π)ε²+O(ε³). The rescaled conditional (r/h,q/h) converges weakly to uniform [0,1]², the seam q=r has null limit, giving P(N=6|event)→1/2 and normalized deficit max(V,W)∼Beta(2,1). Each oriented maximizer gets four identical chambers, so 12 labels are uniform and independent of the marks. Independent midpoint integration over the *exact* perimeter formulas at ε=.12,.06,.03 gave tail-to-leading ratios 1.08955,1.04296,1.02100 and six-edge ratios .49897,.49915,.49932; these are finite corroborations only. The exact 7-blob Git tree was reconstructed as 38d1f66faa71157704f4f95bec95a4f3519dbf14.
 
-## Risks and scope
-The statement is limited to central sections of the fixed three-dimensional Euclidean cube under Haar measure. It relies on the published global-maximization theorem, and its finite verifier checks rather than independently proves analytic uniformity. Historical priority beyond inspected sources remains open; independent validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the sharp maximizing normal and complete pointwise piecewise perimeter formula are previously known in König–Koldobsky (2018/2019; earlier three-dimensional extremal result due to Pełczyński). Lonke (1998/2000) and the published rectangular-box hexagon law provide unconditional face statistics; a published orthotope-projection paper supplies different projection perimeter moments. None of the inspected primary mathematical statements evaluates the joint conditional square-cusp law, its 3√2/(8π) Haar upper-tail constant and 1/2 marked split. This is a specific probabilistic consequence derived using known deterministic formulas, not an independent discovery of those formulas; possible historical coverage by unindexed stochastic-geometry tables is recorded.
+
+## value
+
+PASS
+
+The perimeter maximum lies exactly on the natural transition between four-edge and six-edge central sections, so the leading loss is a nonsmooth two-coordinate ℓ∞ cusp rather than the usual quadratic isolated maximum. The exact rare-event probability, sharp ε² coefficient, full conditional orientation-defect law, shortfall Beta(2,1) and equal polygon-type split quantify a natural geometric statistic that neither the deterministic maximum nor unconditional hexagon probability alone supplies. The marked law is directly useful for near-extremal random-section sampling and comparison of area versus perimeter conditioning. It is a narrow but motivated exact stochastic-geometric boundary invariant, not a claim of a new global cube-section maximum, all-threshold distribution, or high-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
