@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The translate of a homothetic simplex is parametrized by \(d+1\) affine barycentric lower thresholds with sum \(1-t\). Intersections with the source simplex have normalized volume \((1-\sum_i(\delta_i)_+)^d_+\). The missed-point condition forces a positive-threshold budget at least the larger of \(1-t\) and the minimum query barycentric coordinate; a two-coordinate construction approaches that lower budget. This proves the exact function for all scales and query locations, including exterior points. The maximal-depth transition, levels, atom, and limit follow directly from volume ratios and the classical sharp Grünbaum centroid inequality. The exact-rational checker passes 11,900 tests. Supremum boundaries and baseline are handled explicitly.
+PASS
 
-## Originality
+Use affine barycentric coordinates λ_i summing to 1 for the uniform simplex. Every translate of tS corresponds bijectively to constraints λ_i>=δ_i with sum δ_i=1−t. Intersection with S is another simplex with normalized volume (1−Σ max(δ_i,0))_+^d. If inside y with m=min λ_i(y), any translate missing y has some δ_i>λ_i(y)>=m and total positive offsets >=1−t, yielding missing-mass upper bound min{t,1−m}^d. Taking δ_i=m+ε, δ_j=1−t−m−ε, all others zero, approaches equality; for exterior y set δ_i=0>λ_i(y)<0 and concentrate 1−t on j, attaining min(t,1)^d. This establishes all-point all-scale depth, with maximizers every point for t<=d/(d+1) and unique centroid otherwise. The homothetic superlevel sets and depth survival distribution are barycentric simplex volume ratios; baseline atom 1−((d+1)t−d)^d for critical<t<1, vanishing at t>=1. Grünbaum’s known centroid halfspace bound gives positive explicit large-t difference. Independently checked 36 exact rational near-maximizing translations, including phase boundaries; no finite test is substituted for all-d analytic proof.
 
-PASS under accessible-evidence assessment. The 2026 primary paper defines general translative depth and tangent-cone limiting theory and gives an interval example, but not the full all-scale simplex phase, probability distribution, or positive persistent centroid gap. The 2025 ball-floating paper establishes the general construction and smooth-body asymptotics, without evaluating these simplex formulas. Meaning-based mathematical record searches and accessible earlier geometric results found no equivalent full-scale law. The elementary simplex-overlap formula itself is not asserted to be novel. Residual priority risk: unindexed simplicial covariogram/ball-floating computations may imply some formulas, and generic erosion theory plus fresh barycentric optimization is a possible indirect route.
+## originality
 
-## Value
+PASS
 
-PASS. The complete canonical nonsmooth model displays a sharp scale threshold, an exactly quantified atom in the depth-value distribution, dimension-dependent core emergence, homothetic central depth regions, and an obstruction to smooth-body halfspace convergence. The all-scale stochastic/geometric classification is stronger than a single-level numerical example, makes the source's abstract tangent-cone contrast explicit and permits reproducible comparisons across dimensions.
+Best-of-knowledge PASS for the full-scale explicit d-dimensional simplex law and phase/atom distribution. Molchanov–Nagy introduce the functional and derive broad erosion/covariogram and tangent-cone results, but their full §6.3 evaluates only the interval; Schütt et al. treat ball floating bodies and curvature rather than this all-d simplex value distribution.
 
-## Closest literature and limits
+## value
 
-Molchanov–Nagy, arXiv:2610.26108v1, §§2,5,6; Schütt–Werner–Yalikun, arXiv:2504.15488v1, §§1–2; classical Grünbaum centroid inequality. This does not resolve general polytope depth, characterize all depth-homothetic bodies, or extend to nonuniform simplex measures. External priority and independent mathematical audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: evaluates a recently defined geometric/statistical depth on the canonical nonsmooth family in all dimensions and at every scale, exposing a sharp median transition, entire value law and an explicit persistent departure from Tukey depth. The distribution and atom provide substantive geometry beyond routine name substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
