@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Connectedness and full dimension follow from r=n-k-1>=1. With x_0=0, the dual-root lattice becomes Z^(n-1). Range<=m gives (m+1)^n-m^n. If the range exceeds m, its extreme pair is a nonedge and must contain vertex 0. For maximum m+h>m, every core coordinate is an arbitrary element of [h,m], while non-neighbor coordinates are arbitrary elements of [h,m+h] with maximum m+h, giving (m-h+1)^r ((m+1)^k-m^k); conversely these choices obey all edges. Unique h and sign prevent double counting. The quotient-root Euclidean Gram determinant is 1/n; Ehrhart leading terms yield volume (n+2k/(n-k))/sqrt(n). Independently counting missing-match extreme pairs gives its comparator. Binomial expansion and s<=m prove the strict all-dilation bound. 32 independent finite enumeration profiles, 45 exact numerator/leading profiles, 175 finite comparison profiles and six independent hull checks passed. Finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.04933 section 5: polar lattice points correspond to bounded cuts, without an evaluated star-deletion family.",
+        "arXiv:1910.05193 section 4.5 addresses planar bipartite graphs, flows, and polar enumerators.",
+        "arXiv:1807.07678 main formulas evaluate the primal symmetric edge polytope of complete bipartite graphs."
+      ],
+      "reasoning": "Broad frameworks provide definitions or algorithms applicable in principle to many graphs, but no inspected stronger closed statement directly implies the exact star formula and strict comparison without the new extreme-pair enumeration.",
+      "searches": [
+        "Lipschitz polytope glued complete cliques with shared vertex set Ehrhart volume h star polynomial",
+        "\"Ehrhart\" \"polar\" \"symmetric edge polytopes\" graph lattice flows 2023",
+        "\"Lipschitz polytopes\" \"Ehrhart\" graph 2023",
+        "arXiv:1910.05193, sections 3.3 and 4.5",
+        "arXiv:1807.07678, introduction and complete bipartite main theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1807.07678 (2018-07-20)",
+      "arXiv:1910.05193 (2019-10-11)",
+      "arXiv:2307.04933 (2023-07-10)",
+      "Historical matching-deletion enumeration independently reconstructed as the comparator"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 arithmetic study calculates a primal h-star family and facet descriptions, not the polar star-deletion Ehrhart polynomial.",
+        "The 2019 paper connects polar metric objects and graph constructions, but its applicable polar discussion is a general representation rather than this evaluated dense chordal graph family.",
+        "The 2023 paper counts polar points as bounded cuts; it does not count those cuts for the specified clique-amalgam family."
+      ],
+      "reasoning": "Computing the formula requires showing all excursions beyond complete-graph range have an extreme pair among the missing star edges and then counting their interacting leaf configurations. The prior generic cut correspondence leaves this arithmetic unperformed. The comparator formula alone neither implies the new count nor proves strict inequality.",
+      "searches": [
+        "arXiv:1807.07678, sections 1, 3-4",
+        "arXiv:1910.05193, sections 2-4.5",
+        "arXiv:2307.04933, Proposition 5.1",
+        "complete graph with k edges incident to a fixed vertex deleted polar symmetric edge polytope exact Ehrhart polynomial (m+1)^n-m^n star clique sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The polar is a Lipschitz graph polytope, equivalently a bounded integer cut counting problem; arXiv:2307.04933 Proposition 5.1 supplies this bijection.",
+        "arXiv:1910.05193 section 2.3 defines the Lipschitz polar of graph-metric symmetric-edge polytopes.",
+        "The matching-deletion formula concerns disjoint deleted edges, not the overlapping star."
+      ],
+      "reasoning": "Potential-coordinate, bounded-cut, and clique-amalgam formulations were compared. The general correspondences do not themselves evaluate this explicit two-parameter count. Nonmatching deletion configurations are not isomorphic to the matching case for k>=2.",
+      "searches": [
+        "complete graph with k edges incident to a fixed vertex deleted polar symmetric edge polytope exact Ehrhart polynomial (m+1)^n-m^n star clique sum",
+        "Lipschitz polytope glued complete cliques with shared vertex set Ehrhart volume h star polynomial",
+        "\"clique sum\" \"integer Lipschitz\" \"Ehrhart\" graph",
+        "arXiv:2307.04933, Proposition 5.1, (k+1)-cuts",
+        "arXiv:1910.05193, sections 2.3 and 4.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted record and literature searches yielded no exact all-parameter star-deleted complete-graph table or closed Ehrhart formula.",
+        "Published sources inspected describe invariant classes and constructions rather than this table."
+      ],
+      "reasoning": "A finite catalogue or source search cannot prove uniqueness; no complete table for this parameter range was identified, and no table entries are claimed as novel by themselves.",
+      "searches": [
+        "complete graph with k edges incident to a fixed vertex deleted polar symmetric edge polytope exact Ehrhart polynomial (m+1)^n-m^n star clique sum",
+        "\"Ehrhart\" \"star\" \"polar\" \"symmetric edge\"",
+        "\"complete graph\" \"star\" \"Lipschitz polytope\" volume",
+        "\"Ehrhart\" \"almost complete graph\" \"polar\" \"edge\""
+      ]
+    },
+    "rationale": "The compared primary results establish general symmetric-edge and Lipschitz-polar constructions, explicit primary-polytope h-star polynomials for complete bipartite graphs, and a bounded integer cut correspondence for arbitrary regular matroids. Their inspected statements do not evaluate a star of deleted edges in K_n or the resulting strict comparison for all Ehrhart dilations. A previously recorded formula for disjoint missing edges is treated as related and independently derived, not as the finding. No broader searched result was identified as logically implying the evaluated formula. Historical priority is provisional because a graph-height or clique-amalgam enumeration could be equivalent.",
+    "residual_risks": [
+      "An unindexed graph height-function or clique-amalgam Ehrhart enumeration might be equivalent to the formula.",
+      "The full mathematical literature has not been exhaustively searched; the originality judgment is qualified by this limit.",
+      "Broader graph-metric cut-count algorithms can in principle compute the same numbers, although no checked theorem gives this evaluated parameter family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Inspected relevant main theorem is for the primal of complete bipartite graphs, not the star-deleted polar family",
+        "evidence": [
+          "Page 1-2 main theorem states complete-bipartite primal h-star polynomial; no polar/star exact formula in inspected passages."
+        ],
+        "identifier_or_url": "arXiv:1807.07678 https://arxiv.org/pdf/1807.07678",
+        "material_read": "Abstract, introduction, main complete-bipartite h-star theorem, section outline, targeted full-document searches for polar and star",
+        "method": "Primary arXiv PDF opened and inspected in text and page image",
+        "title": "Arithmetic aspects of symmetric edge polytopes",
+        "trigger": "Same symmetric edge polytopes, complete-graph-related Ehrhart computations"
+      },
+      {
+        "assessment": "Establishes connections, facet structures and some polar lattice point correspondences; the inspected material does not evaluate the deleted-star exact Ehrhart function",
+        "evidence": [
+          "Section 2.3 defines LIP(X,d).",
+          "Section 4.5 treats bipartite planar graphs and polar flow enumerators, not the displayed dense chordal formula."
+        ],
+        "identifier_or_url": "arXiv:1910.05193 https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+        "material_read": "Introduction, sections 2.1-2.4, 3.3, 4.5, full-text searches for Ehrhart, polar, star, and selected theorem passages",
+        "method": "Open lawful journal full-text PDF, textual passages and page image",
+        "title": "Many faces of symmetric edge polytopes",
+        "trigger": "Graph Lipschitz polytopes, polar enumerators and graph constructions"
+      },
+      {
+        "assessment": "Proposition 5.1 gives a general bijection to bounded cuts, not an evaluated closed formula or star-versus-matching comparison",
+        "evidence": [
+          "Proposition 5.1 at page 13 gives the bounded-cut bijection.",
+          "Section 5 describes general polarity and facet characterization."
+        ],
+        "identifier_or_url": "arXiv:2307.04933 https://arxiv.org/pdf/2307.04933",
+        "material_read": "Abstract, introduction, section 5 through Proposition 5.1 and its proof, adjacent discussion and targeted full-text search for star",
+        "method": "Primary arXiv full-text PDF text and page image",
+        "title": "On a generalization of symmetric edge polytopes to regular matroids",
+        "trigger": "Broad general bounded-cut formula might dominate a special graph count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "447fec97-b3cf-4573-abec-dd4146fa7f56",
+  "value": {
+    "rationale": "An infinite, naturally defined dense chordal two-clique-gluing graph family has an unknown evaluated polar Ehrhart polynomial; the exact formula is a geometric invariant for every dilation and yields exact Euclidean volume. The missing-star interaction is multiplicative rather than independent additive behavior of deleted matching edges. Strict domination of the matching configuration at every m>=1 and in volume quantifies the role of edge clustering at a fixed deletion budget, a mathematically motivated comparison not deducible from the matching result alone. No universal extremal theorem or unsupported h-star positivity is asserted.",
+    "status": "PASS"
+  }
+}
