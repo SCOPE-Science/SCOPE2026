@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For all finite d>=2, b_i>0 and c,q>0, K is nonsingular and T(q) decomposes into 3x3 modal blocks. The exact determinant is z(z²-(1-c²/q)z+b_i²/q). The extremal product and real polynomial-at-radius inequalities prove c²r²+(B²+beta²)r-B²>=0 for every candidate rate r<1; the positive root gives r_*. At q_*=B²/r_*², root bounds for all intermediate p_i hold and the min mode attains r_*. Equality on both extremal necessary bounds proves uniqueness. Exact-rational test (beta,B,c)=(1,3,4) gives (r_*,q_*)=(1/2,36); packaged check.py passed 9456 supplementary assertions. Nonnormal transients and arbitrary matrices are not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergamaschi–Ferronato–Martínez, arXiv:2505.06043, Section 2.1: a complex eigenvalue disk for a different triangular Schur pattern.",
+        "Pearson–Potschka, 2023/2024, arXiv:2106.12433: symmetric positive definite factored preconditioner with ideal two-valued spectrum.",
+        "N. Wang–J.-C. Li, Journal of Computational and Applied Mathematics 405 (2022), abstract: parameterized SPD three-block preconditioner and approximately optimal parameters."
+      ],
+      "reasoning": "None of the accessible broader statements yields an exact q_* for the displayed nonsymmetric P(q), under Q=qI, by specialization: the block patterns, stationary iteration, and optimization objectives differ. Wang–Li complete text was not inspected, so an old equivalent derivation remains a specific priority risk rather than being claimed impossible.",
+      "searches": [
+        "block triangular double saddle point preconditioned Richardson optimal scalar Schur q spectral radius minimax",
+        "\"inexact Uzawa\" \"optimal\" \"spectral radius\" \"scalar\" parameter",
+        "\"On parameterized block symmetric positive definite preconditioners\" optimal parameters eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.01031",
+      "https://arxiv.org/html/2505.06043",
+      "https://diamhomes.ewi.tudelft.nl/~kvuik/notay_2013.pdf",
+      "https://doi.org/10.1093/imanum/drad046",
+      "https://doi.org/10.1137/130911962",
+      "https://doi.org/10.1016/j.cam.2021.113959",
+      "https://www.mdpi.com/2075-1680/15/3/167"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liang–Huang, arXiv:2609.01031v1, Eqs. (2.1)–(2.4), Section 2 spectral localization and Section 3 Q construction.",
+        "Notay (2013), lecture notes pages 8–15: double-block methods and spectral upper bounds; q optimization not present in the inspected portion.",
+        "Shao–Liu (2026), Axioms 15(3):167, structure with zero middle diagonal and Frobenius-based quasi-optimal INB parameters, not this identity-middle saddle structure."
+      ],
+      "reasoning": "Bounds that contain the spectrum cannot by themselves establish the sharp attained radius or unique minimizer. The proof uses the exact modal characteristic polynomial plus independent extremal constraints from beta and B, and shows simultaneous tightness. The statements of classical 2-block tuning, other 3-block factorized preconditioners, and this theorem are not logically interchangeable.",
+      "searches": [
+        "inexact triangular saddle point preconditioner optimal Schur scaling minimax eigenvalues clustering spectral radius quadratic",
+        "\"A New Analysis of Block Preconditioners for Saddle Point Problems\" preprint pdf open access",
+        "\"On parameterized block symmetric positive definite preconditioners\" optimal parameters eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liang–Huang, arXiv:2609.01031v1, Section 2, Eqs. (2.1)–(2.4), (2.13): a general cubic for a different range of matrix parameters and bounds, not explicit common scalar optimization.",
+        "Notay, 2013 lecture notes, sections 2–4: equivalent 2-block triangular and inexact Uzawa spectra, plus 2-block real/complex bounds."
+      ],
+      "reasoning": "The eigenvalue-radius formulation is equivalent to minimizing the spectral radius of unit-step Richardson with exactly the fixed nonsymmetric block triangular pattern. General Richardson or Uzawa tuning with a real SPD Schur spectrum is not the same implication: the active large modal roots here are complex and the small mode enforces an independent real-root bound.",
+      "searches": [
+        "\"preconditioned Richardson\" \"saddle point\" \"optimal\" \"Schur\" parameter",
+        "\"double saddle point\" \"Richardson\" \"optimal\" preconditioner",
+        "\"triangular preconditioner\" \"spectral radius\" \"minimax\" scalar Schur"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical examples and spectral-bound statements inspected in arXiv:2609.01031v1 do not give the exact (beta,B,c)=(1,3,4), q=36, radius 1/2 law.",
+        "arXiv:2505.06043 provides spectral disk and real-eigenvalue bounds rather than a table of optimal scalar Schur scales for this structure."
+      ],
+      "reasoning": "No checked published table supplies the exact simple modal example or the all-dimensional extremal optimization. A failed textual search cannot exclude an unindexed table, so the result is assessed through full statements and differing hypotheses instead of search absence alone.",
+      "searches": [
+        "\"double saddle point\" \"Richardson\" \"optimal\" preconditioner",
+        "\"inexact triangular saddle point preconditioner optimal Schur scaling minimax eigenvalues clustering spectral radius quadratic",
+        "\"preconditioned Richardson\" \"saddle point\" \"optimal\" \"Schur\" parameter"
+      ]
+    },
+    "rationale": "The inspected source 2609.01031 establishes the upper triangular inexact preconditioner and general spectral bounds, not the exact unique one-parameter minimax rate for the commuting modal subclass. Bergamaschi et al. 2505.06043 analyze a different upper triangular pattern and complex spectral circles, not this optimum. Notay 2013 lectures/2014 article provide two-block spectral comparisons, not a modal three-field minimax formula. The two-mode extremal balance and closed-form scale are not directly implied by the checked statements; historical priority remains qualified.",
+    "residual_risks": [
+      "Unindexed parameter optimization of mathematically equivalent preconditioned Richardson/Uzawa splittings could predate the present proof.",
+      "Wang–Li (2022) full parameterized SPD paper and Notay (2014) full journal article were not available for comprehensive full-text comparison; abstracts and Notay lecture slides were inspected.",
+      "The source spectral-bound literature may contain appendices not fully accessible through the checked HTML snapshots; independent historical priority remains unverified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers source preconditioner and broad eigenvalue bounds, not the exact unit-step Richardson scalar q minimax classification.",
+        "evidence": [
+          "arXiv:2609.01031v1, 2026-09-01, Eqs. (1.1),(2.1)–(2.4),(2.13), Theorem 3.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.01031",
+        "material_read": "Introduction and prototype system (1.1); Section 2 preconditioner (2.1), spectral eigen-equations (2.2)–(2.4), parameter cubic and spectral bounds; Section 3 randomized Q analysis and error proof portions.",
+        "method": "Primary arXiv HTML full-text sections; inspected equations and mathematical claims.",
+        "title": "Randomized inexact block triangular preconditioners for double saddle-point systems in PDE-constrained optimization",
+        "trigger": "Same coefficient-matrix block pattern and Q Schur approximation"
+      },
+      {
+        "assessment": "Proves qualitative complex-eigenvalue disks for a different preconditioner; not equivalent to exact two-endpoint minimax q.",
+        "evidence": [
+          "arXiv:2505.06043, Section 2.1, Theorem 1, Eqs. (2),(4),(10)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.06043",
+        "material_read": "Introduction, exact three-field model (1), preconditioner (2), transformed eigenproblem (4), complex eigenvalue Theorem 1 and accompanying proof.",
+        "method": "Primary arXiv HTML scientific equations and relevant Section 2.1.",
+        "title": "Triangular preconditioners for double saddle point linear systems arising in the mixed form of poroelasticity equations",
+        "trigger": "Closest earlier double-saddle triangular preconditioner with nonreal spectral circles"
+      },
+      {
+        "assessment": "The available presentation treats a 2x2 block structure and broad spectral localization; does not show the exact scalar minimax for current 3-field modal family.",
+        "evidence": [
+          "Notay slides (2013) Sections 2–4, pp. 8–15; SIAM J. Matrix Anal. Appl. 35 (2014) 143–173."
+        ],
+        "identifier_or_url": "https://diamhomes.ewi.tudelft.nl/~kvuik/notay_2013.pdf",
+        "material_read": "2013 lecture slides covering 2-block saddle systems, taxonomy, block-triangular and Uzawa equivalence, spectral bounds and stationary iteration radius bounds, with visual inspection of title and relevant formula slides.",
+        "method": "Lawfully posted lecture PDF, text and page-image screenshots; journal article full text not inspected.",
+        "title": "A New Analysis of Block Preconditioners for Saddle Point Problems",
+        "trigger": "Potential classical stronger coverage by eigenvalue analysis and inexact Uzawa equivalences"
+      },
+      {
+        "assessment": "SPD factorization / MINRES not the nonsymmetric scalar triangular preconditioned Richardson minimax.",
+        "evidence": [
+          "Pearson–Potschka, IMA J. Numer. Anal. 44, Section 2, Theorem 2.1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imanum/drad046",
+        "material_read": "Open-access journal text surfaced Sections 1–2 and conclusion, including factorized SPD P and ideal two-valued spectrum.",
+        "method": "Publisher open HTML scientific text and statements.",
+        "title": "On symmetric positive definite preconditioners for multiple saddle-point systems",
+        "trigger": "General three-block saddle preconditioner and ideal eigenvalue clustering"
+      },
+      {
+        "assessment": "Its zero-middle-diagonal three-block system and INB class differ from present identity-middle block and scalar triangular P.",
+        "evidence": [
+          "Shao–Liu, Axioms 15 (2026) 167, Eqs. (1) and conclusion."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2075-1680/15/3/167",
+        "material_read": "Abstract, displayed coefficient structure, description of Frobenius-norm quasi-optimal tuning and conclusion.",
+        "method": "Open journal HTML relevant sections.",
+        "title": "Improved New Block Preconditioner for Solving 3 × 3 Block Saddle Point Problems",
+        "trigger": "Recent parameter-tuned three-block stationary iteration"
+      },
+      {
+        "assessment": "Structurally different SPD preconditioner; potential priority risk from inaccessible full text remains.",
+        "evidence": [
+          "N. Wang–J.-C. Li, Journal of Computational and Applied Mathematics 405 (2022), article 113959, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2021.113959",
+        "material_read": "Bibliographic metadata and abstract, including SPD class, at-most-four eigenvalues, and approximately optimal parameter choices; full text not available in checked sources.",
+        "method": "Abstract-only comparison, explicitly limited.",
+        "title": "On parameterized block symmetric positive definite preconditioners for a class of block three-by-three saddle point problems",
+        "trigger": "Older parameter optimization potentially subsuming toy model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cdc3a708-185a-4868-a7fe-a60acbc4bb64",
+  "value": {
+    "rationale": "A scalar Schur approximation Q=qI is a concrete low-cost restriction in preconditioning. Minimizing the exact asymptotic spectral radius of the resulting stationary iteration is mathematically intrinsic and needs nontrivial balancing of distinct modal roots, not a single well-conditioned scalar-mode check. The complete all-dimensional formula and unique optimum produce a sharp two-endpoint design rule and a rational benchmark where q=36 improves the factor from 3/5 at q=25 to 1/2. No claim about GMRES rates or finite-step transients is made.",
+    "status": "PASS"
+  }
+}
