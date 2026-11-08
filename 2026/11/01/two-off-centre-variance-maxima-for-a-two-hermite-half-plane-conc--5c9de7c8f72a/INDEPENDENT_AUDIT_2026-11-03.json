@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:06:17.452403Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed Gaussian tail compression A(t) from normalized h0 and h1 and diagonalized it. The exact trace defect is V=2Q(1-Q)+tϕ(1-2Q)-(1+t²)ϕ² with ϕ=e^-t²/sqrtπ. Differentiation gives V'=ϕ[4t(1+t²)ϕ-(1+2t²)erf(t)]. For t>0 the sign is that of R(t)-L(t), L=erf(t)/(2tϕ(t))=∫_0^1 exp(t²(1-u²))du strictly increasing from 1 to infinity, R=2(1+t²)/(1+2t²) strictly decreasing from 2 to 1. Hence exactly one positive root τ, and parity gives exactly stationary set {0,+τ,-τ}; V(0)=1/2-1/π, V''(0)=2/π positive, ±τ unique global maxima with tail limits zero. Independent symbolic expansion gave V=1/2−1/π+t²/π−4t⁴/(3π)+26t⁶/(45π)+O(t^8), numerical τ≈0.748111391996, Vmax≈0.257120277198. The polyanalytic Toeplitz identification follows by substitution in prior Hermite horizontal-Fourier fiber formula; it claims only fiber trace, not a global trace.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 Proposition 10.4 provides the general finite Hermite fiber integral but not maximum/uniqueness of its variance function.",
+          "2018 paper supplies step-symbol matrices but no inspected two-peak extremum analysis."
+        ],
+        "reasoning": "General expression plus straightforward differentiation is an input, not an already evaluated nontrivial global uniqueness theorem.",
+        "searches": [
+          "Lee Guzman Maximenko Ramos Vazquez Sanchez Nungaray arxiv 2309.03410 full text",
+          "Sánchez Nungaray Toeplitz operators horizontal symbols poly Fock spaces 2018",
+          "two level GUE number variance maximum threshold"
+        ]
+      },
+      "checked_sources": [
+        "Lee-Guzmán et al arxiv:2309.03410 primary PDF Proposition 10.4",
+        "2018 Toeplitz horizontal-symbol bibliographic material",
+        "Resultary 2026 centered half-line Hermite gap full RESULT.md",
+        "Independent Gaussian integral/tail derivatives and sympy Taylor series",
+        "Resultary and web GUE count variance aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact A(t) is derivable from prior Gaussian Hermite integral representations.",
+          "The strict single-crossing comparison L(t) increasing vs R(t) decreasing is a further global analytic claim that does not follow simply from the centered gap theorem."
+        ],
+        "reasoning": "The new theorem credits familiar matrix formulas and proves only the extra global extrema/uniqueness; standard determinant algebra alone does not establish the claimed classification.",
+        "searches": [
+          "arxiv:2309.03410 Proposition 10.4",
+          "Resultary 2026 half-line Hermite gaps full RESULT.md",
+          "GUE number fluctuation variance halfline"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Toeplitz compression is the two-particle GUE number-counting determinant kernel; variance equals tr(A(I−A)).",
+          "Published half-line spectral-gaps result fixes threshold at zero, while proposed theorem optimizes over all shifts."
+        ],
+        "reasoning": "Compared operator fibers, finite determinantal point-process counting variances, and shifted half-line spectral concentration.",
+        "searches": [
+          "two Hermite half-line concentration variance two peaks off-center full two-particle GUE number variance threshold",
+          "arxiv:2309.03410 Proposition 10.4 Hermite fiber",
+          "Resultary half-line Hermite spectral gaps arbitrary-mask 5e08b6020a88"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read full Resultary RESULT.md: centered-half-line arbitrary-mask product and Barnes constant have no t-dependent maximum.",
+          "No searched numerical table was demonstrated to contain τ with its global sign-change proof."
+        ],
+        "reasoning": "Even a matching decimal without global optimizer theorem would not imply this quantified all-t statement; historical table risk remains.",
+        "searches": [
+          "Resultary half-line Hermite spectral gaps arbitrary masks at t zero 5e08b6020a88",
+          "2 GUE number variance maxima tau 0.748111391996",
+          "Hermite half line 2 particle variance maximum table"
+        ]
+      },
+      "rationale": "2018 horizontal-symbol poly-Fock Toeplitz representation and Lee-Guzmán et al Proposition 10.4 already give the Hermite integral matrix generality; their existing operator representation is not new. A distinct Resultary half-line Hermite spectral-gaps result at exactly t=0 gives midpoint parity and gamma/Barnes products, not the shifted t variable or two-peak variance extremum; this conclusion was drawn from its complete RESULT.md rather than snippets. Plausible earlier two-particle GUE counting-variance optimization under random-matrix vocabulary is a specifically retained priority risk.",
+      "residual_risks": [
+        "Random-matrix finite-GUE threshold-counting variance may contain the same global two-peak result under different terminology.",
+        "2018 poly-Fock paper full text not independently inspected during this run; existing step-symbol matrix representation is prior, not claimed new.",
+        "Numerical τ and Vmax are approximate values of rigorously defined unique analytic quantities, not certified decimal intervals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "provides general fiber formula, not the off-centre variance maximum",
+          "evidence": "Proposition 10.4 is the source for the rescaling t=ξ/sqrt2; no novelty claimed for it.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.03410",
+          "material_read": "Read primary PDF Proposition 10.4 and neighboring formula and operator-representation sections, verified with page screenshots",
+          "method": "Web PDF text and screenshots",
+          "title": "Horizontal Fourier transform of the polyanalytic Fock kernel",
+          "trigger": "Exactly matching order-two Hermite fiber transformation"
+        },
+        {
+          "assessment": "unresolved coverage outside accessible portions",
+          "evidence": "Known representation credited; full text absence remains priority risk.",
+          "identifier_or_url": "https://doi.org/10.1155/2018/8031259",
+          "material_read": "Accessible abstract and references to Section 4 formula (53); full 2018 article not independently inspected here",
+          "method": "Bibliographic text and cited primary descriptions",
+          "title": "Toeplitz Operators with Horizontal Symbols Acting on the Poly-Fock Spaces",
+          "trigger": "Earlier step-symbol representation"
+        },
+        {
+          "assessment": "not covering t-variable extremum",
+          "evidence": "Explicitly fixes half-line at (0,infinity); no shifted threshold theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88",
+          "material_read": "Read entire public RESULT.md with hypotheses, proof, limitations and references",
+          "method": "GitHub pinned file content through connected repo",
+          "title": "Half-line Hermite spectral gaps: arbitrary-mask Cauchy formula and a Barnes limit",
+          "trigger": "Highly relevant same Hermite compression"
+        },
+        {
+          "assessment": "residual risk; not a whole-literature noncoverage conclusion",
+          "evidence": "Two-particle variance is natural alias, and earlier implicit equivalent may exist.",
+          "identifier_or_url": "two-particle GUE/Hermite determinantal projection literature (search queries cited)",
+          "material_read": "Search results only, no primary theorem identified with exact threshold",
+          "method": "Keyword web and Resultary search",
+          "title": "GUE counting variance for two-particle threshold",
+          "trigger": "Possible equivalent random-matrix formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines an exact global, nonobvious symmetry-breaking maximizer of fermionic number variance in the first nontrivial Hermite fiber. The analytic monotone-ratio argument proves uniqueness for every threshold and distinguishes order-two behavior from the analytic order-one central maximum, making the result useful beyond an easily computed matrix entry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lee-Guzmán et al arxiv:2309.03410 primary PDF Proposition 10.4",
+    "2018 Toeplitz horizontal-symbol bibliographic material",
+    "Resultary 2026 centered half-line Hermite gap full RESULT.md",
+    "Independent Gaussian integral/tail derivatives and sympy Taylor series",
+    "Resultary and web GUE count variance aliases"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Random-matrix finite-GUE threshold-counting variance may contain the same global two-peak result under different terminology.",
+    "2018 poly-Fock paper full text not independently inspected during this run; existing step-symbol matrix representation is prior, not claimed new.",
+    "Numerical τ and Vmax are approximate values of rigorously defined unique analytic quantities, not certified decimal intervals."
+  ],
+  "schema_version": 1
+}

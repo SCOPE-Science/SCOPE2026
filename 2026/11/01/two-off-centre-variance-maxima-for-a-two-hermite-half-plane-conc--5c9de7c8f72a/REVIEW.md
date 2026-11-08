@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conclusion concerns the full real threshold line for the rank-two Gram compression of the first two normalized Hermite functions. The Gaussian antiderivative identities determine all matrix entries and the two eigenvalues. Strict positivity of both half-line energies for each nonzero Hermite combination proves the contraction bounds. The trace defect differentiates exactly to
-\[
- V'(t)=\varphi(t)\bigl(4t(1+t^2)\varphi(t)-(1+2t^2)\operatorname{erf}(t)\bigr).
-\]
-For positive \(t\), its sign is determined by the comparison of \(\int_0^1e^{t^2(1-u^2)}du\), strictly increasing from 1 to infinity, against \(2(1+t^2)/(1+2t^2)\), strictly decreasing from 2 to 1. This proves exactly one positive stationary point and correct sign transitions. Reflection symmetry and the exact quadratic Taylor term at zero give the full global classification. The published fiber-reduction formula supplies the link to the polyanalytic Toeplitz operator. The packaged standalone checker passed 527 numerical assertions from independent Gaussian-tail quadrature; numeric tests are corroborative, not proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The 2018 paper by Sánchez-Nungaray et al. establishes the horizontal-symbol polyanalytic Fock Toeplitz matrix representation; notably Section 4, expression (53), already treats threshold symbols. The 2023 preprint by Lee-Guzmán et al., Proposition 10.4, supplies the exact general Hermite integral formula. Neither the known spectral reduction nor elementary matrix diagonalization is claimed as new. The additional result is the sharp global **two-off-centre-maxima** law for the finite-fiber projection defect, including complete uniqueness of the positive critical threshold and a strict central minimum. The inspected main sections of both primary sources, and a later 2025 paper on related poly-Fock operator algebras, do not state the special-function extremum law. The closest explicitly checked published mathematical result on Hermite half-line concentration concerns **a centered threshold** and parity-restricted gap products, not optimization over moving thresholds. Searches in both Toeplitz/Fock and two-particle Gaussian-unitary-ensemble terminology did not reveal this exact maximum classification. These comparisons support an originality assessment without eliminating the possibility of an equivalent previously published random-matrix statement.
+PASS
 
-## Mathematical value — PASS
-The statistic \(\operatorname{tr}(A(I-A))\) measures spectral projection defect and, under the associated finite-rank Hermite determinantal model, particle-number variance. Its extremizing threshold is a naturally posed exact invariant, rather than an arbitrary fixed-parameter sample. The complete global classification reveals an unexpected two-lobed profile already at the first nonanalytic polyanalytic order; in the one-level analytic analogue, the defect has only one central maximum. The increasing-integral versus decreasing-rational proof makes the transition robust and self-contained. The new information is not a routine reformulation of the general matrix-valued operator-algebra theorem, which does not analyze this extremal phenomenon.
+Recomputed Gaussian tail compression A(t) from normalized h0 and h1 and diagonalized it. The exact trace defect is V=2Q(1-Q)+tϕ(1-2Q)-(1+t²)ϕ² with ϕ=e^-t²/sqrtπ. Differentiation gives V'=ϕ[4t(1+t²)ϕ-(1+2t²)erf(t)]. For t>0 the sign is that of R(t)-L(t), L=erf(t)/(2tϕ(t))=∫_0^1 exp(t²(1-u²))du strictly increasing from 1 to infinity, R=2(1+t²)/(1+2t²) strictly decreasing from 2 to 1. Hence exactly one positive root τ, and parity gives exactly stationary set {0,+τ,-τ}; V(0)=1/2-1/π, V''(0)=2/π positive, ±τ unique global maxima with tail limits zero. Independent symbolic expansion gave V=1/2−1/π+t²/π−4t⁴/(3π)+26t⁶/(45π)+O(t^8), numerical τ≈0.748111391996, Vmax≈0.257120277198. The polyanalytic Toeplitz identification follows by substitution in prior Hermite horizontal-Fourier fiber formula; it claims only fiber trace, not a global trace.
 
-## Comparison limitations
-The link to the infinite-dimensional Toeplitz operator uses an existing unitary decomposition; the trace is only of an individual two-dimensional fiber. No statement is made for order three and above, alternative domains or strips, other Hermite masks, or a global trace. The literature may encode the same maximum as the variance of the number of eigenvalues above a threshold in a two-particle Gaussian unitary ensemble. Any such historical equivalence needs further expert bibliographic assessment. Reported decimal values are numerical evaluations, not interval certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+2018 horizontal-symbol poly-Fock Toeplitz representation and Lee-Guzmán et al Proposition 10.4 already give the Hermite integral matrix generality; their existing operator representation is not new. A distinct Resultary half-line Hermite spectral-gaps result at exactly t=0 gives midpoint parity and gamma/Barnes products, not the shifted t variable or two-peak variance extremum; this conclusion was drawn from its complete RESULT.md rather than snippets. Plausible earlier two-particle GUE counting-variance optimization under random-matrix vocabulary is a specifically retained priority risk.
+
+## value
+
+PASS
+
+Determines an exact global, nonobvious symmetry-breaking maximizer of fermionic number variance in the first nontrivial Hermite fiber. The analytic monotone-ratio argument proves uniqueness for every threshold and distinguishes order-two behavior from the analytic order-one central maximum, making the result useful beyond an easily computed matrix entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
