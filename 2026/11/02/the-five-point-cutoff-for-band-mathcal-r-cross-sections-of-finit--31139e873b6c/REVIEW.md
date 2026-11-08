@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In an idempotent \(\mathcal R\)-cross-section, all representatives fix the selected constant's value. Adjacent merge idempotents cannot point in the same direction, and the forced alternating pattern contradicts idempotence on a four-point interval more than two steps from that fixed point. The construction on permissible roots is a direct product of monoids with at most four elements. Separate finite checks enumerate all products and kernels, with exhaustive independent selection of all potential idempotent representatives through chain size four.
+## correctness
 
-## Originality
-**PASS relative to inspected literature, with priority caveat.** Bondar's 2022 full-text classification of all \(\mathcal R\)-cross-sections by decreasing binary trees is strictly broader in ambient scope. Its stated results and inspected relevant sections do not provide the band-only cutoff, complete count or product decomposition. The new theorem gives a nontrivial local deduction rather than claiming novelty for the general classification. The same work's 2025 journal version was identified, but the complete journal text was not independently read. The 2003 full-transformation cross-section classification does not directly settle this order-preserving band condition. A previously unnoticed consequence or separately published specialization remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The existence of a band skeleton inside an \(\mathcal R\)-cross-section is a natural strengthening of the Green-theoretic selection problem. The theorem explains a sharp cutoff at five points, gives the complete number of such sections for every chain, and classifies the surviving band structures. The four-point obstruction makes the infinite nonexistence phenomenon structural rather than a small-case census.
+Under right-action multiplication of order-preserving total self-maps on [n], Green R-kernels are exactly consecutive-interval partitions. The one constant c_r in a cross-section forces r fixed by every selected map. Each band idempotent adjacent collapse e_i chooses one endpoint; two consecutive equal-direction collapses produce a length-two transient orbit under a product and hence are forbidden, so directions alternate. If r has ≥3 points to one side, the forced distal e and idempotent triple-block collapse h produce a nonidempotent product, so r−1≤2 and n−r≤2. This proves nonexistence for n≥6 structurally. For every allowed root the stated per-block endpoint map is idempotent, order-preserving, kernel-distinct and closed; direct-product bands Q_{r−1}×Q_{n−r} give count 2,3,2,1 for n=2,3,4,5 and uniqueness. Independently enumerated all candidate band R-sections through n4 and checked canonical closure through n5. No non-band or other transformation monoids claimed.
 
-## Scope and limitations
-Maps act on the right, and Green \(\mathcal R\) is equivalence of kernels in this convention. Band need not be commutative. The statement counts actual sections. The verifier is exhaustive in its stated finite ranges and does not prove unbounded nonexistence, which follows from the argument. Publication-priority comparison is bounded by inspected texts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Bondar Lemma 4.7 already has shared fixed point and Theorem 4.14 classifies ALL Green R cross-sections of this monoid via decreasing trees. Inspected statements do not explicitly derive band-only local obstruction, n=5 cutoff, label count and product types; later complete journal revision might nevertheless implicitly cover it.
+
+## value
+
+PASS
+
+All-idempotent Green R-sections are a natural and restrictive algebraic skeleton of the general order-preserving transformation selection problem. The exact all-n existence threshold, root-count classification and small product band types are a structural nonexistence theorem with intrinsic motivation, not a sampled finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
