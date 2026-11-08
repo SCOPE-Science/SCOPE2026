@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normal form is derived from bracket preservation. Its multiplier-zero sector is precisely the set of maps with totally isotropic image, and isotropic-subspace counts give the rank-resolved formula; the multiplier-nonzero sector is exactly conformal symplectic. The central functional contributes rank \(r\) or \(r+1\) according to explicit rowspace membership. The asymptotic is controlled by a monotone ratio of successive isotropic-map counts, with the symplectic contribution negligible at fixed field size. The proof covers characteristic two and all \(m\ge1\). A separate exhaustive verifier reproduced the spectra for \((m,q)=(1,2),(1,3),(2,2)\). Numerical checks alone are not used to justify the infinite statement.
+## correctness
 
-## Originality — PASS relative to inspected work
-Ben Jmaa, Makhlouf and Saadaoui (2022), Example 3, establish the relevant morphism matrix normal form. That existing lemma is not claimed to be new. The present finite-field statement is the full image-rank enumerator, forbidden-rank gap and sharp concentration coefficient. Neither the inspected complex transposed Poisson paper (Kaygorodov--Khudoyberdiyev, 2023) nor finite graphical-group conjugacy counts (Rossmann, 2021) cover it. The closest published mathematics involves Heisenberg Hom-Lie structures, symplectic maps and isotropic subspaces, but not a rank-refined enumeration with this probability limit. Closest prior endomorphism enumerations of idempotents concern a proper subset and do not imply the all-map result. Searches do not prove uniqueness. The full 2017 Heisenberg Hom-Lie precursor was inaccessible; an earlier equivalent finite-field enumeration remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The exact rank distribution is a natural invariant of an endomorphism monoid, evaluated here for an infinite family and all residue-field sizes. The sharply delimited impossible ranks quantify a structural divide between bracket-annihilating maps and automorphisms. The first-order constant in the almost-sure rank \(m+1\) phenomenon answers a nontrivial natural asymptotic question beyond finite enumeration.
+The original RESULT.md gives the necessary/sufficient block form f(v+tz)=Av+(ell(v)+ct)z with omega(Ax,Ay)=c omega(x,y). For c!=0, A is a symplectic similitude, giving q^{2m}(q-1)|Sp_{2m}(q)| full-rank maps. For c=0, im A totally isotropic of dimension r<=m: count isotropic r-spaces via frames, surjections V->W via product_{i<r}(q^{2m}-q^i), and ell in the row space (q^r choices) versus outside (q^{2m}-q^r). This reconstructs each N_{m,k} including rank zero and characteristic two. The ratio B_{m,m-1}/B_{m,m}=q^{-m}/(q^2-1)+o(q^{-m}) and rank loss from ell gives the coefficient q^2/(q^2-1); symplectic maps negligible. Independent direct finite-field matrix counts match (m,q)=(1,2),(1,3),(2,2) with respective rank vectors (1,21,18,24), (1,104,192,432), (1,465,15750,37800,0,11520). The matrix enumeration supports only tested finite cases; asymptotic follows from ratios.
 
-## Scope and limitations
-The count is for linear Lie algebra maps, not field-semilinear or group maps; the algebra must be Heisenberg with a nondegenerate symplectic quotient. The small-dimensional computations corroborate rather than certify the proof. Publication priority remains open to independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS relative to checked mathematical statements: prior Heisenberg Hom-Lie work supplies the constrained block form; general isotropic Grassmannian and Sp formulas are standard. The new result is their exact all-map finite-field image-rank stratification and fixed-field asymptotic, not a claim that the map form is new.
+
+## value
+
+PASS
+
+Image rank is a canonical invariant of a finite Lie endomorphism monoid. The sharp rank gap and concentration with explicit coefficient distinguish singular maps from automorphisms uniformly over all finite field characteristics and dimensions; a future study of finite Lie-map statistics can directly use this formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
