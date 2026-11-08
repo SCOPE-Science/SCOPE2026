@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3's standard library. It prints the exact rational Gegenbauer values and each spectral branch for degrees zero through twelve, then terminates with `E7_ROOT_HARMONIC_CERTIFICATE_OK`. The verifier constructs all 126 integer root vectors, selects all 63 antipodal lines, checks the full \(8\times8\) tight-frame identity, all 3969 entries of each matrix polynomial identity, exact low-degree ranks and the complete finite positivity range needed before the analytic tail begins. It also rechecks the two rational integral moment inequalities that bound the infinite tail.
+## correctness
 
-The checker is an executable, exhaustive finite calculation on a specified configuration. The analytic integral representation and monotonic bounds, explained in `RESULT.md`, are required to extrapolate from finitely many checked degrees to all degrees; the checker is not a substitute for that reasoning. The sources and remaining possible historical equivalences are listed in the scientific result and review. No independent mathematical validation has been performed.
+PASS
+
+From explicit 126 E7 roots in R8 hyperplane, antipodal 63 pair representatives; exact signed B=2R R^T-2I has B^2=14B+32I and eigen 16^7,-2^56, and unsigned A=abs(B) has A^2=16I+16J, A1=32, eigen 32^1,4^27,-4^35. Inserting Gegenbauer P_k gives all listed eigenlevels. Exact beta integral bounds U4=1437/32768<1/16, U6=304825/16777216, V6=33/4096 and 32U6+30V6<1 prove strict positivity in the infinite tail after low-degree exceptions. Independent integer matrix identities 63x63 and exact 30-degree Gegenbauer recurrence passed. Finite checks do not substitute for moment decay proof.
+
+## originality
+
+PASS
+
+Qualified PASS for complete all-degree *degree-specific* Gram spectra, exactly five exceptional ranks, and sharp interpolation cutoff on normalized 126-root E7 configuration. General root association schemes and graphs specify the finite adjacency eigenvalues, while Delsarte–Goethals–Seidel give the addition-kernel framework; sources inspected do not directly state the all-k positive Fourier/Gegenbauer tail and exact two-degree surjectivity. Classical graph-scheme spectral tables might imply a portion mechanically, so novel scope is limited.
+
+## value
+
+PASS
+
+The first universally full-rank exact degree and complete spectral profiles are natural invariants for spherical harmonic interpolation on an exceptional root design. The all-degree positivity and sharp consecutive-degree threshold are nontrivial structural facts beyond finite graph eigenvalues or low-design strength.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

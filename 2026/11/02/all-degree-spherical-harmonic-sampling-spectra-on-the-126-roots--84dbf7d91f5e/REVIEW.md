@@ -1,19 +1,21 @@
-# Scientific review: all-degree root-harmonic sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the exact \(126\)-point Gram spectrum for every nonnegative harmonic degree, its rank classification, and the first surjective consecutive two-degree interpolation. The proof normalizes the addition kernel by \(h_k\) and explicitly identifies the antipodal nullspace. Two integer identities for 63-by-63 signed/unsigned angle matrices give all eigenvalue multiplicities; the exhaustive integer verification covers the fully specified finite root system, not an extrapolation from a truncated sample. A rational Gegenbauer recurrence handles degrees through ten; an integral representation and sharp rational moment bounds establish strict positivity at **every** subsequent degree. The final rank and consecutive-degree claims follow from orthogonal antipodal parity. `verify.py` regenerates and checks the critical finite identities and arithmetic exactly.
+## correctness
 
-Risk: there is no formal proof assistant certificate or independent mathematical audit. The universal step relies on the stated Gegenbauer integral representation, its beta moments, and the inequalities reproduced in the proof; finite checking alone would not establish the all-degree statement.
+PASS
 
-## Originality — PASS under bounded literature review
-Delsarte–Goethals–Seidel supplies the classical reproducing-kernel/association-scheme principles. Bussemaker–Cvetković–Seidel supplies earlier graph-root-system geometry, including related switching/eigenvalue methods. Bannai–Okuda–Tagami and Zhu–Bannai–Bannai–Kim–Yu examine harmonic-index designs and moment-vanishing questions, not a full rank spectrum of point evaluation on the 126 \(E_7\) roots. Specifically, the general addition formula does not by itself imply the uniform strictly positive high-degree bounds, and the related harmonic-index design claims only assert vanishing of selected moments, not surjectivity of the evaluation map or rank in every degree. Previous exact-degree spectral formulas on the different 240-root \(E_8\) and classical type-\(D\) configurations are not a theorem about 126 \(E_7\) roots; their angle multiplicities, dimensions and normalization differ. Neither the checked published research records nor the inspected primary treatments supplied the combined \(E_7\)-specific all-degree spectrum and sharp consecutive-degree cutoff.
+From explicit 126 E7 roots in R8 hyperplane, antipodal 63 pair representatives; exact signed B=2R R^T-2I has B^2=14B+32I and eigen 16^7,-2^56, and unsigned A=abs(B) has A^2=16I+16J, A1=32, eigen 32^1,4^27,-4^35. Inserting Gegenbauer P_k gives all listed eigenlevels. Exact beta integral bounds U4=1437/32768<1/16, U6=304825/16777216, V6=33/4096 and 32U6+30V6<1 prove strict positivity in the infinite tail after low-degree exceptions. Independent integer matrix identities 63x63 and exact 30-degree Gegenbauer recurrence passed. Finite checks do not substitute for moment decay proof.
 
-Residual risk: established association-scheme primitive idempotents might encode equivalent low-degree spectra, and a less discoverable older exceptional-root harmonic decomposition could subsume more of the classification. Bounded searches do not prove global novelty. The public work credits all general methods and historical geometry.
+## originality
 
-## Mathematical value — PASS
-There is a natural evaluation problem on the exceptional 126-root design: which exact harmonic degrees produce all data compatible with antipodal symmetry, and when do two adjacent degrees interpolate arbitrary data? The answer identifies a sharp finite cutoff with nontrivial intermediate deficiencies (especially the one-dimensional missing direction at degrees four and five). The theorem also supplies every singular-value level and multiplicity for **all degrees**, not merely a finite-rank experiment. The analytic tail argument proves that no later exceptional rank drops occur. The interpolation criterion can guide exact-degree spectral fitting on the exceptional configuration without introducing artificial parameters or a preselected narrow slice.
+PASS
 
-## Closest references and scientific limits
-Delsarte–Goethals–Seidel (1977) establishes the addition-kernel and spherical-design framework; Bussemaker–Cvetković–Seidel (1976) treats exceptional-root graph structures. Bannai–Okuda–Tagami (arXiv:1308.5101) treats harmonic-index designs and reproducing kernels; Zhu and collaborators (arXiv:1507.05373) treats general harmonic-index-design classifications and vanishing moments. The direct implication comparisons are described above. Applications to arbitrary subsets, optimal stability, and general low-pass spaces are not proved. Priority beyond these bounded checks is unverified.
+Qualified PASS for complete all-degree *degree-specific* Gram spectra, exactly five exceptional ranks, and sharp interpolation cutoff on normalized 126-root E7 configuration. General root association schemes and graphs specify the finite adjacency eigenvalues, while Delsarte–Goethals–Seidel give the addition-kernel framework; sources inspected do not directly state the all-k positive Fourier/Gegenbauer tail and exact two-degree surjectivity. Classical graph-scheme spectral tables might imply a portion mechanically, so novel scope is limited.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first universally full-rank exact degree and complete spectral profiles are natural invariants for spherical harmonic interpolation on an exceptional root design. The all-degree positivity and sharp consecutive-degree threshold are nontrivial structural facts beyond finite graph eigenvalues or low-design strength.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
