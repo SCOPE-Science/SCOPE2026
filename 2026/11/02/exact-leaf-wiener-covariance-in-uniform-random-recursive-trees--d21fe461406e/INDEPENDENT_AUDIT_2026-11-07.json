@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:45:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-leaf-wiener-covariance-in-uniform-random-recursive-trees--d21fe461406e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-leaf-wiener-covariance-in-uniform-random-recursive-trees--d21fe461406e/verify_leaf_wiener.py",
+        "independent_checks.py; independent_checks_output.txt; tree_check_output.txt"
+      ],
+      "rationale": "For recursive trees grown by independent uniform parents and n>=2, let L=leaf count and W=unordered-pair distance sum, A=sum of distance centralities of leaves. For a fixed size-m tree, adding a child at uniform parent P gives L’=L+1-J and W’=W+m+S(P), J=1_{P leaf}. The leaf-centrality update yields E(W_(m+1)-A_(m+1)|T_m)=W_m-A_m-(1-1/m)L_m. With E L_m=m/2 this telescopes to E(W_m-A_m)=-(m-1)(m-2)/4. Total covariance of L’,W’ gives C_(m+1)=(m+1)C_m/m-(m-1)(m-2)/(4m), C2=0; summing yields C_n=nH_n-(n²+5n-2)/4, 0 at n2/3 and strictly negative n>=4. Independently enumerated all recursive parent lists for n2..8 (5040 trees at n8) and computed W by BFS pair distances, confirming mean identity and exact covariance. The optional scaled-correlation constant follows from established Neininger 2002 Wiener variance (31-3π²)n^4/18 and Var L=n/12. Finite enumeration corroborates, the recurrence proves all n.",
+      "residual_risks": [
+        "Finite tests cannot prove all-parameter claim; proof reconstruction establishes stated scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General recursive-tree moment analyses and Wiener-index variances are prior art; the specific auxiliary A_m leaf centrality does not occur in Neininger’s full 11 pages (no leaf/endpoint mentions)."
+        ],
+        "reasoning": "A general recursion framework can be applied but its prior stated theorems do not directly provide the leaf-Wiener mixed statistic; the present exact conditional update is an additional calculation.",
+        "searches": [
+          "Neininger 2002 full paper pp587-597",
+          "Resultary: recursive random tree leaf count Wiener index covariance mixed moment",
+          "https://arxiv.org/abs/1406.7614"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: recursive random tree leaf count Wiener index covariance mixed moment",
+        "https://doi.org/10.1017/S0963548302005321",
+        "https://arxiv.org/abs/1406.7614"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known E W=n(n+1)H_n-2n² and Var W∼(31-3π²)n⁴/18 are inputs; current proof derives E(W-A) and C recurrence independently."
+        ],
+        "reasoning": "Marginal formulas and W–root-path-length covariances do not imply W–leaves covariance. The new exact cross-moment is nontrivial and requires tracking the leaf-centrality auxiliary.",
+        "searches": [
+          "Neininger 2002 Theorem 1.2 published mean and variance of W, covariance W/P",
+          "Resultary: recursive random tree leaf count Wiener index covariance mixed moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.2 gives joint Wiener W and root path length P; Resultary root-degree/leaves and root-attachment/path length are different pairs of observables."
+        ],
+        "reasoning": "Neither path length nor root degree is an affine function of the leaf count; the exact C_n is not a renaming of the published Cov(W,P).",
+        "searches": [
+          "Resultary: recursive random tree leaf count Wiener index covariance mixed moment",
+          "Neininger 2002 DOI:10.1017/S0963548302005321 Theorem 1.2",
+          "Resultary exact covariance root degree and leaves"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published n H_n terms occur in mean Wiener index, but the leaf covariance adds -(n²+5n-2)/4 and has zero n2/3."
+        ],
+        "reasoning": "No equivalent labelled recursive-tree covariance table was found in bounded search; the exact pair statistic is not determined by two separate marginal means/variances.",
+        "searches": [
+          "web: \"n H_n\" \"leaf\" \"Wiener\" \"covariance\" recursive",
+          "Resultary: recursive random tree leaf count Wiener index covariance mixed moment",
+          "Neininger paper 2002 Theorem 1.2 formulas"
+        ]
+      },
+      "rationale": "Neininger 2002 Theorem 1.2 treats the Wiener index jointly with INTERNAL PATH LENGTH, not leaf count; its full 11-page source was read through authorized institutional access. Grübel–Michailow 2014 treats Wiener asymptotics via boundary theory, not this mixed leaf centrality. The exact mixed covariance is not present in those examined claims.",
+      "residual_risks": [
+        "Some older unindexed recursive-tree mixed-moment formula may implicitly provide this covariance.",
+        "Exactly uniform recursive trees; does not cover preferential attachment, other weightings, or full joint law.",
+        "The optional correlation constant uses a published Wiener variance rather than independently re-proving that asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem treats (W, internal path length P); not leaf count; verifies exact variance used for correlation",
+          "evidence": [
+            "Theorem 1.2 Var(W)∼(31−3π²)n^4/18, Cov(W,P)∼(21−2π²)n³/12; leaf count not a studied joint coordinate."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548302005321",
+          "material_read": "All eleven pages, especially Theorem 1.2 pp 589–590, recursive-tree moment derivation pp 594–596, discussion and references",
+          "method": "authorized Oxford full 11-page extracted paper read in two source-scoped calls after open-access and arXiv attempts failed",
+          "title": "The Wiener Index of Random Trees",
+          "trigger": "Direct same model and Wiener index; could contain mixed covariance"
+        },
+        {
+          "assessment": "Related Wiener strong limits, but cannot assert whole-paper absence of mixed leaf count result",
+          "evidence": [
+            "Published abstract names path length and Wiener index; no exact leaf covariance is given in abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.7614",
+          "material_read": "Abstract and indexed theorem summary, not full proof",
+          "method": "open arXiv metadata/abstract",
+          "title": "Random Recursive Trees: A Boundary Theory Approach",
+          "trigger": "Second relevant primary paper on recursive-tree Wiener functionals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-leaf-wiener-covariance-in-uniform-random-recursive-trees--d21fe461406e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-leaf-wiener-covariance-in-uniform-random-recursive-trees--d21fe461406e/verify_leaf_wiener.py",
+        "independent_checks.py; independent_checks_output.txt; tree_check_output.txt"
+      ],
+      "rationale": "Leaf number and Wiener distance are two canonical structural statistics of a uniform recursive tree. Their exact mixed covariance and strict negative sign for all n>=4 are a natural previously undetermined dependency law; its -n²/4 scale differs from vanishing correlation and requires a leaf-centrality auxiliary observable.",
+      "residual_risks": [
+        "Value assessment is for the specific proved structural/natural exact invariant, not broader unproved generalizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Some older unindexed recursive-tree mixed-moment formula may implicitly provide this covariance.",
+    "Exactly uniform recursive trees; does not cover preferential attachment, other weightings, or full joint law.",
+    "The optional correlation constant uses a published Wiener variance rather than independently re-proving that asymptotic.",
+    "Original source unchanged and publication not authorized before privacy scrub."
+  ],
+  "schema_version": 1
+}
