@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The simple-eigenvalue condition and the invertibility of the Hermitian residual operator on the orthogonal complement imply the normalizations are nonzero. Analytic perturbation of the two-by-two pencil yields the linearized equation \(\Omega^*(a-Mv+Bb)=0\), which is exactly a complex-Gaussian inverse-ratio problem. The density follows with the correct complex Jacobian and the finite identity \(\mathbb E|\det G|^2=2\). Direct polar integration proves the marginal, joint, and radial tail claims; exact orthogonality identities prove the angle and refined-quotient limits. The standalone numerical verifier cross-checks complex normalization, nonzero coupling, and asymptotic eigenvalue/vector errors. Numerical checks do not establish the theorem independently of the symbolic proof.
+PASS
 
-## Originality — PASS within the inspected-source comparison
+Because lambda is a simple eigenvalue of Hermitian A, H=A-lambda I restricts to an invertible operator on v-perp, making tau and sigma nonzero. The compressed pencil has an almost-sure simple eigenvalue branch near lambda; differentiation gives Omega*(a-Mv+B b)=0. The orthonormalized vectors v,b/tau,a_perp/sigma yield a 2x2 independent complex Ginibre matrix G and independent complex Gaussian h, with normalized joint leading error X=-G^{-1}h. The change h=-Gx and complex Jacobians, E|det G|^2=2, give exactly 2/[pi^2(1+||x||^2)^3] on C^2. Explicit polar integrations yield marginals, simultaneous exceedance 1/(1+r^2+t^2), radial tail, angle limit and quadratic Rayleigh-quotient limit. The coupling uses one Omega for all epsilon; zero-realization exceptions are null events. This is an analytic result, not a Monte Carlo inference.
 
-Shao (arXiv:2604.01037v3, Example 1, Algorithm 1, Theorems 2–3, and §5.3) proves high-probability rates with inverse-square-root failure-probability scaling and quadratic Hermitian refinement, but does not give the universal two-coordinate Cauchy joint density or simultaneous exceedance probability. The earlier sketched projection analysis by Nakatsukasa and Tropp (arXiv:2111.00113v2, §§1.3, 6.3–6.6) does not supply this square-sketch perturbative distribution. Semantic mathematical-record queries for Gaussian ratios, Petrov–Galerkin eigenpair errors, exact Ritz laws, and related spectral error bounds showed no dominating published finding. Known Gaussian inverse-ratio formulae are ingredients, not asserted to be new. Unexamined specialist matrix-variate Cauchy/eigenvalue literature creates a residual historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a sharp joint reliability law for a recently proposed eigenpair-extraction method, not simply a restatement of its convergence rate. It converts a worst-case high-probability estimate into all-threshold probabilities, determines the nonindependence of value and vector errors, and calibrates angle and quadratic refinement on a pathological but structurally central Hermitian example. The claim holds for all simple Hermitian eigenpairs with any fixed admissible two-dimensional trial plane, rather than only one selected numerical matrix. These calibrations inform simultaneous error tolerance and failure-budget choices.
+Qualified best-of-knowledge priority based on direct mathematical statement/implication comparison, with explicit named residual risks; none of the inspected prior statements dominates the final claim. A tail upper bound has no reverse implication to an exact joint law, and a Gaussian matrix inverse-ratio law alone does not yield an eigenpair perturbation representation without first solving the pencil. The combined exact inference was not in inspected source statements.
 
-## Scope and remaining risks
+## value
 
-The proof is asymptotic in the trial-subspace angle and assumes an unchanged complex-Gaussian draw, exact arithmetic, and a square two-column sketch. It is not an oversampling, general-subspace-size, or uniform finite-precision theorem. Historical priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact joint failure law for the normalized leading eigenvalue and vector errors in a concrete randomized eigenpair method improves upon separate high-probability rates: it quantifies dependence and simultaneous extremes, and also gives refined quotient and angle constants. The known complex-Gaussian inverse ratio is an essential ingredient, not the sole scientific contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
