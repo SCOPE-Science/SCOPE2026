@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The all-positive trace and transitivity force each triple to contribute at most two support edges; supports of size ≥2m-1 have a forced-negative contradiction. The explicit m-1 path-plus-reserve construction realizes all labels on 2m-2 edges. A complete depth-2m decision tree is impossible because 2m-1 successive positive branching edges determine a unique partition. A separate m-2 path plus two one-edge units support has at least two realizing partitions for every label, yielding a depth-(2m-1) tree. Every case including m=1 and r=1/r=2 derangements is handled. CHECK.py exhaustively corroborates n=3,6,9 static ranks and n=6,9 online ranks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1905.11902, Theorem 6, supplies upper bound n-1 for all partitions; numerically this is 3m-1, strictly weaker than 2m-2 for m≥2.",
+        "arXiv:2112.07897, Theorem 1.2, gives a different query complexity (k-1)n - binomial(k,2) with unknown partition into k parts; no bound on mistakes for uniform triple hypotheses.",
+        "arXiv:2109.04805 concerns linear dependence of d functions over a field; hypotheses are zero sets, not equivalence classes."
+      ],
+      "reasoning": "A theorem about a superclass supplies no sharp equality for a restricted subclass. Worst-case number of membership queries to identify a partition is different from Littlestone dimension (optimal worst-case online mistakes), and neither cited identification bound implies this formula.",
+      "searches": [
+        "VC dimension Littlestone dimension equivalence relations set partitions into exactly k blocks pair equality queries forest shattering",
+        "online mistake bound learning k-cluster partition pairwise same-cluster query Littlestone",
+        "\"VC dimension\" \"partitions into triples\" equality query",
+        "arxiv:1905.11902",
+        "arxiv:2112.07897",
+        "VCdim 2m-2 Littlestone 2m-1 partitions of 3m items into triples pair co-membership",
+        "uniform perfect three matchings pair equality VC Ldim gap",
+        "same cluster query uniform triple partition strongly shattered two realizations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1905.11902 full accessible HTML, Section 5 and related text",
+      "PMLR 178 Liu–Mukherjee 2022 PDF, Section 1–2 and page 3 screenshot",
+      "arxiv:2109.04805 abstract",
+      "PMLR 178 Del Pia–Ma–Tzamos 2022 abstract",
+      "Exact mathematical-concept semantic searches for uniform triple partitions and adaptive dimensions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Present theorem fixes all m parts of size three, with VC 2m-2 and Littlestone 2m-1 for m≥2, established by a two-witness support.",
+        "Bressan et al. Theorem 6 describes the unrestricted class of all set partitions, VC n-1; no Ldim claim.",
+        "Liu–Mukherjee Theorem 1.2 concerns exact hidden-partition recovery by pair membership and unrestricted component sizes; no VC/Ldim calculation.",
+        "Guingona et al. linear zero-set class has equality of its dimensions under field-linear hypotheses."
+      ],
+      "reasoning": "The unrestricted-VC result is an upper bound on our subclass but too weak, and has no adaptive statement. Identifiability query counts do not determine the balanced concept-class Littlestone dimension. Linear zero-set hypotheses cannot be inferred from uniform partitions. No implication establishes the present sharp constant gap.",
+      "searches": [
+        "arxiv:1905.11902",
+        "arxiv:2112.07897",
+        "arxiv:2109.04805",
+        "minimum VC dimension Littlestone dimension of pairwise membership concepts for partitions into triples, uniform equivalence relations block size 3",
+        "static adaptive learning gap for set partitions uniform 3-element blocks VC Littlestone 2m-2 2m-1",
+        "VCdim 2m-2 Littlestone 2m-1 partitions of 3m items into triples pair co-membership",
+        "uniform perfect three matchings pair equality VC Ldim gap",
+        "same cluster query uniform triple partition strongly shattered two realizations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.11902 §5 Theorem 6: all partitions on n vertices have VC dimension n-1; their forest witness allows arbitrary block size.",
+        "arxiv:2112.07897 §1–2: asks pair co-component membership but optimizes identifying an entire unknown partition, rather than binary mistake trees."
+      ],
+      "reasoning": "Pair equality query is the same observation type, but fixing EVERY block to size 3 changes the hypothesis set. Relabeling the blocks or complementing pair equality does not map either unrestricted partitions or a 3+6 bipartition to m uniform triples; their dimensions do not imply 2m-2/2m-1.",
+      "searches": [
+        "minimum VC dimension Littlestone dimension of pairwise membership concepts for partitions into triples, uniform equivalence relations block size 3",
+        "shattering support for perfect 3-matchings triple systems same block membership query",
+        "equivalence relations 3 uniform classes pair equality online dimension",
+        "\"VC dimension\" \"partitions into triples\" equality query",
+        "\"Littlestone\" \"uniform partition\" \"clusters\" pair queries",
+        "arxiv:1905.11902",
+        "VCdim 2m-2 Littlestone 2m-1 partitions of 3m items into triples pair co-membership",
+        "uniform perfect three matchings pair equality VC Ldim gap",
+        "same cluster query uniform triple partition strongly shattered two realizations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research index searches over pair-equality, uniform triples, perfect 3-matchings and online/VC dimension returned no high-relevance matching claim among inspected results.",
+        "Direct web searches for the exact formulas, alternate phrasing and block-size-three equivalence relations did not expose a table of these dimensions."
+      ],
+      "reasoning": "Neither the inspected accessible prior claims nor returned index summaries state the exact dimension pair or a stronger uniform-triple classification. This is bounded negative evidence, not a database uniqueness guarantee.",
+      "searches": [
+        "VC dimension Littlestone dimension equivalence relations set partitions into exactly k blocks pair equality queries forest shattering",
+        "VC shattered supports partial equivalence relations partition into k classes graph forest chromatic",
+        "online mistake bound learning k-cluster partition pairwise same-cluster query Littlestone",
+        "minimum VC dimension Littlestone dimension of pairwise membership concepts for partitions into triples, uniform equivalence relations block size 3",
+        "shattering support for perfect 3-matchings triple systems same block membership query",
+        "static adaptive learning gap for set partitions uniform 3-element blocks VC Littlestone 2m-2 2m-1",
+        "equivalence relations 3 uniform classes pair equality online dimension",
+        "VCdim 2m-2 Littlestone 2m-1 partitions of 3m items into triples pair co-membership",
+        "uniform perfect three matchings pair equality VC Ldim gap",
+        "same cluster query uniform triple partition strongly shattered two realizations"
+      ]
+    },
+    "rationale": "Bressan et al. (arXiv:1905.11902), Theorem 6, prove VC dimension n-1 for ALL set partitions, not partitions with every block of size 3 and not the sharp online dimension 2m-1. Liu–Mukherjee (arXiv:2112.07897) prove an identification-query bound for partitions into k components, with arbitrary component sizes. Guingona et al. (arXiv:2109.04805) prove VC/Littlestone equality for linear zero sets, not this concept class. No stronger implication covering the present all-order uniform-triple exact gap was found. Searches are not proof of global priority; alternate terminology is residual risk.",
+    "residual_risks": [
+      "An earlier result under the name uniform equivalence relations, triple factors, or three-uniform set partitions might be undiscovered; negative searches do not certify priority.",
+      "Full text of Guingona et al. and semi-random-noise clustering paper was not examined, although their stated theorem models differ.",
+      "Independent mathematical audit is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: uses all partitions, proves VC n-1, no uniform size-three class or online dimension",
+        "evidence": [
+          "Section 5 Theorem 6 explicitly states all partitions on n vertices have VC dimension n-1 and proves forest lower bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.11902",
+        "material_read": "Full HTML text, especially Section 5 Theorem 6 and proof; searched for triple, shatter, VC dimension",
+        "method": "Open and text search of public full-text HTML",
+        "title": "Correlation Clustering with Adaptive Similarity Queries",
+        "trigger": "Exact same pair-query incidence class for unrestricted partitions"
+      },
+      {
+        "assessment": "NOT_COVERING on inspected sections: measures number of queries to identify any k-part partition, not shattering or online mistake dimension of triples",
+        "evidence": [
+          "Theorems 1.2 and 1.3 count required exact-identification membership queries for k-component partitions; Remark 1.4 compares known vs unknown k."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v178/liu22a/liu22a.pdf",
+        "material_read": "PDF front matter and Sections 1–2, particularly Theorems 1.2 and 1.3, plus document searches for VC/Littlestone/uniform",
+        "method": "Open PDF text and visually inspect page 3 (zero-index page 2); term searches across PDF",
+        "title": "Tight query complexity bounds for learning graph partitions",
+        "trigger": "Same-component pair membership query and block count"
+      },
+      {
+        "assessment": "Structural model inapplicable: linearly independent functions and zero sets, not partitions",
+        "evidence": [
+          "Abstract specifies zero sets of nontrivial linear combinations of d functions over a field and dimension d-1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Public title, abstract and theorem-level statement in search record",
+        "method": "Abstract and high-level theorem-scope comparison; full text not inspected",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Potential stronger online dimension theorem of general form"
+      },
+      {
+        "assessment": "Not decisive on exact invariants; noisy same-cluster query bounds address distinct statistical recovery task",
+        "evidence": [
+          "Abstract studies semi-random noise and O(nk log n/(1-2p)^2) cluster recovery."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v178/pia22a.html",
+        "material_read": "Public abstract and bibliographic statement",
+        "method": "Primary publication landing-page abstract",
+        "title": "Clustering with Queries under Semi-Random Noise",
+        "trigger": "Pair queries for hidden partitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "165fac9e-b392-45a5-889f-b1d054402f0f",
+  "value": {
+    "rationale": "The all-order exact strict gap is a natural invariant of balanced three-way cluster membership constraints. Unlike the unrestricted equivalence-relation concept class, limiting block sizes creates a persistent adaptive advantage; the strong-trace two-witness construction explains it and is reusable. The theorem is a motivated infinite family, not a special small enumeration or a cosmetic rephrasing of ordinary forests. Scope excludes other block sizes and noisy/reconstruction-query models.",
+    "status": "PASS"
+  }
+}
