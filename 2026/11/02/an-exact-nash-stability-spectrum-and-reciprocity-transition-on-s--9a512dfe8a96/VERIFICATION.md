@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.9 or later and only the standard library. The program enumerates all signed hub–leaf valuation profiles for zero through five leaves, and independently tests every coalition partition under direct strict unilateral Nash deviations. It compares the observed Nash partition count with the independent labeled-block recurrence, and the observed existence with the derived exact criterion. In one full run: 1,365 profiles, 222,233 profile/partition comparisons, all assertions passed.
+## correctness
 
-The supplementary exact-rational checks independently weight all profiles for one through six leaves at reciprocity values \(0,1/4,1/2,3/4,1\). They compare the exact probabilities at zero and full reciprocity, plus the complete critical even/odd parity law, for 30 parameter pairs. All assertions passed.
+PASS
 
-The deterministic proof covers all finite signed stars, and the stochastic proof separately invokes concentration, the triangular-array central limit theorem, sign-reversal symmetry, and Vandermonde's identity. The finite enumeration is not an exhaustive verification for arbitrarily many leaves; the code cannot independently establish the limiting probability law or publication priority. No independent audit has been performed.
+Each positive leaf (a_i=+1) strictly improves by joining the hub unless already present; each negative leaf (a_i=-1) strictly improves by leaving the hub if included. The hub coalition therefore consists precisely of the positive leaves, with utility U=sum_{a=+1}b_i. Remaining outsider blocks B of negative leaves are Nash-safe exactly when U>=0 and sum_{i∈B}b_i<=U; existence iff U>0 or (U=0 and R=sum_{a=-1}b_i<=0). The admissible outsider block exponential formula counts all such unlabeled partitions. In the independent correlated-sign model E[b 1_{a=+1}]=rho-1/2 and variance=1/2-(rho-1/2)^2; Hoeffding controls off-critical mistakes and a triangular CLT yields P_n(1/2+c/sqrt(n))->Phi(sqrt(2)c). At rho=1/2 sign reversal gives P=1/2+1/2 Pr(U=R=0), with parity and Vandermonde giving exact even correction 1/2*binom(n,n/2)^2/4^n. Independent enumeration of all 4^n signed profiles and original Nash inequalities over unlabeled partitions for n=1..4 confirmed existence criterion and exact critical counts 2/4,10/16,32/64,146/256. Proof valid for all n>=1 (not relying on exhaustive small cases).
+
+## originality
+
+PASS
+
+Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.
+
+## value
+
+PASS
+
+Complete existence and equilibrium-count spectrum for an economically meaningful, sparse signed star with strict unilateral deviations, together with a sharp reciprocity/noise threshold and Gaussian critical window including exact finite-n parity. Provides a solvable baseline beyond either generic hardness or symmetric-valuation existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:07:27.710176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each positive leaf (a_i=+1) strictly improves by joining the hub unless already present; each negative leaf (a_i=-1) strictly improves by leaving the hub if included. The hub coalition therefore consists precisely of the positive leaves, with utility U=sum_{a=+1}b_i. Remaining outsider blocks B of negative leaves are Nash-safe exactly when U>=0 and sum_{i∈B}b_i<=U; existence iff U>0 or (U=0 and R=sum_{a=-1}b_i<=0). The admissible outsider block exponential formula counts all such unlabeled partitions. In the independent correlated-sign model E[b 1_{a=+1}]=rho-1/2 and variance=1/2-(rho-1/2)^2; Hoeffding controls off-critical mistakes and a triangular CLT yields P_n(1/2+c/sqrt(n))->Phi(sqrt(2)c). At rho=1/2 sign reversal gives P=1/2+1/2 Pr(U=R=0), with parity and Vandermonde giving exact even correction 1/2*binom(n,n/2)^2/4^n. Independent enumeration of all 4^n signed profiles and original Nash inequalities over unlabeled partitions for n=1..4 confirmed existence criterion and exact critical counts 2/4,10/16,32/64,146/256. Proof valid for all n>=1 (not relying on exhaustive small cases).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Star Nash-stability is NP-hard with unrestricted integer valuations per Hanaka–Lampis; hardness does not imply enumeration for directed ±1 stars.",
+          "Dense random games with independent pairs differ from independent-edge star reciprocal correlations."
+        ],
+        "reasoning": "No inspected broader statement determines the signed-star equilibrium set, restricted Bell partition counts, or critical reciprocity probability as an immediate corollary.",
+        "searches": [
+          "Hanaka–Lampis arXiv:2202.06925 Theorem 9",
+          "Brandt–Bullinger–Tappe DOI:10.1609/aaai.v36i5.20415",
+          "Bullinger–Kraiczy arXiv:2406.01373"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2202.06925 (Full primary PDF available; Theorem 9 and surrounding star-graph reduction examined, including screenshot of theorem page)",
+        "https://arxiv.org/abs/2406.01373 (Primary arXiv abstract and model definitions as retrieved; not a full-text review)",
+        "https://doi.org/10.1609/aaai.v36i5.20415 (Published primary abstract and result overview, not a complete article reading)",
+        "Resultary semantic: additively separable hedonic games star signed unit valuations Nash stable partitions random reciprocity threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior star hardness uses large weights; prior random stability uses dense interaction; graph-restricted communication requires connected coalitions."
+        ],
+        "reasoning": "The new ±1 directed star characterization and rho=1/2 Gaussian crossover are not logical corollaries of those theorems. Basic Hoeffding/CLT/partition exponential formula inputs are standard, not claimed as inventions.",
+        "searches": [
+          "Hanaka–Lampis Theorem 9",
+          "Bullinger–Kraiczy arXiv:2406.01373",
+          "Igarashi–Elkind AAMAS 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Directed weighted-star Nash stability is the same general model studied by Hanaka–Lampis; restriction to ±1 creates a genuinely different tractable subclass.",
+          "Connected-coalition graph-restricted hedonic games impose a different feasible-partition domain."
+        ],
+        "reasoning": "Reinterpretations as set partition blocks are equivalent representations of the source model; existence for symmetric valuations (rho=1) is only one covered subcase of the claimed correlated random transition.",
+        "searches": [
+          "Resultary semantic: additively separable hedonic games star signed unit valuations Nash stable partitions random reciprocity threshold",
+          "Hanaka–Lampis arXiv:2202.06925"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved mathematical records concern other simple games and preference allocation; no same signed-star F_U(r,s) table or phase law identified."
+        ],
+        "reasoning": "A generic Bell-number table is not an enumeration of constrained signed blocks; still, lack of a database match alone is weak novelty evidence.",
+        "searches": [
+          "Resultary semantic: additively separable hedonic games star signed unit valuations Nash stable partitions random reciprocity threshold",
+          "Hanaka–Lampis arXiv:2202.06925 Theorem 9"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.",
+      "residual_risks": [
+        "Possible specialized sign-restricted star counting result outside surveyed literature.",
+        "Only directed ±1 signed stars and unconditional Nash deviations without member consent; critical-window model requires independent leaf types."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NP-hardness in large-weight star model is compatible; no surveyed ±1 probability spectrum in inspected theorem",
+          "evidence": "Theorem 9 Nash-stability star hardness",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.06925",
+          "material_read": "Full primary PDF available; Theorem 9 and surrounding star-graph reduction examined, including screenshot of theorem page",
+          "method": "Compared integer-weight hardness construction and exact ±1 directed restriction",
+          "title": "Hedonic Games and Treewidth Revisited",
+          "trigger": "Strong hardness on star interaction graphs with Nash stability"
+        },
+        {
+          "assessment": "Different distribution; no whole-document negative coverage inference",
+          "evidence": "Model assumes many independently sampled pairwise valuations",
+          "identifier_or_url": "https://arxiv.org/abs/2406.01373",
+          "material_read": "Primary arXiv abstract and model definitions as retrieved; not a full-text review",
+          "method": "Compared dense random interaction to sparse star correlated reciprocal edge signs",
+          "title": "Stability in Random Hedonic Games",
+          "trigger": "Potential dominating random stability asymptotics"
+        },
+        {
+          "assessment": "No implication for exact F_U(r,s) established from accessible material",
+          "evidence": "AAAI 2022 single-agent stability/dynamics framework",
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v36i5.20415",
+          "material_read": "Published primary abstract and result overview, not a complete article reading",
+          "method": "Compared dynamics and general graph classes to signed-star equilibrium counting",
+          "title": "Single-Agent Dynamics in Additively Separable Hedonic Games",
+          "trigger": "Comparable restricted Nash stability in additively separable games"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete existence and equilibrium-count spectrum for an economically meaningful, sparse signed star with strict unilateral deviations, together with a sharp reciprocity/noise threshold and Gaussian critical window including exact finite-n parity. Provides a solvable baseline beyond either generic hardness or symmetric-valuation existence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2202.06925 (Full primary PDF available; Theorem 9 and surrounding star-graph reduction examined, including screenshot of theorem page)",
+    "https://arxiv.org/abs/2406.01373 (Primary arXiv abstract and model definitions as retrieved; not a full-text review)",
+    "https://doi.org/10.1609/aaai.v36i5.20415 (Published primary abstract and result overview, not a complete article reading)",
+    "Resultary semantic: additively separable hedonic games star signed unit valuations Nash stable partitions random reciprocity threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Possible specialized sign-restricted star counting result outside surveyed literature.",
+    "Only directed ±1 signed stars and unconditional Nash deviations without member consent; critical-window model requires independent leaf types.",
+    "All source-tree and RESULT/verifier Git identities checked; finite checks do not substitute for all-size mathematical proof.",
+    "Publication withheld: original public-bound METADATA.json and AUDIT.json contain private scope_run_id; no sanitized replacement bytes staged."
+  ],
+  "schema_version": 1
+}
