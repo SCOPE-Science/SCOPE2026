@@ -1,19 +1,21 @@
-# Scientific review: exact random central sections of the truncated tetrahedron
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns Haar-uniform **unoriented central planes** of the explicitly specified twelve-vertex truncated tetrahedron. The analytic proof reconstructs the eighteen-edge graph from four triangular and four hexagonal facets, counts only edges with opposite endpoint signs, and uses the full tetrahedral symmetry group to restrict normals to a fundamental chamber of area \(\pi/12\). Four of the twelve vertex-zero hyperplanes cut that chamber into six rational polygons, each with a verified constant section side count. The standard exact spherical triangle formula gives the three probabilities. The independently derived mean \(18\arccos(7/11)/\pi\) agrees to numerical precision. `verify.py` was run from the present package: exact integer and rational assertions passed, spherical areas normalized, and a separately sampled finite test was consistent. The proof, not numerical sampling, covers the infinite continuum of orientations. Generic-position restrictions are measure zero.
+PASS
 
-## Originality — PASS, with priority uncertainty
+The four regular tetrahedron vectors yield twelve vertices w_ij with norm² 11 and exactly eighteen edges of squared length eight, from four triangle and four hexagon facets. Section vertices correspond to edges with endpoints on opposite sides of an unoriented generic central plane. In fundamental normal chamber (1,y,z), 0<z<y<1, of area π/12, exactly four vertex-sign hyperplanes cut six rational convex polygon cells with side counts 4,5,6,4,5,6. Since each sign pattern is constant on its cell, the six-cell census proves the distribution for all generic orientations. Independent 12-vertex/18-edge reconstruction, direct crossing tests at interior rational points, seven solid-angle evaluations and normalizations reproduce the three displayed probabilities. Separately, each of the 18 equal edges has endpoint angular separation arccos(7/11), so linearity gives E[N]=18 arccos(7/11)/π, matching the distributional mean. The exact finite chamber proof, not Monte Carlo, is the infinite-orientation justification.
 
-The March 26, 2026 source by Brandenburg, De Loera, Luo, and Meroni gives general slice formulas and a detailed study of cube-like polyhedral norm balls. Birkemeyer, Brose, Brandenburg, and Prün (September 14, 2026) study combinatorial reconstruction from section data, including the vertex-count function of central sections. Brandenburg, De Loera, and Meroni (2023 preprint) establish the polyhedral slicing chamber framework. These results supply prior ingredients and general methods, but the inspected relevant full texts do **not** present evaluated four-/five-/six-sided uniform-orientation probabilities for the regular truncated tetrahedron. Published exact random central-section laws for regular icosahedra, cubes, and rectangular boxes involve different solids, and the accessible summaries do not imply this distribution. Own accessible mathematical claim records were compared, including a regular **truncated octahedron** result; the latter is not the truncated tetrahedron and has a different distribution. Database coverage cannot prove uniqueness, and a historical stereological calculation might duplicate the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete exact polygon-type law for a natural, asymmetric Archimedean polyhedron is a geometric invariant not determined by its face vector or its symmetry group alone. The computation resolves an explicitly motivated missing benchmark: nonzero probabilities for four, five, and six section sides, with pentagons accounting for over half of all orientations. The six rational spherical cells also provide a compact reproducible model of the general section-chamber decomposition. The independently evaluated mean supplies a structural consistency check. This is a natural finite classification; no broad conjecture or downstream theorem is claimed.
+A full evaluated polygon-type Haar law for the asymmetric regular truncated tetrahedron remains distinct from the general slicing chamber algorithms, general reconstruction theorems, and known evaluated laws for different solids. The individual spherical-angle identity and mean-separation formula are classical. This comparison is a bounded, best-of-knowledge originality judgment.
 
-## Limits and risk
+## value
 
-Only central sections of the fixed regular truncated tetrahedron are covered. The method does not calculate conditional areas, off-center sections, or analogous laws for other solids. Numerical checks do not prove exhaustiveness; the explicit rational-cell proof does. An older equivalent result could occur under different stereological terminology, so historical priority is provisional. No independent expert audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete Haar-uniform central-section polygon-side distribution of a canonical non-centrally-symmetric Archimedean solid is a natural exact invariant. Unlike a static 18-edge graph count, six rational orientation chambers and their spherical solid angles are needed. The independent exact mean identity supplies a reproducible benchmark. This is a mathematically motivated finite classification; a general slicing theorem or paper-sized extension is not required for its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
