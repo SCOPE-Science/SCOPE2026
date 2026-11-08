@@ -1,15 +1,21 @@
-# Review of all-optimal-chain rigidity on complete split graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. A two-dimensional quotient-mode Rayleigh bound and a trace-compression bound on the independent-set zero-sum subspace give a matching universal lower envelope for the mixing objective. Equality on a positive-semidefinite spectral envelope forces all cross-edge probabilities to coincide, *without* assuming invariant edge weights. With cross weights fixed, the remaining eigenvalues reduce exactly to the nonzero-index Laplacian spectrum of the independently weighted clique, yielding necessary and sufficient interval and degree conditions. Boundary \(q=2p\), positive-clique-connectivity \(p>q\), and a nonuniform clique example were checked. The exact-rational program checks 70 small parameter pairs and 1,575 additional asymmetrically weighted feasible cases; the infinite theorem is analytic.
+## correctness
 
-## Originality
-PASS, with residual priority uncertainty. Boyd--Diaconis--Parrilo--Xiao (2009, Section 5.4.2) solve the complete-bipartite symmetric optimization and Jafarizadeh (2020, Theorem 1 and star formulas) already implies the **optimal value** on split graphs as a clique lift. Consequently that value is NOT attributed to this result. The assessed increment is a full characterization of *every* global optimizer over unrestricted edge weights, including forced uniformity of the cross block and spectral / degree constraints on all feasible optimal clique blocks. The inspected material provides a lifted optimal chain, not these all-optimal-face necessary-and-sufficient statements. Further specialized literature may contain such a classification.
+PASS
 
-## Value
-PASS. Global-optimal-face structure matters when a designer must preserve or eliminate internal connections in addition to reaching the fastest rate. The theorem shows a nontrivial distinction: cross connections are always rigid, while the internal clique can range over nonuniform optimal graphs, must retain connectivity below one imbalance threshold, and must be deleted at another. The result is an all-parameter classification rather than a restatement of the known best objective value.
+Let S be total cross transition mass, bounded by p. A trace-compression on Y-zero-sum gives mu >=1-S/q; the X-Y contrast Rayleigh bound gives mu>=(p+q)S/(pq)-1. Their minimax intersection S*=2pq/(q+2p) when q<=2p, otherwise saturated S=p. At equality, positivity of tI-P on 1-perp forces P to equal t on the Y-zero-sum eigenspace and -t on the contrast vector; these equalities make every cross row uniform and all cross row sums equal, hence every cross entry forced. In q>=2p, saturated row budgets kill all clique/internal holding weights and give uniqueness. With cross weights fixed, block diagonalization leaves eigenvalues 1, -t, +t of multiplicity q-1, and 1-qb-lambda_j(L_W); the displayed degree and eigenvalue conditions are precisely necessary/sufficient. Constructive clique weights attain all regimes and give connectivity iff p>q. Independent exact-rational numerical spectra for 48 parameter pairs corroborated attainability; finite tests do not prove global rigidity.
 
-## Scope and residual risks
-Only symmetric stochastic chains with self-loops permitted and at least two vertices in each part are covered. No independent validation is implied. Jafarizadeh's general lifting theorem is explicitly acknowledged as covering the rate and one optimal allocation. Additional published work on optimal-face uniqueness and weighted split graphs could cover the incremental classification; no absolute priority claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The optimum scalar SLEM and existence of clique-lifted symmetric solutions are known from Boyd et al and Jafarizadeh 2020; novelty must NOT claim the optimal value. The explicit unrestricted all-optimizer face, uniformity of cross-edge weights despite no automorphism invariance and exact internal Laplacian/degree constraints are distinct from an existence lifting theorem. Full-optimizer uniqueness might be obtainable from general SDP complementary slackness but is not implied by the inspected specific lifted-solution theorems without the equality argument.
+
+## value
+
+PASS
+
+Characterizes an entire optimal face rather than only the known optimal objective value, with forced connectivity when p>q, optional clique support for p<=q<2p and forced deletion for q>=2p. This reveals nontrivial structural constraints for all fastest-mixing chain designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

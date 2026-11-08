@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:39:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let S be total cross transition mass, bounded by p. A trace-compression on Y-zero-sum gives mu >=1-S/q; the X-Y contrast Rayleigh bound gives mu>=(p+q)S/(pq)-1. Their minimax intersection S*=2pq/(q+2p) when q<=2p, otherwise saturated S=p. At equality, positivity of tI-P on 1-perp forces P to equal t on the Y-zero-sum eigenspace and -t on the contrast vector; these equalities make every cross row uniform and all cross row sums equal, hence every cross entry forced. In q>=2p, saturated row budgets kill all clique/internal holding weights and give uniqueness. With cross weights fixed, block diagonalization leaves eigenvalues 1, -t, +t of multiplicity q-1, and 1-qb-lambda_j(L_W); the displayed degree and eigenvalue conditions are precisely necessary/sufficient. Constructive clique weights attain all regimes and give connectivity iff p>q. Independent exact-rational numerical spectra for 48 parameter pairs corroborated attainability; finite tests do not prove global rigidity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jafarizadeh Theorem 1 gives optimal value/method under clique lifting and Section VI-E evaluates stars.",
+          "Boyd-Diaconis-Parrilo-Xiao 2009 computes symmetric solutions on highly symmetric bipartite graphs."
+        ],
+        "reasoning": "Those results imply the optimizer value and existence but do not, as inspected, force uniform cross weights for EVERY unrestricted minimizer or classify arbitrary nonuniform clique Laplacians.",
+        "searches": [
+          "Jafarizadeh 2020 Theorem 1 clique lift",
+          "Boyd et al 2009 complete bipartite Section 5.4.2"
+        ]
+      },
+      "checked_sources": [
+        "Boyd Diaconis Xiao 2004 SIAM Review 46 667-689",
+        "Boyd Diaconis Parrilo Xiao 2009 SIAM J Optim 20 792-819",
+        "Jafarizadeh 2020 IEEE TSIPN 6 88-104 Theorem 1 Section VI-E"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clique-lifting reduces scalar SLEM optimization to the quotient and supplies an optimal lifted allocation.",
+          "Equality of two independent spectral bounds is used here to force all cross entries; one optimal allocation alone cannot prove all allocation rigidity."
+        ],
+        "reasoning": "The all-minimizer statement is not a corollary of mere symmetry existence, while stronger SDP uniqueness may pose an unexcluded priority risk.",
+        "searches": [
+          "Jafarizadeh DOI 10.1109/TSIPN.2020.2964211 Theorem 1 Section VI-E",
+          "Boyd et al arxiv:0709.0955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectral-norm objective is SLEM for symmetric uniform-stationary chains; equivalently a two-sided semidefinite bound on P-J.",
+          "K_p vee independent_q is a star-like clique-lifting of a weighted star."
+        ],
+        "reasoning": "Equivalent SDP and graph-lifting formulations were tested; the all-minimizer quantifier is essential and not merely symmetry-restricted fastest mixing.",
+        "searches": [
+          "fastest mixing Markov chain complete split graph complete bipartite clique lift all optimal matrices uniform cross weights",
+          "fastest-mixing clique-lift star optimal face uniqueness semidefinite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits address other graph properties, not fastest-mixing split-graph optimal faces.",
+          "Published star and complete-bipartite tables do contain pieces of optimal value already credited."
+        ],
+        "reasoning": "No same-object all-optimal-face table identified; optimum value table is explicitly prior-covered.",
+        "searches": [
+          "Resultary query: fastest mixing Markov chain complete split graph complete bipartite clique lift all optimal matrices uniform cross weights",
+          "Boyd et al 2009 complete-bipartite optimal weights"
+        ]
+      },
+      "rationale": "The optimum scalar SLEM and existence of clique-lifted symmetric solutions are known from Boyd et al and Jafarizadeh 2020; novelty must NOT claim the optimal value. The explicit unrestricted all-optimizer face, uniformity of cross-edge weights despite no automorphism invariance and exact internal Laplacian/degree constraints are distinct from an existence lifting theorem. Full-optimizer uniqueness might be obtainable from general SDP complementary slackness but is not implied by the inspected specific lifted-solution theorems without the equality argument.",
+      "residual_risks": [
+        "The known clique-lift optimum VALUE is prior-covered; novelty can only attach to all-optimizer rigidity and Laplacian feasible face.",
+        "Specialized SDP-optimal-face analysis might already contain equivalent uniqueness; inspected texts did not settle all historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS optimum value and lifted optimal construction; does not state or establish all-unrestricted-matrix rigidity in passages read",
+          "evidence": [
+            "Theorem 1 lifting correspondence",
+            "Section VI-E star optimum formulas"
+          ],
+          "identifier_or_url": "DOI 10.1109/TSIPN.2020.2964211; https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_Subgraphs",
+          "material_read": "Accessible author-posted HTML: Theorem 1 clique-lift claim, its immediate proof/constructive allocations and Section VI-E star expressions",
+          "method": "Read actual main theorem and worked star section in primary author text",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "Same graph lifting and possible stronger optimizer characterization"
+        },
+        {
+          "assessment": "Provides known symmetric optimum construction, not unrestricted optimal-face characterization in inspected sections",
+          "evidence": [
+            "Section 5.4.2 optimal complete bipartite rates",
+            "Symmetry guarantees existence of invariant optimum"
+          ],
+          "identifier_or_url": "arxiv:0709.0955; DOI 10.1137/070689413",
+          "material_read": "Available original formula in Section 5.4.2 and symmetry block statements",
+          "method": "Primary PDF targeted section comparison, full-document noncoverage not asserted",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "General symmetry-reduction and complete bipartite special case"
+        },
+        {
+          "assessment": "Establishes general SDP framework but not the listed full optimal face",
+          "evidence": [
+            "SLEM minimized as spectral radius of P-J over symmetric stochastic feasible matrices"
+          ],
+          "identifier_or_url": "DOI 10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Original abstract/formulation and semidefinite characterization",
+          "method": "Relevant accessible original statements examined; not whole-paper review",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General convex SDP may subsume all optimality via conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Characterizes an entire optimal face rather than only the known optimal objective value, with forced connectivity when p>q, optional clique support for p<=q<2p and forced deletion for q>=2p. This reveals nontrivial structural constraints for all fastest-mixing chain designs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Boyd Diaconis Xiao 2004 SIAM Review 46 667-689",
+    "Boyd Diaconis Parrilo Xiao 2009 SIAM J Optim 20 792-819",
+    "Jafarizadeh 2020 IEEE TSIPN 6 88-104 Theorem 1 Section VI-E"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all p,q>=2 symmetric nonnegative stochastic transition matrices on K_p joined to q isolated vertices, every SLEM optimizer has uniform cross edges b=2/(q+2p) if q<2p and b=1/q if q>=2p. The optimum is q/(q+2p) or 1-p/q respectively, unique for q>=2p; for q<2p the exact feasible optimal clique weights are described by degree caps and Laplacian spectral interval.",
+  "limitations": [
+    "The known clique-lift optimum VALUE is prior-covered; novelty can only attach to all-optimizer rigidity and Laplacian feasible face.",
+    "Specialized SDP-optimal-face analysis might already contain equivalent uniqueness; inspected texts did not settle all historical priority.",
+    "Independent computations are finite and do not certify unbounded parameter statements; arguments in RESULT.md assessed as mathematical proof.",
+    "Scientific PASS does not imply ready-to-publish transport; public operational metadata requires sanitization."
+  ],
+  "residual_risks": [
+    "The known clique-lift optimum VALUE is prior-covered; novelty can only attach to all-optimizer rigidity and Laplacian feasible face.",
+    "Specialized SDP-optimal-face analysis might already contain equivalent uniqueness; inspected texts did not settle all historical priority."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS optimum value and lifted optimal construction; does not state or establish all-unrestricted-matrix rigidity in passages read",
+      "evidence": [
+        "Theorem 1 lifting correspondence",
+        "Section VI-E star optimum formulas"
+      ],
+      "identifier_or_url": "DOI 10.1109/TSIPN.2020.2964211; https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_Subgraphs",
+      "material_read": "Accessible author-posted HTML: Theorem 1 clique-lift claim, its immediate proof/constructive allocations and Section VI-E star expressions",
+      "method": "Read actual main theorem and worked star section in primary author text",
+      "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+      "trigger": "Same graph lifting and possible stronger optimizer characterization"
+    },
+    {
+      "assessment": "Provides known symmetric optimum construction, not unrestricted optimal-face characterization in inspected sections",
+      "evidence": [
+        "Section 5.4.2 optimal complete bipartite rates",
+        "Symmetry guarantees existence of invariant optimum"
+      ],
+      "identifier_or_url": "arxiv:0709.0955; DOI 10.1137/070689413",
+      "material_read": "Available original formula in Section 5.4.2 and symmetry block statements",
+      "method": "Primary PDF targeted section comparison, full-document noncoverage not asserted",
+      "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+      "trigger": "General symmetry-reduction and complete bipartite special case"
+    },
+    {
+      "assessment": "Establishes general SDP framework but not the listed full optimal face",
+      "evidence": [
+        "SLEM minimized as spectral radius of P-J over symmetric stochastic feasible matrices"
+      ],
+      "identifier_or_url": "DOI 10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "material_read": "Original abstract/formulation and semidefinite characterization",
+      "method": "Relevant accessible original statements examined; not whole-paper review",
+      "title": "Fastest Mixing Markov Chain on a Graph",
+      "trigger": "General convex SDP may subsume all optimality via conditions"
+    }
+  ]
+}
