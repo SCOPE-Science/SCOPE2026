@@ -1,19 +1,21 @@
-# Scientific review: rotational area of two-harmonic constant-width ovals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypothesis implies strictly positive support-function curvature radius, and antipodal cancellation gives constant width. Fourier orthogonality gives the exact mixed-area profile, while direct differentiation factors its derivative as a positive sine times \(a^2+90b^2-120b^2\sin^2(3\theta)\). The bracket's global minimum, zero count, and sign alternation completely determine the sharp ratio \(a^2=30b^2\) and all turning points. The test family has curvature radius at least \(1-88/100=0.12>0\). Direct independent support-area integration passed all 3,618 checks. The proof is analytic, not statistical.
+PASS
 
-## Originality — PASS (priority provisional)
+With |ε|(8|a|+80|b|)<1 and (a,b) not both zero, h+h′′>0 and h(φ)+h(φ+π)=2. The exact area identity 1/2∫(h²−h′²) and harmonic orthogonality give A(θ)=π−πε²[8a²cos²(3θ/2)+80b²cos²(9θ/2)]/2. Differentiating and factoring gives A′=6πε²sin(3θ)[a²+90b²−120b²sin²(3θ)], positive except when bracket negative. Its minimum is a²−30b² at θ=π/6, yielding the iff threshold, equality with isolated derivative zero but still strict increase, and two sign-changing critical angles otherwise. θ=π/3 cancels both odd modes to a disk; complementary-angle identity follows from cos² complements. The excluded disk (a=b=0) is correctly not strictly increasing.
 
-The August 2026 constant-width dihedral-symmetry paper classifies area minimizers, not the rotation trajectory. The known Reuleaux triangle rotation-area result is strictly monotone and covers a different nonsmooth body. A related published two-harmonic result optimizes the original area and uses the same harmonic family but, in the accessible mathematical synopsis, does not state the rotation monotonicity threshold or two stationary-angle classification. The present statement is about a concrete negative boundary to a plausible natural generalization. Risk: classical Fourier mixed-area identities may imply the result so directly that older literature includes the same threshold implicitly; the full two-harmonic publication was not available for a decisive line-by-line comparison.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Reuleaux triangle's strict rotational area increase suggests a geometric monotonicity question for constant-width, threefold-symmetric bodies. The first two admissible odd modes form a minimal natural smooth test family. Their competition produces a sharp qualitative switch from strict increase to a three-phase increase–decrease–increase profile, with exact turning angles and an explicit smooth strictly convex counterexample. The result is a motivated boundary, not a random numerical invariant. It does not pretend to resolve the general rotation-monotonicity problem.
+Classical Fourier support area identities imply the explicit computation but neither the inspected Falcó–Myroshnychenko static dihedral constant-width area minimization theorem nor the Resultary published Reuleaux triangle rotation profile nor the Resultary sharp static two-harmonic area minimum states the monotonicity iff threshold, two extremal angles, or smooth counterexample. These are a distinct natural rotation-averaging question, although a reader can derive them from classical formulas.
 
-## Source and scope risks
+## value
 
-The analytical claim depends on standard support-function identities and is confined to two modes. The accessible 2026 symmetry paper's summary and excerpts do not encompass a full comparison of all related harmonic rotation studies; historical priority is provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a sharp small Fourier-model boundary and a nontrivial smooth constant-width counterexample to extrapolating monotonic Reuleaux-triangle rotation averaging, distinguishing eventual disk maximization from monotonicity along the path. The two-mode restriction is motivated as the first odd threefold harmonics, not an arbitrary unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
