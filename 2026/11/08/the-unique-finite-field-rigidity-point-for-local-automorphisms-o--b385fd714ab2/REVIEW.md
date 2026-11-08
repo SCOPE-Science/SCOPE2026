@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The center is exactly the derived line; an ordinary automorphism is a conformal symplectic quotient map with arbitrary central functional. Every linear local automorphism is injective and preserves that line; conversely every such invertible block map has an explicit ordinary automorphism witness for each input, including when the input lies in the center and when the field is binary. Symplectic transitivity is proved by extending pairs to symplectic bases. Classical finite-group order identities yield the index, and positivity of the factors proves the unique equality case. Exhaustive \(\mathbb F_2\) and \(\mathbb F_3\) matrix/witness enumeration and 12 exact classical-group order checks independently corroborate the proof; finite enumeration is not used for the infinite family.
+
+## Originality — PASS, qualified
+The exact finite-field index and unique binary rigidity point are not stated in the inspected 2026 complex nilpotent-local-automorphism existence theorem. They resolve a genuine field-extension boundary rather than reproving that result. The 2016 nilpotent two-local existence study is over algebraically closed characteristic-zero fields, and is about a different local condition. A highly plausible 2024/2025 Heisenberg local-automorphism classification by Sheng, Liu and Miao already describes matrix forms for the same objects; the new characterization is therefore treated as a supporting lemma, not a historically novel claim. Its 12-page full text could not be accessed, making any implication to the finite-field index and characteristic-two exception a serious residual priority risk. Research-record searches found nearby Heisenberg finite-field automorphism fixed-point statistics, but not this specific index or rigidity criterion. No absence-of-search claim is treated as proof of priority.
+
+## Mathematical value — PASS
+The invariant determines the exact index in every finite field and every Heisenberg rank, and exhibits a sharp minimal nonabelian nilpotent **rigidity exception** at \(H_1(\mathbb F_2)\). This is motivated by the October 2026 complex-field theorem that all nonabelian nilpotent complex Lie algebras have proper local automorphisms. The exception shows that a naive extension to arbitrary fields is false; over the same characteristic, increasing the field to \(\mathbb F_4\) or increasing the symplectic rank restores proper local automorphisms. This nontrivial field/rank transition, with an exact formula, is more than a normalization check. It does not settle arbitrary modular nilpotent algebras.
+
+## Limitations and relevant primary sources
+The proof uses the symplectic model of Heisenberg Lie algebras and only linear local maps. The 2026 theorem is complex-only and remains intact. Earlier Sheng–Liu–Miao full text is inaccessible; its abstract establishes direct topical overlap, so historical priority is qualified and merits independent inspection. Sources: arXiv:2610.40348v1 §4, arXiv:1602.05187v1 §§1,3, and DOI:10.1007/s11464-023-0061-6 publisher article/abstract.
+
+Self-review: passed. Independent audit: not yet performed.
