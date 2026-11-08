@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Every minimal cover of the full subdivision yields an independent omitted-original set and a spanning tree on its connected complement; all chosen subdivision vertices are uniquely forced by the cut or that tree. Conversely every constructed set is minimally connected-covering, with original-vertex indispensability proved by three exhaustive cases using minimum degree at least two; upward closure upgrades one-deletion tests to inclusion minimality. The size formula and K_{2,q} specialization were derived symbolically. Independent brute-force definition checks over 264 labeled base graphs (orders 3--5) and K_{2,q} tests through q=6 matched exactly; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golovach--Heggernes--Kratsch arXiv:1602.07504 studies exponential bounds and enumeration for general graphs.",
+        "Kobayashi et al., arXiv:2308.16426, supply general output-sensitive enumeration algorithms and an upward-closure proposition.",
+        "Neither general enumeration guarantee supplies a size polynomial nor counts spanning-tree multiplicities for all connected original vertex covers."
+      ],
+      "reasoning": "General algorithmic coverage does not imply the explicit bijection or coefficients without further, nontrivial structural analysis. Complexity bounds for counting all outputs are not closed enumerators.",
+      "searches": [
+        "Published research-record search: subdivision graph S(G) connected vertex covers spanning trees of G[U] where U connected vertex cover",
+        "Literature search: \"subdivision graph\" \"connected vertex cover\" enumeration \"spanning\"",
+        "arXiv:2308.16426v2 Sections 2 and 4",
+        "arXiv:1602.07504v1 introduction and enumeration results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.16426 first public 2023-08-31 (HTML revised version inspected)",
+      "arXiv:1602.07504 first public 2016-02-24",
+      "arXiv:2609.39103 first public 2026-09-30 (lawful reflowed text inspected)",
+      "Published mathematical research-record searches for full subdivisions, incidence graphs, spanning-tree transforms, connected-cover polynomials and aliases",
+      "Related mathematical claim on connected domination of full subdivisions of complete graphs; this is a different combinatorial invariant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adak--Nanoti (2026) prove cvc(S(G))=2|V(G)|-1 and exhibit minimum covers from original spanning trees, explicitly stating these need not exhaust all minimum covers if the base graph has degree-two vertices.",
+        "The new theorem computes every inclusion-minimal cover, with size deviations controlled by the degrees of independent deleted original vertices; it includes nonminimum covers and all exceptional minimum covers.",
+        "The compared related mathematical claim concerns inclusion-minimal connected *dominating* sets on \\(S(K_n)\\), not connected *vertex covers*; its enumerator gives \\(n(n-1)^{n-2}\\) sets, unlike \\(n^{n-2}+n(n-1)^{n-3}\\) in the present connected-cover classification."
+      ],
+      "reasoning": "The known minimum value is directly covered and is not put forward as an original result. Neither the known scalar minimum nor constructed tree examples imply the all-minimal-family statement; the explicitly acknowledged degree-two gap is filled. The compared connected-domination claim is about a different graph invariant and does not imply the cover classification.",
+      "searches": [
+        "arXiv:2609.39103v1 Section 5.1",
+        "arXiv:2308.16426v2 Sections 1--4",
+        "arXiv:1602.07504v1 Sections 1--5",
+        "Related mathematical claim on minimal connected domination of once-subdivided complete graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full subdivision \\(S(G)\\) is also the vertex-edge incidence graph of \\(G\\). The polynomial ranges over independent omitted original sets and spanning trees of connected complements.",
+        "The August 2023 arXiv:2308.16426 preprint develops generic enumeration algorithms, not an incidence-graph enumerator (Sections 1, 2, 4)."
+      ],
+      "reasoning": "The search explicitly tested incidence/barycentric/subdivision and connected-cover formulations, not just the result title; no equivalent all-cardinality transform was identified in the inspected material.",
+      "searches": [
+        "Published research-record search: minimal connected vertex covers exact enumeration complete bipartite graph subdivision graphs edge corona 2023",
+        "Published research-record search: minimal connected vertex cover full edge subdivision graphs spanning trees connected vertex covers exact bijection full polynomial",
+        "Literature search: \"minimal connected vertex covers\" \"spanning trees\" \"subdivision\"",
+        "Literature search: \"incidence graph\" \"minimal connected vertex covers\" spanning tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or table was located that lists the all-minimal connected-cover size polynomial for S(G) or the two-term family S(K_{2,q}).",
+        "Closest public research records concerning connected vertex covers concern general algorithms; other subdivision records concern different invariants."
+      ],
+      "reasoning": "The searches covered full subdivisions, complete-graph and bipartite specializations, the polynomial, and spanning-tree aliases. Absence of matches is not a uniqueness proof.",
+      "searches": [
+        "Published research-record search: minimal connected vertex covers of line graphs of complete bipartite graphs full cardinality polynomial maximal induced trees",
+        "Published research-record search: enumeration minimal connected vertex covers rook graphs 2023",
+        "Published research-record search: subdivided complete graph minimal connected vertex covers n to the n-2 plus n(n-1) to the n-3",
+        "Literature search: \"minimal connected vertex cover\" \"subdivision\" \"complete graph\"",
+        "Literature search: \"connected vertex cover\" \"subdivision graph\" \"spanning tree\"",
+        "Literature search: \"minimal connected vertex cover polynomial\" subdivision"
+      ]
+    },
+    "rationale": "A targeted comparison of the all-minimal-cover polynomial against general minimal connected vertex-cover enumeration literature, a September 2026 full-subdivision minimum-size theorem, public research records, and related earlier mathematical claims found no statement implying this weighted spanning-tree classification. The prior scalar minimum \\(2n-1\\) is explicitly not claimed as new. Priority remains provisional.",
+    "residual_risks": [
+      "The scientific priority search is non-exhaustive; unindexed older results or alternate terminology could cover part of the claim.",
+      "The 2026 result proves the scalar minimum exactly, so no novelty is claimed for that scalar.",
+      "General-graph formula is exact but does not by itself give polynomial-time computation; coefficients may require many spanning-tree evaluations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background on general enumeration, no examined exact full-subdivision size enumerator.",
+        "evidence": [
+          "Proposition 1 establishes upward closure of connected vertex covers.",
+          "Section 4 supplies enumeration algorithms and reductions, not the claimed size distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.16426v2",
+        "material_read": "Abstract; Introduction; Section 2 definitions and Proposition 1; Section 4 algorithm and hardness statements, including the incidence-hypergraph construction; relevant whole-document search for subdivision.",
+        "method": "Open-access HTML text and section / phrase inspection",
+        "title": "Enumerating minimal vertex covers and dominating sets with capacity and/or connectivity constraints",
+        "trigger": "Source article defining the exact enumeration problem and its monotonicity property."
+      },
+      {
+        "assessment": "No directly covering result found in inspected sections; the paper gives enumeration algorithms and extremal counts.",
+        "evidence": [
+          "Its abstract states an exponential upper bound and enumeration time.",
+          "No subdivision or spanning-tree formula matched in full-text searches."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1602.07504v1",
+        "material_read": "Abstract, Introduction and general enumeration/bounds sections; full-text searches for subdivision and spanning tree.",
+        "method": "Open-access arXiv HTML and targeted in-document text searches",
+        "title": "Enumeration and Maximum Number of Minimal Connected Vertex Covers in Graphs",
+        "trigger": "Foundational predecessor potentially dominating a family-specific enumeration theorem."
+      },
+      {
+        "assessment": "Covers scalar minimum connected vertex cover for subdivisions, and explicitly states its canonical spanning-tree covers need not exhaust all minimum covers, so does not subsume the claimed complete enumerator.",
+        "evidence": [
+          "Section 5.1 states cvc(S(H))=2n-1 and constructs covers C_T.",
+          "Section 5.1 explicitly notes C_T may not exhaust all minimum connected vertex covers when the original graph has degree-two vertices."
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2609.39103",
+        "material_read": "Abstract; Introduction; structural-criterion conclusion; Section 5.1 Full subdivisions; Section 6 Conclusion.",
+        "method": "Accessible lawful reflowed primary preprint text, section-by-section inspection",
+        "title": "On Eternal Connected Vertex Cover",
+        "trigger": "2026 full-subdivision theorem concerning a potentially stronger related connected-cover quantity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4adb2627-9f2c-4e52-9e2c-dede60e7dd55",
+  "value": {
+    "rationale": "The all-cover structural classification holds for every connected input graph of minimum degree at least two, converting the entire family into a weighted spanning-tree transform; it classifies all minimum covers beyond canonical tree solutions. The explicit \\(K_{2,q}\\) family has \\(q-3\\) absent consecutive cardinalities for every \\(q\\ge4\\) and yields exact coefficients \\(q3^{q-1}\\) and \\(2\\). These are natural enumerative invariants and an unbounded structural phenomenon, not routine scalar recalculation.",
+    "status": "PASS"
+  }
+}
