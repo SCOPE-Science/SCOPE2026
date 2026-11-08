@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Mathematical verification
+# Independent mathematical audit
 
-The proof uses conditional holding-time independence, the law of total variance, a bounded finite-state Poisson-equation martingale, Azuma tail bounds for every positive-drift signed edge weighting, and optional stopping at an integrable first-crossing index. The exact identity and the bounded overshoot for mean-holding-time weights control all thresholds analytically.
+## correctness
 
-The separate reproducibility script `checker.py` uses Python 3 and SymPy. It verified 24 exact rational stopped-path cases across three edge-mark families and eight first-passage thresholds. It checks the Poisson corrector and the exact finite-threshold decomposition, plus optimal-weight overshoot statements. It is **not** an exhaustive verification of infinitely many thresholds, states, weightings, or waiting-time distributions.
+PASS
 
-Known limits: no general zero-drift statement; no finite-mean-only or infinite-variance cases; no stationary random-age initialization; no interacting holding times. The source gives only a fixed-time semi-Markov flux theorem and explicitly leaves the first-passage counterpart as a hypothesis.
+Reconstructed starting at a renewal epoch: Azuma bounds ensure finite E[N] for finite signed marks of positive stationary drift. Conditional variance decomposition with M=sum stopped edge means and V=sum stopped edge variances gives Var(H)=Var(M)+EV. For g_ij=v_ij-B mu_ij the centered Poisson equation (I-P)h=E_j[g_ij|i] gives E sum_{m<=N}g=E[h(J0)-h(JN)] by bounded-increment optional stopping. Hence exact identity VarH-B EH=Var(M)+E[h(J0)-h(JN)] and universal additive bound. At alpha=mu, overshoot U in [0,mu_max) forces VarM<=mu_max^2/4 and EH=k+O(1). For alpha=c mu+b_i-b_j, bounded endpoint potential again bounds M-k/c, giving same asymptotic coefficient; single-state renewal demonstrates sharpness. Separately reconstructed finite Poisson and crossing moments with 24 exact rational cases in independent_checks.py.
+
+## originality
+
+PASS
+
+The finite-threshold weight-uniform first-passage inequality and exact corrector identity extend beyond the established fixed-time kinetic uncertainty bound. The main cited semi-Markov source identifies the first-passage analogue as a hypothesis, not a proved corollary. First-passage Markov and open-quantum results have different variables/assumptions and coefficients.
+
+## value
+
+PASS
+
+Finite-threshold inequality with a sharp stationary constant, uniform over all positive-drift flux weights and initial states, closes a specific open semi-Markov first-passage uncertainty question and quantifies finite-level correction; the exact boundary term is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

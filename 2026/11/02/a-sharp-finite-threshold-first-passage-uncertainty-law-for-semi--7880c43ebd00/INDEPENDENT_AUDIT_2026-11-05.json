@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:51:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-threshold-first-passage-uncertainty-law-for-semi--7880c43ebd00/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-threshold-first-passage-uncertainty-law-for-semi--7880c43ebd00/checker.py",
+        "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC"
+      ],
+      "rationale": "Reconstructed starting at a renewal epoch: Azuma bounds ensure finite E[N] for finite signed marks of positive stationary drift. Conditional variance decomposition with M=sum stopped edge means and V=sum stopped edge variances gives Var(H)=Var(M)+EV. For g_ij=v_ij-B mu_ij the centered Poisson equation (I-P)h=E_j[g_ij|i] gives E sum_{m<=N}g=E[h(J0)-h(JN)] by bounded-increment optional stopping. Hence exact identity VarH-B EH=Var(M)+E[h(J0)-h(JN)] and universal additive bound. At alpha=mu, overshoot U in [0,mu_max) forces VarM<=mu_max^2/4 and EH=k+O(1). For alpha=c mu+b_i-b_j, bounded endpoint potential again bounds M-k/c, giving same asymptotic coefficient; single-state renewal demonstrates sharpness. Separately reconstructed finite Poisson and crossing moments with 24 exact rational cases in independent_checks.py.",
+      "residual_risks": [
+        "The finite 24-case verification is not a proof of uniformity in all edge markings; uniformity rests on the Poisson corrector proof.",
+        "No stationarity-at-arbitrary-age, non-finite-state, non-independent holding-time, infinite variance, or zero/negative mean-flux claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source semi-Markov theorem is for fixed observation time; the alternate first-passage results concern narrower Markov or quantum semi-Markov fluctuation transforms."
+        ],
+        "reasoning": "Neither cited general context theorem asserts the all-positive-drift-flux finite-threshold additive correction and saturation in the present renewal setup.",
+        "searches": [
+          "arxiv:2407.09839v1",
+          "arxiv:2407.01940v1",
+          "Garrahan Phys Rev E 95 032134 (2017)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: semi-Markov first passage kinetic uncertainty relation finite threshold variance stopping clock edge holding time optimum mean waiting time Macieszczak",
+        "https://arxiv.org/html/2407.09839v1",
+        "https://arxiv.org/html/2407.01940v1",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-threshold-first-passage-uncertainty-law-for-semi--7880c43ebd00/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First work explicitly proposes first-passage extension as hypothesis, whereas present proof supplies optional-stopping correction; quantum model first-passage large deviations do not state this exact universal coefficient."
+        ],
+        "reasoning": "Fixed-time KUR does not directly bound the first hitting-time variance for arbitrary signed marks; this new stopped-process reasoning is necessary.",
+        "searches": [
+          "arxiv:2407.09839v1 Eq.(9)-(11)",
+          "arxiv:2407.01940v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Macieszczak 2024 Eq. (9)-(11) concerns fixed-observation-time current fluctuations and explicitly labels first-passage analogue a hypothesis.",
+          "Garrahan 2017 and Gingrich–Horowitz 2017 study first-passage Markov counting/current inequalities."
+        ],
+        "reasoning": "The Poisson stopped martingale identity is a new finite-threshold statement in the inspected sources; a general Markov-additive martingale theorem could imply it without equal notation, retained as a risk.",
+        "searches": [
+          "Resultary: semi-Markov first passage kinetic uncertainty relation finite threshold variance stopping clock edge holding time optimum mean waiting time Macieszczak",
+          "arxiv:2407.09839v1",
+          "arxiv:2407.01940v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or database matches were returned; nearest Resultary hits concern reversible-chain autocorrelations, catastrophe restart or two-state renewal aliasing."
+        ],
+        "reasoning": "This is an infinite-state-of-parameters analytic inequality, not a finite tabulated invariant. Absence from a semantic database is weak priority evidence, not proof of novelty.",
+        "searches": [
+          "Resultary: semi-Markov first passage kinetic uncertainty relation finite threshold variance stopping clock edge holding time optimum mean waiting time Macieszczak",
+          "published Resultary nearest reversible-chain variance floor, not first-passage semi-Markov"
+        ]
+      },
+      "rationale": "The finite-threshold weight-uniform first-passage inequality and exact corrector identity extend beyond the established fixed-time kinetic uncertainty bound. The main cited semi-Markov source identifies the first-passage analogue as a hypothesis, not a proved corollary. First-passage Markov and open-quantum results have different variables/assumptions and coefficients.",
+      "residual_risks": [
+        "Earlier general Markov-renewal Poisson equation or first-passage variance literature may contain the same stopped identity under another naming.",
+        "Unsearched niche mathematical renewal references may affect historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELEVANT_NOT_COVERING_FINITE_FIRST_PASSAGE",
+          "evidence": "Eq.(9) fixed-time semi-Markov KUR; discussion explicitly leaves first-passage equivalent as hypothesis.",
+          "identifier_or_url": "https://arxiv.org/html/2407.09839v1",
+          "material_read": "Accessible full HTML and especially main Eq. (9)-(11) with text immediately after Eq. (11)",
+          "method": "Read primary HTML and compare quantifiers / stopping observable",
+          "title": "Ultimate Kinetic Uncertainty Relation and Optimal Performance of Stochastic Clocks",
+          "trigger": "Exact same semi-Markov clock coefficient and claimed open first-passage analogue"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MODEL",
+          "evidence": "Open quantum semi-Markov first-passage transforms; no identified all-flux finite-threshold Poisson correction.",
+          "identifier_or_url": "https://arxiv.org/html/2407.01940v1",
+          "material_read": "Accessible full HTML first-passage large-deviation setup and stated scope",
+          "method": "Read primary HTML first-passage setting and conclusions",
+          "title": "Semi-Markov Processes in Open Quantum Systems III: Large Deviations of First Passage Time Statistics",
+          "trigger": "First passage semi-Markov clocks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-threshold-first-passage-uncertainty-law-for-semi--7880c43ebd00/RESULT.md",
+        "https://arxiv.org/html/2407.09839v1",
+        "https://arxiv.org/html/2407.01940v1"
+      ],
+      "rationale": "Finite-threshold inequality with a sharp stationary constant, uniform over all positive-drift flux weights and initial states, closes a specific open semi-Markov first-passage uncertainty question and quantifies finite-level correction; the exact boundary term is mathematically motivated.",
+      "residual_risks": [
+        "Future literature may establish stronger or equivalent prior coverage.",
+        "Earlier general Markov-renewal Poisson equation or first-passage variance literature may contain the same stopped identity under another naming.",
+        "Unsearched niche mathematical renewal references may affect historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-threshold-first-passage-uncertainty-law-for-semi--7880c43ebd00/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-threshold-first-passage-uncertainty-law-for-semi--7880c43ebd00/checker.py",
+    "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC",
+    "https://arxiv.org/html/2407.09839v1",
+    "https://arxiv.org/html/2407.01940v1"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Earlier general Markov-renewal Poisson equation or first-passage variance literature may contain the same stopped identity under another naming.",
+    "Unsearched niche mathematical renewal references may affect historical priority.",
+    "The finite 24-case verification is not a proof of uniformity in all edge markings; uniformity rests on the Poisson corrector proof.",
+    "No stationarity-at-arbitrary-age, non-finite-state, non-independent holding-time, infinite variance, or zero/negative mean-flux claim."
+  ],
+  "schema_version": 1
+}
