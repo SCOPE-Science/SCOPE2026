@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For every RC-closed nonoverlapping code, first-symbol set P is disjoint from complement P and embeds in a complementary transversal. Complement-preserving symbol permutations map it to {A,C}; all candidates lie in 256 canonical words. At length five RC has no fixed words. Exhaustive lexicographic orbit generation yields 56 internally valid pairs and 412 exact conflicting pair edges. The included 18 explicit blocks partition the vertices into cliques, proving every compatible independent set has <=18 vertices and thus <=36 words; the explicit 18-orbit witness has 36 pairwise nonoverlapping words. Both standard-library scripts recompute all critical comparisons using separately implemented character and integer algorithms and pass.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik, Moškon, Mraz (2024), DOI:10.1007/s10623-023-01344-z, Table 1 explicitly records unrestricted S(4,5)=81 (publisher PDF page 22 / zero-index page 21); the paper characterizes unrestricted maximal nonoverlapping code structures.",
+        "The published published-finding corpus unrestricted length-five result yields max S(4,5)=3^4=81, with maximum code orientation I^4J or reversal, but does not constrain RC closure.",
+        "A separate adjacent-length claim, opaque ID 4d660367-2a5e-44db-8be6-604d86ca6ed3, states strand-closed four-mer optimum 17; this claim was used only for statement deduplication, not re-certified.",
+        "A separately recorded five-mer GC-balanced Watson-Crick closed non-overlapping code claims exact 24 for the additional constraint that each word has two or three G/C symbols. This claim is restricted and cannot imply maximum 36 without GC limits."
+      ],
+      "reasoning": "The bound 81 is too weak to conclude exact 36. The four-mer graph and its 17 bound have different vertices and overlap lengths; they neither imply the five-mer 18-clique partition nor the 36-word construction. A universal maximum-code classification, even where available, does not directly optimize the smaller involution-invariant family. A size-24 maximum in a subset does not determine a maximum in its superset, especially when the new 36-word witness may use unbalanced words.",
+      "searches": [
+        "published-finding corpus: \"q=4 length n=5 Watson-Crick self reverse complement cross bifix free code maximum\"",
+        "published-finding corpus: \"Maximum cross-bifix-free non-overlapping DNA code length four closed under Watson Crick reverse-complement\"",
+        "Springer DOI:10.1007/s10623-023-01344-z, Definitions and Section 5/6",
+        "published-finding corpus ID:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "Historical same-slot ledger claim item_id:b39eb37f-2435-4a0c-994a-d836b1ce6396 in 2026-10_week4 archive (scope comparison only)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.0236, arxiv submission 2012-09-03, full text HTML Definitions2/Section3",
+      "arxiv:1303.1026, 2013 general construction, bounds, short n",
+      "doi:10.1007/s10623-023-01344-z, open full text and publisher PDF p.22 Table 1 S(4,5)=81",
+      "published-finding corpus record 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a, indexed abstract only",
+      "Adjacent previous four-mer claim opaque ID:4d660367-2a5e-44db-8be6-604d86ca6ed3 (statement only, no re-certification)",
+      "Previous-week archived claim item_id:b39eb37f-2435-4a0c-994a-d836b1ce6396, five-mer GC-restricted code (statement only, no re-certification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv 2012–2013 provides definitions, construction families and general upper bounds without Watson-Crick closure.",
+        "Current result exhibits both a 36-word RC-closed code and a distinct 18-clique upper bound on all 56 admissible RC-orbit vertices.",
+        "The unrestricted length-five optimum 81 and the earlier RC-closed four-mer 17 fail to imply either 36 inequality or the construction.",
+        "Earlier GC-restricted five-mer claim requires 2 or 3 G/C symbols per codeword; the present statement imposes no GC limits. Its 24 is neither an upper bound nor an equality witness for the present 36 problem."
+      ],
+      "reasoning": "The new statement includes mandatory RC closure and blocklength five. None of the inspected closest results has a matching or dominating constrained exact theorem; both upper bound and equality construction require genuinely distinct finite graph calculations. Search absence alone would not establish novelty; this implication comparison and material inspections support the provisional PASS.",
+      "searches": [
+        "Adjacent-length claim identifier:4d660367-2a5e-44db-8be6-604d86ca6ed3, \"Sharp strand-closed four-mer non-overlapping DNA codes\"",
+        "published-finding corpus: \"strand-closed five-mer non-overlapping DNA codes exact optimum 36\"",
+        "published-finding corpus ID:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "arXiv:1209.0236v2 Section 3 nonexpandable code construction",
+        "arXiv:1303.1026v1 Sections 2–4 optimal small code lengths",
+        "Previous-week archived claim ID:b39eb37f-2435-4a0c-994a-d836b1ce6396, GC-restricted length-five nonoverlap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee et al. arXiv:1209.0236 Definitions 2.2–2.3 defines cross-bifix-free as exactly the no-prefix-equals-suffix condition, including self-pairs.",
+        "Blackburn arXiv:1303.1026 introduction uses the synonym non-overlapping and defines ordered comparisons.",
+        "The exact added requirement is closure under Watson-Crick reverse complementation, not ordinary complementation, reversal symmetry, or cyclic comma-freeness.",
+        "published-finding corpus searches under exact strings and synonyms returned no five-base closed-code 36 theorem."
+      ],
+      "reasoning": "Both nomenclatures translate to the same overlap restriction, but neither published 2012 nor 2013 construction requires reverse complement closure. The stronger RC-closed optimization cannot be inferred by a relabeling of unrestricted optimum. Other DNA primer constraints (distance, melting temperature, GC balance) do not imply or match the exact model.",
+      "searches": [
+        "published-finding corpus: \"strand-closed five-mer non-overlapping DNA codes exact optimum 36\"",
+        "published-finding corpus: \"reverse-complement closed five-letter DNA non-overlapping code maximal 36\"",
+        "Web: \"cross bifix free self reverse complement code DNA 5 mer 36\"",
+        "arXiv:1209.0236v2 Definitions 2.2–2.3 and Section 3",
+        "arXiv:1303.1026v1 §§1–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full open-access Stanovnik et al. (2024) article explicitly includes Table 1 with unrestricted S(4,5)=81 (source PDF page 22, zero-index 21); Theorem 19 treats length-four unrestricted codes. Neither table imposes reverse-complement closure.",
+        "published-finding corpus query returned a length-five unconstrained maximum 81 record and length-six unconstrained code records; none matched the RC-closed length-five 36 count."
+      ],
+      "reasoning": "A tabulated unrestricted cardinality or a nearby exact four-mer result does not count codebooks invariant under the involution. No checked table states the 36 constrained maximum.",
+      "searches": [
+        "published-finding corpus: \"reverse complement invariant uncorrelated DNA primer sets of length five 36 maximal\"",
+        "Web: \"non overlapping codes DNA reverse complement closed\"",
+        "Published paper DOI:10.1007/s10623-023-01344-z, Theorem 19 and maximal-code tables"
+      ]
+    },
+    "rationale": "The exact 36-word optimum for Watson–Crick reverse-complement-closed, five-letter cross-bifix-free DNA codes differs from the unrestricted four-letter-alphabet five-mer maximum 81 and from the known length-four strand-closed value 17. The 56-vertex graph, 412 conflicts, 18-clique upper certificate and 18-orbit lower construction are new exact length-five content. Targeted source, alias, parameter and implication searches across published research records and primary papers found no covering theorem. Historical-priority risk remains for unindexed or otherwise inaccessible sources. A distinct prior five-mer claim with mandatory GC-count two or three gives 24 under its narrower constraints; it is not an upper bound for the present larger admissible class.",
+    "residual_risks": [
+      "Unindexed or inaccessible priority references might study involution-invariant or self-complementary primer-code optima under other terminology.",
+      "No independent literature-priority audit has been performed; the published-finding corpus indexed abstract does not substitute for a full source inspection.",
+      "This is a fixed-length discrete code optimum only, not an asymptotic or biochemical performance theorem.",
+      "An earlier GC-constrained five-mer claim is related but no previous scientific correctness is imported or assumed for the new proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_THIS_CONSTRAINED_CLAIM",
+        "evidence": "The examined theorem asserts nonexpandability of prefix-zero q-ary codes and does not require reverse complement closure or identify the 36-word five-mer bound.",
+        "identifier_or_url": "https://arxiv.org/html/1209.0236v2",
+        "material_read": "Definitions 2.2–2.3, Section 3 construction, Theorem 3.1 proof, Corollary 3.1 and short-length comparison table",
+        "method": "Read full-text HTML directly; cross-checked publicly dated arXiv submission 2012-09-03",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Original open-access primary description of the same prefix/suffix non-overlap condition and q-ary constructions"
+      },
+      {
+        "assessment": "NOT_COVERING_RC_LENGTH_FIVE",
+        "evidence": "The general upper bounds and q-ary constructions do not impose Watson–Crick reverse-complement closure; the explicit short-length results concern lengths two and three.",
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Introduction and definitions, Theorem 1 and proof, construction sections 3, and Section 4 small-length results; full text accessible on arXiv",
+        "method": "Read arXiv HTML rendition and inspect relevant sections",
+        "title": "Non-overlapping codes",
+        "trigger": "Potentially stronger general upper bounds and small-blocklength classification of the same code objects"
+      },
+      {
+        "assessment": "STRONG_GENERAL_FRAMEWORK_BUT_NO_MATCHING_RC_EXACT_COUNT",
+        "evidence": "Table 1 gives unrestricted S(4,5)=81. Theorem 19 treats unrestricted length-four coding. The paper does not optimize under Watson–Crick reverse-complement closure.",
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Open publisher HTML definitions, maximal-code construction and optimality framework, Section 5 Theorem 19, Section 6, and Table 1 on page 22 of the open publisher PDF, visually inspected.",
+        "method": "Read open full-text publisher HTML including displayed theorems and cross-references",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Most relevant later exact and structural full research on maximum general non-overlapping codes"
+      },
+      {
+        "assessment": "GENERAL_BUT_NOT_CONSTRAINT_COVERING",
+        "evidence": "Reports S(q,5)=max l^4(q-l) for q>=4, so S(4,5)=81, without stated Watson–Crick invariance. Abstract-level evidence only.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "material_read": "Published result title, indexed summary and claimed general maximizer form; no source-level full-text inspection established",
+        "method": "Published research search record and explicit implication comparison only",
+        "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+        "trigger": "Precise natural-parameter and potentially dominating unrestricted q=4,n=5 maximum"
+      },
+      {
+        "assessment": "ADJACENT_LENGTH_ONLY_NOT_REASSESSED",
+        "evidence": "Establishes a length-four optimum 17 and a 20-vertex quotient; has no five-mer numerical statement or 56-orbit conflict certificate.",
+        "identifier_or_url": "item_id:4d660367-2a5e-44db-8be6-604d86ca6ed3",
+        "material_read": "Recoverable claim statement specifying length four, optimum 17, and a 20-orbit quotient; no prior scientific result was re-assessed",
+        "method": "Statement-only mathematical implication comparison; no historical audit",
+        "title": "Sharp strand-closed four-mer non-overlapping DNA codes",
+        "trigger": "Adjacent blocklength with matching Watson–Crick symmetry and nonoverlap conditions"
+      },
+      {
+        "assessment": "NARROWER_CONSTRAINED_MODEL_NOT_COVERING_NEW_36_CLAIM",
+        "evidence": "The recorded size 24 is for codes additionally satisfying GC-content 40%-60%; the present code domain does not impose that restriction.",
+        "identifier_or_url": "item_id:b39eb37f-2435-4a0c-994a-d836b1ce6396",
+        "material_read": "Recoverable statement of additional GC-count 2-or-3 condition and reported exact 24, not prior proof or validation",
+        "method": "Accessible archive record statement-only mathematical implication comparison",
+        "title": "Five-mer GC-balanced, reverse-complement-closed non-overlapping DNA code optimum",
+        "trigger": "Same alphabet, length, RC closure and cross-bifix condition, with a further GC-count restriction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ff9edf45-a3b2-4625-8c62-854ffae2ea35",
+  "value": {
+    "rationale": "Determines the exact five-base capacity of DNA frame synchronization tokens required to work in both Watson–Crick strand orientations, using a succinct independently checkable 18-clique certificate. It is the first odd-length setting beyond three and has no fixed RC orbits, a concrete structural change from the adjacent four-mer problem. It quantifies the 36 versus 81 cardinality gap relative to unconstrained coding and supplies a reproducible 36-token construction; the natural biological alphabet, orientation closure, and fixed five-base length motivate the exact invariant. No claim of a larger-length theorem or biochemical validation is made.",
+    "status": "PASS"
+  }
+}
