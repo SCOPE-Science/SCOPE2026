@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. The standalone `check_fpfm2.py` requires Python 3 and `mpmath`; run `python check_fpfm2.py` from the directory containing the extracted files. In the supplied environment it printed `PASS 882 high-precision conditions` and the high-precision critical parameter. It constructs each allowed two-cycle from a unique scalar root, checks its direct two-step return, and recomputes smooth return Jacobians rather than trusting a tabulated result.
+## correctness
 
-The count is not inferred from the finite tests. The independent analytic implication \(|v|+|v+u|=\ell_\beta\), followed by its three exhaustive sign cases and monotone scalar root equations, supplies global completeness and exact boundary counting. Schur inequalities are checked symbolically in the proof. Numerical root tolerances only affect the reproducibility tests, not the theorem.
+PASS
 
-The public source is Almatroud–Pham (2023), Section 4, Equation (8), doi:10.3390/math11061319. The closely related Ramadoss et al. (2022) NFP2 formula uses constant forcing. The principal scientific limits are longer periods, nonsmooth-boundary derivative claims, publication-priority risk, and absent independent mathematical validation.
+The second-coordinate period-two condition gives opposite first coordinates ±u, and the first-coordinate equations imply |v|+|v+u|=ell_beta=2(1-1/beta). Its exact shifted modulus identity partitions all real candidate pairs into positive, negative, and crossing sign branches, including boundary identifications. Monotone scalar cosine equations yield unique roots and exact A± branch domains; at ell_beta=pi/2 the crossing equation fixes the locked orbit independent of alpha. Taylor expansion gives pole coefficient pi² beta_c³/16. Direct two-step Jacobian products and Jury/Schur inequalities yield the strict smooth crossing sink criterion and expanding positive-ordinate multiplier, excluding nonsmooth zero ordinates. Independently evaluated sample returns and locked pair corroborate but do not prove exhaustion.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority assessment after actual same-object comparisons; covered ingredients are credited, and explicit residual risks remain. equivalent_formulations: A period-two result for the related quadratic memristance FPFM1 or constant-forcing NFP2 is not a simple specialization of the current full-plane cosine/modulus map. broader_coverage: The nonstandard exact modulus itinerary reduction is specific to the FPFM2 forcing and is not implied by orbit theorems for different planar dynamics. exact_database_or_table: Indexed orbit tables are not the same map; matching the period number two alone does not cover these orbits. claim_vs_prior_implication: Prior model definition and examples do not imply the sharp all-plane exhaustive orbit census without solving the shifted modulus equation and Jacobian inequalities.
+
+## value
+
+PASS
+
+A complete global parameter-space period-two classification of the specific published nonlinear fixed-point-free map, including a locked orbit, sharp no-cycle region, critical pole and attraction boundary. These are meaningful dynamical invariants beyond numerical attractor plots; no claim about longer cycles or physical hardware.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
