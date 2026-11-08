@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The analytic reduction is stated in `RESULT.md`: each node oscillation is the maximum of finitely many linear forms, and, on each sign cell, each output root oscillation is another explicit linear form. Exact nonnegative rational dual weights in `certificate.json` bound every output form by the input seminorm. Tree automorphisms and global sign reversal reduce all possibilities to 910 cases; `verify.py` checks the orbit enumeration from first principles, rather than trusting a stated count.
+# Independent mathematical audit
 
-Run `python3 verify.py certificate.json`. This exact-arithmetic check was executed against the two package files and yielded:
+## correctness
 
-`EXACT_CERTIFICATE_OK cases=910 constraints=290 automorphisms=128 dual_terms=4739 max_bound=1 depth4_ratio=41/40`
+PASS
 
-The program checks uniqueness and total coverage of all canonical sign/subset cases, nonnegativity of every rational dual coefficient, the sum-of-weights bound, exact equality of all 8 coefficient coordinates in every case, and the two depth-four benchmark seminorms. It uses only standard-library `fractions.Fraction` arithmetic. The finite proof covers all real vectors through the sign-cell decomposition; it is not an experiment on a finite sample of vectors. The pre-existing two-/four-atom folding inequality is used to handle proper descendant nodes. Neither correctness nor originality has been independently audited.
+PASS. The rooted binary BMO mean absolute deviation is the maximum of finitely many explicit centered linear sign rows. On an input orthant |a_i|=s_i*a_i; each output root oscillation is the maximum of explicit linear target forms. I independently reconstructed the 290 distinct nonzero input rows and, using exact BigInt rational arithmetic rather than trusting a verifier success string, checked every one of the 910 frozen certificate.json dual coordinate identities, 4,739 positive rational weights, the upper sum-of-row-coefficients bound <=1 and nonnegative orthant penalties, with no failure; maximum coefficient mass is exactly 1. Independent generation of 128 rooted-tree automorphisms, 13 sign classes up to simultaneous sign inversion, and canonical stabilizer orbits proved the provided 910 cases exactly exhaust all nontrivial sign-cell/target-subset possibilities. These finite polyhedral certificates are a complete inequality proof for all real eight-leaf vectors, not a finite input experiment. The two- and four-atom folding bound handles proper descendant nodes; the source cites Mohajer for this prior lemma. Exact computation of the 16-leaf witness yielded input seminorm 5, output 41/8, so the first amplification depth is exactly 4. The conclusion is only for real equal-weight mean-centered binary-tree BMO; it does not give the optimal depth-four constant.
+
+## originality
+
+PASS
+
+The exact depth-three bound closes the natural gap between published lower-depth contraction and higher-depth amplification as represented in accessible descriptions. No strong covering theorem was identified; close same-paper full text is inaccessible and retains substantial priority risk, not an automatic originality failure.
+
+## value
+
+PASS
+
+PASS. The minimum depth at which absolute-value folding ceases to be contractive for mean-centered real binary BMO was a natural precisely posed gap between known depth-two contraction and depth-four amplification. The exact depth-three contraction and certified first threshold are independently useful even without solving the entire infinite-depth sharp constant. The 910-case exact rational certificate establishes a structural cross-node phenomenon inaccessible from a simple 8-atom inequality; it is a motivated sharp finite cutoff rather than an arbitrary computational curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

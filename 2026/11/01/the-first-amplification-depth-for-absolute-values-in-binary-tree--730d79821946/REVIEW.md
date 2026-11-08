@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The new claim is an inequality for **all** real 8-leaf vectors. Every node oscillation has an explicit finite dual representation. On every input sign orthant, the output root oscillation has an exact finite dual representation. The attached 910-case rational Farkas certificate covers all sign-orthant/subset pairs up to precisely enumerated symmetries; replay checks every coefficient, sign, coverage class, and normalization with exact integer/fraction arithmetic. The source's sharp four-atom lemma covers each proper descendant node. A separate exact evaluation of the 16-leaf published example proves depth-four failure. Numerical optimization is not used as proof.
+## correctness
 
-## Originality
-PASS under inspected evidence. Mohajer's arXiv:2610.14459v1, Section 6, specifically names the least binary amplification depth and the unknown depth-three constant as open problems, while giving contraction only at depths 1 and 2 and an amplification example at depth 4. The present depth-three contraction fills the missing implication. Searches of published research index for the exact depth-three binary BMO folding constant, the least amplification depth, and mean-centered dyadic martingale modulus inequalities did not produce an equivalent or dominating theorem. Older alpha-tree and BMO-on-shapes references do not assert the 8-leaf depth-three bound in accessible descriptions. Residual risk: unindexed or inaccessible historical work could contain the same finite inequality.
+PASS
 
-## Value
-PASS. The result determines a sharp, explicitly posed natural threshold, rather than recomputing a known table or giving only a small numerical improvement. It identifies the first tree generation where a nonlinear Lipschitz map can increase mean-centered \(L^1\)-BMO, distinguishing a genuine three-versus-four-generation boundary. It gives a reproducible finite rational proof mechanism for all real inputs, with potential use in testing larger-depth Bellman or linear-programming bounds. It does not solve the global binary sharp constant.
+PASS. The rooted binary BMO mean absolute deviation is the maximum of finitely many explicit centered linear sign rows. On an input orthant |a_i|=s_i*a_i; each output root oscillation is the maximum of explicit linear target forms. I independently reconstructed the 290 distinct nonzero input rows and, using exact BigInt rational arithmetic rather than trusting a verifier success string, checked every one of the 910 frozen certificate.json dual coordinate identities, 4,739 positive rational weights, the upper sum-of-row-coefficients bound <=1 and nonnegative orthant penalties, with no failure; maximum coefficient mass is exactly 1. Independent generation of 128 rooted-tree automorphisms, 13 sign classes up to simultaneous sign inversion, and canonical stabilizer orbits proved the provided 910 cases exactly exhaust all nontrivial sign-cell/target-subset possibilities. These finite polyhedral certificates are a complete inequality proof for all real eight-leaf vectors, not a finite input experiment. The two- and four-atom folding bound handles proper descendant nodes; the source cites Mohajer for this prior lemma. Exact computation of the 16-leaf witness yielded input seminorm 5, output 41/8, so the first amplification depth is exactly 4. The conclusion is only for real equal-weight mean-centered binary-tree BMO; it does not give the optimal depth-four constant.
 
-## Closest literature and limitations
-The decisive comparison is Mohajer (2026), Theorem 4.1, Corollary 4.1, Theorem 4.2, and Section 6. Slavin–Vasyunin (2014) establishes oscillation-comparison machinery for alpha-trees rather than the exact finite depth threshold. The finite certificate is large rather than a short hand proof; its verifier is transparent and exact. Historical literature coverage may be incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact depth-three bound closes the natural gap between published lower-depth contraction and higher-depth amplification as represented in accessible descriptions. No strong covering theorem was identified; close same-paper full text is inaccessible and retains substantial priority risk, not an automatic originality failure.
+
+## value
+
+PASS
+
+PASS. The minimum depth at which absolute-value folding ceases to be contractive for mean-centered real binary BMO was a natural precisely posed gap between known depth-two contraction and depth-four amplification. The exact depth-three contraction and certified first threshold are independently useful even without solving the entire infinite-depth sharp constant. The 910-case exact rational certificate establishes a structural cross-node phenomenon inaccessible from a simple 8-atom inequality; it is a motivated sharp finite cutoff rather than an arbitrary computational curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
