@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify_star_uncentered.py` with standard-library Python 3. The checker independently enumerates all graph balls on stars of bounded size, evaluates each maximal average directly with rational arithmetic, and compares that definition with the compact analytic formula. The normalized exhaustive grid uses \(488{,}280\) input configurations, and the separate direct-ball calculation covers \(3{,}276\) graph inputs. Exactly \(100\) additional rational single-leaf extremizers supplement the initial eight grid witnesses.
+## correctness
 
-The code checks the exact edgewise bound \(|L_i-H|\le|t_i|/2+[(k-1)/(2(k+1))]\sum_{j\ne i}|t_j|\) and the summed sharp bound. It uses no numerical tolerances. These finite checks do not certify all real inputs or arbitrarily many branches; the general theorem rests on the explicit ball-list argument, complete case split, and equality calculation given in `RESULT.md`. No independent audit has been performed.
+PASS
+
+Every uncentered shortest-path ball containing the hub is {c}, {c,v_j}, or V, and every ball containing leaf i is {v_i}, {c,v_i}, or V. Subtracting nonnegative hub baseline b, writing t_i=|f(v_i)|-b, q=max_i t_i, s=sum_i t_i/(k+1), gives maximal hub excess H=max(0,q/2,s) and leaf excess L_i=max(t_i,t_i/2,s). The cases L_i>=H and H>L_i yield |L_i-H|<=|t_i|/2+(k-1)/(2(k+1))*sum_{j!=i}|t_j|, including k=1,2. Summation proves C_k=(k^2-k+2)/(2(k+1)). Leaf singleton indicator yields equality for every k. Independent direct enumeration of graph balls and Fraction exact averages verified all 3905 sign patterns for k=1,...,5 with hub baseline 2 and offsets in {-2,-1,0,1,2}. The unrestricted bound rests on the analytic inequality, not finite tests.
+
+## originality
+
+PASS
+
+Independent statement/implication comparisons found no decisive prior coverage of the exact assessed theorem, with explicit caveats. The operators must be compared by admissible balls: uncentered at a leaf includes hub-centered full ball and at hub includes all leaf-centered two-point balls. Centered maximal results cannot be relabeled into the new uncentered formula.
+
+## value
+
+PASS
+
+This answers the sharp variation-operator norm on every unweighted star with no sign/symmetry restrictions, locates the precise first variation-amplification branch count k=4, and proves unbounded linear dependence on branching. It separates centered and uncentered graph-ball regularity in a useful simplest family, contrasting interval variation contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

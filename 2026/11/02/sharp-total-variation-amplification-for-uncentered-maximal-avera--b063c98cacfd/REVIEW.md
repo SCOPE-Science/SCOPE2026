@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns arbitrary real vertex data on every unit-edge finite star, with no positivity restriction. The proof enumerates exactly the distinct graph balls containing the hub or a leaf, reduces the operator to three explicit affine candidates, and proves a coordinatewise estimate by cases, including the two exceptional low-branch counts. Summing yields the universal bound. A single-leaf indicator attains equality for every branch count. The integer/rational verifier independently reconstructs the ball definition and checks thousands of cases, but the analytic proof, not finite extrapolation, establishes the unrestricted claim.
+PASS
 
-## Originality — PASS, with stated limits
+Every uncentered shortest-path ball containing the hub is {c}, {c,v_j}, or V, and every ball containing leaf i is {v_i}, {c,v_i}, or V. Subtracting nonnegative hub baseline b, writing t_i=|f(v_i)|-b, q=max_i t_i, s=sum_i t_i/(k+1), gives maximal hub excess H=max(0,q/2,s) and leaf excess L_i=max(t_i,t_i/2,s). The cases L_i>=H and H>L_i yield |L_i-H|<=|t_i|/2+(k-1)/(2(k+1))*sum_{j!=i}|t_j|, including k=1,2. Summation proves C_k=(k^2-k+2)/(2(k+1)). Leaf singleton indicator yields equality for every k. Independent direct enumeration of graph balls and Fraction exact averages verified all 3905 sign patterns for k=1,...,5 with hub baseline 2 and offsets in {-2,-1,0,1,2}. The unrestricted bound rests on the analytic inequality, not finite tests.
 
-The nearest uncentered primary result is the variation-contraction theorem on the integer line (Bober–Carneiro–Hughes–Pierce, arXiv:1005.3030). The nearest sharp star-variation theorem is for the **centered** graph-ball operator (González-Riquelme–Madrid, arXiv:2005.03146), whose exact constant is different. Soria–Tradacete (arXiv:1410.6204) and González-Riquelme–Madrid II (arXiv:2011.02630) supply background but do not state the present exact uncentered star variation result in the inspected portions. An unindexed equivalent remains possible. Liu–Xue (2021), DOI 10.1007/s13348-020-00290-6, was not inspected in full; that access limitation is a residual priority risk. No independence or publication priority is certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question compares two canonical definitions of Hardy–Littlewood graph maximal averages in a natural elementary branching family. The answer identifies a precise contraction/amplification threshold, sharp extremizers, and linear growth with the number of leaves—qualitatively different from both the centered star constant and the one-dimensional uncentered contraction theorem. The complete infinite-family classification is useful for testing possible graph-wide BV inequalities and for identifying branching as an obstruction.
+Independent statement/implication comparisons found no decisive prior coverage of the exact assessed theorem, with explicit caveats. The operators must be compared by admissible balls: uncentered at a leaf includes hub-centered full ball and at hub includes all leaf-centered two-point balls. Centered maximal results cannot be relabeled into the new uncentered formula.
 
-## Scope and remaining risks
+## value
 
-Only unit-edge, counting-measure stars with graph-ball averages and ordinary edge variation are classified. Connected-subgraph maximal averages, general trees, weighted measures, and other variation exponents are not settled. Earlier alternate terminology or inaccessible literature could contain equivalent statements. Checks here are self-review, not independent scientific verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers the sharp variation-operator norm on every unweighted star with no sign/symmetry restrictions, locates the precise first variation-amplification branch count k=4, and proves unbounded linear dependence on branching. It separates centered and uncentered graph-ball regularity in a useful simplest family, contrasting interval variation contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
