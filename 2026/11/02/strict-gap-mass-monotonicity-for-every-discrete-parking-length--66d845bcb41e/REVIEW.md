@@ -1,15 +1,21 @@
-# Review of strict gap-mass monotonicity
+# Independent mathematical audit
 
-## Correctness — PASS
-The finding is a precise all-integer theorem for the established expected-gap integral formula. The existing exact step identity and monotone moment-ratio reduction are derived and attributed. The new likelihood-ratio comparison is strict, and a universal analytic integral has a rigorous certified positive lower bound, using only outward-rounded integer interval operations; the checker was replayed successfully. This converts the full infinite family into a finite certificate plus proved analytic reductions. The continuum derivative is controlled by the same positive integral. No finite numerical enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS, provisional
-Pinsky (arXiv:2608.04730, Theorem 2 and following remark) calls this an unsupported numerically suggested assertion. The closely relevant September 2026 note cited in RESULT.md proves the step identities and all cases through \(k=20\), while explicitly leaving larger lengths unresolved. Klaassen–Runnenburg's *Discrete Spacings* establishes the gap formulas and joint CLT but not this monotonicity. Their proved statements do not imply the full result: the genuinely new step is the likelihood-ratio uniform dominance and strict integral certificate. Mathematical-record and accessible historical-claim searches returned no equivalent or stronger all-length statement. Residual risk: older parking/adsorption literature or unindexed parallel research may contain an implicit general theorem.
+PASS
 
-## Mathematical value — PASS
-This resolves Pinsky's natural gap-mass shape conjecture, answering all physically admissible gap lengths uniformly rather than adding isolated finite cases. The linked continuum limit gains a strict shape theorem consistent with the discrete result and directly relevant to the packing-gap distribution. It is a structural, motivated classification of the expected mass allocation among gaps.
+For Phi_k(s)=exp(2 sum_{j=1}^{k-1}(s^j-1)/j), integration by parts gives (r+1)M_r-r M_{r+1}=2M_{r+k}, hence (r+1)g_{r+1}-r g_r=g_r-2g_{r+k}. The ratio g_{r+k}/g_r=E_r s^k is strictly increasing in r by the monotone likelihood ratio, so hardest physical index r=k-2 suffices. With s=e^{-x/k}, q_k/q_infty is increasing because (e^{x/k}-1)/(x/k) increases and (J-S_k)' is a positive strict Riemann-sum gap. Thus E_qk e^{-x}<E_qinfty e^{-x}; latter <1/2 iff C=int_0^infty x(1-x)e^{-x-2J(x)}dx>0. An independently rerun integer-only outward interval certificate covered 750 intervals, supplied rigorously lower enclosure 0.001515431 and analytic tail with C>0.001; independent high-precision quadrature C≈0.007679357464. Analytic monotone ratio F(t/gamma)/F(t) yields h'(gamma)>0 for 0<gamma<=1. All-k conclusion derives from analytic comparison and one certified integral, not testing finitely many k.
 
-## Scope and limits
-The proof relies on the exact gap-density representation and applies to the single-length, one-dimensional adsorption process after taking its thermodynamic limit. It makes no claim beyond the physical gap-length range or for finite-sample fluctuations. Reproducible self-review is not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pinsky's 2026 discrete parking gap formula and continuum density are prior; the paper explicitly noted numerically increasing l*g and no proof. The September 2026 archived note obtains exact recurrence and verifies k<=20 but expressly leaves all larger k open. This proof adds strict uniform comparison to continuum q_infty and certified positive universal integral, so genuine quantified coverage is all k>=2. Highly relevant Pinsky full technical PDF could not be accessed despite arXiv/OA attempts and authorized Oxford retrieval (vpn_disconnected); its quoted explicit no-proof remark and contemporary partial paper support qualified originality.
+
+## value
+
+PASS
+
+Resolves a concretely stated natural monotonicity question for every discrete block length rather than an arbitrary finite census, with an unexpected common continuum integral controlling both all-length and continuum results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

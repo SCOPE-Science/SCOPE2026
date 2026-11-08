@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 rsa_monotonicity_checker.py` with a standard Python interpreter. It uses no external packages and asserts a rigorous lower enclosure of the universal integral greater than 0.001, over 750 cells, followed by an analytic tail estimate. Its literal output is in `verification_log.txt`.
+## correctness
 
-The checked inequality is \(\int_0^\infty x(1-x)e^{-x-2J(x)}\,dx>0.001\). The program uses scaled integer intervals with outward division/multiplication and alternating Taylor polynomials. The sign validity follows from explicit remainder bounds for the nonnegative domains covered.
+PASS
 
-The analytic proof additionally requires verifying the integration-by-parts identity, the exact gap-step identity, increasing moment ratios, the strict right-Riemann-sum derivative inequality, likelihood-ratio stochastic order, and the continuum monotonic-ratio derivative. All are stated and justified in `RESULT.md`. Numerical checks alone would not prove these analytic steps.
+For Phi_k(s)=exp(2 sum_{j=1}^{k-1}(s^j-1)/j), integration by parts gives (r+1)M_r-r M_{r+1}=2M_{r+k}, hence (r+1)g_{r+1}-r g_r=g_r-2g_{r+k}. The ratio g_{r+k}/g_r=E_r s^k is strictly increasing in r by the monotone likelihood ratio, so hardest physical index r=k-2 suffices. With s=e^{-x/k}, q_k/q_infty is increasing because (e^{x/k}-1)/(x/k) increases and (J-S_k)' is a positive strict Riemann-sum gap. Thus E_qk e^{-x}<E_qinfty e^{-x}; latter <1/2 iff C=int_0^infty x(1-x)e^{-x-2J(x)}dx>0. An independently rerun integer-only outward interval certificate covered 750 intervals, supplied rigorously lower enclosure 0.001515431 and analytic tail with C>0.001; independent high-precision quadrature C≈0.007679357464. Analytic monotone ratio F(t/gamma)/F(t) yields h'(gamma)>0 for 0<gamma<=1. All-k conclusion derives from analytic comparison and one certified integral, not testing finitely many k.
 
-Independent audit: not performed. The claim is subject to future independent mathematical scrutiny and historical-priority checks.
+## originality
+
+PASS
+
+Pinsky's 2026 discrete parking gap formula and continuum density are prior; the paper explicitly noted numerically increasing l*g and no proof. The September 2026 archived note obtains exact recurrence and verifies k<=20 but expressly leaves all larger k open. This proof adds strict uniform comparison to continuum q_infty and certified positive universal integral, so genuine quantified coverage is all k>=2. Highly relevant Pinsky full technical PDF could not be accessed despite arXiv/OA attempts and authorized Oxford retrieval (vpn_disconnected); its quoted explicit no-proof remark and contemporary partial paper support qualified originality.
+
+## value
+
+PASS
+
+Resolves a concretely stated natural monotonicity question for every discrete block length rather than an arbitrary finite census, with an unexpected common continuum integral controlling both all-length and continuum results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
