@@ -1,12 +1,21 @@
-# Review of the curvature-tomography theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The normal-coordinate distance-square and Jacobian expansions, together with exact second/fourth moments of uniform ellipsoids, yield the stated quadratic coefficient. All normalizations are included. Rank-one and rank-two polynomial boundary evaluations give explicit Ricci and sectional curvature formulas; Bianchi polarization recovers the complete curvature tensor. A dimension-count argument gives the exact generic minimal shape number. Exact algebraic scripts verify the inversion formula and finite-field measurement ranks (dimensions 2–5), while exact sphere-geometry numerical quadrature checks the coefficient independently in dimension two. These tests support rather than substitute for the proof. Risks: beyond the stated asymptotic order and fixed tangent frame, no statistical or finite-radius guarantees are supplied.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The 2019 Fefferman–Ivanov–Lassas–Narayanan paper reconstructs a whole manifold from many labeled noisy sampled distances; the 2021 Fefferman–Ivanov–Lassas–Lu–Narayanan paper uses dense local distance vectors. Neither inspected main result, methods description, and relevant proof sections asserts the finite family of *unlabeled mean squared distances over varying ellipsoids* or the sharp rank of its curvature coefficient map. The earlier spherical two-point scalar trace result is strictly weaker for dimensions \(n\ge4\): it does not see nonzero trace-free Ricci or Weyl tensors. Search and content-review coverage cannot prove absolute historical novelty; older equivalent local integral-geometric identities remain possible.
+PASS
 
-## Value — PASS
-The all-dimensional inversion is a natural local inverse-geometric statement: a single simple statistic becomes a complete curvature-tensor measurement when test-domain anisotropy is controlled. Its exact finite measurement cutoff equals the algebraic dimension of curvature tensors, and the explicit Ricci-flat four-dimensional example demonstrates information that spherical observations lose. This advances beyond a normal-coordinate exercise because it proves injectivity and optimality of a geometric measurement family for every tensor, not merely computes a coefficient.
+Direct reconstruction: the normal-coordinate squared-distance expansion is ||x-y||² - R(x,y,x,y)/3 + O(r^5); normalized Jacobian J=1-Ric(x,x)/6+O(r³). Ellipsoid second and fourth moments yield the stated Ricci covariance term and tensor contraction. At Q=uu^T the R term vanishes and one obtains 2(n+1) Ric(u,u)/[3(n+2)^2(n+4)]; at Q=P_uv the contraction is 2K(u,v). Polarization and Bianchi give R. Nondegenerate positive Q evaluations separate an N=n²(n²-1)/12-dimensional space so generic N are sufficient and fewer fixed scalars cannot be. Verified exact sample curvature-component and normalization identities from frozen source scripts; the 4-dimensional Weyl example has zero Ric and 1/54 response on diag(2,2,1,1).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original exact anisotropic two-point-distance coefficient and optimal finite scalar measurement count, distinct from prior global reconstruction from labeled/dense distances. Standard curvature expansions and polarization receive no novelty credit; spherical averages give only scalar traces, not the anisotropic Weyl-recovery statement.
+
+## value
+
+PASS
+
+A natural local geometric inverse problem: identifies the whole curvature tensor, including invisible Weyl modes, using a single statistical observable measured across anisotropic shapes. The exact N-count and rank-one/rank-two inversion are structurally motivated and more informative than a scalar-curvature trace; a researcher studying minimal local metric-moment tomography can directly use this theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

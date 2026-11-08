@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The algebraic curvature observation map and its rank-one/rank-two inverses were checked exactly for dimensions 2 and 3 by `check_curvature.py`. `check_rank.py` checks full column rank over the prime field of order 104729 in dimensions 2, 3, 4, 5; the respective ranks are 1, 6, 20, 50, and the algebraic genericity argument independently establishes the all-dimensional statement. `check_spaceform.py` samples exact spherical distance and integrates the exponential-map volume Jacobian for an anisotropic two-dimensional tangent ellipsoid, cross-checking the limiting formula at three radii. Its finite-radius errors and Monte Carlo/quasi-Monte Carlo tolerances are not proof of the asymptotic expansion.
+## correctness
 
-The proof itself depends on the standard normal-coordinate squared-distance expansion, the volume Jacobian expansion, moment contractions and the algebraic curvature symmetries; it does not depend on external verification services, unpublished papers or numerical extrapolation. No independent mathematical audit has been performed.
+PASS
+
+Direct reconstruction: the normal-coordinate squared-distance expansion is ||x-y||² - R(x,y,x,y)/3 + O(r^5); normalized Jacobian J=1-Ric(x,x)/6+O(r³). Ellipsoid second and fourth moments yield the stated Ricci covariance term and tensor contraction. At Q=uu^T the R term vanishes and one obtains 2(n+1) Ric(u,u)/[3(n+2)^2(n+4)]; at Q=P_uv the contraction is 2K(u,v). Polarization and Bianchi give R. Nondegenerate positive Q evaluations separate an N=n²(n²-1)/12-dimensional space so generic N are sufficient and fewer fixed scalars cannot be. Verified exact sample curvature-component and normalization identities from frozen source scripts; the 4-dimensional Weyl example has zero Ric and 1/54 response on diag(2,2,1,1).
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact anisotropic two-point-distance coefficient and optimal finite scalar measurement count, distinct from prior global reconstruction from labeled/dense distances. Standard curvature expansions and polarization receive no novelty credit; spherical averages give only scalar traces, not the anisotropic Weyl-recovery statement.
+
+## value
+
+PASS
+
+A natural local geometric inverse problem: identifies the whole curvature tensor, including invisible Weyl modes, using a single statistical observable measured across anisotropic shapes. The exact N-count and rank-one/rank-two inversion are structurally motivated and more informative than a scalar-curvature trace; a researcher studying minimal local metric-moment tomography can directly use this theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:48:08.845862Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md normal coordinate and covariance proof",
+        "check_curvature.py and check_rank.py source inspection",
+        "algebraic tensor polarization and dimension formula"
+      ],
+      "rationale": "Direct reconstruction: the normal-coordinate squared-distance expansion is ||x-y||² - R(x,y,x,y)/3 + O(r^5); normalized Jacobian J=1-Ric(x,x)/6+O(r³). Ellipsoid second and fourth moments yield the stated Ricci covariance term and tensor contraction. At Q=uu^T the R term vanishes and one obtains 2(n+1) Ric(u,u)/[3(n+2)^2(n+4)]; at Q=P_uv the contraction is 2K(u,v). Polarization and Bianchi give R. Nondegenerate positive Q evaluations separate an N=n²(n²-1)/12-dimensional space so generic N are sufficient and fewer fixed scalars cannot be. Verified exact sample curvature-component and normalization identities from frozen source scripts; the 4-dimensional Weyl example has zero Ric and 1/54 response on diag(2,2,1,1).",
+      "residual_risks": [
+        "The boundary rank-one/two Q matrices are polynomial limits, not positive-volume sampling shapes.",
+        "Finite-field rank checks in dimensions 2–5 corroborate, not prove, the generic all-dimensional separation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fefferman et al 2019 reconstruct a manifold from many labeled sampled distances.",
+          "Fefferman et al 2021 recover metric information from dense distance-vector observations."
+        ],
+        "reasoning": "The prior inverse problems use fundamentally richer labeled high-dimensional observations: their reconstruction conclusions do not imply that exactly N prescribed scalar mean-square ellipsoid coefficients have full curvature rank.",
+        "searches": [
+          "arXiv:1905.07182 Theorem 1 reconstruction from noisy intrinsic distances",
+          "arXiv:2111.14528 Theorem 1.2 partial distance vectors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.07182 (Fefferman–Ivanov–Lassas–Narayanan, 2019)",
+        "arXiv:2111.14528 (Fefferman–Ivanov–Lassas–Lu–Narayanan, 2021)",
+        "Resultary query: Recovering full Riemann curvature tensor from mean squared geodesic distances random anisotropic ellipsoid local shape curvature statistics",
+        "Frozen RESULT.md and checked scripts: 2026/11/02/finite-shape-recovery-of-full-riemann-curvature-from-random-shor--c3e67d132e7d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior labeled distance-vector theorems can imply recovery of the metric and hence Riemann tensor with additional data, but not the minimal scalar observation theorem.",
+          "For Q=I the relevant curvature functional reduces to a scalar-curvature trace, annihilating Weyl components; the displayed Ricci-flat example has K(diag(2,2,1,1))=1/54."
+        ],
+        "reasoning": "The old theorem conclusions with more observations do not imply sufficiency or sharpness for the constrained ellipsoidal moment experiment. General normal-coordinate expansions are needed premises and are credited.",
+        "searches": [
+          "arXiv:1905.07182",
+          "arXiv:2111.14528",
+          "curvature moments over geodesic balls"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Polynomial K_p(Q) is a quadratic functional of the algebraic curvature tensor and can be rewritten as an anisotropic local integral-geometric curvature moment.",
+          "R(Q,Q)=2 K(u,v) on orthogonal rank-two projectors, so the new observable separates all algebraic curvature tensors."
+        ],
+        "reasoning": "The equivalent curvature-tensor polarization and moment-transform perspectives were compared; unlike spherical scalar curvature moments, no matching ellipsoidal unlabeled pair-distance coefficient was established in inspected sources.",
+        "searches": [
+          "Recovering full Riemann curvature tensor from mean squared geodesic distances random anisotropic ellipsoid local shape curvature statistics",
+          "\"Ricci tensor\" \"random points\" \"distance squared\" \"ellipsoid\" Riemannian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby ellipsoid anisotropy findings but no matching table of full algebraic-curvature coefficients.",
+          "The package provides a 4-dimensional Ricci-flat algebraic curvature test with nonzero anisotropic response 1/54."
+        ],
+        "reasoning": "Neither a published curvature table nor a previously indexed local scalar coefficient database supplying the exact dimension-N rank and inversion was found; search non-hit alone is not proof of novelty.",
+        "searches": [
+          "Recovering full Riemann curvature tensor from mean squared geodesic distances random anisotropic ellipsoid local shape curvature statistics",
+          "Resultary anisotropic curvature local moment retrieval"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact anisotropic two-point-distance coefficient and optimal finite scalar measurement count, distinct from prior global reconstruction from labeled/dense distances. Standard curvature expansions and polarization receive no novelty credit; spherical averages give only scalar traces, not the anisotropic Weyl-recovery statement.",
+      "residual_risks": [
+        "Some earlier local integral-geometric or curvature-moment identities could give an equivalent ellipsoidal polarization formula under a different normalization.",
+        "Population infinitesimal coefficients assume an exact tangent frame and do not establish numerical/noisy statistical recovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different data regime; not an exact ellipsoid moment tomography theorem",
+          "evidence": "Theorem 1 describes reconstruction from noisy intrinsic pairwise distance data.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.07182",
+          "material_read": "Article PDF theorem statement and opening proof/method context including sampled labeled distance hypothesis",
+          "method": "direct primary PDF inspection",
+          "title": "Reconstruction of a Riemannian manifold from noisy intrinsic distances",
+          "trigger": "closest manifold reconstruction using pair distances"
+        },
+        {
+          "assessment": "uses partial high-dimensional distance-vector data rather than N unlabeled scalar moments",
+          "evidence": "Theorem 1.2 and Sections on local distance-vector observations.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.14528",
+          "material_read": "Full-text indexed main theorem and local coordinate/distance-vector methods context",
+          "method": "primary manuscript rendition",
+          "title": "Reconstruction and interpolation of manifolds II: Inverse problems for Riemannian manifolds with partial distance data",
+          "trigger": "related local metric recovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Curvature tensor algebra; Riemannian geodesic normal-coordinate moments",
+        "Fefferman et al 2019 and 2021 as related inverse-distance problems"
+      ],
+      "rationale": "A natural local geometric inverse problem: identifies the whole curvature tensor, including invisible Weyl modes, using a single statistical observable measured across anisotropic shapes. The exact N-count and rank-one/rank-two inversion are structurally motivated and more informative than a scalar-curvature trace; a researcher studying minimal local metric-moment tomography can directly use this theorem.",
+      "residual_risks": [
+        "Population and zero-radius idealizations limit direct measurement feasibility but not the exact mathematical value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The boundary rank-one/two Q matrices are polynomial limits, not positive-volume sampling shapes.",
+    "Finite-field rank checks in dimensions 2–5 corroborate, not prove, the generic all-dimensional separation.",
+    "Some earlier local integral-geometric or curvature-moment identities could give an equivalent ellipsoidal polarization formula under a different normalization.",
+    "Population infinitesimal coefficients assume an exact tangent frame and do not establish numerical/noisy statistical recovery.",
+    "Population and zero-radius idealizations limit direct measurement feasibility but not the exact mathematical value."
+  ],
+  "schema_version": 1
+}
