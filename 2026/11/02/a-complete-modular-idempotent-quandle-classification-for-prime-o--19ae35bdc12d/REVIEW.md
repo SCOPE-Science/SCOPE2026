@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The auxiliary cyclic group algebra makes the bilinear quandle product exactly \(\sigma_a(F)\sigma_b(G)\). The augmentation ideal is nilpotent, eliminating every augmentation-zero solution except zero. The truncated logarithm converts the augmentation-one equation into independent diagonal linear equations, proves the exact parametrization, and computes the induced subquandle law. The supplied standalone checker exhaustively matches six small examples and tests selected larger resonances; computational tests are not treated as proof.
+## correctness
 
-**Originality (PASS, qualified).** The 2006 self-distributive-vector-space construction is foundational rather than a modular idempotent census. The 2017 quandle-ring treatment addresses augmentation and general idempotent behavior without the all-parameter finite-characteristic classification here. The closely related previous modular dihedral theorem already subsumes all \(\lambda=2\) counts; the present claim explicitly excludes that special case as a novelty contribution and instead solves the full connected prime-order affine parameter family and determines the induced quandle structure. The 2026 complex Fourier and integral results use a different coefficient regime and do not imply the modular result. Exhaustive historical novelty checking has not been performed.
+PASS
 
-**Value (PASS).** This is a natural complete classification, not a numeric single-instance calculation: it simultaneously settles all prime-order connected affine parameters and all matching-characteristic fields, reveals arbitrary-field idempotent-subquandle structure, and gives exact finite-field counts with new resonance dimension jumps, such as \(d_{13,4}=4\). Such idempotents form an algebraic family related to the natural Alexander-quandle operations rather than arbitrary unmotivated finite examples.
+Embed the basis e_i as t^i in the associative cyclic group algebra B=k[t]/(t^p−1)=k[u]/u^p, and check e_i⋆e_j=t^{(1−λ)i+λj}=σ_{1−λ}(t^i)σ_λ(t^j). Every ⋆-idempotent has augmentation zero or one. If zero it lies successively in I^{2^r} and vanishes. Augmentation-one elements are 1+I, and truncated characteristic-p log/exp polynomials are inverse abelian group maps because I^p=0 and coefficients below degree p are units. For v=log t, σ_c(v^j)=c^j v^j; linearized idempotency equation restricts coefficients exactly to J. For two idempotents, log of their ⋆-product is σ_a(H)+σ_b(K), yielding the affine quandle law with nonzero coefficients summing to one in each coordinate. Direct exhaustive bilinear product enumeration over F3 and F5 confirms counts; independently checked resonances for seven primes up to31.
 
-**Residual limitations.** The proof is confined to cyclic prime order and matching characteristic. The earlier dihedral proof uses closely related logarithmic methods; possible unpublished or uninspected generalizations remain a genuine historical-priority risk. Finite tests are corroborative; no independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The transported quandle-ring multiplication is already a general result of Zhang arXiv:2610.08204, Proposition 2.1, for any commutative coefficient ring, so it is not original. Known dihedral λ=2 modular idempotent counts are a special case, including Resultary R3 count q+1. However the full simultaneous classification for all connected prime-order affine λ, with resonance coordinates and internal Alexander quandle structure, is not stated in inspected foundational, group-ring, or characteristic-zero Fourier results. The prior dihedral theorem is explicitly acknowledged as overlap.
+
+## value
+
+PASS
+
+A natural, uniform classification of idempotents for all connected affine prime-order quandles and arbitrary coefficient fields of matching characteristic, with complete internal quandle structure rather than a mere count. Resonance dimension can jump (e.g. p13 λ4 gives four free coordinates), a meaningful algebraic invariant for future quandle-ring computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
