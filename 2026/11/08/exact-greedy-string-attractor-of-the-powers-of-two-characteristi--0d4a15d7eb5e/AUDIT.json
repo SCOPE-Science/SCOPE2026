@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Induct on marked positions: initial marks are 0,2. For a power a=2^k with latest mark 3a−1, every newly appended suffix through index 6a−2 has an earlier occurrence beginning at index a; any new factor must cross the last mark or be inside such a suffix, and is therefore attracted by induction. At index 6a−1 the first run of 2a consecutive zeros appears beyond all prior marks and forces the next mark. This establishes both directions for all k; counting positions below N gives the exact closed form. Independent direct-factor and novel-suffix finite checks and 24,573 scale identities corroborate the steps but are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer–Shallit Theorem 8 gives *other*, feasible attractor sets for the same indicator.",
+        "Theorem 21 only bounds generic greedy cardinality asymptotically.",
+        "Cassaigne et al. analyze optimum profile; Béal–Crochemore–Romana tabulate a different finite-word greedy algorithm."
+      ],
+      "reasoning": "Existence or logarithmic cardinality of an arbitrary optimal or feasible attractor does not force the exact position set selected by an earliest-failure online rule. A different offline greedy implementation also does not imply the asserted positions. Thus none of these broader theorems subsumes the specific classification.",
+      "searches": [
+        "arXiv:2012.06840 Section 6 Theorem 8 and Section 9 Theorem 21",
+        "DOI:10.1016/j.jcta.2024.105936 Example 12",
+        "arXiv:2509.08503v2 Section 5 Table 2",
+        "string attractor minimal size prefixes of automatic words powers of two characteristic sequence sparse support"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.06840v6, Sections 6 and 9 (primary original definitions, same-word comparison)",
+      "arXiv:2407.15599, Sections 2–4 (canonical online/Lempel–Ziv equivalence)",
+      "DOI:10.1016/j.jcta.2024.105936, author preprint on ORBi, Example 12 and optimal profiles",
+      "arXiv:2509.08503v2, Sections 4–5 and Table 2 (different greedy algorithm, same-word numerical study)",
+      "Mantaci et al., A combinatorial view on string attractors, accessible PDF (original offline literature)",
+      "Semantic research records: greedy period-doubling attractor, finite Rudin–Shapiro/paperfolding attractors, Abelian-pattern Sturmian support bounds",
+      "OEIS and web targeted string/LZ attractor sequence searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current theorem specifies every greedy index and exact size for all prefixes.",
+        "Earlier papers give, respectively, some offline attractors plus an upper bound, an equivalence to an LZ variant, and finite sample sizes for another greedy algorithm."
+      ],
+      "reasoning": "Known existential attractor sets cannot be inverted to canonical earliest-failure indices. The LZ equivalence alone is not an exact parsing of this word. Consequently the specific statement is not implied by the inspected source statements, subject to risk of an unindexed exact LZ parsing.",
+      "searches": [
+        "arXiv:2012.06840 Theorems 8 and 21",
+        "arXiv:2407.15599 Theorem 3.4",
+        "arXiv:2509.08503v2 Sections 4-5",
+        "The characteristic sequence of powers of 2 11010001 greedy string attractor positions 0,2,5,11,23,47,95 exact binary streaming LZ phrases",
+        "Schaeffer Shallit Definition 19 greedy attractor powers-of-two indicator exact geometric positions 3*2^k-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Whittington Theorem 3.4 proves canonical online Lazy is equivalent to self-referencing novel Lempel–Ziv parsing.",
+        "Targeted searches for the same binary indicator and its explicit LZ phrase-end sequence found no exact comparison statement."
+      ],
+      "reasoning": "The LZ phrase-end formulation is a genuine equivalence; hence any previously proved exact parsing at indices 0,2,5,11,... would cover the claim. The checked paper establishes the equivalence but gives no such parsing for the powers-of-two indicator. The residual risk is an unindexed LZ source.",
+      "searches": [
+        "\"greedy string attractor\" \"powers of two\"",
+        "\"Lempel Ziv\" \"11010001\" attractor",
+        "arXiv:2407.15599 Theorem 3.4",
+        "The characteristic sequence of powers of 2 11010001 greedy string attractor positions 0,2,5,11,23,47,95 exact binary streaming LZ phrases",
+        "Online Lazy Lempel Ziv parsing of characteristic powers-of-two sequence exact factor boundaries"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Database search located a record for the **period-doubling** greedy positions, not the powers-of-two indicator.",
+        "The published Table 2 reports cardinalities for an alternative greedy algorithm on dyadic prefix lengths and does not specify online positions."
+      ],
+      "reasoning": "Numerical agreement with a known powers-of-two pattern does not establish novelty. The relevant checked database summaries and source tables did not provide an exact canonical greedy solution; published alternate-heuristic numbers are not comparable without their selection rules.",
+      "searches": [
+        "greedy string attractor powers of two indicator sequence characteristic sparse word exact positions 0 1 3 6 12 24",
+        "powers of two characteristic word greedy string attractor Schaeffer Shallit Mantaci Prezza",
+        "greedy string attractor of geometric support words positions 3*2^k",
+        "The characteristic sequence of powers of 2 11010001 greedy string attractor positions 0,2,5,11,23,47,95 exact binary streaming LZ phrases",
+        "Schaeffer Shallit Definition 19 greedy attractor powers-of-two indicator exact geometric positions 3*2^k-1",
+        "OEIS string attractor sequence 0 2 5 11 23 47",
+        "arXiv:2509.08503v2 Table 2 power of 2"
+      ]
+    },
+    "rationale": "The identical power-of-two indicator is studied for offline attractors by Schaeffer–Shallit, and a general canonical greedy rule appears in their Definition 19. Their bounds and explicit noncanonical sets do not fix the selected greedy positions. Whittington identifies the exact LZ variant that is equivalent, but does not compute its parsing for the indicator. The newer full-text study using a different greedy algorithm and its same-word numerical table do not imply the online geometric positions. Targeted mathematical-record and literature searches found no statement implying this theorem; a possible unindexed LZ-equivalent remains an explicit bibliographic risk.",
+    "residual_risks": [
+      "An unindexed or uncaught prior derivation of the same self-referencing novel Lempel–Ziv phrase endpoints would be equivalent.",
+      "Some keyword/indexing conventions shift the characteristic word by a leading zero and should be normalized before comparing any future claim.",
+      "Search coverage cannot prove bibliographic uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 8 supplies noncanonical offline attractor sets for the same sequence and Section 9 only a general greedy count bound; no exact canonical greedy set or all-N cardinality is stated in inspected material.",
+        "evidence": [
+          "Section 6 (power-of-two indicator) explicit feasible sets involving powers of four",
+          "Definition 19 constructs the canonical online greedy set",
+          "Theorem 21 gives generic O(log N) upper bound, not exact positions"
+        ],
+        "identifier_or_url": "arXiv:2012.06840v6; https://arxiv.org/html/2012.06840v6",
+        "material_read": "Full HTML, especially Section 6 Theorem 8, Section 8, and Section 9 Definition 19, Lemma 20, Theorem 21 and their proofs",
+        "method": "Read accessible arXiv HTML and compare both explicit offline-attractor families and generic greedy bounds with all claimed greedy positions",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "Same automatic word and original definition of greedy attractor"
+      },
+      {
+        "assessment": "Theorem 3.4 identifies the exact Lempel–Ziv variant corresponding to greedy attraction. Its studied Fibonacci/Thue–Morse words and general bounds do not supply phrase boundaries for the powers-of-two characteristic word.",
+        "evidence": [
+          "Theorem 3.4 equates Lazy with self-referencing novel Lempel–Ziv parsing",
+          "Section 4 studies Fibonacci and Thue–Morse; no stated powers-of-two indicator boundary formula"
+        ],
+        "identifier_or_url": "arXiv:2407.15599; https://arxiv.org/abs/2407.15599",
+        "material_read": "ArXiv full HTML text, Sections 2, 3 and 4, especially Theorem 3.4 and the finite-word examples",
+        "method": "Compare the equivalence theorem and studied word families with the proposed specific all-position formula",
+        "title": "Online String Attractors",
+        "trigger": "Possible equivalent result via online Lazy algorithm and Lempel–Ziv factorization"
+      },
+      {
+        "assessment": "The powers-of-two example addresses order-of-growth and optimal-profile facts, not the greedy selection sequence or its exact cost for every prefix.",
+        "evidence": [
+          "The example establishes logarithmic optimal-attractor behavior for the powers-of-two characteristic word; no canonical greedy-position theorem was identified in inspected sections"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.jcta.2024.105936; https://orbi.uliege.be/handle/2268/309672",
+        "material_read": "Authorized open author-preprint PDF, abstract and pertinent definitions, Example 12 on powers-of-two characteristic word and nearby results on optimal string attractor profiles",
+        "method": "Read text, inspect PDF page imagery and compare optimal-attractor quantities with canonical online greedy positions",
+        "title": "New string attractor-based complexities for infinite words",
+        "trigger": "Same powers-of-two example and stronger potential general profile results"
+      },
+      {
+        "assessment": "Its GetAnAttractor algorithm is a different backward greedy method on finite inputs; it provides experimental sizes for that method, not exact earliest-failure online positions or the all-length formula herein.",
+        "evidence": [
+          "Section 4 algorithm places positions from right to left",
+          "Section 5 Table 2 lists experimental costs for powers-of-two word",
+          "Introduction explicitly distinguishes the earlier Definition 19 online greedy construction"
+        ],
+        "identifier_or_url": "arXiv:2509.08503v2; https://arxiv.org/html/2509.08503v2",
+        "material_read": "Full accessible arXiv HTML, algorithm definitions in Section 4 and experiments in Section 5, Table 2",
+        "method": "Compare update order and algorithm definition as well as the powers-of-two entry of the experimental table with the present online definition",
+        "title": "Checking and producing word attractors",
+        "trigger": "Newer paper explicitly tests the identical powers-of-two indicator, with a greedy algorithm"
+      },
+      {
+        "assessment": "Develops offline attractors and their combinatorial use, not the exact greedy set for this word.",
+        "evidence": [
+          "String attractor definition and examples address offline occurrence-hitting sets, not the canonical earliest-failure selection"
+        ],
+        "identifier_or_url": "CEUR workshop precursor: https://ceur-ws.org/Vol-2504/paper8.pdf",
+        "material_read": "Author-accessible PDF introductory definition and relevant sections on examples and attractor complexity",
+        "method": "Inspect source PDF and compare the invariants studied with the canonical online greedy rule",
+        "title": "A combinatorial view on string attractors",
+        "trigger": "Foundational attractor theory and sparse powers-of-two instance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d4a15d7-eb5e-493b-aca8-92c8623a9f1a",
+  "value": {
+    "rationale": "The powers-of-two characteristic word is a standard binary automatic stress case with optimal attractor complexity Theta(log N). An explicit canonical online attractor removes the existing constant-factor ambiguity for this natural deterministic rule, yields an exact all-prefix cost and geometric location classification, and equivalently determines every self-referencing novel LZ phrase end for this word. These are useful exact structural data about online compression rather than an arbitrary finite cutoff, while making no claim to solve the harder offline optimum.",
+    "status": "PASS"
+  }
+}
