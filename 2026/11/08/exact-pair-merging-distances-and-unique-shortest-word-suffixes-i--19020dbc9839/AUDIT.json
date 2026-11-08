@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For all n>=2 and every i<j, the integer potential D partitions the pair set into consecutive nonoverlapping gap-pair intervals. Direct case analysis of the two letters shows exactly one outgoing transition reduces D by 1; every other transition leaves D unchanged or increases it. This proves exact shortest merging lengths and uniqueness without any finite-enumeration assumption. Rank residues give the explicit common suffix word in both parities. An independent reverse BFS for n<=80 and 10,666,600 supplemental potential checks through n=400 agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behague–Johnson, arXiv:2008.12166, §1: universal bound RDV(2,n)=C(n,2) and a Černý extremal pair.",
+        "Their result gives the maximum over prescribed pairs and automata, not the individual distance map, strict all-distance multiplicities, or optimal-word uniqueness."
+      ],
+      "reasoning": "A sharp maximum does not determine the distribution beneath that maximum, or whether shortest words are unique. The current theorem reconstructs all pair lengths and gives a single word whose suffixes enumerate every optimum. Gusev’s odd-state structural diagram is the more serious possible implication and is described separately.",
+      "searches": [
+        "arXiv:2008.12166 §§1–3",
+        "\"Černý automaton\" \"pair automaton\" \"longest path\"",
+        "\"Cerny\" \"pair\" \"n(n-1)/2\" \"shortest\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2008.12166",
+      "https://arxiv.org/abs/1404.6731",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v29i3p41"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known maximum C(n,2) follows immediately by taking the maximum of the claimed formula; this component is pre-existing.",
+        "Gusev’s odd-state transition representation could be used as a starting point to derive the odd instance, but it omits an even-state graph and does not publish the all-state explicit distance formula or uniqueness/suffix conclusion."
+      ],
+      "reasoning": "The new statement is stronger in information content than the established extremal value and expectation formulas. It also proves one-to-one rank occupancy and rigid word uniqueness for every pair, not just existence of a merging path. Residual risk: a reader may regard some odd-state portions as an elementary consequence of the earlier graphical representation.",
+      "searches": [
+        "arXiv:2008.12166 §1 at RDV(2,n)",
+        "arXiv:1404.6731 §3, Figure 3 and Lemma 1",
+        "\"Černý\" \"pairs\" \"binom{n}{2}\" distances"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gusev, arXiv:1404.6731, §3 and Fig. 3: graph of odd-state pair automaton; probabilities of random absorption are the objects of the theorems.",
+        "The graph permits state-specific path computations but does not state the both-parity explicit distance bijection or common suffix-chain uniqueness theorem."
+      ],
+      "reasoning": "The claimed theorem is invariant under simultaneous cyclic relabeling only with a corresponding conjugation of the unique merging letter. Earlier odd-state pair graphs are closely related but only encode transitions; their published assertions are expected random times, not the complete deterministic shortest-word classification. The even parity and suffix-chain description are included explicitly here.",
+      "searches": [
+        "\"Cerny\" \"unique shortest\" \"pair\"",
+        "\"Černý\" \"pairs\" \"distinct\" \"merging\" \"lengths\"",
+        "\"Cerny automaton\" \"pair automaton\" \"Hamiltonian\"",
+        "arXiv:1404.6731 §3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary works present a pair automaton and maximum rendezvous value but no tabulation of all labeled-pair shortest-word ranks or uniqueness of all optima."
+      ],
+      "reasoning": "No exact all-pair table with the asserted bijection and suffix property was located; this is limited negative bibliographic evidence and not a uniqueness proof for the literature.",
+      "searches": [
+        "\"Cerny\" \"pair\" \"n(n-1)/2\" \"shortest\"",
+        "\"Cerny automaton\" \"merging words\" \"all pairs\" length",
+        "\"Cerny automaton\" \"pair automaton\" \"Hamiltonian\""
+      ]
+    },
+    "rationale": "The known general maximum two-state merging time C(n,2) and a Cerny extremizer are explicitly credited to Behague–Johnson (2020/2022), and Gusev (2014) gives the odd-state pair-automaton graph. Neither inspected work states the all-labeled-pair integer-bijection formula in both parities, or uniqueness and a common suffix chain of the shortest merging words. An earlier odd-state automaton representation is a genuine implicit-coverage risk rather than ignored evidence. No searched matching claim was located; a failed search alone is not the novelty argument.",
+    "residual_risks": [
+      "The older odd-state pair graph may make part of the structural result implicit; statements equivalent under a different state labeling could be overlooked.",
+      "A published even-state complete pair-distance classification or unique-shortest-words result might be unindexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING of extremal C(n,2) maximum; NOT_COVERING as stated for the all-pair spectrum and shortest-word suffix-chain.",
+        "evidence": [
+          "Page 4 defines RDV(2,n) and states equality to binom(n,2) with a Černý extremal pair; the claim under review explicitly credits it."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.12166",
+        "material_read": "Title/abstract, Introduction and detailed pair-weight discussion (PDF pp. 1–4); additional occurrences of pairs and references were searched through the full document.",
+        "method": "Open-access original PDF extracted text with page screenshot of the original statements.",
+        "title": "Synchronizing Times for k-sets in Automata",
+        "trigger": "Primary guiding source explicitly proves a sharp universal pair-rendezvous maximum and invokes the Černý family."
+      },
+      {
+        "assessment": "STRONG_RELATED: odd-state pair transitions are explicit and may imply odd parts of the new result; published main theorem concerns Bernoulli expected hitting times rather than exact all-pair deterministic distances, full parity and uniqueness.",
+        "evidence": [
+          "Section 3 Lemma 1 constructs an odd-state pair-automaton isomorphism; Figure 3 gives the case n=11; Theorem 3 computes random-input expectation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+        "material_read": "Section 3 (PDF pp. 5–10): labeled transition definition, pair-automaton isomorphism for odd n, figure 3, expected-time theorem and proof; original PDF pages 6–7 inspected visually.",
+        "method": "Open-access arXiv full-text extraction cross-checked against PDF screenshots of the pair graph and transition rules.",
+        "title": "Synchronizing automata with random inputs",
+        "trigger": "Describes the same Cerny pair automaton and could implicitly imply the shortest-path structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19020dbc-9839-42b4-bece-bf734dbdd573",
+  "value": {
+    "rationale": "Prescribed-pair synchronization is a natural invariant in error recovery and rendezvous theory. The result determines every one of C(n,2) separate shortest distances, proves each length occurs once, and supplies a unique canonical optimum per pair as a suffix of a single explicit word for all n. This structural rigidity and complete distribution are more informative than the pre-existing maximum and are not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
