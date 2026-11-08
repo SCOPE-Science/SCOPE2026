@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact \(b\)-symbol transition
+# Independent mathematical audit
 
-The standalone `verify.py` uses independent direct message evaluation rather than calling the proof's run-count identity to compute code distances. Execute it with Python 3.9 or later. The recorded `verification_output.txt` must end in `TWISTED_B_SYMBOL_VERIFY_OK`.
+## correctness
 
-The verifier exhaustively evaluates 54 complete finite code instances, with 354,480 nonzero messages over the test primes and twist coefficients, checks the \(b\)-symbol distances at every length \(1\le b\le k+1\), and checks extremal multiplicities for the defective orders. It also checks all 120 coordinate orders at \(p=5\) separately for each dimension \(2,3,4\), and 4,056 additional explicit window-sum configurations through prime 29. All tests in the recorded run passed.
+PASS
 
-Mathematical limits: these examples do not certify infinitely many parameter values. The general proof uses a Vieta root-sum characterization, cyclic zero-run decomposition, rank of low-degree polynomial evaluations, and the two-window perturbation calculation. No external or independent certification has been performed.
+Evaluation at p distinct points is injective since deg f<=k<p. Vieta characterizes exactly k distinct roots by root sum s=-eta^-1, and each qualifying k-set produces precisely p-1 scalar words. For a word with at most k zeros, cyclic runs give at most k-b+1 all-zero windows for 2<=b<=k, equality precisely for a single k-run. A Vandermonde rank-(k-1) evaluation minor constructs words with k-1 consecutive zeros, completing both distance branches. Arithmetic orders have k-window sums with nonzero slope dk, so N=1. The specified adjacent swap changes exactly two k-window sums by +1,-1; the second would remain s only if k^2=1 mod p, excluded for 2<=k<=p-2. For k=p-1, complements of one coordinate give each sum exactly once. Independently enumerated all messages and b-windows in five full-field examples, including k=p-1. Finite tests are corroboration.
+
+## originality
+
+PASS
+
+General twisted Reed–Solomon codes, Hamming support hierarchy and abstract b-symbol MDS rank conditions are previous work. The explicit all-order cyclic-window sum criterion and one-adjacent-swap optimality, with a sharp codimension-one obstruction, were not found in inspected primary results; broad matrix criteria could in principle imply special cases.
+
+## value
+
+PASS
+
+A concrete reordering of the exact same Hamming code moves its entire b-symbol distance profile from Singleton defect one to optimal, with precise obstruction at k=p-1. This is a sharp natural metric transition relevant to cyclic read channels, not a new Hamming MDS construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

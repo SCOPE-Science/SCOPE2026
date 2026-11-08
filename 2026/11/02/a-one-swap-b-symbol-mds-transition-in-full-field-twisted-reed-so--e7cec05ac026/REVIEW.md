@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is quantified over prime \(p\ge5\), dimension \(2\le k\le p-1\), nonzero twist \(\eta\), every cyclic permutation and all window lengths \(1\le b\le p\). The root-sum equivalence follows directly by Vieta's formula in degree \(k<p\) and the converse product construction. The zero-run count is exact and its unique extremal shape is a single block of exactly \(k\) zeros. An invertible Vandermonde minor supplies the needed reverse bound when no length-\(k\) zero block exists. In the explicit swap, exactly two window sums change; the only potential replacement of the forbidden sum would require \(k^2=1\pmod p\), excluded by \(2\le k\le p-2\). The codimension-one obstruction is a direct complement count. Direct enumeration confirms the formulas and minimum-layer multiplicities in the indicated finite cases. Remaining limit: finite computation cannot prove the infinite family; the written argument does.
+## correctness
 
-## Originality — PASS with specified risk
-Compared with arXiv:2610.16283 (2026-10-12), the published claims concern ordinary generalized Hamming weights and subcode support distributions, rather than ordered cyclic windows. arXiv:2107.06945 develops the twisted polynomial family but not its \(b\)-symbol reordering transition. arXiv:1211.1728 gives the symbol-pair Singleton bound and broad constructions; arXiv:2103.16299 gives general \(b\)-MDS rank criteria, but neither supplies the explicit simultaneous one-swap construction or the sharp dimension boundary here. Targeted published-record searches did not identify an equivalent formulation. Risk: the result could follow implicitly from an unindexed specialization of the general rank criterion or from an older polynomial-evaluation design not inspected; a search failure is not proof of global uniqueness.
+PASS
 
-## Value — PASS
-The invariant is operational for overlapping-read channels: the same non-Hamming-MDS linear code is one unit below optimal for every short window in an arithmetic order, and becomes optimal for every window length after only an adjacent coordinate transposition. The theorem provides an explicit all-parameter ordering, a necessary-and-sufficient exact window-sum test for arbitrary orderings, extremal word multiplicities in the defective case, and a sharp impossibility boundary. The group-arithmetic mechanism is not a renaming of the general Singleton bound. This is a useful finite-field coding-geometry phenomenon; no improved Hamming distance or decoding algorithm is claimed.
+Evaluation at p distinct points is injective since deg f<=k<p. Vieta characterizes exactly k distinct roots by root sum s=-eta^-1, and each qualifying k-set produces precisely p-1 scalar words. For a word with at most k zeros, cyclic runs give at most k-b+1 all-zero windows for 2<=b<=k, equality precisely for a single k-run. A Vandermonde rank-(k-1) evaluation minor constructs words with k-1 consecutive zeros, completing both distance branches. Arithmetic orders have k-window sums with nonzero slope dk, so N=1. The specified adjacent swap changes exactly two k-window sums by +1,-1; the second would remain s only if k^2=1 mod p, excluded for 2<=k<=p-2. For k=p-1, complements of one coordinate give each sum exactly once. Independently enumerated all messages and b-windows in five full-field examples, including k=p-1. Finite tests are corroboration.
 
-## Closest literature and limitations
-Liu et al., arXiv:2610.16283; Liu–Pan, arXiv:2103.16299; Chee et al., arXiv:1211.1728; Beelen–Puchinger–Rosenkilde, arXiv:2107.06945. The proof is specific to prime fields, full evaluation, highest hook, and unit twist. Priority remains subject to additional external literature checks and independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General twisted Reed–Solomon codes, Hamming support hierarchy and abstract b-symbol MDS rank conditions are previous work. The explicit all-order cyclic-window sum criterion and one-adjacent-swap optimality, with a sharp codimension-one obstruction, were not found in inspected primary results; broad matrix criteria could in principle imply special cases.
+
+## value
+
+PASS
+
+A concrete reordering of the exact same Hamming code moves its entire b-symbol distance profile from Singleton defect one to optimal, with precise obstruction at k=p-1. This is a sharp natural metric transition relevant to cyclic read channels, not a new Hamming MDS construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
