@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python checker.py` with Python 3.10 or later. Standard-library modules only. The program recomputes all \(35{,}280\) admissible distinct balanced six-subset systems, verifies exact orbit sizes \(5{,}040,20{,}160,3{,}360,6{,}720\), builds the \(1{,}260\) possible four-set balanced forbidden configurations, and derives contradictions in \(4,5,3,3\) unit-propagation steps for the four representatives. Its last line is `ALL_CHECKS_OK`.
+# Independent mathematical audit
 
-Coverage is complete for the specified eight-point *distinct-six-coalition* domain. Neither random tests nor arbitrary bounds are used to justify the universal finite theorem. Earlier supplementary enumeration of the same objects via completion of a five-family recovered the same total. The proof does not exclude obstruction sequences with repeated coalitions and is not an independent audit.
+## correctness
+
+PASS
+
+Every length-six violating sequence of distinct majority coalitions on eight voters must consist of six four-sets and be pointwise degree-three, because total incidence is at least 24 and no point may exceed three. The complement-free six-families are exhausted by combining two triples with complementary degree vectors; direct independent enumeration confirmed exactly 35280 families and four S8 orbits of sizes 5040, 20160, 3360, 6720. Every balanced quartet of four distinct half-sets gives a four-literal forbidden conjunction. There are 1260 such clauses. Recomputed all 4 representative implications via independent unit propagation and confirmed a forced contradiction for each representative; S8 symmetry transports to every sextuple. This establishes the stated necessary repetition in any index-six witness, NOT existence or impossibility of index six.
+
+## originality
+
+PASS
+
+Moss and Pedersen define maximal standard majority frames and leave the eight-point index-six problem open. Their later unboundedness construction addresses larger universe sizes. The restricted distinct-sextuple obstruction and four-orbit finite classification do not appear in the inspected statement/Appendix B; balanced design trades and unit propagation are prior methods, not claimed new.
+
+## value
+
+PASS
+
+The distinct-coalition restriction isolates a nontrivial natural obstacle in the first unresolved eight-voter incoherence case: all 35280 potential distinct witnesses are ruled out by four explicit small certificates. It narrows future searches for index-six examples to repeated coalitions without falsely claiming to settle the full problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

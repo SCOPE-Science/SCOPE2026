@@ -1,11 +1,21 @@
-# Review of the eight-voter distinct-sextuple obstruction
+# Independent mathematical audit
 
-**Correctness — PASS.** Every distinct balanced six-family on eight points is generated exhaustively by pairing three-family incidence vectors, giving exactly \(35{,}280\) configurations. The complete vertex-permutation action produces four orbits. Each orbit representative yields a contradiction from the elementary rule forbidding selected balanced quartets. A fully self-contained integer checker supplies all constructions; no sampling is used to establish the theorem. The corollary about incoherence uses only the six-set incidence bound. The result does not cover repeated coalitions.
+## correctness
 
-**Originality — PASS within inspected evidence.** Moss and Pedersen introduce the coherence setting and explicitly leave the eight-point index-six case open. Their follow-up establishes unbounded indices on some universes, which neither entails nor refutes this necessary condition at eight points. Relevant four-set intersection results and an earlier six-voter census concern different implications. Searches for equivalent trade-language statements yielded no decisive prior coverage. An earlier design-theoretic equivalent remains possible.
+PASS
 
-**Value — PASS.** The theorem eliminates every possible *distinct* balanced six-subset witness on eight voters, the smallest universe explicitly singled out as unsettled in the motivating literature. It gives a four-orbit exact census and forces any hypothetical index-six witness at this universe to use multiplicities, reducing a natural unresolved existence problem. The restriction to distinct witnesses is a genuine scientific limitation, not a resolution of the full eight-voter question.
+Every length-six violating sequence of distinct majority coalitions on eight voters must consist of six four-sets and be pointwise degree-three, because total incidence is at least 24 and no point may exceed three. The complement-free six-families are exhausted by combining two triples with complementary degree vectors; direct independent enumeration confirmed exactly 35280 families and four S8 orbits of sizes 5040, 20160, 3360, 6720. Every balanced quartet of four distinct half-sets gives a four-literal forbidden conjunction. There are 1260 such clauses. Recomputed all 4 representative implications via independent unit propagation and confirmed a forced contradiction for each representative; S8 symmetry transports to every sextuple. This establishes the stated necessary repetition in any index-six witness, NOT existence or impossibility of index six.
 
-**Limitations:** All assertions concern the eight-point maximal middle-layer frame construction. The more general problem with repeated coalitions is unsettled here; independent mathematical audit is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Moss and Pedersen define maximal standard majority frames and leave the eight-point index-six problem open. Their later unboundedness construction addresses larger universe sizes. The restricted distinct-sextuple obstruction and four-orbit finite classification do not appear in the inspected statement/Appendix B; balanced design trades and unit propagation are prior methods, not claimed new.
+
+## value
+
+PASS
+
+The distinct-coalition restriction isolates a nontrivial natural obstacle in the first unresolved eight-voter incoherence case: all 35280 potential distinct witnesses are ruled out by four explicit small certificates. It narrows future searches for index-six examples to repeated coalitions without falsely claiming to settle the full problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
