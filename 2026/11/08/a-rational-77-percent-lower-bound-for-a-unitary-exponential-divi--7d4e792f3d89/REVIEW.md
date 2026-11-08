@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The multiplicative local ratios are derived directly from prime-power definitions. The exact cylinder probability uses the CRT density \((p-1)/p^{a+1}\) at every selected prime, with a complete independent-prime-tail product. Every one of 26,732,160 finite vectors is examined in the standalone integer-only certificate; its exact \(N,Q\) and inequality \(397N>308Q\) were replayed. Trial-division enumeration of 158 tail primes and an explicit integral majorant rigorously bound the remaining reciprocal-square sum. The set of fixed-prime-smooth exceptions has density zero. No finite experiment is confused with an infinite density proof.
+
+**Originality — PASS, with residual historical risk.** Trudgian's 2013 paper asks for the comparison density and gives the square-free \(6/\pi^2\) bound. A directly relevant later published finding proves only \(0.753659844\ldots\), using six primes and small exponent ranges; that lower bound does not imply the new \(\delta>0.77\) statement. OEIS A322446 tabulates finite counts but does not certify this density inequality. Published-source, title-alias, numeric-threshold, and existing-result searches identified no stronger covering theorem. Other unindexed work may exist.
+
+**Mathematical value — PASS.** The comparison density is an explicit open quantitative question from the original source. Raising its rigorously known lower bound from approximately \(0.75366\) to beyond \(0.77\) recovers a substantial share of the gap to the historic finite-range value near \(0.77831\). The novel deliverable is a complete rational certificate above the natural \(77\%\) threshold, with a self-contained finite arithmetic reconstruction and an elementary uniform prime-tail bound; it is not claimed to be an exact density or a new general Euler-product method.
+
+**Closest sources and limitations.** Trudgian, arXiv:1312.4615v1 (2013); *An explicit \(0.753659844\ldots\) lower bound for the unitary--exponential divisor-sum comparison density* (2026); OEIS A322446. The proof is unconditional, but its cylinder selection is deliberately sufficient, not optimal. Historical priority and correctness are not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
