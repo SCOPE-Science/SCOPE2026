@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The finite-tree model, exact definitions, complete quantifiers, and mathematical proof are in `RESULT.md`. Execute `python3 checker.py` in any standard Python 3 interpreter. No external packages, data sets, or downloaded papers are needed to reproduce the finite checks. `checker_output.txt` contains the output from the packaged checker run.
+## correctness
 
-The checker constructs adjacency vectors by iterating the graph neighbors and uses Gaussian elimination modulo each of the two prime moduli \(1000003\) and \(1000033\). It tests eleven combinations of branching factors and depths, all representative distances, seven additional leaf pair placements, and an excluded binary case. Its modular ranks alone are not exact rational ranks or infinite-depth proofs; correctness for all parameters follows from the analytic eigenvector and spectral-projection argument, not a finite computational sample.
+PASS
 
-The claim uses a non-Hermitian absorbing Hamiltonian with two strictly positive rates. The asymptotic captured population is the initial bright-projector weight, not the instantaneous trapping probability and not an estimate of its approach speed. The separate spectral dimension proof uses ordinary (not graph-Laplacian) adjacency, and the identified binary counterexample confirms that the branching restriction is substantive. Historical priority and implementation robustness remain unverified by independent assessment.
+Radial/child-antisymmetric decomposition diagonalizes the full tree adjacency into Jacobi blocks of lengths 1..L+1 and yields distinct eigenvalue count D(L)=sum_{r=2}^{L+2}phi(r). Leaf transitivity and backward leaf eigenvector induction show every eigenvalue has a nonzero single-leaf projection. For two leaves splitting h levels above, eigenvalues absent from their common child-subtree force equal leaf projections; eigenvalues of that subtree yield two independent projections by using a third branch, requiring b>=3. Hence bright rank D(L)+D(h-1). Orthogonal dark/bright splitting and strictly negative real parts of the dissipative generator on bright space establish eventual capture for positive losses; strict totient increments establish optimal far-apart placement. Independently obtained modular Krylov ranks for b=3,4 and a boundary contradiction for b=2.
+
+## originality
+
+PASS
+
+General bright/dark invariant-subspace capture in coherent quantum walks is known (Novo et al, arXiv:1412.7209), and finite homogeneous q-ary tree adjacency spectra are known (Scarabotti, DOI:10.1137/S0895480104445344). The final contribution is the exact two-distinct-leaf additional bright rank D(h-1), b>=3 boundary, all-distance optimal placement, and resulting capture fraction. The known one-trap/root and spectral results do not mathematically imply that increment without a further two-leaf eigenspace analysis.
+
+## value
+
+PASS
+
+For a canonical finite tree and two local loss channels, the two-leaf bright-space dimension is a natural physical invariant and the totient placement law directly identifies optimal absorber separation with an exact branching boundary. The result is more than a finite numerical census or a generic dark-state restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
