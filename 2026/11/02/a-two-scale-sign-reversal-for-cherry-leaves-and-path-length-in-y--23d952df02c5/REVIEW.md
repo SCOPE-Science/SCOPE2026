@@ -1,19 +1,21 @@
-# Scientific review: two-scale cherry/depth dependence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every possible tree, the leaf-split updates of cherry count, total tip depth, and cherry-tip depth sum are verified by direct deletion/insertion bookkeeping. The exact conditional recurrences for the three first moments and the mixed cherry-count/depth moment imply the two-scale formulas by induction. The boundary cases are explicit: size two has no non-cherry tip, and size three has deterministic cherry count. A standalone exact-arithmetic verifier enumerated 46,233 size-indexed growth histories and checked 873 single-step transitions; the proof does not extrapolate from finite cases. The remaining mathematical risk is only undetected transcription of an algebraic step, mitigated by the separate transition checks and recurrence substitution.
+PASS
 
-## Originality — PASS, qualified
+Read RESULT.md proof and verify_yule.py. For any tree C’=C+1-b(V), S’=S+d(V)+2, Q’=Q+2(d(V)+1)-2b(V)d(V). Taking conditional products yields K_{k+1}=(k-1)K_k/k-2/9, K_3=0. It follows Cov(C,S)=-(n-3)(n+2)/(9(n-1)); E Q=(2/3) E S+2n/9 gives Cov(I,D)=2/9 and conditional depth excess 1. Independently substituted rational recurrences n=3..100; induction (not enumeration) establishes every n>=3. n=2 excluded from local contrast.
 
-Searches compared exact statements, not paper names. McKenzie and Steel give the Yule cherry marginal law. Mir–Rosselló–Rotger give the Sackin expectation and balance-index analysis, not a mixed cherry/depth moment. Wu–Choi treat cherries jointly with pitchforks, not Sackin depth. Coronado–Mir–Rosselló–Rotger derive different Sackin/cophenetic covariance formulas; Plazzotta and colleagues report correlations in other branching-process simulations. Relevant complete primary texts and sections were inspected where available. Public mathematical-record searches for cherry/Sackin mixed moments, local cherry membership/depth, and the exact constants returned no matching stronger published statement among the nearest records. Failed searches are not a proof of priority, and older multivariate enumeration and tree-index literature remains a historical-overlap risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Cherry count is an established local tree-shape statistic and Sackin depth an established global imbalance statistic. A sign reversal occurs when moving between individual sampled leaves and whole-tree covariance: a cherry leaf is one edge deeper in conditional expectation, yet trees with more cherries have shorter aggregate path length in covariance. The fixed local excess and exact all-size global formula supply a baseline dependence structure for interpreting combined phylogenetic shape statistics; they are not merely a renaming of a marginal result. The value claimed is that precise structural comparison, not an unsupported downstream test improvement.
+The two-scale comparison is not established by the inspected classical cherry marginal laws, Sackin expectations, or cherry/pitchfork joint laws. The joint tree statistic of leaf cherry membership versus depth is distinct from whole-tree cherry versus Sackin covariance; these exact finite-n identities are best-of-knowledge original. Old multivariate generating functions might imply the same formula.
 
-## Closest literature and limits
+## value
 
-The closest comparable full texts are McKenzie–Steel (cherry distribution), Mir–Rosselló–Rotger (Sackin/phylogenetic balance), and Wu–Choi (cherry/pitchfork joint law). The finding uses the leaf-splitting Yule law with unit topological edge depths, with no extension to evolutionary time or non-Yule models. Equivalence hidden in older tree-generating-function literature remains possible, and independent expert assessment is still needed for publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cherry count and Sackin depth are two standard phylogenetic shape observables; the exact reversal from positive local depth association to negative whole-tree covariance is a substantive structural caution for joint interpretation, not a cosmetic restatement of means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

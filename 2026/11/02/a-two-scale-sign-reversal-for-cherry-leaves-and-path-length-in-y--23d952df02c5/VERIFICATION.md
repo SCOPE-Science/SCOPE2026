@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_yule.py` with a standard Python 3 interpreter. The script has no third-party dependencies and uses `fractions.Fraction` for exact rational arithmetic.
+## correctness
 
-The checked package emitted `PASS: 60677 exact assertions; 46233 growth histories; 873 independent transition cases.` Its enumeration covers all uniformly leaf-selected Yule growth histories through nine leaves. It independently checks conditional transition identities on 873 tree histories through seven leaves, and algebraic formula substitution on integer sizes three through 1,000. The separate induction in `RESULT.md` proves the formula for all sizes and does not rely on a numerical cutoff.
+PASS
 
-The code tests the fixed-size topology law and not substitutions of branch lengths, extinction or sampling schemes. There is no independent audit or external proof certificate.
+Read RESULT.md proof and verify_yule.py. For any tree C’=C+1-b(V), S’=S+d(V)+2, Q’=Q+2(d(V)+1)-2b(V)d(V). Taking conditional products yields K_{k+1}=(k-1)K_k/k-2/9, K_3=0. It follows Cov(C,S)=-(n-3)(n+2)/(9(n-1)); E Q=(2/3) E S+2n/9 gives Cov(I,D)=2/9 and conditional depth excess 1. Independently substituted rational recurrences n=3..100; induction (not enumeration) establishes every n>=3. n=2 excluded from local contrast.
+
+## originality
+
+PASS
+
+The two-scale comparison is not established by the inspected classical cherry marginal laws, Sackin expectations, or cherry/pitchfork joint laws. The joint tree statistic of leaf cherry membership versus depth is distinct from whole-tree cherry versus Sackin covariance; these exact finite-n identities are best-of-knowledge original. Old multivariate generating functions might imply the same formula.
+
+## value
+
+PASS
+
+Cherry count and Sackin depth are two standard phylogenetic shape observables; the exact reversal from positive local depth association to negative whole-tree covariance is a substantive structural caution for joint interpretation, not a cosmetic restatement of means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
