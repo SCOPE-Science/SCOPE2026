@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The eight-bit description is derived from the complete equality/multiplication atomic diagram; the twelve-row exhaustive profile certificate proves the symmetric two-round game condition. A concrete three-quantifier sentence is verified by the exact arithmetic criterion \(5i<t\le6i\). Two stand-alone, structurally independent programs check the same two-versus-three-round result. The result asserts only this specific pair and signature.
+## correctness
 
-**Originality — PASS, qualified.** A search of relevant finite-model and semigroup literature and published research-index records, including synonyms, orders, quantifier rank, and implied consequences, located no statement implying this exact rank gap. Distler's finite nilpotent semigroup classification addresses structure and counting, not this logical comparison; Gomaa's group-logic work treats a different algebraic class. Unindexed older literature remains a priority risk; search absence is not uniqueness proof.
+PASS
 
-**Value — PASS.** Nilpotency index is a canonical semigroup invariant, and these are particularly transparent monogenic nilsemigroups. The result provides a nontrivial *exact* logical-depth boundary: depth two fails to distinguish indices \(16\) and \(20\), but depth three detects a natural five-versus-six power window. This is a motivated counterexample to low-depth detection of nilpotency index in the relational language, not a claim about an arbitrary finite census or an unsupported broad classification.
+The exact vocabulary is relational ternary M(x,y,z) for multiplication with named zero; no functional product terms. For t16,t20, independent enumeration constructed all equalities and 27 ternary atomic relations over each selected pair (x,y,0), obtaining 12 identical first-move 2-round response-profile classes in both structures and a Duplicator two-round strategy. The rank-three sentence ∃x∃y∃z[M(x,x,y)∧M(x,y,z)∧M(z,z,0)∧¬M(y,z,0)] reduces exactly to integer 5i<t≤6i; t16 admits i3, t20 admits none. Thus least distinguishing relational quantifier rank is exactly 3. Extra independent profile enumeration for t=2..20 found (16,20) is the first distinct pair sharing the complete two-round profile within that bounded family; this is supporting motivation only, not a new unrestricted theorem. The finite profile calculations are exhaustive for the two structures.
 
-The theorem is signature-dependent; it has not been independently audited, and historical priority is not exhaustively certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Distler’s finite-semigroup classification addresses nilpotency index and normal forms, not EF quantifier rank in the specific relational signature; targeted prior/descriptive-model searches and Resultary did not identify this exact pair or a stronger formula forcing it.
+
+## value
+
+PASS
+
+A sharp two/three-round logical expressibility gap for the canonical nilpotent monogenic family is a natural finite-model-theory invariant; the named-zero relational language distinction makes the effect substantive, not merely rewriting a product term. The independently checked first repeated type through size20 supports non-arbitrary size selection without claiming a general minimality result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
