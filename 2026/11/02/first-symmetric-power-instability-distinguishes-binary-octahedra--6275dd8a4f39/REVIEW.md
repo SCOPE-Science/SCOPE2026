@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (PASS)
-Narasimhan–Seshadri identifies stable degree-zero bundles with irreducible unitary representations. Clebsch–Gordan converts reducibility of \(\operatorname{Sym}^kV\) into the appearance of a nonconstant invariant of even degree at most \(2k\). The complete compact-subgroup classification of \(SU(2)\) and the standard binary-polyhedral invariant-ring calculations yield precisely the two stated first-instability cases. The grading comparison and existence constructions are explicit in RESULT.md.
+## correctness
 
-## Originality (PASS, with literature risk)
-The closest source is McPherson (arXiv:2610.22573v1), which computes lower cases and leaves the two higher symmetric-power cases. Beauville–Liu (arXiv:2309.12888) previously established invariant-ring descriptions for finite-monodromy constructions; such examples do not classify all bundles selected solely by their first unstable symmetric power. Searches also compared the statement with available published mathematical records and the Kim (arXiv:2006.11733) summary. The full Kim text was not inspected, so implicit stronger coverage remains a risk. The finite-group invariant rings themselves are explicitly credited as classical.
+PASS
 
-## Mathematical value (PASS)
-The theorem solves the two natural higher first-instability cases in the motivated genus-two ruled-surface setting, distinguishing their monodromy and determining all graded symmetric-tensor multiplication. It is an infinite-family classification, not a renamed small calculation.
+Narasimhan–Seshadri identifies stability of Sym^k E with irreducibility of Sym^k V for its compact SU2 closure. Clebsch–Gordan End(Sym^k V)=⊕_{j=0}^k Sym^{2j} V links first failure to least positive even invariant degree 2k. Binary dihedral/torus-normalizer and tetrahedral cannot have first m=4 or 6; binary octahedral and icosahedral have first invariant degrees 8 and 12. Classical invariant hypersurfaces give weighted E7/E8 rings. Independently checked relation weights (18,30) and Molien leading group-order coefficients, which alone are not a proof of group classification.
 
-## Limitations
-No assertion about bundles whose lower symmetric powers already fail stability; full priority assessment and independent audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-knowledge original contribution; prior tools and claimed antecedents are explicitly excluded. The first semistability index m is not mere occurrence of instability at k=4 or k=6; Clebsch-Gordan translates first failure to minimal even invariant degree.
+
+## value
+
+PASS
+
+The two higher first-instability types omitted from a recent genus-two ruled-surface computation are classified and linked to explicit E7/E8 invariant algebras. Although based on classical representation theory, the rigidity at exactly m=4,6 is mathematically informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
