@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:10:35.981932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md fc9e52cf2a8f281e1a819ccefa6fddb66be9f30b: root angles, cap-count and sharp local lens asymptotic",
+        "verify.py 8cd1a15f6917ef0935ea749833f0d42b1b747cf1 read, numerical source",
+        "independent_five_checks.py C5 pair root count d2..8 and d3 lens integrals"
+      ],
+      "rationale": "Regular simplex vertices v_i=(e_i−1/(d+1))/sqrt2 yield oriented roots (e_i−e_j)/sqrt2. Width is their maximum projection; root pairs have inner product <=1/2, with 2(d−1) half-angle neighbors per root, so only π/3-separated cap pairs overlap before t0=sqrt(2/3). For three distinct roots ||a+b+c||²<=6, implying common cap t<=sqrt(2/3), so inclusion-exclusion is exact through second order. Conditional spherical coordinates along normalized sum/difference of pair centers produce Q and J beta integrals; d=2 circle expression and d=3 Gauss–Bonnet lens. Tangency coordinates scale x=δ, y=sqrt(δ), yielding lens volume 8 κ_{d−2}/d*(4/sqrt3)^((d−2)/2)δ^(d/2), and normalized H pairs give claimed coefficient. Independent root enumeration d2..8 checked 1260 half-angle pairs and 5 d3 lens analytic-versus-integration values.",
+      "residual_risks": [
+        "Tail formula only for t>=sqrt(2/3), d>=3 lower region excluded; asymptotic for fixed d, and numerical cases are not proof of all d."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-moment identities, Gaussian range asymptotics, and simplex-vertex intersection counts"
+        ],
+        "reasoning": "Even a general mean/moment representation does not directly supply the finite-dimensional pairwise root-cap overlap coefficient, unless one derives a further theorem.",
+        "searches": [
+          "arXiv:1111.4976",
+          "arXiv:1511.08479",
+          "Resultary 2026/10/4 simplex-centred cap union"
+        ]
+      },
+      "checked_sources": [
+        "Finch, Width Distributions for Convex Regular Polyhedra arXiv:1110.0671 full PDF",
+        "Finch, Mean Width of a Regular Simplex arXiv:1111.4976 full PDF",
+        "Resultary: 2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known normal Gaussian width representation and mean vs N_d Q_d−H_d J_d and δ^(d/2) coefficient"
+        ],
+        "reasoning": "Prior formulas describe different moments/limits and do not imply the claimed cap inclusion-exclusion threshold in their inspected statements.",
+        "searches": [
+          "Finch arXiv:1110.0671",
+          "Finch arXiv:1111.4976"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moments of simplex widths and a different simplex-vertex cap union"
+        ],
+        "reasoning": "Moment formulas and different center configurations are not equivalent to A_d edge root tail distribution with sharp overlap exponent.",
+        "searches": [
+          "arXiv:1110.0671",
+          "arXiv:1111.4976",
+          "Resultary: 2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related octahedron/cube width laws; simplex-centred spherical caps with different centers"
+        ],
+        "reasoning": "No exact table of A_d-oriented-root upper-tail width overlap found. This absence is not an independent proof of novelty.",
+        "searches": [
+          "Resultary search: regular simplex random width distribution spherical caps A_d roots overlap lens threshold"
+        ]
+      },
+      "rationale": "Finch derives regular-polytope width moment data and specifically identifies tetrahedral width density as a missing problem in a related paper; Finch regular-simplex paper studies mean and moments, while Kabluchko–Litvak–Zaporozhets give Gaussian-range mean/asymptotic relations. A published Resultary result for *simplex vertex centred* cap unions concerns different centers than oriented A_d roots, and cannot supply the root multiplicity/first overlap coefficient directly. No inspected full distribution tail overlaps these claims.",
+      "residual_risks": [
+        "Classical spherical cap lens/normal order-statistic computations may implicitly imply this transition and coefficient; low-dimensional tetrahedral formulas may exist outside indexed literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Computes polyhedral width moments and leaves tetrahedral density as a difficult question in inspected passages; does not supply the d-uniform A_d cap pair transition.",
+          "evidence": "Tetrahedral discussion addresses width expectations/moments rather than exact pairwise cap overlap.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0671",
+          "material_read": "Opened entire primary PDF; read abstract, introduction and tetrahedral width/moment discussion.",
+          "method": "Opened lawful full-text source and inspected relevant theorem/sections",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Regular tetrahedron direction width distribution"
+        },
+        {
+          "assessment": "Determines mean widths/moment representations, not the two-regime upper-tail inclusion-exclusion classification.",
+          "evidence": "A mean integral alone does not determine the exact tail at the overlap boundary.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.4976",
+          "material_read": "Full primary PDF accessible; inspected mean-width formula and associated Gaussian order-statistic comparisons.",
+          "method": "Opened lawful full-text source and inspected relevant theorem/sections",
+          "title": "Mean Width of a Regular Simplex",
+          "trigger": "Exact same regular simplex family width statistic"
+        },
+        {
+          "assessment": "Different cap center system: d+1 simplex vertices rather than d(d+1) oriented simplex edge roots; not treated as whole-document noncoverage.",
+          "evidence": "Root angular incidence π/3 and H_d differs from simplex-vertex cap system.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7",
+          "material_read": "Read Resultary indexed title and summary; full manuscript not read during this run.",
+          "method": "Resultary semantic-record title/summary only; exact manuscript remains residual risk",
+          "title": "Exact third-order union formula at the first multiple-overlap threshold for simplex-centred spherical caps",
+          "trigger": "Close first-overlap spherical cap union result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual claim and proof in frozen RESULT.md at fc9e52cf2a8f281e1a819ccefa6fddb66be9f30b",
+        "Compared primary literature listed in originality checked_sources"
+      ],
+      "rationale": "The random width distribution is a natural geometric probability statistic of regular simplices. A sharp first cap-overlap transition, exact upper-tail interval, and dimension-dependent nonanalytic exponent are useful exact data even without a complete lower tail, and the oriented-edge root combinatorics distinguish it from routine moment computation.",
+      "residual_risks": [
+        "Lower-tail multiple-overlap census remains outside theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Scientific priority is best-knowledge qualified by originality residual risks. Nonpublishing metadata transport remains not_ready. No formal proof or expert attestations invented; no repository write.",
+  "schema_version": 1
+}

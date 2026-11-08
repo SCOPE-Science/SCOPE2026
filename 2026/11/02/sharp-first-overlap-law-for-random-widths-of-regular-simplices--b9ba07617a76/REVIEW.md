@@ -1,15 +1,21 @@
-# Review of the simplex random-width first-overlap law
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is restricted to unit-edge regular simplices in integer dimension \(d\ge2\) and thresholds \(\sqrt{2/3}\le t\le1\). The oriented root identity expresses width exactly as a maximum of \(d(d+1)\) unit linear forms. Inner products of distinct roots belong to \(\{-1,-1/2,0,1/2\}\), with \(2(d-1)\) neighbors at \(1/2\) per root. For any three roots, the normalized sum bound excludes positive-measure triple intersections above \(\sqrt{2/3}\), proving that cap inclusion-exclusion terminates at pair order. Conditioning a uniform sphere coordinate proves the stated one-dimensional lens integral. The local rescaling \(x=\delta X\), \(y=\sqrt\delta Y\) proves the claimed first correction and its exact constant. The dimension-three lens formula was independently compared with the conditional integral. A standalone verifier passed 66 grouped checks, including 360,000 orientations in each of four dimensions; they are supporting tests, not a replacement for proof.
+## correctness
 
-## Originality
-PASS, with the stated historical risk. The closest primary scientific texts materially read were Finch's 2011 width-distribution preprint (arXiv:1110.0671, particularly its opening statement and tetrahedral analysis), Finch's 2011 simplex-mean-width preprint (arXiv:1111.4976, order-statistics and moment sections), and Kabluchko–Litvak–Zaporozhets's 2015 paper (arXiv:1511.08479, Sections 1 and 3, formulas for moments and dimension-asymptotic limits). These cover means, moments, and implicit probabilistic representations, but do not state the fixed-dimensional \(\sqrt3/2\) overlap boundary, exact cap-pair regime down to \(\sqrt{2/3}\), or the explicit correction coefficient. A published simplex-centered spherical-cap formula uses a different configuration than the oriented root system; published width results for cubes and cross-polytopes have different support-direction arrangements. The 1992 Affentranger–Schneider paper was checked at abstract level only and concerns expected projection face counts. Full historical coverage is not asserted; the 1992 full text and unindexed width literature are residual risks.
+PASS
 
-## Value
-PASS. The directional width distribution is a natural projection invariant for regular simplices, with relevance to geometric probability, measurements of random projections, and extreme Gaussian ranges. The result identifies an exact nontrivial interval of the finite-dimensional law and a sharp dimension-dependent power of its first failure of disjoint-cap behavior. The coefficient is not a numerical special case or an arbitrary finite tabulation. The root-system multiplicity and the precise next triple-overlap threshold make the formula structurally informative, particularly beyond the planar case. A full distribution below \(\sqrt{2/3}\) remains open in this treatment.
+Regular simplex vertices v_i=(e_i−1/(d+1))/sqrt2 yield oriented roots (e_i−e_j)/sqrt2. Width is their maximum projection; root pairs have inner product <=1/2, with 2(d−1) half-angle neighbors per root, so only π/3-separated cap pairs overlap before t0=sqrt(2/3). For three distinct roots ||a+b+c||²<=6, implying common cap t<=sqrt(2/3), so inclusion-exclusion is exact through second order. Conditional spherical coordinates along normalized sum/difference of pair centers produce Q and J beta integrals; d=2 circle expression and d=3 Gauss–Bonnet lens. Tangency coordinates scale x=δ, y=sqrt(δ), yielding lens volume 8 κ_{d−2}/d*(4/sqrt3)^((d−2)/2)δ^(d/2), and normalized H pairs give claimed coefficient. Independent root enumeration d2..8 checked 1260 half-angle pairs and 5 d3 lens analytic-versus-integration values.
 
-## Sources and scope
-Finch, arXiv:1110.0671 (2011-10-04); Finch, arXiv:1111.4976 (2011-11-21); Kabluchko, Litvak and Zaporozhets, arXiv:1511.08479 (2015-11-26); Affentranger and Schneider, DOI:10.1007/BF02187839 (1992), abstract only. The main claim is not a generic theorem about arbitrary polytopes, and no global priority certificate is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finch derives regular-polytope width moment data and specifically identifies tetrahedral width density as a missing problem in a related paper; Finch regular-simplex paper studies mean and moments, while Kabluchko–Litvak–Zaporozhets give Gaussian-range mean/asymptotic relations. A published Resultary result for *simplex vertex centred* cap unions concerns different centers than oriented A_d roots, and cannot supply the root multiplicity/first overlap coefficient directly. No inspected full distribution tail overlaps these claims.
+
+## value
+
+PASS
+
+The random width distribution is a natural geometric probability statistic of regular simplices. A sharp first cap-overlap transition, exact upper-tail interval, and dimension-dependent nonanalytic exponent are useful exact data even without a complete lower tail, and the oriented-edge root combinatorics distinguish it from routine moment computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
