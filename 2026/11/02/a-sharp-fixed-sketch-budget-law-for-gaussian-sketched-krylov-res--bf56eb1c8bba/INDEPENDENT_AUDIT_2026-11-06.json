@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:00:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian orthogonal decomposition yields independent chi-square(k) and chi-square(s-k+1) and expected excess k/(s-k-1), diverging for s<=k+1 unless exact residual zero. Chebyshev extremizer weights w_i proportional to 1/(lambda_i |prod_{j!=i}(lambda_i-lambda_j)|) satisfy all GMRES normal equations via barycentric identities. Discrete ratio e^{2a}t/(t+1) selects the asymptotic reserve; comparison bound confines all finite-s minimizers to a fixed finite reserve set, and the exact B_K integer tie is broken by the finite denominator. Independent high-precision tests resolved the numerical near-tie: B_K=1 exactly for K=17+12sqrt(2), and at s=20,100,180 the larger reserve 2 wins. A double-precision test at s=100 initially misclassified this tie; this was diagnosed as precision loss, not a mathematical counterexample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahfock–Astle–Richardson (2020) Biometrika Theorem 1; https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "Burke–Güttel–Soodhalter (2024) arXiv:2311.14206",
+          "Resultary search Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget"
+        ],
+        "reasoning": "Burke–Güttel–Soodhalter derive GMRES sketch projection and convergence estimates and discuss recycling, not the exact all-dimension expected-square min-max depth law.",
+        "searches": [
+          "Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget",
+          "Resultary 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "https://arxiv.org/pdf/2311.14206"
+        ]
+      },
+      "checked_sources": [
+        "Ahfock–Astle–Richardson (2020) Biometrika Theorem 1; https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+        "Burke–Güttel–Soodhalter (2024) arXiv:2311.14206",
+        "Resultary search Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ahfock–Astle–Richardson (2020) Biometrika Theorem 1; https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "Burke–Güttel–Soodhalter (2024) arXiv:2311.14206",
+          "Resultary search Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget"
+        ],
+        "reasoning": "Neither the Student distribution alone (no Krylov spectral geometry) nor Chebyshev extremality alone (no random sketch singular expectation) implies the stated combined budget optimization without applying both.",
+        "searches": [
+          "Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget",
+          "Resultary 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "https://arxiv.org/pdf/2311.14206"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ahfock–Astle–Richardson (2020) Biometrika Theorem 1; https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "Burke–Güttel–Soodhalter (2024) arXiv:2311.14206",
+          "Resultary search Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget"
+        ],
+        "reasoning": "The regression design X=AK_k gives the same complete Gaussian-sketch Student distribution as Ahfock–Astle–Richardson Theorem 1; that primitive factor is prior. The combined sharp SPD Chebyshev risk and integer reserve are additional.",
+        "searches": [
+          "Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget",
+          "Resultary 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "https://arxiv.org/pdf/2311.14206"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ahfock–Astle–Richardson (2020) Biometrika Theorem 1; https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "Burke–Güttel–Soodhalter (2024) arXiv:2311.14206",
+          "Resultary search Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget"
+        ],
+        "reasoning": "No published exact fixed-row/depth reserve table was identified by Resultary query or targeted literature; this negative search is not an absence proof.",
+        "searches": [
+          "Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget",
+          "Resultary 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "https://arxiv.org/pdf/2311.14206"
+        ]
+      },
+      "rationale": "Exact Gaussian regression Student law and classical Chebyshev worst-case approximation are established ingredients. Their combination into an attainable SPD GMRES fixed-row minimax risk and exact eventual integer-reserve law is not stated by the inspected sources; similar paper or routine optimization precedent remains a priority risk.",
+      "residual_risks": [
+        "Exact risk uses Gaussian one-shot sketches, SPD real spectra, fixed independent chosen depth; not stopping-time or runtime optimization.",
+        "Unindexed randomized GMRES budget optimization could already contain the same integer law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the one-depth Student/inverse-Wishart factor; not shown to cover Krylov minimax optimal reserve",
+          "evidence": "Theorem 1(ii): conditional marginal Student law with degrees sketch rows minus design rank plus one; equation (3) gives inverse degrees-of-freedom variance.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+          "material_read": "Full online article Sections 1–3, specifically Theorem 1 and its variance/inverse-Wishart consequences around lines 120–151",
+          "method": "Open-access full HTML, theorem and displayed distribution read",
+          "title": "Statistical properties of sketching algorithms",
+          "trigger": "Exact same Gaussian complete-sketch regression primitive"
+        },
+        {
+          "assessment": "Provides sGMRES/GMRES-SDR convergence framework, not the exact reported SPD Gaussian finite-row minimax reserve in inspected content",
+          "evidence": "Abstract and Section 2 state sketched projector methods and residual convergence estimates; do not treat inspection as a global no-match proof.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14206",
+          "material_read": "Abstract, Introduction and Section 2 projection-method statements; PDF pages 1–3",
+          "method": "Open-access paper PDF parsed and page 3 visually checked",
+          "title": "GMRES with Randomized Sketching and Deflated Restarting",
+          "trigger": "Closely related sketched-GMRES theoretical framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For randomized Krylov solvers under a fixed row budget, depth improves Chebyshev contraction but destroys degrees of freedom in the Gaussian regression; the sharp finite-mean boundary and optimal sqrt(K)-scaled reserve give a structural algorithm-design tradeoff, independent of computational runtime.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ahfock–Astle–Richardson (2020) Biometrika Theorem 1; https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+    "Burke–Güttel–Soodhalter (2024) arXiv:2311.14206",
+    "Resultary search Gaussian sketched GMRES exact mean squared residual inverse Wishart Chebyshev SPD optimal fixed sketch rows oversampling budget"
+  ],
+  "disposition": "passed",
+  "final_claim": "For real SPD spectra of ratio K>1, a one-shot Gaussian sketched GMRES risk at depth 0<=k<=s-2 is (s-1)/(s-k-1) sech^2(k acosh((K+1)/(K-1))), attained by a positive Chebyshev spectral weighting; for fixed K and large s the uniquely optimal reserve is floor((sqrt(K)-1)^2/(4sqrt(K)))+1.",
+  "limitations": [
+    "Exact risk uses Gaussian one-shot sketches, SPD real spectra, fixed independent chosen depth; not stopping-time or runtime optimization.",
+    "Unindexed randomized GMRES budget optimization could already contain the same integer law."
+  ],
+  "residual_risks": [
+    "Exact risk uses Gaussian one-shot sketches, SPD real spectra, fixed independent chosen depth; not stopping-time or runtime optimization.",
+    "Unindexed randomized GMRES budget optimization could already contain the same integer law."
+  ],
+  "schema_version": 1
+}

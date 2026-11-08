@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The risk formula follows from the published Gaussian complete-sketch Student law, with degrees of freedom explicitly evaluated and the integrability threshold checked. The Chebyshev extremizer is attained by positive barycentric weights, not merely bounded by a minimax polynomial. The integer allocation proof controls all candidate reserves with an exponential lower bound and treats the otherwise degenerate integral tie. The standalone numerical verifier passed Chebyshev stationarity, independent Gaussian draws, and finite-budget checks.
+## correctness
 
-**Originality — PASS, qualified.** The one-shot Student distribution and deterministic Chebyshev GMRES minimax result are classical/previously published and are excluded from any independent novelty claim. The distinct assessed claim is the exact sharp Gaussian-sketch Krylov fixed-budget risk together with the eventual unique integer reserve and its \(\sqrt K/4\) scale. The inspected sGMRES and sketch-and-recycle research gives subspace embedding/empirical oversampling, not this exact mean-square allocation. Related published mathematical records concerned deterministic GMRES(1), gradient methods, Kaczmarz, and Haar CG, with non-implications documented in the accompanying audit. A specialized identical allocation optimization might have escaped discovery; independent priority review is needed.
+PASS
 
-**Value — PASS.** Given a fixed number of Gaussian sketch rows, extra Krylov vectors reduce polynomial approximation error but amplify random inverse-Wishart risk; both effects are real and compete. Their exact minimax balance predicts an integer reserve proportional to the square root of the spectral condition number, with a sharp finite-moment cliff. This is a natural budget-selection benchmark rather than an arbitrary numerical invariant.
+Gaussian orthogonal decomposition yields independent chi-square(k) and chi-square(s-k+1) and expected excess k/(s-k-1), diverging for s<=k+1 unless exact residual zero. Chebyshev extremizer weights w_i proportional to 1/(lambda_i |prod_{j!=i}(lambda_i-lambda_j)|) satisfy all GMRES normal equations via barycentric identities. Discrete ratio e^{2a}t/(t+1) selects the asymptotic reserve; comparison bound confines all finite-s minimizers to a fixed finite reserve set, and the exact B_K integer tie is broken by the finite denominator. Independent high-precision tests resolved the numerical near-tie: B_K=1 exactly for K=17+12sqrt(2), and at s=20,100,180 the larger reserve 2 wins. A double-precision test at s=100 initially misclassified this tie; this was diagnosed as precision loss, not a mathematical counterexample.
 
-**Limitations.** The result is exact-arithmetic and one-shot, not a guarantee of runtime optimality or a validation of sketch reuse and adaptive stopping. The limiting reserve is pointwise in each fixed condition bound. Existing Gaussian Student and Chebyshev facts are openly credited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact Gaussian regression Student law and classical Chebyshev worst-case approximation are established ingredients. Their combination into an attainable SPD GMRES fixed-row minimax risk and exact eventual integer-reserve law is not stated by the inspected sources; similar paper or routine optimization precedent remains a priority risk.
+
+## value
+
+PASS
+
+For randomized Krylov solvers under a fixed row budget, depth improves Chebyshev contraction but destroys degrees of freedom in the Gaussian regression; the sharp finite-mean boundary and optimal sqrt(K)-scaled reserve give a structural algorithm-design tradeoff, independent of computational runtime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
