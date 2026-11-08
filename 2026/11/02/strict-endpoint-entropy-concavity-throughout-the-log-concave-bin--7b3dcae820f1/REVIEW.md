@@ -1,19 +1,21 @@
-# Review of the binary-Gaussian endpoint-curvature finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The initial mixture's log-density has a second derivative whose supremum occurs at zero; it is nonpositive exactly through \(\alpha=1/2\). The independent normalized half-thermalized mixture has variance one and a smooth strictly positive Gaussian-tail density. Its score admits three explicit derivatives. Integration by parts exactly identifies the curvature correction \(B=\mathbb E[\rho^{(3)}]\). Gaussian-reference tilting by \(\operatorname{sech}\) and negative covariance with \(Z^2\) show \(B<0\) strictly for the complete parameter range. The fourth cumulant is \(-\alpha^2/2\), and the previously established endpoint identity then gives the claimed strict negativity. Dominated convergence gives the exact fourth-order coefficient. Independent mixture-entropy quadrature agrees with the score method on tested parameters. The code tests are finite and do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+X_alpha log density has Hessian -1/(1-alpha)+alpha sech^2(sqrt(alpha)x/(1-alpha))/(1-alpha)^2, log-concave exactly alpha<=1/2. U_alpha is unit variance symmetric Gaussian location mixture with score rho=-2u/S+c tanh(cu), S=2-alpha, c=sqrt(2alpha)/S. Integration by parts gives B=E rho'''=c^4 e^{-v/2}(4 E sech Z -6 E sech^3 Z), v=alpha/S<=1/3. Under positive sech tilt, E_w Z^2 < v and sech^2 z>=1-z^2 strictly off zero, so E sech^3/E sech>1-v>=2/3 and B<0 throughout range. Fourth cumulant kappa4(U)=-alpha^2/2; applying known smooth endpoint identity F''=-A/2-kappa4 B/12, A=E(1+rho')^2>=0, proves F''(0+)=F''(1-)<0. Dominated small-alpha scaling A/alpha^4->1/8, B/alpha^2->-1/2 gives -1/12 coefficient. Independently evaluated selected Gaussian-Hermite quadrature integrals/signs; finite numerics do not substitute for analytic proof. The endpoint identity is cited prior work, not re-proved from paper here due full-text access limits.
 
-The closest primary source, Abu-Ajamieh (arXiv:2610.22386), already proves the endpoint identity and a general *conditional* sign rule; neither is claimed here. Its generalized-Gaussian and Hermite-mode theorems do not directly treat the separated-mean binary normal mixture. Eskenazis–Gavalakis (arXiv:2308.15997) prove a stronger full-interval theorem for centered Gaussian *scale* mixtures, but every such scale mixture has nonnegative fourth cumulant, whereas the present family has strictly negative fourth cumulant. Luo (arXiv:2609.11418) supplies an asymmetric counterexample, not coverage of this symmetric family. Literature and mathematical-record searches did not locate this exact continuous-parameter sign theorem or its fourth-order coefficient; search failure is not proof of uniqueness. A broader, still-unlocated location-mixture theorem is the material residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The family is the simplest two-well Gaussian preparation, naturally relevant to Ornstein–Uhlenbeck thermalization and entropy geometry. The parameter cutoff is not arbitrarily selected: \(\alpha=1/2\) is exactly the boundary of log-concavity, so the result exhausts the whole physically and mathematically motivated subfamily. The sign follows from a nontrivial weighted \(\operatorname{sech}\) inequality, not just evaluating the published identity. The sharp quartic coefficient measures how fast strict curvature emerges as Gaussian equilibrium is departed from. No full interior concavity or general symmetric-log-concave conjecture is asserted.
+The general endpoint-curvature identity belongs to Abu-Ajamieh (2026), rather than this finding. Its technically relevant full text was not accessible; lawful OA/preprint routes failed and Oxford VPN disconnected, so potential already-proved Gaussian-location example remains a substantive originality risk. Eskenazis–Gavalakis scale mixtures have nonnegative fourth cumulant and cannot include this negative-cumulant displaced-mean mixture; Luo's asymmetric log-concave counterexample does not cover the even family. A bounded search does not certify priority.
 
-## Limitations and comparison
+## value
 
-Independent mathematical and publication-priority audits have not been performed. The strict statement is local to mixing endpoints; no theorem for all \(0<t<1\) is claimed. Numerical verification checks are bounded. Priority remains qualified for unlocated broader Gaussian-location-mixture literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines sign and sharp fourth-order onset of entropy endpoint curvature for the complete natural log-concave range of a two-location Gaussian family, a concrete unresolved parameter class in a broad entropy-concavity question; not merely a Gaussian perturbation calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
