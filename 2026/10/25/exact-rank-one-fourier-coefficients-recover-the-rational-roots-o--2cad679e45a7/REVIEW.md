@@ -1,15 +1,12 @@
-# Scientific review
+# Scientific assessment of the normalized rank-one formula
 
 ## Correctness
-PASS. The conjugation stabilizer gives a single fibre size off the line through a fixed vector; squarefreeness makes each rational eigenvalue's eigenspace one-dimensional, so exact pair counting fixes all line fibres. Character orthogonality then proves the two Fourier formulas and their inversion for every finite field and dimension at least two. Exhaustive cyclotomic-arithmetic tests in the bundled checker cover all squarefree fibres in three small cases, without being used as an infinite proof.
+The original unnormalized profile was too broadly described as depending only on the rational-root set. This is false: at q=2, n=5, the irreducible quintic X^5+X^2+1 and the squarefree product (X^2+X+1)(X^3+X+1) have no rational roots but different matrix-fibre sizes, and hence different trace-zero rank-one coefficients. The corrected statement specifies normalization by the fibre cardinality S, or supplies S as a separate parameter in unnormalized reconstruction. The exact coefficients themselves survive unchanged. Conjugacy-stabilizer transitivity, the q-1 nonzero eigenvectors of each simple rational eigenvalue, double counting, and additive-character orthogonality give a proof for all prime powers and n>=2.
 
 ## Originality
-PASS on the inspected sources, with residual risk. Browning–Gundlach–Sawin (arXiv:2610.18226v1, Section 3) treat the same matrix fibres and establish general Fourier bounds rather than these exact rank-one values or root reconstruction. Earlier semisimple-matrix counts do not directly imply an additive rank-one transform. The trace-pairing transpose convention and character orthogonality are accounted for. A covering identity in unexamined orbital-Fourier literature remains possible.
+The closest directly inspected primary paper is Browning, Gundlach and Sawin, arXiv:2610.18226v1, especially its Section 3, which proves general Fourier bounds over prescribed characteristic-polynomial fibres. It does not state the exact normalized rank-one coefficients or rational-root inversion. Standard semisimple conjugacy-class counting determines S but does not by itself evaluate these additive coefficients. Possible older orbital Fourier identities remain a historical-priority risk.
 
-## Value
-PASS. The rank-one profile of a nontrivial family of matrix conjugacy classes is compressed to the rational roots of its characteristic polynomial; conversely, additive Fourier measurements reconstruct those roots exactly. This adds a concrete exact arithmetic layer to a recent broader Fourier-estimate framework and works for all finite fields and dimensions at once.
+## Mathematical value
+The corrected theorem gives an exact harmonic statistic, uniformly over prime powers and dimensions, of a natural matrix variety, and reconstructs a meaningful arithmetic invariant. It is a complete rank-one classification rather than an isolated experimental table. It does not claim higher-rank coefficients, nonsquarefree fibres, or recovery of all irreducible factors.
 
-## Closest literature and scope
-Browning, Gundlach and Sawin, *Counting matrices with given characteristic polynomial*, arXiv:2610.18226v1, Section 3, is the nearest inspected primary document. The classification requires squarefreeness and restricts to rank-one nonzero frequencies. Independent validation has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+Finite checks are corroboration, not a proof or independent expert attestation.

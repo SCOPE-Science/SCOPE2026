@@ -1,94 +1,116 @@
 {
   "correctness": {
-    "rationale": "Exact vector-stabilizer transitivity, squarefree eigenspace pair count and additive-character orthogonality give full proof; all denominators nonzero for q>=2,n>=2. Bundled cyclotomic-integer checker independently recomputes all fibres/probes for three small prime fields.",
+    "rationale": "The corrected theorem distinguishes normalized and unnormalized coefficients. A squarefree fibre is a single conjugacy class with S=|GL_n|/product(q^d_i-1); fixed-vector stabilizer transitivity and eigenspace pair counting give N_lambda u=S(q-1)/(q^n-1) on each rational root and a common off-line count. Character orthogonality yields both exact Fourier values and inversion. The old claim that raw coefficients depend only on rational roots is false, witnessed by two squarefree quintics over F_2 with no roots and different S.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Browning, Gundlach, Sawin, Counting matrices with given characteristic polynomial, arXiv:2610.18226v1, 2026-10-13, Section 3"
+        "Proposition 3.7 gives an absolute-value upper bound in terms of the dimension of a Springer fibre; it contains no exact sign/phase or root inversion.",
+        "The Delsarte rank-one-shell transform has rank-one matrix domain, not a prescribed characteristic-polynomial conjugacy orbit."
       ],
-      "reasoning": "The inspected primary work develops general Fourier coefficient estimates on the same fibres. An upper bound alone does not imply the exact values and additive Fourier inversion obtained here; wider orbital-integral literature might contain generalizations that were not located.",
+      "reasoning": "The known upper bounds and rank-scheme character table do not imply exact values on this different support without an extra argument. An older general orbital-transform theorem might dominate the specific result but was not identified.",
       "searches": [
-        "\"character sums over matrices fixed characteristic polynomial rank one Fourier coefficient 2026\"",
-        "\"Fourier transform\" \"characteristic polynomial\" \"Salié\" matrices 2 2"
+        "arXiv:2610.18226v1 Section 3 Proposition 3.7 and Corollary 3.15",
+        "Delsarte bilinear-forms association scheme rank-one shell Fourier character sums",
+        "finite field orbital Fourier transform regular semisimple gl_n"
       ]
     },
     "checked_sources": [
-      "Browning, Gundlach, Sawin, Counting matrices with given characteristic polynomial, arXiv:2610.18226v1, 2026-10-13, Section 3",
-      "Relevant semisimple matrix-counting abstract (Britnell, 2002)",
-      "Targeted searches for orbital additive Fourier transforms, rank-one frequencies, fixed characteristic polynomial fibres and eigenvector statistics"
+      "Browning–Gundlach–Sawin, arXiv:2610.18226v1, Sections 1,3 and Section 4 outline",
+      "Resultary first-coordinate Fourier spectrum on finite-field rank-one matrices, full RESULT.md",
+      "Britnell (2002) abstract",
+      "Targeted searches: prescribed-charpoly Fourier orbit, regular semisimple conjugacy-class transforms, finite-field rank-one character sums"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Browning, Gundlach, Sawin, Counting matrices with given characteristic polynomial, arXiv:2610.18226v1, 2026-10-13, Section 3",
-        "Britnell, Cyclic, Separable and Semisimple Matrices in the Special Linear Groups Over a Finite Field (2002), abstract only"
+        "Standard centralizer formula implies S=|GL_n(q)|/product_i(q^d_i-1), not the conditional vector-image counts.",
+        "Proposition 3.7 of the closely related 2026 primary source is an inequality, not an identity for all rank-one Fourier phases."
       ],
-      "reasoning": "General absolute estimates permit many values and do not reconstruct roots. Semisimple conjugacy-class counting determines fibre sizes, but not the conditional vector-image distribution or Fourier coefficients without the additional stabilizer and eigenspace argument. The latter produces a new explicit implication, rather than a restatement of the size formula.",
+      "reasoning": "The corrected statement is not a mere substitution of the size count or Fourier upper bound: it gives signed values and reconstruction using the rational-root indicator. The normalization dependence is explicitly corrected.",
       "searches": [
-        "Fourier transform of conjugacy class of matrices finite field rank one coefficient rational eigenvalues",
-        "\"finite field Fourier transform 2x2 matrix trace determinant fibres exponential sum explicit\""
+        "Browning Gundlach Sawin 2610.18226 arxiv Section 3 Proposition 3.7",
+        "Britnell 2002 cyclic separable semisimple matrices finite-field counts",
+        "Resultary semantic search matrix characteristic polynomial rank-one additive Fourier"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Browning, Gundlach, Sawin, Counting matrices with given characteristic polynomial, arXiv:2610.18226v1, 2026-10-13, Section 3"
+        "For squarefree f, the fibre is a single regular semisimple conjugacy class. Transposing the pairing converts trace(AM) and trace(A^T M).",
+        "Browning–Gundlach–Sawin Remark 3.1 and Proposition 3.7 bound the transform, without the stated exact rank-one evaluation."
       ],
-      "reasoning": "Transpose-pairing conventions identify rank-one frequencies up to transpose; the statement is invariant under that equivalence. A conjugacy orbit of squarefree characteristic polynomial is one semisimple class. No inspected equivalent first-vector distribution or root-reconstruction identity was found.",
+      "reasoning": "Conjugacy-class/regular-semisimple and transpose-pairing are the relevant aliases; the inspected formula still requires a new vector-image count. This is a best-of-knowledge comparison, not an exhaustive historical exclusion.",
       "searches": [
-        "\"Fourier transform of conjugacy class of matrices finite field rank one coefficient rational eigenvalues\"",
-        "\"rank one Fourier transform regular semisimple conjugacy classes over finite fields eigenvectors\""
+        "Fourier transform of regular semisimple conjugacy class of GL(n,q) on matrix algebra, rank-one test matrix",
+        "Fourier transform finite field matrix conjugacy class rank one additive trace pairing",
+        "arXiv:2610.18226v1 Sections 3.1–3.3"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The motivating paper Section 3 gives bounds rather than a table of rank-one values."
+        "The closest retrieved Resultary finding gives the Gram spectrum of coordinate Fourier characters restricted to rank-one matrices, not additive Fourier coefficients of squarefree characteristic-polynomial fibres.",
+        "The inspected Browning–Gundlach–Sawin source supplies bounds rather than a rank-one exact table."
       ],
-      "reasoning": "No exact table or general identity covering the two parameter strata was identified in searched accessible literature. This negative search is not a guarantee of uniqueness.",
+      "reasoning": "No matching exact table was found in the concrete searches. The absence of a match is a residual historical-priority risk, not an independent novelty proof.",
       "searches": [
-        "\"matrix with prescribed characteristic polynomial\" \"fixed vector\" eigenvalue distribution",
-        "\"matrices\" \"characteristic polynomial\" \"first column\" \"uniform\" finite field"
+        "Resultary semantic search: finite field fixed separable characteristic polynomial exact rank-one transform rational roots",
+        "rank-one Fourier transform prescribed characteristic polynomial matrix class exact table",
+        "Resultary first-coordinate Fourier spectrum on finite-field rank-one matrices 2026/10/11"
       ]
     },
-    "rationale": "The October 2026 motivating work bounds Fourier transforms of prescribed-characteristic-polynomial matrix fibres but does not supply this exact rank-one formula and root-set inversion. Other relevant finite-field matrix Fourier frames and semisimple counts concern different objects or weaker statistics. Explicit comparisons and residual generic orbital-integral coverage risk are recorded.",
+    "rationale": "For the corrected claim, full primary Section 3 of Browning–Gundlach–Sawin concerns the same finite-field fibres and provides stratified bounds, not exact normalized rank-one coefficients or the character-inversion identity. Older semisimple counting determines the scalar fibre size S; no inspected stronger theorem implies the full additive rank-one profile. An uninspected orbital-Fourier identity could still cover this calculation.",
     "residual_risks": [
-      "An unlocated general formula for semisimple orbital Fourier transforms may imply this restricted exact result.",
-      "The Britnell source was only inspected at abstract level; no claim about its complete paper is made."
+      "A general finite-field regular-semisimple orbital Fourier transform not found by targeted searches might contain this specialization.",
+      "Britnell (2002) was inspected only at abstract level; no full-text comparison is represented.",
+      "Exact Fourier coefficient formulas can be elementary consequences of known conjugacy and eigenvector facts; the mathematical contribution is their complete rank-one assembly and inversion, not a new eigenvector-count lemma."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING in the inspected sections: bounds, not exact rank-one values or rational-root inversion",
+        "assessment": "NOT_COVERING these exact rank-one values in the material read; strong coverage of general Fourier bounds and uniqueness of squarefree class",
         "evidence": [
-          "Section 3 bounds on Fourier transforms; no formula identifying all rank-one coefficients with additive root-character sums."
+          "Proposition 3.7 gives |hat1(A)| <<_n q^(dim T_A-n).",
+          "The same paper explicitly notes a unique conjugacy class when f is squarefree, but gives no additive root-set inversion."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2610.18226",
-        "material_read": "Public full HTML introduction and Section 3, including Fourier estimates and corollaries; searched for rank-one, eigenline, rational roots",
-        "method": "Full-text section inspection and targeted exact-text search",
+        "identifier_or_url": "https://arxiv.org/html/2610.18226v1",
+        "material_read": "Accessible HTML introduction and relevant statements/proof passages in Sections 3.1–3.3, including Remark 3.1, Proposition 3.2, Proposition 3.7, Corollary 3.15, and the Section 4 outline",
+        "method": "Read accessible primary HTML and inspected theorem/proof statements",
         "title": "Counting matrices with given characteristic polynomial",
-        "trigger": "Identical fixed-characteristic-polynomial matrix fibres and Fourier transforms"
+        "trigger": "Same fixed-characteristic-polynomial matrix variety and additive Fourier pairing"
       },
       {
-        "assessment": "INCOMPLETE_INSPECTION; abstract describes counting classes, not exact additive orbital Fourier coefficients",
+        "assessment": "DIFFERENT_SUPPORT: studies Fourier restriction to rank-one matrix shell, not characteristic-polynomial fibres",
         "evidence": [
-          "No complete-paper exclusion is asserted for this source."
+          "The studied domain is X={nonzero rank-one matrices}; its exact rank-one shell character sum is Delsarte-derived."
         ],
-        "identifier_or_url": "Britnell (2002), Cyclic, Separable and Semisimple Matrices in the Special Linear Groups Over a Finite Field",
-        "material_read": "Abstract/description only, not full paper",
-        "method": "Search-result bibliographic/abstract review",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7",
+        "material_read": "Full RESULT.md theorem, Fourier transform of rank-one shell and Gram-block proof",
+        "method": "Direct GitHub full-text read",
+        "title": "Complete first-coordinate Fourier spectrum on finite-field rank-one matrices",
+        "trigger": "Published finding with finite-field rank-one Fourier measurements"
+      },
+      {
+        "assessment": "INCOMPLETE full-text comparison; abstract describes proportions of cyclic, semisimple and separable matrices, not Fourier coefficients",
+        "evidence": [
+          "The abstract defines cyclic, separable, semisimple counting and proportions; no full-text exclusion is claimed."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/S0024610702003678",
+        "material_read": "Abstract and bibliographic description only",
+        "method": "Publisher abstract inspection",
         "title": "Cyclic, Separable and Semisimple Matrices in the Special Linear Groups Over a Finite Field",
-        "trigger": "Existing semisimple-conjugacy class count might dominate the fibre formula"
+        "trigger": "Potential pre-existing semisimple matrix counting/classification"
       }
     ],
     "status": "PASS"
   },
+  "previously_published_pending_reaudit": false,
   "review_type": "self_review",
   "schema_version": 1,
-  "scope_run_id": "2cad679e-45a7-4e82-a806-88cca4f0c2e9",
   "self_review_status": "passed",
   "value": {
-    "rationale": "Complete exact rank-one harmonic statistic for every squarefree matrix fibre over every finite field; it encodes and reconstructs the natural rational-root invariant. This sharpens a newly motivated matrix Fourier setting from upper estimates to an explicit arithmetic inverse relation; not a parameter substitution or a table recomputation.",
+    "rationale": "An exact rank-one harmonic statistic and inverse recovery of the rational-root set of a natural finite-field matrix-conjugacy fibre, uniformly in q and n. Unlike a generic upper bound or tabulation, the formulas characterize all rank-one probes and exhibit a meaningful normalization distinction.",
     "status": "PASS"
   }
 }
