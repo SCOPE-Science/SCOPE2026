@@ -1,19 +1,21 @@
-# Review: one weighted complete-tripartite edge
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The powered-distance matrix is reconstructed exactly from the weighted shortest-path distances and reduced on the zero-sum hyperplane to the compressed matrix \(B_0-\eta E\), where \(\eta=(t^p-1)/(2^p-1)\). Residual graph symmetries decompose the zero-sum space into a zero sector and two explicit two-dimensional pencils. The symmetric largest eigenvalue exceeds \(n\), the antisymmetric maximum is strictly less than \(n\), and the critical eigenmode is therefore simple. Negative-type inheritance and a strict failure witness at the intact endpoint prove the claimed unique exponent. The finite-metric Euclidean Gram correspondence gives exact embedding dimensions. The algebraic perturbation equation yields the uniform \(1/n\) eigenvalue shift and \(1/n^3\) exponent gap with its explicit \(\log t\) coefficient. The checker evaluates whole matrices independently for 95 parameter combinations, 52 exact rational-form identities and cubic asymptotics; universal statements rest on the proof rather than these finite tests.
+PASS
 
-## Originality — PASS, qualified
+For n>=2, one 1<t<=2 weighted cross edge of K_(n,n,n) changes only the mutual distance of its endpoints; 2^p for within-part distances, 1 for other cross edges. Reconstructed D_p=a(J-I)+(1-a)B0+(b-1)E. Compression to 1-perp and the A/B exchange symmetry yields symmetric-sector generalized eigenvalue root T_n(eta)>n and antisymmetric Rayleigh bound <n for eta>0, leaving one simple critical mode. Negative-type inheritance and a positive-to-negative critical test produce a unique endpoint strictly below p0=log2(n/(n-1)); Schoenberg ranks give dimensions 3n-1 below, 3n-2 at endpoint vs 3n-3 intact. Expanding the exact quadratic for delta_n=T_n-n gives n delta_n ->eta/3 uniformly eta in [0,1], hence n^3(p0-wp_n(t))->log(t)/(3 log(2)^2). Independent full zero-sum compressed adjacency eigenvalue calculations for n=2,3,5,10 at nontrivial eta agree with T_n to floating precision (<=2e-15). They corroborate, not replace, spectral proof.
 
-Searches included variable-edge complete-tripartite generalized roundness, weighted one-edge perturbations, one-edge-deleted multipartite negative type, quadratic embedding constants, spectral aliases and graph joins. Li–Weston's inheritance theorem and Sánchez's general method provide background but not this evaluation. Obata's multipartite QEC theorem covers *unchanged* multipartite graphs. The strong graph-join QEC theorem of Choudhury–Nandi covers ordinary unweighted graph metrics at original distance exponent, including the deleted-edge special case \(t=2\) via a join description, but it does not provide the continuous weighted-edge family \(1<t<2\), the nonlinear implicit \(p\)-threshold or its weight-dependent cubic law. The weighted interior and its sharp coefficient, not the deletion endpoint in isolation, constitute the novelty claim. Residual risk: an unindexed weighted graph perturbation or general two-distance kernel theorem may imply the continuous weighted result; searching cannot exclude all literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Changing a single edge length in a dense, highly symmetric graph tests stability of a sharp generalized-roundness threshold under the smallest possible local metric deformation. For an entire continuum of edge weights, the result determines the exact admissible snowflake range, proves that endpoint kernel multiplicity is reduced, and identifies a subtle cubic size dependence with an explicit logarithmic weight coefficient. The fact is not a renaming of the unweighted graph constant, since the critical eigenvalue pencil itself depends nonlinearly on the unknown exponent through the edge weight. The perturbation coefficient can inform analogous metric-stability questions.
+Graph-join QEC theory covers unweighted graph distances and may encompass t=2 edge deletion; that endpoint is not asserted separately new. General negative-type inheritance and multipartite QEC results also supply prior machinery. The assessed contribution is the continuous stretched-edge family 1<t<2 with exact sharp p-threshold, unique equality mode, and cubic derivative scale. These do not logically follow by substituting a weighted edge into the cited unweighted graph-join theorems. Uninspected broader finite-metric rank-one perturbation results remain a risk.
 
-## Scope and closest literature
+## value
 
-Three equally sized parts, one edge stretched to \(1<t\le2\), and all other edges unit. The nonweighted deletion endpoint is noted as a specialization subject to general graph-join results and is not independently presented as novel. No multiple edge perturbations or unequal part profiles are established. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Changing one edge in a high-symmetry natural metric and tracking its entire snowflake embedding threshold quantifies genuine perturbation sensitivity. The unexpected cubic n^-3 loss with explicit log(t) coefficient and endpoint rank drop are sharp, motivated structural facts, not a trivial reparameterization of the intact graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
