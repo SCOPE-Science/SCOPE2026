@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T15:15:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under stationary common rate-r Poisson resets, age A~Exp(r) and conditional particle positions iid N(0,σ²(1−exp(−2µA))) with σ²=D/µ. S=exp(−2µA) has exact Beta(β,1) density βs^(β−1), β=r/(2µ); V=(logN)S has density β(logN)^(−β) v^(β−1) on (0,logN). Independently derived exact conditional max threshold q_N(v,x)=1−Φ((u_N+x/u_N)/sqrt(1−v/logN))^N, u_N=Φ^−1(1−1/N). At fixed v Gaussian max Gumbel scaling shifts x→x+v; Mills tail-ratio upper bound q_N≤exp(−v/4) for large v yields an integrable beta-weighted envelope for every β>0 and fixed x. Dominated convergence gives Kβ(x)=β∫v^(β−1)Q(x+v)dv=E(G−x)_+^β. Normalization gives the conditional V mark and −log age-offset distribution. At uncorrected threshold sqrt(2logN), N Gaussian tail ~exp(−v)/sqrt(4π logN), another dominated convergence yields scaled leakage Γ(β+1)/sqrt(4π) and distinct β+1/2 exponent. Independent direct 1D Gaussian-mixture quadrature for β=.5,1,2 and logN=16,40,80 corroborated approach to both exact limits (not a substitute for proof). Claims are fixed x and fixed µ,D,r, stationarity, not finite-N uniform bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2606.31634 solves the harmonic-confined gas's stationary leading law and explicitly discusses slow edge cutoff scale.",
+          "arxiv:2509.06658 treats common reset with freely diffusing Brownian particles and no bounded harmonic variance endpoint; arxiv:2312.02570 has switching harmonic confinement, different switching rule."
+        ],
+        "reasoning": "Broader family coverage at leading weak-limit level does not determine exact probability of rare crossing a non-matching threshold; nonetheless a broad endpoint-mixture asymptotic theorem could subsume this special case.",
+        "searches": [
+          "simultaneous resetting Brownian OU harmonic extreme edge layer Gumbel",
+          "simultaneous Poisson resetting harmonic trap Brownian gas Gaussian maxima Gumbel boundary layer edge leakage reset age",
+          "arxiv:2312.02570 switching harmonic trap maxima",
+          "arxiv:2509.06658 common non-Poisson resetting Brownian gas"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.31634",
+        "https://journals.aps.org/pre/accepted/10.1103/5fs8-mjx9",
+        "https://arxiv.org/abs/2312.02570",
+        "https://arxiv.org/abs/2509.06658",
+        "Resultary: 2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db",
+        "Resultary: 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4",
+        "Resultary query: simultaneous Poisson resetting harmonic trap Brownian gas Gaussian maxima Gumbel boundary layer edge leakage reset age"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Leading weak maximum distribution with compact support cannot imply any particular positive vanishing boundary exceedance constant.",
+          "The exact Gaussian mixture combined with additional normal-tail and dominated convergence calculations does yield the claimed Kβ(x) and leakage coefficient."
+        ],
+        "reasoning": "A full exact finite-N formula is mathematically sufficient input to derive sharper limits, but the prior statement's leading limit alone does not deliver them. Novelty hinges on whether an identical sharp boundary theorem was already explicitly derived elsewhere, especially inside inaccessible full 2026 source.",
+        "searches": [
+          "De Mauro–Majumdar–Schehr 2026 Sec VI.1.1 Eqs 115–136 (cited by source)",
+          "Gaussian Mills ratio beta scale endpoint asymptotics",
+          "simultaneous Poisson resetting harmonic trap Brownian gas Gaussian maxima Gumbel boundary layer edge leakage reset age"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Mauro–Majumdar–Schehr provides the joint reset-age Gaussian mixture and finite-size approximate cutoff in harmonic confinement.",
+          "The proposed Kβ(x) is equivalent to an endpoint mixed-Gumbel exceedance coefficient; conditional V density adds a marked rare-event limit."
+        ],
+        "reasoning": "A known mixture representation is a starting identity rather than the sharp asymptotic conclusion. The full closest preprint was inaccessible in this execution, thus this source remains the highest priority recheck for possible stronger coverage.",
+        "searches": [
+          "simultaneous Poisson resetting harmonic trap Brownian gas Gaussian maxima Gumbel boundary layer edge leakage reset age",
+          "arxiv:2606.31634 harmonic confinement extreme-value boundary",
+          "Gumbel boundary layer Gaussian variance mixtures endpoint Beta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary records: SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db and SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4, not common Poisson-reset gas.",
+          "No database of beta-weighted Gumbel coefficients or conditional reset ages identified."
+        ],
+        "reasoning": "The exact observables are asymptotic limits rather than a finite table; available indexed examples use different random mixing variables and do not imply this result.",
+        "searches": [
+          "simultaneous Poisson resetting harmonic trap Brownian gas Gaussian maxima Gumbel boundary layer edge leakage reset age",
+          "Resultary Gaussian extreme-particle pinning and OU sensor Gumbel",
+          "arxiv:2606.31634 finite N harmonic maximum figures/tables"
+        ]
+      },
+      "rationale": "Qualified PASS as a refinement. The exact conditional-Gaussian stationary mixture and bounded-support leading maximum law are established by de Mauro–Majumdar–Schehr (arXiv:2606.31634, accepted Phys Rev E 2026-11-03); no originality is attributed to them. The present theorem computes sharp vanishing exceedance probability on the corrected Gumbel boundary, conditional rare reset-age selection and the extra +1/2 power at the uncorrected edge. The closest primary abstract/accepted-paper landing was checked; full arXiv text was inaccessible in this run, while previous source manuscript describes Sec VI.1.1's approximate O(1/logN) cutoff. This creates material risk that Eq (129)–(136) or appendix already implies a coefficient more directly. Published Resultary related OU sensor and pinned bridge Gumbel results involve different source/mixing variables. Best-of-knowledge claim remains qualified, not a declaration that the original full paper lacks the result.",
+      "residual_risks": [
+        "The exactly matching harmonic resetting paper arxiv:2606.31634 is a strong priority comparator; its 67-page full text could not be inspected here; hidden coverage of sharp boundary limit remains possible.",
+        "A general beta-endpoint Gaussian-mixture extreme-value asymptotic theorem may supply the result as a corollary.",
+        "No finite-N error bound, changing-x uniformity, or non-Poisson extension is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_MODEL_COVERAGE_PRIORITY_UNCERTAIN",
+          "evidence": [
+            "Abstract explicitly covers harmonic stationary max with bounded-support law; the full equations and potential boundary coefficient are not ruled out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+          "material_read": "ArXiv abstract and Phys Rev E accepted-paper abstract (accepted 2026-11-03); attempts to fetch arXiv PDF and HTML returned disabled",
+          "method": "arXiv metadata and APS accepted-article public abstracts; full text inaccessible in this run",
+          "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+          "trigger": "same physical model, harmonic confinement and stationary EVS"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL_LIMITED_READ",
+          "evidence": [
+            "Free Brownian resetting and general renewal clocks, not an explicit harmonically confined variance endpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Accessible published journal abstract describing simultaneous resetting and free Brownian particles; no harmonic-trap full text examined here",
+          "method": "Phys Rev E abstract",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "general renewal common reset framework and extremes"
+        },
+        {
+          "assessment": "RELATED_LEADING_LIMIT_ONLY",
+          "evidence": [
+            "Leading extreme-value statistics for switching potential, not the same Poisson-reset age conditioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.02570",
+          "material_read": "Accessible arXiv abstract and scientific summaries; full body not re-read in this execution",
+          "method": "arXiv indexed literature",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "bounded-support Gaussian maximum under harmonic switching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leading compact-support weak maximum law leaves vanishing beyond-edge probabilities completely unresolved. Computing Kβ(x), a conditional reset-age law, and Γ(β+1)/sqrt(4π) leakage rate provides natural exact finite-population extreme-event observables, including a physically interpretable distinction between rare old common resets and Gaussian fluctuations. This is a substantive asymptotic boundary refinement of an established model, not rediscovery of the stationary mixture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.31634",
+    "https://journals.aps.org/pre/accepted/10.1103/5fs8-mjx9",
+    "https://arxiv.org/abs/2312.02570",
+    "https://arxiv.org/abs/2509.06658",
+    "Resultary: 2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db",
+    "Resultary: 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4",
+    "Resultary query: simultaneous Poisson resetting harmonic trap Brownian gas Gaussian maxima Gumbel boundary layer edge leakage reset age"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive µ,D,r; iid Brownian drivers between simultaneous common Poisson resets; stationary spatial maximum.",
+    "Convergence only for fixed edge coordinate x; no time-maxima or uniform finite-size uncertainty bound."
+  ],
+  "residual_risks": [
+    "The exactly matching harmonic resetting paper arxiv:2606.31634 is a strong priority comparator; its 67-page full text could not be inspected here; hidden coverage of sharp boundary limit remains possible.",
+    "A general beta-endpoint Gaussian-mixture extreme-value asymptotic theorem may supply the result as a corollary.",
+    "No finite-N error bound, changing-x uniformity, or non-Poisson extension is established."
+  ],
+  "schema_version": 1
+}
