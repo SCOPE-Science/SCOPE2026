@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The only nontrivial obstruction to frame reconstruction is identified by a row missing one nonreflexive edge from the universal relation. This pair of frames has different response vectors only on the missing target's complementary singleton valuations for every carrier of size at least three. Distinct targets force distinct queries along the universal-frame transcript even for adaptive decision trees. Conversely singleton queries read all off-diagonal entries by reflexivity. The two-world exception and one-world triviality are separately handled. Inclusion–exclusion exactly counts random families covering the required tests, and factorial moments prove the Poisson critical window. A standalone checker exhausts the complete four-world reflexive relation class and all available test families, plus smaller directed classes and larger adversaries; it returned `ALL_CHECKS_OK`. Finite experiments support but do not replace the general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For a labelled reflexive n-world relation, a singleton valuation {v} makes Δp false at w≠v exactly if (w,v) is an edge. Thus n singleton partitions reconstruct all off-diagonal entries; for n=2 a query is its own complementary split and suffices, and n=1 needs none. Against the universal relation, deleting (w_v,v) changes any answer only for the two complementary singleton valuations of v. Since n≥3 makes these n distinct partitions, even a deterministic adaptive protocol must ask all n on the universal-frame branch. For independent uniform valuations each prescribed split has probability 2^(1−n), and disjoint coupon categories yield the exact inclusion–exclusion formula. Factorial moments of missing splits at 2^(n−1)(log n+t) give Poisson(e^(−t)) and Gumbel. Independently enumerated all 4 reflexive n=2 frames and all 64 n=3 frames; minimal probe signatures and the n=3 singleton necessity matched. Limits: labelled, full truth-vector oracle, raw one-atom noncontingency, deterministic zero-error adaptive queries; no formulas with richer languages.
 
-Wang and Zenger's 2026 arXiv:2609.38975 develops proof theory and reflexive-frame semantics, not restricted one-step active tomography. Fan, Wang and van Ditmarsch's arXiv:1312.0144 establishes knowing-whether expressive properties with unrestricted formulas, not optimal numbers of independently reset atomic valuations. Humberstone and Zolin establish earlier semantic/definability foundations; their entire historical primary full texts could not be checked and an equivalent older active-learning reduction remains possible. Comparison with related finite modal-operation catalogue claims (neighbourhood arity, Gödel weight regrading, finite measurable quotients) found no implication equivalent to the two-obstruction theorem. The underlying row observation and coupon collector computation are not claimed as independent inventions. Novelty is a best-evidence assessment, not a certificate of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines a natural constrained-observation invariant of finite reflexive modal frames and fully characterizes optimal sets of experiments. It proves that adaptivity cannot improve an exact linear active query budget and identifies the exponential passive threshold with its limiting profile. This sharp gap depends essentially on the non-contingency operation's complement symmetry, so it is not just a familiar unrestricted graph adjacency query problem.
+Best-of-knowledge PASS for exact deterministic adaptive and fixed valuation-query complexity and the random universal-recovery law of a reflexive frame. Knowing-whether semantics and its reflexive expressive characterization are already known; the claimed contribution is not the semantics or elementary coupon-collector limit alone.
 
-## Limits and independent status
+## value
 
-The theorem requires labelled worlds, noiseless full-vector answers, independent atomic valuations and one-step \(\Delta p\) probes. Its all-frames random success probability is not a recovery probability for a single random frame. Historical full-text coverage is incomplete and stronger cross-disciplinary priority claims require independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural inverse problem in modal semantics is solved sharply, with a universal-query design theorem, adaptive lower bound, and exponential gap from randomly chosen probes. These exact sample-complexity costs are independently useful for experimental frame identification, not merely a renamed semantic identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
