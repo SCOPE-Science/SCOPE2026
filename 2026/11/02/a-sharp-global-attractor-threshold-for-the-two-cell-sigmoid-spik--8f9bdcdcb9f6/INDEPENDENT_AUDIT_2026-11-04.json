@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:47:27.989502Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For T in (0,2), ||F(z)||<=|1-T| ||z|| +TS gives an invariant absorbing ball. At T=2, z·G>=2/5||z||_1-17/(5e alpha), with ||G||<=S, yields squared-radius defect <=-8r/5+68/(5e alpha)+4S^2; outside rho radius, decrease by >=1, inside rho+2S ball invariance. Nested images yield a global compact attractor. T>2 reverse triangle gives remote geometric escape >=(T/2)^n. Direct coefficient/parameter sanity checks corroborate, infinite quantifiers follow inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marcus–Westervelt (1989) and Cessac (1994) discuss different discrete neural network conditions (abstracts only).",
+          "General inequality |1-T|<1 covers T<2 but cannot establish endpoint T=2; the exact z·G coercivity margin 2/5 closes that case."
+        ],
+        "reasoning": "A general dissipativity theorem might imply it under sector bounds, but no checked primary theorem supplies these map-specific coefficients and endpoint classification; risks retained.",
+        "searches": [
+          "Global attractor absorbing set threshold Euler step T=2 two cell sigmoid tanh neural spiking map",
+          "general global absorbing ball saturation tanh Euler map endpoint multiplier minus one"
+        ]
+      },
+      "checked_sources": [
+        "Buscarino Famoso Fortuna, Nonlinear Dynamics (2023) full HTML",
+        "Marcus Westervelt, Physical Review A 40 (1989) abstract",
+        "Cessac, J. Phys. A 27 (1994) abstract",
+        "Resultary query Global attractor absorbing set threshold Euler step T=2 two cell sigmoid tanh neural spiking map (returned Chialvo/Rulkov different maps)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the exact model, bounded forcing S gives escape for T>2 by ||F(z)|| >=(T-1)||z||-TS; critical T=2 additionally needs the new strict radial drift bound."
+        ],
+        "reasoning": "A local compact attractor at T=2.3 does not imply global compact attraction, and does not refute escape of sufficiently remote starts; no previous claimed implication covers the sharp global set.",
+        "searches": [
+          "Global attractor absorbing set threshold Euler step T=2 two cell sigmoid tanh neural spiking map",
+          "Buscarino Famoso Fortuna 2023 bifurcation global dissipativity all starts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Buscarino–Famoso–Fortuna 2023 full HTML Sections 3–7 defines the same map at mu=0.7, s=1, biases ±0.3, studies local equilibria and numerically simulated bounded attractors."
+        ],
+        "reasoning": "Equivalent mathematical statements concern absorbing sets/point dissipativity for the EXACT Euler map for all initial states, not stability of one equilibrium or locally observed bounded cycles.",
+        "searches": [
+          "Global attractor absorbing set threshold Euler step T=2 two cell sigmoid tanh neural spiking map",
+          "Buscarino Famoso Fortuna tanh spiking map all bounded sets global absorbing T two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 article exhibits bounded simulated spiking cycles for T>2 in local regions, not a table classifying global absorbing sets."
+        ],
+        "reasoning": "The documented local phase diagrams cannot resolve behavior from arbitrarily large starts; no exact complete parameter table was found.",
+        "searches": [
+          "Global attractor absorbing set threshold Euler step T=2 two cell sigmoid tanh neural spiking map",
+          "two cell spiking map phase diagram T 2.3 bounded orbit global attraction"
+        ]
+      },
+      "rationale": "Compared full accessible defining 2023 article against compact GLOBAL absorption and escape of ALL sufficiently remote states, rather than local bounded attractors. No inspected source implies the sharp T<=2 boundary for the exact tanh map; the endpoint requires a coefficient-specific coercivity estimate. This is a best-of-knowledge judgment with general dissipativity literature risk.",
+      "residual_risks": [
+        "A prior more general dissipativity theorem for bounded saturating nonlinearities with positive radial sector could imply the endpoint as a specialization; not identified.",
+        "The result does not classify local attractor basins, their chaos, or noisy finite-precision dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING global compact absorbing set cutoff; records local and numerical bifurcation observations",
+          "evidence": "Sections 3 and 4 concern equilibria/local bifurcation, T=2.3 numerical trajectories; no universal escape/critical coercivity theorem.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11071-023-08897-7",
+          "material_read": "Full accessible HTML abstract, equations (1)–(5), Sections 3–7 bifurcations/spiking/noise/microcontroller results and conclusions",
+          "method": "Read complete open-access HTML primary article",
+          "title": "Bifurcations in a new two-cell spiking map: a numerical and experimental study",
+          "trigger": "Exact source map M,tanh and Euler step"
+        },
+        {
+          "assessment": "Different symmetric-network dynamics, possible generic dissipativity overlap unresolved",
+          "evidence": "Phys. Rev. A 40 (1989), p501.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.40.501",
+          "material_read": "Publisher abstract and metadata, NOT full paper",
+          "method": "Accessible abstract search",
+          "title": "Dynamics of iterated-map neural networks",
+          "trigger": "Potential general neural-map stability theorem"
+        },
+        {
+          "assessment": "Different fixed-point absolute stability setting; not direct full-plane result for the given exact map",
+          "evidence": "J. Phys. A 27 (1994), L927.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/27/24/004",
+          "material_read": "Publisher abstract and bibliographic info only",
+          "method": "Accessible indexed abstract",
+          "title": "Absolute stability criterion for discrete time neural networks",
+          "trigger": "Possible broader attractor/stability criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Establishes a sharp and potentially useful global dynamical admissibility boundary for an experimentally motivated neuron map, including critical T=2 where the linear contraction fails. The distinction from bounded local chaotic trajectories at T>2 is genuine and not a cosmetic parameter case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A prior more general dissipativity theorem for bounded saturating nonlinearities with positive radial sector could imply the endpoint as a specialization; not identified.",
+    "The result does not classify local attractor basins, their chaos, or noisy finite-precision dynamics."
+  ],
+  "schema_version": 1
+}

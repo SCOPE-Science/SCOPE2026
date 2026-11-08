@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
-The rigorous check consists of the explicit matrix norm identity, the scalar bound \(u(1-\tanh u)\le e^{-1}\) for \(u\ge0\), the lower bound on \(z\cdot(M\Theta_\alpha(z)+b)\), and the closed radial drift inequality at \(T=2\). For \(T>2\), verify the exterior radius and expanding factor directly from the reverse triangle inequality; for \(0<T<2\), verify the affine norm recurrence. The global-attractor construction uses nested compact images of a forward-invariant absorbing ball, not finite simulation.
 
-Running `python3 check_bounds.py` (Python 3 standard library only) reproduces the coefficient identity checks and 1,050 seeded finite-state numerical assertions over representative values from each parameter regime. These checks passed on the accompanying source file. They cannot prove the quantification over all real states and parameter values, which rests on the written inequalities. There is no external or independent validation represented.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For T in (0,2), ||F(z)||<=|1-T| ||z|| +TS gives an invariant absorbing ball. At T=2, z·G>=2/5||z||_1-17/(5e alpha), with ||G||<=S, yields squared-radius defect <=-8r/5+68/(5e alpha)+4S^2; outside rho radius, decrease by >=1, inside rho+2S ball invariance. Nested images yield a global compact attractor. T>2 reverse triangle gives remote geometric escape >=(T/2)^n. Direct coefficient/parameter sanity checks corroborate, infinite quantifiers follow inequalities.
+
+## originality
+
+PASS
+
+Compared full accessible defining 2023 article against compact GLOBAL absorption and escape of ALL sufficiently remote states, rather than local bounded attractors. No inspected source implies the sharp T<=2 boundary for the exact tanh map; the endpoint requires a coefficient-specific coercivity estimate. This is a best-of-knowledge judgment with general dissipativity literature risk.
+
+## value
+
+PASS
+
+PASS. Establishes a sharp and potentially useful global dynamical admissibility boundary for an experimentally motivated neuron map, including critical T=2 where the linear contraction fails. The distinction from bounded local chaotic trajectories at T>2 is genuine and not a cosmetic parameter case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
