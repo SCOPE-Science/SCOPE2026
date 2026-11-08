@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The standalone `check_gauss.py` is included with the research files and depends only on Python's standard library. Execute `python3 check_gauss.py` and check its final output is `VERIFY_OK`. It expands \(f'= -B^{r-1}\) in selected characteristics, computes integer gcd relations and genus/delta identities, and prints sample \(q\deg C^\vee=Nq^2\) values. These are finite consistency checks; the field-degree argument and valuations in `RESULT.md` are the actual general proof.
+# Independent mathematical audit
 
-The original paper's stated genus \((q^2-1)q^n/2\) is independently reproduced by subtracting all cusp delta-invariants from the arithmetic genus. We have not independently checked the dual's singularities, nor has an independent mathematical review been carried out.
+## correctness
+
+PASS
+
+Computed f=AB^r with A=u^q-u and B=1+A^(q-1), f’=-B^(r-1), hence Gauss [1:(u^(q²)-u)/z:-u^(q²)]. The auxiliary w=c^(-1/q)z^(q^(n-1))/B^((r-1)/q) satisfies (u^(q²)-u)/z=w^q and dw/w=-t B’/B du nonzero; because K=k(u^q,w) the Gauss image field k(u^(q²),w^q)=K^q, giving exact inseparability degree q. Pole order Nq² in this base-point-free Gauss linear series gives dual degree Nq. At finite z=0, f’ vanishes only at q²-q roots of B and gcd(N,r)=1 gives unibranch cusps; infinity is smooth. Independently checked derivative/congruence/genus for q=3,4,n=4; finite checks do not certify the general claim.
+
+## originality
+
+PASS
+
+The full original Ma-Wang paper defines the same Kummer family and determines genus/maximality/automorphisms, but inspected theorem statements and full-text search do not calculate the model-specific Gauss field or dual degree. General Frobenius-nonclassical Gauss results give context without evaluating this particular plane model.
+
+## value
+
+PASS
+
+For a natural new maximal Kummer family, the dual degree, exact Gauss inseparability and complete plane singularity types are structural invariants useful in projective duality and Frobenius geometry, not known genus/automorphism recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
