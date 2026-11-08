@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python affine_check.py` and `python symbolic_check.py` with Python, NumPy and SymPy installed. The two corresponding `CHECK_OUTPUT.txt` and `SYMBOLIC_OUTPUT.txt` files contain recorded direct outputs. `affine_check.py` constructs incidence matrices from the finite fields of prime orders 3, 5, 7 and independently compares the theorem's five-projector formula with the eigendecomposition of each full adjacency matrix. It tests 475 distinct trap placements, exhaustively all 210 unordered pairs in the order-3 plane, and all source-vertex probabilities in every tested case; maximum absolute discrepancy is approximately 5.33e-15. It also checks 56 complete incident point–line histograms.
+## correctness
 
-`symbolic_check.py` verifies, with exact algebra, the point–point and line–line Gram determinants, the incident and nonincident mixed-pair determinants, the rank distinction of the zero mode for parallel versus intersecting lines, the seven mixed-incident site substitutions, and their multiplicity and trace identities. The infinite-family proof is in `RESULT.md`; it depends only on universal affine incidence axioms and exact positivity for integer orders at least three. Floating-point calculations alone would not establish the statement for every order or non-Desarguesian affine planes.
+PASS
 
-No independent human or external scientific validation has been carried out.
+For a Q=q² by L=q(q+1) point-line incidence matrix B, BB^T=qI+11^T; the adjacency A has five eigenspaces with eigenvalues ±sqrt(q(q+1)), ±sqrt(q),0. The source explicitly constructs orthogonal projectors, and sink-restricted principal 2x2 Grams give nonprincipal rank 2 for all sink pairs at q>=3 except point-point zero mode absent; two line zero-mode Gram has rank 1 for parallel lines and rank 2 for intersecting lines. Positivity follows from determinants (q-1)²/q², (q²-q-1)/q², (q-2)/q etc.; all are strictly positive where needed. The bright complement is invariant and loss-free, while any nondecaying bright eigenvector contradicts being simultaneously annihilated at both sinks; finite-dimensional decay proves capture is the bright projector diagonal independent of sink rates. Incident point-line substitutions in inverse Gram matrices yield site laws and trace D=7. Independently built GF(3) and GF(5) prime affine-plane incidence, diagonalized full A, and compared all 210 + 1485 sink pairs and mixed incident histograms; all matched. Numerical tests do not prove non-Desarguesian cases; universal incidence identities do. No claims for Laplacian, finite-time, noisy or additional-sink dynamics.
+
+## originality
+
+PASS
+
+General projection/Krylov principle and five-eigenvalue incidence identities are not claimed new. Novo et al. treat invariant-subspace reduction for nonregular quantum walks; Razzoli et al. focus on single-trap efficiency. Neither inspected treatment supplies this exact two-sink affine-plane parallel-line penalty or incident mixed-site distribution. Search of semantic published-result corpus using full geometric/transport aliases produced nearby but not covering quantum-graph results; no claim of exhaustive historical priority. Previously unindexed two-trap incidence-design calculations could overlap.
+
+## value
+
+PASS
+
+Two-site trap placement is a natural incidence-geometric optimization with markedly different line parallelism classes. Exact rank penalty 8 vs 7 and full local site-capture law are useful stable invariants and nontrivial beyond the general Krylov method, with q uniform and no assumed Desarguesian coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

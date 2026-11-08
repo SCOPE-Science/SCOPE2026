@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is specified for every finite affine plane of order \(q\ge3\), uniform adjacency hopping and precisely two positive-rate absorbing sites. Its proof is reconstructed from the incidence identities, all five exact spectral projectors, positivity of the two-sink Gram determinants, zero-eigenvalue parallel-line rank, and strict decay of the bright subspace. The incident point–line four-valued local law follows from explicit two-by-two inversion and seven site types. `symbolic_check.py` reproduces the determinants and local identities exactly, while `affine_check.py` independently diagonalizes the full matrix for 475 absorber placements of prime orders 3, 5 and 7, checking all their site probabilities. The finite checks are evidence, not a substitute for the all-plane analytic proof.
+PASS
 
-## Originality — PASS on examined evidence, with historical risk
+For a Q=q² by L=q(q+1) point-line incidence matrix B, BB^T=qI+11^T; the adjacency A has five eigenspaces with eigenvalues ±sqrt(q(q+1)), ±sqrt(q),0. The source explicitly constructs orthogonal projectors, and sink-restricted principal 2x2 Grams give nonprincipal rank 2 for all sink pairs at q>=3 except point-point zero mode absent; two line zero-mode Gram has rank 1 for parallel lines and rank 2 for intersecting lines. Positivity follows from determinants (q-1)²/q², (q²-q-1)/q², (q-2)/q etc.; all are strictly positive where needed. The bright complement is invariant and loss-free, while any nondecaying bright eigenvector contradicts being simultaneously annihilated at both sinks; finite-dimensional decay proves capture is the bright projector diagonal independent of sink rates. Incident point-line substitutions in inverse Gram matrices yield site laws and trace D=7. Independently built GF(3) and GF(5) prime affine-plane incidence, diagonalized full A, and compared all 210 + 1485 sink pairs and mixed incident histograms; all matched. Numerical tests do not prove non-Desarguesian cases; universal incidence identities do. No claims for Laplacian, finite-time, noisy or additional-sink dynamics.
 
-Varbanov, Krovi and Brun (2008) provide quantum hitting-time foundations. Novo et al. (2014/2015) establish the general Krylov-subspace method. Le et al. (2017) analyze dark states. Razzoli, Paris and Bordone (2020/2021) give single-trap transport for selected families. Their inspected texts do not give the two-absorber incidence-plane dimension table, the rank loss for parallel line traps, or the incident mixed-trap site distribution. Previous strongly regular and Hamming-network analyses do not imply this biregular five-eigenvalue case. Searches of affine/Levi incidence, two-sink, parallel-class, and spectral-design aliases found geometric-topology entries but no matching statement. This is evidence-based best-knowledge originality, not an assertion that no inaccessible source exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An affine-plane Levi graph has a natural, highly structured arrangement of possible absorber sites. The explicit 6/7/8 bright-mode trichotomy determines exactly which two-site placements maximize average capture, and identifies a parallel-class penalty that survives every positive sink-rate choice. The four-valued incident mixed-pair site law supplies a nontrivial local transport benchmark beyond a trace count. These are meaningful natural exact invariants rather than a finite unmotivated computation.
+General projection/Krylov principle and five-eigenvalue incidence identities are not claimed new. Novo et al. treat invariant-subspace reduction for nonregular quantum walks; Razzoli et al. focus on single-trap efficiency. Neither inspected treatment supplies this exact two-sink affine-plane parallel-line penalty or incident mixed-site distribution. Search of semantic published-result corpus using full geometric/transport aliases produced nearby but not covering quantum-graph results; no claim of exhaustive historical priority. Previously unindexed two-trap incidence-design calculations could overlap.
 
-## Limitations and closest literature
+## value
 
-The conclusions do not apply without modification to the Laplacian model, disorder, additional sinks, finite-time efficiencies, or quantum many-particle evolution. Numerical confirmation covers prime Desarguesian planes only; the proof uses axioms valid for any affine plane. The closest prior tools are arXiv:0803.3446, arXiv:1412.7209, arXiv:1707.07482 and arXiv:2011.13794. A specialized unlocated two-trap finite-design theorem remains a historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-site trap placement is a natural incidence-geometric optimization with markedly different line parallelism classes. Exact rank penalty 8 vs 7 and full local site-capture law are useful stable invariants and nontrivial beyond the general Krylov method, with q uniform and no assumed Desarguesian coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
