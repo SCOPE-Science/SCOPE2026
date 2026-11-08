@@ -1,0 +1,12 @@
+# Review of the flex-supported structure of the cubic-cone line scheme
+
+## Correctness — PASS
+The full Grassmannian incidence equations are derived by restricting an arbitrary ternary cubic to a variable projective line. Solving the linear normal constraint on a smooth ruling branch reduces the remaining equations exactly to quadratic and cubic powers of one normal parameter. At nonflexes the quadratic coefficient is a unit; at each ordinary flex the quadratic coefficient has a simple zero and the cubic coefficient is a unit. The nine simple flexes of a smooth characteristic-zero plane cubic exhaust the exceptional support. The conormal bundle follows from the tautological bundle and the gradient sequence; the Hilbert polynomial follows from two exact nilpotent-ideal sequences. The supplied exact-arithmetic symbolic verifier checks the cubic-chart identities on the Fermat representative, Hessian transversality, and arithmetic. Its tests support but do not replace the all-smooth-cubic argument.
+
+## Originality — PASS, with residual historical risk
+Galkin–Shinder, arXiv:1405.5154, §4.1, expressly discard nonreduced Fano structure; Example 5.5 describes ruling lines of a cone. Eisenbud–Harris, *The Geometry of Schemes*, §IV.3 and Exercise IV-80, discuss nonreduced Fano schemes and a different smoothing-limit problem but do not provide this all-smooth-cubic intrinsic local normal-form classification. Ilten, arXiv:1411.3025, treats toric surfaces and excludes elliptic cones. Searches of mathematical research records and relevant literature did not identify a claim implying all the displayed local rings, nine residues, and Hilbert polynomial. Non-detection is not a proof of global historical novelty, and other specialist literature could cover the result.
+
+## Mathematical value — PASS
+This supplies a complete and geometrically natural scheme-theoretic classification of lines on a classical singular cubic surface. Ordinary line counting sees only the elliptic ruling curve; the finding distinguishes generic doubling from a flex-controlled third-order thickening, identifies the nilpotent filtration in intrinsic bundle terms, and determines a global Hilbert polynomial. The nine embedded residues are forced by intrinsic inflection geometry rather than an arbitrary numerical slice. It does not address characteristic two or three or flat limits under smoothing.
+
+Self-review: passed. Independent audit: not yet performed.
