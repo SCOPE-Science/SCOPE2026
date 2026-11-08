@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The anchored graph-Poisson problem has a unique solution because the connected Laplacian has a positive-definite grounded minor. Translation by this solution changes the constant drift to a drive localized at the reset vertex, preserving the coordinate-reset map exactly. This establishes equality of entire transition laws, not merely first moments. The synchronous-coupling estimate with the positive-definite matrix \(2\kappa L+\lambda P\) proves unique invariant probability and exponential Wasserstein convergence. Generator identities and a positive-definite Frobenius operator prove the covariance formula, with the exact two-vertex evaluation checked symbolically. The included checker tests rooted weighted graphs and reproduces a finite-rate Poisson diagnostic; analytical arguments establish the infinite-time claims.
+PASS
 
-## Originality — PASS with historical risk
+The anchored vector z exists uniquely by invertibility of the grounded connected Laplacian and satisfies z_r=0, κLz=ω−Ωe_r. Thus translation θ−z localizes the drift to Ωe_r and commutes with the reset map Q; this is a pathwise conjugacy for corresponding initial data. Synchronous Poisson coupling gives derivative of expected squared displacement equal to negative quadratic form 2κL+λP, positive definite because ker L intersects ker P trivially, proving uniform W2 contraction and unique finite-second-moment invariant law. Mean and covariance are generator equations and the covariance linear operator is strictly positive definite on symmetric matrices. For two nodes C=Ω²/[λ²(3κ+λ)] [[κ+λ,κ],[κ,κ]], yielding relative variance Ω²/[λ(3κ+λ)]. Separate exact two- and three-node algebra checks reproduced mean and covariance.
 
-The direct motivating source is Paramero-Arias--Riascos (arXiv:2610.21842v1, 2026), whose analytical grounded-Laplacian equations use infinite resetting rate. Its finite-rate nonlinear simulations do not imply the exact pathwise stationary law of the unwrapped finite-network linear system. Majumder--Acharya--Gupta (arXiv:2604.04769, 2026) handles finite-rate continuum mean-field order parameters, not this rooted finite graph. Majumder--Chattopadhyay--Gupta (arXiv:2402.14921, 2024) and Sarkar--Gupta (arXiv:2203.00339, 2022) address other mean-field/global reset settings; Bressloff (arXiv:2411.15534, 2024) has an external medium with a different reset map. The inspected literature and scientific search results yielded no equivalent or stronger covering statement. The 2024 subsystem-resetting article was not read in full, and unindexed general linear-hybrid results are a genuine remaining risk. Novelty is not certified by unsuccessful search alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph-Poisson conjugacy classifies the entire finite-time and stationary frequency-profile dependence of the singly reset linear model, not only a special-case invariant. The covariance is uniquely determined on any finite connected weighted graph, with a sharp exactly solvable two-node relative-phase variance; zero total drive causes complete elimination of resetting-induced stationary fluctuations. It supplies a reproducible finite-rate benchmark for a physically motivated stochastic pinning regime overlooked by an infinite-reset limit.
+Best-of-knowledge PASS, restricted to the exact single-site reset, finite-rate linear graph translation of entire path laws and exact stationary covariance. Contemporary subsystem-resetting papers emphasize nonlinear finite-rate simulations, globally coupled mean field or infinite-reset limit and do not give this graph-by-graph identity. Older linear hybrid systems and affine PDMP conjugacy may subsume parts; no claim that contraction methods are new.
 
-## Limitations
+## value
 
-The real-valued linear flow is defined as an exact model in its own right. Random long reset gaps can invalidate a global linear approximation to an angular nonlinear Kuramoto process. No assertion about multi-vertex resetting, nonlinear global synchronization, independent auditing, or historical priority is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact pathwise invariance removes n−1 independent frequency-shape degrees of freedom in a stochastic finite-network system; complete stationary uniqueness, deterministic zero-sum collapse and closed graph-covariance equation give an exact finite-rate benchmark where existing infinite-rate network approximations lose meaningful fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

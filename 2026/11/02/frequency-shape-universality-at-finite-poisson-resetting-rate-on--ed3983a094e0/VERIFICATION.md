@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-The analytic proof in RESULT.md checks every connected finite weighted undirected graph with one reset vertex, all constant real frequency vectors, and every positive coupling and reset rate. In particular, it uses the exact jump map, not a numerical approximation to stochastic reset events.
+# Independent mathematical audit
 
-The included `verify.py` was executed with Python, SymPy, and NumPy. It verified 16 rooted weighted graph cases (including paths, a triangle, a star, and a cycle), with exact graph-Poisson identities, finite-rate stationary mean identities, covariance matrix equations, frequency-shape invariance, and all principal minors. It also verified the general-parameter two-vertex covariance symbolically. A separate simulation sampled 180,000 Poisson pre-reset events from the exact two-vertex linear flow and matched the stationary mean and covariance within fixed tolerances; Poisson-arrival sampling uses the standard prearrival stationary distribution. These finite diagnostics do not certify the infinite network theorem.
+## correctness
 
-To reproduce, run `python verify.py` from the directory containing this file; dependencies are SymPy and NumPy. The program prints three PASS lines if all assertions hold. Independent auditing has not occurred. The stochastic model is unwrapped and linear; the theorem does not certify nonlinear phase coherence at finite rate.
+PASS
+
+The anchored vector z exists uniquely by invertibility of the grounded connected Laplacian and satisfies z_r=0, κLz=ω−Ωe_r. Thus translation θ−z localizes the drift to Ωe_r and commutes with the reset map Q; this is a pathwise conjugacy for corresponding initial data. Synchronous Poisson coupling gives derivative of expected squared displacement equal to negative quadratic form 2κL+λP, positive definite because ker L intersects ker P trivially, proving uniform W2 contraction and unique finite-second-moment invariant law. Mean and covariance are generator equations and the covariance linear operator is strictly positive definite on symmetric matrices. For two nodes C=Ω²/[λ²(3κ+λ)] [[κ+λ,κ],[κ,κ]], yielding relative variance Ω²/[λ(3κ+λ)]. Separate exact two- and three-node algebra checks reproduced mean and covariance.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, restricted to the exact single-site reset, finite-rate linear graph translation of entire path laws and exact stationary covariance. Contemporary subsystem-resetting papers emphasize nonlinear finite-rate simulations, globally coupled mean field or infinite-reset limit and do not give this graph-by-graph identity. Older linear hybrid systems and affine PDMP conjugacy may subsume parts; no claim that contraction methods are new.
+
+## value
+
+PASS
+
+The exact pathwise invariance removes n−1 independent frequency-shape degrees of freedom in a stochastic finite-network system; complete stationary uniqueness, deterministic zero-sum collapse and closed graph-covariance equation give an exact finite-rate benchmark where existing infinite-rate network approximations lose meaningful fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
