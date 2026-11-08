@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof is symbolic and applies to all finite products of nonempty chains. Finite verification is supplemental, not an induction over arbitrary exponent tuples.
+# Independent mathematical audit
 
-Run `python3 verify_divisor_fo2.py` and `python3 check_fo2_formulas.py` alongside the bundled source files. The recorded `verification_output.txt` and `formula_output.txt` were produced by the respective commands. The program independently constructs finite products, computes coordinatewise comparability, determines maximal ranks of incomparable elements to atoms, and determines the least rank of elements above the atoms of each fingerprint type. A second routine applies noncounting modal color refinement to a bounded family and checks that its spectra are distinct. The refinement is a sufficient distinguishing witness, not the foundation of the full proof.
+## correctness
 
-The tests cover 102 exponent multisets with total exponent at most ten and lattice size at most 120, including the two different 48-element divisor lattices with exponent multisets \((5,1,1,1)\) and \((3,3,2)\). The modal routine covers 57 structures. The independent formula generator tests bound-variable shadowing and direct first-order semantics for two concrete separating formulas, including a same-support, different-multiplicity pair. Code uses only the Python standard library.
+PASS
 
-No computation certifies historical priority, the unbounded theorem, or independent mathematical audit. All those boundaries are described in RESULT.md.
+For N=product p_i^{e_i}, D(N) is order-isomorphic to a product of chains [0,e_i], graded by rho=sum coordinates, top rank S=sum e_i. With two reusable symbols define H_0(z)=true and H_{j+1}(z)=exists w(w<z and H_j(w)), where w alternates symbols and nested shadowing is legal. H_j exactly asserts rho>=j; hence exact rank and S are FO²-visible. When at least two factors, for atom a_i the maximum rank of an element incomparable with it is S-e_i, so an FO² unary formula identifies atoms of each exponent e. A two-symbol sentence Psi_{S,e,k} asks whether a rank-k element dominates every such atom; its least successful k is exactly the number m_e of factors of exponent e. Thus all exponent multiplicities are reconstructed without counting, for any r. Chains r=1 are distinguished by comparability and recovered height; N=1 by rank zero. Conversely equal exponent multisets give isomorphic products. In FO¹ only equality and reflexivity are atomic, so all these nonempty posets satisfy the same FO¹ sentences. The proof uses unbounded quantifier rank and is RELATIVE to finite divisor lattices, not absolute FO² finite-poset categoricity.
+
+## originality
+
+PASS
+
+Products-of-chains descriptions are classical. Kiefer–Schweitzer–Selman study identification by TWO-VARIABLE WITH COUNTING (stronger logic, broader structure domain); Zeume–Harwath study order invariance with named linear orders; Marzec–Tendera study satisfiability of two-variable logics with partial-order relations. None of the inspected theorem statements directly gives the counting-free relative identification of prime-exponent multisets by pure divisibility. This may be an implicit known property of finite distributive lattices and is a qualified best-of-knowledge original finding.
+
+## value
+
+PASS
+
+Recovering complete prime-exponent multiplicities from a language with no counting and only two reusable variable names is a natural expressive-power rigidity question. It gives a strong relative identification theorem for all finite divisor lattices, with a sharp one-versus-two-variable threshold, rather than just an example or another product-of-chains isomorphism classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
