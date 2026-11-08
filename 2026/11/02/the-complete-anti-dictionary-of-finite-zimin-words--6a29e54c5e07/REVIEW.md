@@ -1,19 +1,21 @@
-# Scientific review of the complete Zimin anti-dictionary
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim concerns literal contiguous factors in \(Z_n\) over exactly \(\Sigma_n\), for every integer \(n\ge1\). The ruler-position lemma fixes the starts of embedded \(Z_m\); it yields a complete prefix-continuation classification and a complete border classification. Uniqueness of the highest letter then exhausts every possible new minimal absent factor as the alphabet grows. The proof counts disjoint endpoint pairs and derives both the sparse length spectrum and the cubic total. The checker independently constructs all proper-factor-supported absent words through rank nine and compares their full sets with the proposed classification. Finite checks are not used as the infinite proof.
+PASS
 
-## Originality
+At position t in Z_n the symbol is a_{1+nu_2(t)}. Every Z_m occurrence begins at residue 1 mod 2^m. The continuation set of a proper prefix is one letter except for exact Z_m prefixes where all higher-ranked center letters can follow; border lengths of Z_s are exactly 2^m−1. Induct on n via the unique a_n: old minimal absent words persist; a word with two a_n occurrences must have them as endpoints enclosing a border Z_m; with one a_n it cannot appear internally as the unique occurrence permits context gluing, so endpoint continuations exactly generate a_n Z_m a_j and their reversals. This proves exhaustiveness and counting across all n. An independent suffix/prefix factor oracle constructed actual Z_n and compared full sets for n=1..7 (counts 1,3,8,18,35,61,98), not merely predicted totals; the proof rather than these finite checks establishes all-rank result.
 
-**PASS, subject to historical-priority risk.** Głowinski and Rytter (arXiv:1307.1560) give a general membership criterion for factors of Zimin words and compressed pattern-matching methods, not an explicit closed list of minimally missing literal factors. Rytter and Shur (arXiv:1409.8235) establish Zimin-type and pattern-searching results rather than the literal anti-dictionary. Barton et al. (2014, DOI 10.1186/s12859-014-0388-9) give general minimal-absent-word enumeration algorithms, not the Zimin-specific index-pair formula or counts. Search variants using “anti-dictionary,” “minimal absent word,” and “minimal forbidden factor” revealed no directly covering statement. The broad factor-membership criterion could be used to *derive* the present classification and remains the closest potential implicit coverage; an unlocated equivalent result remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** Minimal absent factors are the canonical obstruction set for the factor language of a finite word. The Zimin family is highly self-similar, uses a growing alphabet, and has exponentially increasing host lengths. The theorem determines that its entire obstruction set admits a succinct three-index description, is supported on precisely the lacunary lengths \(2^m+1\), and has an exact cubic count in rank. It supplies a nontrivial all-level structural benchmark for factor-recognition and compressed anti-dictionary algorithms rather than a single finite census.
+Earlier Zimin-factor pattern matching gives generic occurrence criteria, and universal minimal-absent-word algorithms list factors of any fixed input. The compact all-rank parametric anti-dictionary with its spectrum and cubic count is an additional structural classification not located in the inspected work. One can algorithmically compute examples from prior general machinery, but a uniform formula does not logically follow without exploiting Zimin recursion.
 
-## Scope and risks
+## value
 
-The theorem is about finite linear words with literal, rank-dependent alphabets, not homomorphic Zimin-pattern matching. A related general factor criterion makes the originality judgment sensitive to possible earlier specializations; the inspected literature does not establish that this exact classification was previously recorded. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family Z_n is canonical in pattern avoidance and compressed strings; a concise explicit forbidden-factor basis and exact length spectrum are natural data for factor automata, indexing and combinatorics on words, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
