@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Self-contained parity count by Lucas theorem and a binomial local bound give annealed F_N <= N^{-1/2+o(1)}; an entire time slice changes F_N by at most 4/N, giving McDiarmid tail <=2 exp(-N u^2/8). With u=N^{-1/2+delta}, Borel--Cantelli yields the one-environment almost-sure bound for every delta>0. The conditional martingale bracket converges uniformly in probability and the bounded jump martingale FCLT supplies the asserted Brownian limit. All quantifiers, parameter assumptions, boundary n=0 and infinite-time limits have been checked. The standalone exact checker passes 84,143 assertions for N<=5; finite diagnostics do not establish the asymptotic theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hamza--Tournier arXiv:2610.01658v1 Theorem 2: independence across individual K-blocks, not present after cardinality identification.",
+        "Collevecchio et al., arXiv:2010.16000, Theorem 6: functional Brownian criterion for deterministic recycling functions, without a random-environment almost-sure result.",
+        "McDiarmid (1989) bounded differences: generic probability concentration, used as a proof tool rather than a covering theorem for this stochastic model."
+      ],
+      "reasoning": "Theorem 2 of the motivating paper is broader in parameter variation but applies to subset-indexed independent blocks; the new family deliberately identifies all subsets of the same size, violating its key independence hypothesis. The earlier deterministic bootstrap criterion is insufficient to show almost-sure environment regularity. General concentration literature provides the method but not a prior stated recoding-law result identified in the checked sources.",
+      "searches": [
+        "environment block independent martingale quadratic variation variance McDiarmid concentration Brownian quenched invariance principle",
+        "independent environment time slices annealed variance vanishing implies quenched variance concentration bounded differences",
+        "random random walks normal independent beta n k quenched Brownian convergence Hamza Tournier",
+        "Collevecchio Hamza Shi Williams bootstrap walk Brownian criterion random environment quenched"
+      ]
+    },
+    "checked_sources": [
+      "Hamza and Tournier (2026), arXiv:2610.01658v1, relevant full-text HTML and Corollary 9.",
+      "Collevecchio et al. (2022), arXiv:2010.16000, theorem and source text.",
+      "McDiarmid (1989), bounded differences as a standard named lemma.",
+      "Published semantic result searches recorded in equivalent_formulations, broader_coverage, exact_database_or_table and claim_vs_prior_implication.",
+      "Compared time-invariant cardinality-grouped and sparse single-cardinality recoding statements by their mathematical assumptions and conclusions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hamza--Tournier Corollary 9 concludes annealed independent Brownian coordinates; the authors explicitly label quenched upgrade unresolved.",
+        "Hamza--Tournier Proposition 7(b) proves quenched first-moment A_beta only; condition B_beta is not established there.",
+        "Hamza--Tournier Theorem 2 assumes mutually independent subset-specific coefficients and is inapplicable to cardinality-grouped coefficients.",
+        "A related sparse single-cardinality recoding result assumes p_n of order n^{-d}, violating the present uniform ellipticity requirement."
+      ],
+      "reasoning": "The key strict implication is from annealed bracket mean square plus independent time layers to almost-sure quenched bracket mean square, obtained by the new bounded-differences argument. Corollary 9 alone does not imply the almost-sure assertion, and no identified prior stronger theorem includes the full set of the new hypotheses and conclusion.",
+      "searches": [
+        "quenched functional central limit theorem independent per-time random transformations adapted random walks annealed Brownian convergence implies almost sure quenched via bounded differences",
+        "environment block independent martingale quadratic variation variance McDiarmid concentration Brownian quenched invariance principle",
+        "random random walks normal independent beta n k quenched Brownian convergence Hamza Tournier",
+        "Hamza Tournier 2610.01658 Proposition 8 Corollary 9 quenched open"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hamza--Tournier arXiv:2610.01658v1 Section 4.2, Corollary 9: the same recoding array is analyzed annealed only.",
+        "Hamza--Tournier arXiv:2610.01658v1, Theorem 1: convergence equivalent to conditional empirical cross-bracket vanishing.",
+        "The time-invariant fair-coefficient cardinality model has a different temporal dependence structure and does not supply the claimed time-resampled conclusion."
+      ],
+      "reasoning": "The equivalent form of the new claim is almost-sure convergence to zero of the conditional squared empirical predictable cross bracket under independent time slices. The source establishes only its expectation over environments; its quenched first-moment criterion alone is weaker. The fixed-in-time fair-coefficient claim uses correlated time slices, hence neither implication holds by substitution.",
+      "searches": [
+        "quenched functional central limit theorem independent per-time random transformations adapted random walks annealed Brownian convergence implies almost sure quenched via bounded differences",
+        "Hamza Tournier Are random random walks normal Corollary 9 one factor Markov independent n k coefficients quenched",
+        "arxiv 2610.01658 one-factor Markov quenched Corollary 9 independent n weighted coefficients almost sure Gaussian",
+        "Are random random walks normal quenched Corollary 9",
+        "independent environment time slices bounded differences annealed quenched random walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published result titled Critical elephant cover times studies a different critical-memory walk.",
+        "A published result titled Lower moment thresholds for independent-coordinate high-dimensional random walks concerns independent-coordinate ranges.",
+        "Related time-invariant fair cardinality recoding and sparse single-cardinality recoding statements have different coefficient schemes."
+      ],
+      "reasoning": "This is an infinite-dimensional quenched functional limit, not an exact finite database or parameter table. The identified published results and accessible historical claims describe different objects or coefficient hypotheses, not the stated target. No absence-of-hits claim is treated as proof of uniqueness.",
+      "searches": [
+        "Hamza Tournier Are random random walks normal Corollary 9 one factor Markov independent n k coefficients quenched",
+        "random random walks normal 2026 2610.01658 quenched annealed independence at each time",
+        "arxiv 2610.01658 one-factor Markov quenched Corollary 9 independent n weighted coefficients almost sure Gaussian"
+      ]
+    },
+    "rationale": "Hamza--Tournier arXiv:2610.01658v1 Sections 1, 4.1 and 4.2 expressly state that the independently time-resampled cardinality-grouped one-factor model is annealed-only (Corollary 9) and leave its quenched counterpart unresolved. The exact proved new claim has a quantitative almost-sure quenched cross-bracket bound and functional Brownian limit. Theorem 2 in that source requires independence by individual subsets K, incompatible with equal coefficients within every cardinality class. The historical 2022 functional criterion supplies an implication but not the new random-family premise. Published research and accessible own-ledger comparison identified no equivalent or stronger covering result. Residual general-theorem priority risk remains.",
+    "residual_risks": [
+      "The general annealed-to-quenched bounded-differences transfer may have appeared in a broader random-environment martingale reference not recovered in the checks.",
+      "The source could subsequently be revised with a quenched proof; only the verified October 1, 2026 v1 is compared as the initiating primary source.",
+      "No independent expert literature-priority or mathematical audit was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: explicitly proves only annealed Corollary 9 and calls its quenched version unresolved; its general subset-independence Theorem 2 does not apply to the identified cardinality coefficients.",
+        "evidence": [
+          "arXiv:2610.01658v1 lines 138-171 (quenched/annealed summary); 358-379 (grouping); 411-480 (specific propositions, corollary and discussion)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01658v1",
+        "material_read": "Primary HTML: introductory summary and definitions, the assumptions and statement of Section 3 Theorem 2, Section 4.1 Proposition 7, and Section 4.2 Proposition 8 and Corollary 9 with relevant proofs and remarks.",
+        "method": "Read relevant primary HTML mathematics, hypotheses, proofs, summary table and implication distinctions.",
+        "title": "Are random random walks normal?",
+        "trigger": "Same random recoding model, source of the explicit annealed-to-quenched gap."
+      },
+      {
+        "assessment": "NOT_COVERING: criterion applies to each fixed environment, but provides no almost-sure conditional empirical cross-bracket bound for these random time-resampled cardinality coefficients.",
+        "evidence": [
+          "arXiv:2010.16000 abstract, Sections 2-3, Theorem 6; DOI:10.1214/22-EJP818."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.16000",
+        "material_read": "Primary HTML abstract, introductory and representation material in Sections 1 and 2, and statement of the functional criterion (Theorem 6) at the beginning of Section 3.",
+        "method": "Compared deterministic adapted recoding and its necessary/sufficient Brownian criterion to random-environment almost-sure hypotheses.",
+        "title": "Limit theorems and ergodicity for general bootstrap random walks",
+        "trigger": "Foundational criterion potentially implying a stronger deterministic/quenched Brownian limit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "75e11652-1b42-49db-b847-181ef827f684",
+  "value": {
+    "rationale": "The result resolves the explicitly open quenched upgrade of a concrete 2026 annealed Brownian theorem for the one-factor Markov cardinality recoding, preserving its full nonidentical uniformly elliptic parameter class. It supplies an almost-sure conditional quadratic-variation rate, not an arbitrary finite slice or a restatement of the general martingale CLT. The positive result is structural and its range is mathematically natural; the time-invariant case is expressly excluded.",
+    "status": "PASS"
+  }
+}
