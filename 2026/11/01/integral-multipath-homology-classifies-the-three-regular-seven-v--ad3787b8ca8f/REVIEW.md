@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exhaustive recursion finds \(2640\) regular labeled tournaments and three disjoint permutation orbits of sizes \(720,1680,240\). Two independent face-generation algorithms agree. The matched Hasse graph is exhaustively proved acyclic, and signed integral Morse boundaries and Smith forms are reconstructed from the exact face data. Full original-boundary mod-two ranks independently match the integral Betti predictions. The integer matrices and complete code are included for replay, so an experiment is not substituted for an unverified infinite assertion.
+PASS
 
-## Originality
+Exhaustively counted all 2^21 labeled tournaments, selecting exactly 2,640 with all outdegrees three. Directly generated the three proposed mask orbits under all 7! relabellings: sizes 720,1680,240, pairwise disjoint, covering exactly 2,640 orientations; automorphism orders 7,3,21. For masks 17976,22066,85298 independently reconstructed 2,927,2,923,2,941 faces including empty; built greedy acyclic matchings (1407,1414,1410 pairs), oriented Hasse graphs and integer Morse matrices. Exact Smith forms have only unit nonzero factors, respectively ranks d3=(1,0,3), d4=(18,11,18), d5=(0,0,0), giving free reduced integral Betti triples (13,43,17),(12,44,15),(15,38,24). Independent counts of directed Hamiltonian cycles rooted at vertex zero agree with 17,15,24. Verified the three orbits exhaust, rather than relying on representatives alone. All computations are exact and finite for order 7; homotopy classification is not claimed.
 
-**PASS against inspected evidence.** The nearest 2022 primary work proves homotopy statements for transitive tournaments, not regular tournaments. Its related path-poset papers do not provide the three-class regular-seven enumeration. Tournaplex and directed flag results use different simplices. One previously calculated Paley-seven multipath case exactly supplies the third Betti triple, but it cannot imply the other two: they are nonisomorphic and their Betti triples differ. This finding is the new exhaustive classification of the three regular-seven cases, rather than a reassertion of the individual Paley case. The search does not rule out unindexed unpublished or differently named work.
+## originality
 
-## Value
+PASS
 
-**PASS.** The regular seven-vertex tournament family consists of exactly three natural isomorphism types, and is the first small setting offering a meaningful comparison between the cyclic and doubly regular examples. Its complete integral homology census is a natural finite topological classification, not an arbitrary selected mask. The complexes have the same numbers of faces through dimension four, but their homology triples and top-dimensional face counts differ; the homology signature discriminates all three classes. The two previously missing computations extend a literature concerned mainly with transitive tournaments. No generalization to larger orders is asserted.
+The exact final theorem is not implied by the materially inspected same-object and broader theorems; individual prior components are credited. Priority is best-of-knowledge with named risks, not absolute novelty proof.
 
-## Sources and residual risks
+## value
 
-Relevant primary full texts: Caputi et al., arXiv:2208.04656v1 (Definitions 2.1–2.2, Theorems 3.4, 5.1 and proof, Remarks 5.8–5.9); Caputi et al., arXiv:2110.11206 (abstract, introduction, construction); Caputi et al., arXiv:2108.02690 (abstract, introduction). The tournament-flag/tournaplex paper was compared at its definitions. Risk remains that a separate indexed or unindexed comprehensive census has been missed. Homotopy types and Steenrod operations are not determined by these data.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Regular seven-vertex tournaments form exactly three natural symmetry types, and arc multipath complexes study directed path packing rather than flag/topological neighborhood complexes. An exhaustive integral homology census cleanly distinguishes those three types and locates the two uncomputed cases beyond known Paley data. The exact triplets and torsion-freeness are natural reusable invariants, with an independent Hamiltonian-cycle agreement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
