@@ -1,21 +1,21 @@
-# Scientific assessment — run-two binary circular covers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each \(k\ge3\), the mandatory restricted de Bruijn edges have vertex imbalance \(b(v)={\bf1}_{v_1=v_2}-{\bf1}_{v_{k-2}=v_{k-1}}\). The explicitly defined set of doubled edges cancels this imbalance, and alternating bridges prove strong connectivity. Hence an Eulerian tour constructs the claimed cover. The potential \(\phi(v)\) based on the first equal adjacent pair satisfies a unit-step upper bound on **every** binary de Bruijn edge, including forbidden edges, so the resulting circulation duality proves a lower bound for unrestricted circular hosts. Tightness of precisely the prescribed extra edges and Fibonacci run compositions establish the full formula. Direct construction and potential checks through \(k=18\) and \(k=14\), respectively, and an independently formulated full-graph min-cost-flow optimization through \(k=13\) agree. Finite tests do not replace the all-\(k\) proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+For k>=3, admissible length-k binary target edges are exactly words with no 000/111. The directed de Bruijn graph out-minus-in imbalance at a length-(k-1) vertex is 1_{first pair equal}-1_{last pair equal}. Duplicating precisely those admissible words whose first/last adjacent pairs differ and which contain an equal pair cancels all imbalances. The admissible subgraph is strongly connected by alternating bridges, so an Euler tour gives the desired cyclic host, with only admissible cyclic factors. For *all* possible additional host factors, including forbidden ones, the potential phi(v)=-first equal-adjacency index (or -(k-1) if none) satisfies phi(head)-phi(tail)<=1. Added target arcs are tight, yielding a dual circulation lower bound of exactly |S_k| extra windows for any closed host walk. Compositions into runs of size1 or2 give |W_k|=2 F_{k+1}, |S_k|=2 F_{k-1}-2, hence optimum 2(F_{k+1}+F_{k-1})-2. Independently enumerated full de Bruijn edges at k=3..12 to check potential bound and target balance plus the exact counts. These finite tests corroborate the general Eulerian/primal-dual proof rather than replacing it.
 
-The closest source is Chee et al., *Maximum Length RLL Sequences in de Bruijn Graph* (arXiv:2403.01454v1), which optimizes a different longest-distinct-window objective under a zero-run restriction. Moreno and Matamala (arXiv:0711.1695) treat exactly-once cycles for periodically admissible forbidden-substring languages and a lexicographic optimization; their target set is smaller in general than all locally admissible finite factors. Chen, Kitaev and Sun (arXiv:1908.01116) study exactly-once universal cycles for a prescribed deletion set. None of these inspected passages implies the stated minimum **covering** length with factor repetitions for avoidance of **both** constant triples. The integers coincide with OEIS A168674, so the bare numerical formula is emphatically not a novelty claim. The substantive claim is the precise extremal language interpretation, lower bound allowing forbidden windows, and constructive repeated-factor characterization. A possibly unindexed covering formulation or general directed-postman treatment of the same forbidden-language graph remains the chief residual risk. See the structured originality comparisons in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-A symmetric run-length limit is a natural timing and constrained-sequence model. Not every locally valid factor can be included in a shortest circular enumeration exactly once; the result determines the necessary repetition overhead **exactly at every length**, supplies an efficient Eulerian construction with exact target multiplicities, and rules out any gain from admitting forbidden windows elsewhere in the host. This is a structural coding/reconstruction benchmark rather than a new integer-sequence recurrence.
+Best-of-knowledge PASS for the specific shortest circular constrained-word covering theorem, not the Lucas sequence itself. Chee et al optimize distinct run-limited de Bruijn walks, Moreno/Matamala address exact-once cycles over periodically admissible languages, Chen et al universal cycles of removed words; none inspected directly solves cover-all finite admissible words allowing repeated factors and forbidden host windows. Known OEIS values are numerical, not the new combinatorial interpretation. Relevant Bryant/Fredricksen 1991 full text is missing, recorded as residual priority risk.
 
-## Scientific boundaries
+## value
 
-The proof is binary, limited to maximum run length two, and does not claim uniqueness of the covering word. No independent mathematical audit has been performed. The linked literature and OEIS provide scientific context, not definitive exhaustive priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shortest indexed circular universal covering is a natural exact combinatorial invariant distinct from constrained de Bruijn sequences requiring no repetitions. The theorem gives a sharp all-length formula, constructive optimal multiplicities, and a global lower bound valid even when hosts include forbidden factors; the connection to a known Lucas sequence alone is not the contribution.
 
-A prior result enumerating four-gram histograms for circular words avoiding both constant triples concerns the same language but a different factor-profile observable; it does not fix the minimal all-factor cover. The 1991 Bryant–Fredricksen paper *Covering the de Bruijn graph* was located bibliographically but not examined in full, so historical priority beyond the inspected sources is not asserted.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

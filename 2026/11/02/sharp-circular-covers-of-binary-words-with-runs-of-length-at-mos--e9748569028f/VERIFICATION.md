@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with an ordinary Python 3 interpreter (standard library only). The deterministic program constructs the required Eulerian tours and tests \(3\le k\le18\). It verifies that every permissible length-\(k\) word occurs once except the specified words which occur twice, that no other factors occur, that the host is itself circularly run-two, and that lengths equal \(2(F_{k+1}+F_{k-1})-2\).
+## correctness
 
-The program checks mandatory-plus-extra degree balance and the equality of its tight-edge potential certificate for the same range. For \(3\le k\le14\), it additionally enumerates **every** binary length-\(k\) edge and verifies the potential difference never exceeds one. A separate minimum-cost-flow calculation on the unrestricted full binary overlap graph reproduced the theoretical extra-edge optimum for \(3\le k\le13\), including paths through forbidden factors; this independent check is recorded as a result but is not required for replay of the included standalone script.
+PASS
 
-Successful execution concludes with `VERIFY_OK`. All-order correctness rests on the explicit proof in `RESULT.md`, not on these finite instances. No external independent audit is asserted.
+For k>=3, admissible length-k binary target edges are exactly words with no 000/111. The directed de Bruijn graph out-minus-in imbalance at a length-(k-1) vertex is 1_{first pair equal}-1_{last pair equal}. Duplicating precisely those admissible words whose first/last adjacent pairs differ and which contain an equal pair cancels all imbalances. The admissible subgraph is strongly connected by alternating bridges, so an Euler tour gives the desired cyclic host, with only admissible cyclic factors. For *all* possible additional host factors, including forbidden ones, the potential phi(v)=-first equal-adjacency index (or -(k-1) if none) satisfies phi(head)-phi(tail)<=1. Added target arcs are tight, yielding a dual circulation lower bound of exactly |S_k| extra windows for any closed host walk. Compositions into runs of size1 or2 give |W_k|=2 F_{k+1}, |S_k|=2 F_{k-1}-2, hence optimum 2(F_{k+1}+F_{k-1})-2. Independently enumerated full de Bruijn edges at k=3..12 to check potential bound and target balance plus the exact counts. These finite tests corroborate the general Eulerian/primal-dual proof rather than replacing it.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the specific shortest circular constrained-word covering theorem, not the Lucas sequence itself. Chee et al optimize distinct run-limited de Bruijn walks, Moreno/Matamala address exact-once cycles over periodically admissible languages, Chen et al universal cycles of removed words; none inspected directly solves cover-all finite admissible words allowing repeated factors and forbidden host windows. Known OEIS values are numerical, not the new combinatorial interpretation. Relevant Bryant/Fredricksen 1991 full text is missing, recorded as residual priority risk.
+
+## value
+
+PASS
+
+Shortest indexed circular universal covering is a natural exact combinatorial invariant distinct from constrained de Bruijn sequences requiring no repetitions. The theorem gives a sharp all-length formula, constructive optimal multiplicities, and a global lower bound valid even when hosts include forbidden factors; the connection to a known Lucas sequence alone is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

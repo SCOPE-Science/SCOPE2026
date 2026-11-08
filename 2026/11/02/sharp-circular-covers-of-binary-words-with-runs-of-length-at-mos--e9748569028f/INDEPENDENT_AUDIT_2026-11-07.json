@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:04:57.843139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=3, admissible length-k binary target edges are exactly words with no 000/111. The directed de Bruijn graph out-minus-in imbalance at a length-(k-1) vertex is 1_{first pair equal}-1_{last pair equal}. Duplicating precisely those admissible words whose first/last adjacent pairs differ and which contain an equal pair cancels all imbalances. The admissible subgraph is strongly connected by alternating bridges, so an Euler tour gives the desired cyclic host, with only admissible cyclic factors. For *all* possible additional host factors, including forbidden ones, the potential phi(v)=-first equal-adjacency index (or -(k-1) if none) satisfies phi(head)-phi(tail)<=1. Added target arcs are tight, yielding a dual circulation lower bound of exactly |S_k| extra windows for any closed host walk. Compositions into runs of size1 or2 give |W_k|=2 F_{k+1}, |S_k|=2 F_{k-1}-2, hence optimum 2(F_{k+1}+F_{k-1})-2. Independently enumerated full de Bruijn edges at k=3..12 to check potential bound and target balance plus the exact counts. These finite tests corroborate the general Eulerian/primal-dual proof rather than replacing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moreno/Matamala full accessible proof addresses directed Euler cycles for allowed periodic languages; Bryant/Fredricksen is only bibliographically identified and not read."
+        ],
+        "reasoning": "No inspected general theorem yields the exact forbidden-triples shortest-supercycle formula. The inaccessible 1991 covering paper is not ruled out by title or snippets; risk remains.",
+        "searches": [
+          "arXiv:0711.1695",
+          "Bryant-Fredricksen 1991 Covering the de Bruijn graph",
+          "shortest circular universal cover binary words forbidding 000 111 de Bruijn superstring length Lucas run length at most two"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2403.01454",
+        "https://arxiv.org/abs/0711.1695",
+        "https://arxiv.org/abs/1908.01116",
+        "https://oeis.org/A168674",
+        "https://dblp.org/rec/journals/dm/BryantF91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing exact universal-cycle results require Euler balance without repeats for different targets; the present total imbalance is positive at many vertices and the optimal duplication multiset is proved with a full-graph dual."
+        ],
+        "reasoning": "Neither the presence of a de Bruijn route nor the Fibonacci target count implies the nontrivial optimal added circulation formula.",
+        "searches": [
+          "arXiv:0711.1695",
+          "arXiv:2403.01454",
+          "arXiv:1908.01116"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Periodically admissible de Bruijn cycles and maximum distinct-window RLL sequences have different feasibility and objective; original covers all finite admissible words, including those not periodically admissible."
+        ],
+        "reasoning": "The candidate is not equivalent to an exactly-once constrained de Bruijn cycle: its optimum deliberately repeats 2F_{k-1}-2 target words and allows arbitrary host factors in the lower bound.",
+        "searches": [
+          "shortest circular universal cover binary words forbidding 000 111 de Bruijn superstring length Lucas run length at most two",
+          "arXiv:0711.1695",
+          "arXiv:2403.01454"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A168674 lists integer values agreeing with 2Lucas(k)-2; source claim expressly disclaims numerical novelty."
+        ],
+        "reasoning": "A known integer sequence is not equivalent to a proof that it is the minimum circular covering length or to a classification of optimal extra factors.",
+        "searches": [
+          "OEIS:A168674",
+          "arXiv:2403.01454",
+          "shortest circular universal cover binary words forbidding 000 111 de Bruijn superstring length Lucas run length at most two"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the specific shortest circular constrained-word covering theorem, not the Lucas sequence itself. Chee et al optimize distinct run-limited de Bruijn walks, Moreno/Matamala address exact-once cycles over periodically admissible languages, Chen et al universal cycles of removed words; none inspected directly solves cover-all finite admissible words allowing repeated factors and forbidden host windows. Known OEIS values are numerical, not the new combinatorial interpretation. Relevant Bryant/Fredricksen 1991 full text is missing, recorded as residual priority risk.",
+      "residual_risks": [
+        "Bryant and Fredricksen (1991), Covering the de Bruijn graph, was known bibliographically but full text not read; may give general results for this constrained case.",
+        "Other postman/multiset universal-cycle formulations could imply the same primal-dual minimum; targeted searches cannot certify absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies longest distinct windows under a one-sided run restriction; not the shortest cyclic supercover of all binary no-000/111 words.",
+          "evidence": "Defines (n,s) RLL sequence problem and maximization of windows, not the stated multiset postman covering problem.",
+          "identifier_or_url": "arXiv:2403.01454v1",
+          "material_read": "Full accessible PDF; read definitions and main optimization problems and bounds",
+          "method": "Primary-source text searched and the indicated relevant mathematical statements compared with the exact RESULT.md claim",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "same run-length constraints and de Bruijn graph"
+        },
+        {
+          "assessment": "Uses periodic-language admissibility and exactly-once targets; no implication for all finite admissible targets with repetitions established.",
+          "evidence": "Its directed language graph is Eulerian by periodicity; present finite admissible edge set has imbalance requiring repeats.",
+          "identifier_or_url": "arXiv:0711.1695",
+          "material_read": "Full accessible PDF; read the introduction, admissible-word graph setup, and Euler cycle result",
+          "method": "Primary-source text searched and the indicated relevant mathematical statements compared with the exact RESULT.md claim",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "potential exactly-once constrained universality theorem"
+        },
+        {
+          "assessment": "NO comparison of the full theorem is possible; specific residual priority risk retained.",
+          "evidence": "Discrete Mathematics 89 (1991), 133–148, Bryant and Fredricksen; title overlap alone cannot establish coverage.",
+          "identifier_or_url": "https://dblp.org/rec/journals/dm/BryantF91",
+          "material_read": "Bibliographic reference only; publisher full mathematical text inaccessible in this run",
+          "method": "Primary-source text searched and the indicated relevant mathematical statements compared with the exact RESULT.md claim",
+          "title": "Covering the de Bruijn graph",
+          "trigger": "close title and graph coverage language; genuine priority threat"
+        },
+        {
+          "assessment": "Deals with exactly-once existence under target-set deletion, not a known bound on shortest repeated supercycle.",
+          "evidence": "Title and abstract distinguish objective and word sets.",
+          "identifier_or_url": "arXiv:1908.01116",
+          "material_read": "Abstract and paper-scope description; not full-document examination",
+          "method": "Primary-source text searched and the indicated relevant mathematical statements compared with the exact RESULT.md claim",
+          "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+          "trigger": "universal cycle variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shortest indexed circular universal covering is a natural exact combinatorial invariant distinct from constrained de Bruijn sequences requiring no repetitions. The theorem gives a sharp all-length formula, constructive optimal multiplicities, and a global lower bound valid even when hosts include forbidden factors; the connection to a known Lucas sequence alone is not the contribution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2403.01454",
+    "https://arxiv.org/abs/0711.1695",
+    "https://arxiv.org/abs/1908.01116",
+    "https://oeis.org/A168674",
+    "https://dblp.org/rec/journals/dm/BryantF91"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet and max cyclic run 2, all k>=3 only; no uniqueness or larger alphabet result.",
+    "OEIS already lists the corresponding sequence as numbers; no novelty claim for Lucas identities.",
+    "A 1991 related covering-de-Bruijn paper was not accessible in full, leaving a specific novelty risk."
+  ],
+  "residual_risks": [
+    "Bryant and Fredricksen (1991), Covering the de Bruijn graph, was known bibliographically but full text not read; may give general results for this constrained case.",
+    "Other postman/multiset universal-cycle formulations could imply the same primal-dual minimum; targeted searches cannot certify absence."
+  ],
+  "schema_version": 1
+}
