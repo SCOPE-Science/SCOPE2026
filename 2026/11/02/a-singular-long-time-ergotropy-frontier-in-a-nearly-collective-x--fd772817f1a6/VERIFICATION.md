@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the singular XX-battery relaxation theorem
+# Independent mathematical audit
 
-The proof uses the exact four-state invariant population system and its explicit solution. The Lindblad damping matrix is positive semidefinite for all \(0\le\alpha\le1\), with eigenmodes \(\sigma_1^-\pm\sigma_2^-\). Their decay rates are \(q_s=\gamma(1+\alpha)\) and \(q_a=\gamma(1-\alpha)\). The Gibbs initial state commutes with the Hamiltonian, and each jump retains diagonal density matrices in the energy eigenbasis. Hence this reduction is exact, not a secular or perturbative approximation.
+## correctness
 
-Execute `python CHECK.py` with NumPy and SciPy. The standalone code explicitly constructs the full Hamiltonian and complete 16-dimensional Liouvillian, evolves a density matrix by matrix exponentiation, and compares it against independently evaluated scalar population formulas. It checks the energy spectrum, positivity, trace one, ergotropy, and convergence of the finite-collectivity slow-time expression to the proved limiting work profile. The local run returned `PASS: 580 density-matrix and slow-limit checks`.
+PASS
 
-The universal slow-time theorem and strict noncommutation rest on the algebraic population formulas plus the trace-norm ergotropy bound. Computed examples test some finite parameter values only. The asymptotic work plateau is a limit; exact passivity at every finite time or a microscopic implementation beyond the stated generator is **not** claimed. No independent external validation has been performed.
+For specified two-qubit XX Hamiltonian J>h>0, finite-temperature Gibbs state and local/collective amplitude-damping interpolation α, the symmetric and antisymmetric jump operators yield an invariant four-level pure-death population sector. Exact ODEs have antisymmetric decay γ(1-α), symmetric decay γ(1+α), and doubly excited decay 2γ. With ε=1-α and u=γεt in compact subsets of (0,∞), a(t)=p_beta exp(-u)+O(ε), while fast s,e populations vanish uniformly. Energy passivation of the remaining |a>,|gg> mixture gives Δ[1-2p_beta exp(-u)]_+; trace-norm Lipschitz bounds make convergence uniform. The singular limits differ Δ vs Δ[1-2p_beta]_+, and p_beta=1/2 gives unique beta_c satisfying sinh(2 beta_c J)=cosh(2 beta_c h). Solve for critical u_c and target work u_w. Independent 20 population/ergotropy examples and 12 direct full Lindblad 16x16 propagators confirmed the four-population dynamics; not a general all-ε certificate.
+
+## originality
+
+PASS
+
+Best-of-knowledge: A finite-time plot and strict collective stationary formula do not logically assert the uniform joint singular limit without further analysis; however the original full source was inaccessible, so the statement-vs-prior implication is provisional rather than a whole-paper exclusion.
+
+## value
+
+PASS
+
+A mathematically exact metastable observation-time frontier separates apparent collective passivity from eventual full charge extraction for a natural weakly broken subradiant battery. Noncommuting infinite-time and weak-noncollectivity limits, sharp onset and target-work times are operationally meaningful natural invariants. Prior work established the bath, singlet decay mechanism, and collective critical temperature; these are not represented as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

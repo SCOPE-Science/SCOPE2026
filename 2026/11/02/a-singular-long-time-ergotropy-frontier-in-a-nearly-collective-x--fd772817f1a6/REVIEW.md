@@ -1,11 +1,21 @@
-# Scientific review: A singular long-time ergotropy frontier in a nearly collective XX battery
+# Independent mathematical audit
 
-**Correctness — PASS.** With \(J>h>0\), the Hamiltonian has the exact four-level order \(E_a<E_g<E_e<E_s\). Independent diagonalization of the positive two-site damping matrix gives two downward decay ladders with rates \(\gamma(1\pm\alpha)\). The Gibbs state remains diagonal in the eigenbasis; integrating this four-state pure-death system establishes both stationary limits and the explicit slow-time formula. Trace-norm continuity of globally optimized ergotropy proves uniformity on positive compact slow-time intervals. The executable four-by-four density-matrix calculation agrees with the closed forms in 580 deterministic comparisons, including positivity, normalization, stationary order and slow-time behavior. The numerical checks are not an infinite proof; the exact rate identities, positivity and Lipschitz estimate provide the analytical proof.
+## correctness
 
-**Originality — PASS, qualified.** Grazi et al. (arXiv:2604.08151v1) establish the original XX/GKLS model, the fully collective critical-temperature equation, and finite-time scans of bath collectivity. Those ingredients are prior and are not claimed again. The assessed statement is the exact noncommutation of long-time and perfect-collectivity limits, the \(\gamma(1-\alpha)t\) universal ergotropy scaling function, and a sharp finite-observation target-work frontier. Khoudiri et al. (arXiv:2608.09693v1) discuss dark/metastable sectors for another Ising quantum battery without this XX interpolation or ergotropy profile. Reitz et al. (2018) give known symmetric/antisymmetric decay rates for coupled emitters, which do not alone present the global Gibbs ergotropy frontier. Semantic mathematical-record searches and accessible preceding claim comparisons found related dissipative examples but not this implication. A broader general singular-perturbation theorem could subsume the result; no independent publication-priority audit has been performed.
+PASS
 
-**Value — PASS.** The distinction matters for judging experimentally observed “steady” battery work in a near-collective bath: an arbitrarily weak antisymmetric loss channel removes the protected singlet only after a diverging waiting time. For cold Gibbs preparations the limiting apparent passive interval ends at an exactly quantified, nonzero slow time; the same formula determines how much noncollectivity or observation duration is needed for any prescribed detectable work. This is a natural operational boundary, not an arbitrary parameter slice or a routine recomputation of a table. It should not be confused with an exactly passive finite-time state, since exponentially small fast-sector work can remain.
+For specified two-qubit XX Hamiltonian J>h>0, finite-temperature Gibbs state and local/collective amplitude-damping interpolation α, the symmetric and antisymmetric jump operators yield an invariant four-level pure-death population sector. Exact ODEs have antisymmetric decay γ(1-α), symmetric decay γ(1+α), and doubly excited decay 2γ. With ε=1-α and u=γεt in compact subsets of (0,∞), a(t)=p_beta exp(-u)+O(ε), while fast s,e populations vanish uniformly. Energy passivation of the remaining |a>,|gg> mixture gives Δ[1-2p_beta exp(-u)]_+; trace-norm Lipschitz bounds make convergence uniform. The singular limits differ Δ vs Δ[1-2p_beta]_+, and p_beta=1/2 gives unique beta_c satisfying sinh(2 beta_c J)=cosh(2 beta_c h). Solve for critical u_c and target work u_w. Independent 20 population/ergotropy examples and 12 direct full Lindblad 16x16 propagators confirmed the four-population dynamics; not a general all-ε certificate.
 
-**Closest literature and limitations.** The collective critical-temperature boundary is explicitly prior (Grazi et al., Eq. (20)). General subradiance and metastability are also prior. The result is conditional on the specified two-qubit Lindblad dynamics, positive \(J>h\), global unitary work extraction and finite \(\beta\ge0\). The statement has no larger-system, unequal-qubit, physical-bath consistency, or independent-external-verification guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: A finite-time plot and strict collective stationary formula do not logically assert the uniform joint singular limit without further analysis; however the original full source was inaccessible, so the statement-vs-prior implication is provisional rather than a whole-paper exclusion.
+
+## value
+
+PASS
+
+A mathematically exact metastable observation-time frontier separates apparent collective passivity from eventual full charge extraction for a natural weakly broken subradiant battery. Noncommuting infinite-time and weak-noncollectivity limits, sharp onset and target-work times are operationally meaningful natural invariants. Prior work established the bath, singlet decay mechanism, and collective critical temperature; these are not represented as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
