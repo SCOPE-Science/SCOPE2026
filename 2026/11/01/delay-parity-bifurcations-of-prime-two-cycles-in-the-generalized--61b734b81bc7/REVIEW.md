@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification follows from two jointly sufficient identities obtained by adding and subtracting the full alternating-delay equations. The same-sign, opposite-sign and zero-boundary cases are exhaustive. In the opposite-sign case the exact linear system has denominator \(a^2+sh\) for odd nonlinear delay and \(a^2-sh\) for even nonlinear delay; its sign conditions supply necessary **and** sufficient thresholds. At the singular denominator the original equations contradict each other, so division does not omit a solution. The critical continua and all three divergence regimes were checked algebraically. The standalone exact-rational tests independently confirm 18,150 noncritical chamber classifications and representative boundary cases. Those finite tests are supplementary, not a proof of all parameters.
+## correctness
 
-## Originality — PASS within inspected literature
-The actual full source defining the arbitrary-delay Lozi family (Bilal–Ramaswamy, 2020, Section II) supplies fixed points and bifurcation diagrams, but no complete two-cycle parity classification. The classical planar formulas **are covered** by Botella-Soler et al. (2011, equations (4) and (9)–(10)), and are treated strictly as earlier cases. Ou (2022) concerns a planar orientation-preserving Lozi perturbation and proves a different itinerary existence theorem. Existing recorded findings on Lozi stationary moment constraints and unrelated two-cycle classifications do not imply the unrestricted pair-delay result. The central noncovered comparison is the even nonlinear delay, odd linear delay threshold \(a=\sqrt{\nu(2-\nu)}\) and its pole-to-continuum trichotomy. Equivalent unindexed or unpublished work remains possible; novelty is not proved by absence from search hits.
+PASS
 
-## Mathematical value — PASS
-Least-period-two existence is a natural first classification invariant of the delay family studied for bifurcations. The theorem classifies the complete, non-artificial family of all positive integer pairs of delays and exposes a nonlocal phase transition invisible to the fixed-point threshold: at \(k=2,d=3,\nu=1/2,a=1\), the exact orbit \(\{2,-6\}\) exists while the negative fixed point does not. In the same natural parity class, cycles are born at infinity with both amplitudes diverging for \(\nu<1\), but with one amplitude bounded at \(\nu=1\), and from a finite continuum for \(\nu>1\). The dimension-independent parity mechanism and complete exceptional-set census are substantially more informative than a routine single parameter check.
+For integers 1<=k<d, reals 0<ν<2, a>0, the two alternating delay equations are equivalent (invertible sum/difference) to s(u+v)+a(|u|+|v|)=2 and h(u-v)+a(-1)^k(|u|-|v|)=0, with s=2-ν and h=s for even d, ν for odd d. An exhaustive real sign-case analysis gives odd k unique mixed-sign for a>h, nonnegative sum-continuum for a=h; even k unique mixed sign for a>max(h,sqrt(sh)), negative continuum only d odd ν>1 a=ν. All zeros and singular a²=sh are treated in the original equations (singular mixed-sign forces 0=2). The three ν<1,=1,>1 near-threshold forms follow by exact algebra. Independently substituted exact cycles for (k,d,ν,a,u,v)=(2,3,1/2,1,2,-6) and (1,2,1/2,2,14/25,-2/25) into the full recurrence for n=-10..10. Source exact-rational finite checker is corroboration, not universal proof.
 
-## Closest literature and limitations
-The planar period-two formula and bisecting lines are already known; the claim does not repackage those as novel. The result does not classify attracting sets, nonlinear stability, endpoints \(\nu=0,2\), or higher periods. The proof establishes existence and uniqueness of algebraic periodic trajectories, not their physical observability. Publication-priority risk from unindexed work remains; external independent validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for classification of all positive integer delay parities, including the even-k odd-d pole/continuum trichotomy. Earlier planar 2-cycle and bisecting-continuum formulas are acknowledged as covered special cases. The full six-page paper defining the delayed family gives fixed-point stability and graphical bifurcations rather than the complete global algebraic two-cycle classification; unknown unindexed parity analyses remain a risk.
+
+## value
+
+PASS
+
+The natural first nontrivial-period problem for a well-studied delay family is completely classified across all integer delay pairs by parity, including explicit exceptional continua and singular creation at infinity versus from a finite continuum. The even-k odd-d trichotomy is a robust structural bifurcation law not visible in the model’s fixed-point stability results; existence is not falsely promoted to attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
