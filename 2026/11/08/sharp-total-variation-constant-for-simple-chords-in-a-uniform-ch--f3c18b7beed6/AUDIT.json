@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For all n>=2 and all r>=0, count ordered disjoint cyclic neighbor pairs via m(C_(2n),k) and uniform matching completion to obtain exact factorial moments a_(N,k). Verify their recurrence and a_(N,k)<=N/(N-1); bound the difference from 1+k(3-k)/(2N) by C(k+1)^4/N^2 uniformly over k (including k>n), which is summable with factorial weights on every fixed complex disk. The probability generating function has correction exp(z-1)(-z^2+4z-3)/(2N), and Cauchy coefficient bounds imply uniform O(n^-2 2^-r). Summing the positive correction for r=1,2,3,4 gives 73/(96en), with total error O(n^-2). Independently executed verify.py: VERIFY_OK 367 exact/reproducible assertions; finite tests only corroborate the infinite proof. Essential scopes and singular n=1 boundary explicitly addressed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Paguyo (arxiv:2104.01134), proof of Theorem 1.2, establishes dTV(S_n,Pois(lambda_n)) <= 10n/(2n-1)^2 and O(n^-1) against Pois(1).",
+        "Paguyo Sections 3.1–3.2 bound the zero-chord count, without an evaluated leading signed coefficient."
+      ],
+      "reasoning": "The direct strongest broad approximation covers the same statistic but only an upper bound in order, not the matching lower bound, exact constant, or uniform coefficients. Other graph/Poisson results from semantic search concern different observables and do not imply the statement.",
+      "searches": [
+        "Sharp leading constant total variation rate of Poisson(1) approximation for simple chords in random chord diagrams",
+        "arxiv:2104.01134 section 3 Poisson approximation and rate",
+        "random chord diagrams isolated short chords variance Poisson approximation conditioning"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2104.01134v2",
+      "https://arxiv.org/abs/2104.01134",
+      "https://arxiv.org/abs/1501.01489",
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Paguyo proves an inequality of order O(1/n) and total-variation convergence for the same random variable, not the first-order coefficient.",
+        "Flajolet–Noy analyze the number of components, with a related but different Poisson limit.",
+        "Acan describes simple chords and a qualitative limit, not the sharp signed correction."
+      ],
+      "reasoning": "An O(1/n) inequality never fixes the nonzero asymptotic constant. A qualitative Poisson limit is weaker. Component-count asymptotics cannot be substituted for the actual count of adjacent pairs without additional error analysis. The present proof performs the missing exact coefficient extraction and summable remainder control.",
+      "searches": [
+        "Paguyo Convergence rates of limit theorems in random chord diagrams Section 3.1 Theorem 1.2",
+        "Flajolet Noy 2000 analytic combinatorics of chord diagrams components Poisson",
+        "Acan On a uniformly random chord diagram and its intersection graph monolithic simple chords"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan (arxiv:1501.01489), simple chords = cyclic adjacent matched pairs and qualitative Poisson(1) convergence.",
+        "Cycle matching factorial moments supply a direct alternative formulation of the same count, but do not themselves state the sharp signed limit."
+      ],
+      "reasoning": "The object has aliases simple chords, length-zero chords, adjacent matchings in a cyclic pairing, and isolated chord components. The claim requires a uniform signed local first-order expansion and sharp TV coefficient, not only the Poisson limit or an exact enumerator from which further analysis might be possible.",
+      "searches": [
+        "random chord diagrams adjacent matched pairs cyclic simple chords probability no simple chords",
+        "random chord diagrams number of simple chords exact distribution generating function factorial moments",
+        "arxiv:1501.01489 simple chord count and Poisson limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact finite matching enumeration m(C_N,k)=N/(N-k) binom(N-k,k) is classical; it is reconstructed from first principles.",
+        "Finite-sample independent matching enumeration for n=2..6 and rational moment coefficients up to n=40 reproduce the law, not external priority."
+      ],
+      "reasoning": "No searched public mathematical record identified a tabulated 73/(96e) TV coefficient or the signed local polynomial for this statistic. Exact matchings and finite coefficient tables, even if previously known, are distinguished from the quantified sharp limit; absence in a search does not prove novelty.",
+      "searches": [
+        "Exact factorial moments random chord diagram simple chords cycle matching polynomial local limit Edgeworth",
+        "Uniform random perfect matching 2n cyclic positions count adjacent pairs simple chords has exact first-order Poisson correction e^-1 (-r²+5r-3)/(4n) and sharp total variation constant 73/(96e n)",
+        "Acan 2015 random chord diagrams simple chords counts"
+      ]
+    },
+    "rationale": "The closest inspected result is Paguyo 2021 (arXiv:2104.01134), Section 3: proves O(1/n) total variation and coarse zero-chord bounds, but not a signed local coefficient, leading 73/(96e), or second-order aggregate remainder. Acan 2015 supplies the same simple-chord Poisson limit; Flajolet-Noy 2000 derive component asymptotics. The evaluated sharp constant is not a stated corollary of those inequalities; known counting formulas are used but are not claimed new. Targeted mathematical-record searches did not find an equivalent or stronger evaluated theorem; unexamined historical enumerations remain a specific priority risk.",
+    "residual_risks": [
+      "Older exact enumerations may yield an implicit expansion after calculation; historical priority is not independently established.",
+      "Uninspected or inaccessible texts cannot be asserted not to contain an equivalent formula.",
+      "Finite executable tests are not an independent proof of an infinite uniform asymptotic, which rests on the displayed analytic bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PRECURSOR_NOT_SHARP_CONSTANT",
+        "evidence": "Section 3.1 gives TV <=10n/(2n-1)^2 against Poisson(lambda_n); Section 3.2 gives only additive O(1/n) zero-chord bounds.",
+        "identifier_or_url": "https://arxiv.org/html/2104.01134v2",
+        "material_read": "Abstract, introduction/main results, full Section 3.1 coupling and inequalities, Section 3.2 no-simple-chords estimate, final remarks",
+        "method": "Accessible full-text direct reading and formula/implication comparison",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Direct same-variable Poisson total-variation result"
+      },
+      {
+        "assessment": "SAME_OBJECT_LIMIT_NOT_SHARP_RATE",
+        "evidence": "Defines simple chord as pairing consecutive cyclic endpoints; discusses asymptotic Poisson(1) and monolithic diagrams.",
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Introduction and simple-chord/monolithic discussion, including Poisson limit statements",
+        "method": "Accessible arXiv full-text reading and compare objects/claims",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Origin of same simple-chord statistic and qualitative Poisson law"
+      },
+      {
+        "assessment": "RELATED_COMPONENT_STATISTIC_NOT_IDENTICAL_SHARP_TV",
+        "evidence": "Poissonian component counts and asymptotic diagram enumeration; no evaluated 73/(96e) sharp simple-chord TV term found in inspected sections.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Relevant component-count and asymptotic enumeration sections, including pages 5–6",
+        "method": "Lawful public PDF text and relevant page images",
+        "title": "Analytic combinatorics of chord diagrams",
+        "trigger": "Potential older stronger asymptotic enumeration and components relationship"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f3c18b7b-eed6-492e-ba38-4dda73731b00",
+  "value": {
+    "rationale": "The simple-chord statistic is a standard, natural test case for Poisson approximation on dependent matchings. The sharp nonzero constant quantifies the best first-order total-variation error, and a uniform signed local expansion pinpoints exactly which outcomes cause the discrepancy, including a new explicit zero-simple-chord counting correction. This supplies structurally meaningful quantitative information beyond the established O(1/n) bound and is not a merely cosmetic substitution or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
