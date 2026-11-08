@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The statement fixes the palette at \(r+1\) on a complete \(r\)-partite graph with \(r\ge3\), all part sizes positive, and the unique-missing-colour forcing rule. Every proper total colouring can have either \(r\) monochromatic part colours or exactly one bichromatic part. In the first case, no initially blank vertex ever has enough neighbour colours to force. In the second, the bichromatic part must be fully assigned initially and all but at most one other part must initially be seeded. The converse follows by first forcing the possibly unseeded part, then filling all remaining blanks. The two classes are disjoint; named-colour allocations, two-colour surjections and nonempty seeded subsets yield the stated enumerators without overcounting. The minimum and exact multiplicities are obtained by selecting the smallest eligible bichromatic part and seeding the minimum number of other parts. Direct enumeration of every initial partial assignment for 14 small parameter profiles agrees with every polynomial coefficient. Finite checks corroborate rather than prove the general theorem.
+
+## Originality — PASS, with residual historical-priority risk
+Farr's 2026 initiating paper develops the local forcing definition, small cases and the two-colour bipartite theorem but does not provide this exact one-surplus-palette multipartite enumeration. The closest full published result for complete multipartite graphs treats exactly \(r\) colours and expressly excludes larger palettes. A separate complete-bipartite result handles three colours for two partite sets only. Neither implies the present all-\(r\ge3\) first-surplus-palette formula, its structural characterization or minimum-domain multiplicity. Direct checks compared actual claims and full accessible primary manuscript sections, not just titles. Search cannot prove historical uniqueness; unindexed or differently named equivalent results remain a risk.
+
+## Mathematical value — PASS
+An extra available colour changes the local forcing obstruction: on complete multipartite graphs, the first surplus palette demands a *fully initially coloured bichromatic part*, whereas the chromatic palette requires only one seeded vertex in each of \(r-1\) parts. This gives an exact full-domain-size enumerator, probabilistic forcing function and exact minimum-count classification for an infinite, nonuniform graph family. It identifies a genuine change in the structure and cost of local forcing, not a parameter substitution in the chromatic-palette formula.
+
+## Literature and limitations
+Primary comparison: G. E. Farr, *The forced colouring function of a graph*, arXiv:2609.17108v1; G. E. Farr and K. Morgan, *Graph polynomials: some questions on the edge*, arXiv:2406.15746v1. Closest complete-multipartite and complete-bipartite published results are cited in RESULT.md. *Multi-color forcing in graphs*, arXiv:1912.02001v1, uses a different colour-change rule. Larger colour surpluses and arbitrary graphs are not addressed. Historical priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.

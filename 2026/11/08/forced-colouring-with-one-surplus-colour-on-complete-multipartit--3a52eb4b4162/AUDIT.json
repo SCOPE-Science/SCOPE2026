@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For \\(r\\ge3\\) and \\(\\lambda=r+1\\), the disjoint colour sets across parts force either all monochromatic or exactly one bichromatic part. In the monochromatic type a first local force is impossible unless initial colouring is total. In the bichromatic type, no uncoloured vertex in the bichromatic part can ever see r neighbour colours, so that part must be initially fully coloured. A first force outside it is possible only when all but at most one other part is seeded; this condition is sufficient by forcing the missing part then filling remaining blanks. The resulting nonoverlapping constructions give the full count, probability formula and minimum multiplicity. The verifier independently enumerates all partial assignments for 14 profiles and matches every coefficient. Finite checking is corroboration; the unrestricted theorem rests on the argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 polynomial framework supplies general reduction identities but not a solved family formula for λ=r+1.",
+        "The 2026 initiating paper gives hardness and specific small-graph and bipartite cases; no closed general multipartite solution at the target palette was found."
+      ],
+      "reasoning": "General recursive identities and computational complexity are not the same claim as an explicit exact full polynomial, structural classification and extremal multiplicity. No identified theorem already dominates this family at the specified palette.",
+      "searches": [
+        "forced colouring at chromatic number plus one in complete multipartite graph, exact count and seed size",
+        "FC_{r+1} graph complete r-partite forced coloring probability formula one bichromatic part",
+        "arXiv:2406.15746v1; general reduction rules",
+        "arXiv:2609.17108v1; complexity results"
+      ]
+    },
+    "checked_sources": [
+      "Farr, The forced colouring function of a graph, arXiv:2609.17108v1, §§1–5, full HTML read",
+      "Farr–Morgan, Graph polynomials: some questions on the edge, arXiv:2406.15746v1, §§3.5 and 5.4 read",
+      "Forced colourings of complete multipartite graphs at the chromatic palette size, published record 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655, full RESULT.md read",
+      "Forced three-colouring polynomial of complete bipartite graphs, published record 2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69, full RESULT.md read",
+      "Bozeman et al., Multi-color forcing in graphs, arXiv:1912.02001v1, definition section read"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published chromatic-palette theorem establishes F_r on r-partite graphs and its proof assumes no spare colours.",
+        "The published forced-three-colouring theorem gives F_3 on K_{m,n}; its proof uses the two-shore structure and does not establish the λ=r+1 case for r≥3.",
+        "Bozeman et al. study colour change networks on already-coloured graphs, a different process."
+      ],
+      "reasoning": "Even allowing specialisations and dual viewpoint, neither published record implies a fully bichromatic part and at-most-one-unseeded rule for ≥3 shores. The distinct original forcing notion in multi-colour zero forcing also cannot dominate the local unique-missing-colour theorem.",
+      "searches": [
+        "forced colouring polynomial complete multipartite K_{n1,...,nr} with r+1 available colours, exactly one bichromatic shore, r-2 seeded monochromatic parts",
+        "forced colouring at chromatic number plus one in complete multipartite graph, exact count and seed size",
+        "forced colouring graph FCGP r+1 complete multipartite named colours over all domains",
+        "published record 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "published record 2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "arXiv:1912.02001v1; multi-color definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arXiv:2609.17108v1 local forcing depends on seeing precisely λ−1 distinct neighbour colours; palette size is part of the statement.",
+        "In 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655 the palette is exactly r and the authors expressly exclude λ>r."
+      ],
+      "reasoning": "The target is the first extra available colour \\(\\lambda=\\chi(G)+1\\) with \\(\\chi(G)=r\\ge3\\), structurally a fully seeded bichromatic part. The chromatic-palette theorem applies at \\(\\lambda=r\\), where no bichromatic part can occur and nearly all parts need only nonempty seeds. Therefore the two formulas are not equivalent or implications under relabelling.",
+      "searches": [
+        "forced colouring polynomial complete multipartite K_{n1,...,nr} with r+1 available colours, exactly one bichromatic shore, r-2 seeded monochromatic parts",
+        "chromatic palette plus one complete multipartite graphs forced partial colourings exactly one two-colour part full and all but one remaining part seeded",
+        "minimum initially coloured vertices to locally force r+1 proper colours on K_{n1,...,nr} and generating polynomial",
+        "arXiv:2609.17108v1; sections on forced colouring, examples and exact bipartite formula",
+        "published record 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The initiating paper has individual low-order graph values, not a nonuniform all-r multipartite polynomial.",
+        "The bipartite published polynomial applies to r=2 and λ=3 only."
+      ],
+      "reasoning": "Some small numerical specializations may already appear as rows of existing tables; the infinite-variable family and its coefficient and minimum-set formula are not supplied by those finite records. The new result explicitly excludes the bipartite \\(r=2\\) case.",
+      "searches": [
+        "The forced colouring function of a complete bipartite graph K_{a,b} for arbitrary palette lambda, exact polynomial counting locally forced partial proper colourings and minimum seed size",
+        "Random partial graph coloring local color forcing complete bipartite graphs K_{m,n} exact probability with lambda colors, lambda minus one colors on one shore",
+        "Chromatic forcing function FC lambda of complete bipartite graphs exact closed form Stirling numbers",
+        "arXiv:2609.17108v1; numerical small-graph examples",
+        "published record 2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69"
+      ]
+    },
+    "rationale": "Compared mathematical implications rather than matching titles. The all-\\(r\\ge3\\), palette r+1 local-forcing classification and exact polynomial are absent from the inspected initiating paper. The closest complete multipartite published theorem has palette r, and the closest surplus-palette theorem has only \\(r=2\\) with \\(\\lambda=3\\). The arguments for those special settings do not imply the present first-surplus result. Historical priority is provisional because searchable literature is not complete.",
+    "residual_risks": [
+      "Search incompleteness and unindexed or differently named historical prior work could contain an equivalent family formula.",
+      "No independent mathematical audit has been performed; the 14-profile finite computation is not an infinite proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the definition and scope, but the available paper does not contain the target multipartite polynomial.",
+        "evidence": "Theorem for two-colour connected bipartite graphs and finite examples; local forcing condition explicitly λ−1 distinct colours.",
+        "identifier_or_url": "https://arxiv.org/html/2609.17108v1",
+        "material_read": "Full accessible HTML including abstract, definitions, small-graph examples, bipartite theorem, polynomial recurrences and complexity statements.",
+        "method": "Read accessible primary HTML and compare parameters, hypotheses and conclusion to the target all-r, λ=r+1 theorem.",
+        "title": "The forced colouring function of a graph",
+        "trigger": "Defines the exact local forcing rule and is the motivating recent primary manuscript."
+      },
+      {
+        "assessment": "General framework but no direct covering family classification or closed formula.",
+        "evidence": "General forced-colouring polynomial and recurrences, not λ=r+1 complete multipartite enumerator.",
+        "identifier_or_url": "https://arxiv.org/html/2406.15746v1",
+        "material_read": "Relevant §§3.5 and 5.4, including definitions and general reduction formulas.",
+        "method": "Read those sections of original manuscript and test whether displayed statements solve the one-surplus complete multipartite family.",
+        "title": "Graph polynomials: some questions on the edge",
+        "trigger": "Earlier general framework could contain a stronger implication."
+      },
+      {
+        "assessment": "Known result covers palette r only; explicitly notes larger palettes are outside scope. Does not cover the target.",
+        "evidence": "Main finding fixes exactly r available colours and r−1 initially seeded parts; limitation excludes λ>r.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "material_read": "Complete RESULT.md via published record raw file.",
+        "method": "Compare theorem and proof hypotheses and exact domain polynomial term by term.",
+        "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+        "trigger": "Same graph family, near-identical invariant; decisive comparison."
+      },
+      {
+        "assessment": "Bipartite boundary at (r,λ)=(2,3) known; target intentionally does not claim it.",
+        "evidence": "Finding and assumptions fix complete bipartite graphs and three colours; no multipartite r≥3 formula.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "material_read": "Complete RESULT.md via published record raw file.",
+        "method": "Compare its structural dichotomy and r=2 hypothesis with the target r≥3 theorem.",
+        "title": "Forced three-colouring polynomial of complete bipartite graphs",
+        "trigger": "Same surplus-palette phenomenon for the r=2 boundary."
+      },
+      {
+        "assessment": "A different colour-change process on coloured vertices, not an applicable theorem.",
+        "evidence": "Rules use forcing propagation between colours on already-coloured vertices rather than filling uncoloured vertices with a unique missing proper colour.",
+        "identifier_or_url": "https://arxiv.org/html/1912.02001v1",
+        "material_read": "Primary manuscript abstract, definitions and colour-change setup in §2.",
+        "method": "Compare mathematical forcing process, not title alone.",
+        "title": "Multi-color forcing in graphs",
+        "trigger": "Potential ambiguous colour-forcing terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a52eb4b-4162-4ae8-aa07-1700c9f87816",
+  "value": {
+    "rationale": "Adding one colour to the chromatic palette creates a previously absent bicromatic-seeding obstruction in all complete multipartite graphs with three or more parts, changing minimum forcing domains and allowing an exact complete polynomial, probability function and minimizer counts for arbitrary nonuniform part sizes. This is a structural infinite-family extension of the motivating 2026 problem, not a routine transcription of the known palette-r result.",
+    "status": "PASS"
+  }
+}
