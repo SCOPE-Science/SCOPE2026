@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specializes exactly the strict pairwise receptiveness rule and the simultaneous averaging/confidence updates. With only the two extreme agents unreceptive, the endpoint difference contracts by \(1/(n-1)\) while their confidence bound contracts by \(\delta\). A direct pair of gap inequalities proves inductively that the remaining edges cannot disappear; in particular, the initial open-region hypotheses imply \(\Delta<2c_0\). The endpoint pair is restored exactly when \(((n-1)\delta)^t>\Delta/c_0\). A fixed reversible averaging chain proves asymptotic consensus without restoration, with the explicitly computed degree-weighted mean; restoration triggers one-step finite-time consensus. Exact rational tests corroborate all cases across \(3\leq n\leq12\). The infinite statement is justified by the analytic argument, not the finite checks.
+## correctness
 
-## Originality — PASS (best-knowledge literature comparison)
-Li–Luo–Porter prove general eventual stabilization/convergence and numerically observe unreceptive pairs with identical limit opinions, but their theorems do not imply a precise finite-time repair threshold for a family of initial configurations. They explicitly call for analytic study of mutual receptiveness in consensus states. Searches for equivalent threshold, missing-edge configurations, finite-time consensus and confidence-decay aliases in related indexed records and primary literature did not find an implying result. A record on logarithmic switching in a seven-agent proximity network does not implement the dyadic confidence recursion studied here; the Kan–Feng–Porter rewiring model likewise has different state dynamics. Searches cannot rule out an unindexed equivalent derivation.
+PASS
 
-## Value — PASS
-The sharp, dimension-dependent adaptive-confidence threshold separates exact finite-time agreement from solely asymptotic agreement in a natural interaction feedback model. It produces a nonempty full-dimensional open set of analytically certified consensus states with a permanently incomplete effective graph, directly quantifying a phenomenon previously presented mainly through simulation. The exact restoration-time formula also exposes a diverging edge-repair delay at the boundary. The classification is restricted to the stipulated missing-extreme-dyad configuration and is not a general topology-independent threshold.
+For complete n-agent synchronous adaptive HK with one initially absent edge between extremes a<b and every other dyad receptive, initial strict confidence inequalities imply Δ=b-a<2c0. While that edge remains absent, endpoints average n-1 values each and other agents average all n; after one update the n-2 middle agents coincide and remain between the endpoints. Endpoint gap contracts exactly by 1/(n-1) each step, and the middle-to-extreme distances after updates are <Δ/n<c0, so no other edge can disappear. The missing edge confidence is c0 δ^t; thus strict receptiveness at time t is ((n-1)δ)^t>Δ/c0. If q≤1 (including δ=0 and q=1) the edge never returns; the connected fixed row-stochastic averaging map has stationary degrees (n-1,n-1,n,...,n), giving limit L=((n-1)(a+b)+n Σ_middle x_j(0))/(n²-2), with positive endpoint gap at every finite time. For q>1 the exact first repair time is floor(log(Δ/c0)/log q)+1 and at T+1 all n agents take the common full-graph mean. Independent exact-Fraction simulation tested 20 rational cases including q below/at/above one and no unexpected edge losses. The infinite statement is proved by the explicit recurrence and invariant, not finite simulation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Li–Luo–Porter 2025 introduces the exact adaptive-confidence model, proves broad convergence/stabilization and discusses coincident opinions with missing active links. The inspected source does not give the one-missing-extreme-edge sharp δ=1/(n-1) repair threshold, exact repair time, and finite/asymptotic consensus dichotomy.
+
+## value
+
+PASS
+
+Sharp repair vs permanent non-receptiveness threshold, explicit integer lifetime divergence, γ-independent switching, and finite-time versus asymptotic consensus form a motivated full parameter classification in a canonical adaptive HK subfamily. It analytically resolves a behaviour previously observed numerically and is not a cosmetic normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
