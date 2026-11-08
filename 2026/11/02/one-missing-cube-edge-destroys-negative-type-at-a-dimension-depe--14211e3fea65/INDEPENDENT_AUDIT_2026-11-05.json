@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:10:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Removing the single edge of Q_n increases only the missing endpoints Hamming distance from 1 to 3, so powered matrix is H_p+(3^p-1)(e_u e_v^T+e_v e_u^T). Walsh diagonalization and Bernstein integral show strict negative spectrum of H_p on zero-sum for 0<p<1. Even/odd character separation yields a positive rank-one obstruction with exact scalar R_n(p); root between 0 and1, one-dimensional null at equality; Li-Weston strictness propagation gives unique critical exponent and failure above. Centered Schoenberg rank yields dimensions 2^n-1 and 2^n-2. Isometric subface comparison and uniqueness give strict decrease; integral bound for Walsh modes k>=n/2 shows p_n ->0 by dominated convergence. Independent BFS/Walsh/spectrum tests for n=3..5 yielded p3≈.7474072433, p4≈.6477208242, p5≈.5946979926 and near-zero critical projected eigenvalue. Large-n claims rest on analytic proof, not numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li-Weston propagation is general and explicitly used to ensure uniqueness. Robertson supplies finite metric methods but no edge-deleted cube dimension-specific equation in inspected material."
+        ],
+        "reasoning": "General existence/interval/determinant criteria do not state R_n(p), single critical kernel or strict n-dependence.",
+        "searches": [
+          "arXiv:0901.0695 Theorem 5.4",
+          "arXiv:2004.10923",
+          "arXiv:2109.07052"
+        ]
+      },
+      "checked_sources": [
+        "Li-Weston arXiv:0901.0695 Theorem 5.4 primary text",
+        "Robertson arXiv:2004.10923 metadata",
+        "Doust et al arXiv:2005.09205 and Doust-Wolf arXiv:2109.07052 scope",
+        "Resultary query hypercube minus one edge shortest path metric supremal p negative type generalized roundness Walsh rank one perturbation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li-Weston implies strict negativity below any p-negative type endpoint but does not locate the endpoint. The rank-one Walsh obstruction locates it; Hamming-subset sources do not analyze the pair distance change."
+        ],
+        "reasoning": "New defect-specific calculation is logically needed, with general negative-type theorems used only in the final uniqueness argument.",
+        "searches": [
+          "Li-Weston 2009 Theorem 5.4",
+          "Doust et al arXiv:2005.09205"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Doust et al study distance matrices of subsets with inherited Hamming metric, not the modified shortest-path graph metric with exceptional distance 3."
+        ],
+        "reasoning": "Although vertex sets match, the perturbed distance matrix differs, so Hamming-subset formulas cannot directly give this threshold.",
+        "searches": [
+          "Resultary semantic query: hypercube minus one edge shortest path metric supremal p negative type generalized roundness Walsh rank one perturbation",
+          "arXiv:2005.09205"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Hamming distance matrix tables involve original Hamming metric; n=3..8 root approximations here are supplementary."
+        ],
+        "reasoning": "The result is an all-n spectral equation plus monotone limit, not a finite root table.",
+        "searches": [
+          "Resultary semantic query: hypercube minus one edge shortest path metric supremal p negative type generalized roundness Walsh rank one perturbation",
+          "arXiv:2005.09205",
+          "arXiv:2109.07052"
+        ]
+      },
+      "rationale": "Li-Weston supplies a general negative-type strictness theorem; finite metric generalized-roundness algorithms and original Hamming-subset results are prior. Edge-deleted cube graph metric is NOT the unchanged Hamming-subset metric since the exceptional pair has distance3; exact rank-one Walsh root, strict decrease and p_n->0 are additional specialized conclusions. Qualified by possible equivalent graph embedding calculations.",
+      "residual_risks": [
+        "Broader generalized-roundness formula may implicitly encode root, even when not explicitly presented for a missing edge.",
+        "Proof addresses only one missing unweighted cube edge, not multiple faults.",
+        "The strict n-decrease uses isometric subfaces and distinct critical vectors; sensitive support argument should be independently checked for each boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The strict p-negative-type propagation lemma is genuine prior and applies to finite modified cube metric",
+          "evidence": [
+            "Theorem 5.4: q-negative type entails strict p-negative type for 0<=p<q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0901.0695",
+          "material_read": "Primary paper text, especially Theorem 5.4 and neighboring hypotheses",
+          "method": "primary PDF text extraction; screenshot endpoint unresponsive",
+          "title": "Strict p-negative type of a metric space (Li and Weston, 2009)",
+          "trigger": "needed named propagation theorem underlying uniqueness of p_n"
+        },
+        {
+          "assessment": "Inherited Hamming-subset metric is different from edge-deleted graph distance; possible additional uninspected relevant results kept as risk",
+          "evidence": [
+            "Title and object: metric subsets of the Hamming cube."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.09205",
+          "material_read": "Accessible abstract and mathematical scope; complete text not established in this execution",
+          "method": "abstract/bibliographic reading",
+          "title": "Distance matrices of subsets of the Hamming cube (Doust, Robertson, Stoneham and Weston, 2020)",
+          "trigger": "same cube vertex set and negative-type spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single missing cube edge changes the maximal snowflake Hilbert embedding exponent from 1 to p_n<1, with quantified dimension deterioration to zero. This robustly motivates the sharp defect threshold and new rank formula in graph metric negative-type theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Li-Weston arXiv:0901.0695 Theorem 5.4 primary text",
+    "Robertson arXiv:2004.10923 metadata",
+    "Doust et al arXiv:2005.09205 and Doust-Wolf arXiv:2109.07052 scope",
+    "Resultary query hypercube minus one edge shortest path metric supremal p negative type generalized roundness Walsh rank one perturbation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No closed elementary expression for p_n; exact scalar implicit equation.",
+    "No result for weighted or multiple deleted edges."
+  ],
+  "residual_risks": [
+    "Broader generalized-roundness formula may implicitly encode root, even when not explicitly presented for a missing edge.",
+    "Proof addresses only one missing unweighted cube edge, not multiple faults.",
+    "The strict n-decrease uses isometric subfaces and distinct critical vectors; sensitive support argument should be independently checked for each boundary."
+  ],
+  "schema_version": 1
+}
