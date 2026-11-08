@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The four isomorphism types of three-edge supports on five vertices each admit an explicit impossible answer pattern, and a two-edge support is shattered. The complete depth-three tree has eight individually checked pair-block witnesses; the ten-hypothesis bound excludes depth four. The smaller profile cases use explicit supports and hypothesis counts. VC and Littlestone additivity for independent query domains proves the all-\(s\) statement without extrapolation. The reproducibility script exhaustively checked 120 three-edge supports and verified the full adaptive certificate.
+## correctness
 
-**Originality — PASS under accessible comparisons, with residual priority risk.** The closest same-cluster primary works study total query complexity, approximate clustering and noisy partition recovery, rather than the VC-versus-Littlestone classification for a fixed \((2,3)\) partition profile. A general paper on Littlestone dimension addresses different learning models. Fixed-size edge-hit (at-least-one) query systems are not equivalent to the same-block (zero-or-two intersection) predicate. The refinement-closed partition formula does not imply the present result because the prescribed two-block class is not refinement-closed. Searches cannot establish absolute novelty, and unindexed priority remains possible.
+PASS
 
-**Mathematical value — PASS.** Prescribed cluster sizes are a natural non-refinement-closed version of partition learning, and the exact first threshold distinguishes the information available to a static query set from that available to an adaptive adversary. The minimal local obstruction amplifies to an infinite family with an exactly linear gap and fixed five-point support groups. This is a concrete structural boundary, not a merely relabeled general partition statement.
+On a 5-set there are exactly ten hypotheses (unique smaller 2-subsets). All 3-edge query supports have one of four graph types: triangle, 3-star, 4-path, 3-path plus disjoint edge; each admits a forbidden answer pattern, while two adjacent edges shatter, proving VC=2. The displayed adaptive query tree has eight witness leaves, giving Ldim≥3, and log2(10)<4 bounds Ldim≤3. Direct independent recursion over all concepts for n=2..5 reproduced every profile pair (VC,Ldim): (0,0),(1,1),(2,2),(1,1),(2,2),(2,3) in listed order. For s independent known groups, VC and realizable Ldim add across disjoint nonconstant query domains; cross-group tests are constant false. Hence exactly (2s,3s), with no finite extrapolation.
 
-**Limits.** Larger single-group size profiles are not classified; group supports must be known for the amplification. The concept-class mistake tree is not the same as total exact-recovery query complexity. Independent publication-priority checking and independent mathematical validation remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original first strict gap for prescribed 2+3 equivalence-partition same-cluster concepts, plus exact linear amplification. Earlier sources use same-cluster queries for total query complexity, noisy recovery, or general learning dimensions, not this exact VC and Littlestone pair. General product additivity and hypothesis-count bounds are standard and not claimed novel.
+
+## value
+
+PASS
+
+Minimal local example of a strict static-vs-adaptive shattering gap for natural fixed-size equivalence relations. The all-s product family has a quantitatively unbounded gap while every interacting group stays of fixed size five; this pinpoints a structural failure of nonadaptive shattering to capture online complexity in a constrained clustering concept class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

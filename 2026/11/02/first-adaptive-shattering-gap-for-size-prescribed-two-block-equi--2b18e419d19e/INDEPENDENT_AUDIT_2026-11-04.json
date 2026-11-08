@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:48:08.845942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and actual exhaustive checker source",
+        "Independent exact VC and version-space recursion n≤5",
+        "General independent-product shattering and mistake-bound additivity"
+      ],
+      "rationale": "On a 5-set there are exactly ten hypotheses (unique smaller 2-subsets). All 3-edge query supports have one of four graph types: triangle, 3-star, 4-path, 3-path plus disjoint edge; each admits a forbidden answer pattern, while two adjacent edges shatter, proving VC=2. The displayed adaptive query tree has eight witness leaves, giving Ldim≥3, and log2(10)<4 bounds Ldim≤3. Direct independent recursion over all concepts for n=2..5 reproduced every profile pair (VC,Ldim): (0,0),(1,1),(2,2),(1,1),(2,2),(2,3) in listed order. For s independent known groups, VC and realizable Ldim add across disjoint nonconstant query domains; cross-group tests are constant false. Hence exactly (2s,3s), with no finite extrapolation.",
+      "residual_risks": [
+        "Five-point class is unlabeled within blocks; treating 2- and 3-block as ordered would be incorrect.",
+        "No formula for unprescribed global partitions of 5s vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li et al analyze approximate clustering with same-cluster oracles.",
+          "DePavia et al establish total query reconstruction bounds with errors, not online mistake-tree dimensions for fixed 2+3 partitions.",
+          "Chase et al use Ldim in general equivalence-query learning settings."
+        ],
+        "reasoning": "Prior general learning models do not supply the four impossible 3-edge label patterns and eight-leaf adaptive mistake tree for this constrained class, and exact recovery query counts cannot determine these dimensions.",
+        "searches": [
+          "arXiv:2108.07383v1",
+          "arXiv:2305.13402v1 theorem on error-tolerant exact query recovery",
+          "arXiv:2310.04812v1 query learning and Littlestone dimension"
+        ]
+      },
+      "checked_sources": [
+        "Li–Song–Zhang, arXiv:2108.07383v1, same-cluster clustering queries",
+        "DePavia–Medrano Martín del Campo–Tani, arXiv:2305.13402v1, exact finite partition query learning",
+        "Chase–Freitag–Reyzin, arXiv:2310.04812v1, Littlestone and query learning",
+        "Resultary query: VC Littlestone dimension partition equivalence classes fixed sizes 2 and 3 same-cluster queries adaptive gap",
+        "Frozen RESULT.md and check_balanced_partitions.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All 120 three-edge supports have a forbidden labelling; four graph-isomorphism types explain it, so VC=2.",
+          "A depth-three adaptive tree has eight leaves, verified with ten hypotheses; depth-four impossible because 10<16.",
+          "Independent prescribed groups yield product concept classes with VC and Ldim additive, giving 2s and 3s."
+        ],
+        "reasoning": "The earlier query complexity results and generic Ldim theory do not imply the specific profile cutoffs or quantitative gap; the additivity step uses a standard theorem, credited as such.",
+        "searches": [
+          "DePavia et al arXiv:2305.13402 theorem and partition query model",
+          "Chase et al arXiv:2310.04812 learning framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Represent each 2+3 partition uniquely by its smaller 2-subset S; same-cluster answer on pair {u,v} is one iff |S∩{u,v}|∈{0,2}, the complement of crossing parity.",
+          "The condition is distinct from OR edge-hit queries and refinement-closed partition concepts."
+        ],
+        "reasoning": "The exact predicate was compared with balanced cuts/parity, including exchange of two unlabeled blocks. A general dimension formula for a different query label function cannot be directly substituted.",
+        "searches": [
+          "VC Littlestone dimension partition equivalence classes fixed sizes 2 and 3 same-cluster queries adaptive gap",
+          "balanced cut parity concept query graph edges Littlestone dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete finite table n=2..5 independently enumerated: (1,1):(0,0), (1,2):(1,1), (1,3):(2,2), (2,2):(1,1), (1,4):(2,2), (2,3):(2,3).",
+          "No equivalent published table was returned in Resultary or inspected query-learning papers."
+        ],
+        "reasoning": "The finite first-gap classification is mathematically natural rather than an arbitrary point; an existing identical table would cover the claim, and historical priority remains qualified.",
+        "searches": [
+          "VC Littlestone dimension partition equivalence classes fixed sizes 2 and 3 same-cluster queries adaptive gap",
+          "VC Littlestone bipartition profile n≤5 dimension table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original first strict gap for prescribed 2+3 equivalence-partition same-cluster concepts, plus exact linear amplification. Earlier sources use same-cluster queries for total query complexity, noisy recovery, or general learning dimensions, not this exact VC and Littlestone pair. General product additivity and hypothesis-count bounds are standard and not claimed novel.",
+      "residual_risks": [
+        "A prior class-of-balanced-bipartitions VC/Littlestone computation under cut/parity or equivalence-query aliases may exist.",
+        "All-s amplification assumes known disjoint five-point groups and cannot be extended to arbitrary unlabeled decompositions.",
+        "The independent exhaustive calculation covers only n≤5, while amplification relies on abstract additivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different objective, does not determine VC or Littlestone dimensions in inspected text",
+          "evidence": "Theorem 1 counts oracle calls and Lemma 12 gives expected-call analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.13402",
+          "material_read": "Primary preprint paper and theorem/setup sections about exact recovery with adversarial errors and expected query complexity",
+          "method": "direct primary PDF page and theorem inspection",
+          "title": "Error-Tolerant Exact Query Learning of Finite Set Partitions with Same-Cluster Oracle",
+          "trigger": "same oracle and balanced finite set partitions"
+        },
+        {
+          "assessment": "general Ldim framework not identified as exact balanced-partition pair-query census",
+          "evidence": "Explores randomized query learning and compression rather than fixed 2+3 cluster-equality edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "Primary article abstract and accessible theorem/context on equivalence query learning",
+          "method": "text/abstract inspection",
+          "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+          "trigger": "potential general dimension result covering pair-query concepts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original balanced bipartition theorem/certificate",
+        "General VC/Littlestone learning theory"
+      ],
+      "rationale": "Minimal local example of a strict static-vs-adaptive shattering gap for natural fixed-size equivalence relations. The all-s product family has a quantitatively unbounded gap while every interacting group stays of fixed size five; this pinpoints a structural failure of nonadaptive shattering to capture online complexity in a constrained clustering concept class.",
+      "residual_risks": [
+        "Amplification is by independent prescribed blocks, not arbitrary global balanced cuts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Five-point class is unlabeled within blocks; treating 2- and 3-block as ordered would be incorrect.",
+    "No formula for unprescribed global partitions of 5s vertices.",
+    "A prior class-of-balanced-bipartitions VC/Littlestone computation under cut/parity or equivalence-query aliases may exist.",
+    "All-s amplification assumes known disjoint five-point groups and cannot be extended to arbitrary unlabeled decompositions.",
+    "The independent exhaustive calculation covers only n≤5, while amplification relies on abstract additivity.",
+    "Amplification is by independent prescribed blocks, not arbitrary global balanced cuts."
+  ],
+  "schema_version": 1
+}
