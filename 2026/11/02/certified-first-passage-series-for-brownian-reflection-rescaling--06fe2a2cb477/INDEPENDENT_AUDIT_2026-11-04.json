@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:10:08.559334Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The s-resolvent Fourier recursion yields C_n(k)=r^n/product_{j=0}^n(s+r+D a^{2j}k^2); inverse Fourier transforms are finite independent symmetric-Laplace convolution densities. Strong Markov at the actual hit (not jumped crossings) gives E_x exp(-s tau_L)=u_s(x,L)/u_s(L,L); the recurrent density q H_infty(q L) is the s=0 pole. Lipschitz 1/2 bounds imply absolute numerator-tail <= |b-y|c^(N+1)/(2(1-c)); independent-tail first moment bounds the denominator density error <=c^(N+1)/(2(1-c)). Valid when 0<c<1, r,D,L>0, finite x, B_N>delta_N. Independent cosine Fourier integration at a=-1/2 and b=1 gives r E_0 tau approximately 1.347218 at depth13 with an analytically bounded interval numerically evaluated as approximately [1.346512,1.347925], containing the high-depth claimed value 1.3472466.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known potential theory gives E exp(-s tau)=u_s(x,L)/u_s(L,L) but not the explicit hypo-Laplace series; fixed resets and nonnegative multipliers are distinct generators."
+        ],
+        "reasoning": "The broad theorems justify the method but do not dominate the claimed computed constant and error enclosures without the particular Fourier resolvent iteration.",
+        "searches": [
+          "Brownian diffusion negative multiplicative resetting first passage time hitting target exact Laplace convolution resolvent boundary kappa",
+          "point-hitting resolvent potential diffusion jump process",
+          "arxiv:2202.02715 fixed-resetting first passage"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2406.08387v1",
+        "https://arxiv.org/html/2204.07215v1",
+        "https://arxiv.org/abs/2202.02715",
+        "Resultary search:Brownian diffusion negative multiplicative resetting first passage time hitting target exact Laplace convolution resolvent boundary kappa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biroli et al. stationary density is exactly the same Laplace-product law, but its negative first-passage solution explicitly retains kappa; Pierce restricts to a nonnegative proportional multiplier."
+        ],
+        "reasoning": "Stationary law alone and source Eq.(60) cannot be algebraically substituted to compute kappa; the missing full-line resolvent is the new implication, including all negative-x positions.",
+        "searches": [
+          "Brownian diffusion negative multiplicative resetting first passage time hitting target exact Laplace convolution resolvent boundary kappa",
+          "arxiv:2406.08387v1 Eqs. 51-60",
+          "arxiv:2204.07215 proportional resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli et al. Eq. (60) has an uncomputed kappa and simulation calibration; the new formula evaluates full-line hitting mean using the resolvent Green function.",
+          "Pierce considers a nonnegative multiplier, so negative sign-crossing trajectory law differs."
+        ],
+        "reasoning": "The equivalent Green/potential-kernel presentation is explicitly considered: generic resolvent ratio has prior status but its evaluated negative-rescaling boundary value is not contained in the inspected statements.",
+        "searches": [
+          "Brownian diffusion negative multiplicative resetting first passage time hitting target exact Laplace convolution resolvent boundary kappa",
+          "arxiv:2406.08387v1 Sec. III.2 Eq. (60)",
+          "arxiv:2204.07215v1 Sec. IV.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original source compares Eq.(60) with simulations after selecting kappa numerically, not certified full-line enclosures."
+        ],
+        "reasoning": "This stochastic hitting-time result is not a known finite classification table; targeted numeric/source comparison contains values but not an equivalent all-initial-position exact expression.",
+        "searches": [
+          "Brownian diffusion negative multiplicative resetting first passage time hitting target exact Laplace convolution resolvent boundary kappa",
+          "negative rescaling Brownian kappa numerical tables arxiv:2406.08387 Eq 60"
+        ]
+      },
+      "rationale": "PASS at best knowledge: Biroli et al. explicitly leave kappa numerical in Eq. (60) for a negative multiplier, whereas this full-line resolvent density difference supplies kappa and all initial positions with certified geometric error; stationary distribution and generic hitting resolvent ratio themselves are known. Pierce is nonnegative proportional rescaling, Singh–Pal fixed-position reset; general potential theory is not an explicit model-specific evaluated formula. Risk of an unlocated equivalent Green-kernel expansion.",
+      "residual_risks": [
+        "An unindexed generic nonlocal diffusion resolvent evaluation might imply the same model-specific series.",
+        "Finite partial-fraction summation may be ill-conditioned near |a|=1; the proof is exact-real, not machine-certified floating intervals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the specific evaluated constant; foundation is prior",
+          "evidence": "Eq.(60) retains kappa; immediately following text says it is calibrated by simulations.",
+          "identifier_or_url": "https://arxiv.org/html/2406.08387v1",
+          "material_read": "Sections II and III.2, Eq. (60) and the following discussion of kappa, finite-source figures and formula",
+          "method": "lawful accessible HTML/PDF primary-source reading, with targeted theorem and appendix inspection",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "same stochastic generator and explicit unsolved negative-rescaling boundary value"
+        },
+        {
+          "assessment": "DISTINCT nonnegative multiplier regime",
+          "evidence": "Positive proportional multiplier discussion does not cover negative reflection.",
+          "identifier_or_url": "https://arxiv.org/html/2204.07215v1",
+          "material_read": "Section IV.2 model and proportional-reset first-passage equation from accessible paper",
+          "method": "lawful accessible HTML/PDF primary-source reading, with targeted theorem and appendix inspection",
+          "title": "An advection-diffusion process with proportional resetting",
+          "trigger": "same proportional reset type"
+        },
+        {
+          "assessment": "DIFFERENT fixed reset position; not a document-wide negative-coverage finding",
+          "evidence": "Resetting is to a fixed position, not x->a x.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02715",
+          "material_read": "Abstract and bibliographic summary",
+          "method": "lawful accessible HTML/PDF primary-source reading, with targeted theorem and appendix inspection",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "general first-passage resetting alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Settles an explicitly identified open boundary constant in a natural diffusion-with-reflection-rescaling first-passage model, giving reproducible certified intervals from elementary convolution sums, not a cosmetic rewriting of the stationary law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed generic nonlocal diffusion resolvent evaluation might imply the same model-specific series.",
+    "Finite partial-fraction summation may be ill-conditioned near |a|=1; the proof is exact-real, not machine-certified floating intervals."
+  ],
+  "schema_version": 1
+}
