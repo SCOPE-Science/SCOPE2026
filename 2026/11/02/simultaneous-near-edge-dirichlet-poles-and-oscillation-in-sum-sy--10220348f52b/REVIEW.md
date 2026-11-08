@@ -1,15 +1,21 @@
-# Scientific review: sum-system Dirichlet pole replication
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's nonnegative counting Dirichlet series is evaluated exactly through the ordinary Stirling generating function. At each distinct real zeta level, the denominator has a unique simple zero; the residue formula includes the derivative and the other factors. Vertical uniform recurrence of the absolutely convergent zeta series, followed by Rouché's theorem on pairwise disjoint small discs and local convergence of derivatives, constructs poles at one common sequence of heights with the asserted limiting residues. Strict triangle inequality rules out nonreal poles on or to the right of the leading boundary. Lowry-Duda's Theorem 2 applies to the continued Dirichlet series with Perron weight \(1/s\), yielding two-sided deviations; partial summation independently proves the weaker absence of a fixed power saving. The bundled exact-integer verifier passed 549 rational-power-series coefficients and 744 independent Dirichlet coefficients. Finite computations are not treated as a proof of asymptotics.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Huxley–Lettington–Schmidt (2026) determine the Dirichlet series and real convergence threshold, not the common-height nonreal pole/residue ladders or the two-sided error obstruction. Earlier sum-system factorisation results provide arithmetic definitions. Hwang–Janson (2009) analyze ordered factorizations through a related rational zeta function, not the all-\(m\) simultaneous pole/residue hierarchy. Arias de Reyna–van de Lune (2011) locate extremal zeta level sets for positive target values; that is a close antecedent, not a statement about the joint residue hierarchy of sum-system counting functions. Lowry-Duda (2019) supplies the general implication **conditional on** near-edge nonreal poles; verifying that condition simultaneously at all levels is the target-specific step here. Targeted literature and semantic-index searches did not locate a covering application; this is not a proof of uniqueness. A previously unnoticed published specialization could subsume the result.
+PASS
 
-## Mathematical value — PASS
-The leading asymptotic count alone does not determine how strongly a count can oscillate. This theorem rules out **every** polynomially smaller remainder for each fixed number of at least three parts, while establishing a coherent \(m-1\)-level structure of recurring poles and residues behind the phenomenon. The distinction between an \(o(X^{r_m})\) Tauberian remainder and an impossible \(O(X^{r_m-\delta})\) remainder is analytically consequential. The result is a structural boundary theorem rather than a small table, reparameterization, or improvement to a previously known constant.
+PASS, qualified on cited prior formula: Taking the given published Dirichlet expansion F_m(s)=sum_L m! S(L-1,m-1)(zeta(s)-1)^L, exact Stirling generating algebra reduces it to m!z^m/prod_{1<=j<m}(1-jz), z=zeta(s)-1. Distinct simple real poles at rho_j>1 with zeta(rho_j)=1+1/j have computed residues; zeta(s) is vertically almost periodic on Re(s)>1 by simultaneous prime-phase recurrence and absolute convergence. Rouché discs at finitely many rho_j yield a common unbounded sequence of heights with simple poles and converging residues. Strict triangle inequality excludes nonreal poles on Re(s)=rho_{m-1}. Lowry-Duda Theorem 2 (full primary theorem read) converts supremum of nonreal pole real parts to two-sided Omega±(X^{r_m-eps}) for the unsmoothed summatory count; endpoint step values are handled by choosing one-sided limits. Independent finite Stirling checks confirmed algebra, not the infinite analytic argument. Same-source Huxley preprint full PDF inaccessible, so the exact imported Theorem 5.3 remains citation-dependent, not independently reread.
 
-## Closest literature and limits
-The direct ingredients are [1] Huxley–Lettington–Schmidt's Theorem 5.3, [2] Lowry-Duda's general nonreal-pole oscillation theorem, and [3] the earlier zeta-value extremal theory of Arias de Reyna–van de Lune. The analysis excludes increasing-\(m\) uniformity and effective oscillation constants. Historical priority is conditional on the inspected sources and searches; independent mathematical and bibliographic review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Huxley–Lettington–Schmidt supply the sum-system Dirichlet series and leading pole/asymptotic; Lowry-Duda supplies the general nonreal-pole oscillation theorem. The contribution assessed is the simultaneous common-height zeta-level pole/residue replication and its application yielding all-m two-sided sharp error obstruction, not the imported general results or elementary generating-function algebra. Huxley full preprint could not be read due transport and institution VPN limitation; best-of-knowledge priority is qualified, and any decisive overlap would require re-assessment.
+
+## value
+
+PASS
+
+PASS: The singularity structure of a natural arithmetic counting Dirichlet series has a meaningful global asymptotic consequence: *no fixed power saving* past the known leading term, with both signs of error arbitrarily close to the main exponent. The common-height replica ladder gives additional explicit residues for every relevant level and is more than routine evaluation of the leading real pole. The result is dependent on cited general oscillation theory; that use is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
