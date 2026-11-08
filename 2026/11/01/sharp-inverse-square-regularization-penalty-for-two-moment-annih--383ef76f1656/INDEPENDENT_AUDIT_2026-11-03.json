@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T09:13:28Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md precise Daugavet, polar and clipped-boundary-layer steps; check_projection_regularization.py inspected",
+        "Independent numerical root r*=.7349935892425393, projection norm 2.22040491711636 and coefficient .2130917668352374"
+      ],
+      "rationale": "For real C[-1,1] with probability measure dt/2 and Y=ker integral ∩ ker first-moment, every projection has coefficient pair (g0,g1) satisfying four biorthogonality moments. Finite-rank Daugavet gives ||P||=1+max_x Phi(g0(x),g1(x)), Phi=∫|a+bt|dµ. Reflection/convex averaging reduces to even a and odd b. The support function for Phi<=1 is t+sqrt(r²+t²), with strict optimizer (r/sqrt(r²+t²),1+t/sqrt(r²+t²)); optimizing r gives unique r*>0 via A(r*)=B(r*) and L=1/A. Equality demands b(0+)=L, impossible for continuous odd b, so infimum 1+L is unattained. If b is K-Lipschitz, |b(t)|<=Kt; integrating the polar deficit over t∈[0,M/K] produces H(r*)(M-L)>=M³/(6K²) for K large. Clipped polar optimizers, parameter-adjusted to meet first moment, give matching M=L+L^4/[6(1+r*)]K^-2+O(K^-3). This proves exact coefficient without asserting full finite-K formula.",
+      "residual_risks": [
+        "The interval-length assumption M<=K for the finite-parameter lower bound is used only for large K; no claim for all small K.",
+        "Numerical checks support but do not prove the polar maximizer or asymptotic remainder."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 primary paper constructs large families of nonattained projection constants, but has no K-Lipschitz regularization constraint or K^-2 theorem; older L1 polynomial projection results may cover unrestricted constants."
+        ],
+        "reasoning": "Neither source inspected establishes a dominating quantitative regularization law for this normalized two-moment space. Older specialized primary text remains a noted access/priority risk.",
+        "searches": [
+          "Kania–Lewicki arXiv:2604.10771 Theorem 3.1 and Sections 4–5",
+          "Chalmers–Metcalf 1992 minimal projections/extensions in L1"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md with check_projection_regularization.py",
+        "Kania–Lewicki arXiv:2604.10771 full accessible PDF",
+        "Chalmers–Metcalf DOI 10.1090/S0002-9947-1992-1034660-1 bibliographic preview",
+        "Resultary Lipschitz moment projection search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Daugavet duality is inherited; the discontinuous polar optimizer has a new explicit Lipschitz boundary-layer lower certificate and matching constructive upper family."
+        ],
+        "reasoning": "The sharp inverse-square coefficient requires a distinct singular perturbation analysis not given by the inspected general theorem; historical equivalence with older polynomial projection work cannot be excluded without their full texts.",
+        "searches": [
+          "Kania–Lewicki arXiv:2604.10771",
+          "Chalmers–Metcalf 1992/1997 L1 minimal projection publications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kania–Lewicki establishes Daugavet duality and nonattainment constructions, which are explicitly reused.",
+          "The submitted space and Lipschitz-constrained first-moment coordinate are more specific than their general theorem."
+        ],
+        "reasoning": "General finite-codimensional projection duality is prior art. The exact normalized moment-annihilator asymptotic and coefficient do not appear in inspected source; no novelty is claimed for Daugavet reduction.",
+        "searches": [
+          "Kania–Lewicki arXiv:2604.10771 projection constants nonattainment",
+          "Resultary: two-moment annihilator Lipschitz K^-2 projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concerned nearest-point projections in finite-dimensional norms, not a sharp C[-1,1] codimension-two Lipschitz penalty table."
+        ],
+        "reasoning": "This is a continuous K->infinity asymptotic for a natural moment pair, not recomputation of a known numerical table.",
+        "searches": [
+          "Resultary projection constant two moment annihilator Lipschitz",
+          "Kania–Lewicki arXiv:2604.10771"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the full theorem, not just its title: General finite-codimensional projection duality is prior art. The exact normalized moment-annihilator asymptotic and coefficient do not appear in inspected source; no novelty is claimed for Daugavet reduction. The sharp inverse-square coefficient requires a distinct singular perturbation analysis not given by the inspected general theorem; historical equivalence with older polynomial projection work cannot be excluded without their full texts.",
+      "residual_risks": [
+        "Older Chalmers–Metcalf 1992 and 1997 primary full texts were not available; they may contain equivalent unrestricted projection geometry or related regularity penalties.",
+        "The quantified K^-2 coefficient is only for the chosen normalized coordinate and does not establish a general finite-codimensional regularization theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Daugavet duality and existence of nonattaining examples; does not state the precise mass+first-moment K^-2 penalty",
+          "evidence": "Theorem 3.1, Sections 4–5",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.10771",
+          "material_read": "15-page arXiv PDF abstract, general duality theorem, construction sections and literature context; inspected actual PDF page 1",
+          "method": "Accessible primary PDF text and screenshot",
+          "title": "Finite-codimensional subspaces of Daugavet spaces: projection constants and minimal projections",
+          "trigger": "Same ambient C[0,1], Daugavet finite-rank duality and nonattainment"
+        },
+        {
+          "assessment": "Cannot conclude noncoverage from snippet; flagged as access priority risk",
+          "evidence": "Classical L1 minimal-projection scope",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1992-1034660-1",
+          "material_read": "Bibliographic record/title/abstract context only; full 1992 article not available in this run",
+          "method": "Metadata/limited preview, not full-text read",
+          "title": "The determination of minimal projections and extensions in L1",
+          "trigger": "Potential same L1 dual projection optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Matching polar-certificate lower bound and continuous clipped optimizer upper bound",
+        "Natural mean/first moment conditions and exact nonattained projection constant"
+      ],
+      "rationale": "The discontinuous dual optimizer produces an explicit nonattainment problem, and the exact 1/K² penalty and coefficient for the first moment quantify the cost of regularity in a canonical codimension-two C-space projection. A sharp asymptotic cutoff for a natural operator geometry is mathematically informative independent of a grand general theorem.",
+      "residual_risks": [
+        "Basis-normalized first-moment Lipschitz constraint; no universal statement for all moment systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md with check_projection_regularization.py",
+    "Kania–Lewicki arXiv:2604.10771 full accessible PDF",
+    "Chalmers–Metcalf DOI 10.1090/S0002-9947-1992-1034660-1 bibliographic preview",
+    "Resultary Lipschitz moment projection search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The interval-length assumption M<=K for the finite-parameter lower bound is used only for large K; no claim for all small K.",
+    "Numerical checks support but do not prove the polar maximizer or asymptotic remainder.",
+    "Older Chalmers–Metcalf 1992 and 1997 primary full texts were not available; they may contain equivalent unrestricted projection geometry or related regularity penalties.",
+    "The quantified K^-2 coefficient is only for the chosen normalized coordinate and does not establish a general finite-codimensional regularization theorem.",
+    "Basis-normalized first-moment Lipschitz constraint; no universal statement for all moment systems."
+  ],
+  "residual_risks": [
+    "Older Chalmers–Metcalf 1992 and 1997 primary full texts were not available; they may contain equivalent unrestricted projection geometry or related regularity penalties.",
+    "The quantified K^-2 coefficient is only for the chosen normalized coordinate and does not establish a general finite-codimensional regularization theorem.",
+    "The interval-length assumption M<=K for the finite-parameter lower bound is used only for large K; no claim for all small K.",
+    "Numerical checks support but do not prove the polar maximizer or asymptotic remainder."
+  ],
+  "schema_version": 1
+}

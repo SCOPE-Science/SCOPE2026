@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The dual reduction uses the finite-rank Daugavet identity on a perfect compact interval; the four biorthogonality moments characterize every projection onto the two-moment annihilator. The exact planar polar support \(t+\sqrt{r^2+t^2}\) gives the unconstrained lower bound and forces a discontinuous odd first-moment optimizer at equality. An odd Lipschitz coefficient satisfies \(|g_1(t)|\le Kt\), yielding the explicit lower certificate \(H(r_*)(M-L)\ge M^3/(6K^2)\) for \(M\le K\). A truncated polar optimizer satisfies all moments after a scalar parameter adjustment and gives the matching upper asymptotic \(L^4/[6(1+r_*)]\). The critical root, derivative, and boundary-layer expansions were independently recomputed numerically. Verification is supplemental; no finite test establishes the operator or all-parameter theorem.
+PASS
 
-## Originality — PASS, best-knowledge assessment
+For real C[-1,1] with probability measure dt/2 and Y=ker integral ∩ ker first-moment, every projection has coefficient pair (g0,g1) satisfying four biorthogonality moments. Finite-rank Daugavet gives ||P||=1+max_x Phi(g0(x),g1(x)), Phi=∫|a+bt|dµ. Reflection/convex averaging reduces to even a and odd b. The support function for Phi<=1 is t+sqrt(r²+t²), with strict optimizer (r/sqrt(r²+t²),1+t/sqrt(r²+t²)); optimizing r gives unique r*>0 via A(r*)=B(r*) and L=1/A. Equality demands b(0+)=L, impossible for continuous odd b, so infimum 1+L is unattained. If b is K-Lipschitz, |b(t)|<=Kt; integrating the polar deficit over t∈[0,M/K] produces H(r*)(M-L)>=M³/(6K²) for K large. Clipped polar optimizers, parameter-adjusted to meet first moment, give matching M=L+L^4/[6(1+r*)]K^-2+O(K^-3). This proves exact coefficient without asserting full finite-K formula.
 
-The closest inspected primary preprint, Kania–Lewicki (arXiv:2604.10771v1), contains the Daugavet duality and general nonattaining constructions, which are credited as background; its full relevant sections do not discuss the uniform mass/first-moment example or a sharp Lipschitz regularization law. Chalmers–Metcalf (1992, 1997) is directly relevant to unrestricted minimal \(L^1\) polynomial projections, so that unrestricted optimization is **not** asserted as a standalone novel theorem. The actual claim being assessed is the quantitative inverse-square penalty for continuous coefficient functions with a prescribed Lipschitz budget. Searches using aliases (moment annihilators, polynomial \(L^1\) projections, weak-star-continuous biorthogonal multipliers, Lipschitz boundary layers) did not locate that statement or a result with broader implications. Classical full texts from 1992 and 1997 were inaccessible, creating a residual priority risk rather than a fictitious negative comparison.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first-moment Lipschitz bound is intrinsic to the standard normalized moment basis and measures the regularity cost of realizing an optimal dual projection continuously. The exact sharp exponent and coefficient furnish a quantitative stability invariant at a genuine nonattainment boundary. Both the matching lower certificate and the explicit admissible upper family illuminate the boundary-layer mechanism; this is not merely the known assertion that some minimal projections fail to exist.
+Best-of-knowledge comparison of the full theorem, not just its title: General finite-codimensional projection duality is prior art. The exact normalized moment-annihilator asymptotic and coefficient do not appear in inspected source; no novelty is claimed for Daugavet reduction. The sharp inverse-square coefficient requires a distinct singular perturbation analysis not given by the inspected general theorem; historical equivalence with older polynomial projection work cannot be excluded without their full texts.
 
-## Prior work and limitations
+## value
 
-The source paper has a general structural theorem, while classical polynomial \(L^1\) papers provide methods and likely unrestricted instances. The new theorem is specialized to real continuous functions, uniform measure and one canonical first-moment Lipschitz seminorm. It neither computes finite-budget optima nor treats arbitrary moment systems. Access limitations on historical polynomial-projection literature remain and prevent definitive priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The discontinuous dual optimizer produces an explicit nonattainment problem, and the exact 1/K² penalty and coefficient for the first moment quantify the cost of regularity in a canonical codimension-two C-space projection. A sharp asymptotic cutoff for a natural operator geometry is mathematically informative independent of a grand general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
