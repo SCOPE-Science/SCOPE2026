@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Legendre proves invariance under p-power multiplication. Kummer forces a-r lower carries and yields E_v>=v. The exact disjoint-r reductions give D_a=min_{v<=a} E_v, and E_1<=c excludes strict improvements at v>=c. The E_1=1 criterion is an exact digit-sum statement. Tested independently through full gcd, factorial, and carry implementations (274, 4400 and 20825 cases). Finite tests support but do not establish the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu Theorem 2 imposes additional restrictions on prime factors.",
+        "Hong 2016 concerns indices relatively prime to multiplier; Chung, Yang and Zhou 2025 examine another restricted index regime."
+      ],
+      "reasoning": "None of the inspected relevant results has hypotheses simultaneously covering every multiplier m and every exponent a with the exact finite cutoff; the named different restriction regimes are not stronger versions of this claim.",
+      "searches": [
+        "arxiv:2606.20940 Theorem 2 gcd binomial coefficients prime factors restrictions",
+        "Hong 2016 greatest common divisor certain binomial coefficients restricted index coprime",
+        "Chung Yang Zhou 2025 greatest common divisor sets of binomial coefficients restrictions"
+      ]
+    },
+    "checked_sources": [
+      "Wu arXiv:2606.20940, published 2026-06-18",
+      "Hong (2016), DOI 10.1016/j.crma.2016.06.001",
+      "Chung--Yang--Zhou (2025), DOI 10.37256/cm.6120255017",
+      "Joris--Oestreicher--Steinig (1985), metadata only",
+      "OEIS A265388",
+      "Kummer carry theorem and Legendre factorial valuation identity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary Wu result makes the m=p^t conclusion; our all-m statement strictly includes that case.",
+        "The 1985 Joris--Oestreicher--Steinig work is plausibly relevant by title but its full text was not available for this comparison."
+      ],
+      "reasoning": "No inspected statement logically dominates the new all-m result. The potentially relevant 1985 source remains an explicit unresolved priority risk, not a fictitious negative full-text comparison.",
+      "searches": [
+        "Joris Oestreicher Steinig 1985 greatest common divisor certain sets binomial coefficients",
+        "Wu 2026 Computing the Greatest Common Divisor of Binomial Coefficients theorem proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu arXiv:2606.20940 Theorem 1 limits the local formula to m=p^t; the present theorem allows arbitrary p-free multiplier u.",
+        "Kummer relates valuation to carries but does not by itself state an effective cutoff for the gcd across all restricted indices."
+      ],
+      "reasoning": "The carry reduction proves the new formulation is equivalent to minimizing finite levels E_v, and E_v>=v gives a cutoff. The inspected source only covers a special class of multipliers and does not imply the general result.",
+      "searches": [
+        "restricted binomial coefficient gcd prime-power upper index multiplier Kummer stabilization",
+        "gcd_{1<=k<p^a} binom(m p^a,m k) valuation eventually constant",
+        "arxiv:2606.20940 Theorem 1 binomial gcd prime-power multiplier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A265388 tabulates the special multiplier m=2.",
+        "Direct finite checks reproduce m=11 and m=39 delayed drops absent from simple prime-power-multiplier examples."
+      ],
+      "reasoning": "A single fixed-multiplier table neither implies the all-multiplier cutoff nor the valuation-one classification; no exact general database entry was identified.",
+      "searches": [
+        "OEIS A265388 gcd binomial 2n 2k",
+        "binomial gcd p-adic stabilization finite tables"
+      ]
+    },
+    "rationale": "The June 2026 primary paper studies the same restricted gcd but its prime-local formula assumes a prime-power multiplier, whereas the new statement gives an effective exponent-independent valuation cutoff for every multiplier; the 2016 and 2025 comparison papers restrict different indices or top parameters. Published primary passages, mathematical-index comparisons and earlier recoverable claims produced no covering implication. Historical priority remains qualified by inaccessible 1985 full text and unindexed work.",
+    "residual_risks": [
+      "The 1985 Joris--Oestreicher--Steinig original article was inaccessible in full; exact implication comparison remains open.",
+      "Older or unindexed equivalent restricted-gcd literature may establish the general cutoff.",
+      "Current theorem does not identify the least stabilization level in every instance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Special prime-power multiplier and restricted-factor hypotheses do not cover arbitrary multiplier cutoff",
+        "evidence": "arXiv:2606.20940 Theorems 1 and 2",
+        "identifier_or_url": "https://arxiv.org/html/2606.20940",
+        "material_read": "Introduction, definitions, Theorems 1 and 2, proofs and stated assumptions in complete HTML primary text",
+        "method": "Accessible full-text HTML mathematical comparison",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Same gcd object and recent motivating source"
+      },
+      {
+        "assessment": "Index coprimality restriction differs from multiples of m",
+        "evidence": "Hong (2016) abstract",
+        "identifier_or_url": "https://doi.org/10.1016/j.crma.2016.06.001",
+        "material_read": "Abstract and accessible descriptive material; not independently verified entire full text",
+        "method": "Published abstract and bibliographic comparison",
+        "title": "The greatest common divisor of certain binomial coefficients",
+        "trigger": "Analogous restricted binomial gcd"
+      },
+      {
+        "assessment": "Different index selection and upper-argument constraints",
+        "evidence": "Chung--Yang--Zhou (2025) abstract",
+        "identifier_or_url": "https://doi.org/10.37256/cm.6120255017",
+        "material_read": "Abstract and available statement summaries; not complete text",
+        "method": "Published abstract and relevant hypothesis comparison",
+        "title": "The Greatest Common Divisor of Sets of Binomial Coefficients with Restrictions",
+        "trigger": "Restricted binomial gcd and digit sums"
+      },
+      {
+        "assessment": "NOT established as noncovering; potential historical-priority risk",
+        "evidence": "Joris--Oestreicher--Steinig (1985), journal citation and title",
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(85)90013-7",
+        "material_read": "Bibliographic metadata only; full text unavailable",
+        "method": "arXiv and lawful open-access searches; full text not retrieved",
+        "title": "The greatest common divisor of certain sets of binomial coefficients",
+        "trigger": "Plausibly earlier exact gcd classification"
+      },
+      {
+        "assessment": "Multiplier two only, not general theorem",
+        "evidence": "OEIS A265388",
+        "identifier_or_url": "https://oeis.org/A265388",
+        "material_read": "Entry and stated special case",
+        "method": "Database entry comparison",
+        "title": "OEIS A265388",
+        "trigger": "Exact related gcd table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9bcc7b94-4830-4761-856d-2263fd6582a6",
+  "value": {
+    "rationale": "The first unrestricted-m finite stabilization bound is a natural extension of the recent study of g(m,n): it converts the p-component of a gcd of exponentially many large binomials into a bounded finite computation depending only on base-p digits of m. It separates genuine late drops from simple m=p^t examples and classifies valuation one. The question is mathematically motivated by exact restricted binomial gcds, without claiming full factorization or optimal cutoff.",
+    "status": "PASS"
+  }
+}
