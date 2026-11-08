@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility checks
+# Independent mathematical audit
 
-The standalone `verify_c7_product.py` requires only Python 3 standard-library modules. Execute `python3 verify_c7_product.py` from the directory containing the file. On success, it prints `C7K3_COMPLETE_INTEGER_MORSE_AND_84_EQUIVARIANT_CHARACTERS_OK`.
+## correctness
 
-Checks made in the executable: all 21 graph vertices and all 5,281 nonempty independent simplices; the face vector; 2,638 matched pairs with exact global Hasse acyclicity; five critical simplices with dimensions 0,3,4,4,4; zero integral Morse boundary; signed integer cycles with 16,90,96,154 terms; each of the 84 dihedral-color permutations; integral action matrices; expected irreducible characters; and equality with exact signed Lefschetz fixed-face counts.
+PASS
 
-The algorithm is finite and exhaustive for the named graph. It does not certify claims about other products or the integral topology of the quotient. No independent external audit was performed.
+The frozen RESULT defines categorical adjacency (i,a)~(i±1,b) only for a≠b, signed action on oriented independent-set simplices, and D7×S3 action. Independent direct face recursion gives 5281 nonempty simplices and f-vector (21,168,658,1365,1554,1022,402,84,7). Inspected verify_c7_product.py (blob 9bde627b1b153092c4395aef3fb8a102809e00da): exact acyclic Hasse matching 2638 pairs, five critical faces in degrees 0,3,4,4,4, integral projection/cycle lifts and full 84-element signed character matrices. Independently computed Lefschetz fixed-simplex traces for representative rotations/reflections and color classes, matching the stated H3 sign-reflection×sign-color and H4 color sign+standard characters. Because full 84-action code was examined rather than independently reimplemented, computational independence is limited; the complete finite chain calculation is nonetheless explicit and algorithmically exhaustive for the 21-vertex object. Rational quotient acyclicity follows finite-group transfer and zero invariants; no integral-quotient assertion.
+
+## originality
+
+PASS
+
+Known C7×K3 nonequivariant homology and sphere wedge are not novel; assessed claim is the naturally specified full 84-element character and rational orbit-space homology. The closest primary paper names the exact product but does not calculate that representation in inspected sections; no dominating Resultary claim found. Best of knowledge only.
+
+## value
+
+PASS
+
+The specified C7×K3 categorical product has a previously studied, mixed-dimensional independence complex. Its D7×S3 homology representation distinguishes actions invisible to wedge counts, and its rational orbit-space acyclicity is a meaningful exact equivariant invariant for this canonical 21-vertex graph. No inflated infinite-family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

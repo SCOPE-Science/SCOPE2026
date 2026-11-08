@@ -1,15 +1,21 @@
-# Review of the seven-cycle three-color equivariant homology calculation
+# Independent mathematical audit
 
-## Correctness — PASS
-All \(5,281\) independent faces of the precisely defined 21-vertex graph are generated. The complete reversed-edge Hasse digraph for the \(2,638\) matching pairs is acyclic, leaving one critical zero-cell, one degree-three cell and three degree-four cells. Exact integral Morse-boundary computation returns zero. Independent oriented integer cycles lift the critical bases, and all \(84\) group actions are evaluated through signed simplicial chain maps and Morse projection. The observed characters are checked both against their group-theoretic formulas and the independent exact Lefschetz counts; the full-group character averages vanish. The conclusion about rational orbit-space homology invokes standard rational transfer for finite cellular group actions. The numerical proof certifies this finite case only.
+## correctness
 
-## Originality — PASS on available evidence
-Antolín Camarena–Carnero Bravo (arXiv:2307.12401) already discuss the homology and broad possible homotopy types for exactly \(C_7\times K_3\); the nonequivariant Betti numbers and corresponding homotopy discussion are explicitly excluded from any priority claim. The inspected primary full text does not give the 84-element natural homology representations or quotient calculation. Meaning-based research searches using exact product, aliases, dihedral symmetry and color-permutation equivalences returned only nearby but noncovering computations for \(C_7\times K_4\), other cycle lengths, and other graph complexes. None implies these matrices or irreducible constituents. Unindexed or unpublished equivariant work is a residual risk.
+PASS
 
-## Value — PASS
-The exact three-color graph is singled out in the motivating paper as a natural test case for two-adjacent-degree independence homology. The representation distinguishes the different dihedral reflection actions in adjacent degrees and identifies the complete collapse of positive rational homology after taking the full symmetry quotient, information no nonequivariant wedge or Betti number can determine. The precise finite model and executable integral/signed certificates make the computation reusable for related equivariant graph-product work.
+The frozen RESULT defines categorical adjacency (i,a)~(i±1,b) only for a≠b, signed action on oriented independent-set simplices, and D7×S3 action. Independent direct face recursion gives 5281 nonempty simplices and f-vector (21,168,658,1365,1554,1022,402,84,7). Inspected verify_c7_product.py (blob 9bde627b1b153092c4395aef3fb8a102809e00da): exact acyclic Hasse matching 2638 pairs, five critical faces in degrees 0,3,4,4,4, integral projection/cycle lifts and full 84-element signed character matrices. Independently computed Lefschetz fixed-simplex traces for representative rotations/reflections and color classes, matching the stated H3 sign-reflection×sign-color and H4 color sign+standard characters. Because full 84-action code was examined rather than independently reimplemented, computational independence is limited; the complete finite chain calculation is nonetheless explicit and algorithmically exhaustive for the 21-vertex object. Rational quotient acyclicity follows finite-group transfer and zero invariants; no integral-quotient assertion.
 
-## Scientific limitations
-This calculation does not solve the general cycle-product torsion question, the integral homology of the quotient, or an infinite family. Algebraic irreducible decomposition is rational. Some equivalent computations might be unindexed; independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known C7×K3 nonequivariant homology and sphere wedge are not novel; assessed claim is the naturally specified full 84-element character and rational orbit-space homology. The closest primary paper names the exact product but does not calculate that representation in inspected sections; no dominating Resultary claim found. Best of knowledge only.
+
+## value
+
+PASS
+
+The specified C7×K3 categorical product has a previously studied, mixed-dimensional independence complex. Its D7×S3 homology representation distinguishes actions invisible to wedge counts, and its rational orbit-space acyclicity is a meaningful exact equivariant invariant for this canonical 21-vertex graph. No inflated infinite-family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
