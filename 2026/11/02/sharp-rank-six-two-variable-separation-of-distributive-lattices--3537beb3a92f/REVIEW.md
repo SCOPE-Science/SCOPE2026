@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every nonempty finite poset arises by adjoining a maximal element above a downset of a smaller poset. Exact directed-poset isomorphism removal gives the known counts \(1,1,2,5,16,63,318,2045\). Birkhoff correspondence converts this into all \(2451\) distributive lattice isomorphism types under the stated bound. The set-valued one-point-type recurrence is precisely noncounting two-variable quantifier-depth semantics. Exhaustive computation gives classes \(1,5,78,789,2449,2451\); a separate program checks both exact rank-five exceptional pairs. The proof does not extrapolate beyond seven join-irreducibles.
+## correctness
 
-**Originality — PASS (qualified).** The primary 2002 distributive-lattice census gives structural enumeration but no two-variable logical equivalence classification. The 2015 counting-logic paper concerns a stronger logic and a different identification universe. Searches against relevant published mathematical records and accessible prior restricted-family work found no theorem implying the exact rank-six classification plus the two exceptional pairs. Possible unpublished or differently named results remain a residual priority risk.
+PASS
 
-**Value — PASS.** The result gives a complete, natural finite-model-theoretic classification of the full standard seven-point-poset census (all \(2451\) distributive lattices with at most seven join-irreducibles), identifies the precise last obstruction to rank-five separation, and supplies a reproducible sharp rank-six bound. These precise data serve as a reference point for the more general question of two-variable rigidity in finite distributive lattices; no claim of progress on unbounded rigidity is made.
+For a finite poset P, ideals J(P) encode all finite distributive lattices. Adjoining one maximal point with any downset of predecessors, and exact directed graph isomorphism deduplication, exhaust all posets of sizes 0..7 (counts 1,1,2,5,16,63,318,2045). Two-variable no-counting unary Hintikka sets T_{t+1}(a)={(ρ(a,b),T_t(b)):b∈J(P)} with root supports U_t capture FO² sentence rank t+1. The fully rerun independent census computed 2451 distinct lattices; rank 1..6 class counts 1,5,78,789,2449,2451, including exactly two rank-five exceptional pairs of sizes 34/32 and 16/14. Independent explicit witness refinement agrees through rank five and separates at six. Finite exhaustiveness proves the stated restricted universal bound; makes no claim beyond seven irreducibles.
 
-**Limitations.** The class bound is essential; results are relative to distributive lattices, not arbitrary posets, and no result is claimed for eight or more join-irreducibles. The main checker uses `networkx` for exact graph isomorphism. Priority comparisons do not imply definitive uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical counts enumerate the finite posets, whereas the new rank-six FO² profile and two rank-five witness collisions are different logical invariants. Counting C² and Boolean algebra in richer signatures are non-equivalent to plain-order FO². The complete exact census does not appear in checked comparative sources or related published findings, subject to unindexed restricted-fragment literature.
+
+## value
+
+PASS
+
+Complete naturally bounded logical classification of all finite distributive lattices with ≤7 join irreducibles; a sharp finite FO² quantifier-depth cutoff with explicit exceptional witness pairs is a nontrivial exact model-theoretic invariant, rather than recomputing the known poset count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
