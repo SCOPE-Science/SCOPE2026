@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The proof directly establishes that a perfect binary evolution algebra has only permutation automorphisms; simplicity is equivalent to invertibility and strong connectivity. An invariant binary matrix under a two-transitive group is constant on the diagonal and on off-diagonal ordered pairs. For odd dimension, strong connectivity and invertibility exclude those possibilities. A hypothetical automorphism subgroup of order greater than \((n-1)!\) has index less than \(n\), so its coset action forces it to contain \(A_n\) for \(n\ge5\), contradicting the invariant-matrix obstruction. The even complete-loopless and odd hub constructions are verified nonsingular and strongly connected, with exact automorphism groups. Dimension three is handled separately. Finite exhaustive checks corroborate the small cases and witnesses. Risk: the proof uses the standard normal-subgroup classification of the symmetric group for \(n\ge5\).
+
+## Originality — PASS (historical priority qualified)
+The October 2026 survey raises the analogous maximal-order question over \(\mathbb C\); this is not the binary-field theorem. Sriwongsa–Zou (2022, Theorem 3.2) already classify the algebras with full \(S_n\) automorphism groups, so the full-symmetry obstruction is not independently claimed as new. Costoya–Mayorga–Viruel (2025, Theorem A) already gives restrictions on highly transitive automorphism actions. The assessed statement is the **sharp all-dimensional maximum over \(\mathbb F_2\)**, with the odd point-stabilizer constructions and the exceptional value in dimension three. These stronger extremal conclusions do not appear as stated in the inspected texts and are not established by the full-\(S_n\) classification alone. Searches of related mathematical records found no equivalent; absence from searches does not establish priority. Risk: an earlier implicit treatment of the binary maximum may exist in graph-automorphism literature.
+
+## Mathematical value — PASS
+The result gives the exact maximum of a natural group invariant for all simple evolution algebras over the smallest field, with a sharp parity split and a low-dimensional exception. It directly refines a field-sensitive version of a recent automorphism-maximization problem rather than computing an arbitrary isolated sample. The explicit construction attains the group-theoretic bound in every odd dimension at least five. Its field-specific nature is intrinsic because \(\mathbb F_2^\times\) is trivial and a rank obstruction rules out full symmetry in odd dimension.
+
+## Limits and sources
+Relevant full-text comparisons: Kaygorodov–Martín González–Viruel, arXiv:2610.22248v1, Sections 1 and 2.3 (2026); Sriwongsa–Zou, arXiv:2202.01333, Sections 2–3 (2022); Costoya–Mayorga–Viruel, DOI:10.1007/s00009-025-02924-0, Sections 2–4 (2025). The all-dimensional theorem remains without independent audit. Only ordinary automorphism groups over the base field are covered.
+
+Self-review: passed. Independent audit: not yet performed.

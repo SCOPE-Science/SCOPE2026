@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Direct monomial/permutation reduction over F2, exhaustive simple-graph criterion, complete even and odd constructive witnesses, plus a finite-index coset action and the only proper nontrivial normal subgroup A_n of S_n (n>=5) establish the exact all-dimensional bound. All edge cases n=1,2,3 covered. Checker independently enumerates all binary matrices n<=4 and validates selected higher witnesses, not substituting for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaygorodov–Martín González–Viruel (2026), Conjecture 4, explicitly concerns complex automorphism maxima and presents the characteristic-zero cyclic and symmetric constructions.",
+        "Sriwongsa–Zou (2022), Theorem 3.2, is about algebras with S_n and not maxima among all simple binary algebras."
+      ],
+      "reasoning": "The complex-field result/conjecture cannot bound field-rational binary automorphisms sharply: complex diagonal roots of unity do not survive restriction to F2. General monomiality gives at most n!, but for odd n the exact bound is strictly smaller and requires extra analysis.",
+      "searches": [
+        "Automorphism group maximum simple n-dimensional evolution algebra arbitrary finite field compared to complex bound n factorial",
+        "simple evolution algebra maximum order of automorphism group n! n(2^n−1) over complex 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22248v1",
+      "arXiv:2202.01333",
+      "doi:10.1007/s00009-025-02924-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Costoya–Mayorga–Viruel (2025), Theorem A(ii), says a 4-transitive permutation image is the full S_n; this addresses only extremely transitive candidates.",
+        "The 2022 article establishes invertible-matrix/full-S_n classifications; the 2026 survey motivates maximum-order questions but states them over the complex numbers."
+      ],
+      "reasoning": "The earlier results imply monomiality and prohibit full S_n under certain field/rank restrictions; those are premises, not the new maximum. In particular they do not construct S_{n−1} for every odd n>=5 nor show all larger proper groups are forbidden using the coset-action normal-core argument. Even the conjunction of a full-S_n obstruction with the bound |H|<=n! leaves many possible intermediate maxima.",
+      "searches": [
+        "idempotent evolution algebra F2 graph automorphism maximum size n dimension symmetric alternating graph",
+        "Graph automorphism group of invertible binary adjacency matrices of strongly connected digraphs maximum group order odd even n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sriwongsa–Zou (2022), Theorem 3.2, classifies the full symmetric-group automorphism cases but does not assert the optimum over all proper subgroups.",
+        "Costoya–Mayorga–Viruel (2025), Theorem A, bounds highly transitive permutation actions but does not give these maxima."
+      ],
+      "reasoning": "The graph formulation is equivalent for a perfect binary structure matrix because all nonzero scalars equal one. A statement merely forbidding full S_n in odd dimensions is strictly weaker than the sharp order (n−1)!; the coset-index argument and explicit odd-dimensional examples supply the missing comparison. No equivalent full all-dimensional bound was located.",
+      "searches": [
+        "Maximum order automorphism group of simple perfect evolution algebra over the field F2, parity n even n! odd (n-1)!; simple binary evolution algebras",
+        "finite field F2 simple evolution algebras maximum automorphism group 3 dimension 5 24"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2022 full-S_n classification includes symmetric invariant matrices but gives no all-dimensional table of sharp binary maxima.",
+        "Finite exhaustive enumeration in verify.py reproduces the maxima 1, 2, 3, 24 through dimension four and does not assume unverified published tables."
+      ],
+      "reasoning": "The proposed conclusion is an infinite family of sharp extrema, not a transcription of a known finite table. Exhaustive checks corroborate only n<=4; no exact published table or source found that subsumes the all-dimensional theorem.",
+      "searches": [
+        "binary simple evolution algebras largest automorphism group parity n 2026",
+        "Finite field F_2 simple evolution algebra maximum automorphism size complete loopless directed graph adjacency invertible mod 2"
+      ]
+    },
+    "rationale": "The sharp maxima n! for even dimension and (n−1)! for odd n>=5 with M3=3 do not appear in inspected primary treatments. Known monomiality and full-S_n characterization are credited, as are highly transitive constraints; the combined parity maximum and universal odd hub attainment form the claim. Historical priority remains qualified; search absence is not uniqueness proof.",
+    "residual_risks": [
+      "A logically equivalent finite-field maximum may appear implicitly in older directed graph or finite automorphism-group literature.",
+      "Prior classification of full S_n is used as a premise but does not itself determine the exact maximum among smaller subgroups.",
+      "There has been no independent historical-priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates a complex version but does not give binary-field parity maximum.",
+        "evidence": [
+          "Conjecture 4 is explicitly over C and predicts max{n!,n(2^n−1)}.",
+          "Theorems 4, 6, 7 state monomiality, simplicity and graph scheme prerequisites."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22248",
+        "material_read": "Full HTML text, Sections 1, 1.6 and 2.3 including Conjecture 4 and basic results.",
+        "method": "Read relevant sections and compared base field, maximal order, and quantifiers.",
+        "title": "Evolution algebras: a survey of results and a list of open problems",
+        "trigger": "Recent maximum-automorphism conjecture and simplicity/graph characterization for evolution algebras."
+      },
+      {
+        "assessment": "Covers the full-S_n obstruction/prerequisite, not sharp maxima for odd n.",
+        "evidence": [
+          "Theorem 2.1 gives monomial isomorphisms of perfect algebras.",
+          "Theorem 3.2 classifies algebras with S_n automorphisms, with no point-stabilizer extremal formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01333",
+        "material_read": "Full HTML text including proof of Theorem 2.1 and Section 3 classification Theorem 3.2.",
+        "method": "Inspected all relevant S_n normal forms and field restrictions; compared to maximizing arbitrary proper subgroup orders.",
+        "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+        "trigger": "Direct potential coverage of full symmetric automorphisms and matrix structure in arbitrary characteristic."
+      },
+      {
+        "assessment": "Gives strong prior 2- and 4-transitivity results, but not binary automorphism maximum or universal odd attainment.",
+        "evidence": [
+          "Theorem A(i) covers faithful actions for 2-transitive groups.",
+          "Theorem A(ii) covers 4-transitive groups; neither yields complete binary maximum and sharp examples."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00009-025-02924-0",
+        "material_read": "Full open HTML article, Sections 1–4, including Theorem A and proof.",
+        "method": "Examined transitivity hypotheses, permutation action and whether theorem covers all proper subgroups with order >(n−1)!.",
+        "title": "Permutation Representations and Automorphisms of Evolution Algebras",
+        "trigger": "Highly transitive-group obstructions might dominate the small-index proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e363cae5-955a-4e2f-98c9-68ba5f1451b0",
+  "value": {
+    "rationale": "Natural exact maximum of automorphism-group order over all simple n-dimensional algebras over the smallest field; motivated by a current maximum-order problem. Field size forces a sharp parity transition and exceptional n=3, and explicit extremizers show the bounds are exact for every n. This is an infinite structural classification of an invariant, not an arbitrary isolated computation.",
+    "status": "PASS"
+  }
+}
