@@ -1,15 +1,21 @@
-# Scientific assessment: reentrant Paley-eleven motif torsion and persistence
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the explicit eleven-vertex Paley tournament oriented by the five nonzero quadratic residues modulo eleven, and the stage \(F_t\) consists of induced subsets with at most \(t\) cyclic triples. Every one of the \(2047\) nonempty vertex subsets is enumerated, and a second recurrence for triple counts agrees with direct enumeration. Face weights are monotone. The signed boundary-square identity is checked throughout. Two independent exact field boundary reductions compute all induced inclusion maps at every critical value: twenty types of \(\mathbb F_2\) bars (727 positive-length bars) and eighteen types of \(\mathbb F_3\) bars (726 positive-length bars). Integer Smith calculations at all seventeen stages use unimodular unit pivots followed by full exact rank-one residual tests and entry gcds, not floating-point ranks. The only nonunit factors are 2 in \(\partial_3\) at stage 0 and 2 in \(\partial_6\) at stage 12; free ranks follow from chain dimensions and integer differential ranks. Independently computed mod-two stage Betti numbers and universal coefficients agree. A replayed standard-library verifier reproduces all provided tables. The theorem does not extrapolate to other tournaments or coefficient fields.
+## correctness
 
-## Originality — PASS against inspected evidence
-Govc–Levi–Smith (arXiv:2003.00324v1, 2020-02-29) defines the flag tournaplex and \(c_3\) directionality filtration but does not tabulate the Paley-eleven full barcode. Govc (arXiv:2006.05333v1, 2020-06-09, Proposition 3.4) proves the zero-stage homotopy classification including the familiar integral two-torsion; that **known zero-stage torsion is not claimed as novel**. The new claims are the complete eleven-vertex Paley filtration, both field persistence modules and the second, isolated integral torsion stage at 12. An earlier cyclic-tournament result treats the locally transitive odd regular cyclic orientation rather than this doubly regular Paley tournament and does not determine these inclusion maps. Searches of closely related published mathematical results and alternate formulations identified no stronger covering theorem; unindexed equivalent work remains a risk. The review does not infer novelty merely from different titles.
+PASS
 
-## Value — PASS
-The cyclic-three-subtournament count is a natural, published motif weight, not an ad hoc cutoff. The smallest nontrivial doubly regular Paley tournament is a canonical test object and exhibits a nonmonotone **integral torsion phenomenon**: the known stage-zero order-two class dies immediately, is absent over eleven consecutive integer stages, and an unrelated order-two class reappears in fifth homology at stage twelve. The complete two-field persistence calculation distinguishes 727 from 726 bars, including a degree-five class with a shifted death that is invisible in ordinary pointwise Betti tables. These data resolve a natural finite gap without claiming an all-orders theorem. Their finite scope, computational proof and residual bibliographic risk are explicit.
+Reconstructed the precise tournaplex F_t={nonempty 11-vertex masks with at most t cyclic triples}. Independently enumerated all 165 triples, found 55 cyclic, 2,047 nonempty faces and exactly 17 threshold values 0,1,2,3,4,5,6,7,8,11,12,13,18,19,28,40,55. Fresh signed finite-field reductions of all 2,047 filtration columns independently matched complete supplied F2 barcode (727 positive-length intervals, 20 types) and F3 barcode (726 intervals, 18 types), both with 1,023 finite simplex pairs, all bars finite after reduced H0. Fresh sparse integral unit-pivot Smith reductions for every degree at all 17 thresholds checked all rank-one residual 2×2 minors and gcd invariant; the only nonunit factors are 2 in ∂3 at level 0 and 2 in ∂6 at level 12. All free ranks, mod-2 UCT and F3 ranks agree with the three exact CSV files. The independent replay code `/mnt/data/test_scope_3.py` exited with both PALEY11_INDEPENDENT_PERSISTENCE_CHECK_OK and PALEY11_INDEPENDENT_INTEGRAL_SMITH_CHECK_OK. This is exhaustive for 11 vertices; no integral interval decomposition or family generalization.
 
-## Closest literature and limitations
-The primary full-text comparisons are Govc–Levi–Smith (arXiv:2003.00324) and Govc (arXiv:2006.05333). A related persistent directed-flag algorithm paper, Luetgehetmann–Govc–Smith–Levi (arXiv:1906.10458), concerns a different filtration framework and does not supply the present table. The integral homology classification is pointwise; there is no integral persistence interval theorem, no homotopy classification of the intermediate complexes, and no all-parameter Paley family conclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for complete levelwise integral homology and full F2/F3 motif persistence after the already known level-zero Moore-space result. Govc–Levi–Smith defined the motif-count filtration but did not tabulate Paley-11; Govc 2020 already contains the 11-vertex doubly regular tournament zero-stage Z/2 in H2 (and Z10 free), explicitly not novel. Neither source implies the later second torsion event at level 12 nor the complete inclusion-map barcodes.
+
+## value
+
+PASS
+
+The precise recurrence and disappearance/reappearance of integral 2-torsion in a canonical doubly regular tournament distinguishes filtration stages invisible in its previously classified unweighted directed flag complex. A complete reproducible pair of coefficient-dependent barcodes and all integral stage invariants provide a natural finite benchmark for directionality persistence, including UCT-driven crosschecks; intrinsically useful exact finite classification, not arbitrary slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
