@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proved matrix criterion uses the stabilized image and Cayley–Hamilton to show that an *eventual* single-multiplier recurrence is equivalent to exact tests of \(dk\) rational identities beyond \(Q=2(k+1)\) periods, for each permutation. The standalone verifier enumerates all \(152\) cases and checks its separate companion-matrix evolution. A direct recurrence induction also proves the nonrotational period-five witness and sharp onset. No infinite claim is inferred solely from a finite numerical sample.
+## correctness
 
-## Originality — PASS
-The closest primary paper, Abdelaidoum–Mehiri–Belbachir (arXiv:2609.12569), proves the original increasing-cycle case and explicitly poses classification of alternative memory patterns as Problem 2. It does not state the second rotation class at period five or the complete classification for all permutations through period five. Emerson studies variable-order growth inequalities, and McLellan studies periodic coefficients in a fixed-order recurrence. Searches of the available research record and literature did not identify a covering classification; unindexed or implicit earlier coverage remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-This resolves the first natural finite cutoff of the source's pattern-classification problem, identifies precisely where the obvious rotation-only rule first fails, and provides an explicit nonrotational infinite identity. The exact classification of all \(k!\) patterns for \(2\le k\le5\) is a natural boundary, not an arbitrary numerical sample. The result does not claim a general theorem for all periods or all sorts of constant-coefficient collapse.
+For dimension d=k+1, the period monodromy is a fixed integer d-by-d companion product for each phase. Its zero generalized-eigenspace dies by d periods and on its stable image the characteristic polynomial has nonzero constant term. Thus eventual vanishing of each scalar defect forces vanishing by Q=2d, and d consecutive zero defects force all later defects by Cayley–Hamilton. The forced c is R[(Q+1)k]/R[Qk] with positive denominator. Direct exhaustive exact integer/rational enumeration of all 2+6+24+120=152 permutations with this finite necessary-and-sufficient test independently returned successful counts (2,3,4,10) and c=3*2^(k-2). The five base identities for (2,4,5,6,3), followed by the recurrence induction, prove its sharp onset. The statement is only for these initial data, periods <=5, and one scalar, not for all higher-order reductions.
 
-## Relationship and limitations
-For the original increasing cycle, the scalar factor is already known; the new information is the complete classification including all failing permutations and the first additional positive family. Exact finite enumeration is justified by a general matrix lemma, while independent priority and mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar factor and collapse for the ascending period-k memory cycle are already the theorem of Abdelaidoum, Mehiri and Belbachir. Its stated general-periodic-pattern problem does not classify the finite permutation arrangements or imply the exceptional period-five orbit. Search did not find an established equivalent full permutation census; this is not proof against unindexed results.
+
+## value
+
+PASS
+
+A motivating primary source explicitly asks to go beyond the canonical rotating-memory cycle. The first noncyclic exceptional orbit at k=5, its complete small-period classification, and a sharp finite test for eventual (not merely observed) collapse resolve a natural discrete boundary and provide reusable methodology. Limited k<=5 scope is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
