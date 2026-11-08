@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 4e038563d8723f77b15144a4793dd7c7541045f6, proof Sections 1–6",
+        "verify.py Git blob 25f341e002591b27123844ea33e2d7a956f53056 examined",
+        "independent_checks.py covariance_cases=2, direct segment covariance/variance replay",
+        "arXiv:2610.11831 accessible supplement moment SDE comparison"
+      ],
+      "rationale": "For the stated two-noise linear Gaussian SDE with u∈[u_-,u_+], Y variance remains one, z=E[XY]>0 obeys z′=v−(a+u)z and s′=−2as+2vz+2D. Scalar forward and backward comparison gives max(f_+,b_-)≤z≤min(f_-,b_+). Each envelope is exactly realized by one switch, and arbitrary convex interpolants zθ are attainable via uθ=((1−θ)u_lo z_lo+θu_hi z_hi)/zθ, which stays in bounds; linearity of s gives the full reachable interval [Slo,Shi] at each T≥Tz. At Tz the required full covariance is separated strictly from its endpoint; at large T the opposing extremal s bound crosses, furnishing finite first solution and global fastest protocol. Strictly positive s integral kernel forces uniqueness of this time-optimal extremal trajectory and rate almost everywhere. Independently propagated both control directions and switches numerically; finite checks do not prove comparison or interpolation.",
+      "residual_risks": [
+        "Only one-dimensional harmonic model, deterministic measurable bounded rate, constant active-force variance, interior initial/final stationary rates. Smooth and bandwidth constrained protocols not addressed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boriskovsky et al supplement Sections II and IV: speed bounds and optimized fifth-order profile family; R3 continuity imposed for interior control, unlike present measurable bang-bang rates.",
+          "Other active matter controls involve auxiliary potentials or different thermodynamic costs."
+        ],
+        "reasoning": "The accessible prior result is close physically but optimizes within smooth prescribed families; a global interval theorem over all admissible measurable rates was not located. Inaccessible main content keeps qualified overlap risk.",
+        "searches": [
+          "Boriskovsky Dago et al arXiv:2610.11831 main/supplement",
+          "Meibohm et al arXiv:2609.03862 optimal nonequilibrium transitions",
+          "Li Cheng Tu arXiv:2604.05585 shortcuts active matter"
+        ]
+      },
+      "checked_sources": [
+        "Boriskovsky et al arXiv:2610.11831 (2026-10-08), PaperPeel supplement sections I, II, IV, V",
+        "Li/Cheng/Tu arXiv:2604.05585",
+        "Meibohm et al arXiv:2609.03862",
+        "Resultary search for OU controlled covariance interval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior moment equations and speed constraints do not alone entail reachable-interval equality (needs attainability by weighted control) or all-control optimality.",
+          "The paper allows boundary jumps and optimizes fifth-order protocols; it does not assert in inspected supplement that a globally shortest bang-bang path must be used."
+        ],
+        "reasoning": "Positive-order comparison and convex trajectory interpolation add specific missing implications; full main-text source could still contain stronger statements not inspected.",
+        "searches": [
+          "Boriskovsky 2610.11831 supplementary Sections II, IV and V",
+          "same-object finite-time active bath inverse engineering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is a positive scalar bilinear control z′=v−(a+u)z with second moment s an exponentially weighted integral of z.",
+          "Interpolating extremal trajectories keeps u in bounds through positive z; this is stronger than mere optimality within prescribed trajectory ansatz."
+        ],
+        "reasoning": "Compared model SDE, bilinear-control language, terminal covariance and bang-bang speed limit aliases.",
+        "searches": [
+          "controlled colored OU active bath Gaussian covariance reachable set exact interval one switch",
+          "Resultary: Ornstein Uhlenbeck colored active bath controlled correlation rate optimal time stationary covariance reachability bang bang switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Supplementary Table 1 compares p3/p5/step protocols at experimental rates; it is not a global endpoint Slo/Shi table for arbitrary u_±,ui,uf."
+        ],
+        "reasoning": "The published numerical optimized-time table does not mathematically cover all measurable controls.",
+        "searches": [
+          "Boriskovsky 2610.11831 supplementary Table 1 protocol t_f_min values",
+          "Resultary covariance noise color sharp switching"
+        ]
+      },
+      "rationale": "The source model and practical finite-time transitions with noise-color control, optimization of prescribed polynomial trajectories, and speed-bound constraints are prior art and explicitly credited. The inspected full-text supplement does not supply a global all-measurable-controls exactly reachable terminal variance interval or unique single-switch global minimizer. Main paper sections were not fully obtainable, so a significant priority risk remains; access limitation alone does not refute best-knowledge originality.",
+      "residual_risks": [
+        "Original Boriskovsky main paper and other supplements may assert stronger global time optimum; accessible supplement only, and authorized institutional PDF retrieval was blocked by disconnected VPN. This remains a substantial publication priority risk.",
+        "Model noise normalization must be checked when comparing published equations; present result assumes exact unit bath variance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong model and practical speed optimization overlap; no global all-measurable exact interval theorem identified in sections read",
+          "evidence": [
+            "Section I: admissibility requires continuous interior rate and differentiable trajectory; Sections II, IV: smooth-profile optimal times and bounds; Section V: step benchmark."
+          ],
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.11831",
+          "material_read": "Accessible rendered supplemental sections I–V, including moment equations, smooth admissibility C1–C3, minimum duration bounds, optimized fifth-order controls and step protocol; main research paper not fully read",
+          "method": "lawful public full-text supplement (PaperPeel), cross-check abstract, arXiv full text access failed",
+          "title": "Controlling transitions between nonequilibrium states through active bath engineering",
+          "trigger": "same active Ornstein–Uhlenbeck noise-color-control model and speed limit"
+        },
+        {
+          "assessment": "uses auxiliary potential; does not directly imply bounded noise-color control reachable interval",
+          "evidence": [
+            "Distinct actuation channel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.05585",
+          "material_read": "arXiv abstract and RESULT.md comparison only",
+          "method": "open metadata and scope comparison",
+          "title": "Shortcuts to state transitions for active matter",
+          "trigger": "alternative active matter state transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md and inspected actual proof",
+        "Relevant primary theorem/specialized mathematical context",
+        "Boriskovsky et al arXiv:2610.11831 (2026-10-08), PaperPeel supplement sections I, II, IV, V",
+        "Li/Cheng/Tu arXiv:2604.05585",
+        "Meibohm et al arXiv:2609.03862",
+        "Resultary search for OU controlled covariance interval"
+      ],
+      "rationale": "A complete reachable covariance interval under arbitrary measurable bounded bath rates, exact bang-bang endpoint trajectories and a single-switch global minimal transfer time solve a natural physical control problem beyond fitting a profile family. It has meaningful nontrivial optimality and uniqueness.",
+      "residual_risks": [
+        "Jumps are permitted; optimality does not survive unchanged when control rate must be smooth or derivative bounded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one-dimensional harmonic model, deterministic measurable bounded rate, constant active-force variance, interior initial/final stationary rates. Smooth and bandwidth constrained protocols not addressed.",
+    "Original Boriskovsky main paper and other supplements may assert stronger global time optimum; accessible supplement only, and authorized institutional PDF retrieval was blocked by disconnected VPN. This remains a substantial publication priority risk.",
+    "Model noise normalization must be checked when comparing published equations; present result assumes exact unit bath variance.",
+    "Jumps are permitted; optimality does not survive unchanged when control rate must be smooth or derivative bounded."
+  ],
+  "schema_version": 1
+}

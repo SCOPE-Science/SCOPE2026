@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated model preserves active-force variance exactly, and its remaining covariance equations close without approximation. Positive cross-covariance permits forward/backward order comparison. Both envelope paths are explicitly achievable by two-segment rate controls; convex interpolation weighted by the positive state gives every intermediate terminal variance, not merely a bound. The strict finite-time speed-limit gap, large-horizon opposite sign, and uniqueness of extremizing controls follow from the same scalar equations and positive convolution kernel. A standalone standard-library checker repeats the analytic propagator across 125 parameter choices and checks independent numerical propagation for representative settings. Correctness rests on the written argument, not simulation.
+## correctness
 
-## Originality — PASS, qualified best-knowledge
-The source by Boriskovsky et al. (arXiv:2610.11831v1) already develops the moment inverse engineering framework, time limits, and prescribed-trajectory optimization. Those are not claimed. The assessed statement concerns *all measurable bounded bath-rate trajectories*, giving the complete terminal-variance interval, its two explicit sharp extremizers, and a globally optimal one-switch finite-time NESS transfer. Related studies of auxiliary-potential and quadratic-cost control do not imply that specific closed interval. Targeted research-record and own-finding searches did not expose an equivalent claim. The most important risk is that the inaccessible full source or its supplement may already contain the same global theorem; abstract comparisons alone cannot establish whole-paper absence.
+PASS
 
-## Value — PASS
-An exact finite-horizon reachable set and global, constructive speed limit answer a natural actuator-constrained state-preparation question without restricting to convenient control ansatz families. The switched-control structure is simple enough for physical implementation in idealized rate-quench settings and quantifies how matching cross-covariance alone can be too fast to match the full Gaussian state. It is a substantive reachability classification rather than a routine stationary moment computation.
+For the stated two-noise linear Gaussian SDE with u∈[u_-,u_+], Y variance remains one, z=E[XY]>0 obeys z′=v−(a+u)z and s′=−2as+2vz+2D. Scalar forward and backward comparison gives max(f_+,b_-)≤z≤min(f_-,b_+). Each envelope is exactly realized by one switch, and arbitrary convex interpolants zθ are attainable via uθ=((1−θ)u_lo z_lo+θu_hi z_hi)/zθ, which stays in bounds; linearity of s gives the full reachable interval [Slo,Shi] at each T≥Tz. At Tz the required full covariance is separated strictly from its endpoint; at large T the opposing extremal s bound crosses, furnishing finite first solution and global fastest protocol. Strictly positive s integral kernel forces uniqueness of this time-optimal extremal trajectory and rate almost everywhere. Independently propagated both control directions and switches numerically; finite checks do not prove comparison or interpolation.
 
-## Limits and closest work
-The proof covers deterministic measurable correlation-rate control in a fixed harmonic Gaussian model with constant stationary active-force variance. The motivating preprint's full text was inaccessible, so originality remains a qualified best-knowledge judgment pending a full priority review. Smooth-control and thermodynamic-cost optima are outside scope. The mathematical review described here is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source model and practical finite-time transitions with noise-color control, optimization of prescribed polynomial trajectories, and speed-bound constraints are prior art and explicitly credited. The inspected full-text supplement does not supply a global all-measurable-controls exactly reachable terminal variance interval or unique single-switch global minimizer. Main paper sections were not fully obtainable, so a significant priority risk remains; access limitation alone does not refute best-knowledge originality.
+
+## value
+
+PASS
+
+A complete reachable covariance interval under arbitrary measurable bounded bath rates, exact bang-bang endpoint trajectories and a single-switch global minimal transfer time solve a natural physical control problem beyond fitting a profile family. It has meaningful nontrivial optimality and uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
