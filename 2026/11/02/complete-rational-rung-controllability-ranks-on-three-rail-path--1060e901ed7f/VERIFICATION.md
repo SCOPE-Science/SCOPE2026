@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-The proof in RESULT.md applies to every integer length \(n\ge2\), every allowed position and every rational \(r\ge1\). Two standalone scripts provide independent finite checks:
+## correctness
 
-- `verify_grid.py` uses only the Python standard library. Its finite-field Krylov algorithm computes the rank of a scaled integer Laplacian at every input site for \(n=2,\ldots,16\) and eight rational rung strengths; it asserts 3240 rank equalities. The tested prime is 1000003. Scale the Laplacian by the positive rational denominator to get integer coefficients, which leaves the rational controllability rank unchanged. A modular match is additional evidence, not an all-length proof.
-- `verify_gaps.py` uses SymPy and forms the exact characteristic polynomial \(p_n(x)=xU_{n-1}(1-x/2)\) up to an irrelevant sign, comparing \(\gcd(p_n(x),p_n(x-d))\) to the explicit factors for \(d=1,2,3\) and \(n=2,\ldots,50\). It asserts 147 exact polynomial identities. These finite checks complement the cyclotomic proof and cannot alone certify the infinite statement.
+PASS
 
-Commands: `python3 verify_grid.py`; `python3 -m pip install -r requirements.txt` followed by `python3 verify_gaps.py`.
+The path modes λ_j=2−2cos(πj/n) and rail modes 0,r,3r diagonalize L. A single scalar input reaches one dimension per distinct eigenvalue with nonzero local projection (PBH/Vandermonde), with (g−1)/2 zero longitudinal modes g=gcd(n,2s−1) odd. For rational r, a positive difference of distinct λ_i is a rational algebraic integer in (0,4), hence one of 1,2,3. The primitive-root conjugate arc argument classifies the only pairs at these gaps, including the two golden-ratio pairs for d=1 at 5|n; branch overlaps occur only at 1,3/2,2,3. Inclusion-exclusion of those pairs and one triple eigenvalue at n divisible by six yields the stated outer- and middle-rail formulas, with correct endpoint n=2 and unit-weight mod-five cases. Independently built modular Krylov matrices from weighted graph adjacency gave 792 rank equalities n=2..9, all single input vertices, and six rational weights. Finite Krylov checks corroborate; primitive-root gap classification proves all n.
 
-All proof claims are conditional on unit longitudinal conductances, uniform rational rung conductances at least one and one unrestricted scalar input. Control-energy bounds, numerical conditioning, nonuniform grids, and irrational rung weights remain unresolved. Independent external verification has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for a fully explicit all-length, all-input, rational-weight phase diagram and mod-five gap, not the path spectrum or general PBH criteria. The strong Cartesian-product controllability literature supplies broad criteria but no verified identical closed rational-rung arithmetic formula in the inspected material; inaccessible 2024 specialist full text is recorded as a priority risk, not mistaken for proof of noncoverage.
+
+## value
+
+PASS
+
+An infinite, natural family of three-rail consensus networks has rank loss controlled by only four rational conductances, explicit actuator positions and a mod-five resonance. These facts give a concrete universal corner-controllable weight and structural design rules not obtainable from just stating a generic PBH test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
