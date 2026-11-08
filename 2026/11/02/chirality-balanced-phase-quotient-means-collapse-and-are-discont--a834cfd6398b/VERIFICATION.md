@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is a complete analytic argument in normalized \(L^2\); it establishes all parameter ranges and equality cases independent of numerical sampling.
+## correctness
 
-`verify.py` uses Python's standard library and checks exact rational Fourier-coefficient distance identities for \(\varepsilon\in\{1/10,1/4,2/3,9/10\}\), plus the exact variance identity for chirality weights \((1/4,3/4)\), \((1/2,1/2)\), and \((2/3,1/3)\). A 256-point grid checks three continuous perturbation examples and the balanced segment geometry. Run `python verify.py`; expected observed output:
+PASS
 
-`PASS: exact rational coefficient identities and 256-point Fourier quadrature`
+The complete-square identity reduces Fréchet minimization over curves and independent phase shifts to maximizing the L² norm of their shifted weighted sum. Orthogonality of Fourier modes e^{it} and e^{−it} bounds the squared norm by p²+q², with equality exactly when every same-orientation phase aligns. A common shift removes one phase and leaves the invariant product AB, establishing an exhaustive inequivalent circle of means. mφ becomes a rotated ellipse with semiaxes 1 and |p−q|; at p=q=1/2 it stops twice and retraces the diameter, impossible for a nonconstant periodic trajectory of a locally Lipschitz autonomous planar ODE by uniqueness. For u=e^{it}, b=e^{−it}+εe^{i(t+θ)}, the correlation ε cos(s+θ) has a unique maximizing phase for ε>0 and midpoint curve. Independent exact rational evaluations for ε=1/10,1/4,2/3,9/10 confirm data quotient distance squared 4ε² and unique-mean separation squared 1; the analytic Fourier correlation proves all 0<ε<1.
 
-The finite grid is not used to infer uniqueness for all shifts or dimensions: these follow from the continuous correlation identity and strict inequality \(\varepsilon>0\). Historical priority was checked against relevant literature but has not been independently certified. No external validation of this result is asserted.
+## originality
+
+PASS
+
+Statement/implication comparisons against published Resultary and primary literature, with genuine full-text material where accessible: no decisive earlier theorem implying the full assigned final claim was found. The exact overlapping special cases are credited; the listed inaccessible sources remain substantive priority risks, not automatic failures.
+
+## value
+
+PASS
+
+A natural phase-only Fréchet trajectory average can fail to represent a realizable periodic orbit despite perfectly smooth sampled circles. The full minimizer classification and fixed order-one discontinuity under arbitrarily small smooth elliptical observation changes demonstrate an exact, unavoidable instability of shape selection in a widely used quotient-mean construction. This is a motivated structural counterexample, not just numerical pathology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

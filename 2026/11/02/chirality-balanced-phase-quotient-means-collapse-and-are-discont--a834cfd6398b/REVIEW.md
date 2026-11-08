@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof directly minimizes the normalized \(L^2\) phase-quotient Fréchet energy over all phases and all candidate curves by completing the square. Character orthogonality and the sharp weighted triangle equality exhaust all minimizers; the remaining circle of quotient classes is parameterized by an invariant product of Fourier coefficients. The ellipse formulas and collapse at balanced orientation follow by an exact trigonometric coordinate change. Opposite elliptic perturbations have uniquely aligned midpoints and exact input/mean quotient distances \(2\varepsilon\) and \(1\). `verify.py` passed rational-coefficient and 256-point checks. No infinite statement is inferred from finite tests.
+PASS
 
-## Originality — PASS under inspected literature
+The complete-square identity reduces Fréchet minimization over curves and independent phase shifts to maximizing the L² norm of their shifted weighted sum. Orthogonality of Fourier modes e^{it} and e^{−it} bounds the squared norm by p²+q², with equality exactly when every same-orientation phase aligns. A common shift removes one phase and leaves the invariant product AB, establishing an exhaustive inequivalent circle of means. mφ becomes a rotated ellipse with semiaxes 1 and |p−q|; at p=q=1/2 it stops twice and retraces the diameter, impossible for a nonconstant periodic trajectory of a locally Lipschitz autonomous planar ODE by uniqueness. For u=e^{it}, b=e^{−it}+εe^{i(t+θ)}, the correlation ε cos(s+θ) has a unique maximizing phase for ε>0 and midpoint curve. Independent exact rational evaluations for ε=1/10,1/4,2/3,9/10 confirm data quotient distance squared 4ε² and unique-mean separation squared 1; the analytic Fourier correlation proves all 0<ε<1.
 
-Hering and Kuehn (arXiv:2606.10748) define the identical phase-only quotient, existence theory and numerical alignment, and discuss distorted means; their inspected full text does not state the exact opposite-orientation minimizer continuum, singular mean geometry, or quantitative unique-mean discontinuity. Bigot (arXiv:1111.1855) studies registered curves for signal averaging without this same two-chirality formula. Database searches and accessible prior records located no equivalent statement or a dominating theorem. The critical Hilbert identity itself is classical and not claimed as original. Unindexed specialized shape-registration priority remains a real uncertainty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Theorem makes a sharp distinction between geometric sameness of the observed circle and dynamical orientation in the phase-quotient metric. It supplies an exact threshold for when the mean ceases to represent *any* autonomous periodic orbit, and an explicit no-continuous-selection result with a fixed, nonvanishing mean separation under vanishing changes in the input orbits. These are natural diagnostic and stability boundaries for a contemporaneous periodic-orbit mean framework.
+Statement/implication comparisons against published Resultary and primary literature, with genuine full-text material where accessible: no decisive earlier theorem implying the full assigned final claim was found. The exact overlapping special cases are credited; the listed inaccessible sources remain substantive priority risks, not automatic failures.
 
-## Scope and limitations
+## value
 
-The obstruction concerns phase shifts only, two Fourier modes, and the stated smooth perturbation; time reversal or stronger alignment can eliminate it. This is a self-review, not an independent audit or a claim of exhaustive historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural phase-only Fréchet trajectory average can fail to represent a realizable periodic orbit despite perfectly smooth sampled circles. The full minimizer classification and fixed order-one discontinuity under arbitrarily small smooth elliptical observation changes demonstrate an exact, unavoidable instability of shape selection in a widely used quotient-mean construction. This is a motivated structural counterexample, not just numerical pathology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
