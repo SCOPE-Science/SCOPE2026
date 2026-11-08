@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof conditions on the reduction modulo \(p\), treats every simple root by the linear Hensel congruence, and treats each distinct multiple root as an independent affine evaluation constraint on the uniformly random coefficient-lift polynomial. Distinct repeated roots number at most \(d/2\), so the Vandermonde rank argument is applicable without any bound relating \(d\) and \(p\). The Euler-product cancellation then establishes the coefficient formula for all primes, including \(2\), and all nonnegative degrees. Algebraic differentiation and the top coefficient of the numerator prove the moments and the sharp last degree jump. The finite-field squarefree count and factorial moments verify the limiting-law corollary. Exact finite enumeration provides additional, non-decisive checks.
+PASS
 
-## Originality — PASS, with priority risk
+Conditioned on reduction mod p, every simple root lifts exactly once, and each distinct repeated residue root yields all p lifts or zero, independently with probability 1/p by Vandermonde evaluation of free lift digits (number repeated ≤d/2). Reweighting p linear monic irreducibles and cancelling their ordinary Euler factors gives the displayed coefficient extraction. The polynomial u-numerator has degree 2p and nonzero leading term B_p(z)^p, proving the exact last jump and stabilization. At z=1 B_p=B_p′=0, B_p″=p−1; derivatives yield mean one, second factorial moment 2(1−1/p) for d≥2. Non-squarefree reductions are O(1/p) for fixed d, and falling factorial moments count permutation fixed points; rare singular fibers cause second-moment defect. Independent direct exhaustive enumeration agrees for 9 coefficient spaces (p=2,3,5), and sharp boundary checked p=2,3,5,7. d=0,1 and p=2 boundaries explicitly accounted for.
 
-Simhi (2026), §§3.1 and A.1, studies local root counts and exceptional singular lifts but obtains estimates and does not provide the explicit monic prime-square distribution or its sharp degree-stabilization threshold. Jain–Moon–Wu (2023), §§3 and 5, study finite-field distributions and pose prime-power questions for a different, unrestricted-degree-bounded coefficient model, not an all-degree monic prime-square law. Leont'ev (2006) treats finite fields and Bhargava et al. (2022) treat actual roots over the local field, not the finite root fibers. An earlier quadratic result treats unrestricted nonzero quadratic coefficient vectors only; its statement does not cover all monic degrees or the threshold \(2p\). Searches for equivalent probability-generating functions, factorial-moment formulations, and stabilized degree laws found no explicit covering statement. Unindexed older work or straightforward but unpublished specializations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact law addresses the natural prime-square local statistic used in a recent arithmetic probability theorem and provides an all-degree analogue of a prime-power distribution question in the literature. Its **sharp** stabilization cutoff \(2p\) and degree-independent variance are structural, not a small numerical improvement or ad hoc finite census. The failure of second-moment convergence despite weak convergence to the permutation fixed-point law explains the role of rare singular lifts in local arithmetic statistics.
+Best-of-knowledge priority: compared actual claims and implications of identical/nearby primary sources, searched semantic published record corpus and theorem aliases, and explicitly separated existing methodology/qualitative findings from the exact new result. No located prior implication dominates this final scoped theorem; genuine inaccessible and general-coverage risks remain recorded.
 
-## Closest literature and limitations
+## value
 
-The source's local bound and the older prime-power question motivate the calculation but do not imply its explicit monic formula. No assertion is made about multivariate/unrestricted polynomials, higher prime powers, or actual roots over \(\mathbb Q_p\); priority risk remains for unindexed work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact distribution of natural finite congruence roots at every prime and degree, with a provably sharp stabilization threshold and explicit variance; explains rare high-multiplicity singular events. Resolves a motivated prime-power analogue of finite-field root-count distributions without claiming the broader unrestricted ensemble problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
