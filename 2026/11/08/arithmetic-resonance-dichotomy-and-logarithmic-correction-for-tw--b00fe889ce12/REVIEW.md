@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The two-index covariance is exactly zero whenever the integer character matrix has nonzero determinant, because its image of Haar measure is Haar on a two-dimensional torus. Every zero-determinant pair has displacement a common-power exponent; elementary number theory proves those are precisely multiples of the coprime minimal exponent pair. The overlap integral for \((U,q^kU)\) is derived from elementary interval lengths, and its exact covariance is checked separately by independent preimage-arc intersections. Weighting the paired index differences gives the finite formula; splitting the sum at \(\lfloor\log_q((1-\varepsilon)/\varepsilon)\rfloor\) gives the leading and logarithmic terms with a bounded tail. The included exact-rational script independently checks 55 window overlaps, 90 determinant/resonance variance decompositions, and 30 asymptotic residual examples. The proof, not finite checks, covers all admissible parameters and sample lengths. No proof of a central limit theorem is attempted.
+
+## Originality — PASS within inspected evidence
+Baker–Todd's June 2026 primary paper treats two-orbit almost-sure first-order statistics but not the explicit finite variance or the arithmetic second-moment trichotomy. The closest inspected published single-orbit exact-variance result concerns correlations between two points **from the same orbit with a single seed**. Its formula does not imply the current two-independent-orbit rank-two covariance classification or the bounded-error negative log correction. The Fourier/Haar method itself is standard and not a novelty claim. Lacunary metric pair-correlation sources furnish broader almost-sure results but no matching exact statement in the material inspected. An unindexed earlier cross-lacunary calculation remains a priority risk; search coverage is not a novelty proof.
+
+## Mathematical value — PASS
+The leading first-order cross-pair correlation law can be the same for different expanding systems, yet its second moment has a sharp arithmetic transition. The exact finite variance in the nonresonant case, the common-power inflation factor in the resonant case and its negative logarithmic correction quantitatively distinguish truly independent-looking pair counts from hidden deterministic resonances. The result also supplies finite-sample exact benchmarks for two-orbit recurrence diagnostics, without claiming an independent normal approximation or a general downstream theorem.
+
+## Limits
+The result applies to independent Haar seeds, integer expanding multipliers and circular distances; the scale is a fixed positive numerator divided by sample length. It establishes first and second moments, not higher moments or distributional fluctuations. The closest related literature has been compared at statement-and-implication level; complete historical precedence beyond the inspected corpus has not been established.
+
+Self-review: passed. Independent audit: not yet performed.
