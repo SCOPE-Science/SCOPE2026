@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unrestricted proof identifies genuine geometric fixed points by orbit centroids, classifies every weight-at-most-two binary translation subgroup, and computes exact maximum distances between orbits. The two shifted filtration models follow at all real scales. In the exceptional cyclic weight-two case, a finite graph model is proved at every scale, and a cubical-square/triangle-shortening argument establishes simple connectivity for every scale at least three. Explicit equivariant integral cellular chains yield the character formula. The executable checker independently verifies small instances; no finite test is used to imply an infinite theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** The radius-two graph and connectedness classification for binary translation subgroups is already known and explicitly excluded from the new contribution. The new exact all-scale reductions, exceptional scale-three simple connectivity and persistent vanishing, and integral residual-symmetry character are not consequences of radius-two homotopy ranks alone. The closest recent publications study ambient Rips cohomology/connectivity and the ambient hyperoctahedral homology representation, neither a geometric subgroup fixed-point persistence module nor the first-homology action of the residual centralizer. The May 2026 open-access cohomology paper was examined in its full HTML text. The June 2026 representation preprint could only be inspected at abstract/bibliographic level after unsuccessful lawful full-text access, leaving an explicit residual originality risk. Indexed claims for hypercube Rips, fixed-point spaces, and integral symmetry actions were compared by mathematical implication; no covering result was found. Failed searching is not a proof of novelty.
+PASS
 
-**Value — PASS.** These are natural low-degree topological invariants of a canonical group action on a widely studied metric filtration. The result distinguishes the three subgroup types by exact birth/death intervals, including a genuine shifted birth at scale three, and describes the integral module at the nontrivial exceptional layer rather than merely recomputing Betti numbers. The proof explains the sharp transition by filling cubical squares and supplies reusable orbit-distance reductions. Higher-dimensional exceptional persistence remains unsolved.
+The geometric fixed set is the orbit-centroid subcomplex: its vertices are invariant orbit simplices and joins require all cross-orbit vertex distances <= r. For a weight-one generator the cross-max is 1+d(y,z); for either two-dimensional allowable subgroup it is 2+d(y,z). For a two-bit flip, same-color cross-max is 2+d and different-color is 1+d. The r=2 orbit graph has 2^(n-1) vertices and is a standard cube graph; its integral cycle rank is 1+2^(n-2)(n-3). At r=3 all newly added edges reduce through triangles to the cube graph, whose elementary squares bound cones, so pi_1 vanishes. The argument extends to all later scales by shortening new edges. Exact shift models give the stated low-degree barcodes, with no torsion. Signed edge/vertex permutation traces in 0 -> L -> C1 -> C0 -> Z ->0 yield tr(0,h)=1-f+2e and tr(1,h)=1-q. Independently enumerated every coset and cross-distance for 89 (n,type,scale) cases n=2..7; all agreed. These bounded cases support, but do not replace, the stated all-n proof.
 
-**Closest prior literature and limits.** Adamaszek–Adams calculate ambient radius-two Rips homotopy; Adams–Virk study ambient persistence; Bendersky–Elia–Grbić derive ambient cohomological structure; Galetto–Montaño–Wellner calculate ambient hyperoctahedral homology characters. A prior radius-two translation-subgroup fixed-locus classification already covers the cube-graph model and its Betti ranks, but not the new complete low-degree filtration or residual character. One highly relevant equivariant preprint remained inaccessible in full text. Independent mathematical validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The radius-two fixed-locus result is explicitly treated as prior, and ambient hypercube Rips homology/representations do not directly compute geometric fixed-point loci. No identified prior statement implies the all-scale fixed filtrations together with the integral residual cycle representation; pass is best-of-knowledge, with a real risk of overlooked equivariant literature.
+
+## value
+
+PASS
+
+The passage from a previously identified radius-two fixed graph to its full low-degree persistence gives a natural sharp death threshold and nontrivial integral equivariant information: a signed cycle-lattice module for the residual centralizer. Geometric fixed loci are a standard but distinct invariant from invariant ambient homology, so the complete low-degree barcode and action can be independently used in equivariant topological-data questions. The claim goes well beyond renaming a rank or a routine normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

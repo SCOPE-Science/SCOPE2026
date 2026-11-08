@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite checker `verify.py` can be executed with `python verify.py` (Python 3.9 or later). It constructs actual binary translation orbits, checks maximum Hamming distances between cosets, and compares these values to the proposed complete orbit-graph models. It checks 89 parameter/scale combinations across four action types, independently computes finite boundary ranks for scale-two and scale-three complexes, and checks 116 signed character evaluations directly from the oriented graph action.
+# Independent mathematical audit
 
-Successful execution prints `VERIFY_OK 6 size cases, 116 character evaluations` and `MODEL_OK 89 full-filtration threshold models`. The test covers hypercubes through seven coordinates and first-homology boundary calculations at the smaller sizes stated by the checker. It does not verify the infinite ranges: these follow from the orbit-distance identities, cubical-square contraction, and triangle-shortening proofs in `RESULT.md`.
+## correctness
 
-Relevant source comparisons are documented in `REVIEW.md` and `AUDIT.json`. Independent validation and further review of inaccessible source full text remain outstanding.
+PASS
+
+The geometric fixed set is the orbit-centroid subcomplex: its vertices are invariant orbit simplices and joins require all cross-orbit vertex distances <= r. For a weight-one generator the cross-max is 1+d(y,z); for either two-dimensional allowable subgroup it is 2+d(y,z). For a two-bit flip, same-color cross-max is 2+d and different-color is 1+d. The r=2 orbit graph has 2^(n-1) vertices and is a standard cube graph; its integral cycle rank is 1+2^(n-2)(n-3). At r=3 all newly added edges reduce through triangles to the cube graph, whose elementary squares bound cones, so pi_1 vanishes. The argument extends to all later scales by shortening new edges. Exact shift models give the stated low-degree barcodes, with no torsion. Signed edge/vertex permutation traces in 0 -> L -> C1 -> C0 -> Z ->0 yield tr(0,h)=1-f+2e and tr(1,h)=1-q. Independently enumerated every coset and cross-distance for 89 (n,type,scale) cases n=2..7; all agreed. These bounded cases support, but do not replace, the stated all-n proof.
+
+## originality
+
+PASS
+
+The radius-two fixed-locus result is explicitly treated as prior, and ambient hypercube Rips homology/representations do not directly compute geometric fixed-point loci. No identified prior statement implies the all-scale fixed filtrations together with the integral residual cycle representation; pass is best-of-knowledge, with a real risk of overlooked equivariant literature.
+
+## value
+
+PASS
+
+The passage from a previously identified radius-two fixed graph to its full low-degree persistence gives a natural sharp death threshold and nontrivial integral equivariant information: a signed cycle-lattice module for the residual centralizer. Geometric fixed loci are a standard but distinct invariant from invariant ambient homology, so the complete low-degree barcode and action can be independently used in equivariant topological-data questions. The claim goes well beyond renaming a rank or a routine normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
