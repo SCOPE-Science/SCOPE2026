@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:09:45.373150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For J(n,2), n>=5, averaging over permutations of n-3 unused labels followed by transposition-odd antisymmetrization preserves the fixed-edge objective and does not increase the adjacency commutator norm. The resulting full commutator exchanges parity subspaces; its negative-mode Gram decomposes into the 2x2 matrix [[A,sqrt(m)B],[sqrt(m)B,C]] and the repeated scalar (2m+2)t², where m=n-3, A=6+3m-2mt+mt², C=m-2mt+(7m+2)t², B=-2+8t-2t². C minus repeated scalar=m(1-2t+5t²)>0, so the larger 2x2 eigenvalue Φ_m is exactly the squared norm. The positive definite coefficient of t² yields strong convexity and a unique minimizer; d_edge=2/sqrt(min Φ_m). The m→∞ crossing of q1=3-2t+t² and q2=1-2t+7t² at t=1/sqrt(3) produces a sharp m^-1/2 leading distance and negative m^-1 avoided-crossing correction. Independent full adjacency-matrix commutator norms matched Φ for n=5..10 and five rational/real test values per n, and asymptotic numerical controls for m=100,1000,10000 matched analytic convergence; these finite checks do not establish all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounds are nonsharp for the stated 2x2 minimizer.",
+          "The explicit path graph solutions are not applicable to these dense triangle-containing graphs."
+        ],
+        "reasoning": "A general characterization as an optimization does not provide this evaluated 2x2 pencil or avoided crossing without the new symmetry and Gram computation.",
+        "searches": [
+          "Besnard arXiv:2105.09056 degree and geodesic bounds",
+          "Clare et al arXiv:2409.04146 Birkhoff-James characterizations",
+          "Connes spectral distance adjacency Dirac line graphs complete graphs Johnson triangular J(n,2) edge exact"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob ea1e7b8a57d01a904ab48129783aa44b234cf578",
+        "arXiv:2105.09056",
+        "arXiv:2409.04146",
+        "arXiv:2610.07718",
+        "arXiv:hep-th/9912217",
+        "Resultary semantic query: Connes spectral distance adjacency Dirac line graphs complete graphs Johnson triangular J(n,2) edge exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangular graph J(n,2) is not a complete graph or path, and adjacency commutator norm does not commute with passing to line graphs.",
+          "The present invariant uses nonidentical outside neighborhoods of incident 2-subsets; simple twin-vertex formulas do not cover it."
+        ],
+        "reasoning": "Known complete-graph, path or twin-vertex formulas cannot imply this exact all-n edge value by substitution alone.",
+        "searches": [
+          "Besnard arXiv:2105.09056 Section 2 complete graph examples",
+          "Clare et al arXiv:2409.04146 paths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Besnard studies the same adjacency commutator seminorm and general graph distances.",
+          "J(n,2) is the line graph of K_n, not K_n, so known complete-graph Connes distance is not this result."
+        ],
+        "reasoning": "Queries compared triangular, Johnson and line-of-complete aliases under adjacency-Dirac/Connes terminology; no exact same orbit expression was in inspected primary material.",
+        "searches": [
+          "Connes spectral distance adjacency Dirac line graphs complete graphs Johnson triangular J(n,2) edge exact",
+          "arXiv:2105.09056 graph Connes adjacency-Dirac distance",
+          "arXiv:2409.04146 Birkhoff-James noncommutative distances"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top Johnson-related outputs treated graph geodesics, Rips complexes or unrelated spectra; none matched adjacency-Dirac distance."
+        ],
+        "reasoning": "No exact same-invariant table was identified; absence from semantic index is a residual risk, not proof of priority.",
+        "searches": [
+          "Connes spectral distance adjacency Dirac line graphs complete graphs Johnson triangular J(n,2) edge exact",
+          "graph noncommutative metric triangular Johnson J(n,2) edge exact 2x2 eigenvalue"
+        ]
+      },
+      "rationale": "General Connes adjacency-Dirac graph distance tools, degree/geodesic inequalities, complete-graph and path cases do not imply the exact edge orbit of J(n,2)=L(K_n). The 2x2 signed sector and avoided-crossing correction are additional graph-specific derivations. Recent edge-deletion analysis concerns different operations; a previous unindexed triangular/line-graph exact formula is still possible.",
+      "residual_risks": [
+        "Original Iochum–Krajewski–Martinetti paper and a 2026 edge-deletion preprint were not fully reread in this execution.",
+        "A specialized triangular-graph noncommutative edge metric under line-graph language could have escaped retrieval.",
+        "No disjoint-pair distance and no other Dirac operator is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same metric but no exact J(n,2) edge formula in inspected statements",
+          "evidence": "General estimates and complete-graph cases do not specialize to line graphs by graph equivalence.",
+          "identifier_or_url": "arXiv:2105.09056",
+          "material_read": "Accessible original primary full text: introductory definitions and sections dealing with bounds, complete-graph examples and edge deletion; relevant passages read",
+          "method": "public primary open-access article full text and passage inspection",
+          "title": "Estimating noncommutative distances on graphs",
+          "trigger": "same unweighted adjacency Dirac and finite graph spectral metric"
+        },
+        {
+          "assessment": "General matrix characterization and path examples; no directly confirmed J(n,2) closed formula",
+          "evidence": "Birkhoff-James reductions give a general optimization, not explicit two-mode J(n,2) simplification.",
+          "identifier_or_url": "arXiv:2409.04146",
+          "material_read": "Primary abstract and available public theorem descriptions; full paper not reread completely in this run",
+          "method": "open-access abstract/theorem-scope comparison",
+          "title": "Noncommutative distances on graphs: An explicit approach via Birkhoff-James orthogonality",
+          "trigger": "potential more general matrix solution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform edge-orbit Connes metric on a natural high-symmetry Johnson/triangular graph family, with a sharp quantified mismatch from graph-geodesic distance and an avoided-crossing second-order correction. This is nontrivial spectral geometry rather than a routine relabeling of the known complete-graph example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob ea1e7b8a57d01a904ab48129783aa44b234cf578",
+    "arXiv:2105.09056",
+    "arXiv:2409.04146",
+    "arXiv:2610.07718",
+    "arXiv:hep-th/9912217",
+    "Resultary semantic query: Connes spectral distance adjacency Dirac line graphs complete graphs Johnson triangular J(n,2) edge exact"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original Iochum–Krajewski–Martinetti paper and a 2026 edge-deletion preprint were not fully reread in this execution.",
+    "A specialized triangular-graph noncommutative edge metric under line-graph language could have escaped retrieval.",
+    "No disjoint-pair distance and no other Dirac operator is asserted.",
+    "Publication withheld: public metadata has operational provenance; minimal plan status not_ready; no GitHub writes."
+  ],
+  "schema_version": 1
+}
