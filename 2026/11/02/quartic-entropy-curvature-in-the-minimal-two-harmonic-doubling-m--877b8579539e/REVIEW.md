@@ -1,19 +1,21 @@
-# Scientific review: quartic entropy curvature in the minimal two-harmonic doubling-map deformation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise claim concerns every fixed real \((a,b)\), the analytic small-parameter family \(T_{\varepsilon,a,b}(x)=2x+\varepsilon[u_{a,b}(2x)-2u_{a,b}(x)]\pmod1\), and the unique absolutely continuous invariant measure. Differentiating the transfer-operator invariance identity at doubling gives the Lyapunov Hessian \(-\sigma_D^2(w')/4\). Fourier orthogonality identifies its full two-harmonic kernel. The smooth change of coordinates \(x\mapsto x+\varepsilon u(x)\) eliminates the order-one map perturbation and leaves \(\varepsilon^2u v'\). Applying the Hessian gives the quartic coefficient. The exact Fourier calculation yields \(\sigma_D^2((uv')')=(a^2+b^2)(9a^2+5b^2)/16\). The attached executable symbolic calculation checks this polynomial identity and the kernel, and independent numerical transfer iteration gives compatible limiting values. The proof, not numerical convergence, establishes the infinite asymptotic. The theorem asserts neither a nonlocal parameter bound nor a uniform error over unbounded amplitudes.
+PASS
 
-## Originality — PASS within inspected evidence
+At doubling, the physical Lyapunov Hessian for F_t=2x+t w is -σ_D²(w′)/4, with expansion -t²σ_D²(w′)/8. Fourier towers of doubling give σ_D²(g)=2 Σ_(odd m>0)|Σ_j ĝ(2^j m)|², so the zero quadratic-loss degree-two real trigonometric perturbations form C=-A/2, E=-B/2. For v=u∘D-2u the conjugacy Hε(x)=x+εu(x) removes first-order perturbation, leaving Sε=D+ε²(u v′)+O_C5(ε³); first differential vanishes, so fourth-order term is -(ε⁴/8)σ_D²((u v′)′). The independent Fourier convolution of u and v′ recovers σ²=(a²+b²)(9a²+5b²)/16 and coefficient (a²+b²)(9a²+5b²)/128. Symbolic exact checks: (a,b)=(1,0):9/128;(0,1):5/128;(1,1):7/32;(2,1):205/128. Remainder only fixed real (a,b) and sufficiently small ε; no uniform over amplitudes claim.
 
-The inspected complete paper of Pollicott–Vytnova (arXiv:2201.04752; DOI:10.1007/s00220-022-04495-7), particularly its Lanford-family example and transfer-operator/pressure theorems, gives rigorous bounds but no minimal two-harmonic Hessian kernel and no explicit quartic response. De la Llave–Shub–Simó (DOI:10.3934/dcdsb.2008.10.597), whose full author-hosted article was inspected, treat single-harmonic expanding maps with an additive rotation parameter and establish averaged versus pointwise entropy comparisons of different form. Galatolo–Pollicott (arXiv:1603.07762), whose complete article's linear-response and doubling-map sections were inspected, determine first-order invariant-density controls and Fourier solutions, not this fourth-order Lyapunov effect. Scientific-index comparisons involving a mean-field linear-response spectral radius and an annealed variance onset treat mathematically different claims, as do the closest accessible historical findings. The general machinery of linear response and conjugacy is credited; the claimed contribution is the explicit null space together with its nonzero anisotropic fourth-order entropy coefficient, not the existence of perturbation theory. Residual risk: mathematical indexing is not exhaustive, and an independently found earlier exact coefficient would change this assessment.
+## originality
 
-## Value — PASS
+PASS
 
-The quadratic response is completely degenerate on a **natural, minimal-frequency, two-dimensional tangent space to the conjugacy orbit**, even though the simple linear family is generically not exactly conjugate to doubling at nonzero perturbation. The theorem resolves what the first genuine entropy curvature is along this flat space: order four, always negative, with an explicit anisotropic coefficient and the sharp minimum two-harmonic cutoff. This is a motivated structural benchmark for entropy rigidity and parameter sensitivity, not a scalar substitution or a low-accuracy numerical increment. No downstream theorem beyond this exact self-contained perturbative classification is claimed.
+Smooth conjugacy/linear response and entropy Hessian are established tools. Full inspected de la Llave–Shub–Simó 2008 PDF concerns one-harmonic plus rotation and averaged entropy, not the two-harmonic minimal nullspace or fourth-order anisotropic polynomial; Pollicott–Vytnova 2022 and Galatolo–Pollicott 2016 provide bounds/first-order response. Resultary query returned unrelated quartic/entropy records. The assessed explicit fourth-order physical exponent plus 2D minimal harmonic kernel was not found as a stated prior special case. PASS qualified.
 
-## Limits and closest literature
+## value
 
-All sources are identified in RESULT.md. The explicit coefficient is proved only for the specified degree-two expanding family and its two-harmonic tangent directions. The wider smooth infinite-Fourier kernel and finite-amplitude Lyapunov bounds are outside scope. External scientific priority and independent validation have not been certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first natural finite-harmonic null space of the second-order response for doubling, and a straight-line perturbation tangent to a smooth conjugacy orbit still has nonzero negative fourth-order entropy loss. The 9:5 anisotropy and precise flat-to-curved transition are intrinsic perturbative invariants, not a cosmetic coefficient computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

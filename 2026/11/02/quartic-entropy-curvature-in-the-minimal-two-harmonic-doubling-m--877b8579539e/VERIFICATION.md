@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the quartic entropy formula
+# Independent mathematical audit
 
-The claim is established by four analytic steps detailed in RESULT.md: (i) Perron–Frobenius linear response gives the universal doubling-map Lyapunov Hessian in terms of Green–Kubo variance; (ii) Fourier towers give its exact degree-two trigonometric null space; (iii) conjugacy removes the first-order map term and produces the second-order forcing \(f=u v'\); (iv) Fourier coefficients of \(f'\) yield the quartic loss \((a^2+b^2)(9a^2+5b^2)/128\).
+## correctness
 
-A reproducible algebraic test is included as `verify_quartic.py`. It requires SymPy, invokes exact symbolic simplification without floating point, and printed:
+PASS
 
-`PASS: exact quartic coefficient, axes, and minimal Fourier kernel`
+At doubling, the physical Lyapunov Hessian for F_t=2x+t w is -σ_D²(w′)/4, with expansion -t²σ_D²(w′)/8. Fourier towers of doubling give σ_D²(g)=2 Σ_(odd m>0)|Σ_j ĝ(2^j m)|², so the zero quadratic-loss degree-two real trigonometric perturbations form C=-A/2, E=-B/2. For v=u∘D-2u the conjugacy Hε(x)=x+εu(x) removes first-order perturbation, leaving Sε=D+ε²(u v′)+O_C5(ε³); first differential vanishes, so fourth-order term is -(ε⁴/8)σ_D²((u v′)′). The independent Fourier convolution of u and v′ recovers σ²=(a²+b²)(9a²+5b²)/16 and coefficient (a²+b²)(9a²+5b²)/128. Symbolic exact checks: (a,b)=(1,0):9/128;(0,1):5/128;(1,1):7/32;(2,1):205/128. Remainder only fixed real (a,b) and sufficiently small ε; no uniform over amplitudes claim.
 
-The test checks the polynomial identity, both pure-harmonic axes, the mixed sample \((1,1)\), the zero case, and the two-harmonic kernel. It is an algebra check, not an independent verification of the transfer-operator theorem.
+## originality
 
-For additional nonrigorous comparison, a periodic-grid transfer-operator computation with 32768 grid points and 42 iterations, at \(\varepsilon=0.08\), gave approximately \(0.070806\), \(0.039551\), and \(0.224855\) for \((\log2-\lambda)/\varepsilon^4\) at \((a,b)=(-1,0),(0,1),(1,1)\), compared with the exact predicted limits \(0.0703125\), \(0.0390625\), and \(0.21875\). These finite-grid figures do not certify truncation errors and are not relied upon for the theorem.
+PASS
 
-The analytic proof is local in \(\varepsilon\), with a remainder depending on fixed \((a,b)\). General publication priority and any independent audit remain unperformed.
+Smooth conjugacy/linear response and entropy Hessian are established tools. Full inspected de la Llave–Shub–Simó 2008 PDF concerns one-harmonic plus rotation and averaged entropy, not the two-harmonic minimal nullspace or fourth-order anisotropic polynomial; Pollicott–Vytnova 2022 and Galatolo–Pollicott 2016 provide bounds/first-order response. Resultary query returned unrelated quartic/entropy records. The assessed explicit fourth-order physical exponent plus 2D minimal harmonic kernel was not found as a stated prior special case. PASS qualified.
+
+## value
+
+PASS
+
+This is the first natural finite-harmonic null space of the second-order response for doubling, and a straight-line perturbation tangent to a smooth conjugacy orbit still has nonzero negative fourth-order entropy loss. The 9:5 anisotropy and precise flat-to-curved transition are intrinsic perturbative invariants, not a cosmetic coefficient computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
