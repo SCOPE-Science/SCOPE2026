@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-Run `python3 verify_minimal_forts.py` from this directory. It uses only Python standard-library modules. The script constructs \(T_n\) adjacency directly from edge incidence in \(K_n\), enumerates all \(2^{\binom n2}\) vertex subsets for \(n=3,4,5,6\), checks every nonempty candidate against the original fort definition, and extracts inclusion-minimal forts by inclusion comparisons. It then compares the exact sets with the two structural families and compares size histograms against an independently computed labeled star-component recurrence.
+## correctness
 
-Actual output from execution of the delivered script is in `VERIFY_OUTPUT.txt` and ends in `VERIFY_OK`. For \(n=6\), the script checks all \(32768\) subsets and finds exactly \(308\) inclusion-minimal forts with cardinality profile \(35,195,78\) at sizes \(3,4,5\). The direct finite experiments are sanity checks, not proofs for arbitrary \(n\). The infinite statement is derived from the edge-incidence lemma, the minimal-edge-cover characterization, and the labeled exponential formula in `RESULT.md`.
+PASS
 
-The literature comparison identifies a published minimum-fort-size consequence for Johnson graphs, but does not assume that minimum-size information proves the all-size classification. Source access and bibliographic priority limitations are set out in `RESULT.md` and `REVIEW.md`. Independent audit: not performed.
+For each uv outside selected edges F of K_n, exactly d_F(u)+d_F(v) adjacent vertices lie in F in T_n. Hence the fort condition is equivalent to the absence of simultaneous isolated and degree-one vertices in H=([n],F). If H has an isolate, the no-leaf condition forces a cycle, whose edge set is itself a nonspanning fort; inclusion-minimality forces exactly that one simple cycle. If H has no isolates, F is a spanning edge cover, and minimality implies each edge meets a degree-one vertex, equivalent to each component being a star. Conversely every such cycle and star forest is a minimal fort, checking all nonempty proper subsets. A size-m star contributes m z^(m-1) u^m/m! for m>=3 and zu^2/2 for m=2, giving the proposed EGF; nonspanning unoriented k-cycles contribute binom(n,k)(k-1)!/2. Boundary n=3 has three size-two stars, n=4 has three K2 unions plus four stars and four triangles, and n>=5 starts at size three. The gap-free spectrum, maximum n-1 and n+n!/(2(n-1)) largest-count formula follow. Independent direct adjacency/fort enumeration of all 8,64,1024,32768 subsets for n=3..6 agrees with 3,11,60,308 minimal forts, and independent labeled component recurrence agrees through n=15; these finite checks do not establish the infinite result, which follows from the structural proof.
+
+## originality
+
+PASS
+
+The all-parameter two-family minimal-fort classification and weighted polynomial were not implied by the material read in foundational fort-count/hypergraph papers or the published Johnson-family minimum. The minimum size and generic transversal interpretation are prior art. Search coverage is best-of-knowledge; the 2024 Johnson paper is an accessible-abstract-only priority risk, not a certified absence of overlap.
+
+## value
+
+PASS
+
+A complete minimal-obstruction hypergraph of the natural Johnson/triangular graph family, rather than an arbitrary cutoff or recomputed minimum, is a mathematically useful exact invariant. The line-graph incidence translation exposes genuinely different nonspanning cycle and spanning edge-cover obstruction mechanisms, and the weighted enumerator gives every fort size relevant to zero-forcing transversal/cover formulations. Its all-n result and distribution are not mechanically implied by the published minimum-fort-size statistic alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

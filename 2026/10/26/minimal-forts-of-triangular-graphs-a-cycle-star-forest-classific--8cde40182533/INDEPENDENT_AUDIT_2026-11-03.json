@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T11:49:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each uv outside selected edges F of K_n, exactly d_F(u)+d_F(v) adjacent vertices lie in F in T_n. Hence the fort condition is equivalent to the absence of simultaneous isolated and degree-one vertices in H=([n],F). If H has an isolate, the no-leaf condition forces a cycle, whose edge set is itself a nonspanning fort; inclusion-minimality forces exactly that one simple cycle. If H has no isolates, F is a spanning edge cover, and minimality implies each edge meets a degree-one vertex, equivalent to each component being a star. Conversely every such cycle and star forest is a minimal fort, checking all nonempty proper subsets. A size-m star contributes m z^(m-1) u^m/m! for m>=3 and zu^2/2 for m=2, giving the proposed EGF; nonspanning unoriented k-cycles contribute binom(n,k)(k-1)!/2. Boundary n=3 has three size-two stars, n=4 has three K2 unions plus four stars and four triangles, and n>=5 starts at size three. The gap-free spectrum, maximum n-1 and n+n!/(2(n-1)) largest-count formula follow. Independent direct adjacency/fort enumeration of all 8,64,1024,32768 subsets for n=3..6 agrees with 3,11,60,308 minimal forts, and independent labeled component recurrence agrees through n=15; these finite checks do not establish the infinite result, which follows from the structural proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Afzali–Ghodrati–Maimani abstract gives F(J(n,r))=binom(n,r)-(r+1), implying minimum-fort size three in the n>=5, r=2 range, not the all-size polynomial.",
+          "Becker et al. bound general minimal fort counts and construct for specific graphs; Cameron et al. give zero forcing as hypergraph transversal, no J(n,2) enumerator.",
+          "Published Resultary complete-multipartite minimal-fort classification concerns a different graph family."
+        ],
+        "reasoning": "None of the inspected general or family-specific results logically determines all minimal forts of a triangular graph. The endpoint n=4 must be handled independently: direct fort of size two exists, so abstract-level formulas cannot be extrapolated blindly to that boundary.",
+        "searches": [
+          "Afzali Ghodrati Maimani 2024 DOI:10.1007/s12190-024-02064-w",
+          "arXiv:2404.05963 and arXiv:2310.17904",
+          "Resultary: minimal forts Johnson graphs failed zero forcing number Afzali Ghodrati Maimani 2024",
+          "Resultary id: 2026/10/4/SCOPE-minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2404.05963",
+        "https://arxiv.org/pdf/2310.17904",
+        "https://doi.org/10.1007/s12190-024-02064-w",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484",
+        "Resultary queries for minimal forts triangular graphs, line graph K_n, and Johnson failed zero forcing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero forcing equals the hitting number of the fort hypergraph, but this generic equivalence does not enumerate its hyperedges for L(K_n).",
+          "Known Johnson failed-forcing extremum provides one minimum-size statistic; it has no stated implication to weighted all-size minimal forts.",
+          "The direct edge-incidence identity and minimal edge-cover classification imply the new specific polynomial through a labeled set construction."
+        ],
+        "reasoning": "Prior results imply the existence/importance of forts and already determine their minimum size for n>=5. The new implication is that EVERY inclusion-minimal fort falls into one of two explicit families, so every coefficient is known. Full access to the Johnson paper could change this priority judgment; no claim of exhaustive novelty is made.",
+        "searches": [
+          "arXiv:2404.05963v1 full original text and summary Table 1",
+          "arXiv:2310.17904v3 Theorems 1.3 and 1.4",
+          "DOI:10.1007/s12190-024-02064-w abstract",
+          "Resultary: minimal zero forcing forts line graph K_n exact enumeration classification cycle star forests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact graph isomorphism T_n=J(n,2)=L(K_n). The fort test for a nonselected edge uv is d_H(u)+d_H(v) != 1.",
+          "Becker et al. 2024 Table 1 and main results give different graph families; Cameron et al. 2026 v3 provides the general hypergraph/cover definition and products, not this structural list."
+        ],
+        "reasoning": "The line-graph, Johnson, triangular-graph, fort hypergraph, edge-cover and cycle/star-forest aliases were all compared by statement. The specific complete dichotomy was not established by the inspected primary works. Standard facts about minimal edge covers and cycles enter the proof but alone do not state the fort translation.",
+        "searches": [
+          "Resultary query: minimal forts triangular graphs Johnson graph J(n,2) line graph complete graph nonspanning cycles spanning star forest minimal edge covers all size generating polynomial",
+          "Resultary query: minimal zero forcing forts line graph K_n exact enumeration classification cycle star forests",
+          "Web: \"minimal forts\" \"triangular graph\" and \"line graph\" \"minimal forts\" \"edge cover\"",
+          "arXiv:2404.05963v1",
+          "arXiv:2310.17904v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Becker Table 1 lists empty, complete, complete bipartite, path, cycle, spider, wheel, sunlet and windmill families but not triangular graphs.",
+          "Resultary surfaced exact minimal-fort statements for complete multipartite and other graphs, not a triangular graph generating polynomial."
+        ],
+        "reasoning": "The direct finite profiles 3,11,60,308 are independently reproduced but numerical coincidence is not used as novelty proof. The relevant known exact tables inspected do not contain the entire all-n coefficient formula; the searches are not exhaustive.",
+        "searches": [
+          "Becker et al. 2024 page 19 Table 1",
+          "Web: \"minimal forts\" \"triangular graph\"",
+          "Web: \"line graph\" \"minimal forts\" \"edge cover\"",
+          "Resultary: minimal forts triangular graphs Johnson J(n,2)"
+        ]
+      },
+      "rationale": "The all-parameter two-family minimal-fort classification and weighted polynomial were not implied by the material read in foundational fort-count/hypergraph papers or the published Johnson-family minimum. The minimum size and generic transversal interpretation are prior art. Search coverage is best-of-knowledge; the 2024 Johnson paper is an accessible-abstract-only priority risk, not a certified absence of overlap.",
+      "residual_risks": [
+        "The 2024 Johnson-family article was not read in full; an all-size theorem in its proofs or appendix cannot be excluded.",
+        "A similar result could be unindexed, in a thesis, or in alternative graph terminology; searches are not exhaustive.",
+        "The published Johnson formula was used only in its n>=5, r=2 consequence; the exceptional n=4 case is handled directly, not transferred from the abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit enumerations of paths, cycles, spiders, wheels, sunlets and windmills, but no specific L(K_n)/J(n,2) theorem in material inspected.",
+          "evidence": [
+            "Definitions and Theorem 1 appear on pages 2-4; Table 1 page 19 enumerates other families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.05963",
+          "material_read": "Primary PDF pages 1-4 with definitions and general results, and detailed page-19 conclusion/Table 1; text searches across full extracted PDF for triangular, Johnson and line graph.",
+          "method": "Open lawful arXiv PDF text and inspect page-1 screenshot and page-19 table",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Most directly relevant pre-2026 exact minimal-fort-count paper"
+        },
+        {
+          "assessment": "General transversal, fractional and product results; no all-size J(n,2) minimal-fort enumeration identified.",
+          "evidence": [
+            "Theorem 1.4 equates zero forcing with fort-hypergraph transversals; the introduction lists complete, bipartite, cycles and hypercubes, but not this family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.17904",
+          "material_read": "Primary PDF pages 1-3 on definitions/Theorems 1.3 and 1.4; discussion of products, summary/open questions and references; full-document text searches for triangular, Johnson and line graph.",
+          "method": "Open lawful arXiv PDF text with first-page screenshot and targeted sections",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "General fort hypergraph theory could theoretically dominate exact family classification"
+        },
+        {
+          "assessment": "Minimum size for n>=5 is already covered. Whether proofs/appendices contain an all-size classification remains unknown and is a material residual priority risk.",
+          "evidence": [
+            "Journal of Applied Mathematics and Computing 70 (2024), 2665-2675; abstract states a failed-zero-forcing formula for Johnson graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12190-024-02064-w",
+          "material_read": "Bibliographic data, publication abstract and displayed Johnson failed-forcing formula. Full paper inaccessible.",
+          "method": "Checked for preprint/arXiv and lawful OA routes, then attempted authorized institutional retrieval; the final retrieval was blocked by safety controls and not bypassed.",
+          "title": "Failed zero forcing numbers of Kneser graphs, Johnson graphs, and hypercubes",
+          "trigger": "Same Johnson family and a known minimum-fort consequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete minimal-obstruction hypergraph of the natural Johnson/triangular graph family, rather than an arbitrary cutoff or recomputed minimum, is a mathematically useful exact invariant. The line-graph incidence translation exposes genuinely different nonspanning cycle and spanning edge-cover obstruction mechanisms, and the weighted enumerator gives every fort size relevant to zero-forcing transversal/cover formulations. Its all-n result and distribution are not mechanically implied by the published minimum-fort-size statistic alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2404.05963",
+    "https://arxiv.org/pdf/2310.17904",
+    "https://doi.org/10.1007/s12190-024-02064-w",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484",
+    "Resultary queries for minimal forts triangular graphs, line graph K_n, and Johnson failed zero forcing"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=3 the inclusion-minimal forts of J(n,2)=L(K_n) are precisely the edge sets of nonspanning simple cycles and spanning isolate-free star forests of K_n, with complete size polynomial n![u^n]exp(u(e^(zu)-1)-zu^2/2)+(1/2)sum_{k=3}^{n-1}binom(n,k)(k-1)!z^k, size interval [2,n-1] for n=3,4 (with n=3 only size two) or [3,n-1] for n>=5, and n+n!/[2(n-1)] maximal-size forts for n>=4.",
+  "limitations": [
+    "Full 2024 Johnson-family primary paper was not obtained: the authorized institutional attempt was blocked by safety controls, with no bypass or retry.",
+    "The n=4 minimum-size exception is handled directly, not imported from the published Johnson abstract.",
+    "Originality is best of knowledge and retains the inaccessible-source risk; no independent certification of historical priority.",
+    "Publication-ready replacement operations are staged only; no GitHub changes, certificates, or external verifications were performed.",
+    "The November 3 10:38 UTC assignment task 9d3500152d3e5af4bd82de5cf6f5f763 has no delivered append-only review because its prior execution had a file transport failure; this historical gap is left intact."
+  ],
+  "residual_risks": [
+    "The 2024 Johnson-family article was not read in full; an all-size theorem in its proofs or appendix cannot be excluded.",
+    "A similar result could be unindexed, in a thesis, or in alternative graph terminology; searches are not exhaustive.",
+    "The published Johnson formula was used only in its n>=5, r=2 consequence; the exceptional n=4 case is handled directly, not transferred from the abstract."
+  ],
+  "schema_version": 1
+}

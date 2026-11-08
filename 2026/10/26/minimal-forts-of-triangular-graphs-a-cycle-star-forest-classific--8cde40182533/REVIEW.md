@@ -1,19 +1,21 @@
-# Scientific assessment: minimal forts of triangular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a selected edge set \(F\) in \(K_n\), an unselected edge \(uv\) has exactly \(d_F(u)+d_F(v)\) selected neighbors in the triangular graph. The defining fort condition is therefore equivalent to the absence of a simultaneous isolated vertex and degree-one vertex in the spanning graph \(([n],F)\). In the nonspanning case, any fort contains a cycle and minimality forces exactly one nonspanning cycle. In the spanning case, minimality forces a minimal edge cover, equivalently a spanning star forest without isolates; the converse uses the degree-one obstruction for every proper nonspanning edge subset. The labeled exponential formula counts components correctly, giving one choice for a two-vertex star and \(m\) choices of center for component order \(m\ge3\). Direct independent adjacency enumeration of all subsets through \(n=6\) agrees with the classification and a separate component recursion.
+PASS
 
-## Originality — PASS, with bibliographic uncertainty
+For each uv outside selected edges F of K_n, exactly d_F(u)+d_F(v) adjacent vertices lie in F in T_n. Hence the fort condition is equivalent to the absence of simultaneous isolated and degree-one vertices in H=([n],F). If H has an isolate, the no-leaf condition forces a cycle, whose edge set is itself a nonspanning fort; inclusion-minimality forces exactly that one simple cycle. If H has no isolates, F is a spanning edge cover, and minimality implies each edge meets a degree-one vertex, equivalent to each component being a star. Conversely every such cycle and star forest is a minimal fort, checking all nonempty proper subsets. A size-m star contributes m z^(m-1) u^m/m! for m>=3 and zu^2/2 for m=2, giving the proposed EGF; nonspanning unoriented k-cycles contribute binom(n,k)(k-1)!/2. Boundary n=3 has three size-two stars, n=4 has three K2 unions plus four stars and four triangles, and n>=5 starts at size three. The gap-free spectrum, maximum n-1 and n+n!/(2(n-1)) largest-count formula follow. Independent direct adjacency/fort enumeration of all 8,64,1024,32768 subsets for n=3..6 agrees with 3,11,60,308 minimal forts, and independent labeled component recurrence agrees through n=15; these finite checks do not establish the infinite result, which follows from the structural proof.
 
-The directly relevant 2024 Becker–Cameron–Hanely–Ong–Previte preprint develops minimal-fort counts and general graph-product constructions, but its full text and family summary do not treat \(J(n,2)\) or the stated cycle–star-forest classification. The 2023 Cameron–Hogben–Kenter–Mojallal–Schuerger work gives general fort-hypergraph and zero-forcing connections, not this all-size classification. Afzali–Ghodrati–Maimani (2024) already provide the minimum-fort size by determining the Johnson-graph failed zero-forcing number; that previously implied endpoint is explicitly excluded from the new contribution. Their full article could not be read, so an unobserved stronger classification remains a residual bibliographic risk. Related indexed records concern different graph families or different invariants, and the accessible local literature and research-record searches found no statement implying the full generating polynomial.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete combinatorial classification, not a narrow isolated computation. It identifies two distinct mechanisms for minimal obstructions to zero forcing on a canonical infinite family—edge covers and cycles—and enumerates every constraint by cardinality. Since every standard zero-forcing set must intersect each minimal fort, the classification supplies the complete minimal obstruction family for fort-cover formulations. The gap-free size spectrum and explicit number of the largest minimal forts are structural consequences with no analogous information supplied by a minimum-only parameter result.
+The all-parameter two-family minimal-fort classification and weighted polynomial were not implied by the material read in foundational fort-count/hypergraph papers or the published Johnson-family minimum. The minimum size and generic transversal interpretation are prior art. Search coverage is best-of-knowledge; the 2024 Johnson paper is an accessible-abstract-only priority risk, not a certified absence of overlap.
 
-## Verification and limitations
+## value
 
-The proof is valid for all integers \(n\ge3\). Exhaustive direct verification covers \(n=3,4,5,6\); larger tabulated counts use only exact recurrence arithmetic and are not complete enumerations of vertex subsets. The argument does not determine all forts, all zero-forcing sets, or the analogous invariant on higher Johnson graphs. Bibliographic priority is provisional and independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete minimal-obstruction hypergraph of the natural Johnson/triangular graph family, rather than an arbitrary cutoff or recomputed minimum, is a mathematically useful exact invariant. The line-graph incidence translation exposes genuinely different nonspanning cycle and spanning edge-cover obstruction mechanisms, and the weighted enumerator gives every fort size relevant to zero-forcing transversal/cover formulations. Its all-n result and distribution are not mechanically implied by the published minimum-fort-size statistic alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
