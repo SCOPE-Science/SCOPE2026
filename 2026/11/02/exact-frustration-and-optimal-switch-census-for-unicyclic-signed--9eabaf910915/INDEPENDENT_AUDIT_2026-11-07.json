@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:00:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bal Section 8 gives the orientation minimization ell(A(G))=min sum_v indeg(v)outdeg(v). On an even unique cycle, bipartite source/sink orientation yields zero, and connectedness forces exactly two. For an odd cycle, some cycle vertex is mixed, contributing >=deg(v)-1>=d_star-1. Choosing a minimum-degree cycle vertex, alternating source/sink on the remaining even number of cycle vertices and into attached trees yields one mixed vertex and exactly d_star-1. Equality forces one such degree-d_star cycle vertex, two alternating path directions, and when d_star>=3 two uniform directions for its incident tree edges, giving 2t or 4t orientations. Because the ordinary line graph is connected, global edge reversal is the only orientation duplication of any fixed signed adjacency, halving counts of distinct optimal signatures. Independent full orientation brute force verified triangle, triangle with one and three pendant leaves, five-cycle with leaves, and quadrilateral with leaves. No finite test is substituted for all unicyclic graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bal proves defect<=ell<=(Delta-1)defect and cubic equality 2 oct; for an odd unicyclic graph, defect is 1, leaving a wide degree-dependent gap."
+        ],
+        "reasoning": "The general inequalities do not yield ell=d_star-1 when min cycle degree differs from global Delta; nor do they identify t optimizer positions or sign signatures.",
+        "searches": [
+          "arxiv:2603.03087 cubic exactness theorem",
+          "max-cut defect 1 odd unicyclic graph"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen snapshot cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-frustration-and-optimal-switch-census-for-unicyclic-signed--9eabaf910915/RESULT.md blob 7091e78128b53c1e088de0c935a62988bb48c37b",
+        "Exact complete record tree 40d4a505687d812d2a5e1abacf0e357809649721 with 7 Git blob entries, not truncated",
+        "Frozen METADATA.json complete text and AUDIT.json schema/provenance inspection",
+        "The Antisymmetric Line Graph (arxiv:2603.03087v2)",
+        "Total graph of a signed graph (arxiv:1908.02001v3)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact orientation formulation is equivalent to minimizing a sum of local in*out products, but the unique mixed cycle vertex and multiplicities are not deduced by the stated general theorems."
+        ],
+        "reasoning": "Unicyclic combinatorial odd-parity and equality analysis are the additional necessary steps.",
+        "searches": [
+          "Bal arxiv:2603.03087 Section 8 full HTML",
+          "Belardo Stanic Zaslavsky 1908.02001 signed total graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bal Lemma 2 and Proposition 6 identify frustration as the minimum number of directed two-paths; that equivalence is an input, not newly claimed."
+        ],
+        "reasoning": "Switched signed-line-graph representatives correspond to edge orientations modulo global reversal; the presented new content optimizes the general formula explicitly on connected unicyclic graphs and counts equality cases.",
+        "searches": [
+          "arxiv:2603.03087 minimum directed 2-paths orientation",
+          "signed line graph negative edge minimum switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact unicyclic all-optimizer enumeration in Resultary nearest entries; Bal primary Section 8 discusses odd cycles and complete multipartite examples, not this arbitrary tree-decorated cycle family."
+        ],
+        "reasoning": "A formula for a bare odd cycle does not count arbitrary attached-tree choices; searches provide no priority guarantee.",
+        "searches": [
+          "unicyclic antisymmetric signed line graph frustration t minimum cycle degree",
+          "Resultary: odd cycle graph signed switching signature"
+        ]
+      },
+      "rationale": "General antisymmetric/spectral signed line graph and minimization formula are prior mathematics. The odd/even unicyclic degree-minimum closed form, complete rigidity and labelled optimizer counts have not been found in inspected primary full text; qualified novelty.",
+      "residual_risks": [
+        "General orientation formulation is explicitly prior work; priority of unicyclic specialization is best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_IDENTITY_AND_BOUNDS_NOT_COMPLETE_CENSUS",
+          "evidence": "The paper explicitly proves ell=min sum_v d+ d-, and defect comparison; it does not state unicyclic degree-minimum formula or optimizer multiplicities in inspected full HTML.",
+          "identifier_or_url": "arxiv:2603.03087v2",
+          "material_read": "Complete accessible arXiv HTML, especially abstract, Section 8 Lemma 2, Proposition 6, Theorems 6 and 8 and discussion",
+          "method": "web primary full text HTML",
+          "title": "The Antisymmetric Line Graph",
+          "trigger": "same signed line graph and frustration invariant"
+        },
+        {
+          "assessment": "NOT_ASSESSED_WHOLE_DOCUMENT",
+          "evidence": "Signed line graph background is known, potential prior specialized unicyclic treatment remains unverified.",
+          "identifier_or_url": "arxiv:1908.02001v3",
+          "material_read": "bibliographic source and package citation only; complete text not independently read",
+          "method": "citation context only",
+          "title": "Total graph of a signed graph",
+          "trigger": "classical signed line-graph source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural first cyclic class converts a general NP-hard-looking switching optimization into a sharp local cycle-degree formula and counts every optimum; the optimizer census gives substantially more than a routine lower-bound observation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen snapshot cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-frustration-and-optimal-switch-census-for-unicyclic-signed--9eabaf910915/RESULT.md blob 7091e78128b53c1e088de0c935a62988bb48c37b",
+    "Exact complete record tree 40d4a505687d812d2a5e1abacf0e357809649721 with 7 Git blob entries, not truncated",
+    "Frozen METADATA.json complete text and AUDIT.json schema/provenance inspection",
+    "The Antisymmetric Line Graph (arxiv:2603.03087v2)",
+    "Total graph of a signed graph (arxiv:1908.02001v3)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only connected simple graphs with exactly one cycle, length at least three.",
+    "Counts labelled edge orientations and fixed-vertex signed signatures; no quotient by graph automorphism.",
+    "General orientation formulation is explicitly prior work; priority of unicyclic specialization is best-of-knowledge."
+  ],
+  "residual_risks": [
+    "General orientation formulation is explicitly prior work; priority of unicyclic specialization is best-of-knowledge."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_GENERAL_IDENTITY_AND_BOUNDS_NOT_COMPLETE_CENSUS",
+      "evidence": "The paper explicitly proves ell=min sum_v d+ d-, and defect comparison; it does not state unicyclic degree-minimum formula or optimizer multiplicities in inspected full HTML.",
+      "identifier_or_url": "arxiv:2603.03087v2",
+      "material_read": "Complete accessible arXiv HTML, especially abstract, Section 8 Lemma 2, Proposition 6, Theorems 6 and 8 and discussion",
+      "method": "web primary full text HTML",
+      "title": "The Antisymmetric Line Graph",
+      "trigger": "same signed line graph and frustration invariant"
+    },
+    {
+      "assessment": "NOT_ASSESSED_WHOLE_DOCUMENT",
+      "evidence": "Signed line graph background is known, potential prior specialized unicyclic treatment remains unverified.",
+      "identifier_or_url": "arxiv:1908.02001v3",
+      "material_read": "bibliographic source and package citation only; complete text not independently read",
+      "method": "citation context only",
+      "title": "Total graph of a signed graph",
+      "trigger": "classical signed line-graph source"
+    }
+  ]
+}

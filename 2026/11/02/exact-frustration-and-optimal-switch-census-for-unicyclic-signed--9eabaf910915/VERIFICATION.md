@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the unicyclic signed-line theorem
+# Independent mathematical audit
 
-Run `python verify_unicyclic.py` with Python 3 (standard library only). Successful output is
+## correctness
 
-`VERIFY_OK exhaustive_unicyclic_graphs_n3_to6=3898 signed_switching_checks=262 sampled_n7_to12=270`
+PASS
 
-The program computes the degree/cycle quantities by leaf pruning, enumerates every labelled unicyclic graph on three through six vertices, and exhaustively enumerates their edge orientations. It separately constructs the signed line graph from incidence signs, then enumerates its switchings with one switch fixed to avoid global duplication in the 262 indicated test cases. It checks an additional deterministic sample of 270 labelled unicyclic graphs with orders seven to twelve.
+Bal Section 8 gives the orientation minimization ell(A(G))=min sum_v indeg(v)outdeg(v). On an even unique cycle, bipartite source/sink orientation yields zero, and connectedness forces exactly two. For an odd cycle, some cycle vertex is mixed, contributing >=deg(v)-1>=d_star-1. Choosing a minimum-degree cycle vertex, alternating source/sink on the remaining even number of cycle vertices and into attached trees yields one mixed vertex and exactly d_star-1. Equality forces one such degree-d_star cycle vertex, two alternating path directions, and when d_star>=3 two uniform directions for its incident tree edges, giving 2t or 4t orientations. Because the ordinary line graph is connected, global edge reversal is the only orientation duplication of any fixed signed adjacency, halving counts of distinct optimal signatures. Independent full orientation brute force verified triangle, triangle with one and three pendant leaves, five-cycle with leaves, and quadrilateral with leaves. No finite test is substituted for all unicyclic graphs.
 
-The finite verification does **not** prove the all-parameter theorem. The proof is the parity obstruction, sharp local product bound, construction, and equality rigidity in `RESULT.md`. The full mathematical literature may contain an unlocated equivalent result. There is no independent expert or external formal verification.
+## originality
+
+PASS
+
+General antisymmetric/spectral signed line graph and minimization formula are prior mathematics. The odd/even unicyclic degree-minimum closed form, complete rigidity and labelled optimizer counts have not been found in inspected primary full text; qualified novelty.
+
+## value
+
+PASS
+
+A natural first cyclic class converts a general NP-hard-looking switching optimization into a sharp local cycle-degree formula and counts every optimum; the optimizer census gives substantially more than a routine lower-bound observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
