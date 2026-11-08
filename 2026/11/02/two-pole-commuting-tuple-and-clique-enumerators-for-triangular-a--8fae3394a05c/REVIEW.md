@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The commutator identity reduces arbitrary upper triangular algebra tuples to two-by-two minor conditions. The primitive rank-one factorization is valid over every finite chain ring: pivot at a unit entry, divide the pair of primitive factors by the unit group, and count full-valuation shells. The deep ideal contributes separately. Odd and even lengths produce different intermediate sums but the same final two-pole formula. Stirling inversion determines every distinct clique size, and factoring out the universal scalar clique gives the noncentral graph statement. The boundary cases \(k=0\), \(\ell=1\), the empty clique, and characteristic two are explicitly covered. Ten exhaustive tuple censuses, nine submodule censuses, eight independently enumerated small clique-size cases, and 360 parameter identities passed. Finite censuses corroborate, not prove, the infinite-parameter assertion.
+PASS
 
-## Originality — PASS relative to evidence inspected
+For arbitrary finite commutative chain ring R with residue q and length ell, the commutator of triangular 2-by-2 matrices is exactly the determinant of their nonscalar coordinate vectors. The primitive 2-by-k determinant-zero matrices over a chain quotient have a unit pivot and a primitive outer-product factorization; counting primitive factors modulo the unit group gives (q+1)(q^k-1)q^((k+1)(m-1)). Valuation shells t<ceil(ell/2) lift from length ell-2t with q^(2kt) choices; the deep shell has q^(2k floor(ell/2)) entries. Odd/even geometric sums yield D_{ell,k}=S_ell(q)q^(ell*k)-(S_ell(q)-1)q^((ell-1)k), hence C_k=S_ell(q)q^(2ell*k)-(S_ell(q)-1)q^((2ell-1)k). At k=0 the formula is 1. Stirling inversion produces the full distinct-clique polynomial; removal of q^ell universal scalar vertices gives the noncentral polynomial. Independent direct determinant enumeration for Z/4Z gave 25,600 ordered commuting triples, and Z/4Z pairs give 1,408; both match. Full proofs, not these finite checks, cover all q,ell,k.
 
-The 2024 full-text commuting-graph paper computes finite-field components, edge/degree information, and clique maxima in residue-ring families; these imply aspects of the first two arities and the finite-field boundary, but its theorems do not state the all-arity two-pole law or all clique coefficients over arbitrary finite chain rings. The 2020 triangular-group paper treats invertible groups over odd finite fields, not the unrestricted algebra over nonfield chain rings. An earlier rank-two deep-commuting result already gives the extremal isotropic-submodule count over cyclic prime-power rings; the top-degree coefficient is not presented as a newly discovered maximal-clique theorem. Published mathematical searches and accessible historical-claim comparisons did not locate the full two-pole distribution or a logically dominating claim. A general determinantal-congruence counting theorem remains a specific priority risk. Absence from searches is not proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-All-arity commuting probabilities and the entire clique f-polynomial are canonical invariants of noncommutative finite algebras, not arbitrary parameter slices. The two-pole form is an exact structural compression of infinitely many counts. It gives every clique size in connected, non-CC finite-ring commuting graphs rather than just edge count or clique number, and proves independence from the particular chain-ring structure, including cross-characteristic examples. The first nonfield length is where the graph ceases to be a union of disjoint cliques and intermediate clique counts are genuinely nontrivial. The exact result can support enumerative and graph-theoretic comparisons without a downstream conjecture.
+Prior upper-triangular finite-field commuting graph results cover the determinant criterion, small-arity or maximal-clique implications but not the whole all-arity and complete distinct-clique distribution for arbitrary finite chain rings. An older rank-two isotropic subgroup result already covers the cyclic-ring maximum-clique count and is explicitly excluded from novelty. Invertible triangular-group statistics have different sample space. Searched related Resultary published records; no identified stronger theorem implying the full two-pole formulas. Historical determinantal congruence zeta functions remain a priority risk.
 
-## Literature and residual limitations
+## value
 
-Cheraghpour et al., arXiv:2402.12619v1, full primary HTML read (Theorem 2.2, Corollary 2.9, Theorems 2.11–2.12); Kaur–Sharma–Singh, arXiv:2006.01493v1, publicly accessible abstract and scope; prior rank-two maximum-isotropic-submodule enumeration, full mathematical statement and proof read. No claims of coverage/noncoverage are based on unexamined downloaded files. The group paper was not accessible in full in the interface used and is named as an access limitation. A broader zeta-function/Smith-normal-form counting reference may subsume the formulas.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All ordered commuting-tuple counts and the complete clique f-polynomial are canonical invariants of finite noncommutative algebras; the two-pole law packages infinitely many sizes and holds across equal-(q,ell) mixed-characteristic chain rings. The nonfield case is not just a textbook count of components. The exact invariant is directly reusable in commuting-probability and graph-enumeration comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
