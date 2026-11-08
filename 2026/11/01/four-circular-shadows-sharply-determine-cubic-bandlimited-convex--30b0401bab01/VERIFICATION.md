@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory using Python 3 (standard library only). The packaged script was run successfully and reported:
+## correctness
 
-`PASS: exact rational ranks (6,9,10), 720 angular identities, eight extremizers, and sqrt(2) residual ratio`
+PASS
 
-The code constructs exact rational matrices for the absence of angular frequency two in three coordinate planes, for frequency three in those planes, and for the extra diagonal-plane test. Exact-rational ranks are 6, 9, and 10. The proof itself supplies the symbolic forms of the two-dimensional and cubic kernels; these are not inferred from floating-point numerics. The sampled trigonometric identities and extrema are additional diagnostics and not proofs of all-angle or global statements.
+Spherical harmonic decomposition h=α+a·u+Q_2+C_3 separates even second-mode and odd third-mode constraints. Three coordinate circular shadows force traceless Q_2=0 and C_3=c xyz by solving six planar coefficients and Laplace constraints. On the diagonal plane xyz=sin(3θ)/(3√6), giving T3=|c|/(3√6); the coordinate-triple maximum |xyz|=1/(3√3) yields exact Hausdorff residual. Averaging signed diagonal maximizing quartets establishes R and center a as unique minimax ball. Any three planes impose at most six third-harmonic equations on dimension-7 H3, allowing a nonzero sufficiently small strictly convex nonball with disk shadows. Checked actual rational linear rank script and independently symbolic diagonal Fourier identity; these finite tests corroborate the algebraic all-parameter proof.
 
-Critical all-parameter proof steps appear in `RESULT.md`: harmonic decomposition; binary cubic divisibility; harmonicity; the exact fourth-plane basis identity; signed-diagonal extremizers with zero-sum quartets; and the nonzero nullspace for at most three prescribed plane restrictions. The standard smooth support-function curvature condition justifies the strict-convexity perturbation. No computational search is used as an infinite proof. All cited references are independent literature, not external validation of this new claim.
+## originality
 
-Scientific limits: finite support harmonic cutoff ≤3 is essential. The chosen fourth plane is not universal for all placements of four observations. A nearest-ball discrepancy identity applies under exactly three coordinate disk hypotheses, not to arbitrary noisy measurements. Some related full historical technical texts were unavailable for comparison. Independent external auditing has not been performed.
+PASS
+
+The 2026 Myroshnychenko–Ryabogin–Saroglou primary preprint constructs xyz as an exception to all-plane threefold symmetry and proves all-plane higher symmetry ball rigidity; it does not assert finite circular-view identification, four-view optimality, or exact nearest-ball stability. A published SCOPE brightness profile computes areas of an already specified xyz family, which does not imply identification from four disk shapes or general three-view kernel.
+
+## value
+
+PASS
+
+A sharp finite-view determination theorem for an explicitly motivated finite-degree tomography model, with any-three impossibility and an exact observable-to-Hausdorff residual, is a natural measurement and stability boundary rather than an arbitrary numerical test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
