@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T13:11:38.074892Z",
+  "axes": {
+    "correctness": {
+      "critical_checks": [
+        "Independently reconstructed cycle necessity, symmetric detailed-balance density, Ising distance-two graph, q correlation and sech scaling from the pinned source.",
+        "Inspected entire finite-checker transition-kernel implementation and its 1269 test design; proof does not depend on numerical sampling."
+      ],
+      "rationale": "A positive transition matrix permits the Kolmogorov criterion; the three-configuration cycle all-minus, one-plus and two-adjacent-plus gives forward/backward ratio ((1-p)/p)^2 for each N>=3, with a separate N=3 factorization. Hence p=1/2 is necessary. On that line write local transition as exp[b t_i(s_{i-1}+s_{i+1})]/(2 cosh[b(s_{i-1}+s_{i+1})]), b=atanh(2r-1)/2; multiplying the product kernel by W(s)=∏2cosh[b(s_{i-1}+s_{i+1})] makes a symmetric bilinear two-time exponent, proving detailed balance and uniqueness. Expanding W gives J=-log(4r(1-r))/4 coupled sites distance two. The graph splits into two disjoint length N/2 cycles for even N and one length N for odd N. The Ising transfer matrix eigenvalues 2cosh J,2sinh J yield C_k=(q^k+q^(m-k))/(1+q^m), susceptibility, strict even/odd independence and nearest-neighbor zero on even N. With N sqrt(1-r)->xi for odd sizes, q^N->exp(-4xi), giving sech(2xi). Finite N checks are corroboration, not universal proof; degeneracies r=1/2 and N=3 handled by the same algebra.",
+      "risks": [
+        "Only N>=3 and interior p,r; deterministic boundaries and off-line invariant measures are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2013 cross-PCA paper concerns a different self-interacting cross neighborhood and ground-state phase diagram.",
+          "Older kinetic Ising parallel-update studies cover structural analogies; they need not establish this specific odd/even finite ring quantitative sech scaling."
+        ],
+        "reasoning": "No inspected broader theorem entails the precise all-N two-parameter iff and all observables without a model-specific derivation; potential general reversible PCA criteria remain a priority risk.",
+        "searches": [
+          "arXiv:1307.8234 cross PCA",
+          "arXiv:1911.03289 kinetic Ising parallel updating",
+          "Resultary PCA queries"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.27799",
+        "https://arxiv.org/pdf/1307.8234",
+        "https://arxiv.org/abs/1911.03289"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit 3-state cycle ratio forces p=1/2; general heat-bath reversible construction only proves sufficiency when spin self-interaction is absent.",
+          "At p=1/2, distance-two Ising graph splits by N parity; the old general heat-bath Gibbs stationary formula alone does not state this exact weak-noise size limit."
+        ],
+        "reasoning": "The new joint statement is not a direct quoted consequence of prior claims as published; older general theorems could imply some subparts with additional work.",
+        "searches": [
+          "2603.27799 exact transition table",
+          "1307.8234 detailed-balance construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Muñoz–Nuño defines exactly this two-parameter Bernoulli PCA, works out N=2,3,4 Markov cases.",
+          "Cirillo–Louis–Ruszel–Spitoni establishes a generally reversible heat-bath PCA measure but not this iff boundary."
+        ],
+        "reasoning": "The sufficiency construction and Ising transfer formulas are known; the distinct proposed content is the exact model-dependent necessity plus all-size parity correlation classification.",
+        "searches": [
+          "arXiv:2603.27799 §§3-5",
+          "arXiv:1307.8234 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned deterministic reversibility, rule128 transitions and unrelated correlation-flow papers, not an exact table for these four stochastic rules.",
+          "Muñoz–Nuño low-N tables are not an all-N reversible-line classification."
+        ],
+        "reasoning": "No matching database entry or tabulation identified; no novelty inferred solely from that negative search.",
+        "searches": [
+          "Resultary 8-hit reversible PCA query",
+          "Muñoz–Nuño small cyclic state tables N<=4"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: Older general reversible PCA classifications and finite-size Ising parity studies might imply components in another parameterization; complete 2019/2020 article not read.; Only N>=3 and interior p,r; deterministic boundaries and off-line invariant measures are outside scope.",
+      "residual_risks": [
+        "Older general reversible PCA classifications and finite-size Ising parity studies might imply components in another parameterization; complete 2019/2020 article not read.",
+        "Only N>=3 and interior p,r; deterministic boundaries and off-line invariant measures are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING all-ring iff reversibility and parity correlation theorem",
+          "evidence": "Article enumerates small ring sizes, not the all-N three-state cycle ratio / Ising law.",
+          "identifier_or_url": "https://arxiv.org/html/2603.27799",
+          "material_read": "Full online HTML accessed; inspected formal probabilistic model §3, low-size Markov development §4, concluding scope §5.",
+          "method": "primary full-text targeted comparison",
+          "title": "Probabilistic Cellular Automata: between deterministic Wolfram rules 23, 77, 178 and 232",
+          "trigger": "identical PCA parameters and finite ring setup"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE heat-bath Gibbs sufficiency only",
+          "evidence": "Studies cross PCA and self-interaction/phase diagram, not this two-parameter stochastic rule and necessity boundary.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.8234",
+          "material_read": "Read introductory/general reversible PCA material and selected formal measure sections; inspected PDF screenshot p4.",
+          "method": "primary OA PDF and page image",
+          "title": "Effect of self-interaction on the phase diagram of a Gibbs-like measure derived by a reversible Probabilistic Cellular Automata",
+          "trigger": "general reversible heat bath framework"
+        },
+        {
+          "assessment": "ACCESS/INSPECTION_LIMIT",
+          "evidence": "Could contain general parity and self-interaction structures; no whole-document noncoverage assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.03289",
+          "material_read": "Primary bibliographic/abstract scope examined, complete PDF not read.",
+          "method": "abstract and citation search",
+          "title": "Kinetic Ising Models with Self-interaction: Sequential and Parallel Updating",
+          "trigger": "possible old even/odd parallel Ising behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "mathematical_motivation": "Natural exact threshold, structural law, or finite classification in explicitly defined scientific objects; independent of novelty/reproducibility alone.",
+      "rationale": "The original family was analytically solved only at small ring sizes; the exact one-parameter reversible subfamily has an all-size stationary law, all two-point correlations and a striking odd/even weak-noise crossover. Both necessity and observables are mathematically motivated and more than routine rephrasing of known Ising transfer matrices.",
+      "residual_risks": [
+        "Only N>=3 and interior p,r; deterministic boundaries and off-line invariant measures are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older general reversible PCA classifications and finite-size Ising parity studies might imply components in another parameterization; complete 2019/2020 article not read.",
+    "Only N>=3 and interior p,r; deterministic boundaries and off-line invariant measures are outside scope."
+  ],
+  "schema_version": 1
+}
