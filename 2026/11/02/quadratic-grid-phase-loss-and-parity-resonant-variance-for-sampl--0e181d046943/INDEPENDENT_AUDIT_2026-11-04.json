@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:42:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adjoint integration by parts gives J=p(0)x0+int sigma u; minimization on each grid cell exactly yields int|sigma|-|int sigma|, zero except cells containing roots. Taylor C² remainder and 2-Lipschitz control of this local functional yield uniform h³ error for finite isolated roots. Fourier expansion g=1/12+sum(-1)^k cos(2pi k r)/(pi² k²) gives mean sum slopes/12 and m-dependent variance (2pi⁴)^(-1) sum k^-4 |sum slopes exp(2pi i k m tau)|²+O(h). Equal slopes at roots 1/4,3/4 give coefficients 1/180 for even m, 1/2880 for odd m. Independent exact rational phase moments checked. No general asymptotic fixed constant is improperly asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourdin-Trelat convergence and Scarinci-Veliov higher-order Volterra-Fliess scheme apply to broader or different problems, but their rates do not entail the phase-resolved fixed-grid Fourier covariance."
+        ],
+        "reasoning": "Greater model generality is not statement dominance: different permitted control class and different performance metric.",
+        "searches": [
+          "arXiv:2302.02965",
+          "DOI:10.1007/s10589-017-9948-z"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2302.02965",
+        "https://arxiv.org/abs/2011.10022",
+        "https://doi.org/10.1007/s10589-017-9948-z",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older qualitative convergence theorem does not yield sharp h² loss; optimized-switch methods remove rather than impose the phase constraint; richer discretization does not imply the exact zero-order-hold loss."
+        ],
+        "reasoning": "No located theorem directly gives the asymptotic random shared-phase covariance without this local cell-loss and harmonic analysis.",
+        "searches": [
+          "arXiv:2302.02965",
+          "arXiv:2011.10022",
+          "DOI:10.1007/s10589-017-9948-z"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General sampled-data convergence and continuous switch-time algorithms do not impose the same exact common fixed shifted zero-order-hold grid."
+        ],
+        "reasoning": "The exact objective loss under this restriction is not equivalent to endpoint-conditioned minimum-time excess or within-cell optimized switching.",
+        "searches": [
+          "Resultary semantic query: bang bang optimal control shifted uniform sampling grid quadratic switching loss random phase variance resonance",
+          "arXiv:2302.02965",
+          "arXiv:2011.10022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary result reports cubic time excess in a controlled qubit, not the quadratic zero-order-hold value loss, and no shared-phase variance spectrum."
+        ],
+        "reasoning": "No exact table with the two-switch 1/180 vs 1/2880 variance coefficients was located; the coefficients follow an independent Fourier computation.",
+        "searches": [
+          "Resultary semantic query: bang bang optimal control shifted uniform sampling grid quadratic switching loss random phase variance resonance",
+          "Resultary cubic-grid-phase-law sampled qubit"
+        ]
+      },
+      "rationale": "Bourdin-Trelat gives qualitative sampled-data convergence, Aghaee-Hager optimizes free switch times, Scarinci-Veliov uses enriched within-cell switch approximations. Resultary qubit control phase law has nonlinear endpoint and cubic time loss, unlike this exact scalar linear objective and quadratic shared-phase variance.",
+      "residual_risks": [
+        "The local linear-crossing loss and Fourier series are elementary; only their motivated exact shifted-grid control synthesis and resonance are claimed as original.",
+        "Unindexed numerical-analysis control literature may contain an equivalent random-grid phase covariance under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative sampled-data convergence, not the exact scalar bang-bang shifted-grid value loss.",
+          "evidence": "Abstract, main convergence claims and model description",
+          "identifier_or_url": "https://arxiv.org/abs/2302.02965",
+          "material_read": "Abstract, main convergence claims and model description",
+          "method": "Abstract and theorem summary read",
+          "title": "Convergence in nonlinear optimal sampled-data control problems",
+          "trigger": "Potential broad sampled-data coverage"
+        },
+        {
+          "assessment": "A different feasible-control set: switch locations are free variables.",
+          "evidence": "Abstract and algorithm statement treating continuously optimized switch positions",
+          "identifier_or_url": "https://arxiv.org/abs/2011.10022",
+          "material_read": "Abstract and algorithm statement treating continuously optimized switch positions",
+          "method": "Abstract and algorithm summary read",
+          "title": "The Switch Point Algorithm",
+          "trigger": "Potential same bang-bang switch optimization"
+        },
+        {
+          "assessment": "Prior discretization analysis is distinct from exact fixed zero-order-hold value restriction.",
+          "evidence": "Full accessible journal HTML, stated scheme and higher-order estimates using enriched within-cell switching",
+          "identifier_or_url": "https://doi.org/10.1007/s10589-017-9948-z",
+          "material_read": "Full accessible journal HTML, stated scheme and higher-order estimates using enriched within-cell switching",
+          "method": "Full freely available research article/PDF read at theorem, proof and relevant examples",
+          "title": "Higher-order numerical scheme for linear quadratic problems with bang-bang controls",
+          "trigger": "Relevant higher-order bang-bang discretization"
+        },
+        {
+          "assessment": "Different controlled system, objective and error order; no direct implication.",
+          "evidence": "Published finding summary: O(m^-3) controlled-qubit time excess and alignment; compared with h² scalar objective loss",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd",
+          "material_read": "Published finding summary: O(m^-3) controlled-qubit time excess and alignment; compared with h² scalar objective loss",
+          "method": "Published research summary / not entire full text",
+          "title": "Cubic grid-phase law for a sampled bang switch in a controlled qubit",
+          "trigger": "Closest related published SCOPE result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shared-grid phase correlation and exact parity resonance quantify reproducibility/uncertainty of sampled bang-bang control; complete leading profile and sharp factor-16 variance split are motivated by actual fixed-grid restrictions, not arbitrary numerical slices.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2302.02965",
+    "https://arxiv.org/abs/2011.10022",
+    "https://doi.org/10.1007/s10589-017-9948-z",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd"
+  ],
+  "disposition": "passed",
+  "final_claim": "For scalar linear-affine control with simple interior zeros of smooth switching function and an exact shifted zero-order-hold grid, objective loss is h² sum_j |sigma’(tau_j)|g({m tau_j-theta})+O(h³) uniformly theta; shared random shift yields exact leading Fourier covariance and parity ratio 16 for two symmetric switches.",
+  "limitations": [
+    "The local linear-crossing loss and Fourier series are elementary; only their motivated exact shifted-grid control synthesis and resonance are claimed as original.",
+    "Unindexed numerical-analysis control literature may contain an equivalent random-grid phase covariance under other terminology.",
+    "No repository write, dispatcher closeout or public-release operation; verified files are private audit records.",
+    "The exact assessed mathematical scope is that in the frozen RESULT.md, not a stronger uniformity or class claim."
+  ],
+  "residual_risks": [
+    "The local linear-crossing loss and Fourier series are elementary; only their motivated exact shifted-grid control synthesis and resonance are claimed as original.",
+    "Unindexed numerical-analysis control literature may contain an equivalent random-grid phase covariance under other terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Qualitative sampled-data convergence, not the exact scalar bang-bang shifted-grid value loss.",
+      "evidence": "Abstract, main convergence claims and model description",
+      "identifier_or_url": "https://arxiv.org/abs/2302.02965",
+      "material_read": "Abstract, main convergence claims and model description",
+      "method": "Abstract and theorem summary read",
+      "title": "Convergence in nonlinear optimal sampled-data control problems",
+      "trigger": "Potential broad sampled-data coverage"
+    },
+    {
+      "assessment": "A different feasible-control set: switch locations are free variables.",
+      "evidence": "Abstract and algorithm statement treating continuously optimized switch positions",
+      "identifier_or_url": "https://arxiv.org/abs/2011.10022",
+      "material_read": "Abstract and algorithm statement treating continuously optimized switch positions",
+      "method": "Abstract and algorithm summary read",
+      "title": "The Switch Point Algorithm",
+      "trigger": "Potential same bang-bang switch optimization"
+    },
+    {
+      "assessment": "Prior discretization analysis is distinct from exact fixed zero-order-hold value restriction.",
+      "evidence": "Full accessible journal HTML, stated scheme and higher-order estimates using enriched within-cell switching",
+      "identifier_or_url": "https://doi.org/10.1007/s10589-017-9948-z",
+      "material_read": "Full accessible journal HTML, stated scheme and higher-order estimates using enriched within-cell switching",
+      "method": "Full freely available research article/PDF read at theorem, proof and relevant examples",
+      "title": "Higher-order numerical scheme for linear quadratic problems with bang-bang controls",
+      "trigger": "Relevant higher-order bang-bang discretization"
+    },
+    {
+      "assessment": "Different controlled system, objective and error order; no direct implication.",
+      "evidence": "Published finding summary: O(m^-3) controlled-qubit time excess and alignment; compared with h² scalar objective loss",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cubic-grid-phase-law-for-a-sampled-bang-switch-in-a-controlled-q--99b8c1c493cd",
+      "material_read": "Published finding summary: O(m^-3) controlled-qubit time excess and alignment; compared with h² scalar objective loss",
+      "method": "Published research summary / not entire full text",
+      "title": "Cubic grid-phase law for a sampled bang switch in a controlled qubit",
+      "trigger": "Closest related published SCOPE result"
+    }
+  ]
+}

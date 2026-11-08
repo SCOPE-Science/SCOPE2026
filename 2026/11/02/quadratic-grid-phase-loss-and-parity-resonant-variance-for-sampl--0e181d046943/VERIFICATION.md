@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof is analytic and self-contained: the adjoint identity reduces the problem to exact cellwise signed integration, Taylor's theorem controls the switch-cell difference uniformly over grid shifts, and a convergent Fourier series supplies all shifted-phase moments. Its validity is not based on a finite experiment.
+## correctness
 
-Run `python3 verify.py` using Python 3 standard library. The standalone code exercises the exact rational two-switch polynomial case on 512 rational grid/shift pairs and checks the explicit Taylor-error bound. It checks the exact phase integrals \(\mathbb E g(U)=1/12\), \(\mathbb E g(U)^2=1/80\) and \(\operatorname{Var} g(U)=1/180\), plus the two-switch even/odd leading variance ratio \(16\). It also approximates the shift-integrated mean and variance with 1024 rational phase samples for four grid sizes, using exact rational integration prior to float averaging.
+PASS
 
-These tests are not exhaustive over \(C^2\) coefficients, shift phases, grid sizes or harmonic frequencies. The exact coefficients and uniform remainders rely on the mathematical arguments in `RESULT.md`. At switch positions on a grid boundary the gap contribution is zero. For the two-switch polynomial, \(1/180\) and \(1/2880\) are leading variance coefficients and not exact finite-step variances.
+Adjoint integration by parts gives J=p(0)x0+int sigma u; minimization on each grid cell exactly yields int|sigma|-|int sigma|, zero except cells containing roots. Taylor C² remainder and 2-Lipschitz control of this local functional yield uniform h³ error for finite isolated roots. Fourier expansion g=1/12+sum(-1)^k cos(2pi k r)/(pi² k²) gives mean sum slopes/12 and m-dependent variance (2pi⁴)^(-1) sum k^-4 |sum slopes exp(2pi i k m tau)|²+O(h). Equal slopes at roots 1/4,3/4 give coefficients 1/180 for even m, 1/2880 for odd m. Independent exact rational phase moments checked. No general asymptotic fixed constant is improperly asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bourdin-Trelat gives qualitative sampled-data convergence, Aghaee-Hager optimizes free switch times, Scarinci-Veliov uses enriched within-cell switch approximations. Resultary qubit control phase law has nonlinear endpoint and cubic time loss, unlike this exact scalar linear objective and quadratic shared-phase variance.
+
+## value
+
+PASS
+
+Shared-grid phase correlation and exact parity resonance quantify reproducibility/uncertainty of sampled bang-bang control; complete leading profile and sharp factor-16 variance split are motivated by actual fixed-grid restrictions, not arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
