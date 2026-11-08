@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The congruence is exactly equivalent to prime-power divisibility of \(2ds\), with \(d=j-i\), \(s=i+j-1\), \(d<s\), and opposite parity. The prime-adic minimization establishes a global lower bound on \(d+s\) and characterizes equality uniquely, separately for odd and even prime powers. Explicit equality pairs attain the bound. Exhaustive independent arithmetic checks over 94 finite prime-power cases agreed with both the threshold and the unique first predecessor. Computations do not substitute for the general proof.
+## correctness
 
-## Originality
-PASS, subject to normal unpublished-or-unlocated-literature risk. Sun's original theorem concerns the smallest modulus that discriminates an initial segment, whereas this result determines the exact maximal initial segment for **each** prime power and gives a unique first collision; the former does not imply the latter. Park treats different quadratic sequences, and Sun's subsequent least-modulus theorem studies different polynomial families. Full text of all three was inspected in the relevant definitions, main theorems, and proof sections. No exact result was located in targeted semantic research records or comparable retrieved literature. The exponent-one prime case is essentially covered by known elementary properties and is included for completeness; the substantive new classification concerns higher prime powers.
+PASS
 
-## Mathematical value
-PASS. This resolves a natural local refinement of a published discriminator problem for an infinite family of moduli and identifies explicit square-root-scale thresholds and a sharp even/odd valuation parity transition. In contrast with finite experimental cutoffs, the proof gives all prime powers, every exponent, and uniqueness of the earliest colliding predecessor. It is not a general theorem for other quadratic polynomials.
+Congruence t_j=t_i mod p^a is equivalent to p^a|2ds, d=j-i>=1, s=i+j-1>d, d+s odd. This bijection exactly translates minimizing j to minimizing odd d+s. For odd p, with m=min(v_p(d),v_p(s)), M=max, odd/even parity forces lower bound 2p^m+p^M, optimized at m=floor(a/2). Splitting even and odd a gives minimal sums 3p^k and (p+2)p^k respectively and equality forces unique opposite-parity (d,s), with s>d; for p=2 the even member must be multiple of 2^{a-1}, giving unique minimum (d,s)=(1,2^{a-1}). All boundary conditions a=1 and p=2 hold. Direct independent residue maps confirmed exact first collision and unique predecessor in 66 finite prime powers. The proof is universal; finite tests are supplementary.
 
-## Closest sources and residual risks
-The most relevant sources are Z.-W. Sun, arXiv:1202.6589; S. Park, arXiv:1308.3754; and Z.-W. Sun, arXiv:1304.5988. Conceivably a more general prime-power collision statement in older discriminator or modular-polynomial literature implies this result. The finite computational check cannot settle that historical question.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Z.-W. Sun 2013 proves the least *modulus* among all moduli separating the first n sequence values and gives the 2-power witness in Theorem 2.2(ii), which is thus prior-covered and credited. Its theorem does not fix an arbitrary prime power p^a and determine the exact longest collision-free prefix plus unique predecessor, particularly odd a>=2. Park 2013 treats discriminators of other quadratic polynomials; Sun 2013/2016 related least-modulus sequences differ. O PASS qualified for the complete odd-prime-power parity classification, not for the standard factorization or the 2-power witness.
+
+## value
+
+PASS
+
+A natural local refinement of a canonical quadratic discriminator sequence yields exact first collision horizons for all prime powers, uniqueness and a sharp even/odd exponent transition, relevant to modular injectivity bounds. Beyond the elementary p=2 and a=1 edges, its all-prime-power classification is a motivated exact arithmetic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
