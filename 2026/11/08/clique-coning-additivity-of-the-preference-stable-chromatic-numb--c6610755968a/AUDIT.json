@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Complete all-graph proof: favorite apex color removes every apex-outgoing envy edge; a palette reduction gives a stable colouring on the rest. For lower bound, lift an obstructing \\(k-1\\)-colour profile by adding a last-ranked color on original vertices and top-ranked color on the apex; either the apex takes it and exposes an obstructed G-coloring, or a G vertex takes it and creates a mutual-envy 2-cycle, or nobody takes it and restriction to G is again obstructed. Palette universality is monotone, so a \\(k\\)-palette obstruction excludes smaller q; the boundary k=1 and induction over t are handled explicitly. The supplementary finite verifier returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koana, Oh, Yoneda, Graph Coloring with Color Preferences, arXiv:2609.00569v1 (2026-09-01): reachability upper bound, Grundy lower bound, subgraph monotonicity and exact special graph families; the reachability parameter can exceed the invariant.",
+        "The reachability bound for a cone gives \\(\\\\mathrm{reach}(G)+1\\), which does not in general imply \\(\\\\chi_{\\\\mathrm{stable}}(G)+1\\); a single-family computation supplies no all-graph reverse inequality."
+      ],
+      "reasoning": "Checked whether a general result dominates clique coning or subsumes the proposed identity, including all-graph reachability and subgraph monotonicity. The source results yield neither the exact all-graph upper bound nor the lifted lower-bound equality. No covering broader result was found in bounded searches.",
+      "searches": [
+        "Web: 2026 Koana Oh Yoneda join stable chromatic apex universal graph coloring",
+        "published-finding corpus: preference-stable chromatic number under clique coning universal vertex join additive chi_stable(K_t vee G) exact theorem",
+        "published-finding corpus: stable chromatic number complete multipartite graph preference stable coloring color preferences K_{2,2,2} tripartite graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.00569v1, full HTML primary source",
+      "2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305, complete RESULT.md and definition in public verifier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Koana, Oh, Yoneda, Graph Coloring with Color Preferences, arXiv:2609.00569v1 (2026-09-01): gives definition, reachability/grundy bounds, elementary families and a triangular prism preference obstruction.",
+        "Stable chromatic number of the complete tripartite graph \\(K_{2,3,3}\\), published mathematical record (October 2026), 2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305: shows one example with stable chromatic number six, and expressly does not give a general formula for complete multipartite graphs."
+      ],
+      "reasoning": "The proposed operation law implies infinitely many cone values from every base value. Prior values do not imply a universal reverse inequality against all profiles on the cone. The original paper's reachability inequality may overestimate the exact invariant, so its directed orientation argument is not a disguised version of this identity.",
+      "searches": [
+        "arXiv:2609.00569v1, full HTML paper, Theorem 3.1, Theorem 3.3, Props 3.4–3.7 and Appendix A",
+        "published-finding corpus: 2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305, full RESULT.md",
+        "published-finding corpus: stable chromatic tripartite graph small K_{2,2,2} preference obstruction four color profiles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Koana, Oh, Yoneda, Graph Coloring with Color Preferences, arXiv:2609.00569v1 (2026-09-01): graph preference definition and Theorem 3.1 reachability; inspected the full HTML sections on the definition, bounds, families and Appendix A.",
+        "Stable chromatic number of the complete tripartite graph \\(K_{2,3,3}\\), published mathematical record (October 2026), 2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305: full RESULT.md proves a single tripartite graph, not an operation law."
+      ],
+      "reasoning": "The same claim could be phrased as universal-vertex suspension, coning, apex addition or clique join additivity; these search terms were compared. Neither source contains a general identity for every base graph. The two-cycle obstruction uses preference rankings and is not just ordinary chromatic additivity.",
+      "searches": [
+        "published-finding corpus: stable chromatic number universal vertex join K1 vee G increases by one graph color preferences envy",
+        "published-finding corpus: preference stable chromatic join with complete graph additive clique coning stable coloring",
+        "published-finding corpus: stable graph coloring apex vertex cone increases stable chromatic by one general graphs",
+        "Web: stable chromatic number join preference color exchange",
+        "Web: stable chromatic number cone graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stable chromatic number of the complete tripartite graph \\(K_{2,3,3}\\), published mathematical record (October 2026), 2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305: a fixed graph value 6 established by exhaustive certificate for five colors (2940 proper mappings), no general join rule.",
+        "Published result searches yielded this nearest preference-stable-chromatic record; records on other colouring invariants are logically distinct."
+      ],
+      "reasoning": "An exact table of values for particular graphs is not equivalent to an operation law quantified over all graphs and all clique orders. The candidate is a proof theorem rather than recomputation of a known table.",
+      "searches": [
+        "published-finding corpus: stable chromatic number universal vertex join K1 vee G increases by one graph color preferences envy",
+        "published-finding corpus: preference-stable chromatic number under clique coning universal vertex join additive chi_stable(K_t vee G) exact theorem",
+        "published-finding corpus: stable chromatic number K_{2,3,3} K_{2,2,2} complete tripartite 5 6"
+      ]
+    },
+    "rationale": "The initiating primary full text and the closest published exact-case record do not state or imply all-graph clique-coning additivity. The reachability bound is inapplicable as an exact equality where reach(G)>\\(\\chi_{\\mathrm{stable}}(G)\\). Bounded searches of aliases, parameters and published claims returned no stronger covering source; historical priority remains provisional.",
+    "residual_risks": [
+      "A differently named or unindexed prior statement about universal vertex coning may exist; historical priority is not a certified absence result",
+      "The exact result is elementary once the preference-environment definition is fixed; novelty status depends on mathematical literature not reviewed by an independent expert"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the universal clique-coning identity; special values and bounds are weaker and do not furnish the profile-lifting lower bound",
+        "evidence": [
+          "arXiv:2609.00569v1, initially submitted 2026-09-01",
+          "Theorem 3.1 gives orientation/reachability upper bound, which may exceed stable chromatic number"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.00569",
+        "material_read": "Full HTML text: definition of stable colouring, structural Theorems 3.1 and 3.3, Proposition 3.4, special-family Propositions 3.5–3.7, and Appendix A preference obstruction",
+        "method": "Read primary open-access HTML, compared quantifiers and coning consequences against the new theorem",
+        "title": "Graph Coloring with Color Preferences",
+        "trigger": "Introduces the exact parameter and gives strongest relevant general bounds and definitions"
+      },
+      {
+        "assessment": "NOT_COVERING: it proves one fixed complete tripartite graph has parameter six, not clique-join additivity for every graph",
+        "evidence": [
+          "A fixed five-color obstruction on \\(K_{2,3,3}\\) and six-color reachability upper bound",
+          "Explicit limitation: no formula for arbitrary complete multipartite graphs"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305/RESULT.md",
+        "material_read": "Complete public RESULT.md including theorem, assumptions, 2940-colouring obstruction, proof, relationship to original preprint, and limitations; related public verification definition checked",
+        "method": "Read complete mathematical result text and compared quantified statements and proof mechanisms",
+        "title": "Stable chromatic number of the complete tripartite graph \\(K_{2,3,3}\\)",
+        "trigger": "Closest published record returned by exact concept/operation/alias searches"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6610755-968a-48e9-aeb3-3a687c7db409",
+  "value": {
+    "rationale": "An exact operation identity quantified over every finite nonempty base graph, for a recently introduced graph invariant, with a genuinely profile-robust reverse inequality. It preserves the exact stable-versus-ordinary chromatic gap and transfers any known base value to infinitely many apex/clique-joined families. This is a structural theorem rather than a finite instance or table recomputation; it claims no arbitrary-join generalisation.",
+    "status": "PASS"
+  }
+}
