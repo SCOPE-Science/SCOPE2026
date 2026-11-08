@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Independent conditional-uniform root split and subtrees give exact recurrences for mean maximum-key path length, mean leaf count and their product. Their ordinary generating functions solve a first-order differential equation uniquely. Coefficient extraction and subtraction yield c_n; tree degree conservation gives full vector. Correct boundaries n=1,2 and strict signs n>=3. Exact rational recursion checked sizes 2..160 and exhaustive independent construction through n=9; finite experiments not used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holmgren–Janson arXiv:1406.6883, Theorems 1.11–1.16 and Section 8.1; outdegree count covariances and means, no distinguished rightmost search path in those statements.",
+        "Bóna–Pittel arXiv:1412.2796, Introduction and Theorems 1.1–1.2: ranks defined by distance from descendant leaves rather than maximum-key search depth.",
+        "published-finding corpus 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9: root-split squared imbalance versus total internal path length, not extreme-key path versus global degree counts."
+      ],
+      "reasoning": "Theorem 1.11/1.12 of Holmgren–Janson covers covariances of counts of fringe tree patterns, not a path singled out by the largest *key*. Their Section 8.1 derives degree-count moments but does not mix them with this path. A fixed-root fringe-count theorem does not directly dominate this cross-moment.",
+      "searches": [
+        "Binary search tree exact covariance of number of nodes with outdegree 0 1 2 and rightmost depth or last inorder search cost",
+        "random binary search tree total internal path length rightmost path covariance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.6883 (full HTML relevant material)",
+      "https://arxiv.org/abs/1412.2796 (full HTML relevant material)",
+      "https://academic.oup.com/comjnl/article-abstract/29/1/36/365062 (abstract only)",
+      "published-finding index result 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9",
+      "published-finding index result 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "published-finding index result 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+      "accessible same-slot weekly ledger g000044 (recoverable claims only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Holmgren–Janson arXiv:1406.6883, Theorems 1.11–1.16 and Section 8.1; outdegree count covariances and means, no distinguished rightmost search path in those statements.",
+        "Bóna–Pittel arXiv:1412.2796, Introduction and Theorems 1.1–1.2: ranks defined by distance from descendant leaves rather than maximum-key search depth.",
+        "Holmgren–Janson Section 8.1 states E N_d and Var N_d; such marginal moments do not determine Cov(R,N_d).",
+        "Bóna–Pittel defines rank from closest descendant leaf and proves its distribution, not the depth of the maximum key."
+      ],
+      "reasoning": "The result is not the marginal degree theorem or a trivial special case of within-fringe covariance formulas, since one observable singles out a global key-distinguished root path. It uses a different mixed recurrence. The two other degree covariances are structural deductions once the new mixed leaf/path quantity is established.",
+      "searches": [
+        "Holmgren Janson 2014 Section 8.1 outdegrees right paths and covariance Theorems 1.11–1.16",
+        "Bona Pittel 2014 random search tree rank distance from leaves covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a BST from a uniform permutation, rightmost spine length equals the permutation record-count, up to the standard extreme-key search interpretation.",
+        "Changing path length from vertex count to edge count subtracts one, leaving covariance unchanged."
+      ],
+      "reasoning": "Explicitly tested aliases: right spine, maximum-key search path, record count, rightmost path, leaf count and outdegree. No matching indexed theorem was returned; equality to record count is a reduction of the observable, not a pre-existing covariance theorem.",
+      "searches": [
+        "Uniform random binary search tree built from uniform permutation exact Cov(depth of maximum key or rightmost spine length, number of leaves and number of nodes with two children) equals (n-2)(n+1)/(12n(n-1)) and negative twice for unary nodes.",
+        "Mixed moment right spine and leaf count random binary search tree extreme search depth degree profile finite n 1/12 covariance",
+        "right spine leaf count covariance random binary search tree records number leaves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest indexed finding 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9: squared root imbalance versus BST internal path length.",
+        "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f: root degree versus leaves in a random recursive tree.",
+        "published-finding corpus 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba: root attachments versus path length in a random recursive tree.",
+        "Accessible own latest ledger g000044: 44 claims surveyed for right spine, BST, maximum-key search and degree profile; closest leaf-related results concern recursive/Catalan trees, not this statistic."
+      ],
+      "reasoning": "The queried index and accessible own ledger contained no equivalent formula or dominating theorem in their recoverable claims. Keyword overlap with recursive-tree results is not mathematical implication, because the sampling laws and observables differ. An unsuccessful search alone does not certify priority.",
+      "searches": [
+        "Uniform random binary search tree built from uniform permutation exact Cov(depth of maximum key or rightmost spine length, number of leaves and number of nodes with two children) equals (n-2)(n+1)/(12n(n-1)) and negative twice for unary nodes.",
+        "Mixed moment right spine and leaf count random binary search tree extreme search depth degree profile finite n 1/12 covariance",
+        "Binary search tree exact covariance of number of nodes with outdegree 0 1 2 and rightmost depth or last inorder search cost",
+        "Uniform random binary search tree exact finite covariance number of leaves with search depth of maximum key / right spine length (n-2)(n+1)/(12 n(n-1))."
+      ]
+    },
+    "rationale": "Compared the exact cross-statistic (rightmost/root-to-largest-key length versus global outdegree counts), including equivalences to record count and edge-depth, against accessible historical claims, an actual indexed database search and closely related full primary papers. Holmgren–Janson covers outdegree and fringe statistics but not this mixed extreme-key path result in inspected statements; Bóna–Pittel measures rank from leaves. Distinct roles of the two observables prevent marginal or within-fringe covariance statements from implying the claim. Priority remains qualified by possible older implicit mixed record/leaf coverage.",
+    "residual_risks": [
+      "The older mixed-record/local-leaf moment literature was not exhaustively inspected and might implicitly entail the formula.",
+      "A publisher-abstract-only degree-count paper was not available in full; its contents could not be ruled out.",
+      "An exact index search is not a proof of uniqueness, and a no-match database hit does not certify global priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in the inspected theorem statements and relevant Section 8.1: no mixed maximum-key path/global outdegree covariance. No claim of exhaustive conceptual proof of absence.",
+        "evidence": [
+          "Theorem 1.12 handles covariance between two fringe subtree-size counts; Section 8.1 Equations (8.1)–(8.4) give degree identities/moments; Remark 8.4 discusses right paths in a different context."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+        "material_read": "arXiv full HTML: abstract and introduction, Theorems 1.11–1.16, and Section 8.1; searched parsed text for rightmost, spine, leaf, covariance",
+        "method": "lawful OA arXiv HTML full-text examination",
+        "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+        "trigger": "Most relevant prior full treatment of BST fringe and outdegree covariances, and right-path correspondence"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE: vertex distance down to its closest descendant leaf, not root-to-maximum-key path; no corresponding mixed covariance in relevant statements.",
+        "evidence": [
+          "Section 1.2 defines rank as descendant-leaf distance; Theorems 1.1–1.2 study rank distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.2796",
+        "material_read": "arXiv full HTML: abstract, introduction, main statements and Section 2 rank definitions; searched parsed text for spine and covariance",
+        "method": "lawful OA arXiv HTML full-text examination",
+        "title": "On a random search tree: asymptotic enumeration of vertices by distance from leaves",
+        "trigger": "Same random BST model and detailed leaf-distance rank profile"
+      },
+      {
+        "assessment": "MARGINAL_PRIOR: describes node degrees, not verified as a mixed maximum-key path formula. Historical implicit coverage remains an uncertainty.",
+        "evidence": [
+          "The title and available abstract concern expected degree counts."
+        ],
+        "identifier_or_url": "https://academic.oup.com/comjnl/article-abstract/29/1/36/365062",
+        "material_read": "bibliographic abstract/snippet only; full text not inspected",
+        "method": "publisher abstract search",
+        "title": "Expected Distribution of Degrees in Random Binary Search Trees",
+        "trigger": "Classical degree-count marginal source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8dbef2c-1eca-4227-81c5-cd4f82098bee",
+  "value": {
+    "rationale": "Joint dependence between extreme-key lookup cost and the full node-degree profile is a motivated search-tree shape/performance question. The exact sign profile separates leaves and branching nodes from unary nodes at every nontrivial finite size, and finite nonzero limiting cross-covariances contrast with decaying correlations. The mixed leaf/path moment supplies an explicit benchmark not inferred from classical separate marginals; other degree identities are not separately valorized.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The random-permutation root is uniformly ranked, and conditional subtrees are independent ordinary binary search trees. The recurrence for the exact product moment includes the singleton exception and uses the proper right-subtree path. The displayed ordinary generating functions satisfy the first-order differential equation with zero constant term. Coefficient extraction gives the exact finite-sample covariance, and deterministic binary-tree degree identities extend it to the three outdegrees. The standalone rational checker validates recurrence identities through 160 nodes and exhaustive all-permutation constructions up to nine nodes. Finite computation supports but does not replace the universal derivation. Boundary cases (empty convention, singleton and two nodes) and harmonic normalization were checked.
+
+## Originality — PASS, with historical priority risk
+The relevant full arXiv HTML materials of Holmgren and Janson (2014), especially the statements of their fringe covariance Theorems 1.11–1.16 and Section 8.1, and Bóna and Pittel (2014), especially their definitions/main results and rank-from-leaves theorems, were inspected and searched. The former's degree-count covariances are not mixed with a distinguished extreme-key path. The latter's vertex rank is distance from a descendant leaf, not the extreme-key depth. The available published-finding index was queried by exact statistic, formula, and synonyms; closest results involve root-split imbalance versus total path length in a BST or degree/leaf statistics in a different recursive-tree model. The accessible prior-ledger claims were compared for the same or stronger statement; no exact match was identified. An uninspected older paper on mixed BST records and local leaf indicators could still contain the result; non-identification is not proof of global novelty.
+
+## Value — PASS
+The full three-class dependence profile of a distinguished search operation and global degree counts is an interpretable structural statistic for randomized search trees. The signs are uniform at every finite nontrivial size and the covariances retain nonzero limits, despite substantially different marginal fluctuation scales. This is not inferred from marginal mean/variance information, and the exact mixed moment supplies a reusable analytic benchmark. The other degree classes are exact structural consequences, not separately claimed discoveries.
+
+Self-review: passed. Independent audit: not yet performed.
