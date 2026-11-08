@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:57:23.715912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every 2<=m<=n, the closed-neighborhood deletion from a cell set D removes exactly its occupied rows and columns; the residual is R_{m-a,n-b}. A non-induced C4 exists iff both residual factors are >=2, or one is 1 and the other >=4. Unique row/column occupancy plus inclusion–exclusion Q_{a,b}(z) yields the whole polynomial without overcount. Sharp lower-bound m-1 and m when n>=m+3 follow by residual widths; full five-case optimizer counts follow from exactly one missing row, one doubled row when n=m+3, and square-board surjection-orientation overlap correction. Independently enumerated all subsets on nine boards across five boundary regimes, and separately reconstructed C4 from adjacency permutations for five boards through 3x5; all predicted minima and polynomial coefficients matched. Universal m,n proof rests on residual-rectangle equivalence and case partition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartolo–Borg–Scicluna universal vertex-order C4 isolation upper bound 1/5; Wei–Zhang–Zhao universal edge-order upper bound (|E|+1)/6. Neither provides exact rook-graph I_mn(z) or optimal-count formula.",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ],
+        "reasoning": "An upper bound for all graphs does not imply an exact isolation polynomial or the threshold n=m+3.",
+        "searches": [
+          "C4 isolation polynomial rook graph Cartesian product complete graphs aspect ratio minimum isolating sets",
+          "SCOPE-Science/SCOPE2026 code search: C4 isolation rook",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ]
+      },
+      "checked_sources": [
+        "Bartolo Borg Scicluna arXiv:2310.09128",
+        "Wei Zhang Zhao arXiv:2310.17337",
+        "Resultary semantic query C4 isolation rook graphs, 8 unrelated results",
+        "Scoped repository C4 isolation rook query returned zero matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The isolating-set definition and sharp global bounds are known; the residual-rectangle lemma reduces the specialized enumeration to row/column incidence. Neither bound computes Q_{a,b}(z), its coefficients or exact minimizer multiplicities.",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ],
+        "reasoning": "No earlier inspected theorem has a conclusion strong enough to imply the entire enumerator without a new residual structure argument.",
+        "searches": [
+          "C4 isolation polynomial rook graph Cartesian product complete graphs aspect ratio minimum isolating sets",
+          "SCOPE-Science/SCOPE2026 code search: C4 isolation rook",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C4 isolation rook graph K_m Cartesian K_n, line graph of K_mn, lattice graph closed-neighborhood cycle elimination",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ],
+        "reasoning": "Equivalent rook/line-graph descriptions were compared with the actual property: C4 in the line graph includes cycles inside four-cliques, unlike original bipartite C4.",
+        "searches": [
+          "C4 isolation polynomial rook graph Cartesian product complete graphs aspect ratio minimum isolating sets",
+          "SCOPE-Science/SCOPE2026 code search: C4 isolation rook",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rook/lattice graph tabulations in published combinatorics generally give other graph invariants; matched Resultary entries concerned rook three-cut complexes. The full all-size polynomial was not found in targeted published record search.",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ],
+        "reasoning": "Finite board counts (e.g. 36 for R3,3 and 416 for R4,4) are not novel by themselves; evidence for originality is the universal formula and five-regime extremal classification, not absence of a database row.",
+        "searches": [
+          "C4 isolation polynomial rook graph Cartesian product complete graphs aspect ratio minimum isolating sets",
+          "SCOPE-Science/SCOPE2026 code search: C4 isolation rook",
+          "Bartolo Borg Scicluna arXiv:2310.09128",
+          "Wei Zhang Zhao arXiv:2310.17337"
+        ]
+      },
+      "rationale": "Bartolo–Borg–Scicluna (2023) prove the universal n/5 isolation bound with exceptional graphs; Wei–Zhang–Zhao (2023) prove the size-based (|E|+1)/6 bound. Neither theorem counts every isolating set or exactly partitions optimizers by rook aspect ratio. The equivalent line graph L(K_mn) wording was searched, but isolating C4 in line graph is not isolating C4 in the bipartite root. General star-isolation cannot subsume the C4 predicate by maximum degree alone; R1,3 and R2,2 are both degree two but differ in four-cycles. Potential unindexed exact polynomial remains risk.",
+      "residual_risks": [
+        "Cycle must mean subgraph, not induced; this is essential for clique residuals.",
+        "Potential old enumerations of line-graph row-column covering polynomials not indexed by C4 isolation terminology.",
+        "Independent direct C4 adjacency enumeration done only on boards through 3x5; symbolic proof handles all m,n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves sharp universal <=n/5, not rook enumerator or exact optimum counts",
+          "evidence": [
+            "arXiv:2310.09128, main result c4=1/5 and nine exceptions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.09128",
+          "material_read": "Original arXiv full text/PDF: abstract, main theorem, proof/exception discussion and definitions; PDF page inspected",
+          "method": "Primary full text relevant original sections",
+          "title": "Isolation of squares in graphs (Bartolo, Borg, Scicluna, 2023)",
+          "trigger": "Direct C4-isolation definition and possible broad dominating theorem"
+        },
+        {
+          "assessment": "Proves <=(|E|+1)/6 size bound; not exact rook polynomial",
+          "evidence": [
+            "arXiv:2310.17337v1, abstract and main theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.17337v1",
+          "material_read": "Original HTML: abstract, introduction, theorem and proof context, statement of size-based bound",
+          "method": "Primary full text relevant original sections",
+          "title": "On the C4-isolation number of a graph (Wei, Zhang, Zhao, 2023)",
+          "trigger": "Same isolation problem with broad graph bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Square-isolation is an established graph invariant and rook graphs are canonical strongly regular/Cartesian-product examples rich in four-cycles. An all-cardinality polynomial and five explicit optimal-set counts give structurally meaningful aspect-ratio boundary at n=m+3, with two optimizer mechanisms at the threshold; this is neither an arbitrary small finite census nor a routine general bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only rectangular rook graphs with m,n>=2 and non-induced C4; arbitrary graph-family isolation and induced C4 are not asserted.",
+    "Cycle must mean subgraph, not induced; this is essential for clique residuals.",
+    "Potential old enumerations of line-graph row-column covering polynomials not indexed by C4 isolation terminology.",
+    "Independent direct C4 adjacency enumeration done only on boards through 3x5; symbolic proof handles all m,n."
+  ],
+  "schema_version": 1
+}
