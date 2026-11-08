@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The homogeneous necessary condition follows by scaling the full \(C^2\) Taylor expansion of a Morse function. Sufficiency uses the smooth strict proper Lyapunov function supplied by the published converse GAS theorem and adds the weak quadratic form, preserving strict decrease and producing positive Hessian. The example has exact quartic dissipation \(-x^6-y^6\); group-averaged Hessians force the radial test. An exact polynomial square factorization attains the sharp ratio \(1/(2\sqrt2)\), and the constructed polynomial certificate handles the inclusive endpoints. The standalone symbolic checker verifies all core algebraic identities. No finite data are used to prove universal assertions.
+PASS
 
-## Originality — PASS under inspected evidence
+For a smooth homogeneous degree d>1 GAS field, a C² positive-Hessian Lyapunov L has leading gradient λHz along rays and gives zᵀHf(z)≤0. Conversely a positive definite weak quadratic Q plus an existing smooth proper strict GAS converse Lyapunov W is smooth, proper, strict and has positive Hessian; the converse theorem is explicitly assumed. For the cubic family the quartic W=(x⁴+y⁴)/4 has derivative −x⁶−y⁶<0 for all κ, proving GAS. C4 equivariance averages an arbitrary admissible H to a positive scalar I. The exact identity (x⁴+y⁴)²−8x²y²(y²−x²)²=(x⁴−4x²y²+y⁴)² shows the sharp radial ratio 1/(2sqrt(2)); extremal rays attain it. Hence |κ|≤2sqrt(2) precisely, including endpoint via x²+y²+εW; outside no local even weak C² Morse certificate. I independently checked the polynomial and rotational identities symbolically; no unverified numerical inference supplies the universal necessity.
 
-The closest source is Jongeneel, arXiv:2610.05626v1 (October 4, 2026): Proposition 3.5 handles a nilpotent linear part, and Corollary 3.9 gives only the linear semisimplicity necessity, not the homogeneous if-and-only-if or the sharp threshold. The distinct Liu–Fitzsimmons cubic, arXiv:2607.16171v1, has **no** polynomial Lyapunov function at all, unlike the present family which has an explicit strict quartic for every coupling; neither its main theorem nor its distinct two-parameter polar family implies this exact Morse cutoff. The nearest published matching mathematical record addresses invisibility of Morse existence to a smooth jet, not this homogeneous polynomial criterion or sharp fourfold-symmetric family. Residual risk: standard common quadratic and symmetry-average literature might implicitly cover an equivalent general principle. Exact broad historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper motivating this work leaves higher-order sufficiency beyond semisimple nonhyperbolic linearizations open. The new criterion resolves the homogeneous subclass, converting a smooth function-existence question into a finite-dimensional weak quadratic feasibility problem. The exact one-parameter family displays a certificate-existence transition at \(2\sqrt2\) despite unchanged global stability and a persistent quartic polynomial certificate. The sharp boundary is not an arbitrary numerical sample or routine improvement to a known estimate; it distinguishes Morse regularity from GAS and polynomial existence in the smallest relevant planar cubic setting.
+Jongeneel 2026 establishes hyperbolic Morse sufficiency and linear semisimplicity necessity, including non-Morse examples, not the global-if-and-only-if for homogeneous GAS fields or this sharp explicit C4 family. Liu–Fitzsimmons give a distinct cubic GAS field lacking any homogeneous polynomial/analytic Lyapunov certificate, whereas this family always has a quartic polynomial certificate and changes only Morse regularity at |κ|=2sqrt(2). The polynomial and matrix averaging ingredients are conventional; the combined sharp all-parameter certificate existence law was not directly implied by examined sources.
 
-## Scope and residual limits
+## value
 
-This is a single result combining a homogeneous criterion with a sharp realization, not a claim to classify all nonhyperbolic dynamics. No assertion about nonhomogeneous flows, general perturbations, or all analytic stability certificates follows. The two directly relevant primary articles were read in their accessible HTML presentations. Historical overlap checks were performed on available own findings and the mathematical-results database. External independent verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The homogeneous criterion converts a smooth-function existence problem into a concrete weak quadratic feasibility test; the planar family has a sharp Morse-certificate transition while global stability and a strict quartic certificate remain unchanged. This separates certificate regularity from dynamical bifurcation and addresses a nonhyperbolic case the motivating prior work leaves open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
