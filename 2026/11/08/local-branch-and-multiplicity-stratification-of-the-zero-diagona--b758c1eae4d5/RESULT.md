@@ -1,0 +1,43 @@
+# Local branch and multiplicity stratification of the zero-diagonal minimal-nilpotent fiber
+
+## Finding
+For every integer \(m\ge3\), let \(X_m\) be the complex affine scheme of \(m\times m\) matrices of rank at most one with zero diagonal, with its scheme-theoretic determinantal structure. It is reduced by Jia--Li's theorem. At every nonzero point \(M=uv^\mathsf T\), let \(A=\{i:u_i\ne0\}\), \(B=\{i:v_i\ne0\}\), and \(C=[m]\setminus(A\cup B)\). The diagonal condition makes \(A,B\) disjoint and nonempty. Put \(c=|C|\).
+
+Then the completed local ring is
+\[
+\widehat{\mathcal O}_{X_m,M}\cong
+\mathbb C[[z_1,\ldots,z_{m-1-c},x_1,y_1,\ldots,x_c,y_c]]
+/(x_1y_1,\ldots,x_cy_c).
+\]
+In particular, the point is smooth exactly when \(c=0\); it has exactly \(2^c\) analytic branches, embedding dimension \(m-1+c\), and Hilbert--Samuel multiplicity \(2^c\). The conductor of this completed local ring into its normalization is the image of \(\prod_{j=1}^{c}(x_j,y_j)\) (the unit ideal when \(c=0\)).
+
+The reduced singular locus has exactly \(m(2^{m-1}-2)\) distinct irreducible components, each of dimension \(m-2\). They are the rank-at-most-one cones on submatrices supported on \(P\times Q\), where an omitted index \(i\in[m]\) is fixed and \(P\sqcup Q=[m]\setminus\{i\}\) is an ordered decomposition into two nonempty parts. Generic points of every component have a single transverse node. Moreover, the global normalization of \(X_m\) is the disjoint union of the \(2^m-2\) normal affine Segre cones indexed by nonempty ordered bipartitions \(A\sqcup B=[m]\).
+
+## Assumptions and scope
+The base field is \(\mathbb C\); all assertions concern the affine scheme cut out in the space of zero-diagonal matrices by all \(2\times2\) minors of the generic zero-diagonal matrix. The symbol \(M\) denotes a closed complex point. In the support definition a nonzero rank-one matrix admits a factorization unique up to rescaling, so its row and column supports are unambiguous. The singular locus is taken with its **reduced** scheme structure. The completed-local-ring assertion concerns nonzero points only; the origin has a different cone singularity.
+
+## Proof
+**Step 1: global components and normalization.** The rank-one factorization \(M=uv^\mathsf T\) and the equations \(u_iv_i=0\) imply disjoint supports. If \(M\ne0\), both supports are nonempty and may be extended (by distributing unused indices) to an ordered bipartition \(A'\sqcup B'=[m]\). Thus \(X_m\) is set-theoretically the union of the closed rank-one cones \(T_{A',B'}\) supported on \(A'\times B'\). The source proves that the determinantal intersection is reduced, so this is its reduced irreducible-component decomposition. None of these cones contains another: an entry in its full rectangular support can be nonzero at a general point, and every index belongs to exactly one side of the bipartition. The cones are irreducible and normal, being affine cones over Segre embeddings \(\mathbb P^{|A'|-1}\times\mathbb P^{|B'|-1}\) (the one-sided singleton cases are affine spaces). Each has dimension \(|A'|+|B'|-1=m-1\). The finite birational map from their disjoint union is consequently the normalization of the reduced scheme, giving \(2^m-2\) normal components.
+
+**Step 2: exact nonzero affine charts.** Fix \(a\in A\), \(b\in B\) at a nonzero point and invert the matrix entry \(M_{ab}\). Every \(2\times2\) minor then gives the exact identity \(M_{ij}=M_{ib}M_{aj}/M_{ab}\). Set \(u_a=1\), \(u_i=M_{ib}/M_{ab}\) for \(i\ne a\), and \(v_j=M_{aj}\) for every \(j\). These are algebraic chart coordinates, with \(v_b\) invertible, and the diagonal equations are precisely \(u_iv_i=0\) for all \(i\). For \(i=a\) they force \(v_a=0\); for \(i=b\) they force \(u_b=0\). At the chosen point, \(u_i\) is a unit for \(i\in A\), and \(v_i\) is a unit for \(i\in B\). Their opposite coordinate therefore vanishes identically in the local ring. For each remaining \(i\in C\) two independent coordinates survive with the single equation \(u_iv_i=0\). The other independent coordinates consist of \(v_b\), the \(|A|-1\) nonpivot row factors on \(A\), and the \(|B|-1\) nonpivot column factors on \(B\), totaling \(|A|+|B|-1=m-1-c\). Translating these coordinates to the closed point and completing yields the displayed power-series quotient, without further equations.
+
+**Step 3: local numerical invariants and conductor.** Each factor \(\mathbb C[[x_i,y_i]]/(x_iy_i)\) has two regular branches, and the independent pairs produce \(2^c\) minimal primes. The ring is a complete intersection with \(c\) independent quadratic initial forms; hence its dimension is \(m-1\), embedding dimension is \(m-1+c\), and Hilbert--Samuel multiplicity is the product \(2^c\). The normalization is the direct product of the \(2^c\) regular branch rings, one for each choice of \(x_i=0\) or \(y_i=0\). A monomial supported on a unique branch must contain a variable from **every** pair \((x_i,y_i)\), and these monomials generate precisely the conductor; this proves the asserted product ideal. For \(c=0\) the completion is regular.
+
+**Step 4: singular components.** If \(c\ge1\), the local embedding dimension exceeds \(m-1\), so the point is singular. Conversely every point with \(c=0\) is regular. Fix an omitted index \(i\); taking \(C=\{i\}\), each ordered nonempty bipartition \(P\sqcup Q=[m]\setminus\{i\}\) gives a locally closed stratum with generic support exactly \(P,Q\), and its closure is the rank-one Segre cone \(T_{i;P,Q}\) supported on \(P\times Q\), of dimension \(m-2\). Every point with \(c>1\) belongs to such a closure by choosing an unused index and assigning all other unused indices to either side. The origin lies in every such cone and is singular (its tangent space contains all \(m(m-1)\) ambient coordinates because the defining minors are quadratic). The cones are distinct, and the generic points of each have \(c=1\), so none is contained in another singular component. There are \(m\) choices for \(i\) and \(2^{m-1}-2\) ordered nonempty bipartitions of its complement. Their union is exactly the reduced singular locus.
+
+## Verification
+Run \(`python3 verify.py`\) using only the Python standard library. It evaluates the Jacobian of all \(2\times2\) minors, after imposing zero diagonal, at every nonzero support pattern in sizes \(m=3,4,5,6\). Exact binary row reduction verifies tangent dimension \(m-1+c\) in all \(844\) cases. It also checks the singular-divisor count and the identity
+\[
+\sum_{a=1}^{m-1}\binom ma\binom{m-2}{a-1}=\binom{2m-2}{m-1}.
+\]
+The right side is the multiplicity of the cone at the origin, already implied by Jia--Li's Hilbert series; it is a consistency check and **is not claimed as a new computation**. Numerical verification is finite and is not used to prove the theorem for unbounded \(m\).
+
+## Relationship to prior work
+Jia and Li prove that the zero-diagonal rank-one determinantal intersection is reduced and Gorenstein and determine its Hilbert series, using a Gröbner degeneration associated with the type-\(C\) cluster complex. The \(m=3\) case has six coordinate-line components already visible in the source's explicit example; that special case is not claimed as new. The present theorem adds the uniform higher-dimensional nonzero completed-local-ring classification, branch and conductor profiles, the explicit reduced singular divisor with its component count, and the normalization. These conclusions do not follow just from reducedness, Gorensteinness, or the Hilbert numerator. Standard Segre geometry identifies each individual component, but does not on its own establish how all these components meet in the entire zero-diagonal intersection.
+
+## Limitations
+The theorem does not classify the scheme-theoretic Jacobian singular locus, the local ring at the origin, or the global conductor ideal at the origin. The previously known Hilbert-series multiplicity at the origin is used only to check consistency. The proof is over \(\mathbb C\); some arguments extend to other fields, but no characteristic-uniform theorem is asserted. Historical priority relative to general results on patterned rank-one determinantal schemes has not been exhaustively established. Independent validation has not been performed.
+
+## References
+1. B. Jia and Y. Li, *Minimal Nilpotent Orbits and Toric Varieties*, arXiv:2511.02179v1, 4 November 2025, especially Theorems 1.3 and 6.3 and Sections 3 and 6. https://arxiv.org/abs/2511.02179
+2. B. Fu, D. Juteau, P. Levy and E. Sommers, *Generic singularities of nilpotent orbit closures*, arXiv:1502.05770, 2015. https://arxiv.org/abs/1502.05770
