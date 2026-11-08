@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python VERIFY.py` with a standard Python 3 interpreter. This independently recomputes the \(r\)-Stirling coefficients from their recurrence, checks each normalized conditional law against inclusion-exclusion, checks the deletion identity and log-concavity, and checks reverse-TP2. Every mapping \([n]\to[n]\) is also enumerated independently for \(n\le6\) to verify the joint \((C,Z)\) count table. The verifier executed successfully with **114389 exact integer assertions**. Adjacent minors were checked through \(n=38\), all separated minors through \(n=17\), and exhaustive maps through \(n=6\). The all-size proof rests on the recurrences and inequalities in `RESULT.md`, not on finite enumeration.
+## correctness
 
-No external independent audit or formal proof certification has been performed. Known residual scientific risks are possible historical priority and the restriction to uniform self-mappings.
+PASS
+
+Conditional on m cyclic vertices, a uniform labeled root forest is encoded by t-1 independent draws on [n] plus a final root (t=n-m); Z equals number of absent designated noncyclic labels. Inclusion-exclusion/r-Stirling counting gives p_{n,m}(z)=t! S_m(n-1,n-z)/(z! n^(t-1)) for 1<=m<n; m=n is atom Z=0. The r-Stirling row generating polynomial (x+r)B+xB' preserves real negative simple roots, establishing row logconcavity and monotone adjacent coefficient ratios. The deletion formula S_m(N,q)=S_{m-1}(N,q)-(m-1)S_{m-1}(N-1,q), together with qS_{m-1}(N-1,q)+S_{m-1}(N-1,q-1), yields cross-m ratio strictly increasing in q=n-z. Adjacent reverse LR/TP2 comparisons, supports and transitivity give full ordering and monotone covariance. Own independent literal enumeration of every map through n=5 checked cyclic/zero indegree joint laws and cross minors. These are bounded tests, not the all-n proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Rooted-forest encodings and conditional counts, Stirling-number logconcavity and decreasing conditional means are acknowledged prior. A full reverse likelihood-ratio order across *all* distinct cyclic-core sizes is stronger than mean/stochastic statements and is not directly stated in the accessible primary source; the new cross-parameter Stirling ratio comparison is the contribution. Broad total-positivity literature may conceal an equivalent consequence.
+
+## value
+
+PASS
+
+Random mappings form a canonical finite probabilistic model, with cyclic-core size and zero-indegree terminal count jointly natural. Likelihood-ratio ordering is considerably stronger than negative covariance or a mean inequality; it yields a family of monotonicity inequalities uniformly for every n, useful for conditioning and stochastic comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

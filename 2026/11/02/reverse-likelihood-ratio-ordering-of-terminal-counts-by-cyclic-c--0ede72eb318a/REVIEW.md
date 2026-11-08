@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional code-word law is proved by a root-marked Prüfer encoding and an independently checked \(r\)-Stirling block bijection. All cases \(n\ge2\), \(1\le m\le n\), and every support boundary are addressed. The critical log-concavity step is reconstructed from the real-negative zeros of \(B_{N,r}\); the deletion identity gives a strictly monotone ratio comparing adjacent distinguished-element counts, yielding reverse likelihood-ratio order. Transitivity handles arbitrary cyclic-core sizes. An independent direct mapping census and 114389 finite exact assertions corroborate the proof but are not offered as proof for infinitely many sizes.
+PASS
 
-## Originality — PASS, with residual priority risk
+Conditional on m cyclic vertices, a uniform labeled root forest is encoded by t-1 independent draws on [n] plus a final root (t=n-m); Z equals number of absent designated noncyclic labels. Inclusion-exclusion/r-Stirling counting gives p_{n,m}(z)=t! S_m(n-1,n-z)/(z! n^(t-1)) for 1<=m<n; m=n is atom Z=0. The r-Stirling row generating polynomial (x+r)B+xB' preserves real negative simple roots, establishing row logconcavity and monotone adjacent coefficient ratios. The deletion formula S_m(N,q)=S_{m-1}(N,q)-(m-1)S_{m-1}(N-1,q), together with qS_{m-1}(N-1,q)+S_{m-1}(N-1,q-1), yields cross-m ratio strictly increasing in q=n-z. Adjacent reverse LR/TP2 comparisons, supports and transitivity give full ordering and monotone covariance. Own independent literal enumeration of every map through n=5 checked cyclic/zero indegree joint laws and cross minors. These are bounded tests, not the all-n proof.
 
-The complete conditional count distribution and its decreasing mean were already known; that result is not restated as new. The present cross-parameter likelihood-ratio comparison requires an additional strict ratio argument, which is not established merely by listing those distributional coefficients. Pitman's rooted-forest laws, Hansen–Jaworski's cyclic-point and component-size formulas, and the Maamra–Mihoubi log-concavity theorem are acknowledged. Inspected material and searches did not establish a stronger theorem explicitly covering the ordering of terminal counts given cyclic-core size. Broader classical total-positivity implications and uninspected historical texts remain a possible implicit-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The central structural question is whether every conditional terminal-count threshold follows the same direction as the known conditional mean. An all-threshold likelihood-ratio theorem answers it and yields nonpositive covariance simultaneously for every increasing transform of both statistics. This is a meaningful dependence classification in the classical finite random-mapping model, not a fresh computation of an already tabulated marginal or an arbitrary parameter slice.
+Best-of-knowledge PASS. Rooted-forest encodings and conditional counts, Stirling-number logconcavity and decreasing conditional means are acknowledged prior. A full reverse likelihood-ratio order across *all* distinct cyclic-core sizes is stronger than mean/stochastic statements and is not directly stated in the accessible primary source; the new cross-parameter Stirling ratio comparison is the contribution. Broad total-positivity literature may conceal an equivalent consequence.
 
-## Closest literature and limitations
+## value
 
-Hansen–Jaworski (arXiv:math/0603529 and Ars Combinatoria 94), Pitman (Technical Report 499), Broder (1984), and Maamra–Mihoubi (arXiv:1212.3191) are the main comparisons. The result does not claim nonuniform image distributions, strict negativity for structurally zero minors, or a new first- or second-moment identity. Historical-priority risk is nonzero.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Random mappings form a canonical finite probabilistic model, with cyclic-core size and zero-indegree terminal count jointly natural. Likelihood-ratio ordering is considerably stronger than negative covariance or a mean inequality; it yields a family of monotonicity inequalities uniformly for every n, useful for conditioning and stochastic comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
