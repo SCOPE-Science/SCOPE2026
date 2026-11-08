@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coordinate-triangle energy decomposition counts every graph edge once and distributes every onsite term across its \(d\) incident triangles. An affine mod-three assignment realizes each local minimizing multiset simultaneously, so the lower bound is sharp for every anisotropy, field and dimension. For a strict local minimizer, the elementary induction classifies all order-three Latin hypercubes and all sets meeting each coordinate line once. The resulting state count is exact, and averaging affine sign vectors yields the Hamming-distance covariance and its factorized Fourier transform. Six rational witnesses prove every claimed positive-field region is nonempty. Exhaustive \(H(2,3)\) verification covers all \(19683\) spin assignments for each witness, and 4914 exact rational covariance comparisons corroborate the correlation formula; finite checks are not substituted for the proof.
+PASS
 
-## Originality — PASS on examined evidence, residual priority risk
+Every graph edge of K3^□d lies in exactly one coordinate triangle and every vertex lies in d, hence Hamiltonian is J times sum of ten possible local triple energies F. For any minimizing triple, an affine map of F3^d with nonzero coordinate slopes realizes that triple on every coordinate line; this proves global lower bound is exact including coexistence. For y>0, spin inversion removes four negative-magnetization triple types, leaving six affine branches, with explicit strict-region witness parameters. Order-3 Latin hypercubes are affine (also McKay–Wanless §4); singletons of each coordinate line are parallel affine hyperplane zero sets. Their counts are 3·2^d for all-distinct, 3·2^(d−1) for doubletons, 1 for constant. Uniform random slopes yield P(equal residues)=[1+2(-1/2)^r]/3, covariance v(-1/2)^r, whose factorized Fourier transform vanishes if any frequency coordinate is zero and equals v(3/2)^d otherwise. Independently enumerated all 3^9 configurations for d=2 at six rational witness points and recovered degeneracies 1,6,12,6,6,1; arbitrary-d proof is combinatorial, not this enumeration. Inspected RESULT.md and verification.py blobs.
 
-The order-three Latin-hypercube classification and count are present in McKay–Wanless (2008), Section 4, and explicitly credited; their result does not impose the Blume–Capel energy envelope or compute its physical ensemble correlation and flat bottom-band structure factor. Varma (2013) examines saturation entropies on ladders and kagome Ising lattices, a different spin alphabet and graph. Park–Kwak (2016) examine a spin-one antiferromagnet on the triangular lattice; the accessible abstract/article metadata do not establish the ternary Hamming all-dimensional diagram, but absence from the inaccessible full text is not asserted. The \(d=2,h=0\) restriction is also covered by a preexisting line-graph local optimization and is not claimed new. Published scientific comparisons and relevant research-record searches found no equivalent or stronger result covering the combined six-phase and covariance theorem. The remaining risk is an unlocated prior all-dimensional Hamming spin-one calculation; no independent novelty certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-A natural network family \(K_3^{\square d}\) makes the spin-one frustration problem exactly solvable in arbitrary dimension. The result supplies a complete anisotropy/field lower envelope, all strict-phase degeneracies, an explicit local criterion at coexistence, and a universal correlation kernel with an exactly flat lowest-band structure factor. The spectral observable distinguishes the nonuniform phases from saturated and vacant ones and ties spin frustration to the graph's bottom eigenmodes. This is more than substituting parameters into a known count.
+Best-of-knowledge: claim-specific mathematical comparisons of exactly defined source objects against established primary results; no matching stronger implication identified in actual searched and materially read sources. From prior affine count alone one still needs the exact Hamiltonian decomposition, envelope comparison and uniform orbit mixture to derive the six phases and v(-1/2)^r. Existing special d=2/h=0 spin-graph calculations cannot imply all parameter d≥2 phase formulas.
 
-## Scientific boundaries
+## value
 
-This is a finite-graph, zero-temperature classical theorem. Mixed-multiset coexistence multiplicities, thermodynamic phase transitions and positive-temperature physics are not determined. Priority uncertainty remains for specialized Hamming-graph literature and one inaccessible triangular-lattice primary article. Independent verification remains pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact arbitrary-dimensional zero-temperature phase diagram with labeled ground-state degeneracies and a nontrivial distance/Fourier covariance law for the natural ternary Hamming spin-one model is a motivated statistical-mechanical classification. General Latin-cube affineness is known; new content is its coupled energy/flat-band phase consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
