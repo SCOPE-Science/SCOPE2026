@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The suffix restriction at the smallest shattered vertex proves the universal VC upper bound by induction, while disjoint induced edges give its matching lower bound. The complete depth-four tree has 16 distinct independent-dominating realizers and is checked against direct exhaustive enumeration. The 10-vertex count gives the online upper bound and the all-smaller-orders count forces equality with VC. The separator embedding preserves independence and domination for every tuple of blocks, giving the unbounded connected-path gap.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu et al. Lemma 2.20 proves VCdim(M(G)) ≤ ν_bi(G), not equality or a path formula. P10 admits a bipartite induced matching of four pairs, so this inequality cannot yield its VC dimension three.",
+        "Malliaris–Moran develops excellent sets and stable/Littlestone classes but does not provide a bound specific to the membership class of maximal independent sets on paths in the material inspected."
+      ],
+      "reasoning": "The numerical bound from the closest general theorem is insufficient on the critical instance, and it contains no lower bound on online shattering. A general online-learning framework also does not imply the structural ten-vertex certificate or the connected amplification.",
+      "searches": [
+        "arXiv:2403.17910v3, full HTML §2.4 Lemma 2.20 and SoCG 2024 version Lemma 27",
+        "arXiv:2108.05569v1, online stable/Littlestone concept classes",
+        "Web: \"VC-dimension\" \"maximal independent sets\" \"trees\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2403.17910v3",
+      "https://d-nb.info/1367513596/34",
+      "https://arxiv.org/abs/2108.05569",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.72",
+      "published-finding corpus published record (2026-09-17): Exact small cover-free-family numbers for paths, cycles, and wheels",
+      "published-finding corpus published record (2026-10-04): Exact quantifier-rank threshold for finite directed paths"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 general VC estimate leaves P10 VC dimension at most 4, whereas 3 is established by the new suffix induction. Counting |M(P10)|=16 gives only Ldim ≤ 4, not the required ≥ 4; a complete decision tree is supplied.",
+        "The 2023 online-first paper studies distributions and densities of random-order greedy independent sets, not the worst-case mistake-tree dimension of all maximal independent sets.",
+        "Related indexed research concerns different concept classes, including neighborhood shattering and domination-specific graph invariants."
+      ],
+      "reasoning": "No checked prior implication entails the conjunction of exact VC dimension for all paths, sharp first online separation at ten vertices, and linear gap on connected paths.",
+      "searches": [
+        "arXiv:2403.17910v3 section 2.4 entire displayed proof of Lemma 2.20",
+        "doi:10.1002/rsa.21200 full HTML introduction and tree/random-greedy sections",
+        "published-finding corpus: maximal independent sets minimal dominating independent sets path graphs linear separation between Littlestone dimension and VC dimension, connected path graph embedding of 4-bit online shattering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maximal independent sets are independent dominating sets and complements of inclusion-minimal vertex covers; the binary words obey local forbidden 11 and undominated-zero constraints.",
+        "Search results did not exhibit a corresponding exact VC/Littlestone statement in those equivalent languages."
+      ],
+      "reasoning": "The dual minimal-cover and word-language formulations are mathematically equivalent under bit complement or the adjacency/dominance condition. No independently covering theorem was located under these aliases; failed searches alone do not establish historical originality.",
+      "searches": [
+        "published-finding corpus: minimal vertex covers of path P_10 vertex incidence online mistake tree 4 depth 4 versus VC dimension 3",
+        "published-finding corpus: independent dominating binary strings avoiding 11 and 000 ten word Littlestone VC shattering",
+        "Web: \"VC dimension\" \"maximal independent sets\" path graph",
+        "Web: \"Littlestone dimension\" \"maximal independent\" \"path\" graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant search hits concern cover-free path/cycle/wheel invariants, domination, random greedy maximal-independent-set laws, and graph neighborhood shattering, not the same incidence concept or complete online tree.",
+        "No exact online-dimension table for maximal independent sets of paths was found in the searched results."
+      ],
+      "reasoning": "Searches tested explicit dimensions, parameter ranges and graph family. The absence of a result in a semantic index is not a novelty certificate, but no returned exact table contradicted the new claim.",
+      "searches": [
+        "published-finding corpus: maximal independent set hypergraph ℜ(P_n) path graphs: VC dimension floor((n+1)/3), Littlestone dimension first strict gap at n=10, linear unbounded on connected paths",
+        "published-finding corpus: VC dimension and Littlestone dimension for maximal independent set hypergraph of path graph P_n, first VC=3 versus online=4 at ten vertices",
+        "Web: \"maximal independent sets\" \"VC dimension\" \"induced matching\"",
+        "Web: \"online shattering\" \"maximal independent sets\" paths"
+      ]
+    },
+    "rationale": "The closest identified general maximal-independent-set result, Liu et al. 2024 Lemma 2.20, supplies only an upper bound by bipartite induced matchings; on P10 that bound permits four, whereas the proved static dimension is three. It neither supplies a four-level online witness nor implies the connected-path linear separation. The online/stability literature and random-greedy path literature address distinct implications. Direct and alias searches found no stronger coverage in the inspected sources; novelty remains subject to historical discovery.",
+    "residual_risks": [
+      "An alternative literature on online learning of minimal vertex covers or independent dominating words may contain the same theorem and was not comprehensively exhausted.",
+      "Some retrieved scientific works were inspected only in the relevant sections or abstract, not every appendix.",
+      "Search indexes and accessible historical records are incomplete, so the originality judgment is not proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bipartite-induced-matching upper bound only, no path VC equality, no online shattering claim; not covering.",
+        "evidence": "Section 2.4, Lemma 2.20 (SoCG Lemma 27): VCdim(M(G)) ≤ ν_bi(G); exact P10 dimension 3 is stricter than the bound 4.",
+        "identifier_or_url": "https://arxiv.org/html/2403.17910v3",
+        "material_read": "Full-version introduction, definitions in §2.2, §2.4 including Lemma 2.20 and its proof; parallel SoCG 2024 pp. 71:11–71:12 inspected with PDF page images",
+        "method": "Full-text HTML targeted reading and PDF visual inspection",
+        "title": "Beyond chromatic threshold via the (p,q)-theorem, and a sharp blow-up phenomenon",
+        "trigger": "Direct definition of the maximal-independent-set hypergraph and upper bound for its VC dimension"
+      },
+      {
+        "assessment": "Relevant general stability interpretation; no specific maximal independent set path computation in read material.",
+        "evidence": "Paper discusses excellent sets and abstract stable classes. Unread sections leave some residual priority risk.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+        "material_read": "Abstract and §1 overview and model-theoretic/online-learning context available as full-text page",
+        "method": "HTML text reading; not a comprehensive entire-document inspection",
+        "title": "Agnostic Online Learning and Excellent Sets",
+        "trigger": "Potentially stronger general stable/Littlestone results"
+      },
+      {
+        "assessment": "Concerns probability laws of greedy maximal independent sets, not VC/Littlestone rank of the entire family.",
+        "evidence": "Research object is random-order greedy MIS size/distribution on graph sequences including paths.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Open-access full-text abstract and introduction; body material on random-greedy methods and tree transformations",
+        "method": "Publisher open-access HTML page targeted reading",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Direct use of maximal independent sets on paths"
+      },
+      {
+        "assessment": "Studies a different generalized VC dimension and circuits; residual risk from uninspected details.",
+        "evidence": "Abstract specifies a d-wise projection variant U_d rather than exact ordinary VC or online dimensions of MIS path concepts.",
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.72",
+        "material_read": "Publisher document description and abstract, main statement and references; full PDF not inspected",
+        "method": "Publisher HTML metadata/abstract",
+        "title": "A Variant of the VC-Dimension with Applications to Depth-3 Circuits",
+        "trigger": "VC variant paper cites maximal independent sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1d3f970e-51af-4d38-b490-30d5285b2187",
+  "value": {
+    "rationale": "The claim resolves the exact static complexity for an entire canonical graph family, identifies the sharp ten-vertex onset of static/adaptive separation, and proves a linearly growing disparity on connected paths of maximum degree two. It gives a reusable structural connector, rather than a small unexplained finite table.",
+    "status": "PASS"
+  }
+}
