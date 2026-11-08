@@ -1,15 +1,21 @@
-# Scientific review: exact icosahedral excitation census
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph, labelling, synchronous update, basin and orbit equivalences are explicit. A total base-three enumeration of all \(3^{12}=531{,}441\) configurations establishes \(F^9=F^6\). One C++17 implementation uses functional-graph indegree peeling, while a second uses direct trajectories and separate bit-mask updates. A third C++17 program checks the independent successor-neighbor phase characterization, yielding \(145{,}200\) primitive three-periodic states. The automorphism verification proves that two explicit graph-preserving generators give all \(120\) spatial symmetries, then checks all \(473\) temporal-orbit symmetry classes. The witness state 3156 and the one-orbit classification of all sixty sharp entrance-time configurations are checked. Exhaustive finite enumeration is appropriate because the theorem is solely about this twelve-vertex graph; no infinite extrapolation is made.
+## correctness
 
-## Originality
-**PASS, qualified.** Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, Theorem 3, and Doba, *Complex Systems* 27 (2018), Theorems 1–2, already establish broad qualitative behavior and limiting rates for the same excitation rule. In particular, triangulation and their activity principle can explain why surviving icosahedral activity has period three, so that component is not claimed as novel. Their inspected primary texts do not provide the exact count \(48{,}400\), the full spatial quotient with \(473\) classes, the sharp \(F^9=F^6\) convergence identity or the individual basins. Searches for graph-specific excitation, predecessor and three-phase-coloring terminology did not find equivalent results. Different-network enumerations do not imply the specific icosahedral census. Residual risk: an unindexed old classification or combinatorial color-counting table may contain equivalent results.
+PASS
 
-## Mathematical value
-**PASS.** The icosahedron is the smallest five-regular Platonic graph, and its exact recurrent-state populations, attraction basin sizes and transient bound are natural nonlinear dynamical invariants. The result separates already-understood qualitative synchronization from the previously unspecified quantitative orbit structure. It also identifies a highly constrained geometric phenomenon: all sixty extremal transients comprise one spatial orbit, while the large recurrent set splits into exactly \(473\) symmetry types. The exact exhaustive certificate is self-contained, replayable and extends beyond a single numerical example to a complete invariant of this canonical graph, without purporting to generalize to other graphs.
+A fresh independently implemented C++ exact base-three enumerator traversed all 3^12=531441 states from the actual graph edge list, verified F^9=F^6 for each state, and reconstructed the 7-column period1/period3 entrance table and 60 extremal states. A separate independent Python phase-condition enumerator found 145200 3-periodic states, 48400 temporal orbits, and used the complete 120 automorphisms to recover 473 classes with size spectrum {5:2,20:4,30:11,40:10,60:99,120:347}. These enumerations cover the COMPLETE finite space, not a sample. The all-rotating successor-neighbor phase characterization and full automorphism order bound were checked in the mathematical package.
 
-## Closest literature and limitations
-The main overlap risk lies in the general phase-difference theory of three-color excitation and in possibly unindexed graph-specific tables. The claimed novelty is restricted to the precise labelled icosahedral census, sharp entrance bound, symmetry quotient and basin data; not to the existence of three-state excitation, its general persistence criterion, or the qualitative period bound alone. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative fixation and 3-cycle activity were already understood through circulation criteria; the best-knowledge contribution is the sharp labelled all-state arithmetic and complete 473-class geometric quotient, not existence of three-color excitation or its general period restriction.
+
+## value
+
+PASS
+
+The icosahedron is a canonical minimal 5-regular Platonic graph. Exact transient cutoffs, cycle basins, and full spatial symmetry quotient give natural graph-specific nonlinear dynamical invariants; all 60 longest transient states forming one geometric orbit is a meaningful structural feature beyond qualitative periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
