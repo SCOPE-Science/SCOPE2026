@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact generalized eigenvalue claim follows from the positive-weighted variance inequality derived by pairwise Cauchy–Schwarz, with equality exclusively for affine functions of the cumulative square-root-price coordinate. This constructs and proves the unique path optimum, the gap \(B/V\), and the simple Fiedler eigenvalue without a computational or unstated oscillation assumption. A fixed-vector Rayleigh bound establishes the mass-independent price cutoff; first-order simple-eigenvalue perturbation gives strict necessity of a positive closing edge on the cheaper side. Critical budget equality and vertex flux equations force every optimum into the claimed affine line. A second strict Cauchy–Schwarz inequality on the weighted-orthogonal complement gives the exact positive generalized-eigenvalue endpoint. Assertions are valid for all \(n\ge3\), all positive masses/prices, and all positive budgets, including the cutoff. The attached finite checker is supporting evidence rather than a replacement for the proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+The exact weighted variance identity and Cauchy-Schwarz establish sharp inequality var_m(g)≤sum(G_i/ell_i)(g_{i+1}-g_i)^2 with equality only g=c+d z; hence explicit path w0=ΛG_i/ell_i has simple Fiedler mode f and optimally attains Λ=B/V. Rayleigh on f gives λ2≤[B-(q-S²)t]/V, yielding q>threshold path uniqueness and critical upper bound. At q<S² a feasible infinitesimal t increases the simple eigenvalue by (S²-q)/V, so every optimum uses t>0. At equality eigenvector equations force w_i(t)=w_i0-tS/ell_i; on mean-zero vectors orthogonal to f the precise form A-tR stays PSD iff t≤min_g A(g)/R(g), with A,R strictly positive by equality conditions. Independent random heterogeneous cases verified budgets, eigenpairs and finite critical face; no infinite theorem inferred from numerics.
 
-The 2006 Sun–Boyd–Xiao–Diaconis full text contains the arbitrary-price path solution (Result 5), homogeneous cycle result and arbitrary-price cycle eigenspace bound (Result 6), together with the prescribed-stationary-mass SDP; these are expressly prior. The new statement is the **one-optional-edge priced cycle** sharp mass-independent screening threshold and the complete unrestricted critical optimal face for every size, positive edge-price vector, and positive mass vector. This is not the same claim as the general SDP, path optimizer, two-dimensional eigenspace bound, or the 2015 discrete-time cycle perturbation results. An unlocated specialist equivalent, or an unpublished derivation from the general dual, is a residual risk. No unconditional assertion that literature search establishes novelty is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Deleting an available edge or retaining it has direct structural relevance to network budget design. The threshold is unexpectedly independent of equilibrium masses, and at the boundary the full nonuniqueness has an exact computable endpoint determined by a second spectral obstruction, rather than just by edge nonnegativity. For five equal-mass vertices, the spectral restriction is strictly stronger than mere positivity of conductances, demonstrating genuinely additional structure. The result is a motivated all-parameter design theorem, not a single artificial numerical table.
+Best-of-knowledge priority for the precise new statement, not for its acknowledged classical proof components; actual prior mathematical implications evaluated and inaccessible plausible antecedents retained as risks.
 
-## Limits
+## value
 
-The optimal spectral gap for strictly subcritical prices is not given in closed form. The theorem does not treat nonreversible or discrete-time chains, arbitrary additional chords, or nonlinear prices. Independent review is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a sharp design-theoretic price phase boundary invariant under arbitrary stationary masses and, at exact degeneracy, a full continuum classification with an additional nontrivial generalized-eigenvalue cutoff. Neither a routine path solution nor a trivial numerical gain: it identifies when an expensive entire edge is structurally excluded and characterizes all critical optimal conductances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
