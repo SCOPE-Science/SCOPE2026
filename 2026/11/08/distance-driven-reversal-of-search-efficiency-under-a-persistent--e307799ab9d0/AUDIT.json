@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Matrix strong-Markov decomposition is normalized by killed phase semigroup B=Lambda-Q, with F=B^{-1}(I-exp[-L sqrt(B/D)]), reset kernel F Lambda and finite positive success probability. The exact mean (h_L(B)-Q)^-1 1 follows, and symmetric-basis spectral inversion yields the two-eigenvalue formula. The small-distance coefficient is strictly positive by Jensen with spectral barycenter r; the large-distance ratio decays exponentially because b_-<r. Derivation proves all quantified parameters, not extrapolation from 432 independent numerical matrix-renewal checks and four backward-PDE discretizations; boundaries and lack of crossover uniqueness are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bressloff 2020 full text §4.1-4.2: switching diffusivity and fixed resetting rate, internal state refreshed with each reset",
+        "Arutkin and Reuveni 2025 full text, section on stationary propagator, future FPT question",
+        "Evans-Majumdar 2011: constant Poisson resetting, special equal-rate setting"
+      ],
+      "reasoning": "A general theorem for Markov-additive killing/resurrection with a persistent phase could dominate the closed form; in inspected close literature no such theorem asserts this explicit fixed-mean, all-positive-parameter near-versus-far crossover. The general matrix resolvent method itself is not claimed new; the nontrivial universal comparison is the novelty-sensitive part.",
+      "searches": [
+        "first passage target Brownian rate environment independently switches two rates without environmental resetting mean hitting time",
+        "two-state Markov modulated resetting Brownian first passage target mean search time target distance crossover fluctuations heterogeneous reset rate",
+        "doubly stochastic resetting Brownian target search fluctuations sometimes help sometimes harm distance independent rate refresh",
+        "\"switching resetting rate\" \"mean first passage\"",
+        "\"fluctuating reset rate\" \"first passage\""
+      ]
+    },
+    "checked_sources": [
+      "Arutkin and Reuveni, Diffusion with doubly stochastic resetting, arXiv:2509.25365v1, HTML full text, spatial steady state and outlook on first passage",
+      "Bressloff, Switching diffusions and stochastic resetting, J. Phys. A 53 (2020) 275003, DOI:10.1088/1751-8121/ab97e0, full text section 4 equations (4.4)-(4.18)",
+      "Pal, Kundu and Evans, Diffusion under time-dependent resetting, arXiv:1512.08211v2, PDF full text, resetting clock indexed by age from last reset",
+      "Evans and Majumdar, Diffusion with stochastic resetting, Phys. Rev. Lett. 106 (2011) 160601, ordinary constant-hazard benchmark",
+      "Related earlier stationary-age and radius ordering claim for the same independently fluctuating rate environment; only for overlap comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arutkin-Reuveni 2025 stationary propagators: cannot infer survival with an absorbing boundary while phase remains across excursions",
+        "Bressloff 2020 Eq. (4.4) scalar renewal after resetting both position and internal state, unlike retained-phase matrix renewal",
+        "Pal-Kundu-Evans 2016 resetting hazard depends on the time since last reset, unlike Cox phase process evolving autonomously",
+        "Closest accessible same-environment stationary-age/radius result gives spatial stochastic order under environmental resampling, not FPT at finite distance"
+      ],
+      "reasoning": "Neither a stationary spatial profile nor a scalar renewal for a resettable environment implies the phase-resolved killed semigroup, exact MFPT or Jensen-versus-eigenvalue competition. The latter proves universally opposite signs at near and far targets. Source assumptions are compared by stochastic-process equivalence, not titles.",
+      "searches": [
+        "\"Diffusion with doubly stochastic resetting\" FPT",
+        "\"Switching diffusions and stochastic resetting\" Bressloff MFPT",
+        "\"Diffusion under time-dependent resetting\" Pal Kundu Evans MFPT",
+        "\"Markov modulated resetting\" \"first passage\" Brownian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.25365v1, original paper full HTML: stationary double-stochastic reset protocol and outlook on passage time",
+        "Bressloff 2020, §4 (4.4) scalar convolution and (4.18) solution with diffusion-switching states, constant reset rate",
+        "Pal-Kundu-Evans arXiv:1512.08211v2, pp. 1-2: hazard r(t) as a function of time since last reset"
+      ],
+      "reasoning": "The mathematical equivalence risk is matrix renewal for an autonomous phase-modulated Cox reset clock (telegraph/Cox/Markov-modulated resetting). The Bressloff rate is fixed, so D0=D1 eliminates the switching influence, whereas here the Brownian diffusivity is fixed and phase-dependent hazards persist. Age-dependent renewal hazard does not retain environmental phase. None of the compared formulations implies the exact two-phase mean or both universal distance signs.",
+      "searches": [
+        "\"Diffusion with doubly stochastic resetting\" \"first passage\"",
+        "\"Markov modulated resetting\" \"first passage\" Brownian",
+        "\"switching resetting rate\" \"first passage\"",
+        "\"fluctuating resetting rate\" \"first-passage\"",
+        "\"dichotomous resetting rate\" first passage Brownian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact source model: arXiv:2509.25365v1",
+        "Closest semantic record: Sharp variance envelope at fixed success probability under memoryless catastrophe: a fixed one-attempt success probability with no persistent Markov phase",
+        "Closest semantic record: Markov two-time laws do not identify memorylessness in stationary alternating renewal processes: two-time aliasing rather than Brownian reset search",
+        "Available prior work on stationary age/radius of independently resampled Cox reset rate establishes stochastic ordering, not passage-time sign reversal"
+      ],
+      "reasoning": "The actual scientific searches returned no exact formula table or record of target-distance crossover for the persistent two-state reset hazard. Similar generic catastrophe and renewal records do not yield this result. Indexed absence is not uniqueness proof.",
+      "searches": [
+        "two-state Cox reset clock independently switching rate Brownian search FPT exact matrix renewal target distance",
+        "stationary Brownian resetting Poisson resampling random hazard first passage Laplace transform environment",
+        "\"doubly stochastic resetting\" \"first passage\"",
+        "\"two-state\" \"resetting\" \"distance crossover\""
+      ]
+    },
+    "rationale": "The primary 2025 model paper explicitly suggests first-passage observables as an extension, and its stationary spatial laws contain no phase-retaining first-passage mean or comparison with constant hazard across target distance. The closest full-text treatment of switching diffusions uses a fixed reset intensity and resets the internal state, yielding a scalar renewal structure (Bressloff 2020, section 4). The age-dependent rate model of Pal-Kundu-Evans (2016) restarts its hazard after each reset, rather than preserving an autonomously switching phase. Actual semantic database queries and full-text comparisons found no specific stronger result implying this universal sign reversal; this supports qualified originality, not guaranteed first-publication priority.",
+    "residual_risks": [
+      "An unindexed generic theorem for a Brownian searcher with persistent finite-state Markov-modulated resetting could subsume the new theorem despite the negative literature searches.",
+      "No proof of uniqueness or number of intermediate-distance crossing points; not asserted.",
+      "Only full primary papers examined substantively are the three specified, not an exhaustive census of all stochastic-resetting literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the phase-conditioned first-passage mean or target-distance comparison",
+        "evidence": "arXiv:2509.25365v1, submitted 2025-09-29; steady-state three-regime result; outlook names first-passage observables for future study.",
+        "identifier_or_url": "https://arxiv.org/html/2509.25365",
+        "material_read": "Full accessible HTML article, stochastic-rate model, exact stationary propagator, conclusions and future-work paragraph on first passage",
+        "method": "Open-access arXiv HTML reading and formula comparison",
+        "title": "Diffusion with doubly stochastic resetting",
+        "trigger": "Exact motivating independently fluctuating reset hazard and explicit proposed first-passage extension"
+      },
+      {
+        "assessment": "NOT_COVERING the target claim: phase affects diffusivity, not rate; scalar renewal uses state refresh at resets",
+        "evidence": "Bressloff 2020, equation (3.16) has common fixed rate r for all diffusive states, and equation (4.4) uses an ordinary one-phase renewal kernel with reset initial conditions.",
+        "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab97e0",
+        "material_read": "Full primary PDF text, especially §§3.2, 4, 4.1, 4.2, equations (4.4)-(4.18)",
+        "method": "Open-access author PDF full-text reading and comparison of reset and switching generators",
+        "title": "Switching diffusions and stochastic resetting",
+        "trigger": "Highly relevant switching Markov environment and reset first-passage calculation"
+      },
+      {
+        "assessment": "NOT_COVERING autonomous persistent two-state Cox rate, since it resets its clock with the particle",
+        "evidence": "Pal, Kundu and Evans, arXiv:1512.08211v2, PDF page 1 defines rate r(t) depending on elapsed time since last reset.",
+        "identifier_or_url": "https://arxiv.org/abs/1512.08211",
+        "material_read": "Open-access PDF, abstract and introduction, definition of r(t) relative to last reset, first-passage and optimization discussion",
+        "method": "Full PDF text reading plus first-page visual inspection",
+        "title": "Diffusion under time-dependent resetting",
+        "trigger": "A plausible exact mean-first-passage theorem with nonconstant hazard"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e307799a-b9d0-4bc2-a724-94adc67f7db0",
+  "value": {
+    "rationale": "The motivating article explicitly identifies first-passage properties as an extension. For every nontrivial positive contrast and switching frequency at fixed mean reset intensity, the theorem supplies an exact, nonrenewal first-passage calculation and a structural sign reversal between nearby and distant targets. This is a physically interpretable search-efficiency result with a robust quantifier, rather than an arbitrary rate slice or formula re-expression; it motivates switching-rate design and experiment. No global best clock or unique crossing is claimed.",
+    "status": "PASS"
+  }
+}
