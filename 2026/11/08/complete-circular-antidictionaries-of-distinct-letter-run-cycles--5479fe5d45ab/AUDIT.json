@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes both directions: each of the three listed forbidden forms has occurring proper prefix and suffix, and avoidance constrains every internal run to its full prescribed length while allowing truncated endpoint runs; hence an avoiding word is a factor. The disjoint counts and length polynomial then follow exactly. The separate checker compared full minimal absent sets for 485 profiles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici–Restivo–Rizzo Lemma 2 (arXiv:1707.04450, page 7) gives a generic finite reduction; Lemma 3 bounds total antidictionary size; the example after Lemma 3 gives the all-singleton-run specialization q(q−1).",
+        "Akagi et al. (arXiv:2202.13591, Sections 1–2 and Section 5) give RLE algorithms and five MAW types for finite strings, not a formula for periodic circular languages."
+      ],
+      "reasoning": "A generic algorithm computes each instance, but the cited statements do not directly yield the exact closed-form list or the run-order invariant length polynomial for all parameters. The explicitly known subfamily with all run lengths equal one is not novel.",
+      "searches": [
+        "minimal absent factors periodic word run length p+q(q-2)",
+        "\"minimal forbidden factors\" \"run length\" circular",
+        "Minimal Absent Words on Run-Length Encoded Strings arxiv 2202.13591"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1707.04450 (first public 2017-07-14)",
+      "https://arxiv.org/pdf/1707.04450 (relevant pages inspected)",
+      "https://arxiv.org/abs/2202.13591 (first public 2022-02-28)",
+      "https://arxiv.org/pdf/2202.13591 (relevant pages inspected)",
+      "Published published-finding corpus semantic search: four exact-scope query formulations and closest returned IDs",
+      "Local accessible circular-word research ledger: recoverable claim/ID overlap check"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fici–Restivo–Rizzo 2017, Lemma 2: circular minimal forbidden factors are finite-string minimal forbidden factors filtered by length; Lemma 3: upper bound depending on alphabet and period; after Lemma 3: q(q−1) for all distinct single letters.",
+        "Akagi et al. 2022: finite-string RLE MAW category partition and output-sensitive enumeration."
+      ],
+      "reasoning": "The new claim is a special-case symbolic classification of a circular periodic word with q unique run symbols and arbitrary run exponents. A general algorithm does not state its exact output; published single-run-length edge cases are implied and credited. No known source inspected gives a stronger all-parameters closed classification.",
+      "searches": [
+        "Fici Restivo Rizzo minimal forbidden factors circular words 2017 lemma 2 lemma 3 theorem 4",
+        "Akagi Okabe Mieno Nakashima Inenaga minimal absent run length encoded strings 2022",
+        "antidictionary circular word a0^k0 a1^k1 distinct letters forbidden cprev c_i^t cnext"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fici–Restivo–Rizzo 2017, Section 3 defines the circular antidictionary and gives Lemma 2 but does not state an explicit three-family formula in that section.",
+        "published-finding corpus search for the precise symbolic three-family pattern returned nonmatching published titles, including unrelated automaton threshold counts."
+      ],
+      "reasoning": "A circular minimal forbidden factor is identical to a minimal absent contiguous factor in the factor language of the periodic infinite word. Both names and equivalent language formulations were included. No exact-list match was encountered; a failed search alone does not establish priority.",
+      "searches": [
+        "minimal forbidden factors circular words distinct constant runs q letters complete antichain p+q(q-2)",
+        "antidictionary circular word a0^k0 a1^k1 distinct letters forbidden cprev c_i^t cnext",
+        "\"minimal forbidden factors\" \"runs\" \"circular\" \"distinct letters\"",
+        "\"minimal absent words\" \"run-length\" circular word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact count p+q(q−2) or corresponding length polynomial was returned among the queried published summary records.",
+        "Known circular distinct-single-letter example yields q(q−1), the case p=q of the displayed formula."
+      ],
+      "reasoning": "An exact numeric database for a few length profiles, if found, would not imply the complete infinite formula without a structural theorem. This is not a claim that no such database exists.",
+      "searches": [
+        "minimal forbidden factors circular words distinct constant runs q letters complete antichain p+q(q-2)",
+        "forbidden factors powers of distinct-letter run cycle exact census",
+        "minimal absent factors periodic word run length p+q(q-2)"
+      ]
+    },
+    "rationale": "The complete all-positive-run-length cyclic antidictionary list, its exact cardinality, and its length enumerator were not identified in exact or stronger form in the inspected primary source and result records. The general circular algorithm and its known single-letter-per-run special case are expressly excluded from novelty. This assessment is non-independent and has an unindexed-literature risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible equivalent specialization might exist",
+      "Generic RLE and circular algorithms already yield each instance computationally, so the novelty is the explicit uniform symbolic description, not the ability to enumerate"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_AND_KNOWN_EDGE_CASE; no exact arbitrary-run-list found in material inspected",
+        "evidence": [
+          "Lemma 2, page 7, M_[w]=M_ww ∩ A^{≤|w|}; Lemma 3, pages 7–8; q-letter permutation word has q(q−1) forbidden factors on page 8."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1707.04450",
+        "material_read": "Section 3, Lemmas 2–3, paragraph of tight examples, Theorem 4; pages 6–8, plus abstract and definitions",
+        "method": "Primary full text inspection of relevant sections and original example; PDF page images checked",
+        "title": "Minimal Forbidden Factors of Circular Words",
+        "trigger": "Same invariant, circular-factor setting and known permutation specialization"
+      },
+      {
+        "assessment": "FINITE_RLE_GENERAL_ALGORITHM; distinction between finite-string and periodic circular factor languages is decisive to direct coverage",
+        "evidence": [
+          "Sections 1–2 define finite MAW(T) with terminal handling; Section 5 Theorem 1 gives an output-sensitive enumeration algorithm rather than this circular symbolic formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.13591",
+        "material_read": "Abstract, introduction, RLE definitions and MAW partition on pages 1–4; RLE enumeration theorem and first part of Section 5 on pages 9–10",
+        "method": "Primary full text targeted read and page image check",
+        "title": "Minimal Absent Words on Run-Length Encoded Strings",
+        "trigger": "Potential RLE classification dominates arbitrary-run specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5479fe5d-45ab-4330-8fd1-cb692a384762",
+  "value": {
+    "rationale": "This natural infinite family gives a complete, length-refined antidictionary classification, including arbitrary integer run lengths and an unexpected cyclic-order invariance. The exact obstruction set defines the full periodic factorial language; it is not a fixed input numerical enumeration, trivial renaming, or a single narrow parameter slice. It includes previously known permutation-run and binary boundary cases only as credited specializations.",
+    "status": "PASS"
+  }
+}
