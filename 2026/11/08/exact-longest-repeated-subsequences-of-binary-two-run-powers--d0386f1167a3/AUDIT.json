@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The cyclic run-ceiling lemma counts source-symbol run visits for a repeated root. Its only critical boundary case, equal initial and terminal symbols, uses ceiling subadditivity on the endpoint lengths; all other runs occur once per copy. Separate inequalities for zero and one runs give a mixed-root upper bound equal to the complete-period witness. Unary witnesses attain the remaining two candidates. The no-power boundary is explicit. A stdlib verifier ran 213 exhaustive configurations, 28,642 cyclic-cost probes and 78 partition-LCS square checks. Finite tests are supporting evidence only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 work handles general inputs and many exponent classes algorithmically.",
+        "Earlier general-window embedding spectra describe shortest spans for arbitrary scattered patterns, but permit a freely selected window phase, not necessarily the fixed finite origin."
+      ],
+      "reasoning": "The general algorithms apply to this instance as input but do not include its constant-arithmetic all-exponent optimization theorem. An arbitrary-pattern embedding-span formula could aid a derived proof, but translating it to fixed-origin e-fold optimality and maximizing across roots are nontrivial additional steps. This distinction is an originality risk, not novelty proved by partition.",
+      "searches": [
+        "arxiv:2202.07189 §§3-5",
+        "arxiv:2006.00216 Theorem 1",
+        "doi:10.4230/LIPIcs.CPM.2018.15 Sections 3-5",
+        "Earlier mathematical claim concerning shortest embedding spans in all phases of a periodic two-run source"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2202.07189v1",
+      "https://arxiv.org/abs/2006.00216",
+      "https://doi.org/10.4230/LIPIcs.CPM.2018.15",
+      "longest periodic subsequence binary run length powers paper",
+      "longest square subsequence periodic word 0^a 1^b",
+      "periodic subsequence (0^a1^b)^k longest square closed form",
+      "run length encoded longest tandem scattered subsequence closed form"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The LCS identity expresses the square optimum over partitions but supplies no run-parameter evaluation.",
+        "The arbitrary-pattern shortest-window-span result works with any window phase and is not the fixed finite subsequence-optimum statement.",
+        "The new cyclic run ceiling lemma handles arbitrary integer e and yields a mixed-root cap of e floor(k/e)(a+b)."
+      ],
+      "reasoning": "Special cases e=2 or a=b=1 overlap already explored notions. They do not dominate the full all-e, all-a,b,k theorem. The new assertion is the closed length law and its exact unary-takeover boundary; its proof adds a cyclic block-capacity inequality and attainment, rather than renaming or substituting into a quoted general formula.",
+      "searches": [
+        "longest periodic subsequence of run-length encoded periodic words, maximal d power subsequence, runs weighted by ceilings",
+        "power subsequence binary periodic runs 0^a 1^b all exponents unary mixed phase transition",
+        "arxiv:2006.00216 Lemma 1 and Theorem 1",
+        "arxiv:2202.07189 Theorems 4.2, 4.3",
+        "Earlier mathematical claim concerning bounded-range subsequence spectra of two-run infinite words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bannai–I–Köppl (2022), Section 4, uses LCS factorizations for exponents; no binary two-run formula in inspected full text.",
+        "Inoue–Inenaga–Bannai (2020), Lemma 1, gives the partition-LCS reduction for squares, not this all-exponent evaluation."
+      ],
+      "reasoning": "Square subsequences are exactly the e=2 subcase, and longest periodic subsequences are an umbrella problem. General algorithms specify an objective evaluation method, not a formula valid for every positive a,b,k,e; neither of these statements implies the displayed maximum without additional analysis.",
+      "searches": [
+        "longest e-th power subsequence of repeated binary two-run word (0^a 1^b)^k exact formula maximum of unary and repeated-period candidates",
+        "longest periodic subsequence of run-length encoded periodic words, maximal d power subsequence, runs weighted by ceilings",
+        "longest square subsequence repeated binary blocks 0^a1^b powers",
+        "arxiv:2202.07189 §§2-5",
+        "arxiv:2006.00216 §§1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed results retrieved did not contain a two-run repeated-power table.",
+        "An earlier permutation-power result takes a period consisting of distinct letters and counts all square roots; a two-run source with arbitrary a and b is outside that domain except a=b=1."
+      ],
+      "reasoning": "No exact database or table giving the four-parameter optimum was located. Non-detection is not evidence of uniqueness. The permutation-power special case cannot control arbitrary within-run multiplicities or all exponents.",
+      "searches": [
+        "longest e-th power subsequence of repeated binary two-run word (0^a 1^b)^k exact formula maximum of unary and repeated-period candidates",
+        "longest square subsequence repeated binary blocks 0^a1^b powers",
+        "cyclic run ceiling cost bounds repeated subsequence (0^a1^b)^k and maximal exact e-th powers",
+        "longest square subsequence run length encoded binary words formula",
+        "Earlier mathematical claim concerning square-subsequence enumeration for permutation powers"
+      ]
+    },
+    "rationale": "Primary full-text material in the 2022 and 2020 arXiv publications develops general LCS/periodic-subsequence algorithms, not the closed run-capacity formula. The CPM 2018 full text treats two-input square subsequences; there is no matching two-run all-exponent expression in its inspected algorithms and discussion. Targeted research-record and literature searches found no directly equivalent result. The strongest mathematical proximity is prior generic arbitrary-pattern embedding-span machinery for movable windows: it can be used to study the family but does not state the fixed-origin, four-parameter maximum and mixed-versus-unary distinction. Residual risk of implicit or unindexed specialization remains.",
+    "residual_risks": [
+      "A prior unindexed or differently named binary run-power specialization could exist.",
+      "Generic arbitrary-pattern window-embedding theory might yield this formula with further optimization; no stronger direct statement identified.",
+      "The general periodic-subsequence algorithm may be viewed as a computational implication, but it does not itself state the closed-form classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithms; no stated formula for exact powers within finite two-run powers",
+        "evidence": [
+          "Section 4 defines repeated-factor LCS recurrences and complexity; Section 5 lists algorithmic open problems."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.07189v1",
+        "material_read": "Full HTML text: definitions, Sections 3 and 4 factorization algorithms and Section 5 open problems",
+        "method": "Direct full-text reading of arXiv HTML",
+        "title": "Longest (Sub-)Periodic Subsequence",
+        "trigger": "Exact prescribed exponents and general longest periodic subsequences"
+      },
+      {
+        "assessment": "The algorithm is general, including our inputs as examples, but no closed run-power length evaluation is given",
+        "evidence": [
+          "Lemma 1: twice maximum prefix-suffix LCS; Theorem 1: parameterized runtime for a general string."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.00216",
+        "material_read": "Full rendered text: introduction, partition-LCS Lemma 1, algorithm and Theorem 1",
+        "method": "Read available arXiv full article HTML/text",
+        "title": "Longest Square Subsequence Problem Revisited",
+        "trigger": "The e=2 case and exact longest square subsequence"
+      },
+      {
+        "assessment": "Addresses squares common to two arbitrary input strings; does not present the fixed-origin binary run-power formula",
+        "evidence": [
+          "Section 3, partition-based four-string LCS identity; Section 5 discusses generic matching-rectangle complexity."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.15",
+        "material_read": "PDF introduction, definitions, algorithms Section 3, Section 4 hardness and Section 5 discussion; pages 1,3 visually inspected",
+        "method": "Primary full-text PDF text with visual page checks",
+        "title": "Computing longest common square subsequences",
+        "trigger": "Broader two-input square-subsequence method potentially subsuming the e=2 case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0386f11-67a3-4cd8-b72c-dbe610890154",
+  "value": {
+    "rationale": "Exact closed form for all positive run lengths, all source powers and all integer repetition exponents in a canonical compressed periodic family; its cyclic ceiling budget separates mixed and unary witnesses and identifies sharp parameter-dependent takeover thresholds. This addresses a recognized algorithmic longest periodic/scattered power problem where general methods are substantially more costly and is more than a parameter-specific numerical slice.",
+    "status": "PASS"
+  }
+}
