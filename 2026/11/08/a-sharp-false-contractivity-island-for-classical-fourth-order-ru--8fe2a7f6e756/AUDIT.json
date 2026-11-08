@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "An exact nilpotent polynomial identity gives \\(T=rI+\\gamma hqN\\); the two-by-two singular-value identity yields \\(r^2+\\gamma h|q|\\le1\\) without extra assumptions. Sum-of-squares proves \\(r>0\\); the scalar RK4 cubic fixes \\(\beta\\), and \\(q\\prime<0\\) fixes \\(\\zeta\\). The derivative of the signed threshold is \\(h^3B(h)/[3456(hq)^2]\\), and the displayed positive integer transform proves \\(B(h)>0\\) over the full necessary interval. This globally proves both branches, all endpoints and impossibility elsewhere. Semigroup norm and both asymptotic laws are derived analytically; the standalone stdlib verifier passed 13,302 separate polynomial/numerical assertions. Finite samples do not supply the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tadmor arXiv:2312.15546v1 Section 2.1 analyzes power growth of large Jordan blocks and insufficiency of scalar spectral tests.",
+        "Sun--Shu (2017), Proposition 1.1 and Section 2, establishes a three-state semidissipative small-step counterexample and two-step stability, not all \\(\\gamma\\ge0\\) for the current two-state family.",
+        "Achleitner--Arnold--Jüngel arXiv:2308.05689 Introduction/Examples 1--2 examines strong stability/hypocoercivity indices under semidissipativity."
+      ],
+      "reasoning": "These more general themes do not logically determine when a spectrally stable but physically expansive two-by-two Jordan system produces a *contractive numerical one-step*. Their assumptions and quantifiers differ, and none of the inspected results implies the strict monotonicity or interval endpoints. Generic polynomial functional calculus alone is insufficient for the sharp phase diagram without the global polynomial sign certificate.",
+      "searches": [
+        "sharp nonmonotone RK4 contractivity intervals triangular generator -I plus gamma nilpotent",
+        "Runge Kutta stability function derivatives Jordan block spurious damping transient growth",
+        "arxiv:2312.15546v1",
+        "Sun Shu 2017 fourth-order Runge-Kutta one-step strong stability counterexample"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2312.15546v1",
+      "https://arxiv.org/abs/1811.10680",
+      "https://arxiv.org/abs/2308.05689",
+      "https://intlpress.com/site/pub/files/_fulltext/journals/amsa/2017/0002/0002/AMSA-2017-0002-0002-a003.pdf",
+      "Public mathematical research record (2026-10-11): Exact Lp contractivity phase diagram for planar triangular shears",
+      "Public mathematical research record (2026-10-04): An exact error-estimator resonance in the classical Fehlberg RK4(5) pair"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 three-state RK4 counterexample makes one-step expansion possible *despite* dissipativity; the present two-state family instead has expansion already in continuous time for \\(\\gamma>2\\), but its RK4 map has a distinct intermediate contractive window.",
+        "Tadmor 2023 discusses lack of spectral control of large Jordan blocks, not the cancellation of a two-state nilpotent contribution at \\(P_4\\prime(-\\zeta)=0\\) and its sharp width.",
+        "The continuous-time triangular-shear boundary \\(\\gamma=2\\) is recoverable from the general \\(L^p\\) contraction principle, but the RK4 phase boundaries \\(h_\\pm(\\gamma)\\) are not its corollaries."
+      ],
+      "reasoning": "Known continuous-time semigroup contractivity and known failure of general numerical strong stability do not give a disconnected set of numerically contractive intermediate step sizes. These are not arbitrary special-case constants: the genuine new conjunction specifies the complete sharp interval topology and asymptotic limits, which are not consequences of the closest statements.",
+      "searches": [
+        "classical RK4 two-dimensional Jordan shear sharp Euclidean contraction false stability window non-dissipative",
+        "Runge Kutta fourth order scalar stability derivative vanishes Jordan nilpotent blind spot one step contractivity",
+        "sharp nonmonotone RK4 contractivity intervals triangular generator -I plus gamma nilpotent",
+        "arxiv:2312.15546v1",
+        "arxiv:2308.05689v1",
+        "arxiv:1811.10680v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Explicit RK4 map is \\(r(h)I+\\gamma h q(h)N\\), so equivalent statements use the two-by-two spectral norm or inequality \\(r^2+\\gamma h|q|\\le1\\).",
+        "Sun--Shu 2018/2019 treats method-level strong stability on semidissipative matrices (arXiv:1811.10680, Introduction and Sections 2--4); no equivalent exact level set was located in inspected text.",
+        "Achleitner--Arnold--Jüngel 2023 discusses semidissipative/hypocoercive matrices and the known three-dimensional counterexample, not this full two-dimensional nondissipative parameter classification."
+      ],
+      "reasoning": "The matrix inequality, norm formula and polynomial-derivative cancellation were compared directly as possible alternate forms. The closest papers study distinct quantifiers (all semidissipative matrices), and are not logically equivalent to the exact time-step set for this fixed nondissipative family.",
+      "searches": [
+        "classical RK4 two-dimensional Jordan shear sharp Euclidean contraction false stability window non-dissipative",
+        "Runge Kutta fourth order scalar stability derivative vanishes Jordan nilpotent blind spot one step contractivity",
+        "\"RK4\" \"P'(-h)\" Jordan nonnormal contraction",
+        "arxiv:1811.10680; arxiv:2308.05689"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly indexed 2026-10-11 finding Exact Lp contractivity phase diagram for planar triangular shears determines continuous-time semigroup contractivity rather than RK4 contractivity.",
+        "The publicly indexed 2026-10-04 finding An exact error-estimator resonance in the classical Fehlberg RK4(5) pair concerns an embedded Fehlberg error estimator on a scalar equation, not a nonnormal Jordan step."
+      ],
+      "reasoning": "Exact constants \\(\\zeta,\beta,C\\) and the two roots of the RK4 shear norm condition were searched as formulas, aliases and method parameters. No consulted exact table or public result was found to contain this full four-part classification. Search nonappearance is not asserted as proof of uniqueness.",
+      "searches": [
+        "classical RK4 two-dimensional Jordan shear sharp Euclidean contraction false stability window non-dissipative",
+        "Jordan generator -I plus gamma shift RK4 fourth order false contraction island asymptotic gamma inverse",
+        "\"RK4\" \"Jordan\" \"contractive\" 2 by 2 norm"
+      ]
+    },
+    "rationale": "Full algebraic statement concerns the topology of a particular classical-RK4 Euclidean one-step contraction set for a stable but potentially nondissipative two-by-two Jordan system. Accessible primary sources about global RK4 strong stability and Jordan-block sensitivity do not imply its exact detached intermediate-step window, strict phase functions and sharp endpoint laws. Specialized predecessor risk remains, so priority beyond available literature is unverified.",
+    "residual_risks": [
+      "The geometric disappearance of a nilpotent component at a stability-polynomial stationary point is elementary functional calculus; a specialized prior paper may already have the exact monotone phase diagram.",
+      "The accessible 2017 primary study was read in extracted text but not as page images because the page viewer returned an access failure.",
+      "Search results are incomplete as a test of publication priority; independent expert/literature audit is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found explicit Jordan discussion and scalar RK4 spectral limits, but not the fixed two-by-two exact Euclidean contraction phase diagram",
+        "evidence": [
+          "Section 2.1 equations (2.3)--(2.9) discuss large Jordan blocks and RK4 spectral criteria."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.15546v1",
+        "material_read": "Introduction, Sections 2.1--2.2 on Jordan blocks, spectral-only instability and RK4, plus method summary; examined full accessible HTML section text",
+        "method": "Opened HTML full text and searched for Jordan and relevant polynomial conditions",
+        "title": "Runge--Kutta methods are stable",
+        "trigger": "Motivating study of spectral and Jordan-block stability of RK methods; source first posted 2023-12-24"
+      },
+      {
+        "assessment": "Three-dimensional semidissipative RK4 counterexample and general two-step theorem, neither same hypotheses nor full one-step two-dimensional interval classification",
+        "evidence": [
+          "Introduction Proposition 1.1 specifies \\(L=-\\left[\begin{smallmatrix}1&2&2\\0&1&2\\0&0&1\\end{smallmatrix}\right]\\); Section 2 describes two-step strong stability."
+        ],
+        "identifier_or_url": "https://intlpress.com/site/pub/files/_fulltext/journals/amsa/2017/0002/0002/AMSA-2017-0002-0002-a003.pdf",
+        "material_read": "Accessible extracted PDF introduction, Proposition 1.1, Section 2 main result statement and concluding lines; graphical screenshot request returned access error",
+        "method": "Read text representation of primary full-text PDF; attempted visual page inspection, which was inaccessible",
+        "title": "Stability of the fourth order Runge--Kutta method for time-dependent partial differential equations",
+        "trigger": "Very close paper on RK4 strong stability and nonnormal systems"
+      },
+      {
+        "assessment": "Provides energy-stability theory under seminegative hypotheses; no exact RK4 norm interval in expansive two-state shear",
+        "evidence": [
+          "Section 1 equations (1)--(4), Section 2 equations (7)--(17)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+        "material_read": "Accessible full-text arXiv HTML introduction and Section 2 energy-equality framework, key strong-stability statements and method coverage",
+        "method": "Opened full-text arXiv representation, inspected equations and searched for Jordan",
+        "title": "Strong stability of explicit Runge--Kutta time discretizations",
+        "trigger": "Foundational RK energy-stability theory, potentially stronger coverage"
+      },
+      {
+        "assessment": "General method-level conditions under semi-dissipativity and hypocoercivity; not a sharp numerical contraction window for a nondissipative two-state shear",
+        "evidence": [
+          "Intro results and Examples 1--2; RK4 not strongly stable universally."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.05689",
+        "material_read": "Full-text arXiv HTML abstract, introduction and principal results, Examples 1--2 and discussion of Jordan forms",
+        "method": "Opened full-text arXiv representation and searched targeted terms",
+        "title": "Necessary and sufficient conditions for strong stability of explicit Runge--Kutta methods",
+        "trigger": "Later stronger necessary-and-sufficient conditions; decisive scope check"
+      },
+      {
+        "assessment": "Governs continuous semigroup instead of polynomial RK4 one-step norm; relevant known physical threshold is excluded from new contribution",
+        "evidence": [
+          "Published summary states exact continuous-time \\(L^p\\) contractivity threshold."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Published search summary only: semigroup \\(L^p\\) boundary in planar triangular shears",
+        "method": "Scientific abstract/summary comparison; no claim of full-text inspection",
+        "title": "Exact Lp contractivity phase diagram for planar triangular shears",
+        "trigger": "Closest statement-level similarity, same triangular shear family"
+      },
+      {
+        "assessment": "Different RK method, scalar estimator phenomenon, not this Jordan shear norm criterion",
+        "evidence": [
+          "Published summary concerns a particular Fehlberg embedded pair at \\(h\\lambda=8/3\\)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Published search summary only, about scalar Fehlberg fourth/fifth error estimator",
+        "method": "Scientific abstract/summary comparison; no claim of full-text inspection",
+        "title": "An exact error-estimator resonance in the classical Fehlberg RK4(5) pair",
+        "trigger": "Stability-polynomial cancellation resonance with similar language"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8fe2a7f6-e756-45dd-a1a6-865886f0718e",
+  "value": {
+    "rationale": "Sharp disconnected numerical contraction on an exponentially stable but physically transiently expansive Jordan system is a substantive diagnostic boundary: RK4 exactly erases arbitrary shear at a single step, so observing decay or relying on the scalar stability eigenvalue can badly mischaracterize physical amplification. The full parameter classification with square-root onset and inverse-shear narrowing is a motivated exact numerical-stability benchmark, not merely a sample calculation or routine restatement of the continuous-time contractivity bound.",
+    "status": "PASS"
+  }
+}
