@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional middle-block description implies the exact nonuniform entrance identity, including the independent departure factor. Every asymptotic subsequence of probability vectors has extended limits for the scaled coupon probabilities; categories with diverging rates contribute negligibly, and finite-rate counts converge to independent Poisson variables. The resulting finite Poisson-entrance objective is continuously compactifiable. Its strict boundary improvement, monotone critical-point equation and one-dimensional strict unimodality yield the sharp optimum and unique asymptotic profile. The stand-alone checker independently enumerates small finite windows with exact rational arithmetic and evaluates the constructed asymptotic extremizers. No finite computation is treated as an infinite proof.
+PASS
 
-## Originality — PASS, with historical-priority limits
+For fixed integer n>=2, M>=n and arbitrary simplex sampling p, a new completion at the shifted M-window occurs iff the M−1 common middle draws omit exactly one type i, contain every other type, the old departing type is not i and the newly arriving type is i. This proves the exact independent middle-block/inclusion-exclusion identity, with factor p_i(1-p_i). Along any M→∞ subsequence, rates Mp_i have extended limits: diverging rates contribute at most Mp_i e^{−Mp_i}→0; finite rates give independent Poisson rare counts, and each diverging rate type is present w.h.p. Thus every rescaled entrance limit is G_k(c)=Σ_i c_i e^(−c_i)∏_{j!=i}(1−e^(−c_j)) for k<=n−1 finite rates. The extension to [0,infty]^k has zero-coordinate value zero and infinity faces G_{k−1}; adjoining one sufficiently large finite coordinate strictly raises G, so the global maximum is interior, strictly increases with k, and its derivatives force all coordinates equal via strict increase of c/(1−e^−c). Unique diagonal critical point c_k solves 1/c−1+(k−1)/(e^c−1)=0, giving the exact constant C_k. Construction and all-subsequence uniqueness imply one common type with probability→1 and every rare type Mp_i→c_{n−1} after relabeling; no finite-M uniqueness is asserted. Independent enumeration of actual (M+1)-draw words matched the inclusion formula for n=2,3 and bounded windows. This bounded test does not prove global asymptotics.
 
-The closest source is Long's arXiv:2604.26298v1, especially Theorem 3.1 and Sections 7–9, which provide the uniform-sampling flux and a different growing-alphabet rare-entry analysis. The event decomposition is credited to that source. The present sharp nonuniform long-window optimization, Poisson-profile reduction, and asymptotic rigidity are not consequences of its stated uniform theorem. Long's arXiv:2605.14511v1 addresses alternative loss processes. May's nonuniform quota collector and Kleiner's fragile-deadline collector have different state dynamics and target observables. Targeted mathematical-record searches and comparison against accessible existing findings did not locate an equivalent result. A general unnamed extremal result for independent-Poisson occupancy flux remains a possible unlocated precursor; a recent fragile-collector full article was not available for complete source inspection through the retrieval route.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The stationary entrance flux, unlike a one-time onto probability, measures the frequency of renewed completeness in a nonmonotone sliding-window system. The optimization has a complete limiting classification, a sharp constant for every fixed alphabet, an unexpected uniquely asymmetric sampling profile, and a polynomial-versus-exponential distinction from uniform sampling. These exact features give a benchmark for repeated-entry statistics. No claim is made that this optimizes first-completion time or finite-window probability.
+Best-of-knowledge originality PASS based on direct comparison of exact statements, hypotheses and implications. Prior model ingredients and general lemmas are credited; no inspected full-text theorem establishes the precise additional classification. The named inaccessible and abstract-only comparisons remain risks, not proof of priority. Long uniform asymptotics yield exp(−constant*M) for fixed n; they cannot imply C_{n−1}/M optimum or singular-profile rigidity by parameter specialization. The actual proof requires compactification of Mp_i and a unique global Poisson-function optimization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Maximizing stationary arrivals into complete expiring windows, rather than maximizing occupancy or minimizing first collection time, is a natural but distinct stochastic optimization target. The sharp 1/M improvement over uniform exponential decay and rigidity of the one-common/equal-rare optimal sampling profile are nontrivial asymptotic structure; a useful exact fixed-alphabet design law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
