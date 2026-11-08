@@ -1,0 +1,173 @@
+{
+  "correctness": {
+    "rationale": "The spherical cosine laws establish the exact arc aperture and all positive parameter domains; spherical Gauss--Bonnet gives A and L with the proper curvature/corner signs; h(t)=asin(sin(t)/c) has the third derivative of h=s^2 cos(t)(c^2+2sin^2(t))/(c^2-sin^2(t))^(5/2), with strictly positive z-log derivative on the entire range. The integral Taylor remainder makes n^2(A_disk-A_n) strictly decreasing and convergent to pi^3 s^2/(12c), proving the sharp constants and endpoint equality. The packaged verify.py passed symbolic, high-precision, independent spherical cosine law and independent uniform-sphere area sampling checks. Numerical checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Freyer--Sagmeister 2026 section 4: general constant-width area-perimeter identity and Reuleaux-triangle sharp area minimization, but no n-indexed convergence hierarchy.",
+        "Published hyperbolic regular Reuleaux polygon profile: exact L and A in curvature -1 with only disk limit, no spherical or strict scaled finite-n bounds.",
+        "Lassak--Musielak 2018, arXiv:1801.01161: spherical Reuleaux construction and constant-width properties."
+      ],
+      "reasoning": "General extremal inequalities compare all bodies with a Reuleaux triangle or disk but do not imply the optimal rate or strict monotone rescaling along the regular spherical odd-gon family. Curvature -1 formulas cannot be substituted for curvature +1 and do not contain the stated sharp n^2 inequality.",
+      "searches": [
+        "spherical Reuleaux polygons isoperimetric area monotonic odd n spherical Blaschke Lebesgue disk convergence",
+        "spherical constant width bodies exact spherical Barbier area perimeter relation",
+        "https://doi.org/10.1112/mtk.70069",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-area-and-perimeter-of-regular-hyperbolic-reuleaux-polygons--570abe9eafa4"
+      ]
+    },
+    "checked_sources": [
+      "Lassak 2013 DOI 10.1007/s00010-013-0237-3 (open-access construction and theorems)",
+      "Lassak--Musielak 2018 arXiv:1801.01161 (full accessible PDF)",
+      "Liu--Chang 2022 DOI 10.1007/s00013-021-01698-7 (full text, endpoint formula)",
+      "Freyer--Sagmeister 2026 DOI 10.1112/mtk.70069 (full text section 4)",
+      "Published spherical Reuleaux asymmetry research entry (full RESULT.md)",
+      "Published hyperbolic Reuleaux exact metrics research entry (full RESULT.md)",
+      "Araújo 1996, general Barbier theorem as quoted with attribution in later primary full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Spherical published Reuleaux asymmetry entry calculates a width-independent circumradius ratio, not area or normalized deficits.",
+        "Hyperbolic published metric profile uses cosh and negative-curvature Gauss--Bonnet; its limit concerns a hyperbolic disk, not a spherical one.",
+        "Liu--Chang 2022 obtains A_n at exactly pi/2 and discusses extremal polygons, not the n^2 deficit hierarchy for arbitrary w.",
+        "The new proof supplies an independent strictly positive derivative of the third derivative of h and the monotone Taylor-remainder identity."
+      ],
+      "reasoning": "The full new conclusion does not follow from these isolated prior statements by direct corollary: one must establish the all-width arc angle, isolate disk deficits, and prove strict monotonicity of the normalized Taylor remainder. The w=pi/2 special case and the general Barbier identity are not claimed as new.",
+      "searches": [
+        "spherical Reuleaux regular odd gon surface area exact perimeter n sin w arcsin sin pi/2n cos w/2",
+        "spherical Reuleaux polygons isoperimetric area monotonic odd n spherical Blaschke Lebesgue disk convergence",
+        "spherical Reuleaux odd-gon n squared area deficit monotone sharp convergence disk regular",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-width-independent-spherical-minkowski-asymmetry-of-regular-reule--e154f5df8cab",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-area-and-perimeter-of-regular-hyperbolic-reuleaux-polygons--570abe9eafa4",
+        "https://doi.org/10.1007/s00013-021-01698-7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lassak 2013, DOI 10.1007/s00010-013-0237-3: construction and spherical width, not the metric-hierarchy statement.",
+        "Araújo 1996, Barbier sphere: general A+cot(w/2)L=2pi, not n-dependent sharp constants.",
+        "Liu--Chang 2022, DOI 10.1007/s00013-021-01698-7, Theorem 3.6: endpoint w=pi/2 area 2pi-2n asin(sqrt(2)sin(pi/(2n)))."
+      ],
+      "reasoning": "An equivalent form would be monotonicity of n^2 times the deficit to the radius-w/2 spherical disk, or monotonicity of the normalized excess perimeter. None of the inspected primary statements gives either for the continuum of widths; the endpoint formula w=pi/2 is prior covered and explicitly credited.",
+      "searches": [
+        "spherical Reuleaux regular odd gon surface area exact perimeter n sin w arcsin sin pi/2n cos w/2",
+        "spherical Reuleaux regular polygon width geodesic boundary length asymptotic n squared",
+        "spherical Reuleaux odd-gon n squared area deficit monotone sharp convergence disk regular",
+        "web: \"spherical Reuleaux\" \"area\" \"regular\" polygons n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact w=pi/2 area sequence is present in Liu--Chang 2022 and is treated as already known.",
+        "The searched published research index returned related asymmetry and hyperbolic metric formulas, but not a table of all-width finite-n rescaled spherical deficits."
+      ],
+      "reasoning": "Existing special-case tables or formulas at width pi/2 cannot settle the continuum of positive widths, much less certify optimal inequality constants for each w. A search absence is only supporting evidence, not a novelty proof.",
+      "searches": [
+        "spherical Reuleaux odd-gon n squared area deficit monotone sharp convergence disk regular",
+        "Liu Chang spherical regular odd polygon normalized area deficit 1/n^2 monotonic",
+        "spherical constant width Reuleaux odd gon number of corners area perimeter convergence monotonic sharp",
+        "web: \"Reuleaux polygons\" \"sphere\" \"area\" arcsin",
+        "web: \"spherical Reuleaux\" \"perimeter\" \"n\" formula"
+      ]
+    },
+    "rationale": "The assessed claim is the fixed-width spherical odd-gon strict area/perimeter hierarchy with the sharp monotone renormalized n-squared deficit for every width 0<w<=pi/2. Lassak supplies the spherical construction; the spherical Barbier identity and the n=3 extremal result preexist; Liu--Chang give the w=pi/2 area specialization; a published hyperbolic exact metric profile does not imply the spherical normalized inequality. The relevant full texts were compared by hypotheses and conclusions, and no source inspected states or implies this all-width sharp renormalized hierarchy. The inaccessible 2005 Leichtweiss paper is a remaining priority risk.",
+    "residual_risks": [
+      "Leichtweiss 2005, DOI 10.1007/BF02942046, remained inaccessible in full; an exact all-width regular-n expression may be present under older terminology.",
+      "A preexisting explicit spherical regular-n metric formula may be recoverable from classical spherical trigonometry; novelty is not claimed for curvature substitution alone.",
+      "The derivative-based sharp n^2 monotone comparison was not located in inspected sources; this is provisional historical assessment, not certified priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines regular spherical Reuleaux odd-gons and constant width for w<=pi/2; does not state the n^2 area convergence hierarchy. First online publication December 6, 2013.",
+        "evidence": [
+          "DOI 10.1007/s00010-013-0237-3; Springer first published December 6, 2013; definition of odd-gon as disk intersection."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00010-013-0237-3",
+        "material_read": "Public abstract, construction/definition and theorem sections in full open-access 13-page article",
+        "method": "Open-access publisher PDF and section-level visual/text inspection",
+        "title": "Width of spherical convex bodies",
+        "trigger": "Original spherical odd-gon construction and archive date"
+      },
+      {
+        "assessment": "Provides general spherical constant-width theory, not explicit renormalized regular-family metric hierarchy.",
+        "evidence": [
+          "Lassak--Musielak 2018, DOI 10.1007/s00010-018-0558-3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.01161",
+        "material_read": "Complete accessible PDF construction passages and adjacent results",
+        "method": "Open-access preprint PDF inspection",
+        "title": "Spherical bodies of constant width",
+        "trigger": "Spherical construction and scope of constant-width theory"
+      },
+      {
+        "assessment": "Identical formula only at w=pi/2, which is credited. Restricted to fixed diameter or thickness pi/2; does not cover general w or monotone normalized n^2 deficits.",
+        "evidence": [
+          "Theorem 3.6: area=2pi-2n asin(sqrt(2)sin(pi/(2n))).",
+          "Section 5 explicitly notes other widths not treated in its extremal analysis."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00013-021-01698-7",
+        "material_read": "Full article text, including Theorems 3.6, 4.9 and its discussion of fixed width",
+        "method": "Primary article full-text representation, theorem and implication comparison",
+        "title": "Extremal problems for spherical convex polygons",
+        "trigger": "Exact same endpoint width pi/2 area formula and potential domination"
+      },
+      {
+        "assessment": "Cites general spherical Barbier identity and Reuleaux triangle minimum area but does not address a regular odd-n area-deficit rate.",
+        "evidence": [
+          "Freyer--Sagmeister 2026, Theorem 4.4 (Araújo) and Theorem 4.3 (Blaschke--Lebesgue)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/mtk.70069",
+        "material_read": "Full-text section 4 including Theorems 4.3 and 4.4, plus introduction and references",
+        "method": "Lawful open-access publisher full-text HTML",
+        "title": "The isominwidth problem on the 2-sphere",
+        "trigger": "Broader spherical extremality and Barbier identity"
+      },
+      {
+        "assessment": "Determines asymmetry and circumradius but not area/perimeter or finite-n normalized convergence.",
+        "evidence": [
+          "Public research entry formula: spherical asymmetry = 1/(2cos(pi/(2n))-1)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-width-independent-spherical-minkowski-asymmetry-of-regular-reule--e154f5df8cab",
+        "material_read": "Full public RESULT.md including proof, relationship, limits and references",
+        "method": "Public repository scientific-text read and claim implication comparison",
+        "title": "Width-independent spherical Minkowski asymmetry of regular Reuleaux odd-gons",
+        "trigger": "Same spherical family and potentially dominating published research"
+      },
+      {
+        "assessment": "Curvature -1 hyperbolic metric formulas and disk limit; explicitly no spherical analogue; no n^2 normalized hierarchy.",
+        "evidence": [
+          "Public research entry: L=n alpha sinh(d), A=n alpha(1+cosh(d))-2pi, hyperbolic alpha from cosh formula."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-area-and-perimeter-of-regular-hyperbolic-reuleaux-polygons--570abe9eafa4",
+        "material_read": "Full public RESULT.md including geometry, proof and limitations",
+        "method": "Public repository scientific-text read and hypothesis comparison",
+        "title": "Exact area and perimeter of regular hyperbolic Reuleaux polygons",
+        "trigger": "Very close exact metric computation in another curvature"
+      },
+      {
+        "assessment": "Unresolved historical-priority risk. No assertion of its noncoverage is made.",
+        "evidence": [
+          "Leichtweiss 2005, Abhandlungen Hamburg 75, 257--284; later spherical extremal research attributes a smooth-case extremum to it."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02942046",
+        "material_read": "Bibliographic record and later papers references only; not the complete primary article",
+        "method": "Open-access and preprint attempts found no full text; authorized institutional access unavailable",
+        "title": "Curves of constant width in the non-Euclidean geometry",
+        "trigger": "Old plausible exact spherical constant-width metric theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6bd6da6-d1eb-4824-94f0-7ce737c1ae6f",
+  "value": {
+    "rationale": "The regular spherical Reuleaux family is a canonical finite-corner interpolation between the sharp fixed-width area minimizer (Reuleaux triangle) and the area-maximizing disk. Exact finite-corner convergence is a natural geometric approximation question. The strictly monotone n^2 normalized deficit and two best possible coefficients furnish an all-width comparison of finite-corner approximations, not merely a trivial rearrangement of the general spherical Barbier identity or a formula restricted to w=pi/2. The precision of both constants and strictness supplies natural numerical benchmarks for spherical convex approximation.",
+    "status": "PASS"
+  }
+}
