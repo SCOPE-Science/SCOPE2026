@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact diagonal error map yields a quartic loss whose derivative has a unique positive zero by Descartes sign variation. The n^(1/4) rescaling gives a locally uniform quartic limit with unique minimizer, and the isolated-coordinate term bounds all minimizers for compactness. Direct eigenvalue analysis yields the spectral residual, Frobenius, and sign-approximation asymptotics. The sqrt(n) universal upper order follows from norm comparison. Extracted verifier includes exact rational quartic identities and finite numerical cross-checks; neither finite checks nor the upper bound alone establish the asymptotic lower bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Amsel et al., arXiv:2505.16932 Section 4.1, Theorem 4.1: minimizing maximum polynomial response error across an interval.",
+        "Grishina et al., arXiv:2506.10935 Sections 3.1–3.4: Chebyshev uniform approximation polynomial design.",
+        "Topollai and Choromanska, arXiv:2609.33047 Sections 2, 4 and Appendix G: estimation of spectral moments and selection of precomputed polynomial routines."
+      ],
+      "reasoning": "A worst-case interval-minimax polynomial rule and fixed/precomputed polynomial selection do not imply the response of the specific unconstrained nonlinear empirical Frobenius minimizer to one exceptional spectral mode. No inspected theorem in these sources gives the two-parameter critical law.",
+      "searches": [
+        "matrix sign iterative polynomial least squares best fit coefficient spectral error singular outlier norm ratio half sqrt rank",
+        "arxiv:2505.16932 Section 4.1 minimax polynomial",
+        "arxiv:2506.10935 Section 3 Chebyshev Newton Schulz",
+        "arxiv:2609.33047 Section 4 spectral moments"
+      ]
+    },
+    "checked_sources": [
+      "Yang et al. arXiv:2601.22137 Sections 3,4 and Appendix B",
+      "Amsel et al. arXiv:2505.16932 Sections 3–4",
+      "Grishina et al. arXiv:2506.10935 Sections 1–3",
+      "Topollai–Choromanska arXiv:2609.33047 Sections 2,4 and Appendix G",
+      "Published mathematical-record semantic search on Newton–Schulz fitting, spectral outliers and Frobenius-to-spectral norm comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang et al. demonstrate possibility of spectral-norm increase and prove bounds only with alpha in [1/2,1]; they do not establish an n-dependent overshoot lower bound for unrestricted fitted alpha.",
+        "Norm inequality ||R1||2 <= ||R0||F <= sqrt(n)||R0||2 proves only an upper bound, not its attainment by optimal fitting.",
+        "The critical-scale minimizer law follows from the present locally uniform quartic limit and an independent compactness argument; it is not a direct corollary of the cited protected iteration theorem."
+      ],
+      "reasoning": "Existing qualitative overshoot, simple norm inequalities and protected algorithm results do not logically imply the full stated asymptotics. The lower bound requires a specific n-dependent spectrum and proof that its exact global Frobenius optimum selects the dangerous coefficient.",
+      "searches": [
+        "arxiv:2601.22137 Section 4.1 and Appendix B",
+        "arxiv:2505.16932 Theorem 4.1",
+        "arxiv:2609.33047 Appendix G",
+        "Newton Schulz optimized degree one polynomial unconstrained Frobenius spectral residual norm amplification n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang et al., arXiv:2601.22137, Section 4.1 equations (2)–(3) and text after (3): same polynomial and same Frobenius fit, with only a qualitative warning of possible spectral growth.",
+        "Amsel et al., arXiv:2505.16932, Sections 3–4: interval-uniform minimax error objective, not per-matrix Frobenius least squares."
+      ],
+      "reasoning": "The scalar transform and norm comparisons are known, and PRISM itself states that unrestricted fitting may overshoot. The claim tested for originality is the quantified critical two-level asymptotic of the unique globally fitted nonnegative coefficient and the induced actual matrix-sign error, not the bare existence of overshoot.",
+      "searches": [
+        "PRISM matrix sign polynomial fit coefficient unbounded Frobenius minimization single residual outlier sqrt dimension spectral norm explosion",
+        "Newton Schulz optimized degree one polynomial unconstrained Frobenius spectral residual norm amplification n",
+        "\"unconstrained\" \"spectral norm\" \"Frobenius\" Newton Schulz",
+        "arxiv:2601.22137 Section 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record the 2026 finding titled “Sharp one-step Frobenius growth under complete-pivot ACA” concerns a rank-one complete-pivot cross-approximation residual rather than Newton–Schulz coefficient fitting.",
+        "Published record the 2026 finding titled “Sharp Rayleigh-residual distortion under normal spectral filtering” concerns Rayleigh residual growth under normal spectral filters, rather than Frobenius-optimal matrix-sign polynomial fit.",
+        "The motivating paper provides formulas for fitting and safeguards, but no enumerated two-level asymptotic constant table."
+      ],
+      "reasoning": "The exact rational function aD/(a²+D²) and its fitted one-step matrix-sign law were not found in the queried tables/records. Semantic retrieval is not a proof of database exhaustiveness; the closest returned concepts are structurally distinct.",
+      "searches": [
+        "PRISM matrix sign polynomial fit coefficient unbounded Frobenius minimization single residual outlier sqrt dimension spectral norm explosion",
+        "PRISM polynomial fitted Newton Schulz unconstrained coefficient Frobenius minimizer spectral error unbounded dimension square root growth outlier"
+      ]
+    },
+    "rationale": "The source explicitly warns that unconstrained fitting may increase spectral error; this is not claimed original. New content is a quantified two-level critical asymptotic for the unique globally optimal unbounded nonnegative coefficient, including 1/2 sharpness within that family and n^(1/4) actual sign-error blowup. Comparison of full-text primary sources and published semantic records found no dominating statement; unindexed equivalence remains possible.",
+    "residual_risks": [
+      "Source already observes qualitative unsafeguarded overshoot; only precise asymptotic magnitude and optimizer law are novel claims.",
+      "Potential older least-squares spectral-outlier examples under other terminology may be mathematically equivalent.",
+      "Positive semidefinite diagonal and unbounded coefficient restriction differ from safeguarded and sketched production implementations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides base polynomial, squared-Frobenius fitting and qualitative warning, but no quantitative n-dependent two-level lower law",
+        "evidence": [
+          "Section 4.1 equations (2)–(3), remark after (3), Theorem 1 and Appendix B.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.22137v1",
+        "material_read": "Sections 3–4.2, especially equations (2)–(3), Theorem 1, polynomial fit remark, and Appendix B.1",
+        "method": "Read primary arXiv HTML text and relevant equations/proof statements",
+        "title": "PRISM: Distribution-free Adaptive Computation of Matrix Functions for Accelerating Neural Network Training",
+        "trigger": "Defines the exact objective being analyzed and warns about unrestricted coefficient growth"
+      },
+      {
+        "assessment": "Its optimization is worst-case uniform spectral approximation over an input interval, not unconstrained empirical Frobenius residual fitting",
+        "evidence": [
+          "Equations (7)–(12), Theorem 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.16932v1",
+        "material_read": "Sections 3–4.2 and Theorem 4.1, plus statements of its minimax objective",
+        "method": "Read primary arXiv HTML statements and key equations",
+        "title": "The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm",
+        "trigger": "Directly relevant adaptive polynomial matrix-sign optimizer"
+      },
+      {
+        "assessment": "Uses Chebyshev alternation and controlled polynomial design rather than per-instance unbounded Frobenius coefficient fitting",
+        "evidence": [
+          "Section 3 formulation; Section 1 equations (1)–(2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.10935v1",
+        "material_read": "Abstract, Sections 1–3 and identified coefficient-design formulation",
+        "method": "Read primary arXiv HTML equations and method discussion",
+        "title": "Accelerating Newton-Schulz Iteration for Orthogonalization via Chebyshev-type Polynomials",
+        "trigger": "Alternative tuned Newton–Schulz polynomials"
+      },
+      {
+        "assessment": "Uses moment measurement to choose precomputed routines, not optimization of the unrestricted single coefficient. No claimed two-level asymptotic from inspected sections.",
+        "evidence": [
+          "Sections 2 and 4; Appendix G methodological comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.33047v1",
+        "material_read": "Introduction, Sections 2–4, Appendix B.2, Appendix G",
+        "method": "Read primary arXiv HTML contents, equations, algorithm selection and related-work material",
+        "title": "Cost-free Spectral Estimation for Adaptive Newton–Schulz in Matrix Optimizers",
+        "trigger": "Later matrix-adaptive spectral optimization, likely stronger coverage candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a5f825b-4d70-4cea-ab26-8dbf15428c2a",
+  "value": {
+    "rationale": "The theorem quantifies a sharp order sqrt(n) worst-case residual spike under the exact optimal objective, with an explicit tunable two-level constant and loss of actual matrix-sign approximation of order n^(1/4). It explains a mathematically substantive reason for clipping an adaptive coefficient, beyond the known qualitative possibility of overshoot; no multistep or practical failure is inferred.",
+    "status": "PASS"
+  }
+}
