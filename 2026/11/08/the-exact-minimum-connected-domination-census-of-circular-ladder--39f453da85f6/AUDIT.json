@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For labeled C_n Cartesian K_2, projected connectivity forces occupied columns into a cyclic interval when an empty column exists; domination forbids three empty columns. One empty/no double is impossible; two empty columns require two boundary doubles, giving the sharp lower bound |S|>=n for n>=4. Equality d=z leaves exactly three structurally exhaustive cases whose multiplicities are 2, 2n(n-1), and 2n (four rather than 2n at n=4), with an independent n=3 rung exception. Both directions, disjointness and tree/cycle induced types are proved in RESULT.md. Direct exhaustive graph checking of 1,398,072 nonempty subsets for n=3..10, plus 43,570 larger structural constructions, agrees, without being used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The connected domination number is a scalar invariant, while Q_n(u) counts all extremal vertex sets by double-column count.",
+        "Abu-Khzam et al., ESA 2022, DOI 10.4230/LIPIcs.ESA.2022.1, supply enumeration algorithms and general bounds rather than family-specific closed counting laws."
+      ],
+      "reasoning": "Knowing the minimum connected domination number (or maximum-leaf spanning-tree value) does not imply the number of optimal selected vertex sets, still less the double-column profile or induced tree/cycle split. General complete search could compute finite cases, but no general symbolic implication was identified.",
+      "searches": [
+        "circular ladder graph prism exact minimum connected dominating set enumerator count 2n^2+2 spanning trees maximum leaf",
+        "prism graph maximum leaf spanning trees number optimum connected dominating sets",
+        "arXiv:2205.00086",
+        "https://mathworld.wolfram.com/ConnectedDominationNumber.html"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.00086 (2022-04-29 public version)",
+      "doi:10.4230/LIPIcs.ESA.2022.1",
+      "arXiv:2601.03488 (ordinary dominion of prisms)",
+      "doi:10.1155/ijmm/1411005 (open primary HTML)",
+      "doi:10.18280/mmep.110112 (accessible primary sections)",
+      "doi:10.5206/mase/15775 (landing and abstract)",
+      "MathWorld Connected Domination Number",
+      "Wolfram GraphData property interface",
+      "Published research-record similarity comparisons of circular ladders, minimal CDS, complete prisms, cut complexes and maximum leaves"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Allagan et al. (2026), Theorem 1 and Appendix A: ordinary domination minimum has size about n/2, and the main theorem counts those ordinary minimizers, not connected minimizers of size n.",
+        "2022 enumeration paper addresses all inclusion-minimal connected dominating sets algorithmically but does not present closed all-n prism counts.",
+        "Prism ordinary-domination papers and circular-ladder cut-complex homotopy results concern strictly different quantified properties."
+      ],
+      "reasoning": "The sought statement counts connected dominating vertex subsets of *minimum connected* size n, by full-column incidence. The ordinary-domination count is about sets of much smaller cardinality and does not imply it. A general enumeration algorithm is not an established exact count. Topological invariants and different Cartesian graph families have no demonstrated reduction to the precise claimed multiplicities.",
+      "searches": [
+        "https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005 sections 1-4 Appendix A",
+        "https://arxiv.org/abs/2205.00086 definitions and algorithm",
+        "https://iieta.org/journals/mmep/paper/10.18280/mmep.110112 relevant sections",
+        "https://ojs.lib.uwo.ca/index.php/mase/article/view/15775",
+        "2026 public research on three-cut complexes of circular ladders"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abu-Khzam et al., arXiv:2205.00086, general inclusion-minimal connected dominating set enumeration, no exact circular-ladder minimum-set polynomial in inspected sections.",
+        "Allagan et al., arXiv:2601.03488 and DOI 10.1155/ijmm/1411005, quaternary column-state enumeration for minimum ordinary dominating sets of C_n Cartesian P_2, not connectivity-constrained optimum."
+      ],
+      "reasoning": "The synonym prism/circular ladder is normalized to C_n Cartesian K_2. Minimum connected dominating sets are not the same object as all inclusion-minimal connected dominating sets or minimum ordinary dominating sets. The first prior work is generic enumeration; the second optimizes under strictly weaker domination-only constraints and cannot imply the refined minimum connected set polynomial. No matching theorem was identified in examined primary passages.",
+      "searches": [
+        "\"minimum connected dominating sets\" \"prism graph\" \"number\"",
+        "\"prism\" \"connected dominating\" \"2n^2\"",
+        "circular ladder connected domination minimum CDS two n squared plus two column classification",
+        "2022 arXiv:2205.00086 full text",
+        "2026 arXiv:2601.03488 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram GraphData lists a MinimumConnectedDominatingSetCount property of individual named graphs, not an inspected all-order classification.",
+        "Quadratic numeric values of 2n^2+2 can appear independently in number-sequence tables, without fixing prism graph interpretation or the refined polynomial."
+      ],
+      "reasoning": "A generic graph-invariant database interface or preexisting bare integer sequence does not cover the theorem unless it states the same labeled prism count for arbitrary n or an immediately stronger formula. The inspected material contains no such exact graph-family table. Residual risk of an unindexed sequence comment or later database update remains.",
+      "searches": [
+        "https://reference.wolfram.com/language/ref/GraphData.html MinimumConnectedDominatingSetCount",
+        "https://oeis.org/search?q=2n%5E2%2B2",
+        "minimum connected dominating set count prism graph 30 52 74 100 130 cardinality",
+        "circular ladder connected domination minimum CDS two n squared plus two column classification"
+      ]
+    },
+    "rationale": "Direct full-text comparison distinguishes generic 2022 enumeration algorithms, known scalar connected domination, and the 2026 full ordinary minimum-domination prism census from the exact labeled minimum connected-domination polynomial and structure here. Other public circular-ladder results concern topology, not connected domination. Real alternative terminology, sequence/table and statement-implication searches with published research indexing yielded no exact prior coverage; publication priority remains provisional.",
+    "residual_risks": [
+      "No universal publication-priority certification; an unindexed or differently named exact minimum connected-prism enumeration could exist.",
+      "The 2023 prism ordinary-domination article was inspected by abstract and references rather than full text; its stated parameter is distinct.",
+      "Finite numerical databases or OEIS comments may later reveal an exact graph-family interpretation not retrieved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_COVERAGE",
+        "evidence": "Provides general enumeration algorithms for inclusion-minimal connected dominating sets and extremal bounds, not an exact polynomial for minimum-size connected dominating sets of C_n Cartesian K_2.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.00086",
+        "material_read": "Full available abstract, introductory problem statement, definitions, principal algorithm/lower-bound theorem statements and conclusion; ESA PDF pages near opening and conclusion were visually inspected.",
+        "method": "Open-access arXiv/HTML and ESA PDF reading, with targeted search for prism and circular-ladder family.",
+        "title": "Enumerating Connected Dominating Sets / Enumerating Minimal Connected Dominating Sets",
+        "trigger": "Direct primary literature on connected dominating set enumeration; first publicly posted 2022-04-29."
+      },
+      {
+        "assessment": "SAME_GRAPH_DISTINCT_OPTIMIZATION_PROPERTY",
+        "evidence": "Counts ordinary minimum dominating sets and omits connectedness; stated sizes and counts differ sharply from connected optimum and cannot imply Q_n(u).",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005",
+        "material_read": "Full available publisher HTML, specifically definition and theorem in Introduction, cyclic-word conditions and proof cases in Sections 2–4, and numerical Appendix A.",
+        "method": "Open-access primary full-text HTML inspection and original arXiv abstract comparison.",
+        "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+        "trigger": "Most plausible same-graph theorem: all-order enumeration of minimum domination on the prism."
+      },
+      {
+        "assessment": "ORDINARY_DOMINATION_AND_ANTIPRISM_NOT_EXACT_CONNECTED_ENUMERATION",
+        "evidence": "Treats minimum dominating sets and comparisons of prism/antiprism variants; inspected results do not provide refined minimum connected dominating set distribution.",
+        "identifier_or_url": "https://iieta.org/journals/mmep/paper/10.18280/mmep.110112",
+        "material_read": "Accessible article definition section and main results section distinguishing prism and antiprism settings.",
+        "method": "Primary publisher HTML inspection.",
+        "title": "Dominance Parameters in Prism Graphs: A Comparative Study of Minimum Dominating Sets",
+        "trigger": "Prism naming ambiguity and possible scalar/result coverage."
+      },
+      {
+        "assessment": "POTENTIAL_PRIOR_SCALAR_ORDINARY_DOMINATION_ONLY",
+        "evidence": "Abstract addresses minimum ordinary domination in a prism, not minimum connected domination multiplicities.",
+        "identifier_or_url": "https://ojs.lib.uwo.ca/index.php/mase/article/view/15775",
+        "material_read": "Accessible title, abstract and bibliographic metadata; full text not inspected.",
+        "method": "Publisher landing page plus cross-reference in 2026 article.",
+        "title": "Minimum Dominating Set for the Prism Graph Family",
+        "trigger": "Prior prism scalar domination result cited by 2026 primary paper."
+      },
+      {
+        "assessment": "SCALAR_NOT_MULTIPLICITIES",
+        "evidence": "Connected domination number alone cannot recover the structure or number of optimizing sets.",
+        "identifier_or_url": "https://mathworld.wolfram.com/ConnectedDominationNumber.html",
+        "material_read": "Accessible reference entry and graph-family scalar context.",
+        "method": "Mathematical reference page and targeted table search.",
+        "title": "Connected Domination Number",
+        "trigger": "Scalar connected domination parameter and maximum-leaf equivalent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "39f453da-85f6-4af1-a433-6e0b7823d432",
+  "value": {
+    "rationale": "An explicit motivated infinite-family classification of every optimal connected dominating backbone in a canonical cubic graph. The refined polynomial distinguishes geometric double-column structure beyond a known scalar optimum and determines exactly two cycle-induced configurations against 2n^2 tree-induced configurations for n>=5, with sharp n=3 and n=4 exceptional behavior. This is a natural exact extremal multiplicity classification, not a routine parameter substitution or standalone integer-sequence observation.",
+    "status": "PASS"
+  }
+}
