@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:51:50.337937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The overlap digraph has q constant triple vertices of degree q-1 and 3q(q-1) nonconstant vertices of degree two. Each unordered pair of alphabet symbols contributes a disjoint six-state internal block X to the directed Laplacian; its exact determinant is 28 and its Schur transfer is 1/7 [[3,4],[4,3]]. Eliminating all blocks leaves reduced Laplacian 4/7(qI-J), whose root-deleted determinant is (4/7)^{q-1}q^{q-2}; multiplying 28^{binom(q,2)} yields root tree count 2^{(q-1)(q+2)}7^{binom(q-1,2)}q^{q-2}. Every internal node lies on routes between constants, giving strong connectivity. BEST theorem with fixed unique initial 0001 edge multiplies by ((q-2)!)^q, with no further division. Independent direct graph and rational Schur calculation gave exact q=2,3,4 tree cofactors 16,21504,1438646272 and cycle counts 16,21504,23018340352. Finite checks corroborate exact symbolic all-q proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier general existence theorems can imply an Eulerian tour under balance and connectivity, not the exact number of tours.",
+          "The 2020 missing-word framework varies a small set of deletions, unlike all four-grams with support cardinality exactly two."
+        ],
+        "reasoning": "An all-words de Bruijn tour count cannot specialize through a simple factor: edge deletion changes Laplacian cofactors. Thus prior generic results do not cover the claim as stated.",
+        "searches": [
+          "arXiv:1711.07029",
+          "arXiv:0808.1309",
+          "arXiv:1908.01116 universal cycle probability restrictions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1711.07029",
+        "arXiv:0808.1309",
+        "arXiv:1908.01116",
+        "Resultary semantic query: universal cycles four-letter words with exactly two distinct symbols enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local determinant 28 and effective complete-graph conductance 4/7 are needed to evaluate a general matrix-tree formula.",
+          "Prior existence or unrestricted de Bruijn counts do not supply this Schur transfer."
+        ],
+        "reasoning": "This all-q product is not a mere corollary of existence results without substantial separate computation; general graph theorems provide the method, not the evaluated invariant.",
+        "searches": [
+          "arXiv:1711.07029",
+          "arXiv:0808.1309",
+          "doi:10.3390/math8050778"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mathematically equivalent problem is Euler tour enumeration of the exactly-two-letter 4-gram overlap graph; each symbol pair has a shared six-node internal block.",
+          "Gardner–Godbole and Leitner–Godbole study restricted universal-cycle existence for different language classes."
+        ],
+        "reasoning": "Even though Euler-cycle correspondence is standard, the evaluated six-state Schur complement is not stated in the inspected sources.",
+        "searches": [
+          "universal cycles four-letter words with exactly two distinct symbols enumeration",
+          "arXiv:1711.07029",
+          "arXiv:0808.1309"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q=2 count is 16 with all 14 nonconstant binary 4-grams; q=3 is 21504, q=4 is 23018340352.",
+          "Relevant searched published findings of other universal-cycle languages do not report these exact counts."
+        ],
+        "reasoning": "Specific database searches did not identify an exact tabulation for this language, but unseen special-purpose tables remain possible.",
+        "searches": [
+          "universal cycles four-letter words with exactly two distinct symbols enumeration",
+          "two-symbol length-four universal cycles q=3 21504 q=4 23018340352",
+          "restricted de Bruijn graph six-state pair gadget 28 determinant"
+        ]
+      },
+      "rationale": "The graph-specific exact pair-gadget spanning-tree cofactor and tour formula survive the checked existence literature; standard BEST and matrix-tree theory are acknowledged.",
+      "residual_risks": [
+        "A specialized unindexed enumeration or general transfer-spanning-tree theorem might already yield the formula.",
+        "The complete Leitner–Godbole source was not examined this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different restrictions, not this exact tour count",
+          "evidence": "Onto and augmented-onto classes have different edge conditions; the paper studies existence, not tree counts for all exactly-two-symbol 4-grams.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+          "material_read": "Accessible complete full original preprint, introduction and relevant existence/proof sections",
+          "method": "read full HTML manuscript",
+          "title": "Universal Cycles of Restricted Words",
+          "trigger": "Closest standard restricted-cycle paper"
+        },
+        {
+          "assessment": "No full-document noncoverage claim",
+          "evidence": "Non-bijections and near-onto regimes need not coincide with support exactly 2 at length 4 for arbitrary q.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.1309",
+          "material_read": "Abstract and reference descriptions available; full paper not read in this run",
+          "method": "read abstract/context only",
+          "title": "Universal Cycles of Restricted Classes of Words",
+          "trigger": "Alternative family definitions that could imply coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Clean exact infinite-alphabet enumeration for natural fixed-length constant-symbol-support language, uncovering six-state pair gadget and nontrivial 7-powers. Worthwhile structural classification, not a generic theorem substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1711.07029",
+    "arXiv:0808.1309",
+    "arXiv:1908.01116",
+    "Resultary semantic query: universal cycles four-letter words with exactly two distinct symbols enumeration",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-enumeration-of-two-symbol-length-four-universal-cycles--09ee5fdc095e"
+  ],
+  "disposition": "passed",
+  "final_claim": "Number of oriented rotation classes of length-7q(q-1) universal cycles for q-ary length-four words containing exactly two distinct symbols is 2^{(q-1)(q+2)}q^{q-2}7^{binom(q-1,2)}((q-2)!)^q, for every integer q>=2.",
+  "limitations": [
+    "Only exactly two symbols in length-four windows and only rotation quotient; not all length-four words, and no alphabet permutations."
+  ],
+  "residual_risks": [
+    "A specialized unindexed enumeration or general transfer-spanning-tree theorem might already yield the formula.",
+    "The complete Leitner–Godbole source was not examined this run."
+  ],
+  "schema_version": 1
+}

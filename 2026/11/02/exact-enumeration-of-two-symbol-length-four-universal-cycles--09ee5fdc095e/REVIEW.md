@@ -1,19 +1,21 @@
-# Review of the exact two-symbol four-window cycle count
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified for every integer \(q\ge2\), for a labeled alphabet, with rotation alone as the equivalence. The four-letter allowed language has exactly \(7q(q-1)\) distinct words. Its overlap graph has \(q\) degree-\(q-1\) vertices and \(3q(q-1)\) degree-two vertices. The proof explicitly lists all outgoing transitions and shows strong connectivity. Each unordered pair contributes one six-state internal Laplacian block of determinant \(28\) and exact Schur transfer \(\frac17\bigl(\begin{smallmatrix}3&4\\4&3\end{smallmatrix}\bigr)\). Thus the reduced constant-vertex Laplacian is \(\frac47(qI_q-J_q)\), and the directed matrix-tree theorem gives \(2^{(q-1)(q+2)}7^{\binom{q-1}{2}}q^{q-2}\) rooted in-arborescences. The BEST theorem, using a unique specified first four-word, yields the additional factor \(((q-2)!)^q\). Boundary \(q=2\) is legitimate; the counted cycles each have full length, so fixed-first-edge normalization counts rotation classes exactly once. The standalone checker recomputes exact integer cofactors for \(q=2\) through \(6\), the six-state transfer, sixteen binary tours and explicit longer witnesses.
+PASS
 
-## Originality — PASS, with stated residual risk
+The overlap digraph has q constant triple vertices of degree q-1 and 3q(q-1) nonconstant vertices of degree two. Each unordered pair of alphabet symbols contributes a disjoint six-state internal block X to the directed Laplacian; its exact determinant is 28 and its Schur transfer is 1/7 [[3,4],[4,3]]. Eliminating all blocks leaves reduced Laplacian 4/7(qI-J), whose root-deleted determinant is (4/7)^{q-1}q^{q-2}; multiplying 28^{binom(q,2)} yields root tree count 2^{(q-1)(q+2)}7^{binom(q-1,2)}q^{q-2}. Every internal node lies on routes between constants, giving strong connectivity. BEST theorem with fixed unique initial 0001 edge multiplies by ((q-2)!)^q, with no further division. Independent direct graph and rational Schur calculation gave exact q=2,3,4 tree cofactors 16,21504,1438646272 and cycle counts 16,21504,23018340352. Finite checks corroborate exact symbolic all-q proof.
 
-Gardner–Godbole (arXiv:1711.07029) and Leitner–Godbole (arXiv:0808.1309) treat existence for various larger or differently restricted languages, including onto and almost-onto words, without an exact enumeration of tours for the fixed range-size-two length-four language. Chen–Kitaev–Sun (arXiv:1908.01116) count which sets of removed words permit cycles; that existential probability is not the number of cycles of this specific restricted language. A related exact length-three two-symbol count has a different overlap graph; separate length-four counts for three- or four-symbol languages have disjoint allowed edges; and a count for tandem-square avoidance uses a strictly larger word language. None of these implications determines the present determinant. Actual searches included `universal cycles exact two distinct symbols length four words all q count rooted spanning trees`, `number of Euler circuits restricted de Bruijn graph two-symbol factors length 4 seven q q-1 matrix tree`, and `four letter words exactly two alphabet symbols cyclic universal cycle enumeration de Bruijn`. No direct or stronger enumerative coverage was located. Residual risk: an unindexed older count or a general Euler-tour theorem specialized to this exact graph may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The question is a natural, support-constrained de Bruijn enumeration: two-symbol length-four words are precisely the first nonconstant support stratum on an arbitrary alphabet. Unlike a finite census or an existence-only deduction, the theorem gives a parameter-uniform exact count with a nontrivial six-state gadget and an explicit \(7^{\binom{q-1}{2}}\) factor. It also makes available minimal-length explicit universal cycles for every alphabet size. Its relevance is to enumerative combinatorics on words and constrained universal-cycle constructions, not to an asserted downstream theorem.
+The graph-specific exact pair-gadget spanning-tree cofactor and tour formula survive the checked existence literature; standard BEST and matrix-tree theory are acknowledged.
 
-## Limits
+## value
 
-No claim is made about inequivalent cycles under alphabet permutations or reversal, other support strata, or longer windows. Exact matrix-tree/BEST reductions establish the result for all alphabet sizes; the finite checker is corroboration. Novelty remains subject to external literature review. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Clean exact infinite-alphabet enumeration for natural fixed-length constant-symbol-support language, uncovering six-state pair gadget and nontrivial 7-powers. Worthwhile structural classification, not a generic theorem substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
