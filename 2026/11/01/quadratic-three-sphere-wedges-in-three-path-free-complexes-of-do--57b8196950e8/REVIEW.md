@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definitions and parameter boundaries are explicit: a length-four spine, at least one leaf at each end, and induced components of size at most two. The proof reconstructs the exact deletion \(D=\operatorname{Ind}_2(S_a)*\operatorname{Ind}_2(S_{c+1})\) and the exact link \(L=(\Delta_A*Q)\cup(u*R)\). The star complexes are unions of two contractible subcomplexes with a discrete intersection, so their circle-wedge homotopy types follow for all leaf counts. The link is a suspension of a star complex, producing a wedge of two-spheres. As the deletion is two-connected, the attaching map is null and the cofiber splits integrally. The face-level checker independently verifies the predicted reduced mod-two homology of the original complex, deletion, and link for 21 finite parameter pairs. Its limitations are recorded explicitly; no finite calculation is promoted to an infinite proof.
+PASS
 
-## Originality — PASS with residual risk
+For each a,c≥1, the tree B_{a,c} has spine u-v-w-z and endpoint leaf sets A,C. Ind₂ forbids selected three-vertex paths. Ind₂ of a k-leaf star is a union of the leaf simplex and cone over its zero skeleton, hence ≃vee^{k−1}S¹. Deleting v leaves disjoint stars S_a and S_{c+1}; their independence-complex join D≃vee^{(a−1)c}S³, including contractible boundary a=1. The link of v equals (Δ_A*Q)∪(u*Ind₂(S_c)), glued along Ind₂(S_c), yielding ΣInd₂(S_c)≃vee^{c−1}S². The map link→D is null because D is 2-connected (or contractible), and deletion/link cofiber splits into D∨Σlink ≃vee^{ac−1}S³; a=c=1 is contractible. Independently enumerated induced-P3-free faces for every 1≤a,c≤4 and exact F₂ boundary homology for K, D and link, confirming these three predicted multiplicities. The all-integer all-parameter proof is the join/link argument, not finite mod-2 homology.
 
-The closest primary literature is Sawant, arXiv:2605.25150v1 (2026-05-24), whose full preprint establishes vertex decomposability for every tree, not this exact double-broom homotopy type. Abdelmalek et al., arXiv:2106.10863, establish caterpillar vertex decomposability, not sphere multiplicities. Deshpande–Singh, arXiv:2001.05448, give exact results for other graph classes including fully whiskered graphs, but the two internal nonleaf spine vertices here have no pendant neighbors. Its path case already covers the isolated \(a=c=1\) boundary; that case is not claimed as new. Targeted searches for three-path-free, two-independence, dissociation-complex, and double-broom aliases and more general parameter families found no mathematically dominating published theorem. An equivalent statement in unindexed literature or derivable by an unstated general recursive formula remains a residual risk; absence from searches is not a mathematical uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The gap is an exact natural homotopy classification at the smallest fixed threshold beyond ordinary independence for two-end-branching trees with two unwhiskered internal spine vertices. General tree shellability permits a wedge without specifying its sphere dimension or count. The formula \(ac-1\) is sharp in all parameter ranges and gives an infinite two-parameter set of integral Betti numbers and complete homotopy types. The construction also exposes a reusable geometric deletion/link mechanism: a link that is a suspension of a star complex and a deletion whose connectivity kills the attaching map. This is more than a face-count exercise or a restatement of the general existence-of-wedges theorem.
+Best-of-knowledge comparison of statements, not a negative-search proof. Using known star formula alone does not supply double-broom attaching nullity without the computed link and 2-connected deletion. Generic wedge-existence/vertex decomposability does not determine the double-broom exact sphere dimension and rank ac−1. The exact two-parameter result does not follow mechanically from the published qualitative tree result.
 
-## Risks and limits
+## value
 
-The classification does not cover other thresholds or longer spines, and it does not imply claims about automorphism modules. The published-source comparison cannot rule out unindexed variants. Finite checker output does not establish an arbitrary-parameter integral theorem. Independent verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact ac−1 three-sphere multiplicity is a two-parameter natural tree family with both branching ends and an internal no-whisker bottleneck, beyond known general shellability and wholly whiskered classification. The construction identifies a nontrivial null-attaching mechanism and an explicit polynomial branch interaction, useful for higher-independence homotopy rather than a renaming or arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
