@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:44:17.757012Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For every n>=5, objective ||P-J/n||₂ is convex and dihedral-invariant, so averaging arbitrary spatially varying admissible symmetric Markov matrices proves a global lower bound from invariant weights without claiming global uniqueness. For n>=6 the spectrum is a quadratic f(cos(2πk/n)) anchored at f(1)=1. For h=floor(n/2), j=floor((n+2)/4), u=cos(2π/n), ell=cos(2πh/n), v=cos(2πj/n), the grid maximum of (x-ell)(u-x) is at v. Equioscillation f(ell)=f(u)=t,f(v)=-t determines t=Δ/[Δ+2(1-ell)(1-u)], Δ=(v-ell)(u-v), and the sign-change plus root at 1 proves optimality and unique invariant polynomial. Coefficients p1=-(u+ell)/T,p2=1/(2T),p0=(Δ+1+2u ell)/T satisfy strict positivity by the even/odd factorizations, so relaxed optimum is feasible. n=5 is complete and J/5 unique. Taylor expansion yields gap 8π²/n² and n²p1 even/odd 2π²/3π²/2. The proof does not claim uniqueness of all inhomogeneous minimizers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2004 and 2009 papers provide general convex/SDP formulations and symmetry reductions.",
+          "The 2005 k-nearest ring work includes the exact support family k=2, but the inspected section supplies bounds/near-optimal constructions rather than an exact finite n minimizer."
+        ],
+        "reasoning": "General SDP or asymptotically matching bounds do not by themselves evaluate the finite-n optimum; this is the additional all-n theorem assessed.",
+        "searches": [
+          "Boyd Diaconis Xiao 2004 FMMC graph SDP",
+          "Boyd Ghosh Prabhakar Shah 2005 mixing geometric random graphs Section 3.1",
+          "Boyd Diaconis Parrilo Xiao 2009 graphs with symmetries"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao 2004 FMMC general SDP",
+        "Boyd–Ghosh–Prabhakar–Shah 2005 k-neighbor ring Section 3.1 (same k=2 support)",
+        "Boyd–Diaconis–Parrilo–Xiao 2009 symmetries, one-hop cycle Section 3.1.1",
+        "Resultary semantic search for cycle-square FMMC exact weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior lower bound cos(4π/n) is compatible with asymptotic leading 8π²/n² but is not the claimed finite sharp SLEM.",
+          "The one-hop exact spectral gap is only 2π²/n² and does not fix the optimal two-hop weights."
+        ],
+        "reasoning": "The all-finite exact equality needs discrete three-point equioscillation plus feasibility; neither general convex averaging nor near-optimal asymptotics implies it.",
+        "searches": [
+          "Boyd Ghosh Prabhakar Shah 2005 Section 3.1 nearest-neighbor ring",
+          "Boyd Diaconis Parrilo Xiao 2009 Section 3.1.1 one-hop ring and Section 3.2 product graph",
+          "Resultary second-power cycle mixing query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The C_n² graph equals the k=2 nearest-neighbor ring G_2, and the Fourier polynomial is a discrete Chebyshev minimax problem.",
+          "Boyd 2009 Section 3.1.1 gives a formula for the one-hop cycle, which has only one edge orbit, unlike the two-orbit C_n² problem."
+        ],
+        "reasoning": "Checked aliases cycle-square, distance-two ring, two-hop ring and quadratic cosine minimax. The inspected prior exact one-edge-orbit solution does not directly imply the two-edge-orbit formula.",
+        "searches": [
+          "fastest mixing Markov chain second power cycle square C_n^2 exact weights SLEM",
+          "Boyd et al. 2005 k-nearest-neighbor ring k=2",
+          "Boyd et al. 2009 cycle Example 3.1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search results included other finite-cycle spectral optimization records, none with the claimed three-weight C_n² exact minimax table.",
+          "Source all-n formula predicts n=6 p0=p1=p2=1/5, while one-step cycle formulas differ."
+        ],
+        "reasoning": "No exact precomputed table implying the theorem was identified. This absence is only negative search evidence.",
+        "searches": [
+          "Resultary semantic: fastest mixing Markov chain second power cycle square C_n^2 exact weights SLEM",
+          "Boyd geometric random graph ring formulas 2005",
+          "Boyd 2009 Example 3.1.1"
+        ]
+      },
+      "rationale": "PASS, qualified. Boyd–Ghosh–Prabhakar–Shah (2005) Section 3.1 already treats k-nearest-neighbor rings including k=2 and obtains lower bounds and asymptotically good weights, while Boyd–Diaconis–Parrilo–Xiao (2009) proves symmetrization and the one-step cycle example. The assessed exact all-finite-n C_n² three-weight minimizer and mod-four active frequency are not stated in the inspected relevant sections. A historical exact Chebyshev/minimax equivalent could exist.",
+      "residual_risks": [
+        "An unindexed classical exact two-orbit circulant Chebyshev solution may duplicate this result.",
+        "No claim of global uniqueness of arbitrary inhomogeneous optimizers or other metrics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME GRAPH PREDECESSOR: asymptotic/lower-bound coverage, not the inspected exact finite three-weight law",
+          "evidence": [
+            "Boyd, Ghosh, Prabhakar, Shah (2005), Section 3.1 k-nearest ring family."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gnr_mix.pdf",
+          "material_read": "Full primary paper PDF inspected in relevant Section 3.1 and accompanying ring bounds and constructions",
+          "method": "Open-access PDF text, page images and mathematical comparison",
+          "title": "Mixing Times for Random Walks on Geometric Random Graphs",
+          "trigger": "Same k=2 nearest-neighbor ring"
+        },
+        {
+          "assessment": "ONE-HOP CYCLE AND GENERAL REDUCTION; no inspected exact C_n² two-hop classification",
+          "evidence": [
+            "Boyd, Diaconis, Parrilo, Xiao, SIAM J Optim 20 (2009), 792–819; Section 3.1.1 one-edge-orbit ring."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Pages 3-9 including Section 2.2, Section 3.1.1 cycle and Section 3.2 Cartesian product",
+          "method": "Open-access 28-page PDF text and screenshots; checked mode/edge-orbit assumptions",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact symmetry averaging and cycle formula"
+        },
+        {
+          "assessment": "GENERAL FRAMEWORK PRIOR; not credited as new",
+          "evidence": [
+            "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), 667–689."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "General optimization statements and cited baseline, not cover-to-cover full text",
+          "method": "Open scholarly reference and relevant general theorems",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General arbitrary-weight FMMC SDP setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exact minimizer solves a standard design problem for a natural k-nearest ring graph at every finite n. The active frequency/parity structure and strictly positive yet vanishing one-hop weight characterize stability that near-optimal asymptotics cannot determine; the fourfold limiting gap gain is a useful sharp comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Symmetric uniform-stationary discrete-time chains with loops on C_n² only; not directed or arbitrary measures.",
+    "No claim that every global optimizer among noninvariant matrices equals the invariant optimizer.",
+    "Historical equivalent ring formula remains a priority risk."
+  ],
+  "schema_version": 1
+}

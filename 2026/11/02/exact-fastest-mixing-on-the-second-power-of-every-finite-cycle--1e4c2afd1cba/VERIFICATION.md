@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification information
 
-Run `python verify.py` with Python 3. If SciPy is available, the script also compares its explicit formula against a separately constructed linear program. Without SciPy, the exact small rational checks and all built-in numerical spectral checks still execute. The recorded run with SciPy installed reported `VERIFICATION_OK 1006259 assertions; exact n=5/6 and numerical n=6..1000, LP n=5..80`.
+# Independent mathematical audit
 
-The exact rational boundary tests at \(n=5,6\) use `fractions.Fraction`. Other tests use standard floating-point trigonometry with explicit tolerances; they are not interval-arithmetic proofs or exhaustive checks over all dimensions. The universal mathematical justification is given by the Fourier/equioscillation argument and closed algebraic positivity factors in `RESULT.md`.
+## correctness
 
-Independent audit has not been performed. No independent validation or external mathematical certification is asserted.
+PASS
+
+PASS. For every n>=5, objective ||P-J/n||₂ is convex and dihedral-invariant, so averaging arbitrary spatially varying admissible symmetric Markov matrices proves a global lower bound from invariant weights without claiming global uniqueness. For n>=6 the spectrum is a quadratic f(cos(2πk/n)) anchored at f(1)=1. For h=floor(n/2), j=floor((n+2)/4), u=cos(2π/n), ell=cos(2πh/n), v=cos(2πj/n), the grid maximum of (x-ell)(u-x) is at v. Equioscillation f(ell)=f(u)=t,f(v)=-t determines t=Δ/[Δ+2(1-ell)(1-u)], Δ=(v-ell)(u-v), and the sign-change plus root at 1 proves optimality and unique invariant polynomial. Coefficients p1=-(u+ell)/T,p2=1/(2T),p0=(Δ+1+2u ell)/T satisfy strict positivity by the even/odd factorizations, so relaxed optimum is feasible. n=5 is complete and J/5 unique. Taylor expansion yields gap 8π²/n² and n²p1 even/odd 2π²/3π²/2. The proof does not claim uniqueness of all inhomogeneous minimizers.
+
+## originality
+
+PASS
+
+PASS, qualified. Boyd–Ghosh–Prabhakar–Shah (2005) Section 3.1 already treats k-nearest-neighbor rings including k=2 and obtains lower bounds and asymptotically good weights, while Boyd–Diaconis–Parrilo–Xiao (2009) proves symmetrization and the one-step cycle example. The assessed exact all-finite-n C_n² three-weight minimizer and mod-four active frequency are not stated in the inspected relevant sections. A historical exact Chebyshev/minimax equivalent could exist.
+
+## value
+
+PASS
+
+PASS. The exact minimizer solves a standard design problem for a natural k-nearest ring graph at every finite n. The active frequency/parity structure and strictly positive yet vanishing one-hop weight characterize stability that near-optimal asymptotics cannot determine; the fourfold limiting gap gain is a useful sharp comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
