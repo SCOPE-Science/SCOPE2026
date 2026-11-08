@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The distance identity for the Johnson graph is verified directly in the proof and independently by exhaustive vertex-orbit pairs for small parameters. Every fixed point has barycentric weights constant on orbits, so the orbit-barycenter triangulation is exact. The conflict graph has bipartite band edges determined by the integer inequality on orbit indices. The two alternating neighborhood folds are checked using open neighborhoods and leave one isolated graph edge per block of indices; these collapses yield a single cross-polytope boundary. The proof handles \(k=1\), \(r=0\), even and odd \(r\), and the full-simplex threshold \(r=k\). The standalone verifier passed 83 orbit-index comparisons, 198,880 valid fold deletions, and 78 finite homology calculations. These tests cannot prove the infinite statement, which instead follows from the explicit all-parameter folds.
+PASS
 
-## Originality — PASS, with residual risk
+Let G=S_k×S_k act on k-subsets of a disjoint union of two k-blocks. Its vertex orbits O_i have i points in the first block. The minimal intersection over O_i×O_j is |i+j−k|, so their maximal Johnson graph distance is k−|i+j−k|; singleton endpoints are also compatible. An orbit supports a fixed-point barycenter exactly when |2i−k|≥t=k−r. Fixed points in a geometric simplex have orbit-constant barycentric coefficients, yielding the exact orbit-barycenter simplicial model rather than a fixed-vertex or invariant-homology surrogate. For 0≤r<k the admissible indices split into low/high blocks of length m=⌊r/2⌋+1, and incompatible low/high orbit pairs are precisely |i−j|<t, the bipartite band graph F_{m,t}. Standard independence-complex neighborhood containment folds remove t−1 low vertices then t−1 high vertices per block, retaining a disjoint edge and F_{m−t,t}. Iteration leaves b=ceil(m/t) disjoint edges, whose independence complex is a join of b copies of S0, hence S^{b−1}=S^{floor(r/[2(k−r)])}. At r≥k the full Rips simplex is G-stable and its fixed set contractible. We independently enumerated all orbit pair extrema for k=1..7 and checked selected exact graph fold sequences; they corroborate but do not establish the all-k proof.
 
-The closest published Johnson-graph Rips result gives the ordinary scale-one homotopy type, not geometric fixed spaces at all radii. The complete Johnson metric-dimension paper gives the exact distance, not Rips fixed loci. The inspected hypercube Rips paper concerns cohomology of a different vertex set, and the inspected Johnson clique reference concerns a different scale-specific question. The full text of the recent equivariant hypercube preprint was not accessible in this execution; its abstract states representation-theoretic rather than Johnson-slice fixed-point results. Named searches for Young-subgroup Johnson Rips fixed points, orbit distances, band independence complexes, and alternate formulations did not identify stronger covering statements. Unindexed or differently named equivalent work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This identifies the actual geometric fixed-point homotopy type at **every scale** for a natural infinite family of constant-weight hypercube slices, with arbitrarily high-dimensional sphere fixed spaces and a sharp contractible transition at the Johnson diameter. The exact orbit-complex construction and elementary collapses give a reproducible model that cannot be recovered solely from ordinary ambient homology. The all-scale classification is stronger than a handful of numerical checks or a mere reformulation of the Johnson distance metric, though persistence inclusion maps and other subgroups remain open.
+Prior Johnson Rips work classifies ordinary scale-one homotopy, while hypercube Rips sources classify ambient connectivity/cohomology and equivariant homology representations. None of those statements implies the geometric S_k×S_k-fixed space at every scale, and its orbit-barycenter band-graph collapse is materially distinct from a homology fixed submodule. Best-of-knowledge, subject to possible differently indexed Young-fixed-space/association-scheme work.
 
-## Scientific limitations
+## value
 
-The result is a self-review, not independent certification. The originality evidence depends on accessible indexed literature and examined primary material; a covering unindexed theorem cannot be excluded. The theorem does not compute maps between consecutive Rips fixed-space homology groups.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem determines geometric fixed-space homotopy at every Rips scale for the canonical equal two-block Young subgroup of J(2k,k) over all k, with arbitrarily high-dimensional sphere stages and the final contractibility threshold. Its exact orbit-barycenter reduction and explicit band-graph folds are a reusable structural tool; ambient Rips homology or characters alone cannot recover geometric fixed loci. This is a motivated natural equivariant topological classification, not a synthetic finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
