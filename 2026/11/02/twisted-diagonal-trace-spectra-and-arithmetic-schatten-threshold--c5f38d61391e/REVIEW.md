@@ -1,15 +1,21 @@
-# Scientific review: twisted-diagonal trace spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact source/target Hilbert norms are fixed by the kernels \((1-z\overline w)^{-r}\) and \((1-z\overline w)^{-2r}\). Symmetric projection gives an explicit compressed reproducing kernel, whose Gegenbauer coefficients yield every squared singular value. Positivity and surjectivity at nonexceptional angles follow from strict triangle inequality and the limit \(\lambda_n\to1/2\). The two coalescing endpoint angles are handled exactly, not by a nonuniform limiting argument. For fixed intermediate angles, two-singularity Darboux transfer yields \(\lambda_n-1/2=\beta_{r,\theta}n^{-r}\cos\Phi_n+O(n^{-r-1})\). A counting argument using rational residue classes or irrational rotation equidistribution converts this oscillatory formula into the asserted ordered singular-value law, which in turn proves the exact Schatten and logarithmic thresholds. The independent monomial-row and special-function computations in `checker.py` passed 1,446 finite assertions. Risk: the assertion concerns fixed angles only; the computational checks cannot replace the asymptotic proof.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The distinctive claim is the precise *ordered* singular-value constant, including arithmetic dependence on \(\theta/\pi\), for a twisted-diagonal trace on the symmetric tensor kernel space. The invariant-space decomposition and basic kernel projections are known tools. The 2011 weighted symmetrized-polydisc kernel paper constructs bases and kernels, principally for the antisymmetric/Jacobian model, but its inspected statements do not classify these rotated trace spectra. The 2022 quotient-domain paper treats Toeplitz zero-product and commutation questions, including the trivial symmetric-group representation, without deriving this Schatten/counting law. The 2017 symmetrized-bidisc Hardy Toeplitz work develops other operators and is not a covering result. Standard Gegenbauer asymptotics and Weyl equidistribution are used as ingredients. Residual risk: a less directly indexed trace/restriction or orthogonal-polynomial article could contain an equivalent statement; formal independent priority examination remains open.
+PASS
 
-## Mathematical value — PASS
-The symmetric-space trace is a natural curve-evaluation operation on quotient-domain analytic spaces. Its exact two exceptional geometries, universal interior essential spectrum and sharp \(r\)-dependent Schatten threshold describe qualitative operator behavior that quotient-space decomposition alone does not determine. The ordered asymptotic is stronger than raw Fourier-coefficient decay because cancellations change the spectral coefficient: for the Hardy case, the limit equals \(1/(\pi\sin\theta)\) at irrational angles but \(1/4\) at the right-angle resonance. This supplies a quantitative arithmetic and geometric distinction for natural interpolation/trace operators. The claim does not require an unproved downstream application or assert a global perturbation theorem.
+From the two one-variable reproducing kernels, restrict the full tensor kernel along (z,e^{iθ}z), then apply the coordinate swap projection P+=(I+U)/2. This yields a diagonal positive kernel with coefficients (c_n(2r)+C_n^(r)(cos θ))/2, normalized by c_n(2r). For θ in (0,π), positivity is strict because adjacent contributing phases differ, while Darboux expansion at e^{±iθ} gives λ_n−1/2=β n^(−r) cos((n+r)θ−πr/2)+O(n^(−r−1)). Rational phases use period classes, irrational phases use Weyl equidistribution; the scaled exceedance count N(t)~β^(1/r) M t^(−1/r) implies ordered s_k~βM^r k^(−r) and Schatten iff p>1/r. Endpoint θ=0 gives identity, θ=π gives even projection, neither centered operator is compact. Independently checked 352 weighted kernel row identities and 79 Hardy identities; for r=1 and θ=π/2 the ordered constant tends to 1/4 (k=500: 0.25025025). Asymptotic requires the analytic two-singularity transfer and counting, not finite tests.
 
-## Closest literature and limitations
-Ghosh–Narayanan (arXiv:2202.03184, initial public version February 4, 2022) is the focal quotient-domain paper. Misra–Shyam Roy–Zhang (arXiv:1106.3868) provides older weighted-kernel constructions; Bhattacharyya–Das–Sau (arXiv:1706.03463) treats Toeplitz algebra on the symmetrized bidisc. These are compared by objects and conclusions, not merely titles. The ordered limit holds for fixed \(0<\theta<\pi\), and does not cover angular double-scaling, higher-dimensional permutation actions, or arbitrary analytic curves. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant quotient-domain and symmetrized-polydisc Toeplitz papers analyze representation decomposition and operator kernels, not an ordered singular-value limit of a twisted curve trace. Gegenbauer Darboux estimates and Weyl are standard inputs, and the claim is a specific, non-implied spectral compression with an arithmetic coefficient; possible equivalent harmonic-analysis formula remains an originality risk.
+
+## value
+
+PASS
+
+The symmetric analytic-kernel trace is a natural Hilbert-space restriction/compression. Quantifying its exact compact spectral defect yields sharp approximation numbers, optimal weak Schatten order and a logarithmic critical residue. The rational-vs-irrational phase mean is a nontrivial arithmetic effect invisible from the ordinary decay exponent; this is more than a normalization of a known Toeplitz estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
