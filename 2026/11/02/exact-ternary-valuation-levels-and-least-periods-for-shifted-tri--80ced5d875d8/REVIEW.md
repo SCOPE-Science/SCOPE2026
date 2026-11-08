@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the initial conditions, all index and valuation quantifiers, and an exact integral companion-matrix identity. The congruence roots and unit slopes are computed by exact integers. The key nonstandard point is a uniform three-adic Lipschitz estimate for higher binomial terms, which makes each normalized interpolant an isometry and proves unique lifting, not just existence suggested by computation. The periodicity, least periods, natural densities and discrepancy follow rigorously from the root valuation identity. The standalone verifier independently confirms finite premises and 125000 terms; it is not substituted for the infinite argument.
+## correctness
 
-**Originality — PASS within inspected evidence.** Bilu et al., arXiv:2210.16959, concerns unshifted Tribonacci valuation and p-adic zeros; Young, INTEGERS A92 (2024), concerns the shifted sequence for prime 47; Antony–Barman, arXiv:2402.18279, concerns unshifted third-order sequences. Inspected sections establish related machinery and motivating questions, but no theorem there implies the shifted-plus-one prime-three classification, its three lifting roots, or the exact density/least-period law. Related earlier mathematical records of shifted Padovan and shifted Narayana sequences address different recurrences with different characteristic polynomials and do not imply this theorem. Targeted searches did not retrieve a stronger equivalent. Residual risk: unindexed work or an equivalent hidden in another article; negative search is not a uniqueness proof.
+PASS
 
-**Value — PASS.** This supplies an exact natural valuation spectrum for a canonical third-order recurrence and a fixed small prime, including all infinitely many positive valuation levels, unique three-adic root lifts, minimal periods and precise frequencies. It gives information absent from prime-47 shifted formulas and from unshifted valuations. It is not an arbitrary finite slice or an isolated computed congruence; complete modular-level structure is potentially useful in divisibility counting and Diophantine congruence questions. It does not classify any other shift or prime.
+Reconstructed actual M^13=I+3B with B rows (91,141,168),(168,259,309),(309,477,568), and residues T_r+1 divisible by 3 precisely r=3,8,10. For each the 3-adic analytic interpolation g_r(z)=(1+e1^T M^r(I+3B)^z v)/3 has isometric difference g_r(a)-g_r(b)=(a-b)*(c_r+3u) with c_r=2 mod3, by the binomial-difference valuation j-v3(j!)>=2 for j>=2. This ensures a unique alpha_r and exact valuation law. Shifted negative-index recurrence T_-3=-1 gives alpha_10=-1. The three permitted mod13 residue supports and two of three lifts at each level imply least period 13*3^t (exclude q/3 and q/13); counting gives density and discrepancy. Independent direct iteration checked levels t=1..4 and least periods. Finite checks are corroborative.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bilu–Luca–Nieuwveld–Ouaknine–Worrell (2022) full paper is on zeros/valuations of unshifted Tribonacci T_n; its 3-adic zero residues do not match the shifted +1 target. Young (2024) shifted results concern prime 47; Antony–Barman (2024) unshifted third-order recurrences. No matching Resultary finding from actual query.
+
+## value
+
+PASS
+
+Exact all-t least periods, residue class counts and natural densities for a shifted classical recurrence are meaningful number-theoretic invariants. The 3-adic root structure and rational densities go beyond experimentally listing divisibilities at a few levels; unshifted valuation results do not trivially substitute for shifted ones.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
