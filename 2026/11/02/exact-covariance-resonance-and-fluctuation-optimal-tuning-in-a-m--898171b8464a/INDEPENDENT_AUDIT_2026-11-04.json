@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T10:05:28.229566Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Two-interval Markov model has primitive transition and T_t² uniformly expanding for every 0<t<1; its transfer-invariant density is h_A=(1+t)^{-1} and h_B=(1-t²)^{-1}. Integrating affine densities yields exact 4×4 transfer matrix with charpoly (λ−1)(λ+t)(λ²+(1−t)²λ+t²), all nontrivial spectral roots inside unit disk. Centered observable covariance is J M^n v; resolvent J(I-zM)^{-1}v reproduces stated rational function, 2G(1)−G(0) gives positive CLT variance. Quadratic discriminant (t²+1)(t²−4t+1) and nonzero numerator at z=−1/t_* establish uncancelled order-three pole; residue gives 1/4−sqrt(3)/8. Derivative q(t) strictly increases with root t_var< t_*=2−sqrt(3), entropy derivative log((1−t)²/t) gives t_ent larger. Independent exact-symbolic rational checks of transfer resolvent, variance and resonant leading term at four distinct t corroborate, not prove general theory.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moysis et al. introduce tunable-mean piecewise affine maps, but primarily mean and numerical behavior.",
+          "Papamarkou–Lawrance assumes fully stretching branches, whereas the submitted left branch maps only [0,t] to [t,1].",
+          "Skew tent entropy and invariant densities classical."
+        ],
+        "reasoning": "General transfer/mixing theory assures a rational finite-subspace resolvent and CLT under its hypotheses, but published broad results do not display this exact function or prove the strict separation of three optimization thresholds.",
+        "searches": [
+          "Moysis et al. 2023 Symmetry 15:2138",
+          "Papamarkou–Lawrance 2014 DOI 10.1142/S0218127414500710",
+          "Alsedà–Misiurewicz–Pérez arXiv:2004.01813"
+        ]
+      },
+      "checked_sources": [
+        "Moysis et al. Symmetry 2023 15(12):2138",
+        "Papamarkou–Lawrance 2014 DOI 10.1142/S0218127414500710",
+        "arXiv:2004.01813",
+        "Moysis et al. 2023 conference DOI 10.1109/MOCAST57943.2023.10176612"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moysis maps include the diagonal a=b=t,c=0 slice but its selected results concern mean tuning rather than temporal covariance.",
+          "A fully-stretching left branch would be onto [0,1], while here it is onto [t,1]; its transfer matrix is different."
+        ],
+        "reasoning": "Parameter restriction from Moysis provides an object, not the exact time-covariance theorem. Fully onto skew maps do not imply the partial-image Markov transfer spectrum without a fresh computation.",
+        "searches": [
+          "Moysis et al. Symmetry 2023 model definition and statistical mean",
+          "Papamarkou–Lawrance 2014 Appendix fully stretching model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map is an asymmetric Fibonacci/Markov two-branch tent transform with critical orbit 0→t→1→0; its stationary coordinate observable has rational correlation spectral density.",
+          "Published coded-shift rational correlations concern a different symbolic system and observable."
+        ],
+        "reasoning": "Equivalent transfer-operator, Koopman-resolvent and spectral-density formulations were considered. No match for this exact t-dependent covariance rational function and triple-pole crossover was found among investigated results.",
+        "searches": [
+          "Resultary:skew tent Markov map a=b=t autocovariance generating function Green Kubo variance resonance triple pole",
+          "web: skew tent map covariance power spectrum phase resonance transfer operator piecewise affine"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No tabulation of the asserted 4×4 transfer covariance or cubic pole observed in accessed adjacent-record summaries or primary sections.",
+          "Exact algebra independently checked on four parameter values and as an explicit symbolic residue."
+        ],
+        "reasoning": "No exact prior table identified for this particular stationary observable and parameter family; this is not an exhaustive search.",
+        "searches": [
+          "Resultary: Markov skew tent covariance rational generating function triple resonance",
+          "web: Moysis skew tent map autocovariance exact rational Green Kubo"
+        ]
+      },
+      "rationale": "Best-knowledge PASS after exact statement/implication comparison, Resultary searches and inspection of relevant primary source material. Classical ingredients, partial coverage and specific inaccessible-source risks are credited; no exhaustive historical priority claimed.",
+      "residual_risks": [
+        "1979 Ito–Tanaka–Nakada, 1983 Yoshida–Mori–Shigematsu and 2023 conference full texts not completely inspected; an implicit exact spectral law is possible.",
+        "Generic Markov transfer theorems give computability and partial results, not by themselves claimed parameter comparisons.",
+        "The uniqueness of invariant density only among absolutely continuous invariant probabilities, and CLT only for stationary ν_t."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "parent map known; no displayed full stationary covariance and resonance",
+          "evidence": [
+            "Moysis et al., Symmetry 15 (2023) 2138"
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/15/12/2138",
+          "material_read": "accessible publisher article model definition and numerical statistical/mean discussion",
+          "method": "read publisher public HTML, compare parameterization",
+          "title": "Chaotic Maps with Tunable Mean Value—Application to a UAV Surveillance Mission",
+          "trigger": "same parent map family and physical motivation"
+        },
+        {
+          "assessment": "not directly covering because full-onto condition differs",
+          "evidence": [
+            "Left branch present map [0,t]→[t,1] versus full-onto branch condition of Papamarkou–Lawrance"
+          ],
+          "identifier_or_url": "doi:10.1142/S0218127414500710",
+          "material_read": "author-posted full article Introduction, Table 2, §§3–4 and Appendix",
+          "method": "read accessible author full text",
+          "title": "Nonlinear dynamics of trajectories generated by fully-stretching piecewise linear maps",
+          "trigger": "potential general autocorrelation formulas"
+        },
+        {
+          "assessment": "context for known entropy, no exact centered covariance resolvent",
+          "evidence": [
+            "Alsedà–Misiurewicz–Pérez 2020 gives entropy context"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.01813",
+          "material_read": "preprint theorem statements, examples and skew-tent entropy discussion",
+          "method": "read arXiv open access primary paper",
+          "title": "Flexibility of entropies for piecewise expanding unimodal maps",
+          "trigger": "entropy and invariant density context"
+        },
+        {
+          "assessment": "cannot assert whole-document noncoverage",
+          "evidence": [
+            "Proceedings 2023 DOI, parent model is prior"
+          ],
+          "identifier_or_url": "doi:10.1109/MOCAST57943.2023.10176612",
+          "material_read": "bibliographic and conference abstract only, no complete proceedings",
+          "method": "OA/arXiv/bibliographic discovery, full primary inaccessible",
+          "title": "Construction of Piecewise Chaotic Maps With Tunable Statistical Mean",
+          "trigger": "earliest conference parent family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: For a natural tunable-mean Markov chaos family, a closed entire autocovariance spectrum and CLT variance answer genuine fluctuation questions. Third-order pole at a sharp internal parameter and strict separation of variance, correlation and entropy optima are substantive dynamical structure, not merely recomputation of stationary mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "1979 Ito–Tanaka–Nakada, 1983 Yoshida–Mori–Shigematsu and 2023 conference full texts not completely inspected; an implicit exact spectral law is possible. Generic Markov transfer theorems give computability and partial results, not by themselves claimed parameter comparisons. The uniqueness of invariant density only among absolutely continuous invariant probabilities, and CLT only for stationary ν_t.",
+  "schema_version": 1
+}
