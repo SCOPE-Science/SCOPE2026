@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The complete claim, assumptions, proof and source comparison are in `RESULT.md`. Its reproducible computational check is a standalone Python 3.9+ program `verify.py` using only the standard library. Run `python3 verify.py` from the same directory as these files. In a local run, it printed:
+## correctness
 
-```text
-PASS 593 deterministic identity, angular-integral, moment, kurtosis and rare-event comparisons
-```
+PASS
 
-The checks evaluate the triangular-hat identity at multiple offsets, integrate powers by an independent midpoint quadrature, compare the derived finite Gaussian probability, expectation and second moment with a polar integration implementation, inspect asymptotic constants for orders zero through five, compare the normalized kurtosis with its predicted constant, and verify the independent-zero-pilot probability in the exact Gaussian subfamily.
+The exact triangular-hat Jensen gap equals (|a-b|/4-|y+(a+b)/2|/2)_+, whose weighted conditional rth integral has support width |a-b| and unweighted integral |a-b|^{r+1}/(4^r(r+1)). The block-difference CLT, moment uniform integrability, local continuity of f and negligible far-support contribution yield the stated unrestricted constants. Independence yields (1-p_n)^M pilot limits; fourth/second moment orders yield centered kurtosis. In the Gaussian case orthogonal sum/difference normals and polar integration give the exact half-normal-difference distribution and angular moment formulas. Both r=0 for support and 5+delta moment boundary are explicitly handled. Numerical independent Gaussian quadratures corroborate but do not prove asymptotics.
 
-**Mathematical limits of the computation.** The script uses bounded numerical ranges, deterministic pseudo-random inputs and a finite angular mesh. Those checks are diagnostic only. The infinite claims follow analytically from the exact triangular-hat integral, the central limit theorem, moment uniform integrability and continuity of the outer density. In particular, no finite simulation is offered as proof of a universal \(n\to\infty\) limit or a claim of exhaustive parameter coverage.
+## originality
 
-**Literature and scientific limits.** General moment upper bounds and the possibility of rapidly growing fine-level kurtosis are prior results. The claimed contribution is the specific exact constants, detection law, and normal finite distribution under the explicitly stated assumptions. A relevant initial-margin nested Monte Carlo paper was not fully accessible for a decisive priority comparison. Independent scientific audit and publication-priority validation have not been performed.
+PASS
+
+Earlier nested multilevel and antithetic MLMC work proves the n-rate and kurtosis order, not the full exact all-r coefficients, nonzero-pilot law or finite Gaussian half-normal distribution in the inspected text. These exact specialization constants remain a best-of-knowledge original and mathematically meaningful refinement. A same-positive-part initial-margin article could contain overlapping constants; its full text was inaccessible and no blanket noncoverage is claimed.
+
+## value
+
+PASS
+
+Rare corrections at a kink determine whether pilot sampling can observe multilevel contributions; exact constants and Gaussian finite-sample laws sharpen published rate-only analyses. The sqrt(n) sample threshold and kurtosis coefficient are specific useful diagnostics for this natural antithetic estimator, not merely a textbook CLT restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
