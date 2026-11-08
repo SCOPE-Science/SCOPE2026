@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T04:04:42.412430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh Bernoulli edge snapshots yield block transition matrix P=[[r^b I_a,(1-r^b)/b J],[(1-r^a)/a J,r^a I_b]], because exchangeability makes each neighbor equally likely conditional on moving. Eigenvalues are 1, r^a+r^b-1, r^b multiplicity a-1 and r^a multiplicity b-1. The spectral Kemeny identity gives (a-1)/q_b+(b-1)/q_a+1/(q_a+q_b), with q_k=1-r^k. Convex-decreasing f(x)=1/(1-r^x) and symmetry show strict minimum at balanced parts. The absolute radius is max(r^a,1-r^a-r^b) for a<=b; its opposing monotone branches yield the exact star/balanced/crossover alternatives, including star at p=1/2,n>=5. For balanced K_m,m, the negative near-minus-one part-constant eigenvalue bounds TV mixing below by (log2)/[-log(1-2^(1-m))], while star radius 1/2 gives TV<=2(1/2)^t and mixing by t=3. Kemeny balanced ~2m, star ~4m. Independent direct transition-matrix spectral computations for 474 (n,a,p) instances n=4..18 verified formulas and extrema; small near-ties were excluded from floating comparison, and exact proofs cover all n and 0<p<1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lamprou et al analyze cover times in an evolving edge model, not optimization of Kemeny and spectral radius among K_a,b.",
+          "Nonbacktracking walks use directed-edge state space, not vertex snapshots; Braess edge results use static chain."
+        ],
+        "reasoning": "Earlier general transition and spectral identities give tools but not the all-order optimizer conflict/mixing scales without the new bipartition comparison.",
+        "searches": [
+          "Lamprou Martin Spirakis Cover Time in Edge-Uniform Stochastically-Evolving Graphs arXiv:1702.05412",
+          "Breen Faught Glover Kempton Knudson Oveson Kemeny constant nonbacktracking random walks 2203.12049",
+          "Faught Kempton Knudson Kemeny graph 1-separation Braess edges 2108.01061"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 991151d81b5ad99353004f7d30b8ad5e58cf5f88; verify.py blob 46c8b1ad87c40c0cdbb54100e49378a5b887e878; tree 6828515dbf624055ef0a074cd0e3c329e4cefcaf",
+        "Lamprou–Martin–Spirakis arXiv:1702.05412 Section 4.2",
+        "Breen et al arXiv:2203.12049",
+        "Faught–Kempton–Knudson arXiv:2108.01061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RWA step formula immediately gives the block transition operator, but additional optimization is needed to prove Kemeny-balanced and spectral-star split for every n.",
+          "Static nonbacktracking chain is on directed edges and does not entail the annealed vertex chain spectrum."
+        ],
+        "reasoning": "The novelty claim does not include the walk definition or Kemeny spectral formula; it consists of their exact optimization tradeoff and extreme mixing separation.",
+        "searches": [
+          "Lamprou Martin Spirakis 1702.05412 Section 4.2 random walk among available neighbors probability",
+          "nonbacktracking Kemeny complete bipartite biregular graph 2203.12049"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2017 original RWA model contains the per-neighbor transition reduction; static/nonbacktracking Kemeny objects are not equivalent.",
+          "Exact P eigenvalues obtained here are 1,r^b,r^a,r^a+r^b-1 with specified multiplicities, making the chain distinguishable."
+        ],
+        "reasoning": "A stronger annealed Markov-chain theorem with exactly this P and both optimal criteria could cover the claim, but no such theorem was identified in these comparisons.",
+        "searches": [
+          "Resultary: edge-uniform evolving complete bipartite random walk Kemeny constant mixing spectral radius balanced star optimal",
+          "edge re-sampling random walk bipartite spectral gap Kemeny stationary hitting times",
+          "random walk on annealed evolving complete bipartite graph balanced versus star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite graph calculation for n up to 18 matches the exact Kemeny and radius; no prior exact full parameter table found."
+        ],
+        "reasoning": "An all-real-p formula and proof for every n cannot be established by finite tables; no matching earlier table identified.",
+        "searches": [
+          "edge-resampled K_ab random walk Kemeny eigenvalues exact n a p table",
+          "edge-uniform random walk Kemeny balanced star numerical transition"
+        ]
+      },
+      "rationale": "The edge-uniform evolving random-walk transition probability (1-(1-p)^d)/d and Kemeny spectral formula are prior art. The inspected original cover-time study does not derive the complete bipartite Kemeny-vs-eigenradius optimizer conflict or exponential mixing separation at identical p. Static and nonbacktracking Kemeny papers are different Markov chains. Full optimizer comparison is assessed as an original natural exact classification, subject to unindexed prior queueing/random-environment Markov studies.",
+      "residual_risks": [
+        "Only full-resampling independent Bernoulli edges; temporal persistence changes P.",
+        "Optimizes absolute eigenvalue radius, not exact TV mixing-time minimizer at all p.",
+        "Some extreme finite floating comparisons are precision-limited; exact analytic proof is decisive.",
+        "Unindexed annealed network Markov literature may contain equivalent optimizer claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes transition model and cover-time bounds; no matching all-n Kemeny/radius optimizer theorem identified.",
+          "evidence": "Probability for a specified neighbor is (1-(1-p)^d)/d.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.05412",
+          "material_read": "Read full arXiv PDF including Section 4.2 transition formula and cover-time framework; PDF rendered page inspected.",
+          "method": "arXiv full PDF",
+          "title": "Cover Time in Edge-Uniform Stochastically-Evolving Graphs",
+          "trigger": "Original same stochastic edge-resampled RWA dynamics"
+        },
+        {
+          "assessment": "Different chain state and dynamics, cannot infer same evolving-graph optimizer.",
+          "evidence": "Nonbacktracking walk is edge-state and not annealed vertex-state.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12049",
+          "material_read": "Read accessible primary abstract and identified static nonbacktracking theorem regime, not whole document.",
+          "method": "OA abstract/theorem-level comparison",
+          "title": "Kemeny’s constant for nonbacktracking random walks",
+          "trigger": "Potential broader complete-bipartite Kemeny calculations"
+        },
+        {
+          "assessment": "Static edge modifications do not directly govern time-independent average of dynamic Bernoulli snapshots.",
+          "evidence": "Different transition law and optimization family.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.01061",
+          "material_read": "Inspected accessible primary abstract/theorem-level description of static graph modifications, not full exclusion.",
+          "method": "OA bibliographic theorem comparison",
+          "title": "A 1-Separation Formula for the Graph Kemeny Constant and Braess Edges",
+          "trigger": "General Kemeny formulas might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary-target average hitting times and worst-start mixing are standard but importantly different objectives in stochastic networks. An exact all-order tradeoff—balanced graph has half the asymptotic Kemeny but exponential mixing delay versus star—is a mathematically motivated counterexample to identifying their optimizers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 991151d81b5ad99353004f7d30b8ad5e58cf5f88; verify.py blob 46c8b1ad87c40c0cdbb54100e49378a5b887e878; tree 6828515dbf624055ef0a074cd0e3c329e4cefcaf",
+    "Lamprou–Martin–Spirakis arXiv:1702.05412 Section 4.2",
+    "Breen et al arXiv:2203.12049",
+    "Faught–Kempton–Knudson arXiv:2108.01061"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "0<p<1 essential; p=1 is periodic and Kemeny strictness fails.",
+    "Mixing separation shown for p=1/2 and even n; exact worst-start TV mixing is not optimized for all p."
+  ],
+  "schema_version": 1
+}
