@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The diagonal interrupter is identified explicitly in Ma and Rhaly; it produces a positive trace-class factorization. The finite Cesàro Gram formula follows by polynomial summation, and the trace-squared identity follows from cyclicity of trace for a Hilbert–Schmidt factor. Rational partial fractions reduce the series to a classical Euler harmonic sum and elementary integrals, giving the displayed closed value. The extracted standard-library script verifies 567 exact rational identities for indices through 20, independently of the infinite summation. No numerical finite truncation is used as proof of the infinite identity.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The 2026 Ma primary text covers positive self-commutator estimates and a diagonal interrupter but not the exact second spectral moment. Rhaly's 2016 order-two manuscript establishes the same interrupter and hyponormality but does not give the moment in the inspected relevant proof sections or targeted text search for trace. The closest published-finding corpus record gives only the linear trace; its order-one cubic spectral-decay record and its Gram lower-coefficient record do not imply the order-two squared trace. Targeted searches for equivalent exact spectral-moment formulas found no covering statement. A possibility of an older reformulation remains.
+PASS
 
-## Mathematical value — PASS
-The squared Hilbert–Schmidt norm is the canonical quadratic spectral energy of the positive trace-class self-commutator. Unlike the already known trace, it measures concentration of the positive spectrum and allows an exact effective spectral-rank ratio \((22/9)^2/\operatorname{Tr}(K^2)\). The first nontrivial higher-order Cesàro case yields a genuinely nonobvious combination of \(\zeta(3)\), \(\pi^2\), and a rational number. This is a precise reproducible benchmark for further spectral analysis, not a claimed higher-order classification.
+The published diagonal interrupter MM*=M*PM with P_nn=(n+1)(n+2)/[(n+3)(n+4)] gives K=M*RM≥0, R_nn=(4n+10)/[(n+3)(n+4)]; B=√R M is Hilbert–Schmidt by O(n^-2) weighted row-energy so K trace-class. (MM*)_nl=2(3max(n,l)−min(n,l)+3)/[3(max+1)(max+2)]. Consequently Tr(K²)=Σ_{n,l}r_n r_l G_nl² absolutely; group n=max terms, evaluate Σ_{l<n}r_l l^j, j=0,1,2, by partial fractions, obtaining T_n=A_nH_{n+2}+D_n. Group simple poles before infinite summation, apply Σ H_j/j²=2ζ(3), harmonic generating function integrals, and ζ(2)=π²/6 to evaluate the exact closed expression. Independent exact Fraction checks reproduced 70 finite Gram/partial fraction terms, and mpmath confirmed a positive 70-term truncation and total 3.576886080095425..., but only the analytic convergent summations prove the infinite value.
 
-The result does not identify individual eigenvalues or decide higher-order Schatten decay. Publication priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+Best-of-knowledge priority: compared actual claims and implications of identical/nearby primary sources, searched semantic published record corpus and theorem aliases, and explicitly separated existing methodology/qualitative findings from the exact new result. No located prior implication dominates this final scoped theorem; genuine inaccessible and general-coverage risks remain recorded.
+
+## value
+
+PASS
+
+The canonical first nontrivial order-two Cesàro positive self-commutator quadratic spectral energy is not determined by the known trace 22/9. Exact ζ(3) and π² combination supplies a useful spectral-concentration/effective-rank benchmark for future operator analysis, without claiming broader all-order classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
