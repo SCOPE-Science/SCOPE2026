@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:41:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any reversible edge-flow matrix F on K_{p,q}, total T≤a, the bipartition cut contrast Rayleigh quotient is 1−T/(ab). Compression to the q−1 zero-sum subspace of larger-mass part has average 1−T/b, hence SLEM ≥max(1−T/b,|1−T/(ab)|). Uniform F_ij=T/(pq) exactly attains bound: eigenvalues 1, 1−T/a (p−1), 1−T/b (q−1), 1−T/(ab). Scalar minimax uniquely gives T*=a for a≤1/3 or 2ab/(1+a) for a≥1/3. Equality of the W_B average with spectral maximum makes every vector W_B an eigenvector, forcing rowwise equal F; when T*=a row capacities force equal row sums, and when T*<a the negative cut eigenvector forces equal row sums. Therefore unique kernel even without symmetry assumptions; MH T=a optimal iff a≤1/3. Independent rational and numerical eigenvalue checks corroborate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Special supports such as star and clique-lift allow different edges; 2010 K-partite results assume uniform stationary law.",
+          "2004 general SDP formulation accepts arbitrary π but gives no closed-form all-Kpq uniqueness."
+        ],
+        "reasoning": "General convex optimization formulation does not imply this exact algebraic breakpoint or uniqueness for all p,q and two masses without solving it; no stronger closed-form theorem found in inspected text.",
+        "searches": [
+          "Jafarizadeh 2020 complete multipartite optimal reversible nonuniform stationary",
+          "Jafarizadeh clique lifted graph fastest mixing 2020"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1137/S0036144503423264",
+        "https://arxiv.org/abs/0709.0955",
+        "https://arxiv.org/abs/1008.2588",
+        "https://doi.org/10.1109/TSIPN.2020.2964211",
+        "https://arxiv.org/abs/2501.02421"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a=p/(p+q), current T*,μ* match known uniform-π result.",
+          "At a>1/3, T*<a proves simple-neighbor MH not optimum even with nonuniform side-mass."
+        ],
+        "reasoning": "Earlier scalar symmetric formulas imply some values, not the asymmetric uniqueness theorem; equality-subspace argument is new comparative mathematical content as assessed.",
+        "searches": [
+          "Boyd Diaconis Xiao 2004 fastest mixing complete bipartite",
+          "Boyd Diaconis Parrilo Xiao 2009 graph symmetries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al 2004 §7.1 solves uniform-π K_{p,q}; its parameter specialization is a=p/(p+q).",
+          "Boyd et al 2009 averaging by graph symmetry gives symmetric optimum."
+        ],
+        "reasoning": "A group-averaged optimum does not entail uniqueness: distinct noninvariant kernels may have same extremal spectral radius. New rigidity argument saturates entire subspace and cut quotient.",
+        "searches": [
+          "fastest mixing reversible Markov kernel complete bipartite two uniform stationary class masses unique SLEM Metropolis",
+          "Boyd Diaconis Xiao complete bipartite uniform stationary exact SLEM"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known table formula for uniform per-vertex π appears in Boyd–Diaconis–Xiao §7.1.",
+          "No exact indexed table classifies arbitrary two-mass π and all nonsymmetric minimizers."
+        ],
+        "reasoning": "Uniform table does cover its own parameter slice but not arbitrary a and the rigidity; absence of another table is a qualified search result.",
+        "searches": [
+          "complete bipartite fastest mixing Markov chain tables p q nonuniform mass",
+          "fastest mixing reversible Markov kernel complete bipartite two uniform stationary class masses unique SLEM Metropolis"
+        ]
+      },
+      "rationale": "PASS for explicit all-two-mass SLEM and global uniqueness among arbitrary nonsymmetric feasible reversible kernels; uniform-stationary case is previously known.",
+      "residual_risks": [
+        "Unlocated specialized nonuniform complete-bipartite SDP study could already prove uniqueness.",
+        "SLEM objective and self-loop permissions essential; no claim about nonreversible chains or TV mixing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers uniform per-vertex stationary K_{p,q}, not all independent asymmetric edge flows under arbitrary two-level stationary masses with global uniqueness",
+          "evidence": "Boyd–Diaconis–Xiao (2004) exact uniform-stationary specialization is prior.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Primary text section 7.1 complete-bipartite uniform stationary case; formulas for optimal edge weights and spectral value",
+          "method": "Read available paper primary text and cross-substituted a=p/(p+q)",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Existing exact complete-bipartite SLEM optimization"
+        },
+        {
+          "assessment": "Symmetrization supplies existence and symmetric spectrum; does not automatically rule out asymmetric minimizers",
+          "evidence": "General symmetry averaging yields a symmetric optimum but not rigidity.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Accessible full text: group symmetrization principle and complete-bipartite example in section 5.4.2",
+          "method": "Read source mathematical statements and compared existence of symmetric optimum versus all-optimizer uniqueness",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Potential symmetry-based uniqueness theorem"
+        },
+        {
+          "assessment": "Not an explicit theorem on K_{p,q} with both parts independent of size at least two and arbitrary two-level mass",
+          "evidence": "Class-dependent stationarity on other supports is relevant background, not decisive coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+          "material_read": "Accessible primary text examples of clique lifts, stars and conclusions",
+          "method": "Read primary treatment of clique-lift and star support and compare forbidden within-part transitions",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "Arbitrary stationary-mass optimization for lifted graphs and stars"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed-form optimum and unique kernel for a natural nonuniform reversible network design problem, including a sharp Metropolis threshold, are directly useful in spectral Markov-chain optimization; the all-asymmetric rigidity is mathematically substantive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "p,q≥2, full bipartite support, self-loops allowed, uniform stationary mass within parts, reversible SLEM only.",
+    "The uniform-stationary subcase is older literature.",
+    "Unlocated specialized nonuniform complete-bipartite SDP study could already prove uniqueness.",
+    "SLEM objective and self-loop permissions essential; no claim about nonreversible chains or TV mixing."
+  ],
+  "schema_version": 1
+}
