@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The palindrome/reversal-pair legality equivalence and inductive last-window transition prove that every binary aperiodic orientable word of each tested length appears on exactly one enumeration path. Two independently structured complete implementations agree on every length coefficient, on every normalized maximizer, and on the absence of length-27/49 words. The output lists exactly 22/3294 maximizers, 2/22 reverse-complement fixed points, and the forced endpoint/weight profiles. Burnside's lemma then proves the 6/829 orbit counts. The result is explicitly finite; it does not infer anything about arbitrary orders.
+
+**Originality — PASS, with stated priority risk.** Mitchell's arXiv:2610.33601 gives maximum lengths and individual examples, and says its search enumerates optimal sequences, but the inspected text does not publish the length-by-length enumeration, number of maximizers or reversal/complement orbit structure at spans six and seven. The earlier periodic construction papers and the archived cyclic order-seven result concern a different cyclic domain. Searches of indexed mathematical records and the web did not identify exact matching tables. The earlier exhaustive code may implicitly calculate them, and inaccessible/unindexed enumerations remain possible.
+
+**Value — PASS.** The number and shape of inequivalent optimal orientation/location codes measures actual choice of optimal binary markers. Spans six and seven are the first two extremal orders beyond the unique examples at spans four and five. The exact diversity transition (six then 829 orbits), invariant balanced composition, rigid endpoints, and entire intermediate length spectrum form a natural complete finite classification directly useful for construction and benchmarking; the result is not merely another sample optimum.
+
+**Closest literature and limitations.** C. J. Mitchell, *Searching for binary orientable sequences* (arXiv:2610.33601, October 24, 2026); C. J. Mitchell and P. R. Wild, *New orientable sequences* (Acta Informatica 2026); D. Gabrić and J. Sawada, *Efficient Construction of Long Orientable Sequences* (CPM 2024). Results are finite for binary aperiodic spans six and seven; no all-span theorem or external priority certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
