@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Tensor-projector spectral decomposition covers every matrix entry; positive-definite scalar filter proves diagonals; the double-difference is an explicitly positive polynomial; the remaining quartic coefficients provide necessary large-step signs and, after the exact feasible-size enumeration, positive coefficients for all positive steps. Exact Fraction-based full-matrix and polynomial cross-checks passed VERIFY_OK 2135. Finite tests support, but do not replace, the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ketcheson–Macdonald–Gottlieb, DOI 10.1016/j.apnum.2008.03.034, §2.5, concerns universal SSP and internal-stage convex stability conditions.",
+        "Blanes–Iserles–Macnamara, DOI 10.1051/m2an/2022042, §4, addresses different specially designed graph-Laplacian positivity integrators.",
+        "Horváth, DOI 10.1016/j.apnum.2004.08.026, complete primary text pp.341–356, §§2–3 gives classwide RK positivity-step bounds and §4 invariant-cone conditions; no weighted rook/Kronecker-sum endpoint classification in the material inspected."
+      ],
+      "reasoning": "A universal SSP limitation is a barrier for all systems and stages; it does not forbid a fixed symmetric graph having positive endpoint maps for every step. The graph-Laplacian integrators in the later paper are different maps and do not imply a formula for the Gauss Padé endpoint with independent complete-factor rates.",
+      "searches": [
+        "\"Optimal Implicit Strong Stability Preserving Runge-Kutta Methods\"",
+        "\"Positivity-preserving methods for ordinary differential equations\" graph Laplacian Gauss",
+        "positive rational stability function Gauss collocation graph Laplacian tensor product Markov chain",
+        "\"On the positivity step size threshold of Runge-Kutta methods\" Horvath 2005 doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21914/anziamj.v50i0.2315",
+      "doi:10.1016/j.apnum.2008.03.034",
+      "doi:10.1051/m2an/2022042",
+      "doi:10.1016/j.apnum.2004.08.026 (full 16-page primary text inspected)",
+      "Earlier homogeneous-product and other method claims, used solely for scientific implication comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior homogeneous-product theorem covers \\(a=b\\) and only its all-step shape classification; new permitted \\(2\\times5\\) anisotropy is not in that domain.",
+        "General Gauss/SSP and graph-Laplacian-positivity references have different quantifiers, integrators or end-stage requirements.",
+        "The full rational spectral decomposition and exact polynomial sign certificates establish the nontrivial extension, including boundary rates."
+      ],
+      "reasoning": "The closest previous equal-rate statement neither implies nor contradicts the positive unequal-rate phenomenon. The broader methods analyze classwide conditions rather than this exact fixed-graph endpoint filter. A hidden equivalent historical calculation is a residual priority risk, not proven impossible.",
+      "searches": [
+        "two-stage Gauss Legendre 4th order positivity Cartesian product weighted complete graphs K_p K_q anisotropic per-direction conductances unconditional entrywise positivity",
+        "anisotropic rectangular rook graph Gauss method all time steps positive 2 by 5 factor graph",
+        "positive rational stability function Gauss collocation graph Laplacian tensor product Markov chain",
+        "Sharp all-step Gauss positivity on Cartesian products of complete graphs p q anisotropic weighted rook graph",
+        "two-stage fourth-order Gauss Legendre positivity on weighted rook graphs a K_p box b K_q all time step",
+        "smallest dimension anisotropy rescues Gauss positivity of diffusion graph K2 cartesian K5",
+        "\"Sharp all-step Gauss positivity on Cartesian products of complete graphs\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Existing unweighted product statement: on a product of unweighted complete graphs all-step Gauss endpoint positivity in dimension two requires both factor sizes at most 3 (available mathematical claim, not treated as a new result here).",
+        "The new exact rate interval is phi(p)<=p*a/(q*b)<=1/phi(q), permitting K_2 box K_4 and \\(K_2\\square K_5\\) at anisotropic rates; the unweighted statement makes no assertion for \\(a\\ne b\\)."
+      ],
+      "reasoning": "The unweighted claim is a specialization, not a stronger theorem covering the open two-rate parameter space. The present result agrees with it at \\(a=b\\) but supplies a previously absent effect: anisotropy revives ten-vertex all-step endpoint positivity.",
+      "searches": [
+        "two-stage Gauss Legendre 4th order positivity Cartesian product weighted complete graphs K_p K_q anisotropic per-direction conductances unconditional entrywise positivity",
+        "anisotropic rectangular rook graph Gauss method all time steps positive 2 by 5 factor graph",
+        "positive rational stability function Gauss collocation graph Laplacian tensor product Markov chain",
+        "\"Sharp all-step Gauss positivity on Cartesian products of complete graphs\"",
+        "\"anisotropic\" \"Gauss-Legendre\" \"rook graph\" \"positivity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published eight-state Padé positivity-barrier example uses a nonsymmetric pure-birth Markov generator and finite reentrant windows; it does not treat the symmetric weighted rook family.",
+        "No exact published table inspected supplies the all-step two-rate interval or the ten-site anisotropic rescue; absence from a search is not an originality proof."
+      ],
+      "reasoning": "The pure-birth generator counterexample concerns arbitrary Markov generators and discontinuous timestep positivity windows, not symmetric products with homogeneous factor conductances. No matching table was identified, but search absence alone does not certify novelty.",
+      "searches": [
+        "Sharp all-step Gauss positivity on Cartesian products of complete graphs p q anisotropic weighted rook graph",
+        "two-stage fourth-order Gauss Legendre positivity on weighted rook graphs a K_p box b K_q all time step",
+        "smallest dimension anisotropy rescues Gauss positivity of diffusion graph K2 cartesian K5",
+        "\"K_2\" \"K_5\" \"Gauss\" \"positivity\" graph diffusion"
+      ]
+    },
+    "rationale": "The rate interval is not implied by the available homogeneous-factor classification, nor by universal SSP restrictions or analyses of different graph-Laplacian integrators. In particular anisotropy makes an unweighted-failing \\(2\\times5\\) product unconditionally positive at the completed endpoint. This is a best-knowledge claim with listed publication-priority risks.",
+    "residual_risks": [
+      "An unindexed or unexamined older paper might derive an equivalent two-rate criterion.",
+      "Butcher 2009 full paper was not directly read, only the publication page/abstract.",
+      "The 2022 OA PDF visual rendering was rate-limited; only relevant parsed sections were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides method family and numerical motivation, not an evaluated weighted Cartesian-product graph claim in material read; no whole-document noncoverage assertion",
+        "evidence": [
+          "https://journal.austms.org.au/ojs/index.php/ANZIAMJ/article/view/2315"
+        ],
+        "identifier_or_url": "doi:10.21914/anziamj.v50i0.2315",
+        "material_read": "Official publication landing page, authors, abstract, keywords and explicit online publication date 2009-11-19; full paper not accessed",
+        "method": "Publication-page content and direct bibliographic details",
+        "title": "Practical Runge–Kutta methods for scientific computation",
+        "trigger": "Gauss-based implicit Runge–Kutta method and earliest day-verified public focal reference"
+      },
+      {
+        "assessment": "Studies universal SSP coefficient and Runge–Kutta method optimization rather than endpoint positivity on fixed anisotropic rook graphs; its universal stagewise results cannot imply the recovered all-step subset",
+        "evidence": [
+          "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+          "§2.5: classical Gauss-Legendre SSP distinction"
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2008.03.034",
+        "material_read": "Author-postprint PDF introduction, main theory §§1–2.5 including order and SSP restrictions, method-family table, targeted searches for Gauss and graph; first page viewed visually",
+        "method": "Author-owned complete PDF, full-text targeted reading and rendered page inspection",
+        "title": "Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+        "trigger": "Possible broader stagewise and endpoint SSP theorem that could subsume graph positivity"
+      },
+      {
+        "assessment": "Builds different positive integrators for graph-Laplacian systems; no exact two-stage Gauss endpoint classification on weighted rook graphs was identified in inspected sections",
+        "evidence": [
+          "https://opus.lib.uts.edu.au/bitstream/10453/170552/2/m2an210193.pdf",
+          "§4 graph-Laplacian representation"
+        ],
+        "identifier_or_url": "doi:10.1051/m2an/2022042",
+        "material_read": "Open-access PDF abstract, graph-Laplacian representation §4, and targeted text for Gauss; full visual page access rate-limited",
+        "method": "Public OA full-text extraction, targeted section reading and source metadata",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Modern primary analysis of graph-Laplacian positivity, possible broad coverage"
+      },
+      {
+        "assessment": "General positive IVP and RK threshold theorems (including all-positive initial states across classes) and invariant-cone results, not a graph-specific completed Gauss endpoint matrix-entry classification. This is not an absolute originality certificate; unlike previous abstract-only comparison, full primary text was checked.",
+        "evidence": [
+          "DOI 10.1016/j.apnum.2004.08.026, printed pp.341–356, §§2–4, full PDF (authorized institutional retrieval)",
+          "Publisher title page states Available online 27 October 2004."
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "Complete 16-page publisher primary PDF, pp.341–356, including introduction, all §§2–4, main general positivity-threshold theorems, numerical diffusion examples, invariant-cone results and references. Online-publication day shown as 2004-10-27.",
+        "method": "Authorized full-text page extraction after arXiv and lawful open-access attempts yielded no full text; examined all sixteen pages and compared statements and scope.",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Older general positivity threshold literature that might give stronger implications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77ae586e-3cd0-40b6-b31e-f99cb9749d50",
+  "value": {
+    "rationale": "A natural two-direction grid diffusion graph has a complete, sharp parameter-space classification for positivity of a widely used fourth-order endpoint integrator. It identifies the only five graph shapes admitting all-step positivity, proves exact admissible rate intervals, and shows directional anisotropy rescues \\(K_2\\square K_5\\), a behavior absent from the equal-rate graph. The invariant is directly useful for assessing whether rate tuning alone can avoid endpoint negativity.",
+    "status": "PASS"
+  }
+}
