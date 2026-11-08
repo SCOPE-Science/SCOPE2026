@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs every edge contribution to the cut-indicator directional derivative, reduces the sharp bound to a separately convex polynomial on a product box, and checks all box corners analytically. At corners the difference between derivative and claimed bound equals \(2X(k_*-X)\le0\); choosing a smallest whole blade gives equality. A finite coarea decomposition lifts cut inequalities to arbitrary real signals, including edge differences vanishing at time zero. The semigroup property and Gronwall's lemma yield the all-time estimate. These steps cover arbitrary positive integer blade sizes; finite tests are only diagnostics. The claimed short-time coefficient and strict amplification witness follow by direct differentiation.
+PASS
 
-## Originality — PASS, with residual risk
+For clique bouquet with m unit-weight blades k_i, hub and K=sum k_i outer vertices, the linear heat generator -L gives directional derivative D of J(f)=sum_edges |f(u)-f(v)|. On a hub-excluding cut with selected blade counts x_i, independently reconstructed D=X(K-2X)-sum_i[(k_i^2+3k_i+1)x_i-(k_i+3)x_i^2]. D-(K-2k_*-1)J is separately convex (quadratic coefficient k_i+K-2k_* >=0), so its box maximum occurs at complete-blade corners, where it equals 2X(k_*-X)<=0. The smallest whole blade gives equality. Level-set coarea decomposition and triangle inequality on zero-difference edges extend D<=mu J to any real signal. Gronwall then yields N(t)<=exp(mu t), initial derivative gives N(t)=1+mu t+O(t^2), and all-time contraction iff K<=2k_*+1. Independently reconstructed literal-edge Laplacians validated 340 integer blade profiles and 41,370 cut derivatives and inequalities. Finite cases corroborate; the coarea/convexity proof supplies universal quantifiers.
 
-The exact weakest-blade law for the ordinary heat semigroup's *edge-total-variation* norm was not located in the inspected primary literature or mathematical record searches. Ollivier (arXiv:math/0701886) treats Wasserstein/dual Lipschitz contraction; Bauer et al. (arXiv:1306.2561) treat graph Li–Yau and squared-gradient estimates; Kirisits–Scherzer–Setterqvist (arXiv:1807.10514) treat graph total-variation denoising; Mazón–Solera–Toledo (DOI:10.1007/s40324-021-00272-z) explicitly distinguish linear heat flow from nonlinear total-variation flow. A previously established star special case and general semigroup principles do not imply the concrete all-clique-bouquet classification without the new sharp graph calculation. The full-text inspections and record comparisons support originality, but older unindexed or differently formulated results remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The question tests whether ordinary linear diffusion is variation-diminishing on a natural class of block graphs with triangles. The theorem gives a sharp global-in-time criterion, an exact infinitesimal norm, and an explicit extremizer. It separates balanced two-clique gluings from three-or-more nonsingleton clique windmills; the smallest-blade constraint is a mathematically meaningful unexpected rigidity, not an arbitrary finite slice. It also delineates the transition from strict contraction to immediate amplification.
+Graph total-variation denoising and nonlinear TV flow are distinct from linear heat semigroup contractivity in the sum of absolute edge gradients. Ollivier Wasserstein contraction and pointwise gradient estimates provide general tools but do not state the exact integer smallest-blade threshold. The general coarea reduction is classical; the new part is exact optimization across the bouquet family and full classification.
 
-## Scientific limitations
+## value
 
-Only ordinary unweighted, finite clique bouquets and edge total variation are covered; positive-time sharp norms, unequal weights, and general block graphs remain open in this analysis. The originality assessment does not claim independent verification or exhaustive indexing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The discrete diffusion/TV interplay is a natural stability problem; the exact parameter K-2k_*-1 gives a sharp logarithmic norm, an explicit worst-case small blade, and complete all-time contraction classification. The three-blade star and two-blade near-equality tests are mathematically motivated boundaries rather than arbitrary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

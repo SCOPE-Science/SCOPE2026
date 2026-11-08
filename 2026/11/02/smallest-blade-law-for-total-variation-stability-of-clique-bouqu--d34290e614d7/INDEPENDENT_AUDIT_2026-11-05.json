@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:52:16.948325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/smallest-blade-law-for-total-variation-stability-of-clique-bouqu--d34290e614d7/RESULT.md",
+        "Git blob bf2c02838685ed9037e82da9d2fa759d076ec987",
+        "Git tree 843b5abf1452c1f112d9aabd8955d37eaeb48b26",
+        "independent_checks.py BOUQUET 340/41370"
+      ],
+      "rationale": "For clique bouquet with m unit-weight blades k_i, hub and K=sum k_i outer vertices, the linear heat generator -L gives directional derivative D of J(f)=sum_edges |f(u)-f(v)|. On a hub-excluding cut with selected blade counts x_i, independently reconstructed D=X(K-2X)-sum_i[(k_i^2+3k_i+1)x_i-(k_i+3)x_i^2]. D-(K-2k_*-1)J is separately convex (quadratic coefficient k_i+K-2k_* >=0), so its box maximum occurs at complete-blade corners, where it equals 2X(k_*-X)<=0. The smallest whole blade gives equality. Level-set coarea decomposition and triangle inequality on zero-difference edges extend D<=mu J to any real signal. Gronwall then yields N(t)<=exp(mu t), initial derivative gives N(t)=1+mu t+O(t^2), and all-time contraction iff K<=2k_*+1. Independently reconstructed literal-edge Laplacians validated 340 integer blade profiles and 41,370 cut derivatives and inequalities. Finite cases corroborate; the coarea/convexity proof supplies universal quantifiers.",
+      "residual_risks": [
+        "The exponential envelope need not equal exact N(t) at positive times.",
+        "Only unit edge conductances, counting vertex masses, ordinary combinatorial Laplacian, all real signals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ollivier Ricci curvature concerns Wasserstein contraction. Mazón–Solera–Toledo 2019 is about nonlinear TV flow in random walk spaces and finite-time convergence."
+        ],
+        "reasoning": "No checked general theorem directly implies the sharp K-2k_*-1 log norm for this graph TV observable; broader curvature tools would still require nontrivial cut optimization.",
+        "searches": [
+          "clique bouquet heat semigroup total variation edge contraction graph variation Ollivier Mazón",
+          "arxiv:math/0701886",
+          "arxiv:1905.01130"
+        ]
+      },
+      "checked_sources": [
+        "Git blob bf2c02838685ed9037e82da9d2fa759d076ec987",
+        "Git tree 843b5abf1452c1f112d9aabd8955d37eaeb48b26",
+        "independent_checks.py BOUQUET 340/41370",
+        "Kirisits–Scherzer–Setterqvist doi:10.1137/19M124126X",
+        "Mazón–Solera–Toledo arxiv:1905.01130",
+        "Resultary bouquet search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A classical coarea identity gives a cut reduction, but the minimum-blade sharpness requires optimizing the explicit directional-derivative polynomial and identifying an extremizing cut."
+        ],
+        "reasoning": "The full all-time statement follows from the exact derived sharp logarithmic norm plus Gronwall, not automatically from prior graph-TV denoising statements.",
+        "searches": [
+          "doi:10.1137/19M124126X",
+          "arxiv:1905.01130",
+          "clique bouquet heat semigroup total variation edge contraction graph variation Ollivier Mazón"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kirisits–Scherzer–Setterqvist graph-TV article addresses ROF denoising and gradient flow of J (doi:10.1137/19M124126X), not the linear -L flow."
+        ],
+        "reasoning": "The semigroup here is e^{-tL}, not the nonlinear subgradient flow of J; therefore a standard TV-flow contraction does not imply it.",
+        "searches": [
+          "heat semigroup graph edge total variation contraction clique bouquet friendship windmill graphs sharp smallest blade threshold",
+          "linear heat semigroup graph total variation contractivity edge total variation TV diminishing discrete graphs clique bouquet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned friendship-graph fractional resolving and other graph processes, but no exact bouquet heat-TV contraction classification."
+        ],
+        "reasoning": "Bouquet blade-size contraction tables were not located; this absence is not a priority proof.",
+        "searches": [
+          "heat semigroup graph edge total variation contraction clique bouquet friendship windmill graphs sharp smallest blade threshold",
+          "Resultary heat semigroup bouquet search"
+        ]
+      },
+      "rationale": "Graph total-variation denoising and nonlinear TV flow are distinct from linear heat semigroup contractivity in the sum of absolute edge gradients. Ollivier Wasserstein contraction and pointwise gradient estimates provide general tools but do not state the exact integer smallest-blade threshold. The general coarea reduction is classical; the new part is exact optimization across the bouquet family and full classification.",
+      "residual_risks": [
+        "General linear heat variation-seminorm/logarithmic-norm theory may express the same classification in a different graph parameter.",
+        "Relevant graph TV primary articles were inspected mainly at abstract level; no whole-document noncoverage is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly studies ROF minimizers and nonlinear gradient flow; no body-based exclusion",
+          "evidence": [
+            "turn734757search4"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/19M124126X",
+          "material_read": "full abstract, observable J and abstracted ROF/gradient flow conclusion, not the paper body",
+          "method": "publisher abstract",
+          "title": "Invariant φ-Minimal Sets and Total Variation Denoising on Graphs",
+          "trigger": "same graph edge TV functional"
+        },
+        {
+          "assessment": "Nonlinear 1-Laplacian TV flow, not heat e^{-tL}; residual coverage risk remains",
+          "evidence": [
+            "turn437309academia50"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.01130",
+          "material_read": "abstract, flow equation nature and finite-time mean convergence; no full paper body",
+          "method": "arXiv abstract",
+          "title": "The Total Variation Flow in Metric Random Walk Spaces",
+          "trigger": "graph-TV semigroup possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/smallest-blade-law-for-total-variation-stability-of-clique-bouqu--d34290e614d7/RESULT.md",
+        "Mazón–Solera–Toledo arxiv:1905.01130",
+        "Resultary bouquet search"
+      ],
+      "rationale": "The discrete diffusion/TV interplay is a natural stability problem; the exact parameter K-2k_*-1 gives a sharp logarithmic norm, an explicit worst-case small blade, and complete all-time contraction classification. The three-blade star and two-blade near-equality tests are mathematically motivated boundaries rather than arbitrary cases.",
+      "residual_risks": [
+        "No claim of exact N(t) at positive time or extension beyond unit-weight bouquets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only finite clique bouquets, unit conductances, counting vertex measure, edge absolute total variation.",
+    "No all-time equality N(t)=e^{mu t} asserted."
+  ]
+}
