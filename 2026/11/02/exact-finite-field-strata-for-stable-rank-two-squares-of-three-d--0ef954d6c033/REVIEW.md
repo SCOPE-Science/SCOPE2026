@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The parameterization by a plane \(S\le\mathbb F_q^3\) and a surjection \(V:\mathbb F_q^3\to S\) is bijective for labeled rank-two structure matrices. The coordinatewise symmetric-product map is an isomorphism on the \((q-1)^2\) generic planes and rank two on the \(3q\) coordinate-degenerate planes. Projective kernels give the exact three factorization counts, with the characteristic-two mixed-term coefficient explicitly \(ab\ne0\). A natural basis of \(S\) exists exactly for distinct rational linear factors. Independent exhaustive enumerations over \(q=2,3,4,5\) reproduced all formula strata; these experiments do not replace the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The Hu–Wen source poses the stable-derived-square natural-basis question and constructs a particular failure. Its statements do not include this finite-field conditional three-stratum census. The 2026 survey counts perfect evolution algebras up to isomorphism and describes standard recognition criteria, rather than labeled singular structure matrices with stable two-dimensional square. Targeted searches of the relevant mathematical records and earlier related mathematical claims did not identify a directly covering exact distribution. Known general recognition and low-dimensional classification results are not presented as new. Historical priority is not established exhaustively: an old implicit enumeration could overlap.
+PASS
 
-## Mathematical value — PASS
-A question concerning whether a stable derived term retains the evolution property is quantitatively resolved on the first nontrivial singular three-dimensional stable-square locus. The split, double and irreducible types reveal the geometry of the obstruction, while an exact all-finite-field rational probability and its one-half limit give a natural invariant rather than an arbitrary finite slice. This is not a full answer for all evolution algebras or an isomorphism classification.
+For each fixed plane S of F_q^3, structure matrices correspond to surjections V:F_q³->S; each kernel line has |GL2(q)| choices. When all normal-vector coordinates are nonzero, the coordinatewise symmetric-square map T_S is invertible even in characteristic two (cross coefficient ab, not 2ab); the q²+q+1 kernel quadratics split into q(q+1)/2 distinct-linear, q+1 double and q(q-1)/2 irreducible. The other 3q planes have rank(T_S)=2 and exactly q² admissible surjection kernels, all of distinct-linear type. This proves the stated three counts and probability. Independent exhaustive rank-two/steady-square multiplication and quadratic-factor counts over F2 and F3 reproduced totals (162,18,6) and (5040,768,576) by stratum. Tests over two fields support but do not prove all q.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. The all-finite-field labeled stratum distribution, not general natural-basis recognition.
+
+## value
+
+PASS
+
+The exact probability that a stable rank-two square remains an evolution algebra addresses a concrete derived-series-recognition question on a natural labeled family. The complete factorization-type strata in all finite characteristics distinguish structurally different stable subalgebras and give an all-q asymptotic probability. This is not merely a rephrased general recognition criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

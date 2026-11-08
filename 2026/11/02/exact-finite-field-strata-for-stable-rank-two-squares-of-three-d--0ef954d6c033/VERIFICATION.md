@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility record
+# Independent mathematical audit
 
-The accompanying `verify.cpp` enumerates the original labeled multiplication tables. Compile it with `g++ -O3 -std=c++17 verify.cpp -o verify` and run `./verify 2`, `./verify 3`, `./verify 4`, and `./verify 5`. Each previously yielded `VERIFY_OK` after evaluating all \(q^9\) matrices and classifying the two-dimensional stable-square instances, with no hard-coded observed counts.
+## correctness
 
-Observed \((\text{rank two},\text{stable},\text{split},\text{double},\text{irreducible})\): \(q=2\): \((294,186,162,18,6)\); \(q=3\): \((8112,6384,5040,768,576)\); \(q=4\): \((79380,68580,50760,8100,9720)\); \(q=5\): \((461280,418080,295200,46080,76800)\).
+PASS
 
-The code treats \(\mathbb F_4\) as \(\mathbb F_2[z]/(z^2+z+1)\). Its classification directly examines products and natural orthogonality, then compares counts to the formula. It does not establish the statement for arbitrarily large \(q\); that extension is supplied by the projective-plane argument in the mathematical proof. No independent audit has been performed.
+For each fixed plane S of F_q^3, structure matrices correspond to surjections V:F_q³->S; each kernel line has |GL2(q)| choices. When all normal-vector coordinates are nonzero, the coordinatewise symmetric-square map T_S is invertible even in characteristic two (cross coefficient ab, not 2ab); the q²+q+1 kernel quadratics split into q(q+1)/2 distinct-linear, q+1 double and q(q-1)/2 irreducible. The other 3q planes have rank(T_S)=2 and exactly q² admissible surjection kernels, all of distinct-linear type. This proves the stated three counts and probability. Independent exhaustive rank-two/steady-square multiplication and quadratic-factor counts over F2 and F3 reproduced totals (162,18,6) and (5040,768,576) by stratum. Tests over two fields support but do not prove all q.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. The all-finite-field labeled stratum distribution, not general natural-basis recognition.
+
+## value
+
+PASS
+
+The exact probability that a stable rank-two square remains an evolution algebra addresses a concrete derived-series-recognition question on a natural labeled family. The complete factorization-type strata in all finite characteristics distinguish structurally different stable subalgebras and give an all-q asymptotic probability. This is not merely a rephrased general recognition criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
