@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-The standalone file `verify.py` uses Python 3 standard-library integer arithmetic. Execute `python3 verify.py` in the directory containing that file. Its exact polynomial operations independently reconstruct the four-gap weighted generating numerator and denominator, check the reduced numerator \(P(q)\) and denominator \(H(q)\), confirm polynomial remainders \(864,32,6,-12\), and compare \(41\) initial coefficients to direct four-part partition enumeration.
+## correctness
 
-It also checks least periods and periodicity samples at primes \(5,7,11,13,17,37,101\). The output of the executed checker was:
+PASS
 
-`VERIFY_OK numerator_degree=24 reduced_denominator_degree=22 cyclotomic_residues=864,32,-12,6 direct_partition_terms=41 prime_periods=5:300,7:84,11:132,13:156,17:204,37:444,101:1212`
+Checked unique four-part gap parametrization, weighted quadratic E and geometric-moment generating-function algebra; independent direct enumeration agreed with coefficients for 52 terms n=4..55. The numerator P has residues 864,32,6,-12 modulo Phi1,Phi2,Phi3,Phi4, all units mod p>=5, so rational GF is reduced in F_p(q). Any eventual period T must have H dividing 1-q^T. Primitive orders 3,4 give 12|T; multiplicity 6 at q=1 forces p^{v_p(T)}>=6, hence 300 at p=5 and 12p for p>=7. Frobenius proves H|1-q^T at those T. Since deg(q^4P)+T-deg(H)=T-6<T, initial coefficients are periodic starting at n=0. Independent recurrence and exact modular comparisons checked primes 5,7,11 for >2 full periods. Thus finite checks supplement the all-prime divisibility proof.
 
-The infinite scientific claim does not depend on numerical extrapolation: the complete proof establishes the exact rational identity and then characterizes all possible periods over each prime field by factor divisibility and root multiplicities.
+## originality
 
-The originating literature conjectured some particular periods. Absolute bibliographic priority and independent scientific review are not certified.
+PASS
+
+Ballantine–Beck–Merca 2025 open-access full article explicitly displays numerical period table (300,84,132 etc) as conjectural, proves congruences modulo 2,3,4, and does not prove exact minimum for all primes >=5. Nijenhuis–Wilf and Kwong give general techniques for *unweighted* restricted partition counts; their theorem statements cannot be substituted for this weighted quadratic statistic without establishing its reduced denominator. Best-of-knowledge O PASS for new proof and uniform prime classification, not for the already conjectured table values.
+
+## value
+
+PASS
+
+Solves the explicit prime-period conjecture for a natural weighted four-part partition count, determines the full infinite-prime family and distinguishes pure and eventual periodicity; exceptional p=5 has a structural explanation via pole order six.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
