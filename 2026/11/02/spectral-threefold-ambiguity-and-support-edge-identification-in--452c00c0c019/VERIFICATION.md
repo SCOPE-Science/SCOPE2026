@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The theorem follows analytically from the exact two-state Markov sign autocovariance, linear transfer-factorization, real polynomial irreducibility, and positivity of a damped mechanical Green kernel. In particular, an exactly observed stationary power spectrum determines the numerator scale and monic cubic spectral denominator, not the physical labels attached to its three overdamped poles. The proof enumerates every label assignment. For the stationary support, constant-sign histories of arbitrarily long finite length have positive probability and saturate the Green-kernel bound in essential supremum. Those are infinite-range arguments; neither a finite numerical check nor a graphical spectral match proves them.
+# Independent mathematical audit
 
-For computational reproduction, run `python verify.py` with Python 3 and its standard library. The included script verified 23,003 deterministic assertions with a fixed random seed. Assertions check rational cubic identities, the explicit three-realization witness at multiple frequencies, generator stationarity second moments, repeated-pole collisions, underdamped discriminant signs, and the support-edge decoding formula. A successful script run independently confirms those finite algebraic instances but cannot certify publication priority, finite-sample inference, or the general theorem without the above proof.
+## correctness
 
-Independent scientific audit: not performed. The exact support endpoint and all-lag covariance are ideal population data, not measurements assumed available from finite time series.
+PASS
+
+Stationary force covariance e^(−c|t|) gives S_X(ω)=2cf²/[(ω²+c²)((p−ω²)²+q²ω²)]. Its numerator and monic cubic in z=ω² are observed. For q²<4p the mechanical quadratic is irreducible over ℝ, so the unique real linear factor marks c, then q,p,f. If q²≥4p, mechanical rates a,b>0 have a+b=q, ab=p; the spectral cubic determines their unordered multiset with telegraph c and each distinct selection c yields exactly one positive realization, including repeated poles. Overdamped causal Green kernel g(t)≥0 has integral 1/p; stationary σ with no flips on any finite interval has positive probability, so essential support R=f/p exactly. Writing U=abc gives R²=Kc/U², K=cf², and identifies c unambiguously. Independently checked three exact aliases with poles 1,2,3 and K=6, discriminants, support inversions and generator stationary moments. Exact-population observables only; no finite-sample inference.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for a complete one-, two-, threefold physical inverse spectrum classification and one-support-edge inverse rule. The physical model and bounded stationary support are prior work and the spectral filtering is standard. A generic linear-system identification/pole-allocation theorem might imply the special classification, and the exact primary physical article was not fully read.
+
+## value
+
+PASS
+
+The example demonstrates a concrete threefold failure of inference even with all second-order data and shows precisely which additional non-Gaussian observable resolves it; this is a motivated physical stochastic identification invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

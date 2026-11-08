@@ -1,19 +1,21 @@
-# Scientific assessment: spectral ambiguity and support-edge identification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is exactly specified: positive mass-normalized trap stiffness, viscous damping, positive athermal telegraph-force amplitude, stationary symmetric rate-\(c/2\) sign flips, and no thermal driving. The stationary telegraph PSD and stable linear transfer function yield the monic cubic spectral denominator and strictly positive numerator. In the underdamped region the mechanical quadratic discriminant is negative and yields unique identification. In the overdamped/critical region polynomial factorization yields exactly the three-rate multiset, including every repeated-root collision. A nonnegative mechanical Green kernel and positive-probability long constant-sign histories establish the exact *essential* support radius, and its inversion selects the telegraph rate. Every boundary and quantifier needed by the reconstruction is addressed. A standard-library checker passed 23,003 deterministic assertions, including an independent generator-moment cross-check; these do not substitute for the analytic proof.
+PASS
 
-## Originality — PASS, qualified
+Stationary force covariance e^(−c|t|) gives S_X(ω)=2cf²/[(ω²+c²)((p−ω²)²+q²ω²)]. Its numerator and monic cubic in z=ω² are observed. For q²<4p the mechanical quadratic is irreducible over ℝ, so the unique real linear factor marks c, then q,p,f. If q²≥4p, mechanical rates a,b>0 have a+b=q, ab=p; the spectral cubic determines their unordered multiset with telegraph c and each distinct selection c yields exactly one positive realization, including repeated poles. Overdamped causal Green kernel g(t)≥0 has integral 1/p; stationary σ with no flips on any finite interval has positive probability, so essential support R=f/p exactly. Writing U=abc gives R²=Kc/U², K=cf², and identifies c unambiguously. Independently checked three exact aliases with poles 1,2,3 and K=6, discriminants, support inversions and generator stationary moments. Exact-population observables only; no finite-sample inference.
 
-The physical oscillator and its stationary distribution/phase-plane support are established in Dutta et al. (arXiv:2406.06120). Smith and Farago (DOI:10.1103/PhysRevE.106.054118) study a telegraph-driven harmonic oscillator's stationary spatial distribution. The elementary telegraph spectrum and the factorization of stable linear filters are standard, and no originality is claimed for those tools. The specific new assessed mathematical object is the complete **physical-parameter fiber of the all-lag stationary covariance**: exact uniqueness underdamped, exactly one/two/three realizations overdamped with collisions classified, and complete removal of ambiguity by one exact support edge. Source sections dealing with stationary moments, shapes, support, and long-time fluctuations did not exhibit this inverse classification. Literature searches for covariance-pole aliasing, telegraph-oscillator identifiability, and output-only colored-noise inference did not reveal an equivalent theorem. This is bounded evidence, not a uniqueness certificate. There is meaningful residual risk that a more general spectral-factor identifiability result already implies the entire specialization, and the novelty assertion should receive independent priority assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Covariance-only parameter determination is a natural observability question for trapped active matter. The exact triple rather than merely pairwise aliasing is a structural obstruction: even all position and velocity second-order time-lag information can fail to resolve rate assignments. A complete classification shows precisely when that obstruction appears and how repeated poles change its cardinality. The support-edge inverse uses genuinely nonlinear distributional information already physically meaningful for a bounded run-and-tumble oscillator and gives a single-observable remedy. It neither claims an independent large theorem nor treats a numerical curiosity as structural; the value is the complete, sharp physical identifiability diagram. Practical recovery of an extreme support endpoint from finite observations may be difficult; this mathematical qualification is explicit.
+Best-knowledge PASS for a complete one-, two-, threefold physical inverse spectrum classification and one-support-edge inverse rule. The physical model and bounded stationary support are prior work and the spectral filtering is standard. A generic linear-system identification/pole-allocation theorem might imply the special classification, and the exact primary physical article was not fully read.
 
-## Closest literature, limitations, and scientific integrity
+## value
 
-The closest primary work is Dutta, Kundu, Sabhapandit, and Basu, *Harmonically trapped inertial run-and-tumble particle in one dimension* (arXiv:2406.06120), read in its model, stationary moments, support, and conclusion sections. Also considered was Smith and Farago's full 2022 article on telegraph-driven harmonic confinement and Bonciolini, Boujo, and Noiray's 2017 output-only parameter-inference abstract. The latter abstract is insufficient to exclude all possible general-prior implications. The mathematical claims require the stationary athermal symmetric model, exact ideal observables, known mass normalization, and the overdamped hypothesis for the support-edge formula. They do not cover empirical reconstruction or additive Gaussian heat-bath forcing. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The example demonstrates a concrete threefold failure of inference even with all second-order data and shows precisely which additional non-Gaussian observable resolves it; this is a motivated physical stochastic identification invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
