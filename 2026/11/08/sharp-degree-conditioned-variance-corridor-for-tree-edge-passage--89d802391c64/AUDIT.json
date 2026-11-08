@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "First-step strong-Markov recursion gives \\(m_v=2s_v-1\\) and \\(q_v=\\sum_cq_c+2m_v^2-(h+1)\\). This implies \\(V_x=4s(s-1)+8\\sum_{v\\ne x}s_v(s_v-1)\\). The lower bound follows from the nonnegative fringe terms and strict balancing of integer child sizes. The upper bound is proved by induction using \\(F(t)=8(t^3-t)/3\\), with strictly increasing first differences \\(8t(t+1)\\). Each equality case follows from a strict step. The proof covers all integers \\(1\\le k\\le s-1\\). Standalone exact rational finite checks passed for all rooted forms of unlabelled trees through order eight; those checks do not substitute for the induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aldous–Fill gives exact variance for every tree first passage in (5.85), but its §5.3.2 extremal theorem concerns other tree walk parameters: https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "Chiclana’s bounds are general nonconcentration inequalities, not the exact two-sided fixed-degree tree corridor: https://arxiv.org/html/2605.17513"
+      ],
+      "reasoning": "General variance identities are broader at the level of evaluation, but they do not assert the minimizer/maximizer classification under a fixed starting degree. The two-sided bounds and rigidity require integer branch-size optimization. Chiclana bounds the variance from below but does not state the sharp conditional extrema in examined material. General identity and unexamined sections remain explicit priority risks.",
+      "searches": [
+        "Nonconcentration of hitting times for random walks on graphs Chiclana May 2026",
+        "Variance of edge hitting time in a tree equals 4s(s-1)+8 times sum over proper fringe subtrees t(t-1); fixed root degree extremal",
+        "\"variance\" \"hitting time\" \"rooted tree\" \"star\" \"path\" \"degree\" random walk",
+        "\"variance\" \"first passage\" \"tree\" \"root degree\" \"extremal\"",
+        "tree random walk hitting time variance subtree descendant size extremal fixed root degree formula",
+        "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "https://arxiv.org/html/2605.17513"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.17513v1; https://arxiv.org/html/2605.17513",
+      "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+      "https://digitalcommons.macalester.edu/mathcs_honors/12/",
+      "https://onlinelibrary.wiley.com/doi/10.1002/jgt.3190140505",
+      "https://arxiv.org/abs/2508.02804",
+      "https://arxiv.org/abs/2312.07726"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aldous–Fill (5.85) computes arbitrary first-passage variance but does not state the constrained extremizers: https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "Wang (2009) abstract speaks of extrema of the expected hitting time and mixing time: https://digitalcommons.macalester.edu/mathcs_honors/12/",
+        "Brightwell–Winkler (1990) extremize cover time, doi:10.1002/jgt.3190140505"
+      ],
+      "reasoning": "The prior general identity implies the underlying exact value for each fixed tree, and hence is substantial precedent. It does not directly state the newly assessed universal inequalities, the balanced-versus-path equality classification for every fixed (s,k), or the Θ(s) identical-mean-and-degree gap. Deriving these conclusions uses a rooted recursion plus strict integer convexity. They are not special cases of the stated cover-time, mean-hitting-time or tree-nonconcentration inequalities. The possibility of a previously recorded simple corollary is explicitly retained as a risk.",
+      "searches": [
+        "Sharp variance extremal hitting time across adjacent bridge edge in trees, rooted star minimum and rooted path maximum with fixed subtree order and mean 2s-1",
+        "Among rooted trees with s vertices and k children, exact minimum maximum variance of simple random walk first hitting its external parent, balanced depth-two and rooted broom extremizers",
+        "Variance of edge hitting time in a tree equals 4s(s-1)+8 times sum over proper fringe subtrees t(t-1); fixed root degree extremal",
+        "\"variance\" \"first passage\" \"tree\" \"root degree\" \"extremal\"",
+        "tree random walk hitting time variance subtree descendant size extremal fixed root degree formula",
+        "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "https://arxiv.org/html/2605.17513",
+        "https://digitalcommons.macalester.edu/mathcs_honors/12/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aldous–Fill, Theorem 5.20, formulas (5.81) and (5.85): https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "Chiclana (2026), Theorem 1.1 and Corollary 1.5: https://arxiv.org/html/2605.17513"
+      ],
+      "reasoning": "The formulation as first crossing of the parent edge is equivalent to absorbing at the external parent of a rooted fringe subtree. Aldous–Fill already gives a general exact moment formula; that computational identity is not claimed as new. The assessed statement is the sharp optimization over all rooted shapes with fixed fringe order and root degree and its equality rigidity; no equivalent extremal theorem was identified.",
+      "searches": [
+        "Sharp variance extremal hitting time across adjacent bridge edge in trees, rooted star minimum and rooted path maximum with fixed subtree order and mean 2s-1",
+        "tree random walk first hitting parent exact variance rooted subtree sizes sum depth subtree size quadratic extremes star path",
+        "Among rooted trees with s vertices and k children, exact minimum maximum variance of simple random walk first hitting its external parent, balanced depth-two and rooted broom extremizers",
+        "random walk tree hitting time variance adjacent vertices rooted trees star path extremal variance",
+        "variance random walk hitting adjacent vertex tree subtree size formula path star",
+        "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Aldous–Fill, Theorem 5.20, gives a general tree first-passage variance formula, not a table of optimized degree-conditioned extrema: https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "The indexed published-literature searches did not return a matching sharp degree-conditioned variance table; this negative search result does not prove absence."
+      ],
+      "reasoning": "The inspected public literature did not contain a degree-conditioned exact-variance table. The general Aldous–Fill formula evaluates individual cases but does not itself present extremal tables or equality classification. No claim of exhaustive public-literature access is made.",
+      "searches": [
+        "Sharp variance extremal hitting time across adjacent bridge edge in trees, rooted star minimum and rooted path maximum with fixed subtree order and mean 2s-1",
+        "Among rooted trees with s vertices and k children, exact minimum maximum variance of simple random walk first hitting its external parent, balanced depth-two and rooted broom extremizers",
+        "Variance of edge hitting time in a tree equals 4s(s-1)+8 times sum over proper fringe subtrees t(t-1); fixed root degree extremal",
+        "random walk first hitting time adjacent edge tree variance minimizing trees maximizing 2n",
+        "\"adjacent\" \"variance\" \"hitting\" \"tree\" \"fixed\" \"degree\"",
+        "tree random walk hitting time variance subtree descendant size extremal fixed root degree formula"
+      ]
+    },
+    "rationale": "Semantic and implication-level comparisons identified the Aldous–Fill general tree variance identity as strong known coverage of variance evaluation, but not the fixed-fringe-size and root-degree extremal optimization, equality rigidity or matching-local-data linear variance separation. Chiclana’s recent tree bound is quantitatively different and does not imply the exact corridor. Published-literature searches did not locate an already stated equivalent optimization. Historical priority remains provisional given incomplete access to plausible older material and the ease of deriving these extrema from known identities.",
+    "residual_risks": [
+      "The full texts of the Wang thesis and later portions of the Chiclana preprint were not examined because access failed.",
+      "Aldous–Fill already gives an exact general formula; an unindexed historical corollary could have recorded the particular constrained optimization.",
+      "Published-record searches and partial historical coverage cannot establish mathematical priority or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Documents qualitative tree nonconcentration; inspected portions contain no exact two-sided fixed-root-degree variance extremizers. Not a whole-document negative finding because later portions were inaccessible.",
+        "evidence": "https://arxiv.org/html/2605.17513 (lines 29-111 and 132-168 in retrieved view)",
+        "identifier_or_url": "arxiv:2605.17513v1; https://arxiv.org/html/2605.17513",
+        "material_read": "Full abstract, introduction including Theorem 1.1, Corollaries 1.3 and 1.5 and the outline of proof sections, plus beginning of the first proof; later portions could not be retrieved on follow-up",
+        "method": "Open arXiv HTML and assess claims and proof section listing; follow-up line requests failed",
+        "title": "Nonconcentration of hitting times for random walks on graphs",
+        "trigger": "2026 probability-literature source directly addressing variance of tree hitting times"
+      },
+      {
+        "assessment": "General first-passage variance formula is prior art; extremal subsection treats other parameters, and does not state the fixed fringe size and root-degree variance corridor. This does not prove the optimization was unpublished elsewhere.",
+        "evidence": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+        "material_read": "Chapter 5.3 including Theorem 5.20 formulas (5.81)-(5.86), derivation, and extremal trees subsection 5.3.2 with Proposition 5.24",
+        "method": "Read accessible chapter HTML and compare formulas and optimization constraints",
+        "title": "Reversible Markov Chains and Random Walks on Graphs, Chapter 5.3 Trees",
+        "trigger": "Most plausible stronger coverage: explicit variance of adjacent tree hitting times"
+      },
+      {
+        "assessment": "Abstract addresses mean hitting and mixing time extrema, not conditional first-passage variance; full-document comparison unavailable.",
+        "evidence": "https://digitalcommons.macalester.edu/mathcs_honors/12/",
+        "identifier_or_url": "https://digitalcommons.macalester.edu/mathcs_honors/12/",
+        "material_read": "Title, authorship and full landing-page abstract; linked PDF returned 403 Forbidden",
+        "method": "Read landing page and attempt download link",
+        "title": "Extremal Random Walks on Trees",
+        "trigger": "Plausible historical thesis on star/path random-walk extremizers"
+      },
+      {
+        "assessment": "Cover time, not variance of adjacent-edge passage; no full-paper coverage claim.",
+        "evidence": "https://onlinelibrary.wiley.com/doi/10.1002/jgt.3190140505",
+        "identifier_or_url": "doi:10.1002/jgt.3190140505",
+        "material_read": "Publisher abstract and bibliographic details",
+        "method": "Read publisher abstract; evaluate function being optimized",
+        "title": "Extremal cover times for random walks on trees",
+        "trigger": "Classical extremal tree random-walk reference"
+      },
+      {
+        "assessment": "Stationary-average mean hitting-time extremizers, not edge hitting-time variance; no claim about its unseen body.",
+        "evidence": "https://arxiv.org/abs/2508.02804",
+        "identifier_or_url": "arxiv:2508.02804",
+        "material_read": "Abstract and stated meeting-time problem",
+        "method": "Read arXiv indexed abstract",
+        "title": "Random Walks and the Meeting Time for Trees",
+        "trigger": "Recent fixed-order and fixed-diameter tree-walk extrema"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_status_explanation": "This is an assessment of the new degree-constrained extremal result only. Prior general exact variance formulas are credited; no certification or independent validation is asserted.",
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No general-graph, nonadjacent-target, weighted, lazy-walk or convex-order claim.",
+    "Some primary full-text comparisons were inaccessible; no independent historical priority or scientific audit."
+  ],
+  "scope_run_id": "89d80239-1c64-46da-83cd-da630f58540a",
+  "value": {
+    "rationale": "For a fixed side-size, first-step root degree and common mean, the theorem provides an exact natural extremal classification with all equality cases. The matching-order, matching-marked-degree examples exhibit a variance ratio growing as \\(m/6\\), demonstrating that the dispersion is not controlled by mean and immediate branching alone. This directly relates to tree hitting-time nonconcentration rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
