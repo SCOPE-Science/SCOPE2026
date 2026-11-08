@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:13:38.374410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact three-type peripheral-pair dynamics. Type a frozen h/h, type b frozen !h/!h, mixed m becomes h/h after one update. Hub flips first iff b>a, ultimately iff b>n/2 or at b=n/2 after first flip. This gives fixed by round two, n>=3 sharp, initial/terminal global-majority identities, reversal iff a<b<n/2, and 2^n+1_even*C(n,n/2) fixed points. Under unbiased independent pair types (1/4,1/4,1/2), a=b diagonal has probability C(2n,n)/4^n; b~Bin(n,1/4) gives permanent-flip tail with the sole exceptional even tie. Geometric tail ratios and Stirling give the displayed exponential factor and R_n=1/2-1/(2sqrt(pi n))+O(n^-3/2). Under conditional Bernoulli(p), signed pair mean 2p-1 and variance 1/2 at p=1/2; binomial p² crosses 1/2 at p=1/sqrt(2). Both triangular-array Gaussian windows have Phi(2sqrt(2)s). Independently enumerated labelled states n<=6 and verified exact formulas; the universal conclusion relies on algebra/CLT, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos period <=2 only bounds eventual cycles; it neither prevents period two nor forces fixation in two rounds.",
+          "Benjamini et al. study convergence/unanimity on unimodular/random graphs, not exact all-state two-step windmill basins."
+        ],
+        "reasoning": "Broader dynamical framework does not logically give the record-specific sharp cutoff or bias phase diagram.",
+        "searches": [
+          "Resultary semantic search: friendship windmill graph synchronous majority dynamics opinion bias reversal triangle hub two step fixed",
+          "Goles Olivos 1980 symmetric threshold periods",
+          "arXiv:1405.2486 majority dynamics"
+        ]
+      },
+      "checked_sources": [
+        "Mossel–Neeman–Tamuz arXiv:1207.0893 Section 3.1",
+        "Tamuz–Tessler arXiv:1307.4035 (background)",
+        "Benjamini et al. arXiv:1405.2486 (background)",
+        "Resultary semantic search: friendship windmill graph synchronous majority dynamics opinion bias reversal triangle hub two step fixed",
+        "Actual assigned RESULT.md and verify.py Git blob at frozen commit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mossel–Neeman–Tamuz Section 3.1 uses self-looped clique construction for aggregate information loss, unlike loopless n triangles sharing a vertex.",
+          "Different graph and response rules mean its counterexample does not yield F_n first/second flip identities."
+        ],
+        "reasoning": "Related prior example establishes a phenomenon but not this parameterized graph theorem as a corollary.",
+        "searches": [
+          "arXiv:1207.0893 Section 3.1",
+          "Resultary semantic search: friendship windmill graph synchronous majority dynamics opinion bias reversal triangle hub two step fixed"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_n is K_1 joined to n disjoint K_2; mixed-pair collapse provides an exact signed-pair majority representation.",
+          "Resultary generalized windmill polynomial record 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f concerns general-position polynomials, not dynamics."
+        ],
+        "reasoning": "Checked windmill aliases and signed-pair reduction. No retrieved same-dynamics theorem; matching graph family in another invariant does not imply this claim.",
+        "searches": [
+          "Resultary semantic search: friendship windmill graph synchronous majority dynamics opinion bias reversal triangle hub two step fixed",
+          "friendship graph/windmill graph majority voting; arXiv:1207.0893"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No cited exact friendship-graph majority-dynamics distribution table; verifier n<=6 only illustrates closed all-n formulas."
+        ],
+        "reasoning": "The finding is all-n symbolic, not a recomputation of a known small-n database. This search limitation cannot establish priority.",
+        "searches": [
+          "Resultary semantic search: friendship windmill graph synchronous majority dynamics opinion bias reversal triangle hub two step fixed",
+          "arXiv:1207.0893 friendship graph majority reversal census"
+        ]
+      },
+      "rationale": "Loopless windmill majority flow yields an exact global-majority reversal census and two different bias thresholds, not implied by general period-at-most-two results or previously inspected clique/self-loop examples. Qualified best-of-knowledge novelty with non-indexed equivalents possible.",
+      "residual_risks": [
+        "Other unindexed windmill-majority results may formulate the same phenomenon without bias-phase terminology; search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conceptually related, not exact windmill family or two bias windows.",
+          "evidence": [
+            "Section 3.1 clique blocks and fixed core; self-loops vs present loopless friendship graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.0893",
+          "material_read": "Section 3.1 clique-based construction, graph/self-loop hypotheses and its aggregate-majority conclusion (PDF pages around 10–11).",
+          "method": "Read accessible primary PDF and inspect page image.",
+          "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+          "trigger": "Closest conceptual information-loss example"
+        },
+        {
+          "assessment": "General coverage not enough for exact two-step all-state F_n dynamics.",
+          "evidence": [
+            "Period<=2 allows non-fixed cycles and has no exact conditional p thresholds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Accessible theorem/abstract scope concerning general random/unimodular graphs.",
+          "method": "Read available source overview, not exhaustive full-text inspection.",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General period/unanimity coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural symmetric majority network exhibits a previously non-obvious transient majority reversal in asymptotically half of uniform states despite exponentially rare permanent hub flip; the intermediate bias phase flips then reverts with probability tending to one. Sharp finite-size Gaussian transitions are useful basin and information-retention statistics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only synchronous binary strict neighbor majority with current-state tie retention; not random tie breaking, self-loops, asynchronous dynamics or arbitrary topologies.",
+    "Finite independent check n<=6 corroborates but does not prove all n."
+  ],
+  "schema_version": 1
+}
