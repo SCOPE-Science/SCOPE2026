@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For violating i,j, own load L_i < S_ij - minweight, while L_j >= S_ij, so moving the minimum-weight shared edge of weight s from j to i satisfies L_j > L_i+s; this is a strict two-coordinate majorization improvement and lowers square potential by 2s(L_j-L_i-s)>0. Finitely many orientations guarantee termination at positive-good EFX. Equality of total loads makes Lorenz comparison valid; applying repair to any optimal orientation proves zero Schur-convex price. The asymmetric R example establishes the boundary. verify.py was executed successfully, checking 9401 finite instances, 159039 orientations and 500 seeded tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Afshinmehr et al. (2026) prove EFX existence for cancelable multigraph valuations and polynomial construction, not dominance relative to each initial orientation; arxiv:2606.18665.",
+        "Kaviani et al. (2024) §8 gives restricted-additive multigraph EFX existence using an updating scheme, not a Lorenz-cofinality claim; arxiv:2407.05139.",
+        "Babaioff et al. (2021) Theorem 1 applies to dichotomous valuations, excludes nonunit positive edge weights."
+      ],
+      "reasoning": "The two multigraph works have broader valuation domains but weaker comparison conclusions; they do not imply the zero fair-price for peak-load or arbitrary Schur-convex objectives. The Lorenz theorem in 2021 is stronger on a strict all-unit subdomain but cannot be applied to general shared weights. Existence and majorization improvement are not interchangeable.",
+      "searches": [
+        "site:arxiv.org 2026 multigraph EFX orientations",
+        "\"restricted additive\" \"EFX\" \"leximin\" graph",
+        "\"Lorenz dominating\" \"EFX\" restricted additive goods",
+        "arxiv:2606.18665 §1.1–1.2 and §2",
+        "arxiv:2407.05139 §8 and §§1–2",
+        "doi:10.1609/aaai.v35i6.16647 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.18665",
+      "arxiv:2407.05139",
+      "doi:10.1609/aaai.v35i6.16647"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existence theorems do not specify a majorization comparison to arbitrary input orientations; a fortiori no arbitrary Schur-convex optimum conclusion follows from them.",
+        "Binary Lorenz dominance can handle equal unit weights only; the arbitrary positive-weight case does not satisfy the dichotomous-marginal hypothesis."
+      ],
+      "reasoning": "A proof of existence alone need not yield a fair orientation that dominates a chosen input; that requires the explicit witness-specific majorization transfer. The weighted theorem is not an immediate corollary of a binary result. The theorem does not assert the false stronger global Lorenz-dominating orientation, as its five-edge incomparable example demonstrates.",
+      "searches": [
+        "arxiv:2606.18665 EFX existence multigraph cancelable",
+        "arxiv:2407.05139 (2,infinity) restricted additive EFX",
+        "doi:10.1609/aaai.v35i6.16647 binary Lorenz theorem",
+        "\"EFX\" \"sum of squares\" \"edges\" allocation",
+        "\"leximin load-balanced edge orientation EFX for weighted undirected multigraph minimize max received weights\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A search hit on weighted multigraph polytope asymmetry does not address Lorenz fairness of goods allocations.",
+        "Babaioff–Ezra–Feige (2021) Theorem 1 is Lorenz domination for marginal values 0 or 1, whereas here edge weights are arbitrary positive reals."
+      ],
+      "reasoning": "The candidate may be phrased as Lorenz improvement, majorization reduction, symmetric convex potential descent, or a peak-load EFX price of one. These formulations are mutually implied in the specified graph model via the same balancing step; no searched record covered the weighted transfer theorem.",
+      "searches": [
+        "\"Lorenz domination EFX envy-free weighted restricted additive fair allocation multigraph two incident endpoints\"",
+        "\"Schur convex load balancing graph edge orientations restricted additive fairness\"",
+        "\"EFX\" \"majorization\" \"orientation\"",
+        "\"Lorenz dominance\" \"EFX\" \"graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest binary regular-graph result concerns exact equality and EF1, allows goods sent to nonapprovers, and does not imply weighted EFX or Lorenz improvement.",
+        "A distinct unit-weight multistar probability result concerns EFX0 under random orientations, not universal weighted Lorenz improvement.",
+        "The nearest unrelated weighted-graph studies address polytopes and edge invariants rather than EFX allocation workloads."
+      ],
+      "reasoning": "The finding is a universal real-weight majorization-order statement, not a numerical entry in a finite database or a known table lookup; the finite checker tests rather than defines the theorem. Scientific implications were compared, including the stronger EFX0 convention and distinct graph-orientation probability problems.",
+      "searches": [
+        "\"envy-freeness up to any positively valued edge minimum makespan weighted multigraph repair transfer\"",
+        "\"weighted multigraph restricted additive common item values EFX orientation minimizes maximum bundle value optimal makespan convex balancing\"",
+        "\"EFX\" \"multigraph\" \"Lorenz\" orientation"
+      ]
+    },
+    "rationale": "The claim concerns Lorenz-cofinality from arbitrary initial orientations with arbitrary positive shared edge weights, not existence alone. Examined the relevant primary theorems and their implication limits. Uniform binary EFX and Lorenz results are acknowledged as already known, and the source-specific 2024/2026 EFX existence theorems are likewise acknowledged. Scholarly searches and implication comparisons did not yield a theorem dominating the weighted cofinality assertion; relevant indexing limitations remain.",
+    "residual_risks": [
+      "A non-indexed earlier graph load-balancing or restricted-additive fairness result may already imply the same weighted Lorenz-cofinality property.",
+      "2021 publisher PDF was accessible in part through indexed text but later screenshot access was blocked.",
+      "A stronger zero-inclusive EFX0 property is not proved here and must not be inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves broad existence and algorithm, but not from-every-orientation weighted majorization or preservation of symmetric convex objectives.",
+        "evidence": [
+          "§1.1 broad cancelable existence; §1.2 structured EFX partial allocations; §1.3 distinguishes orientations and nonwasteful allocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.18665",
+        "material_read": "Accessible full text: introduction, stated contributions, technical overview of unit bundles, related-work and definitions; targeted searches for Lorenz, maximum load, majorization.",
+        "method": "Full-text HTML reading and keyword/implication comparison",
+        "title": "EFX Allocations Exist on Multi-Graphs",
+        "trigger": "Direct 2026 multigraph EFX existence for general valuations"
+      },
+      {
+        "assessment": "Shows complete EFX existence for the weighted subdomain but not every-start Lorenz improvement. Their zero-inclusive formulation is stronger EFX but different claim.",
+        "evidence": [
+          "PDF page 1 defines restricted additive via v_i(g) in {0,v_g}; PDF page 20 §8 starts p=2 EFX existence; search found no Lorenz or majorization statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.05139",
+        "material_read": "32-page PDF: abstract, §§1–2, §8 relevant algorithm setup and termination potential, plus targeted full-document Lorenz and majorization searches; page 2 rendered for inspection.",
+        "method": "PDF parsed text and page screenshot; targeted theorem reading",
+        "title": "Almost Envy-free Allocation of Indivisible Goods: A Tale of Two Valuations",
+        "trigger": "Restricted-additive p=2 general multigraph EFX theorem"
+      },
+      {
+        "assessment": "Directly covers binary 0/1 valuations; not positive heterogeneous common edge weights. The weaker all-unit subclass is prior work, acknowledged.",
+        "evidence": [
+          "Theorem 1 requires submodular dichotomous valuations; paper defines every marginal in {0,1}."
+        ],
+        "identifier_or_url": "https://doi.org/10.1609/aaai.v35i6.16647",
+        "material_read": "Accessible PDF introduction and Theorem 1 including 0/1 marginal premise and Lorenz-dominating allocation; full-paper parsing/screenshot incomplete because the publisher blocked later access.",
+        "method": "PDF parsed text and theorem reading",
+        "title": "Fair and Truthful Mechanisms for Dichotomous Valuations",
+        "trigger": "Potential dominating Lorenz theorem for dichotomous valuations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6a3dd5f9-09e2-43b8-8125-9cb0a147ae0d",
+  "value": {
+    "rationale": "A motivated structural question is whether EFX constrains egalitarian objectives when every graphical good is welfare-efficiently placed at an endpoint. The theorem gives a universal Lorenz cofinality answer, simultaneously certifying no EFX penalty for every symmetric Schur-convex load objective (and Schur-concave welfare maximization) after repair, with arbitrary heterogeneous positive goods. It is not just EFX existence or a finite census. The asymmetry example shows an unbounded price once the shared-weight premise is dropped, making the boundary substantive. Limitations are disclosed without weakening the proof.",
+    "status": "PASS"
+  }
+}
