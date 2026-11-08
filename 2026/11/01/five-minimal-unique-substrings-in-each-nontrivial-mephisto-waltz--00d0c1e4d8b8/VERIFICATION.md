@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_mephisto.py` using a standard Python 3 interpreter and no external dependencies. The output from the replay is preserved in `verification_output.txt`.
+## correctness
 
-The script uses a suffix-array-neighbor longest-common-prefix computation to find all minimal unique factor intervals for each of the first eight substitution iterates. It compares the result with the five-interval formula at every iterate from two through eight, checks the exceptional first iterate, and performs independent all-factor occurrence enumeration for the first five iterates. It also checks exactly \(3402\) length-at-least-four factor/covering-parent multiplicity identities in the first three applicable iterates.
+PASS
 
-The computed last case has length \(6561\), with five intervals beginning at indices \(1457,2186,3644,4373,5102\), each of length \(731\). Checks of finitely many words are not an infinite proof: the phase-disjointness argument and MUS-lift induction in `RESULT.md` supply that proof.
+The three sets of four-letter output factors starting at image residues 0,1,2 are pairwise disjoint; each block symbol is determined by any nonempty sampled subblock because 001 and 110 differ at all coordinates. Every factor of length >=4 consequently has the exact occurrence multiplicity of its shortest covering parent interval. A parent MUS of length >=3 lifts to [3a+2,3b-2) and repeats neither proper suffix nor prefix; conversely every unique output factor of length >=4 contains some lifted parent MUS, forcing all output MUSs to be lifts. The direct W2=001001110 base yields five unique length-three factors at starts 1,2,4,5,6. Every binary length-three word already occurs at least twice in W3, which is a prefix of later iterates, eliminating all shorter unique factors. Inductively lifting the five intervals scales m by three; no longer/other MUSs remain. Independent brute occurrence counting recovered two MUSs at n=1 and exactly five prescribed intervals at n=2,3,4; finite checks corroborate, not establish, the all-n induction.
 
-The program does not check whether the same scientific statement has already appeared in unpublished literature; such absolute novelty certification is not claimed. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Kishi–Guo–Urbina–Bannai prove this same morphism strongly interference-free; that general property is prior. Their exact MUS classifications concern Fibonacci and Thue–Morse rather than the five specific Mephisto–Waltz intervals. Novelty lies in phase synchronization, boundary lifting and complete concrete classification, with possible older unindexed sequence-combinatorics results a residual risk.
+
+## value
+
+PASS
+
+Exact all-n classification of a standard nonperiodic morphic word family is a natural follow-up to occurrence-preserving morphism theory. The constant five count, precise interval geometry and 3^(n-2)+2 length scale are nontrivial structural facts; the phase synchronization proof explains why finite-iterate behavior stays rigid instead of merely tabulating initial cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

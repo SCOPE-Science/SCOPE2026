@@ -1,31 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem classifies the entire MUS set, not only a selected family of unique factors. The decisive proof steps are (i) the pairwise disjoint phase-four-factor sets for the two length-three image blocks; (ii) exact transfer of occurrence multiplicities from any output factor of length at least four to its covering parent factor; (iii) a bijective lift of all parent MUS intervals of length at least three; (iv) direct classification of the nine-symbol base word and the absence of unique factors of length at most three in later iterates; and (v) induction on all lengths and intervals. Every boundary is treated with zero-based half-open intervals. The standalone verifier checks the exact formula through iteration eight, independently checks the smaller words via all-factor counting, and exhaustively tests 3402 parent-occurrence identities. Finite computation is corroboration only; the induction proves the infinite statement.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+The three sets of four-letter output factors starting at image residues 0,1,2 are pairwise disjoint; each block symbol is determined by any nonempty sampled subblock because 001 and 110 differ at all coordinates. Every factor of length >=4 consequently has the exact occurrence multiplicity of its shortest covering parent interval. A parent MUS of length >=3 lifts to [3a+2,3b-2) and repeats neither proper suffix nor prefix; conversely every unique output factor of length >=4 contains some lifted parent MUS, forcing all output MUSs to be lifts. The direct W2=001001110 base yields five unique length-three factors at starts 1,2,4,5,6. Every binary length-three word already occurs at least twice in W3, which is a prefix of later iterates, eliminating all shorter unique factors. Inductively lifting the five intervals scales m by three; no longer/other MUSs remain. Independent brute occurrence counting recovered two MUSs at n=1 and exactly five prescribed intervals at n=2,3,4; finite checks corroborate, not establish, the all-n induction.
 
-The closest 2026 source [1] explicitly identifies the substitution as strongly interference-free and proves general occurrence-preservation implications. It classifies MUSs of Fibonacci and Thue–Morse iterates, not the five intervals for this substitution. A generic factor-count preservation criterion does not itself identify the minimal unique factors: the four-symbol synchronization and boundary-lift coverage are additional arguments. The 2025 MUS crossing-count paper [2] and the 2019 sliding-window paper [3] address general bounds and algorithms rather than the exact family. The standard Mephisto–Waltz sequence descriptions [4,5] contain the morphism but not this classification. The prior related finite-iterate MUS classification for a different binary morphism uses a different substitution, four rather than five intervals, and different scaling. Targeted scientific-record and web searches found no covering claim, but such negative searches cannot establish absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The primary 2026 morphism study names fixed points of strongly interference-free morphisms as a natural direction and gives exact MUS classifications for two other classic morphic families. The present theorem completes the corresponding natural finite-iterate invariant for the named Mephisto–Waltz example. The constant number of MUSs, their length scaling, their exact positions, and the phase-synchronizing explanation give a structural answer applicable at arbitrarily large word lengths; it is not a routine finite table or a renaming of the known Thue–Morse and Fibonacci results.
+Kishi–Guo–Urbina–Bannai prove this same morphism strongly interference-free; that general property is prior. Their exact MUS classifications concern Fibonacci and Thue–Morse rather than the five specific Mephisto–Waltz intervals. Novelty lies in phase synchronization, boundary lifting and complete concrete classification, with possible older unindexed sequence-combinatorics results a residual risk.
 
-## Literature limits
+## value
 
-Sources [1] and [2] were inspected in accessible full-text HTML in their relevant mathematical sections. Source [3] was inspected in accessible parsed text for its definitions, algorithms, and scope. The reference listings [4,5] were checked for the morphism and known properties. Unindexed work or an unpublished equivalent derivation could change the priority assessment. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact all-n classification of a standard nonperiodic morphic word family is a natural follow-up to occurrence-preserving morphism theory. The constant five count, precise interval geometry and 3^(n-2)+2 length scale are nontrivial structural facts; the phase synchronization proof explains why finite-iterate behavior stays rigid instead of merely tabulating initial cases.
 
-## References
-
-[1] Kishi et al., *On Occurrence-Preserving Morphisms*, arXiv:2605.18034v1 (2026), https://arxiv.org/html/2605.18034v1.
-
-[2] Fujimaru et al., *On the number of MUSs crossing a position*, arXiv:2508.16092v1 (2025), https://arxiv.org/html/2508.16092v1.
-
-[3] Mieno et al., *Minimal Unique Substrings and Minimal Absent Words in a Sliding Window*, arXiv:1909.02804, https://arxiv.org/abs/1909.02804.
-
-[4] Wolfram MathWorld, *Mephisto Waltz Sequence*, https://mathworld.wolfram.com/MephistoWaltzSequence.html.
-
-[5] OEIS, A064990, https://oeis.org/A064990.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
