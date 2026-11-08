@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_gamma.py` with Python 3 and SymPy installed. The script constructs all degree-two \(\Gamma\)-cubes from the radius-one-ball definition, removes cubes constant along a coordinate, forms signed boundary matrices over \(\mathbb Z\), and compares their Hermite-normal-form integer lattices to the independently built triangle-plus-backtrack lattice. It also computes first simplicial homology using a unimodular graph cycle basis and integral Smith normal form.
+## correctness
 
-The script tests seven finite hypergraphs, including graph cycles, filled and nonuniform examples, the tetrahedron boundary and a combinatorially checked six-vertex projective plane. The final example has first homology \(\mathbb Z/2\mathbb Z\). A successful run prints `ALL EXACT INTEGRAL RELATION-LATTICE COMPARISONS PASSED`; this was observed when the script was executed from the package directory.
+PASS
 
-The unrestricted homology theorem is proved by explicit chain relations in `RESULT.md`, not extrapolated from finite experiments. Degree-two or higher homology of the \(\Gamma\) construction is not asserted to agree with simplicial homology. The original construction and conventions are those of Zaidi and Jamil, arXiv:2610.08196v1, Section 3. Independent mathematical verification has not been performed.
+Define q from oriented Γ one-cube [u,v] (distinct supported pair) to oriented simplicial edge [u,v]. Its kernel is the free group spanned by reverse-edge sums, each a valid Γ-square boundary ∂(u,v,u,u)=[u,v]+[v,u]. For an arbitrary valid Γ square (a,b,c,d), radius-one-ball images at (1,0) and (0,1) give simplicial triangles {a,b,d} and {a,c,d}; thus q∂Γ(a,b,c,d)=∂[a,b,d]-∂[a,c,d]. Conversely each simplicial triangle {a,b,c} within a hyperedge lifts as the admissible square (a,b,a,c), whose Γ boundary maps to ∂[a,b,c]. These inclusions yield q(im∂Γ2)=im∂simp2 and ker q⊂im∂Γ2, a canonical quotient-chain isomorphism compatible with zero-degree boundary and hypergraph vertex maps. The known 6-vertex 10-triangle RP2 has integral H1=Z/2, and any f.g. abelian group is H1 of some finite triangulated 2-complex; choose its maximal simplices as hyperedges. Scope only degrees 0/1 and supported vertices; sample HNF checks cannot extrapolate but the explicit chain argument is universal.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for this exact final mathematical claim, with primary-source comparisons, qualified access residual risks, and four explicit implication checks.
+
+## value
+
+PASS
+
+A natural identification of a recently defined nonclassical homology theory with familiar simplicial homology in precisely its first nontrivial degrees is conceptually explanatory, enabling integral torsion and universal realizability by a simple reduction. The mathematical content is the all-hypergraph chain-relation theorem, not the textbook RP2 torsion table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
