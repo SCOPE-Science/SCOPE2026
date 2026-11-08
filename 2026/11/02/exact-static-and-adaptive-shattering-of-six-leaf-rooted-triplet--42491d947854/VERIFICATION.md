@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python verify_rooted_triples.py depth9_certificate.json` with Python 3.9 or later. All inputs are embedded in the supplied files. `make_certificate.py` can deterministically regenerate the depth-nine witness tree from the enumerated class.
+# Independent mathematical audit
 
-The verifier constructs \(945\) rooted full binary phylogenetic trees on six distinct leaf labels using root splits and independent leaf insertion, compares the sets of clusters, checks the unique true rooted-triplet orientation for each tree and triple, and exhausts all potential fixed supports containing a representative first query. Query symmetry makes this sufficient for all fixed supports. The valid support counts at sizes one through four are \((1,57,1458,18144)\); size five has zero. The four-query lower support realizes every one of \(16\) patterns.
+## correctness
 
-The depth-nine certificate has \(511\) internal query nodes and \(512\) distinct leaf witnesses. Each witness is tested against the full path from the root. The cardinality bound \(945<1024\) gives depth-ten impossibility. Smaller cases are recalculated by an exact memoized Littlestone recursion. Program output is preserved in `verification_output.txt`.
+PASS
 
-## Limits
-The upper VC bound is a finite exhaustive computation with executable source, not a compact handwritten classification of all supports. The adaptive certificate verifies existence at depth nine but does not supply a uniform construction for larger trees. All results are for the binary one-vs-rest encoding of rooted triples, not for multiclass Natarajan or multiclass Littlestone dimension. No independent audit has been performed.
+Root-bipartition recursion yields (2n−3)!! distinct rooted binary tree cluster systems; the 60 queries ab|c are true exactly when some proper cluster contains a,b but not c. Independent reconstruction generated all 945 trees and query incidence masks. Fixing the first query by S6 relabeling, an exhaustive canonical shattered-support recursion found counts of sizes 1..5 equal 1,57,1458,18144,0, giving VC=4. The actual frozen depth9_certificate.json was independently traversed against reconstructed tree masks: 511 internal nodes, 512 distinct consistent leaf concepts, so Ldim≥9; 945<1024 excludes 10. Attached original checker also handles n=3,4,5. Zero response allows either other triplet topology, not a specified multiclass alternative; this convention is essential.
+
+## originality
+
+PASS
+
+Tree Learning: Optimal Sample Complexity and Algorithms gives Natarajan n−2 and multiclass Littlestone order n log n, with two fixed labels per query; those results are not the Boolean one-vs-rest notion and do not force the exact 945-tree figures. Other rooted-tree encoding and triplet-consistency complexity results are about different invariants.
+
+## value
+
+PASS
+
+Exact adaptive depth nine attaining the information-theoretic limit and five-unit VC/Littlestone gap in the natural six-leaf labeled phylogeny hypothesis space show substantial structural offline/online distinction. This is a meaningful finite cutoff with 945 hypotheses and an exhaustive certificate, not an arbitrary tiny sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

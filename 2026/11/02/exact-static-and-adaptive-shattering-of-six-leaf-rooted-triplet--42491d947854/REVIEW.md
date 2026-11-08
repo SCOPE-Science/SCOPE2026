@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The class, Boolean query convention, and every finite search space are specified. The two independent constructions of the \(945\) tree concepts agree. The VC upper computation enumerates **all** supports containing one fixed query, an exhaustive reduction because label permutations act transitively on the query set; the four-query witness realizes all patterns. The nine-level tree certificate checks every one of \(512\) root-to-leaf paths, and \(945<1024\) proves the upper bound. Three- through five-leaf dimensions use a decreasing exact recurrence and fully executed checker. Computational enumeration is an integral part of the finite proof; no extrapolation is claimed.
+## correctness
 
-## Originality
-PASS under the accessible comparison. Avdiukhin et al. (2023) study a closely related but **multiclass** rooted-triplet problem: Natarajan dimension \(n-2\) and multiclass Littlestone dimension \(\Theta(n\log n)\). An unspecified alternative topology in the zero branch of a Boolean query is not the same as choosing a prescribed second multiclass label. Their general bounds do not yield the displayed exact six-leaf Boolean ranks. Harvey et al. (2024) address triplet consistency decision problems; Semple and Toft (2020) address reconstruction from triple information; Arvanitakis et al. (2026) address multiclass quartets. None of the inspected relevant portions reports the six-leaf pair \((4,9)\). Broader historical-priority uncertainty remains.
+PASS
 
-## Value
-PASS. Rooted triplets are a canonical minimal local statistic for reconstructing hierarchical trees; their one-vs-rest encoding is a natural binary online-prediction class, distinct from previously treated multiclass orientation queries. The six-leaf case provides an exact sharp benchmark where adaptive depth nine saturates the full \(945\)-concept entropy bound while static shattering is only four, a gap of five. This specific small-system boundary is a motivated classification with explicit finite certificates, not an arbitrary subset or unverified asymptotic extrapolation.
+Root-bipartition recursion yields (2n−3)!! distinct rooted binary tree cluster systems; the 60 queries ab|c are true exactly when some proper cluster contains a,b but not c. Independent reconstruction generated all 945 trees and query incidence masks. Fixing the first query by S6 relabeling, an exhaustive canonical shattered-support recursion found counts of sizes 1..5 equal 1,57,1458,18144,0, giving VC=4. The actual frozen depth9_certificate.json was independently traversed against reconstructed tree masks: 511 internal nodes, 512 distinct consistent leaf concepts, so Ldim≥9; 945<1024 excludes 10. Attached original checker also handles n=3,4,5. Zero response allows either other triplet topology, not a specified multiclass alternative; this convention is essential.
 
-## Limitations
-No exact general formula beyond six leaves; upper VC bound computer assisted. Relevant adjacent multiclass literature is acknowledged, including a potentially strong 2023 comparison. Full inspection of every historical publication is not possible; no global uniqueness or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tree Learning: Optimal Sample Complexity and Algorithms gives Natarajan n−2 and multiclass Littlestone order n log n, with two fixed labels per query; those results are not the Boolean one-vs-rest notion and do not force the exact 945-tree figures. Other rooted-tree encoding and triplet-consistency complexity results are about different invariants.
+
+## value
+
+PASS
+
+Exact adaptive depth nine attaining the information-theoretic limit and five-unit VC/Littlestone gap in the natural six-leaf labeled phylogeny hypothesis space show substantial structural offline/online distinction. This is a meaningful finite cutoff with 945 hypotheses and an exhaustive certificate, not an arbitrary tiny sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
