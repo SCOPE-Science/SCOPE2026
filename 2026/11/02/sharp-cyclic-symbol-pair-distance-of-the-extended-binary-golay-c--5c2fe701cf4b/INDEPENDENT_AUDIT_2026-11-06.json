@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:58:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the [24,12,8] binary extended Golay realization with the seven-term cyclic generator and parity extension, Witt S(5,8,24) octads contain each five-coordinate consecutive window, forcing an octad with at least four cyclic internal edges and pair weight <=16-4=12 for ANY ordering. The explicit displayed 24-coordinate permutation has exactly 30,118,240,234,137 octads with respectively 0,1,2,3,4 internal edges, no octad above four; pair weight for Hamming weight 8 is 16-e, while other possible Hamming weights 12,16,24 cannot yield a smaller nonzero pair weight. Independently regenerated all 2^12 codewords and the 42504 pentad-to-octad incidences and direct pair minimum 12. The universal all-permutation inequality is a design proof, not a sampled permutation search.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard symbol-pair Singleton bound and linear cyclic code results involve general code parameters or fixed cyclic coordinates, while coordinate optimization of the extended Golay noncyclic presentation adds a separate extremization.",
+          "A general upper bound >=12 does not itself imply 12 exactly."
+        ],
+        "reasoning": "Related broad pair-metric theory does not directly prove this ordering-specific exact optimum; require comparison via statement implications, not nonmatching titles.",
+        "searches": [
+          "Cassuto Blaum Codes for Symbol-Pair Read Channels 2011",
+          "Yaakobi Bruck Siegel b-Symbol Read Channels 2016",
+          "Chen Covering b-Symbol Metric Codes arxiv 2206.12668"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFY.py at assigned Git tree",
+        "GUAVA Golay generator documentation",
+        "Chapman Golay survey bibliographic description",
+        "Cassuto–Blaum 2011",
+        "Yaakobi–Bruck–Siegel 2016",
+        "Chen arXiv:2206.12668",
+        "Resultary semantic query: Extended binary Golay code G24 optimal coordinate permutation cyclic symbol pair distance Witt octad symbol-pair metric"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chapman and GUAVA give code and design structure, directly implying universal upper bound 12 once interpreted through pair weights.",
+          "An exact permutation with maximal octad edge-count four is a further independent fact."
+        ],
+        "reasoning": "The bound alone is covered by classical ingredients plus one short deduction; the original substantive contribution is the sharp all-permutation optimum and construction with exhaustive octad verification.",
+        "searches": [
+          "Chapman Constructions of the Golay Codes survey 1997",
+          "Extended binary Golay code G24 optimal coordinate permutation cyclic symbol pair distance Witt octad symbol-pair metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A binary support S has pair weight 2|S|-e_C(S); thus the claim is equivalent to optimizing the maximum cycle-edge count of any Steiner octad over all labeled Hamiltonian 24-cycles.",
+          "Resultary semantic search found other small cyclic symbol-pair codes and binary Hamming codes, not this Golay octad/cycle optimization."
+        ],
+        "reasoning": "Searched both coding metric and Witt-block/cycle-edge formulations. No directly dominating matching statement appeared; absence of indexed results alone does not certify priority.",
+        "searches": [
+          "Extended binary Golay code G24 optimal coordinate permutation cyclic symbol pair distance Witt octad symbol-pair metric",
+          "Golay coordinate permutation pair symbol read channel design octad cycle-edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical octad count 759 and Witt S(5,8,24) system are known database facts.",
+          "The claimed tally 30/118/240/234/137 and explicit order are verified by a fresh 4096-word enumeration rather than copied from a known table."
+        ],
+        "reasoning": "Known Golay parameters do not provide the optimal cyclic-order certificate or best pair distance without nontrivial extremal argument.",
+        "searches": [
+          "Extended binary Golay code G24 optimal coordinate permutation cyclic symbol pair distance Witt octad symbol-pair metric",
+          "GUAVA Golay Codes generator and Witt octads",
+          "Resultary Golay pair distance 24 permutation"
+        ]
+      },
+      "rationale": "Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.",
+      "residual_risks": [
+        "Unindexed or differently phrased prior octad-cycle optimization might already imply exact value 12.",
+        "Not all cited coding theory source full texts were inspected in this run; best-of-knowledge O, not guaranteed novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical octad design is explicitly prior; no whole-document novelty exclusion asserted.",
+          "evidence": [
+            "759 octads, unique octad through each pentad, classical Golay spectrum."
+          ],
+          "identifier_or_url": "https://empslocal.ex.ac.uk/people/staff/rjchapma/etc/golay11.pdf",
+          "material_read": "Code package reference and accessible mathematical descriptions of standard octads/design; full external PDF text not established in current run.",
+          "method": "Package cross-check against standard classical parameters; limited online discovery",
+          "title": "Constructions of the Golay Codes: A Survey",
+          "trigger": "Foundational Witt design and octad source"
+        },
+        {
+          "assessment": "Source supports cyclic 23-code generator but not cycle-edge optimization.",
+          "evidence": [
+            "Reciprocal generator 1+x^2+x^4+x^5+x^6+x^10+x^11."
+          ],
+          "identifier_or_url": "https://gap-packages.github.io/guava/doc/chap5.html",
+          "material_read": "Online technical generator presentation and reciprocal polynomial identification.",
+          "method": "Online documentation read",
+          "title": "GUAVA Golay Codes documentation",
+          "trigger": "Check cyclic generator equivalence"
+        },
+        {
+          "assessment": "Establishes pair metric background, exact permutation claim not excluded from unseen text.",
+          "evidence": [
+            "Overlapping symbol-pair metric definitions and channel motivation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2011.2164891",
+          "material_read": "Bibliographic and summarized mathematical scope; not the complete full text.",
+          "method": "Source search and package citation review",
+          "title": "Codes for Symbol-Pair Read Channels",
+          "trigger": "Origin of pair-read metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimizing the readout coordinate order of a fixed exceptional error-correcting code is a well-defined natural symbol-pair-channel performance invariant. Both a nontrivial all-layout impossibility via the Witt design and an explicit exact attaining order are obtained; the degree of the improvement and its finite 24-coordinate scope are explicit, not a generic routine parameter-substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed binary extended Golay code G24, cyclic overlapping read pairs, arbitrary coordinate reordering only; no all-orders census or other b-symbol window result."
+  ],
+  "schema_version": 1
+}

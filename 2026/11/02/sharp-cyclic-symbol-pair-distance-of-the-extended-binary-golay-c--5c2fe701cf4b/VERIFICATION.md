@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the optimized Golay pair-distance bound
+# Independent mathematical audit
 
-Execute `python VERIFY.py` using Python 3.8 or later. The standalone program has no dependencies, network access, mutable inputs, or external data files.
+## correctness
 
-It generates the 4096 parity-extended words of the degree-eleven binary cyclic generator; checks codeword uniqueness and Hamming enumerator; tests all 42504 five-element coordinate subsets for exact Steiner uniqueness; counts all induced edges of all 759 octads in the explicit coordinate order; and measures the entire pair-weight enumerator by direct adjacent-pair inspection.
+PASS
 
-Expected terminal final line: `VERIFY_OK`. Prior to that line it prints the Hamming enumerator, octad internal-edge counts, complete pair-weight enumerator, and optimum 12. The upper bound for arbitrary coordinate permutations follows from the fully tested five-design property, since every order includes a five-consecutive-coordinate subset and thus an octad containing its four edges. No enumeration of all 24! orders is needed or claimed.
+For the [24,12,8] binary extended Golay realization with the seven-term cyclic generator and parity extension, Witt S(5,8,24) octads contain each five-coordinate consecutive window, forcing an octad with at least four cyclic internal edges and pair weight <=16-4=12 for ANY ordering. The explicit displayed 24-coordinate permutation has exactly 30,118,240,234,137 octads with respectively 0,1,2,3,4 internal edges, no octad above four; pair weight for Hamming weight 8 is 16-e, while other possible Hamming weights 12,16,24 cannot yield a smaller nonzero pair weight. Independently regenerated all 2^12 codewords and the 42504 pentad-to-octad incidences and direct pair minimum 12. The universal all-permutation inequality is a design proof, not a sampled permutation search.
 
-The enumeration is exhaustive for this finite, explicitly defined code and its octads. It makes no claim about other Golay realizations without the appropriate coordinate relabeling, other lengths, or independent outside review.
+## originality
+
+PASS
+
+Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.
+
+## value
+
+PASS
+
+Optimizing the readout coordinate order of a fixed exceptional error-correcting code is a well-defined natural symbol-pair-channel performance invariant. Both a nontrivial all-layout impossibility via the Witt design and an explicit exact attaining order are obtained; the degree of the improvement and its finite 24-coordinate scope are explicit, not a generic routine parameter-substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
