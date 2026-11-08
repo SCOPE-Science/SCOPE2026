@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Full proof checks distance-two criterion, universal two-set obstruction, all intersecting-edge triple cases, the matching iff n<=7 condition, and a universal four-set. Matching count = 15*C(n,6) at n=6,7. Finite independent adjacency checks at n=5,...,10 reproduce bounds and counts; all infinite quantifiers are proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Di Stefano et al., arXiv:2306.09965, Theorem 5.1 computes the minimum size of a maximal general-position set on KG(n,2), which is 5 at n=10,11 and 6 thereafter.",
+        "Cody–Detore Proposition 2.1: maximal (k,d)-independent sets are (k,d)-dominating; converse is not stated.",
+        "Cornet–Torres, arXiv:2308.15603, abstract: k-tuple domination is a neighborhood multiplicity requirement."
+      ],
+      "reasoning": "The earlier lower-general-position minimum is an upper bound for the current parameter but is strictly larger from order ten onward. Ordinary/total domination and neighbor-count k-tuple domination are different requirements, with no prior domination theorem covering the geodesic path constraint.",
+      "searches": [
+        "metric general position domination of Kneser graphs 3 2 exact all n",
+        "Kneser general position geodesic domination 3 2",
+        "Kneser k-tuple domination multiple domination geodesic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.04351v2 Definition 1.1 and Question 6.1",
+      "Ivančo–Zelinka 1993 Theorems 1 and 3",
+      "arXiv:2306.09965 Theorem 5.1",
+      "arXiv:2308.15603 abstract",
+      "Accessible research-record semantic query matches for complete multipartite (3,2)-domination and Kneser nearest neighbors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ivančo–Zelinka Theorem 1: ordinary domination is always 3 and its triples are matchings or triangles. Their Theorem 3: total domination is 3 for n>=6.",
+        "Di Stefano et al. Theorem 5.1: lower general position is 5 for n=10,11 and 6 for n>=12.",
+        "The new witness consisting of a ground-set triangle and a disjoint edge contains a selected two-geodesic, so is not general position, and the new minimum is 4 for n>=8."
+      ],
+      "reasoning": "The old scalar 3 and triple characterization provide useful necessary conditions but do not establish the four-set upper bound, the n=8 threshold, or the strict separation from lower general position. The old minimum-maximal-general-position theorem cannot imply equality here because it is strictly different for every n>=10. The full unbounded claim is proved directly rather than inferred from finite experiments.",
+      "searches": [
+        "Kneser KG(n,2) exact (3,2)-domination number geodesic three vertex path four vertices three disjoint pairs",
+        "metric general position domination of Kneser graphs 3 2 exact all n",
+        "three matching edges geodesic domination KG(n,2) threshold n=7 n=8",
+        "Kneser ordinary total domination Ivančo Zelinka lower general position exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cody and Detore, arXiv:2601.04351v2, Definition 1.1 defines (3,2)-domination using two selected vertices on a common two-geodesic. Question 6.1 names Kneser graphs.",
+        "Ivančo and Zelinka, Mathematica Bohemica 118 (1993), Theorem 1 classifies ordinary dominating triples; its parameter is weaker."
+      ],
+      "reasoning": "Aliases include geodesic domination, two-geodesic path coverage, and the dominating-set property of the three-uniform geodesic hypergraph. No inspected source states the claimed n=5,6,7,>=8 transition; the 1993 ordinary domination theorem does not impose a two-selected-one-geodesic witness.",
+      "searches": [
+        "Kneser KG(n,2) exact (3,2)-domination number geodesic three vertex path four vertices three disjoint pairs",
+        "minimum 3,2 domination Kneser Petersen graph Cody Detore",
+        "Kneser graph (3,2) domination number shortest path metric domination 2026",
+        "Kneser geodesic dominating three vertices metric 3 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The tables and characterizations in arXiv:2306.09965 Sec. 5 concern lower general position, not the present parameter.",
+        "Theorems 1 and 3 of Ivančo–Zelinka 1993 concern ordinary and total domination; the scalar values differ from the new value for n>=8."
+      ],
+      "reasoning": "No exact-value table for this invariant was identified in the accessed sources or research-record searches. No claim is made that a comprehensive external table archive was exhaustively searched.",
+      "searches": [
+        "three matching edges geodesic domination KG(n,2) threshold n=7 n=8",
+        "Kneser KG(n,2) 3 2 geodesic domination 4 threshold 8",
+        "Kneser graph (3,2) domination number shortest path metric domination 2026"
+      ]
+    },
+    "rationale": "The motivating 2026 framework leaves Kneser graphs open. Exact ordinary and total domination (1993), lower general-position (2023), and k-tuple domination are distinct. The n>=10 gap from lower general-position and the explicit four-element geodesic-dominating construction are not supplied by those results. Historical priority provisional.",
+    "residual_risks": [
+      "An unindexed article, thesis, or unpublished manuscript might have this exact geodesic invariant.",
+      "The Kneser paper on k-tuple domination was inspected only at abstract level because its invariant is explicitly different; no whole-document coverage assertion is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_BUT_DOES_NOT_COVER",
+        "evidence": "Definition 1.1 item 4 and Question 6.1 explicitly name the definition and request exact Kneser graph invariants.",
+        "identifier_or_url": "https://arxiv.org/html/2601.04351v2",
+        "material_read": "Definition 1.1, Proposition 2.1, introduction, Section 6 Question 6.1 and references",
+        "method": "Full public arXiv HTML sections read",
+        "title": "Metric general position extensions of classical graph invariants and perfection",
+        "trigger": "Source of the exact invariant and Kneser-graph question"
+      },
+      {
+        "assessment": "CLOSEST_WEAKER_PREDICATE_NOT_COVERING_NEW_CLAIM",
+        "evidence": "Theorem 1 says ordinary minimum is three and its minimum sets are matching triples or triangle triples. Theorem 3 concerns total domination, again a different witness rule.",
+        "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+        "material_read": "Pages 147-152 source text, specifically Theorems 1 and 3 and their proof cases; original page 148 inspected visually",
+        "method": "Digitized primary article text and original page image",
+        "title": "Domination in Kneser graphs",
+        "trigger": "Same graph family and ordinary/total domination terminology"
+      },
+      {
+        "assessment": "DISTINCT_STRONGER_ADMISSIBILITY_CONSTRAINT",
+        "evidence": "Their minimum is over sets that are both general position and maximal; it equals 5 at 10,11 and 6 thereafter, whereas the proposed geodesic-dominating minimum equals 4.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.09965",
+        "material_read": "Definition 1.2, Section 5 Theorem 5.1 and full argument in the Kneser graph case",
+        "method": "Public arXiv full-text HTML",
+        "title": "Lower General Position Sets in Graphs",
+        "trigger": "Same graph family and superficially similar smallest covering sets"
+      },
+      {
+        "assessment": "DIFFERENT_DEFINED_INVARIANT",
+        "evidence": "The paper counts selected neighbours rather than selected vertices on a single shortest path; no implication is inferred from the abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.15603",
+        "material_read": "Public arXiv abstract and description of the neighbor-counting parameter",
+        "method": "Abstract-level source inspection; no whole-document exclusion asserted",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Similar name, exact same graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8fb72445-b963-42dc-b30b-e31aebdb6407",
+  "value": {
+    "rationale": "Addresses Cody–Detore Question 6.1 with a sharp, natural complete rank-two Kneser family invariant; the 4->3->4 finite threshold, full size-three optimizer classification and uniform four-set construction give a new structural distinction. It proves a strict gap from the previously exact lower general-position number for all n>=10. No large general theorem is assumed necessary.",
+    "status": "PASS"
+  }
+}

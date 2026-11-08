@@ -1,0 +1,39 @@
+# Sharp \(3,2\)-geodesic domination of rank-two Kneser graphs
+
+## Finding
+Let \(G_n=KG(n,2)\), for every integer \(n\ge5\). Its vertices are the two-element subsets of \([n]\), with two vertices adjacent exactly when the corresponding subsets are disjoint. Under the \((3,2)\)-geodesic domination definition of Cody and Detore, the exact minimum is
+\[
+\gamma^{3}_{2}(G_n)=\begin{cases}3,&n\in\{6,7\},\\4,&n=5\text{ or }n\ge8.\end{cases}
+\]
+Moreover, at \(n=6,7\) the minimum dominating sets are **exactly** the sets of three pairwise disjoint two-element subsets of \([n]\); their respective numbers on labelled vertices are \(15\) and \(105\), or uniformly \(15\binom n6\) for these two orders.
+
+## Assumptions and scope
+Graphs are finite, simple and unweighted. A set \(D\subseteq V(G)\) is \((3,2)\)-dominating if for each \(v\notin D\) there is a shortest path of length at most two containing \(v\) and at least two vertices of \(D\). In \(G_n\) with \(n\ge5\), intersecting two-element subsets are at distance two (there is a two-element subset disjoint from their union), whereas disjoint subsets are adjacent. Therefore a triple of distinct vertices is the full vertex set of a two-geodesic precisely when its induced graph is a path on three vertices: exactly two adjacency pairs, with a nonadjacent endpoint pair. The theorem does not invoke a different convention for geodesic domination.
+
+## Proof
+**Lower bound of three.** A set with fewer than two vertices cannot satisfy the definition. Suppose that \(D\) has two members \(A,B\). Choose an unselected two-element subset \(e\) meeting both \(A\) and \(B\): when they intersect, take their common element together with a different unused ground element; when they are disjoint, take one element from each. Such a choice exists for \(n\ge5\). The vertex \(e\) is adjacent in \(G_n\) to neither member of \(D\), hence lies on no two-geodesic containing two selected vertices. Thus \(|D|\ge3\).
+
+**Three selected vertices must be disjoint as ground-set pairs.** Let \(D=\{A,B,C\}\), and suppose that \(A\) and \(B\) intersect. Relabel so that \(A=\{1,2\}\) and \(B=\{1,3\}\). If \(1\in C\), choose a ground element \(x\) with \(\{1,x\}\notin D\); this is possible because \(n-1\ge4\). The outside vertex \(e=\{1,x\}\) meets all three members of \(D\), so no member is adjacent to \(e\) in \(G_n\).
+
+If \(C=\{2,3\}\), choose \(e=\{1,x\}\) with \(x\notin\{1,2,3\}\). The only member of \(D\) adjacent to \(e\) is \(C\), while \(C\) is adjacent to neither \(A\) nor \(B\). Hence no two-geodesic through \(e\) contains two selected vertices. In every remaining case \(1\notin C\) and \(C\ne\{2,3\}\), so \(C\) has an endpoint \(x\notin\{1,2,3\}\); choosing \(e=\{1,x\}\) again produces an outside vertex meeting all three selected pairs. All possibilities are excluded. Thus any dominating triple is a three-edge matching on the ground set.
+
+**Exact criterion for a selected matching triple.** Suppose \(A,B,C\) are pairwise disjoint two-element subsets. If at least two ground elements are unused, the vertex \(e\) formed by them is outside \(D\), and \(\{e,A,B,C\}\) is a clique in \(G_n\). No three of its vertices lie on a two-geodesic. Conversely, if at most one ground element is unused, then each \(e\notin D\) meets at least one of \(A,B,C\), say \(A\), and avoids at least one other, say \(B\). The path \(e-B-A\) in \(G_n\) has length two and is shortest, since \(e\) meets \(A\). It contains two selected vertices. Therefore a dominating triple exists precisely for \(n\in\{6,7\}\), and all of them are matching triples. Choosing six ground elements and pairing them in three unordered pairs yields \(\binom n6 6!/(2^3 3!)=15\binom n6\) minimum triples.
+
+**Four-vertex construction for every order.** Choose five distinct ground elements \(1,2,3,4,5\), and set \(D=\{\{1,2\},\{1,3\},\{2,3\},\{4,5\}\}\). Let \(e\notin D\) be arbitrary. If \(e\) is disjoint from \(\{1,2,3\}\), it is disjoint from the triangle pairs \(\{1,2\},\{1,3\}\), which intersect each other; these three vertices form a two-geodesic with middle vertex \(e\). Otherwise \(e=\{u,v\}\) with \(u\in\{1,2,3\}\) and \(v\notin\{1,2,3\}\). If \(v\notin\{4,5\}\), choose a triangle edge \(A\) containing \(u\): \(e-\{4,5\}-A\) is a two-geodesic. If \(v\in\{4,5\}\), choose the triangle edge \(B\) not containing \(u\): \(e-B-\{4,5\}\) is a two-geodesic. In every case the geodesic contains two members of \(D\). Hence \(\gamma^3_2(G_n)\le4\) for all \(n\ge5\). Combining with the previous paragraphs gives the asserted exact formula and minimizer classification. \(\square\)
+
+## Verification
+The accompanying standalone Python 3 program `verify.py` constructs \(KG(n,2)\) directly, enumerates all three-vertex geodesics by graph adjacency, and tests every possible selected pair and triple for \(5\le n\le10\). It also exhaustively checks all four-element choices for \(n\in\{5,8,9,10\}\), and tests the stated four-element construction in every case. Observed numbers of dominating triples are \(0,15,105,0,0,0\) respectively for \(n=5,6,7,8,9,10\), with no dominating pairs. The program terminates with `VERIFY_OK`. Finite checks are corroborative; the proof above covers all integers in the theorem.
+
+## Relationship to prior work
+Cody and Detore (arXiv:2601.04351, initial public submission 2026-01-07) defined \((k,d)\)-domination and specifically asked for the associated invariants of Kneser graphs (Definition 1.1 and Question 6.1). Ivančo and Zelinka (1993, Theorems 1 and 3) had already determined ordinary and total domination numbers of \(KG(n,2)\), including the fact that an ordinary dominating triple is either a matching or a triangle on the ground set. Their results are prior work; the present claim imposes the additional **two-selected-vertices-on-one-shortest-path** condition, which excludes triangle triples and matching triples from order eight onward, and supplies a four-element construction.
+
+Di Stefano, Klavžar, Krishnakumar, Tuite and Yero (arXiv:2306.09965, Theorem 5.1) had determined the *lower general position number* \(\operatorname{gp}^{-}(KG(n,2))\), a different quantity requiring a dominating set also to be in general position. Their value is five at orders ten and eleven and six at all orders at least twelve. Therefore the present exact value four yields the strict separation \(\gamma^{3}_{2}(KG(n,2))<\operatorname{gp}^{-}(KG(n,2))\) for every \(n\ge10\). The four-set construction contains a two-geodesic of three selected vertices and is not itself a general position set. Cornet and Torres (arXiv:2308.15603) study a distinct neighbor-counting \(k\)-tuple domination parameter. No historical uniqueness claim beyond the inspected materials is made.
+
+## Limitations
+The result applies only to rank-two Kneser graphs with \(n\ge5\) and to \((k,d)=(3,2)\). It does not classify four-element minimum sets at the orders where the minimum is four, and it does not assert analogous behavior for higher-rank Kneser graphs or other parameters. Novelty assessment is limited to the cited materials and accessible research records; hidden or unindexed equivalent prior results remain possible.
+
+## References
+1. B. Cody and R. Detore, *Metric general position extensions of classical graph invariants and perfection*, arXiv:2601.04351v2 (2026), especially Definition 1.1 and Question 6.1. https://arxiv.org/html/2601.04351v2
+2. J. Ivančo and B. Zelinka, *Domination in Kneser graphs*, Mathematica Bohemica 118 (1993), 147–152, Theorems 1 and 3. https://dml.cz/dmlcz/126050
+3. G. Di Stefano, S. Klavžar, A. Krishnakumar, J. Tuite and I. G. Yero, *Lower General Position Sets in Graphs*, arXiv:2306.09965 (2023), Theorem 5.1. https://arxiv.org/abs/2306.09965
+4. M. G. Cornet and P. Torres, *\(k\)-tuple domination on Kneser graphs*, arXiv:2308.15603 (2023). https://arxiv.org/abs/2308.15603
