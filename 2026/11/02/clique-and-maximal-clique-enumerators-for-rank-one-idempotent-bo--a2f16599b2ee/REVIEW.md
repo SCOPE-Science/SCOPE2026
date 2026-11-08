@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Boolean composition identity for rectangular relations gives idempotency exactly when the two supports intersect. For two distinct idempotents a commuting nonzero product would force identical row and column supports, so every commuting distinct pair has zero products both ways. Every ground-set coordinate of a labeled clique is therefore uniquely absent, confined to a nonempty subset of row supports, confined to a nonempty subset of column supports, or a singleton-label shared root. Requiring all root labels gives the exact first inclusion–exclusion formula. An extending idempotent exists if and only if a ground coordinate is unused, yielding the second. These arguments work for every integer \(n\ge1\). The unique top clique, the range of maximal clique sizes, and the coloring bound follow from disjoint roots. A direct Boolean-product exhaustive verifier confirms all counts and maximality equivalences through \(n=4\). Risk: tests are finite, but the general proof does not depend on enumeration.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Kim–Roush (1981) covers the ambient binary-relation semigroup and established Boolean matrix machinery. Margolis–Steinberg (arXiv:2302.06539, first posted 2023-02-13) covers faithful degrees and the minimal ideal, not commuting-clique coefficients. Paulista (arXiv:2510.23871, 2025) explicitly supplies the more general commuting criterion (Lemma 3.2) and clique *number* (Theorem 5.4): these prerequisites and the bound \(\omega=n\) are not claimed new. Its inspected introduction and clique-number section do not supply the two all-\(k\) enumeration formulas or the maximality-by-support criterion. Dolžan–Kokol Bukovšek–Oblak (arXiv:1012.5505) concern full matrix semiring commuting-graph diameter. Searches for equivalent Boolean rank-one idempotent maximal-clique enumerations and broader 0-Rees formulas found no covering theorem. The strongest residual risk is unlocated general clique-enumeration literature that could imply these formulas; lack of a search hit is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The nonzero rank-one stratum is a canonical piece of the binary-relation semigroup, and maximal families of commuting idempotents are natural subband configurations. Determining every clique coefficient and the complete distribution of *inclusion-maximal* clique sizes, rather than only the previously studied clique number, gives precise structural information for every finite size. The covering characterization distinguishes maximality from maximum cardinality and shows the graph is not well-covered. The elementary nature of the proof and the prior general commuting criterion delimit the contribution; no broad new semigroup structure theorem is claimed.
+Boolean rectangle multiplication X_AB X_CD is X_AD iff B intersects C, else zero; distinct idempotent rectangles commute exactly when both cross intersections vanish. Coordinate t lies in one of 1+(2^k-1)+(2^k-1)+k=2^(k+1)+k-1 allowed membership types; every label i needs a root coordinate A_i intersect B_i. Inclusion-exclusion over missing roots divided by k! gives c_nk, removing the empty coordinate type gives maximal enumerator. Any unused coordinate supplies a new singleton diagonal, and a commuting extension needs an unused coordinate, proving maximality iff the union covers [n]. Disjoint roots force k<=n and give unique full diagonal clique, omega=chi=n; all 1..n maximal sizes constructed. Independently computed commuting graph by literal Boolean matrices and enumerated all cliques n=1,2,3; counts (1,1),(1,7,1),(1,37,24,1) and maximal (1),(5,1),(19,21,1). n=4 source executable not run independently; all-n follows from coordinate proof.
 
-## Verification and limits
-The included verifier computes actual Boolean products and exhaustively checks the graph and both enumerators for \(n=1,2,3,4\); all assertions pass. Characteristic assumptions are inapplicable because multiplication is Boolean, not over a field. The formulas do not extend here to all idempotents or all commutative subsemigroups of the full monoid. Independent mathematical and publication-priority validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Explicit whole-clique and maximal-clique coefficients and support criterion for nonzero rank-one idempotents are not the same as the previously known commuting graph clique number. General completely 0-simple Rees theorem 5.4 gives omega and a commuting criterion but not a full coefficient count in inspected primary sections. Resultary and mathematical alias searches did not return an exact enumerator. This is best-of-knowledge, not a global novelty proof.
+
+## value
+
+PASS
+
+Natural family of nonzero Boolean rank-one idempotents and its commuting graph. Exact all-size clique generating coefficients and inclusion-maximal size distribution are independent graph invariants needed to study graph clique structure, not an arbitrary parameter slice or renaming. The colorful normal form and support criterion provide reusable combinatorial structure beyond the known clique number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

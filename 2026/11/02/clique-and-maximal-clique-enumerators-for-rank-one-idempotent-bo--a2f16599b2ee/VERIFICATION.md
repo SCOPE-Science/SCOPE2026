@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The companion `verify.py` reconstructs every Boolean-rank-one idempotent rectangle and performs direct Boolean matrix multiplication; commutation is determined from the computed products, not imported from the theorem. It builds each finite commuting graph, recursively enumerates every clique, scans all vertices for maximality and separately checks the claimed coordinate-coverage criterion. The observed all-clique and maximal-clique rank vectors agree with both symbolic inclusion–exclusion formulas for \(1\leq n\leq4\). The largest tested graph has \(175\) vertices. Execution ends with `VERIFY_OK`.
+## correctness
 
-The mathematical argument is for every integer \(n\geq1\); finite experiments are corroborative and do not prove the infinite statement. No independent scientific audit was performed. The enumeration excludes zero, higher Boolean-rank idempotents and non-idempotent commuting elements. Originality with respect to broader general enumeration formulas is not independently established.
+PASS
+
+Boolean rectangle multiplication X_AB X_CD is X_AD iff B intersects C, else zero; distinct idempotent rectangles commute exactly when both cross intersections vanish. Coordinate t lies in one of 1+(2^k-1)+(2^k-1)+k=2^(k+1)+k-1 allowed membership types; every label i needs a root coordinate A_i intersect B_i. Inclusion-exclusion over missing roots divided by k! gives c_nk, removing the empty coordinate type gives maximal enumerator. Any unused coordinate supplies a new singleton diagonal, and a commuting extension needs an unused coordinate, proving maximality iff the union covers [n]. Disjoint roots force k<=n and give unique full diagonal clique, omega=chi=n; all 1..n maximal sizes constructed. Independently computed commuting graph by literal Boolean matrices and enumerated all cliques n=1,2,3; counts (1,1),(1,7,1),(1,37,24,1) and maximal (1),(5,1),(19,21,1). n=4 source executable not run independently; all-n follows from coordinate proof.
+
+## originality
+
+PASS
+
+Explicit whole-clique and maximal-clique coefficients and support criterion for nonzero rank-one idempotents are not the same as the previously known commuting graph clique number. General completely 0-simple Rees theorem 5.4 gives omega and a commuting criterion but not a full coefficient count in inspected primary sections. Resultary and mathematical alias searches did not return an exact enumerator. This is best-of-knowledge, not a global novelty proof.
+
+## value
+
+PASS
+
+Natural family of nonzero Boolean rank-one idempotents and its commuting graph. Exact all-size clique generating coefficients and inclusion-maximal size distribution are independent graph invariants needed to study graph clique structure, not an arbitrary parameter slice or renaming. The colorful normal form and support criterion provide reusable combinatorial structure beyond the known clique number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
