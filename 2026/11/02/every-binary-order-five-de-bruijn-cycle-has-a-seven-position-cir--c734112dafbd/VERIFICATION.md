@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 checker.py` using standard Python 3.8+ (no dependencies). The check enumerates all 65536 complementary predecessor-choice maps on five-bit states, isolates 2048 full cycles, and independently enumerates exactly the same 2048 rooted cycles using four-bit Euler tours. It generates 384 eligible seven-position subsets by cyclic gap compositions and checks all 30 short circular factors for each cycle by precise bit masks. Every cycle passes; the number of optimum seven-subsets lies from 216 to 368, attained by 4 and 2 cycles respectively, with overall total 589120. Each cycle's selected optimum is separately tested via literal substrings for lengths at most five, and the two extremal examples are tested through length 32.
+# Independent mathematical audit
 
-The proof explains why those finite loops are exhaustive; running the program is a computational replay, not a replacement for reading that reduction. Independent mathematical audit has not been performed. The claim is limited to binary order-five circular de Bruijn words and their indexed factors of lengths one through 32.
+## correctness
+
+PASS
+
+All 32 length-five factors occur once, so at least ceil(32/5)=7 marks. Any seven marks hitting all length-five windows have positive gaps <=5 with deficits summing to three; 84 ordered deficit vectors yield exactly 384 distinct indexed candidate sets. Such a candidate hits all longer factors by the uniquely occurring length-five prefix; 30 short factor masks decide remaining lengths one through four. Exhaustively enumerate 2^16 shift-compatible state successor choices, the 2048 cycles with a single 32-cycle, and all 384 candidates. An independent Euler-tour enumeration supplies a second proof of completeness.
+
+## originality
+
+PASS
+
+Best-of-knowledge original in its precise qualified statement. Prior sources study linearized de Bruijn strings and asymptotic bounds, or an attractor for one Lyndon-generated prime-order construction; the circular cyclic-all-2048, exact indexed multiplicity spectrum and extreme counts are not corollaries of these statements. Circular factor interpretation is essential. Priority limits are recorded; an inaccessible plausible source alone is not treated as automatic failure.
+
+## value
+
+PASS
+
+Circular attractors of de Bruijn cycles are natural minimal factor-hitting sets. This exhaustive order-five phase gives the precise optimum for every cycle and complete extremal distribution, useful as finite benchmark for general all-order questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

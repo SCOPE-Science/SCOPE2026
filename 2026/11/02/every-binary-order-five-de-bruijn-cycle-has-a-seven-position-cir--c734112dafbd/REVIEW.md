@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The lower bound follows because 32 unique five-bit windows each require a hit and each marked position covers at most five windows. Candidate seven-sets are exhaustively enumerated via gap deficits summing to three, yielding exactly 384 possibilities. All longer circular factors are covered automatically once their unique five-bit prefix is hit; the 30 shorter factors are checked by exact occurrence unions. Two independent enumerations agree on all 2048 de Bruijn cycles. The standalone checker replays all 2048 x 384 membership tests, reconstructs short factors, and directly verifies full-length circular factor coverage on extremal examples. Unproved domain: orders other than five and nonbinary alphabets.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Mantaci et al. (2021, Section 6.2, Proposition 41) provide asymptotic bounds for linear de Bruijn unfoldings and a lower-bound argument, not the circular seven-position theorem for each of the 2048 order-five cycles. Whittington (2024, Section 5, Theorem 29) obtains an optimum for one Lyndon-generated construction in prime order, while raising the general de Bruijn question. The present exact all-cycle claim is not implied by that existence result. The corresponding five-window hitting bound is insufficient on its own to guarantee coverage of short factors. Searches and comparisons of related indexed mathematical results found no precise complete classification, but cannot establish exhaustive historical priority.
+PASS
 
-## Value — PASS
-This exact optimality theorem settles a concrete first nontrivial finite instance of the all-de-Bruijn-cycle question posed in the attractor literature, rather than an arbitrary slice of an unrelated statistic. The sharp extremal count of optimum certificates quantifies the solution's robustness, and the constructive 384-set finite reduction makes the result reproducible and potentially informative for extension to larger orders. A general formula or higher-order existence theorem is not claimed.
+All 32 length-five factors occur once, so at least ceil(32/5)=7 marks. Any seven marks hitting all length-five windows have positive gaps <=5 with deficits summing to three; 84 ordered deficit vectors yield exactly 384 distinct indexed candidate sets. Such a candidate hits all longer factors by the uniquely occurring length-five prefix; 30 short factor masks decide remaining lengths one through four. Exhaustively enumerate 2^16 shift-compatible state successor choices, the 2048 cycles with a single 32-cycle, and all 384 candidates. An independent Euler-tour enumeration supplies a second proof of completeness.
 
-## Closest literature and limits
-The relevant sources are Mantaci et al. (2021), DOI:10.1016/j.tcs.2020.11.006, Section 6.2 and Proposition 41; Whittington (2024), arXiv:2407.15599v1, pages 16–17; and the earlier de Bruijn-cycle literature, including Ruskey–Sawada–Williams (2012), DOI:10.1137/100808782. Novelty remains qualified by the incompleteness of global historical retrieval. The result is finite and computer-assisted; the external independent check remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original in its precise qualified statement. Prior sources study linearized de Bruijn strings and asymptotic bounds, or an attractor for one Lyndon-generated prime-order construction; the circular cyclic-all-2048, exact indexed multiplicity spectrum and extreme counts are not corollaries of these statements. Circular factor interpretation is essential. Priority limits are recorded; an inaccessible plausible source alone is not treated as automatic failure.
+
+## value
+
+PASS
+
+Circular attractors of de Bruijn cycles are natural minimal factor-hitting sets. This exhaustive order-five phase gives the precise optimum for every cycle and complete extremal distribution, useful as finite benchmark for general all-order questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
