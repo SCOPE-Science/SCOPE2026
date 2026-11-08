@@ -1,0 +1,20 @@
+# Scientific review: modular scattered-subsequence state complexity
+
+## Correctness (C): PASS
+The statement fixes the exact binary language, the scattered pattern \(0^d1\), the modulus, target residue, and complete-DFA convention. The Vandermonde/binomial-basis period lemma verifies both necessary and sufficient prime-power divisibility, including composite moduli, \(d=1\), and every \(r\). The explicit DFA has \(mP_d(m)\) reachable states. For inequivalent states the continuations with independently chosen repeated-one blocks generate a subgroup of two residue coordinates. The equivalence of all acceptance predicates would force that subgroup to be the graph of an additive automorphism. The \(d\)-th forward difference fixes the automorphism to identity, forcing equal zero-count residues by minimal periodicity and then equal count residues. No finite experiment is used to infer the universal statement. The standalone checker reproduces 117 period, 243 minimization, 2849 reachability and 163820 direct-count cases.
+
+## Originality (O): PASS under checked coverage, with acknowledged historical risk
+Bruda's arXiv:2607.02578 proves eventual **exact-frequency lengthwise enumeration**; that does not determine the Myhill–Nerode index of a **modular-frequency language**. Alazemi–Černý's 2011 weighted trie/Parikh counting construction is close in object but its available abstract describes a counting representation, not an exact minimal-state formula or state-distinguishability theorem. Its full text was unavailable, so that comparison retains a specific priority risk rather than a purported whole-paper negative result. Colbourn et al.'s arXiv:1804.11175 explicitly define contiguous subword occurrences; the different occurrence notion prevents direct implication. The q-Parikh work provides a deformed counting formalism, without checked coverage of exact DFA minimization. Meaning-based prior searches for modular occurrence automata and prime-adic period state counts found no stronger explicit theorem; absence from searches alone is not used as proof of novelty. The new claimed contribution is exact for every \(d,m,r\), not an incremental recomputation of an existing table.
+
+## Value (V): PASS
+Modular counting of scattered patterns gives a natural regular-language family extending exact-frequency subsequence enumeration and Parikh-matrix counting. The result identifies its exact descriptional-complexity invariant for all pattern lengths and all moduli, including sharp prime-adic jumps at powers of the modulus primes. The matching minimality argument establishes that the explicit counter cannot be compressed by hidden right-language equivalences; this has direct value when constructing small automata for modular subsequence tests. The exact invariant and infinite parameter domain, not a finite checker, supply the mathematical significance.
+
+## Closest literature and limits
+1. G. Bruda, *Enumerating binary words restricted by subsequence frequency*, arXiv:2607.02578, 2026-06-30. Inspected available full text, introductory theorem and proof structure; exact frequency rather than modular DFA index.
+2. H. M. K. Alazemi and A. Černý, *Counting subwords using a trie automaton*, doi:10.1142/S0129054111008817 (2011). Bibliographic and extended abstract only; full text unavailable, possible implicit older specialization remains.
+3. C. J. Colbourn et al., *Counting Subwords and Regular Languages*, arXiv:1804.11175. Inspected accessible full HTML introduction, definitions and main theorems; contiguous occurrence languages rather than scattered modular counts.
+4. A. Renard et al., *q-Parikh Matrices and q-deformed binomial coefficients of words*, arXiv:2402.05657. Abstract/metadata consulted, not the full paper.
+
+The theorem does not extend beyond one prescribed scattered zero-power–one pattern without additional work. Independent review and historical-priority certification remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
