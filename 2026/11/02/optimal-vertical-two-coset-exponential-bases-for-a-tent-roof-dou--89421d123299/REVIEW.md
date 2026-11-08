@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed synthesis normalization is checked from the base cell of area \(1/4\). Every possible roof displacement (one, two, or three quarter-unit steps) is realized on a positive-measure set. The exact 2-by-2 singular spectra yield optimal, not merely admissible, bounds; invertibility and completeness are equivalent here. The global minimax step is checked interval by interval, and the local expansions are analytic. The supplied checker passes and does not replace the proof.
+PASS
 
-## Originality — PASS with residual historical risk
+The domain D is a vertical two-fold tile of Q=(0,1)x(0,1/4). Its displaced second point relative to Q is a/4 with a in {1,2,3}, all occurring on positive-area subsets; thus unfolding is unitary L²(D)→L²(Q;C²). Fourier factors (n,4m) have squared norm |Q|=1/4, and each two-coset fiber is [[1,1],[1,exp(2πita/4)]] up to a unitary phase. Its squared singular values are 2±2|cos(πat/4)|, giving exact normalized global bounds (1±rho)/2 with rho=max_{a=1,2,3}|cos(πat/4)|. Localized Fourier approximation proves sharpness, invertible fibers prove onto, and a singular positive-measure displacement destroys the Riesz basis: t≡0,4/3,2,8/3 modulo 4. Elementary trigonometric interval inequalities prove unique minimax t≡1,3, rho=1/√2 and squared ratio 3+2√2. Taylor expansion at the four collisions gives sharp quadratic coefficients π²a0²/64. Independently checked all three geometric displacements, exact singular Gram eigenvalues, 10,001-offset grid and quadratic constants; continuum proof is analytic.
 
-Asipchuk and De Carli's revised primary result proves the singled-out offset \(t=1\) on precisely this domain, with the same constants recovered here. This case is credited fully. Their proof provides the 2-by-2 block template, but it does not state the full parameterized frame bounds, complete failure residues, globally unique optimizing offsets, or all quadratic resonance constants. Nearby database records concern finite cyclic Fourier designs, general union bounds, and different sampling problems. Older implicit coverage through multi-tile theory remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the entire relative-offset design and exact stability landscape in the source paper's natural concrete example; the practical distinction between a valid basis and the uniquely best-conditioned basis is quantified. Failure boundaries have different sharp quadratic rates. The subject and invariant are motivated by stability of exponential Riesz reconstruction, not chosen solely for tractability.
+Asipchuk–De Carli original 2025 preprint/2026 article studies same domain. Their October 13, 2026 six-page revision corrects the frequency choice and gives fixed offset t=1 with constants (2±√2)/4; these constants and offset are credited. The all-real-offset complete profile, four excluded residues, all optimal offsets, and sharp quadratic resonance coefficients were not stated in inspected revised primary. General multi-tiling finite Vandermonde criteria imply the fiber reduction but not the complete minimax derivation without specializing the geometry; related Resultary cyclic Riesz problems have different geometries.
 
-## Scope and remaining risks
+## value
 
-Optimality holds within full-horizontal-integer, two-vertical-coset designs only. Other frequency geometries may improve conditioning. General abstract fiber theorems contain prerequisites for the derivation; historical priority for the complete optimized result is not independently certified. The finite numerical checker provides no global proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact Riesz-basis stability landscape and global best conditioning for a canonical nonconvex double-tile geometry is a motivated spectral-sampling design question. Classifying allowed offsets and their distinct quadratic breakdown rates supplies a genuine complete natural parameter classification, beyond merely reproducing one fixed existing example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
