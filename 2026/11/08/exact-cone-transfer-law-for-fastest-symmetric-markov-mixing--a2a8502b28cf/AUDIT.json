@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "A missing-edge pair gives the sharp operator-norm lower bound 1/(m-1), since centered coordinate vectors have norm squared (m-1)/m. The explicit cone kernel then has eigenvalues 1, -1/m, and (m-1)/m times all nonconstant base eigenvalues, proving the upper bound. Averaging any feasible cone kernel over the transitive core automorphism group makes all spokes b<=1/m, and its remaining eigenvalues include (1-b) times the full nonconstant spectrum of a feasible core kernel; this proves the matching lower bound. Complete and disconnected cores are handled. The P4 strict boundary uses an exact 5x5 characteristic polynomial and independent P4 reflection-block bound. The supplied standard-library verifier passed 895 exact rational checks; finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0709.0955 proves global symmetry averaging and gives an analytic wheel case, not an explicit arbitrary-vertex-transitive cone theorem.",
+        "The 2004 FMMC paper gives general semidefinite formulation and a convex spectral-norm objective."
+      ],
+      "reasoning": "A general SDP capable of solving a graph is not an exact formula, and the source wheel formula does not imply the formula for bases with several internal edge orbits. The present proof adds a sharp missing-edge lower bound to make the hub block inactive at the universal optimum. The stronger literature would have to specify this implication, which was not found in inspected relevant full-text sections.",
+      "searches": [
+        "fastest mixing Markov chain cone over vertex transitive edge transitive graph apex join eigenvalue optimal weights",
+        "fastest mixing cone graphs joins graph Laplacian spectra",
+        "fastest mixing graph apex hub vertex transitive edge-orbit arbitrary core spectral norm reduction factor",
+        "arxiv:0709.0955 Sections 2, 3, 5.3.3 and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/0709.0955",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+      "https://arxiv.org/abs/0709.0955",
+      "https://web.stanford.edu/~boyd/papers/fast_mix_symm.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0709.0955, p.29/Section 5.3.3 explicitly shows μ*(wheel)=(1-1/m) μ*(cycle) and p*=1/m.",
+        "Boyd–Diaconis–Sun–Xiao path theorem gives ρ(P4)=cos(π/4); its proof is independently reconstructed using a reflection-symmetric odd block in RESULT.md.",
+        "Boyd–Diaconis–Xiao (2004) convex norm objective enables automorphism averaging, but does not directly give the sharp cone-transfer coefficient."
+      ],
+      "reasoning": "The wheel is a covered corollary and cannot be an originality basis. The general cone relation for every vertex-transitive base with arbitrary internal edge-orbit pattern is strictly broader. The new upper bound applies to all H and is sometimes strict; its strict P4 boundary cannot be derived by substituting m into the wheel statement. The published general method is a premise, not the claimed final implication.",
+      "searches": [
+        "Boyd Diaconis Parrilo Xiao fastest mixing wheel section 5.3.3",
+        "Boyd Diaconis Sun Xiao fastest mixing Markov chain path n=4",
+        "fastest mixing Markov chain cone graphs joins graph Laplacian spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The spectral-norm definition of FMMC and its convexity are stated in Boyd–Diaconis–Xiao (2004), DOI 10.1137/S0036144503423264.",
+        "Boyd–Diaconis–Parrilo–Xiao (2007), arXiv:0709.0955, Section 5.3.3 contains the exact wheel factor, a strict special case."
+      ],
+      "reasoning": "Alternate language includes spectral-norm minimization of doubly stochastic kernels on graph joins, apex/hub augmentation, fastest symmetric mixing and vertex-orbit reduction. The wheel theorem matches one special case only. The broader identity makes no edge-transitivity assumption and works for disconnected or multi-edge-orbit cores; no inspected primary theorem explicitly subsumes it.",
+      "searches": [
+        "Fastest mixing transition chain cone K_1 join vertex transitive graph exactly one minus inverse number of vertices times original SLEM",
+        "\"fastest mixing\" \"cone\" \"vertex transitive\" Markov chains",
+        "\"fastest mixing\" \"join\" \"vertex-transitive\" graph",
+        "\"wheel\" \"scaling\" \"vertex-transitive\" \"mixing\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed research record on wheel symmetric edge polytopes concerns a different Löwner-ellipsoid invariant, not SLEM.",
+        "Indexed record on Laplacian double-cone state transfer concerns quantum transfer, not symmetric Markov optimization.",
+        "No exact table supplying general cone/base SLEM pairs was found in the searches."
+      ],
+      "reasoning": "Published indexed geometric/quantum cone records and exact wheel formulas are not a database of all vertex-transitive FMMC transfer values. Absence from searches is only limited evidence and not a uniqueness claim.",
+      "searches": [
+        "Closed-form fastest mixing Markov chain on cone over connected vertex-edge-transitive regular graph hub spokes with eigenvalue phase transition",
+        "universal nonedge lower bound 1/(n-1) symmetric doubly stochastic Markov matrices fastest mixing",
+        "wheel graph optimal edge probabilities fastest mixing reversible Markov chain center rim formula"
+      ]
+    },
+    "rationale": "The known wheel-case transfer factor (Boyd et al., arXiv:0709.0955, Sec. 5.3.3) is explicitly excluded from the new-claim scope as an already covered specialization. The inspected primary treatments establish spectral-norm convex optimization, symmetry reduction and path optima; they do not state the universal core-to-cone identity for every vertex-transitive H, its nonedge lower-bound mechanism, or the strict P4 boundary. Actual semantic searches of indexed research records and public literature found no equivalent all-vertex-transitive statement. Publication priority remains qualified by incomplete indexing.",
+    "residual_risks": [
+      "Indexed search and material inspection cannot exclude preexisting cone-scaling lemmas in unindexed theses, textbooks or other papers.",
+      "Wheel, star and complete-core specializations are known or straightforward and are not separately claimed as new.",
+      "Numerical or combinatorial source records cannot prove novelty or establish optimality beyond their actual mathematical coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS wheel specialization and symmetry-averaging premise; DOES NOT explicitly state the general all-vertex-transitive cone scaling law in inspected relevant passages",
+        "evidence": [
+          "Section 5.3.3 gives p*=1/m and factor (1-1/m) for the cone over C_m.",
+          "Section 2 shows symmetrization preserves or improves SLEM."
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1; https://arxiv.org/pdf/0709.0955",
+        "material_read": "Original accessible PDF: abstract and introduction, Sections 2 and 3 symmetry methods, Section 5.3.3 wheel derivation/formulas on pages 28–29, Section 6 conclusions",
+        "method": "Full-text find/read for wheel, cone, graph examples and conclusions; visually inspected relevant PDF pages",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Most relevant source: exact wheel expression and global automorphism-averaging technique"
+      },
+      {
+        "assessment": "General problem and convexity established; no exact universal-vertex cone formula in inspected material",
+        "evidence": [
+          "Defines minimization of the SLEM over symmetric nonnegative stochastic matrices on a support graph.",
+          "Defines convex spectral norm representation; source contains no matched cone or wheel term."
+        ],
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Accessible primary article PDF: abstract, introduction, optimization formulation, matrix norm objective and source term searches for wheel/cone",
+        "method": "Full-text read of relevant mathematical material and searches within extracted PDF",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general FMMC optimization and possible universal spectral bounds"
+      },
+      {
+        "assessment": "COVERS the P4 base optimum; does not address the new cone P4 rational matrix or universal transfer law",
+        "evidence": [
+          "Proves ρ(P_n)=cos(π/n) with edge transition 1/2.",
+          "The P4 value is also proved directly in the new proof."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+        "material_read": "Accessible original five-page manuscript: abstract, theorem, formula for path spectrum, proof structure and exact path optimum",
+        "method": "Full-text read of relevant sections and visual inspection of theorem page",
+        "title": "Fastest Mixing Markov Chain on a Path",
+        "trigger": "Independent source for base optimum of P4 strict-boundary example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2a8502b-28cf-46a7-ab48-0f214db1ae9b",
+  "value": {
+    "rationale": "The invariant transfers an unknown or known exact convex FMMC solution on any vertex-transitive graph, with possibly many distinct edge orbits, to its universal-vertex cone by a universal factor and explicit new transition matrix; the coefficient is independent of detailed topology. A universal inequality for all bases and a strict P4 boundary isolate precisely why the symmetry hypothesis matters. This is a structural solution reduction across infinitely many nonisomorphic graphs, not merely another calculation of a known wheel instance.",
+    "status": "PASS"
+  }
+}
