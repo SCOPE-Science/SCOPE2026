@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Finite completeness follows by canonical relabeling, suffix-square pruning and exhaustive exact integer LCS comparisons; independently implemented incremental C++ DP and full Python bit-vector LCS agree on all 28 levels, all 14 extremizers at lengths 27 and 28. Strict synchronization condition is exactly R<epsilon, and hereditary prefixes extend the finite obstruction to all longer words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng et al. 2018 prove B_3 >= 12/13 for infinite ternary synchronization words; Xu et al. prove all-length existence only for epsilon>226/227; Camungol-Rampersad require adjacent equal-length blocks."
+      ],
+      "reasoning": "The infinite-word lower bound does not mathematically specify the first failing length, the exact length-28 optimum or all length-27 minimizers. All-length high-epsilon existence also does not force sharp low-epsilon finite minima. Equal-only interval constraints omit unequal adjacent intervals.",
+      "searches": [
+        "arXiv:1803.03530 Appendix A Table 1",
+        "arXiv:2609.04122 Theorem 1.5",
+        "arXiv:1308.1620 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.04122",
+      "https://arxiv.org/pdf/1803.03530",
+      "https://arxiv.org/abs/1308.1620"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The stronger known numerical infinite lower bound B_3>=12/13 does not fix the first obstruction; source 2026 gives constructive bounds far above 8/9; source 2013 uses equal-length pairs."
+      ],
+      "reasoning": "No located theorem implies that beta_3(27)=20/23 and beta_3(28)=8/9 with 1 and 13 normalized extremizers. A possible unpublished computational trace behind 2018 is specifically acknowledged as priority risk.",
+      "searches": [
+        "arXiv:2609.04122 full text Sections 1,5, Appendices",
+        "arXiv:1803.03530 Sections 1,2,6 and Appendix A",
+        "arXiv:1308.1620 Sections 1,4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.04122 defines strict epsilon-synchronization using insertion/deletion ED; ED=combined length-2 LCS converts it to R<epsilon."
+      ],
+      "reasoning": "The LCS-ratio minimax is mathematically equivalent to the strict synchronization threshold; searched this equivalent formulation, rather than relying on titles.",
+      "searches": [
+        "ternary epsilon synchronization strings optimal normalized edit distance length 27 20/23 length 28 8/9 exact minimax",
+        "012010212021012102010212012 20/23 27 ternary synchronization",
+        "arXiv:2609.04122 full text search for 20/23, 8/9, length 27"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly inspected 2018 Table 1 has only k=3, B_3>=12/13, without finite n=27/28 rows; 2013 Table 1 has an approximate ternary equal-block coefficient interval, not the exact finite data."
+      ],
+      "reasoning": "The relevant published tables were checked for numerical or equivalent coverage, rather than assuming absent table values from title similarities.",
+      "searches": [
+        "arXiv:1803.03530 Appendix A Table 1 k=3, inspected PDF p.29",
+        "arXiv:1308.1620 Section 4 Tables 1-2",
+        "ternary epsilon synchronization strings optimal normalized edit distance length 27 20/23 length 28 8/9 exact minimax"
+      ]
+    },
+    "rationale": "Compared exact minimax parameter, strict interval condition, cutoff 27/28 and unique extremizer against primary full text and closest indexed claims; no source identified that states or logically implies the complete finite classification. The 2018 paper has an infinite-parameter numerical lower bound but not the exact finite cutoff or multiplicity.",
+    "residual_risks": [
+      "Unpublished intermediate data from the 2018 exhaustive search may overlap the exact finite minimum and witnesses.",
+      "Unindexed equivalent finite computation or undocumented historical code could predate this classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact finite 27/28 minimax; establishes all-length high-epsilon existence",
+        "evidence": [
+          "2026-09-03 first public",
+          "Theorems 1.2,1.5 guarantee ternary all lengths at 2001/2002 and epsilon>226/227"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.04122",
+        "material_read": "Abstract, introduction and definitions, main theorems, LCS discussion, local-entropy arguments and Appendix D quantitative-strengthening sections",
+        "method": "Primary full-text HTML section-by-section inspection",
+        "title": "Synchronization Strings over the Optimal Alphabet",
+        "trigger": "Current ternary optimal-alphabet paper studying the same synchronization condition"
+      },
+      {
+        "assessment": "Published table lacks exact n27/28 classification; unpublished search outputs are residual priority risk",
+        "evidence": [
+          "Appendix A Table 1 states B_3 >=12/13",
+          "Section 2 uses the strict synchronization inequality"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1803.03530",
+        "material_read": "Main definitions, small-alphabet section and final Appendix A including Table 1 on PDF page 29",
+        "method": "Primary PDF text plus screenshot of final table, and HTML full-text cross-check",
+        "title": "Synchronization Strings: Efficient and Fast Deterministic Constructions over Small Alphabets",
+        "trigger": "Older exhaustive ternary bound may contain an equivalent finite calculation"
+      },
+      {
+        "assessment": "NOT_COVERING unequal-interval finite synchronization minimax",
+        "evidence": [
+          "Table 1 reports experimental ternary equal-block coefficient between 0.888 and 0.901",
+          "Condition concerns equal-length neighboring blocks only"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.1620",
+        "material_read": "Statement of the equal-length adjacent-block similarity condition and Section 4 tables and discussion",
+        "method": "Primary full-text HTML inspection",
+        "title": "Avoiding approximate repetitions with respect to the longest common subsequence distance",
+        "trigger": "Same LCS notion and ternary alphabet, potentially covering by equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5db5247-55c6-46fd-a14f-1f7fd1c27b4f",
+  "value": {
+    "rationale": "A natural precise finite extremal invariant: sharp upper length 27 at every strict epsilon in (20/23,8/9], unique canonical maximum word, thirteen length-28 minimizers and complete first-28 spectrum, relevant to optimizing newly established ternary synchronization-index systems rather than routine substitutions or tiny parameter gains.",
+    "status": "PASS"
+  }
+}
