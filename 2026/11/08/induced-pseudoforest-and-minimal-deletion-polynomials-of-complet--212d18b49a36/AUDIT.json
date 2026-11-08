@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "A complete profile classification follows from the connected cycle-rank inequality and the forbidden induced diamond K_{2,1,1} and K_4. The hereditary one-vertex extension criterion yields exactly four non-overlapping maximal families; their counts match the stated coefficients. The combinatorial proof treats all r>=3, n_i>=1, including singleton and doubleton part boundaries. Independently coded adjacency-based enumeration checked 52 profiles/41384 subsets, plus 47 arithmetic cases; finite checks support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanaka et al., arXiv:1807.11518, Sec. 2 and theorem statements: d-orientable deletion and complexity",
+        "Sheng, arXiv:1912.06966, Secs. 3-4: FPT algorithms and kernel size",
+        "Lokshtanov et al., arXiv:2211.02717, Theorem 1.1 and Secs. 5-6: EPTASes"
+      ],
+      "reasoning": "Generic deletion algorithms and optimization bounds do not state coefficientwise counts, classify minimal feasible deletions, or imply the probability for uniformly selected maximal feasible subsets. The inspected full-text material gives no host-family enumerator.",
+      "searches": [
+        "\"pseudoforest\" \"complete multipartite graphs\" vertex",
+        "\"maximal induced pseudoforest\" \"complete multipartite\"",
+        "count all vertex induced pseudoforests complete multipartite graphs complete tripartite",
+        "arxiv \"Pseudoforest Deletion\" vertex deletion 2018 2022 parameterized"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1807.11518",
+      "https://arxiv.org/abs/1912.06966",
+      "https://arxiv.org/abs/2211.02717",
+      "https://doi.org/10.1137/16M1100794",
+      "https://oeis.org/A134964"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest indexed mathematical title: Dissociation polynomials of complete multipartite graphs and their coefficientwise extremizers (induced maximum-degree-at-most-one sets)",
+        "Sheng, arXiv:1912.06966: algorithm for deleting k vertices to obtain an r-pseudoforest",
+        "Lokshtanov et al., arXiv:2211.02717: EPTAS for pseudoforest deletion"
+      ],
+      "reasoning": "The dissociation property excludes triangles and C4 whereas these are two of the maximal pseudoforest types, so its enumeration does not subsume this statement. Algorithmic bounds offer no equality or implication for all inclusion-minimal solution multiplicities. A previous exact induced-forest count on rook graphs uses a different host and forbids every cycle, and likewise does not imply this family-specific enumeration.",
+      "searches": [
+        "complete tripartite K(m,m,m) induced pseudoforest maximal unicyclic independent vertex subset polynomial cardinality spectrum",
+        "exact number of inclusion minimal pseudoforest deletion sets in complete multipartite and balanced multipartite graphs",
+        "bicircular matroid independence of induced complete multipartite vertex graphs and maximal pseudoforest enumeration",
+        "pseudoforest induced subgraph counting K_{a,b,c} maximal star triangle four-cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1912.06966, definitions and Secs. 3-4: deletion optimization to r-pseudoforests",
+        "arXiv:2211.02717, Theorem 1.1: approximate minimum deletion on disk graphs"
+      ],
+      "reasoning": "Complementation turns maximal allowed induced vertex sets into minimal pseudoforest-deletion sets. The related papers concern minimum-size/approximate deletion decisions, not the polynomial of all inclusion-minimal solutions. The term unicyclic induced subgraphs also fails to cover disconnected pseudoforest sets.",
+      "searches": [
+        "maximal induced pseudoforests in complete multipartite graphs exact cardinality distribution minimum pseudoforest deletion spectrum",
+        "pseudoforest vertex deletion complete multipartite graph inclusion minimal feedback pseudoforest",
+        "\"minimal pseudoforest deletion\" \"complete multipartite\"",
+        "\"induced pseudoforest\" \"complete multipartite\" enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A134964: number of unlabeled pseudoforest graphs on n vertices, not subsets of a fixed complete multipartite graph"
+      ],
+      "reasoning": "Graph-isomorphism counts by order do not yield the labeled size polynomial within a prescribed host. No exact matching table was found in the queries; the search limitation remains explicit.",
+      "searches": [
+        "site:oeis.org \"induced pseudoforest\" \"multipartite\"",
+        "site:oeis.org \"maximal pseudoforest\" complete tripartite",
+        "\"maximal induced pseudoforests\" counting complete multipartite"
+      ]
+    },
+    "rationale": "Searches of conceptual equivalents and primary complete texts found related deletion algorithms rather than complete labeled minimal-deletion-set enumerations. The closest indexed complete-multipartite result treats dissociation sets, a genuinely different hereditary property. A search cannot prove priority; unindexed exact formula risk remains.",
+    "residual_risks": [
+      "A family-specific enumeration could be indexed under a different invariant or name.",
+      "The entire older SIAM article was not materially read; its visible abstract describes algorithms, not exact enumerators.",
+      "Independent mathematical audit and publication-priority verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING on inspected material: orientability/deletion complexity and simple graph examples rather than enumerating all maximal induced pseudoforest subsets",
+        "evidence": "Sec. 2, Lemmas 2-3, title and Theorems in arXiv:1807.11518",
+        "identifier_or_url": "https://arxiv.org/abs/1807.11518",
+        "material_read": "Searchable complete-text introduction, definitions, basic graph examples and main theorem statements; full-text search for multipartite",
+        "method": "Read relevant text sections and searched term multipartite",
+        "title": "Parameterized Orientable Deletion",
+        "trigger": "Established orientable/pseudoforest-deletion hardness; plausible domination of a structural invariant"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected claims: algorithm/kernelization rather than labeled inclusion-minimal subset polynomial",
+        "evidence": "arXiv:1912.06966, Theorems 1-3 and Sec. 4",
+        "identifier_or_url": "https://arxiv.org/abs/1912.06966",
+        "material_read": "Searchable full text preliminaries, reduction rules, Secs. 3-4 and proof of kernel theorems; searched term multipartite",
+        "method": "Opened arXiv HTML full-text view; inspected mathematical definitions, algorithm statements and proofs",
+        "title": "FPT algorithms for generalized feedback vertex set problems",
+        "trigger": "Direct earlier r-pseudoforest deletion paper"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material: EPTAS existence on disk graphs, not counts on complete multipartite graphs",
+        "evidence": "arXiv:2211.02717, Theorem 1.1, Sections 5.1-5.2",
+        "identifier_or_url": "https://arxiv.org/abs/2211.02717",
+        "material_read": "Searchable full text introduction, Thm. 1.1, problem definitions, Sections 5 and 6 results; full-text search for multipartite and pseudoforest",
+        "method": "Opened arXiv HTML full-text view and checked text and theorem statements",
+        "title": "A Framework for Approximation Schemes on Disk Graphs",
+        "trigger": "2022 literature motivation of pseudoforest deletion as a major hereditary vertex-deletion target"
+      },
+      {
+        "assessment": "UNRESOLVED full-text comparison; abstract is about algorithm and kernel, not enough to conclude entire article lacks exact enumeration",
+        "evidence": "SIAM J. Discrete Math. 32 (2018), 882-901, abstract and DOI",
+        "identifier_or_url": "https://doi.org/10.1137/16M1100794",
+        "material_read": "Publisher abstract, metadata and reference list only; complete primary text not obtained",
+        "method": "Web source and arXiv/OA title search",
+        "title": "Generalized Pseudoforest Deletion: Algorithms and Uniform Kernel",
+        "trigger": "Foundational direct pseudoforest deletion work cited by later sources"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "212d18b4-9a36-461b-a456-a778fc3c9ea6",
+  "value": {
+    "rationale": "A canonical hereditary deletion problem receives a complete polynomial of every minimal solution on all complete multipartite graphs with at least three parts. The balanced vertex-transitive case exhibits a growing forbidden cardinality interval while the uniformly chosen maximal configuration almost surely has constant size four and the optimum grows linearly. This precise typical-vs-extremal separation is relevant to understanding greedy maximal deletion complements and is not a routine scalar optimization restatement.",
+    "status": "PASS"
+  }
+}
