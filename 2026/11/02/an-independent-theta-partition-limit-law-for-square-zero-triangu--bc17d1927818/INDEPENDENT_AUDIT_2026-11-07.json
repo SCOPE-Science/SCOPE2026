@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:13:14.161996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A strictly upper-triangular binary matrix B with Boolean B²=0 has disjoint sets S of nonzero rows and T of nonzero columns (any overlap would create a 2-step path). Off isolates, each index is S or T, and each active edge runs forward S to T. An ordered word with a=|S|, b=|T| encodes exactly one Ferrers inversion diagram lambda inside a×b, with ab−|lambda| permitted edges. For fixed j and lambda, the probability of any active zero row or column among 2^(ab−|lambda|) assignments is bounded by a*2^(−(b−|lambda|))+b*2^(−(a−|lambda|)), tending to zero. The exact isolated-vertex deletion convolution H_n=∑_u binom(n,u) H_(n-u)^0, Gaussian-binomial/partition-product majorant Q^(−2) and lower bound 2^floor(n²/4) imply isolates negligible. Pointwise counts normalized by 2^m² (even) tend to 2^(−j²−|lambda|), and by 2^(m(m+1)) (odd) to 2^(j−j²−|lambda|). Countable dominated convergence and Scheffe yield total variation, product law P_even(j,lambda)=(2^(−j²)/Z0)*Q*2^(−|lambda|), P_odd=(2^(j−j²)/Z1)*Q*2^(−|lambda|). Exhaustive direct n=1..6 integer counts 1,2,6,26,158,1330 corroborate combinatorial premises, not the n→∞ convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Lyu extremize numbers of ones subject to binary square, a wider matrix class but different extremal invariant.",
+          "Gusev studies algebraic identities of reflexive upper-triangular semiring relations, not distributional limits for square-zero nilpotent radical matrices."
+        ],
+        "reasoning": "Broader object families are not necessarily dominating theorems: none of the inspected results gives a distribution of ordered Ferrers diagrams for this uniform square-zero model.",
+        "searches": [
+          "arxiv:1803.01293 zero-one matrices squares zero-one",
+          "arxiv:2301.11863 reflexive triangular Boolean matrices semiring identities",
+          "arxiv:2311.08023"
+        ]
+      },
+      "checked_sources": [
+        "2026-11-02 frozen RESULT.md and verify.py",
+        "arxiv:2311.08023v2",
+        "OEIS:A135922",
+        "arxiv:1803.01293",
+        "arxiv:2301.11863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bevan–Cheon–Kitaev derive source-count/q-Stirling enumeration of naturally labelled 3-free posets, without in the inspected text a limiting distribution on all integer partitions.",
+          "The new result explains theta*Euler factors by independent J and lambda and proves full total variation, not just leading number of objects."
+        ],
+        "reasoning": "Summing the new two-dimensional law recovers previous scalar constants; the scalar asymptotic does not conversely imply fine diagram convergence or independence. A prior Mallows/q-Stirling asymptotic might be equivalent, an explicit priority risk.",
+        "searches": [
+          "arxiv:2311.08023v2 Section 2 Propositions 4-5",
+          "OEIS:A135922",
+          "square zero upper triangular Boolean matrices random height two posets partition Ferrers theta limit law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Upper triangular Boolean square-zero matrices are adjacency matrices of naturally labelled height≤2 posets (transitive closure trivial).",
+          "Bevan–Cheon–Kitaev study this bijection and q-Stirling total counts; the new object is the joint limiting Ferrers shape and imbalance."
+        ],
+        "reasoning": "Poset and binary matrix presentations are genuinely equivalent, so existing poset theorems were checked; exact enumerators do not automatically imply the claimed joint total-variation distribution.",
+        "searches": [
+          "square zero upper triangular Boolean matrices random height two posets partition Ferrers theta limit law",
+          "random height 2 naturally labelled posets Ferrers diagram source imbalance q binomial limit",
+          "arxiv:2311.08023 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A135922 pre-records totals 1,2,6,26,158,1330, and parity-sensitive theta-type leading constants.",
+          "The assigned proof expressly credits known total asymptotic normalizers and derives a partition-valued independence refinement."
+        ],
+        "reasoning": "A total-count database or one-dimensional generating function does not determine the full joint law. Exact table recomputation is not claimed as the new contribution.",
+        "searches": [
+          "OEIS A135922 theta asymptotics Kotesovec",
+          "1 2 6 26 158 1330 upper triangular square zero boolean matrices",
+          "square zero upper triangular Boolean matrices random height two posets partition Ferrers theta limit law"
+        ]
+      },
+      "rationale": "The exact total counts and theta normalizers are prior work (OEIS A135922, earlier Kotesovec asymptotics), and Bevan–Cheon–Kitaev give exact poset/q-Stirling enumeration. Neither inspected source establishes independence of the entire inversion Ferrers diagram and source imbalance in total variation. Possible equivalent asymptotic from Mallows words/q-Stirling Boltzmann measures remains an explicit priority risk.",
+      "residual_risks": [
+        "Equivalent older q-Stirling or Mallows-weighted Ferrers asymptotic may predate this exact formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGLY_RELATED; exact total and source-count formulas known, but not the joint Ferrers partition total-variation law in inspected material.",
+          "evidence": [
+            "Section 2 enumerates 3-free naturally labelled posets and source counts, not a partition-valued asymptotic independence statement."
+          ],
+          "identifier_or_url": "arxiv:2311.08023v2; https://arxiv.org/html/2311.08023v2",
+          "material_read": "Full accessible primary HTML: definitions, Section 2, Propositions 4–5 and source-number count recurrences.",
+          "method": "lawful arXiv full HTML",
+          "title": "On naturally labelled posets and permutations avoiding 12-34",
+          "trigger": "Same height-two naturally labelled poset class and q-Stirling enumeration"
+        },
+        {
+          "assessment": "EXACT_TABLE_ALREADY_KNOWN; not the new joint limit distribution.",
+          "evidence": [
+            "Counts 1,2,6,26,158,1330; pre-existing Kotesovec theta constants."
+          ],
+          "identifier_or_url": "https://oeis.org/A135922",
+          "material_read": "Full sequence entry, initial values and historical asymptotics/comments.",
+          "method": "public sequence database",
+          "title": "OEIS A135922, Inverse binomial transform of A006116",
+          "trigger": "Exact data and known theta normalizers"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT; class is broader but theorems extremize edge counts.",
+          "evidence": [
+            "Extremal number of ones differs from random support Ferrers limit."
+          ],
+          "identifier_or_url": "arxiv:1803.01293",
+          "material_read": "Primary accessible preprint definitions, abstract and relevant extremal result sections.",
+          "method": "arXiv open-access paper",
+          "title": "0-1 matrices with zero trace whose squares are 0-1 matrices",
+          "trigger": "Potential broader binary matrix result"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY; no full-document noncoverage assertion.",
+          "evidence": [
+            "Reflexive upper-triangular Boolean matrix semigroup differs from strict square-zero model."
+          ],
+          "identifier_or_url": "arxiv:2301.11863",
+          "material_read": "Primary abstract and mathematical definitions.",
+          "method": "open-access arXiv abstract / introductory material",
+          "title": "Semiring identities of semigroups of reflexive relations and upper triangular boolean matrices",
+          "trigger": "Similar matrices but reflexive version"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full partition-valued law refines known total enumeration of naturally labelled height≤2 posets and identifies typical ordered support geometry at O(1) inversion deficit. Asymptotic independence from the source-side cardinality defect provides a naturally motivated microscopic/mesoscopic decomposition; total sequence asymptotics alone do not determine this distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Strict upper-triangular and fixed coordinate order; no arbitrary-square-zero/relabelling result.",
+    "Parity subsequences separate, partition law defined canonically on no-isolate event.",
+    "Equivalent older q-Stirling or Mallows-weighted Ferrers asymptotic may predate this exact formulation."
+  ]
+}

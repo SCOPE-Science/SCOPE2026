@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is reconstructed for all positive dimensions and both parity subsequences. Boolean square zero forces a canonical bipartition by nonzero rows and columns; when no vertices are isolated, the ordered bipartition is uniquely encoded by a partition in a rectangle. Inversion defects remove exactly that many forward pairs. For fixed Ferrers diagram and source imbalance, row/column nonemptiness loses a vanishing fraction of all assignments. A Gaussian-binomial upper bound and exact isolate deletion convolution yield a summable dominating family and a negligible isolate probability. Countable dominated convergence proves both normalizers and total-variation product convergence. The independent finite enumerator matches q-Stirling totals in dimensions 1–6 and verifies the partition encoding. These experiments are checks, not the infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The exact sequence and its theta-function asymptotic constants are **not new**: see OEIS A135922 (Kotesovec, 2013). Bevan–Cheon–Kitaev give exact 3-free naturally labelled poset generating functions and a source-count recurrence (2023 first version; full 2024 revision inspected). Neither inspected text states convergence of the *entire inversion Ferrers diagram jointly and independently* with the source-size defect. Huang–Lyu (2018) treat a broader class of binary matrices by extremal edge counts, not random square-zero matrix distributions. Gusev (2023) treats semiring identities of upper triangular reflexive matrices, not these laws. Semantic literature-index queries for square-zero triangular Boolean matrices, inversion/partition laws, and Gaussian source-size imbalance returned no stronger or equivalent published result; this is evidence of a bounded search, not proof of priority. An older result on q-Stirling measures or Mallows-weighted binary words could contain an equivalent result; this remains a publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-Beyond the known total enumeration, the result gives a canonical complete **partition-valued** limit distribution for typical square-zero triangular matrices and an asymptotic independence phenomenon: the source/target imbalance and the fine ordered support geometry decouple. The support geometry matters because the matrix is indexed by a fixed chain; it is invisible to an unrefined cardinality or leading growth constant. The theorem also identifies the complete parity split and explains the independent Euler-product factor appearing in the known theta constants. This is a natural high-dimensional structural invariant rather than a one-off sequence term or a cosmetic renaming.
+A strictly upper-triangular binary matrix B with Boolean B²=0 has disjoint sets S of nonzero rows and T of nonzero columns (any overlap would create a 2-step path). Off isolates, each index is S or T, and each active edge runs forward S to T. An ordered word with a=|S|, b=|T| encodes exactly one Ferrers inversion diagram lambda inside a×b, with ab−|lambda| permitted edges. For fixed j and lambda, the probability of any active zero row or column among 2^(ab−|lambda|) assignments is bounded by a*2^(−(b−|lambda|))+b*2^(−(a−|lambda|)), tending to zero. The exact isolated-vertex deletion convolution H_n=∑_u binom(n,u) H_(n-u)^0, Gaussian-binomial/partition-product majorant Q^(−2) and lower bound 2^floor(n²/4) imply isolates negligible. Pointwise counts normalized by 2^m² (even) tend to 2^(−j²−|lambda|), and by 2^(m(m+1)) (odd) to 2^(j−j²−|lambda|). Countable dominated convergence and Scheffe yield total variation, product law P_even(j,lambda)=(2^(−j²)/Z0)*Q*2^(−|lambda|), P_odd=(2^(j−j²)/Z1)*Q*2^(−|lambda|). Exhaustive direct n=1..6 integer counts 1,2,6,26,158,1330 corroborate combinatorial premises, not the n→∞ convergence.
 
-## Closest literature and residual limitations
-The main comparison is Bevan–Cheon–Kitaev, arXiv:2311.08023, Section 2, Propositions 4–5; the paper computes precise counts and their bivariate generating functions but not the claimed joint limit. OEIS A135922 supplies pre-existing total asymptotics. Huang–Lyu, arXiv:1803.01293, establishes extremal binary-matrix statements for a different (broader) square condition. The result does not include unrestricted square-zero matrices, nor does it claim priority for the total count. Equivalent Mallows/Gaussian-binomial probabilistic formulations in literature not located here are an unresolved originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact total counts and theta normalizers are prior work (OEIS A135922, earlier Kotesovec asymptotics), and Bevan–Cheon–Kitaev give exact poset/q-Stirling enumeration. Neither inspected source establishes independence of the entire inversion Ferrers diagram and source imbalance in total variation. Possible equivalent asymptotic from Mallows words/q-Stirling Boltzmann measures remains an explicit priority risk.
+
+## value
+
+PASS
+
+The full partition-valued law refines known total enumeration of naturally labelled height≤2 posets and identifies typical ordered support geometry at O(1) inversion deficit. Asymptotic independence from the source-side cardinality defect provides a naturally motivated microscopic/mesoscopic decomposition; total sequence asymptotics alone do not determine this distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
