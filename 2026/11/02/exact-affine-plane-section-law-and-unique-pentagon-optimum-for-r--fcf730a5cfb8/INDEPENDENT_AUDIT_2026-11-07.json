@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:42:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-affine-plane-section-law-and-unique-pentagon-optimum-for-r--fcf730a5cfb8/RESULT.md",
+        "2026/11/02/exact-affine-plane-section-law-and-unique-pentagon-optimum-for-r--fcf730a5cfb8/verify_prism.py"
+      ],
+      "rationale": "Let the three equatorial vertices be a unit-circumradius equilateral triangle at heights ±h, h>0. For invariant unoriented affine-plane measure dσ(u)dt conditioned on hitting the prism, the angular normalizer is average width h+c, c=3sqrt(3)/4; counting intersections with the nine edges gives mean polygon vertex number 3(h+sqrt(3))/(h+c). Sorting triangle projections a1<a2<a3 and setting b=h|u_z|, the pentagon offset range equals [a3−a1−2b]_+−[a2−a1−2b]_+−[a3−a2−2b]_+. Spherical sector integration via ∫[k sinθ−2h cosθ]_+ sinθ dθ=(k/2) arctan(k/(2h)) yields p5(h)=3Ψ(h)/(π(h+c)), with Ψ as explicitly stated in RESULT.md. Only generic 3,4,5-gons occur; using mean and total probability gives p3=4+p5−mean, p4=mean−3−2p5. The proof of unique global maximum uses Q(t)=2F_t(π/6)−F_t(π/2), A(t),B(t) positive integrals, strict decrease of A/B by ordered logarithmic derivatives, and strict negative Q″ while Q′≥0, forcing H(h)=(h+c)Ψ′−Ψ to cross once. Independently matched direct angular integral to closed p5 at h=.1,.4095,.8,1,10 and bracketed h*=.409522670306... with max p5≈.11265019621. Correct h→0 and h→∞ expansions follow from those integrals. These numerical checks support but cannot replace the all-h sign argument.",
+      "residual_risks": [
+        "Only right equilateral triangular prisms, noncentral invariant affine-plane measure and h>0. Unique optimum only within this one-parameter similarity class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General section-chamber description is an algorithmic tool to characterize types and optimize section metrics; no checked explicit conditional-prism type probability.",
+          "Ohser/Mücklich abstract specifically treats regular-prism size/shape distributions and observed section polygons; it is highly plausible same-object related and full proof was inaccessible."
+        ],
+        "reasoning": "The full prism specialization could be encoded in an older stereological kernel even without matching title; abstract-level materials cannot settle it, and this is retained as priority risk.",
+        "searches": [
+          "Brandenburg/De Loera/Meroni The Best Ways to Slice a Polytope, full arxiv PDF",
+          "van der Jagt/Jongbloed/Vittorietti densities of chord length and section area",
+          "Ohser/Mücklich Stereology for some classes of polyhedrons 1995 Cambridge abstract"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 2229ae68c6db0550e51ab8cac6965500898f19d1; verify_prism.py 8afdf07925fce7def424403d8354fdb102e24632; SLOGAN and metadata read",
+        "Brandenburg/De Loera/Meroni arxiv:2304.14239 full available PDF",
+        "van der Jagt/Jongbloed/Vittorietti arxiv:2305.02864 full available PDF",
+        "Ohser/Mücklich 1995 Cambridge abstract and Konstantinova/Shchur 2024 abstract; authorized Oxford unavailable: vpn_disconnected",
+        "Resultary semantic geometry search including central-plane and projected-polytope analogs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A combinatorial list of section types does not determine their invariant measure, and area densities do not determine number-of-vertices distribution without extra arguments.",
+          "The p5 formula follows from explicit overlap-offset geometry; uniqueness requires the ordered ratio of integrals A/B."
+        ],
+        "reasoning": "None of the directly checked broader statements implies the exact p5(h) function or its unique optimal h without a new integration and monotonicity proof.",
+        "searches": [
+          "Brandenburg et al arxiv:2304.14239 chamber decomposition and optimum individual sections",
+          "van der Jagt et al arxiv:2305.02864 cross-section area law",
+          "Current RESULT.md width-weighted pentagon overlap integral and H sign proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform invariant planes are weighted by directional width after conditioning, unlike uniform normal directions with independently normalized offsets.",
+          "Existing section-face count chamber algorithms determine what types can occur, but do not supply probabilities of each type under this weighted measure."
+        ],
+        "reasoning": "The matching object is a random *affine* plane, not a central plane or random projection. Conflating these measures would falsely infer coverage.",
+        "searches": [
+          "Resultary query: random plane sections right triangular prism pentagon probability optimal aspect ratio invariant affine measure",
+          "Brandenburg De Loera Meroni The Best Ways to Slice a Polytope arxiv:2304.14239",
+          "van der Jagt Jongbloed Vittorietti random section areas arxiv:2305.02864"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared icosahedron and rectangular box findings use central planes or different bodies, thus cannot yield the invariant affine random-prism p3/p4/p5 law by parameter substitution.",
+          "2024 paper title/abstract suggests numerical angle distributions of section polygons, not an exact aspect-ratio-optimized type probability; entire source not inspected."
+        ],
+        "reasoning": "No matching full table found; possible specialized older prism data remain unexamined. The claimed contribution is full distribution and uniqueness for all h, not one quoted decimal.",
+        "searches": [
+          "Resultary: Exact Haar polygon-type law for central icosahedron sections (2026/10/11/...65970a533c4f)",
+          "Resultary: Exact Haar hexagon law for central rectangular boxes (2026/10/11/...45d2a55425d4)",
+          "Konstantinova/Shchur 2024 Algorithm for density of angle distribution in random sections of polyhedron"
+        ]
+      },
+      "rationale": "PASS, qualified. Brandenburg/De Loera/Meroni study combinatorial slice chambers and optimal individual sections, not distribution under the invariant affine-plane measure; van der Jagt/Jongbloed/Vittorietti treat random section areas with correct conditional width weighting, not polygon vertex types for triangular prisms. The 1995 prism stereology study and 2024 random-section angle-density paper are highly relevant but complete math was inaccessible (Oxford authorization blocked by vpn_disconnected). They remain explicit historical-priority risks, not automatic O failure; no accessible text decisively establishes full coverage.",
+      "residual_risks": [
+        "Ohser/Mücklich 1995 could contain exactly the relevant regular-prism section-type probabilities or a kernel that dominates them; complete source was not accessible.",
+        "Konstantinova/Shchur 2024 may provide a more relevant formula in material not read; publisher abstract is not evidence of whole-document noncoverage.",
+        "Measure must be invariant dσ dt conditioned on intersection (width-weighted normals), not an equally weighted postselected angle law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING chamber structure and extrema for sections; no matching affine-random-prism probability identified",
+          "evidence": "Brandenburg/De Loera/Meroni 2023 introduction, algorithms/optimal sections",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14239",
+          "material_read": "Freely available complete PDF introduction/abstract, chamber decomposition descriptions, section extrema methodology and relevant results; first page inspected visually",
+          "method": "Readable primary arxiv PDF with page screenshot",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Closest general section combinatorial types and optimization"
+        },
+        {
+          "assessment": "COVERING width-weighted random section measure and area-distribution methods; no vertex-count formula identified",
+          "evidence": "van der Jagt/Jongbloed/Vittorietti 2024 abstract/introduction",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.02864",
+          "material_read": "Readable full arxiv PDF abstract/introduction, definitions of isotropic uniformly random hyperplanes and focus on section-area densities; first page inspected visually",
+          "method": "Readable primary arxiv PDF with page screenshot",
+          "title": "Existence and approximation of densities of chord length- and cross section area distributions",
+          "trigger": "Same invariant affine-plane stereology distribution"
+        },
+        {
+          "assessment": "HIGH PRIORITY RISK; unknown whether its stereology kernel already gives this pentagon probability law",
+          "evidence": "Ohser/Mücklich Advances in Applied Probability 27 (1995), 384–396; Oxford job inaccessible",
+          "identifier_or_url": "https://doi.org/10.2307/1427832",
+          "material_read": "Cambridge abstract: regular prisms size-shape distribution estimated from observed section polygon size-shape; full mathematical content inaccessible",
+          "method": "Cambridge bibliographic abstract; lawful OA/arxiv attempts failed; authorized Oxford request returned vpn_disconnected",
+          "title": "Stereology for some classes of polyhedrons",
+          "trigger": "Highly relevant original regular-prism stereological kernel"
+        },
+        {
+          "assessment": "UNKNOWN for exact section type likelihood; historical priority retained",
+          "evidence": "Konstantinova/Shchur Expert Systems with Applications 235 (2024) 121195",
+          "identifier_or_url": "https://doi.org/10.1016/j.eswa.2023.121195",
+          "material_read": "Bibliographic abstract/description only; full math not obtained",
+          "method": "Open web search and publisher abstract",
+          "title": "Algorithm for density of angle distribution in random sections of polyhedron",
+          "trigger": "Triangular-prism random section computations possible"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md 2229ae68c6db0550e51ab8cac6965500898f19d1; verify_prism.py 8afdf07925fce7def424403d8354fdb102e24632; SLOGAN and metadata read",
+        "Brandenburg/De Loera/Meroni arxiv:2304.14239 full available PDF",
+        "van der Jagt/Jongbloed/Vittorietti arxiv:2305.02864 full available PDF",
+        "Ohser/Mücklich 1995 Cambridge abstract and Konstantinova/Shchur 2024 abstract; authorized Oxford unavailable: vpn_disconnected",
+        "Resultary semantic geometry search including central-plane and projected-polytope analogs"
+      ],
+      "rationale": "The intrinsic invariant-affine-plane distribution is a canonical stereological model; polygonal section-type probabilities are natural observables of a prism. The exact all-aspect-ratio distribution and globally unique aspect-ratio optimizer differ from optimizing the size or shape of a single section. The regular-faced prism not optimizing p5 is a concrete geometric insight, and the formula is useful as a benchmark for stochastic-geometry reconstruction. This is a complete one-parameter family classification, not a trivial tiny numerical observation.",
+      "residual_risks": [
+        "Ohser/Mücklich 1995 could contain exactly the relevant regular-prism section-type probabilities or a kernel that dominates them; complete source was not accessible.",
+        "Konstantinova/Shchur 2024 may provide a more relevant formula in material not read; publisher abstract is not evidence of whole-document noncoverage.",
+        "Measure must be invariant dσ dt conditioned on intersection (width-weighted normals), not an equally weighted postselected angle law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only right equilateral triangular prisms, noncentral invariant affine-plane measure and h>0. Unique optimum only within this one-parameter similarity class.",
+    "Ohser/Mücklich 1995 could contain exactly the relevant regular-prism section-type probabilities or a kernel that dominates them; complete source was not accessible.",
+    "Konstantinova/Shchur 2024 may provide a more relevant formula in material not read; publisher abstract is not evidence of whole-document noncoverage.",
+    "Measure must be invariant dσ dt conditioned on intersection (width-weighted normals), not an equally weighted postselected angle law."
+  ],
+  "schema_version": 1
+}

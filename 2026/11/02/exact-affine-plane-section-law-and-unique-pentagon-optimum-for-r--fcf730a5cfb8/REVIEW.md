@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem uses the normalized invariant-plane measure \(d\sigma(u)\,dt\), with directional normal mass proportional to prism width. For every nonexceptional plane, its section-vertex count is the number of cut prism edges. Sorting the three base projections and intersecting the middle vertical crossing interval with both cap crossing intervals gives the exact positive-part inclusion–exclusion expression for pentagonal offsets. The northern-hemisphere polar integral equals \(k\arctan(k/(2h))/2\); sixfold azimuthal symmetry and a checked primitive give the exact elementary formula. The edge crossing identity supplies the mean count, making the other two probabilities exact. For uniqueness, the two separated integrals \(A(t)\) and \(B(t)\) of \(3\cos^2x/(t^2+3\cos^2x)\) have strictly decreasing ratio, and \(Q''(t)<0\) wherever \(Q'(t)\ge0\). This proves precisely one sign change of the quotient derivative. Endpoint constants follow from an explicit asymptotic expansion of the same integral. The standalone numerical checker independently tests the formulas but is not needed to upgrade finite sampling to proof.
+## correctness
 
-## Originality — PASS (bounded historical comparison)
-The published slicing-chamber theory in Brandenburg–De Loera–Meroni (2023) describes and optimizes individual affine sections; its theorem statements do not give invariant hyperplane probability weights or their aspect optimum. The isotropic-uniform section paper of van der Jagt–Jongbloed–Vittorietti (2023) focuses on area/chord-size distributions rather than the number of section vertices. Search comparisons for the triangular-prism pentagon law, equivalent side-count formulations, regular-prism stereology, and the analytical optimizer found no statement covering both the closed distribution and strict uniqueness. Nearby results for symmetric bipyramids, tetrahedra, boxes, central slices and orthogonal shadows concern different solids or measures. Residual risk: Ohser–Mücklich (1995) discuss simulated size/shape kernels for regular prisms, and Konstantinova–Shchur (2024) consider numerical prism-section angle distributions. Only their abstracts were available; claims about the contents of their inaccessible full texts are intentionally withheld. Exhaustive historical priority is not certified.
+PASS
 
-## Mathematical value — PASS
-A prism is a basic polyhedral sampling object whose generic affine sections vary among three, four and five vertices. The theorem supplies a complete all-aspect discrete law, a rigorous unique height optimum for the most complex sections, and sharp thin/tall limiting regimes under the canonical stereological sampling measure. The optimal aspect differs markedly from the regular-faced prism and is not a routine renaming of a previously counted section law. It supplies an exact benchmark for classification of random section profiles, rather than only a pointwise numerical probability.
+Let the three equatorial vertices be a unit-circumradius equilateral triangle at heights ±h, h>0. For invariant unoriented affine-plane measure dσ(u)dt conditioned on hitting the prism, the angular normalizer is average width h+c, c=3sqrt(3)/4; counting intersections with the nine edges gives mean polygon vertex number 3(h+sqrt(3))/(h+c). Sorting triangle projections a1<a2<a3 and setting b=h|u_z|, the pentagon offset range equals [a3−a1−2b]_+−[a2−a1−2b]_+−[a3−a2−2b]_+. Spherical sector integration via ∫[k sinθ−2h cosθ]_+ sinθ dθ=(k/2) arctan(k/(2h)) yields p5(h)=3Ψ(h)/(π(h+c)), with Ψ as explicitly stated in RESULT.md. Only generic 3,4,5-gons occur; using mean and total probability gives p3=4+p5−mean, p4=mean−3−2p5. The proof of unique global maximum uses Q(t)=2F_t(π/6)−F_t(π/2), A(t),B(t) positive integrals, strict decrease of A/B by ordered logarithmic derivatives, and strict negative Q″ while Q′≥0, forcing H(h)=(h+c)Ψ′−Ψ to cross once. Independently matched direct angular integral to closed p5 at h=.1,.4095,.8,1,10 and bracketed h*=.409522670306... with max p5≈.11265019621. Correct h→0 and h→∞ expansions follow from those integrals. These numerical checks support but cannot replace the all-h sign argument.
 
-## Limitations and verification status
-The result does not cover oblique prisms, other bases, central-plane sampling, or alternative orientation normalization. Two relevant historical full texts remained inaccessible, so priority is stated at best-knowledge level. Finite checks supplement an analytic proof. Independent mathematical validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Brandenburg/De Loera/Meroni study combinatorial slice chambers and optimal individual sections, not distribution under the invariant affine-plane measure; van der Jagt/Jongbloed/Vittorietti treat random section areas with correct conditional width weighting, not polygon vertex types for triangular prisms. The 1995 prism stereology study and 2024 random-section angle-density paper are highly relevant but complete math was inaccessible (Oxford authorization blocked by vpn_disconnected). They remain explicit historical-priority risks, not automatic O failure; no accessible text decisively establishes full coverage.
+
+## value
+
+PASS
+
+The intrinsic invariant-affine-plane distribution is a canonical stereological model; polygonal section-type probabilities are natural observables of a prism. The exact all-aspect-ratio distribution and globally unique aspect-ratio optimizer differ from optimizing the size or shape of a single section. The regular-faced prism not optimizing p5 is a concrete geometric insight, and the formula is useful as a benchmark for stochastic-geometry reconstruction. This is a complete one-parameter family classification, not a trivial tiny numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
