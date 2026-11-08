@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:57:16.453419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under a swap the new red count x-U+V is the difference of independent hypergeometrics. Exact mean is n/2+lambda(x-n/2), and conditional variance 2k(n-k)x(n-x)/(n^2(n-1)). For k/n->1/2, after one step X/n->1/2 uniformly; the next hypergeometric convolution has a discrete Gaussian local limit with variance n/8. Subsequent random-centre fluctuations are |lambda|O(sqrt n)=o(sqrt n). Comparing with stationary hypergeometric variance n/8 yields the exact Gaussian TV profile 2Phi(|lambda|^t|x-n/2|/sqrt(n/2))-1 uniformly for each fixed t>=2. At t=1, x=0 gives deterministic X1=k, so TV->1; delta=k-n/2 gives the n^(1-1/(2t)) windows. Independent exact transition matrices at (n,k)=(10,5),(20,10),(40,20) gave 2-step worst TV 0.0124626167,0.0064221943,0.0030893803, confirming trend, not theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Griffin et al arXiv:2308.08676 Theorem 4.2 as characterized in paper; Alameda et al arXiv:2203.08647 Theorem 1.2"
+        ],
+        "reasoning": "The former proves bounded mixing under stricter eigenvalue assumptions; the latter assumes exchange fraction strictly below 1/2. Neither as inspected provides the t-th Gaussian profile.",
+        "searches": [
+          "Bernoulli Laplace urn exchange half urn simultaneous k swaps two step total variation Gaussian fixed time mixing",
+          "https://oar.princeton.edu/bitstream/88435/pr1vh5cj18/1/1606.01437.pdf",
+          "https://arxiv.org/abs/2308.08676"
+        ]
+      },
+      "checked_sources": [
+        "https://oar.princeton.edu/bitstream/88435/pr1vh5cj18/1/1606.01437.pdf",
+        "https://arxiv.org/abs/2308.08676"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nestoridi–White Section 4.1; Griffin et al abstract and stated theorem comparison"
+        ],
+        "reasoning": "Previous three-step vanishing TV does not imply two-step TV or the critical scaling hierarchy. Existing complete spectrum could facilitate derivation, but that possibility alone is not proven implication.",
+        "searches": [
+          "Bernoulli Laplace urn exchange half urn simultaneous k swaps two step total variation Gaussian fixed time mixing",
+          "https://oar.princeton.edu/bitstream/88435/pr1vh5cj18/1/1606.01437.pdf",
+          "https://arxiv.org/abs/2308.08676"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nestoridi–White arXiv:1606.01437v2 Section 4.1, Theorem 5"
+        ],
+        "reasoning": "The prior dual-Hahn spectral bound at half swaps tends to zero for t>=3, but does not state the new two-step local-Gaussian profile.",
+        "searches": [
+          "Bernoulli Laplace urn exchange half urn simultaneous k swaps two step total variation Gaussian fixed time mixing",
+          "https://oar.princeton.edu/bitstream/88435/pr1vh5cj18/1/1606.01437.pdf",
+          "https://arxiv.org/abs/2308.08676"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search for half-swap Bernoulli–Laplace fixed-time gaussian mixing"
+        ],
+        "reasoning": "No same statement returned; this is only negative discovery evidence.",
+        "searches": [
+          "Bernoulli Laplace urn exchange half urn simultaneous k swaps two step total variation Gaussian fixed time mixing",
+          "https://oar.princeton.edu/bitstream/88435/pr1vh5cj18/1/1606.01437.pdf",
+          "https://arxiv.org/abs/2308.08676"
+        ]
+      },
+      "rationale": "A strong earlier spectral analysis of the same urn process gives half-swap mixing bounds (at least three steps), rather than the precise two-step and variable-offset Gaussian fixed-time profile. Closely related generalized-swap and unequal-urn papers give bounded-time conditions or non-half parameter regimes. The claim is not a cutoff for growing time, but sharp fixed-t TV asymptotics as lambda->0. Full source access to one neighboring 2023 preprint was incomplete, so a derived spectral reformulation remains a live historical risk.",
+      "residual_risks": [
+        "Full 2023 unequal-urn paper not inspected, although abstract and reported Theorem 4.2 scope are known.",
+        "Fixed t>=2 and lambda->0 only, not growing-time cutoff or unequal urns."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "bounds on variation after t steps, compatible with but not asserting two-step all-parameter gaussian profile",
+          "evidence": [
+            "Section 4.1 Theorem 5 bounds decay as n^(4-2t) for close-to-half swaps"
+          ],
+          "identifier_or_url": "https://oar.princeton.edu/bitstream/88435/pr1vh5cj18/1/1606.01437.pdf",
+          "material_read": "Primary PDF Section 4.1, Theorem 5 near pp. 19–24 and eigenvalue-bound derivation; text extraction accessible but PDF screenshot of that page returned authorization error",
+          "method": "searchable PDF primary text; failed image screenshot noted",
+          "title": "Shuffling large decks of cards and the Bernoulli-Laplace urn model",
+          "trigger": "same model and half-urn swap edge case"
+        },
+        {
+          "assessment": "insufficient full material to rule out an implicit stronger fixed-t result; retained as residual risk",
+          "evidence": [
+            "Abstract describes asymptotic cutoff logarithmic mixing and a generalization of urn sizes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.08676",
+          "material_read": "Primary abstract and bibliographic metadata; full-text HTML inaccessible",
+          "method": "arXiv listing and scholarly index",
+          "title": "Cutoff in the Bernoulli-Laplace Model With Unequal Colors and Urn Sizes",
+          "trigger": "nearest later general Bernoulli-Laplace mixing paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact TV profile resolves the two-step endpoint for half swaps, with a hierarchy of critical offsets n^(1-1/(2t)) relevant to rapid urn mixing. It improves a bounded-time/three-step guarantee and supplies quantitative finite-time sensitivity rather than a new notational variant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 2023 unequal-urn paper not inspected, although abstract and reported Theorem 4.2 scope are known.",
+    "Fixed t>=2 and lambda->0 only, not growing-time cutoff or unequal urns."
+  ],
+  "schema_version": 1
+}
