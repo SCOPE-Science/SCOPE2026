@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The parity obstruction handles all even m. For odd m the base norm-two solution yields an integral norm-one multiplier; powers give exact integral norm-two solutions. For p|m, x²≡2 mod p forces p≥7 and p∤x. In the binomial formula the first term has valuation v_p(y)+v_p(n), and all later terms strictly exceed it because v_p(2j+1)<j≤jv_p(m). Thus v_p(Y_n)=v_p(y)+v_p(n); n=m^r supplies all odd-power coefficients and fixed-r infinite families. Converse substitution and the m=7,23 minimality check are exact. A standalone verifier independently checks 39 cases, without replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mollin NYJM 11 (2005) Thm.2 tests one fixed D; it can be applied to m and to m^3 separately but does not explicitly compare them.",
+        "Standard Pell multiplication generates norm-two solutions from norm-one units, but generic multiplication does not by itself assert m^r-divisibility of the second coordinate."
+      ],
+      "reasoning": "No inspected stronger theorem explicitly implies the uniform equivalence and exact valuation for all m,r and all odd n. The coefficient-specific Pell algorithm and known general lifting lemmas are substantial nearby coverage and constitute a residual priority risk.",
+      "searches": [
+        "\"Pell\" \"odd powers\" coefficient \"2\" integer solutions norm",
+        "Exact p-adic valuations v_p(Y_n)=v_p(y)+v_p(n) for norm-two Pell sequences Y_n=(alpha^n - conjugate alpha^n)/(2sqrt D 2^((n-1)/2)) at primes dividing D",
+        "generalized Pell equation x² - D^k y² = 2 solvability odd k 2024",
+        "Mollin-NYJM-2005-11-25"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.06697v1",
+      "Mollin, New York Journal of Mathematics 11 (2005), Theorem 2",
+      "Chan, Journal of Integer Sequences 26 (2023), Article 23.1.1",
+      "Standard generalized Pell and prime-adic lifting background"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Van Doorn arXiv:2605.06697v1, p.2–3 proves the special m=7 construction and p.7 cites Mollin for coefficient m³.",
+        "Mollin (2005), Theorem 2 states equivalences for existence of norm-two solutions at a fixed coefficient.",
+        "Chan (2023), proof of Theorem 7 derives a different Pellian family of powerful-number progressions."
+      ],
+      "reasoning": "The present m=7 cubic example is explicitly subsumed by van Doorn and not presented as original. The new claim quantifies over every positive multiplier and all odd-power levels, with a precise p-adic lifting formula. No cited source in the materials read supplies this implication, though a general older sequence theorem could do so.",
+      "searches": [
+        "arXiv:2605.06697v1",
+        "Mollin-NYJM-2005-11-25",
+        "Chan-JIS-2023-23.1.1",
+        "Solvability x^2-m^3 z^2=2 if and only if x^2-m y^2=2 for odd squarefree m; coefficient divisibility by every prime power via odd powers of norm-two algebraic integers, Pell sequence p-adic valuation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Van Doorn arXiv:2605.06697v1, Sec.3.1–3.2 exhibits m=7 and lifts at r=1 by a recurrence; after Conjecture 5 discusses tests for arbitrary squarefree m.",
+        "Mollin NYJM 11 (2005), Theorem 2, norm-two solvability for given D via fundamental Pell unit."
+      ],
+      "reasoning": "The source recurrence at m=7 is one instance of the result. The fixed-coefficient solvability criterion does not state an implication among all D=m^{2r+1}; the new proof derives that implication and an exact index valuation law. An equivalent result may exist under Lucas-sequence terminology, so priority is not certified.",
+      "searches": [
+        "\"x^2-m^3 y^2=2\" equivalence norm 2",
+        "Norm-two Pell equations x^2-D y^2=2, x^2-D^{2r+1} z^2=2 equivalence for odd D; odd-power coefficient towers, binomial lifting of solutions",
+        "arXiv:2605.06697v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article isolates 7 as the smallest allowable squarefree multiplier, with tabulation concerning consecutiveness for the 7-based family, not a full odd-power Pell multiplier census.",
+        "The 23 witness here follows by exact arithmetic from (5,1) at the base coefficient and the new lifting law."
+      ],
+      "reasoning": "Neither the specific m=23 witness alone nor a short computed table is advanced as the novelty; the universal equivalence and exact local law supply the claim. A table of other multipliers would not automatically dominate the theorem.",
+      "searches": [
+        "powerful numbers three-term arithmetic progressions Pell equation x^2-343 y^2=2 consecutive powerful numbers local obstructions periodic Pell index additional powerful terms",
+        "Squarefull powerful numbers three-term arithmetic progression second smallest squarefree m in solvable x^2-m^3 y^2=2; Pell lifting coefficient m^r",
+        "arXiv:2605.06697v1"
+      ]
+    },
+    "rationale": "The May 2026 primary paper gives a construction for 7^3 and explicitly leaves the general squarefree cubic multiplier decision to a fixed-coefficient Pell criterion. The inspected 2005 Pell criterion treats each coefficient separately; the 2023 powerful-progressions construction is a different Pell family. The present equivalence across every odd-power coefficient and its exact local coefficient valuation are not stated in these inspected sources. Ordinary Pell multiplication and binomial valuation estimates are recognized as standard tools, not claimed novel.",
+    "residual_risks": [
+      "An earlier Lucas-sequence rank-of-apparition or generalized Pell result could imply the odd-power coefficient equivalence without matching the article's terminology.",
+      "No independent historical-priority review has been performed; absence from searched records is not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Special m=7 construction and fixed-m^3 criterion known; odd-power parameter equivalence and general local valuation not stated in inspected material",
+        "evidence": "Section 3.1–3.2: x²−7³y²=2, recurrence via x²−7y²=2. Paragraph after Conjecture 5: defines M and refers to Mollin Theorem 2.",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.06697",
+        "material_read": "Full 10-page PDF text, including sections 3–5, theorem statements, appendix/references and paragraph after Conjecture 5",
+        "method": "Full-text reading and targeted comparison of formulas and stated results",
+        "title": "Three-term arithmetic progressions of consecutive powerful numbers",
+        "trigger": "Identical target Pell equation and powerful-number progression architecture"
+      },
+      {
+        "assessment": "Fixed D solvability test; no explicit equivalence across odd powers or indexwise exact valuation",
+        "evidence": "Theorem 2 (journal p.541): x²−Dy²=2 solvable iff the fundamental norm-one solution has u_0≡1 (mod D).",
+        "identifier_or_url": "https://nyjm.albany.edu/j/2005/11-25.pdf",
+        "material_read": "All 7 pages of the paper, especially Theorem 2 and surrounding definitions",
+        "method": "Full-text inspection and PDF page-level verification of Theorem 2",
+        "title": "Generalized Lagrange criteria for certain quadratic Diophantine equations",
+        "trigger": "Explicit general criterion cited by motivating paper"
+      },
+      {
+        "assessment": "Different Pell equation for a small-gap progression; no target norm-two coefficient-power equivalence",
+        "evidence": "Section 3 derives (x−1)²−2n²=2 from a Pell solution.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Chan/chan33.pdf",
+        "material_read": "Theorem statements and Section 3 proof of Theorem 7 in the PDF, including the x²−2y²=−1 construction",
+        "method": "Reading of relevant full proof and comparison of its Diophantine parameters",
+        "title": "Arithmetic Progressions Among Powerful Numbers",
+        "trigger": "Earlier Pell-based powerful arithmetic progressions and possible stronger generality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4c93a92-91ed-4d41-971d-3e5a41ac9c36",
+  "value": {
+    "rationale": "Van Doorn specifically motivates identifying squarefree multipliers for his cubic Pell powerful-number construction. An explicit equivalence with the base coefficient, valid at all odd-power levels and supported by an exact local valuation law, reduces this natural family of Diophantine tests and generates new infinite powerful-AP examples, including the next minimal squarefree multiplier 23. The theorem is structural, not an arbitrary finite census; it makes no unsupported claim about consecutive powerful terms.",
+    "status": "PASS"
+  }
+}
