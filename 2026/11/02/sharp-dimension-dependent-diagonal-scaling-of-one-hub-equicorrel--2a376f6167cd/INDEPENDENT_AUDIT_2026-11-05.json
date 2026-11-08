@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:04:09.815578Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=3, a>0, -1/(m-1)<b<1 and m a²<c=1+(m−1)b, write e=1−b. All unrestricted positive diagonal congruences DAD are addressed via equivalence κ(DAD)<=k iff some positive diagonal W satisfies W<=A<=kW; averaging feasible W over permutations of m leaves gives a symmetric optimum without assuming symmetry upfront. Symmetric scaling diag(sqrt x,1,…,1) gives leaf-difference eigenvalue e (mult m−1) and a 2x2 plane block T(x)=[[x,sqrt(mx)a],[sqrt(mx)a,c]], with strictly increasing eigenvalues λ± and λ+ /λ− uniquely minimized at x=c. Whether e lies inside the λ± interval at x=c gives phase condition a²c>=mb²; otherwise unique crossing at x=b(1−b)/(b−a²). The sharp κ values follow from the extreme eigenvalues. A tight generalized plane eigenvector and PSD null-quadratic-form implication force every unrestricted optimal W to coincide with its leaf average; hence optimizer unique up to common scaling. Setting x=1 gives Jacobi iff b=0 or a²=b², and for fixed 0<a²<b<1 the branch changes at m_c=a²(1−b)/[b(b−a²)] with x saturation after the threshold. Independent direct Jacobi eigendecomposition and positive-diagonal numerical optimization for five parameter cases matched the closed forms; finite experiments do not establish global uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shapiro and Kolotilina address broader block scaling and general optimality/spectral characterizations. Qu et al develop generic diagonal preconditioning algorithms. No fully inspected theorem gives this family-specific unrestricted coordinate-diagonal two-phase closed form with dimension threshold."
+        ],
+        "reasoning": "General SDP optimality and block equilibration do not necessarily supply the explicit parameter-region transition and equality-rigidity. Full older block-scaling texts not inspected are material priority risks, not declared noncovering.",
+        "searches": [
+          "Shapiro 1985 Optimal Block Diagonal l2-Scaling of Matrices",
+          "Kolotilina 2002 Optimally Conditioned Block Matrices",
+          "Kolotilina 2004 A Class of Optimally Conditioned Block 2x2 Matrices",
+          "arXiv:2209.00809"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob 675be32a9ef591ac502d77cbeec417831e847e13",
+        "VERIFY.py Git blob 251f7f18d435320ceee2490a387527664a1d9bea",
+        "Kolotilina 2004 author text; Kolotilina 2005 abstract",
+        "Resultary search: Resultary: optimal diagonal spectral condition number symmetric equicorrelation matrix one hub star covariance scaling dimension saturation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kolotilina earlier solves optimal 3x3 quasireal Hermitian scaling (the case m=2) and a general equilibrated 2-block matrix is optimal under block-diagonal transformations; the present feasible class restricts leaf scales to individual coordinates, and its m>=3 leaf eigenvalue e creates a new active constraint in minimax."
+        ],
+        "reasoning": "Those prior results establish nearby cases and methods, but neither directly implies the stated scalar two-phase formula without recognizing the active e crossing and proving unrestricted diagonal uniqueness. An implicit deduction from the older broader theorem remains possible.",
+        "searches": [
+          "https://doi.org/10.1007/s10958-005-0488-1",
+          "https://doi.org/10.1023/B:JOTH.0000026285.08558.74",
+          "https://doi.org/10.1002/nla.434"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The family has two invariant eigenspaces in a hub versus leaf-sum-plus-difference splitting. Optimal block scaling with arbitrary leaf-block transformations is a larger allowed class, so an optimum in that class is not automatically the optimum under positive coordinate-diagonal congruences. m=2 3x3 special case is explicitly excluded."
+        ],
+        "reasoning": "The two-phase leaf-symmetric scalar diagonal optimizer and universal rigidity are not a word-for-word restatement of block equilibration, although a specialized theorem for the same scalar-restricted block may still imply them.",
+        "searches": [
+          "Resultary: optimal diagonal spectral condition number symmetric equicorrelation matrix one hub star covariance scaling dimension saturation",
+          "Kolotilina 2004 and 2005 optimally conditioned block 2x2 matrices",
+          "Kolotilina 2004/2006 quasireal Hermitian 3x3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published references address general block eigenvalue bounds or matrix-equilibration methods, and the m=2 quasireal Hermitian solved case. No exact m>=3 hub-family scale table with m_c transition appeared in checked results."
+        ],
+        "reasoning": "A pre-existing closed family specialization may be hidden in older matrices appendices. No negative search alone establishes novelty.",
+        "searches": [
+          "Resultary: optimal diagonal spectral condition number symmetric equicorrelation matrix one hub star covariance scaling dimension saturation",
+          "Kolotilina 2005 Bounds for eigenvalues of block 2x2 Hermitian positive definite matrices",
+          "arXiv:1610.03871"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: two-phase symmetry reduction and rigidity against all independent leaf scales. Residual priority and access risks retained.",
+      "residual_risks": [
+        "Shapiro 1985, Kolotilina 2002 and Kolotilina 2005 full texts not all accessible; an implicit or explicit family specialization might cover the two-branch formula.",
+        "Kolotilina m=2 is prior and excluded.",
+        "Direct numerical optimization for small m supports formulas but does not prove unrestricted global uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows a general class of block-optimally-conditioned 2-block matrices; does not alone state coordinatewise one-hub equicorrelation transition",
+          "evidence": [
+            "An equilibrated block 2×2 Hermitian SPD matrix is optimally conditioned under block scaling; the leaf block can have arbitrary internal transformations."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/226838200_A_Class_of_Optimally_Conditioned_Block_2_2_Matrices",
+          "material_read": "Author-uploaded accessible text including abstract, introduction and optimal equilibrated-block result; not all pages of original article",
+          "method": "Lawful publicly accessible author text",
+          "title": "A Class of Optimally Conditioned Block 2×2 Matrices",
+          "trigger": "Potentially dominating general block scaling"
+        },
+        {
+          "assessment": "General eigenvalue bounds and block Jacobi/equilibrated optimal spectra; coverage of exact scalar m>=3 family unresolved",
+          "evidence": [
+            "Abstract states that block Jacobi-scaled and equilibrated matrices have totally optimal spectra."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nla.434",
+          "material_read": "Publisher abstract and bibliography; full text not obtained",
+          "method": "Publisher abstract",
+          "title": "Bounds for the eigenvalues of block 2×2 Hermitian positive-definite matrices",
+          "trigger": "Potential spectral dominance and optimality theorem"
+        },
+        {
+          "assessment": "Generic diagonal scaling; not an evaluated sharp equicorrelation m-threshold in inspected material",
+          "evidence": [
+            "The condition number can be approached via generic equilibration/preconditioning, but exact constants require family-specific eigenvalue calculations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.03871",
+          "material_read": "Arxiv paper general problem setup and equilibration methods, selected sections",
+          "method": "Arxiv abstract and methods descriptions",
+          "title": "Preconditioning via Diagonal Scaling",
+          "trigger": "Common diagonal conditioning baseline"
+        },
+        {
+          "assessment": "Cannot rule out an equivalent specialty theorem in full body",
+          "evidence": [
+            "1985 block diagonal scaling framework predates the claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0722005",
+          "material_read": "Bibliographic abstract only; full publication unavailable",
+          "method": "Publisher abstract",
+          "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+          "trigger": "Older broad optimized block diagonal framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an exact unrestricted optimal congruence preconditioner, a nontrivial strict uniqueness theorem and dimension-dependent saturation transition for a natural positive correlation/hub-leaf covariance family. These precise constants guide conditioning in structured SPD systems; unlike generic SDP formulation this is explicit and fully classified for every m≥3 and all permitted positive/negative correlations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md Git blob 675be32a9ef591ac502d77cbeec417831e847e13",
+    "VERIFY.py Git blob 251f7f18d435320ceee2490a387527664a1d9bea",
+    "Kolotilina 2004 author text; Kolotilina 2005 abstract",
+    "Resultary search: Resultary: optimal diagonal spectral condition number symmetric equicorrelation matrix one hub star covariance scaling dimension saturation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Shapiro 1985, Kolotilina 2002 and Kolotilina 2005 full texts not all accessible; an implicit or explicit family specialization might cover the two-branch formula.",
+    "Kolotilina m=2 is prior and excluded.",
+    "Direct numerical optimization for small m supports formulas but does not prove unrestricted global uniqueness.",
+    "No GitHub modifications or dispatcher closeout were made; publication has not occurred."
+  ],
+  "schema_version": 1
+}

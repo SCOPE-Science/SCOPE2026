@@ -1,15 +1,21 @@
-# Scientific review: one-hub equicorrelation diagonal scaling
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof treats the full positive diagonal congruence class. The equivalence between a condition-number upper bound and two diagonal semidefinite inequalities is exact; permutation averaging provides a symmetric candidate but is **not** used to infer uniqueness. The explicit plane-plus-multiplicity spectral decomposition, monotonic eigenvalue derivatives, and unique crossing of the leaf-difference eigenvalue establish the piecewise minimum. A separate saturated generalized-eigenvector certificate proves that every nonsymmetric diagonal optimum equals the symmetric one up to global scale. The checker independently compared the formula with rational identities and direct eigensolvers on 176 admissible cases, passing 2666 assertions; its sampling is not used as proof of the quantified theorem. Scientific limits: only real SPD matrices, fixed dimension \(m+1\), and positive diagonal congruence scaling.
+## correctness
 
-## Originality — PASS (qualified)
-Takapoui–Javadi (arXiv:1610.03871v1) and Diamond–Boyd (arXiv:1602.06621v1) supply diagonal equilibration context but no exact optimum for this family. The original Kolotilina 2004 three-dimensional theorem does cover \(m=2\), which is explicitly excluded. Shapiro (1985), Kolotilina (2002), and Braatz–Morari (1994) establish general diagonal or block-condition optimization frameworks; full texts for the first two could not be checked, and a specialization may exist. Qu et al. (2022) offer general preconditioning algorithms rather than this explicit leaf-count saturation and unrestricted rigidity, in the inspected introduction/method. No matched full-dimensional statement was found in mathematical-record queries or accessed primary material. Novelty therefore remains subject to specialized earlier coverage, especially unexamined block-scaling cases.
+PASS
 
-## Mathematical value — PASS
-One-hub equicorrelation matrices are natural covariance, Hessian and dense-feature systems for which diagonal equilibration is attractive but not generally condition-number optimal. The theorem gives an explicit globally optimal diagonal preconditioner for every admissible matrix in an infinite-dimensional family, a sharp active-eigenmode transition, an exact criterion for Jacobi being optimal, and a nontrivial dimension-dependent cutoff after which the hub scale stops increasing. It goes beyond a numerical comparison or a textbook two-by-two scaling exercise. It does not claim the result yields a specific bound on an unrelated iterative method.
+For m>=3, a>0, -1/(m-1)<b<1 and m a²<c=1+(m−1)b, write e=1−b. All unrestricted positive diagonal congruences DAD are addressed via equivalence κ(DAD)<=k iff some positive diagonal W satisfies W<=A<=kW; averaging feasible W over permutations of m leaves gives a symmetric optimum without assuming symmetry upfront. Symmetric scaling diag(sqrt x,1,…,1) gives leaf-difference eigenvalue e (mult m−1) and a 2x2 plane block T(x)=[[x,sqrt(mx)a],[sqrt(mx)a,c]], with strictly increasing eigenvalues λ± and λ+ /λ− uniquely minimized at x=c. Whether e lies inside the λ± interval at x=c gives phase condition a²c>=mb²; otherwise unique crossing at x=b(1−b)/(b−a²). The sharp κ values follow from the extreme eigenvalues. A tight generalized plane eigenvector and PSD null-quadratic-form implication force every unrestricted optimal W to coincide with its leaf average; hence optimizer unique up to common scaling. Setting x=1 gives Jacobi iff b=0 or a²=b², and for fixed 0<a²<b<1 the branch changes at m_c=a²(1−b)/[b(b−a²)] with x saturation after the threshold. Independent direct Jacobi eigendecomposition and positive-diagonal numerical optimization for five parameter cases matched the closed forms; finite experiments do not establish global uniqueness.
 
-## Closest literature and limits
-The highest-overlap substantive comparison is Kolotilina's complete three-by-three solution, not a match at dimension four or above. General block-condition methods are a material residual coverage risk. The finite checker cannot establish historical originality or substitute for the proof; no independent mathematical review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: two-phase symmetry reduction and rigidity against all independent leaf scales. Residual priority and access risks retained.
+
+## value
+
+PASS
+
+Provides an exact unrestricted optimal congruence preconditioner, a nontrivial strict uniqueness theorem and dimension-dependent saturation transition for a natural positive correlation/hub-leaf covariance family. These precise constants guide conditioning in structured SPD systems; unlike generic SDP formulation this is explicit and fully classified for every m≥3 and all permitted positive/negative correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
