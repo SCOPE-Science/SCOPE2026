@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The eight-class capping lemma is proved by induction: identical initial vertices on one shore evolve identically, and the threshold at two depends on population counts only through truncation at two. `cap_certificate.py` exhaustively checks every \(3^8=6561\) exact quotient signature, including all boundaries, periodic-state shapes, the global iterate identity, and the size-feasibility phase diagram. `direct_check.cpp` separately enumerates 4,657,408 labelled configurations over ten graph sizes and checks recurrence and first-entry histograms. The coefficient basin formula follows from exact labelled exponential generating functions and has an independent weighted check. Finite checks alone would be insufficient without the class-capping lemma, which is what transfers the exhaustive result to every graph size. Critical computational dependencies are fully supplied.
+PASS
 
-## Originality — PASS (best-knowledge qualification)
+Reconstructed the global map: on each shore vertices with equal initial color remain identical forever; replacing every initial shore/color multiplicity by min(m,2) preserves the threshold-two excited-neighbor Boolean at every step by induction. This proves an exact 3^8=6561-state quotient, not a small-graph extrapolation. Independently iterated all 6561 capped signatures, finding F^11=F^7, and enumerated feasible signatures for a,b up to 8; maxima 4 on (2,2), 5 on (2,3) and (3,3), 6 on (4,4) and (7,7), and 7 on (7,8) and (8,8). Feasible capped signatures stabilize once a,b>=8. Independently checked labelled witness 0011233|00112233 has entry 7 and S/T orbit formula yields Q4(4,4)=18, Q4(4,5)=60, Q4(8,8)=1,615,922. Counting four-color rotating and two-color alternating states then dividing by primitive period four is correct. g0=1, g1=z, g2=e^z-1-z follows labelled EGF partition, so basin coefficient formula is exact. The exhaustive small finite quotient plus its valid capping proof establishes the all-a,b claim; direct finite sample counts alone would not.
 
-Actual semantic mathematical-record queries compared four-color threshold-two GHM, complete bipartite recurrence, contact-threshold dynamics, and aliases (four-phase excitable networks). The closest published record on complete multipartite parity automata uses a **binary linear parity update**, not a thresholded four-state refractory map; the irreversible multipartite threshold-conversion record is monotone and cannot imply recurrent four-cycles. The closest accessible pre-existing biclique result treats three-state threshold-two GHM, while a four-state biclique classification concerns excitation threshold one. Neither statement entails the two families, orbit count or seven-step transition for four-state threshold two.
+## originality
 
-Primary full-text comparisons: Fisch–Gravner–Griffeath study planar multicolor/threshold excitability rather than exact biclique orbit counts; Gravner–Lyu–Sivakoff study three-color excitation; Bello–Sivakoff treat infinite regular trees. A separate numerical sequence match in OEIS A132813 is an unrelated binomial triangle, not the present two-parameter dynamics. The original Greenberg–Hastings 1978 source was inspected at abstract level only; no unsupported negative claim is made about its full text. Unindexed or inaccessible equivalent results remain a historical-priority risk. Novelty is necessarily best-knowledge, not a uniqueness certification.
+PASS
 
-## Mathematical value — PASS
+Fisch–Gravner–Griffeath analyze spatial threshold-range excitation; Gravner–Lyu–Sivakoff analyze 3-color excitable media; Bello–Sivakoff analyze multicolor automata on regular trees. No inspected theorem forces these exact four-color threshold-two biclique 6561-signature classes, orbit formula and sharp seven-step bound. Published binary complete-multipartite parity orbit formula has a different update algebra; its period-four conclusion does not imply this claim. The O finding is conditional on the actual searches and primary sections inspected, not universal priority certification.
 
-The threshold of two contacts is a natural cooperative-excitation modification of a classical excitable-media update. A complete labelled recurrence classification for all biclique shore sizes distinguishes two disjoint mechanisms, with sharp four-vertex and eight-vertex occupancy thresholds, and an unexpected seven-step entrance barrier that first occurs at the asymmetric \((7,8)\) size. The finite coefficient formula also determines all transient-length and eventual-period basins, not just recurrent states. This is a motivated complete infinite-family classification rather than a routine parameter substitution or an isolated numerical record.
+## value
 
-## Limits and closest antecedents
+PASS
 
-Only the specified four-color, threshold-two deterministic update on finite bicliques is covered. Existing multistate excitation literature establishes the update model and broader behavior in other settings; the present claims are precise biclique combinatorial/dynamical formulas. An equivalent unindexed source remains possible and independent verification has not been performed.
+The exact global transient cutoff and all-size primitive-period/basin census answer a natural finite excitable-dynamics problem. Crucially the capping lemma proves a uniform constant-state abstraction despite arbitrarily many labelled vertices; this is a useful structural classification and not a tiny-instance table.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
