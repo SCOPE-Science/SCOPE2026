@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The tame sign-change decomposition preserves the \(11\)-divisible group, and the exact five Legendre cross-ratios from Carvacho–Hidalgo–Quispe reduce to a degree-five Hasse polynomial. Its five distinct geometric roots all lie in \(\mathbb F_{121}\). Exhaustively checking all 20 ordered root pairs (not just low-degree rational points) eliminates triple intersections; permutation of the five marked branch labels extends this to all ten pairs. Simple roots give transversality, and ordinary inclusion–exclusion proves the all-extension parameter counts. The actual packaged verifier was executed and returned `VERIFY_OK`.
+## correctness
 
-**Originality: PASS, with residual historical risk.** The 2014 generalized Fermat model, the published five-elliptic decomposition of 2015, and standard Legendre Hasse theory are prior art, not claimed new. Direct inspection of the 2015 paper's Section 5.1 and the 2014 model, targeted searches for characteristic-eleven Humbert rank and 200 double intersections, and comparisons to accessible related characteristic-three, five and seven findings produced no statement implying the pairwise-only characteristic-eleven rank stratification and full finite-field counts. Priority cannot be guaranteed against unindexed literature.
+PASS
 
-**Value: PASS.** The double-only incidence classification is a complete and natural small-characteristic result for a two-dimensional genus-five moduli family. It sharply rules out rank below three, distinguishes degree-one from degree-two arithmetic parameters (the rank-four stratum is empty over \(\mathbb F_{11}\) but nonempty over \(\mathbb F_{121}\)), and gives a structural explanation for exact counts at every extension degree; it is not merely an isolated point enumeration.
+PASS: Tame (Z/2)^4 quotient decomposition gives a prime-to-11-degree isogeny of the genus-five Jacobian to five Legendre elliptic factors; prime-to-p isogeny preserves their 11-divisible groups. Their supersingularity is exactly vanishing of H(T)=sum_(j=0)^5 binom(5,j)^2 T^j=(T-2)(T+1)(T+5)(T²-T+1) mod11; five simple roots all lie in F121, three in F11. Independent GF121 arithmetic checked all 20 ordered pairs of distinct H-roots and verified the other three quotient cross ratios remain nonsupersingular; label permutations of the five branch points transitively carry any distinct quotient divisor pair to this tested pair, proving no triple and 20 transverse points per pair. Inclusion-exclusion on marked parameter space produces all-extension formulas. Independent complete enumeration at q=11,121 returned (12,0,60) and (11292,2550,200).
 
-**Scientific limits.** This does not compute unmarked isomorphism classes or assert analogous rank bounds for other primes. Historical priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Hidalgo et al. 2014 establish smooth generalized Fermat fiber-product model over tame characteristic. Carvacho–Hidalgo–Quispe 2015 Theorem 5.1 gives the five elliptic quotient decomposition over characteristic zero, but not p=11 Hasse zero incidence or marked finite-field counts. No broader algebraic characterization or exact 200-point table surfaced in thematic research searches. Unindexed older Humbert arithmetic work remains a material risk.
+
+## value
+
+PASS
+
+PASS: Complete p=11 supersingularity stratification of natural two-parameter genus-five Humbert family, including the geometric prohibition on triple degeneration and exact 11-rank/a-number/Newton distributions for all q=11^m; this provides useful sharp arithmetic moduli incidence information, not a generic one-site Hasse calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
