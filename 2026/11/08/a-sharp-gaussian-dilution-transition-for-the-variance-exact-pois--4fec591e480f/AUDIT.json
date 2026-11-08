@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The cumulant MGF gives the exact scalar extremum. The factorial convolution produces decreasing coefficient quotients; their weighted covariance proves strict monotonicity of the stationary function for every positive real tilt. Endpoint limits give the precise threshold and unique optimizer, and analytic inversion gives both expansions. The independent standard-library checker passed 624 finite diagnostics. The proof does not infer universal claims from those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen Theorem 3.1 covers the variational reduction for all spectrally positive infinitely divisible laws, and Proposition 5.1 covers Gaussian addition only as a weak maximum bound.",
+        "Leskelä–Välimaa Proposition 4.1 optimizes a different variance proxy against a Poisson-shaped MGF."
+      ],
+      "reasoning": "The broader prior results logically imply a supremum characterization but not the evaluated one-third threshold, strict optimizer uniqueness, or explicit asymptotic constants. Those additional steps require an independent monotonicity identity and are the bounded claim.",
+      "searches": [
+        "optimal variance-exact sub-gamma scale Gaussian plus centered fixed jump compound Poisson, sharp Gaussian variance threshold 1/3, M-class local cumulant versus interior optimizer",
+        "fixed jump compound Poisson plus independent Brownian Gaussian perturbation optimal right sub-gamma Bernstein scale closed form M-class threshold",
+        "arxiv:2610.00032v1 Proposition 5.1 and Theorem 3.1",
+        "arxiv:2508.12103v1 optimal Poisson variance proxy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00032v1 (available full HTML)",
+      "arxiv:2508.12103v1 (available full HTML)",
+      "Klar and Müller (2003), author-hosted extracted PDF",
+      "arxiv:2609.02398v1 (lawful external HTML rendering, selected portions)",
+      "Published related result: Exact self-decomposability threshold for Gaussian compound-Poisson perturbations of symmetric variance-gamma laws (different property)",
+      "Published related result: Cumulant effective-trial hierarchy for Poisson-binomial laws (different discrete-sum cumulant bounds)",
+      "Published related result: Sharp variance-tail threshold in the Beta(1,b) family (different family and tail question)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen Proposition 5.1 explicitly notes that adding Gaussian variance can reduce the scale without quantifying a transition.",
+        "Chen Section 7 states only existence, not uniqueness, for its different interior example.",
+        "Klar–Müller Theorem 3.5 supplies a general MGF-order equivalence without a fixed-jump Gaussian calculation."
+      ],
+      "reasoning": "Substituting the Poisson/Gaussian law into the known variational formula leaves a nontrivial optimization. The new coefficient ratio is strictly decreasing for every degree and yields uniqueness and a sharp threshold, hence prior generality does not give the asserted evaluated result without substantial extra work.",
+      "searches": [
+        "optimal variance-exact sub-gamma scale Gaussian plus centered fixed jump compound Poisson, sharp Gaussian variance threshold 1/3, M-class local cumulant versus interior optimizer",
+        "optimal pole of Gaussian smoothed Poisson distribution near critical zero tilt 3/4 and asymptotic log Gaussian variance three log log correction",
+        "arxiv:2610.00032v1 Sections 3, 5, 7",
+        "Klar-Mueller-2003-M-class Theorem 3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equivalent M-class criterion is in Chen, Theorem 4.2, and Klar–Müller, Theorem 3.5. For this family the transformed law is an atom at zero plus a scaled Beta(1,2), whose M-class membership is equivalent to the stated local-optimizer phase.",
+        "Chen Section 7 gives explicit different jump-law examples."
+      ],
+      "reasoning": "Aliases through MGF order, equilibrium transforms, and the zero-inflated Beta(1,2) distribution were compared. The abstract criterion could be specialized, but no inspected text solves its sharp critical Gaussian fraction or global stationary-point uniqueness. Such specialization is therefore not presented as a new general criterion.",
+      "searches": [
+        "optimal variance-exact sub-gamma scale Gaussian plus centered fixed jump compound Poisson, sharp Gaussian variance threshold 1/3, M-class local cumulant versus interior optimizer",
+        "Poisson normal convolution sharp variance-matched subgamma parameter Bernstein pole Gaussian variance one third Poisson variance, sudden interior optimizer Gamma concentration",
+        "Klar Müller 2003 M-class reliability beta Bernoulli zero inflated Beta 1 2 threshold",
+        "arxiv:2610.00032v1 Section 4 M-class optimality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source examples are gamma jump laws and a two-point jump-size mixture, not the fixed-jump Poisson plus Gaussian family.",
+        "Targeted mathematical similarity searches returned other Poisson variance proxies, random-jump self-decomposability, and distribution-specific tail envelopes, not a matching parameter table."
+      ],
+      "reasoning": "No exact table or stored claim matching this closed-form phase boundary and quantitative asymptotics was located in the checked material. Database and search incompleteness remains a risk.",
+      "searches": [
+        "Gaussian smoothing a Poisson random variable changes Bernstein optimal concentration scale logarithmic decay under large Gaussian variance; saddlepoint scale",
+        "optimal pole of Gaussian smoothed Poisson distribution near critical zero tilt 3/4 and asymptotic log Gaussian variance three log log correction",
+        "Poisson Gaussian additive Bernstein exact scale stationary point",
+        "arxiv:2610.00032v1 Section 7 examples"
+      ]
+    },
+    "rationale": "The direct primary manuscript establishes only the general supremum and Gaussian convolution inequality, whereas the present claim evaluates a fixed-jump family completely by a decreasing-coefficient quotient proof. No covering statement was found in the inspected source material and targeted similarity/literature searches. This is a best-knowledge originality assessment, not proof of historical uniqueness.",
+    "residual_risks": [
+      "A pre-existing implicit M-class calculation for the zero-inflated Beta(1,2) transform may yield an equivalent threshold under different terminology.",
+      "An earlier unpublished or non-indexed specialized Poisson/Gaussian Bernstein optimization may subsume the phase diagram.",
+      "The full author-hosted 2003 PDF could not be visually inspected because PDF screenshots timed out; its extracted sections were compared.",
+      "This is not an independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It provides the general supremum representation and notes Gaussian convolution can lower scale, but does not solve the fixed-jump Poisson/Gaussian phase boundary, uniqueness, or critical/high-noise expansions.",
+        "evidence": "Theorem 3.1 (exact variational representation); Proposition 5.1 (independent sums); Section 7 exact gamma and two-point jump examples; Section 8.",
+        "identifier_or_url": "https://arxiv.org/html/2610.00032v1",
+        "material_read": "Full available HTML manuscript: definitions, factorization, variational theorem, M-class section, structural operations, all examples, discussion, references.",
+        "method": "Open-access HTML full-text reading and theorem/proposition comparison.",
+        "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+        "trigger": "Same variance-matched optimal Bernstein parameter and discussion of Gaussian convolution."
+      },
+      {
+        "assessment": "Optimizes the quadratic variance proxy relative to a fixed Poisson-shaped exponent, not the scale with quadratic coefficient fixed at true variance.",
+        "evidence": "Definitions (2.2) and (2.3); Section 4 optimal variance proxies; Proposition 5.2 independent sums.",
+        "identifier_or_url": "https://arxiv.org/html/2508.12103v1",
+        "material_read": "Available HTML abstract, definitions of sub-Poisson tails, variance proxy optimization and independent-sum closure; examples and section organization reviewed.",
+        "method": "Open-access HTML full-text text-section inspection.",
+        "title": "Sub-Poisson distributions: Concentration inequalities, optimal variance proxies, and closure properties",
+        "trigger": "Potentially dominating optimal-proxy result for Poisson-related random variables."
+      },
+      {
+        "assessment": "Provides general transform comparison and sufficient conditions, but reviewed material does not state the Poisson/Gaussian optimizer and phase diagram. Not used to assert whole-document absence unequivocally.",
+        "evidence": "Theorem 3.5; Theorem 4.1 and examples 4.1-4.3; PDF extracted text.",
+        "identifier_or_url": "https://wwwalt.math.kit.edu/stoch/~klar/seite/veroeffentlichungen/media/mclass-copy.pdf",
+        "material_read": "Accessible extracted PDF text: abstract, definitions, M-class Theorem 3.5, equivalent equilibrium comparison, and examples in Section 4. Rendered-page inspection timed out.",
+        "method": "Author-hosted lawful open PDF with extracted-text inspection; rendered screenshot requests failed twice.",
+        "title": "Characterizations of classes of lifetime distributions generalizing the NBUE class",
+        "trigger": "Original M-class definition could encompass the local-optimality condition and threaten priority."
+      },
+      {
+        "assessment": "Its class-level convex-order majorization does not directly optimize this distribution-specific variance-matched one-sided scale.",
+        "evidence": "Convex-order comparison of bilateral sub-gamma families against a Laplace majorant; distinct optimization target.",
+        "identifier_or_url": "arxiv:2609.02398v1",
+        "material_read": "Abstract, introduction, principal theorem statements and conclusion in lawful HTML reproduction; arXiv PDF and HTML were not accessible.",
+        "method": "Accessible manuscript text sections in an external full-text HTML rendering.",
+        "title": "Convex Order Comparisons for Sub-Gamma Random Variables",
+        "trigger": "Alternative sub-gamma comparisons and potentially stronger concentration principle."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4fec591e-480f-4cb1-af83-0eeb7f25dd58",
+  "value": {
+    "rationale": "The exact variance-matched right-tail Bernstein scale is a motivated concentration invariant, and independent Gaussian smoothing is natural. The theorem proves a complete nontrivial phase boundary between cumulant control and unique interior tilt, supplies transition curvature and a logarithmic high-noise law; none is a bare restatement of the previously available supremum representation.",
+    "status": "PASS"
+  }
+}
