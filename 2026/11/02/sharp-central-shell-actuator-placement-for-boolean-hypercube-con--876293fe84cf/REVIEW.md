@@ -1,11 +1,21 @@
-# Review of the central-shell controllability theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** Walsh diagonalization gives the exact \(\binom dk\) eigenspace multiplicities. A self-contained up/down incidence commutator proves shell-to-shell injectivity. Odd-dimensional central-shell uniqueness follows by complement parity and adjacency propagation. Even-dimensional facet placement follows by splitting the two adjacent Walsh degrees, separating them across complementary slices, and applying the odd result. Cardinalities match the PBH lower bound. Exact modular checks cover dimensions through ten, and direct finite Kalman tests through five; neither is used to substitute for the proof.
+## correctness
 
-**Originality (PASS, qualified).** The maximum-multiplicity lower bound is standard and the generic abstract driver-count theorem is not claimed as new. The inspected 2011 primary treatment of distance-regular networks gives a larger generic sufficient set and specializes only to cycles and complete graphs. The inspected 2013 framework describes general spectral driver counts without a parity-dependent shell/facet construction. The inspected 2023 leader-selection paper addresses other graph classes, and the 2022 directed-hypercube result concerns signed zero forcing and a different criterion. The main assertion is the explicit all-dimensional *coordinate-local* minimum leader set, not its elementary numerical multiplicity alone. General graph results and any unindexed special-case control or Boolean-slice literature remain potential overlap.
+PASS
 
-**Value (PASS).** Fixed-node actuator placement is an independent design problem beyond knowing a lower bound or an abstract minimum controller count. The explicit Hamming-shell/facet sets give a deterministic, combinatorial optimal placement rule on a natural exponentially growing family and show that only an asymptotically vanishing fraction \(\sqrt{2/(\pi d)}\) of vertices need actuation, with no numerical optimization or search over vertex subsets. The parity difference and the sharp eigenfunction uniqueness lemma provide structural understanding.
+Walsh characters diagonalize the undirected unit-weight hypercube Laplacian with eigenspace dimensions binom(d,k); PBH forces at least the central binomial number of independently controlled vertex coordinates. The incidence up/down commutator DU-UD=(t-2r)I proves injectivity on lower Hamming shells. In odd dimension, eigencharacter complement parity and the adjacency eigen-equation propagate vanishing from central shell to every weight shell. In even dimension, restriction to the first-zero face splits one Laplacian eigenspace into adjacent Walsh degrees, separated by vanishing on complementary middle face layers; odd-case uniqueness kills both and the eigen-equation kills the opposite face. The proposed sets have exactly central-binomial size and attain PBH. An independent exact rational restriction-rank check for d=1,...,6 found all levels full rank; finite checks do not establish the universal claim.
 
-**Scientific limitations.** No optimal-placement uniqueness, arbitrary weighted-cube extension, robustness guarantee, or control-energy estimate is asserted. The historical novelty assessment is conditional on accessible literature; an equivalent unindexed result may exist. The exact computations were performed in finite characteristics, while the infinite-dimensional family claim is analytic over the reals.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard maximum-eigenspace-multiplicity lower bound (including Yuan et al.) gives only the number, not an explicit minimum coordinate-vertex leader placement. The 2011 distance-regular graph paper gives generic sufficient selection much larger on cubes and treats some other graph examples; directed-cube signed-zero-forcing work has different dynamics. The constructive parity-dependent Hamming shell/facet uniqueness argument is not implied by inspected generic results.
+
+## value
+
+PASS
+
+Exact minimum leader count with a concise explicit sparse Hamming-geometric construction for ALL dimensions solves a natural actuator-placement question on a highly symmetric graph. The fraction of controlled vertices decreases as sqrt(2/(pi d)), a structural advantage relative to generic sufficient sets; control-energy/robustness claims are appropriately excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
