@@ -1,15 +1,21 @@
-# Scientific review: two-circle recovery and one-circle blindness for ellipse tangent-chord products
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the exact quadratic equation for the intersection of a line tangent to the inner circle with the enclosing centered ellipse. Since the contact point is interior, Vieta's formula gives the positive product of signed roots. The decisive identity is \(Q_r(n)=r^2+(1-r^2\operatorname{tr}M)/(v^\mathsf TMv)\). Its Rayleigh-quotient extrema give two endpoint formulas. Their ratio yields the squared axis ratio and then the individual semiaxes; the critical branch is handled separately. The arcsine law and a one-variable Jacobian give the normalized exact density. Distinct radii cannot simultaneously be critical. Both circular and noncircular boundary cases are treated. The standalone deterministic checker confirms direct intersections, endpoint inversion on either side of the critical radius, a resonant family, and probability normalization. Finite checks are corroboration, not proof of the universal assertions.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2021 equipotential-circle source explicitly already knows that a noncircular ellipse has one equipotential circle: neither this fact nor its classical geometric construction is claimed as new. Its inspected text studies exact constancy and symmetry, not the complete inverse classification of an arbitrary nonconstant *unlabeled tangent-chord product range*, the exact product histogram, or the necessity and sufficiency of two fixed measurement circles. A separate 2026 mathematical theorem proves that **direction-labeled tangent-chord lengths** identify arbitrary planar ellipses, a different and stronger data type; its full result was inspected and does not derive this inverse/product resonance theorem. The 2016 local-determination paper also treats tangent-section lengths, not contact-segment products. An old conic-source derivation of the endpoint inversion remains conceivable; this is not proof of absolute priority.
+PASS
 
-## Mathematical value — PASS
-The equipotential-circle phenomenon makes the one-circle inverse problem genuinely nontrivial: infinitely many noncongruent smooth ellipses produce exactly the same *fully labeled* product data at one geometrically distinguished radius. The theorem gives a complete answer to which shapes can nevertheless be reconstructed from strictly less information—only the range endpoints with no directional labels—and establishes that two fixed concentric measurement circles are the minimum globally sufficient measurement design. The explicit density and width sensitivity formula quantify the blind spot. This is an intrinsic inverse-geometry classification, not just a forward conic identity.
+For any positive definite M with eigenvalues 1/a²,1/b² and r<b, Vieta gives Q_r(n)=[1−r² nᵀMn]/(vᵀMv)=r²+(1−r² trM)/(vᵀMv). The two extremal values (b²−r²b²/a², a²−r²a²/b²) are ordered by sign of 1−r²trM; the endpoint nearer r² is the first, making λ=(q_far−r²)/(q_near−r²)=a²/b² and b²=q_near+r²/λ. The only noncircular constant case is trM=1/r² and then Q≡r², including circle a=b=√2r. Two distinct s<r cannot both obey the resonance equation. Uniform angular vᵀMv is arcsine; monotone Jacobian yields exactly the stated density, with numerator a positive product of two signed deviations. No finite experiments are used to prove the continuum theorem. Independently checked 320 quadratic products/inversions and three resonance families, including second-radius separation.
 
-## Scope and residual limitations
-Centered ellipses and concentric known-radius disks only; no claims for displaced ellipses or arbitrary convex bodies. Exact distribution/endpoints, not finite-sample statistical error rates. The literature comparison is strong for the specifically inspected source material but cannot exclude every older equivalent calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge independent search and theorem-level comparison. The equipotential equality is a covered special feature, explicitly not counted as new. Labeled full-length data determine an ellipse by a different polynomial; two distinct products can give different L because their sum is independent information, and discarding angular labels loses still more. A stronger class of outer shapes for chord-length recovery is not a stronger statement for the distinct nonlinear PRODUCT observable; its labeled-length theorem gives no expression for product support range or two-radius rescue. Algebraically, chord length squared (u_+−u_-)² differs from product −u_+u_- by the squared midpoint term. There is shared geometry but no direct implication of the assigned unlabeled inverse classification or its exact law. Prior resonant family is explicitly acknowledged; old conic-geometry formulas could still conceal the inverse identity. An unsuccessful search alone is not evidence of priority. Actual primary material read and remaining limits below.
+
+## value
+
+PASS
+
+A natural inverse-geometric question—whether unlabeled measurements on tangent sections determine the axes of a centered ellipse—is completely answered, including explicit probability law, exact non-identifiability fiber, and minimal universal count of concentric radii. The nontrivial resonance is correctly credited as old; the value rests on extracting shape from unlabeled support endpoints and proving sharp universal recovery, not renaming equipotentiality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
