@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Each ball below diameter is an odd circular interval. Full and pair-only triple traces yield the exact two-sided largest-gap criterion, while radius-zero witnesses settle remaining traces. Alternating pairs forbid shattered four-point supports. Even and odd diameter cutoffs are handled separately. Inclusion–exclusion over bounded positive triple compositions gives all coefficients; uniform-composition convergence and a direct simplex inclusion–exclusion calculation give the two-phase limiting density. A standalone trace checker verified 117 parameter families and 259527 supports through order 20; the proof is symbolic for all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chalopin et al., arXiv:2206.13254, Section 4 analyzes all-radius cycle balls for compression, not count coefficients",
+        "Coudert et al., arXiv:2405.07588: general closed-neighborhood VC algorithms (radius one)",
+        "Bousquet–Thomassé 2015 defines distance VC-dimension over induced subgraphs, a different aggregate invariant, and develops hitting set bounds."
+      ],
+      "reasoning": "A size-three sample compression scheme may give learning complexity information but not the count of shattered triples at each radius. Even an upper VC-dimension bound cannot recover the coefficientwise radius dependence or the limiting probability law. Radius-one bounds concern a single term of the family.",
+      "searches": [
+        "VC dimension of graph balls on cycles radius bounded shattering supports triples",
+        "For cycle C_n the balls of radius at most R shatter triples exactly when largest circular gap is between n-2R and 2R; exact shattering polynomial",
+        "arxiv:2206.13254",
+        "arxiv:2405.07588",
+        "metric graph balls VC dimension cycles intervals bounded radius",
+        "Bousquet Thomassé VC-dimension Erdős–Pósa property distance VC-dimension graph balls 2015"
+      ]
+    },
+    "checked_sources": [
+      "Chalopin et al. arXiv:2206.13254 (2022-06-27), full cycle-specific Section 4",
+      "Coudert et al. arXiv:2405.07588 (2024-05-13), abstract/introduction",
+      "Related published records on cyclic-window translates and cycles; searched with aliases and parameter-equivalence queries",
+      "Bousquet and Thomassé, VC-dimension and Erdős–Pósa property (Discrete Mathematics, 2015): general distance VC-dimension and balls, not finite cycle support enumeration; examined abstract and theorem context."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cycle-ball compression: reconstruction from at most three sample points (Proposition 10), not a support-by-support labeling criterion",
+        "ArXiv:2405.07588 focuses on neighborhood VC algorithms, not the radius-filtered ball class"
+      ],
+      "reasoning": "Neither inspected earlier claim logically supplies both the necessary and sufficient cyclic-gap shattering inequalities nor counts of the circular-gap integer compositions. The random two-quadratic limit further needs three-gap simplex asymptotics. Consequently the present claim is not a mere numerical restatement or immediate implication of these sources.",
+      "searches": [
+        "VC dimension of graph balls on cycles radius bounded shattering supports triples",
+        "cyclic metric ball shattering three points gap condition sample compression",
+        "complete VC shattered-support counts for bounded geodesic balls in C_n",
+        "arxiv:2206.13254",
+        "arxiv:2405.07588"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2206.13254, Section 4, Proposition 10: size-three sample compression on cycle balls",
+        "Fixed-length cyclic-window translates: the known adaptive-dimension formula concerns one window length, not the union over all radii"
+      ],
+      "reasoning": "A graph ball on an unweighted cycle is a centered odd-length circular arc (or the whole cycle at diameter). General circular arcs contain even lengths and fixed-length translates hold the length constant. A compression bound and a Littlestone dimension do not determine the number of distinct shattered vertex triples by radius cutoff.",
+      "searches": [
+        "cyclic metric ball shattering three points gap condition sample compression",
+        "VC shattering polynomial finite cyclic intervals fixed length and union of odd lengths",
+        "cyclic intervals VC shattered triples odd-length intervals bounded radius",
+        "arxiv:2206.13254"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest accessible geometric learning papers contain no radius-indexed table of all finite-cycle shattered triples; precise full-text comparison of the cycle-ball compression proposition was performed"
+      ],
+      "reasoning": "The new count uses bounded-composition inclusion–exclusion Q_n and gives all parameters, not an isolated known small cycle table. The relevant paper sections and accessible comparisons did not supply these coefficient tables; search absence is not proof of novelty.",
+      "searches": [
+        "VC shattering polynomial finite cyclic intervals fixed length and union of odd lengths",
+        "complete VC shattered-support counts for bounded geodesic balls in C_n",
+        "cycle balls VC dimension shattering polynomial bounded radius arcs",
+        "VC shattered-support counts cycle graph metric balls complete polynomial",
+        "arxiv:2206.13254"
+      ]
+    },
+    "rationale": "The closest full primary source, arXiv:2206.13254 Section 4 Proposition 10, proves a size-three sample-compression scheme on cycles, not radius-indexed counts of shattered supports. The related arXiv:2405.07588 studies neighborhood VC algorithms, not all integer radii. Fixed-length cyclic-window Littlestone dimension and several relevant cycle-invariant records do not imply the new full polynomial or its two-phase random three-point limit. Searches by aliases, equivalent objects and parameters found no covering result. This is a qualified best-knowledge originality judgment, not proof of historical uniqueness.",
+    "residual_risks": [
+      "An exact cyclic-arc range-space enumeration under different terminology might exist but was not found.",
+      "Not all algorithmic graph VC-dimension literature and appendices were read in full.",
+      "The integer-radius center restriction is important; the broader family of arbitrary circular arcs can have different support counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING: supplies a proper size-three compression scheme but not radius-filtered support-count enumeration, cyclic-gap criterion, or limiting probability",
+        "evidence": "Section 4, Proposition 10, uses a reconstruction map for labeled cycle-ball samples; no coefficientwise count by R is provided in the cycle analysis",
+        "identifier_or_url": "https://arxiv.org/abs/2206.13254",
+        "material_read": "arXiv preprint PDF; abstract, theorem statements, and full cycle-specific Section 4 including Proposition 10 and proof",
+        "method": "Read searchable full text and corresponding rendered PDF pages",
+        "title": "Sample compression schemes for balls in graphs",
+        "trigger": "Same graph-ball concept family on cycles, plausible direct precedence"
+      },
+      {
+        "assessment": "RELATED_PARTIAL_INSPECTION: algorithms for closed-neighborhood VC dimension, not an exact all-radius support polynomial. Partial read leaves priority risk.",
+        "evidence": "The stated algorithms address closed neighborhoods and hypergraph VC-dimension rather than all integer-radius cycle balls",
+        "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+        "material_read": "Public preprint abstract/introduction and VC-dimension problem setup (not full technical appendices)",
+        "method": "Read public arXiv page and accessible introduction text",
+        "title": "Computing the VC-Dimension of Graphs and Hypergraphs",
+        "trigger": "Nearby radius-one VC-dimension literature and graph range-space terminology"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING in material inspected: bounds for distance VC-dimension and ball hitting sets do not give radius-specific cycle support counts",
+        "evidence": "The abstract and definitions concern maximum VC dimension over induced subgraphs, whereas the present result counts shattered triples in each fixed cycle and bounded-radius ball family.",
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.05.026",
+        "material_read": "Abstract, definitions of distance VC-dimension and neighborhood hypergraph, and accessible representative theorem statement",
+        "method": "Read available primary publisher text",
+        "title": "VC-dimension and Erdős–Pósa property",
+        "trigger": "General distance VC-dimension and graph-ball range spaces, potential broader covering theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "da8d9213-216f-42ff-9eec-0e673faeaa21",
+  "value": {
+    "rationale": "Exact finite support enumeration beyond VC dimension is a motivated invariant for graph-ball range spaces. The theorem gives a structural gap criterion, a sharp one-quarter-circumference three-shattering threshold, complete finite coefficients including diameter parity, and two distinct nonzero asymptotic quadratic density regimes separated at one-third circumference. The density describes the actual frequency of arbitrary labeling for uniformly random triples, which a dimension bound cannot supply.",
+    "status": "PASS"
+  }
+}
