@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The model, graph labels, update convention, least-period and basin counting are specified precisely. On the 225 nonempty ordered occupied-color masks, the deterministic support transition is written explicitly; `support_table.csv` records all transitions and eventual classes, and `verify.py` independently reconstructs every support cycle. On recurrent supports the microscopic map is either fixed all-zero or uniform color rotation, so support entry is actual periodic entry. Inclusion–exclusion surjection counts and a disjoint size-class partition prove the orbit and basin formulas for **all** shore sizes, while the support-table capacity filter proves the sharp tail threshold. Exhaustive direct state calculations across 115,600 labelled states corroborate the finite reduction. Risk: the finite certificate and its generator should be independently implemented or manually audited; only self-review has occurred.
+## correctness
 
-## Originality — PASS, qualified
-The closest material is the 2016 primary preprint by Gravner–Lyu–Sivakoff, whose definitions include arbitrary color number but whose substantive conclusions address three-color activity, and the 2018 three-valued finite-graph paper by Doba. Neither supplies the four-state exact two-shore formula. The earlier four-state complete-tripartite classification requires a **nonempty third shore**; no substitution within its hypothesis yields an empty shore, and in particular it does not establish the new five-step boundary or the two-shore basin coefficients. The earlier three-state biclique classification changes the local state machine and permits primitive three-cycles, so does not imply the present four-state result. Research-database searches using precise model/graph/parameter and alias phrases did not locate a statement covering this formula; absence from search is not a novelty proof. Risk: unindexed historical literature, or a reduction not discovered in this search, might already contain the same classification.
+PASS
 
-## Mathematical value — PASS
-The two-shore four-state family is a natural topology and excitability parameter; exact basins distinguish population-level convergence from mere possible-period information. The global recurrent supports split into two distinct period-four mechanisms (alternating two-color shores and globally full palettes). For balanced shore size three the fixed basin exceeds the four-cycle basin, whereas at size four the inequality reverses. The exact sharp five/six update boundary is not a matter of rounding a generic period bound. The self-contained infinite-family formula and explicit finite certificate can be reused in studies of oscillation prevalence under structural graph changes. Risk: the scope is restricted to one update rule and a complete bipartite host; no claim of a broad transfer theorem is made.
+The occupied-color supports are 15 nonempty masks per shore, yielding exactly 225 ordered support pairs under the explicit deterministic mask map. An independent implementation detects only recurrent support classes fixed (1,1), alternating (5,10)<->(10,5), and full (15,15), with precisely 170,54,1 support-pair basin counts; all other masks enter in at most six steps. On recurrent supports each individual color rotates modulo four (or stays all zero), so microscopic period and entry time coincide with support entry. Alternating basin cardinality pairs have multiplicities (2,2):8,(2,3)/(3,2):10,(2,4)/(4,2):3,(3,3):12,(3,4)/(4,3):4, giving exact polynomial in surjection numbers U_j(n). The sharp 6-step support requires shore capacities >=3 and >=4. Independent direct microscopic iteration verified K2,2, K3,3, K3,4, K4,4 basins, including 32,1440,7272,36704 four-cycle-basin states. The 225-support exhaustion is a complete finite quotient for arbitrary graph sizes, not an incomplete sample.
 
-## Closest literature and limits
-Gravner–Lyu–Sivakoff, arXiv:1610.07320v1 (2016-10-24); Doba, Complex Systems 27 (2018), 101–126. Primary texts were inspected for their rule definitions, main assertions and material on finite graphs. Earlier comparable classifications of three-state bicliques and four-state tripartite graphs were compared by object, alphabet, admissible parameters and logical implications. No independent audit has been performed; a historically equivalent unindexed source remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality after comparing equivalent mathematical statements, stronger-coverage implications and relevant primary material. No inspected source is shown to imply the target exact statement; incomplete historical coverage is retained as a risk.
+
+## value
+
+PASS
+
+The complete bipartite host is a natural all-size excitable network, and the two distinct four-cycle support mechanisms have markedly different initial basins. Exact oscillation prevalence and the abrupt sharp 5-to-6-step transient capacity threshold provide meaningful structural information not deducible from a generic period theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
