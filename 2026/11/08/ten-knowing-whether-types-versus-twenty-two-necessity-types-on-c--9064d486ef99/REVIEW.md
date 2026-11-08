@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+For each graph and valuation, part types \(Z,O,M\) and truncated category counts in \(\{0,1,2\}\) determine a unique realizable canonical state. Its successor-type *set*, including every possible truth bit of mixed parts, has the explicit formula proved in RESULT.md. Structural induction covers the entire unbounded frame class. The finite 68-state calculation is exhaustive and its refinement operations are proved exact using definability of every union of previous-depth classes. The observed strictly increasing type profiles followed by a verified fixed point establish both sharp depth cutoffs. Independent small-graph checks corroborate but are not used to infer the general theorem. Risk: the numerical profile depends on faithful execution of the supplied finite program; independent mathematical validation is outstanding.
+
+## Originality — PASS within checked evidence
+The September 2026 Wang–Zenger paper is about labelled proof theory and generalized path conditions, not an exact complete-multipartite formula-algebra census. Humberstone's agreement-logic analysis establishes a semantic framework without the specified 68-state quotient. Fan–Wang–van Ditmarsch compares knowing whether with other modal languages but does not, in the accessible material, imply the exact 10/22 pointed types. Indexed searches of equivalent formulations, partitions, and parameter families did not reveal this statement or a stronger one covering it. Earlier finite complete-graph instances and unrelated first-order width/depth results do not entail the result on the full complete-multipartite class. Limitations: the 2015 complete paper was not independently inspected in full and nonindexed coverage remains possible; absence from searches alone is not novelty proof.
+
+## Value — PASS
+The theorem determines a natural quantitative expressivity invariant over an infinite, structurally canonical class of epistemic/graph frames; neither the unbounded number nor sizes of parts are assumed fixed. The exact 4096-fold formula-meaning gap and differing sharp depth thresholds measure the expressive loss from necessity to knowing whether rather than merely stating a general inexpressibility comparison. The 68-state representation additionally supplies a finite procedure for deciding formula equivalence on the whole frame family. The result is intentionally limited to one atom, where the invariants are natural and complete, not an arbitrary single-graph table.
+
+Self-review: passed. Independent audit: not yet performed.
