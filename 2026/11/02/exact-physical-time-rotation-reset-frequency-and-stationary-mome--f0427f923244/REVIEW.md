@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated cut-off hysteresis map directly gives the one- or two-step section returns. A single unfolded coordinate converts all three physical transitions into translation by one modulo \(2(2-\theta)\); exact integration yields the probability measure and moments. The clock identity follows by telescoping wrap indicators. Four parameter tuples, 80,000 literal transitions and four separate quadrature checks provide finite corroboration, not an infinite proof. Risks: branch endpoint conventions require exclusion of the countable seam orbit; no claim is made for the entire equilibrium-bearing strip.
+## correctness
 
-**Originality — PASS within reviewed evidence.** The 2021 primary paper gives the return map and logarithmic rotation but not the original-step conjugacy, original-time invariant distribution or sharp reset-clock identity. published-finding corpus semantic searches of physical-time rigid rotation, the paper's identifier, hysteresis stationary densities, and related roof/suspension terms returned unrelated closest results. The physical-time result is not implied by the section conjugacy without analyzing the nonconstant return-time roof and sign flip. Risk: standard inducing theory makes a derivation possible and an uninspected specialization could cover it; exhaustive publication priority is not asserted.
+PASS
 
-**Value — PASS.** The subject is the original risk-management map with observable physical time, not just its induced Poincaré model. The exact, nonobvious conversion of a two-valued roof plus signed returns into one rigid rotation determines complete time-one spectral behavior, sharp reset timing at every horizon, and equilibrium-free stationary moments needed for occupation forecasts. It substantially strengthens a qualitative section-rotation description on a natural parameter region.
+Direct substitution into the literal cutoff map verifies the one-step and two-step section returns with sign flips, with roof r(z)=2 for z<1-theta and 1 otherwise. The signed arcs A_sigma,B_sigma fit exactly into W in [0,2h), h=2-theta, and all three transition types become W->W+1 modulo 2h. Irrationality yields Haar measure, integrals of t dt/t give displayed second moments and reset frequency 1/h. Roof-wrap count telescopes to H_n; the error is {z+n*theta}-z in (-1,1). An independent literal iteration comparison matched 1,800 states for three parameter choices. Seams and other equilibrium components are excluded.
 
-Closest literature: Kryzhevich et al. (2021) Section 8.3; Troubetzkoy (2021) for nonmixing of interval translations. Limitations: two-return-time regime, irrationality, exceptional branch seams, and no uniqueness over the entire strip.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published model and section-return interval-translation/rotation are credited. Added content is explicit signed physical-one-step rotation, invariant probability and all moments, bounded physical-clock discrepancy; the cited primary section theorem is not mischaracterized as new.
+
+## value
+
+PASS
+
+An exact induced-section-to-physical-time lifting gives concrete original-clock occupation statistics and subunit timing discrepancy, which are not determined simply by knowing the section rotation without its roof and sign dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

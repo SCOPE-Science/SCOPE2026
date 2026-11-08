@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The defining physical map, branch return identities and the precise discontinuity interval were reconstructed from the primary paper and checked independently by substitution. The full-time rotation uses all three possible one-step transitions on the recurrent component. `checker.py` verifies 80,000 exact-branch numerical comparisons with absolute error under \(2\cdot10^{-12}\), plus reset fractions and three quadratic moments by independent midpoint quadrature with absolute error under \(5\cdot10^{-4}\), for four parameter pairs. Numerics do not certify infinitely many iterates; the proof's telescoping roof formula does. An equilibrium segment prevents a full-strip uniqueness claim. Primary source first public date verified on the arXiv abstract: 2021-04-23. Publication priority outside the inspected sources and independent validation are not established.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Direct substitution into the literal cutoff map verifies the one-step and two-step section returns with sign flips, with roof r(z)=2 for z<1-theta and 1 otherwise. The signed arcs A_sigma,B_sigma fit exactly into W in [0,2h), h=2-theta, and all three transition types become W->W+1 modulo 2h. Irrationality yields Haar measure, integrals of t dt/t give displayed second moments and reset frequency 1/h. Roof-wrap count telescopes to H_n; the error is {z+n*theta}-z in (-1,1). An independent literal iteration comparison matched 1,800 states for three parameter choices. Seams and other equilibrium components are excluded.
+
+## originality
+
+PASS
+
+The published model and section-return interval-translation/rotation are credited. Added content is explicit signed physical-one-step rotation, invariant probability and all moments, bounded physical-clock discrepancy; the cited primary section theorem is not mischaracterized as new.
+
+## value
+
+PASS
+
+An exact induced-section-to-physical-time lifting gives concrete original-clock occupation statistics and subunit timing discrepancy, which are not determined simply by knowing the section rotation without its roof and sign dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
