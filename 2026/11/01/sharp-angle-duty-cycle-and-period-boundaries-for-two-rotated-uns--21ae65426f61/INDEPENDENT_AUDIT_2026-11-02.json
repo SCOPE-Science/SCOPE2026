@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:54:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two exponential factors have positive-definite undamped product and half-trace S=c²cosh(pT)+(1-c²)cosh(pΔ), determinant one; the Floquet multiplier radius is exp(-aT+arcosh S). Thus stability is equivalent to S<cosh(aT). At balanced dwell the ratio sinh(aT/2)/sinh(pT/2) is strictly decreasing, giving one cutoff iff 0<c<a/p, with c=0 all-period exception and c>=a/p impossibility. The fixed-duty deficit has even Taylor coefficients p^{2k}[c²+(1-c²)m^{2k}]-a^{2k}; monotonicity of weighted power means makes their signs change only from negative to positive, so F(T)/T^{2K} increases through exactly one zero when the average is Hurwitz. The stated exact Δ*, strict fractional shrinkage, logarithmic c->0 and sqrt(T*-T) limits follow from these identities; c=1 gives no stability. A direct independent 2x2 eigenspectrum/expm check agreed in three nontrivial parameter sets; finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gökçek (2004) obtains general Floquet stability and fast-switching results; Audenaert (2012) supplies general matrix-product spectral comparison; Tokarzewski 1987 is broad historical period-stability work."
+        ],
+        "reasoning": "Those general results cover the qualitative stability test and may dominate no-reentrance, which are not claimed novel; inspected descriptions do not specify the sharp rotated-saddle c, m and T boundaries or their exact singular constants. Full historical derivations not inspected; risk retained.",
+        "searches": [
+          "doi:10.1155/S1024123X04401069",
+          "arxiv:1204.3418",
+          "Stability of periodically switched linear systems and switching frequency Tokarzewski 1987"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1038/s41467-026-70493-1",
+        "doi:10.1155/S1024123X04401069",
+        "doi:10.3934/era.2021026",
+        "arxiv:2109.04201",
+        "arxiv:1204.3418",
+        "Resultary query as in four scientific checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mechanical paper contrasts saddle-plus-focus or node antiresonance and rules out paired saddles only in its oscillator subclass.",
+          "The 2004 Floquet paper covers monodromy necessary/sufficient conditions and rapid-switching stability for Hurwitz mean; neither explicitly gives the rotated-symmetric sharp duty and period margins in inspected material."
+        ],
+        "reasoning": "The source is outside the mechanical exclusion and improves generic fast-switching sufficiency to a necessary-and-sufficient single period boundary, exact duty tolerance and singular constants. General Floquet criteria could derive this with extra work, but mere derivability is not an already stated identical result.",
+        "searches": [
+          "doi:10.1038/s41467-026-70493-1",
+          "doi:10.1155/S1024123X04401069",
+          "doi:10.3934/era.2021026",
+          "Resultary: rotated symmetric unstable saddles periodic switching sharp angle duty cycle stability boundary cutoff average Hurwitz hyperbolic Floquet"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nature Communications mechanical model uses a fixed-coordinate second-order oscillator companion pair with common upper row; the audited matrices are arbitrary Euclidean rotations of symmetric saddles.",
+          "Hou-Wang-Xie 2021 analyze two individually Hurwitz cooperative modes, not two saddle modes."
+        ],
+        "reasoning": "A common Floquet formula is a method, not equivalence of the parameterized theorems. Companion geometry is not a coordinate-free description of the two rotated symmetric saddles under the same fixed state coordinates.",
+        "searches": [
+          "two unstable symmetric saddle systems periodic switching rotated eigenvectors critical period",
+          "doi:10.1038/s41467-026-70493-1",
+          "doi:10.3934/era.2021026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The object is a continuous three-real-parameter exact theorem; the article gives a single illustrative a=1,p=2,c=1/3 example."
+        ],
+        "reasoning": "Exact values from isolated simulations are not a prior database covering the all-parameter formula; no matching theorem or table identified, which alone does not prove novelty.",
+        "searches": [
+          "rotated symmetric unstable saddles angle duty critical period exactly computed",
+          "two-mode switched symmetric saddles stability window numerical tables"
+        ]
+      },
+      "rationale": "Only the sharp simultaneous angle, duty and physical-period classification and its exact edge laws are considered candidate new; Floquet criterion, fast-Hurwitz-average sufficiency and general matrix-product monotonicities are explicitly prior. Closely related mechanical results have a restrictive companion-matrix geometry. Best-of-knowledge pass; older full texts may contain an equivalent derivation.",
+      "residual_risks": [
+        "Historical priority in Tokarzewski (1987) and Gökçek (2004) not excluded at full-text level.",
+        "Full 2026 mechanical paper not reread in this execution; comparison relies on identifiable matrix subclass and accessible descriptions.",
+        "General matrix-product inequalities may dominate qualitative uniqueness; claimed novelty only quantitative exact classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its companion-form two-saddle obstruction does not cover arbitrary rotated symmetric matrices.",
+          "evidence": "Companion systems share their first state-coordinate evolution law, unlike the two rotated symmetric matrices.",
+          "identifier_or_url": "doi:10.1038/s41467-026-70493-1",
+          "material_read": "Accessible publication abstract/model description and mathematical matrix-class comparison; full article was not independently reread in this execution.",
+          "method": "Cross-checked publication information and the research package mathematical comparison against matrix structural conditions.",
+          "title": "Dynamic stabilization of a mechanical oscillator in the absence of any stable feature",
+          "trigger": "Closest 2026 two-unstable-mode antiresonance and saddle obstruction"
+        },
+        {
+          "assessment": "General criteria and fast-switching sufficiency covered; explicit sharp geometric parameters not verified.",
+          "evidence": "Gökçek 2004 monodromy spectral criterion and Hurwitz-mean fast-switching existence.",
+          "identifier_or_url": "doi:10.1155/S1024123X04401069",
+          "material_read": "Available abstract and paper bibliographic conclusions, not complete full text.",
+          "method": "Read accessible abstract and compared stated class and implication.",
+          "title": "Stability analysis of periodically switched linear systems using Floquet theory",
+          "trigger": "General Floquet framework potentially dominating qualitative conclusions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical engineering/math design question is exactly how rotation angle, dwell imbalance and switching period stabilize two unstable flows. The theorem gives the complete admissible phase diagram, sharp timing robustness, optimal equal duty and singular c->0 and c->a/p limiting laws; these are not just substituting a special value into the standard Floquet spectral-radius criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric planar equal-spectrum saddles and strictly periodic alternating dwell, not arbitrary switching or general oscillator companion matrices.",
+    "Originality is best-of-knowledge and restricted to the full sharp parameter classification."
+  ],
+  "schema_version": 1
+}
