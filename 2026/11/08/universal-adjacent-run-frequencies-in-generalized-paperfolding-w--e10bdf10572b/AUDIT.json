@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For any instruction sequence the signs at odd indices alternate on successive odd sites, bounding run length by three. An ordered pair of complete runs of lengths a,b corresponds uniquely to an exterior-flanked word of length a+b+2<=8. In every such window exactly one index is divisible by eight; the other seven letters are determined by the first three instructions and the start residue modulo sixteen. The exceptional sign is asymptotically equidistributed conditional on that residue by summing the odd-quotient classes at all 2-adic valuations, independently of instruction tails. The complete 32-template enumeration for every instruction triple yields the integer matrix ((0,3,1),(3,2,3),(1,3,0)). Its sum 16 establishes pair density 1/2 per sign position, and division gives run-pair frequencies matrix/16. Exact mutual-information arithmetic is checked. The standalone verifier executes the symbolic enumeration and independently checks the recursion; long-prefix tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit: the run-length sequence is synchronized for every instruction sequence (31-state automaton); all runs are in {1,2,3}; its factor complexity is 4n+4 for n>=6.",
+        "Bunder-Bates-Arnold (2024): the ordinary run lengths encode continued-fraction coefficients; the abstract does not address pair frequencies.",
+        "Allouche-Bousquet-Mélou (1994): accessible abstract asserts canonical finite-factor positions for paperfolding words, not frequencies of adjacent runs. Full article inaccessible for comparison."
+      ],
+      "reasoning": "The strongest inspected run theorem gives an algorithmic representation and support/complexity results, which do not by themselves provide an evaluated pair-frequency matrix or the universal independence of instructions. Nevertheless such descriptions may imply a computable law; this exact possible implication is acknowledged rather than claiming independence from all prior techniques.",
+      "searches": [
+        "\"Runs in Paperfolding Sequences\" Shallit theorem run length factors complexity",
+        "\"Canonical positions for the factors in paperfolding sequences\" paper 1994",
+        "\"The summed paperfolding sequence\" Bunder Bates Arnold 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1208.2856",
+      "https://arxiv.org/pdf/2412.17930",
+      "https://doi.org/10.1017/S0004972724000169",
+      "https://doi.org/10.1016/0304-3975(94)90028-0",
+      "https://oeis.org/A088431"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024/2025 Shallit full paper derives a 2-synchronized run presentation and determines *which* run factors occur but does not give their empirical frequencies.",
+        "The 2012 abelian complexity paper studies the number of anagram-equivalence classes of length-n sign factors, a different statistic.",
+        "Only abstract material was accessible for the 1994 canonical-positions source, making coverage undecided there."
+      ],
+      "reasoning": "Known maximum-run-length and factor-support theorems imply the zero support of some pairs but do not determine the positive weights 3/16, 2/16 and 1/16, still less their instruction-uniformity. The general automaton could yield the values after additional analysis, but no explicit prior implication giving these numbers has been identified. The 1994 comparison remains an acknowledged historical risk.",
+      "searches": [
+        "arxiv:2412.17930 Theorem 4 Theorem 11 and Figure 2",
+        "arxiv:1208.2856 section 2 recurrence and Toeplitz word",
+        "doi:10.1016/0304-3975(94)90028-0 accessible full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shallit (arXiv:2412.17930) Theorems 3, 4, 7, 8, 11 and Figure 2 provide synchronized run automata, factor restrictions, and subword complexity; pages 6-11 do not contain a pair-frequency matrix or limiting frequency assertion.",
+        "Madill-Rampersad (arXiv:1208.2856) derives recurrence formulas for abelian factor complexity, not the frequencies of successive maximal runs."
+      ],
+      "reasoning": "Rewriting the result as the order-two factor measure of a run-length coding, the stationary two-step law of the sequence of runs, or mutual information gives the same claim. The published exact automata specify run symbols but do not themselves state their asymptotic joint distribution; extracting its instruction-uniform limiting values requires further analysis.",
+      "searches": [
+        "\"paperfolding sequence\" \"run length\" \"frequency\" \"adjacent\"",
+        "\"paperfolding\" \"pair frequencies\" \"run-length\"",
+        "\"paperfolding\" \"factor frequencies\" general any paperfolding sequences",
+        "arxiv:2412.17930 section 3-4 and automaton RLR"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS A088431 connection is cited in Shallit, section 4, as a sequence of run lengths, not an evaluated universal pair-frequency table.",
+        "Published searches retrieved the paperfolding run-length sequence and factor-complexity results but no matching numeric matrix."
+      ],
+      "reasoning": "A list of run lengths, finite table of terms, and automaton are not an exact all-instruction frequency census without an additional limiting computation. Negative search results alone cannot demonstrate novelty, so this conclusion rests also on the direct material inspection.",
+      "searches": [
+        "paperfolding run lengths g(n) OEIS A088431 adjacent pairs frequency",
+        "\"paperfolding sequence\" \"run length\" \"1, 2, 3\" \"density\"",
+        "\"run length\" paperfolding 3/16 1/16 frequencies"
+      ]
+    },
+    "rationale": "The mathematical claim is the explicit limiting pair-frequency matrix, independent of every folding instruction, with a precise two-run mutual-information value. Published paperfolding abelian-complexity and canonical-factor results address different observables; the closest full paper (Shallit, arXiv:2412.17930) gives run-length automata, allowed run lengths, possible squares, and subword complexity but does not compute or assert this invariant pair-frequency law. Its automaton may permit a nontrivial separate derivation, and unreadable earlier canonical-position literature remains a residual historical-priority risk.",
+    "residual_risks": [
+      "The 1994 canonical-positions article was only accessible at abstract level and could contain stronger factor-frequency information.",
+      "The later synchronized-automaton formulation of paperfolding run lengths may entail this local statistic via nontrivial machine analysis; explicit priority is not guaranteed.",
+      "Unindexed historical treatments of paperfolding pattern frequencies are possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No explicit universal limiting adjacent-run frequency matrix or mutual-information evaluation is stated in the inspected full text; automata potentially allow an independent derivation.",
+        "evidence": [
+          "Proposition 5: run lengths are 1,2,3; Theorem 8: only length-two square 22; Theorem 11: 4n+4 run-factor complexity; Figure 2: automaton for the regular run word."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2412.17930",
+        "material_read": "Full preprint text: definitions and run automata in sections 1-3, theorems on allowable factors and complexity, regular-word automata in section 4, continued-fraction section, and references.",
+        "method": "Accessible arXiv PDF text and page-image inspection of section 4.",
+        "title": "Runs in Paperfolding Sequences",
+        "trigger": "Directly studies the exact run-length sequence of all paperfolding instructions"
+      },
+      {
+        "assessment": "Its observable counts abelian equivalence classes of finite sign factors rather than consecutive maximal-run lengths.",
+        "evidence": [
+          "Section 2 gives the odd-part modulo-four definition; Theorem 2 concerns the abelian complexity function."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1208.2856",
+        "material_read": "Abstract, introduction, section 2 valuation and Toeplitz definitions, statement and recurrence of the main complexity theorem.",
+        "method": "Accessible arXiv PDF text and page-image inspection of the valuation definition.",
+        "title": "The abelian complexity of the paperfolding word",
+        "trigger": "Archival study of the underlying paperfolding word, with a precise 2-adic definition."
+      },
+      {
+        "assessment": "The accessible abstract concerns a continued-fraction interpretation, not joint run-length frequencies. Whole-document absence of coverage is not asserted.",
+        "evidence": [
+          "Publisher abstract states it proves that A088431 agrees with the run lengths of the regular paperfolding word."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972724000169",
+        "material_read": "Accessible journal abstract and bibliographic record, not a complete article.",
+        "method": "Journal HTML abstract.",
+        "title": "The Summed Paperfolding Sequence",
+        "trigger": "Studies the ordinary run-length sequence."
+      },
+      {
+        "assessment": "Potential coverage cannot be ruled out without full text. No whole-document NOT_COVERING determination was made.",
+        "evidence": [
+          "Abstract describes a canonical set of positions of cardinality 4k for each sufficiently large length-k factor language, not a numeric run-pair measure."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(94)90028-0",
+        "material_read": "Bibliographic record and detailed abstract only; complete article not accessible through authorized sources in this review.",
+        "method": "Public bibliographic and abstract inspection; no lawful full-text copy obtained.",
+        "title": "Canonical positions for the factors in paperfolding sequences",
+        "trigger": "Plausible earlier factor-occurrence theorem for arbitrary paperfolding instructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e10bdf10-572b-41fb-908c-ec0a37024e55",
+  "value": {
+    "rationale": "The result supplies a complete two-point statistical law for the run coding of every paperfolding instruction sequence, including nonautomatic ones. The instruction-independent weights are not determined just by knowledge that {1,2,3} are the possible run lengths or by factor-support restrictions. The rational joint matrix gives an exact nonzero adjacent-run mutual information and establishes a natural probabilistic invariant of an uncountable deterministic family. This is a motivated structural classification, not an arbitrary short prefix or small numeric improvement.",
+    "status": "PASS"
+  }
+}
