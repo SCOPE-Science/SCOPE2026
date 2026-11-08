@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The included `verify.py` is self-contained and requires Python 3's standard library only. Invoke `python3 verify.py`.
+# Independent mathematical audit
 
-It uses two different methods. First, it enumerates literal assignments of up to four named colors to every labelled complete multipartite graph of orders from one through seven, classifying each induced color-class graph by recursively removing isolated or universal vertices. Second, it evaluates the exponential coefficient formula with exact fractions and independently checks the part-size threshold conditions. The two complete enumerators agree on 166 graph-profile/palette instances, covering 345279 literal assignments. Seven larger part-size examples exercise the numerical threshold rule.
+## correctness
 
-Expected final lines:
+PASS
 
-```text
-EXACT_GRAPH_VS_EGF_OK 166 profiles_and_palette_tests
-EXHAUSTIVE_COLOR_ASSIGNMENTS 345279
-PARAMETER_THRESHOLD_SAMPLES_OK 7
-VERIFY_OK
-```
+For an induced vertex subset of K_(n1,...,nr), two original parts each contributing >=2 vertices create an induced K2,2=C4, not a threshold graph. If at most one contributes >=2, all singly represented other parts are universal; removing them leaves an independent set. Thus a color class is threshold iff at most one heavy part. For each named color its labelled EGF is F_r=prod_i(1+x_i)+sum_i(e^(x_i)-1-x_i)prod_(j!=i)(1+x_j); formal coefficient extraction of F_r^k multiplied by prod n_i! counts exactly all allowed functions into k named colors, including unused. Onto counts follow color inclusion-exclusion, unordered partitions divide by k!. Pigeonhole gives necessary # {i:n_i>k}<=k; choose distinct heavy colors for large parts and injectively distribute each remaining part to construct a coloring whenever the inequality holds. All boundary cases k=0,r=1, singleton part sizes included. Independent direct graph enumeration and formal coefficient arithmetic reproduced 64 assignments for K_(3,2,2) with k2 and 55,566 for K_(4,4,4) with k3, plus small profiles.
 
-The finite checks do not establish the infinite statement. Its proof is the induced-threshold characterization, labeled-color exponential product rule, and matching pigeonhole lower bound/construction. Historical-priority verification is limited to the specifically inspected published sources and mathematical-record searches. Independent audit has not been performed.
+## originality
+
+PASS
+
+Bang-Jensen–Bessy–Reinald (2026) prove the equivalence between alternating bichromatic cycle-free color classes and threshold-induced parts (especially two colors) and hardness for arbitrary graphs, but do not supply complete multipartite named-palette enumerators. Demange–Ekim–de Werra (2005/2006) study polynomial optimization on cographs and split-coloring; the threshold minimum may be efficiently computable already. The exact EGF all k, onto/unordered refinements and explicit size threshold are the assessed additions, not novelty of polynomial decision.
+
+## value
+
+PASS
+
+The complete multipartite family is a natural graph class, and enumerating all threshold-induced vertex partitions with named and unnamed colors gives useful exact polynomials and sharp minimal palette formula, not a mere renaming of ordinary proper coloring. The EGF formula simultaneously tracks any part-size profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

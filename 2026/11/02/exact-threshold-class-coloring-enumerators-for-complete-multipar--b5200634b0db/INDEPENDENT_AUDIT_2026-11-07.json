@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T10:03:21.190327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an induced vertex subset of K_(n1,...,nr), two original parts each contributing >=2 vertices create an induced K2,2=C4, not a threshold graph. If at most one contributes >=2, all singly represented other parts are universal; removing them leaves an independent set. Thus a color class is threshold iff at most one heavy part. For each named color its labelled EGF is F_r=prod_i(1+x_i)+sum_i(e^(x_i)-1-x_i)prod_(j!=i)(1+x_j); formal coefficient extraction of F_r^k multiplied by prod n_i! counts exactly all allowed functions into k named colors, including unused. Onto counts follow color inclusion-exclusion, unordered partitions divide by k!. Pigeonhole gives necessary # {i:n_i>k}<=k; choose distinct heavy colors for large parts and injectively distribute each remaining part to construct a coloring whenever the inequality holds. All boundary cases k=0,r=1, singleton part sizes included. Independent direct graph enumeration and formal coefficient arithmetic reproduced 64 assignments for K_(3,2,2) with k2 and 55,566 for K_(4,4,4) with k3, plus small profiles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cographs include complete multipartite graphs and efficient existence/minimum algorithms may cover the complexity question",
+          "No complete multipartite multivariate all-palette counting formula was verified in accessible primary materials"
+        ],
+        "reasoning": "Polynomial decidability and counting all labeled partitions for arbitrary palette are different conclusions; no novelty of general polynomial-time decision is claimed.",
+        "searches": [
+          "2005 Partitioning cographs into cliques and stable sets algorithm",
+          "2006 On approximation of Min Split-coloring and Min Cocoloring"
+        ]
+      },
+      "checked_sources": [
+        "threshold graph induced color classes complete multipartite graph split coloring exact enumeration palette",
+        "Bang-Jensen Bessy Reinald alternating chromatic threshold Corollary 4.2 2026",
+        "Demange Ekim de Werra partitioning cographs into cliques stable sets 2005",
+        "split coloring complete multipartite graphs threshold EGF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary4.2 gives an interpretation of threshold partition in two-edge-colored graphs",
+          "The new heavy-part local criterion gives F_r and tau(G), not directly stated or implied by a general hardness result"
+        ],
+        "reasoning": "The graph-class-specific structural lemma and all-palette product EGF are additional concrete enumeration, while acknowledging the old equivalence.",
+        "searches": [
+          "Bang-Jensen arxiv:2610.32954 corollary 4.2 graph threshold partition",
+          "Demange Ekim de Werra 2005 2006 algorithms split coloring"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "New named-palette counting is different from earlier two-color equivalence and general split-chromatic decision",
+          "In complete multipartite graphs split=threshold by the same forbidden induced C4 criterion"
+        ],
+        "reasoning": "Threshold/split equivalence on this family is included to compare aliases; prior split-coloring definitions alone do not give the EGF counts.",
+        "searches": [
+          "arxiv:2610.32954 threshold induced coloring complete 2-edge-colored",
+          "Demange 2006 minimum split coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published searches returned various proper, majority and conflict-free multipartite coloring polynomials, but not the induced-threshold F_r class",
+          "Independent K_(3,2,2),k2 and K_(4,4,4),k3 exact counts agree with F_r"
+        ],
+        "reasoning": "Other coloring tables use different feasibility constraints, so their counts cannot substitute for threshold-induced partitions.",
+        "searches": [
+          "complete multipartite threshold colorings enumerator palette labeled",
+          "Resultary complete multipartite colorings threshold classes"
+        ]
+      },
+      "rationale": "Bang-Jensen–Bessy–Reinald (2026) prove the equivalence between alternating bichromatic cycle-free color classes and threshold-induced parts (especially two colors) and hardness for arbitrary graphs, but do not supply complete multipartite named-palette enumerators. Demange–Ekim–de Werra (2005/2006) study polynomial optimization on cographs and split-coloring; the threshold minimum may be efficiently computable already. The exact EGF all k, onto/unordered refinements and explicit size threshold are the assessed additions, not novelty of polynomial decision.",
+      "residual_risks": [
+        "An explicit multipartite specialization of prior split-coloring work could contain part-size minimum formula",
+        "The full 2005 cograph partition paper was not read; negative whole-document novelty assertions are avoided",
+        "General alternating-chromatic interpretation is prior and not an independent new result"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "General equivalence and two-class decision predates present work, not the all-palette multipartite EGF."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.32954",
+          "material_read": "Original accessible arXiv HTML Introduction and Corollary 4.2 with threshold partition equivalence, relevant hardness statements",
+          "method": "Read relevant complete primary HTML sections",
+          "title": "Acyclic 2-edge-coloured graphs: polynomial-time linkages and colouring hardness",
+          "trigger": "Same threshold-induced partition equivalence"
+        },
+        {
+          "assessment": "PRIORITY_RISK",
+          "evidence": [
+            "Algorithms could imply minimum, but full paper could contain a more explicit specialization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disopt.2005.03.003",
+          "material_read": "Abstract and bibliographic mathematical summary; complete 2005 paper not accessed",
+          "method": "Abstract-only comparison; no whole-document noncoverage claim",
+          "title": "Partitioning cographs into cliques and stable sets",
+          "trigger": "Cograph superclass and possible split/threshold-partition algorithms"
+        },
+        {
+          "assessment": "BACKGROUND_RISK",
+          "evidence": [
+            "Does not establish existence or absence of exact all-k named-color enumerators."
+          ],
+          "identifier_or_url": "https://doi.org/10.7155/jgaa.00129",
+          "material_read": "Accessible journal abstract and basic minimum split coloring definitions",
+          "method": "Abstract-level literature comparison",
+          "title": "On the approximation of Min Split-coloring and Min Cocoloring",
+          "trigger": "Alternative name split-coloring; relation to threshold classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete multipartite family is a natural graph class, and enumerating all threshold-induced vertex partitions with named and unnamed colors gives useful exact polynomials and sharp minimal palette formula, not a mere renaming of ordinary proper coloring. The EGF formula simultaneously tracks any part-size profile.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "threshold graph induced color classes complete multipartite graph split coloring exact enumeration palette",
+    "Bang-Jensen Bessy Reinald alternating chromatic threshold Corollary 4.2 2026",
+    "Demange Ekim de Werra partitioning cographs into cliques stable sets 2005",
+    "split coloring complete multipartite graphs threshold EGF"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific novelty is best-of-knowledge only; residual priority and source-access risks remain explicit.",
+    "Publication withheld because public-bound metadata retains private operational provenance; no GitHub edits or import-ready sanitized files."
+  ],
+  "residual_risks": [
+    "An explicit multipartite specialization of prior split-coloring work could contain part-size minimum formula",
+    "The full 2005 cograph partition paper was not read; negative whole-document novelty assertions are avoided",
+    "General alternating-chromatic interpretation is prior and not an independent new result"
+  ],
+  "schema_version": 1
+}
