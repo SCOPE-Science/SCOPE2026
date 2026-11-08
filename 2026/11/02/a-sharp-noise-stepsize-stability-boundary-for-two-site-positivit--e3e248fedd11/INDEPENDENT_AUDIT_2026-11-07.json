@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:17:56.133331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For geometric noise D followed by H=exp(bh[[-2,1],[1,−2]]), the nonnegative matrices preserve orthant positivity. The independent diagonal lognormal moments exactly close on s=(E X1²+E X2²)/2, c=E X1X2 with K=e^(−4η)[[μcosh2η,sinh2η],[μsinh2η,cosh2η]] and μ=e^(vh). The positive Perron root controls all second moments and dominates the antisymmetric mode. det(I−K)=0 gives μ*=z(2z²+z+1)/(z²+z+2), z=e^(2η), and therefore the stated v*/b=2+η^−1 log((2e^(4η)+e^(2η)+1)/(e^(4η)+e^(2η)+2)). The analytic φ''<0 factorization proves strict decrease 3→2; continuous Itô covariance exponent changes sign at v=3b. At η=log2, μ=7, independent exact K has det(I−K)=−9/256 while 2<v/b<3. Independently verified symbolic concavity factor and rational witness. Finite checks are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bréhier et al 2023 gives finite-horizon positivity and convergence under stepsize/mesh restrictions, not all-h long-time stability; Lang et al 2017 gives broad covariance criterion but not this curve."
+        ],
+        "reasoning": "Finite-time convergence need not imply stability at fixed h over unbounded times, and a general spectral test requires nontrivial explicit evaluation to derive this closed-form boundary.",
+        "searches": [
+          "strong convergence positive stochastic heat splitting stochastic numerical long-time mean-square",
+          "stochastic exponential integrators multiplicative noise mean square stability"
+        ]
+      },
+      "checked_sources": [
+        "Analysis of a positivity-preserving splitting scheme for some nonlinear stochastic heat equations, https://arxiv.org/abs/2302.08858",
+        "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions, https://doi.org/10.1007/s10543-017-0684-7",
+        "Convergence and Stability of a Split-Step Exponential Scheme Based on the Milstein Methods, https://doi.org/10.3390/sym14112413",
+        "Resultary semantic search: positivity preserving Lie Trotter stochastic heat mean square stability multiplicative diagonal noise two sites"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original 2023 scheme proves positivity and finite-horizon error; general 2017 spectral test identifies the right calculation."
+        ],
+        "reasoning": "Neither stated result supplies strict v*/b decay from 3 to 2, the exact μ* rational function in z, or the fixed-h rational counterexample without an additional calculation.",
+        "searches": [
+          "Analysis of a positivity-preserving splitting scheme for some nonlinear stochastic heat equations 2302.08858",
+          "Mean square stability analysis approximations stochastic differential equations infinite dimensions 2017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lang–Petersson–Thalhammer DOI 10.1007/s10543-017-0684-7 describes the general spectral-radius method. Bréhier–Cohen–Ulander arXiv:2302.08858 defines noise-first/heat-second exact splitting."
+        ],
+        "reasoning": "Known spectral-radius equivalence is credited; no statement-level exact 2×2 lognormal K threshold in inspected primary main results.",
+        "searches": [
+          "mean square stability of stochastic splitting Kronecker covariance spectral radius",
+          "arxiv 2302.08858 positivity-preserving split stochastic heat"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searched nearby deterministic Crank–Nicolson positive semigroup and stochastic stability findings but none has the same exact geometric-noise-then-heat update."
+        ],
+        "reasoning": "No exact same-model tabulation identified; a specialist table of lognormal two-site thresholds remains possible.",
+        "searches": [
+          "positivity preserving Lie Trotter stochastic heat mean square stability multiplicative diagonal noise two sites",
+          "Resultary heat splitting two-site lognormal stability 3 to 2 noise critical"
+        ]
+      },
+      "rationale": "The general covariance spectral-radius criterion is classical and Bréhier–Cohen–Ulander already introduced the positive noise/heat splitting. The assessed claim is the model-specific closed-form strictly decreasing boundary, unique finite-step cutoff, and explicit stable-SDE/unstable-splitting witness. Original primary finite-horizon convergence results and general covariance criteria do not directly yield this evaluation, though hidden specialist closed formulas remain a priority risk.",
+      "residual_risks": [
+        "Earlier specialist linear stochastic splitting work may contain the two-site exact lognormal stability curve.",
+        "No extension to nonlinear noise, larger grids, correlated Brownian drivers, almost-sure stability or another ordering.",
+        "Finite Monte Carlo stability simulations are not spectral proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD PRIOR, EXACT LONG-TIME CURVE NOT IN READ THEOREMS",
+          "evidence": "Published finite-horizon convergence and positivity do not imply infinite-time second-moment stability.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.08858",
+          "material_read": "Original PDF Section 3.1 exact Lie–Trotter noise-first/heat-second formulas, positivity result and finite-horizon analysis; rendered page showing split order",
+          "method": "Read original PDF text and screenshot of scheme definitions",
+          "title": "Analysis of a positivity-preserving splitting scheme for some nonlinear stochastic heat equations",
+          "trigger": "Source of the numerical integrator"
+        },
+        {
+          "assessment": "GENERAL CRITERION PRIOR; CLOSED FORM NOT IDENTIFIED",
+          "evidence": "The covariance/spectral radius framework is classic; nontrivial formula and monotonicity depend on this exact matrix.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-017-0684-7",
+          "material_read": "Original article main stability criterion and examples as available in open-access material",
+          "method": "Read theorem statements and applied general second-moment logic",
+          "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+          "trigger": "Potentially dominating general stability theorem"
+        },
+        {
+          "assessment": "DIFFERENT SCHEME",
+          "evidence": "Milstein-based exponential splitting rather than the exact diagonal geometric-noise then heat product.",
+          "identifier_or_url": "https://doi.org/10.3390/sym14112413",
+          "material_read": "Open article scheme definition and main stability results",
+          "method": "Compared methods at equations and theorem level",
+          "title": "Convergence and Stability of a Split-Step Exponential Scheme Based on the Milstein Methods",
+          "trigger": "Another split-step stability method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact distinction between pathwise positivity and long-term mean-square stability under splitting is a substantive numerical-analysis boundary. It quantifies the timestep range where a stable physical diffusion becomes unstable under a positivity-preserving integrator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Earlier specialist linear stochastic splitting work may contain the two-site exact lognormal stability curve.",
+    "No extension to nonlinear noise, larger grids, correlated Brownian drivers, almost-sure stability or another ordering.",
+    "Finite Monte Carlo stability simulations are not spectral proofs."
+  ]
+}

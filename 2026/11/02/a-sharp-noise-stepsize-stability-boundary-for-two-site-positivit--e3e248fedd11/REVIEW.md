@@ -1,11 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct Itô product rules yield the continuous symmetric and antisymmetric moment modes; independent lognormal factors yield the displayed exact two-by-two split covariance recursion. Perron–Frobenius gives the necessary and sufficient moment-decay test because its dominant eigenvalue exceeds the antisymmetric-mode eigenvalue. The unique critical value is recovered algebraically from the determinant and strict Perron monotonicity. An explicitly factored negative second derivative proves the strict one-interval threshold law. The exact rational matrix gives a continuous-stable/discrete-unstable witness. The bundled verifier checks this certificate and the algebraic predictions; its finite numerical samples are supplementary.
+## correctness
 
-**Originality — PASS, qualified.** Bréhier, Cohen and Ulander (arXiv:2302.08858, §§2–5) introduce the numerical construction and establish nonnegative iterates and finite-horizon convergence, not the particular two-node exact long-time threshold in their inspected argument. Lang, Petersson and Thalhammer (2017, §§2–3) give much broader spectral-radius methods; the spectral test is not itself new and does not directly state the explicit lognormal two-node phase curve. Erdogan and Lord (2018, §§3–4) and Torkzadeh et al. (2022, methods and stability analysis) concern distinct exponential or split-step constructions. The equivalence, stronger-implication, database and exact-table comparisons showed no directly covering theorem among the material inspected. A broad prior theorem could potentially imply this specialization after additional algebra, and specialist priority needs independent checks.
+PASS
 
-**Value — PASS.** The motivating method is designed to preserve positivity, but positivity does not control long-time second moments. The exact boundary identifies a nonempty noise/step region in which the semidiscrete stochastic heat equation decays in mean square while its positivity-preserving splitting amplifies it. The strictly decreasing law and rational witness furnish a concrete time-step selection diagnostic rather than an arbitrary parameter counterexample.
+For geometric noise D followed by H=exp(bh[[-2,1],[1,−2]]), the nonnegative matrices preserve orthant positivity. The independent diagonal lognormal moments exactly close on s=(E X1²+E X2²)/2, c=E X1X2 with K=e^(−4η)[[μcosh2η,sinh2η],[μsinh2η,cosh2η]] and μ=e^(vh). The positive Perron root controls all second moments and dominates the antisymmetric mode. det(I−K)=0 gives μ*=z(2z²+z+1)/(z²+z+2), z=e^(2η), and therefore the stated v*/b=2+η^−1 log((2e^(4η)+e^(2η)+1)/(e^(4η)+e^(2η)+2)). The analytic φ''<0 factorization proves strict decrease 3→2; continuous Itô covariance exponent changes sign at v=3b. At η=log2, μ=7, independent exact K has det(I−K)=−9/256 while 2<v/b<3. Independently verified symbolic concavity factor and rational witness. Finite checks are corroborative only.
 
-**Scope and limitations.** Two interior sites, independent equal-variance geometric noises, constant heat coupling, exact Lie–Trotter noise-then-heat ordering and an infinite-horizon mean-square criterion. No general lattice, nonlinear PDE, almost-sure Lyapunov or alternative-splitting stability claim is made. Search non-coverage is not evidence of exhaustive novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general covariance spectral-radius criterion is classical and Bréhier–Cohen–Ulander already introduced the positive noise/heat splitting. The assessed claim is the model-specific closed-form strictly decreasing boundary, unique finite-step cutoff, and explicit stable-SDE/unstable-splitting witness. Original primary finite-horizon convergence results and general covariance criteria do not directly yield this evaluation, though hidden specialist closed formulas remain a priority risk.
+
+## value
+
+PASS
+
+The exact distinction between pathwise positivity and long-term mean-square stability under splitting is a substantive numerical-analysis boundary. It quantifies the timestep range where a stable physical diffusion becomes unstable under a positivity-preserving integrator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
