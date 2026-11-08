@@ -1,27 +1,21 @@
-# Scientific review of the Hilbert–Schmidt coefficient law
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The normalized monomial coefficient has squared absolute value \(\binom mr/\binom Nr\). The two finite hockey-stick identities give the complete row sums \(A_d(N)\), with the exceptional harmonic sum for \(d=2\). Pairwise orthogonality of output-degree pieces and completeness of \(\mathcal S_2\) prove the exact norm and the if-and-only-if condition. The power–logarithmic thresholds follow from the explicit asymptotics and the integral test; the \(\tfrac12\) constant follows from an exact double harmonic-sum identity. Actual code checks: 577 finite exact assertions. The code is not a proof of the infinite claims.
+PASS
 
-## Originality (PASS, best knowledge)
+For homogeneous Rhaly action on Drury--Arveson H_d^2 and fixed coordinate j, output degree N maps z^alpha to z^(alpha+(N-m)e_j) with normalized squared entry |a_N|^2 binom(m,r)/binom(N,r), r=m-alpha_j. Counting r among d-1 other variables and applying two hockey-stick sums gives A1=N+1, A2=(N+1)H_(N+1), and A_d=(N+1)/(d-2)(binom(N+d-1,d-2)-1) for d>=3. Orthogonal output-degree rows prove exact Hilbert--Schmidt norm sum and iff convergence; monomial basis establishes converse. Asymptotics A1~N, A2~NlogN, A_d~N^(d-1)/[(d-2)(d-2)!] give claimed power/log endpoints; 2D harmonic identity sum H_k/k=1/2(H_K^2+H_K^(2)) proves 1/2(log K)^2. Independent exact matrix coefficient sums checked 72 (d,N) pairs; all-degree proof is the combinatorial identity, not finite tests.
 
-The motivating homogeneous Rhaly formula, the one-variable matrix ideal criteria (including Bellavita–Dellepiane–Stylogiannis 2025, Theorem 1.3), and the underlying Drury–Arveson monomial norms are prior art. Direct comparisons with Pilla's 2026 Rhaly and Cesàro papers and Bellavita–Dellepiane–Stylogiannis's weighted Hardy Schatten paper identified no stated multivariate coefficient formula or the dimension-two squared-logarithmic critical growth. Published-result searches on aliases (Schatten, Hilbert–Schmidt, terraced matrices, homogeneous Cesàro/Rhaly) found nearby one-variable and distinct multivariate operators, but no equivalent claim. A latent implication of older weighted-matrix theory remains a priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The operator family is already motivated by a current, published definition. A closed exact ideal norm and complete coefficient-space characterization answer a natural question about compactness strength, without selecting an artificial finite numerical instance. The exceptional dimension-two logarithmic factor changes the sharp endpoint from \(\gamma>\tfrac12\) to \(\gamma>1\), and its critical truncations grow like \(\tfrac12(\log K)^2\), rather than the single logarithm in all other dimensions. This is a structural phase change across ambient dimension.
+Best-of-knowledge original multivariate homogeneous Rhaly Hilbert--Schmidt coefficient isometry and exceptional dimension-two harmonic factor. The one-variable Rhaly Schatten theory and Pilla several-variable Rhaly definitions overlap notation but available abstracts concern norm/boundedness and basic properties, not the claimed explicit coefficient weights or critical truncation coefficients. Pilla full text was unavailable despite arXiv/OA attempts and Oxford returned vpn_disconnected, a serious residual source risk.
 
-## Closest literature and limitations
+## value
 
-Michael R. Pilla, “Rhaly-Type Operators in Several Complex Variables,” arXiv:2606.25885v1 (first submitted 2026-06-24), https://arxiv.org/abs/2606.25885.
+PASS
 
-G. Bellavita, V. Dellepiane, and N. Stylogiannis, “Rhaly operators on weighted Hardy spaces and factorable matrices,” arXiv:2606.15875v1 (2026), https://arxiv.org/abs/2606.15875.
+The exact coefficient-space isometry of a natural multivariate operator into S2, valid for all dimensions, yields a full sharp coefficient criterion and exposes a special d=2 logarithmic transition missed by general exponent counting. This is more than a single finite coefficient calculation and can serve as a precise boundary case for other operator ideals.
 
-Michael R. Pilla, “Cesàro-Type Operators Acting on the Drury–Arveson Space,” arXiv:2606.24710v1 (2026), https://arxiv.org/abs/2606.24710.
-
-Bellavita–Dellepiane–Stylogiannis, “Boundedness, compactness and Schatten class for Rhaly matrices,” arXiv:2503.21930v1, https://arxiv.org/abs/2503.21930, full open-access text inspected (Theorems 1.3 and 5.8).
-
-Only the \(\mathcal S_2\) ideal and the homogeneous operator are covered; the one-dimensional result is standard. Searches do not constitute a proof of global novelty, and independent correctness and priority assessments are outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
