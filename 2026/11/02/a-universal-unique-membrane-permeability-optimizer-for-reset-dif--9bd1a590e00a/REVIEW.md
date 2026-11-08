@@ -1,19 +1,21 @@
-# Scientific review — universal permeability optimizer
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary distributional equation and symmetric interface law are reconstructed from the Neumann Green kernel. The explicit boundary densities lead to \(\mathcal I=(sh/g)(1-u)\operatorname{artanh}(hu)\). Its derivative has exactly one root since \(\partial_u F_h<0\), and the asymmetry comparison and both sharp limiting constants follow analytically. The packaged standard-library verifier passed 302 diagnostics, which are not substituted for the all-parameter proof. Source: DOI:10.1103/PhysRevResearch.6.023283, Sec. IV.B.
+PASS
 
-## Originality — PASS, qualified
+The Neumann stationary resolvent with arbitrary interior Borel reset μ has endpoint densities a,b; homogeneous zero-integral flux correction yields J=κ(b−a)/(1+2κg). For h=|a−b|/(a+b)∈(0,1), I=(s h/g)(1−u)atanh(hu) with u=(1+2κg)^−1. Its derivative F_h(u)=h(1−u)/(1−h²u²)−atanh(hu) decreases strictly from positive to negative; therefore unique global optimizer. Implicit differentiation gives strict monotone u_h(h); h→0,1 give sharp scaled band (0.385933275998...,0.5). If h=0, I≡0, no unique maximizer. Independent root/derivative and extreme-asymmetry tests passed.
 
-Bressloff (2024), eqs. (4.1), (4.5), (4.13)-(4.20), derives stationary interfacial entropy and illustrates nonmonotonicity in Fig. 8 but does not state or prove the unique global permeability optimizer for every reset law or its sharp scaled interval. Related 2022/2023 membrane papers examine first-passage and renewal questions. A related prior scientific claim determines source-asymmetry information from flux versus resetting rate, not this permeability optimum. Semantic mathematical-record and primary-literature searches uncovered no direct coverage. General scalar conductance optimization remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural membrane-control objective is completely classified across all atomic, continuous and mixed Borel resetting laws. The exact unique maximum rules out hidden competing optimizers and gives source-independent bounds on dimensionless optimal permeability, extending the original paper's plotted nonmonotonicity to a sharp structural theorem. It is specifically the interfacial dissipation term and not an assertion about total thermodynamic entropy.
+Bressloff 2024 derives boundary stationary entropy and plots nonmonotonicity for selected reset sources, but inspected Sec IV and Fig 8 do not establish the unique global optimizer for every Borel source, strict asymmetry order or sharp universal dimensionless band. The Neumann resolvent is inherited. Broader scalar conductance optimization may implicitly cover the derivative argument.
 
-## Limits and provenance
+## value
 
-The model has one symmetric semipermeable interface, homogeneous diffusion, and permeability-independent Poisson resetting. If stationary membrane flux is zero, all permeabilities have zero interfacial production; no unique maximizer exists in that case. Earlier Green-function and entropy identities are credited to Bressloff, and priority beyond inspected literature remains uncertain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp optimizer and source-independent band for physically defined membrane interfacial dissipation over every reset source law is a meaningful natural exact control invariant, beyond prior plotted nonmonotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-The analytic proof and normalization conventions appear in `RESULT.md`. Run the standalone Python 3 checker with `python verify.py` in the extracted package directory. It uses the standard library and prints `PASS 302 checks`.
+## correctness
 
-The checker numerically integrates the Green-resolvent stationary density for multiple source laws, validates the boundary flux equation and interior differential equation away from atoms, checks normalization, and evaluates the unique root of the one-variable optimality equation. Separate samples check zero asymmetry and sharp bound limits. Derivative signs, uniqueness and all-parameter sharpness are analytic and are **not** inferred from finite sampling.
+PASS
 
-The first public source is arXiv:2402.16403 dated 2024-02-26. The physical membrane convention and entropy definitions follow DOI:10.1103/PhysRevResearch.6.023283, especially eqs. (4.1) and (4.5). No independent scientific audit is represented by these checks.
+The Neumann stationary resolvent with arbitrary interior Borel reset μ has endpoint densities a,b; homogeneous zero-integral flux correction yields J=κ(b−a)/(1+2κg). For h=|a−b|/(a+b)∈(0,1), I=(s h/g)(1−u)atanh(hu) with u=(1+2κg)^−1. Its derivative F_h(u)=h(1−u)/(1−h²u²)−atanh(hu) decreases strictly from positive to negative; therefore unique global optimizer. Implicit differentiation gives strict monotone u_h(h); h→0,1 give sharp scaled band (0.385933275998...,0.5). If h=0, I≡0, no unique maximizer. Independent root/derivative and extreme-asymmetry tests passed.
+
+## originality
+
+PASS
+
+Bressloff 2024 derives boundary stationary entropy and plots nonmonotonicity for selected reset sources, but inspected Sec IV and Fig 8 do not establish the unique global optimizer for every Borel source, strict asymmetry order or sharp universal dimensionless band. The Neumann resolvent is inherited. Broader scalar conductance optimization may implicitly cover the derivative argument.
+
+## value
+
+PASS
+
+A complete sharp optimizer and source-independent band for physically defined membrane interfacial dissipation over every reset source law is a meaningful natural exact control invariant, beyond prior plotted nonmonotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
