@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The source update reduces exactly to a scalar/table linear recursion. Direct second-moment expansion gives the symbolic four-moment matrix. Its determinant factorization, the cone Perron invariant reduction and perturbation/real-root continuation establish the exact spectral threshold. A two-step reachable-set spanning argument ensures that the prescribed nonzero-solution initialization has nonzero projection on every positive dual Perron eigendirection, including the critical case. The finite 354-check script corroborates symbolic identities and finite examples but does not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Source sufficient choice on equal rows is alpha=1/[m(m+4)]; the new admissible interval extends past 1/m for all m>=2. Gower–Richtárik–Bach develop general sufficient rate bounds; Gazagnadou et al. refine minibatch SAGA stepsize lower guarantees."
+      ],
+      "reasoning": "A general sufficiency result with a small step does not establish necessity at a much larger exact threshold; no exact specialization to this scalar coherent residual-table spectrum was found in the inspected passages.",
+      "searches": [
+        "JacSketch arbitrary sampling equal row rank one exact convergence factor optimal stepsize",
+        "identical sample scalar quadratic SAGA JacSketch mean square threshold alpha 1/sqrt 3 two samples",
+        "arxiv:2610.39537 Theorem 3.2 Remark 3.3",
+        "doi:10.1007/s10107-020-01506-0 convergence theorems",
+        "arxiv:1902.00071"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.39537",
+      "arxiv:1407.0202",
+      "doi:10.1007/s10107-020-01506-0",
+      "arxiv:1902.00071",
+      "arxiv:2602.05304",
+      "arxiv:2306.07850"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xie–Qi–Han prove sufficiency and a JacSketch identity; Mulayoff–Michaeli analyze pure SGD mean-square stability without a residual tracker. The derived root is above 1/m, whereas the stated source sufficient step is 1/[m(m+4)]."
+      ],
+      "reasoning": "The actual theorem demands the full tracker covariance dynamics and an initialized-state nondecay proof; neither follows as a direct corollary from a pure-SGD stability operator nor from the source sufficient Lyapunov inequality. Historical equivalence remains possible from an unreviewed specialized SAGA computation.",
+      "searches": [
+        "SAGA two samples one dimensional quadratic exact maximal stepsize spectral radius stability covariance",
+        "JacSketch arbitrary sampling equal row rank one exact convergence factor optimal stepsize",
+        "2610.39537 residual tracking control variates VRRK-AS uniform singleton rank-one repeated rows sharp necessary sufficient stepsize",
+        "arxiv:2610.39537 Algorithm 1 Theorem 3.2 Remark 3.3",
+        "arxiv:2306.07850"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie–Qi–Han Proposition 3.4 identifies the VRRK-AS update with JacSketch; Defazio et al. equation (1) is SAGA. For equal unit rows, both reduce to the stated table-error recurrence."
+      ],
+      "reasoning": "We searched as residual-tracking RK, SAGA and JacSketch, and treated them as the same algorithmic specialization, not separately novel phenomena; their published sufficient rate formulas do not give this exact necessary-and-sufficient step boundary.",
+      "searches": [
+        "variance-reduced randomized Kaczmarz SAGA identical rows rank-one least squares exact mean-square stability stepsize threshold square-root three",
+        "SAGA two samples one dimensional quadratic exact maximal stepsize spectral radius stability covariance",
+        "2610.39537 residual tracking control variates VRRK-AS uniform singleton rank-one repeated rows sharp necessary sufficient stepsize",
+        "arxiv:2610.39537 §3.4, Proposition 3.4",
+        "arxiv:1407.0202 §2",
+        "doi:10.1007/s10107-020-01506-0 §1.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest searchable studies respectively address two-client Loopless SVRG and KGSM on an orthonormal system, not residual-table VRRK-AS on identical rows. No exact parameter-table entry appeared in those results."
+      ],
+      "reasoning": "The statement is an infinite integer-parameter symbolic stability classification, not an existing tabulated finite calculation. Searches alone do not prove that another indexed or unindexed table is absent.",
+      "searches": [
+        "variance-reduced randomized Kaczmarz SAGA identical rows rank-one least squares exact mean-square stability stepsize threshold square-root three",
+        "2610.39537 residual tracking control variates VRRK-AS uniform singleton rank-one repeated rows sharp necessary sufficient stepsize",
+        "all sample sizes m exact squared-error stability threshold SAGA polynomial m(m-1)(2m-1) step size"
+      ]
+    },
+    "rationale": "Best-knowledge specialized originality: neither the inspected Xie–Qi–Han convergence theorem nor SAGA/JacSketch general sufficient rates give the exact coherent-row full-state mean-square frontier, or the boundary/above-boundary result for their required initialization. The four-moment reduction and unique positive-root classification are not implied by their stated sufficient bounds; older unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "An earlier unindexed specialized SAGA/JacSketch quadratic-moment stability classification might imply this exact polynomial.",
+      "Primary formula extraction in accessible web HTML omits some displayed source equations, although update identity is independently reconstructed from displayed residual-estimator and JacSketch equations.",
+      "The findings concern mean-square stability, not almost-sure instability nor practical rate optimality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact algorithm and provides sufficient stepsize/linear convergence; no exact necessary stability bound or initialized-state boundary derived in examined material",
+        "evidence": [
+          "Algorithm 1 has x0=0 and stored residuals -b; equations (13),(14), Proposition 3.4 give equivalence with JacSketch; Remark 3.3 specifies alpha=c/||A||_F^2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.39537",
+        "material_read": "Sections 3.2–3.4, Algorithm 1, Theorem 3.2, Remark 3.3, Proposition 3.4, and relevant Appendix 7.2",
+        "method": "Opened lawful arXiv full-text HTML and examined the specified algorithm, theorem, comparison and proof sections",
+        "title": "Efficient variance reduction for randomized Kaczmarz methods via residual-tracking control variates",
+        "trigger": "Exact motivating algorithm and closest possible covering theorem"
+      },
+      {
+        "assessment": "Identical optimizer in this specialization; stated sufficient rates do not give the exact rank-one tracker covariance limit",
+        "evidence": [
+          "Equation (1) gives stored-table correction and reference average; theory uses prescribed sufficient step."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1407.0202v3",
+        "material_read": "Algorithm and updates in Section 2; convergence statements in Sections 2 and 5",
+        "method": "Examined full arXiv HTML sections with primary formulas",
+        "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+        "trigger": "Older equivalent SAGA statement and any stronger stepsize implication"
+      },
+      {
+        "assessment": "General sufficient rates and sketch identities; no necessity-and-sufficiency statement in the specified equal-row case located",
+        "evidence": [
+          "JacSketch is stated to specialize to SAGA; convergence is proved by sufficient Lyapunov conditions."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10107-020-01506-0",
+        "material_read": "Abstract, main introduction and the principal convergence theorem/rate sections, including special SAGA discussion",
+        "method": "Inspected open-access publisher full-text HTML",
+        "title": "Stochastic quasi-gradient methods: variance reduction via Jacobian sketching",
+        "trigger": "General JacSketch potentially dominating convergence theorem"
+      },
+      {
+        "assessment": "Algorithmic step guarantees derived from general inequalities; no equal-row exact full-moment spectrum found",
+        "evidence": [
+          "Its concern is sufficient step/rate tuning under minibatch sampling, not a necessary sharp frontier for the single-table recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.00071",
+        "material_read": "Main statements on expected-smoothness bounds and minibatch stepsize analyses",
+        "method": "Opened lawful arXiv primary text and compared statement domains",
+        "title": "Optimal Mini-Batch and Step Sizes for SAGA",
+        "trigger": "Relevant optimal SAGA learning-rate comparisons"
+      },
+      {
+        "assessment": "General SAG/SAGA/IAG Lyapunov and concentration-derived convergence guarantees, not an exact coherent full-state stepsize equation",
+        "evidence": [
+          "The paper supplies unified convergence proofs and high-probability SAGA bounds, not an exact maximally coherent rank-one residual-tracker stability threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.05304v2",
+        "material_read": "Introduction, SAGA background and technical result summaries",
+        "method": "Opened primary arXiv HTML",
+        "title": "A Short and Unified Convergence Analysis of the SAG, SAGA, and IAG Algorithms",
+        "trigger": "Potential recent SAGA high-probability generalization"
+      },
+      {
+        "assessment": "Operator method relevant, but pure SGD has no stochastic residual tracker and does not yield this closed-form polynomial",
+        "evidence": [
+          "General SGD mean-square dynamics do not include the residual-table memory coordinates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07850",
+        "material_read": "Main mean-square stability operator construction and statements",
+        "method": "Opened primary arXiv text and compared dynamical state",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "trigger": "Potential general second-moment spectral implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa3a1125-5837-4058-8ee2-f3ed452ec53d",
+  "value": {
+    "rationale": "For each m this is the natural identical-row maximally coherent stress test of a new residual-tracking Kaczmarz method. The exact full-state and prescribed-initialization cutoff is not merely a one-step norm bound; its ratio to the published conservative sufficient choice grows as m+4. It supplies a sharp reference criterion for tuning and interpreting variance-reduced row algorithms, without claiming general matrix optimality.",
+    "status": "PASS"
+  }
+}
