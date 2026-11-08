@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The balanced-weighting theorem of Higgins gives the necessary and sufficient neighbor inequalities. For three rows these reduce exactly to the six conditions on singleton-column counts and row degrees. The proof derives residue-dependent lower bounds, eliminates each spurious equality pattern, constructs every permitted support, and counts all labeled placements. The exhaustive independent seven-support multiset checker confirmed both thresholds and labeled counts for every column count from \(1\) to \(10\). Exhaustion for small parameters is supporting evidence, not the general proof.
+## correctness
 
-## Originality — PASS (qualified)
-Higgins's 2026 manuscript supplies the external balanced-weighting criterion but does not state a three-row minimum-idempotent threshold, its congruence classes, all equality supports, or their labeled enumeration. The 2024 Higgins matching-involution paper concerns a different, stronger matching property. Published mathematical-record searches for extremal sparse balanced supports, minimal idempotents in three-row rectangular zero bands, and labeled support counts did not identify a stronger or equivalent published statement. A historical overlap in unindexed sparse incidence design literature remains possible; novelty is assessed only to the extent of this comparison.
+PASS
 
-## Mathematical value — PASS
-The smallest number of idempotents compatible with a permutation matching is an intrinsic sparsity problem for regular Rees-type classes. Three rows are the first dimension where singleton, double, and triple column supports genuinely compete. Exact thresholds, a nontrivial obstruction at one residue, all equality structures, and a closed labeled census for arbitrarily many columns give a meaningful and reusable classification, beyond a routine individual example.
+The Higgins balanced-weighting criterion is translated to six exact Hall inequalities d_i>=ceil(q/3), a_i<=floor(q/3); counting incidences produces the sharp residue-wise lower bounds. Equality cases exhaust singleton-only (q=0 mod3), one triple or two distinct doubles (q=1 mod3), and two distinct doubles (q=2 mod3). Multinomial label counts include q=1 separately. Independent multiset enumeration of all seven nonempty support types for q=1..7 reproduces both minima and multiplicities; finite data corroborate rather than prove arbitrary q.
 
-## Scientific limitations
-This is a three-row labeled support census, not an isomorphism-class census or arbitrary-row formula. The matching criterion is prior work. No independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original fixed-three-row extremal and enumerative classification; Higgins gives only balanced-support feasibility, not the optimized edge count or all equality multiplicities. Search did not find a dominating incidence-matrix classification, but inaccessible paper-level comparisons and old tabulations remain real risks.
+
+## value
+
+PASS
+
+A natural first nontrivial fixed-row extremal problem after a newly established matching criterion; exact complete equality structures and labeled multiplicities are useful for testing Rees-band matching examples, not merely a restatement of Hall feasibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

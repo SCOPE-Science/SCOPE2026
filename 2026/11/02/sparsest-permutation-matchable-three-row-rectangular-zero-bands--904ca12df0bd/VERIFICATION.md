@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
-The proof checks every nonempty row subset through the six equivalent inequalities \(d_i\ge\lceil q/3\rceil\) and \(a_i\le\lfloor q/3\rfloor\). The only imported non-elementary statement is the established balanced-weighting/matching equivalence cited in the main text.
 
-The included `verify.py` exhaustively enumerates multisets of the seven possible nonempty column supports and multiplies by the multinomial number of labeled arrangements. The code compares computed minima and minimizer counts with the analytic result for \(1\le q\le10\), printing `ALL_CHECKS_PASSED`. Computations do not substitute for the proof at unbounded \(q\).
+# Independent mathematical audit
 
-Independent audit has not been performed; there is no claim of independent certification.
+## correctness
+
+PASS
+
+The Higgins balanced-weighting criterion is translated to six exact Hall inequalities d_i>=ceil(q/3), a_i<=floor(q/3); counting incidences produces the sharp residue-wise lower bounds. Equality cases exhaust singleton-only (q=0 mod3), one triple or two distinct doubles (q=1 mod3), and two distinct doubles (q=2 mod3). Multinomial label counts include q=1 separately. Independent multiset enumeration of all seven nonempty support types for q=1..7 reproduces both minima and multiplicities; finite data corroborate rather than prove arbitrary q.
+
+## originality
+
+PASS
+
+Best-of-knowledge original fixed-three-row extremal and enumerative classification; Higgins gives only balanced-support feasibility, not the optimized edge count or all equality multiplicities. Search did not find a dominating incidence-matrix classification, but inaccessible paper-level comparisons and old tabulations remain real risks.
+
+## value
+
+PASS
+
+A natural first nontrivial fixed-row extremal problem after a newly established matching criterion; exact complete equality structures and labeled multiplicities are useful for testing Rees-band matching examples, not merely a restatement of Hall feasibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
