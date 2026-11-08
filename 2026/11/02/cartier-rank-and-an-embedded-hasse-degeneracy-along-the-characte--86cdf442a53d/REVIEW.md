@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any normalized degree-six one-pole Artin–Schreier polynomial in characteristic five, the standard genus formula gives ten and the standard Deuring–Shafarevich result gives zero \(5\)-rank. The ten holomorphic differentials satisfy the pole-order cutoff \(5i+6j\le18\). Exact polynomial expansion of \(y=y^5-f(x)\) and affine Cartier gives the displayed 15-entry polynomial matrix. Its row-and-column support reduces rank to a two-by-two block \(T\) with determinant \(a^2-ub+2u^3\), plus two independent rank contributions away from the coefficient line. The nine potentially nonzero maximal minors generate the stated product ideal. The embedded torsion module is computed as \((P)/(P\mathfrak m^2)\). Replaying the standalone verifier matched every symbolic entry and the finite-field checks. The finite enumeration is corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, with priority risks)
-Farnell–Pries (arXiv:1202.4183v1) treat constant-rank families under a congruence \(p\equiv1\pmod L\) absent here. Bouw and collaborators (arXiv:1410.7031v1) analyze the additive-polynomial class and zeta functions; in this degree it is the proper subfamily \(x^6+bx^2\). General Artin–Schreier Cartier algorithms exist, so algorithmic computability is not claimed as novel. The proposed increment is the exact complete four-parameter rank-stratum and scheme-theoretic embedded-component theorem. An unlocated older coefficientwise calculation or more general theorem could change the priority assessment; searches do not prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-The \(a\)-number is a natural geometric invariant of the Jacobian and its \(p\)-torsion. The classification covers the full normalized coefficient family rather than an arbitrary slice, excludes the two intermediate \(a\)-numbers, isolates an irreducible cubic rank jump and an exceptional superspecial line, and identifies a nontrivial embedded determinantal defect invisible in pointwise enumeration. Such precision distinguishes arithmetic strata and their infinitesimal structure without claiming a Newton-polygon classification.
+For characteristic five degree-six Artin-Schreier y^5-y=x^6+u x^4+a x^3+b x^2+c x, one pole of order six gives genus10/p-rank0 and ten differential basis pairs 5i+6j<=18. Independently expanded all ten basis Cartier images into the polynomial entrywise-fifth-power matrix; found exactly 15 nonzero entries matching the full RESULT.md, including T=[[2a,2b+u^2],[-2u,-2a]] with determinant P=a^2-ub+2u^3. Columns 4,5,6 support row0; column9 supplies a linearly independent component from (b+u^2,a,u); rank is 2+rank T outside (u,a,b)=0, otherwise zero. Thus geometric rank4 if P!=0, 3 if P=0 off line, 0 on line; a-numbers 6,7,10. Every nonzero 4x4 minor is product P times one row0 generator and one column9 independent generator, yielding I4=P(u,a,b)^2 and embedded quotient R/(u,a,b)^2 of length4 transversely. Independent F5 rank census for all 125 u,a,b triples (c=3): 0:1,3:24,4:100. Matrix scheme is explicitly the entrywise fifth-power convention; no assertion about full Ekedahl-Oort type.
 
-## Scientific and historical limitations
-This is a characteristic-five statement about Cartier rank. Independent historical-priority comparison and independent scientific verification remain open; possible subsumption by other general Cartier-matrix classifications is a residual risk. The detailed algebraic rank and ideal computations are self-contained in `RESULT.md` and reproducible via `VERIFY.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full coefficientwise Cartier-rank strata and embedded I4=P m^2 scheme for the monic degree-six one-pole family in characteristic five, not the standard Cartier calculation or special additive xR(x) curves. More general published Cartier algorithm results could allow this rank calculation as a corollary, but inspected main theorems do not explicitly dominate the claimed parameter-stratified and scheme-level conclusion.
+
+## value
+
+PASS
+
+A full monic one-pole genus-ten family in characteristic five, not a handpicked specialization, is a natural parameter space for Cartier ranks and Jacobian a-numbers. Exact stratification into 6,7,10 and the nonreduced determinantal scheme with length-four embedded torsion are independent arithmetic-geometric facts that clarify how a-number jumps and scheme structure differ. This is mathematically substantive beyond the general Cartier recipe or selected finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
