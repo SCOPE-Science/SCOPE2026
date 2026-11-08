@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T15:15:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact random-pair decomposition Q_±=P_h±D_h, P_h=I−2hH+O(h²), D_h=h² C+O(h³), deterministic propagation e^(−2jhH), and martingale-sum representation of X_n−m_n. Orthogonality bounds centered second moments by O(jh⁴) and replacing random X_{j−1} by deterministic mean leaves L² error O(h³), negligible after h^(−3/2) scaling. Bounded triangular-array coefficients √h v(t_j) give Lindeberg and covariance h∑v vᵀ→½∫_0^L v vᵀdt, with degeneracies allowed. Positivity of the integral, invertibility of exponentials, analyticity of C exp(−tH)x0, and Cayley–Hamilton yield the exact iff CH^k x0=0 (0≤k<d). Independent exact numeric 2×2 witness C=[[0,1/2],[-1/2,0]] and covariance recursion n=30,60,120,240 tends monotonically to e^(−2)(1−e^(−2))/16=0.007313727771742408 (values 0.00687824, 0.00709158, 0.00720153, 0.00725734). We verified admissible positive-definite witness. The asymptotic is centered random-order noise only, not continuum solver error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berger 1984 Theorem VI's diffusion-level product convergence is broader as technique but not a ready-made h^(3/2) centered resolvent covariance.",
+          "Li–Wang 2025 establishes 3/2 error scaling in a different nonlinear splitting model; it does not state matrix-valued Σ nor CH^k nullity.",
+          "Childs et al. 2021 commutator estimates concern deterministic Trotter errors."
+        ],
+        "reasoning": "A broader methodology does not logically supply this exact explicit coefficient/if-and-only-if classification without additional calculation; generic 3/2 rates are credited and not claimed as original.",
+        "searches": [
+          "randomized operator splitting Gaussian fluctuations paired implicit Euler",
+          "Berger 1984 generalized stochastic Trotter §6",
+          "Li and Wang 2025 Allen-Cahn random splitting 3/2"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1090/S0002-9947-1984-0752503-3",
+        "https://arxiv.org/abs/2210.05375",
+        "https://doi.org/10.1002/num.70040",
+        "https://doi.org/10.1103/PhysRevX.11.011020",
+        "Resultary query: paired implicit Euler random order resolvents antithetic splitting commutator Gaussian fluctuations covariance Krylov silence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed Σ is a nonnegative integral of evolved commutator C=(TS−ST)/2 and silence iff CH^k x0=0 for all k<d.",
+          "Earlier convergence bounds only estimate error; Berger's fixed-scale stochastic products do not specialize directly to this small-noise covariance equality."
+        ],
+        "reasoning": "Established convergence/error estimates do not imply the displayed exact covariance and finite iff criterion. The general CLT gives method, but the exact specialized theorem requires the paired perturbation analysis.",
+        "searches": [
+          "Eisenmann–Stillfjord Theorems on randomized implicit splitting",
+          "Berger stochastic product theorem IV–VI §5, stochastic formulas §6",
+          "paired implicit Euler random order resolvents antithetic splitting commutator Gaussian fluctuations covariance Krylov silence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berger's fixed-diffusive stochastic products have nonzero Brownian noise, whereas our conditional random pair perturbation is O(h²) and its noise vanishes before centered magnification.",
+          "Eisenmann–Stillfjord draws independent operators per small step, rather than balanced pairwise permutation without replacement."
+        ],
+        "reasoning": "Neither specifically gives the covariance of two equally likely resolvent pair orders and its complete CH^k x0 silence test. General product CLT technique is acknowledged; equivalence could follow from specialized small-noise corollaries not checked.",
+        "searches": [
+          "paired implicit Euler random order resolvents antithetic splitting commutator Gaussian fluctuations covariance Krylov silence",
+          "Berger 1984 Theorem VI, VII and §6",
+          "Eisenmann–Stillfjord arXiv:2210.05375 Assumption 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed results concern diffuse Gaussian-sign correlation and CG stopping fluctuations, not this resolvent-pair covariance."
+        ],
+        "reasoning": "No finite database or tabulation is natural to the infinite matrix identity; the relevant public index did not produce a stronger formula, but search noncoverage is not a proof.",
+        "searches": [
+          "paired implicit Euler random order resolvents antithetic splitting commutator Gaussian fluctuations covariance Krylov silence",
+          "Resultary published Gaussian/Krylov searches",
+          "paired random order backward Euler variance covariance commutator"
+        ]
+      },
+      "rationale": "Qualified PASS: general random matrix product central limit methods, randomized splitting rates and deterministic commutator error algebra are prior. The completed conclusion that survives is the exact weak-noise covariance at h^(3/2) for balanced pairwise implicit resolvents, including its finite vector-specific Krylov null criterion. Full Berger (1984) available rendered sections 5–6 were inspected: diffusive stochastic product limits and generic limiting semigroups do not themselves state this smaller centered noise coefficient or initial-data null equivalence. Eisenmann–Stillfjord independent-choice splitting does not require every pair to contain both operators. Search of published mathematical records returned unrelated Gaussian sign concentration/Krylov CG rather than an equivalent formula. An older generalized perturbative CLT may imply pieces; priority remains qualified.",
+      "residual_risks": [
+        "Specialized older random-product perturbation CLT may imply the matrix covariance after hidden change of scaling.",
+        "The finite Krylov silence criterion is an elementary analytic consequence once an exact covariance formula is available; novelty is joint precise formula/classification, not analyticity itself.",
+        "No extension beyond constant symmetric PSD finite matrices with iid pair signs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_DIRECT_COVERAGE",
+          "evidence": [
+            "Theorem VI concerns limits of independent product matrices with Brownian fluctuations; §6 uses exp(L X_i/sqrt(n)) products."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1984-0752503-3",
+          "material_read": "Rendered full research article text: examined Theorems VI–VII in §5 and stochastic product formulas in §6, including Eq. (6.1) and (6.8)",
+          "method": "public author-uploaded full text via ResearchGate HTML",
+          "title": "Central limit theorem for products of random matrices",
+          "trigger": "general stochastic matrix product theorem and stochastic Lie–Trotter"
+        },
+        {
+          "assessment": "NOT_DIRECT_COVERAGE",
+          "evidence": [
+            "Operators selected independently per microstep; no balanced two-order commutator covariance or Krylov iff theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.05375",
+          "material_read": "Read accessible journal full HTML, Assumption 2.4 and main strong convergence statements",
+          "method": "lawful open-access journal HTML",
+          "title": "A randomized operator splitting scheme inspired by stochastic optimization methods",
+          "trigger": "same implicit splitting technique"
+        },
+        {
+          "assessment": "RATE_PRIOR_ONLY_BODY_NOT_FULLY_INSPECTED",
+          "evidence": [
+            "Reports 3/2 convergence in nonlinear PDE context; not evidence about explicit resolvent covariance."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/num.70040",
+          "material_read": "Abstract and theorem descriptions as indexed, not entire article",
+          "method": "bibliographic/abstract search",
+          "title": "Convergence of Random Splitting Method for the Allen–Cahn Equation in a Background Flow",
+          "trigger": "same order 3/2 appears"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A structurally motivated diagnostic of residual random-order noise after balanced two-operator splitting, not another generic rate estimate. Exact computable covariance distinguishes active and silent initial Krylov subspaces for a fixed pair of generators; its sharp 2×2 noncommuting example proves h^(3/2) fluctuations can be genuine and the finite criterion is practically usable in operator choice. It does not claim new CLT techniques or total approximation rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1090/S0002-9947-1984-0752503-3",
+    "https://arxiv.org/abs/2210.05375",
+    "https://doi.org/10.1002/num.70040",
+    "https://doi.org/10.1103/PhysRevX.11.011020",
+    "Resultary query: paired implicit Euler random order resolvents antithetic splitting commutator Gaussian fluctuations covariance Krylov silence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed d,S,T,x0,L; n→∞, h=L/(2n); no unbounded operators or dependent pair signs.",
+    "Centred h^(3/2) fluctuations, not continuum solution error; possible higher-order noise when Σ=0."
+  ],
+  "residual_risks": [
+    "Specialized older random-product perturbation CLT may imply the matrix covariance after hidden change of scaling.",
+    "The finite Krylov silence criterion is an elementary analytic consequence once an exact covariance formula is available; novelty is joint precise formula/classification, not analyticity itself.",
+    "No extension beyond constant symmetric PSD finite matrices with iid pair signs."
+  ],
+  "schema_version": 1
+}
