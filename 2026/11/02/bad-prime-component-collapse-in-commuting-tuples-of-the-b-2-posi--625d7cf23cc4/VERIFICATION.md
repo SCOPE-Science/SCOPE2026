@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 check_commuting_B2.py` from this package's file directory. The expected final output marker is `B2_BAD_PRIME_COMMUTING_TUPLES_OK 10_REDUCED 4_FULL`.
+## correctness
 
-The checker uses integer-coordinate arithmetic for finite fields of sizes \(2,3,4,5,7,9\). For \(\mathbb F_4\), it constructs the field by reducing polynomials modulo \(t^2+t+1\); for \(\mathbb F_9\), modulo \(t^2+1\). It independently evaluates original Lie brackets, all determinantal conditions and the two formula families. Every coordinate triple \(a,b,c\) is exhaustively enumerated for ten tested \((q,m)\) configurations; central row \(d\) contributes a proven free factor \(q^m\). In four separate field configurations with \(m=2\), the checker also exhaustively enumerates the full original eight-coordinate pair space rather than factoring out central coordinates. The captured stdout is `check_output.txt`.
+PASS
 
-Correctness for all fields and all \(m\ge2\) follows from the original-bracket and determinantal arguments in `RESULT.md`, not finite extrapolation. The proof does not claim that the unreduced commuting scheme is reduced. External literature priority is provisional; independent audit is not performed.
+The actual integral Lie algebra has [e1,e2]=e3 and [e1,e3]=2e4. A pair bracket gives a_i b_j-a_j b_i and 2(a_i c_j-a_j c_i), with central d unconstrained. When 2 is invertible, a=0 yields a linear component dim 3m; when a !=0, b,c must each be proportional to a, giving rank(a;b;c)<=1 times A^m of dim 2m+2. Intersection is a=0,rank(b;c)<=1 times A^m (dim2m+1). Standard rank-one determinantal geometry makes every component smooth off intersection and singular at rank zero; the reduced union singular locus is intersection and dimensions coincide iff m=2. When p=2, only rank(a;b)<=1 remains and c,d are free; irreducible dimension 3m+1 and singular locus a=b=0 dimension 2m. Rank-one matrix count D_{r,m}=1+(q^r-1)(q^m-1)/(q-1) and inclusion-exclusion yield q^{3m}+q^{m+2}(q^m-1) for odd q and q^{2m}(1+(q+1)(q^m-1)) even q. Bundle stratification justifies motivic substitution by L. Independent full-element checks give 160 commuting pairs over F2 and 1377 over F3; not an extrapolation. The unreduced bracket scheme is not claimed reduced.
+
+## originality
+
+PASS
+
+PASS, with explicit prior carve-outs: Goodwin–Röhrle 2012 already gave characteristic-zero m=2 two-component case, Farnsteiner 2018 good-characteristic pairs, and the characteristic-two all-arity formula is a specialization of known Heisenberg commuting-tuple determinantal cases. The remaining arbitrary odd-characteristic m>=3 classification, inequivalent dimensions, singular strata and arithmetic/motivic census are not asserted by the inspected sources. No novelty is claimed for known pair or Heisenberg specializations.
+
+## value
+
+PASS
+
+The B2 nilradical is the smallest non-simply-laced positive-root Lie algebra where a Chevalley constant dies in characteristic two. The complete all-arity reduced commuting-locus geometry and its point counts exhibit a meaningful bad-prime component-collapse and the non-equidimensional shift at m>=3. This is a natural canonical model, not a random low-dimensional slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
