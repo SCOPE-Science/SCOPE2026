@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof: three disjoint conditional cases and row-sum cancellation",
+      "verify.py, exact complete enumeration n=2..8 and algebraic sign checks n=2..99"
+    ],
+    "rationale": "The conditional record probability is 1/i when j>i, 1/(i-1) when j<i, and binom(n-1,i-1)^(-1) when j=i. Multiplication by P(I_j)=1/n and subtraction of 1/(ni) proves the entire matrix. Row summation gives reciprocal-binomial covariances, while binomial monotonicity and classical exact variances establish signs and asymptotics. Full enumeration n=2..8 and exact algebraic tests n=2..99 passed 324079 assertions. Finite checks are not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dubach (2025), Theorem 2.10 and Section 6, analyzes high-record limit laws in fixed cycle types with prescribed numbers of fixed points, including a phase transition at a mesoscopic nonfixed-point scale.",
+        "Jin (2022) addresses joint Euler–Stirling statistics involving records and descents, not the ordinary fixed-point count in the same permutation.",
+        "Diaconis–Evans–Graham (2014), introductory Theorem 1.1 and Sections 2–4, treats distributional equality of fixed-point and succession sets."
+      ],
+      "reasoning": "Dubach provides broader-model asymptotic results, but the theorem statements and Section 6 calculations inspected do not give an exact finite-n cross-covariance indexed simultaneously by record location and fixed-point location. Its asymptotic limit law does not logically imply the exact matrix or its reciprocal-binomial cancellation. Other cited broader frameworks concern different joint statistics.",
+      "searches": [
+        "\"fixed points\" \"records\" \"covariance\" permutation",
+        "\"fixed points\" \"left-to-right maxima\" \"joint\" permutations",
+        "random permutation fixed points records covariance left to right maxima exact joint"
+      ]
+    },
+    "checked_sources": [
+      "https://mathweb.ucsd.edu/~ronspubs/14_05_pairs.pdf (primary PDF; selected substantial sections read)",
+      "https://arxiv.org/abs/1202.3680 (preprint metadata and abstract; full text unavailable)",
+      "https://link.springer.com/article/10.1007/s00440-025-01449-7 (primary full HTML; relevant theorem and proof read)",
+      "https://arxiv.org/abs/2210.08789 (abstract only)",
+      "https://www.findstat.org/StatisticsDatabase/St000221/ (search snippet only, strong fixed-point definition)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diaconis–Evans–Graham (2014), Theorem 1.1 concerns the distribution of one-line succession positions and ordinary fixed points, with no simultaneous record-location conditioning.",
+        "Dubach (2025), Theorem 2.10 gives scaling-limit distributions conditional on a fixed cycle type, while the present statement specifies every finite-n mixed covariance entry.",
+        "Nearby previously recorded statements on fixed-point/descents, inversion/cycles and succession/cycle counts involve distinct random variables and cannot imply the present eventwise formula without additional new arguments."
+      ],
+      "reasoning": "The new claim is a joint statement about a record indicator R_i and ordinary fixed-point indicator I_j on the same uniform permutation. Prior marginal laws, equidistributions under non-jointly-statistic-preserving bijections, or conditional asymptotic CLTs do not entail its finite indexwise values. An undiscovered all-moment enumerator could imply it; that is recorded as a priority risk.",
+      "searches": [
+        "record indicator fixed point indicator conditional probability triangular matrix uniform random permutation",
+        "random permutation fixed points records covariance left to right maxima exact joint",
+        "\"fixed points\" \"records\" \"covariance\" permutation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Evans–Graham (2014), Theorem 1.1, identifies the one-line succession set with fixed-point-set distribution, not record positions.",
+        "Gnedin–Gorin (2012) studies record-dependent measures. Available abstract identifies record-position statistics but does not exhibit a mixed fixed-point formula.",
+        "The exact reciprocal-binomial profile and three-case mixed matrix were reconstructed directly from conditional permutation counting."
+      ],
+      "reasoning": "Relabeling or reversing a permutation can convert upper to lower records, but it does not turn one-line succession indicators or descent indicators into the same fixed-point/record joint event. A marginal Foata equidistribution between cycles and records does not preserve joint dependence with ordinary fixed points. No inspected result gives an equivalent finite matrix, though inaccessible older constructions remain a residual risk.",
+      "searches": [
+        "random permutation fixed points records covariance left to right maxima exact joint",
+        "permutation left to right maxima and fixed points bivariate generating function record positions",
+        "fixed points record count covariance 1/n reciprocal binomial coefficients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "FindStat St000221 describes strong fixed points and a joint generating function with left-to-right maxima; a strong fixed point is a stricter two-sided pattern event and not an ordinary fixed point.",
+        "No retrieved exact table or indexed covariance entry matched the three-case matrix and row-sum profile. This negative search result is not itself proof of novelty."
+      ],
+      "reasoning": "The FindStat statistic is inequivalent because its extra suffix-order condition changes the event. Exact rational brute-force tables through eight symbols reproduce the proposed matrix but are new diagnostics, not pre-existing catalog evidence; the database search remains non-exhaustive.",
+      "searches": [
+        "fixed points record count covariance 1/n reciprocal binomial coefficients",
+        "\"fixed point\" \"record\" \"1/(n\" permutation",
+        "record indicator fixed point indicator conditional probability triangular matrix uniform random permutation"
+      ]
+    },
+    "rationale": "The inspected closest literature supplies marginal record/fixed-point laws, succession/fixed-point equidistribution, and asymptotic conditional record results, but not the complete same-permutation finite mixed covariance matrix. Direct implication comparisons distinguish these from the exact eventwise formula. Priority remains qualified owing to an uninspected old manuscript and possible unlocated bivariate enumerators.",
+    "residual_risks": [
+      "The complete Gnedin–Gorin preprint was not available to inspect; no claim of whole-document exclusion is made.",
+      "A historical bivariate fixed-point/record generating function could imply the finite matrix without matching the searched phrases.",
+      "Dubach provides stronger conditioning on cycle type in an asymptotic regime, though no exact finite coefficient was found in the inspected text.",
+      "Searches and finite checks do not establish global literature uniqueness or independent mathematical certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper compares unseparated-pair/succession locations with the fixed-point set in distribution; it does not state a mixed left-to-right record and fixed-point covariance in the inspected material.",
+        "evidence": [
+          "Theorem 1.1 and Remark 1.2 establish succession/fixed-point set equidistribution; Sections 2–4 supply enumeration, Markov and bijective proofs."
+        ],
+        "identifier_or_url": "https://mathweb.ucsd.edu/~ronspubs/14_05_pairs.pdf",
+        "material_read": "Abstract, Introduction, Theorem 1.1, Remarks 1.2–1.4, Sections 2–4 through their central construction; text search for records and covariance, visual check of page 104",
+        "method": "Primary journal open-access PDF with extracted text and rendered-page inspection",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Same fixed-point statistic on the same uniform permutation model"
+      },
+      {
+        "assessment": "The stated goal is classification of consistent measures depending on record sets, rather than a fixedpoint–record mixed moment. Missing full text leaves residual uncertainty.",
+        "evidence": [
+          "Preprint initial public date 2012-02-16; abstract identifies record-dependent measure classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.3680",
+        "material_read": "Public preprint metadata, abstract and journal description; complete manuscript unavailable",
+        "method": "Preprint and repository public metadata; no full-text inspection claimed",
+        "title": "Record-dependent measures on the symmetric groups",
+        "trigger": "Record-position sets on uniform or biased permutations"
+      },
+      {
+        "assessment": "It gives conditional high-record scaling laws, including a fixed-point phase transition, but not an exact finite-n positionwise covariance matrix for the uniform model.",
+        "evidence": [
+          "Theorem 2.10 is asymptotic with a prescribed cycle type; Section 6 proof separates diagonal fixed-point effects and off-diagonal record counts at scaling limits."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00440-025-01449-7",
+        "material_read": "Full open-access article sections on records: introduction, Section 2.3 Theorems 2.9–2.10, Section 6.1 and detailed proof of Theorem 2.10",
+        "method": "Open-access full-text HTML",
+        "title": "A geometric approach to conjugation-invariant random permutations",
+        "trigger": "Directly related records conditional on prescribed numbers of fixed points"
+      },
+      {
+        "assessment": "Named joint statistics involve descents, inverse descents, left/right records and minima, not ordinary fixed points.",
+        "evidence": [
+          "Abstract explicitly lists the joint Euler–Stirling statistics considered."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.08789",
+        "material_read": "Accessible abstract and bibliographic metadata; not complete manuscript",
+        "method": "Public scholarly abstract",
+        "title": "Symmetric generating functions and Euler–Stirling statistics on permutations",
+        "trigger": "Potential dominating joint generating function for record statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b26ced2c-49b5-4bfa-98af-961d7f5c6196",
+  "value": {
+    "limitations": [
+      "Only second-order joint information is established",
+      "No joint distribution or asymptotic stochastic independence is proved"
+    ],
+    "rationale": "The joint record/fixed-point dependence matrix is a natural structural invariant of uniform shuffles: conditioning on a fixed point before, at or after a record position creates a sharp lower-triangular support and a diagonal sign reversal. The nontrivial cancellation into reciprocal binomial row sums and the sharp O(1/(n sqrt(log n))) correlation yield a quantitative baseline for combining two classical permutation diagnostics, not obtainable from their marginal distributions.",
+    "status": "PASS"
+  }
+}
