@@ -1,15 +1,21 @@
-# Review of exact dyadic multiplicative correlations
+# Independent mathematical audit
 
-## Correctness
-PASS. The binary multiplication carry recurrence and signed transitions are explicitly defined. The exact vector identity between rows at positions \(0,1,2,k+1,k+2\) is proved by cancellation. Multiplying it by arbitrary later powers produces a universal recurrence, while directly evaluated initial rows give the generating function. Tests independently enumerate direct sums for \(2\le k\le9\) and \(0\le r\le13\), and test the row identity and recurrence for the same parameters. No finite-to-infinite inference is made.
+## correctness
 
-## Originality
-PASS within checked sources. Related marginal rarefied sums in Shallit (arXiv:2302.09436) and Morgenbesser–Shallit–Stoll (arXiv:1009.5357), and the shift correlations in Baake–Coons (arXiv:2209.07102), do not state or algebraically imply this family-level formula from their inspected theorems. Winterhof (arXiv:2305.11486) surveys a distinct fixed-shift correlation framework. Existing result for multiplier three covers only \(k=1\); the present claim is explicitly \(k\ge2\). Standard transfer-matrix construction is not claimed as new. Residual risk: a general previously known mixed-dilation theorem not found in the searched corpus could subsume the formula.
+PASS
 
-## Mathematical value
-PASS. Mixed digit parity under multiplication is a natural arithmetic correlation not fixed by either marginal, especially the first exactly nonzero length. A uniform closed generating function simultaneously determines infinitely many multipliers, arbitrarily high dyadic levels and a nontrivial cancellation threshold; it is more substantial than a fixed-parameter calculation.
+For m=2^k+1 odd, low-bit multiplication with carry c yields next d=floor((c+mb)/2), sign factor (-1)^c independent of chosen input bit b, hence row transition M_{c,d}=(-1)^c(sum indicators). After j<=k digits the low and shifted copies do not overlap and R_j=sum_{a<2^j}e_{a2^{k-j}}. Summing parity-cancelled endpoints gives R_{k+1}=e_{2^{k-1}}-e_{2^k}, next row explicit, and exact row equality R_{k+2}-R_{k+1}-R2+3R1-2R0=0 for all k>=2. Multiply by M^r and final carry vector tau(c) to obtain unrestricted recurrence; initial 1, k+1 zeros, 2 give displayed rational GF. Independently checked exact row relation k=2..8 and 70 direct finite dyadic sums. k=1 excluded; r=0 included; sums are ordinary integers.
 
-## Scope and residual limitations
-The theorem does not cover arbitrary odd multipliers or nondyadic endpoints; the automaton proof does not assert new machinery. Source comparisons are not exhaustive. No independent mathematical audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Marginal Thue-Morse along arithmetic multipliers, translation-shift correlations and automata recurrences are known, but the exact two-factor dilation correlation for the infinite family m=2^k+1 and its universal k-dependent all-r GF was not found in inspected sources.
+
+## value
+
+PASS
+
+An unexpectedly short exact recurrence simultaneously for all binary two-one multipliers quantifies dyadic cancellation depths and later oscillations in a natural digital-correlation problem. Its infinite parameter uniformity and explicit generating function exceed a one-off computational table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

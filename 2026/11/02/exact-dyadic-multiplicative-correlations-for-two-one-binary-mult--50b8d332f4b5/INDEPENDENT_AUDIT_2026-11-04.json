@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:41:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/verify.py"
+      ],
+      "rationale": "For m=2^k+1 odd, low-bit multiplication with carry c yields next d=floor((c+mb)/2), sign factor (-1)^c independent of chosen input bit b, hence row transition M_{c,d}=(-1)^c(sum indicators). After j<=k digits the low and shifted copies do not overlap and R_j=sum_{a<2^j}e_{a2^{k-j}}. Summing parity-cancelled endpoints gives R_{k+1}=e_{2^{k-1}}-e_{2^k}, next row explicit, and exact row equality R_{k+2}-R_{k+1}-R2+3R1-2R0=0 for all k>=2. Multiply by M^r and final carry vector tau(c) to obtain unrestricted recurrence; initial 1, k+1 zeros, 2 give displayed rational GF. Independently checked exact row relation k=2..8 and 70 direct finite dyadic sums. k=1 excluded; r=0 included; sums are ordinary integers.",
+      "residual_risks": [
+        "Bounded independent tests corroborate but do not themselves prove the infinite-parameter theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These broad works study shift-invariant two-point functions, marginal multiple values, or automated parity patterns; their stated results do not explicitly supply the two-factor dyadic family GF."
+        ],
+        "reasoning": "General automatic sequence closure gives existence of finite automata but not the displayed simple uniform recurrence without extra analysis.",
+        "searches": [
+          "Baake Coons arxiv:2209.07102 shift correlations; Morgenbesser Shallit Stoll arxiv:1009.5357 multiples; Shallit arxiv:2302.09436 rarefied sums"
+        ]
+      },
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/verify.py",
+        "arxiv:1009.5357",
+        "arxiv:2209.07102",
+        "arxiv:2302.09436",
+        "arxiv:2305.11486",
+        "Resultary semantic Thue Morse multiplicative-correlation query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former supplies marginal distribution tau(mn), not mixed tau(n)tau(mn), and latter fixes additive shift not dilation. Neither stated theorem logically yields these exact values without a new correlation calculation."
+        ],
+        "reasoning": "Standard carry-matrix method is credited as prior; novelty is the family row identity.",
+        "searches": [
+          "Morgenbesser Shallit Stoll Thue-Morse at Multiples of an Integer; Baake Coons Correlations of the Thue-Morse sequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shift autocorrelation tau(n)tau(n+h) is not equivalent to multiplication by n-dependent shift (m-1)n; rarefied tau(mn) is only one factor."
+        ],
+        "reasoning": "The exact vector recurrence follows from two separated binary one positions, not a general odd multiplier formula.",
+        "searches": [
+          "Thue-Morse multiplicative correlations, dilation sampling tau(n)tau(mn), automatic carry transducers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Directly counted 70 values and verified recurrence at k=2..8; no matching pre-existing exact two-variable table found."
+        ],
+        "reasoning": "Finite checks are not a novelty guarantee; specialized digit-correlation tables could predate this expression.",
+        "searches": [
+          "k-indexed C_{k,r} exact dyadic correlation sequence and OEIS/digit multiplicative correlation"
+        ]
+      },
+      "rationale": "Marginal Thue-Morse along arithmetic multipliers, translation-shift correlations and automata recurrences are known, but the exact two-factor dilation correlation for the infinite family m=2^k+1 and its universal k-dependent all-r GF was not found in inspected sources.",
+      "residual_risks": [
+        "An automated-sequence theorem or unindexed older paper could give the exact family GF implicitly.",
+        "No claim for multiplier 3, non-dyadic cutoff or arbitrary odd multiplier."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same multipliers but marginal digit parity rather than the claimed mixed correlation GF",
+          "evidence": "Morgenbesser, Shallit, Stoll 2010",
+          "identifier_or_url": "https://arxiv.org/abs/1009.5357",
+          "material_read": "Lawful full primary text, main theorems and proofs",
+          "method": "Read arXiv full text and compare one-factor versus two-factor moment",
+          "title": "Thue-Morse at Multiples of an Integer",
+          "trigger": "Same integer-multiplier digits"
+        },
+        {
+          "assessment": "Studies translation/shift correlations, not n-dependent multiplier dilation with exact dyadic family formula",
+          "evidence": "Baake and Coons 2022",
+          "identifier_or_url": "https://arxiv.org/abs/2209.07102",
+          "material_read": "Lawful full primary text main correlation definitions and derived recursion",
+          "method": "Read arXiv full text and compare whether shift or dilation",
+          "title": "Correlations of the Thue-Morse sequence",
+          "trigger": "Primary work with identical sequence and correlation notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/verify.py",
+        "arxiv:1009.5357",
+        "arxiv:2209.07102",
+        "arxiv:2302.09436",
+        "arxiv:2305.11486",
+        "Resultary semantic Thue Morse multiplicative-correlation query"
+      ],
+      "rationale": "An unexpectedly short exact recurrence simultaneously for all binary two-one multipliers quantifies dyadic cancellation depths and later oscillations in a natural digital-correlation problem. Its infinite parameter uniformity and explicit generating function exceed a one-off computational table.",
+      "residual_risks": [
+        "An automated-sequence theorem or unindexed older paper could give the exact family GF implicitly."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5/verify.py",
+    "arxiv:1009.5357",
+    "arxiv:2209.07102",
+    "arxiv:2302.09436",
+    "arxiv:2305.11486",
+    "Resultary semantic Thue Morse multiplicative-correlation query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For k>=2, C_{k,r}=sum_{0<=n<2^r} tau(n)tau((2^k+1)n) has all-r GF 1+2z^(k+2)/((1-z)(1-z^k+2z^(k+1))); C_{k,r}=0 for 1<=r<=k+1 then C_{k,k+2}=2, with universal order k+2 recurrence.",
+  "limitations": [
+    "An automated-sequence theorem or unindexed older paper could give the exact family GF implicitly.",
+    "No claim for multiplier 3, non-dyadic cutoff or arbitrary odd multiplier.",
+    "Public intended METADATA.json and AUDIT.json retain internal scope_run_id provenance identifiers; guarded complete privacy-neutral replacements were not prepared.",
+    "The complete publication-intended package has not been semantically sanitized and validated; withhold all publication until full file-by-file confidentiality clearance."
+  ],
+  "residual_risks": [
+    "An automated-sequence theorem or unindexed older paper could give the exact family GF implicitly.",
+    "No claim for multiplier 3, non-dyadic cutoff or arbitrary odd multiplier."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Same multipliers but marginal digit parity rather than the claimed mixed correlation GF",
+      "evidence": "Morgenbesser, Shallit, Stoll 2010",
+      "identifier_or_url": "https://arxiv.org/abs/1009.5357",
+      "material_read": "Lawful full primary text, main theorems and proofs",
+      "method": "Read arXiv full text and compare one-factor versus two-factor moment",
+      "title": "Thue-Morse at Multiples of an Integer",
+      "trigger": "Same integer-multiplier digits"
+    },
+    {
+      "assessment": "Studies translation/shift correlations, not n-dependent multiplier dilation with exact dyadic family formula",
+      "evidence": "Baake and Coons 2022",
+      "identifier_or_url": "https://arxiv.org/abs/2209.07102",
+      "material_read": "Lawful full primary text main correlation definitions and derived recursion",
+      "method": "Read arXiv full text and compare whether shift or dilation",
+      "title": "Correlations of the Thue-Morse sequence",
+      "trigger": "Primary work with identical sequence and correlation notion"
+    }
+  ]
+}
