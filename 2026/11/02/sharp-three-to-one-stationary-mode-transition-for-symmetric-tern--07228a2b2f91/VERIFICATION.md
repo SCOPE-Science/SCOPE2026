@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3, SciPy, and standard library packages. In the reviewed package the output was `PASS: 4677 exact and finite numerical checks`. The program uses `fractions.Fraction` to check exactly the stationarity of all test functions \(\mathbf1_{\{S=i\}}\prod_jW_j^{n_j}\) with \(0\le n_j\le5\) for six exact concentrations, checks the exactly evaluated variance \(2/[3(3a+1)]\), and applies finite quadratures and grid diagnostics on both sides of the sharp boundary. It is source code for diagnostics, not an independent audit.
+## correctness
 
-The infinite-parameter proof is in RESULT.md, using Dirichlet integration by parts and strict log-convexity. Numerical quadrature is not used to infer absence of extra modes. There is no independent scientific audit or external formal certificate.
+PASS
+
+The joint invariant density w_i Dirichlet(a,a,a), a=q/k, cancels the all-to-all Q generator via integration by parts; contractive filters yield uniqueness. Projection X=W3-W1 with Jacobian 1/2 gives the displayed stationary density. At a<1/2 positive-half log-density is strictly convex, divergent at both ends, so exactly one interior minimum. At a>=1/2 density decreases, and edge beta integrals establish the boundary exponents; independent quadrature agrees.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.
+
+## value
+
+PASS
+
+An exact three-to-one stationary-mode boundary resolves the motif of multipeak switching in a symmetric, minimal three-environment PDMP. The all-to-all generator versus line generator is scientifically motivated, and exact singularity exponents/unique valley structure supply more than a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
