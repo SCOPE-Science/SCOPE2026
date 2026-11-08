@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T16:53:31.987941Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Schur proof RESULT.md@629c829a798b76c5481cb31e1040d7978abb3dc0",
+        "verification.py SHA 5ce5e90192afae6e8373263a5234d960088286f7 read",
+        "independent_checks.py matrix IMEX section"
+      ],
+      "rationale": "For S=I+hA SPD and T=I-hB symmetric, M=S^-1 T is similar to S^-1/2 T S^-1/2 with -I<K<I because S±T positive. Hence spectral stability for all h>0. Norm(M)<=1 iff T^2<=S^2 by congruence, equivalent to 2(A+B)+h(A^2-B^2)>=0. In a basis beginning with u, the positive block 4C has Schur complement 2(2alpha+rho)(1+2t)-4lambda(1+t)^2 with t=h rho/4 and lambda=g^T C^-1 g=alpha-(u^T B^-1 u)^-1. The scalar quadratic F(t)=1+2t-kappa(1+t)^2 has a unique nonnegative cutoff exactly h*=4 sqrt(1-kappa)/[rho(1-sqrt(1-kappa))], infinite if lambda=0, strict/pseudonorm boundaries correct. Two-eigenvalue expansion lambda~(b2-b1)^2 theta^2/b2 yields theta^-2 horizon. Recomputed exact 2x2 witness det=-256 and independently tested random SPD n2,3,5; numerical tests do not prove all n.",
+      "residual_risks": [
+        "Fixed h spectral stability is distinct from transient Euclidean norm >1; no variable-step, nonsymmetric, indefinite or nonlinear claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Huang–Yong study Fourier-mode IMEX BDF stability for hyperbolic relaxation; Barrenechea et al use flow viscosity PDE energy estimates."
+        ],
+        "reasoning": "Those broader method families can only cover the result if they include the exact same SPD rank-one split and Euclidean norm threshold. Inspected hypotheses/norms do not give that.",
+        "searches": [
+          "IMEX Euler symmetric positive dissipative splitting Euclidean contractivity exact step size nonnormal rank one",
+          "arxiv:2310.05342",
+          "arxiv:2310.04182"
+        ]
+      },
+      "checked_sources": [
+        "IMEX Euler symmetric positive dissipative splitting Euclidean contractivity exact step size nonnormal rank one",
+        "arxiv:2310.04182",
+        "arxiv:2310.05342",
+        "doi:10.1137/S0036142994267576",
+        "Resultary: stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior schemes provide conditional energy estimates but not the Schur reduction F(t) for this family."
+        ],
+        "reasoning": "Neither stability of weighted similarity eigenvalues nor generic A>=B implies M^T M<=I because square mapping is not operator monotone; exact arithmetic-harmonic gap addresses this missing implication.",
+        "searches": [
+          "arxiv:2310.04182",
+          "arxiv:2310.05342",
+          "IMEX Euler symmetric positive dissipative splitting Euclidean contractivity exact step size nonnormal rank one"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matrix IMEX numerical range, singular norm and spectral radius are different invariants; PDE energy bounds and diagonally split RK max-norm estimates do not directly classify Euclidean 2-norm singular values of the rank-one noncommuting step."
+        ],
+        "reasoning": "Potential Lyapunov-weighted contractivity does not imply ordinary Euclidean contractivity; the exact rank-one Schur condition is stronger and distinct.",
+        "searches": [
+          "IMEX Euler symmetric positive dissipative splitting Euclidean contractivity exact step size nonnormal rank one",
+          "arxiv:2310.04182",
+          "doi:10.1137/S0036142994267576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior result is about two symmetric Richardson steps, not noncommuting implicit–explicit matrix product singular norm."
+        ],
+        "reasoning": "An all-dimensional continuous h cutoff is not a finite lookup/table invariant; published analogous thresholds do not give this one.",
+        "searches": [
+          "IMEX Euler symmetric positive dissipative splitting Euclidean contractivity exact step size nonnormal rank one",
+          "Resultary: stagewise-safe-two-step-richardson-frontier--31fff666d705"
+        ]
+      },
+      "rationale": "A sharp rank-one dominance Euclidean contractivity boundary, and its inverse-square angular instability, were not found in the inspected broader IMEX and matrix-contraction literature. All linear algebra ingredients are classical; originality is their exact classification for a motivated split.",
+      "residual_risks": [
+        "Specialized matrix-splitting contractivity papers may contain equivalent rank-one cutoff. Bellen–Torelli 1997 full max-norm paper not fully read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different PDE, energy norm and discretization; does not directly imply Euclidean cutoff",
+          "evidence": [
+            "arxiv:2310.04182, Theorems 3.2–3.3 and Section 5"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.04182v1",
+          "material_read": "Accessible full HTML, theorem statements and energy-estimate sections 3 and 5",
+          "method": "arXiv full article",
+          "title": "Implicit-explicit schemes for incompressible flow problems with variable viscosity",
+          "trigger": "Closest IMEX stability comparison"
+        },
+        {
+          "assessment": "Different hyperbolic Fourier-mode BDF scheme; not basis for whole-document noncoverage",
+          "evidence": [
+            "arxiv:2310.05342, Fourier stability description"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.05342",
+          "material_read": "Abstract and indexed theorem descriptions, not full article",
+          "method": "arXiv open search",
+          "title": "Uniform accuracy of IMEX-BDF for linear hyperbolic relaxation systems",
+          "trigger": "Another potentially dominating IMEX theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact all-n formula",
+        "independent matrix examples and determinant witness",
+        "Published IMEX stability literature for comparison"
+      ],
+      "rationale": "The separation between unconditional spectral stability and finite-horizon Euclidean nonexpansiveness is a substantive and potentially consequential transient-amplification phenomenon in IMEX splitting. A sharp n-dimensional cutoff controlled by an arithmetic–harmonic Rayleigh gap plus angle^-2 divergence gives a quantitative stability-design criterion, not a tautological restatement of spectral radius.",
+      "residual_risks": [
+        "No practical time-step bound for nonsymmetric flow matrices, arbitrary splittings or floating-point solves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed h spectral stability is distinct from transient Euclidean norm >1; no variable-step, nonsymmetric, indefinite or nonlinear claim.",
+    "Specialized matrix-splitting contractivity papers may contain equivalent rank-one cutoff. Bellen–Torelli 1997 full max-norm paper not fully read.",
+    "No practical time-step bound for nonsymmetric flow matrices, arbitrary splittings or floating-point solves."
+  ],
+  "schema_version": 1
+}

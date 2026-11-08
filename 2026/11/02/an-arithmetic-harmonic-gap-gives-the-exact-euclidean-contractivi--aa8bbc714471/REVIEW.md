@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For arbitrary finite dimension the central exact equivalence \(\|M_h\|_2\le1\iff 2(A+B)+h(A^2-B^2)\succeq0\) follows by congruence using \(S=I+hA\). In an orthonormal basis beginning with the rank-one direction, positivity reduces by the strictly positive lower block to \(1+2t-\kappa(1+t)^2\ge0\). The reciprocal block-inverse identity identifies the gap \(\lambda=u^{\mathsf T}Bu-1/(u^{\mathsf T}B^{-1}u)\). The strict eigenvalue bound is independent, from \(S\pm T\succ0\). The exact rational witness has determinant \(-256\), and the supplied checker passed 1,364 randomized dimensions-two-through-four comparisons plus angular checks. The finite numerical experiments do not purport to prove the universal statement; the proof is algebraic.
+## correctness
 
-**Originality — PASS, qualified.** Relevant primary sources were inspected at arXiv:2310.04182v1 (PDE stress-divergence/generalised-Laplacian IMEX stability estimates and table) and arXiv:2310.05342v1 (hyperbolic relaxation IMEX-BDF multiplier stability). Neither yields the specific all-dimensional rank-one dominant Euclidean cutoff or its inverse-square angular law as a stated or implied special case. Classical maximum-norm split Runge–Kutta contractivity literature, including Bellen–Torelli (1997), is related but addresses a different scheme/norm. Published mathematical-record and targeted literature searches did not identify equivalent or stronger coverage. The older article was available here at abstract level only; specialized unindexed numerical-stability literature remains a priority risk. The standard congruence and Schur complement facts themselves are not claimed new.
+PASS
 
-**Value — PASS.** The exact criterion resolves a structural numerical stability distinction that matters when the implicit dissipator dominates the explicit one in Loewner order: unconditional convergence of every fixed-step iterate can coexist with a Euclidean energy-increasing step. The arithmetic–harmonic Rayleigh gap precisely controls when this happens in any dimension; the zero-gap eigendirections and the sharp inverse-square loss of robustness are motivated stability boundaries, not an arbitrary parameter lookup. The statement concerns one-step norm control and does not claim the actual integration fails to converge.
+For S=I+hA SPD and T=I-hB symmetric, M=S^-1 T is similar to S^-1/2 T S^-1/2 with -I<K<I because S±T positive. Hence spectral stability for all h>0. Norm(M)<=1 iff T^2<=S^2 by congruence, equivalent to 2(A+B)+h(A^2-B^2)>=0. In a basis beginning with u, the positive block 4C has Schur complement 2(2alpha+rho)(1+2t)-4lambda(1+t)^2 with t=h rho/4 and lambda=g^T C^-1 g=alpha-(u^T B^-1 u)^-1. The scalar quadratic F(t)=1+2t-kappa(1+t)^2 has a unique nonnegative cutoff exactly h*=4 sqrt(1-kappa)/[rho(1-sqrt(1-kappa))], infinite if lambda=0, strict/pseudonorm boundaries correct. Two-eigenvalue expansion lambda~(b2-b1)^2 theta^2/b2 yields theta^-2 horizon. Recomputed exact 2x2 witness det=-256 and independently tested random SPD n2,3,5; numerical tests do not prove all n.
 
-**Closest literature and limits.** The 2023 IMEX flow article's estimates are in formulation-dependent norms and are not this constant finite-dimensional operator-norm result. The hyperbolic IMEX-BDF paper is for a different split, and older maximum-norm contractivity results are not equivalent to a Euclidean bound. The all-dimensional conclusion assumes a symmetric positive-definite explicit matrix, rank-one positive implicit dominance, and exact linear solves. Publication priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A sharp rank-one dominance Euclidean contractivity boundary, and its inverse-square angular instability, were not found in the inspected broader IMEX and matrix-contraction literature. All linear algebra ingredients are classical; originality is their exact classification for a motivated split.
+
+## value
+
+PASS
+
+The separation between unconditional spectral stability and finite-horizon Euclidean nonexpansiveness is a substantive and potentially consequential transient-amplification phenomenon in IMEX splitting. A sharp n-dimensional cutoff controlled by an arithmetic–harmonic Rayleigh gap plus angle^-2 divergence gives a quantitative stability-design criterion, not a tautological restatement of spectral radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
