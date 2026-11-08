@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:50:01.740828Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/a-two-class-gumbel-crossover-for-cover-times-with-root-resetting--58626f8ea41f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/a-two-class-gumbel-crossover-for-cover-times-with-root-resetting--58626f8ea41f/VERIFICATION.md",
+        "/mnt/data/scope_worker03_20261105T1033Z/independent_checks.py"
+      ],
+      "rationale": "RESULT.md establishes an exact independent two-uniform-coupon-stream coupling conditional on reset indicators. The part chain [[r,1-r],[1,0]] has stationary frequencies (1/(2-r),(1-r)/(2-r)); move counts to B and A have means (1-r)/(2-r)t and (1-r)^2/(2-r)t and variance O(t). At t=((2-r)/(1-r))n(log n+x), fluctuations are o_P(n). Coupon missing-count factorial moments and deterministic upper/lower count sandwiches yield independent Gumbel limits, with A intensity c=(1-r)exp(lambda/(1-r)). The max CDF and logistic last-covered side follow from independent continuous Gumbels. Starting root already visited and no simultaneous completion are correctly handled. Local independent_checks.py compares direct labelled finite-state evolution against the two streams for small bicliques; experiments are corroboration rather than a proof of the asymptotic.",
+      "residual_risks": [
+        "Only fixed 0<r<1 and fixed lambda with both part sizes tending to infinity are proved; no uniformity in r or lambda."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General resetting cover-time theory fixes a graph and varies reset frequency; generic Gumbel cover-time theory addresses different transition assumptions."
+        ],
+        "reasoning": "No inspected broader theorem directly covers fixed-r, growing biclique and n/log n imbalance; broad unlocated theory remains risk.",
+        "searches": [
+          "arxiv:2406.12154 Theorem 1",
+          "arxiv:1511.06173",
+          "Resultary query",
+          "Resultary semantic search: random walks stochastic resetting complete bipartite cover time two class coupon collector Gumbel critical imbalance"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.12154",
+        "https://arxiv.org/abs/2208.06212",
+        "https://arxiv.org/abs/1511.06173",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+        "Resultary semantic search: random walks stochastic resetting complete bipartite cover time two class coupon collector Gumbel critical imbalance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior stationary/reset first-passage calculations give ingredients but not independent coupon label streams with two distinct stationary move rates."
+        ],
+        "reasoning": "Conditional decoupling and the finite-state law of large numbers are additional arguments establishing the new stated implication.",
+        "searches": [
+          "arxiv:2406.12154 pp.4-6",
+          "arxiv:2208.06212",
+          "arxiv:1511.06173",
+          "Resultary semantic search: random walks stochastic resetting complete bipartite cover time two class coupon collector Gumbel critical imbalance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Representable as a two-type Markov-modulated coupon collector with two conditionally independent label streams. Classical coupon Gumbel limits are known."
+        ],
+        "reasoning": "A general theorem on modulated coupon collectors is a genuine possible implication, but the located full resetting cover theorem studies fixed-network high-reset scaling and does not state the critical two-type result.",
+        "searches": [
+          "arxiv:2406.12154",
+          "arxiv:1511.06173",
+          "Resultary query",
+          "Resultary semantic search: random walks stochastic resetting complete bipartite cover time two class coupon collector Gumbel critical imbalance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest resetting coupon record concerns repeatedly restarted attempts, not cumulative reset-root walk on biclique; no matching exact two-class probability table located."
+        ],
+        "reasoning": "The assertion is an n-to-infinity law and cannot be inferred from a finite tabulation; search absence is not proof of priority.",
+        "searches": [
+          "Resultary query",
+          "arxiv:2208.06212",
+          "Resultary semantic search: random walks stochastic resetting complete bipartite cover time two class coupon collector Gumbel critical imbalance"
+        ]
+      },
+      "rationale": "Fixed-r growing-complete-bipartite two-class Gumbel competition with n/log n part perturbation is not stated in inspected reset-cover-time and general coupon Gumbel primary results. Basic Gumbel coupon limits are explicitly prior; candidate novelty is the simultaneous two-stream coupling, critical ratio and terminal-side law. This is best-of-knowledge, not a priority guarantee.",
+      "residual_risks": [
+        "A general Markov-modulated heterogeneous coupon-collector limit theorem may subsume this specialization.",
+        "Only fixed 0<r<1 and fixed lambda with both part sizes tending to infinity are proved; no uniformity in r or lambda."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different asymptotic regime",
+          "evidence": "Studies frequent-resetting rate tending to infinity on fixed network, rather than fixed reset probability on growing K_(a,b).",
+          "identifier_or_url": "https://arxiv.org/abs/2406.12154",
+          "material_read": "Full open primary PDF: Theorem 1 and proof sections, including fixed-network frequent-resetting asymptotic",
+          "method": "Full PDF reading with page screenshot",
+          "title": "Cover times with stochastic resetting",
+          "trigger": "same cover-time-with-resetting object"
+        },
+        {
+          "assessment": "Potential conceptual overlap only",
+          "evidence": "Gumbel generic behavior is prior, but explicit root-reset biclique two-class intensity and last-side critical crossover not identified.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.06173",
+          "material_read": "Accessible primary abstract and proof overview of general Gumbel search laws",
+          "method": "Primary abstract and accessible sections",
+          "title": "Approximating universal distributions of cover times of random searches",
+          "trigger": "broad Gumbel cover-time theory could dominate claim"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Single-target occupation and first passage do not themselves state growing-biclique two-class coverage law.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.06212",
+          "material_read": "Accessible primary abstract and sections on occupancy/first passage",
+          "method": "Primary source reading",
+          "title": "Random walks on complex networks under time-dependent stochastic resetting",
+          "trigger": "same reset Markov chain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.12154",
+        "https://arxiv.org/abs/2208.06212",
+        "https://arxiv.org/abs/1511.06173",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+      ],
+      "rationale": "Cover times and last-visited classes are natural random-walk observables. The theorem computes a nontrivial critical n/log n window, two independent limiting clocks and explicit logistic terminal location, providing a sharp benchmark for resetting walks beyond a generic coupon-collector theorem.",
+      "residual_risks": [
+        "A general Markov-modulated heterogeneous coupon-collector limit theorem may subsume this specialization.",
+        "Only fixed 0<r<1 and fixed lambda with both part sizes tending to infinity are proved; no uniformity in r or lambda."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2406.12154",
+    "https://arxiv.org/abs/2208.06212",
+    "https://arxiv.org/abs/1511.06173",
+    "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A general Markov-modulated heterogeneous coupon-collector limit theorem may subsume this specialization.",
+    "Only fixed 0<r<1 and fixed lambda with both part sizes tending to infinity are proved; no uniformity in r or lambda."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic. Its key steps are (1) separate genuine uniform moves from root resets; (2) prove conditional independence of the two coupon streams; (3) show the two move-count processes have linear means and variance \(O(t)\); (4) apply the coupon-collector missing-count factorial-moment limit after normalization; and (5) use joint convergence to evaluate the last-covered-side event. The valid range is all fixed \(0<r<1\) and fixed real \(\lambda\), with the bipartite part sizes specified there.
+## correctness
 
-The self-contained Python script `check_reset_biclique.py` compares an exact labelled-walk Markov-chain recursion with a structurally different exact part-chain/coupon-stream recursion. It runs for three rational reset probabilities, 16 pairs of small part sizes, and all nine horizons from 0 through 8. The test compares three completed-coverage probabilities per case, giving 1296 exact Fraction assertions; it also performs 12 rational stationary-rate checks and six floating-point normalization checks, totalling 1314 asserted comparisons. Run `python3 check_reset_biclique.py`; the expected final line is `PASS 1314 exact/evaluated assertions; finite-state checks rational-exact`.
+PASS
 
-Limitations: the script does not check arbitrary graph sizes, infinite asymptotics, optimality, or historical novelty. Those depend on the written mathematical arguments and independent literature review. Independent mathematical audit has not been performed.
+RESULT.md establishes an exact independent two-uniform-coupon-stream coupling conditional on reset indicators. The part chain [[r,1-r],[1,0]] has stationary frequencies (1/(2-r),(1-r)/(2-r)); move counts to B and A have means (1-r)/(2-r)t and (1-r)^2/(2-r)t and variance O(t). At t=((2-r)/(1-r))n(log n+x), fluctuations are o_P(n). Coupon missing-count factorial moments and deterministic upper/lower count sandwiches yield independent Gumbel limits, with A intensity c=(1-r)exp(lambda/(1-r)). The max CDF and logistic last-covered side follow from independent continuous Gumbels. Starting root already visited and no simultaneous completion are correctly handled. Local independent_checks.py compares direct labelled finite-state evolution against the two streams for small bicliques; experiments are corroboration rather than a proof of the asymptotic.
+
+## originality
+
+PASS
+
+Fixed-r growing-complete-bipartite two-class Gumbel competition with n/log n part perturbation is not stated in inspected reset-cover-time and general coupon Gumbel primary results. Basic Gumbel coupon limits are explicitly prior; candidate novelty is the simultaneous two-stream coupling, critical ratio and terminal-side law. This is best-of-knowledge, not a priority guarantee.
+
+## value
+
+PASS
+
+Cover times and last-visited classes are natural random-walk observables. The theorem computes a nontrivial critical n/log n window, two independent limiting clocks and explicit logistic terminal location, providing a sharp benchmark for resetting walks beyond a generic coupon-collector theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

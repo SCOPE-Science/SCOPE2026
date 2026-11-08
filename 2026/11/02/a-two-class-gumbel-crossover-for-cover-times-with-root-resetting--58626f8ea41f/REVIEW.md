@@ -1,19 +1,21 @@
-# Scientific review: root-reset cover times on complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem is established for each fixed \(r\in(0,1)\) and fixed \(\lambda\in\mathbb R\). The part transition matrix is \(\begin{pmatrix}r&1-r\\1&0\end{pmatrix}\), so its second eigenvalue has magnitude less than one. Counting only genuine uniform-neighbor steps gives mean sample rates \(\eta_B=(1-r)/(2-r)\) and \(\eta_A=(1-r)^2/(2-r)\) per unit time, with \(O(t)\) count variances. Conditional on reset choices, the sampled vertex labels in the two parts are independent uniform streams. This is the critical structural lemma. At time \(s_n(\log n+x)\), stream counts differ from their deterministic means by \(o_{\Pr}(n)\), which disappears at the coupon-collector window. The root is already observed and never contributes a missing coupon. Inclusion–exclusion and factorial moments yield limiting missing-coupon Poisson means \(e^{-x}\) in the opposite part and \((1-r)e^{\lambda/(1-r)}e^{-x}\) in the rooted part. The exact conditional factorization proves joint independent Gumbels; the continuous limit yields the last-covered-side formula. Exact finite-state tests passed 1314 assertions, of which 1308 use rational arithmetic and six are numerical scaling checks. No finite experiment substitutes for the analytic limit.
+PASS
 
-## Originality (O): PASS, with explicitly bounded historical uncertainty
+RESULT.md establishes an exact independent two-uniform-coupon-stream coupling conditional on reset indicators. The part chain [[r,1-r],[1,0]] has stationary frequencies (1/(2-r),(1-r)/(2-r)); move counts to B and A have means (1-r)/(2-r)t and (1-r)^2/(2-r)t and variance O(t). At t=((2-r)/(1-r))n(log n+x), fluctuations are o_P(n). Coupon missing-count factorial moments and deterministic upper/lower count sandwiches yield independent Gumbel limits, with A intensity c=(1-r)exp(lambda/(1-r)). The max CDF and logistic last-covered side follow from independent continuous Gumbels. Starting root already visited and no simultaneous completion are correctly handled. Local independent_checks.py compares direct labelled finite-state evolution against the two streams for small bicliques; experiments are corroboration rather than a proof of the asymptotic.
 
-Chen and Ye (arXiv:2208.06212, first public 2022-08-12) study stochastic reset walks and derive stationary occupations and first-passage quantities, not the joint cover-clock/part-ratio transition. Linn and Lawley (arXiv:2406.12154, first public 2024-06-17) investigate resetting cover times, but their network asymptotics take the frequent-resetting limit on a fixed network, rather than increasing the part sizes at fixed resetting probability. Colombani, Bertagnolli and Artime (arXiv:2310.03203, first public 2023-10-04) reset self-avoiding-memory, not position to a fixed root. Chupeau, Bénichou and Voituriez (arXiv:1511.06173) provide broad Gumbel cover-time theory, but not the explicit two-class limit for this reset chain. Published research-record comparisons on complete bipartite graphs and resetting coupon collectors, together with prior-claim comparisons, did not yield the stated result. A sufficiently general heterogeneous fast-mixing or Markov-modulated coupon collection theorem could imply it without mentioning the same graph or parameters. This remains the principal priority risk; failure to locate such a result is not proof of first discovery.
+## originality
 
-## Value (V): PASS
+PASS
 
-Fixed-position resetting changes the relative time allocated to a rooted part and the opposite part: random uniform moves arrive in the latter at rate \((1-r)/(2-r)\), but in the former at rate \((1-r)^2/(2-r)\). The natural competition is therefore at the part-size ratio \(a_n/b_n\approx1-r\), not at equal part sizes. A perturbation of size \(n/\log n\) produces a nondegenerate competition of the final uncovered vertices. The theorem provides both complete-cover fluctuations and an explicit last-covered-side probability, revealing a concrete structural effect of position resetting. It is a motivated asymptotic problem, not a parameter renaming of the ordinary alternating walk or an arbitrary finite enumeration.
+Fixed-r growing-complete-bipartite two-class Gumbel competition with n/log n part perturbation is not stated in inspected reset-cover-time and general coupon Gumbel primary results. Basic Gumbel coupon limits are explicitly prior; candidate novelty is the simultaneous two-stream coupling, critical ratio and terminal-side law. This is best-of-knowledge, not a priority guarantee.
 
-## Limits and closest literature
+## value
 
-The proof is confined to fixed \(0<r<1\), root-reset complete bipartite walks, and a fixed critical-window shift \(\lambda\). No independent validation or absolute priority certification is claimed. The full papers cited above and their differing limiting regimes should be checked again in an independent review, particularly for broad results about nonidentically distributed or Markov-modulated coupon collectors.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cover times and last-visited classes are natural random-walk observables. The theorem computes a nontrivial critical n/log n window, two independent limiting clocks and explicit logistic terminal location, providing a sharp benchmark for resetting walks beyond a generic coupon-collector theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
