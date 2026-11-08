@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Complete algebraic derivation from the SPD spectral measure, convex chord domination with preservation of its first moment, exact endpoint formula, strict condition-number monotonicity and threshold, strict power-mean threshold ordering, and uniform asymptotic sandwich. The extracted standalone rational test script passes all 303 supplementary assertions; no extrapolation from finite tests is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai–Hager–Schittkowski–Zhang 2006 studies convergence of cyclic BB and related reuse rules; introductory material and analyzed algorithms are not a universal gradient-cycle norm frontier.",
+        "Published result SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 requires each Richardson stage to be Euclidean safe and uses preset step lengths."
+      ],
+      "reasoning": "A sharper sufficient or dominating result would need to cover the same adaptive Cauchy-initialized reuse rule, cycle-boundary gradient norm, arbitrary SPD spectral distributions and all m. Found results concern different algorithms or weaker/alternative metrics.",
+      "searches": [
+        "cyclic steepest descent repeated exact line search step m steps universal gradient residual norm nonexpansion threshold condition number kappa_m asymptotic log m/m",
+        "repeated Cauchy line search step m times global worst-case gradient-norm amplification attained by endpoint eigenvalues convex moment"
+      ]
+    },
+    "checked_sources": [
+      "Li and Wang, arXiv:2610.15335v1",
+      "Dai et al., IMA Journal of Numerical Analysis 26 (2006), 604–627",
+      "Friedlander–Saunders–Wright, historical retarded gradient method (partial text)",
+      "published-finding corpus mathematical-record semantic hits: SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12; SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705; SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li and Wang's exact two-spectrum treatment can directly imply the rational two-mode expression, but its examined statements are restricted to two eigenvalues and long-run rates.",
+        "Classical cyclic BB and subsequent fixed-stage safety work do not establish the chord-based reduction for arbitrary SPD gradients or the decreasing all-m threshold sequence."
+      ],
+      "reasoning": "The publishable addition is not the two-mode formula alone; it is the fixed-matrix all-spectrum extremality and its sharp threshold and asymptotic. Related sources do not directly imply these conclusions without nontrivial new arguments; a hidden stronger theorem remains a residual risk.",
+      "searches": [
+        "cyclic steepest descent repeated exact line search step m steps universal gradient residual norm nonexpansion threshold condition number kappa_m asymptotic log m/m",
+        "cyclic steepest descent worst case gradient norm first cycle arbitrary SPD spectra endpoints extremal two point distribution exact sharp safety condition number",
+        "cyclic steepest descent finite cycle gradient norm nonexpansive if and only if condition number threshold decreasing to 2 logarithmic m spectral endpoint extremal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li and Wang arXiv:2610.15335v1: two-eigenvalue recurring CSD and R-superlinear classification; analogous two-mode cycle algebra is not asserted independently as new.",
+        "Related published result SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12 concerns *recomputed* exact descent steps."
+      ],
+      "reasoning": "Searched cyclic BB, CSD, one-cycle amplification and two-point spectral forms. The present assertion is the sharp all-dimensional, fixed-length, frozen-Cauchy-step gradient safety frontier, not the source's asymptotic two-spectrum dynamics or repeated fresh Cauchy steps.",
+      "searches": [
+        "cyclic gradient method CSD two eigenvalues maximum first-cycle amplification sharp condition number safe region",
+        "cyclic steepest descent worst case gradient norm first cycle arbitrary SPD spectra endpoints extremal two point distribution exact sharp safety condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located database hit or table reported the sequence of implicit thresholds kappa_m or the logarithmic asymptotic. Search only offers evidence, not a uniqueness guarantee."
+      ],
+      "reasoning": "No known standard database directly tabulates this optimization over the spectral weight distribution; numerical threshold examples are not treated as novel if they are a direct table lookup.",
+      "searches": [
+        "cyclic steepest descent finite cycle gradient norm nonexpansive if and only if condition number threshold decreasing to 2 logarithmic m spectral endpoint extremal"
+      ]
+    },
+    "rationale": "Li and Wang supply a two-eigenspectrum cycle analysis, whereas the claim adds sharp endpoint domination for every SPD spectrum, a universal condition-number frontier at a fixed completed cycle, and a strictly decreasing logarithmic asymptotic; the cited closely related methods have different step policies or metrics. Priority risk remains for unindexed equivalent studies.",
+    "residual_risks": [
+      "The exact two-mode ratio follows from the motivating primary work; only the all-spectrum endpoint reduction and threshold/asymptotic package is claimed as the substantive addition.",
+      "Older or unindexed analyses of worst-case gradient norms for cyclic Cauchy reuse may contain equivalent facts.",
+      "The historical retarded-gradient reference was not accessible in full; its possible implications cannot be excluded solely from a snippet."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The two-eigenvalue recurrence overlaps algebraically; universal spectral endpoint extremality, sharp condition-number safety and logarithmic cycle-length law were not identified in the examined theorem statements",
+        "evidence": [
+          "Source specializes primary global dynamical classification to two-spectrum quadratics",
+          "The additional chord argument here handles arbitrary spectral distributions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.15335",
+        "material_read": "Available arXiv full-text discussion of the cycle ratio formula and two-spectrum analysis, including Eq. (11) and the discussion of spectra with more eigenvalues",
+        "method": "Read searchable full-text sections and compare hypotheses, metrics and claimed implications",
+        "title": "Cyclic steepest descent is R-superlinearly convergent for almost every initialization on two-spectrum quadratics",
+        "trigger": "Same cyclic Cauchy-step reuse algorithm and two-eigenvalue dynamics"
+      },
+      {
+        "assessment": "Analyzed statements concern convergence/performance of cyclic BB; no direct exact universal gradient-norm safety threshold identified in inspected portions",
+        "evidence": [
+          "Compared algorithmic cycle construction and metrics",
+          "Coverage of every possible equivalent fact is not asserted"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imanum/drl006",
+        "material_read": "Accessible manuscript introductory methods and convergence discussion, including section on cyclic step lengths",
+        "method": "Read searchable PDF text and inspect an accessible PDF page image",
+        "title": "The cyclic Barzilai–Borwein method for unconstrained optimization",
+        "trigger": "Original cyclic reuse method and possible general convergence results"
+      },
+      {
+        "assessment": "No decisive direct implication identified from accessible material; unresolved broader-coverage priority risk retained",
+        "evidence": [
+          "Earlier retarded steps provide related context but were not fully inspected"
+        ],
+        "identifier_or_url": "https://pages.cs.wisc.edu/~swright/726/handouts/retard.pdf",
+        "material_read": "Accessible extracted introductory and method text only; complete paper/image access was limited",
+        "method": "Compared available paper text; PDF image inspection unavailable",
+        "title": "A gradient method with retards and generalizations",
+        "trigger": "Historical delayed and reused gradient-step policies"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "93b3b706-7606-4365-987a-9d277ef971bd",
+  "value": {
+    "rationale": "A nontrivial and sharp universal gradient-norm safety criterion for choosing cyclic reuse length, witnessed by spectral endpoints even for arbitrary SPD dimension, and a new logarithmic-over-linear safety deterioration as m increases. The gradient norm is a natural stopping and stability observable, not an arbitrary computed invariant.",
+    "status": "PASS"
+  }
+}
