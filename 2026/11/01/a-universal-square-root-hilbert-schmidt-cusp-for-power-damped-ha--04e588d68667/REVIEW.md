@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated boundedness, Hilbert–Schmidt membership, and leading constant follow from the explicit commutator entries; the moment remainder contributes only an \(O(\alpha^2)\) correction to the squared norm. A summable lattice-to-continuum derivative estimate then reduces the normalized leading term to the integral \(\int_0^1\log^2(u)/(1+u)^2\,du=\pi^2/6\). Beta-integral bounds verify the moment-density consequence. The finite exact-rational and quadrature tests are supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Xu and Ye (2023, DOI 10.3934/math.2023466) analyze derivative-Hilbert operator boundedness and compactness; Chatzifountas, Girela and Peláez (2013, arXiv:1309.6125) analyze generalized Hilbert matrices including Schatten classes; Frank, Sukochev and Zanin (2024, arXiv:2405.10652) analyze a distinct Euclidean fractional-Laplacian commutator family. Reading their relevant original theorems did not reveal a statement implying this specific asymptotic or its boundary-density universality. Unindexed equivalent Mellin or Hankel-operator literature remains a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem computes the sharp rate at which a canonical Hilbert-matrix commutator becomes Hilbert–Schmidt-small as power damping approaches identity. The nonanalytic square-root cusp and its universality over polynomial moment errors give a structurally motivated invariant, not just a finite numerical observation.
+Hilbert inequality bounds the classical (m+n−1)^-1 matrix; μ=c/(j+1)+r_j with O((j+1)^-1−δ) yields an HS Hankel remainder. The exact commutator matrix (m^-α−n^-α)μ_{m+n−2} is HS for α>0. The log ratio bound |m^-α−n^-α|≤α|log(m/n)| and fixed-s ratio square-sum O(s) show the remainder changes squared HS norm by O(α²). Replacing discrete denominator (m+n−1)^-2 and then the lattice sum by its [1,∞)^2 integral costs O(α²) via summable derivative bounds. Exact substitution yields (1/α)∫_0^1(1−u^α)²/(1+u)²du = α∫ log²u/(1+u)²du+O(α²)=π²α/6+O(α²). Beta-integral tail estimate gives density w(1) specialization. Independent direct numerical quadratures returned 1.644934066848 ≈π²/6; the analytic estimates, not finite sections, establish infinite HS limit.
 
-## Limits
-The bound assumes polynomial moment tails and concerns the Hilbert–Schmidt norm only. When the leading moment coefficient vanishes, the next coefficient is not classified. Scientific priority and correctness still require independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the sharp universal π²|c|²/6 coefficient in the small-power damping commutator HS norm of canonical moment Hankel matrices. Classical Hilbert inequality, general Hankel Schatten criteria, and Euclidean commutator endpoint theorems are credited, but inspected theorem statements do not yield the precise coefficient or tail universality.
+
+## value
+
+PASS
+
+Canonical Hilbert Hankel operators are borderline bounded and noncompact, while Dα→I strongly. Their commutator has a singular but exactly quantified √α Hilbert–Schmidt norm cusp, and the leading coefficient persists for arbitrary polynomially smaller moment tails. This natural endpoint operator invariant and nontrivial universality are not mere rewording of matrix Schatten membership.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

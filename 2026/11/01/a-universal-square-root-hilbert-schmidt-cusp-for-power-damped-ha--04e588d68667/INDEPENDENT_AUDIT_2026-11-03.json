@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T16:15:56.478936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hilbert inequality bounds the classical (m+n−1)^-1 matrix; μ=c/(j+1)+r_j with O((j+1)^-1−δ) yields an HS Hankel remainder. The exact commutator matrix (m^-α−n^-α)μ_{m+n−2} is HS for α>0. The log ratio bound |m^-α−n^-α|≤α|log(m/n)| and fixed-s ratio square-sum O(s) show the remainder changes squared HS norm by O(α²). Replacing discrete denominator (m+n−1)^-2 and then the lattice sum by its [1,∞)^2 integral costs O(α²) via summable derivative bounds. Exact substitution yields (1/α)∫_0^1(1−u^α)²/(1+u)²du = α∫ log²u/(1+u)²du+O(α²)=π²α/6+O(α²). Beta-integral tail estimate gives density w(1) specialization. Independent direct numerical quadratures returned 1.644934066848 ≈π²/6; the analytic estimates, not finite sections, establish infinite HS limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 results are Euclidean multipliers commuting with fractional Laplacians, not discrete diagonal/Hankel power commutators.",
+          "2013 Theorem 5 addresses Schatten membership of H itself, rather than HS norm of [Dα,H]."
+        ],
+        "reasoning": "No reviewed dominating theorem for this precise small-exponent family was found; Mellin/Carleman general theorems are a plausible residual concern.",
+        "searches": [
+          "Frank–Sukochev–Zanin 2024 endpoint Schatten Laplacian commutators",
+          "Chatzifountas–Girela–Peláez 2013 generalized Hilbert Schatten"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Hankel Hilbert-Schmidt small-alpha semantic query (8 returns, none direct)",
+        "Chatzifountas–Girela–Peláez arxiv:1309.6125 original PDF",
+        "Frank–Sukochev–Zanin arxiv:2405.10652 original PDF",
+        "Xu–Ye DOI 10.3934/math.2023466 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known theorems imply existence or class membership for other operator pairs, not a two-scale lattice-to-continuum sharp asymptotic for Dα and μ.",
+          "Ordinary Hilbert boundedness is used in proof, but does not imply its small-α commutator has order √α rather than α."
+        ],
+        "reasoning": "Deriving the coefficient requires new double-sum estimates, removal of Hankel remainder and exact continuum integration; no source theorem inspected entails it directly.",
+        "searches": [
+          "arxiv:2405.10652 Theorems 1.1–1.2",
+          "arxiv:1309.6125 Theorem 5",
+          "Xu Ye 2023 derivative Hilbert"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Hilbert matrix is an (m+n−1)^-1 Hankel kernel; power diagonal commutator is a distinct operator from the generalized Hilbert matrix itself.",
+          "The continuum Carleman-Mellin formulation leads to the integral (1/α)∫(1−u^α)²/(1+u)² du, which must be compared to any equivalent Mellin commutator norm."
+        ],
+        "reasoning": "Qualitative Schatten-class and compactness results do not directly give the sharp small-α coefficient or universal moment-tail stability.",
+        "searches": [
+          "Resultary Hilbert Hankel commutator diagonal n^-alpha Hilbert Schmidt norm small alpha square root asymptotic pi squared /6",
+          "arxiv:1309.6125 generalized Hilbert matrix operator",
+          "arxiv:2405.10652 endpoint commutator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits analyze essential norms and spectral properties of related Hilbert or Cesàro operators, not the coefficient π²/6 for this commutator."
+        ],
+        "reasoning": "An infinite-operator asymptotic with Hölder endpoint stability is not a finite table; unindexed exact integrals remain possible.",
+        "searches": [
+          "Resultary Hankel Hilbert-Schmidt cusp power damping query",
+          "arxiv:1309.6125 Theorem 5"
+        ]
+      },
+      "rationale": "Qualified PASS for the sharp universal π²|c|²/6 coefficient in the small-power damping commutator HS norm of canonical moment Hankel matrices. Classical Hilbert inequality, general Hankel Schatten criteria, and Euclidean commutator endpoint theorems are credited, but inspected theorem statements do not yield the precise coefficient or tail universality.",
+      "residual_risks": [
+        "A general Mellin/Carleman commutator formula may contain precisely the same integral or coefficient under another parameterization.",
+        "Xu–Ye full primary text not read this run; only abstract-level distinction is justified.",
+        "Coefficient π²/6 is classical alternating-zeta computation; novelty is operator asymptotic, not integral evaluation alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS H membership, NOT precise small-exponent commutator norm",
+          "evidence": "Theorem 5 is about generalized Hilbert matrix itself; power diagonal Dα commutator is not its stated object.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.6125",
+          "material_read": "Original open primary arXiv PDF, introduction/definitions and Theorem 5, plus original PDF screenshot",
+          "method": "Match underlying matrix and which operator has Schatten membership",
+          "title": "A generalized Hilbert matrix acting on Hardy spaces",
+          "trigger": "Original generalized Hilbert/Schatten ideal literature"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR: not a covering coefficient result",
+          "evidence": "Underlying operators and small-power limit differ from ℓ² Hankel moment model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.10652",
+          "material_read": "Original open preprint opening theorem hypotheses, Theorems 1.1–1.2 and original PDF image",
+          "method": "Compare Euclidean fractional Laplacian and multiplication commutators with discrete Hankel kernel",
+          "title": "Endpoint Schatten class properties of commutators",
+          "trigger": "Potential dominating abstract commutator theorem"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY: no whole-document exclusion",
+          "evidence": "Its reported result concerns derivative Hilbert operators acting between analytic function spaces rather than exact [Dα,Hμ] squared HS norm.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2023466",
+          "material_read": "Available bibliographic abstract and model description, not full primary text in this run",
+          "method": "Compare function-space boundedness to discrete commutator HS asymptotic",
+          "title": "A Derivative Hilbert operator acting from Bergman spaces to Hardy spaces",
+          "trigger": "Related derivative-Hilbert operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Canonical Hilbert Hankel operators are borderline bounded and noncompact, while Dα→I strongly. Their commutator has a singular but exactly quantified √α Hilbert–Schmidt norm cusp, and the leading coefficient persists for arbitrary polynomially smaller moment tails. This natural endpoint operator invariant and nontrivial universality are not mere rewording of matrix Schatten membership.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only polynomial moment tails δ>0 and α↓0; for c=0 O(α²) but no coefficient.",
+    "Possible equivalent Mellin commutator literature not completely ruled out.",
+    "No other Schatten classes or singular-value distributions proved."
+  ],
+  "schema_version": 1
+}
