@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact survivor weights reduce the cohort hazard derivative to the sign of one logistic function \(g\). Its derivative has a single sign change because \((u+k)\tanh(u/2)\) increases strictly; the minimum and endpoint signs yield an exhaustive shape classification, with both boundary cases treated separately. The fold expansion follows from a nonzero mixed parameter derivative and positive second age derivative. The standalone verification program ran successfully, but no numerical evidence is substituted for universal proof.
+## correctness
 
-**Originality — PASS within the inspected evidence, with residual historical risk.** Prior work already gives the survivor-frailty selection identity and examples of increasing components giving a nonmonotone mixture hazard. Here the claim is the exact iff region and boundary scaling for **two equal-weight Gompertz multipliers**, not the generic selection phenomenon. Finkelstein (2009, Sections 2–4) surveys other mixtures and gamma-Gompertz, and Vaupel and Missov (2014, Sections 3–6) treat general identities and gamma frailty. Neither inspected material states the exact two-atom classification. The 1983 Vaupel–Yashin full report and 1997 Gompertz-mixture estimation article remain full-text access risks, and other general shape theorems might imply a special case. No claim of historically certain priority is made.
+PASS
 
-**Mathematical value — PASS.** The number and order of turning ages in a cohort mortality curve is an interpretable demographic invariant. A sharp three-regime (plus fold boundary) partition, its physically measurable parameter inequalities, and the onset scaling distinguish continuous gamma frailty's familiar plateau behavior from a discrete frailty alternative; they give explicit checks for when survivor selection actually reverses the cohort's apparent aging direction. The result is a complete analytic classification rather than an arbitrary numerical slice.
+From the two survival functions derive high-frailty survivor weight p(u)=1/(1+exp u) with u=k(exp(ct)-1). Population hazard H=Delta(1+u/k)(A+p), A=a/Delta, has derivative sign g(u)=A+p-(u+k)p(1-p). Its derivative is p(1-p)[(u+k)tanh(u/2)-2], whose bracket strictly increases from -2 to infinity, giving exactly one strict global minimum. At that minimum g=A-1/(exp(u*)-1), vanishing only at u*=log(b/a) and k=kc; g(0)=(k0-k)/4 and g(infty)=A>0. These signs force all four cases, with endpoint zero correctly excluded at k=k0. Nondegenerate Taylor coefficients g_k=-p(1-p), g_uu=p(1-p)(2A+1) give square-root split. Independent root counts at A=1/4 for k=0.1,1.8,2,2.95,3,3.3 matched cases; witness k=2 roots 0.634307250 and 2.418458919.
 
-The statement is restricted to two equal-weight, common-slope, positive Gompertz subcohorts; no empirical model-validation or more general frailty classification is proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General mixture hazard identity H=E_survivor h and derivative = mean hazard derivative minus survivor-weighted variance is prior work. The specialized equal-weight two-atom shared-slope Gompertz exact fold/endpoint root census was not found in inspected accessible primary text. A closely relevant 2009 mixture-rate review was available only in limited excerpts, so specialized prior overlap is a material priority risk.
+
+## value
+
+PASS
+
+The exact necessary-and-sufficient phase diagram is an interpretable structural effect of survival selection: two increasing individual hazards can yield a nonmonotone aggregate with two turning points. Boundaries and bifurcation exponents are useful for survival/hazard model theory and are not an arbitrary parametrization or small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

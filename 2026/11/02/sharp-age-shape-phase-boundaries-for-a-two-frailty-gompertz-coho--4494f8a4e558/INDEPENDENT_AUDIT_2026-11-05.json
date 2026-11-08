@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:58:05Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "derived logistic p and g differential signs analytically",
+        "independent numeric positive critical points across all four regimes",
+        "frozen Git tree verified"
+      ],
+      "rationale": "From the two survival functions derive high-frailty survivor weight p(u)=1/(1+exp u) with u=k(exp(ct)-1). Population hazard H=Delta(1+u/k)(A+p), A=a/Delta, has derivative sign g(u)=A+p-(u+k)p(1-p). Its derivative is p(1-p)[(u+k)tanh(u/2)-2], whose bracket strictly increases from -2 to infinity, giving exactly one strict global minimum. At that minimum g=A-1/(exp(u*)-1), vanishing only at u*=log(b/a) and k=kc; g(0)=(k0-k)/4 and g(infty)=A>0. These signs force all four cases, with endpoint zero correctly excluded at k=k0. Nondegenerate Taylor coefficients g_k=-p(1-p), g_uu=p(1-p)(2A+1) give square-root split. Independent root counts at A=1/4 for k=0.1,1.8,2,2.95,3,3.3 matched cases; witness k=2 roots 0.634307250 and 2.418458919.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works give broad survivor-weighted hazard and variance identities, which are premises of the reduction."
+        ],
+        "reasoning": "Although stronger in population-mixture generality, an identity is not a prior exact exhaustive root-count classification for a specified two-atom Gompertz family; new root analysis is required.",
+        "searches": [
+          "Vaupel, Manton, Stallard 1979 frailty mortality dynamics",
+          "Vaupel and Missov 2014 unobserved population heterogeneity formal relationships"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md",
+        "Vaupel, Manton, Stallard 1979 DOI 10.2307/2061224",
+        "Vaupel and Missov 2014 DOI 10.4054/DemRes.2014.31.22",
+        "Finkelstein 2009 MPIDR WP-2009-031 abstract/excerpts",
+        "Resultary semantic search equal two-Gompertz hazard phase"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General derivative identity can be specialized to g but alone does not count its zeros; this package proves monotonicity of (u+k)tanh(u/2) and endpoint geometry."
+        ],
+        "reasoning": "Checked statements do not imply explicit necessary-and-sufficient phases without further calculus. An inaccessible specialized two-Gompertz theorem could dominate; cannot pronounce unread sources negative.",
+        "searches": [
+          "Finkelstein 2009 mixture failure rate Section 2-4 (abstract/excerpts)",
+          "Vaupel and Missov 2014 Section 4 heterogeneity derivatives"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General heterogeneity/frailty hazard formulas and mixture families found; no Resultary same root-count inequalities."
+        ],
+        "reasoning": "Equal-weight two-atom Gompertz can be rewritten in logistic survivor-frailty coordinates; checked general statements do not state the two exact k boundaries.",
+        "searches": [
+          "Resultary semantic: equal mixture two Gompertz hazards two extrema phase diagram",
+          "Finkelstein 2009 Understanding the Shape of the Mixture Failure Rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mixture estimation title/abstract addresses likelihood and fitting, not an identified table of critical k boundaries; limited access to full specialist mixture literature."
+        ],
+        "reasoning": "No verified table or database of the exact boundaries kc/k0 was identified. Cannot exclude an unindexed actuarial treatment.",
+        "searches": [
+          "two-component Gompertz mixture hazard bathtub shaped conditions",
+          "McLachlan 1997 algorithm for mixtures of Gompertz distributions censored"
+        ]
+      },
+      "rationale": "General mixture hazard identity H=E_survivor h and derivative = mean hazard derivative minus survivor-weighted variance is prior work. The specialized equal-weight two-atom shared-slope Gompertz exact fold/endpoint root census was not found in inspected accessible primary text. A closely relevant 2009 mixture-rate review was available only in limited excerpts, so specialized prior overlap is a material priority risk.",
+      "residual_risks": [
+        "Highly relevant full Finkelstein 2009 mixture-rate review inaccessible; authorized Oxford VPN disconnected.",
+        "Possible exact two-component Gompertz phase inequality in older actuarial/demography works not located.",
+        "Only equal initial weights and shared positive Gompertz slopes are proved; no inference for unequal mixture/slope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General weighted-hazard formulas are prior; no full-paper NOT_COVERING conclusion",
+          "evidence": "Partial reading only; residual risk for an overlooked specialization.",
+          "identifier_or_url": "https://doi.org/10.4054/DemRes.2014.31.22",
+          "material_read": "Accessible primary abstract and introduction; specialized full theorem/appendix not successfully retrieved",
+          "method": "journal web text and PDF access attempt",
+          "title": "Unobserved population heterogeneity: A review of formal relationships",
+          "trigger": "General survivor-conditioned hazard derivative may imply theorem"
+        },
+        {
+          "assessment": "Full text UNREAD; potential specialized two-atom root criterion cannot be excluded",
+          "evidence": "Oxford returned vpn_disconnected job 35c8fb4aa5655d99e2bd1d53e65cc991; no claim of full coverage/noncoverage.",
+          "identifier_or_url": "https://www.demogr.mpg.de/papers/working/wp-2009-031.pdf",
+          "material_read": "Bibliographic abstract and excerpts; complete PDF access timed out",
+          "method": "lawful open-access working-paper PDF attempt, then authorized Oxford attempt for related DOI 10.1002/asmb.815",
+          "title": "Understanding the Shape of the Mixture Failure Rate (with Engineering and Demographic Applications)",
+          "trigger": "Highly relevant mixture-shape analysis"
+        },
+        {
+          "assessment": "Establishes frailty survivor-selection motivation; not compared as complete full-text mathematical classification",
+          "evidence": "Limited material read explicitly recorded.",
+          "identifier_or_url": "https://doi.org/10.2307/2061224",
+          "material_read": "Accessible bibliographic/abstract material",
+          "method": "source lookup and metadata comparison",
+          "title": "The Impact of Heterogeneity in Individual Frailty on the Dynamics of Mortality",
+          "trigger": "Foundational common-slope mixture population hazard model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact necessary-and-sufficient phase diagram is an interpretable structural effect of survival selection: two increasing individual hazards can yield a nonmonotone aggregate with two turning points. Boundaries and bifurcation exponents are useful for survival/hazard model theory and are not an arbitrary parametrization or small computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md",
+    "Vaupel, Manton, Stallard 1979 DOI 10.2307/2061224",
+    "Vaupel and Missov 2014 DOI 10.4054/DemRes.2014.31.22",
+    "Finkelstein 2009 MPIDR WP-2009-031 abstract/excerpts",
+    "Resultary semantic search equal two-Gompertz hazard phase"
+  ],
+  "disposition": "passed",
+  "final_claim": "The equal initial mixture of two Gompertz hazards a exp(ct), b exp(ct), 0<a<b, admits precisely no, one degenerate, two, or one interior stationary extrema depending on k=(b-a)/c versus kc=2(a+b)/(b-a)-log(b/a) and k0=2(a+b)/(b-a), with exact fold and age-zero scaling.",
+  "residual_risks": [
+    "Highly relevant full Finkelstein 2009 mixture-rate review inaccessible; authorized Oxford VPN disconnected.",
+    "Possible exact two-component Gompertz phase inequality in older actuarial/demography works not located.",
+    "Only equal initial weights and shared positive Gompertz slopes are proved; no inference for unequal mixture/slope."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Highly relevant full Finkelstein 2009 mixture-rate review inaccessible; authorized Oxford VPN disconnected.",
+    "Possible exact two-component Gompertz phase inequality in older actuarial/demography works not located.",
+    "Only equal initial weights and shared positive Gompertz slopes are proved; no inference for unequal mixture/slope."
+  ]
+}
