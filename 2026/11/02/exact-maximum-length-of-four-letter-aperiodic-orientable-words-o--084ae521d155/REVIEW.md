@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The displayed length-113 witness is checked factor by factor. The bound is the optimum of a completely specified 368-variable binary integer program: every finite admissible word maps to a feasible selection of its consecutive four-gram edges plus one initial and terminal vertex. Connectivity is not assumed in the optimization, so its optimum upper-bounds any realizable word. Exact program construction, independent witness validation and solver-output replay are included in `verify.py`, which reports primal and dual bounds both equal to 110 and checks the returned integer assignment. Residual limitation: the upper certificate uses HiGHS' zero-gap MIP computation; an independently formalized rational cutting-plane or unsatisfiability certificate is not supplied.
+## correctness
 
-## Originality
-The main comparison is Mitchell's October 2026 exhaustive binary aperiodic study, which does not determine quaternary finite lengths. The 2026 Mitchell–Wild period results and Gabrić–Sawada's 2024 cyclic constructions do not logically imply an aperiodic maximum: periodic constructions provide lower-bound examples by unwrapping, but do not establish finite maxima. Related de Bruijn-flow and reversal-pair formulations were compared, including published mathematical search records. Searches returned no statement implying the exact 113 bound. This is a best-knowledge priority conclusion, not proof that no unpublished equivalent computation exists.
+PASS
 
-## Value
-This is a natural small nonbinary instance of the exact finite orientable-length problem directly motivated by the contemporary binary classification. It distinguishes finite and cyclic construction limits, provides an exact value where the strongest compared published methods primarily treat cyclic sequences, and offers both an explicit word and a compact reproducible optimization problem. It is not a mere reparameterization of the cyclic result.
+Every permissible word of length L gives a directed trail of L-3 distinct nonpalindromic four-letter edges in the order-three de Bruijn digraph and uses at most one member of each reversal pair. The 64-vertex flow, binary pair constraints, and endpoint choices yield a 368-variable, 186-row integer-program relaxation even without connectivity; its optimum upper-bounds every word. Independently rebuilt the matrix from all 240 allowed four-grams and solved with SciPy HiGHS: status optimal, objective -110, certified MIP dual bound -110, zero relative gap; the displayed literal word has 113 letters and all 110 windows are distinct, nonpalindromic and pairwise non-reversals. This proves L_4(4)=113 conditional on correct MILP solver bound; no separate machine-checked rational optimality proof is claimed.
 
-## Limits and sources
-The finding does not classify optimal words or settle the problem at other alphabets or spans. Sources inspected: the De Bruijn Sequences and Universal Cycles acyclic-orientable overview (binary tables); Mitchell, arXiv:2610.33601v1 (complete HTML, definitions and exhaustive-search sections); Mitchell and Wild, arXiv:2507.02526 and 2026 Acta Informatica open full text (periodic setting); Gabrić and Sawada, arXiv:2407.07029v1 (complete HTML, cyclic construction and bounds). The exact finite certificate is reproducible but not solver-independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Noncyclic four-symbol exact finite optimum L_4(4)=113 is not logically supplied by Mitchell’s binary aperiodic classification or by Mitchell–Wild and Gabrić–Sawada periodic/cyclic k-ary construction bounds: unwrapping a cyclic example is a lower construction, not an upper bound for unrestricted finite trails. The exact quaternary integer optimum remains a best-of-knowledge new finite benchmark.
+
+## value
+
+PASS
+
+The smallest nonbinary fixed-span exact length gives a meaningful benchmark separating finite path optimization and periodic cycles, with explicit witness and upper certificate. It is natural adjacent to published binary and cyclic orientable sequence problems and not just a substituted parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

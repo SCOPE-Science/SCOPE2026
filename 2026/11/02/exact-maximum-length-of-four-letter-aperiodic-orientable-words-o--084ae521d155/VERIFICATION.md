@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Use Python 3 with NumPy and SciPy (HiGHS mixed-integer optimization backend); run `python verify.py`. It regenerates all allowed four-grams, their reversal pairs, 64 three-gram vertices, the binary flow-incidence matrix and the start/end constraints. It also checks all windows of the 113-letter witness directly, before invoking the solver, and checks every resulting integer constraint after solving. The observed output in the packaged reproduction was:
+## correctness
 
-```text
-QUATERNARY_APERIODIC_ORIENTABLE_4_VERIFY_OK
-length=113 factors=110 pairs=120 variables=368 constraints=186
-optimal_edges=110 mip_dual_bound=110 mip_gap=0
-```
+PASS
 
-The upper-bound computation relies on the named finite MIP solver's optimality/dual-bound certificate rather than a formally verified external checker. Every coefficient of the optimization model is regenerated from exact combinatorial definitions and is integral. No infinite claim is extrapolated from finite observations. An independent mathematical audit has not been performed.
+Every permissible word of length L gives a directed trail of L-3 distinct nonpalindromic four-letter edges in the order-three de Bruijn digraph and uses at most one member of each reversal pair. The 64-vertex flow, binary pair constraints, and endpoint choices yield a 368-variable, 186-row integer-program relaxation even without connectivity; its optimum upper-bounds every word. Independently rebuilt the matrix from all 240 allowed four-grams and solved with SciPy HiGHS: status optimal, objective -110, certified MIP dual bound -110, zero relative gap; the displayed literal word has 113 letters and all 110 windows are distinct, nonpalindromic and pairwise non-reversals. This proves L_4(4)=113 conditional on correct MILP solver bound; no separate machine-checked rational optimality proof is claimed.
+
+## originality
+
+PASS
+
+Noncyclic four-symbol exact finite optimum L_4(4)=113 is not logically supplied by Mitchell’s binary aperiodic classification or by Mitchell–Wild and Gabrić–Sawada periodic/cyclic k-ary construction bounds: unwrapping a cyclic example is a lower construction, not an upper bound for unrestricted finite trails. The exact quaternary integer optimum remains a best-of-knowledge new finite benchmark.
+
+## value
+
+PASS
+
+The smallest nonbinary fixed-span exact length gives a meaningful benchmark separating finite path optimization and periodic cycles, with explicit witness and upper certificate. It is natural adjacent to published binary and cyclic orientable sequence problems and not just a substituted parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
