@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact partition of ordered arclength pairs produces identity (1), independently checked by simulation. Pairwise smoothing changes the integral by -2(L-s) times the pairwise length product, so strict equal arms; the remaining cubic has a unique interior minimum for each integer k, with explicit quadratic root and correct boundary signs. Radical expansion and monotonicity checked algebraically. Experiments support rather than prove infinite k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baptista et al., arxiv:2312.04952 / JGA 2024, Thm.3.2: globally least mean distance at fixed length and edge count occurs at equilateral *flower*, not one loop plus k pendant intervals.",
+        "Garijo et al., arxiv:2103.11676, Theorem 3.1 computes mean distance of general weighted graphs; does not supply constrained strict optimization across all weights."
+      ],
+      "reasoning": "A general algorithm that evaluates an objective for fixed edge lengths does not give the optimizer or its uniqueness and k-asymptotics; the globally optimal flower topology is outside the one-loop-plus-pendants family and its bound is strictly weaker for this constrained problem.",
+      "searches": [
+        "Mean Distance on Metric Graphs Baptista Kennedy Mugnolo theorem equilateral flower fixed edge count 2024",
+        "Continuous mean distance of a weighted graph Garijo Márquez Silveira Theorem 3.1 2023"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1504.00513",
+      "arxiv:2103.11676",
+      "arxiv:2312.04952",
+      "doi:10.1068/b090177",
+      "doi:10.1002/jgt.3190060410",
+      "Indexed public mathematical research records and closest entries 2026/10/4/SCOPE-dominant-edge-metric-bases-of-lollipop-graphs--f7738c4bc619; 2026/10/11/SCOPE-exact-algebraic-gnarledness-of-three-path-theta-graphs--cceb12dd2a0d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baptista et al. fixed-edge universal bound ((2E-1)/(4E^2))L is attained only at equilateral flower and is not the one-hub-cycle class.",
+        "The accessible 2023 generic algorithm supplies formulas for given edge lengths but does not assert length-balancing and one-variable radical optimality."
+      ],
+      "reasoning": "Taking a corollary of the global flower inequality cannot produce this positive-loop minimizer, since the equality graph has k+1 loops, rather than k terminal pendant edges and one loop. The new claim also contains strict arm balancing and the k-dependent exact optimum.",
+      "searches": [
+        "one-loop multi-spoke graph continuous mean distance sharp optimum k equal spokes length fraction k(k-4+2sqrt(k^2-2k+2))/(3k^2-8)",
+        "mean distance lollipop graph cycle with tail total length minimization circular loop stem one fifth",
+        "Mean distance on metric graphs 2024 strict lower bound equilateral flower upper bound loop"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching loop-plus-positive-spokes length optimizer in indexed published mathematics records; closest graph labels include discrete lollipop and unicyclic classes, which are not the intrinsic continuous length model.",
+        "Garijo et al., arxiv:2103.11676, Sect.2-3: general continuous mean distance and weighted edge pair formulas."
+      ],
+      "reasoning": "The intrinsic length allocation problem is unchanged by subdividing edges or relabeling arms; the comparison thus looked for metric graph/arclength/Wiener/network design and one-loop-star/lollipop names, not only the specific radical.",
+      "searches": [
+        "one-loop multi-spoke graph continuous mean distance sharp optimum k equal spokes length fraction k(k-4+2sqrt(k^2-2k+2))/(3k^2-8)",
+        "metric graph sun graph loop star attached pendant edges minimal continuous mean pair distance",
+        "lollipop metric graph unique mean distance minimizer length ratio cycle four fifths pendant one fifth 17/75"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Doyle and Graver (1982), A Summary of Results on Mean Distance in Shapes: abstract announces eight shapes and six families, but its full table was not accessible.",
+        "Garijo et al. (2023) introduction: Doyle and Graver calculated seven specified shapes and six relatively special families, mostly cycles and stars of equal arms."
+      ],
+      "reasoning": "No exact table entry matching the one-loop-plus-k-pendant strict optimization was found in available text; the old original table could not be inspected and leaves residual historical-priority risk rather than a claim of exhaustive exclusion.",
+      "searches": [
+        "\"lollipop\" \"mean distance\" \"metric graph\" continuous",
+        "\"bouquet\" \"mean distance\" cycle pendants equal arms",
+        "\"17/75\" \"mean distance\" lollipop loop",
+        "2026-11 geometry archive one-loop bouquet arclength average distance"
+      ]
+    },
+    "rationale": "Actual literature searches and comparison with available earlier claims have no same one-loop-plus-k-pendant length optimizer. The nearest 2023 evaluation algorithm and 2024 universal flower bound do not imply the strict constrained optimizer; older Doyle-Graver material remains an explicit unresolved historical risk. This is best-knowledge originality, not certification.",
+    "residual_risks": [
+      "Older Doyle and Graver 1982 full text/table inaccessible; it may contain a special class or formula related to the proposed graph.",
+      "Unindexed specialized network-layout references may give equivalent one-loop-hub length optima.",
+      "Source date 1982 is known to month/year only; precise archival first-post date used is 2015-04-02."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL COMPUTATION/NOT SAME OPTIMIZER",
+        "evidence": [
+          "Equation (5) defines normalized ordered-pair arclength integral, Theorem 3.1 gives quadratic-edge-count evaluation, introductory paragraph lists older known cases."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-023-01902-w",
+        "material_read": "Definitions and formulas in sections 2-3, especially 2.1 and 3.1; introduction contextualizes older formulas and star/cycle examples.",
+        "method": "Read accessible HTML text and theorem statements, not merely search snippets.",
+        "title": "Continuous Mean Distance of a Weighted Graph",
+        "trigger": "Directly supplies the general metric-graph objective and edge-pair evaluation."
+      },
+      {
+        "assessment": "BROADER TOPOLOGY DIFFERENT; does not imply constrained optimizer",
+        "evidence": [
+          "Theorem 3.2 gives lower bound (2E-1)/(4E^2)L, with equality only for equilateral flower; Example 4.1 gives mean of equal-arm star."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12220-024-01574-0",
+        "material_read": "Introduction, Theorem 3.2 and Example 4.1 (equilateral stars), including sharp fixed-edge flower optimum and limiting examples.",
+        "method": "Read HTML primary full text sections (not PDF).",
+        "title": "Mean Distance on Metric Graphs",
+        "trigger": "Most relevant global variational metric-graph result."
+      },
+      {
+        "assessment": "UNRESOLVED HISTORICAL PRIORITY RISK",
+        "evidence": [
+          "Abstract reports eight shapes and six infinite families; scope of individual formulas inaccessible."
+        ],
+        "identifier_or_url": "https://journals.sagepub.com/doi/10.1068/b090177",
+        "material_read": "Publisher metadata and abstract only; full original not accessible.",
+        "method": "Accessible publisher abstract and metadata; no claim to have read unavailable body.",
+        "title": "A Summary of Results on Mean Distance in Shapes",
+        "trigger": "Foundational old mean-distance-of-shapes examples, possible table overlap."
+      },
+      {
+        "assessment": "NOT EQUIVALENT",
+        "evidence": [
+          "arXiv first posted 2015-04-02; objective is discrete pairwise shortest path sum in optimized connecting subgraph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.00513",
+        "material_read": "ArXiv abstract and dated metadata; primarily discrete Wiener connector, not intrinsic arclength metric graph optimization.",
+        "method": "Read arXiv abstract and submitted date.",
+        "title": "The Minimum Wiener Connector",
+        "trigger": "Dated archival network design motivation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34298f4d-e1fe-4c27-979e-ccb25626b4ab",
+  "value": {
+    "rationale": "Natural complete constrained network design classification for every number of terminal corridors: proves all-edge balancing, unique positive cycle/stem allocation, sharp one-arm 17/75 benchmark, and a nontrivial k-dependent asymptotic transition with mean distance asymptotic L/k. The known global flower theorem cannot replace this result, and the optimal positive loop is counterintuitive against a pure star of the same total length.",
+    "status": "PASS"
+  }
+}
