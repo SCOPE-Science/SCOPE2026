@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every even N>=4 the component classification enumerates nonempty proper crown subposets by lengths and endpoint parity, with component isomorphism weight product c_t! h_t^c_t. The two-state cyclic transfer counts each subset by marking exactly one selected run and then dividing by its number of runs. Empty/full cases yield 1 and N u^N. Explicit cyclic hole-distance casework gives r_(N,N-2)=N^2(3N-8)/4 for even N>=6; rank 1,2,N-1 cases follow directly. The upper bound 4^N 2^(N/2) (N/2)! and lower bound (N/2)! imply the logarithmic exponent 1/2, while N <= E_N <= N 2^N yields exponent -1/2 for extendibility. Exact run-composition, subset-census, and direct partial-map computations agree through the stated finite checks; no extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jajcay–Jajcayová–Szakács–Szendrei, arXiv:1809.04422, §4: rank-two membership/structural characterization for general partial graph or digraph automorphisms.",
+        "Dimitrova et al., arXiv:2101.12468, §2: the path-cardinality formula uses linear interval embeddings and reversals.",
+        "Existing undirected cycle counts aggregate over even- and odd-endpoint orientation types that the crown order distinguishes."
+      ],
+      "reasoning": "A general structural characterization of the inverse monoid does not determine the number of induced-poset embeddings of each type. The path formula would require a new cyclic wraparound and parity-sensitive analysis. The earlier uncolored-cycle counting problem is a different monoid and its unrefined domain-rank totals do not determine the finer oriented counts.",
+      "searches": [
+        "partial graph automorphism even cycles oriented edges rank counts logarithmic growth exponent half factorial",
+        "inverse monoids of partial graph automorphisms arxiv:1809.04422",
+        "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path arxiv:2101.12468",
+        "On oriented alternating inverse monoids cardinalities finite chain"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.13961",
+      "https://arxiv.org/abs/2101.12468",
+      "https://arxiv.org/html/1809.04422v2",
+      "https://portal.mardi4nfdi.de/wiki/The_rank_of_the_inverse_semigroup_of_all_partial_automorphisms_on_a_finite_crown"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The crown source establishes a minimal generating set of cardinality 4(floor(N/4)+1), which has a different meaning than the present domain-rank polynomial.",
+        "The path paper has a cardinality sum for PAut(P_n), not a theorem for a crown with cyclic and directed comparability edges.",
+        "The general graph paper establishes characterization by low-rank restrictions but no enumeration of crown component profiles."
+      ],
+      "reasoning": "No checked statement logically implies all terms of the claimed rank polynomial or its growth theorem without additional component-type counting. The cyclic transfer factor and odd-path endpoint-color split are necessary for the proposed exact counts. In particular, a minimum generator rank does not determine a monoid order.",
+      "searches": [
+        "exact rank generating polynomial partial automorphism monoid finite crown C2n zigzag poset inverse semigroup",
+        "arxiv:2204.13961 Theorem 2.18 and Proposition 2.21",
+        "arxiv:2101.12468 Theorem 2.1",
+        "arxiv:1809.04422 Proposition 4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dimitrova–Koppitz (2022), arXiv:2204.13961, §§1–2: the same crown inverse monoid, membership and generators; no order-by-domain-rank coefficient formula in the inspected text.",
+        "Dimitrova–Fernandes–Koppitz–Quinteiro (2021), arXiv:2101.12468, §2 Theorem 2.1: a cardinality formula for undirected paths, not ordered crowns."
+      ],
+      "reasoning": "We compared the actual objects and quantifiers. The word rank in the crown paper denotes minimum generator-set size, whereas the candidate formula counts elements separately at each domain size. Paths have endpoints rather than a cyclic trace and have no fixed min/max alternating orientation. The proposed coefficients are therefore not restatements of those theorems.",
+      "searches": [
+        "partial automorphisms crown cardinality inverse semigroup enumeration",
+        "partial automorphisms finite crown number elements rank distribution",
+        "exact rank generating polynomial partial automorphism monoid finite crown C2n zigzag poset inverse semigroup",
+        "rank distribution partial automorphism monoid of bipartite cycle even crown",
+        "arxiv:2204.13961 Proposition 2.1 and Theorem 2.18",
+        "arxiv:2101.12468 Theorem 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct counts obtained independently here: |IC_4|=61, |IC_6|=571, |IC_8|=6889; all arise from actual induced-poset isomorphisms.",
+        "The inspected crown paper provides minimum generating ranks, not a displayed order or rank-polynomial table for these values."
+      ],
+      "reasoning": "Literal sequence, object-name and rank-profile lookups did not identify an exact prior table. A negative search is not evidence of priority by itself; the scientific comparison is with the applicable theorems.",
+      "searches": [
+        "partial automorphisms crown cardinality n=6 571 n=8 6889 sequence",
+        "inverse semigroup of partial automorphisms on finite crown 61 571 6889 sequence",
+        "partial automorphisms finite crown number elements rank distribution",
+        "Dimitrova Koppitz crown partial automorphism cardinality number of elements"
+      ]
+    },
+    "rationale": "The closely matching 2022 crown paper proves the membership criterion and minimum generator rank, not the complete domain-rank enumeration. The 2021 path paper counts a different graph/monoid, while the 2018 general inverse-monoid paper treats structural representations, not this rank profile. A parity-sensitive cyclic transfer formula and the associated exact defect-two coefficient and logarithmic asymptotics were not obtained from these results. Priority is limited to inspected sources and searched records.",
+    "residual_risks": [
+      "A broader unlocated colored-cycle or finite-poset isomorphism enumeration could specialize to the same coefficient formula.",
+      "Some older papers on order-preserving maps between crowns and fences address full maps and were not all inspected in complete text; their exact transfer to partial automorphisms is not established.",
+      "Negative database lookups alone cannot certify publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the same monoid and membership/minimum generators; not the complete element-count rank spectrum or stated logarithmic growth.",
+        "evidence": [
+          "First posted April 29, 2022; §1 defines IC_N; Proposition 2.1 gives membership criterion; Theorem 2.18 and Proposition 2.21 concern generating sets and minimal rank."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.13961",
+        "material_read": "Accessible primary full-text HTML, introduction and §2 including Proposition 2.1, interval arguments, Theorem 2.18 and Propositions 2.19–2.21.",
+        "method": "Read mathematical text and theorem statements, compared objects, generator rank versus domain rank and all considered formula types.",
+        "title": "The rank of the inverse semigroup of all partial automorphisms on a finite crown",
+        "trigger": "Exact same inverse monoid and order orientation"
+      },
+      {
+        "assessment": "Provides relevant enumeration for path graphs but no complete crown rank polynomial or cyclic parity transfer.",
+        "evidence": [
+          "First posted January 29, 2021; Theorem 2.1 counts PAut(P_n), where P_n is an undirected path and the binary word uses boundary zeros."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.12468",
+        "material_read": "Accessible primary full-text HTML, preliminaries, §1 component types, §2 Theorem 2.1 and its cardinality proof, beginning of §3.",
+        "method": "Compared underlying path graph, interval decomposition, counting reversals and distinct types against cyclic ordered crowns.",
+        "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+        "trigger": "Same kind of semigroup enumeration for another connected graph"
+      },
+      {
+        "assessment": "General membership and characterization structure, not an explicit cycle/crown enumeration.",
+        "evidence": [
+          "First posted September 12, 2018; Lemma 4.1 and Proposition 4.3 concern membership from small-rank restrictions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1809.04422v2",
+        "material_read": "Open-access full-text HTML, introduction, §3 definitions, §4 structural lemmas and §5–§6 main characterization statements.",
+        "method": "Checked whether the general rank-two structural characterization implies a cardinality or rank spectrum for a specific ordered crown.",
+        "title": "Inverse monoids of partial graph automorphisms",
+        "trigger": "Potentially dominating general theory of partial automorphism monoids"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5cf963fd-eacf-4c56-a77d-2d1cba687664",
+  "value": {
+    "rationale": "Complete cardinality by domain rank is a fundamental invariant of the crown partial-automorphism inverse monoid, complementing the earlier generating-set rank. The formula evaluates every rank for all even crown sizes; the explicit defect-two layer and half-factorial logarithmic growth give independent structural information, especially the quantitative rarity of globally extendible partial symmetries. The component parity matters essentially and distinguishes this monoid from undirected cycle-graph partial automorphisms. This is a motivated entire-family enumeration, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
