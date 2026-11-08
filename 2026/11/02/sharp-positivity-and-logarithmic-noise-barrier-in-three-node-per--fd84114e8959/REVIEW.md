@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs unique interpolation-quadrature weights from the three moment equations and derives the strictly positive denominator from the positive circular gaps. The three bad-gap events are disjoint, so their probabilities add. The almost-sure endpoint singularities arise only at three two-coordinate collision corners, where the paired weights have opposite leading terms proportional to the reciprocal gap. The corner is two-dimensional; integrability is exactly for moments of order less than two. The logarithmic second-moment coefficient follows by integrating the reciprocal squared gap and then \(\tan^2(\pi z/3)\); the subleading terms remain uniformly integrable. The packaged symbolic/numeric verifier passed 251 checks, independently of the analytic general proof.
+PASS
 
-## Originality — PASS, qualified
+For three circular gaps a,b,c summing to 2pi, direct inversion of the exact degree-one trigonometric moments yields W=(2pi/S)(sin b,sin c,sin a), S=4 sin(a/2)sin(b/2)sin(c/2)>0 on distinct-node configurations. Every weight is positive iff every gap is below pi. Each bad gap is an event that a difference of two iid Uniform[-alpha,alpha] jitters exceeds 1/2, with triangular-tail mass (1/2)(1-1/(4alpha))^2; these three events are disjoint. The exact success probability is 1 for alpha<=1/4, and 1-(3/2)(1-1/(4alpha))^2 for alpha in (1/4,1/2], including 5/8 at alpha=1/2. At endpoint pair-collision cube corners the two singular weights scale as +-3*tan(pi*z/3)/(u+v); two-dimensional (u+v)^(-p) integration gives exactly p<2. The three-corner integral yields the log coefficient 54(2sqrt(3)/pi-1) with uniformly integrable error. Independently checked the moment inversion, triangular tails, tangent-square integral and coefficient; these support the analytic proof rather than replacing it.
 
-The most closely related inspected scientific treatment is Yu–Townsend, arXiv:2202.04722, Section 4 and Appendix B. It analyzes deterministic envelopes and sufficiently large-rule negative weights, not the exact independent-jitter probability for three nodes or its squared-weight moment barrier. The earlier Austin–Trefethen arXiv:1612.04018 establishes smooth-integrand convergence on increasingly fine perturbed periodic grids, not the stated random finite-grid law. Karvonen–Kanagawa–Särkkä (2019) addresses a distinct kernel-based Bayesian quadrature model. Closely related polynomial three-node random-quadrature laws involve a different interpolation space and a different perturbation distribution, and neither imply these sign events or their logarithmic coefficient. The unresolved risk is older or specialized small-grid trigonometric sampling literature; one source main text was not readable beyond its abstract and appendix. Search failure alone is not treated as priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The published large-grid trigonometric quadrature literature makes the finite-node sign and noise behavior a motivated question. The result supplies a complete sharp smallest-grid classification with two distinct natural thresholds, including a universal exact coefficient governing the onset of infinite expected noise variance. No generalization beyond three uniform-jittered nodes is claimed.
+Austin–Trefethen prove convergence over long perturbed trigonometric grids; Yu–Townsend give deterministic quadrature stability estimates and sufficiently-large-node negative weights. Neither in the inspected full primary text states the iid three-node gap-event probability, endpoint moment threshold, or logarithmic coefficient. Related published SCOPE three-knot cubic interpolation findings use polynomial, not circular trigonometric, weights. This is a best-of-knowledge addition with possible less-searchable old quadrature probability literature.
 
-## Limitations and comparison boundary
+## value
 
-The random jitters must be independent and uniform; the rule is exact for the three trigonometric basis functions, and the moment criterion concerns the exact weights. The proof gives no larger-grid, arbitrary-distribution, or finite-precision guarantee. The scientific record has not been independently audited. An accessible full-text read of the first public 2016 main journal paper was not available, although its abstract and attached detailed supplementary proof were inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact distribution of negative trigonometric quadrature weights and the separate endpoint noise-variance breakdown are natural stability questions for perturbed sampling, revealing two distinct critical jitter values 1/4 and 1/2. The model has three points only but this is the smallest nondegenerate periodic trigonometric interpolation rule, with an explicit sharp random probability and heavy-tail exponent useful as a diagnostic for larger-grid claims. It is neither a trivial substitution of polynomial nodes nor just a finite simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

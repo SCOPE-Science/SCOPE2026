@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T00:07:49.309233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three circular gaps a,b,c summing to 2pi, direct inversion of the exact degree-one trigonometric moments yields W=(2pi/S)(sin b,sin c,sin a), S=4 sin(a/2)sin(b/2)sin(c/2)>0 on distinct-node configurations. Every weight is positive iff every gap is below pi. Each bad gap is an event that a difference of two iid Uniform[-alpha,alpha] jitters exceeds 1/2, with triangular-tail mass (1/2)(1-1/(4alpha))^2; these three events are disjoint. The exact success probability is 1 for alpha<=1/4, and 1-(3/2)(1-1/(4alpha))^2 for alpha in (1/4,1/2], including 5/8 at alpha=1/2. At endpoint pair-collision cube corners the two singular weights scale as +-3*tan(pi*z/3)/(u+v); two-dimensional (u+v)^(-p) integration gives exactly p<2. The three-corner integral yields the log coefficient 54(2sqrt(3)/pi-1) with uniformly integrable error. Independently checked the moment inversion, triangular tails, tangent-square integral and coefficient; these support the analytic proof rather than replacing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Austin & Trefethen derive large-node convergence for bounded perturbations; they do not quantify the finite three-node random-sign law.",
+          "Yu & Townsend Theorem 4.1 constructs negative weights for sufficiently many nodes and their Appendix B provides small-perturbation deterministic bounds, different number-of-node quantifiers."
+        ],
+        "reasoning": "Large-N convergence and deterministic existence or stability estimates do not determine the three-node probability mass or critical p=2 exponent. The number of nodes and the iid uniform perturbation law are not interchangeable with source assumptions.",
+        "searches": [
+          "arXiv:1612.04018 trigonometric interpolation quadrature perturbed points",
+          "arXiv:2202.04722 Theorem 4.1 Appendix B",
+          "Resultary: random perturbed trigonometric quadrature three nodes positivity noise logarithmic divergence"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md + verify.py, exact matched Git tree",
+        "Yu and Townsend arXiv:2202.04722 primary full PDF Theorem 4.1/Section 4 and Appendix B",
+        "Austin and Trefethen arXiv:1612.04018 primary full PDF",
+        "Resultary cubic interpolation title/summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 of Yu–Townsend proves negative weights on sufficiently large even-index grids with chosen perturbations; no implication about iid 3-node random distributions.",
+          "Austin–Trefethen guarantee smooth-function quadrature convergence when jitter is controlled; convergence allows random individual weights that are negative or have divergent variances at special endpoints."
+        ],
+        "reasoning": "Neither source directly dominates the exact sign probability or singular weight moments, despite sharing perturbed periodic nodes. A future broader random-simplex theorem could overlap, so originality is qualified.",
+        "searches": [
+          "arXiv:2202.04722 Theorem 4.1, Section 4.2, Appendix B",
+          "arXiv:1612.04018 main convergence theorems",
+          "Resultary: random perturbed trigonometric quadrature three nodes positivity noise logarithmic divergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three unit-circle nodes yield positive trigonometric weights iff their largest circular gap is <pi (origin lies within triangle).",
+          "Yu & Townsend, arXiv:2202.04722, Section 4 studies deterministic signs/conditioning rather than probability over independent uniform 3-node jitter."
+        ],
+        "reasoning": "Geometric convex-hull/triangle barycentric positivity is equivalent to the gap test but the exact triangular jitter probability and collision-corner moment law require independent probabilistic analysis; an older random polygon-containment theorem would need matching dependent gap distribution.",
+        "searches": [
+          "Resultary: random perturbed trigonometric quadrature three nodes positivity noise logarithmic divergence",
+          "arXiv:2202.04722 Section 4 and Appendix B",
+          "three independently jittered unit-circle nodes barycentric origin positive trigonometric quadrature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact table or distributional database appeared in the actual Resultary query; its cubic interpolation hit is a different nonperiodic scheme."
+        ],
+        "reasoning": "The proposition is an exact distribution and asymptotic coefficient, not a merely finite table. No indexed all-parameter table was found, but indexing failure alone is not novelty proof.",
+        "searches": [
+          "Resultary: random perturbed trigonometric quadrature three nodes positivity noise logarithmic divergence",
+          "random three trigonometric interpolation quadrature exact positivity probability moment density table"
+        ]
+      },
+      "rationale": "Austin–Trefethen prove convergence over long perturbed trigonometric grids; Yu–Townsend give deterministic quadrature stability estimates and sufficiently-large-node negative weights. Neither in the inspected full primary text states the iid three-node gap-event probability, endpoint moment threshold, or logarithmic coefficient. Related published SCOPE three-knot cubic interpolation findings use polynomial, not circular trigonometric, weights. This is a best-of-knowledge addition with possible less-searchable old quadrature probability literature.",
+      "residual_risks": [
+        "Related random-simplex/periodic trigonometric weight distributions may occur under alternative geometric terminology.",
+        "Full source inspection is concentrated in mathematically relevant sections; historical priority is not absolutely certified.",
+        "The logarithmic moment concerns noise with independent homoscedastic observations; not arbitrary integrands or more grid points."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic large-node weight behavior and bounds, not this three-node iid probability or logarithmic constant",
+          "evidence": [
+            "Theorem 4.1 describes sufficiently large even N; no matching 3-node random distribution in inspected relevant sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+          "material_read": "Primary full PDF, especially Sections 4.1–4.2, Theorem 4.1, Appendix B",
+          "method": "Read accessible arXiv PDF and inspected a rendered page screenshot",
+          "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+          "trigger": "Same perturbed trigonometric sampling and weight positivity"
+        },
+        {
+          "assessment": "Smooth integrand error and asymptotic interpolation limits have different quantifiers from 3-node probabilistic laws",
+          "evidence": [
+            "Convergence for alpha<1/2 does not bound iid 3-node weight-second-moment at alpha=1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+          "material_read": "Primary full PDF and principal convergence statements; rendered page screenshot",
+          "method": "Read direct PDF",
+          "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+          "trigger": "Original perturbed Fourier-grid convergence"
+        },
+        {
+          "assessment": "Polynomial natural cubic interpolation has distinct nodes/objective from periodic degree-one trigonometric quadrature",
+          "evidence": [
+            "Its result controls deterministic undershoot, not this jittered weight probability."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+          "material_read": "Published Resultary summary only; full paper not read",
+          "method": "Semantic Resultary search",
+          "title": "A sharp three-knot positivity defect for natural cubic interpolation",
+          "trigger": "Related published title and number of nodes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact distribution of negative trigonometric quadrature weights and the separate endpoint noise-variance breakdown are natural stability questions for perturbed sampling, revealing two distinct critical jitter values 1/4 and 1/2. The model has three points only but this is the smallest nondegenerate periodic trigonometric interpolation rule, with an explicit sharp random probability and heavy-tail exponent useful as a diagnostic for larger-grid claims. It is neither a trivial substitution of polynomial nodes nor just a finite simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md + verify.py, exact matched Git tree",
+    "Yu and Townsend arXiv:2202.04722 primary full PDF Theorem 4.1/Section 4 and Appendix B",
+    "Austin and Trefethen arXiv:1612.04018 primary full PDF",
+    "Resultary cubic interpolation title/summary"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three equally spaced base nodes with independent uniform jitter alpha in [0,1/2]; Lebesgue integral and first Fourier harmonic exactness.",
+    "The p-moment threshold at alpha=1/2 assumes exact arithmetic and almost-surely distinct nodes."
+  ],
+  "residual_risks": [
+    "Related random-simplex/periodic trigonometric weight distributions may occur under alternative geometric terminology.",
+    "Full source inspection is concentrated in mathematically relevant sections; historical priority is not absolutely certified.",
+    "The logarithmic moment concerns noise with independent homoscedastic observations; not arbitrary integrands or more grid points."
+  ],
+  "schema_version": 1
+}
