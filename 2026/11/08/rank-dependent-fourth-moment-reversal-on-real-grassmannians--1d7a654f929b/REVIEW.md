@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Orthogonal invariance reduces the fourth moment to the two independent trace invariants. Two exact witnesses are integrated with a beta marginal and conditional spherical quadratic moments; all rational coefficient identities are reconstructed in `verify.py`. A three-value Lagrange stationary point cannot be globally extremal for dimension at least four, by zero-sum three-coordinate circle variation. Thus the two-level spectral extrema are exhaustive, not just examples. Compact conjugation averaging verifies that the Hilbert--Schmidt comparison is optimal. Low-dimensional cases are separately checked.
+
+**Originality — PASS (qualified).** The closest relevant full-text literature is Collins–Śniady's orthogonal Haar integration, Banica–Collins–Schlenker's two-row integration formulas, and Tropp's Stiefel Gaussian comparison. Each provides techniques or bounds but not this real-Grassmannian all-rank sharp fourth-moment phase diagram or its extremizer reversal. A complex Hermitian Grassmannian theorem concerns a different law, coefficient and rank transition, and does not imply this real case. No exact real-statement match was identified in the searched literature or mathematical record. Unindexed equivalences are possible.
+
+**Mathematical value — PASS.** Rank-one Grassmannian statistics are spherical quadratic harmonics, while general rank produces a new sign-changing trace-fourth coefficient. The resulting exchange of one-outlier and balanced spectral optimizers for *every* dimension at least four is a natural and nontrivial boundary in the geometry of invariant finite-dimensional function spaces. Exact Euclidean distortion and all equality spectra are additional complete invariants, not isolated numerical evaluations.
+
+**Closest literature and limits.** Orthogonal integration formulas alone do not optimize over traceless test spectra; Gaussian comparisons are not exact in this setting. The coefficient space is finite-dimensional and real, with Haar rank fixed. An unidentified exact equivalent or stronger theorem in specialized literature is the principal residual bibliographic risk. No claim is made about higher moments or different underlying fields.
+
+Self-review: passed. Independent audit: not yet performed.
