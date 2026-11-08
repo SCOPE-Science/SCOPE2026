@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` alongside this file. It uses rational fractions and separately implements the cold-state five-stage updates. It compares the derived midpoint values, exact second-Riccati denominator, conserved modified energy, physical-energy defect, scaled-field consistency discrepancy and the Riccati pole-time inequality. Additional exact evaluation at the threshold checks that the denominator vanishes while the auxiliary variable remains positive.
+## correctness
 
-The proof is the algebra in `RESULT.md`, not an inference from tests. Numerical floating-point tests are not needed for the claims. All results concern exact arithmetic, the specified one-cell periodic homogeneous model and winding-aware current deposition. Independent mathematical audit has not been conducted.
+PASS
+
+On one-cell homogeneous cold VA-II data e≠0, C0>0, R²=C0+e²/2, y=h²e²/(8R²), midpoint equations yield v=he/(1+y), r=R(1−y)/(1+y), and E=e−hv/2 via winding-aware integrated current. The second Riccati stage has exact denominator (1−3y)/(1−y), with genuine positive-coefficient pole at y=1/3, so connected positive-r step interval 0<h<sqrt(8/3)R/|e|. Exact algebra verified modified energy v²/2+r²=R², positive physical-energy excess C0e²h⁴/[8R²(1+y)²], and r*g−E=4ey²/[(1+y)(1−3y)]. This depends on the source VA-II stage interpretation and admissibility of a nonzero constant Gauss-law harmonic field, not on the optional zero-mean Poisson initialization; full primary technical text was not independently accessible.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with material primary-source coverage risk. Fan–Crouseilles–Hu already derive VA-II subflows and preservation; the inspected package gives an explicit additional connected-domain pole threshold and quantified separate physical-energy and field defects, not claimed to be independent of those established equations. Full directly relevant article was inaccessible and exact prior appearance cannot be conclusively excluded.
+
+## value
+
+PASS
+
+Exact numerical-method well-posedness and conservation defects matter on natural homogeneous Fourier/Gauss modes. The sharp finite-step Riccati barrier in a modified-energy-preserving five-stage method and explicit strictly positive physical energy drift provide a specific counterexample/timestep guard; although restricted to one cell and a nonzero mean field, the precise fact is a meaningful diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

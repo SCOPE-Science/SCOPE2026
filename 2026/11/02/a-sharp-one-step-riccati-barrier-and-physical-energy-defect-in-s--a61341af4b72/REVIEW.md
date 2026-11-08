@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The exact midpoint equations give \(r_{\mathrm{mid}}=R/(1+y)\) and the explicit velocity/auxiliary endpoints. Substituting these into the exact Riccati half-step yields the sharp denominator \((1-3y)/(1-y)\); positivity of the growth coefficient establishes an actual pole, not just an arithmetic denominator anomaly. Unwrapped one-cell charge-current deposition gives \(E_1=e-hv_1/2\), allowing exact derivations of both physical-energy drift and scaled-field discrepancy. The standalone rational checker independently replays the stage equations, but analytic identities and inequalities—not a finite parameter census—prove the theorem.
+## correctness
 
-**Originality — PASS (self-review; priority not independently established).** Fan, Crouseilles and Hu (2026), arXiv:2610.16028v1, establish the algorithm, its Riccati subflow, and modified-energy/Gauss preservation. Their inspected Section 2.3 does not state the sharp cold-state full-step Riccati obstruction or the physical-energy/scaled-field identities. The related 2026 semi-Lagrangian SAV paper by Crouseilles, Liu and Yue establishes conservation for a different composition. The exact formulas are derived from, and do not supersede, the motivating source's stage definitions. Other literature might implicitly or explicitly contain an equivalent specialized analysis.
+PASS
 
-**Mathematical value — PASS (self-review).** The result isolates an exact finite-step well-posedness threshold for an explicit modified-energy-preserving plasma integrator, alongside two diagnostics quantifying physical-energy and field-variable drift. The homogeneous harmonic mode is Gauss-compatible but not produced by the extra zero-mean periodic Poisson initialization used in the source; this limitation prevents overstating effects on its reported simulations. It does not assert multistep instability, nonlinear-PDE blowup or grid-independent positivity failure.
+On one-cell homogeneous cold VA-II data e≠0, C0>0, R²=C0+e²/2, y=h²e²/(8R²), midpoint equations yield v=he/(1+y), r=R(1−y)/(1+y), and E=e−hv/2 via winding-aware integrated current. The second Riccati stage has exact denominator (1−3y)/(1−y), with genuine positive-coefficient pole at y=1/3, so connected positive-r step interval 0<h<sqrt(8/3)R/|e|. Exact algebra verified modified energy v²/2+r²=R², positive physical-energy excess C0e²h⁴/[8R²(1+y)²], and r*g−E=4ey²/[(1+y)(1−3y)]. This depends on the source VA-II stage interpretation and admissibility of a nonzero constant Gauss-law harmonic field, not on the optional zero-mean Poisson initialization; full primary technical text was not independently accessible.
 
-The directly inspected closest literature consists of arXiv:2610.16028v1 (VA-II equations (2.31)--(2.46), Proposition 2.2) and the open 2026 Crouseilles–Liu–Yue semi-Lagrangian SAV paper (Sections 2.2--2.3). Remaining uncertainty includes other historical analyses and the restriction to this one-cell nonzero-mean field mode. Exact-rational checks supplement but cannot replace the infinite-parameter algebraic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with material primary-source coverage risk. Fan–Crouseilles–Hu already derive VA-II subflows and preservation; the inspected package gives an explicit additional connected-domain pole threshold and quantified separate physical-energy and field defects, not claimed to be independent of those established equations. Full directly relevant article was inaccessible and exact prior appearance cannot be conclusively excluded.
+
+## value
+
+PASS
+
+Exact numerical-method well-posedness and conservation defects matter on natural homogeneous Fourier/Gauss modes. The sharp finite-step Riccati barrier in a modified-energy-preserving five-stage method and explicit strictly positive physical energy drift provide a specific counterexample/timestep guard; although restricted to one cell and a nonzero mean field, the precise fact is a meaningful diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
