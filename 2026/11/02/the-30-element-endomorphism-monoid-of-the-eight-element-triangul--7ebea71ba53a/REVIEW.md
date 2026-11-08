@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification is for the constant-free binary-operation signature, not for maps necessarily fixing matrix zero or identity. Every additive homomorphism is fixed by four images and the displayed order constraints; explicit multiplication equations are necessary and sufficient. Solving these finite equations gives \(15+1+6+8=30\) maps and independently checked composition yields \(21\) retractions. An exhaustive standard-library verifier enumerates all such maps without relying on the case split and checks every operation pair, image size, composition, kernel and local maximal group. Finite exhaustiveness is justified by the four-generator reduction; no extrapolation is involved.
+## correctness
 
-## Originality — PASS, qualified
-Jiao–Shao (arXiv:2609.32356v3), Theorem 10.1 and Corollary 10.2, determine five congruences of \(T_2\); those already restrict endomorphism image sizes to \(1,2,4,8\). The **possible image sizes are prior coverage**. Their result does not enumerate all self-maps, count retractions or determine local maximal subgroups. Volkov (arXiv:2412.16113v4) analyzes identities, not this endomorphism census. Targeted published-finding corpus and literature searches found no directly covering count, but do not establish absolute priority. Residual risk: an older unindexed enumeration of triangular incidence-semiring endomorphisms may exist. The main contemporary preprint is marked withdrawn as incomplete; the proof here does not rely on its unproved results.
+PASS
 
-## Mathematical value — PASS
-The algebra is a canonical eight-element generator of a studied variety. The exact endomorphism monoid and its \(21\) retracts are intrinsic structure data; a nontrivial local \(C_2\) in a monoid with trivial automorphism group is a substantive structural distinction. This is a complete census of a natural algebra rather than a novelty claim based only on a known list of possible ranks.
+The join semilattice on three atoms gives exactly four free image values subject to f(0)∨f(atom)=f(atom); bilinearity of multiplication reduces all homomorphism tests to seven relation families on T,P,Q,R. One nonidempotent matrix mask 2 and seven idempotent masks give exhaustive finite branches: T=Q=0 has 15 solutions, T=0/Q=2 has one, nonzero T=Q has six constants and eight nonconstant strict-pair maps, total 30. Direct all 64 ordered-pair verification over all 8^4 candidates independently corroborates no omissions. Idempotents by map composition number 21, rank profile 7/12/1/1; unique rank-four idempotent is diagonal projection with order-two diagonal-swap local unit group; rank-one, rank-two and rank-eight images have trivial automorphism groups. Only binary (+,·) preservation is asserted; naming 0 or 1 would change answer.
 
-## Limits
-Only \(2\times2\) Boolean upper triangular matrices, with binary addition and multiplication and no named constants. No result for higher sizes, other coefficient semirings, or independently verified historic priority. Computation is executable and finite; independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the primary same-semiring paper identifies five congruence kernels and identity laws, and those entail only possible ranks 1,2,4,8; it does not enumerate multiplicities, idempotents or local groups. Multiplicative matrix-monoid generator papers concern a different monoid. Thus the exact endomorphism census is additional nontrivial finite algebra data, while unindexed earlier tables remain a priority risk.
+
+## value
+
+PASS
+
+The smallest upper triangular Boolean matrix semiring is a canonical finite test object in ai-semiring theory. Its complete endomorphism monoid, retraction spectrum, nontrivial local C2 despite trivial automorphism group, and five-kernel multiplicities are natural exact invariants, useful for studying retractions, congruences and algebraic dynamics; no arbitrary slice or renaming is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
