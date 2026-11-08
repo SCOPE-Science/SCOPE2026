@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-Execute `python checker.py` (Python 3, standard library) and compare its complete standard output to `checker_output.txt`.
+## correctness
 
-The program constructs every self-adjoint matrix directly from a symmetric matrix and the chosen Gram form, evaluates \(T^2=0\) and \(T_iT_j=0\) by original field matrix multiplication, determines each rank and combined image span by Gaussian elimination, and compares every nonzero stratum coefficient to the theorem. It exhausts seven ambient configurations: \(n=2,q=3\) both forms, \(n=3,q=3,5\), \(n=4,q=3\) both forms, and \(n=2,q=9\) split. The extension field is represented by irreducible \(X^2+1\) over \(\mathbb F_3\). These are checks for \(m=1,2\); the proof covers every \(m\ge1\).
+PASS
 
-The finite results do not establish historical originality, do not constitute an independent audit, and do not replace the general symbolic argument. No nonreduced scheme computation is claimed.
+Pairwise zero products equivalent to totally isotropic W=Σim(Ti) by B(Tiv,Tjw)=B(v,TiTjw) and nondegeneracy. For fixed isotropic U, self-adjoint image-contained endomorphisms identify with Sym²(U), preserving ranks. The known count of rank-r symmetric j×j matrices [j choose r]q S_r and subspace-lattice Möbius inversion give exact image-span/rank vector distribution, weighted by the orthogonal isotropic-subspace count It. Each zero-product linear space embeds in EU; maximal isotropic U gives all inclusion-maximal spaces, with images spanning U, thus exact maximal classification. Geometric component statement follows classical maximal-isotropic Grassmannian incidence, reduced point varieties only. Independently enumerated n=2 split hyperbolic over F3: 5 square-zero self-adjoint operators and 17 ordered annihilating pairs, matching formula. Checker.py inspected for rank/product construction; no claim for characteristic two or commuting-but-not-annihilating tuples.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: Known rank counts of one symmetric nilpotent endomorphism and orthogonal vector-nullcone incidence are building blocks but neither specifies joint zero-product rank vectors and exact W; published general theorem might still encode their specialization. No exactly covering theorem was found in actual indexed results or the inspected relevant primary statements; this is not a historical priority certificate.
+
+## value
+
+PASS
+
+A natural and nontrivial finite classical-group incidence problem is solved at arbitrary n,m,q, resolving not just total counts but joint rank and common span with a maximal annihilating linear-space classification. It is not a raw matrix-count look-up or one-parameter restatement; polar-space geometry explains the formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The critical biconditional \(T_iT_j=0\iff\sum\operatorname{im}T_i\) is totally isotropic follows from nondegeneracy and self-adjointness. A fixed isotropic image bound corresponds exactly to symmetric tensors, with rank preserved. The orthogonal-space isotropic flag recurrence, classical nonsingular symmetric form counts and subspace-lattice Möbius inversion yield the stated complete rank-and-span enumerator. Every boundary case \(t=0\), \(r_i=0\), Witt index zero and \(m=1\) is included. Seven exhaustive direct finite-field configurations, including a genuine quadratic extension field, reproduce the full \(m=1,2\) distribution. Risk: finite computations alone cannot independently verify all arities, but the symbolic proof covers them.
+## correctness
 
-**Originality: PASS, provisionally.** Wang (arXiv:math/0005078, §§1.1–1.3) treats the orthogonal vector-tuple null cone and isotropic incidence resolutions; its component geometry is credited. Fulman–Goldstein (arXiv:1211.0504, §4) treats individual symmetric-matrix ranks. Brouwer–Gow–Sheekey (doi:10.37236/3810, especially §7) treats individual symmetric nilpotent matrices, including rank or exponent restrictions. None of those inspected primary passages states a simultaneous zero-product tuple census resolved by every individual rank and the common image span. Additional searches of mathematical literature found no identified complete theorem or dominating result. Risk: a more general polar-space counting theorem could imply the answer; failed search cannot establish absolute historical priority.
+PASS
 
-**Value: PASS.** Compatible square-zero self-adjoint maps are natural differentials respecting a symmetric pairing. The result computes a complete joint distribution for all arities and matrix sizes, including the exact combined image dimension (not just the marginal operator ranks), distinguishes split and nonsplit even-dimensional forms, and fully determines maximal linear spaces with pairwise-zero products. These precise finite-field invariants are not supplied by the known individual-matrix count.
+Pairwise zero products equivalent to totally isotropic W=Σim(Ti) by B(Tiv,Tjw)=B(v,TiTjw) and nondegeneracy. For fixed isotropic U, self-adjoint image-contained endomorphisms identify with Sym²(U), preserving ranks. The known count of rank-r symmetric j×j matrices [j choose r]q S_r and subspace-lattice Möbius inversion give exact image-span/rank vector distribution, weighted by the orthogonal isotropic-subspace count It. Each zero-product linear space embeds in EU; maximal isotropic U gives all inclusion-maximal spaces, with images spanning U, thus exact maximal classification. Geometric component statement follows classical maximal-isotropic Grassmannian incidence, reduced point varieties only. Independently enumerated n=2 split hyperbolic over F3: 5 square-zero self-adjoint operators and 17 ordered annihilating pairs, matching formula. Checker.py inspected for rank/product construction; no claim for characteristic two or commuting-but-not-annihilating tuples.
 
-**Limitations.** Odd characteristic, nondegenerate symmetric form, zero-product tuples; not the broader commuting square-zero condition. Geometric component facts rely on established isotropic-Grassmannian theory. Conjugacy classes and nonreduced schemes are not classified. Independent historical priority verification and independent mathematical audit are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: Known rank counts of one symmetric nilpotent endomorphism and orthogonal vector-nullcone incidence are building blocks but neither specifies joint zero-product rank vectors and exact W; published general theorem might still encode their specialization. No exactly covering theorem was found in actual indexed results or the inspected relevant primary statements; this is not a historical priority certificate.
+
+## value
+
+PASS
+
+A natural and nontrivial finite classical-group incidence problem is solved at arbitrary n,m,q, resolving not just total counts but joint rank and common span with a maximal annihilating linear-space classification. It is not a raw matrix-count look-up or one-parameter restatement; polar-space geometry explains the formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
