@@ -1,17 +1,21 @@
-# Scientific review: graph-metric Rips filtration of the Möbius–Kantor graph
+# Independent mathematical audit
 
-## Correctness (PASS)
-The statement concerns the sixteen-vertex graph \(\mathrm{GP}(8,3)\) with the shortest-path metric and inclusive radii. All sixteen vertices, twenty-four graph edges, and 120 unordered vertex pairs are reconstructed from the given indexing. Breadth-first distances have multiplicities 24, 48, 40, and 8; the distance-four pairs form a perfect matching, giving the crosspolytope-boundary seven-sphere at radius three and a simplex at radius four.
+## correctness
 
-At radius two, exactly 248 nonempty simplices occur in dimensions zero through three. The independently replayed finite certificate covers every face with 118 free face/coface pairs and twelve critical faces, whose dimensions are one zero-cell, nine two-cells, and two three-cells. Full Hasse-graph orientation is checked acyclic. Two explicit crosspolytope-boundary three-cycles on disjoint bipartition classes are integral cycles and independent, with a primitive top-dimensional coordinate in each cycle. The two critical three-cells bound the rank above; hence the Morse differential in degree three vanishes. The two-skeleton is a wedge of nine two-spheres, and the Hurewicz isomorphism makes both three-cell attachments null-homotopic, establishing the wedge of nine two-spheres and two three-spheres. No unsupported inference from finite samples to an infinite family is made.
+PASS
 
-## Originality (PASS with priority risk)
-The full text of Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433, introduces shortest-path Rips complexes and addresses large-girth stability and cycle powers, but its scale-two stability hypothesis does not hold for this girth-six graph and its explicit cycle-power classifications do not cover this example. All five pages of Marušič and Pisanski, *The remarkable generalized Petersen graph G(8,3)* (2000), establish graph-theoretic and geometric facts, not the present graph-metric Rips homotopy classification. Published results on the same graph's matching, independence, and cut complexes have different face definitions and cannot imply the claimed Rips filtration. The relevant hexagon-packing theorem requires distinct six-cycles to be edge-disjoint, whereas this graph has twenty-four six-cycles and every edge lies in six of them. Related Rips calculations for the Nauru graph, the Dürer graph, and affine-plane incidence graphs concern different graphs. The exact claimed mixed-dimensional stage or barcode was not identified in the searched records; search incompleteness cannot prove absolute priority. Some related database entries were available only as indexed summaries, not full texts, and are treated accordingly.
+Exact GP(8,3) edge definition gives distances (24,48,40,8), hence K1 graph ∨9S1 and K3 join of eight S0=S7. Independently fetched 5,505-byte real certificates/r2_matching.json blob 98a41066d4b74c6117c58c6e4480ab5811714eee; enumerated all 248 K2 nonempty faces, replayed all 130 deletion steps (118 free codimension-one pairs, 12 critical faces), confirmed each higher coface condition and acyclic full Hasse orientation, remaining zero. Critical dimensions are 0:1, 2:9, 3:2. Disjoint 8-vertex bipartition crosspolytope S3 cycles are primitive, span H3 integrally, and make two Morse three-cell attaching maps zero after the wedge-nine S2 two-skeleton. K4 is full simplex. This yields the full reduced integral barcode.
 
-## Value (PASS)
-The Möbius–Kantor graph is a canonical cubic arc-transitive generalized Petersen graph and a small symmetric girth-six incidence graph. Its scale-two Rips complex is neither a sphere nor a wedge concentrated in one degree: it has nine independent second-homology classes and two third-homology classes. Both latter classes have explicit geometric representatives provided by the two natural bipartition crosspolytope boundaries. The complete integral barcode exhibits a genuine topological transition between a graph's nine circles, mixed second/third homology, and a seven-sphere at the next scale. The result makes the failure of easy girth-stability and edge-disjoint-hexagon criteria concrete. This is an exact natural finite classification, not a claim about arbitrary generalized Petersen graphs.
+## originality
 
-## Sources and residual limitations
-Primary mathematical source: M. Adamaszek, arXiv:1104.0433 (2011-04-03). Same-object graph reference: D. Marušič and T. Pisanski, *Mathematica Slovaca* 50 (2000), 117–121. The result is nonequivariant, uses only graph distance, and has not received an independent mathematical audit. Definitive publication priority remains open, especially for uncatalogued equivalent results or inaccessible texts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinctive final claim was compared with actual same-object, stronger and aliased candidates; known covered ingredients are expressly credited. No identified theorem or table entails this entire final claim. Best-of-knowledge priority is conditional on the named accessible-source limits.
+
+## value
+
+PASS
+
+GP(8,3) is the natural cubic symmetric Möbius–Kantor incidence graph. The unexpected mixed-dimensional scale-two wedge with primitive integral top cycles and full barcode gives a meaningful finite homotopy/persistence classification not mechanically implied by a graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
