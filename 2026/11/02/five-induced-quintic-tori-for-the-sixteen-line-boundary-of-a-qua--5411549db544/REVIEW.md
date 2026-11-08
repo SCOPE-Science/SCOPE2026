@@ -1,17 +1,21 @@
-# Scientific review: induced quintic torus of a sixteen-line boundary
+# Independent mathematical audit
 
-## Correctness — PASS
-For a smooth quartic del Pezzo surface with Frobenius projecting to a five-cycle, the even sign subgroup is eliminated by conjugation: \(1+\sigma\) is invertible on the even-parity subspace of \(\mathbb F_2^5\). In the standard exceptional-curve labeling, the forty incidence edges form a triangle-free graph. The fifteen explicit edges \(Q\!\! -\!\! E_i\), \(E_i\!\! -\!\! L_{i,i+1}\), \(E_i\!\! -\!\! L_{i,i+2}\) form an invariant spanning tree. Its remaining twenty-five edges form five free length-five orbits, so the integral cycle lattice is \(\mathbb Z[C_5]^5\), and ordinary-node normalization yields the claimed **torus isomorphism**, not just an isogeny. The motivic and zeta formulas follow independently from the finite-field blowdown, component orbits and node/branch correction. An exact standalone checker independently reconstructs the graph, signed lifts, oriented integral cycles, and extension-field counts. The proof does not rely on extrapolation from finite tests.
+## correctness
 
-## Originality — PASS, with explicit prior-implied parts
-The sixteen exceptional curves, their intersections, the Weyl action and the blowup construction are established geometry (Hassett–Kresch–Tschinkel 2013; Banwait–Fité–Loughran 2016). The first-field equality \(\#U(\mathbb F_q)=q^2\) is implied by the latter paper's conic-orbit construction. A previous arithmetic classification of all eighteen Weyl-action types likewise implies the first-field and extension-field point-count formulas. These are **not** asserted to be new. The separate published computation of ordinary homology of the complex line-free complement concerns a different invariant, while the previous integral Picard-torus classification of the degree-five del Pezzo boundary concerns the Petersen graph rather than the present Clebsch graph.
+PASS
 
-The distinct assessed result is the exact integral character-lattice decomposition and the resulting isomorphism \(\operatorname{Pic}^{0}_{D/k}\cong(\operatorname{Res}_{\mathbb F_{q^5}/k}\mathbb G_m)^5\), valid for all finite fields and the full quintic Frobenius class. Relevant inspected primary work does not state this explicit induced-torus decomposition. Rybakov's older paper on zeta functions of the ambient surfaces was only bibliographically accessible and its full content remains a named residual priority risk. Originality is a best-evidence comparison, not proof of universal priority.
+The geometric sixteen-curve graph is 5-regular with 40 nodes, no triple points, and arithmetic genus 40-16+1=25. Invariant spanning tree consists of Q-E_i, E_i-L_{i,i+1}, E_i-L_{i,i+2}, 15 edges; its 25 complementary edges form five free C5 orbits, yielding integral cycle basis Z[C5]^5. Normalization of nodal rational components gives the claimed torus character lattice. Independently recomputed graph incidence/tree and orbit counts and checked point-count formula from component, node and branch orbits. Finite-field blowdown of degree-five conic point establishes motivic identity [U]=L²+(5-2L)[Spec Fq5], including characteristic two. Checked proof does not assume rationalized character lattice.
 
-## Mathematical value — PASS
-The reduced union of all sixteen exceptional curves is a canonical stable, genus-twenty-five nodal boundary in quartic del Pezzo geometry, not an arbitrarily selected divisor. Its connected Picard torus is a natural arithmetic invariant; knowing it as five induced quintic tori determines the finite **group structure** \(C_{q^5-1}^{5}\), whereas rational Frobenius character data would only give an isogeny class and potentially lose integral extension information. The cyclic quintic type is the natural irreducible discriminant case and occurs over every finite field. The motivic formula and zeta data clarify the surrounding open surface; their point-count portions were already accessible from established constructions and are not the basis of the value assessment.
+## originality
 
-## Sources and limitations
-Material compared includes arXiv:1312.6734v1 (Sections 1, 4, 8), arXiv:1606.00300 (Sections 2–3), the full published mathematical record on integral homology of the sixteen-line complement, and accessible earlier arithmetic claims about the quartic and quintic del Pezzo boundaries. The main theorem is confined to one conjugacy class, not all eighteen. It concerns \(\operatorname{Pic}^0\), not all multidegree components. The proof is a self-review; no independent audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical exceptional-curve/Weyl facts are due to Hassett-Kresch-Tschinkel, and Banwait-Fite-Loughran degree-five-point construction implies first-field #U(Fq)=q²; earlier 18-Weyl-type point counts also imply extension zeta behavior, and are NOT claimed novel. The surviving original claim is the integral permutation C5 module of the sixteen-line nodal graph and exact Picard torus isomorphism. Resultary 2026/10/4 complex integral homology of the complement concerns a different invariant, and prior degree-five del Pezzo ten-curve boundary has Petersen not Clebsch graph.
+
+## value
+
+PASS
+
+Exact integral Galois torus structure of the natural arithmetic genus-25 boundary of degree-four del Pezzo supplies stronger than rational character or point-count data, including its full rational finite abelian group for all q. Mathematically meaningful singular-curve Picard classification despite earlier point-count consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

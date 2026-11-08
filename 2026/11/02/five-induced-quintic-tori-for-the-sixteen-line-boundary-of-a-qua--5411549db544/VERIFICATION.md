@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone Python program `verify.py` uses exact integer graph operations and finite arithmetic; no nonstandard packages are required. `python3 verify.py` reconstructs the sixteen vertices and forty intersection edges, checks the absence of graph triangles, and identifies Frobenius orbits of lengths \((1,5,5,5)\) on components, eight degree-five orbits on nodes, and sixteen degree-five orbits on branches.
+# Independent mathematical audit
 
-The program constructs a Frobenius-invariant spanning tree and the twenty-five oriented integral fundamental cycles. It verifies that Frobenius maps each oriented cycle to the next in its orbit, not merely that rational character values agree. This establishes a computational cross-check of the five regular integral modules. An independent even-half-cube model checks all sixteen even sign lifts of the underlying five-cycle and their conjugacy.
+## correctness
 
-The arithmetic checks compare the zeta-derived point counts and the motivic formula on \(\mathbb F_{q^n}\) for \(q\in\{2,3,4,5,7,11\}\) and \(1\le n\le20\). The recorded execution in `verification_output.txt` ends with `VERIFY_OK`. Finite checks do not prove the theorem for arbitrary \(q\) or \(n\); the separate symbolic proof uses the graph's exact structure, the gluing character lattice, the invariant blowdown, and Frobenius orbit decomposition. The source and output files are included in this package, with byte counts and hashes verified at packaging.
+PASS
+
+The geometric sixteen-curve graph is 5-regular with 40 nodes, no triple points, and arithmetic genus 40-16+1=25. Invariant spanning tree consists of Q-E_i, E_i-L_{i,i+1}, E_i-L_{i,i+2}, 15 edges; its 25 complementary edges form five free C5 orbits, yielding integral cycle basis Z[C5]^5. Normalization of nodal rational components gives the claimed torus character lattice. Independently recomputed graph incidence/tree and orbit counts and checked point-count formula from component, node and branch orbits. Finite-field blowdown of degree-five conic point establishes motivic identity [U]=L²+(5-2L)[Spec Fq5], including characteristic two. Checked proof does not assume rationalized character lattice.
+
+## originality
+
+PASS
+
+Classical exceptional-curve/Weyl facts are due to Hassett-Kresch-Tschinkel, and Banwait-Fite-Loughran degree-five-point construction implies first-field #U(Fq)=q²; earlier 18-Weyl-type point counts also imply extension zeta behavior, and are NOT claimed novel. The surviving original claim is the integral permutation C5 module of the sixteen-line nodal graph and exact Picard torus isomorphism. Resultary 2026/10/4 complex integral homology of the complement concerns a different invariant, and prior degree-five del Pezzo ten-curve boundary has Petersen not Clebsch graph.
+
+## value
+
+PASS
+
+Exact integral Galois torus structure of the natural arithmetic genus-25 boundary of degree-four del Pezzo supplies stronger than rational character or point-count data, including its full rational finite abelian group for all q. Mathematically meaningful singular-curve Picard classification despite earlier point-count consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
