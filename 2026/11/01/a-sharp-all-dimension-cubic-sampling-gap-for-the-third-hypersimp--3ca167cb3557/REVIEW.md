@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The centered third-subset vectors have squared norm one and their dot product depends only on the intersection size. The dimension-\(n-1\) cubic zonal polynomial is \(P_{n,3}(z)=((n+1)z^3-3z)/(n-2)\). Johnson inclusion-matrix eigenspaces have multiplicities \(\binom nr-\binom n{r-1}\), and the exact binomial-basis expansion produces the four displayed eigenvalues. The only integer rank failure for \(n\ge6\) is \(n=6\); the other potential zero requires a root of \(n^2-17n+54\) and its discriminant is the nonsquare \(73\). The three noncritical eigenvalue branches exceed \(1/18\); differentiation and a positive shifted quartic reduce the critical all-integer minimum to dimensions 12 and 13, giving \(169/148500\) uniquely at 13. The supplementary standalone rational checker computes genuine Gram actions on explicit vectors, including the exact equality dimension, but finite checks are not offered as infinite proof.
+## correctness
 
-## Originality
-PASS within examined sources and known deductions. The 2008 Johnson-graph spectral source already supplies association-scheme machinery that entails fixed-dimension eigenspace formulas; those formulas are not represented as a discovery. Neither that source nor the inspected harmonic-index design sources states the natural **sharp all-integer-dimension normalized cubic sampling lower bound**, its unique dimension-13 minimizer, or the companion all-dimension surjectivity transition for rank-three hypersimplices. Published-index comparisons and direct comparison with other previously described exact-degree interpolation configurations did not identify an implication covering this combined sharp statement. Residual risk: an older association-scheme, cubature, or hypersimplex spectral study might have explicitly optimized the same Gegenbauer combination across dimension.
+PASS
 
-## Mathematical value
-PASS. Third hypersimplices are canonical finite spherical configurations, and cubic harmonics are their first potentially surjective exact-degree harmonic space. The result determines full interpolation at every dimension past the antipodal obstruction and a sharp **uniform** sampling lower bound, surprisingly minimized in an interior integer dimension rather than at an endpoint or asymptotic limit. This is a natural, precise spectral stability invariant; it is neither an arbitrary finite table entry nor an unmotivated parameter restriction.
+For n>=6 triple indicator vectors centered by (3/n)1 have dot product (n|S∩T|−9)/(3(n−3)). The degree-3 zonal P(z)=((n+1)z³−3z)/(n−2) is normalized P(1)=1. Independent symbolic Newton difference coefficients of the kernel in binomial intersection basis together with Johnson incidence action mu_t(r)=binom(3−r,t−r)binom(n−t−r,3−t) reproduce all four factored eigenvalues and multiplicities. At n=6 the r=0,2 modes vanish and rank=10; for integer n>=7 r1 roots require nonsquare discriminant 73, so all eigenvalues positive and rank=binom(n,3). Harmonic degree 0,1,2 dimensions are too small to surject n>=7. For cross-dimension sharp gap, λ0,λ2>1/18 and λ3>2/9, while λ1 derivative has positive shifted quartic R(7+u)=2u^4+35u³+262u²+805u+648; λ1 decreases then increases past real root in (12,13), so λ1(13)=169/148500 uniquely below λ1(12)=16/1215. Direct rational kernel-sector checks at n=6,7,8,13 independently corroborate the all-n symbolic proof.
 
-## Literature and limits
-Closest theoretical coverage: M. Krebs and A. Shaheen, *On the spectra of Johnson graphs* (2008), which provides the Johnson spectral decomposition; E. Bannai, T. Okuda and M. Tagami, *Spherical designs of harmonic index t* (arXiv:1308.5101, 2013); Y. Zhu and colleagues, *More on spherical designs of harmonic index t* (arXiv:1507.05373, 2015). These results supply machinery and related design context, not an identified statement of the dimension-13 sharp lower bound. The result is limited to degree three, normalized zonal Gram diagonal one, and integer dimensions \(n\ge6\). Other normalization conventions change the numerical bound. Independent expert checking remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Johnson/Eberlein eigenmatrix machinery already yields any fixed-n spectral decomposition and is appropriately credited. The claimed independent scientific content is the exact normalized spherical-cubic matrix specialized to all n plus sharp uniform integer n=13 minimum and surjectivity threshold, which are not identified as explicit consequences in inspected scheme and harmonic-index design literature. Best-of-knowledge risk of an earlier optimized hypersimplex spectral table persists.
+
+## value
+
+PASS
+
+The third hypersimplex is a canonical family of finite spherical configurations; exact cubic harmonics are first dimensionally able to interpolate all n>=7. A uniform frame lower bound, with anomalously weakest interior dimension n=13 and multiplicity 12, is a natural spectral stability fact (not an arbitrary table row), providing sharp normalization-sensitive estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
