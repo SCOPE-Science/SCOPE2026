@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:59:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-triangle-count-and-the-three-rotation-obstruction-in-ulam--267ddbf7ac14/RESULT.md (blob e6c4838483ed7454c4e890bfd07a2e62330663d3)",
+        "2026/11/02/exact-triangle-count-and-the-three-rotation-obstruction-in-ulam--267ddbf7ac14/verify.py",
+        "source RESULT.md pinned blob e6c4838483ed7454c4e890bfd07a2e62330663d3"
+      ],
+      "rationale": "PASS. For each n≥2, vertices are labeled permutations, deletion retains labels and order. Adjacent permutations have inversion disagreement graph a nonempty star. For any triple of permutations, pairwise disagreement edge sets have symmetric difference zero; classification of three nonempty stars forces either a common center (unique common deletion symbol) or a triangle of three two-edge stars on three symbols. In exceptional case the marked symbols form the three cyclic orders within a consecutive length-three block. Common-read triangles count n! binom(n,3) and exceptional triples n!(n−2)/3, giving n!(n−2)(n²−n+2)/6. Degree is (n−1)²; clustering coefficient equals (n²−n+2)/[n(n−1)²] for n≥3, undefined n=2. Independent brute-force literal-label deletion through n=6 produced 0,8,112,1320,15360 triangles and correct degrees, and brute enumerated the three-star lemma configurations at small n. Finite checks only corroborate the all-n classification proof.",
+      "residual_risks": [
+        "The theorem crucially retains actual symbol labels (not standardized patterns); changing model invalidates counts.",
+        "Independent enumeration checks n≤6, not the infinite quantifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. give O_t(n!n^{3t}) triangle upper bound; at t=1 this is only growth order.",
+          "Kong gives sphere size 1+(n−1)^2 and not the adjacency graph induced on each sphere."
+        ],
+        "reasoning": "Broader deletion-budget statements do not imply exact first-radius enumerator and unique non-common-read orbit class.",
+        "searches": [
+          "arXiv:2406.16656 Section III Lemma 4 deletion graph triangle bound",
+          "arXiv:1712.03639 Ulam sphere translocation size"
+        ]
+      },
+      "checked_sources": [
+        "source RESULT.md pinned blob e6c4838483ed7454c4e890bfd07a2e62330663d3",
+        "https://arxiv.org/abs/2406.16656",
+        "https://arxiv.org/abs/1712.03639",
+        "https://arxiv.org/abs/1202.0932",
+        "Resultary: permutation Ulam one deletion confusability graph triangles three cyclic rotations",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bound O(n!n^3) has no explicit sharp coefficient and no decomposition into common deletion vs exceptional triangles.",
+          "The degree (n−1)^2 does not determine local clustering; regular graphs of same degree can have different triangles."
+        ],
+        "reasoning": "Exact triangle count plus classification does not follow directly from the broader/degree prior statements.",
+        "searches": [
+          "Wang Nguyen Chee Vu Lemma 4 O(n!n^3)",
+          "Kong Proposition III.2 Ulam sphere count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ulam one-deletion adjacency is the single-symbol-translocation relation, so its graph can also be described as the translocation Cayley-like graph on S_n.",
+          "Kong arXiv:1712.03639 describes Ulam balls and translocations."
+        ],
+        "reasoning": "This equivalent formulation was explicitly considered; its known vertex degree does not give neighbor-neighbor edges or triangle types.",
+        "searches": [
+          "permutation Ulam one deletion confusability graph triangles three cyclic rotations",
+          "permutation translocation graph S_n triangles one deletion Ulam distance one local clustering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary result for binary words has a different vertex universe and a different formula; it does not cover labeled permutations.",
+          "Direct enumeration for n≤6 matches the polynomial but is not a prior table."
+        ],
+        "reasoning": "No known published exact table for this permutation model surfaced; absence of search hits alone cannot establish priority.",
+        "searches": [
+          "Resultary: permutation Ulam one deletion confusability graph triangles three cyclic rotations",
+          "Resultary binary one deletion confusability exact triangle graph",
+          "n! (n-2) (n^2-n+2)/6 Ulam permutation triangle"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Wang–Nguyen–Chee–Vu Section III Lemma 4 bounds triangles in t-deletion permutation graph by O_t(n! n^{3t}); its t=1 specialization does not give exact count or classification. Kong has Ulam radius-one sphere size/degree, not triangles; Farnoud–Skachek–Milenkovic develop metric and codes. Resultary published exact binary single-deletion graph triangle count concerns repeated binary words, not permutations of all distinct labels. The presented exact constant and exceptional rotation class are a genuinely additional classification on inspected evidence, with unindexed translocation-graph risks.",
+      "residual_risks": [
+        "Older exact triangle counts for translocation Cayley graphs may be indexed under another formulation.",
+        "Kong full proof and appendices not fully reread this time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_BOUND_NOT_EXACT",
+          "evidence": [
+            "Section III Lemma 4 states growth-order upper bound O_t(n!n^{3t}), not exact t=1 count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.16656",
+          "material_read": "Lawfully accessed full 16-page PDF, read relevant Section II graph definitions and Section III Lemma 4, inspected page image.",
+          "method": "Read full-text PDF and screenshot relevant lemma pages",
+          "title": "Permutation and Multi-permutation Codes Correcting Multiple Deletions",
+          "trigger": "Direct prior work using same confusability graph and triangle invariant"
+        },
+        {
+          "assessment": "DEGREE_PRIOR_ONLY_WITH_RISK",
+          "evidence": [
+            "Known radius-one ball size 1+(n−1)^2; no confirmed triangle count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.03639",
+          "material_read": "Accessible Proposition III.2 and abstract-level sphere-size statement; complete appendix not checked.",
+          "method": "Read indexed theorem/abstract",
+          "title": "Ulam Sphere Size Analysis for Permutation and Multipermutation Codes Correcting Translocation Errors",
+          "trigger": "Potential alternative translocation graph triangle count"
+        },
+        {
+          "assessment": "FOUNDATIONAL_MODEL_NOT_TABLE",
+          "evidence": [
+            "Translocation and Ulam metric basis, no established exact graph triangle formula in read portions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.0932",
+          "material_read": "Accessible Section II definitions and relevant code results, with page image cited in earlier search.",
+          "method": "Read relevant PDF excerpts and page image",
+          "title": "Error-Correction in Flash Memories via Codes in the Ulam Metric",
+          "trigger": "Foundational Ulam coding problem and metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-triangle-count-and-the-three-rotation-obstruction-in-ulam--267ddbf7ac14/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-triangle-count-and-the-three-rotation-obstruction-in-ulam--267ddbf7ac14"
+      ],
+      "rationale": "PASS. Triangle count and local clustering are motivated natural invariants of the permutation one-deletion confusability graph used in coding estimates. An exact all-n enumerator with a complete classification of the only obstruction to common-deletion triples is useful beyond an asymptotic upper bound or sphere-degree identity.",
+      "residual_risks": [
+        "No result for t≥2 deletions or multi-permutations with repeated symbols; not a bound for optimal codes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Label-retaining single deletion; n≥2, clustering n≥3 only.",
+    "Historically equivalent graph enumeration remains possible.",
+    "The theorem crucially retains actual symbol labels (not standardized patterns); changing model invalidates counts.",
+    "Independent enumeration checks n≤6, not the infinite quantifier.",
+    "Older exact triangle counts for translocation Cayley graphs may be indexed under another formulation.",
+    "Kong full proof and appendices not fully reread this time."
+  ],
+  "schema_version": 1
+}
