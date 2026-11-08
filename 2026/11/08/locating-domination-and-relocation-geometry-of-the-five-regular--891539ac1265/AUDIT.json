@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The four-selected-vertex incidence lower bound rules out size <=4; complete enumeration of all 4368 five-subsets proves the exact 416 classification; distinct graph constructions enumerate all jumps/slides and BFS from every state. Both executed from actual packaged paths, exact outputs replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foucaud et al., arXiv:1412.2376, general upper bound for twin-free graphs",
+        "Hernando et al., arXiv:1312.0772, global locating-domination for graphs and complements"
+      ],
+      "reasoning": "General bounds do not classify the 416 minima or their movements. Identifying-code conditions for all closed-neighborhood traces are stronger than, not equivalent to, ordinary locating domination, and the 96 identifying minima form a strict subfamily of the 416 LD minima. Generic domination permits 1056 five-sets, so it cannot determine the induced LD reconfiguration metrics.",
+      "searches": [
+        "locating dominating sets strongly regular graphs 2014 2015 Clebsch graph",
+        "locating domination of strongly regular 16,5,0,2 Clebsch graph reconfiguration token jump slide",
+        "locating domination reconfiguration token sliding"
+      ]
+    },
+    "checked_sources": [
+      "Hernando--Mora--Pelayo, arxiv:1312.0772",
+      "Foucaud--Henning--Löwenstein--Sasse, arxiv:1412.2376",
+      "MathWorld Clebsch Graph",
+      "Balbuena--Foucaud--Hansberg 2015 locating-dominating codes in graphs of girth at least five",
+      "Existing identifying-code result on symmetric 2-(16,6,2) designs (96 Clebsch codes)",
+      "Existing ordinary-domination fixed-five-set result for the 5-regular Clebsch graph (1056 five-sets)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior symmetric-design closed-neighborhood identifying codes select 96 five-sets: 16 independent and 80 four-star sets",
+        "Prior ordinary domination on the five-regular Clebsch gives 1056 dominating five-sets and their general exchange graph",
+        "Present condition distinguishes only outsiders via open-neighborhood traces, producing 320 additional one-edge states"
+      ],
+      "reasoning": "An identifying-code classification implies feasibility for its 96 configurations but not exclusivity among LD sets; 320 new LD minima are not identifying codes. Ordinary dominating configurations are a superset; their full exchange graph may contain intermediate configurations that fail locating domination, so its connectedness and distances do not imply these claimed reconfiguration results. The 2013 and 2014 papers supply definitions/inequalities, not this exact host-dependent theorem.",
+      "searches": [
+        "\"Clebsch graph\" \"location-domination number\"",
+        "locating-dominating sets of threshold graphs by canonical omissions",
+        "\"Clebsch graph\" \"identifying code\" minimum 5",
+        "Clebsch graph folded five-cube 416 minimum locating dominating sets 16 stars 80 320 induced configurations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clebsch five-regular graph is the folded five-cube, MathWorld Clebsch Graph",
+        "arXiv:1312.0772 defines open-neighborhood traces only for outside vertices"
+      ],
+      "reasoning": "Checked equivalent labels (folded five-cube, 5-regular Clebsch, Cayley F2^4, (16,5,0,2)), ordinary locating-domination and code terminology. No equivalent 416-class exact classification surfaced; the defining trace predicate is explicitly applied to all 4368 five-subsets.",
+      "searches": [
+        "Clebsch graph folded five-cube 416 minimum locating dominating sets 16 stars 80 320 induced configurations",
+        "\"folded 5-cube\" \"locating\" \"dominating\" sets",
+        "Clebsch 5-regular graph minimum location domination partition signatures"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Clebsch Graph gives graph parameters, not the stated LD configurations",
+        "Exact independent enumerations in verify_even5.py and verify_folded4.cpp agree on 416 minima, 2960/1360 edges, sharp distances"
+      ],
+      "reasoning": "No checked table/record lists the same 416 LD minimum sets or both reconfiguration graphs. A previously recorded 96-element identifying-code census is not the 416-element LD census. Numerical absence alone is not treated as a novelty certificate.",
+      "searches": [
+        "\"Clebsch graph\" \"locating-dominating\" minimum",
+        "Clebsch graph minimum identifying codes 96 six clique reconfiguration",
+        "Clebsch graph folded 5 cube minimum locating dominating sets gamma_L=5 416 token jumping token sliding diameter"
+      ]
+    },
+    "rationale": "A complete finite structural classification and sharp relocation metrics on the 5-regular Clebsch graph are not implied by checked older definition/general-bound papers, 96 identifying-code minima, or the 1056 dominating-five-set exchange graph. Exact claims and implications were compared under graph and predicate aliases; residual priority uncertainty remains.",
+    "residual_risks": [
+      "Some specialized historic graph-code tables may be unindexed or inaccessible; absence of a matching search result does not establish worldwide novelty.",
+      "The theorem concerns ordinary locating domination; confusion with closed-neighborhood identifying codes or locating-total domination would change its meaning."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "definition and complement relationship, no Clebsch exact configuration/reconfiguration classification",
+        "evidence": [
+          "2013-12-03 public version; LD condition compares open-neighborhood traces on the outside of a set",
+          "Global LD is simultaneous LD for a graph and its complement"
+        ],
+        "identifier_or_url": "arxiv:1312.0772",
+        "material_read": "abstract and full available HTML article text, introduction and global/complement sections",
+        "method": "direct textual examination; checked graph host and exact tables/claims",
+        "title": "On global location-domination in graphs",
+        "trigger": "standard ordinary locating domination formulation"
+      },
+      {
+        "assessment": "general upper bounds do not fix the number or reconfiguration geometry of minimum Clebsch LD sets",
+        "evidence": [
+          "2014-12-09 public first version; generic twin-free graph bounds rather than exact 16-vertex census"
+        ],
+        "identifier_or_url": "arxiv:1412.2376",
+        "material_read": "full available HTML article text including stated general bounds",
+        "method": "text examination for graph classes, examples, strong regularity, and reconfiguration statements",
+        "title": "Locating-dominating sets in twin-free graphs",
+        "trigger": "plausibly dominating general theorem for every twin-free graph"
+      },
+      {
+        "assessment": "documents canonical graph, not claimed LD configuration results",
+        "evidence": [
+          "16 vertices; degree 5; 40 edges; strongly regular parameters (16,5,0,2)"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/ClebschGraph.html",
+        "material_read": "graph description and parameters",
+        "method": "reference comparison of 5-regular graph versus its 10-regular complement",
+        "title": "Clebsch Graph",
+        "trigger": "graph identification and generator isomorphism"
+      },
+      {
+        "assessment": "inapplicable because 5-regular Clebsch has girth 4",
+        "evidence": [
+          "source restricts to graphs of girth at least five; present graph contains four-cycles"
+        ],
+        "identifier_or_url": "2015 article by Balbuena, Foucaud and Hansberg",
+        "material_read": "title/abstract and stated girth hypothesis",
+        "method": "compare host hypotheses",
+        "title": "Locating-Dominating Sets and Identifying Codes in Graphs of Girth at least 5",
+        "trigger": "plausible stronger locating-domination classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "891539ac-1265-4d39-a2ee-7eb154d494b0",
+  "value": {
+    "rationale": "The exact induced-subgraph classes and two sharp configuration graph metrics provide natural sensor-placement reconfiguration invariants on a canonical strongly regular graph. The 80 degree-one star configurations under sliding and sharp 7-versus-6 diameter distinction are nontrivial movement information not recoverable from minimum size, ordinary domination, or identifying-code subfamilies.",
+    "status": "PASS"
+  }
+}
