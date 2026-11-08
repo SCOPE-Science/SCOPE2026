@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact certificate verification
+# Independent mathematical audit
 
-Run `python3 verify.py` next to `certificate.json`. No third-party libraries, network or optimization engines are needed. The verifier reconstructs the 240 admissible eight-bit arcs and 120 reversal pairs, checks the palindromic-vertex identity exhaustively in its local four-arc universe, checks 240 integer inequalities from the explicitly supplied potentials, and confirms that their reversal-pair multipliers total 92. It also checks all 92 cyclic windows of the witness and the balance of the corresponding de Bruijn circuit.
+## correctness
 
-The arithmetic proof is valid for any candidate binary cyclic word of order eight; the witness verifies attainability. The finite certificate is not an asymptotic theorem, and it makes no claim about periods at other window lengths or about the enumeration of optimal cycles.
+PASS
+
+The binary order-eight orientable problem is equivalent to selecting nonpalindromic 8-bit arcs in the order-seven de Bruijn graph, with at most one from each reversal pair and balanced in/out degree at every seven-bit vertex. For 16 palindromic states, reversal pairing and balance force opposite exterior bits between each selected incoming and outgoing arc. The supplied nonnegative integer dual has 120 pair classes, beta weights summing exactly 92; independent V8 arithmetic checked all 240 gamma_w>=1 (minimum 1, maximum 3) and all 44 locally admissible palindromic-state patterns. The supplied 92-bit cyclic witness has exactly 92 distinct nonpalindromic reversal classes. Thus the exact finite dual certifies upper 92 and the witness attains it; no reliance on optimization log.
+
+## originality
+
+PASS
+
+Gabrić-Sawada CPM 2024 Table 1 previously gave 92 as a construction and 96 as an upper bound. The present explicit integer dual supplies the missing 92 upper bound; Mitchell-Wild recursive constructions/general bounds do not settle order-eight binary maximum. The 1993 originating chapter could not be inspected in full, a specific priority risk.
+
+## value
+
+PASS
+
+M8=92 resolves the first published unresolved binary orientable sequence order, a natural reversal-safe position-and-direction coding invariant. A small local palindromic-state identity and exactly checkable integer dual are substantive beyond the known 92-length witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
