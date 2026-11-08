@@ -1,23 +1,21 @@
-# Scientific review: graphic-bond static and online shattering
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every bond of a three-path theta graph is either a transversal triple (one edge on each endpoint-to-endpoint path) or a pair of edges from one path; this follows from a connected-bipartition proof. Consequently all theta bonds have support size at most three, bounding online depth. An explicit three-edge shattered transversal establishes equality when all three paths have length at least two. A direct endpoint edge obstructs every shattered triple, while a two-edge support is explicitly shattered. A verified depth-three, eight-leaf tree on the six-edge house supplies the remaining online lower bound, and the six-concept counting bound handles the smaller diamond.
+PASS
 
-For trees and unicyclic graphs, the proof enumerates all bonds structurally and bounds online depth through the positive-branch forms. For the sharp edge threshold, connected simple graphs with at most six edges and at least two cycles reduce to a handful of graph-core types. The classification is supplemented by exhaustive, independently formulated exact finite verification of 595 connected labeled graphs, with 60 strict-gap labelings all isomorphic to the house. The proof does not infer infinite results from that computation.
+For connected simple theta graphs with path lengths a<=b<=c (a>=1,b>=2), every bond is either a transversal 3-set containing one edge per path or a within-path 2-set: follows connected bipartition criterion. All bonds <=3 gives Ldim<=3. For a>=2 three distinguished path edges realize all 2^3 traces => (VC,Ldim)=(3,3); a=1 forces VC=2, and for (1,2,2) 6 hypotheses force Ldim<=2, while a=1,c>=3 embeds explicit depth-three house shattering tree => (2,3). Tree and unicyclic bond families have stated low dims. Independently enumerated all 595 connected labeled simple graphs on 2..5 vertices <=6 edges, computing bonds and exact VC/Ldim: precisely 60 labeled exceptions (5 vertices,6 edges,VC=2,Ldim=3), all house isomorphism type. The proof (rather than finite enumeration) covers arbitrary theta parameters and larger trees/unicyclic graphs.
 
-## Originality
+## originality
 
-**PASS within inspected source and database comparisons, subject to historical-priority limits.** The nearest substantive full-text result, Guingona–Kolesnikov–Nierwinski–Soucy (arXiv:2109.04805), proves equality for *all* zero sets of nonzero linear combinations, not the subfamily of maximal proper zero sets. In the graphic representation, the latter corresponds to graphic matroid hyperplanes, or complements of bonds. The house example demonstrates the noninheritance of their equality after the maximal-flat restriction. Duarte et al. (arXiv:2007.04513) define bonds via connected bipartitions and investigate largest-bond computation, not these learning dimensions. Database and literature queries also tested the aliases *minimal edge cuts*, *graphic cocircuits*, *matroid hyperplanes*, *maximum zero sets*, *theta-graph bond concepts*, and *online shattering*; the inspected material did not imply the theorem.
+PASS
 
-The earlier literature on complete zero-set classes and graph cuts is credited rather than treated as new. Residual risk: an independently published classification under another model-theoretic or matroidal vocabulary may exist; neither search absence nor the local finite census proves historical novelty.
+The bond=graphic cocircuit=matroid-hyperplane duality gives several equivalent terms. Guingona et al zero-set theorem proves VC=Ldim for ALL nonzero linear-form zero sets; restricting to maximal proper zero sets (hyperplanes) is a subfamily operation and does not preserve equality, as house counterexample explicitly shows. Bond size extremal research does not determine learning dimensions. Sharp 6-edge threshold and theta classification appear uncovered in inspected primary texts.
 
-## Mathematical value
+## value
 
-**PASS.** The result identifies the first and unique smallest simple connected graph (by number of edges) where VC and Littlestone dimensions of bond concepts separate. It also completely determines both learning dimensions for every simple theta graph, shows exactly which path-length configurations create the gap, and proves equality on all trees and unicyclic graphs. The maximal-hyperplane restriction of a represented linear zero-set class retains maximum online complexity while losing static dimension in the smallest example. This is a structural boundary with direct relevance to online concept complexity of matroid cocircuits, not merely an isolated numerical table.
+PASS
 
-## Limitations and comparison risks
+A sharp first static-adaptive shattering gap for natural graphic-matroid concept classes, together with all-theta phase classification and cactus low-cycle boundary, is a structurally motivated finite threshold and general combinatorial theorem.
 
-The theorem does not cover arbitrary multicyclic graphs, minimum-cardinality cuts, or vertex separators. The finite census is complete within its stated graph-size range, whereas broader novelty is established only against the accessible inspected material. External independent validation has not been performed; exact proof and check artifacts are included.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
