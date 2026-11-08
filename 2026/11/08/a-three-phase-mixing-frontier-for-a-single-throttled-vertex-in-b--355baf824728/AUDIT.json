@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=3 and b in [0,1], the graph symmetry average preserves the constraint and cannot increase centered spectral norm. The complete three-class quotient plus two internal eigenspaces yields exactly the four nontrivial eigenvalue values. Loewner monotonicity in the remaining edge weight proves the global lower bounds, with explicit attaining formulas in three regimes. The low and mid spectral dominance checks are exact factorizations; the high root uniquely balances alpha with -t_minus between a1 and b/m, where t_plus and beta are dominated. Endpoints and feasibility verified. The standalone checker reconstructed rational stochastic matrices/eigenvectors and tested 1313 exact identities and 334411 numerical alternatives; finite tests are supporting evidence only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. (2007), §§4 and 5 establish orbit reduction and convex SDP in the unrestricted FMMC setting.",
+        "Jafarizadeh (2020) investigates clique lifts, stars, ladders, barbells and nonuniform stationary distributions, with no fixed vertex escape parameter in main constraint (4)."
+      ],
+      "reasoning": "General SDP solvability and symmetry reduction do not evaluate this all-m, all-b constrained optimization. The clique-lifting theorem concerns an unrestricted optimum and cannot be directly applied to a fixed escape probability of one singleton vertex. Neither stronger coverage nor implication was found after material reading.",
+      "searches": [
+        "arxiv:0709.0955v1 unrestricted FMMC symmetry orbit method",
+        "doi:10.1109/TSIPN.2020.2964211 clique lifted reversible Markov chain subgraph",
+        "Reversible Markov chain FMMC single exceptional vertex distinguished row sum constraint bipartite graph stationary uniform"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1",
+      "Stanford Statistics Technical Report 2003-04",
+      "doi:10.1109/IWCMC.2011.5982616",
+      "doi:10.1109/TSIPN.2020.2964211",
+      "Indexed published-claim searches on one-vertex row constraint, holding, matching-edge and complete-bipartite mixing",
+      "Previously recorded exact fixed-matching-edge constrained formula, claim ID 5db86611-e174-4518-af65-bda7b38ebf0c",
+      "Research-index searches for fixed one-vertex holding and complete-bipartite SLEM"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. 2007 derives edge-invariant optimum for K_mn and general orbit-quotient techniques, but does not impose b at one vertex.",
+        "Jafarizadeh/Jamalipour 2011 solves four particular symmetric or semi-symmetric multipartite network topologies without fixed singled-out row sums.",
+        "Jafarizadeh 2020 full text main constraints are nonnegative edge weights and fixed stationary distribution; no extra fixed individual row retention appears."
+      ],
+      "reasoning": "The first source supplies methods and the unrestricted benchmark, not an implication that evaluates the constrained case. A change of topology or stationary distribution in the latter two sources does not reproduce fixing one vertex's total probability while keeping all stationary weights uniform. Hence their published claims do not entail the present closed piecewise optimization.",
+      "searches": [
+        "arxiv:0709.0955v1, §§3.1.2, 4, 5.3.1",
+        "doi:10.1109/IWCMC.2011.5982616 Semi SKP sensor networks",
+        "doi:10.1109/TSIPN.2020.2964211 contributions/optimization constraints",
+        "Fixed vertex self-loop probability fastest mixing symmetric Markov chain on complete bipartite graph optimal hold probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2007 arXiv:0709.0955v1 §3.1.2 gives equal edge probability on K_{m,n} by edge transitivity, no distinguished holding constraint.",
+        "A previously recorded fixed perfect-matching-edge transition result (opaque ID 5db86611-e174-4518-af65-bda7b38ebf0c) constrains m separate edges, not the one distinguished row sum."
+      ],
+      "reasoning": "An exact one-vertex row-sum constraint is not equivalent under graph automorphism to prescribing a matching of m edges; the latter touches every vertex while the former singles out exactly one. The unrestricted complete-bipartite formula recovers only b=2/3, not the other b values. No identified paper or record gives the two active changes of the claimed frontier.",
+      "searches": [
+        "Symmetric fastest mixing Markov chain on complete bipartite graph K_m,m with one distinguished vertex having fixed total outgoing probability b, three orbit quotient, square-root transition at b=2/3, optimal opposite-edge weight",
+        "Fixed vertex self-loop probability fastest mixing symmetric Markov chain on complete bipartite graph optimal hold probability",
+        "'fastest mixing' 'complete bipartite' 'self loop' 'one vertex' constraint",
+        "arxiv:0709.0955v1, §§3.1.2, 5.3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boyd et al. (2007), Eq. (10) and (11), show K_{m,n} unrestricted weights and SLEM; for balanced parts the single optimum is b=2/3, rho=1/3.",
+        "Accessible local claim ID 5db86611-e174-4518-af65-bda7b38ebf0c sets each u_i-v_i matching transition, and gives a two-branch envelope; not the one-vertex aggregate problem."
+      ],
+      "reasoning": "The exact optimized table/formula located in primary work covers the constraint-free graph. The closest locally recorded table fixes a disjoint perfect matching, not the aggregate escape of one distinguished vertex; comparing feasible slices shows neither formula subsumes the new theorem. No exact one-vertex-throttle table was identified.",
+      "searches": [
+        "Fastest mixing Markov chain on barbell graph two cliques joined by one bridge fixed cross-edge transition probability exact second-largest eigenvalue modulus optimum.",
+        "Symmetric fastest mixing Markov chain on complete bipartite graph K_m,m with one distinguished vertex having fixed total outgoing probability b, three orbit quotient, square-root transition at b=2/3, optimal opposite-edge weight",
+        "Fixed vertex self-loop probability fastest mixing symmetric Markov chain on complete bipartite graph optimal hold probability",
+        "Boyd Diaconis Parrilo Xiao K_mn equation (10) (11)"
+      ]
+    },
+    "rationale": "Boyd et al. 2007 derive only unrestricted edge-transitive complete-bipartite FMMC (a single b=2/3 point). The proposed full fixed-single-vertex aggregate transition frontier has two nontrivial transitions at 1/(m+1) and 2/3 and a different high-throttle active mode. The literature of multipartite sensor graph topologies (2011) and clique lifts (2020) was materially inspected and does not state this fixed-row-aggregate constrained frontier. This is not a mere reparameterization of the recorded fixed-matching-edge constraint: fixed matching edges constrain m edges distributed among all rows, whereas the new condition fixes one row sum and leaves its individual entries free. No stronger/equivalent formula found; publication-priority risk remains.",
+    "residual_risks": [
+      "Unindexed or differently parameterized specialist literature may contain the same exact fixed-row frontier.",
+      "An inaccessible later version of a specialist manuscript could assert an unlocated equivalent formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the fixed singled-out row probability; unrestricted optimum is b=2/3, used as benchmark",
+        "evidence": "arxiv:0709.0955v1, equations (10), (11) and section 5.3.1",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "39-page PDF, abstract and method, sections 3.1.2, 4 and 5.3.1 including complete bipartite spectra, formula (10)/(11), and orbit representations; pages 0, 9 and 26 examined as images",
+        "method": "Full-text structured extract with searches and original-page visual checks",
+        "title": "Fastest mixing Markov chain on graphs with symmetries",
+        "trigger": "Closest primary fully edge-transitive complete bipartite SLEM optimizer and general symmetry reduction"
+      },
+      {
+        "assessment": "General unrestricted SDP framework, not the fixed-one-row probability frontier",
+        "evidence": "Stanford Technical Report 2003-04, February 2003, abstract and complete bipartite example",
+        "identifier_or_url": "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Diaconis/Diaconis7.pdf",
+        "material_read": "Full 2003 report text searched for bipartite example; read abstract, setup, §1 and complete-bipartite example; page images also consulted",
+        "method": "Public full PDF text and visual inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general convex Markov-mixing formulation"
+      },
+      {
+        "assessment": "NOT_COVERING fixed aggregate transition at one vertex; studies four graph families with no row-throttle parameter",
+        "evidence": "Jafarizadeh/Jamalipour, IWCMC 2011, DOI:10.1109/IWCMC.2011.5982616, introduction and Section III",
+        "identifier_or_url": "https://www.researchgate.net/publication/220762147_Fastest_mixing_Markov_chain_on_symmetric_K-partite_sensor_networks",
+        "material_read": "Extended public text including abstract, §§I, III and descriptions of symmetric and semi-symmetric K-partite graph topologies and their unconstrained optimal weights",
+        "method": "Author-posted extended text; formulas partially garbled but topology/constraints readable",
+        "title": "Fastest mixing Markov chain on symmetric K-partite sensor networks",
+        "trigger": "Plausible competing analytic solution for multipartite topologies"
+      },
+      {
+        "assessment": "NOT_COVERING the fixed-single-row retention under uniform stationary distribution; broader unrestricted topology results do not imply the three-phase frontier",
+        "evidence": "Jafarizadeh, IEEE TSIPN 6 (2020), pp. 88-104, DOI:10.1109/TSIPN.2020.2964211, sections I-II and V-VII",
+        "identifier_or_url": "https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs",
+        "material_read": "Author-posted full text, abstract and contributions, problem constraints (4), topology list and examples on clique lifts and barbells",
+        "method": "Public full text from author-uploaded version, searched relevant terms",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "Potential stronger structural reduction with arbitrary stationary distribution and subgraph weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "355baf82-4728-49f3-8eba-2735dfc10912",
+  "value": {
+    "rationale": "A fixed outgoing probability at one designated node models a concrete local mixing/retention bottleneck. The complete all-size constrained SLEM frontier exhibits the natural saturation threshold 1/(m+1), a universal transition at 2/3, and an algebraic high-throttle active-eigenspace switch. The result is not a textbook substitution: it solves a global constrained spectral optimization, gives explicit optimal edge weights, and characterizes the changing binding modes for infinitely many graph sizes and all feasible throttle values.",
+    "status": "PASS"
+  }
+}
