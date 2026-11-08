@@ -1,15 +1,21 @@
-# Assessment of exact forcing-colouring spectrum of clique windmills
+# Independent mathematical audit
 
-## Correctness (PASS)
-The domain is the labelled windmill \(K_1\vee(nK_{q-1})\) for integers \(q\ge3\), \(n\ge2\), with exactly \(q\) colours and the local forced-colouring rule. No outer vertex can be forced before the hub is coloured, and each blade needs at least \(q-2\) initially coloured outer vertices. Once those conditions hold, the hub may start uncoloured precisely when its outer seeds collectively contain the \(q-1\) colours other than the hub colour. Fixing a proper total colouring, each blade contributes \(z^{q-2}(q-1+z)\); when the hub is not a seed, exactly \(q-1\) omitted-colour patterns obstruct it. Each successful partial assignment has a uniquely forced completion, so multiplication by \(q((q-1)!)^n\) does not double-count. This proves the cardinality, minimum-layer, and probability formulas for all parameters. The standalone exhaustive independent implementation examines 357677 partial assignments from four small parameter pairs and verifies 224 coefficient profiles; finite tests only corroborate the proof.
+## correctness
 
-## Originality (PASS; historical priority qualified)
-The primary 2026 paper by G. E. Farr develops forced-colouring functions, but its complete-graph formula concerns the excluded one-blade boundary. Farr–Morgan (2024) gives the general domain-sum definition, not this complete two-parameter windmill enumerator. Existing forced-colouring results for paths, cycles, bicliques and complete multipartite graphs do not imply it via specialisation: the proposed family has a shared hub, triangles, and is not a complete multipartite graph. Searches used the alternate names friendship graph, clique bouquet, cut-vertex clique sum, and windmill, alongside forced colouring and partial-assignment propagation. No corresponding exact formula was located. A broader unindexed cut-vertex factorisation result remains a genuine possible implication/prior-art risk; the search is not an assertion of absolute priority.
+PASS
 
-## Mathematical value (PASS)
-The complete forcing-domain polynomial supplies every cardinality count in an infinite natural family, the exact minimum number of initial seeds and its multiplicity, and the random partial-colouring forcing probability. The explicit subtraction term isolates a genuinely global hub obstruction that is invisible when treating the blades independently. It resolves the natural first multi-block case beyond a single clique and gives an exact illustration of failure of naive multiplicativity for a shared-vertex clique sum.
+For W_{q,n}=K1∨n K_{q-1} (q>=3,n>=2), no outer uncolored vertex can be forced before the hub receives a color, and no blade with >=2 originally uncolored outer vertices can subsequently be completed. Hence every blade initially seeds >=q-2 vertices; a hub-free start additionally requires all q-1 nonhub colors on seeded outer vertices, otherwise there is no legal first move. For a fixed proper coloring each blade contributes z^{q-2}(q-1+z), hub seeded adds z, and the hub-free failure event consists exactly of q-1 common omitted colors. Unique forced full extension prevents overcounting. Multiplying by q((q-1)!)^n gives the exact polynomial, minimum-size coefficient and probability formula for 0<=p<=1/q. Direct original-rule brute force independently matched q=3,n=2,3 and q=4,n=2, while structural counting proves all parameters.
 
-## Boundaries and verification
-The statements cover only the chromatic palette, identical clique blades, and at least two blades; no external review is asserted. The proof is general, while the program provides finite direct and algebraic checks. A previously unseen theorem on forcing-colouring composition may cover the result and is a residual historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farr introduced the forced-colouring polynomial and its local rule. Published SCOPE complete-multipartite forcing counts use a non-isomorphic graph class; the published zero-forcing friendship polynomial uses a different propagation rule. The assessed contribution is the clique windmill family and synchronized-hub obstruction, not the general forcing polynomial definition or the n=1 complete graph boundary. Farr full primary PDF could not be obtained after arxiv and OA attempts and authorized download reported VPN disconnected; risk remains as to implicit clique-separator recurrences.
+
+## value
+
+PASS
+
+The clique windmill is a natural vertex-sum of cliques with a shared hub. Its global forcing behavior is not the product of independent clique enumerators; an explicit subtraction for the common omitted color gives the full nontrivial distribution and sharp minimum seeds, useful as a test family for forced-coloring polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

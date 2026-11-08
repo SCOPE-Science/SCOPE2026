@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
-Run `python3 verify.py` using Python 3's standard library. The program constructs actual labelled windmill graphs and enumerates every initial partial colour assignment for \((q,n)\) equal to \((3,2)\), \((3,3)\), \((3,4)\), and \((4,2)\), including incompatible assignments, simulates forced colour propagation, tests proper completion, and separately evaluates the structural characterization and the polynomial. It also performs exact coefficient comparisons over 224 parameter pairs with \(3\le q\le16\) and \(2\le n\le17\).
+# Independent mathematical audit
 
-Successful local execution produced:
+## correctness
 
-`VERIFY_OK complete_cases=4 initial_assignments=357677 forcing_assignments=13296 symbolic_profiles=224`
+PASS
 
-These checks are independent finite corroboration; they cannot prove statements quantified over all \(q,n\). The general proof is the structural count in `RESULT.md`. No external independent audit was performed; the structured front matter records that fact.
+For W_{q,n}=K1∨n K_{q-1} (q>=3,n>=2), no outer uncolored vertex can be forced before the hub receives a color, and no blade with >=2 originally uncolored outer vertices can subsequently be completed. Hence every blade initially seeds >=q-2 vertices; a hub-free start additionally requires all q-1 nonhub colors on seeded outer vertices, otherwise there is no legal first move. For a fixed proper coloring each blade contributes z^{q-2}(q-1+z), hub seeded adds z, and the hub-free failure event consists exactly of q-1 common omitted colors. Unique forced full extension prevents overcounting. Multiplying by q((q-1)!)^n gives the exact polynomial, minimum-size coefficient and probability formula for 0<=p<=1/q. Direct original-rule brute force independently matched q=3,n=2,3 and q=4,n=2, while structural counting proves all parameters.
+
+## originality
+
+PASS
+
+Farr introduced the forced-colouring polynomial and its local rule. Published SCOPE complete-multipartite forcing counts use a non-isomorphic graph class; the published zero-forcing friendship polynomial uses a different propagation rule. The assessed contribution is the clique windmill family and synchronized-hub obstruction, not the general forcing polynomial definition or the n=1 complete graph boundary. Farr full primary PDF could not be obtained after arxiv and OA attempts and authorized download reported VPN disconnected; risk remains as to implicit clique-separator recurrences.
+
+## value
+
+PASS
+
+The clique windmill is a natural vertex-sum of cliques with a shared hub. Its global forcing behavior is not the product of independent clique enumerators; an explicit subtraction for the common omitted color gives the full nontrivial distribution and sharp minimum seeds, useful as a test family for forced-coloring polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
