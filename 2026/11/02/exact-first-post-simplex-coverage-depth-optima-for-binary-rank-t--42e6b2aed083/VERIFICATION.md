@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Exact verification protocol
-Execute `python3 verify.py` with a standard Python 3 installation. It uses only standard-library `fractions`, `itertools`, `math`, and `random`. The enumerator visits every nonnegative seven-tuple summing to each of the six blocklengths and evaluates the finite-expectation criterion by integer arithmetic after clearing denominators. For each length it verifies both the optimal rational expectation and **the exact set** of minimizers, including the Fano line/cap restrictions.
+# Independent mathematical audit
 
-The independent Markov check solves rational one-step equations for expected waiting times in every binary subspace, then compares all optimal profiles and 240 additional profiles against the subspace-lattice formula. Failure of any check raises `AssertionError`; a success marker is printed only after all tests finish. Read `verification_output.txt` for the recorded actual execution. These checks certify the stated finite cases conditional on correct execution of the supplied open code; they are not an external mathematical audit and they do not extend the result to arbitrary lengths. Scientific novelty remains subject to literature coverage risks described in the review.
+## correctness
+
+PASS
+
+The rank-three Fano subspace-lattice inclusion-exclusion identity E=8+n(sum_L 1/(n-m(L))-2 sum_v 1/(n-m_v)) follows by evaluating each positive t proper-span event and the t=0 correction. Rank-deficient profiles force infinite expectation; a zero column can only delay sampling. Exhaustive integer lcm(1..n)-scaled objective independently enumerated all 71,092 full-rank seven-part profiles for n=8..13 and reproduced all six minima and COMPLETE equality sets (r=3 nonlines, r=4 complements of lines). The supplied verify.py was inspected, including exhaustive compositions and separate Markov recursion. This proves only these six finite lengths, not an unrestricted optimal code family.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.
+
+## value
+
+PASS
+
+The first six post-simplex integer-length optima and every equality class are natural, exact finite parameters of the DNA/code coverage-depth problem; discrete Fano line/cap structure and all optimizing profiles are nontrivial information not supplied by a continuous simplex lower bound. The classification has a useful self-contained finite scope, without claiming all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
