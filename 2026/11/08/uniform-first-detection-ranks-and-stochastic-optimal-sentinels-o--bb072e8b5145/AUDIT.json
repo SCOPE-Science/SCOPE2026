@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(n\\ge3\\), \\(1\\le k\\le n\\) and \\(\\lambda>0\\), conditional on any frontier-direction sequence and an internal seed, exactly \\((\\ell-m-1)_+\\) positions survive \\(m\\) infection events. Uniform seeding gives the event-rank tail, and two frontier hazards give independent \\(\\operatorname{Exp}(2\\lambda)\\) event intervals. Poissonization gives the complete detection-time survival function, and its exact positive second discrete difference \\(e^{-u}u^{\\ell-1}/(\\ell-1)!\\) yields sharp balanced/concentrated gap extrema. Both boundary cases and the expectation formula are derived; a separate 50,036-assertion exact verifier cross-checks small-cycle transition equations and gap ranks without being presented as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leskovec et al. 2007 establish broad submodularity and approximate detection optimization on general networks, but such guarantees do not imply exact stochastic dominance for every time or classify all cycle extremizers.",
+        "Batlle et al. 2020 give a general contact-network epidemic testing formulation and approximate optimization, including adaptation; no stronger all-time exact cycle theorem was found in the material read.",
+        "Christakis and Fowler arXiv:1004.4792 study empirical social sensors; the abstract does not assert an exact SI cycle optimization theorem.",
+        "Colman et al. (2019), DOI 10.1371/journal.pcbi.1007517, read in full on PLOS: the paper expressly proposes spatially distributed sentinel strategies but evaluates them in SIR simulation on synthetic and empirical networks; it does not derive an exact SI cycle stochastic-order optimizer."
+      ],
+      "reasoning": "The present theorem is specialized in graph topology but stronger in the objective: it certifies a simultaneous exact optimum and maximum for the complete survival curve. Broader graph frameworks with submodular approximations do not imply this result without a cycle-specific exact argument. The available broader results therefore are not dominating mathematical implications.",
+      "searches": [
+        "epidemic monitoring sentinel placement shortest detection expected time graph SIS SIR trees optimal allocation graph",
+        "equal spacing optimal sentinel locations cyclic contact graph infection monitoring stochastic dominance first detection time Poisson process",
+        "site:arxiv.org epidemic spreading ring lattice sentinel placement equal spacing detection time monitored vertices SI"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1145/1281192.1281239 (full author-hosted extended PDF)",
+      "arXiv:2011.01998 (accessible full HTML)",
+      "arXiv:1004.4792 (abstract and metadata only)",
+      "doi:10.1016/j.jtbi.2012.03.009 (abstract and metadata only)",
+      "doi:10.1371/journal.pcbi.1007517 (full original publisher HTML)",
+      "arXiv:1803.10637 / DOI:10.1103/PhysRevE.98.022313 (abstract/metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2007 full report supplies sensor-placement motivation and submodular approximation; the missing implication is strict discrete convexity of an exact gapwise Poissonized detection law.",
+        "The 2020 full-text testing paper studies general stochastic epidemic observations but does not state a direction-independent uniform conditional event-rank law.",
+        "Independent derivation: for each fixed string of \\(m\\) frontier directions, precisely \\((\\ell-m-1)_+\\) internal seed positions avoid detection, and the positive Poisson coefficient \\(e^{-u}u^{\\ell-1}/(\\ell-1)!\\) is the exact gap curvature.",
+        "In Colman et al. (2019), Methods and Results, equal geographic region selection is a heuristic strategy and the simulated model includes recovery; no universal Poisson-gap curvature or complete cycle optimum is established."
+      ],
+      "reasoning": "Neither the general approximation theorem nor empirical early-sensor observations mathematically imply the new uniform gap-rank identity and strict all-time extremizers. The claim is not a mere parameter specialization of any theorem observed in the inspected complete primary texts. The principal historical risk is unpublished or less-visible one-dimensional epidemic-monitoring literature.",
+      "searches": [
+        "continuous-time SI epidemic on cycle with k stationary sentinels monitoring nodes, uniformly random initial infection, exact detection time survival probability and optimal equally spaced monitors, Poisson curvature",
+        "equal spacing optimal sentinel locations cyclic contact graph infection monitoring stochastic dominance first detection time Poisson process",
+        "uniform number of SI infection events before hitting one of k sentinel vertices on a cycle, balanced gap lengths and Erlang mixture detection time",
+        "earliest infection sentinel cyclic network exponential rate 2 lambda Poisson convolution discrete convex gap placement exact optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The finding is equivalently an exact law for the number of infection-frontier events before a fixed sentinel is reached, followed by an independent Erlang/Poisson time change.",
+        "Leskovec et al. 2007, DOI 10.1145/1281192.1281239, extended report Section 2 and detection definitions, treats general cascades and submodular sensor objectives, not the uniform rank identity or the exact cycle all-time extremal formula.",
+        "Batlle et al. arXiv:2011.01998, accessible full HTML Section 3, treats adaptive test allocation for continuous-time epidemic contact networks, not this fixed-site gap-rank law."
+      ],
+      "reasoning": "Exact equivalence can be expressed as a uniform discrete detection-event count within any fixed sensor gap, a Poissonized survival law, or an all-increasing-loss optimal design. Relevant general-purpose epidemic-detection literature provides neither this exact identity nor its strict discrete curvature. Searches of those formulations revealed no matching statement, but absence is not a proof of global priority.",
+      "searches": [
+        "continuous-time SI epidemic on cycle with k stationary sentinels monitoring nodes, uniformly random initial infection, exact detection time survival probability and optimal equally spaced monitors, Poisson curvature",
+        "uniform number of SI infection events before hitting one of k sentinel vertices on a cycle, balanced gap lengths and Erlang mixture detection time",
+        "site:arxiv.org epidemic spreading ring lattice sentinel placement equal spacing detection time monitored vertices SI"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact statement concerns every cycle order, sensor count, positive infection rate and observation time, not a finite enumeration or a table lookup.",
+        "The 50,036 finite checks are validation of proof identities; exhaustive enumeration of small cycles is not used as a novelty argument.",
+        "No inspected epidemiological exact-sensor table lists the universal rank law or strict stochastic-optimality formula."
+      ],
+      "reasoning": "Known finite graph tables or particular placements, even if they include the same 12-vertex numerical instance, would not imply the all-size analytic theorem unless they carry a general identity or stronger graph-family theorem. No such covering source was identified in the inspected literature.",
+      "searches": [
+        "uniform number of SI infection events before hitting one of k sentinel vertices on a cycle, balanced gap lengths and Erlang mixture detection time",
+        "earliest infection sentinel cyclic network exponential rate 2 lambda Poisson convolution discrete convex gap placement exact optimal",
+        "stochastic epidemic contact tracing monitoring points on cycle exact first infection shortest time sensors optimally spaced"
+      ]
+    },
+    "rationale": "The motivating KDD 2007 paper provides general submodular approximation for outbreak detection, and arXiv:2011.01998 studies adaptive epidemic test placement. Inspected relevant primary material does not state or imply this exact uniform detection-event rank or strict all-time stochastic-optimal placement theorem. Semantic research-record comparisons using aliases, the Poisson transform and sensor-gap formulations found no directly covering record. Priority remains provisional because obscure exact ring surveillance literature may exist and some plausible historical full texts were inaccessible. Colman et al. (2019) full primary publisher text presents spatially dispersed sentinel heuristics and SIR simulations rather than an exact homogeneous SI cycle all-time rank theorem.",
+    "residual_risks": [
+      "Historical priority is provisional: not every older network-sentinel, one-dimensional contact-process, and mathematical surveillance source was accessible or indexed.",
+      "The Christakis–Fowler full text and the 2012 incidence-at-detection paper full text were not established; no blanket assertion of noncoverage by those whole papers is made.",
+      "The 2007 technical report is dated June without a verified day; the earliest precisely verified public date for the selected primary published paper is August 12, 2007.",
+      "The full text of Holme (2018), arXiv:1803.10637, was not accessible in this run; its abstract is related, but no decisive exact-cycle overlap is suggested by the available material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general set-function guarantees and near-optimal algorithms, not the conditional uniform event count or sharp equal-gap stochastic order.",
+        "evidence": [
+          "Original KDD 2007 DOI:10.1145/1281192.1281239",
+          "Author-hosted extended PDF sections on detection probability and submodularity."
+        ],
+        "identifier_or_url": "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+        "material_read": "Author-hosted complete extended technical report: abstract, problem/objective formulation, submodularity and approximation theory, and concluding section; original PDF was visually inspected on first and fourth pages.",
+        "method": "Read accessible full-text PDF and selected rendered pages; compared sensor loss, graph family, and proven optimization type with the present exact all-time claim.",
+        "title": "Cost-effective outbreak detection in networks",
+        "trigger": "Closest foundational formulation of optimal sentinel placement for spreading processes, potentially implying exact cycle placement."
+      },
+      {
+        "assessment": "Does not supply the uniform gap-rank distribution, a Poisson-gap curvature result, or exact equal-gap optimality for every observation time.",
+        "evidence": [
+          "arXiv:2011.01998",
+          "Authors explicitly classify epidemic application under MSC 92D30."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.01998",
+        "material_read": "Accessible full arXiv HTML paper, including problem setup and Sections 3 and 5 on stochastic epidemic testing and optimization.",
+        "method": "Read primary full HTML and compared first-detection objectives, fixed vs adaptive sensors, graph topology, and theorem conclusions.",
+        "title": "Adaptive Test Allocation for Outbreak Detection and Tracking in Social Contact Networks",
+        "trigger": "Same class of contact-network epidemic process with explicit sensor/test placement, plausible stronger general coverage."
+      },
+      {
+        "assessment": "The available abstract concerns empirical early warning with social sensors rather than exact homogeneous SI cycle optimization; full-text uncertainty remains.",
+        "evidence": [
+          "arXiv:1004.4792, first submitted 2010-04-27"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1004.4792",
+        "material_read": "Primary arXiv abstract and bibliographic record only; full paper not reliably accessible in this run.",
+        "method": "Inspected arXiv abstract and publication information; did not make a whole-document noncoverage inference.",
+        "title": "Social Network Sensors for Early Detection of Contagious Outbreaks",
+        "trigger": "Early literature on network monitoring and early detection, possibly a source of exact sensor placements."
+      },
+      {
+        "assessment": "Appears concerned with the incidence at discovery and time-based monitoring design, but a complete source-level noncoverage conclusion is unavailable.",
+        "evidence": [
+          "DOI:10.1016/j.jtbi.2012.03.009, first online 2012-03-29"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2012.03.009",
+        "material_read": "Publisher/abstract and bibliographic description only; full text not inspected.",
+        "method": "Checked abstract-level problem formulation; treated potential historical overlap as residual risk.",
+        "title": "Estimating incidence of an epidemic when first discovered and the design of early detection monitoring",
+        "trigger": "Potential alternative early-detection design analysis with a related objective."
+      },
+      {
+        "assessment": "The paper explicitly studies spatially dispersed sentinels, but it evaluates heuristic choices using finite simulated SIR outbreaks; it supplies no all-time exact cycle optimizer, rank-uniformity identity, or strict Poisson discrete curvature.",
+        "evidence": [
+          "Colman et al., PLOS Computational Biology 15(11):e1007517 (2019), Methods sections Network topology and sentinel performance, Disease model and Sentinel placement strategies.",
+          "Publisher text explicitly uses SIR simulations with infectious period 1 and transmission rate 0.5, rather than the present homogeneous irreversible SI cycle model."
+        ],
+        "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+        "material_read": "Full publisher HTML including abstract, introduction, disease model, sentinel placement strategies, measures, results, and discussion.",
+        "method": "Read original open-access PLOS publisher paper; compared graph topology, SIR versus SI dynamics, objective, exact versus simulated guarantees.",
+        "title": "Efficient sentinel surveillance strategies for preventing epidemics on networks",
+        "trigger": "Highly plausible direct overlap: sentinel sets distributed across spatial regions in epidemic contact networks."
+      },
+      {
+        "assessment": "The abstract describes SIR on empirical static/temporal networks and compares objective measures, but without full text one cannot categorically exclude a cycle-specific theorem.",
+        "evidence": [
+          "Petter Holme, Phys. Rev. E 98, 022313 (2018), DOI 10.1103/PhysRevE.98.022313",
+          "arXiv:1803.10637 originally posted March 28, 2018."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.10637",
+        "material_read": "Accessible arXiv abstract and source metadata, journal abstract and indexed excerpt; full text not obtained.",
+        "method": "Read abstract/metadata only; arXiv PDF retrieval was unavailable, so whole-document comparison remains unresolved.",
+        "title": "Objective measures for sentinel surveillance in network epidemiology",
+        "trigger": "Directly adjacent formulation of early detection and measured time-to-detection objectives."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb072e8b-5145-4a88-b0e5-f2695e1361f2",
+  "value": {
+    "rationale": "The source-unknown detection-placement question is natural in epidemic surveillance, and the theorem solves the complete finite-cycle design problem simultaneously for every positive time and all increasing delay losses. It supplies both exact best and worst placements, an unexpected conditional uniform infection-event rank, and an explicit full distribution, whereas prior general frameworks typically give approximate optimization. It is a scientifically motivated idealized benchmark, not a claim of direct field applicability.",
+    "status": "PASS"
+  }
+}
