@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Analytical verification
+# Independent mathematical audit
 
-The eigenvalues are the Gamma\((n+d,1)\) probabilities of a finite union of intervals. Their consecutive difference is exactly the signed endpoint exponential sum divided by \(\Gamma(n+d+1)\). The ordered endpoint coefficients alternate, and a generalized Descartes induction limits the number of real sign changes. The first sign is positive and the terminal sign negative, yielding the stated strict peak budget. The fixed-mass construction holds the Gamma\((d,1)\) probability exactly equal to any prescribed \(p\in(0,1)\), while shells at \(R\pm\sqrt R\) have strict degree peaks at \(n=R-d\) for sufficiently separated integer scales.
+## correctness
 
-## Reproduction
+PASS
 
-Run `python check_shell_modes.py` with Python 3, NumPy and SciPy. In the reviewed version the script passed 422 finite integral, endpoint-difference, logarithmic-mean and fixed-mass peak assertions for sampled dimensions and shells. These finite checks corroborate, but do not certify, the universal analytic theorem.
+Reconstructed Gamma(n+d,1) monomial radial measure and by-parts difference identity Gamma(n+d+1)(lambda_{n+1}-lambda_n)=sum(e^-a_j a_j^(n+d)-e^-b_j b_j^(n+d)). Ordered endpoint signs alternate (+,-) q times; exponential Chebyshev/Descartes Rolle induction bounds real zeros by 2q-1 and hence maxima by q, interior minima by q-1 even with sampled zeros and endpoint n=0. For fixed p, first low-radius interval is tuned by Gamma(d,1) CDF; far shells [R_j-sqrt(R_j),R_j+sqrt(R_j)] with R_j=M^(2j) induce strict crossings at x=R_j-1 and R_j using logarithmic mean R_j-1/3+O(R_j^-1). Stirling large-deviation separation makes other shells negligible. Independently sampled q=2 peaks d=1 at indices 0,99 and d=2 at 0,98 for shells [0.1,1.2],[90,110].
 
-## Limits
+## originality
 
-No independent audit or validation has been conducted. The proof addresses only analytic Gaussian Fock space and finitely many strictly separated positive-radius full annuli. The priority comparison does not establish global historical uniqueness, and does not extend to arbitrary radial, signed, or nonradial symbols.
+PASS
+
+Dewage–Ólafsson 2021 gives radial/quasi-radial Fock Toeplitz spectral diagonalization and Gamma moments, not a proven sharp q-peak bound with fixed arbitrary Gaussian mass. Rozenblum–Vasilevski Bergman radial spectral setting differs. Exponential Descartes is classical ingredient.
+
+## value
+
+PASS
+
+Natural sharp spectral-complexity bound for radial Gaussian localization, with nontrivial construction reaching every q-peak extremum under fixed observation probability; distinguishes peak counts from eigenvalue multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
