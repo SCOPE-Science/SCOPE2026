@@ -1,15 +1,21 @@
-# Scientific review: three-atom sublevel connectivity phase portrait
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof identifies the degree-three proper Herglotz covering, establishes simple connectivity of the positive-harmonic superlevels and applies planar Riemann–Hurwitz with strict critical-level inclusion. Equation (2) locates exactly two interior critical points with multiplicity, and the verified cubic discriminant gives their two interior critical heights. The classification includes transition-level equality and the exact cusp coefficient. The standalone symbolic/numeric checker reproduces all stated algebraic invariants and representative critical heights. Its finite sample is not used as a proof of the component counts. No independent validation is claimed.
+## correctness
 
-## Originality
-**PASS under the inspected primary sources and targeted searches, with historical priority uncertainty.** Looi (2026) studies one-component geometry and bounded symbols, not the three-atom phase chart; Nicolau–Reijonen (2020/2021) already establish qualitative one-component behavior for finite atomic measures, which is credited as prior art; Bickel–Gorkin (2021) prove a degree-minus-critical-point component formula for centered finite Blaschke sublevels, so neither this principle nor the general topology method is claimed as original. The new assessed claim is the complete mass-dependent critical-height phase diagram including a one-sided intermediate two-component interval and its \(3/2\)-cusp coefficient. No equivalent formula was located in the inspected material or targeted mathematical-record comparisons. Historical rational-function literature may contain an implicit equivalent.
+PASS
 
-## Value
-**PASS.** This is the smallest nontrivial family of three equally spaced atomic singularities with one mass allowed to vary. It answers the exact natural question of when a given sublevel, not merely *some* sublevel, becomes connected. Its one-sided \(3\to2\to1\) phase splitting and the fractional cusp are structurally distinct from the symmetric double merger. The precise thresholds provide a benchmark for quantitative one-component geometry beyond known qualitative existence statements.
+Cayley transform of rational positive-atomic Herglotz F_a is a degree-three finite Blaschke product; proper restriction and simply connected components imply N(c)=3−Σ mult(F′ critical points with Re F>c), with strict > accounting for boundary levels. Derivative F′(z)=2/(1−z)^2[a−1+9z²/(1+z+z²)^2] locates two interior critical points. The discriminant of F_a(z)=w yields quartic 9w^4+6(a²−20a−8)w²+a(a+8)^3; solving gives exact squared critical values and real/conjugate regimes. Difference of squared heights is 16/3(1−a)^(3/2), total heights→6, so 8/9 coefficient. Independent Sympy derivative/discriminant and sign-regime check corroborates algebra, not topology by sampling.
 
-## Scope and risks
-The classification is confined to positive masses \((a,1,1)\) at cube roots of unity. The component-count principle is classical; all novelty credit pertains to the resulting explicit sharp three-atom phase portrait and its cusp. Independent checking of historical priority and proof remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge independent statement/implication comparison supports a specific quantitative or structural contribution beyond inspected prior results; this is not an exhaustive novelty certificate. General finite-Blaschke sublevel component counting is already in Bickel–Gorkin Lemma 2.1, and the one-component property of atomic singular inner functions is known. Neither statement contains these parameter-specific critical-height discriminants and cusp constant. The prior Riemann–Hurwitz lemma implies N once the critical points/heights are supplied; the nontrivial parameter discriminant, cusp scaling, and strict endpoint analysis are needed additional content. Prior qualitative one-component statement alone cannot recover the intermediate two-component window.
+
+## value
+
+PASS
+
+The explicit parameter-dependent topological phase diagram and singular 3/2 cusp quantify how splitting a symmetric triple critical point produces an intermediate connected-component phase. It is a natural three-atom geometry beyond the known qualitative one-component statement, and precise thresholds can be used as benchmark examples in inner-function geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

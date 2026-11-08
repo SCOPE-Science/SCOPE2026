@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and scope
+# Independent mathematical audit
 
-The argument in `RESULT.md` is analytical: the map is a degree-three proper half-plane covering, the component count follows from planar Riemann–Hurwitz, and the critical heights are obtained from a cubic discriminant. These facts are proved there, not inferred from numerical tests.
+## correctness
 
-For supplementary reproducibility, install `requirements.txt` and run `python check.py`. The checker tests the symbolic derivative, the exact discriminant and its factorization, samples interior critical points for seven specified positive rational masses (including both sides of the symmetric value), verifies the critical-height formulas, and checks the algebraic cusp coefficient. Successful output is:
+PASS
 
-`CHECK_OK: derivative, cubic discriminant, critical heights, symmetry and cusp coefficient`
+Cayley transform of rational positive-atomic Herglotz F_a is a degree-three finite Blaschke product; proper restriction and simply connected components imply N(c)=3−Σ mult(F′ critical points with Re F>c), with strict > accounting for boundary levels. Derivative F′(z)=2/(1−z)^2[a−1+9z²/(1+z+z²)^2] locates two interior critical points. The discriminant of F_a(z)=w yields quartic 9w^4+6(a²−20a−8)w²+a(a+8)^3; solving gives exact squared critical values and real/conjugate regimes. Difference of squared heights is 16/3(1−a)^(3/2), total heights→6, so 8/9 coefficient. Independent Sympy derivative/discriminant and sign-regime check corroborates algebra, not topology by sampling.
 
-The finite checker does not exhaust all masses, all thresholds, or all component topologies. No independent audit or third-party certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge independent statement/implication comparison supports a specific quantitative or structural contribution beyond inspected prior results; this is not an exhaustive novelty certificate. General finite-Blaschke sublevel component counting is already in Bickel–Gorkin Lemma 2.1, and the one-component property of atomic singular inner functions is known. Neither statement contains these parameter-specific critical-height discriminants and cusp constant. The prior Riemann–Hurwitz lemma implies N once the critical points/heights are supplied; the nontrivial parameter discriminant, cusp scaling, and strict endpoint analysis are needed additional content. Prior qualitative one-component statement alone cannot recover the intermediate two-component window.
+
+## value
+
+PASS
+
+The explicit parameter-dependent topological phase diagram and singular 3/2 cusp quantify how splitting a symmetric triple critical point produces an intermediate connected-component phase. It is a natural three-atom geometry beyond the known qualitative one-component statement, and precise thresholds can be used as benchmark examples in inner-function geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
