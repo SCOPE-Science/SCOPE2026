@@ -1,19 +1,21 @@
-# Scientific review: three-subspace Grassmann metric exponent
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scope is every prime-power field order \(q\ge2\) and ambient dimension \(n\ge6\), including the boundary \(p=0\). Counting neighbors by intersection dimension yields the stated Grassmann intersection array. The classical finite-Grassmann-scheme eigenspace decomposition then gives four invariant sectors; the distance-shell eigenvalues follow from a three-term recurrence. The displayed algebra has been checked symbolically, and the nonconstant branches reduce to three exponential polynomials. The first is strictly negative for all \(p\ge0\); the third is strictly negative for \(0\le p\le1\), including a separate concavity argument for \(q=2\); the middle branch increases through zero exactly once in \((0,1)\) and remains positive thereafter. This establishes both directions, boundary nullity and squared-Euclidean rank. Finite checks also reconstruct all binary three-spaces in dimension six directly and independently verify the graph distance.
+PASS
 
-Risks/limits: numerical threshold values are illustrations, not a proof of uniqueness; uniqueness is analytic. The extension to larger subspace rank is unproved. External independent verification has not been performed.
+For every prime power q>=2 and n>=6, the q-Grassmann distance-regular intersection numbers c_i=[i]_q^2 and b_i=q^(2i+1)[3-i]_q[n-3-i]_q yield the three nonconstant A_1,A_2,A_3 spectral triples. Reconstructed the recurrence and the j=2 powered-distance eigenvalue F_{q,n}(p)=q^3[n-5]_q(1-(q+1)2^p+q3^p)-(q+1)+q2^p. Its derivative is positive for all p>=0, F(0)=-1 and F(1)>0, while j=1 and j=3 remain strictly negative through the root p_{q,n} in (0,1); j=1 remains negative everywhere. Therefore the distance power is conditionally negative semidefinite exactly for 0<=p<=root; its Gaussian entrywise exponential is PSD for all t>0 exactly in that interval by Schoenberg; strict Gaussian positivity follows from distinct Euclidean configuration points. E_2 has endpoint nullity [n choose2]_q-[n choose1]_q, giving exact minimal embedding dimension [n choose3]_q-1-nullity. The first-order Taylor expansion gives p~(q-1)/(q^(n-2)(q log3-(q+1)log2)) for fixed q. An independent Python fractions calculation recomputed the exact eigenbranches on 28 (q,n) choices, including q=4,8,9; numerical root p_{2,6}=0.27053081961035363. Finite checks corroborate, do not prove, the all-parameter statement.
 
-## Originality — PASS under bounded prior-art comparison
+## originality
 
-The main background is Srinivasan's 2013 Grassmann-scheme eigenbasis and the negative-type principles described by Li and Weston (2009). Vallentin's 2005 paper minimizes Euclidean embedding distortion of distance-regular graphs; it does not classify the exact powered-distance negative-type interval of the finite-field rank-three Grassmann scheme. The inspected papers do not give the explicit middle-harmonic root, its uniform dominance for all field orders and dimensions, or the critical embedding nullity. Related finite-Grassmann Fourier projection results address different kernels/operators. Comparison is by mathematical implication, not title similarity: the classical eigenmatrix is necessary input but does not by itself supply the sharp simultaneous sign inequalities in \(p\). No covering claim was found in the bounded literature/database searches; absence of a search hit does not prove absolute historical novelty.
+PASS
 
-Residual risk: a specialized source using \(q\)-Hahn polynomial inequalities, generalized roundness, or association-scheme Schoenberg kernels might already imply the statement. This would require comparison of the exact three-shell eigenvalues and root—not a superficial parameter match.
+Classical Grassmann eigenstructure and Schoenberg negative-type theory give the machinery but do not by themselves state the sharp rank-three q-Grassmann exponent, the decisive middle harmonic, endpoint nullity and asymptotics. Material primary readings and a published-record search identified no dominating theorem giving this exact parameter family; best-knowledge only.
 
-## Mathematical value — PASS
+## value
 
-The rank-three Grassmann graph is the first genuine finite-field Grassmann graph with three positive distance levels, beyond the strongly regular rank-two case. Deciding when its graph metric may be snowflaked into a squared-Euclidean distance is a natural exact harmonic kernel problem. The result does not merely tabulate eigenvalues: it identifies the unique obstructing harmonic for an infinite family, the precise endpoint embedding rank, and an exponentially vanishing sharp exponent as the ambient dimension grows. These are directly relevant to positive-definite radial kernels and finite-homogeneous-space embeddings. The first nontrivial rank, complete parameter range, and asymptotic behavior supply the motivation for the exact invariant.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural finite-field Grassmann graph and its canonical graph metric, the supremal negative-type exponent controls Hilbert embeddings and universally positive Gaussian kernels. The complete all-field and all-ambient-dimension critical exponent, exact endpoint nullity, and small-exponent asymptotics are motivated structural invariants and not just routine parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

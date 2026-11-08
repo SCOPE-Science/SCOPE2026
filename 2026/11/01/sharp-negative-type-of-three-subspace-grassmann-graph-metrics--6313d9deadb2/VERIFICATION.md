@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verify_grassmann.py` from the directory containing this file. The checker requires Python 3 and no external packages. Its output in this package was:
+## correctness
 
-```
-ALGEBRAIC_PARAMETER_CASES_OK 37
-INDEPENDENT_BINARY_SUBSPACE_GRAPH_OK 1395 68355
-BINARY_6_3_CUTOFF 0.270530819610
-ALL_CHECKS_OK
-```
+PASS
 
-The checks comprise exact Fraction arithmetic for the Grassmann scheme recurrence over 37 field-order/dimension pairs, symbolic simplification of all three nonconstant eigenvalue triples (performed separately), positivity/bracketing checks, complete reduced-row-echelon enumeration of binary three-spaces in dimension six, 68,355 reconstructed adjacency edges, direct BFS/meeting-dimension distance comparison, intersection-number checks, and exact integer minimal-polynomial evaluations of the adjacency operator. Finite tests cannot prove the infinitely many field-order/dimension cases, which are established by the calculations and inequalities in `RESULT.md`. The numerical root is only an approximation. Neither independent historical originality certification nor external mathematical validation is asserted.
+For every prime power q>=2 and n>=6, the q-Grassmann distance-regular intersection numbers c_i=[i]_q^2 and b_i=q^(2i+1)[3-i]_q[n-3-i]_q yield the three nonconstant A_1,A_2,A_3 spectral triples. Reconstructed the recurrence and the j=2 powered-distance eigenvalue F_{q,n}(p)=q^3[n-5]_q(1-(q+1)2^p+q3^p)-(q+1)+q2^p. Its derivative is positive for all p>=0, F(0)=-1 and F(1)>0, while j=1 and j=3 remain strictly negative through the root p_{q,n} in (0,1); j=1 remains negative everywhere. Therefore the distance power is conditionally negative semidefinite exactly for 0<=p<=root; its Gaussian entrywise exponential is PSD for all t>0 exactly in that interval by Schoenberg; strict Gaussian positivity follows from distinct Euclidean configuration points. E_2 has endpoint nullity [n choose2]_q-[n choose1]_q, giving exact minimal embedding dimension [n choose3]_q-1-nullity. The first-order Taylor expansion gives p~(q-1)/(q^(n-2)(q log3-(q+1)log2)) for fixed q. An independent Python fractions calculation recomputed the exact eigenbranches on 28 (q,n) choices, including q=4,8,9; numerical root p_{2,6}=0.27053081961035363. Finite checks corroborate, do not prove, the all-parameter statement.
+
+## originality
+
+PASS
+
+Classical Grassmann eigenstructure and Schoenberg negative-type theory give the machinery but do not by themselves state the sharp rank-three q-Grassmann exponent, the decisive middle harmonic, endpoint nullity and asymptotics. Material primary readings and a published-record search identified no dominating theorem giving this exact parameter family; best-knowledge only.
+
+## value
+
+PASS
+
+For the natural finite-field Grassmann graph and its canonical graph metric, the supremal negative-type exponent controls Hilbert embeddings and universally positive Gaussian kernels. The complete all-field and all-ambient-dimension critical exponent, exact endpoint nullity, and small-exponent asymptotics are motivated structural invariants and not just routine parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
