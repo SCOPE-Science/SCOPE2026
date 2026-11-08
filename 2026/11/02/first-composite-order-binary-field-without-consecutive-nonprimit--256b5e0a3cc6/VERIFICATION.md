@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_np2048.py` in this directory. Python 3 standard library suffices; no third-party modules, external services, or downloaded artifacts are required. The verifier ran successfully with:
+## correctness
 
-```
-VERIFY_OK bezout=4 irreducible_degree=11 primitive_generator=yes nonprimitive=111 exhaustive_elements=2047 ordered_NP_pairs=0
-```
+PASS
 
-The exact polynomial Bézout identities listed in `RESULT.md` are checked using binary carryless multiplication. Each proves a polynomial gcd equal to \(1\) over \(\mathbb F_2[T]\), and the four cases exhaust the possibilities for a translated nonprimitive pair in \(\mathbb F_{2048}\). As a separate cross-check, the verifier applies Rabin's criterion to \(T^{11}+T^2+1\), verifies that its residue class \(T\) generates the cyclic group of size \(2047\), constructs subgroups of orders \(23\) and \(89\), and independently enumerates all nonprimitive elements by exponent tests across the entire nonzero field.
+The cyclic unit group order 2047=23*89 makes the nonprimitive set precisely mu23 union mu89. Independently evaluated all four explicit GF(2)[T] carryless Bezout polynomial identities for (r,s)∈{23,89}²: each U(T)(T^r+1)+V(T)((T+1)^s+1)=1 exactly; hence no common root in any extension. Separately constructed F_2048 via x^11+x^2+1 and exhausted nonzero elements: exactly 111 nonprimitive, zero consecutive pairs. Composite m<11 have proper subfields with nontrivial x and x+1 of lower order; prime m<11 give Mersenne prime 3,7,31,127. Euler phi gives 1936/2047 and the threshold implication follows by counterexample, not extrapolation.
 
-The field enumeration is exhaustive because \(\mathbb F_2[T]/(T^{11}+T^2+1)\) contains exactly \(2048\) polynomial residue classes, represented uniquely by the integers from \(0\) through \(2047\). It is not a sample extrapolated to an infinite family. The smallest-field statement separately uses all proper-subfield cases for exponents below \(11\). No independent external validation or independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The actual obstruction is a negative first-boundary for fields with composite multiplicative order; prior sufficient conditions at theta<8/9 do not imply either a pair or a no-pair result at theta=1936/2047. Relevant 2026 specialist preprint could not be read in full because lawful full-text routes failed and the institutional connection reported VPN disconnected; best-of-knowledge PASS retains explicitly high comparison risk.
+
+## value
+
+PASS
+
+Exact first composite-order failure and universal upper bound on an existence-threshold parameter answer a concrete boundary question in finite-field primitive-element theory. Four extension-independent polynomial certificates make the fact independently reusable, not merely a failed random search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
