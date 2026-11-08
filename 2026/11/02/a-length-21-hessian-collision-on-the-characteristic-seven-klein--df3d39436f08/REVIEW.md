@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The identity \(\det(\operatorname{Hess}(F))=-54G\) holds over the integers. In characteristic seven, exact resultant and local Gröbner-basis calculations prove a 21-dimensional local algebra at \([2:4:1]\); multiplication-rank calculations give the stated Hilbert--Samuel function. Independent coordinate-vertex gradient tests and the projective line-at-infinity check exhaust the special support. A complete-intersection/flatness argument extends the fiber calculation to the family over \(\mathbb Z_{(7)}\). The verifier was executed on the actual packaged source; its limitations are explicit.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Dolgachev--Kanev 1993 give the exact classical Klein Hessian; Elkies 1999 gives the 24 generic flexes and discusses characteristic-seven behavior. The relevant primary material inspected does not evaluate the special characteristic-seven Hessian intersection as three reduced points and a length-21 Gorenstein point with its full Hilbert--Samuel function. The result is not implied merely by the existence of the Hessian, the generic 24 flexes, or the already-known singular plane quartic; exact local primary decomposition and maximal-ideal filtration are required. Search of public mathematical records, checked comparison results and accessible earlier claims found no direct coverage. Historical priority is provisional, particularly for older classical or poorly indexed sources.
+PASS
 
-**Mathematical value — PASS.** The Hessian intersection of a canonical smooth plane quartic is a natural 24-point geometric scheme. Its nontrivial degeneration at a bad prime and the exact local multiplicity/filtration distinguish the special-fiber geometry from the 24 ordinary generic flexes, and from the different potential-good-reduction model. The complete 21-point collision and nonuniform local Hilbert--Samuel function are substantive natural invariants, not a chosen arbitrary subcase. Scope is a fixed distinguished model and a single bad prime; no broader moduli statement is claimed.
+For F=X^3Y+Y^3Z+Z^3X and G=X^5Z-5X^2Y^2Z^2+XY^5+YZ^5 over Z_(7), direct differentiation gives det Hess(F)=-54G. On Z=1 modulo 7, resultant_y(f,g)=-x(x-2)^21; translating u=x-2,v=y-4 gives affine Groebner leading monomials u^2,uv^7,v^15. Adjoining v^14 isolates the fat point, where leading monomials u^2,uv^7,v^14 give length 14+7=21. Independently recomputed maximal-ideal filtration ranks 21,20,18,16,14,12,10,8,6,5,4,3,2,1,0 and Hilbert-Samuel sequence (1,2,2,2,2,2,2,2,1,1,1,1,1,1). The other affine vertex [0:0:1] and two infinity vertices are transverse, so special length 24; relative projective zero-dimensional CI is finite torsion-free over DVR, hence flat degree 24; fat local CI is Artin Gorenstein. Original verify.py inspected; independent SymPy algebra emits FOUR_HESSIAN_EXACT_PASS. This is coefficientwise plane model, not smooth good reduction.
 
-**Closest sources and scientific limitations.** Dolgachev--Kanev (1993), Section 6.1.1; Elkies (1999), chapters on Hessians and reduction modulo seven; Dimca--Ilardi--Pokora--Sticlaru (2023), flex discussions. Distinguish the displayed singular plane model from the smooth potentially good reduction. No independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected prior primary mathematics supplies the classical framework, but none of the materially compared statements implies the full claimed specialization; best-of-knowledge priority, with explicit risks. Rephrasing as naive coefficientwise specialization of a 24-point Hessian flex scheme is essential: it is distinct from the smooth good-reduction Weierstrass-point scheme. The local algebra and its 21-dimensional filtration are not the already-known generic flex orbit. The classical global results identify the object but not the local Groebner algebra in inspected relevant sections. An earlier specific reduction computation could dominate; residual priority risk noted.
+
+## value
+
+PASS
+
+The classical Klein quartic has 24 flex intersections and a distinguished prime of bad plane reduction. The exact 21-point collision, local Hilbert–Samuel function and finite-flat specialization give concrete scheme-theoretic degeneration data that global point counting or identifying the singular point alone does not supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

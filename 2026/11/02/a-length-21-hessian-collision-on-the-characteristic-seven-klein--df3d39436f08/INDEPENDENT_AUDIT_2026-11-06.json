@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:10:50.488364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For F=X^3Y+Y^3Z+Z^3X and G=X^5Z-5X^2Y^2Z^2+XY^5+YZ^5 over Z_(7), direct differentiation gives det Hess(F)=-54G. On Z=1 modulo 7, resultant_y(f,g)=-x(x-2)^21; translating u=x-2,v=y-4 gives affine Groebner leading monomials u^2,uv^7,v^15. Adjoining v^14 isolates the fat point, where leading monomials u^2,uv^7,v^14 give length 14+7=21. Independently recomputed maximal-ideal filtration ranks 21,20,18,16,14,12,10,8,6,5,4,3,2,1,0 and Hilbert-Samuel sequence (1,2,2,2,2,2,2,2,1,1,1,1,1,1). The other affine vertex [0:0:1] and two infinity vertices are transverse, so special length 24; relative projective zero-dimensional CI is finite torsion-free over DVR, hence flat degree 24; fat local CI is Artin Gorenstein. Original verify.py inspected; independent SymPy algebra emits FOUR_HESSIAN_EXACT_PASS. This is coefficientwise plane model, not smooth good reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolgachev–Kanev 1993 Section 6.1.1 establishes classical Hessian and Steinerian geometry",
+          "Elkies 1999 chapter gives generic 24 flex points and explores special seven-adic geometry"
+        ],
+        "reasoning": "The classical global results identify the object but not the local Groebner algebra in inspected relevant sections. An earlier specific reduction computation could dominate; residual priority risk noted.",
+        "searches": [
+          "Klein quartic Hessian characteristic seven special fiber flex scheme local length 21",
+          "Dolgachev Kanev Klein quartic Hessian Section 6.1.1",
+          "Elkies Klein quartic characteristic seven reduction flexes"
+        ]
+      },
+      "checked_sources": [
+        "Git tree b07c73023cd48cf74386ed9e6ba8b109ca65b026; RESULT.md 9ba0b998256804404c2129fd200ae583a6645137; verify.py 086f68ab684f0492365b8bda5780a7c23e7a23e7",
+        "DOI:10.1006/aima.1993.1016",
+        "Elkies 1999 MSRI chapter",
+        "Resultary Hessian scheme records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical Hessian identity establishes equations, not the special modular local ring",
+          "Characteristic-seven potential smooth/good reduction concerns a different model after base change"
+        ],
+        "reasoning": "The 24 general fiber points and singular special curve do not imply the local length-21 Hilbert function. That follows from explicit elimination and localized Artin-algebra computation.",
+        "searches": [
+          "Klein quartic Hessian characteristic seven special fiber flex scheme local length 21",
+          "Dolgachev Kanev 1993 Hessian",
+          "Elkies Klein Quartic in Number Theory 1999"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dolgachev–Kanev supply the classical Klein quartic Hessian form",
+          "Elkies studies Klein quartic 24 flexes and characteristic-seven potential good reduction"
+        ],
+        "reasoning": "Rephrasing as naive coefficientwise specialization of a 24-point Hessian flex scheme is essential: it is distinct from the smooth good-reduction Weierstrass-point scheme. The local algebra and its 21-dimensional filtration are not the already-known generic flex orbit.",
+        "searches": [
+          "Klein quartic Hessian characteristic seven special fiber flex scheme local length 21",
+          "Klein quartic 24 flexes Hessian characteristic 7 singular reduction local intersection multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact local filtration ranks computed from the modular polynomial ideal",
+          "Resultary nearest length-21 Hessian entry concerns an embedded vertex defect of a cyclic cubic threefold, not the Klein plane quartic"
+        ],
+        "reasoning": "A matching 21-point fat-intersection tabulation was not retrieved; the unrelated length-21 threefold result is not equivalent. No claim of exhaustive older table search.",
+        "searches": [
+          "Klein quartic Hessian characteristic seven special fiber flex scheme local length 21",
+          "characteristic 7 Klein quartic Hessian length 21 Hilbert Samuel function table"
+        ]
+      },
+      "rationale": "The inspected prior primary mathematics supplies the classical framework, but none of the materially compared statements implies the full claimed specialization; best-of-knowledge priority, with explicit risks. Rephrasing as naive coefficientwise specialization of a 24-point Hessian flex scheme is essential: it is distinct from the smooth good-reduction Weierstrass-point scheme. The local algebra and its 21-dimensional filtration are not the already-known generic flex orbit. The classical global results identify the object but not the local Groebner algebra in inspected relevant sections. An earlier specific reduction computation could dominate; residual priority risk noted.",
+      "residual_risks": [
+        "Only relevant sections of long Dolgachev–Kanev paper inspected, not every page; older implicit calculation may exist.",
+        "The special plane quartic is singular, and the theorem intentionally does not identify good-reduction flex/Weierstrass points.",
+        "Finite characteristic-seven symbolic algebra is exact for the specified forms; it does not extend to other integral models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical identity and complex flex geometry, no locally computed mod-seven length-21 algebra in relevant inspected section",
+          "evidence": [
+            "Section 6.1.1 gives F and Hessian data for Klein quartic."
+          ],
+          "identifier_or_url": "DOI:10.1006/aima.1993.1016",
+          "material_read": "Author-hosted 86-page PDF, relevant Section 6.1.1 pages around 256–257, including displayed Hessian and discussion of classical flex geometry; not entire article exhaustively",
+          "method": "Direct PDF page text and screenshot inspection",
+          "title": "Polar Covariants of Plane Cubics and Quartics",
+          "trigger": "Same Klein quartic and Hessian polynomial"
+        },
+        {
+          "assessment": "Generic flex orbit and potential good reduction are prior, no explicit naive-plane local length-21 structure found in read material",
+          "evidence": [
+            "Klein quartic has 24 generic flexes, and characteristic-seven behavior requires distinguishing plane model from good reduction."
+          ],
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "Printed 1999 MSRI chapter; Hessian/flex and characteristic-seven reduction portions (around PDF pp. 6–7, 14–16, 31–32), with PDF page screenshot inspections",
+          "method": "Primary scholarly PDF text and visual page inspection",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Closest classical account of Klein flexes and char-seven reduction"
+        },
+        {
+          "assessment": "Different geometry (cubic threefold), different Hessian singular scheme; not covering",
+          "evidence": [
+            "Source discusses embedded Jacobian defect of a cubic threefold, not plane Klein flex Hessian intersection."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-length-21-embedded-vertex-defect-in-the-hessian-singular-schem--964f3c5a8e1e",
+          "material_read": "Published summary only",
+          "method": "Resultary semantic publication search",
+          "title": "A length-21 embedded vertex defect in the Hessian singular scheme of a general cyclic cubic threefold",
+          "trigger": "Potentially same number and Hessian invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classical Klein quartic has 24 flex intersections and a distinguished prime of bad plane reduction. The exact 21-point collision, local Hilbert–Samuel function and finite-flat specialization give concrete scheme-theoretic degeneration data that global point counting or identifying the singular point alone does not supply.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree b07c73023cd48cf74386ed9e6ba8b109ca65b026; RESULT.md 9ba0b998256804404c2129fd200ae583a6645137; verify.py 086f68ab684f0492365b8bda5780a7c23e7a23e7",
+    "DOI:10.1006/aima.1993.1016",
+    "Elkies 1999 MSRI chapter",
+    "Resultary Hessian scheme records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only relevant sections of long Dolgachev–Kanev paper inspected, not every page; older implicit calculation may exist.",
+    "The special plane quartic is singular, and the theorem intentionally does not identify good-reduction flex/Weierstrass points.",
+    "Finite characteristic-seven symbolic algebra is exact for the specified forms; it does not extend to other integral models."
+  ],
+  "schema_version": 1
+}
