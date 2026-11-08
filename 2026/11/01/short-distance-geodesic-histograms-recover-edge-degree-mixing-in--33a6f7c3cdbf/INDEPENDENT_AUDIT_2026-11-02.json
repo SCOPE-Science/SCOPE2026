@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:55:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Decompose ordered edge pairs: same-edge region area 2r-r² through 1; shared-vertex direct corner r²/2 or 1-(2-r)²/2; for r<=3/2 every other shortest admissible route can use at most one complete intervening edge. The additional one-bridge corner triangle contributes (r-1)²/2, counted twice for each middle-edge configuration. For this radius range corner triangles have disjoint positive-area interiors, including in triangle graphs, and route-count coefficient Q=sum_uv(d_u-1)(d_v-1), with m-S+Q=H-2S. Thus the CDF spline, one-sided derivative reconstruction m=2/F’(0+), S=m² F’’(0+)+2m, H=2S+(m²/2)(F’’(1+)-F’’(1-)). For explicit graphs E1={04,12,13,23,34}, E2={01,13,14,23,24}, m=5,S=12,H=24 versus23, giving same degree sequence and first separation just above r=1. Independently computed exact rational shortest-route polygon areas for 24 graph/radius cases, including triangle, 5-path, star, square cycle and both witnesses; all agreed. Finite checks do not replace proof for arbitrary graph size.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wei et al. Theorems 4/5 provide general analytic forward path-shortest PDF/CDF and a piecewise linear uniform-event PDF in arbitrary weighted networks, subsuming the forward quadratic spline after specialization.",
+          "Elenbogen/Fink consider vertex-distance distributions, not arclength-random points."
+        ],
+        "reasoning": "Published forward network theory fully covers qualitative spline character and could be specialized to the coefficients; novelty claimed only for inverse recoverability and sharp first unseen edge-mixing radius. This logical distinction may be contested if the inverse is an immediate routine extraction; residual risk explicitly noted.",
+        "searches": [
+          "doi:10.1002/net.21919 Theorem 4 Section 8",
+          "Elenbogen Fink Distance distributions for graphs modeling computer networks DOI:10.1016/j.dam.2007.07.020"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md/verify.py Git blobs 521d8fd9ff60e41f76e8673514752a6ae9a50cbd/c1d24b4fb5cd58b5d1fdf3fcc0ade36fb9449036",
+        "doi:10.1002/net.21919, full accessible Theorems 4 and 5 and Section 8",
+        "doi:10.1016/j.dam.2007.07.020",
+        "Resultary local graph distance distribution and assortativity semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general forward result implies existence of a piecewise-quadratic CDF and algorithmically permits computing the same values, so the spline itself is not independently original.",
+          "The inspected 2020 theorem statements/Section 8 give PDF construction and travel statistics, not an inverse theorem recovering H from a kink or showing radius-1 indistinguishability among same-degree graphs."
+        ],
+        "reasoning": "Specialization makes raw forward formula part of prior coverage; additional interpretive mathematical claim explicitly identifies which graph invariants are detectable at exact radii and sharpness via nonisomorphic equal-degree example. If viewed as a routine direct differentiation of an already-explicit specialized formula, originality/value would need re-evaluation. In inspected sources such specialized coefficient form was not stated.",
+        "searches": [
+          "Wei Walteros Batta 2020 DOI:10.1002/net.21919 Theorem 4 Theorem 5 Section 8 full accessible text",
+          "Elenbogen Fink 2007 vertex distance distribution",
+          "Resultary local metric graph degree assortativity query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistics m,S,H are edge count, degree second factorial moment and joint endpoint-degree product (degree assortativity numerator), respectively.",
+          "Resultary closest local metric results concern different graph invariants, not this inverse edge-degree formula."
+        ],
+        "reasoning": "Searched network distance density, uniform events and assortativity aliases. A forward CDF is not itself novel; its coefficient inversion with same-degree sharp witness is the narrower subject.",
+        "searches": [
+          "metric graph edge-length random events distance CDF local Hessian assortativity recover endpoint degrees",
+          "Resultary edge degree mixing local shortest geodesic histogram metric graphs",
+          "Wei Walteros Batta On the distance between random events on a network DOI:10.1002/net.21919"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two explicit five-vertex edge sets yield m=5,S=12,H1=24,H2=23; none was located in published tabulations under this inverse interpretation."
+        ],
+        "reasoning": "Any degree-mixing table would cover the witness but not necessarily the sharp universal radius threshold; no complete table identified.",
+        "searches": [
+          "network random distance distribution graph degree correlation identical degree sequence short range exact examples",
+          "Resultary metric graph geodesic histogram degree mixing"
+        ]
+      },
+      "rationale": "Wei-Walteros-Batta (2019/2020) give a strictly broader forward distance-distribution framework for arbitrary edge-weighted networks; the general piecewise-linear PDF and any forward CDF special case are entirely prior. The assessed claim is the inverse recovery from local derivatives and its sharp degree-sequence indistinguishability threshold; their inspected Theorem 4/5 and applications do not state this inverse proposition. Best-of-knowledge original only as that nontrivial inverse classification, residual risk of being an immediate corollary or known graph reconstruction result.",
+      "residual_risks": [
+        "General published forward network CDF could imply inverse results sufficiently directly to undermine novelty; this is the most important scientific overlap risk.",
+        "Other graph reconstruction literature may already identify local pairwise random-distance derivatives with edge-degree assortativity.",
+        "Only unit-length simple edges and r<=3/2; subdivision changes specified unit-edge decomposition and parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongly covers forward existence/CDF framework; no explicit inverse recovery of m,S,H or radius-one sharpness found in inspected sections.",
+          "evidence": "Theorems on edge-pair affine route distance and uniform-event PDF piecewise-linearity; no matching local derivative graph-invariant theorem in inspected text.",
+          "identifier_or_url": "https://doi.org/10.1002/net.21919",
+          "material_read": "Accessible full-text ResearchGate extraction of published 2019/2020 paper including Theorems 4 and 5 and Section 8, inspected relevant network-event density formulas and applications.",
+          "method": "Compared uniform-event forward distribution formula and piecewise-linear PDF with graph-degree correlation inverse implication and sharp small-radius witness.",
+          "title": "On the distance between random events on a network",
+          "trigger": "Closest and potentially dominating general forward metric-network PDF theorem"
+        },
+        {
+          "assessment": "Different sampling measure and observable; does not establish claimed inverse in available statement.",
+          "evidence": "Graph vertex-to-vertex distance histogram differs from continuous edge-point arclength law.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2007.07.020",
+          "material_read": "Accessible abstract/bibliographic descriptions, not full paper.",
+          "method": "Compared vertex-sampled Wiener polynomial/network graph distances with arclength sampled unit-edge metric graph distances.",
+          "title": "Distance distributions for graphs modeling computer networks",
+          "trigger": "Earlier graph distance distribution work that might contain structural inverse results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Recovering endpoint-degree mixing from local metric-graph geodesic histograms is a motivated network inverse problem: it identifies degree-correlation information genuinely invisible to vertex-degree multiset and to all shorter-radius observations, with a sharp explicit witness. Forward spline alone would be an unoriginal application; value is the precise inverse and sharp first-onset result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General published forward network CDF could imply inverse results sufficiently directly to undermine novelty; this is the most important scientific overlap risk.",
+    "Other graph reconstruction literature may already identify local pairwise random-distance derivatives with edge-degree assortativity.",
+    "Only unit-length simple edges and r<=3/2; subdivision changes specified unit-edge decomposition and parameters."
+  ],
+  "schema_version": 1
+}
