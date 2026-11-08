@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The event space is exactly the 64 independent effective-bond configurations. A uniform initial site weights each connected component by its cardinality divided by four. The six nonzero differences in the coefficient table are explicit, and their weighted sums factor as \(K(1-g)\) and \(Kg\). Every claimed distributional and moment identity follows for all admissible real probabilities. The strict cases use \(K=(1-g)^3(1-r)r^2>0\) in the open square. A separate 512-outcome calculation from underlying global/local trials and an exact-rational checker with 338 assertions reproduce the finite algebra.
+PASS
 
-## Originality
+Reconstructed all six unordered effective bond states with three p-probability tree edges and three g-probability nonlocal edges. Conditional on occupied edge set E, uniform seed size-j probability equals (1/4)sum_components |C| 1{|C|=j}. The distinct star-minus-path coefficient table has six nonzero (k,l) entries at (0,2),(2,0),(1,1),(0,3),(2,1),(1,2). Their weighted sum is (1-p)(p-g)^2*(1,-4(1-g),3,-4g), divided by four. Multiplying by j,j^2,j^3 yields K(1-4g)/2, 3K(1-4g), K(25/2-56g). When 0<g,r<1, K=(1-g)^3(1-r)r^2>0; g=1/4 gives moment alias and third-moment gap -3K/2. Independent separate 64-configuration and 512-opportunity enumerations with exact rational parameters were read; independent_checks.py reconstructs the table and representative endpoints. Four sites are first with nonisomorphic local trees.
 
-**PASS within the evidence inspected, with residual historical risk.** The closest work is Newman–Jensen–Ziff (2001) on small-world bond percolation, Newman (2002) on percolation epidemics, Ball–Neal (2004) on local/global mixing, and Kenah–Robins (2007) on the limits of a general SIR-to-bond reduction. The inspected passages do not state the four-vertex full distribution identity, the source-independent \(g=1/4\) crossover, or the simultaneous two-moment alias. The source models and large-graph results do not immediately imply the exact comparison without evaluating this finite reliability polynomial. Historical priority is not certified: the Ball–Neal (2008) full paper was inaccessible, and broader multivariate reliability studies may include a specialization.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is the minimal network order with two distinct connected local-tree shapes. The exact finding simultaneously distinguishes an expectation-based risk ranking from complete-outbreak risk, identifies a parameter-independent reversal, and proves the loss of topology information from both mean and variance at the same mixing probability. This is a natural sharp finite benchmark for two-layer epidemic models, with no implied field-level forecasting validity.
+The finite exact four-site law and universal 1/4 mean crossover are not supplied by the inspected standard two-level-mixing epidemic or percolation framework theorems. General finite graph reliability techniques offer computational derivations, not an identified earlier assertion of the full comparison or simultaneous moment alias.
 
-## Limits
+## value
 
-All analytical assertions are restricted to independent undirected Bernoulli bonds and a uniform initial site. General stochastic SIR processes, correlated infection trials, and larger network classifications are not covered. The full prior-art comparison has nonzero residual risk and independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the minimal population order allowing two nonisomorphic connected spanning trees. It produces an exact parameter-independent ranking reversal, and a nontrivial moment-information alias while the full outbreak probabilities stay distinct. Mean outbreak risk and complete infection probability disagree in a natural mixed-contact model; the exact finite benchmark has independent mathematical usefulness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
