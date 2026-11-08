@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is for the unique stationary causal solution of a stable second-order linear system with positive parameters and symmetric telegraph forcing. The proof explicitly fixes the normalization of the flipping rate (\(q/2\), giving covariance \(e^{-q|t|}\)), derives the stationary second moments, and solves the positive-lag covariance ODE. In the underdamped case the formula is a sum of an exponential and a damped nonzero sinusoid. At \(q=\beta\) its oscillatory-amplitude ratio is \(\sqrt{1+3\beta^2/\omega_0^2}/2<1\). A positive Fourier-convolution identity propagates strict positivity to all \(q<\beta\), avoiding the invalid shortcut of merely bounding the damped sinusoid's initial amplitude. In the overdamped and critically damped cases, positivity follows from a positive impulse-response double integral. For \(q>\beta\) the nonzero sinusoid eventually dominates and gives infinitely many sign alternations. The first-negative-lag delay is bracketed within one oscillation period of a diverging envelope threshold, proving the exact asymptotic. An exact negative witness and a standalone deterministic moment-ODE checker support the formulas. Risk: the global proof is analytic, not computer-verified, and assumes the stated zero-temperature stationary model.
+PASS
 
-## Originality — PASS, qualified by accessible evidence
+From stationary generator E[Xsigma]=a/(omega0^2+2 beta q+q^2) and E[X^2]=a^2(2 beta+q)/(2 beta omega0^2 M), the covariance satisfies C_second+2beta C_first+omega0^2 C=a^2 e^{-qt}/M and C_first(0)=0. Exact underdamped solution has K=a^2/(MH)>0, exponential e^-qt plus e^-beta t(A cos(Omega t)+B sin(Omega t)), with nonzero A,B. At q=beta, oscillation amplitude R=sqrt(1+3 beta^2/omega0^2)/2<1; for q<beta the positive exponential-covariance convolution identity yields C_q(t)>0. Critically/overdamped Green function is positive, giving positive twofold convolution. For underdamped q>beta nonzero sinusoid dominates faster exponential: infinitely many negative and positive intervals. Envelope time L_q=log(1/R_q)/(q-beta) brackets first negative lag within 2pi/Omega and proves the stated limit. Independently verified normalized stationary covariance IVP and critical R symbolically; inspected checker.py shows RK4 finite checks but it cannot prove universality. Exact witness beta=.5,omega=1,q=1 at t=2pi/sqrt3 is negative.
 
-The motivating paper arXiv:2406.06120v2 was read in its model, stationary moments, Green-function appendix and nonstationary equal-time moment appendix. These furnish the oscillator, equal-time covariances and propagator, but do not state a stationary two-time autocovariance sign classification or first-negative-lag singular asymptotic. The earlier arXiv:2012.02900 was inspected at its equations of motion and Appendix F: its two-time calculation is for the overdamped first-order run-and-tumble particle, so it does not imply the inertial switching-versus-damping sign boundary. Mathematical-record searches on oscillator covariance, sign reversal, colored noise, and the motivating arXiv identifier returned no directly equivalent statement. The closest published mathematical record concerns inertia versus a *variance-matched first-order comparator near a saddle*; that asserts negative bands for a different white-noise model, not positivity for slow telegraph forcing or the onset law. An accessible earlier related result on the same inertial telegraph model treats fourth-cumulant sign frontiers, not unequal-time covariance. No claim is made that the transfer-function method or the Green function is new. Residual risk: a broader colored-noise filtering or pole-dominance theorem may imply the criterion without using this paper's terminology; publication priority remains unverified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sign of stationary position autocovariance is directly observable from time-lagged measurements and distinguishes effective mechanical ringing from persistent propulsion memory. The theorem gives a complete natural parameter classification: being underdamped is not sufficient for position anticorrelation; the propulsion correlation must decay faster than amplitude damping. Inside the underdamped regime, its critical threshold \(\tau_a=4m/\gamma\) is independent of the trap stiffness. The positive coefficient of the diverging first-negative-lag time explains why near-threshold anticorrelations can be missed by finite recordings. The result addresses an unfilled dynamical question for a studied active-particle model, rather than another moment value at an arbitrarily chosen parameter.
+Best-of-knowledge novel exact all-lag covariance sign dichotomy and first negative-lag divergence, not new linear filter or stationary moments; directly matching Dutta et al model and its main/appendix results compared, distinct comparator of white-noise inertial OU also checked. Hidden earlier stationary colored-noise pole classification remains priority risk.
 
-## Comparators and limitations
+## value
 
-Closest primary works: Dutta et al., arXiv:2406.06120; Garcia-Millan and Pruessner, arXiv:2012.02900; Marchesoni et al., Phys. Rev. A 37, 3058 (1988), whose accessible material concerns colored-noise spectra. Related mathematical database records concern different covariance models or other observables. Only the athermal linear model is covered, and an independently reviewed publication-priority conclusion is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Autocorrelation sign is a natural observable in inertial active particles: underdamping alone fails to force negative lags, while crossing telegraph decay rate q=beta changes global sign; delay divergence gives quantitative finite-recording detection scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

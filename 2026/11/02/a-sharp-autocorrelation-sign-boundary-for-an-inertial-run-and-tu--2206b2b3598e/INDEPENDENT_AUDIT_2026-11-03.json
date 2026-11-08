@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:14:18.175205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From stationary generator E[Xsigma]=a/(omega0^2+2 beta q+q^2) and E[X^2]=a^2(2 beta+q)/(2 beta omega0^2 M), the covariance satisfies C_second+2beta C_first+omega0^2 C=a^2 e^{-qt}/M and C_first(0)=0. Exact underdamped solution has K=a^2/(MH)>0, exponential e^-qt plus e^-beta t(A cos(Omega t)+B sin(Omega t)), with nonzero A,B. At q=beta, oscillation amplitude R=sqrt(1+3 beta^2/omega0^2)/2<1; for q<beta the positive exponential-covariance convolution identity yields C_q(t)>0. Critically/overdamped Green function is positive, giving positive twofold convolution. For underdamped q>beta nonzero sinusoid dominates faster exponential: infinitely many negative and positive intervals. Envelope time L_q=log(1/R_q)/(q-beta) brackets first negative lag within 2pi/Omega and proves the stated limit. Independently verified normalized stationary covariance IVP and critical R symbolically; inspected checker.py shows RK4 finite checks but it cannot prove universality. Exact witness beta=.5,omega=1,q=1 at t=2pi/sqrt3 is negative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same inertial model in Dutta et al, Secs II-III, Apps A-B.",
+          "Garcia-Millan and Pruessner Appendix F addresses overdamped run-tumble two-time correlation.",
+          "Marchesoni et al abstract addresses colored-noise spectral densities; full paper not read."
+        ],
+        "reasoning": "General linear filter/spectral theory covers formulas, but observed stronger theorem covering entire positivity region plus onset constant was not established by materially read primary statements.",
+        "searches": [
+          "arxiv:2406.06120",
+          "arxiv:2012.02900",
+          "Marchesoni Phys Rev A 37 3058 1988"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2406.06120v2 (Sections II-III, App A-B)",
+        "arxiv:2012.02900 Appendix F compared by model synopsis",
+        "Resultary full RESULT.md sampling-lag reversal 2026/10/4",
+        "1988 Phys Rev A 37 3058 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dutta model/Green function implies the C_q ODE after additional steps but does not establish the global convolution positivity proof or singular onset.",
+          "Published comparator uses white noise and ratio to R1, cannot alone imply criterion for colored telegraph input."
+        ],
+        "reasoning": "Distinguish elementary premise and actual logical consequence: general spectral representation makes theorem derivable, but checked prior results do not state nor prove its parameter-uniform sign classification and onset.",
+        "searches": [
+          "arxiv:2406.06120v2 Sections II-III appendices A-B",
+          "Resultary:2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dutta et al q=2/tau_a; beta=gamma/(2m); omega0^2=mu/m. The sign criterion becomes gamma^2<4m mu and tau_a<4m/gamma.",
+          "White-noise OU autocorrelation comparison changes sign by damping but forcing correlation is delta rather than telegraph."
+        ],
+        "reasoning": "Equivalent physical parametrization checked; prior source derives stationary moments/distributions and Green response, not the stated global stationary two-time sign boundary.",
+        "searches": [
+          "inertial run and tumble harmonic trap stationary position autocorrelation negative oscillations finite time sign threshold telegraph",
+          "arxiv:2406.06120 model telegraph q/2 equivalent tau_a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full published mathematical RESULT.md studies stationary white-noise second-order OU versus variance-matched first-order OU, not telegraph forcing or q/beta threshold."
+        ],
+        "reasoning": "A related mathematical record has distinct forcing/claim; semantic search is not exhaustive priority certification.",
+        "searches": [
+          "inertial run and tumble harmonic trap stationary position autocorrelation negative oscillations finite time sign threshold telegraph",
+          "Resultary:2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel exact all-lag covariance sign dichotomy and first negative-lag divergence, not new linear filter or stationary moments; directly matching Dutta et al model and its main/appendix results compared, distinct comparator of white-noise inertial OU also checked. Hidden earlier stationary colored-noise pole classification remains priority risk.",
+      "residual_risks": [
+        "General time-series and colored-noise spectral pole theory might contain the same criterion under different language; 1988 primary full text not obtained.",
+        "Stationary no-thermal-noise and q>0 essential; physical q=2/tau_a normalization critical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and equal-time data, different observable: no all-lag stationary position covariance sign theorem in the read sections",
+          "evidence": [
+            "arxiv:2406.06120v2 equations 1-2, moments Sec III and Appendices A-B"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.06120v2",
+          "material_read": "Sections II model, III moments, Appendix A Green function and Appendix B moment computations; entire article table of contents and conclusion inspected",
+          "method": "Direct open-access arXiv HTML full-text read",
+          "title": "Harmonically trapped inertial run-and-tumble particle in one dimension",
+          "trigger": "Exact same oscillator"
+        },
+        {
+          "assessment": "White-noise OU and first-order comparator, not exponentially correlated telegraph forcing",
+          "evidence": [
+            "Saddle node RESULT.md: dV=(-alpha X-eta V)dt+sigma dW, negative underdamped R2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906/RESULT.md",
+          "material_read": "Full published RESULT.md including theorem, proof, limitations and references",
+          "method": "GitHub repository exact file read",
+          "title": "Sampling-lag reversal of inertial autocorrelation near a saddle node",
+          "trigger": "Closest published mathematical semantic hit"
+        },
+        {
+          "assessment": "Plausible spectral antecedent; full-text not read, no whole-document noncoverage claim",
+          "evidence": [
+            "Phys Rev A 37 3058 abstract (1988)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.37.3058",
+          "material_read": "Abstract and bibliographic metadata only",
+          "method": "Public abstract retrieval",
+          "title": "Analog simulation of underdamped stochastic systems driven by colored noise: Spectral densities",
+          "trigger": "General spectral pole theorem could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Autocorrelation sign is a natural observable in inertial active particles: underdamping alone fails to force negative lags, while crossing telegraph decay rate q=beta changes global sign; delay divergence gives quantitative finite-recording detection scale.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General time-series and colored-noise spectral pole theory might contain the same criterion under different language; 1988 primary full text not obtained.",
+    "Stationary no-thermal-noise and q>0 essential; physical q=2/tau_a normalization critical.",
+    "Publication not_ready until public metadata privacy and antecedent date are fixed with exact guarded full replacements."
+  ],
+  "schema_version": 1
+}

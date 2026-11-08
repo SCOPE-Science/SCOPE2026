@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` constructs the stationary process, derives the covariance ODE and its coefficients, proves positivity through a positive-convolution decomposition, proves infinitely many negative bands through a nonzero oscillatory spectral component, and bounds the first negative lag to one mechanical period beyond the envelope threshold.
+## correctness
 
-The exact witness uses \(\beta=1/2\), \(\omega_0=1\), \(q=1\), \(a=1\) and lag \(t=2\pi/\sqrt3\); the resulting difference of exponentials is strictly negative. This is an exact sign argument, not a floating-point certificate.
+PASS
 
-Execute `python3 checker.py` using Python 3 and only its standard library. The checker separately integrates the three-variable second-moment evolution by fourth-order Runge–Kutta, compares it with the explicit stationary autocovariance over many parameters and lags, tests the critical amplitude and sampled sign regimes, and checks near-boundary envelope scaling. The current package reports 2015 passed finite diagnostics. These finite calculations do not establish the universal assertions; the proof does.
+From stationary generator E[Xsigma]=a/(omega0^2+2 beta q+q^2) and E[X^2]=a^2(2 beta+q)/(2 beta omega0^2 M), the covariance satisfies C_second+2beta C_first+omega0^2 C=a^2 e^{-qt}/M and C_first(0)=0. Exact underdamped solution has K=a^2/(MH)>0, exponential e^-qt plus e^-beta t(A cos(Omega t)+B sin(Omega t)), with nonzero A,B. At q=beta, oscillation amplitude R=sqrt(1+3 beta^2/omega0^2)/2<1; for q<beta the positive exponential-covariance convolution identity yields C_q(t)>0. Critically/overdamped Green function is positive, giving positive twofold convolution. For underdamped q>beta nonzero sinusoid dominates faster exponential: infinitely many negative and positive intervals. Envelope time L_q=log(1/R_q)/(q-beta) brackets first negative lag within 2pi/Omega and proves the stated limit. Independently verified normalized stationary covariance IVP and critical R symbolically; inspected checker.py shows RK4 finite checks but it cannot prove universality. Exact witness beta=.5,omega=1,q=1 at t=2pi/sqrt3 is negative.
 
-No formal proof assistant, independent audit, laboratory measurement, or literature-priority certificate has been supplied. In particular, the claim does not extend to additive thermal white noise, nonlinear trapping, non-exponential propulsion correlations, or nonstationary initial conditions.
+## originality
+
+PASS
+
+Best-of-knowledge novel exact all-lag covariance sign dichotomy and first negative-lag divergence, not new linear filter or stationary moments; directly matching Dutta et al model and its main/appendix results compared, distinct comparator of white-noise inertial OU also checked. Hidden earlier stationary colored-noise pole classification remains priority risk.
+
+## value
+
+PASS
+
+Autocorrelation sign is a natural observable in inertial active particles: underdamping alone fails to force negative lags, while crossing telegraph decay rate q=beta changes global sign; delay divergence gives quantitative finite-recording detection scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
