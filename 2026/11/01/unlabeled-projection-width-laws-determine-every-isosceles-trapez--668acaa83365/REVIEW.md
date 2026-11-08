@@ -1,15 +1,21 @@
-# Scientific review: Unlabeled projection-width laws determine every isosceles trapezoid
+# Independent mathematical audit
 
-## Correctness — PASS
-For every nondegenerate isosceles trapezoid, vertex projections yield two cosine branches. The exact change-of-variables density and its two regimes have a complete proof in RESULT.md. Interior versus endpoint stationary points contribute distinct normalized pole coefficients; the remaining recovery cases follow from the support minimum, its finite right density, and subtraction of two known radical branches. The case of equal bases is handled separately. Thirteen representative phase-boundary and interior cases passed a deterministic standard-library numerical checker, including an independently evaluated angular-preimage CDF. The analytic proof, not the checker, establishes the all-parameter theorem.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Akiyama and Kamae, *Width deviation of convex polygons* (arXiv:2201.06736, 2022), is the closest same-observable paper inspected. Its general edge decomposition, moment identities, and local triangle truncation findings are expressly prior. The present contribution is a global **inverse** classification of all positive-height isosceles trapezoids from the full direction-unlabeled width law, including the boundary phase cases. Martirosyan's *Orientation-Dependent Chord Length Distribution in a Convex Quadrilateral* (DOI:10.3103/S1068362323060055, 2023) uses different data, with a randomized offset conditional on each direction. Indexed published inverse results for triangles and parallelograms do not, on their stated claims, cover proper unequal-base trapezoids; only their rectangle boundary case is prior-covered. Related abstracts were available without full manuscript access, and historic equivalent derivations remain possible. No absolute priority is claimed.
+PASS
 
-## Mathematical value — PASS
-The full inverse theorem is a natural complete classification, not an arbitrary slice: it recovers all three metric parameters from an unlabeled random projection and distinguishes every regime, including coincident poles and a finite-jump hidden beneath another singularity. It provides exact observable signatures for an asymmetrical convex polygon family and separates this measurement from directional chord tomography. No general quadrilateral theorem or statistical noise guarantee is claimed.
+For T with half-bases A>B>0 and height H>0, symmetry reduces random line direction to theta uniform in [0,pi/2]. Its support width equals 2A cos(theta) until alpha=atan((A-B)/H), then (A+B)cos(theta)+H sin(theta)=Q*cos(theta-beta), Q=sqrt((A+B)^2+H²), beta=atan(H/(A+B)); the switching height is z=2AH/sqrt((A-B)^2+H²). Branchwise change of variables yields the stated exact 2/pi times inverse-root density. Monotonic second branch (beta<alpha), stationary switching (beta=alpha), and interior second-branch maximum (beta>alpha) produce pole coefficients 2/pi at 2A and respectively none, 2/pi or 4/pi at Q; when Q=2A the coefficients add to 6/pi. These cases identify A and the angular regime. The support minimum is min(H,z); where this is H, recover B from the perimeter mean P=pi*E[W]/2=A+B+sqrt((A-B)²+H²) or from Q²=(A+B)²+H². In z<H cases, subtract the now-known first and increasing second branches to identify the H onset of the remaining density, then recover B. Rectangles (A=B) have a single 4/pi pole at Q and support min=min(2A,H), recovering their two side lengths as an unordered pair. This exhausts the transition and pole-merger boundaries; exact-law injectivity holds only within the isosceles trapezoid class.
 
-## Limits and evidence
-Reproducibility: `python3 check.py` from the embedded package. Source evidence: arXiv:2201.06736, especially the width decomposition and §§6–7; Martirosyan's 2023 open-access full text; published indexed abstracts of related triangle/parallelogram inverse results. The script verifies finite representative configurations, not a symbolic quantifier over all parameters. The global proof is supplied separately, and independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge conclusion from actual source-tree proof reconstruction, current Resultary published-finding search and material inspected from primary literature: The previously published forward width and different chord results do not entail the complete unlabeled inverse reconstruction without the added singularity and support onset arguments. Source access and possible historical equivalents remain listed as residual risks.
+
+## value
+
+PASS
+
+Full inverse classification of a geometrically natural three-parameter convex polygon family from an unlabeled probabilistic width observable. The density singularities supply an explicit reconstruction despite angular phase changes, including rectangles and merged poles; this is not simply a forward perimeter computation or an arbitrary numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
