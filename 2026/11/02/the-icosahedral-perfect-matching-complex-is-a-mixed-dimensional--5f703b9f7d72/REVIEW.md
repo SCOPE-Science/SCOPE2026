@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph construction is explicit, and full enumeration of its 125 perfect matchings gives the 4,055 nonempty simplices and exact face vector. An exhaustive acyclic matching on the entire augmented face poset produces 65 critical two-cells and 41 critical three-cells. The signed integer Morse boundary has rational rank 22 with an explicitly recomputed maximal determinant −1, forcing exactly 22 unit Smith factors. The basepoint-plus-two-/three-cell CW model and Hurewicz theorem then yield the precise integral sphere wedge. Direct mod-two simplicial ranks cross-check the Betti numbers. Every quoted nonstandard numerical lemma is reproduced by the standalone verifier.
+## correctness
 
-## Originality — PASS against inspected literature
-The first public honeycomb perfect-matching paper arXiv:2209.02803, and the polygonal-line tiling paper arXiv:2407.05809, concern graph families not including the icosahedron. The closest same-graph published research record concerns the **ordinary** matching complex, which contains the present perfect-matching subcomplex but whose torsion/homotopy classification does not imply this subcomplex's homotopy type. Searches of mathematical findings covered the exact object, dimer/extendability aliases, and its proposed homotopy numbers; no equivalent or stronger same-object result was recovered. Publication-index incompleteness, in particular an equivalent unindexed calculation, remains a risk; negative searches are not a uniqueness theorem.
+PASS
 
-## Value — PASS
-The icosahedral graph is a canonical planar regular polyhedral graph, and the difference between matching complexes and perfect-matching complexes is a structural issue in extendability topology. The exact mixed-dimensional integral sphere wedge, non-shellability despite purity, and disappearance of torsion compared with the known ordinary matching complex provide useful topological information that neither the published matching result nor a routine counting argument supplies. This does not purport to classify all planar complexes or compute the map of their inclusion.
+The displayed 30-edge icosahedron has 125 perfect matchings; independent face generation recovers f=(30,315,1260,1575,750,125), Euler characteristic 25, agreeing with 43 S2 and 19 S3. Full verifier source constructs 1975 acyclic face-poset pairs, 65 critical 2-cells, 41 critical 3-cells, and 65x41 signed boundary with rank22 and unit 22x22 minor -1; the code explicitly computes acyclic Hasse sort and a Bareiss minor rather than reading a log. Under the proved acyclicity, integral Morse cancellation gives ranks 43 and 19 with no torsion; since pi_2 of the wedge of 65 spheres is free on their generators, Smith unit pivots identify the full 3-dimensional CW homotopy type. The pure 5-dimensional complex is not shellable due to lower homology. The independent bounded check reproduces face counts, not the full signed Morse reduction.
 
-## Bibliographic and scientific limitations
-The finite verifier supplies reproducible enumeration and determinant checks, not independent peer audit. The exact inclusion-induced homology morphism and all graph automorphism actions are outside the claim. The stated result might already exist outside inspected indexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The extension-restricted perfect-matching complex differs from the ordinary matching complex of the same icosahedron: the ordinary complex includes nonextendable matchings, has 5887 nonempty faces and Z/3 torsion in H3, whereas this complex has 4055 nonempty faces and torsion-free H2,H3. Bayer et al. and Chandrakar–Singh treat honeycomb/polygonal families, neither giving this finite icosahedral computation.
+
+## value
+
+PASS
+
+The standard highly symmetric planar icosahedron is a motivated benchmark for extension-restricted matchings; the mixed-dimensional, torsion-free wedge and non-shellability distinguish its topology from the known torsion ordinary matching complex. Exact computation of a natural finite complex is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Execute `python3 verify_icosahedral_perfect_matching.py` with a Python 3 standard-library environment. Its terminal marker is `ICOSAHEDRAL_PERFECT_MATCHING_43S2_19S3_EXACT_OK`.
+## correctness
 
-It independently enumerates the 12 graph vertices, 30 graph edges, 20 graph triangles, 125 perfect matchings and the 4,056 augmented simplices, with face vector `(30,315,1260,1575,750,125)` in dimensions 0–5. It produces 1,975 matched pairs on the augmented complex and 65 critical two-cells plus 41 critical three-cells. A global topological sort over all 15,240 directed Hasse incidences establishes acyclicity.
+PASS
 
-Its signed gradient-path recursion constructs the exact integral Morse matrix of shape `65 x 41`. Full integer unit-pivot elimination yields 22 pivots with all residual entries zero. A separate fraction-free algorithm computes the determinant of a selected 22-by-22 submatrix as `-1`, certifying primitive image and 22 unit Smith factors. Direct mod-two simplicial boundary ranks are `(29,286,931,625,125)`, agreeing with the rank-level homology calculation.
+The displayed 30-edge icosahedron has 125 perfect matchings; independent face generation recovers f=(30,315,1260,1575,750,125), Euler characteristic 25, agreeing with 43 S2 and 19 S3. Full verifier source constructs 1975 acyclic face-poset pairs, 65 critical 2-cells, 41 critical 3-cells, and 65x41 signed boundary with rank22 and unit 22x22 minor -1; the code explicitly computes acyclic Hasse sort and a Bareiss minor rather than reading a log. Under the proved acyclicity, integral Morse cancellation gives ranks 43 and 19 with no torsion; since pi_2 of the wedge of 65 spheres is free on their generators, Smith unit pivots identify the full 3-dimensional CW homotopy type. The pure 5-dimensional complex is not shellable due to lower homology. The independent bounded check reproduces face counts, not the full signed Morse reduction.
 
-Zero-based indices for this determinant are supplied in `RESULT.md` and reproduced by the checker itself. The homotopy conclusion further invokes the standard acyclic-matching CW equivalence and the degree classification of maps from two-spheres to wedges of two-spheres. These are mathematical arguments, not properties inferred from a log or finite test alone. No independent audit has been performed. No inclusion map, representation on homology, or broader graph classification is verified here.
+## originality
+
+PASS
+
+The extension-restricted perfect-matching complex differs from the ordinary matching complex of the same icosahedron: the ordinary complex includes nonextendable matchings, has 5887 nonempty faces and Z/3 torsion in H3, whereas this complex has 4055 nonempty faces and torsion-free H2,H3. Bayer et al. and Chandrakar–Singh treat honeycomb/polygonal families, neither giving this finite icosahedral computation.
+
+## value
+
+PASS
+
+The standard highly symmetric planar icosahedron is a motivated benchmark for extension-restricted matchings; the mixed-dimensional, torsion-free wedge and non-shellability distinguish its topology from the known torsion ordinary matching complex. Exact computation of a natural finite complex is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
