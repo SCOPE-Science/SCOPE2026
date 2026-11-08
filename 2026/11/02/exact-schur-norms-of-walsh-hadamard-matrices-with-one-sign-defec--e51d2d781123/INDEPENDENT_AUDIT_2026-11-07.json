@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:51:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For complex operator-norm Schur multiplication, operator/nuclear duality gives ||S_M||=max_{p,q in simplex} ||diag(sqrt p) M diag(sqrt q)||_1. This is quantum fidelity between A=diag p and B=M diag q M^T and is jointly concave by the positive-matrix variational formula, allowing averaging over simultaneous GL(d,2) actions and transpose to p=q with two orbits {0} and nonzero characters. The reduced symmetric C has N−2 singular values sqrt N; its remaining 2D Gram eigenvalue sum simplifies to sqrt(t²+(4N−6)t+1). Thus F(t)=((N−2)sqrt N+sqrt(t²+(4N−6)t+1))/(t+N−1), whose unique t≥0 maximizer t_N=2sqrt(N(N+2))−(2N+1) gives boxed formula for N=2^d>=8. Expanding yields deficit N^-3/2+O(N^-7/2); row/column Walsh translations preserve norm of an arbitrary one-entry flip. Fresh independent numpy nuclear-SVD checks for N=8,16,32 recovered formula and optimizer to numerical precision, but global proof uses joint concavity and exact spectrum. Arbitrary asymmetric optimizers are not claimed to be unique.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holbrook–Johnston–Schoch general sharp upper bound is sqrt N and equality requires Hadamard, implying only that the defective matrix has smaller norm.",
+          "Christensen supplies an implicit variational expression for self-adjoint Schur multipliers, not the explicit Walsh one-flip optimizer or deficit asymptotic."
+        ],
+        "reasoning": "Universal upper bounds and variational formulas cover a broader object class but their conclusions are strictly weaker than the exact defect norm and coefficient; no direct implication to this closed form was located.",
+        "searches": [
+          "Walsh Hadamard matrix one flipped sign Schur multiplier norm nuclear norm exact optimizer",
+          "arxiv:2206.02863",
+          "arxiv:2505.24670"
+        ]
+      },
+      "checked_sources": [
+        "Holbrook–Johnston–Schoch arxiv:2206.02863 full relevant primary PDF",
+        "Davidson–Donsig arxiv:math/0506073 relevant symmetry results",
+        "Christensen arxiv:2505.24670 reported general self-adjoint variational framework",
+        "Resultary Walsh Hadamard matrix one flipped sign Schur multiplier norm nuclear norm exact optimizer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known equality characterization supplies ||S_M||<sqrt N, but no explicit loss N^-3/2 or optimal weights.",
+          "Transitive-action symmetry does not immediately apply because defect-preserving GL(d,2) fixes the zero index and acts transitively only on nonzero indices."
+        ],
+        "reasoning": "The exact formula follows from jointly concave symmetrization and the explicit two-dimensional Gram block, not merely the established Hadamard equality case. Only the known N=4 value and general strict upper bound are covered.",
+        "searches": [
+          "Walsh Hadamard matrix one flipped sign Schur multiplier norm nuclear norm exact optimizer",
+          "arxiv:2206.02863",
+          "arxiv:math/0506073",
+          "arxiv:2505.24670"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The norm can be written as the γ2/Haagerup factorization norm or maximized weighted nuclear norm over row/column probability weights.",
+          "Davidson–Donsig study Schur multiplier norms and transitive symmetry; the one-defect matrix has exactly two symmetry orbits."
+        ],
+        "reasoning": "Earlier general Schur/factorization frameworks describe the same optimization but do not yield the evaluated analytic one-parameter ratio and exact all-dyadic value without the new two-orbit symmetry reduction.",
+        "searches": [
+          "Walsh Hadamard matrix one flipped sign Schur multiplier norm nuclear norm exact optimizer",
+          "arxiv:math/0506073",
+          "arxiv:2505.24670"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The order-four real sign-matrix census gives a previously published one-entry-defect value, expressly excluded from the novelty domain N≥8.",
+          "Resultary nearest matches were Walsh projections and unrelated Schur/Schatten bounds rather than the all-N one-sign-defect matrix norm."
+        ],
+        "reasoning": "A known small-order value cannot determine an infinite dyadic family; nevertheless possible obscure near-Hadamard tables or factorization identities remain priority risk.",
+        "searches": [
+          "Walsh Hadamard matrix one flipped sign Schur multiplier norm nuclear norm exact optimizer",
+          "arxiv:2206.02863 Section 4",
+          "Resultary Walsh Hadamard matrix one flipped sign Schur multiplier norm nuclear norm exact optimizer"
+        ]
+      },
+      "rationale": "PASS (qualified): Holbrook–Johnston–Schoch show the general √N bound with equality precisely at genuine Hadamard matrices, and tabulate the order-four single-defect value, which is expressly not new. Davidson–Donsig transitive-symmetry norm formulas and Christensen's general self-adjoint variational representation describe broader frameworks but do not explicitly evaluate the nontransitive two-orbit one-flip Walsh family. The new contribution is the complete all-dyadic closed form, explicit optimizing weights and exact N^-3/2 loss. An earlier factorization or near-Hadamard perturbation formula remains possible.",
+      "residual_risks": [
+        "Unindexed near-Hadamard, gamma-2 or operator-space factorization literature might have the same all-dyadic norm formula.",
+        "No uniqueness claim for arbitrary nonsymmetric maximizing p,q; only existence of the explicit two-level optimum and uniqueness within that reduced family.",
+        "Small numerical SVD checks cannot establish all dyadic orders, so global proof relies on concavity and Walsh spectrum identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: bound and order-four value known; no general N=2^d one-flip evaluation in inspected statements",
+          "evidence": [
+            "The universal bound sqrt N with equality iff Hadamard implies strict drop from a one-sign flip.",
+            "Published order-four norm class already contains the corresponding small case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.02863",
+          "material_read": "Open full primary PDF, sharp bound theorem and the order-four real sign-matrix classification; visually inspected relevant pages",
+          "method": "Compared theorem and order-four cases to all dyadic one-flip formula",
+          "title": "Real Schur norms and Hadamard matrices",
+          "trigger": "Closest all-sign-matrix Schur norm and small defective Hadamard classification"
+        },
+        {
+          "assessment": "Framework coverage; two-orbit optimization not directly evaluated",
+          "evidence": [
+            "Transitive group action assumption differs from GL(d,2) preserving zero versus nonzero indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0506073",
+          "material_read": "Public article sections on symmetries and general factorization examined in available source description",
+          "method": "Compared group action required for exact symmetry formula to two-orbit group here",
+          "title": "Norms of Schur Multipliers",
+          "trigger": "Potential transitive-symmetry exact formula for a sign-defect Walsh matrix"
+        },
+        {
+          "assessment": "General implicit representation, not directly a closed-form answer; priority risk remains",
+          "evidence": [
+            "The self-adjoint characterization is applicable but does not report formula for the Walsh one-defect family in inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.24670",
+          "material_read": "Accessible abstract and stated primary variational theorem description; no certified full-paper negative assertion",
+          "method": "Compared general SDP-like characterization with explicit closed-form family",
+          "title": "The Schur multiplier norm and its dual norm",
+          "trigger": "Recent general variational characterization of self-adjoint Schur multiplier norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This gives a sharp quantitative stability law for an extremal family of Schur multipliers under the smallest combinatorial sign perturbation. The exact norm deficit and explicit probability-weight optimizer answer a natural condition-number/norm robustness problem beyond the known strict inequality, for every dyadic order rather than a single numerical example. Neither a generic SDP restatement nor a small-order lookup suffices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed near-Hadamard, gamma-2 or operator-space factorization literature might have the same all-dyadic norm formula.",
+    "No uniqueness claim for arbitrary nonsymmetric maximizing p,q; only existence of the explicit two-level optimum and uniqueness within that reduced family.",
+    "Small numerical SVD checks cannot establish all dyadic orders, so global proof relies on concavity and Walsh spectrum identities."
+  ],
+  "schema_version": 1
+}
