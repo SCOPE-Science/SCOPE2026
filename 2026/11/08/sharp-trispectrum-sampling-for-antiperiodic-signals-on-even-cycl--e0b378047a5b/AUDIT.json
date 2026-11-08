@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "With full power spectrum, odd-frequency ratios h have modulus one and conjugation. The m trispectral equations force \\(h(2j+1)=h(1)^{2j+1}\\); both N mod 4 cases imply \\(h(1)^N=1\\). Thus ratios are precisely character phases of translations. Fewer than m individual trispectrum coordinates define at most s torus characters on the m-dimensional fixed-magnitude phase torus and leave a positive-dimensional nontranslation ambiguity. Verified directly and algebraically by CHECK.py (1011107 assertions), without treating finite computation as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agulnick–Busick-Warner (2026), Theorem B: when S(f)^v is index two, orders through 3v suffice",
+        "Bendory–Edidin–Kreymer (2021), abstract and Sections 3–5: few generic linear measurements of higher order spectra",
+        "Grünbaum–Moore (1995) assume d_0 ≠ 0, prove rational data recoverable from all orders up to 6, and do not optimize an individual-entry count"
+      ],
+      "reasoning": "The general index-two sufficiency theorem (with v=2 here) yields autocorrelation information through order six, not the fixed fourth-order m-entry optimum. Generic high-order spectral compression does not address this structured vanishing-support class and uses arbitrary linear measurements rather than s individual entries.",
+      "searches": [
+        "trispectrum fourth order autocorrelation phase retrieval and exact minimal nonadaptive sampling with full power spectrum, anti-periodic real cyclic signals and odd Fourier bands",
+        "Exactly floor(N/4) nonadaptive Fourier trispectrum samples with full power spectrum recover all real anti-periodic signals on even cycles up to translation, optimal via torus dimension",
+        "arxiv:2604.13310 full Theorem B, arxiv:2103.01551 full text",
+        "The Use of Higher-Order Invariants in the Determination of Generalized Patterson Cyclotomic Sets 1995 full PDF Sections 2,5,6,8 and appendix"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.13310v1",
+      "arxiv:2503.21022v1",
+      "arxiv:2103.01551v2",
+      "published-finding corpus:2026/10/11/SCOPE-sharp-asymmetric-bispectral-identifiability-and-minimal-phase-sa--52a1191ef6d6",
+      "published-finding corpus:2026/10/4/SCOPE-parity-classification-of-fourier-zeros-for-phase-only-consecutiv--f8559da4c3f3",
+      "Grünbaum–Moore (1995), Acta Cryst A51:310–323, DOI:10.1107/S0108767394009827"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 index-two theorem only proves a sufficient *order* of whole autocorrelations",
+        "2025 Z_6 obstruction has Fourier support only on ±1, unlike full odd support, and concerns rational functions",
+        "2021 generic linear functional theorem does not imply the specific sample coordinates or their minimax necessity",
+        "published-finding corpus closest bispectral item works with a different supported Fourier band and third-order entries",
+        "1995 original expressly assumes d_0≠0 and rational c_j; all members of the present antiperiodic real class have d_0=0, so neither the hypotheses nor the sharp entry-count conclusion hold"
+      ],
+      "reasoning": "A stronger general recovery theorem would cover the new claim if it explicitly specialized to \\(s\\le m\\) individual fourth-order entries and their lower bound. The inspected results do not provide both that sampling restriction and sharp count. The elementary product formula is prior art; the special-scope exact nonadaptive optimality claim is the contribution.",
+      "searches": [
+        "arxiv:2604.13310v1 Sections 1, 2 and 4 on S(f)^v index two",
+        "arxiv:2503.21022v1 Section 4.1 Example 4.1",
+        "arxiv:2103.01551v2 Sections 3–5",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-asymmetric-bispectral-identifiability-and-minimal-phase-sa--52a1191ef6d6",
+        "Grünbaum–Moore 1995 Section 2, Section 6 and Appendix main results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.13310v1, Fourier product identity (2), Theorem B",
+        "arXiv:2503.21022, Example 4.1",
+        "published-finding corpus semantic closest match 2026/10/11/SCOPE-sharp-asymmetric-bispectral-identifiability-and-minimal-phase-sa--52a1191ef6d6",
+        "Grünbaum–Moore (1995), Acta Cryst. A51, 310–323, Section 2 and appendix, translation invariants of cyclic rational sequences with nonzero constant coefficient"
+      ],
+      "reasoning": "Equivalent language includes fourth-order autocorrelation, trispectrum, degree-four translation-invariant monomials, and group-character phase recovery. The listed prior statements are either global-order sufficient conditions, sparse-support obstructions, or third-order phase recovery on asymmetric bands; none directly supplies exactly m individual fourth-order entries or the corresponding universal lower bound for full odd-frequency support.",
+      "searches": [
+        "Higher-order autocorrelation 3-deck 4-deck for rational signals of cyclic 2-power groups, Fourier support primitive odd frequencies, translation invariants",
+        "Odd Fourier modes on even cyclic groups, vanishing bispectrum, trispectrum phase recurrence h(a+2)=h(a) h(1)^2, sharp minimal sample count",
+        "\"anti-periodic\" \"trispectrum\" phase recovery odd Fourier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned indexed records on unrelated Fourier-support profiles and sharp third-order bispectral phase sampling; no exact m-entry fourth-order claim identified"
+      ],
+      "reasoning": "The result gives an all-even-order formula and explicit sample locations rather than a finite classification table. No matching exact table or database result was encountered; absence is not proof of novelty.",
+      "searches": [
+        "Fourth-order autocorrelation restricted to odd-character Fourier support on cyclic 2-power groups; minimal separating monomials",
+        "Homometric cyclic signals with identical third fourth order autocorrelations and missing Fourier frequencies",
+        "published-finding corpus semantic search for full odd Fourier support, trispectrum sampling, m entries"
+      ]
+    },
+    "rationale": "Claims exact \\(m=\\lfloor N/4\\rfloor\\) nonadaptive individual fourth-order Fourier samples and corresponding universal sharpness, distinct from general autocorrelation order sufficiency, rational sparse-support counterexamples, and generic linear combinations of higher spectra; genuine remaining risk of equivalent unindexed invariant-monomial argument.",
+    "residual_risks": [
+      "Earlier unindexed equivalent account of minimally separating invariant monomials for full odd-frequency cosets is possible.",
+      "Literature outside the three substantially inspected primary sources could contain a disguised sharp sample theorem.",
+      "The 1995 PDF screenshot endpoint timed out during visual inspection; searchable text was accessible and relevant full sections were read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_ORDER_NOT_ENTRY_COUNT",
+        "evidence": "April 14, 2026 v1, Theorem B assumes index-two generated subgroup and uses orders through 3v; no optimal individual trispectrum-entry set stated.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.13310",
+        "material_read": "arXiv full HTML, introduction, Theorem B and proof, Z6 cases and references",
+        "method": "Direct manuscript HTML reading and comparison of support quantifiers and recovered information",
+        "title": "Higher-Order Autocorrelations on Finite Abelian Groups",
+        "trigger": "2026 emerging work on Fourier-zero support and higher autocorrelations"
+      },
+      {
+        "assessment": "INCOMPARABLE_RATIONAL_GLOBAL_THEOREM_AND_SPARSE_SUPPORT_CASE",
+        "evidence": "Example 4.1 on Z6 uses nonzero Fourier coefficients only at ±1, excluding the full odd-support condition; theorem targets rational data and all autocorrelation orders.",
+        "identifier_or_url": "https://arxiv.org/abs/2503.21022",
+        "material_read": "Full arXiv HTML introduction, principal theorem, Section 4.1 Example 4.1 and remarks",
+        "method": "Direct full-text comparison of Fourier supports, low-order invariants and signal domains",
+        "title": "Reconstructing Rational Functions on Finite Abelian Groups with Higher Autocorrelations",
+        "trigger": "earlier rational-function recovery and even-order counterexamples"
+      },
+      {
+        "assessment": "DIFFERENT_MEASUREMENT_MODEL",
+        "evidence": "The paper proves N+1 generic linear measurements of the high-order spectrum suffice, rather than exact individual entries for the Fourier-zero class, and gives no m lower bound.",
+        "identifier_or_url": "https://arxiv.org/html/2103.01551v2",
+        "material_read": "Full HTML abstract, introduction, 3rd-section trispectrum discussion and later bounds",
+        "method": "Direct reading of generic-linear-measurement quantifiers, Fourier support assumptions and stated measurement bounds",
+        "title": "Signal recovery from a few linear measurements of its high-order spectra",
+        "trigger": "prior few-measurements result potentially dominating phase sample bound"
+      },
+      {
+        "assessment": "DOES_NOT_COVER_ZERO_MEAN_REAL_FULL_ODD_SUPPORT_OR_SHARP_ENTRY_COUNT",
+        "evidence": "Section 2 lines 44–72 assumes d_0≠0, integer/rational data, all invariants through order six. Current Fourier mean vanishes and only m individual fourth-order invariants are used; Section 6 gives counterexamples with a different support domain.",
+        "identifier_or_url": "https://doi.org/10.1107/S0108767394009827",
+        "material_read": "Open-access PDF extracted text (14 pages), introductory/main theorem, Section 5, Section 6, Section 8 and appendix; PDF image screenshots attempted twice but source server timed out",
+        "method": "Text extraction presented by searchable PDF, direct comparison of explicit d_0≠0 hypothesis and order-six theorem to current zero-mean class",
+        "title": "The Use of Higher-Order Invariants in the Determination of Generalized Patterson Cyclotomic Sets",
+        "trigger": "Potentially dominant original work in cyclic phase invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e0b37804-7a5b-42f5-ba34-29a4dd15f98b",
+  "value": {
+    "rationale": "The full odd-frequency support class is a natural exact Fourier-zero obstruction to bispectral inversion: all odd-order autocorrelations vanish. An explicit reconstruction algorithm using exactly m entries and a matching nonadaptive information lower bound specifies the minimal fourth-order data needed to overcome this obstruction. This is a meaningful sharp sampling design and universal classification of the measurement threshold, not a small numerical gain.",
+    "status": "PASS"
+  }
+}
