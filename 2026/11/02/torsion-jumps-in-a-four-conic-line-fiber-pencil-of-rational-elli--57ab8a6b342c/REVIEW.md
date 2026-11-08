@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies every rational branch root using the exact resultant \(2(a-1)(a^2-a+1)\) and an elementary function-field degree argument. It rules out non-2 torsion using Kodaira component groups and a characteristic-zero height formula. Exact discriminant and quartic-invariant polynomial identities were independently reproduced by the supplied symbolic checker. The proof assumes the standard interpretation of a resolved plane cubic pencil as a rational elliptic surface with a zero section.
+## correctness
 
-## Originality — PASS, with historical risk
-The source establishing the explicit pencil determines conic-line members, not the exact torsion jump. General Mordell–Weil-lattice theory provides the height method and possible groups; its abstract existence classifications are not presented here as a computation of this specific parameter-dependent torsion group. The claim is not just a restatement of the fiber counts: a four-\(I_2\) configuration need not uniquely determine two-torsion. A previously tabulated equivalent family, or an unnoticed derivation from a classical classification, remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The torsion subgroup is a basic arithmetic invariant of an elliptic fibration, essential for isogeny and section arithmetic. The complete parameter locus of nontrivial torsion distinguishes a pair of exceptional rational elliptic surfaces and gives their canonical order-two section; it is a uniform result across the whole parameter family rather than a list of special cases.
+For the smooth generic plane cubic over C(t), a!=0,1 and O=[0:0:1], project from O to r=x/y. The genus-one double cover has w²=P(r)L(r) with f=(r-a)(r²+1), g=(r-1)(r²-r+1), P=f+tg, L=(r-a)+t(r-1). The rational branch roots of P equal the nontrivial 2-torsion. Exact resultant Res_r(f,g)=2(a-1)(a²-a+1); a rational right inverse to -f/g cannot exist for degree>1, hence a^2-a+1=0 gives one fixed root r=a and exactly one nontrivial 2-torsion, otherwise none. The quartic discriminant t²(t+1)²(t+a)²Q_a(t), invariant I_a(t), collisions and at-infinity fiber yield component groups of exponent 2 except at most one I3 (exponent 3). Height 2+2(S.O)-sum contr excludes odd prime torsion (total contr<=2/3) and four-torsion because 2S maps to trivial components. Thus torsion exactly Z/2 for two exceptional a and otherwise trivial. Requires C(t), a!=0,1; does not address ranks or special fibers.
 
-## Scope and limits
-Only characteristic zero and the generic curve over \(\mathbb C(t)\) are covered. No claims are made about base changes, positive characteristic, all rational elliptic surfaces with the same fiber baskets, or exhaustive historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the exact algebraic parameter a²-a+1=0 and its branch-point 2-torsion realization are not specified in Suluyer’s original conic-line pencil or generic Shioda–Oguiso height theory, although stronger specialist Mordell–Weil classifications could independently imply them.
+
+## value
+
+PASS
+
+Complete torsion-jump stratification of an explicit rational elliptic-surface pencil is a natural arithmetic-geometric invariant, distinguishing the two exceptional parameters and excluding all higher torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
