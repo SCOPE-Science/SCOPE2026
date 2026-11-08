@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.10 or newer; no external packages or network access are necessary. The program evaluates EF1 scores directly from valuations and allocations with exact `Fraction` arithmetic, rather than implementing the theorem as a test oracle.
+## correctness
 
-It checks the equalizing algorithm on 280 fixed inputs and exhaustively optimizes all choices of earlier recipients and later recipients for 90 weighted finite games (two through four agents, two exact scale values, three factor thresholds, five weighting profiles). These checks cover both sides of the claimed threshold and include nonuniform prior probabilities.
+PASS
 
-Expected output: `VERIFY_OK equalizer_input_checks= 280 exhaustive_weighted_policy_games= 90 max_agents_bruteforce=4 exact_rational=True`.
+For each n>=2, K>1, alpha threshold, the 2n precommitted short/long inputs share n-1 unit goods and target-specific special goods. At alpha<=1/K a deterministic initial distinct prefix and final allocation attains all inputs. At alpha>1/K every successful short input requires an injective prefix; with unique empty recipient b, a=b admits both horizons, and each a!=b admits at most one. Optimal deterministic response to arbitrary prior q therefore equals max_b(q_bS+q_bL+sum_(a!=b) max(q_aS,q_aL)). Writing r_a=q_aS+q_aL and d_a=|q_aS-q_aL| gives F=(1+D+max_b(r_b-d_b))/2>= (n+1)/(2n), with equality uniquely at uniform q. Uniform b and a coin in the mismatch give exact pointwise equalizer; deterministic minmax zero at high alpha. Independent rational finite-game enumeration for n=2,3 and nonuniform priors matched.
 
-## Limits
+## originality
 
-The source code checks bounded finite instances only. The general theorem depends on the counting, explicit best-response, and equality-condition arguments in `RESULT.md`, not on extrapolation from experiments. No independent mathematical audit has been performed.
+PASS
+
+The 2n hard-instance family is identical to Chen–Long Section 4.2, but their published upper bound for unrestricted online input sequences is different from proving attainable minimax on only this subfamily with unique dual solution. The uniform-prior upper bound alone neither proves a restricted-family saddle point nor forces uniqueness across arbitrary input priors; the threshold at alpha=1/K is another separate statement. The claim is a limited, credited refinement of the same model. Best-of-knowledge priority risk remains explicit; unsuccessful search alone is not claimed as proof of novelty.
+
+## value
+
+PASS
+
+Closes the finite hard-instance game underlying a published online-EF1 impossibility bound: the exact restricted minimax value, threshold and unique adversarial distribution are actionable strategic invariants. It does not claim the unrestricted online problem is solved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
