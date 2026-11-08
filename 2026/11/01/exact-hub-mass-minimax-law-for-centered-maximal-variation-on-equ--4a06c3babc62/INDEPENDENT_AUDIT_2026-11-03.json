@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:59:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen Git RESULT.md blob 474fa3dccf06bfa90f495e3f0ab3d07ffe724cba",
+        "frozen METADATA.json and SLOGAN.txt at commit e6631984c4c88c758388f6d844952479275aa138",
+        "independent local computations /mnt/data/current_audit_checks.py"
+      ],
+      "rationale": "Subtract hub value after replacing f by |f|; with D=m+q,t=1/(1+q),x_i=f(leaf_i)-f(hub), A=sum x_i/D, the hub maximal deviation is max(0,A), leaf is max(x_i,t*x_i,A). If A>=0 output variation=sum_i (x_i-A)_+ <= (1-1/D)sum|x_i|. If A<0, positive deviations sum P and negative output deviations are min(t v_i,(N-P)/D); if P>0 there are at most m-1 negative leaves and variation <=(1-1/D)(P+N), while P=0 gives <=tN. Indicator witnesses attain two branches. Branch monotonicity gives unique crossing q. Independently enumerated deviations [-2,2]^m for m=3,4,5 and q=1/4,1,3 with exact fractions; all maxima equal claimed C, including q=1 earlier counting case. Exhaustion is of test grids only, not of arbitrary functions.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2005.03146 has one fixed vertex mass profile, not arbitrary q>0; arXiv:1410.6204 addresses norm bounds with counting weights."
+        ],
+        "reasoning": "Counting-measure sharp variation cannot imply the entire q-dependent envelope without weighted ball analysis.",
+        "searches": [
+          "arXiv:2005.03146 Theorem 2",
+          "arXiv:1410.6204"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.03146 Theorem 2(ii) and proof",
+        "arXiv:1410.6204 abstract",
+        "Resultary semantic query: weighted star centered Hardy Littlewood maximal variation unweighted edges sharp constant hub mass minimax"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier formula 1-1/(m+1) is the single q=1 slice of max{1-1/(m+q),1/(1+q)}."
+        ],
+        "reasoning": "For q≠1 the two witness modes compete; q_m solves a new optimization and does not follow from a mere relabeling of the counting-measure theorem.",
+        "searches": [
+          "arXiv:2005.03146 Theorem 2(ii) and its proof",
+          "Resultary: weighted star centered Hardy Littlewood maximal variation unweighted edges sharp constant hub mass minimax"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "González-Riquelme and Madrid arXiv:2005.03146 Theorem 2(ii) gives C_{S_n,1}=1-1/n for uniform counting measure, recovered when q=1 and n=m+1."
+        ],
+        "reasoning": "Weighted q variable can be viewed as weighted counting measure but is not equal by renormalization to q=1; explicit second hub extremizer and branch crossing are additional.",
+        "searches": [
+          "Resultary: weighted star centered Hardy Littlewood maximal variation unweighted edges sharp constant hub mass minimax",
+          "González Riquelme Madrid sharp 1-variation centered maximal star graph 2020 arxiv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches discussed unrelated Dudley norms and weighted star polytopes, not the graph maximal 1-variation sharp profile."
+        ],
+        "reasoning": "No exact weighted-star constant or minimax table identified; index failure is not priority proof.",
+        "searches": [
+          "Resultary: weighted star centered Hardy Littlewood maximal variation unweighted edges sharp constant hub mass minimax",
+          "weighted hub-leaf mass star variation sharp maximal constant table"
+        ]
+      },
+      "rationale": "Best-of-knowledge: identified and materially compared directly relevant primary theorems, distinguished prerequisite frameworks from implication of the final exact claim, recorded access and priority risks.",
+      "residual_risks": [
+        "A not-yet-identified treatment of arbitrary weighted star masses might independently contain this two-branch envelope.",
+        "Grid enumeration checks small m only; universal upper bound relies on algebraic P/N decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_ONLY: proves the q=1 slice",
+          "evidence": "Theorem 2(ii): C_{S_n,1}=1-1/n; averaging uses |B|, no hub weight ratio.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.03146",
+          "material_read": "Theorem 2(ii) pages 3–4, proof beginning page 16, definition of graph-ball averaging; inspected screenshot page 1",
+          "method": "full-text arXiv PDF, theorem/proof text and first-page screenshot",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "exact same star graph centered 1-variation"
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_DECISIVE: norm on counting graphs, not weighted 1-variation",
+          "evidence": "Abstract describes sharp p-(quasi)norm and extremal graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.6204",
+          "material_read": "abstract and problem scope",
+          "method": "arXiv abstract",
+          "title": "Best constants for the Hardy-Littlewood maximal operator on finite graphs",
+          "trigger": "general finite-graph maximal operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2005.03146 Theorem 2(ii) and proof",
+        "arXiv:1410.6204 abstract",
+        "Resultary semantic query: weighted star centered Hardy Littlewood maximal variation unweighted edges sharp constant hub mass minimax"
+      ],
+      "rationale": "This is a sharp operator-variation invariant under a natural one-parameter nonuniform mass family; identifies distinct exact extremal mechanisms and unique optimal hub mass for every m, extending a previously sharp counting-mass theorem.",
+      "residual_risks": [
+        "Mathematical significance is for the stated exact object and invariant, not an asserted broader general theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A not-yet-identified treatment of arbitrary weighted star masses might independently contain this two-branch envelope.",
+    "Grid enumeration checks small m only; universal upper bound relies on algebraic P/N decomposition.",
+    "Targeted actual RESULT.md, AUDIT.json, METADATA.json, SLOGAN.txt, VERIFICATION.md were fetched from the frozen Git commit; complete tree enumeration/reconstructed tree SHA not independently obtained from this connector. Assigned source_tree_sha retained as provided; publication therefore not_ready.",
+    "Public-file privacy was not sanitized; no publication, proof certification, expert attestation or GitHub change is claimed."
+  ],
+  "schema_version": 1
+}

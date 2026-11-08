@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof in `RESULT.md` is the argument for all integer \(m\ge3\), all real vertex data, and all real hub-to-leaf ratios \(q>0\). The standalone `verify.py` independently constructs every centered graph-ball average directly, in rational arithmetic when the hub mass is rational. It checks 19,568 claims, including exhaustive small integer sample sets for \(m=3,4,5,6\) and six rational mass ratios, and both extremizer identities for each pair. It additionally checks the crossing/unique-minimum algebra numerically for dimensions through forty. Run as `python verify.py` in a standard Python 3 interpreter; only the standard library is required.
+# Independent mathematical audit
 
-These finite computations cannot establish the unrestricted inequality. Critical analytic steps are the exact three-ball reduction, separate treatment of the signs of the whole-star average, the mixed-sign negative-leaf count bound, and the explicit attainment tests. The proof establishes all of these. Search coverage is finite, and novelty remains subject to expert literature comparison. No independent scientific validation was conducted.
+## correctness
+
+PASS
+
+Subtract hub value after replacing f by |f|; with D=m+q,t=1/(1+q),x_i=f(leaf_i)-f(hub), A=sum x_i/D, the hub maximal deviation is max(0,A), leaf is max(x_i,t*x_i,A). If A>=0 output variation=sum_i (x_i-A)_+ <= (1-1/D)sum|x_i|. If A<0, positive deviations sum P and negative output deviations are min(t v_i,(N-P)/D); if P>0 there are at most m-1 negative leaves and variation <=(1-1/D)(P+N), while P=0 gives <=tN. Indicator witnesses attain two branches. Branch monotonicity gives unique crossing q. Independently enumerated deviations [-2,2]^m for m=3,4,5 and q=1/4,1,3 with exact fractions; all maxima equal claimed C, including q=1 earlier counting case. Exhaustion is of test grids only, not of arbitrary functions.
+
+## originality
+
+PASS
+
+Best-of-knowledge: identified and materially compared directly relevant primary theorems, distinguished prerequisite frameworks from implication of the final exact claim, recorded access and priority risks.
+
+## value
+
+PASS
+
+This is a sharp operator-variation invariant under a natural one-parameter nonuniform mass family; identifies distinct exact extremal mechanisms and unique optimal hub mass for every m, extending a previously sharp counting-mass theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

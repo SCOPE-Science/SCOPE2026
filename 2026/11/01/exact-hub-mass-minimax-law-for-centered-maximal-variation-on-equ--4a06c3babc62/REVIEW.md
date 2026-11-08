@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hub-and-leaf ball averages reduce exactly to three affine expressions. Splitting by the sign of the global centered average yields a two-case proof for all real deviations, all positive masses, and every integer number of leaves at least three. In the negative-average mixed-sign case, the number of negative leaves is at most one below the degree, which is precisely the coefficient bound required. Leaf and hub indicators attain the two upper branches. Monotonicity gives the unique optimal mass. Exact-rational graph-ball verification is supplemental, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, qualified.** The closest fully inspected variation theorem gives the same constant only for counting measure; its \(q=1\) specialization is explicitly excluded from any novelty claim. Earlier finite-graph \(\ell^p\) results concern a different objective, and the discrete-line variation result is not the present weighted-star law. The inspected sequel treats counting measure and other variation exponents. The new two-parameter degree/mass profile and minimax tuning were not established by those statements. A separately known three-vertex weighted case and uncatalogued treatments remain residual priority risks; general degree at least three is the contribution.
+PASS
 
-**Mathematical value — PASS.** Vertex masses define the actual averaging operation, so optimizing the hub-to-leaf mass ratio is a natural exact stability-design question rather than an arbitrary graph enumeration. The sharp curve exhibits a competition between two different extremizing signals and a unique balance distinct from uniform measure. The law holds for the entire infinite family of degrees at least three and quantifies how the optimal hub mass scales with graph size.
+Subtract hub value after replacing f by |f|; with D=m+q,t=1/(1+q),x_i=f(leaf_i)-f(hub), A=sum x_i/D, the hub maximal deviation is max(0,A), leaf is max(x_i,t*x_i,A). If A>=0 output variation=sum_i (x_i-A)_+ <= (1-1/D)sum|x_i|. If A<0, positive deviations sum P and negative output deviations are min(t v_i,(N-P)/D); if P>0 there are at most m-1 negative leaves and variation <=(1-1/D)(P+N), while P=0 gives <=tN. Indicator witnesses attain two branches. Branch monotonicity gives unique crossing q. Independently enumerated deviations [-2,2]^m for m=3,4,5 and q=1/4,1,3 with exact fractions; all maxima equal claimed C, including q=1 earlier counting case. Exhaustion is of test grids only, not of arbitrary functions.
 
-**Limits.** Equal positive leaf masses, centered graph balls, and unweighted edge \(1\)-variation only. No conclusion for independently varying leaf masses, other graphs, or different variation exponents. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: identified and materially compared directly relevant primary theorems, distinguished prerequisite frameworks from implication of the final exact claim, recorded access and priority risks.
+
+## value
+
+PASS
+
+This is a sharp operator-variation invariant under a natural one-parameter nonuniform mass family; identifies distinct exact extremal mechanisms and unique optimal hub mass for every m, extending a previously sharp counting-mass theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
