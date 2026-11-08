@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. The checker directly constructs all orientations, legal flex edges, and cubical cells of the graph \(K_{2,n}\) for \(n=3,4,5\). It checks connected components and their labels; the exact action of every leaf permutation and hub exchange; and the signed cellular Lefschetz number against the predicted first-homology character.
+## correctness
 
-Executed checks gave `TEST_OK (3, 19, 4, 142, 12)`, `TEST_OK (4, 65, 5, 658, 48)`, `TEST_OK (5, 211, 6, 3190, 240)`, and `VERIFY_OK`. The five entries in each `TEST_OK` line are number of leaves, number of connected components, number of cubical degrees, total cubical cells, and tested graph automorphisms.
+PASS
 
-The proof in `RESULT.md` applies for all \(n\ge3\) and relies on the cited, independently published component enumeration. The computational checks establish only the cases explicitly run; they do not prove arbitrary-parameter correctness or establish the absence of unindexed prior literature. Independent mathematical audit has not been performed.
+PASS: The n+2 successive legal sink flips form a closed loop; the invariant sink-to-source 1-cochain is closed on every square and evaluates n+2, proving a non-torsion class per component. Four-cycle orientation signatures distinguish all 2^n-1 nonempty-subset components. Kozlov Theorem 6.1 and Section 6.2 supply precisely 2^n-1 circle components and no higher positive homology; hence these are an integral H1 basis. Invariance of the positive cochain excludes minus signs under every graph automorphism; direct legal hub-swap flexes identify proper subset complementation and fix the full class. Fixed-set counting proves the character including the all-even-cycle case. No extrapolation from finite n is used.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Kozlov proves the nonequivariant circle-component topology and counts, but the inspected relevant sections do not present this unsigned integral S_n x C2 action or its all-even-cycle character. The most analogous published full equivariant result concerns Flex(K_n), a different graph family. This is a natural equivariant refinement; unindexed prior representations remain a risk.
+
+## value
+
+PASS
+
+PASS: This identifies the previously unspecified natural integral automorphism lattice of a canonical graph-flex family, not merely its published nonequivariant circle count. The distinguished fixed class and sharp parity resonance matter for equivariant homology and symmetry quotients; the exact group-action calculation is structurally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

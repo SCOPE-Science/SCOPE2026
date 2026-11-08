@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact cube cochain \(\omega\) is closed and evaluates to \(n+2\) on an explicit legal loop for every nonempty subset. Underlying four-cycle signatures distinguish all \(2^n-1\) constructed noncontractible components. Kozlov's proven exhaustive circle-component count then identifies all integral first-homology generators. The graph-automorphism invariance of \(\omega\) rules out sign twists, and the explicit legal hub-swap flips establish the complement action. Fixed-subset counting yields the full character. Finite exhaustive cells and Lefschetz calculations for three sizes further check the convention and small boundary cases; they are not substituted for proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Kozlov already proves the nonequivariant homotopy components and subset count for these exact graphs; both are treated as imported facts. The new claim is specifically the full integral graph-automorphism representation and even-cycle character of first homology. The strongest compared public component-invariant theorem gives complete reachability and geodesics for arbitrary connected graphs, without computing these induced representations. The closest equivariant flex calculation treats complete graphs rather than bipartite graphs. Macauley–Mortveit concerns click equivalence rather than the integral flex-homology action. We inspected relevant full primary mathematics for these comparisons, searched graph-automorphism and complement aliases, and found no explicit covering theorem. Unindexed work or a previously unstated representation corollary remains a genuine risk.
+PASS
 
-**Value — PASS.** A complete integral representation is strictly more information than the known number of circular components. The exceptional fixed full-subset basis element, complementary proper subsets, and precise even-cycle condition expose the symmetry mechanism behind a natural infinite graph family. It also yields exact trivial- and hub-sign-isotypic ranks and a compact benchmark for future equivariant flex theory.
+PASS: The n+2 successive legal sink flips form a closed loop; the invariant sink-to-source 1-cochain is closed on every square and evaluates n+2, proving a non-torsion class per component. Four-cycle orientation signatures distinguish all 2^n-1 nonempty-subset components. Kozlov Theorem 6.1 and Section 6.2 supply precisely 2^n-1 circle components and no higher positive homology; hence these are an integral H1 basis. Invariance of the positive cochain excludes minus signs under every graph automorphism; direct legal hub-swap flexes identify proper subset complementation and fix the full class. Fixed-set counting proves the character including the all-even-cycle case. No extrapolation from finite n is used.
 
-**Scope and limits.** The result assumes \(n\ge3\), does not address the full degree-zero module or larger multipartite graphs, and does not establish equivariant homotopy equivalences. The nontrivial component homotopy theorem is a cited prerequisite. The finite check is exhaustive only in the cases stated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Kozlov proves the nonequivariant circle-component topology and counts, but the inspected relevant sections do not present this unsigned integral S_n x C2 action or its all-even-cycle character. The most analogous published full equivariant result concerns Flex(K_n), a different graph family. This is a natural equivariant refinement; unindexed prior representations remain a risk.
+
+## value
+
+PASS
+
+PASS: This identifies the previously unspecified natural integral automorphism lattice of a canonical graph-flex family, not merely its published nonequivariant circle count. The distinguished fixed class and sharp parity resonance matter for equivariant homology and symmetry quotients; the exact group-action calculation is structurally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
