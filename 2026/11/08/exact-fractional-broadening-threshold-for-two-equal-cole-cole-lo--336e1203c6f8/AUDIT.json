@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The exact two-component loss with common exponent alpha in (0,1] reduces under s=alpha log(omega tau0), a=alpha log(r)/2, c=cos(pi alpha/2), d=cosh(a), y=cosh(s) to Delta*sin(pi alpha/2)*(d*y+c)/(y^2+2*c*d*y+c^2+d^2-1). Its derivative with respect to y has numerator P(y)=d*(d^2-1-c^2)-2*c*y-d*y^2, with P'(y)=-2*c-2*d*y<0 on y>=1, and P(1)=(d+c)*(d^2-c*d-2). This proves the exact unique modality threshold, strict signs on each branch, and absence of other extrema for every real admissible parameter. The explicitly factored discriminant yields the positive-frequency outer peaks; the derivative expansion at equality proves a quartically flat sole maximum. Differentiating the threshold expression proves monotonicity in alpha, with the Debye endpoint and small-exponent limit. The exact center-loss expression yields the high-ratio asymptotic. The standalone standard-library checker independently evaluates the original two fractions and their derivatives for 1004 finite comparisons. Those finite tests are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cole and Cole (1941), DOI 10.1063/1.1750906, present a fractional single-process complex dielectric response and an experimentally motivated width distribution.",
+        "Hilfer (2002), DOI 10.1103/PhysRevE.65.061510, gives single-component Cole-Cole and other susceptibility representations, characteristic frequencies and half widths.",
+        "Chassagne et al. (2016), DOI 10.3389/fchem.2016.00030, section 5.4 discusses fitting two overlapping HN relaxation processes with an eight-parameter sum; no analytic universal exact threshold is given in the inspected relevant sections."
+      ],
+      "reasoning": "A general theorem on modality of all equal-strength two-Cole-Cole mixtures for all positive exponents would dominate the claim; the inspected broader dielectric-analysis works supply models and fitting procedures but not this necessary-and-sufficient threshold or exact mode locations. Fitting two latent components does not itself imply two observed loss peaks.",
+      "searches": [
+        "Cole Cole mixture relaxation processes resolved peaks bimodality analytical criterion loss spectra",
+        "Dielectric spectroscopy overlapping Cole-Cole processes resolving peaks two relaxation components fitting",
+        "Exact critical frequency separation for two equal-strength Cole–Cole dielectric loss peaks with common fractional exponent alpha: bimodal unimodal threshold and shoulder coalescence",
+        "Two-component Cole-Cole relaxation mixture resolvability bifurcation two dielectric loss maxima vs one in logarithmic frequency",
+        "doi:10.3389/fchem.2016.00030 section 5.4.2",
+        "doi:10.1103/PhysRevE.65.061510 sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1063/1.1750906",
+      "doi:10.1103/PhysRevE.65.061510",
+      "doi:10.3389/fchem.2016.00030",
+      "prior-claim:74685bc6-ea9b-498b-b335-6e9439619299",
+      "prior-claim:432c1c79-794d-4dce-8ce4-5d89b03a3856",
+      "Published-index searches for Cole-Cole, generalized hyperbolic secant, two-shift modality and reciprocal cosh kernel"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1941 response formula leads to the two-component model by physical addition but gives no modal-count assertion for the addition.",
+        "Hilfer's single-process half widths do not determine the exact point of peak merging in the sum of two identical broadened processes.",
+        "The 2016 fitting formulation permits unequal HN terms and includes electrode-polarization complications; fitting existence is not a proof of peak-mode classification.",
+        "Previously accessible three- and four-Debye statements concern a different summand number and do not imply the present continuous-alpha boundary or quartic onset."
+      ],
+      "reasoning": "The new implication is exact: derivative monotonicity on y>=1 proves the mode count on the entire physical domain. Earlier single-component formulas, numerical fits and different-number Debye cases are genuine input or comparators, not stronger claims that logically contain this particular two-component fractional theorem. The algebraic derivation is supplied explicitly rather than inferred from the absence of matching titles.",
+      "searches": [
+        "doi:10.1063/1.1750906 fractional dielectric spectrum of one process",
+        "doi:10.1103/PhysRevE.65.061510 Cole-Cole single susceptibility maximum half width",
+        "doi:10.3389/fchem.2016.00030 two Havriliak Negami sums overlapping relaxation fitting",
+        "Comparison of two fractional components versus three or four identical Debye components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claimed loss is an equal-weight two-location mixture of 1/(cosh(s)+c), with parameter-dependent offset 0<=c<1; the transformation is displayed algebraically in RESULT.md.",
+        "Generalized-hyperbolic-secant search results described single-distribution shape parameters or other mixture models, without a stated exact two-shift cutoff for this offset-kernel family."
+      ],
+      "reasoning": "Any exact two-shift modality theorem for the entire family 1/(cosh s+c) would cover this result by taking the separation a and c=cos(pi alpha/2). The search identified the potential equivalence but found no inspected theorem with this coverage. The residual possibility of a differently named stronger mixture theorem is explicitly retained.",
+      "searches": [
+        "mixture two hyperbolic secant distributions unimodality condition exact bimodality cosh shift",
+        "mixture generalized hyperbolic secant density 1/(cosh x + c) bimodality threshold",
+        "bimodality of an equally weighted sum of two shifted generalized hyperbolic secant kernels (cosh(x)+c)^-1 exact critical separation",
+        "two shifted sech curves with offset c analytic stationary point resolution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible previous claim 74685bc6-ea9b-498b-b335-6e9439619299 classifies three equal Debye relaxations.",
+        "Accessible previous claim 432c1c79-794d-4dce-8ce4-5d89b03a3856 classifies four equal Debye relaxations.",
+        "No exact table or claim with two equal fractional Cole-Cole component peaks and the complete critical ratio r_*(alpha) was found in the accessible published-index and previously available claim searches."
+      ],
+      "reasoning": "The known three- and four-Debye mode-transition tables do not cover the two-component fractional family: their component count and exponent domains differ. A missing search hit alone does not certify uniqueness, and no complete catalogue covering this continuum was identified.",
+      "searches": [
+        "Cole Cole mixture two equal strength frequency loss curve one two maximum threshold formula",
+        "fractional dielectric susceptibility Cole Cole loss two equal peaks 1 to 2 mode transition threshold c cosh",
+        "Mathematical spectral mode separation criterion for two fractional Cole-Cole processes same exponent analytic cosh threshold 3+2sqrt2 Debye",
+        "Prior accessible mathematics claims: Cole-Cole; dielectric-loss; Debye; hyperbolic secant; fractional relaxation"
+      ]
+    },
+    "rationale": "The 1941 primary source develops the single Cole-Cole fractional response; Hilfer's complete 2002 text treats individual fractional responses and width comparisons; the 2016 dielectric-spectroscopy paper explicitly fits a sum of two HN terms but does not derive an exact symmetric Cole-Cole peak-count phase diagram. Accessible earlier three-component and four-component Debye classifications fix alpha=1 and differ in component count, and they do not logically entail the asserted two-component fractional-broadening boundary. Searches under fractional spectroscopy, two shifted reciprocal hyperbolic cosine kernels, equal-weight mixture bimodality, aliases and relevant mathematical-index records did not identify a stronger theorem covering the same statement. Historical priority against the entire mixture-distribution literature remains unresolved, but there was no decisive overlapping or strictly stronger source in the material examined.",
+    "residual_risks": [
+      "A prior statistics result on an equal-weight mixture of shifted generalized secant-hyperbolic laws could provide an algebraically equivalent boundary under a change of variables; no such decisive result was identified in inspected sources.",
+      "The historically original 1941 paper was scanned and its relevant mathematical sections inspected, but this review cannot establish priority against every earlier or later specialist work.",
+      "An experimental two-relaxation article retrieved in search results was not fully accessible through its content host; its available description concerns fitted shoulders, not an identified exact theorem, and no negative full-text assessment is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTEXT_ONLY: introduces one broadened response and empirical observations; no complete two-equal-component fractional modality theorem was located in the material examined",
+        "evidence": [
+          "Printed first page dates the article April 1941 and gives the original fractional complex response.",
+          "The final conclusion discusses the single broadened empirical formula, not a two-process peak-splitting phase boundary."
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/1.1750906",
+        "material_read": "Lawfully available scanned original: first-page formulas and abstract, representative internal pages and text from sections II, III, V and VII, plus entire-paper title and sections survey; direct page-image checks on printed pages 341 and 344",
+        "method": "Accessible page text plus direct inspection of primary page images",
+        "title": "Dispersion and Absorption in Dielectrics I. Alternating Current Characteristics",
+        "trigger": "Origin of the precise Cole-Cole physical susceptibility and potential original analysis of peak overlap"
+      },
+      {
+        "assessment": "NOT_COVERING in full inspected text: addresses single-component fractional susceptibilities and their transformations, not the two equal-component resolution threshold",
+        "evidence": [
+          "Equation (3) is the Cole-Cole susceptibility of one component.",
+          "Figure 2 discusses individual Cole-Cole peak widths; section 4 concerns exponent mappings, not summed-peak modality."
+        ],
+        "identifier_or_url": "https://www2.icp.uni-stuttgart.de/~hilfer/publikationen/html/PRE-2002-65-061510/PRE-2002-65-061510.Sx1.html",
+        "material_read": "Full author-hosted four-page text, including introduction, analytical formulas, Tables 1-2 and the discussion of peak positions and widths; primary publication metadata dated June 28, 2002",
+        "method": "Full-text HTML and equations",
+        "title": "H-function representations for stretched exponential relaxation and non-Debye susceptibilities in glassy systems",
+        "trigger": "Direct source of the Cole-Cole exponent conventions and exact loss-peak widths"
+      },
+      {
+        "assessment": "NOT_COVERING in relevant inspected sections: studies simultaneous fitting and compensation for electrode polarization, without a sharp all-exponent equal-Cole-Cole modality cutoff",
+        "evidence": [
+          "Section 5.4.2 allows eight fitting parameters for two HN responses.",
+          "The reported fit analysis distinguishes fitting the latent components from proving exactly how many loss extrema are observed."
+        ],
+        "identifier_or_url": "https://doi.org/10.3389/fchem.2016.00030",
+        "material_read": "Full accessible HTML, abstract, sections on characteristic relaxation frequencies, the two-HN fit in section 5.4.2, and conclusions",
+        "method": "Full-text HTML, section-targeted inspection",
+        "title": "Compensating for Electrode Polarization in Dielectric Spectroscopy Studies of Colloidal Suspensions: Theoretical Assessment of Existing Methods",
+        "trigger": "Explicit sums of two HN relaxation terms and practical peak overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "336e1203-c6f8-4fb0-8303-0ddd34703d62",
+  "value": {
+    "rationale": "The result answers a concrete natural physical mathematics question: when can a pair of independently present equal Cole-Cole relaxations actually produce two observed maxima? It gives a complete exact phase boundary for every positive separation and every fractional exponent, exact locations and exact valley intensity, a quartic critical degeneracy, and the square-root onset law. The required time-ratio increases from 3+2sqrt(2) at the Debye endpoint to about 121.715 at fractional exponent 1/2 and grows exponentially as the exponent tends to zero. This quantifies an important distinction between two latent physical processes and two resolved loss peaks. This is a self-contained exact mathematical benchmark, not a purported experimental resolution limit.",
+    "status": "PASS"
+  }
+}
