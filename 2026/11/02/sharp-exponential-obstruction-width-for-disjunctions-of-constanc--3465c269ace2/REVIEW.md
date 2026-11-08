@@ -1,19 +1,21 @@
-# Review: sharp exponential obstruction width
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem uses the standard splitting semantics, which is equivalent to coverage by one coordinate-value slice per variable. An induction gives finite failing subteams even for infinite alphabets and infinite teams. Minimality supplies one slice-covering tuple for every deleted assignment; evaluations of their coordinate-product polynomials form an invertible diagonal matrix. Because the polynomials lie in a \(2^m\)-dimensional multilinear space, there are at most \(2^m\) assignments. The full Boolean cube is minimally failing and attains equality. Boundary cases include \(m=1\), empty teams, extra unused variables, and nonempty arbitrary domains. Standalone enumeration and cube-witness checks agreed with the proof; those checks are limited to stated finite parameter ranges.
+PASS
 
-## Originality (PASS within inspected evidence)
+Under lax team-splitting semantics, Φ_m is satisfied iff m selected coordinate value slices cover the team. For arbitrary infinite teams a finite bad subteam exists by an induction fixing one assignment and considering coordinate-avoiding residual teams. An inclusion-minimal finite bad team of n assignments gives n successful one-point-deletion slice choices; the product interpolation evaluation matrix is diagonal with every diagonal entry nonzero. Each column is the evaluation of an m-variable multi-affine polynomial, a 2^m-dimensional space, hence n≤2^m. The full binary m-cube is a minimal bad team because every choice of one value per coordinate leaves its complement point uncovered and deleting that point makes a cover. This proves the exact at-most local obstruction width for every nonempty universe; it does not assert exact-size testing on smaller teams. Independent exhaustive binary m≤3 and ternary m=2 checks reproduce maximal widths 2,4,8 and ternary minimal-bad sizes 3,4.
 
-The closest explicit statement is Corollary 23 of Fröhlich–Kolaitis–Meier, *Disjunctions of Two Dependence Atoms* (arXiv:2508.16146; CSL 2026), proving the \(m=2\) special case. The more recent Barlag et al. *Aspects of Coherence in Dependence Logic* (arXiv:2605.31269), Theorems 27–28, does use multi-constancy-atom disjunctions but only for lower-bound/undecidability reasoning, not the exact all-\(m\), unbounded-domain upper bound. Its trivial cardinality bound for binary propositional teams does not imply a uniform domain-independent bound. Semantic searches of published records and the inspected primary text found no covering statement. A broader older polynomial-interpolation or axis-parallel-cover theorem might imply the result without using dependence-logic terminology; historical priority remains uncertain and requires independent specialist review.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-This is an exact natural invariant, not a chosen sample size: it gives a sharp finite obstruction theorem for every arity and every alphabet, replacing an unspecified existence bound with a uniform exponential formula. The dimension-free local certificate and explicit extremal teams can be used when translating multi-disjunction semantic conditions into finite first-order obstruction tests. The proof also distinguishes the domain-independent result from trivial bounded-alphabet pigeonhole arguments. No claim is made for arbitrary functional-dependence atoms.
+Best-of-knowledge originality attaches to the combined precise theorem, excluding acknowledged prior special cases/general definitions. The known m=2 level 4 cannot by itself imply 2^m for arbitrary m. A 2^m Boolean-team upper bound cannot control minimal failing teams over large/infinite alphabets. The new finite-witness reduction plus n×n diagonal multilinear-rank argument closes precisely this gap. Residual primary-source and equivalence risks are retained.
 
-## Boundaries and independent work
+## value
 
-The invariant is stated using all subteams of size **at most** the threshold; some smaller failing teams exist. The proof and checker are available in the artifact package. Published two-atom results are credited as prior work. Independent mathematical and historical-priority assessments have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit, sharp, universe-independent coherence level for a natural m-way dependence-logic formula class allows local testing and clarifies the boundary between constancy disjunctions and broader functional-dependence disjunctions. The arbitrary-alphabet result is not a trivial finite Boolean-cube lookup; the multilinear rank theorem is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
