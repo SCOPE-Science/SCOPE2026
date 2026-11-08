@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic binary-token folding is terminating and preserves residue modulo odd M=2^r-1; a positive reduced token sum <=M divisible by M must be M, requiring r ones. For H(t)=(2^(rt)-1)/M, odd-prime LTE establishes v_p(H(a)-H(b))=v_p(a-b) at every p|M; hence H permutes residues mod M^(k-1), providing a witness N=M(1+2H(t)) with exactly r distinct bits. Legendre gives v_2(binomial(2n,n))=s_2(n). For any odd p construct an index multiple of M^k with all base-p digits in {0,1}, so p has no central-binomial carry and cannot divide the infinite gcd. The argument covers k=1, r=2, arbitrary composite M; the binomial gcd is infinite-index, not numerical extrapolation. Independent bounded modular and odd-prime checks passed 45 r,k witnesses and 90 carry cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clokie et al computational sturdy-number framework and Elsholtz sparse prime multiples concern broader moduli but offer methods/estimates rather than this exact uniform all-power formula.",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974"
+        ],
+        "reasoning": "Clokie et al computational sturdy-number framework and Elsholtz sparse prime multiples concern broader moduli but offer methods/estimates rather than this exact uniform all-power formula.",
+        "searches": [
+          "minimum Hamming weight binary multiples of powers of Mersenne numbers (2^r-1)^k and gcd central binomial coefficients",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974",
+          "https://arxiv.org/abs/2002.02731",
+          "https://arxiv.org/abs/1409.3820"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A086342",
+        "https://arxiv.org/abs/1602.05974",
+        "https://arxiv.org/abs/2002.02731",
+        "https://arxiv.org/abs/1409.3820"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "k=1 value does not entail k>1 (divisibility is stricter). Classical central-binomial valuations imply the gcd once a weight-r multiple at every power is established, so gcd is a dependent corollary rather than a second independent theorem.",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974"
+        ],
+        "reasoning": "k=1 value does not entail k>1 (divisibility is stricter). Classical central-binomial valuations imply the gcd once a weight-r multiple at every power is established, so gcd is a dependent corollary rather than a second independent theorem.",
+        "searches": [
+          "minimum Hamming weight binary multiples of powers of Mersenne numbers (2^r-1)^k and gcd central binomial coefficients",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974",
+          "https://arxiv.org/abs/2002.02731",
+          "https://arxiv.org/abs/1409.3820"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant is minimum number of nonzero binary digits of an arbitrary positive multiple of M^k, equivalently shortest positive 0/1-power sum vanishing mod M^k. OEIS A086342 states the k=1 Mersenne case; no inspected all-k equivalence.",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974"
+        ],
+        "reasoning": "The invariant is minimum number of nonzero binary digits of an arbitrary positive multiple of M^k, equivalently shortest positive 0/1-power sum vanishing mod M^k. OEIS A086342 states the k=1 Mersenne case; no inspected all-k equivalence.",
+        "searches": [
+          "minimum Hamming weight binary multiples of powers of Mersenne numbers (2^r-1)^k and gcd central binomial coefficients",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974",
+          "https://arxiv.org/abs/2002.02731",
+          "https://arxiv.org/abs/1409.3820"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A086342 tabulates minimum weight for individual moduli and explicitly covers M at k=1. The all-power infinite family and central-binomial infinite gcd are not supplied by the cited comments; nonappearance alone does not prove priority.",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974"
+        ],
+        "reasoning": "OEIS A086342 tabulates minimum weight for individual moduli and explicitly covers M at k=1. The all-power infinite family and central-binomial infinite gcd are not supplied by the cited comments; nonappearance alone does not prove priority.",
+        "searches": [
+          "minimum Hamming weight binary multiples of powers of Mersenne numbers (2^r-1)^k and gcd central binomial coefficients",
+          "https://oeis.org/A086342",
+          "https://arxiv.org/abs/1602.05974",
+          "https://arxiv.org/abs/2002.02731",
+          "https://arxiv.org/abs/1409.3820"
+        ]
+      },
+      "rationale": "O(EIS A086342) and historical work already identify minimum r for modulus M=2^r-1 at k=1; that case is not original. Elsholtz gives sparse prime multiple methods, while Clokie et al study general sturdy/flimsy multiples; the inspected theorem statements do not give equality for M^k at every k. Kummer/Legendre is prior; gcd is a corollary. A general order-lifting argument elsewhere could cover the all-k result and remains an explicit risk.",
+      "residual_risks": [
+        "k=1 Mersenne minimum weight is known in OEIS and is not original; binomial gcd is a corollary of all-k sparse weight with classical valuations.",
+        "Potential unindexed general sparse-multiple power-lifting literature could predate all-k identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes k=1 case, not all powers",
+          "evidence": [
+            "A086342: a(2^r-1)=r"
+          ],
+          "identifier_or_url": "https://oeis.org/A086342",
+          "material_read": "OEIS sequence definition and 2013 Mersenne base-case comment",
+          "method": "Read primary sequence entry and relevant historical comment",
+          "title": "A086342: Smallest number of 1s in binary expansion of any positive multiple of n",
+          "trigger": "Same minimum-weight invariant at Mersenne base"
+        },
+        {
+          "assessment": "General computation/criteria, not the exact all-Mersenne-power formula",
+          "evidence": [
+            "arXiv:2002.02731, §3 and Theorem 5"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.02731",
+          "material_read": "Accessible full PDF, introduction, definitions and §3 theorem/corollary on sturdy numbers",
+          "method": "Read and checked original PDF text and rendered page",
+          "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+          "trigger": "Same binary min-weight multiple object"
+        },
+        {
+          "assessment": "Does not assert uniform exact weight for every positive power of every Mersenne modulus",
+          "evidence": [
+            "arXiv:1602.05974, introduction and sparse-multiple arguments"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.05974",
+          "material_read": "Accessible full PDF, introduction and sections on sparse prime multiples",
+          "method": "Read primary PDF text and rendered opening page",
+          "title": "Almost all primes have a multiple of small Hamming weight",
+          "trigger": "Nearby sparse multiples of primes and Mersenne divisors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum binary weight of a multiple is a natural arithmetic automaton invariant; uniform stability under arbitrarily large powers of every Mersenne modulus is not mechanically implied by the known base k=1 value and needs lifting. The connected exact infinite-index fixed divisor is a motivated arithmetic consequence; not a claim about the least-sized multiple.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/power-stable-sparse-multiples-of-2-r-1-and-the-central-binomial--3fc6b5d81445/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/power-stable-sparse-multiples-of-2-r-1-and-the-central-binomial--3fc6b5d81445/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/power-stable-sparse-multiples-of-2-r-1-and-the-central-binomial--3fc6b5d81445/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/power-stable-sparse-multiples-of-2-r-1-and-the-central-binomial--3fc6b5d81445/AUDIT.json",
+    "https://oeis.org/A086342",
+    "https://arxiv.org/abs/1602.05974",
+    "https://arxiv.org/abs/2002.02731",
+    "https://arxiv.org/abs/1409.3820"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "k=1 Mersenne minimum weight is known in OEIS and is not original; binomial gcd is a corollary of all-k sparse weight with classical valuations.",
+    "Potential unindexed general sparse-multiple power-lifting literature could predate all-k identity."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "k=1 Mersenne minimum weight is known in OEIS and is not original; binomial gcd is a corollary of all-k sparse weight with classical valuations.",
+    "Potential unindexed general sparse-multiple power-lifting literature could predate all-k identity."
+  ]
+}
