@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Finite verification and mathematical limits
+# Independent mathematical audit
 
-The standalone `verify.py` reconstructs divisors of \(2^a p^2\) directly from integer exponents and groups each divisor with its partner under \(d\mapsto n/d\). It independently computes \(\sigma(n)-2n\), tests all omissions with zero, one or two complement orbits, checks the singleton-orbit convention, and identifies the exceptional omitted set.
+## correctness
 
-Execution: `python3 verify.py`.
+PASS
 
-Observed exact output:
+Write A=2^a, B=2A-1, T=σ(n)-2n=B(p+1)-p² odd. Exactly three complement orbits have odd weight: 1+Ap², (A+1)p, A+p²; all other middle/outer orbits have even weight, with even-a square-root singleton counted ONCE. Parity forces one odd orbit in any omission with at most two; 1+Ap²>T and algebra excludes both remaining singleton odds. For two orbits four cases arise (odd w2 or w3 times even middle or outer). The middle cases reduce to p dividing B or A-1 and force respectively no odd prime or the unique A=4,p=3 singleton M=2. Outer cases reduce to integer quadratics with strictly increasing positive-root branches; bounds trap a candidate between consecutive integers or force even quotient k where k must be odd. Boundary a=1,2,3 addressed explicitly. For n=36 omitted weights 13+6=19. Independent exact divisor orbit combination enumeration for a<=14, odd primes up to199 found 36 only. Finite check is not infinite proof.
 
-```
-VERIFY_OK independent_parameter_pairs=5010 square_root_checks=2505 sole_at_most_two_orbit_case=36 exact_integer_arithmetic=PASS finite_only=YES
-```
+## originality
 
-The finite domain contains every exponent \(1\le a\le30\) and all odd primes \(3\le p\le997\). The output uses integer arithmetic for all claims (the sieve's loop bound is only for enumerating trial divisors within the stated finite range). The infinite theorem is proved in `RESULT.md` by exhaustion of orbit types and algebraic constraints; no inference from this finite grid to an unrestricted range is made. No external or independent audit has been performed.
+PASS
+
+Qualified PASS for the uniform low-OMITTED-COMPLEMENT-ORBIT classification over a whole exponent-two odd-prime family, not the known strongly pseudoperfect example 36 itself. Wang–Zelinsky Sept2026 Table2 gives 36 with omitted divisors {4,9,6}; its main restrictions and 2^a*p Mersenne case do not assert global at-most-two-orbit classification for 2^a*p². Aryan et al classify exactly two omitted INDIVIDUAL divisors, not the three- or four-divisor complement-paired situations. Published SCOPE bitmask result has p^1 rather than p². Stronger sparse-omission literature remains a specific risk.
+
+## value
+
+PASS
+
+Omitted complementary divisor orbits are the natural sparsity parameter under the definition of strong pseudoperfectness. The theorem completely determines 0,1,2-orbit omission phenomena for an infinite two-prime-support family, and the square-root singleton produces one exceptional 36 configuration. This is a structural low-sparsity classification, not rediscovery that 36 belongs to an existing table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

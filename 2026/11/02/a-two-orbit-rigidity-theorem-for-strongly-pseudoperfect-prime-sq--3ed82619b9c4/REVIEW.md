@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(n=2^a p^2\), the divisor sum \((2^{a+1}-1)(p^2+p+1)\) and the three odd-weight complement orbits give the exhaustive parity split. The proof excludes all one-orbit possibilities and classifies two-orbit possibilities by four pair-type cases. The sole exceptional middle singleton forces \(a=2\), \(p=3\). The two outer cases are eliminated with exact integer quadratics and consecutive-root barriers. All exponent boundaries, particularly \(a=1,2,3\) and square-root orbits, are handled separately. The exact-integer verifier checks 5,010 parameter pairs, but does not establish the infinite statement by enumeration.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+Write A=2^a, B=2A-1, T=σ(n)-2n=B(p+1)-p² odd. Exactly three complement orbits have odd weight: 1+Ap², (A+1)p, A+p²; all other middle/outer orbits have even weight, with even-a square-root singleton counted ONCE. Parity forces one odd orbit in any omission with at most two; 1+Ap²>T and algebra excludes both remaining singleton odds. For two orbits four cases arise (odd w2 or w3 times even middle or outer). The middle cases reduce to p dividing B or A-1 and force respectively no odd prime or the unique A=4,p=3 singleton M=2. Outer cases reduce to integer quadratics with strictly increasing positive-root branches; bounds trap a candidate between consecutive integers or force even quotient k where k must be odd. Boundary a=1,2,3 addressed explicitly. For n=36 omitted weights 13+6=19. Independent exact divisor orbit combination enumeration for a<=14, odd primes up to199 found 36 only. Finite check is not infinite proof.
 
-Wang–Zelinsky (arXiv:2609.36068, full HTML examined through the sparse-omission restrictions and computational examples) study one- and two-pair omissions in \(3\cdot2^a p\) and list \(36\), but do not state a low-orbit classification for \(2^a p^2\). Aryan et al. (arXiv:2310.01305, abstract reviewed) classify two omitted **individual divisors** in \(2^a p^2\); that condition does not control two entire complement orbits, which can comprise three or four individual divisors. The accessible published characterization of \(2^a p\) concerns exponent one on the odd prime, not the present prime-square family. OEIS A334405 gives the example \(36\), not the uniform uniqueness theorem. Targeted semantic and literature searches identified no equal or stronger implication. A hidden specialization of work on sparse divisor omissions or four-near-perfect numbers remains possible. No independent priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of omitted complementary-divisor orbits is the natural sparsity parameter for strongly pseudoperfect representations. This theorem determines its entire zero-to-two range in a full two-prime-support family, with a unique exceptional square-root-orbit phenomenon at \(36\). It strengthens the ordinary two-omitted-divisor viewpoint without presuming higher-rank representability and gives a sharp lower bound of three omitted orbits everywhere else. It does not claim a complete classification of all strongly pseudoperfect numbers \(2^a p^2\).
+Qualified PASS for the uniform low-OMITTED-COMPLEMENT-ORBIT classification over a whole exponent-two odd-prime family, not the known strongly pseudoperfect example 36 itself. Wang–Zelinsky Sept2026 Table2 gives 36 with omitted divisors {4,9,6}; its main restrictions and 2^a*p Mersenne case do not assert global at-most-two-orbit classification for 2^a*p². Aryan et al classify exactly two omitted INDIVIDUAL divisors, not the three- or four-divisor complement-paired situations. Published SCOPE bitmask result has p^1 rather than p². Stronger sparse-omission literature remains a specific risk.
 
-## Closest sources and limitations
+## value
 
-- A. Wang and J. Zelinsky, *Strongly Pseudoperfect Numbers*, https://arxiv.org/html/2609.36068 (full text, Sections 1–3, and example table).
-- V. Aryan et al., *On 2-Near Perfect Numbers*, https://arxiv.org/abs/2310.01305 (abstract and theorem scope; accessible HTML unavailable).
-- OEIS A334405, https://oeis.org/A334405 (example at \(36\)).
-- Published bit-mask description of complement omissions for \(2^a p\), https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02 (different odd-prime exponent).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Omitted complementary divisor orbits are the natural sparsity parameter under the definition of strong pseudoperfectness. The theorem completely determines 0,1,2-orbit omission phenomena for an infinite two-prime-support family, and the square-root singleton produces one exceptional 36 configuration. This is a structural low-sparsity classification, not rediscovery that 36 belongs to an existing table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
