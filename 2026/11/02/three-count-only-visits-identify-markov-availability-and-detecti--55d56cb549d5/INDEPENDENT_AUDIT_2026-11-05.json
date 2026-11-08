@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:41:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Stationarity, 0<u,v<1, 0<d<=1 and m=pi*d give E(Y_t)=m, adjacent E(Y_iY_{i+1})=m²+m(d-m)r, lag-two E(Y_1Y_3)=m²+m(d-m)r², and triple T=m[m+(d-m)r]². Positivity of d(1-v) fixes the square-root sign, so z=(d-m)r. S=g2+3g3=3m²+mz(2+r), hence for r!=0 recover r, d, pi, u, v exactly; all divisions are legal as d-m>0. At r=0 observations are iid Bernoulli(pi*d), so even ordered arbitrarily long histories are nonidentifying. Two-visit data have only m and adjacent moment; nearby parameter curves retain both. Independently enumerated rational latent/observed paths in positive and negative memory, including d=1, and symbolically checked Jacobian -2 d^5 pi²(1-pi)[pi+(1-pi)r]r². Global identification concerns population counts, not sample-size guarantees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allman et al. use multi-view/ordered HMM observations and establish generic identification in broad latent models.",
+          "Hines et al. discuss separate local presence theta, theta-prime and detection p, but use individual replicated survey histories."
+        ],
+        "reasoning": "A generic ordered-law identification theorem does not imply count-only global identification at every nonzero memory, including negative r; neither states the exact r=0 nonidentifiability fiber.",
+        "searches": [
+          "Allman Matias Rhodes arxiv:0809.5032 hidden Markov identifiability",
+          "Hines Nichols Collazo 2014 full article"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1111/2041-210X.12186 (full HTML)",
+        "arxiv:0809.5032 (abstract)",
+        "arxiv:1102.3613 (title/abstract via research comparison)",
+        "Resultary semantic search for thinned Markov count identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hines model gives a likelihood and correlated replicates but does not explicitly show sufficiency of the unlabeled total count for stationary transition and detection recovery.",
+          "Allman HMM full ordered joint-law result is not invariant under the noninvertible count map."
+        ],
+        "reasoning": "The full law might imply count identifiability only with a separate injectivity proof, provided here via factorial moments. Known Markov-binomial distributions may encode the formula implicitly; check remains a priority risk.",
+        "searches": [
+          "doi:10.1111/2041-210X.12186",
+          "arxiv:0809.5032",
+          "arxiv:1102.3613"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hines et al. model correlated replicate observations with initial local availability and conditional detection, using ordered histories and multiseason occupancy, not a stationary known-occupied count-only three-visit inverse.",
+          "Dekking–Kong Markov binomial counts concern an observed Markov chain without separate imperfect detection."
+        ],
+        "reasoning": "Aggregating ordered histories into K discards temporal position; neither model formulation automatically proves the exact three-count inverse of two transition rates and detector sensitivity.",
+        "searches": [
+          "Resultary: Markov availability imperfect detection three visits count only identifiability hidden Markov binomial thinning",
+          "Hines et al 2014 Methods in Ecology and Evolution DOI:10.1111/2041-210X.12186"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct exact count distribution example (7297,4329,3051,1323)/16000 was reconstructed from state paths; no located published table has the corresponding full inverse.",
+          "Resultary nearest two-visit nonparametric N-mixture concerns independent abundance observations, not Markov availability."
+        ],
+        "reasoning": "No exact matching published table or database computation was located. A thinned Markov-binomial inversion under alternative notation remains possible.",
+        "searches": [
+          "Resultary: Markov availability imperfect detection three visits count only identifiability hidden Markov binomial thinning",
+          "web: three visit aggregated Markov binomial detection count law identify pi d r"
+        ]
+      },
+      "rationale": "PASS: Best-of-knowledge supported by direct statement/implication comparisons, not claimed absolute priority. Aggregating ordered histories into K discards temporal position; neither model formulation automatically proves the exact three-count inverse of two transition rates and detector sensitivity. A generic ordered-law identification theorem does not imply count-only global identification at every nonzero memory, including negative r; neither states the exact r=0 nonidentifiability fiber. The full law might imply count identifiability only with a separate injectivity proof, provided here via factorial moments. Known Markov-binomial distributions may encode the formula implicitly; check remains a priority risk.",
+      "residual_risks": [
+        "A classical Markov-binomial thinning transform may encode this exact inverse under another parametrization and deserves deeper priority screening.",
+        "Assumptions exclude unknown permanent nonoccupancy and individual/site heterogeneity; the Jacobian does not quantify finite-sample uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses individual ordered detection histories with correlated spatial replicates and multiseason occupancy; count-only three-visit exact inverse not located in inspected sections.",
+          "evidence": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12186",
+          "identifier_or_url": "doi:10.1111/2041-210X.12186",
+          "material_read": "Full accessible Wiley HTML: abstract, introduction, single-season model development, model applications, discussion",
+          "method": "publisher full HTML read",
+          "title": "Multiseason occupancy models for correlated replicate surveys",
+          "trigger": "same latent local availability and detection parameters"
+        },
+        {
+          "assessment": "Cannot infer count-only identifiability from full ordered law; full text remains to inspect if needed.",
+          "evidence": "https://arxiv.org/abs/0809.5032",
+          "identifier_or_url": "arxiv:0809.5032",
+          "material_read": "Detailed arXiv/alphaXiv abstract, including generic identifiability and Kruskal multi-view method; not full paper",
+          "method": "primary preprint listing",
+          "title": "Identifiability of parameters in latent structure models with many observed variables",
+          "trigger": "stronger latent/HMM identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Minimum survey replication is a natural statistical design question; the result shows an unusual exact information preservation under discarding visit order, identifies alternating-memory parameters, and characterizes a sharp structural nonidentifiability boundary and its quadratic instability. It is not an elementary consequence of ordered-HMM identifiability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A classical Markov-binomial thinning transform may encode this exact inverse under another parametrization and deserves deeper priority screening.",
+    "Assumptions exclude unknown permanent nonoccupancy and individual/site heterogeneity; the Jacobian does not quantify finite-sample uncertainty."
+  ],
+  "schema_version": 1
+}
