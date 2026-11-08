@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Hermitian tangent identity gives every exceptional curve, the standard 56-curve theorem ensures geometric completeness, and the executable 56-by-56 exact incidence certificate reconstructs the Picard lattice. Four explicit perpendicular roots of square \(-2\) multiply to the computed Frobenius action; the saturated Smith form and zeta identities are checked independently through integral algebra and exact point counts. The calculation is finite but applies to all extensions because the Frobenius representation is proved.
+## correctness
 
-**Originality — PASS (priority qualified).** Salgado–Testa–Várilly-Alvarado (2013, Lemma 4 and page 3) treat the same surface over \(\mathbb F_9\), including its exceptional-curve geometry and 126 generalized Eckardt points. Kaplan (2013, Proposition 70) already determines its 154 points over \(\mathbb F_9\); these are not claimed as novel. The assessed new part is the concrete integral \(\mathbb F_3\) Frobenius product of four \((-2)\)-reflections, primitive Smith invariant, and Picard Galois cohomology. General Frobenius class-counting results do not identify that class for this equation. Residual priority risk remains from incompletely inspected older tables and later full-text appendices.
+PASS
 
-**Mathematical value — PASS.** For a natural exceptional-characteristic del Pezzo, the full integral arithmetic Galois action makes the descent of 56 exceptional curves, invariant Picard lattice, and cohomological obstruction transparent. It is structurally stronger than repeating the well-known \(\mathbb F_9\) count.
+The quartic is Hermitian over F9 with 28 rational hyperflexes and tangent inverse images splitting into 56 (-1)-curves by the explicit quartic identity; geometric completeness uses the standard 56-curve theorem for smooth degree-two del Pezzo surfaces. The inspected verify.py constructs exact GF9 curve parameters, all 56x56 intersection entries, seven disjoint exceptional curves, an integral blow-up basis and Frobenius permutation. Independently reconstructed four listed root vectors in J=diag(1,-1^7), checked pairwise perpendicularity, square -2 and -K orthogonality, formed M as reflection product, confirmed M^2=I, characteristic polynomial and Smith invariant with SymPy, plus directly enumerated all 13 F3 projective points to obtain 10 surface points and separately all 91 F9 projective points, 28 Hermitian branch points and 154 surface points. The 154 F9 points follow from 28 branch points and square values; zeta and cohomology follow from the established integral lattice action. Independent finite checks of roots do not independently certify every GF9 curve incidence, which remains separately sourced by inspected exact script and proof.
 
-The result applies to the displayed \(\mathbb F_3\) model, not every twist. Computational assertions were replayed locally but were not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest statement/implication comparisons and bounded primary reading support best-of-knowledge originality with explicitly named residual priority risks; no claim of exhaustive historical uniqueness.
+
+## value
+
+PASS
+
+Identifying the named F3 model’s integral Galois/Picard module, primitive (-1) lattice and H1 is a natural arithmetic-geometric invariant not determined by previously known F9 point counts. Four-root decomposition is a substantive explicit descent certificate with a computable zeta function. Scope carefully excludes novelty of geometric bitangents and F9 counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
