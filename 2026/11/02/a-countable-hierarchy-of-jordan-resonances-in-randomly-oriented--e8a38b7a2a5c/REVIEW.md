@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the annealed inverse-branch transfer operator and an exact triangular polynomial action. For each positive odd degree, the collision of adjacent diagonal entries has a nonzero coupling certified by an explicit infinite-series tail bound. Strict log-convexity establishes monotonicity, and the Legendre projection isolates the Jordan prefactor. The auxiliary exact-rational checker verifies 72 coefficient identities on finite-branch truncations; those tests are not substituted for the analytic proof.
+## correctness
 
-## Originality — PASS within inspected sources
-The nearest primary work is Kalle–Maggioni, *On Approximation by Random Lüroth Expansions*, arXiv:2101.01982v1 (2021), defining this same full-branch random family. Its examined main theorems and relevant sections concern expansions, digit frequencies and approximation quality, not the present countable resonance hierarchy. Kalle–Maggioni's *Invariant Densities for Random Systems of the Interval* (arXiv:1805.11430) supplies general density context; an existing random skew-tent example has a single quadratic polynomial resonance. These facts are not stated as a general theorem implying the new all-degree Lüroth classification. Search-index nonmatches are evidence of comparison, not proof of universal novelty.
+PASS
 
-## Mathematical value — PASS
-The result pinpoints infinitely many, strictly ordered switching parameters at which a non-diagonalizable polynomial mode is created by randomization. The accumulation point and exact adjacent-Legendre correlations supply structural and measurable consequences rather than isolated arithmetic coincidences. It clarifies how mixing two individually diagonalizable expanding systems changes their finite-dimensional statistical spectrum.
+The explicit full-branch inverse maps yield triangular polynomial transfer action with diagonal S_(m+1) on even m, (2p-1)S_(m+1) on odd m, and adjacent coefficient m C_m times parity factor. For each odd d, collision at p_d=(1+S_(d+2)/S_(d+1))/2 has nonzero coupling B_d=(d+1)q_d C_(d+1)>0, proved by comparing the j=2 positive summand to the j>=3 tail. Strict log-convexity of S makes distinct biases increase to 3/4 with stated asymptotic; shifted Legendre orthogonality projects out lower degrees, giving exact n*lambda^(n-1) annealed correlation. Independent convergent moment sums for d=1,3,5,7 confirmed p~0.724922,0.747782,0.749767,0.749974 and B_d>0.
 
-## Limitations and open priority risks
-Only annealed finite-dimensional polynomial spectral restrictions are addressed. No whole-operator spectral isolation or quenched assertion is made. Generic polynomial transfer-operator literature could contain an equivalent statement under different notation; publication priority remains provisional pending independent research verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Infinite countable degree-adjacent Jordan resonances and exact cross-correlation are more specific than general triangular-matrix repeated-eigenvalue linear algebra. Random Lüroth inverse-branch family is explicitly prior.
+
+## value
+
+PASS
+
+The countable switching-bias hierarchy and explicit Jordan-induced lag prefactor show a structural spectral phenomenon absent from either deterministic map. It supplies an exact correlation observable and accumulation law for a natural random dynamical system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

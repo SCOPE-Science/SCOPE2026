@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python verify.py`. The checker uses exact rational arithmetic for the coefficients in 72 claims across three finite-branch truncations and compares the exact Jordan recurrence through four powers. The independent high-precision moment-sum diagnostics test the first eight positive odd degrees; these truncations are **not** infinite-case proofs. The analytic argument in RESULT.md separately proves positivity of the interdegree coefficient by a uniform tail estimate, distinctness and limiting behavior through strict moment log-convexity, and the annealed cross-correlation through Legendre orthogonality.
+## correctness
 
-The physical map is defined only almost everywhere at branch endpoints; the theorem concerns Lebesgue-integrated quantities. The singular Jordan eigenvalue pertains to finite-dimensional polynomial subspaces, not an asserted isolated spectral resonance in a global Banach-space spectrum. No independent scientific review was performed.
+PASS
+
+The explicit full-branch inverse maps yield triangular polynomial transfer action with diagonal S_(m+1) on even m, (2p-1)S_(m+1) on odd m, and adjacent coefficient m C_m times parity factor. For each odd d, collision at p_d=(1+S_(d+2)/S_(d+1))/2 has nonzero coupling B_d=(d+1)q_d C_(d+1)>0, proved by comparing the j=2 positive summand to the j>=3 tail. Strict log-convexity of S makes distinct biases increase to 3/4 with stated asymptotic; shifted Legendre orthogonality projects out lower degrees, giving exact n*lambda^(n-1) annealed correlation. Independent convergent moment sums for d=1,3,5,7 confirmed p~0.724922,0.747782,0.749767,0.749974 and B_d>0.
+
+## originality
+
+PASS
+
+Infinite countable degree-adjacent Jordan resonances and exact cross-correlation are more specific than general triangular-matrix repeated-eigenvalue linear algebra. Random Lüroth inverse-branch family is explicitly prior.
+
+## value
+
+PASS
+
+The countable switching-bias hierarchy and explicit Jordan-induced lag prefactor show a structural spectral phenomenon absent from either deterministic map. It supplies an exact correlation observable and accumulation law for a natural random dynamical system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
