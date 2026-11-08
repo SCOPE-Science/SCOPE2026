@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify_toric.py` with Python 3.10 or later. It uses only the standard library. The program constructs all determinant-nonzero exponent sums directly from each Hilbert basis for \(3\le n\le24\) in characteristic zero and characteristics \(2,3,5,7,11,13,17,19,23\). All comparisons and facet-weight tests use exact integers. It checks every proposed vertex is uniquely exposed, the lower-support-function formula at a finite set of dual-cone weights, the facet-ray identities, and the strict separation of the two exceptional fans. It produced the marker:
+## correctness
 
-`TORIC_NASH_ALL_PRIMES_NEWTON_SUPPORT_AND_FAN_TESTS_OK`
+PASS
 
-The general theorem is established by the determinant classification and exact optimization over all dual-cone linear forms in `RESULT.md`. Finite program tests cannot certify every parameter or characteristic; this distinction is essential. The source theorem identifying the Nash blowup with the logarithmic-Jacobian blowup is cited, rather than independently reproved. No external independent validation has been performed.
+The cone semigroup has the full Hilbert basis {e,f,h_i} (Euclidean division on z). Determinants of basis triples are i and ±(j−i), and triples of h_i have zero determinant. For c>=0 support is minimized at (2,2,1); for c<0 it reduces to (2,2,t),(3,2,2n−1),(2,3,2n−1), with t=n except t=n−1 if p|n. All four have explicit strict exposing normals. When p|n the compact facet normal moves from (n−1,n−1,−1) to (n,n,−1); old normal lies on a different higher-dimensional normal cone. Independent determinant enumeration for all n=3..15 in six characteristic choices reproduces the vertices and sample lower-support functions. Infinite result follows from support proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the exact theorem after mathematical statement/implication comparison; risk explicitly retained. This work uses the general known toric Nash blowup theorem, so novelty cannot be attributed to the existence of the monomial ideal or its normalization. The new claim is uniform closed divisibility classification and precise normal ray. The source full text covers a single 3D counterexample and all surfaces, which does not directly state the all-n family. Earlier computations of small cones remain possible.
+
+## value
+
+PASS
+
+Determines exactly which prime characteristics alter the normalized Nash fan for a natural infinite family of normal toric threefolds, extending the previously published characteristic-two dimension-three example. The exact divisibility wall and moving facet ray are structural—not merely a rerun of one small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
