@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact Dirichlet coefficient and Hilbert--Schmidt expressions are obtained by expanding finite products of exponential power series, using independent prime factorization and Parseval. The infinite-dimensional claim is established by the analytical proof in `RESULT.md`.
+# Independent mathematical audit
 
-The standalone `checker.py` was executed with Python 3, SciPy and mpmath. It passed **125 finite tests** covering Bessel normalization, coefficient asymptotic constants and benchmark incomplete-Gamma Abel limits. The numerical work is corroborative only; it is neither exhaustive over the continuous parameters nor an independent mathematical audit.
+## correctness
 
-Reproducible command: `python checker.py`. The source and report are embedded in the same record. No external validation was performed.
+PASS
+
+For fixed a_j>0, Laplace saddle asymptotics give e^(-2Au)prod I0(2a_j u)=K_d u^(-d/2)(1+O(1/u)), and the derivative is O(u^(-d/2-1)). Sum-to-integral error is O(1) and its difference under the Abel parameter O(delta). The standard Laplace integrals yield d=1 inverse-square-root coefficient sqrt(pi)K; d=2 log coefficient K; d=3 finite F0 and gap 2sqrt(pi)K delta^1/2; d=4 gap K delta log(1/delta); d>=5 finite derivative J_d. The derivative threshold follows from harmonic-log summability. Independent prime frequencies and Parseval prove the exact HS norm identity for positive epsilon. Independent scipy evaluations of the exact coefficient ratio at u=200 for d=1..5 agree with saddle constants to within 0.2 percent. This is a check, not the proof.
+
+## originality
+
+PASS
+
+The Bessel saddle and Abelian integration are classical, and the Hilbert–Schmidt d>=3 membership threshold is already known; no novelty is claimed for those. Bayart–Kouroupis 2024 Theorems 1.1–1.2 characterize broad Schatten membership via mean counting functions, but the inspected paper does not tabulate the five sharp approach-to-boundary moduli or the concrete coefficients for this family. The specialized full five-regime constant classification is additional, though likely derivable by classical principles.
+
+## value
+
+PASS
+
+The exact leading divergence and derivative onset across all finite prime counts give a natural quantitative Hilbert–Schmidt boundary-sensitivity benchmark beyond qualitative membership, with explicit constants and the nonanalytic to differentiable transition. Although the proof uses standard Abelian tools, the precise piecewise norm response is an independently reusable fact of a naturally parameterized Dirichlet operator model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The object is defined for fixed positive amplitudes and integer dimension. The Gaussian saddle asymptotic for \(I_0\) determines the exact coefficient constant; sum--integral comparison has a bounded error and its difference across a small Abel parameter is \(O(\delta)\). Gamma integrals establish the divergent, square-root and logarithmic regimes; dominated convergence gives the exact finite derivative threshold. Parseval provides the operator identity. Finite corroboration: 125 checks in `checker.py`; these do not certify the infinite limits.
+## correctness
 
-## Originality
-**PASS, provisionally.** Primary Dirichlet-series boundary literature: Brevig--Kouroupis--Perfekt (2024, arXiv:2405.03522) does not present this coefficient sequence; Bayart--Kouroupis (2023, arXiv:2306.05733) establishes broader operator criteria but not the checked precise boundary constants. Bayart (2003) already gives the qualitative contact Hilbert--Schmidt threshold, which is explicitly excluded from the novelty claim; Bayart--Brevig (2015) provides operator approximation-number bounds but not these constants. published-finding corpus and current-available ledger searches found no identical coefficient law. Older specialized exact trace expansions may exist and full theorem-by-theorem inspection of the 2023 article was not completed; neither database absence nor partition boundary proves priority.
+PASS
 
-## Value
-**PASS.** The five natural regimes explain exactly when a contact boundary value exists, when it acquires a first derivative, and how the approach behaves otherwise, with amplitude-dependent nonzero constants. Its Hilbert--Schmidt interpretation measures near-contact sensitivity quantitatively rather than merely yes/no membership; a narrow but naturally defined analytic invariant is fully evaluated.
+For fixed a_j>0, Laplace saddle asymptotics give e^(-2Au)prod I0(2a_j u)=K_d u^(-d/2)(1+O(1/u)), and the derivative is O(u^(-d/2-1)). Sum-to-integral error is O(1) and its difference under the Abel parameter O(delta). The standard Laplace integrals yield d=1 inverse-square-root coefficient sqrt(pi)K; d=2 log coefficient K; d=3 finite F0 and gap 2sqrt(pi)K delta^1/2; d=4 gap K delta log(1/delta); d>=5 finite derivative J_d. The derivative threshold follows from harmonic-log summability. Independent prime frequencies and Parseval prove the exact HS norm identity for positive epsilon. Independent scipy evaluations of the exact coefficient ratio at u=200 for d=1..5 agree with saddle constants to within 0.2 percent. This is a check, not the proof.
 
-## Limits
-Fixed coefficients, \(\delta\downarrow0\) along positive reals, no uniform vanishing-amplitude limit, and no independent validation. Analytic Laplace/Abel steps use classical machinery; no claim to general Abelian theory. Possible earlier specialized asymptotic formula remains a historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Bessel saddle and Abelian integration are classical, and the Hilbert–Schmidt d>=3 membership threshold is already known; no novelty is claimed for those. Bayart–Kouroupis 2024 Theorems 1.1–1.2 characterize broad Schatten membership via mean counting functions, but the inspected paper does not tabulate the five sharp approach-to-boundary moduli or the concrete coefficients for this family. The specialized full five-regime constant classification is additional, though likely derivable by classical principles.
+
+## value
+
+PASS
+
+The exact leading divergence and derivative onset across all finite prime counts give a natural quantitative Hilbert–Schmidt boundary-sensitivity benchmark beyond qualitative membership, with explicit constants and the nonanalytic to differentiable transition. Although the proof uses standard Abelian tools, the precise piecewise norm response is an independently reusable fact of a naturally parameterized Dirichlet operator model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
