@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:02:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any length-three word has at most three distinct one-deletion outputs, giving ceil(q²/3) lower bound. The ten explicit optimal finite seed covers (q=2,4,6,8,10,12,14,16,20,22) were fetched from the exact pinned data blob and independently enumerated, checking all q² ordered target pairs and codeword counts 2,6,12,22,34,48,66,86,134,162. For all remaining even q, published Colbourn–Hoffman–Rees 3-GDD existence (restated as Chang–Chee–Zhou Lemma 1.1) gives types 6^t u^1, t>=3, u=0,8,10. Insert local optimal 6,8,10 seed codes and two opposite words per transversal triple; every cross-group pair covered both directions. Formula sum ceil(g_i²/3)+2B=ceil(q²/3) with B=(q²−sum g_i²)/6 is exact, and these sizes exhaust all even q apart from the checked seeds. Finite checks are certificates for seeds, infinite existence comes from published theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both papers give broad deletion-covering inequalities, constructions, or asymptotic optimality."
+        ],
+        "reasoning": "Asymptotic bounds in q and broad code families do not force exact ceil(q²/3) at every even q, especially seed exceptions.",
+        "searches": [
+          "Xie/Sun/Ge arxiv:2606.15379v1 Theorems V.1 and V.3",
+          "Lenz et al arxiv:1911.09944v4"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2606.15379v1",
+        "arxiv:1008.4408v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed",
+        "arxiv:1911.09944v4",
+        "Resultary query: length three q-ary one-deletion covering exact ceil(q squared /3) even alphabet three GDD"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3-GDD theorem supplies transversal blocks but not equal-symbol loops nor within-group ordered pair deletion balls; odd theorem only proves odd input q."
+        ],
+        "reasoning": "Neither implies all-even deletion-cover equality without finite seeds, directed-edge codewords, two orientations for transversal triple, and exact cardinality accounting.",
+        "searches": [
+          "Chang/Chee/Zhou arxiv:1008.4408v1 Lemma 1.1",
+          "Colbourn/Hoffman/Rees DOI:10.1016/0097-3165(92)90099-G",
+          "Resultary odd case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published deletion-cover definition matches one-deletion length-3 center covering q² ordered length-2 descendants."
+        ],
+        "reasoning": "This equivalence makes the comparison direct; general bounds/odd-only exact results do not imply even-only exact cardinality.",
+        "searches": [
+          "Resultary: length three q-ary one-deletion covering exact ceil(q squared /3) even alphabet three GDD",
+          "Xie/Sun/Ge arxiv:2606.15379v1 Definition of D(q,3,1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact indexed table is ODD q only. Current source contains ten independent EVEN-q covering witnesses and all target coverage checked."
+        ],
+        "reasoning": "Even family not covered by odd-only table; these finite witnesses support, but do not alone prove, the infinite all-even theorem.",
+        "searches": [
+          "Resultary: length three q-ary one-deletion covering exact ceil(q squared /3) even alphabet three GDD",
+          "Resultary 2026/10/4 odd-alphabet exact theorem",
+          "original pinned data/base_witnesses.json blob 5a9f7e4b70044845ddfaf8b0de57976754dc6cc4"
+        ]
+      },
+      "rationale": "An indexed related exact theorem proves the same formula for ODD q>=3 only, not even alphabets. Xie–Sun–Ge 2026 Section V gives general q-ary deletion covering bounds and asymptotic construction but not the exact fixed-length-three all-even optimum. Group-divisible design existence is established, but combining it with directed-edge/triple deletion-ball certificates and finite sharp seeds is a nontrivial bridge. This completes a natural parity gap.",
+      "residual_risks": [
+        "The same exact numerical value is published for odd q; the even parity extension should not be represented as whole-formula priority.",
+        "General prior covering-code research could have an unindexed equivalent even-q construction; search does not prove universal novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ASYMPTOTIC_NOT_ALL_EVEN_EXACT",
+          "evidence": "No theorem in examined Section V proves the sharp exact all-even length-three case.",
+          "identifier_or_url": "arxiv:2606.15379v1",
+          "material_read": "Primary full 2026 PDF, Definition of covering and Section V including Theorem V.1 on large-alphabet constructions",
+          "method": "PDF full text and screenshot of Section V",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "same D(q,n,R) covering invariant"
+        },
+        {
+          "assessment": "PRIOR_DESIGN_EXISTENCE_USED",
+          "evidence": "Lemma 1.1 supplies existence for 6^t u^1 at t>=3,u=0,8,10; not itself a deletion-cover statement.",
+          "identifier_or_url": "arxiv:1008.4408v1",
+          "material_read": "Primary PDF introduction and Lemma 1.1 with all five numerical admissibility conditions; screenshot of lemma page",
+          "method": "PDF full text and screenshot",
+          "title": "A pair of disjoint 3-GDDs of type g^t u^1",
+          "trigger": "exact existence lemma for GDDs used infinitely"
+        },
+        {
+          "assessment": "PRIOR_ODD_SPECIAL_FAMILY",
+          "evidence": "The published odd quantifier does not mathematically entail the even input family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed",
+          "material_read": "Published Resultary result description and referenced theorem quantifier odd q>=3; full Git RESULT not separately fetched in this run",
+          "method": "Resultary semantic search",
+          "title": "Exact length-three single-deletion covering number for odd alphabets",
+          "trigger": "same cardinality but complementary parity"
+        },
+        {
+          "assessment": "RELATED_GENERAL_BOUND",
+          "evidence": "No read evidence of exact all-even q fixed source length 3.",
+          "identifier_or_url": "arxiv:1911.09944v4",
+          "material_read": "Abstract/general construction overview in indexed source, no whole-document reading claimed",
+          "method": "OA index",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "general covering-code bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact minimum size of a single-deletion covering code is a natural information-theory invariant. Covering every even alphabet with a sharp lower-bound construction settles the remaining parity family and supplies explicit finite certificates plus a general combinatorial design lift, rather than a tiny computational example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned source RESULT.md Git blob 3f8b502162f3cfc21f8e3e1af221ab191933e681",
+    "arxiv:2606.15379v1",
+    "arxiv:1008.4408v1",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed",
+    "arxiv:1911.09944v4",
+    "Resultary query: length three q-ary one-deletion covering exact ceil(q squared /3) even alphabet three GDD"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one deletion, length-three centers, all even alphabets only; no classification of all optimal covers; relies on published 3-GDD existence theorem."
+  ],
+  "residual_risks": [
+    "The same exact numerical value is published for odd q; the even parity extension should not be represented as whole-formula priority.",
+    "General prior covering-code research could have an unindexed equivalent even-q construction; search does not prove universal novelty."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_ASYMPTOTIC_NOT_ALL_EVEN_EXACT",
+      "evidence": "No theorem in examined Section V proves the sharp exact all-even length-three case.",
+      "identifier_or_url": "arxiv:2606.15379v1",
+      "material_read": "Primary full 2026 PDF, Definition of covering and Section V including Theorem V.1 on large-alphabet constructions",
+      "method": "PDF full text and screenshot of Section V",
+      "title": "New bounds for covering codes under insertions or deletions",
+      "trigger": "same D(q,n,R) covering invariant"
+    },
+    {
+      "assessment": "PRIOR_DESIGN_EXISTENCE_USED",
+      "evidence": "Lemma 1.1 supplies existence for 6^t u^1 at t>=3,u=0,8,10; not itself a deletion-cover statement.",
+      "identifier_or_url": "arxiv:1008.4408v1",
+      "material_read": "Primary PDF introduction and Lemma 1.1 with all five numerical admissibility conditions; screenshot of lemma page",
+      "method": "PDF full text and screenshot",
+      "title": "A pair of disjoint 3-GDDs of type g^t u^1",
+      "trigger": "exact existence lemma for GDDs used infinitely"
+    },
+    {
+      "assessment": "PRIOR_ODD_SPECIAL_FAMILY",
+      "evidence": "The published odd quantifier does not mathematically entail the even input family.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed",
+      "material_read": "Published Resultary result description and referenced theorem quantifier odd q>=3; full Git RESULT not separately fetched in this run",
+      "method": "Resultary semantic search",
+      "title": "Exact length-three single-deletion covering number for odd alphabets",
+      "trigger": "same cardinality but complementary parity"
+    },
+    {
+      "assessment": "RELATED_GENERAL_BOUND",
+      "evidence": "No read evidence of exact all-even q fixed source length 3.",
+      "identifier_or_url": "arxiv:1911.09944v4",
+      "material_read": "Abstract/general construction overview in indexed source, no whole-document reading claimed",
+      "method": "OA index",
+      "title": "Covering Codes using Insertions or Deletions",
+      "trigger": "general covering-code bounds"
+    }
+  ]
+}

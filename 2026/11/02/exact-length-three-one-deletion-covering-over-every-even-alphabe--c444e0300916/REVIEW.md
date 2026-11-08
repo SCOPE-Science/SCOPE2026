@@ -1,15 +1,21 @@
-# Review of the even-alphabet deletion-covering theorem
+# Independent mathematical audit
 
-## Correctness: PASS
-Every codeword gives at most three distinct two-symbol deletion outputs, yielding the rigorous lower bound. Finite witnesses for ten even sizes are fully embedded; independent stdlib enumeration of each complete deletion ball verifies exact optimal covers of all output words (see `verification_output.txt`). All remaining even sizes are partitioned into \(3\)-GDD group types \(6^tu^1\) with \(t\ge3\) and \(u\in\{0,8,10\}\). The five necessary-and-sufficient conditions stated in the published GDD theorem are checked symbolically. The assembly separates within-group and across-group ordered pairs, and the exact pair counting gives \(\lceil q^2/3\rceil\). The conclusion neither relies on the numerical optimizer nor claims that finite checks prove infinite existence.
+## correctness
 
-## Originality: PASS, with risks
-The full 2026 source paper by Xie–Sun–Ge was inspected in its definitions, contribution statement, the entirety of relevant Section V, and conclusions: it establishes general and asymptotic deletion-covering bounds, not the present exact even-\(q\) length-three equality. The full Lenz–Rashtchian–Siegel–Yaakobi source was inspected for its general single-deletion inequalities; its bounds do not imply exact even-alphabet values. The group-divisible-design theorem predates the result but is not itself a deletion-covering theorem: it supplies the transversal triples, not loop and directed-pair coverage or optimal local bases. An indexed 2026 theorem already proves the same identity **only for odd** alphabets; its odd-only statement does not imply this complementary even range. Searches by formulas, channel names, design equivalences, and specific alphabets did not identify an even counterpart. The complete odd-case result was inspected and its limitations explicitly exclude even alphabets; publication-priority uncertainty remains for unindexed work.
+PASS
 
-## Value: PASS
-The problem is the exact minimum cardinality of a natural single-deletion covering family, rather than a contrived parameter. The preceding large-alphabet bounds leave a finite gap at fixed length, and the known odd-alphabet theorem leaves the full even parity unsolved. The result completes that parity with exact all-size certificates, a structural design-theoretic assembly, and a transparent proof of equality in the universal counting bound. It provides a benchmark for finite synchronization-error covering and a reusable link between ordered-pair coverage and group-divisible designs.
+Any length-three word has at most three distinct one-deletion outputs, giving ceil(q²/3) lower bound. The ten explicit optimal finite seed covers (q=2,4,6,8,10,12,14,16,20,22) were fetched from the exact pinned data blob and independently enumerated, checking all q² ordered target pairs and codeword counts 2,6,12,22,34,48,66,86,134,162. For all remaining even q, published Colbourn–Hoffman–Rees 3-GDD existence (restated as Chang–Chee–Zhou Lemma 1.1) gives types 6^t u^1, t>=3, u=0,8,10. Insert local optimal 6,8,10 seed codes and two opposite words per transversal triple; every cross-group pair covered both directions. Formula sum ceil(g_i²/3)+2B=ceil(q²/3) with B=(q²−sum g_i²)/6 is exact, and these sizes exhaust all even q apart from the checked seeds. Finite checks are certificates for seeds, infinite existence comes from published theorem.
 
-## Sources and limits
-Primary scientific evidence: Xie–Sun–Ge, arXiv:2606.15379v1 (13 June 2026), especially Section V; Lenz–Rashtchian–Siegel–Yaakobi, arXiv:1911.09944v4; Chang–Chee–Zhou, arXiv:1008.4408v1, Lemma 1.1, citing Colbourn–Hoffman–Rees (1992); indexed earlier odd-alphabet theorem; embedded finite witnesses. No result is asserted for longer strings, multiple deletions, or optimal-code uniqueness. The published GDD existence theorem is cited rather than reproved. Independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An indexed related exact theorem proves the same formula for ODD q>=3 only, not even alphabets. Xie–Sun–Ge 2026 Section V gives general q-ary deletion covering bounds and asymptotic construction but not the exact fixed-length-three all-even optimum. Group-divisible design existence is established, but combining it with directed-edge/triple deletion-ball certificates and finite sharp seeds is a nontrivial bridge. This completes a natural parity gap.
+
+## value
+
+PASS
+
+The exact minimum size of a single-deletion covering code is a natural information-theory invariant. Covering every even alphabet with a sharp lower-bound construction settles the remaining parity family and supplies explicit finite certificates plus a general combinatorial design lift, rather than a tiny computational example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
