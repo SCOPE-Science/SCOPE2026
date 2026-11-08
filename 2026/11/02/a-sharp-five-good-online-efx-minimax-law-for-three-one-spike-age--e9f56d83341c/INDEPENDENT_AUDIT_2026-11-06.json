@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:52:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact adversarial proof and inequalities, blob 34164c9f4ccdff0370697eb13dacc53978794418",
+        "VERIFY.py actual full source blob 7bd0474674305079988988dfee2a510d5e2f2e54",
+        "Independent from-scratch exact minimax recurrence found policies for low and large regimes, and upper bounds at H=2,3,4,5,10 as predicted."
+      ],
+      "rationale": "The state (allocation counts c_j, unique high-good recipient o_i or −1) is a sufficient statistic for every legal online adversarial history. Terminal own and EFX-residual values depend only on this state. Alternating for-all-adversary masks then exists-allocator choices yields an exhaustive five-turn dynamic program. Independently reconstructed finite minimax calculations confirmed a simultaneous H=1,2,4 policy and a separate universal H≥4 predicate; symbolic affine/monotone-quadratic extension proves all real H in the intervals. The explicit adaptive adversary starts with three universal lows, then high masks determined by count pattern and completes missing spikes; all 27×9=243 responses satisfy sharp <=2/H (2≤H≤4) and <=1/2 (H≥4) comparisons. Therefore α*(H)=min{1,max{2/H,1/2}} for exactly five goods/three agents, every-path EFX, and known per-agent one-spike frequencies.",
+      "residual_risks": [
+        "Exhaustion covers precisely five turns, not all horizons.",
+        "The continuous H statement depends on inequalities between endpoint checks; enumerating H alone would not prove it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neoh–Teh gives a broader horizon class but a weaker quantitative guarantee, with m=(n−2)(K+1)+2 in its construction.",
+          "ICML framework studies share-based guarantees rather than all-good EFX finite minimax."
+        ],
+        "reasoning": "A theorem applying at n=3 and m=5 must be compared by its implications; it does not state the optimal α*(H).",
+        "searches": [
+          "Neoh Teh Online Fair Division with Frequency Predictions arXiv:2610.34625",
+          "Neoh Peters Teh Online Fair Division with Additional Information ICML 2026"
+        ]
+      },
+      "checked_sources": [
+        "Neoh–Teh arXiv:2610.34625v1 (2026-10-25) Sections 2,4.2, Appendix C",
+        "Neoh–Peters–Teh ICML 2026 proceedings entry",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Five-good exact EFX failure does not logically imply the sharp positive approximation 1/2 for H>4.",
+          "The constructed two policies and universal 243-path upper adversary jointly show new sharpness."
+        ],
+        "reasoning": "The claim retains the same setting as the closest prior, but strengthens a lower-bound impossibility with a finite optimal value.",
+        "searches": [
+          "Neoh Teh Theorem 4.2 and Appendix C",
+          "Independent exact five-round alternating-game recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same adversarial frequency-prediction setup is explicit prior work.",
+          "Theorem 4.2 describes failure of any fixed α over unbounded horizons; not a five-good exact optimization."
+        ],
+        "reasoning": "An unbounded-horizon impossibility cannot imply the exact finite H-dependent optimum without the five-turn game.",
+        "searches": [
+          "Neoh Teh arXiv:2610.34625 Theorem 4.2 Appendix C",
+          "Resultary semantic: online EFX three agents five goods one large value minimax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No fixed-five alpha transition table in inspected source; its finite impossibility is already credited.",
+          "Resultary matches other allocation lotteries but no EFX 5-good chart."
+        ],
+        "reasoning": "The computed 2/H and 1/2 thresholds are not a repeat of an existing published small-instance table in the material examined.",
+        "searches": [
+          "Neoh Teh arXiv:2610.34625 Appendix C finite construction",
+          "Resultary: EFX approximation five goods three agents one spike"
+        ]
+      },
+      "rationale": "Qualified PASS: Neoh–Teh 2026 proves horizon-uniform impossibility and a five-good failure of exact EFX, but the sharp fixed-five minimax factor across all H with two transition values was not covered by the inspected theorem and Appendix C.",
+      "residual_risks": [
+        "A closer finite-horizon appendix or supplementary implementation of the same recent paper could be more exhaustive than its main theorem.",
+        "Very narrow three-agent five-good setting limits transfer; it is motivated by first finite quantitative refinement of the impossibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR COVERS impossibility; NOT SHARP FINITE-HORIZON FACTOR",
+          "evidence": "The theorem excludes positive horizon-uniform factors, construction gives five-good exact failure but not α*(H).",
+          "identifier_or_url": "https://arxiv.org/html/2610.34625v1",
+          "material_read": "Full open HTML, model definitions, Theorem 4.2 and Appendix C adversarial construction",
+          "method": "primary full-text HTML reading of relevant theorem and appendix",
+          "title": "Online Fair Division with Frequency Predictions",
+          "trigger": "exact same frequency-prediction model and EFX impossibility"
+        },
+        {
+          "assessment": "RELATED FRAMEWORK, incomplete full-text inspection",
+          "evidence": "Share-based guarantees are distinct from five-good all-good EFX factor.",
+          "identifier_or_url": "https://proceedings.mlr.press/v306/",
+          "material_read": "Publication description/related theorem characterization, not whole proceedings paper",
+          "method": "bibliographic/summary comparison",
+          "title": "Online Fair Division with Additional Information",
+          "trigger": "framework with similar online known-frequency setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finite-state proof",
+        "Neoh–Teh Theorem 4.2 and Appendix C"
+      ],
+      "rationale": "Determines the exact finite horizon where a known qualitative no-constant-horizon theorem gives no sharp quantitative information. Natural minimax invariant includes all H≥1, provable phase thresholds H=2,H=4 and an explicit universal strategy/adversary, rather than an arbitrary sample or textbook EFX deduction.",
+      "residual_risks": [
+        "Ex-post every-path guarantee is stronger than expected fair division; result does not purport to optimize randomized expected fairness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Qualified, bounded best-of-knowledge originality; not a formal proof certificate or guarantee of absolute historical priority.",
+    "No public scientific source files changed; publication_plan is staged and not executed."
+  ],
+  "schema_version": 1
+}

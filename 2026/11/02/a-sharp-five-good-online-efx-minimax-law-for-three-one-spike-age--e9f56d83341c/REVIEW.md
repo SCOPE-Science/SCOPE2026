@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete five-round adversarial game is reduced to counts and unique-high-good owners, a sufficient state representation. The lower policy certificates satisfy symbolic inequalities for every real high value in the stated intervals, and the explicit adaptive upper adversary is exhaustively checked across all 243 allocation histories after its three common-low arrivals. The standalone Python checker proves the finite alternating-game recursion with exhaustive choices and terminal comparisons; no stochastic simulation is used.
+## correctness
 
-**Originality — PASS, provisional external priority.** The October 25, 2026 Neoh–Teh preprint already proves the unbounded-horizon impossibility and includes a five-good EFX counterexample for an appropriate parameter choice. The present result does not claim either as new. It adds the exact five-good optimal approximation function, including the sharp \(H=2,4\) transitions and the positive \(1/2\) large-spike plateau. Searches of the main preprint's Sections 2 and 4 plus Appendix C, the preceding frequency-prediction work, mathematical research records and accessible prior research records did not identify the precise quantitative law. Residual risk: an unindexed or differently worded exact finite-horizon result.
+PASS
 
-**Value — PASS.** The first small horizon at which approximate versus exact EFX meaningfully diverges in the one-spike domain merits an exact minimax calculation. The factor law quantifies an efficiency-of-information frontier hidden by the published impossibility result and yields explicit optimal algorithms and adversarial instances for a well-defined, economically natural restricted model. No claim of a general-horizon result is made.
+The state (allocation counts c_j, unique high-good recipient o_i or −1) is a sufficient statistic for every legal online adversarial history. Terminal own and EFX-residual values depend only on this state. Alternating for-all-adversary masks then exists-allocator choices yields an exhaustive five-turn dynamic program. Independently reconstructed finite minimax calculations confirmed a simultaneous H=1,2,4 policy and a separate universal H≥4 predicate; symbolic affine/monotone-quadratic extension proves all real H in the intervals. The explicit adaptive adversary starts with three universal lows, then high masks determined by count pattern and completes missing spikes; all 27×9=243 responses satisfy sharp <=2/H (2≤H≤4) and <=1/2 (H≥4) comparisons. Therefore α*(H)=min{1,max{2/H,1/2}} for exactly five goods/three agents, every-path EFX, and known per-agent one-spike frequencies.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: Neoh–Teh 2026 proves horizon-uniform impossibility and a five-good failure of exact EFX, but the sharp fixed-five minimax factor across all H with two transition values was not covered by the inspected theorem and Appendix C.
+
+## value
+
+PASS
+
+Determines the exact finite horizon where a known qualitative no-constant-horizon theorem gives no sharp quantitative information. Natural minimax invariant includes all H≥1, provable phase thresholds H=2,H=4 and an explicit universal strategy/adversary, rather than an arbitrary sample or textbook EFX deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
