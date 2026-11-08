@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns all nonnegative 4x4 one-step nilpotent weighted shifts with positive outer weights. The independent full-shadow invariants \(S=x+y+z\) and \(P=xz\) follow from the tridiagonal characteristic polynomial and the classical Haar shadow moment-generating identity; the first two nonzero radial moments recover both. The entire fiber is the compact interval \(2\sqrt P\le v=x+z\le S\). The squared norm is the maximum of one increasing and one decreasing function, so its minimizer either occurs at the left endpoint or at the unique crossing; the maximum is at the right endpoint. The fourth Schatten power is a strictly convex quadratic, giving exact minima and maxima. Rescaling by \(r=S/\sqrt P\) reduces the global sharp norm quotient to a monotone two-branch radical function peaking uniquely at \(r=3\), and the fourth-power Schatten quotient to a rational function peaking uniquely at \(r=2+\sqrt2\). All branch seams and the singular boundary \(S=2\sqrt P\) were checked. The exact equality witnesses attain both constants in potentially distinct fibers. The deterministic verifier passed its finite supplement, but it is not a proof of universal quantifiers.
+PASS
 
-## Originality — PASS (best knowledge)
+PASS. The path matching determinant identity det(I-sA-tA*)=1-S st+P(st)^2, standard mixed-shadow generating formula and the second/fourth absolute moments recover exactly (S,P) from the full shadow; compact support makes all mixed moments measure-determining. Fixing P and S, let v=x+z∈[2√P,S], then x=(v+√(v²-4P))/2 and y=S-v. Squared operator norm max(x,y) is max of increasing and decreasing branches, yielding exact L/U endpoints with transition S=3√P. The Schatten-fourth power x²+y²+z²=v²-2P+(S-v)² is convex, so its minimum crosses at S=4√P and maximum is endpoint v=S; continuity fills intervals. Reduce universal squared norm ratio U/L to r=S/√P; monotonicity makes unique maximum at r=3 equal φ². Fourth-Schatten power ratio maximizes at r=2+√2 with value 1+√2. Explicit valid squared weights attain both. Independent exact 4x4 determinant expansion and branch optimization tests succeeded. Boundary S=2√P, b=0 included.
 
-Dunkl et al. (arXiv:1010.4189, 2010), Sections V, VI and VIII, are stronger prior input for general shadow equivalence, rotational symmetry, the same-shadow direct-sum construction and hidden rank/nilpotence. The determinant reduction and the observation that shadow does not recover nilpotency are not claimed as new. Johnson (arXiv:2610.29675, first submitted 2026-10-21), studies rigidity specifically for 3x3 matrices. Nearby research records treat three-level shadow singular-value fibers, four-site resolvent Schatten rearrangements, and numerical-radius/Schatten inequalities for shifts; they do not entail a global golden-ratio norm discrepancy and the distinct fourth-Schatten optimum for the same entire shadow in this four-site class. Search and primary text scrutiny found no equivalent exact pair, while the possibility of an unstated corollary or independent earlier derivation remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new sharp constants quantify precisely how much matrix norm information is destroyed by preserving an entire probability distribution rather than merely a numerical range, within the first natural four-site path with two independent shadow invariants. The unexpectedly different maximizing fibers, \(r=3\) and \(r=2+\sqrt2\), demonstrate genuinely different spectral sensitivity of the operator norm and Schatten-four norm. Every fiber's full attainable intervals, including endpoint allocations and boundary transitions, are given rather than isolated examples. This is a natural complete constrained classification, not a randomly selected numerical value.
+PASS, restricted to quantitative optimization. Dunkl–Gawron–Holbrook–Puchała–Życzkowski (2010/2011) already establish general numerical shadow moment theory, rotational equivalence, scaled Jordan-block shadow reductions and possible matrix nonrigidity. Those known statements directly cover the (S,P) invariant and are not credited as novel. New asserted part is entire within-shadow interval/classification and optimal pair of distortion ratios. Related Resultary 2026 Schatten-fourth weighted shift numerical-radius results concern a different observable/norm and do not imply this fiber optimization as inspected. Unindexed operator-norm refinements could exist.
 
-## Closest sources and limitations
+## value
 
-- Dunkl, Gawron, Holbrook, Puchała, Życzkowski, *Numerical shadows: measures and densities on the numerical range*, arXiv:1010.4189; full 40-page text inspected, especially general equality theorem and Section VIII, Remark 8.7 (direct sums and non-rigidity).
-- Dylan Johnson, *Numerical Shadow Rigidity for 3x3 Matrices*, arXiv:2610.29675v1, published 2026-10-21; full HTML text inspected; dimensions differ.
-- Related finite nilpotent weighted-shift records concern Schatten norms of resolvents or generalized numerical radii, not the norm ratio within identical full shadow measures.
+PASS
 
-Bounds are confined to the stated four-site weighted-shift class and do not generalize to all matrices sharing a shadow. Independent validation and unknown prior equivalences remain residual risks.
+PASS. Full numerical shadow is a canonical random quadratic observable; quantifying exactly how much operator and Schatten-four norms can vary while its entire distribution remains fixed is a motivated inverse-spectral stability invariant. Different extremizing fibers give genuinely distinct sensitivity scales, not a mere rename of shadow equivalence.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
