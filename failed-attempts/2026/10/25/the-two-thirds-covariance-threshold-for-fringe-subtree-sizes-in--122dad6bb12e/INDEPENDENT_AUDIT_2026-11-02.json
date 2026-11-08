@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:55:47.626022Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unrestricted result follows directly from uniform root splitting and the exact mean recurrence f_k(m): f=0 for m<k, f=1 at m=k, and f=2(m+1)/((k+1)(k+2)) for m>k. Subtracting the linear continuation yields a finite defect d_k whose mass is zero, first moment k/3 and second moment k(3k-1)/6. Conditioning on I and using symmetry for Q=(2I-n+1)^2 gives Cov(Q,X)=8/n [k(3k-1)/6-(n-1)k/3]=4k(3k+1-2n)/(3n). No assumption of disjoint boundary layers is used. For n=2, Q is constant and covariance vanishes; k=n has deterministic X=1 and lies outside the formula. The sign follows exactly from 3k+1-2n; summing over k gives zero total covariance and known weighted path-length covariance (n-2)(n-1)(n+1)/9. Independent exact-fraction calculations checked all k for n=2..60, defect moments k=1..100, and independent direct BST insertion-permutation enumeration for n=2..7; the analytical proof, not those finite checks, establishes all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dennert--Grübel exact mean (2.1) for all k<m, plus (3.3) for all root splits, is stronger than the particular Q mixed moment: it determines the whole first cross-moment with arbitrary functions of root rank.",
+          "Holmgren--Janson exact mean/profile and fringe-tree additive-functional results concern the same probability model but do not explicitly state the root-Q covariance.",
+          "A published Resultary root-imbalance/path-length result gives a weighted aggregate and does not dominate the full vector."
+        ],
+        "reasoning": "The 2010 exact conditional profile dominates the claimed special quadratic-root statistic without matching the published numerical threshold; no meaningful strengthening beyond evaluating known conditional data is established.",
+        "searches": [
+          "Dennert and Grübel On the Subtree Size Profile of Binary Search Trees (2010), full text pp. 561-578",
+          "Holmgren and Janson arXiv:1406.6883, Theorem 1.12 and Lemma 3.3",
+          "Resultary semantic search: binary search tree fringe subtree size covariance squared root rank imbalance and path length"
+        ]
+      },
+      "checked_sources": [
+        "Dennert--Grübel, Combinatorics Probability and Computing 19 (2010), 561-578, DOI 10.1017/S0963548309990630, complete OA PDF",
+        "Holmgren--Janson, arXiv:1406.6883, relevant full text and exact profile Lemma 3.3",
+        "Seelbach Benkner--Wagner, DOI 10.1007/s00453-022-01013-y, public complete HTML",
+        "Resultary 2026/10/4 published root-imbalance/path-length result, entire RESULT.md",
+        "Resultary semantic query (19 hits), plus direct GitHub and Web searches listed in named checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Dennert--Grübel: f_k(m)=0 for m<k, f_k(k)=1, f_k(m)=2(m+1)/((k+1)(k+2)) for m>k and E[X_{n,k}|I=i]=f_k(i)+f_k(n-1-i).",
+          "Thus Cov(Q,X_{n,k})=(1/n) sum_{i=0}^{n-1}((2i-n+1)^2-(n^2-1)/3)[f_k(i)+f_k(n-1-i)] exactly for all n>=2 and 1<=k<n; finite elementary sums yield 4k(3k+1-2n)/(3n).",
+          "Conversely the published path-length aggregate Cov(Q,P)=(n-2)(n-1)(n+1)/9 is a weighted sum of the submitted full vector; the aggregate alone cannot reconstruct every k component."
+        ],
+        "reasoning": "The accepted original claim is an immediate specialized finite-moment consequence of the stronger earlier exact conditional profile, although it refines the other, weaker 2026 aggregate. The strong 2010 coverage is decisive; the lack of explicit boxed threshold in that article does not confer novelty.",
+        "searches": [
+          "Dennert--Grübel (2010), equations (2.1),(3.3), proof of Proposition 2.1 on pp. 567-568",
+          "Resultary published RESULT.md 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9",
+          "Holmgren--Janson arXiv:1406.6883, sections 1 and 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dennert--Grübel (2010), eq. (3.3): E[X_{n,k}|I=i]=E[X_{i,k}]+E[X_{n-1-i,k}], valid for every integer i=0,...,n-1 when k<n.",
+          "The law of total expectation yields for any g on {0,...,n-1}: Cov(g(I),X_{n,k})=(1/n) sum_i (g(i)-E g(I))[E X_{i,k}+E X_{n-1-i,k}].",
+          "Choosing g(i)=(2i-(n-1))^2 exactly recovers the submitted mixed covariance, after finite sums."
+        ],
+        "reasoning": "Conditioning on root size and covariance with a deterministic root statistic is an equivalent representation; prior complete conditional means already encode all such mixed covariances even if not explicitly labeled as root-imbalance moments.",
+        "searches": [
+          "Resultary semantic search: binary search tree fringe subtree size covariance squared root rank imbalance and path length",
+          "Web search: root split imbalance fringe subtree count covariance random binary search tree",
+          "Dennert and Grübel 2010 DOI 10.1017/S0963548309990630 equations (2.1) and (3.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the 2026/10/4 exact aggregate path-length covariance, not an explicit table of mixed covariances at each k.",
+          "Dennert--Grübel Proposition 2.1 tabulates count--count covariances, not mixed Q--count covariances. Its exact conditional moments are nonetheless a full formula from which each requested cell is directly calculated."
+        ],
+        "reasoning": "No matching finite table was located; that nonmatch is immaterial because a published exact all-split conditional formula fully determines the claimed values. This is an analytic-moment problem, not a claim requiring enumeration of an independent database.",
+        "searches": [
+          "Resultary semantic search: binary search tree fringe subtree size covariance squared root rank imbalance and path length (19 returned hits)",
+          "GitHub search within SCOPE-Science/SCOPE2026: fringe subtree size root imbalance covariance",
+          "Dennert and Grübel (2010), Proposition 2.1 and equations (2.1)/(3.3)"
+        ]
+      },
+      "rationale": "A decisive prior-implication check fails originality: Dennert and Grübel (2010), equations (2.1) and (3.3), already give the complete conditional mean of each fringe-size count for EVERY root left-subtree size. Because the root imbalance Q=(2I-(n-1))^2 is a deterministic function of that same I, their theorem directly determines Cov(g(I),X_{n,k}) for EVERY root-only g by a one-line tower expectation. Taking g=Q and evaluating elementary finite polynomial sums gives precisely 4k(3k+1-2n)/(3n) and its 2/3 sign boundary. The sign-resolved expression is not printed in the primary paper, but the stronger all-split conditional profile already covers this special mixed moment mathematically. The algebra and boundary moments are sound but do not introduce an independent mathematical mechanism; an unmatched equation string is not novelty. The published Resultary scalar path-length covariance alone does NOT imply all individual k terms, and is not the decisive coverage source.",
+      "residual_risks": [
+        "The full priority history of mixed root-rank/fringe-size moments was not exhaustively inventoried; this does not affect the decisive already-published conditional-profile implication.",
+        "The exact sign threshold is not explicitly printed in the 2010 paper; the originality judgment interprets direct specialization with routine finite sums as prior coverage, not literal identical wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers arbitrary first-split function mixed first moments through all-root-split conditional profile; (2.1)/(3.3) imply the submitted Q covariance without an unproved structural lemma.",
+          "evidence": [
+            "Equation (2.1) gives E[X_{m,k}]=2(m+1)/((k+1)(k+2)) for m>k.",
+            "Equation (3.3) gives E[X_{n,k}|I=i]=E[X_{i,k}]+E[X_{n-1-i,k}] for 0<=i<n.",
+            "Paper states uniform split I and uses total conditional covariance in proof of Proposition 2.1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548309990630",
+          "material_read": "Public complete 18-page primary PDF, pp. 561-578; introduction and statements, Proposition 2.1, proof Section 3.1, equations (2.1), (3.3) and derivation surrounding pp. 567-568.",
+          "method": "Open-access institutional repository PDF and its extracted full text; relevant PDF pages inspected and screenshot requested.",
+          "title": "On the Subtree Size Profile of Binary Search Trees",
+          "trigger": "Same BST probability law, identical fringe-size counts, exact conditioning on first split; potential dominating result."
+        },
+        {
+          "assessment": "Confirms classical exact profile and count-count covariances; no separately stated root-Q profile found in inspected relevant sections, but does not undo the stronger 2010 conditional implication.",
+          "evidence": [
+            "Lemma 3.3 gives the exact piecewise mean of fringe-size counts.",
+            "Theorem 1.12 describes exact count--count covariance under the random BST law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+          "material_read": "Accessible public complete-article text in author repository, introduction and Theorem 1.12, Section 3 including Lemma 3.3 and relevant exact count-count formulas.",
+          "method": "Public author/university-hosted full PDF with extracted-text inspection.",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "Broader additive fringe-tree statistics and count covariances may cover root-split interactions."
+        },
+        {
+          "assessment": "Concerns numbers of distinct isomorphism types and compression rather than root-imbalance versus the size histogram; contextual, not primary coverage.",
+          "evidence": [
+            "Study counts distinct fringe subtree shapes and their expectations/asymptotics, rather than moments with first-pivot imbalance."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-022-01013-y",
+          "material_read": "Public complete HTML article, introductory setup and sections on distinct fringe-subtree types and random binary search trees.",
+          "method": "Open publisher full-text HTML.",
+          "title": "Distinct Fringe Subtrees in Random Trees",
+          "trigger": "2020/2022 random-BST fringe type motivation cited by the audited package; potential competing exact invariant."
+        },
+        {
+          "assessment": "Establishes the weighted aggregate Cov(Q,P) and monotone regression; not the k-resolved vector. Not itself decisive against this claim, which is covered by Dennert--Grübel.",
+          "evidence": [
+            "Published aggregate Cov(Q,P)=(n-2)(n-1)(n+1)/9.",
+            "Internal path length P=sum_{k=1}^n (k-1)X_{n,k}, so new spectrum implies aggregate, not conversely."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9/RESULT.md",
+          "material_read": "Entire published RESULT.md, including all equations (1)--(9), proof, hypotheses, verification and limitations.",
+          "method": "Read-only GitHub connector retrieving complete scientific RESULT.md.",
+          "title": "Squared root imbalance has an exact cubic covariance with random-BST path length",
+          "trigger": "Top semantically retrieved published record; same nonlinear root statistic and model, but aggregate rather than size strata."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "For the classical random-BST fringe-size profile, size-by-size covariance with first-pivot balance is a natural, interpretable all-n classification: it determines which small and large fringe strata oppose or reinforce squared root imbalance and pinpoints the sharp 2/3 sign switch including finite boundary cases. Its two moment conservation identities illuminate the already-known path-length aggregate and its cancellation, so the precise signed vector could be useful as an explanatory benchmark. This passes the motivation/value test independently of correctness and novelty, although originality fails because the evaluated formula is already a short implication of the 2010 complete conditional profile.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git tree and all seven source files at frozen commit 85b632e8559d70b4e99e58a25d96e0ddfa8645c4",
+    "Dennert--Grübel 2010 full primary PDF, equations (2.1), (3.3)",
+    "Holmgren--Janson arXiv:1406.6883 relevant full text",
+    "Seelbach Benkner--Wagner full publisher HTML",
+    "Resultary prior published root-imbalance/path-length complete RESULT.md"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The correct theorem is rejected on originality because the earlier exact conditional profile for all root ranks subsumes its mixed moment; this is a scientific rejection, not a source-access or network failure.",
+    "The mathematical value assessment does not overrule the independent originality failure.",
+    "No claim is made for nonuniform BST laws, k=n within the formula, or stochastic dominance."
+  ],
+  "residual_risks": [
+    "Historical priority beyond the decisive 2010 conditional identity not exhaustively checked.",
+    "All finite checks are bounded; all-size proof depends on exact uniform split and finite-defect summation, which was reconstructed.",
+    "No external human expert or formal proof attestation; no such certification claimed."
+  ],
+  "schema_version": 1
+}
