@@ -1,0 +1,15 @@
+# Scientific assessment: sharp roundness of type-\(B\) deformations
+
+## Correctness — PASS
+The proof correctly distinguishes ambient inradius and minimum-enclosing radius, and uses Minkowski averaging only where its two radius inequalities are valid. The averaged body's normal fan remains a coarsening of the type-\(B\) arrangement; Weyl invariance and linearity of support functions on the fundamental chamber force a signed-permutation orbit. Signed majorization supplies the exact inradius \(\min_k B_k/\sqrt k\), while the common orbit vertex norm and zero vertex barycenter yield the exact circumradius. Under unit inradius the decreasing positive coefficients \(d_k-d_{k+1}\) give \(\langle d,b\rangle\ge\|d\|_2^2\), and Cauchy–Schwarz proves the sharp bound and symmetric equality rigidity. Strictly decreasing optimizer coordinates guarantee every signed-subset support inequality is a facet and all contact. The harmonic asymptotic is justified by a summable \(O(k^{-2})\) error. Numerical finite tests are separate from this infinite proof.
+
+## Originality — PASS, priority provisional
+The principal input appears already in the literature: Ardila–Castillo–Eur–Postnikov (arXiv:1904.11029) describe all Coxeter deformations and the symmetric weight-polytope slice; Godland–Kabluchko (arXiv:2009.04186) state signed-majorization facets and the type-\(B\) fan; Eur–Fink–Larson–Spink (arXiv:2209.06752) study signed permutohedra. Neither the inspected metric-relevant sections nor the matched public mathematical records establishes the *optimized* inradius-to-circumradius ratio across nonsymmetric deformations, the square-root-difference equality profile, or the sharp logarithmic asymptotic. The fixed-weight radius formula alone is not the extremal result: it must be combined with a sharp dual summation inequality and a reduction from nonsymmetric bodies. These analyses do not prove historical uniqueness; a previously unindexed equivalent roundness result remains possible.
+
+## Mathematical value — PASS
+The result is a sharp, dimension-dependent Euclidean approximation theorem for the entire natural deformation cone of type-\(B\) permutohedra, not a recomputation of one polytope's radius. It identifies the unique symmetric optimizer, gives complete facet-contact rigidity there, and finds the unexpectedly slow logarithmic degradation \(2/\sqrt{\log n}\) of best possible Euclidean roundness. The metric optimization is structurally motivated by approximation of the sphere inside a constrained normal-fan class. No classification of nonsymmetric equality cases is claimed.
+
+## Limitations
+Potential terminology-based prior results on approximating balls by Coxeter orbitopes or bisubmodular polytopes have not been exhaustively excluded. Publicly available sources were compared by mathematical implication, not only by titles; no full third-party literature census or independent mathematical audit is claimed. The finite checker only confirms small-dimensional facet calculations and representative profiles.
+
+Self-review: passed. Independent audit: not yet performed.
