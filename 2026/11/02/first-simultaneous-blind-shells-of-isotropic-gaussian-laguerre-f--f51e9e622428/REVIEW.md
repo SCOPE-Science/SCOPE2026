@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim has one fixed definition and Fourier normalization throughout. Exact elimination of all ten degree pairs gives only the two positive-integer parameter resonances; polynomial greatest common divisors identify precisely the single blind sphere in each case. Fourier transformation reduces the full joint kernel—not merely plane-wave witnesses—to the Helmholtz equation. Spherical-harmonic Bessel asymptotics rule out every nonzero \(L^p\) solution through the sharp endpoint, while the average of plane waves over a sphere provides a nonzero solution above it. The exact rational checker verifies the algebraic identities and critical fractions. Risks: the Bessel and elliptic regularity arguments are analytical, not machine-certified; independent checking is outstanding.
+## correctness
 
-## Originality
-**PASS, subject to historical priority review.** Fulsche–Hagger (arXiv:2308.11292, Section 3, Theorem 3.4) gives a single true-polyanalytic quantization kernel in one complex dimension. Hanin–Zelditch (arXiv:1901.06438, Proposition 1.2) supplies the higher-dimensional Laguerre oscillator structure but neither two-filter resonance classification nor integrability threshold. Arvesú–Driver–Littlejohn (arXiv:2009.10206) treats shifted-parameter interlacing, not the present complete fixed-parameter low-level pairing. A 2015 Driver–Muldoon paper is specifically about common Laguerre zeros; only its abstract was accessible, so partial coverage of the polynomial identities remains a plausible priority risk. Neither the previously described one-dimensional nullspaces nor the known polynomial and Helmholtz ingredients directly state the combined first-blind-level, two-exception, and sharp \(L^p\) law. Search failure is not a uniqueness proof.
+PASS
 
-## Mathematical value
-**PASS.** Two jointly measured oscillator shells are natural probes for removing the spherical blind spots of a single shell. The result finds the first possible simultaneous blind pair among successive low excitation levels, proves that the only exceptions occur in the rather unexpected dimensions \(6\) and \(24\), and identifies both the exact invisible spaces and the critical integrability at which those spaces become observable. The concrete threshold separates recoverability in finite-integrability symbol spaces from failure for bounded symbols. The result is a complete natural low-energy cutoff across all dimensions, not an isolated numerical example or merely an existing Laguerre root table. A classification beyond excitation level \(4\) is not claimed.
+Dividing by the smooth nonzero Gaussian locally and using one-variable Bezout for the Laguerre pair reduces the joint distributional Fourier kernel to its polynomial gcd. Independently recomputed all ten symbolic Sylvester resultants in a=d-1, finding common roots only at a=5 for (1,4), gcd s-6, and a=23 for (2,4), gcd s-30; zeros simple. For p finite, elliptic regularity and at least one nonzero spherical-harmonic coefficient force fixed-order Bessel radial decay r^{-(N-1)/2} with positive-density cosine oscillations, excluding p<=2N/(N-1) including logarithmic endpoint. Conversely the spherical Fourier-surface average is a nonzero bounded Helmholtz solution decaying at that order, providing all larger finite p and L-infinity. N=2d. No invalid global inverse of the Gaussian is required. The quantifiers cover all dimensions and exponent endpoints but only levels through 4.
 
-## Closest literature and limitations
-The closest original theorem is Fulsche–Hagger's one-dimensional single-level result. The higher-dimensional oscillator Wigner formula of Hanin–Zelditch and classical Laguerre zero results are explicit premises, not newly attributed achievements. The classification holds only for the ten pairs among the first five levels and for the indicated scalar convolution operators. A broader identity from older special-functions or oscillator literature could imply parts of the result indirectly. This assessment does not substitute for independent mathematical or priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Single-shell Laguerre oscillator Wigner formula and one-dimensional polyanalytic Toeplitz kernel characterization pre-exist. Neither supplies the exact two-isotropic-shell common-root dimensions plus the complete Lp nullspaces as a consequence. Driver–Muldoon (2015), however, directly addresses common/interlacing zeros of Laguerre families and may already contain part of the algebraic resonance computation; the complete text could not be accessed, so O is best-of-knowledge, explicitly qualified.
+
+## value
+
+PASS
+
+A natural oscillator-shell pair of filters becomes jointly blind on a codimension-one sphere only at two sharply classified low excitation coincidences; the exact Lp uniqueness threshold turns polynomial zeros into a meaningful functional-analytic phase transition. Both the specific natural shell normalization and the filter-pair interpretation motivate the exact invariant; this is not a random polynomial resultant table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

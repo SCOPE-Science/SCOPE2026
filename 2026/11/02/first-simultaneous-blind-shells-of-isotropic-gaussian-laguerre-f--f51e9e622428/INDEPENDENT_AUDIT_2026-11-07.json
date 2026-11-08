@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:42:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dividing by the smooth nonzero Gaussian locally and using one-variable Bezout for the Laguerre pair reduces the joint distributional Fourier kernel to its polynomial gcd. Independently recomputed all ten symbolic Sylvester resultants in a=d-1, finding common roots only at a=5 for (1,4), gcd s-6, and a=23 for (2,4), gcd s-30; zeros simple. For p finite, elliptic regularity and at least one nonzero spherical-harmonic coefficient force fixed-order Bessel radial decay r^{-(N-1)/2} with positive-density cosine oscillations, excluding p<=2N/(N-1) including logarithmic endpoint. Conversely the spherical Fourier-surface average is a nonzero bounded Helmholtz solution decaying at that order, providing all larger finite p and L-infinity. N=2d. No invalid global inverse of the Gaussian is required. The quantifiers cover all dimensions and exponent endpoints but only levels through 4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanin–Zelditch identify the Wigner Laguerre shell multipliers; Fulsche–Hagger discuss one-variable true-polyanalytic Toeplitz kernels; neither alone proves common gcd of all degree<=4 pairs for any d or sharp Helmholtz Lp threshold."
+        ],
+        "reasoning": "A general theorem on joint Laguerre zeros or spectral synthesis for radial convolutions might imply subpieces; no demonstrated dominating statement across all three ingredients.",
+        "searches": [
+          "https://arxiv.org/abs/1901.06438 Proposition 1.2",
+          "https://arxiv.org/abs/2308.11292 Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md bb2d432e3b65c2eda676ff1d8552fbcf06a336f4; checks/ subtree 68e76c08abd0461a7c56204e380d127270d3ecda",
+        "Independent exact SymPy resultants and polynomial gcd over symbolic a; independent_checks.log",
+        "Fulsche–Hagger arXiv:2308.11292 full Theorem 3.4",
+        "Hanin–Zelditch arXiv:1901.06438 full Proposition 1.2",
+        "Driver–Muldoon J Approx Theory 193 (2015) abstract and unsuccessful authorized full-text access",
+        "Resultary semantic query: common zeros generalized Laguerre polynomials two isotropic Gaussian filters two shells injectivity Helmholtz Lp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-shell characteristic functions do not determine paired injectivity without gcd analysis. Once common simple root is known, standard Fourier/Bessel theory implies the Helmholtz and Lp conclusions."
+        ],
+        "reasoning": "The analytic step is largely an implication of classical spectral/Bessel facts, but the exact identification of the only two natural shell resonance parameters is a nontrivial finite all-d computation. Avoid claiming new Bezout or Bessel theory.",
+        "searches": [
+          "https://arxiv.org/abs/2308.11292 Theorem 3.4",
+          "https://arxiv.org/abs/1901.06438 Proposition 1.2",
+          "https://doi.org/10.1016/j.jat.2013.11.013"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A common same-parameter root L_1^(5),L_4^(5) at 6 or L_2^(23),L_4^(23) at 30 is equivalent to a shared filter-zero sphere, and the Helmholtz factor controls distributional kernels."
+        ],
+        "reasoning": "Exact root equalities may be in classical Laguerre literature: that does not automatically supply the Lp filter nullspace theorem. Relevant full text unavailable and comparison remains expressly limited.",
+        "searches": [
+          "Resultary: common zeros generalized Laguerre polynomials two isotropic Gaussian filters two shells injectivity Helmholtz Lp",
+          "https://doi.org/10.1016/j.jat.2013.11.013",
+          "https://arxiv.org/abs/2308.11292"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact symbolic resultants have factors (a-5) and (a-23), with integer parameter a>=0; only two exceptional cases."
+        ],
+        "reasoning": "The specific coincidences could be an older special-function table; no accessible complete table inspected, and Driver–Muldoon is a concrete outstanding risk, not treated as not covering.",
+        "searches": [
+          "Resultary: common zeros generalized Laguerre polynomials two isotropic Gaussian filters two shells injectivity Helmholtz Lp",
+          "https://doi.org/10.1016/j.jat.2013.11.013 Laguerre common zeros"
+        ]
+      },
+      "rationale": "Single-shell Laguerre oscillator Wigner formula and one-dimensional polyanalytic Toeplitz kernel characterization pre-exist. Neither supplies the exact two-isotropic-shell common-root dimensions plus the complete Lp nullspaces as a consequence. Driver–Muldoon (2015), however, directly addresses common/interlacing zeros of Laguerre families and may already contain part of the algebraic resonance computation; the complete text could not be accessed, so O is best-of-knowledge, explicitly qualified.",
+      "residual_risks": [
+        "Driver–Muldoon 2015 is a plausible directly dominating algebraic source; its full text was not read after lawful OA/arXiv routes and Oxford vpn_disconnected.",
+        "Larger excitation levels may have additional shared zeros; the finite level<=4 cutoff is essential.",
+        "The analytic Helmholtz threshold uses classical results; no novelty claimed for Fourier synthesis or Bessel integrability alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Describes one-variable polyanalytic Toeplitz kernel and Laguerre circles; neither full isotropic d-shell pair nor critical Lp Helmholtz nullspace stated",
+          "evidence": "Theorem 3.4 and Section 3: single true-polyanalytic kernel",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11292",
+          "material_read": "Full accessible open-access article, Section 3 and Theorem 3.4",
+          "method": "full lawful open-access journal text via web",
+          "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+          "trigger": "True-polyanalytic Toeplitz common-zero and injectivity analogue"
+        },
+        {
+          "assessment": "Contains generalized Laguerre Wigner formula and semiclassical asymptotics, not this two-filter injectivity theorem",
+          "evidence": "Proposition 1.2 isotropic-shell Wigner formula",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06438",
+          "material_read": "Full accessible author manuscript, Proposition 1.2 and accompanying discussion",
+          "method": "full accessible arXiv HTML via web",
+          "title": "Interface Asymptotics of Eigenspace Wigner distributions for the Harmonic Oscillator",
+          "trigger": "Same oscillator shell Laguerre object and normalization"
+        },
+        {
+          "assessment": "Unresolved priority risk specifically for the resultant/common-zero component; no whole-document noncoverage inference",
+          "evidence": "Abstract discusses common zeros/interlacing among parameter-shifted Laguerre families",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2013.11.013",
+          "material_read": "Bibliographic abstract only; complete paper NOT read",
+          "method": "public abstract and arXiv/OA attempts; authorized Oxford oxford_paper returned vpn_disconnected job 3734686e4fa8b758a3f4a7a6661bc4fc",
+          "title": "Common and interlacing zeros of families of Laguerre polynomials",
+          "trigger": "Highly plausible direct prior coverage of identical associated-Laguerre common-zero cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural oscillator-shell pair of filters becomes jointly blind on a codimension-one sphere only at two sharply classified low excitation coincidences; the exact Lp uniqueness threshold turns polynomial zeros into a meaningful functional-analytic phase transition. Both the specific natural shell normalization and the filter-pair interpretation motivate the exact invariant; this is not a random polynomial resultant table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md bb2d432e3b65c2eda676ff1d8552fbcf06a336f4; checks/ subtree 68e76c08abd0461a7c56204e380d127270d3ecda",
+    "Independent exact SymPy resultants and polynomial gcd over symbolic a; independent_checks.log",
+    "Fulsche–Hagger arXiv:2308.11292 full Theorem 3.4",
+    "Hanin–Zelditch arXiv:1901.06438 full Proposition 1.2",
+    "Driver–Muldoon J Approx Theory 193 (2015) abstract and unsuccessful authorized full-text access",
+    "Resultary semantic query: common zeros generalized Laguerre polynomials two isotropic Gaussian filters two shells injectivity Helmholtz Lp"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each d>=1 and every distinct i,j in 0..4, the pair of convolution filters with normalized multipliers exp(-|xi|^2/4)L_n^(d-1)(|xi|^2/2)/binom(n+d-1,n) on R^(2d) is jointly injective on all Lp except resonances (d,i,j)=(6,1,4),(24,2,4). Their joint kernels are exactly distributional Helmholtz eigenspaces (-Delta-12)f=0 and (-Delta-60)f=0, with nonzero Lp members exactly for p>4d/(2d-1), including infinity.",
+  "limitations": [
+    "Driver–Muldoon 2015 is a plausible directly dominating algebraic source; its full text was not read after lawful OA/arXiv routes and Oxford vpn_disconnected.",
+    "Larger excitation levels may have additional shared zeros; the finite level<=4 cutoff is essential.",
+    "The analytic Helmholtz threshold uses classical results; no novelty claimed for Fourier synthesis or Bessel integrability alone."
+  ],
+  "residual_risks": [
+    "Driver–Muldoon 2015 is a plausible directly dominating algebraic source; its full text was not read after lawful OA/arXiv routes and Oxford vpn_disconnected.",
+    "Larger excitation levels may have additional shared zeros; the finite level<=4 cutoff is essential.",
+    "The analytic Helmholtz threshold uses classical results; no novelty claimed for Fourier synthesis or Bessel integrability alone."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Describes one-variable polyanalytic Toeplitz kernel and Laguerre circles; neither full isotropic d-shell pair nor critical Lp Helmholtz nullspace stated",
+      "evidence": "Theorem 3.4 and Section 3: single true-polyanalytic kernel",
+      "identifier_or_url": "https://arxiv.org/abs/2308.11292",
+      "material_read": "Full accessible open-access article, Section 3 and Theorem 3.4",
+      "method": "full lawful open-access journal text via web",
+      "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+      "trigger": "True-polyanalytic Toeplitz common-zero and injectivity analogue"
+    },
+    {
+      "assessment": "Contains generalized Laguerre Wigner formula and semiclassical asymptotics, not this two-filter injectivity theorem",
+      "evidence": "Proposition 1.2 isotropic-shell Wigner formula",
+      "identifier_or_url": "https://arxiv.org/abs/1901.06438",
+      "material_read": "Full accessible author manuscript, Proposition 1.2 and accompanying discussion",
+      "method": "full accessible arXiv HTML via web",
+      "title": "Interface Asymptotics of Eigenspace Wigner distributions for the Harmonic Oscillator",
+      "trigger": "Same oscillator shell Laguerre object and normalization"
+    },
+    {
+      "assessment": "Unresolved priority risk specifically for the resultant/common-zero component; no whole-document noncoverage inference",
+      "evidence": "Abstract discusses common zeros/interlacing among parameter-shifted Laguerre families",
+      "identifier_or_url": "https://doi.org/10.1016/j.jat.2013.11.013",
+      "material_read": "Bibliographic abstract only; complete paper NOT read",
+      "method": "public abstract and arXiv/OA attempts; authorized Oxford oxford_paper returned vpn_disconnected job 3734686e4fa8b758a3f4a7a6661bc4fc",
+      "title": "Common and interlacing zeros of families of Laguerre polynomials",
+      "trigger": "Highly plausible direct prior coverage of identical associated-Laguerre common-zero cases"
+    }
+  ]
+}
