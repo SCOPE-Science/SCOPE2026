@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For any reduced common-denominator GBC, the polynomial normalization and affine-precision identities show every facet equation fails to divide q: otherwise all vertex numerators vanish on that facet and share a nontrivial factor. Nonadjacent facet-line intersections are zeros of every numerator, hence of q. On each side there are m-3 distinct finite residual points except that one parallel mate can eliminate exactly one, forcing deg q >=m-4 and >=m-3 on any unpaired side. The exact Wachspress restriction formula a|Li=k_i k_(i+1) product(nonadjacent facet forms)|Li follows by direct endpoint calculation and shows a(Vi)>0. For all-paired sides, any degree-(m-4) q is locally proportional to a, proportionality constants agree at polygon vertices, and q-c*a has degree <m yet is divisible by all m distinct supporting lines, hence is zero. This excludes lower denominators for all polygons; the already-proved planar adjoint-degree dichotomy identifies the exact branches. An executable exact-SymPy source checks all proof-specific polynomial identities and six geometric configurations, including a difficult noncentral parallel-paired hexagon. Limits: computational examples are supplemental, not a proof for arbitrary m.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2508.04275v1 Corollary 4.6: the fixed adjoint has degree m-4 for centrally symmetric polygons and m-3 otherwise.",
+        "arxiv:2611.02110v1 Appendix A: higher-dimensional examples can have minimum denominator strictly below the adjoint degree, so the all-polygon equality is not a formal fact in arbitrary dimension."
+      ],
+      "reasoning": "The 2025 theorem alone lacks quantification over every nonnegative rational GBC; 2026 distinguishes these parameters explicitly. The new proof supplies the missing inequality for all planar polygons without assuming arrangement simplicity.",
+      "searches": [
+        "Wachspress polygons m-4 lower bound denominator degree",
+        "Conjecture 4.1 Baumbach Winter denominator degree m minus 2d solved dimension two polygons zonotope centrally symmetric",
+        "Baumbach Winter 2026 conjecture 4.1 polygon proven denominator degree",
+        "Wachspress coordinates optimal denominator planar polygons including parallel sides",
+        "arxiv:2508.04275v1 Theorem 4.5 Corollary 4.6",
+        "arxiv:2611.02110v1 Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.02110v1, 2026-11-01",
+      "arxiv:2508.04275v1",
+      "arxiv:1904.02123v3",
+      "arxiv:2308.11634v2",
+      "Generalized Barycentrics workshop slides (Wachspress.pdf)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper establishes residual-zero and facet-nonvanishing conditions but gives no global argument identifying an arbitrary q with adj_P in the all-parallel case.",
+        "The 2025 adjoint degree is a known numerical formula for one construction; arbitrary other rational GBCs could a priori have smaller denominator.",
+        "The 2019 result explicitly assumes a simple hyperplane arrangement and gives uniqueness of the projective adjoint; the fully paired nongeneric case falls outside this stated coverage."
+      ],
+      "reasoning": "New implication is that for every convex polygon and every reduced rational GBC, deg q>=deg adj_P. The proof requires precise side-root counts plus a global proportionality argument at vertices when all sides have parallel mates. An existing adjoint-degree classification combined with that new implication yields the exact classification and planar conjecture.",
+      "searches": [
+        "arxiv:2611.02110v1 Lemmas 2.12 and 2.13, Conjecture 4.1",
+        "arxiv:2508.04275v1 Theorem 4.5, Corollary 4.6",
+        "arxiv:1904.02123v3 Theorem 1.5 and generic-arrangement hypothesis",
+        "Residual arrangements of non-adjacent polygon facet intersections force minimal barycentric denominator degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2611.02110v1, pp. 13-14: minimum denominator degree is defined and lower bound conjectured, no planar classification stated.",
+        "arxiv:1904.02123v3: uniqueness of degree-m-3 projective adjoint under a simple hyperplane arrangement; this is a claim about adjoint polynomials, not all rational coordinate denominators in nongeneric polygons."
+      ],
+      "reasoning": "Checked aliases denominator degree, Wachspress adjoint, residual curve, rational generalized barycentric coordinates and planar minimum. General-position uniqueness may imply the generic portion, but a direct all-polygon denominator-minimization statement, including all-paired noncentral polygons, was not found.",
+      "searches": [
+        "minimal denominator degree rational generalized barycentric coordinates polygon m-4 facets conjecture",
+        "Every polygon minimum common denominator degree of rational barycentric coordinates equals Wachspress adjoint degree",
+        "rational generalized barycentric coordinates polygon minimum denominator degree adjoint exact all convex polygons",
+        "Wachspress denominator minimum degree equal adjoint polygon centrally symmetric",
+        "arxiv:2611.02110v1 Section 4 Conjecture 4.1",
+        "arxiv:1904.02123v3 Theorem 1.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches of public mathematical research records using the listed title, conjecture, alias, and residual-intersection queries did not identify an exact denominator-degree classification covering all convex polygons.",
+        "The nearest title-level interpolation match was an optimality statement for a particular four-node Floater–Hormann interpolant, mathematically unrelated to minimum denominator degree of polygonal generalized barycentric systems."
+      ],
+      "reasoning": "No finite table is claimed to certify the universal theorem. Actual search phrases are recorded in searches; absence of a matching result is not a uniqueness proof, and close mathematical statements are compared separately in the other originality checks.",
+      "searches": [
+        "minimal denominator degree rational generalized barycentric coordinates polygon m-4 facets conjecture",
+        "Wachspress polygons m-4 lower bound denominator degree",
+        "rational barycentric coordinates degree lower bound convex polygon residual lines",
+        "Every polygon minimum common denominator degree of rational barycentric coordinates equals Wachspress adjoint degree",
+        "Conjecture 4.1 Baumbach Winter denominator degree m minus 2d solved dimension two polygons zonotope centrally symmetric",
+        "Residual arrangements of non-adjacent polygon facet intersections force minimal barycentric denominator degree",
+        "minimum degree denominator generalized barycentric coordinates planar polygons"
+      ]
+    },
+    "rationale": "Baumbach–Winter arXiv:2611.02110v1 explicitly leaves deg(P)>=m-2d as Conjecture 4.1 and does not classify minimum denominator degree for all polygons. The 2025 Baumbach–Freyer–Weigert–Winter result determines the degree of the fixed Wachspress adjoint, not optimality against arbitrary other rational coordinate systems. Kohn–Ranestad 2019 gives projective adjoint uniqueness under simple-arrangement hypotheses, strongly relevant to generic polygons but not, as stated, the full nongeneric/parallel case. A direct original proof of denominator minimality and borderline-denominator rigidity covers all convex m-gons, particularly noncentrally symmetric parallel-paired cases. Neither targeted literature searches nor mathematical research-index comparisons disclosed equal or broader coverage. Priority remains best-knowledge, not absolute.",
+    "residual_risks": [
+      "Older algebraic interpolation literature could encode an equivalent global minimum-denominator statement without using barycentric terminology; targeted searches cannot establish absolute historical priority.",
+      "Kohn–Ranestad generic-projective uniqueness is strong and may already imply a nondegenerate special case; the novel scope is the unconditional result and parallel-paired degeneration.",
+      "The exact formula for the fixed adjoint degree is relied upon from the cited 2025 published preprint and not reproved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines degree of P and explicitly leaves universal lower bound conjectural; source lemmas provide necessary conditions only.",
+        "evidence": [
+          "Conjecture 4.1: deg(P)>=m-2d",
+          "Lemmas 2.12-2.13 facet nonvanishing and residual vanishing",
+          "Theorem 3.10 minimum numerator uniqueness, explicitly distinguished from minimum denominator"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.02110",
+        "material_read": "Abstract, introduction, Sections 2.1-2.7, Section 3.3, Section 4 around Conjecture 4.1, and appendix discussion of low denominator counterexamples; key p.14 screenshot inspected.",
+        "method": "Open-access PDF text and page screenshots",
+        "title": "Rational barycentric coordinates and low degree adjoints",
+        "trigger": "Motivating new conjecture and definitions"
+      },
+      {
+        "assessment": "Adjoint degree dichotomy already established and used as a cited premise. Does not optimize all alternative rational denominators.",
+        "evidence": [
+          "Theorem 4.5: maximal adjoint drop iff zonotope",
+          "Corollary 4.6: planar drop 0/1 according to central symmetry"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2508.04275",
+        "material_read": "Abstract, Section 2 canonical forms and residues, Section 4 around Theorem 4.5 and Corollary 4.6; p.11 screenshot inspected.",
+        "method": "Open-access PDF text and page screenshots",
+        "title": "The canonical form, scissors congruence and adjoint degrees of polytopes",
+        "trigger": "Potentially dominating adjoint-degree classification"
+      },
+      {
+        "assessment": "Can yield generic-instance implication but does not assert unconditional minimum denominator degree over all rational GBCs on degenerate planar polygons.",
+        "evidence": [
+          "Theorem 1.5 identifies unique projective adjoint under simple hyperplane arrangement",
+          "Example 1.6 notes different behavior when arrangement is not simple"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.02123",
+        "material_read": "Abstract, Introduction including Theorem 1.5 statement and simplicity requirement, Sections 1-2 summary of Wachspress map and residual arrangements; first-page screenshot inspected.",
+        "method": "Open-access PDF text and page screenshot",
+        "title": "Projective geometry of Wachspress coordinates",
+        "trigger": "Strong plausible prior uniqueness of minimal-degree adjoint passing through residual arrangement"
+      },
+      {
+        "assessment": "Compares Gibbs and Wachspress representations, rather than universal minimal common denominator. Search comparison is limited; not claimed to have inspected every theorem.",
+        "evidence": [
+          "Abstract scope explicitly focuses on Gibbs/Wachspress agreement and differences"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.11634",
+        "material_read": "Title, abstract, contents and introductory scope; first-page screenshot inspected.",
+        "method": "Open-access PDF preview and searchable introductory material",
+        "title": "The inverse problem of convex polygon coordinates",
+        "trigger": "Alternative polygon coordinate constructions and equivalence risks"
+      },
+      {
+        "assessment": "Discusses a particular rational wedge basis with denominator of maximal degree m-3, not the global minimization over all rational generalized barycentric systems.",
+        "evidence": [
+          "General Rational Basis Theorem slide: wedge basis denominator maximal degree m-3 fixed by EIP"
+        ],
+        "identifier_or_url": "https://www.inf.usi.ch/hormann/nsfworkshop/presentations/Wachspress.pdf",
+        "material_read": "Wedge conditions, triangle and quadrilateral examples, general rational basis statement near presentation introduction",
+        "method": "Accessible presentation text; not a journal proof",
+        "title": "Generalized barycentrics: rational bases for 2D and 3D elements with algebraic sides",
+        "trigger": "Older basis theorem with m-3 denominator may cover optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b4aad67-706d-4d10-9965-1c7e3c9728ff",
+  "value": {
+    "rationale": "The result settles the planar case of a specifically stated recent open denominator-degree conjecture, and improves a conjectural lower bound to an exact all-polygons classification. The equality of minimal denominator and Wachspress adjoint degree is a structural rigidity theorem, not a direct degree count of a chosen construction. The challenging case with all side directions paired but no center of symmetry cannot be handled by the m-4 elementary root count alone, requiring a novel vertex-gluing argument. The invariant governs rational basis complexity in polygon interpolation; classification is motivated and plausibly reusable.",
+    "status": "PASS"
+  }
+}
