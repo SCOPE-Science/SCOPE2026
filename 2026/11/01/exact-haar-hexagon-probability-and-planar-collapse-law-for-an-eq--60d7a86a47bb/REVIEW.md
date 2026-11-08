@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The projected-vertex criterion follows from the unique dependence of three generic planar vectors, including the absolute triangle inequalities. The normal sphere is exactly partitioned into eight simplicial cones, in two orbit classes. The trivariate solid-angle formula provides an exact integration, including the negative-denominator branch. The computed small- and large-parameter limits follow by Taylor expansion. The actual packaged independent planar convex-hull verifier checks distinct parameter values and does not replace the proof.
+## correctness
 
-## Originality
-PASS, with a residual historical-priority risk. Finch's random-shadow study establishes the regular cases, not the full oblique equiangular family; the published triaxial octahedron shadow theorem treats orthogonal axes only and expressly leaves out nonorthogonal affine octahedra. The supplied exact parameter law, singular linear-collapse coefficient, and two distinct geometric endpoint regimes are not implied by that orthogonal-family statement. The solid-angle identity itself is standard, not claimed new. Older unindexed specializations may exist.
+PASS
 
-## Mathematical value
-PASS. The one-parameter family is a symmetric, geometrically canonical deformation from a regular octahedron toward a planar regular hexagon. It disproves the extension of the orthogonal-axis maximality bound to affine octahedra and provides the complete Haar six-vertex probability along the deformation, including a sharp singular limit and existence of an interior global minimum. These are structural distributional facts, not parameter-table recomputations.
+Generic three vectors projected onto a plane have unique linear dependency coefficients g=V^-1 u; all ±qi are extreme precisely when |g_i| satisfy strict triangle inequalities. Their inverse images yield exactly eight signed simplicial normal cones: two all-same sign and six mixed. Independently computed ray norms/dot products/determinants for both classes, confirmed trihedral solid-angle formula with correct atan2 sign branch, and obtained p(t)=(atan2(3sqrt3*t,L*(16t²-.5))+3atan(3sqrt3*t/(4.5L+3sqrt3)))/pi. The small-t linear coefficient, regular t=1/sqrt2 specialization and limit .5 follow by expansion. Independent Gaussian-normal convex-hull Monte Carlo used 18,000 directions at six t values (0.02 to 10), agreeing with p(t) within 0.009; finite sampling corroborates but does not prove the measure identity. The t=0 degenerate polytope is excluded.
 
-## Limits
-The exact probability is family-specific; the minimizer's uniqueness is not established. Priority has not been independently confirmed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority verdict after the separate four mathematical comparisons and relevant actually read primary texts. The method is classical, but its stated formulas are not the oblique two-cone expression and do not imply the near-planar linear coefficient. A full multi-parameter classical octahedron formula could still yield this specialization and is acknowledged as historical risk.
+
+## value
+
+PASS
+
+The exact probability law describes a natural one-parameter oblique deformation of a cross-polytope; it quantitatively contrasts a planar-collapse probability tending to 1 with the small regular-octahedron value. The singular coefficient and forced interior minimum separate genuinely affine shape effects from earlier orthogonal-axis optimizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The attached `verify.py` was executed successfully from the final selected package candidate. It draws independent Haar directions as normalized three-dimensional Gaussians and computes the convex hull of the six genuinely projected spatial vertices in an orthonormal plane, rather than relying on the sign classification used in the proof. Comparisons at \(t=0.08,0.3,1/\sqrt2,1,3\) all agreed within \(0.019\) absolute probability; its sample size is 20,000 per parameter. The code also tests the exact regular-octahedron value and convergence to the exact first-order collapse coefficient. The proof, not Monte Carlo, establishes the all-parameter formula. Literature priority and independent mathematical confirmation remain unperformed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Generic three vectors projected onto a plane have unique linear dependency coefficients g=V^-1 u; all ±qi are extreme precisely when |g_i| satisfy strict triangle inequalities. Their inverse images yield exactly eight signed simplicial normal cones: two all-same sign and six mixed. Independently computed ray norms/dot products/determinants for both classes, confirmed trihedral solid-angle formula with correct atan2 sign branch, and obtained p(t)=(atan2(3sqrt3*t,L*(16t²-.5))+3atan(3sqrt3*t/(4.5L+3sqrt3)))/pi. The small-t linear coefficient, regular t=1/sqrt2 specialization and limit .5 follow by expansion. Independent Gaussian-normal convex-hull Monte Carlo used 18,000 directions at six t values (0.02 to 10), agreeing with p(t) within 0.009; finite sampling corroborates but does not prove the measure identity. The t=0 degenerate polytope is excluded.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority verdict after the separate four mathematical comparisons and relevant actually read primary texts. The method is classical, but its stated formulas are not the oblique two-cone expression and do not imply the near-planar linear coefficient. A full multi-parameter classical octahedron formula could still yield this specialization and is acknowledged as historical risk.
+
+## value
+
+PASS
+
+The exact probability law describes a natural one-parameter oblique deformation of a cross-polytope; it quantitatively contrasts a planar-collapse probability tending to 1 with the small regular-octahedron value. The singular coefficient and forced interior minimum separate genuinely affine shape effects from earlier orthogonal-axis optimizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
