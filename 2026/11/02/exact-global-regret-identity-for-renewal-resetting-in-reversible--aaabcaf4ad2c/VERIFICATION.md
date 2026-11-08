@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The derivation in `RESULT.md` is analytic. In order, reconstruct the renewal mean identity; verify that the stopped-time numerator solves the mixed-boundary elliptic problem; derive the symmetric Green representation; symmetrize the two identical Green integrals; and check the equality and logarithmic lower bound. This chain does not rely on numerical computation or a finite-state approximation.
+## correctness
 
-Run the included standalone artifact with `python CHECK.py` in an environment with Python 3, SymPy, NumPy and SciPy. Its replay passed 479 deterministic assertions, including exactly rational reversible birth-death Green matrices and regret equalities, constant-drift reflecting interval quadrature, and the symbolic Poisson half-line comparison. The checker does not certify every allowed potential or clock; the infinite-domain/all-protocol claim is the analytic statement in `RESULT.md`.
+PASS
 
-The numerical quadrature benchmark in the result uses the 801-node grid and parameters documented there. The source public date is based on arXiv:2410.01941v1, not the later journal or revised manuscript date. The strongest accessible primary overlap was directly compared by conclusion: functional extremality versus global positive regret. A complete independent scientific and priority audit is not part of this verification.
+For D,L>0, V∈C²([0,L]), killed at 0/reflected at L, and iid positive finite-mean renewal clocks q, independent fixed-location attempts yield T_q(x)=a_q(x)/f_q(x), f_q=P(H_x<τ_q)>0. Killed semigroup identity gives -ℒa_q=f_q with a_q(0)=0 and a_q'(L)=0; inversion yields a_q(x)=∫K_V(x,y)m(y)f_q(y)dy, m=e^(-V/D), K_V=(1/D)∫_0^min(x,y) e^(V(z)/D) dz. Under w_p=m f_p²/Z, swap x,y in symmetric kernel: half the pair sum of h(y)/h(x)+h(x)/h(y)-2 is (h(x)-h(y))²/(h(x)h(y)); hence nonnegative exact regret, equality precisely h constant and f_q(0)=f_p(0)=1 forces f_q=f_p. Inequality 2(cosh log hdiff−1)≥(log hdiff)² gives stability. Separate inward-drift half-line formula is obtained by explicit hitting transforms and Green kernels, with finite-mean-risk qualifications. Read the complete pinned symbolic/rational/numerical checker; its finite checks are corroboration, not the analytical proof.
+
+## originality
+
+PASS
+
+The conjugate-launch distribution and even a free-diffusion special-case global optimality assertion are established prior work and are expressly credited. The mathematically distinct arbitrary-potential reversible speed weighting and exact nonnegative regret identity with equality/stability are not implied by the source stationarity calculation or selected-family comparisons. Classical symmetric Green-kernel inequality antecedents remain a precise residual risk.
+
+## value
+
+PASS
+
+An exact all-competitor positive loss certificate upgrades an explicitly motivated stationary conjugate-launch construction to a verifiable global theorem on arbitrary smooth one-dimensional reversible potentials, with uniqueness at profile level and logarithmic stability. This closes a genuine analytical gap left by local variational calculus and includes explicit drift-dependent benchmarks, not a routine alternate notation for a Poisson-rate optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

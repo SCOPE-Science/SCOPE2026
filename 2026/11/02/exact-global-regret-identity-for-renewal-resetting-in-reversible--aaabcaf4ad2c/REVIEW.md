@@ -1,19 +1,21 @@
-# Scientific review: global renewal-resetting regret for reversible diffusion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim's domain is a finite, one-dimensional reflected-absorbed reversible diffusion under arbitrary positive iid restart intervals of finite mean. At each fixed original launch location the renewal mean is exactly the mean duration of a single attempt divided by its success probability. The duration solves the mixed-boundary Poisson equation with the success probability as source, so it is the symmetric reversible Green transform. Pairwise symmetrization gives the stated exact nonnegative square. The strict positivity of the Green kernel and the unit hitting probability at the absorbing endpoint establish the exact equality criterion. The bound by squared log-ratio follows from elementary hyperbolic-cosine convexity. The inward constant-force half-line specialization follows from explicit killed Green and hitting transforms, with infinite-risk competitors handled separately. The standalone checker passed 479 exact algebraic and numerical assertions; finite checks are corroboration rather than a proof.
+PASS
 
-## Originality — PASS, qualified
+For D,L>0, V∈C²([0,L]), killed at 0/reflected at L, and iid positive finite-mean renewal clocks q, independent fixed-location attempts yield T_q(x)=a_q(x)/f_q(x), f_q=P(H_x<τ_q)>0. Killed semigroup identity gives -ℒa_q=f_q with a_q(0)=0 and a_q'(L)=0; inversion yields a_q(x)=∫K_V(x,y)m(y)f_q(y)dy, m=e^(-V/D), K_V=(1/D)∫_0^min(x,y) e^(V(z)/D) dz. Under w_p=m f_p²/Z, swap x,y in symmetric kernel: half the pair sum of h(y)/h(x)+h(x)/h(y)-2 is (h(x)-h(y))²/(h(x)h(y)); hence nonnegative exact regret, equality precisely h constant and f_q(0)=f_p(0)=1 forces f_q=f_p. Inequality 2(cosh log hdiff−1)≥(log hdiff)² gives stability. Separate inward-drift half-line formula is obtained by explicit hitting transforms and Green kernels, with finite-mean-risk qualifications. Read the complete pinned symbolic/rational/numerical checker; its finite checks are corroboration, not the analytical proof.
 
-The closest primary source, Evans and Ray, arXiv:2410.01941v1 (2024-10-02), derived the free-diffusion conjugate target law and functional stationarity, and expressly relied on restricted numerical comparisons when addressing whether the stationary clock was globally minimizing. It listed diffusion in a potential as a future direction. Its later v2 and the published Physical Review Letters version were considered by statement/implication, not merely title. The theorem here has a different mathematical conclusion: a nonnegative **all-competitor** identity for the entire renewal-clock class, weighted by the reversible speed measure for any smooth one-dimensional potential, with an equality and stability characterization. Ray–Mondal–Reuveni treat drift-diffusion and optimize a Poisson rate at a fixed target; Evans–Majumdar treat resetting site or rate optimization. Accessible related mathematical records and previously recorded findings did not contain a covering theorem. General reversible Green-potential optimization or unindexed kernel symmetrization could still entail the result, so independent publication priority is uncertain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2024 source itself distinguished its variational stationarity from an unproved global minimum and named potential-driven search as an open extension. An exact global regret certificate closes that motivated mathematical gap, clarifies equality and gives quantitative perturbation stability for competing clocks. It also reveals explicit force-dependent optimal Poisson rates for a natural exponential launch law, avoiding a purely formal or arbitrarily truncated model calculation. The theorem is a structural result about all renewal protocols, rather than a finite-parameter numerical improvement.
+The conjugate-launch distribution and even a free-diffusion special-case global optimality assertion are established prior work and are expressly credited. The mathematically distinct arbitrary-potential reversible speed weighting and exact nonnegative regret identity with equality/stability are not implied by the source stationarity calculation or selected-family comparisons. Classical symmetric Green-kernel inequality antecedents remain a precise residual risk.
 
-## Closest sources and limitations
+## value
 
-The directly checked full primary source is arXiv:2410.01941v1, including its supplementary derivation, plus v2. The 2011 optimal-resetting paper and 2019 Péclet-drift paper supply relevant but distinct baseline models; the latter optimizes fixed-site Poisson restart. The result is restricted to one-dimensional reversible gradients, independent renewal clocks, fixed per-experiment launch site and complete restarts. No all-dimensional or nonreversible result, experimental validation, or uniqueness of clock laws is claimed. A specialized unindexed potential-theoretic identity remains a priority risk, and independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-competitor positive loss certificate upgrades an explicitly motivated stationary conjugate-launch construction to a verifiable global theorem on arbitrary smooth one-dimensional reversible potentials, with uniqueness at profile level and logarithmic stability. This closes a genuine analytical gap left by local variational calculus and includes explicit drift-dependent benchmarks, not a routine alternate notation for a Poisson-rate optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
