@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:14:39.499490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Schoenberg Gram, matrix blocks and derivative proof",
+        "frozen verification/check_subdivided_star.py read",
+        "independently assembled graph-distance Gram for m=3,4,8"
+      ],
+      "rationale": "Reconstructed Schoenberg equivalence (all t>0, not one fixed t), basepoint Gram from direct tree distances 1,2,3,4 and arm S_m action. The 2m×2m Gram is m−1 copies Q_p=D_p−O_p and one P_m,p=D_p+(m−1)O_p. For 1<p<2, D_p is positive definite and −O_p is positive definite by the explicit fractional-power integral Gram for functions 1−e^(−t),1−e^(−2t); hence Q_p≻0. The P block is [[A_m,B_m],[B_m,2^p A_m]] with determinant (2^(p/2)A_m−B_m)F_m. On [1,s_m] derivative inequalities make F_m strictly decreasing from positive to negative, so exactly one p_m; P PSD rank1 there, indefinite between p_m and s_m, then A_m≤0 rules out all p≥s_m. Negative-type fractional-power monotonicity gives every smaller p, including discrete p=0. Endpoint only one zero Gram eigenvalue so affine embedding dimension 2m−1, full 2m below. Increasing m subtracts a strictly positive 2×2 −O_p matrix and makes old null vector negative, giving p_{m+1}<p_m. Taylor at p=1 yields displayed c and O(m^-2). m=2 is a 5-point path with p=2 endpoint dim1. Independently reconstructed graph-distance Gram and computed smallest/next eigenvalue for m=3,4,8 at analytic roots: null within numerical precision, next >0.22.",
+      "residual_risks": [
+        "Finite eigenvalue computations corroborate but do not establish the universal interval."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doust–Weston gives enhanced 1-negative type bounds and exact one-level star exponent; Sánchez Corollary 2.4 is a general algorithm and evaluates complete bipartite graphs; Li–Weston strictness propagation is general."
+        ],
+        "reasoning": "None of the inspected stronger general principles performs the required S_m block calculation or states the sharp p_m threshold/critical rank for this distinct tree.",
+        "searches": [
+          "arXiv:0705.0411v2 sections on weighted tree gaps and example 1",
+          "arXiv:1108.0451v1 section 2 general determinant criterion",
+          "arXiv:0901.0695 theorem 5.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0705.0411v2 HTML exact ordinary star and gap estimates",
+        "arXiv:0901.0695 primary PDF strictness theorem",
+        "arXiv:1108.0451v1 full HTML",
+        "Resultary R4/R5 star and Gaussian alias searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-edge star threshold is log2(2m/(m−1))=s_m, while the new p_m lies strictly inside (1,s_m).",
+          "Finite general matrix criterion and strictness theorem do not themselves yield the S_m-specific determinant root, unique crossing and null vector."
+        ],
+        "reasoning": "A derivation from a general method does not mean an already stated special-case result; the new nontrivial block positivity and scalar monotonicity supply the family evaluation.",
+        "searches": [
+          "Doust–Weston arXiv:0705.0411v2 Theorem 38",
+          "Li–Weston arXiv:0901.0695 theorem 5.4",
+          "Sánchez arXiv:1108.0451v1 corollary 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schoenberg all-scale Gaussian positivity and supremal p-negative type are equivalent.",
+          "Doust–Weston Theorem 38 gives one-level star exponent s_m rather than the two-edge subdivided-star F_m root."
+        ],
+        "reasoning": "Explicit alias searches include negative type, generalized roundness, Schoenberg kernels and uniformly subdivided stars; one-level star s_m is strictly greater than p_m and not the same graph.",
+        "searches": [
+          "Resultary R4 Gauss distance kernels subdivided star tree two-edge arms supremal p-negative type explicit root rank",
+          "Resultary R5 uniformly subdivided star 2-edge arms generalized roundness p-negative type Gaussian all scales",
+          "arXiv:0705.0411v2 theorem 38"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest tree findings measure curvature-distortion and other different invariants; no two-edge star p_m table found."
+        ],
+        "reasoning": "Even a numerical graph table cannot imply the all-m unique equation and asymptotic law. The known s_m is a different graph parameter, not a hidden table match.",
+        "searches": [
+          "Resultary R4/R5 published-finding index",
+          "arXiv:0705.0411v2 formula for star Y_n"
+        ]
+      },
+      "rationale": "Doust–Weston exact one-level star exponent is for m leaves at one edge, while this two-edge subdivision adds m intermediate vertices and three/four additional pair-distance regimes. Their negative-type gap bounds do not evaluate the subdivided star sharp root. Li–Weston supplies the general strictness theorem and Sánchez a general finite-metric determinant method with evaluated bicliques; neither gives this family equation, rank direction, strict arm-count law, or asymptotic. Resultary R4/R5 returned tree curvature/persistence and unrelated Gaussian metrics rather than a matching p-negative-type classification. Best-of-knowledge original, with possible older tree special cases risk.",
+      "residual_risks": [
+        "An unindexed graph-metric negative-type computation of equal subdivided spiders could coincide.",
+        "No extension to unequal arm lengths or fixed single Gaussian scale."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers one-level unit stars and general 1-negative-type gaps; not the equal 2-edge-arm root or endpoint rank",
+          "evidence": [
+            "Theorem 38: star Y_n has 1+log2(1+1/(n−1)), only two nonzero distances"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0705.0411v2",
+          "material_read": "Full arXiv HTML, especially enhanced gap theorem and Example 1/Theorem 38 for ordinary stars, relevant proof structure",
+          "method": "Read original article sections and compare tree distance sets and exponents",
+          "title": "Enhanced negative type for finite metric trees",
+          "trigger": "same finite tree metric and potential exact star formula"
+        },
+        {
+          "assessment": "Theorem 5.4 supplies strictness propagation but no subdivided-star parameter",
+          "evidence": [
+            "Theorem 5.4 general strict q-negative type for q<p"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0901.0695",
+          "material_read": "Primary PDF printed theorem statements and proof in relevant pages 10–11, including Theorem 5.4",
+          "method": "Read PDF text and page image",
+          "title": "Strict p-negative type of a metric space",
+          "trigger": "strictness/interval theorem used in endpoint rank argument"
+        },
+        {
+          "assessment": "General finite determinant criterion; evaluated family K_{n,m} is complete bipartite, not 2-edge subdivided star",
+          "evidence": [
+            "Corollary 2.4 criterion, abstract and Section 3 special case"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1108.0451v1",
+          "material_read": "Full HTML Sections 1–3, Corollary 2.4 and path-metric graph applications",
+          "method": "Read original theorem statements and worked graph family",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "general distance-matrix criterion potentially covers exact family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Doust–Weston one-level star threshold for natural comparison",
+        "frozen RESULT.md complete block theorem and limiting expansion"
+      ],
+      "rationale": "Uniform subdivision is a canonical operation on star trees, making the exact generalized-roundness/negative-type change from a known star exponent a natural structural question. The sharp all-Gaussian-scales threshold, unique rank-drop/equality vector, strict monotonicity in branch count, and nontrivial 1+c/m asymptotic add mutually reinforcing exact geometry. These are not automatically implied by tree 1-negative-type or a finite numerical census.",
+      "residual_risks": [
+        "Specific to unit two-edge arms and m≥3, with m=2 path exception."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent numeric checks finite; analytic monotonicity and Schoenberg are universal proof.",
+    "Possible obscure equivalent spider-tree theorem not excluded.",
+    "Scientific review is complete but publication_plan remains not_ready for confidentiality and provenance-safe public-file materialization.",
+    "Historical ledger gaps are unmodified and signed continuation is a sequence cursor only, not scientific certification."
+  ],
+  "schema_version": 1
+}

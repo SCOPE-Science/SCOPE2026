@@ -1,19 +1,21 @@
-# Review of the sharp subdivided-star Gaussian threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each integer \(m\ge3\), the basepoint Schoenberg matrix decomposes into \(m-1\) copies of a uniformly positive two-by-two arm-difference block and one explicit branch-constant two-by-two block. The integral identity for \((r+s)^p-r^p-s^p\) proves positivity of the first block for \(1<p<2\); a strict-concavity inequality and two strictly negative derivatives prove existence and uniqueness of the exact endpoint in the prescribed interval. At the endpoint, the second block is positive semidefinite of rank one; immediately beyond it the matrix is indefinite, and above the ordinary-star bound it has a negative diagonal entry. Schoenberg's theorem and finite-space strict-negative-type monotonicity extend the classification to all lower exponents and justify the affine dimension. Subtracting the positive definite arm interaction proves strict monotonicity in arm count. Uniform Taylor expansion proves the sharp coefficient. The embedded checker passed 443 deterministic finite assertions, supporting (but not replacing) the proof.
+PASS
 
-## Originality — PASS under bounded literature comparison
+Reconstructed Schoenberg equivalence (all t>0, not one fixed t), basepoint Gram from direct tree distances 1,2,3,4 and arm S_m action. The 2m×2m Gram is m−1 copies Q_p=D_p−O_p and one P_m,p=D_p+(m−1)O_p. For 1<p<2, D_p is positive definite and −O_p is positive definite by the explicit fractional-power integral Gram for functions 1−e^(−t),1−e^(−2t); hence Q_p≻0. The P block is [[A_m,B_m],[B_m,2^p A_m]] with determinant (2^(p/2)A_m−B_m)F_m. On [1,s_m] derivative inequalities make F_m strictly decreasing from positive to negative, so exactly one p_m; P PSD rank1 there, indefinite between p_m and s_m, then A_m≤0 rules out all p≥s_m. Negative-type fractional-power monotonicity gives every smaller p, including discrete p=0. Endpoint only one zero Gram eigenvalue so affine embedding dimension 2m−1, full 2m below. Increasing m subtracts a strictly positive 2×2 −O_p matrix and makes old null vector negative, giving p_{m+1}<p_m. Taylor at p=1 yields displayed c and O(m^-2). m=2 is a 5-point path with p=2 endpoint dim1. Independently reconstructed graph-distance Gram and computed smallest/next eigenvalue for m=3,4,8 at analytic roots: null within numerical precision, next >0.22.
 
-The closest fully inspected primary work is Doust–Weston's arXiv:0705.0411 (ordinary star exponent and generic tree lower bounds), Li–Weston's arXiv:0901.0695 (strictness and interval principles), and Sánchez's arXiv:1108.0451 (general finite-metric criterion and complete bipartite examples). These establish background results but do not themselves state the exact equally subdivided-star root, the endpoint dimension/null vector, the strict arm-count law, or the new sharp asymptotic constant. Search results concerning curvature-distortion and Ricci-flow behavior of spider graphs study different invariants and provide no known implication. The presence of an equivalent but unindexed older tree-metric exponent calculation remains a residual risk; a negative search does not prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform subdivision is a natural operation on a well-studied graph-metric family. The result identifies a strict change in the all-scale Gaussian positivity cutoff under this operation, a complete endpoint embedding-rank classification, and a nontrivial asymptotic constant that differs from the unsubdivided star. The question is structural across every arm count, not a disconnected finite example or an arbitrary parameter slice. Generic finite-matrix tests would not by themselves reveal the monotone extremal law and coefficient.
+Doust–Weston exact one-level star exponent is for m leaves at one edge, while this two-edge subdivision adds m intermediate vertices and three/four additional pair-distance regimes. Their negative-type gap bounds do not evaluate the subdivided star sharp root. Li–Weston supplies the general strictness theorem and Sánchez a general finite-metric determinant method with evaluated bicliques; neither gives this family equation, rank direction, strict arm-count law, or asymptotic. Resultary R4/R5 returned tree curvature/persistence and unrelated Gaussian metrics rather than a matching p-negative-type classification. Best-of-knowledge original, with possible older tree special cases risk.
 
-## Limitations
+## value
 
-Only uniform unit-edge two-step arms and the all-scale positivity criterion are settled. No claim is made about arbitrary spider trees. Numerical tests cover finitely many cases and an independent audit has not been performed. Historical coverage risk remains for literature not located or indexed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform subdivision is a canonical operation on star trees, making the exact generalized-roundness/negative-type change from a known star exponent a natural structural question. The sharp all-Gaussian-scales threshold, unique rank-drop/equality vector, strict monotonicity in branch count, and nontrivial 1+c/m asymptotic add mutually reinforcing exact geometry. These are not automatically implied by tree 1-negative-type or a finite numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
