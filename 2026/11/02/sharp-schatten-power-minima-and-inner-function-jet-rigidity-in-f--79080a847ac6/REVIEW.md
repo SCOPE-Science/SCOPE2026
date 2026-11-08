@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the normalized Hardy space, the compressed shift has a rank-one defect vector \(v=(B-B(0))/z\). Telescoping its \(k\)-th power gives exactly the stated Hilbert–Schmidt coefficient identity and at least \(N-k\) unit singular values. The determinant identity \(|\det S_B|=|B(0)|\) and arithmetic–geometric mean yield the all-\(p\) bound and strict equality classification. The Frostman transform converts vanishing Taylor jets into the complete Blaschke factorization. The checker passed 338 finite assertions; the analytical proof covers repeated zeros and all admissible exponents.
+## correctness
 
-## Originality
-PASS, provisionally. The full texts of Gorkin–Partington (arXiv:1711.06042) and Lopatto–Rochberg (arXiv:1410.1906) were compared at the level of implications. The former treats numerical radii, norm algorithms and some exact matrices; the latter treats Schatten membership/Besov criteria, with finite-dimensional membership explicitly trivial. Câmara–Carteiro–Ross (doi:10.1007/s43037-024-00349-7) treats multiplier equivalence. No inspected theorem supplies the simultaneous fixed-constant sharp power minimum plus exact jet defect and all minimizers. The lower bound alone is a general determinant-and-rank deduction, and older operator inequalities remain a nonzero priority risk.
+PASS
 
-## Mathematical value
-PASS. A single condition on the first \(k-1\) Taylor coefficients characterizes all minimizers for an entire family of singular-value power sums and translates to an explicit class of finite Blaschke products. The exact positive coefficient-energy remainder quantifies departure from spectral optimality, and the extreme \(k=N\) case fixes a unique regular-polygon zero geometry. These are natural classifications in Hardy model-space geometry rather than a numerical curiosity.
+For finite Blaschke B degree N, b=B(0), 0<r<1, T=S_B, v=(B-b)/z, backward shift invariance gives I-T*T=v⊗v and telescoping defect I-(T^k)*T^k=sum_{ell=0}^{k-1}(T^{*ell}v)⊗(T^{*ell}v). Its rank <=k forces >=N-k singular values exactly 1. Trace telescoping and Taylor-coefficient tails yield Tr|T^k|²=N-k+kr²+sum_{j=1}^{k-1}(k-j)|b_j|². With det modulus |det T^k|=r^k, the remaining k singular values have product r^k, so AMGM for all p>0 yields Tr|T^k|^p>=N-k+kr^p, equality iff all k remaining singular values r, equivalently b1..b_{k-1}=0 by exact p2 excess. Frostman disk automorphism factorizes all equality products B=(b+z^k C)/(1+conj(b)z^k C) with C finite Blaschke degree N-k. For k=N zeros form a regular N-gon of radius r^(1/N). Independent NumPy Szego-kernel Gram construction for a degree-three regular-zero example with r=1/8 gives exact singular profiles (1,1,1/8), (1,1/8,1/8), (1/8,1/8,1/8) for k1,2,3; confirms finite instance only.
 
-## Limits
-Only finite Blaschke products with \(0<|B(0)|<1\), \(1\le k\le N\), and finite \(p>0\) are covered. The work does not imply operator-norm uniqueness, global results for infinite inner functions or priority certainty. External independent validation is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General finite TTO Schatten membership is automatic and known; exact jet-weighted Hilbert-Schmidt excess, simultaneous all-positive-power fixed-value minimization and complete Frostman equality classification were not identified in inspected primary prior work.
+
+## value
+
+PASS
+
+Classifying simultaneous Schatten-power minimizers and the complete initial Taylor-jet equality condition of finite Hardy compressed shifts supplies a natural exact structural theorem in operator theory. The weighted Hilbert–Schmidt defect and Frostman parameterization extend beyond a bare textbook AMGM lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

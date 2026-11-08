@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:00:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite Blaschke B degree N, b=B(0), 0<r<1, T=S_B, v=(B-b)/z, backward shift invariance gives I-T*T=v⊗v and telescoping defect I-(T^k)*T^k=sum_{ell=0}^{k-1}(T^{*ell}v)⊗(T^{*ell}v). Its rank <=k forces >=N-k singular values exactly 1. Trace telescoping and Taylor-coefficient tails yield Tr|T^k|²=N-k+kr²+sum_{j=1}^{k-1}(k-j)|b_j|². With det modulus |det T^k|=r^k, the remaining k singular values have product r^k, so AMGM for all p>0 yields Tr|T^k|^p>=N-k+kr^p, equality iff all k remaining singular values r, equivalently b1..b_{k-1}=0 by exact p2 excess. Frostman disk automorphism factorizes all equality products B=(b+z^k C)/(1+conj(b)z^k C) with C finite Blaschke degree N-k. For k=N zeros form a regular N-gon of radius r^(1/N). Independent NumPy Szego-kernel Gram construction for a degree-three regular-zero example with r=1/8 gives exact singular profiles (1,1,1/8), (1,1/8,1/8), (1/8,1/8,1/8) for k1,2,3; confirms finite instance only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gorkin--Partington full text focuses restricted-shift numerical radii/norms; general Schatten membership covers existence, not sharp fixed-b power minima."
+        ],
+        "reasoning": "Generic contraction rank-one defect machinery applies more broadly; nevertheless inspected sources do not state or logically imply the Taylor-jet excess and all-p fixed-value minimizer classification without additional Hardy model analysis.",
+        "searches": [
+          "Resultary query: finite Blaschke model S_B^k Hilbert Schmidt identity Schatten lower bound zeros at regular polygon",
+          "Gorkin--Partington, Norms of truncated Toeplitz operators and numerical radii of restricted shifts, arXiv:1711.06042",
+          "Lopatto--Rochberg, Schatten-class truncated Toeplitz operators, arXiv:1410.1906",
+          "Câmara--Carteiro--Ross, Multipliers and equivalence of functions spaces and operators (2024), DOI:10.1007/s43037-024-00349-7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: finite Blaschke model S_B^k Hilbert Schmidt identity Schatten lower bound zeros at regular polygon",
+        "Gorkin--Partington, Norms of truncated Toeplitz operators and numerical radii of restricted shifts, arXiv:1711.06042",
+        "Lopatto--Rochberg, Schatten-class truncated Toeplitz operators, arXiv:1410.1906",
+        "Câmara--Carteiro--Ross DOI:10.1007/s43037-024-00349-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical rank-one defect and AMGM prove the numerical minimum lower bound.",
+          "The complete iff equality classification requires exact trace coefficient expansion and Frostman factorization, beyond abstract Schatten inclusion."
+        ],
+        "reasoning": "No originality claim is made for rank-one defect or AMGM. The package strengthens them to a complete one-formula minimizer parametrization and weighted Taylor-jet equality defect.",
+        "searches": [
+          "Gorkin--Partington, Norms of truncated Toeplitz operators and numerical radii of restricted shifts, arXiv:1711.06042",
+          "Lopatto--Rochberg, Schatten-class truncated Toeplitz operators, arXiv:1410.1906"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compression is a defect-one contraction with characteristic inner function B; equivalently optimizing powers of a finite truncated Toeplitz model contraction of fixed determinant."
+        ],
+        "reasoning": "Compared operator-defect and determinant formulations, not merely Blaschke title overlap. Abstract matrix AMGM gives lower bound, but finite-inner jet rigidity identifies equality cases in Hardy data.",
+        "searches": [
+          "Resultary query: finite Blaschke model S_B^k Hilbert Schmidt identity Schatten lower bound zeros at regular polygon",
+          "Gorkin--Partington, Norms of truncated Toeplitz operators and numerical radii of restricted shifts, arXiv:1711.06042",
+          "Lopatto--Rochberg, Schatten-class truncated Toeplitz operators, arXiv:1410.1906"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Invariant is a parameterized exact formula for all N,k,p,b and inner functions, not a finite lookup sequence."
+        ],
+        "reasoning": "Database/table check is genuinely inapplicable to an all-dimensional continuous-parametric inequality; searched for exact singular spectra tables and did not find dominating specialized values.",
+        "searches": [
+          "Resultary query: finite Blaschke model S_B^k Hilbert Schmidt identity Schatten lower bound zeros at regular polygon",
+          "finite Blaschke S_B kth power Schatten norm numerical examples searches"
+        ]
+      },
+      "rationale": "General finite TTO Schatten membership is automatic and known; exact jet-weighted Hilbert-Schmidt excess, simultaneous all-positive-power fixed-value minimization and complete Frostman equality classification were not identified in inspected primary prior work.",
+      "residual_risks": [
+        "General determinant/rank-one defect inequalities may predate this exact numerical bound; the value depends on the new equality and jet-excess classification.",
+        "Complete Lopatto--Rochberg PDF not independently accessible; exact specialist statement could be stronger."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping model space prerequisites, not identified exact simultaneous Schatten-power inequality and equality",
+          "evidence": "Numerical radius and TTO norm estimates do not alone determine fixed B(0) and k-power singular-value census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.06042",
+          "material_read": "Accessible full 26-page PDF including introductory model and operator norm/numerical-radius results; inspected image screenshot.",
+          "method": "Web primary PDF text and screenshot",
+          "title": "Gorkin--Partington, Norms of truncated Toeplitz operators and numerical radii of restricted shifts, arXiv:1711.06042",
+          "trigger": "Same compressed Hardy shift and restricted shift norms"
+        },
+        {
+          "assessment": "Incomplete source inspection; coverage uncertain; NOT claimed whole-text noncoverage.",
+          "evidence": "Finite model spaces are automatically in all Schatten classes, while question is sharp fixed-origin minima.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.1906",
+          "material_read": "Abstract and bibliography; complete arXiv PDF retrieval did not succeed.",
+          "method": "OA text attempt",
+          "title": "Lopatto--Rochberg, Schatten-class truncated Toeplitz operators, arXiv:1410.1906",
+          "trigger": "Closest paper naming Schatten-class truncated Toeplitz operators"
+        },
+        {
+          "assessment": "Model-equivalence scope distinct from spectral power optimization",
+          "evidence": "No exact fixed-origin determinant-constrained Schatten minimizer stated in inspected material.",
+          "identifier_or_url": "https://doi.org/10.1007/s43037-024-00349-7",
+          "material_read": "Abstract and recorded scope of multiplier equivalence.",
+          "method": "Publication/abstract query",
+          "title": "Câmara--Carteiro--Ross, Multipliers and equivalence of functions spaces and operators",
+          "trigger": "Potentially broad Hardy model equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying simultaneous Schatten-power minimizers and the complete initial Taylor-jet equality condition of finite Hardy compressed shifts supplies a natural exact structural theorem in operator theory. The weighted Hilbert–Schmidt defect and Frostman parameterization extend beyond a bare textbook AMGM lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite Blaschke degree N, fixed 0<|B(0)|<1, 1<=k<=N, finite real p>0; no p=infinity, infinite inner functions or b=0 endpoint.",
+    "Literature priority for generic contraction equality forms and unavailable specialist full PDF remains limited."
+  ],
+  "schema_version": 1
+}
