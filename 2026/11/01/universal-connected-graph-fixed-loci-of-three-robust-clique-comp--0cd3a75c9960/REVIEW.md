@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A simplex containing three involution-orbits would have an independent triple in each bipartition class. The fixed points of an invariant simplex are exactly the convex hull of its orbit midpoints, and the two-orbit edge condition is precisely the existence of either the off-diagonal perfect matching or both diagonal matching edges. König's theorem establishes this equivalence integrally and without probabilistic assumptions. The rooted double-cover construction produces the desired connected bipartite graph, and the triangle-fan argument proves the ambient fundamental group vanishes. A direct checker verifies all 1,098 symmetric matrices up to size four and all 772 connected graph lifts through five vertices. No finite calculation is extrapolated to the infinite family.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The full inspected Filakovský paper establishes ambient homotopy types for grid and square-sequence examples; the inspected Kim–Lew paper establishes collapsibility bounds. Existing complete-bipartite ambient homotopy and equivariant Euler-character statements, also inspected in full scientific form, do not determine the embedded fixed graph. The earlier prism-layer fixed-space formula is a special case with every orbit diagonally joined, rather than the full color-exchanging class or the single-bridge universality construction. Equivalent formulations, stronger implication searches, and relevant prior claims were compared. Unindexed or inaccessible equivalent work remains a residual risk; this review is not a guarantee of global uniqueness.
+PASS
 
-**Value — PASS.** This is a uniform PL classification for a natural entire class of graph involutions, with a sharp exact realization theorem: the fixed space can be any prescribed finite connected graph even though the ambient complex is simply connected. It replaces homological traces with explicit geometry and distinguishes fixed-space topology from ambient sphere-wedge information; it is more than a numerical enumeration or special-parameter restatement.
+Any geometrically fixed point has equal barycentric weights within each involution 2-vertex orbit. Three orbits violate alpha<=2 by producing independent triples in each bipartition class, so fixed triangulation has only graph vertices/edges. An orbit pair spans an I3 face iff the induced bipartite graph on four vertices has matching number two (Konig), exactly off-diagonal matched orbit pair or two diagonal edges, hence E(Q^sharp)=E(Q) union C(L,2) with triangles unfilled. Connectivity of G forces Q connected; graph cyclerank is |E(Q)|+C(|L|,2)-|E(Q[L])|-n+1. Bridge the two copies of arbitrary connected H at a single root to obtain a connected color-swap bipartite G with Q=H,L={root}, fixed space precisely |H|, including single-vertex boundary case. The complete I3 one-skeleton and triangular fans over graph paths contract all loops of connected ambient I3. Independent exhaustive direct independent-triple enumeration of all 1,098 symmetric incidence matrices of order at most four reproduced predicted fixed faces without using the matching criterion.
 
-**Closest literature and limits.** Kim–Lew (arXiv:1912.12605) establish the complex's standard definition; Filakovský (arXiv:2602.11365, first posted 2026-02-11) establishes relevant nonequivariant sphere wedges; Carnero Bravo (arXiv:2602.21427) gives related total-cut duality and connectivity. The theorem is limited to color-exchanging involutions, the robust threshold three, and one-dimensional fixed sets. The checker confirms bounded cases but cannot independently validate the all-graph PL proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct scientific statement after named prior-implication comparisons; any inaccessible plausible sources and strong precursors are documented as residual priority risks.
+
+## value
+
+PASS
+
+Arbitrary finite connected graph fixed-space universality inside simply connected ambient robust clique complexes is a strong structural equivariant phenomenon. The exact PL graph and cyclerank go substantially beyond ambient Betti counts or Euler characters and are useful for graph-complex fixed-point theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

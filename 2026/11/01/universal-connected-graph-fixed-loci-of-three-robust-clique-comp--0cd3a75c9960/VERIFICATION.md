@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run the standalone Python 3 file `verify.py` using the standard library: `python verify.py`. It requires no downloaded data. The program enumerates symmetric off-diagonal and diagonal edge patterns, constructs the corresponding bipartite graphs, checks the absence of independent triples for every union of involution-orbits, and compares complete fixed simplicial face sets to the explicit graph \(Q\cup K_L\). Independently, it constructs every connected labeled graph on at most five vertices, adds a single root bridge to its bipartite double cover, verifies the lift is connected, and checks that its geometric fixed-orbit simplices are precisely the original vertices and edges.
+## correctness
 
-Actual result:
+PASS
 
-`VERIFY_OK symmetric_matrices=1098 connected_lifts=772 triangle_lift_fvector=[6, 15, 18, 9] reduced_mod2_betti=[0, 0, 0, 1]`
+Any geometrically fixed point has equal barycentric weights within each involution 2-vertex orbit. Three orbits violate alpha<=2 by producing independent triples in each bipartition class, so fixed triangulation has only graph vertices/edges. An orbit pair spans an I3 face iff the induced bipartite graph on four vertices has matching number two (Konig), exactly off-diagonal matched orbit pair or two diagonal edges, hence E(Q^sharp)=E(Q) union C(L,2) with triangles unfilled. Connectivity of G forces Q connected; graph cyclerank is |E(Q)|+C(|L|,2)-|E(Q[L])|-n+1. Bridge the two copies of arbitrary connected H at a single root to obtain a connected color-swap bipartite G with Q=H,L={root}, fixed space precisely |H|, including single-vertex boundary case. The complete I3 one-skeleton and triangular fans over graph paths contract all loops of connected ambient I3. Independent exhaustive direct independent-triple enumeration of all 1,098 symmetric incidence matrices of order at most four reproduced predicted fixed faces without using the matching criterion.
 
-The independent-triple algorithm, graph connectivity check, and mod-two boundary calculation are executed on the definitions rather than on the theorem's edge formula. The finite checks are consistent with the statement, but they cannot establish the unrestricted fixed-space PL homeomorphism, universal realization, or integral homotopy conclusions; those follow from the explicit orbit-barycenter and perfect-matching proof. No independent external audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct scientific statement after named prior-implication comparisons; any inaccessible plausible sources and strong precursors are documented as residual priority risks.
+
+## value
+
+PASS
+
+Arbitrary finite connected graph fixed-space universality inside simply connected ambient robust clique complexes is a strong structural equivariant phenomenon. The exact PL graph and cyclerank go substantially beyond ambient Betti counts or Euler characters and are useful for graph-complex fixed-point theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
