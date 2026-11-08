@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The all-order theorem is established by the proof in `RESULT.md`, not by a finite computational extrapolation. The upper-bound Eulerian multigraph and the universal lower-bound potential inequality are algebraically quantified for every integer \(n\geq3\). The potential is explicitly defined on every binary de Bruijn vertex, so the lower bound remains valid even when a candidate cover contains forbidden supplementary windows.
+## correctness
 
-Running `python3 verify.py` from this package returned `VERIFY_OK`. It generated each finite required edge set, balanced augmented degree lists, strongly connected graphs, Euler tours and complete cyclic window histograms for orders 3 through 16; it also checked the potential inequality on every binary edge at those orders. Running `python3 crosscheck.py` returned `CROSSCHECK_OK`; it used an independent integer representation and Hungarian minimum-cost matching to reproduce minimum route-inspection augmentation for orders 3 through 13. The deterministic optimal sequences for orders 3 through 12 are in `witnesses.csv` and are checked by the construction verifier. No third-party runtime dependencies are required.
+PASS
 
-These finite checks do not independently certify the infinite theorem, historical priority, or the completeness of the literature survey. No independent scientific audit has been performed.
+PASS: In the exact n>=3 ordinary-factor model, |R_n|=2F_{n+1}. The length-(n-1) admissible de Bruijn digraph is strongly connected by an alternating bridge. Duplicating X_n (first/last pairs unequal, not entirely alternating) adds |X_n|=2F_{n-1}-2 edges and balances all degrees. The finite-alternating-prefix potential on ALL binary vertices has increment <=1 on EVERY binary shift and increment exactly +1 on duplicated X_n; the original arcs have total drift -|X_n|, forcing at least |X_n| supplemental cyclic windows even if forbidden, by telescoping. Euler tour attains bound L_n=2(F_{n+1}+F_{n-1}-1). Independent direct construction/potential checks for n=3..11 support but do not prove all n.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: the exact-once restricted de Bruijn cycle and lexicographic minimum are distinct optimization problems from shortest length including repeated factors. No inspected stronger result implies all ordinary factors and sharp cost; route-inspection framework itself is classical.
+
+## value
+
+PASS
+
+PASS: This is the optimal universal circular cover length for an entire natural maximum-run-two binary language, where not every admissible finite factor fits a once-only admissible cyclic tour. Sharp dual potential and explicit attaining Euler augmentation quantify unavoidable repeated-window overhead at every order, not a known-table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

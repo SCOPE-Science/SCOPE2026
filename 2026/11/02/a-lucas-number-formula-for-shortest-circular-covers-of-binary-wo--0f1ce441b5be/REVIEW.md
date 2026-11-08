@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result has exact quantifiers: every integer \(n\geq3\), every ordinary binary length-\(n\) factor avoiding `000` and `111`, and any circular binary covering word, including one with forbidden or repeated supplementary windows. The graph is strongly connected by a two- or three-letter alternating bridge. Duplicating each admissible non-fully-alternating edge with unequal first and last adjacent pairs balances all vertices; the induced Euler tour attains \(2(F_{n+1}+F_{n-1}-1)\). The potential \(\phi(v)=-a(v)\) obeys \(\phi(s)-\phi(p)\leq1\) on *every* binary edge, while the duplicated edges attain equality. Telescoping on every candidate circular cover proves that \(2F_{n-1}-2\) extra windows are unavoidable. Independent finite implementations confirmed the construction and potential at orders 3–16 and the matching postman augmentation at orders 3–13. Their finite scope is not substituted for the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest source is Moreno's 2005 thesis (repository date 2005-05-30) and Moreno–Matamala's 2007 preprint, which analyze exact-once periodic admissibility and lexicographic choices of Eulerian cycles. Their statements do not give an optimal repeated-window circular cover of *all ordinary finite* admissible factors, which are not necessarily cyclically admissible. Chee et al. (2024) maximize distinct-window run-length-limited paths rather than minimize universal covering length. Gardner–Godbole's restricted universal cycles also concern exact-once cyclic arrangements and different objects. Indexed mathematical-research and prior-claim comparisons contained no implication yielding the identity for both forbidden triples. Inaccessibility of part of a historical thesis and the possibility of unindexed prior finite or all-order results remain residual risks; no uniqueness or independent historical-priority guarantee is claimed.
+PASS
 
-## Mathematical value — PASS
-The pair of forbidden constant triples defines the natural symmetric maximum-run-two constrained binary language. Its ordinary finite factors are not automatically realizable exactly once around a cycle, so an optimal circular covering length is a genuine structural invariant. The formula resolves the optimum at all orders, quantifies the exact necessary multiplicity overhead, provides a forbidden-free attaining cycle, and supplies a sharp elementary dual certificate. It is neither a finite parameter increment nor a restatement of a known Euler-cycle existence theorem.
+PASS: In the exact n>=3 ordinary-factor model, |R_n|=2F_{n+1}. The length-(n-1) admissible de Bruijn digraph is strongly connected by an alternating bridge. Duplicating X_n (first/last pairs unequal, not entirely alternating) adds |X_n|=2F_{n-1}-2 edges and balances all degrees. The finite-alternating-prefix potential on ALL binary vertices has increment <=1 on EVERY binary shift and increment exactly +1 on duplicated X_n; the original arcs have total drift -|X_n|, forcing at least |X_n| supplemental cyclic windows even if forbidden, by telescoping. Euler tour attains bound L_n=2(F_{n+1}+F_{n-1}-1). Independent direct construction/potential checks for n=3..11 support but do not prove all n.
 
-## Scope and closest literature
-Relevant sources: Moreno (2005), *De Bruijn graphs and sequences in languages with restrictions*, HAL `tel-00628709`; Moreno–Matamala (2007), arXiv:0711.1695; Chee et al. (2024), arXiv:2403.01454; Gardner–Godbole (2017), arXiv:1711.07029. Only the first three are assigned as foundational/related source identifiers for this finding. The theorem does not determine all optimal cycles, other forbidden languages, or linear-cover minima. The published-work comparison is limited by unindexed material and restricted access to some historical primary pages.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: the exact-once restricted de Bruijn cycle and lexicographic minimum are distinct optimization problems from shortest length including repeated factors. No inspected stronger result implies all ordinary factors and sharp cost; route-inspection framework itself is classical.
+
+## value
+
+PASS
+
+PASS: This is the optimal universal circular cover length for an entire natural maximum-run-two binary language, where not every admissible finite factor fits a once-only admissible cyclic tour. Sharp dual potential and explicit attaining Euler augmentation quantify unavoidable repeated-window overhead at every order, not a known-table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
