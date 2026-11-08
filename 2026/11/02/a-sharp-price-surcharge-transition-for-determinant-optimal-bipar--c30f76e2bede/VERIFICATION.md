@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the same directory; requirements are Python 3, NumPy, and SciPy. The recorded execution yielded:
+## correctness
 
-```
-EXACT_DETERMINANTS_OK 8
-DIRECT_DETERMINANTS_OK 175
-OPTIMALITY_POLYNOMIAL_AND_BUDGET_OK 175
-ASYMMETRIC_FEASIBLE_COMPARISONS_OK 2100
-UNRESTRICTED_SLSQP_COMPARISONS_OK 18
-CRITICAL_WINDOW_CHECKS_OK 18
-ALL_CHECKS_PASSED
-```
+PASS
 
-Eight rational Gaussian eliminations compare the exact grounded determinant with the spectral expression for \(m=3,4\), including complete deletion of the designated matching. Numerical determinant tests cover \(3\le m\le9\). Other checks verify budgets, the quadratic first-order equation, random asymmetric feasible competitors, and independently optimized ungrouped weights for \(m=3,4,5\). The scaling checks concern finite sizes and are not substitutes for the limiting argument.
+For simple K_{m,m}, the grounded Laplacian is injective in individual edge weights; strict logdet concavity forces a unique optimum. Permutations of paired vertices and side exchange give two conductance orbits a,b and b>0. Laplacian spectral factorization yields tau=(a+(m-1)b)(mb)^(m-1)(2a+(m-2)b)^(m-1)/m. Budget b=B/[m(Pt+(m-1)Q)], t=a/b. The derivative of log tau has sign opposite to quadratic 2t^2+[4(m-1)-2m Q/P]t+[(m-2)(2m-1)-m(2m-3)Q/P]. At and above threshold all terms nonnegative for t>=0; below threshold one unique positive root. Expansion P/Q=1+gamma/m leads t->max(0,1-gamma). Independently compared full grounded-Laplacian exact determinants for m=3,4 and polynomial derivative. m=2 is excluded because deleting matching disconnects.
 
-The analytical certificate is the strict log-determinant concavity, injectivity of the simple-graph grounded-incidence representation, Matrix–Tree spectral factorization, derivative sign classification, and asymptotic expansion in `RESULT.md`. The code checks sampled instances and therefore cannot independently establish global or infinite-dimensional claims. Independent audit has not been performed.
+## originality
+
+PASS
+
+Matrix–Tree and convex MAXDET design are classical. Khosoussi et al. (2016) analyze weighted spanning-tree optimization primarily with fixed candidate weights, edge choices and convex relaxations; a two-price continuous unrestricted conductance allocation with an exact support-change threshold is not obtained by matching the title alone or by their generic convexity theorem. Resultary returned bipartite spanning-tree polytopes (different objective) but no same price-surcharge law.
+
+## value
+
+PASS
+
+The continuous optimal network changes its edge support exactly at an explicit price ratio, and the asymptotic critical price premium is order 1/m. That is a natural exact design criterion for buying or omitting a costly matching; it materially upgrades generic numerical logdet optimization for this symmetry family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

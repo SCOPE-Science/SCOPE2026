@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Matrix–Tree and a four-eigenspace Laplacian decomposition give the exact determinant. Strict concavity of the grounded log-determinant on the full simplex proves uniqueness without assuming class symmetry; the graph automorphism group then forces two conductance classes. An explicit quadratic derivative controls all interior and boundary cases, including equality at the deletion threshold. Root expansion gives both the fixed-size boundary law and the large-size critical window. The accompanying `verify.py` passed 8 exact determinants, 175 direct determinant comparisons, 175 budget/root checks, 2,100 asymmetric feasible comparisons, 18 independent unrestricted optimizations and 18 critical-window checks. The finite tests do not prove the theorem; its proof is analytical.
+## correctness
 
-**Originality — PASS (qualified).** The accessible full-text comparison with Khosoussi et al. (arXiv:1604.01116), especially their matrix-tree foundations and fixed-weight edge-selection and convex-relaxation sections, establishes broad background but not the priced perfect-matching support theorem. Boyd's Laplacian optimization overview describes the general convex framework, not the exact two-price crown transition. Searches for crown-graph, matching-deleted biclique, weighted spanning-tree and log-determinant formulations found no equivalent priced result. General Matrix–Tree and symmetry reductions are acknowledged; a specialized overlooked result remains possible.
+PASS
 
-**Mathematical value — PASS.** A perfect matching can be dropped in full while maintaining a connected crown graph for every \(m\ge3\). The theorem identifies the exact economically justified deletion threshold, gives the unique unrestricted optimal conductances, and shows that a surcharge of order \(1/m\) changes a macroscopically positive matching allocation into zero. This describes a size-sensitive support transition of a natural network design variable, rather than just a determinant evaluation or a small numerical improvement.
+For simple K_{m,m}, the grounded Laplacian is injective in individual edge weights; strict logdet concavity forces a unique optimum. Permutations of paired vertices and side exchange give two conductance orbits a,b and b>0. Laplacian spectral factorization yields tau=(a+(m-1)b)(mb)^(m-1)(2a+(m-2)b)^(m-1)/m. Budget b=B/[m(Pt+(m-1)Q)], t=a/b. The derivative of log tau has sign opposite to quadratic 2t^2+[4(m-1)-2m Q/P]t+[(m-2)(2m-1)-m(2m-3)Q/P]. At and above threshold all terms nonnegative for t>=0; below threshold one unique positive root. Expansion P/Q=1+gamma/m leads t->max(0,1-gamma). Independently compared full grounded-Laplacian exact determinants for m=3,4 and polynomial derivative. m=2 is excluded because deleting matching disconnects.
 
-The conclusion is confined to positive price classes, no conductance caps, complete balanced bipartite topology and continuous weights. Specialized literature might cover part of the calculation, and external independent validation is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matrix–Tree and convex MAXDET design are classical. Khosoussi et al. (2016) analyze weighted spanning-tree optimization primarily with fixed candidate weights, edge choices and convex relaxations; a two-price continuous unrestricted conductance allocation with an exact support-change threshold is not obtained by matching the title alone or by their generic convexity theorem. Resultary returned bipartite spanning-tree polytopes (different objective) but no same price-surcharge law.
+
+## value
+
+PASS
+
+The continuous optimal network changes its edge support exactly at an explicit price ratio, and the asymptotic critical price premium is order 1/m. That is a natural exact design criterion for buying or omitting a costly matching; it materially upgrades generic numerical logdet optimization for this symmetry family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
