@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "A four-position witness attracts factors by zero-, one- and multiple-marker cases. The six-factor intersection constraints imply no three-point attractor. Length at most 18 implies k<=4; exactly 528 ordered distinct positive-gap vectors are fully enumerated, with two size-four words and 526 size-at-most-three words. Standalone exhaustive checker and a separate exact integer-programming formulation agreed. No infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A339391 https://oeis.org/A339391 reports unrestricted binary strings first needing four positions at length 12.",
+        "Restivo et al., https://arxiv.org/abs/2206.00376, study infinite-word attractor complexity and related profiles, not the finite all-injective-gap cutoff.",
+        "An earlier exact theorem for strictly increasing gaps does not cover arbitrary permutations of distinct gaps."
+      ],
+      "reasoning": "The unrestricted shortest binary witness at length 12 does not imply the restricted threshold, and the sorted-gap theorem cannot be extended by permuting the gaps because contiguous factors change. No inspected stronger theorem directly yields the claim.",
+      "searches": [
+        "string attractor minimal size of binary words with gaps a permutation of 1 through k; order dependence first counterexample",
+        "string attractor nonmonotone distinct unary gap words permutations gaps minimal hitting set",
+        "https://arxiv.org/abs/2206.00376",
+        "string attractor minimal size of binary words with gaps a permutation of 1 through k; order dependence first counterexample"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1709.05314",
+      "https://arpi.unipi.it/retrieve/e0d6c92f-ec13-fcf8-e053-d805fe0aa794/MRRRS_TCS2021.pdf",
+      "https://arxiv.org/abs/2206.00376",
+      "https://arxiv.org/abs/2207.02571",
+      "https://oeis.org/A339391"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kempa–Prezza establish general attractor definitions and compression motivation.",
+        "Mantaci et al. reversal invariance implies equal gamma for reverse words but says nothing about their exact value.",
+        "Bannai et al., https://arxiv.org/abs/2207.02571, present exact general optimization techniques but not the specific injective-gap statement."
+      ],
+      "reasoning": "Prior results may be used to compute instances, and reversal predicts symmetry, but the sharp first length and unique pair are not immediate or stated corollaries. The proof supplies a genuine complete bounded enumeration plus a compact obstruction.",
+      "searches": [
+        "https://arxiv.org/abs/1709.05314",
+        "https://arxiv.org/abs/2206.00376",
+        "https://arxiv.org/abs/2207.02571",
+        "Mantaci et al. A Combinatorial View on String Attractors reversal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original attractor definition in https://arxiv.org/abs/1709.05314 is a minimum hitting-set problem on occurrence-position unions.",
+        "The 2021 combinatorial paper https://arpi.unipi.it/retrieve/e0d6c92f-ec13-fcf8-e053-d805fe0aa794/MRRRS_TCS2021.pdf proves reversal invariance but not a sharp threshold for injective ordered gap vectors."
+      ],
+      "reasoning": "Equivalent forms include a factor-coverage transversal and reversal of the marker word. Reversal explains the pair but does not furnish the sharp cutoff or uniqueness; broad papers provide general machinery, not this finite restricted census.",
+      "searches": [
+        "finite binary words distinct one gap lengths string attractor minimum 4 length 18",
+        "string attractors increasing gaps binary words pairwise distinct lengths first minimum four",
+        "shortest distinct-gap binary marker word requiring four string attractor positions length 18 gaps 1,3,2,7 reverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A339391 lists the unrestricted extremal size-by-length table and a length-12 binary four-attractor example; it does not separate marker words with distinct positive gaps.",
+        "Published computations for all short binary words can supply unrestricted examples, but they do not by themselves classify the restricted length-18 distinct-gap family."
+      ],
+      "reasoning": "Known unrestricted data neither contains the exact 528-word restricted enumeration nor gives the claimed two length-18 gap vectors. A database query alone cannot establish originality; full relevant literature comparisons are also reported.",
+      "searches": [
+        "https://oeis.org/A339391",
+        "https://oeis.org/A339391",
+        "unique factors six constraints 101 00010 10000 001000 00001 0001 attractor size four 18"
+      ]
+    },
+    "rationale": "Comparison with primary foundational, combinatorial and infinite-word literature and the unrestricted OEIS table found no theorem giving the precise restricted first length and uniqueness. Reversal invariance is covered and credited, not claimed as new. Residual bibliographic risk remains.",
+    "residual_risks": [
+      "Unindexed specialized enumeration or unpublished prior work may reproduce this restricted cutoff.",
+      "Access to the entire full text of every related book or article is not guaranteed; relevant inspected primary materials nevertheless disclosed no decisive stronger claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and establishes general compression relationships; no exact distinct-positive-gap first length is stated in inspected material",
+        "evidence": [
+          "The paper defines every-factor intersecting positions and studies general bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.05314",
+        "material_read": "Abstract and definition/theorem sections in accessible full HTML",
+        "method": "Read full-text HTML sections and compare parameter restrictions",
+        "title": "At the Roots of Dictionary Compression: String Attractors",
+        "trigger": "Foundational definition and possible general coverage of string attractors"
+      },
+      {
+        "assessment": "Reversal invariance is relevant and is credited; examined claims do not determine restricted threshold and unique size-four pair",
+        "evidence": [
+          "Reversing a word preserves its minimum attractor size; this explains but does not count the two exceptions"
+        ],
+        "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c92f-ec13-fcf8-e053-d805fe0aa794/MRRRS_TCS2021.pdf",
+        "material_read": "Introduction pp. 1–3 and relevant combinatorial propositions including reversal property near page 9 (PDF page indices 0–2 and 8); PDF page screenshots inspected",
+        "method": "Full-text keyword search and visually inspect relevant PDF pages",
+        "title": "A Combinatorial View on String Attractors",
+        "trigger": "Potential covering combinatorial theorem or reversal equivalence"
+      },
+      {
+        "assessment": "Infinite-word complexity results do not give the finite cutoff and exact unordered-gap pair",
+        "evidence": [
+          "Source dated 2022-06-01; investigates infinite sequences, unlike finite injective-gap 18 census"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.00376",
+        "material_read": "Full-text HTML introduction and later sections on infinite words and attractor complexities",
+        "method": "Read relevant author manuscript HTML sections and compare domains",
+        "title": "String Attractors and Infinite Words",
+        "trigger": "Middle-cohort guiding source with same invariant"
+      },
+      {
+        "assessment": "General exact computation is not a published theorem listing this restricted first-attainment problem",
+        "evidence": [
+          "General framework can certify instances; a precise family enumeration is not presented"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.02571",
+        "material_read": "Abstract, problem definitions and methods/results in full-text HTML",
+        "method": "Inspect accessible full-text sections with emphasis on string-attractor instances",
+        "title": "Computing NP-hard Repetitiveness Measures via MAX-SAT",
+        "trigger": "Strong general exact computational coverage might subsume finite classification"
+      },
+      {
+        "assessment": "Unrestricted size-four first length 12 and exemplar differ from current restricted length 18 statement",
+        "evidence": [
+          "Entry gives 000100101011 as an unrestricted length-12 size-four witness"
+        ],
+        "identifier_or_url": "https://oeis.org/A339391",
+        "material_read": "Sequence definition, examples and tables displayed on sequence page",
+        "method": "Inspect database entry and compare all-binary versus restricted family",
+        "title": "OEIS A339391",
+        "trigger": "Known exact database for shortest binary string attractor thresholds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c3ab1325-bb9e-41ac-aeeb-6370b4556968",
+  "value": {
+    "rationale": "Distinct-gap binary marker words are a natural structural class. The shortest threshold for losing the three-position attractor property reveals sharp dependence on gap order, with two reversal-related extremizers, an explicit obstruction, and a complete finite census. The statement is genuinely sharper than a single arbitrary word computation and has motivated relevance to compression invariants.",
+    "status": "PASS"
+  }
+}
