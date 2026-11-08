@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "For every fixed positive m, unique gcd normalization yields an exact floor sum. The number of candidate primitive pairs below sqrt(mX) is O_m(X), bounding all floor errors. Möbius inversion reduces the weighted primitive congruence sum to arithmetic-progression harmonic sums, whose uniform Riemann-sum error is O(1/v); absolute convergence yields O_d(1) in the logarithmic summation formula. The Euler product is evaluated prime by prime and gives C_m. A standalone verifier checks exact counts via two different implementations; finite tests are not used to infer the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korsky, arXiv:2607.05823, equation (12): O(X log X / q) for restricted collapsed harmonic triples; no explicit unrestricted coefficient.",
+        "Sawin, arXiv:2607.15419, Theorem 1: independent-set construction and positive-density avoidance, rather than a count of all forbidden edges.",
+        "The Erdős–Graham book is the historical motivation; current 2026 papers quote it as an extremal avoidance question.",
+        "Fan and Tóth arXiv:2606.20057 studies the density of fixed normalized-gcd values f(a,b); an edge is not determined by f(a,b) alone."
+      ],
+      "reasoning": "Neither accessible recent primary result implies the exact leading constant for unrestricted pairs. An upper bound for a restricted triple family is strictly weaker; existence of dense edge-free sets does not give an unrestricted first-moment asymptotic. A full parametric Euler product is not supplied by these source results. For m=2, (2,6) is an edge and (2,10) is not, although the normalized gcd statistic f equals 2 in both cases, so any theorem concerning only a fixed f-level does not imply the required edge count.",
+      "searches": [
+        "Korsky Sawin harmonic triple counting integer reciprocal three-term arithmetic progressions exact asymptotic number of pairs a,b <= X with a+b dividing 2ab; leading constant (4 log 2)/(pi^2) X log X",
+        "Erdos Graham #327 harmonic-mean pair graph forbidden edges asymptotic count, general m factor a+b divides m a b logarithmic density Euler product",
+        "\"harmonic triples\" \"4 log 2\" pi",
+        "\"harmonic triples\" \"N log N\" counting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.05823v1",
+      "arxiv:2607.15419v1",
+      "OEIS:A362931",
+      "OEIS:A055081",
+      "MathWorld:Harmonic_Triple",
+      "Erdos_problem_327_summary",
+      "Published mathematical claim searches covering edge asymptotics and variants",
+      "Prior related research claims inspected for deduplication",
+      "arxiv:2606.20057v1 abstract and extended alphaXiv theorem analysis"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact pair identity follows from the known primitive parametrization, but evaluating the sum uses a new congruence-restricted primitive harmonic sum and Euler product."
+      ],
+      "reasoning": "Sawin and Korsky already cover the forbidden relation and key gcd parametrization, so those elements are excluded from the novelty claim. Their independence-set bounds and constrained O-estimates do not logically imply the exact unrestricted edge asymptotic. OEIS finite formulas give an algorithm for exact evaluation but do not imply the stated asymptotic without additional analysis. No stronger result with the same object, domain and coefficient was found in the checked material.",
+      "searches": [
+        "Asymptotic number of forbidden pairs for Erdős–Graham unit-fraction arithmetic progression problem: count 1<=a<b<=N with (a+b) divides 2ab; harmonic mean integer, order N log N with explicit constant 4 log 2 / pi^2",
+        "Korsky Sawin harmonic triple counting integer reciprocal three-term arithmetic progressions exact asymptotic number of pairs a,b <= X with a+b dividing 2ab; leading constant (4 log 2)/(pi^2) X log X",
+        "Erdos Graham #327 harmonic-mean pair graph forbidden edges asymptotic count, general m factor a+b divides m a b logarithmic density Euler product",
+        "\"a+b divides 2ab\" \"asymptotic\"",
+        "\"harmonic means\" \"N log N\" integer triples asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sawin arXiv:2607.15419, Lemma 2: the same divisibility relation under primitive coprime parameters.",
+        "Korsky arXiv:2607.05823, Lemma 2.2: the 3-term reciprocal progression condition is the integral harmonic mean condition.",
+        "OEIS A362931 explicitly defines ordered-pair harmonic-mean counts, equivalent to X+2E_2(X)."
+      ],
+      "reasoning": "The reciprocal-mean relation and harmonic-triple relation are exactly equivalent for m=2, so all three source formulations are compared, not treated as unrelated wording. The existing exact finite count in OEIS is not itself claimed as new. The proposed result is an explicit large-X asymptotic and general fixed-m coefficient, not a repackaged count definition.",
+      "searches": [
+        "Asymptotic number of forbidden pairs for Erdős–Graham unit-fraction arithmetic progression problem: count 1<=a<b<=N with (a+b) divides 2ab; harmonic mean integer, order N log N with explicit constant 4 log 2 / pi^2",
+        "\"harmonic mean\" integer pairs \"asymptotic\" N log N",
+        "\"a+b\" \"2ab\" pair count asymptotic integer harmonic means"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A362931 (introduced August 28 2023) states A362931(N)=N+2E_2(N), supplies a direct finite formula and b-file through N=10000; its N=300 value is 996.",
+        "OEIS A055081 records counts of positive integer partners having integral harmonic mean with n, with number-theoretic divisor formulas."
+      ],
+      "reasoning": "Exact individual counts are known and are neither presented as discoveries nor used as proof of a new analytic asymptotic. The inspected OEIS entries give finite sums, programs and tables but do not state the constant 4 log(2)/pi^2, linear asymptotic error, or the fixed-m Euler-product family.",
+      "searches": [
+        "OEIS number of pairs positive integers a<b<=n harmonic mean integer",
+        "OEIS \"harmonic mean\" \"pairs\" up to n",
+        "https://oeis.org/A362931",
+        "https://oeis.org/A055081"
+      ]
+    },
+    "rationale": "The recent primary sources and OEIS cover the relation, a primitive parametrization, an O-bound for restricted harmonic triples, dense avoidance sets, and exact finite count tables. They do not state or imply the explicit all-pairs X log X constant, O_m(X) remainder, or the fixed-m Euler product without additional analysis. No covering publication was identified in the checked sources; historical priority remains provisional, especially unindexed earlier analyses.",
+    "residual_risks": [
+      "An old unindexed enumeration or analytic study may already derive the same asymptotic coefficient.",
+      "The 1980 Erdős–Graham book and 2010 VanderBurgh article were not fully examined; their cited problem/terminology is known, not used to infer absence of the theorem.",
+      "Semantic database hits are not an exhaustive mathematical priority certificate; newly published or unindexed equivalents may exist.",
+      "The original full text of Fan and Tóth arXiv:2606.20057 was not accessible through attempted route; the inspected theorem summary is related but does not directly imply the edge-count claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER_exact_leading_constant",
+        "evidence": [
+          "Lemma 2.2 parametrizes harmonic triples.",
+          "Equation (12) counts a restricted class of triples only with a big-O bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.05823",
+        "material_read": "HTML complete manuscript, introduction, Lemma 2.2, Section 3 and references (141-line rendering)",
+        "method": "Mathematical implication comparison: triple parameterization, O(X log X / q) count versus unrestricted exact asymptotic",
+        "title": "Large Sets of Integers with No Harmonic Triples",
+        "trigger": "Same reciprocal three-term progression and counting of collapsed triples; earliest qualifying literature"
+      },
+      {
+        "assessment": "DOES_NOT_COVER_exact_edge_asymptotic",
+        "evidence": [
+          "Theorem 1 concerns a positive-density independent subset.",
+          "Lemma 2 supplies a known primitive-pair parametrization.",
+          "The paper counts restricted pairs to prove existence rather than determining all forbidden edges."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.15419",
+        "material_read": "Complete 176-line rendered article, Theorem 1, Lemmas 2–5 and concluding sections",
+        "method": "Checked what is counted and whether an unrestricted edge-count asymptotic is stated or implied",
+        "title": "Sets of unit fractions without two members whose average is a unit fraction",
+        "trigger": "Exact m=2 relation, Erdős–Graham independent-set problem"
+      },
+      {
+        "assessment": "COVERS_exact_finite_counts_NOT_asymptotic_constant",
+        "evidence": [
+          "A362931(N)=N+2E_2(N).",
+          "At N=300 the table gives 996, matching E_2(300)=348.",
+          "No asymptotic constant or general fixed-m Euler product appears in the inspected entry."
+        ],
+        "identifier_or_url": "https://oeis.org/A362931",
+        "material_read": "Entire OEIS entry including finite formula, first terms, programs, references and b-file values including N=300",
+        "method": "Compared sequence definition and formula directly with E_2(N)",
+        "title": "A362931: number of pairs with integral harmonic mean",
+        "trigger": "Potential exact database covering the m=2 counts"
+      },
+      {
+        "assessment": "LOCAL_FINITE_COUNTS_ONLY",
+        "evidence": [
+          "The entry counts partners for one given integer and has a divisor formula.",
+          "No global edge asymptotic is stated in the entry."
+        ],
+        "identifier_or_url": "https://oeis.org/A055081",
+        "material_read": "OEIS entry, partner-count definition, divisor characterization and special prime-power cases",
+        "method": "Compared local divisor-count statements against the global all-pairs asymptotic and arbitrary fixed-m family",
+        "title": "A055081: integral harmonic-mean partners",
+        "trigger": "Possibility of a known local divisor-count formula implying the total"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": [
+          "Entry explicitly warns that Shirali uses a different equation.",
+          "The pre-2026 reference list leaves unindexed historical priority as a residual risk."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/HarmonicTriple.html",
+        "material_read": "Full MathWorld entry and listed references, including VanderBurgh 2010 and Shirali 2013",
+        "method": "Checked distinction between reciprocal-progression triples and other harmonic Diophantine triples",
+        "title": "Harmonic Triple",
+        "trigger": "Historical variants and pre-2026 bibliography"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_BY_STATED_THEOREMS; full-text priority risk remains",
+        "evidence": [
+          "Its statistic is f(a,b)=gcd(ab,a+b)/gcd(a,b), equal to gcd(r,x+y) in primitive parameters.",
+          "For m=2, pairs (a,b)=(2,6) and (2,10) both have f(a,b)=2, but only (2,6) satisfies a+b divides 2ab, so the fixed-f distribution does not determine graph edges."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.20057",
+        "material_read": "Extended arXiv-indexed abstract and alphaXiv analysis of theorem statements, normalized gcd distribution and local factors; attempted original primary full text was not retrievable",
+        "method": "Compared whether edge predicate is a function only of the normalized gcd statistic covered by its main asymptotic theorem",
+        "title": "On the asymptotic density of the ordered pairs of positive integers such that gcd(ab,a+b)=gcd(a,b)",
+        "trigger": "Closely related normalized gcd of product and sum, potential stronger asymptotic theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c585776a-499c-47fe-86c1-fbe963e5d8cc",
+  "value": {
+    "rationale": "The theorem evaluates a natural global first-moment invariant of the precise graphs appearing in the Erdős–Graham problem, where recent work studies large independent subsets. It sharpens a known O(X log X) harmonic-triple counting scale to an exact leading coefficient and provides a nontrivial multiplicative law across all fixed divisibility parameters. The ratio 4/3 directly compares the two original sibling divisibility relations. This has value independently of a solution to the hard extremal independence problem.",
+    "status": "PASS"
+  }
+}
