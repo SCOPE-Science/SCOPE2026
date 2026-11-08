@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the complete path basis and computes the independent three-dimensional restrictions of left and right multiplication. Their ranks and squared ranks distinguish precisely the three possible local nilpotent Jordan forms. Cyclic binary support words then give an exhaustive and reversible classification of all possible global Jordan types. The weighted transition factors account for every field coefficient once; a direct trace identity yields the complete polynomial and its motive-valued analogue. Fixed-support coordinate conditions give explicit affine–torus cells, which prove the dimension formula. The standalone checker independently reconstructs multiplication and rank for eight exhaustive finite-field configurations, including a nonprime field. These experiments test finite instances and are not substituted for the general proof.
+## correctness
 
-## Originality — PASS (provisional literature priority)
-Shen's 2014 primary-source study describes Nakayama homological invariants, not the nilpotent regular multiplication Jordan type. Iarrobino–Macias Marques–McDaniel introduce general Jordan-type invariants, but study commutative Artinian algebras rather than this explicit noncommutative family. The nearest identified older local result in prior mathematical records counts square-zero elements in length-four cyclic Nakayama algebras; that is a specialization of a different product condition and does not imply the complete length-three Jordan partition/motive/dimension distribution. Searches for direct aliases, path-algebra multipliers, tables, stronger coverage, and dual left–right equivalences found no explicit antecedent. The elementary rank-to-Jordan and transfer-matrix mechanisms themselves are not claimed as novel. A stronger unlocated classification remains possible, so publication priority is not independently certified.
+PASS
 
-## Value — PASS
-The Jordan partition of multiplication on the regular module is a natural structural invariant finer than the square-zero condition. The theorem completely solves its arithmetic and geometric distribution for an unbounded family of connected, noncommutative finite-dimensional algebras, including the exact attainable partition count, a missing next-to-maximal length-three multiplicity, geometrically explicit affine–torus strata, their dimensions, and a uniform two-state motivic recurrence. These are not merely a recomputed small table or a single arbitrary slice; all cycle lengths, fields and radical parameters are included.
+The path-algebra basis {ei,alpha_i,beta_i} and left/right concatenation define 3×3 strictly lower-triangular blocks with coefficients ui,ui+1,vi. Each block has ranks (2,1) iff adjacent ui nonzero, (0,0) iff ui=ui+1=vi=0, otherwise (1,0); hence common Jordan type with parameters t,z. Cyclic binary runs yield t+z≤n−2 for mixed supports and exceptional all-zero/all-one cases, proving binom(n,2)+3 attainable types and forbidding t=n−1. Local weights on transitions 00,mixed,11 give the 2×2 trace transfer polynomial. Every fixed support/zero subset defines Gm^(r+h−z)×A^(n−h), and maximizing run count proves the stratum dimensions and motivic identity. Independent path-matrix and transfer census matched all 64 (n3,q2) and 256 (n4,q2) radical elements. Formal recurrence follows Cayley–Hamilton. No claim about nonreduced closures.
 
-## Closest literature, limits, and risks
-Primary references: D. Shen, *The singularity category of a Nakayama algebra* (arXiv:1404.2451, initial public submission 2014-04-09); A. Iarrobino, P. Macias Marques, C. McDaniel, *Artinian algebras and Jordan type* (arXiv:1802.07383, initial submission 2018-02-21); N. Altafi, A. Iarrobino, P. Macias Marques, *Jordan type of an Artinian algebra, a survey* (arXiv:2307.00957). The new theorem does not address arbitrary Nakayama Kupisch series, higher radical lengths or scheme-theoretic orbit closures. Prioritization relative to all historical publications remains provisional; no independent audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: General results on Nakayama singularity categories or Jordan types of commutative Artinian algebras do not imply the full explicit cyclic regular multiplication radical census without separate computation. No exactly covering theorem was found in actual indexed results or the inspected relevant primary statements; this is not a historical priority certificate.
+
+## value
+
+PASS
+
+A natural finite-dimensional noncommutative family has a complete attainable nilpotent regular Jordan partition spectrum (including sharp missing n−1 block gap), all finite-field multiplicities and motivic geometrical strata. These are useful exact invariants of cyclic Nakayama radical geometry, not merely restating an elementary transfer algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

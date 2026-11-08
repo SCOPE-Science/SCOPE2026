@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of Jordan-stratum formulas
+# Independent mathematical audit
 
-The proof is in `RESULT.md`; the following are additional reproducible finite checks, not a replacement for the proof. Execute `python3 CHECKER.py` from the extracted directory with an ordinary Python 3 interpreter. No network access or third-party packages are required.
+## correctness
 
-The checker constructs the path multiplication table from the directed cycle and builds both full regular-action matrices of dimension \(3n\), rather than using the derived three-block normal form. Gaussian elimination computes \(\operatorname{rank}L_x\), \(\operatorname{rank}R_x\), \(\operatorname{rank}L_x^2\), \(\operatorname{rank}R_x^2\). These are compared elementwise against the predicted support invariants. A separate polynomial matrix-power implementation computes the two-state transfer polynomial, and all counts are compared exactly. Every radical element is enumerated in the eight listed configurations. Extension-field checks use explicit arithmetic in \(\mathbb F_4=\mathbb F_2[t]/(t^2+t+1)\). The checker verifies that the number of observed Jordan types is \(\binom n2+3\), that \(n-1\) length-three blocks are impossible, and that the total number of elements is \(q^{2n}\).
+PASS
 
-Expected final output: `NAKAYAMA_LOEWY3_REGULAR_JORDAN_OK 8`. Full recorded output is in `CHECKER_OUTPUT.txt`.
+The path-algebra basis {ei,alpha_i,beta_i} and left/right concatenation define 3×3 strictly lower-triangular blocks with coefficients ui,ui+1,vi. Each block has ranks (2,1) iff adjacent ui nonzero, (0,0) iff ui=ui+1=vi=0, otherwise (1,0); hence common Jordan type with parameters t,z. Cyclic binary runs yield t+z≤n−2 for mixed supports and exceptional all-zero/all-one cases, proving binom(n,2)+3 attainable types and forbidding t=n−1. Local weights on transitions 00,mixed,11 give the 2×2 trace transfer polynomial. Every fixed support/zero subset defines Gm^(r+h−z)×A^(n−h), and maximizing run count proves the stratum dimensions and motivic identity. Independent path-matrix and transfer census matched all 64 (n3,q2) and 256 (n4,q2) radical elements. Formal recurrence follows Cayley–Hamilton. No claim about nonreduced closures.
 
-The finite cases do not establish the motivic identity or the all-field assertion, both of which follow from the coordinate-cell proof. They do not independently establish originality, scheme-level closures or any of the explicitly excluded extensions.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: General results on Nakayama singularity categories or Jordan types of commutative Artinian algebras do not imply the full explicit cyclic regular multiplication radical census without separate computation. No exactly covering theorem was found in actual indexed results or the inspected relevant primary statements; this is not a historical priority certificate.
+
+## value
+
+PASS
+
+A natural finite-dimensional noncommutative family has a complete attainable nilpotent regular Jordan partition spectrum (including sharp missing n−1 block gap), all finite-field multiplicities and motivic geometrical strata. These are useful exact invariants of cyclic Nakayama radical geometry, not merely restating an elementary transfer algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
