@@ -1,0 +1,14 @@
+# Scientific review: Apéry-layer law for shifted-square semigroups
+
+## Correctness — PASS
+The exact minimization of Apéry height is recovered from Liu–Xin Lemma 2.7, and terms with shift index at least 3 can never improve a value at most 4. Legendre's obstruction classification identifies the height-four main stratum. A translated two-square exceptional set has size \(O(a/\sqrt{\log a})\) by Landau–Ramanujan; outside it the height is exactly three or four according to membership in \(4^v(8u+7)\). The obstruction count has density \(1/6\) with logarithmic error. Summing heights gives the genus. Counting obstruction points in a tail of length \(O(a/\sqrt{\log a})\) proves the conductor estimate with the same order of error, and division yields \(19/24\). The independent shortest-path and square-count finite checker executed successfully on 111 parameters and 12,875 residue classes; finite tests alone cannot prove the asymptotics.
+
+## Originality — PASS within inspected evidence
+Liu and Xin, *On Frobenius Formulas of Power Sequences* (arXiv:2210.02722, Section 2), give exact single-residue Apéry minimization for the infinite shifted-square family, so that ingredient is expressly not claimed as new. The inspected work concentrates on Frobenius numbers and does not derive the global limiting Apéry-layer census, genus asymptotic or genus/conductor density. The new part is the uniform exceptional-set and density argument bridging exact residue-wise data to aggregate large-parameter invariants. Song's 2026 related paper is characterized in accessible material as a Frobenius-number study; its complete latest full text was not accessible. Results for finite square-offset triples and for unrelated numerical semigroups have different generator families and do not imply these particular asymptotic constants. The possibility of an unindexed treatment or an implicit derivation in uninspected appendices remains a bibliographic risk; searches cannot establish absolute priority.
+
+## Mathematical value — PASS
+The genus and conductor are central invariants of a numerical semigroup; their limiting ratio is a global arithmetic statistic not determined numerically by a Frobenius value alone. A natural family with infinitely many square-shifted generators exhibits an explicit limiting Apéry-height distribution and the nontrivial gap-to-conductor constant \(19/24\). The argument explains precisely how the three-square obstruction density \(1/6\) survives the translation minimizations despite thin two-square exceptions, and gives a uniform quantitative error. The result is not a mere table or arbitrary small parameter slice.
+
+The result provides no exact finite-parameter genus formula, no sharp second-order term and no independently certified proof; related later Frobenius literature was only partially accessible.
+
+Self-review: passed. Independent audit: not yet performed.
