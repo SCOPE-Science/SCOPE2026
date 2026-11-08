@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:49:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — For independent ξ=+qS (probability p) or −pS (probability q), η=1 and cap S/N, the exact shifted recursion in z=x+qS is z↦max(z−S/N,0) or min(z+S/N,S). From any deterministic real start it reaches the invariant [0,S] in finitely many steps; any N consecutive plus samples subsequently hit zero almost surely, yielding finite lattice absorption. Detailed balance gives π_j∝(q/p)^j and the boundary-inclusive tridiagonal characteristic polynomial (λ−1)(√pq)^N U_N(λ/(2√pq)). Weighted Riemann sums for p=1/2+θ/N prove tilted-uniform law and N²-gap limit π²/2+2θ². For p=q=1/2, checked the explicitly claimed cubic Poisson solution at BOTH reflecting boundaries for N=1,…,8 with exact rational arithmetic; it yields τ_int=(2N²+4N−1)/5 and sample-average variance S²(N+2)(2N²+4N−1)/(60N). Finite numerical checks are supporting only; the arguments prove all N and θ in stated restricted model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koloskova et al., convergence rates and stochastic clipping bias bounds",
+          "Suvorikova et al., arXiv:2609.32962, asymmetric-noise/decreasing step clipping examples"
+        ],
+        "reasoning": "General clipping convergence theorems and decreasing-step mean-field examples do not furnish fixed-step lattice absorption plus exact spectrum, and changes in step-size regime matter.",
+        "searches": [
+          "clipped stochastic gradient descent two-point noise birth death exact stationary geometric spectrum skewness",
+          "stochastic gradient clipping heavy tail bias stationary law exact 2023 2026"
+        ]
+      },
+      "checked_sources": [
+        "Koloskova, Hendrikx, Stich, ICML 2023, https://proceedings.mlr.press/v202/koloskova23a.html",
+        "Suvorikova et al. 2026 arXiv:2609.32962, accessible abstract",
+        "Resultary semantic query: clipped stochastic gradient descent two-point noise birth death exact stationary geometric spectrum skewness",
+        "Published Resultary Ehrenfest/signSGD finding (different kernel)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Koloskova et al. prove clipping bias/convergence, not exact equal-curvature lattice spectrum",
+          "The present exact Poisson identity and p_N=1/2+θ/N limit produce explicit quantitative consequences"
+        ],
+        "reasoning": "Knowing convergence bounds or geometric π of a generic P does not by itself imply the optimizer-specific 1/N skewness window and N² mixing penalty; basic chain formulas are acknowledged prior ingredients.",
+        "searches": [
+          "clipped stochastic gradient descent two-point noise birth death exact stationary geometric spectrum skewness",
+          "arXiv:2305.01588; arXiv:2609.32962"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koloskova–Hendrikx–Stich ICML 2023 clipped SGD paper",
+          "Classical reversible reflecting birth–death chain formulas; published Resultary signSGD Ehrenfest model"
+        ],
+        "reasoning": "The stationary law and spectrum are classical for an abstract biased reflecting random walk, but the nonlinear unprojected SGD update's global almost-sure reduction and joint asymptotic conclusion need a separate model-specific proof.",
+        "searches": [
+          "clipped stochastic gradient descent two-point noise birth death exact stationary geometric spectrum skewness",
+          "clipped SGD two point noise exact reflecting birth death chain absorbing lattice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: Exact Ehrenfest law and linear noise floor for additive-noise signSGD, 2026-10-04, gives a binomial rather than geometric stationary law",
+          "No equal-kernel table surfaced"
+        ],
+        "reasoning": "Published exact finite-chain results for different stochastic optimizers cannot supply this model's stationary time-average covariance coefficient without identifying the transition kernel.",
+        "searches": [
+          "clipped stochastic gradient descent two-point noise birth death exact stationary geometric spectrum skewness",
+          "Resultary exact Ehrenfest law additive noise signSGD stationary"
+        ]
+      },
+      "rationale": "PASS, qualified — Abstract reflected birth–death chains already have geometric π and Chebyshev eigenvalues; classical Poisson equations give autocorrelation once P is known. Koloskova–Hendrikx–Stich's gradient-clipping paper studies stochastic bias and convergence bounds but not this exact commensurate two-atom fixed-step invariant spectrum or critical skewness scaling in inspected material. A related published SCOPE signSGD Ehrenfest result has a different transition kernel and invariant law. Novelty is the nonlinear optimizer-to-reflecting-walk reduction and critical window/mixing tradeoff as a combined exact benchmark, not elementary random-walk formulas independently.",
+      "residual_risks": [
+        "Generality of classical birth–death spectral and Green–Kubo theorems limits what can be claimed as original ingredient.",
+        "Additional exact stationary clipped-SGD variants or inaccessible related literature may cover portions of the joint benchmark.",
+        "Only commensurate threshold c=S/N and reciprocal-curvature step analyzed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL CONVERGENCE PRIOR; no matching exact fixed-step reflecting lattice theorem identified in portions read",
+          "evidence": "ICML 2023 PMLR vol. 202, sections discussing clipping operator and bias",
+          "identifier_or_url": "https://proceedings.mlr.press/v202/koloskova23a.html",
+          "material_read": "Read primary abstract, introduction and relevant accessible full-PDF sections addressing stochastic clipping bias and convergence estimates",
+          "method": "primary conference PDF/page and HTML text",
+          "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+          "trigger": "Direct source for gradient clipping biases and rates"
+        },
+        {
+          "assessment": "DIFFERENT KERNEL and different stationary law; no whole-document noncoverage claim",
+          "evidence": "Published summary explicitly has Ehrenfest/binomial law for signSGD",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878",
+          "material_read": "Resultary title and full semantic summary (not full document)",
+          "method": "published research index search",
+          "title": "Exact Ehrenfest law and linear noise floor for additive-noise signSGD",
+          "trigger": "Closest indexed exact finite-chain optimization result"
+        },
+        {
+          "assessment": "Different decreasing-step or averaging setup from current fixed-step result; incomplete priority comparison risk",
+          "evidence": "arXiv:2609.32962 abstract/topic",
+          "identifier_or_url": "https://arxiv.org/abs/2609.32962",
+          "material_read": "Accessible abstract and source bibliography descriptions; full text not read",
+          "method": "arXiv abstract and literature index",
+          "title": "Two-atom asymmetric clipping and averaging (Suvorikova et al.)",
+          "trigger": "Asymmetric two-atom SGD noise is plausibly overlapping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — A natural explicitly solvable clipping benchmark reveals that stronger clipping reduces single-step stationary variance while greatly increasing the variance cost of time averages, with an exact skewness width 1/N. The metric is motivated by bias/mixing in stochastic optimization rather than arbitrary finite algebra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Generality of classical birth–death spectral and Green–Kubo theorems limits what can be claimed as original ingredient.",
+    "Additional exact stationary clipped-SGD variants or inaccessible related literature may cover portions of the joint benchmark.",
+    "Only commensurate threshold c=S/N and reciprocal-curvature step analyzed."
+  ],
+  "schema_version": 1
+}

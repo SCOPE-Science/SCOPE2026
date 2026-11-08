@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The two conditioned update maps are exact, and a length-\(N\) positive-noise run proves finite-time absorption almost surely from every real start; no finite simulation substitutes for this argument. Detailed balance and a Chebyshev determinant yield the full stationary and spectral formulas. Weighted Riemann sums and a critical gap expansion prove the sharp noise-skewness window. An endpoint-inclusive cubic Poisson solution proves the exact integrated autocorrelation formula. An independently executable standard-library verifier checks discrete identities and representative numerical limits.
+## correctness
 
-**Originality: PASS, with a specific priority risk.** The 2023 clipping source supplies the stochastic optimizer and known clipping-bias phenomenon, not the exact invariant measure, spectral critical window, or time-averaging law. The 2026 Suvorikova et al. two-point example proves a shifted mean-field equilibrium for decreasing-step SGD rather than the fixed-step lattice-and-spectral theorem. Earlier geometric and convergence analyses also do not state it. The geometric stationary weights and cosine spectrum are classical for reflected random walks, so the new assertion is the precise optimizer-to-chain reduction, its global absorption, and the coupled critical skewness/mixing consequences, not an independently novel birth–death calculation. Specialized literature might contain an equivalent nonlinear-to-chain conjugacy; no independent publication-priority certification is asserted.
+PASS
 
-**Value: PASS.** The \(N^{-1}\) noise-asymmetry threshold is a sharp and motivated robustness boundary for a standard clipped optimizer, and the exact symmetric result distinguishes a smaller stationary error floor from a rapidly worse effective sample size. The one-dimensional, two-atom, reciprocal-curvature, commensurate-cap setting is restrictive but supplies a reproducible benchmark for bias and temporal correlation. Extensions to other step sizes and noise distributions remain open.
+PASS — For independent ξ=+qS (probability p) or −pS (probability q), η=1 and cap S/N, the exact shifted recursion in z=x+qS is z↦max(z−S/N,0) or min(z+S/N,S). From any deterministic real start it reaches the invariant [0,S] in finitely many steps; any N consecutive plus samples subsequently hit zero almost surely, yielding finite lattice absorption. Detailed balance gives π_j∝(q/p)^j and the boundary-inclusive tridiagonal characteristic polynomial (λ−1)(√pq)^N U_N(λ/(2√pq)). Weighted Riemann sums for p=1/2+θ/N prove tilted-uniform law and N²-gap limit π²/2+2θ². For p=q=1/2, checked the explicitly claimed cubic Poisson solution at BOTH reflecting boundaries for N=1,…,8 with exact rational arithmetic; it yields τ_int=(2N²+4N−1)/5 and sample-average variance S²(N+2)(2N²+4N−1)/(60N). Finite numerical checks are supporting only; the arguments prove all N and θ in stated restricted model.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified — Abstract reflected birth–death chains already have geometric π and Chebyshev eigenvalues; classical Poisson equations give autocorrelation once P is known. Koloskova–Hendrikx–Stich's gradient-clipping paper studies stochastic bias and convergence bounds but not this exact commensurate two-atom fixed-step invariant spectrum or critical skewness scaling in inspected material. A related published SCOPE signSGD Ehrenfest result has a different transition kernel and invariant law. Novelty is the nonlinear optimizer-to-reflecting-walk reduction and critical window/mixing tradeoff as a combined exact benchmark, not elementary random-walk formulas independently.
+
+## value
+
+PASS
+
+PASS — A natural explicitly solvable clipping benchmark reveals that stronger clipping reduces single-step stationary variance while greatly increasing the variance cost of time averages, with an exact skewness width 1/N. The metric is motivated by bias/mixing in stochastic optimization rather than arbitrary finite algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
