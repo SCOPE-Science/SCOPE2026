@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The valley coordinate equivalence is exact: the source's word-position and height are \((u+k,u-k)\), invertible over the integer parity class. Vertex existence is certified by the explicit admissible word \(U^uD^kU^{nb-u}D^{n-k}\). The two edge-generating words satisfy all prefix inequalities, including their tight cases \(n=3,b=1\). In particular \(n\ge3\) makes \(nb-1\ge2b\); the isolated vertex cannot share a face with another. At length three the only permissible pairs are exactly those satisfying \(u<v\), the edge sum and cycle rank are exact, and Mu--Welker's definition \(\mathfrak h(x,y)=\mathfrak f(x,y-1)\) produces the stated coefficients. Finite enumeration independently confirms the formulas and extra higher-length cases. No finite experiment is used as proof of the universal quantifiers.
+## correctness
 
-## Originality — PASS with residual risk
-The closest work is Mu--Welker, arXiv:2609.14054, especially its Section 3 and Question 3.0. Its shellability theorem and selected Appendix matrices do not imply these all-parameter component and length-three polynomial formulas without the new explicit adjacency classification. Reverse-and-swap symmetry identifies the source's \((b,1)\) sample tables with the \((1,b)\) sample cases, so those individual entries are prior coverage rather than new data. General rational associahedra of Armstrong--Rhoades--Williams use different simplicial faces. Indexed mathematical-result searches and the accessible existing research-claim ledger revealed no equivalent or stronger statement. Implicit coverage in a prior proof or literature outside these searches is still a risk.
+PASS
 
-## Value — PASS
-Mu--Welker explicitly request a rational-Dyck explanation of the nonpure face-statistic triangles. The result gives closed formulas across infinitely many Fuss parameters, a topological interpretation of the last diagonal \(h\)-coefficient as the exact integral cycle rank, and a uniform two-parameter connectedness theorem across all lengths at least three. This is a motivated structural classification rather than a finite table, while its proof makes the simplicity of length three transparent.
+Valley after k-th down step has (k,u), kb≤u≤nb−1, realized by U^u D^k U^(nb−u) D^(n−k); summing allowed u yields b*n(n−1)/2 vertices. For n≥3, the only isolated vertex is (1,nb−1). An explicit admissible word joins every k≥2 vertex to (1,b); every nonterminal (1,u) joins (2,nb−1), and that joins (1,b). At n=2 all b vertices are isolated. At n=3 the graph is bipartite with A_u=(1,u),B_v=(2,v) and precisely u<v edges. Counting gives 3b vertices, E=b(3b−1)/2, components sizes 1 and 3b−1, and first Betti E−(3b−1)+1=(3b−4)(b−1)/2; no higher-dimensional faces. The isolated singleton has degree 1 in nonpure grading; evaluating Mu–Welker f(x,y−1) yields both stated h coefficients. All universal quantifiers follow from admissible-word constructions, not small enumerations.
 
-## Boundaries
-Higher homology and face triangles at lengths at least four are not determined. No equivariant or integral higher-dimensional homotopy classification is claimed. Originality is assessed under available full-text and indexed evidence, not guaranteed by absence of hits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No stronger or equivalent covering result was established in the actual comparisons of statements/implications; this is a best-of-knowledge assessment with the precise unread-primary-source and alias risks separately documented.
+
+## value
+
+PASS
+
+A natural existing Dyck-valley simplicial-complex family has nontrivial topology and open nonpure face-statistic interpretation. Identifying the unique isolated vertex for every length n>=3, stabilizing pi_0, and determining the complete all-b length-three homotopy with exact f/h-triangles gives a useful uniform structural base case, not a gratuitous tiny computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
