@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.11+ (standard library only).
+## correctness
 
-The verifier performs 18 exact rational checks of image geometry in the three parameter regimes, proves directly by rational endpoint propagation that the five-sign word `----+` sends every point in \([-3,3]\) to zero for the example \(q=2/3\), \(t=1\), \(b=2\), and computes the exact ten-step probability distribution from zero, including its zero mass \(83/512\). A successful invocation outputs:
+PASS
 
-`VERIFY_OK interval-regimes=18, exact-reset-word=----+, reset_probability>=1/32, exact-distribution-steps=10, mass_zero= 83/512 states= 205`
+Each exact soft-threshold branch f± is q-Lipschitz with 0<q=1−ah<1, so backward coupling ensures a unique invariant law. Its images of I=[−B,B] overlap and cover I iff q≥1/2. For q<1/2 both branches are affine with strong separation, giving a nonatomic Cantor law of dimension log2/(−log q). At q=1/2 they halve I, giving exact uniform measure. For q>1/2 an arbitrary small plateau preimage can be hit by a common finite sign word from all x∈I, using a cylinder of diameter ≤2Bq^n; the uniform atom minorization yields TV geometric contraction. Stationarity and propagation of a reset atom give a dense countable purely atomic support. Finite-support laws from a deterministic start are TV singular to the nonatomic invariant laws. Independently checked exact rational endpoint geometry and a five-sign global reset word.
 
-The checked example corresponds to \(a=1\), \(h=1/3\), \(\lambda=3\), \(\sigma=6\), and it gives an explicit uniform five-step reset probability at least \(1/32\). The ten-step mass is transient, not an exact stationary mass.
+## originality
 
-The general results are mathematical consequences of the proof in `RESULT.md`: contraction for existence and uniqueness, affine separation at \(q<1/2\), exact interval-halving at equality, and a common-atom minorization in the overlapping branch. The finite test does not certify the infinite assertions, generalize beyond the stated hypotheses, or constitute an independent audit.
+PASS
+
+General random forward-backward invariant-measure results and classical two-branch IFS Cantor dimension theory are established mathematics. Their inspected statements do not give this explicit noisy-proximal trichotomy, including a dense full-support atomic invariant law and uniform Doeblin TV mixing at all smaller steps. Priority remains best-of-knowledge and exact-special-case IFS literature may contain equivalent statements.
+
+## value
+
+PASS
+
+The measure-type transition exposes a concrete failure mode for inferring stationary density or total-variation mixing from weak convergence of fixed-step stochastic optimization. The dense purely atomic law alongside exact uniform/Cantor transition is a motivated structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
