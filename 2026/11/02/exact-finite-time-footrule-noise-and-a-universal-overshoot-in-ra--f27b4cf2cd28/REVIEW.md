@@ -1,19 +1,21 @@
-# Review of the exact transient footrule-noise theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim specifies the lazy discrete-time random-transposition kernel, ordered start, observable, and all quantifiers. The permutation representation on ordered distinct position pairs contains exactly four central eigenspaces, with eigenvalues \(1\), \(1-2/n\), \((1-2/n)^2\), and \(1-4/n\). Exact uniform, one-step, and two-step moments fix the three transient coefficients, and subtraction of the exact mean square gives the stated variance. The independent exact-enumeration checker passed 59 checks. The asymptotic cancellation between the largest two spectral coefficients is explicitly accounted for, and the limiting maximizer is justified by a one-sign-change derivative. No finite enumeration is used as an infinite proof.
+PASS
 
-## Originality
+The one-card permutation representation yields E F_t=(n²-1)(1-a^t)/3 with a=1-2/n. F² lies in the ordered-pair matrix-coefficient module, decomposed as trivial, standard, [n-2,2], [n-2,1,1] with eigenvalues 1,a,a²,c (c=1-4/n). Uniform second moment and exact one- and two-step squared displacement determine the three coefficients algebraically; direct gap-sum identities for 3-cycles/disjoint transpositions are polynomial and were independently checked. Then variance = v+4(n²-1)(n+2)a^t/45 -(n+1)(3n³+9n²-4n+10)a^(2t)/90 +(n²-1)(n²-4)c^t/30. Positive slow mode dominates c and a², proving overshoot. Expansion c/a²=1-4/(n-2)² at t=floor(sn/2) cancels n⁴ terms and gives V(s)=[2+4e^-s-(6+3s)e^-2s]/45; V derivative has unique positive root 4e^s=9+6s. Independent finite transition laws verified n4..6 without assuming the mode formula.
 
-**PASS, qualified best-knowledge.** The full accessible arXiv manuscript by He, Hutsalyuk, Mussardo and Stampiggi establishes the discrete random-transposition model, its global mixing scale and associated quantum stochastic walks; its spectral variance is a *Hamiltonian* diagnostic, not a transient Spearman-footrule variance. The full available preprint of Jain and Sawhney establishes total-variation and hitting-time mixing for the same random-transposition dynamics, rather than absolute-displacement moment dynamics. The full accessible paper by Xia, Guan and Xu derives stationary/null-distribution properties of Spearman's footrule, including the equilibrium variance credited here, but not the time-dependent three-mode formula. Published research records with potentially related random-permutation covariance and group-Fourier ideas were searched at the level of their statements. Neither their reported claims nor the inspected papers entail the precise finite-time law or the \(18.488377\ldots\%\) overshoot without the evaluated two-position projections. The residual risk is an unlocated special-case formula in the broader interchange-process or association-scheme literature.
+## originality
 
-## Value
+PASS
 
-**PASS.** The earliest nonstationary noise profile of a physically canonical random-walk equilibration observable is not monotone, and the exact formula determines the finite-deck noise at every step. The strict all-size overshoot and the universal, sharp \(t=O(n)\) maximum distinguish observable equilibration from the much later distributional total-variation cutoff. This directly matters when comparing randomization experiments or noisy diagnostics against equilibrium uncertainty; the stationary variance can underestimate observed transient fluctuations by a finite asymptotic fraction.
+Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. The old theorems support premises (chain eigenvalues, stationary moment), while the computed transient mode coefficients and overshoot are additional mathematical work.
 
-## Closest literature and limits
+## value
 
-The motivating source (arXiv:2609.13387; submitted 2026-09-11) studies permutation-group classical-to-quantum mixing and does not calculate the footrule-noise profile. Jain and Sawhney (arXiv:2410.23944) study sharp global mixing; Xia, Guan and Xu (arXiv:2505.01825) study the uniform-permutation footrule null law. All three were inspected in accessible source text, with model, assumptions and claimed quantities compared explicitly. The result does not extend to quantum-walk dynamics or infer a finite-deck unique variance peak. An independently conducted proof or publication-priority review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact transient variance of an established ranking-disorder statistic reveals a large nonmonotone noise overshoot at times linear in deck size, distinct from stationary variance and global total-variation cutoff. The universal peak and explicit relaxation-mode coefficients are useful observables in stochastic equilibration, not merely applying a standard spectral gap bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

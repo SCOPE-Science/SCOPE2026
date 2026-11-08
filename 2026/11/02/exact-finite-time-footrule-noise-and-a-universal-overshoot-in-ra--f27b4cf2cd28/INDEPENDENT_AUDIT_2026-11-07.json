@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:13:59.656444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-card permutation representation yields E F_t=(n²-1)(1-a^t)/3 with a=1-2/n. F² lies in the ordered-pair matrix-coefficient module, decomposed as trivial, standard, [n-2,2], [n-2,1,1] with eigenvalues 1,a,a²,c (c=1-4/n). Uniform second moment and exact one- and two-step squared displacement determine the three coefficients algebraically; direct gap-sum identities for 3-cycles/disjoint transpositions are polynomial and were independently checked. Then variance = v+4(n²-1)(n+2)a^t/45 -(n+1)(3n³+9n²-4n+10)a^(2t)/90 +(n²-1)(n²-4)c^t/30. Positive slow mode dominates c and a², proving overshoot. Expansion c/a²=1-4/(n-2)² at t=floor(sn/2) cancels n⁴ terms and gives V(s)=[2+4e^-s-(6+3s)e^-2s]/45; V derivative has unique positive root 4e^s=9+6s. Independent finite transition laws verified n4..6 without assuming the mode formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General representation eigenvalues apply to F² and are explicitly credited; they do not evaluate its footrule-specific projection coefficients.",
+          "Jain–Sawhney describe total-variation mixing at O(n log n), not this early O(n) noise maximum."
+        ],
+        "reasoning": "No inspected stronger exact spectral expansion includes the absolute-displacement projections; overlap is methodology and stationary law, not the complete theorem.",
+        "searches": [
+          "arXiv:2410.23944 Jain Sawhney random transposition hitting time mixing",
+          "arXiv:2609.13387 quantum stochastic walks permutation group",
+          "Diaconis Shahshahani random transpositions representation characters"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-finite-time-footrule-noise-and-a-universal-overshoot-in-ra--f27b4cf2cd28/RESULT.md",
+        "arXiv:2410.23944 (full HTML relevant sections)",
+        "arXiv:2609.13387 (abstract/description)",
+        "arXiv:2505.01825 (abstract/description)",
+        "Diaconis and Shahshahani (1981) character-method background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary footrule variance v_n matches known null normalization; no time-dependent coefficients follow from it alone.",
+          "The four irreducible shapes imply the space of possible modes but require a nonstandard exact computation of t=1,2 squared moments."
+        ],
+        "reasoning": "The old theorems support premises (chain eigenvalues, stationary moment), while the computed transient mode coefficients and overshoot are additional mathematical work.",
+        "searches": [
+          "arXiv:2505.01825 stationary Spearman footrule",
+          "arXiv:2410.23944 random-transposition total variation cutoff",
+          "random transpositions transient variance Spearman footrule displacement overshoot finite time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The footrule is absolute displacement F=sum_i|pi(i)-i|, not inversion count or quadratic displacement.",
+          "Xia–Guan–Xu study stationary null-distribution asymptotics of the footrule, not exact nonstationary time-dependent variance."
+        ],
+        "reasoning": "The observed transient variance is a different function from equilibrium moments even though both share v_n. Known global mixing also cannot be substituted for this F_t variance.",
+        "searches": [
+          "random transpositions transient variance Spearman footrule displacement overshoot finite time",
+          "Spearman footrule distance random transposition chain time dependent second moment",
+          "arXiv:2505.01825 footrule correlation asymptotic representations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned unrelated variance/OU findings; none identified an exact n,t footrule array or closed formula.",
+          "The submitted variance includes four explicit components with c=1-4/n, unlike known static variance v_n."
+        ],
+        "reasoning": "The target invariant is continuous in t and n and no exact database/table of its values was located; a failed search cannot establish priority.",
+        "searches": [
+          "random transpositions transient variance Spearman footrule displacement overshoot finite time",
+          "published Resultary transient footrule variance random permutation"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. The old theorems support premises (chain eigenvalues, stationary moment), while the computed transient mode coefficients and overshoot are additional mathematical work.",
+      "residual_risks": [
+        "An unindexed representation-theoretic exact footrule projection formula could already imply the transient expansion.",
+        "The n→∞ formula is pointwise in fixed s; a finite-n unique maximizer/convergence of global maximizers was not proved.",
+        "This is classical and does not imply a quantum speedup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observable and total-variation mixing, not the submitted footrule transient variance in inspected sections",
+          "evidence": "Cutoff time (n log n)/2 and hitting-time mixing vs new peak at ~0.753 n.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.23944",
+          "material_read": "Accessible arXiv HTML relevant introduction, mixing theorems and scale comparison materially read",
+          "method": "Primary open full-text inspection",
+          "title": "Hitting time mixing for the random transposition walk",
+          "trigger": "Same lazy random-transposition model"
+        },
+        {
+          "assessment": "C proof supported by representation decomposition and exact moment constants",
+          "evidence": "Modes a,a²,c with F² contained in 2-point permutation representation.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-finite-time-footrule-noise-and-a-universal-overshoot-in-ra--f27b4cf2cd28/RESULT.md",
+          "material_read": "Complete RESULT.md and verify_footrule.py",
+          "method": "Git blob read, character eigenvalues and small transition distributions independently checked",
+          "title": "Exact finite-time footrule noise and a universal overshoot in random-transposition equilibration",
+          "trigger": "Frozen theorem and verification"
+        },
+        {
+          "assessment": "Identifies static stationary observable, not decisive whole-document noncoverage",
+          "evidence": "The reported stationary v_n is prior normalization; transient covariance coefficients remain risk qualified.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.01825",
+          "material_read": "Abstract and accessible description of stationary distribution; full document not verified in current reading",
+          "method": "arXiv abstract/metadata inspection",
+          "title": "Asymptotic representations for Spearman’s footrule correlation coefficient",
+          "trigger": "Identical ranking statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact transient variance of an established ranking-disorder statistic reveals a large nonmonotone noise overshoot at times linear in deck size, distinct from stationary variance and global total-variation cutoff. The universal peak and explicit relaxation-mode coefficients are useful observables in stochastic equilibration, not merely applying a standard spectral gap bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Lazy uniform ordered-index discrete transpositions started at identity; n>=4.",
+    "Asymptotic theorem applies fixed s at t=floor(sn/2), not finite-deck maximizing-time uniqueness."
+  ],
+  "schema_version": 1
+}
