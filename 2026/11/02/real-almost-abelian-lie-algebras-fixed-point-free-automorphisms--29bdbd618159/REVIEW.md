@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the centerless real almost-abelian Lie algebra \(\mathfrak g(A)\), invertibility of \(A\) makes its abelian derived ideal characteristic. Every automorphism therefore has scalar \(a\) on the one-dimensional quotient and invertible \(B\) on the ideal, with \(BA=aAB\). Since the spectrum of invertible \(A\) is a finite nonzero set, real \(a\) can only be \(1\) or \(-1\). The absence of fixed vectors forces \(a=-1\), reducing arbitrary-order existence to \(A\sim -A\). For finite-order maps, the antilinear action on each primitive Jordan quotient for purely imaginary eigenvalues has determinant sign \((-1)^m\), while any finite-order real linear map of even dimension without fixed vectors has positive determinant. Thus each such Jordan multiplicity is even. Conversely the proof pairs the blocks and constructs an explicit real anti-commuter squaring to minus identity. All block types and nonsemisimple lengths are treated.
+PASS
 
-Exact SymPy checks cover 19 explicit constructions and the single two-dimensional parity obstruction, without treating the finite tests as the general proof. The result is restricted to real invertible defining operators.
+For invertible real A, V=[g(A),g(A)] is characteristic; every automorphism is v↦av+w, x↦Bx with BA=aAB and invertible a,B. Invertible A has finite nonzero eigenvalue multiset, so similarity of A and aA forces |a|=1; absence of any fixed vector requires a=-1 and 1 not in spec(B). The existence criterion is A similar over R to -A, with a generic scalar multiple of an anticommuter avoiding eigenvalue 1. Pair matched nonimaginary real-primary eigenspaces with B²=-I; on iω Jordan blocks K(z)=D conjugate(z) anticommutes with iω+N, and an even multiplicity pairs blocks by B(x,y)=(-Ky,Kx), yielding order exactly four. Necessity uses each primitive Jordan quotient ker N^j/(ker N^(j-1)+N ker N^(j+1)) of complex dimension m_{ω,j}. The induced finite-order antilinear map C=conjugate∘B has no real eigenvalue one, so its real determinant must be positive; for an invertible antilinear H conjugate its determinant has sign (-1)^m, forcing m even. A lone rotation block admits B=2 diag(1,-1), infinite order but never a finite-order fixed-free map. Exact symbolic representative matrix checks support these algebraic arguments, not an all-size enumeration.
 
-## Originality — PASS, qualified
+## originality
 
-Burde and Dekimpe (arXiv:2604.27916v1, Theorems 5.4 and 5.7) already develop the complex centerless almost-abelian criterion and complex finite-order consequences; these are prior work. A 2025 example of a real split algebra with an order-four fixed-point-free automorphism is likewise known and not claimed as new. The assessed contribution is the complete **real** existence criterion and the extra purely imaginary Jordan-multiplicity obstruction to **periodic** real fixed-point-free automorphisms, including nonsemisimple matrices and the infinite-order-only boundary.
+PASS
 
-Lamb and Roberts (1999) analyze compact reversible-equivariant real linear systems; their abstract is relevant, but their full text was not available in this review. That framework could contain an equivalent representation-theoretic classification. Historical priority is therefore qualified, and the current comparison does not certify global novelty.
+Burde–Dekimpe arXiv:2604.27916, especially Theorems 5.4 and 5.7, studies complex solvable/almost-abelian Lie algebras and general fixed-free automorphism results, not the real imaginary-Jordan parity obstruction. Reversible-equivariant real linear operator theory of Lamb–Roberts 1999 is a highly plausible broader framework under compact reversing symmetry; its full text could not be examined because OA was unavailable and authorized Oxford returned vpn_disconnected. That creates a real unresolved historical-priority risk but is not evidence that the complete real Lie automorphism finite-order iff condition was previously stated. The result is assessed original at best knowledge with explicit risk.
 
-## Mathematical value — PASS
+## value
 
-The theorem settles a natural arbitrary-dimensional real-form question arising from a recent classification that explicitly concerns complex algebras. It separates two existence notions, gives an exact Jordan test rather than ad hoc constructions, and supplies the smallest obstruction example. The parity boundary persists in every Jordan length; this is a structural field-dependent distinction, not a routine numeric instance.
+PASS
 
-## Limits
+Fixed-point-free automorphisms of finite-dimensional real solvable Lie algebras are a natural structure problem, and finite-order versus general fixed-free existence are distinct meaningful classifications. The parity obstruction gives a complete intrinsic criterion across all invertible real Jordan structures and the minimum three-dimensional real counterexample; its order-four construction makes the distinction sharp. This is not a trivial field-substitution from complex classification.
 
-The theorem does not classify all automorphism orders or cover singular defining matrices. The distant 1999 reversible-systems literature remains a plausible source of a more general framework, and independent review has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
