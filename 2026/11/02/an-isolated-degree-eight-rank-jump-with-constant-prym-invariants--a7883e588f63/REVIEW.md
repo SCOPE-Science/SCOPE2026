@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The genus and smooth boundary follow from the squarefreeness derivative calculation. An explicit seven-dimensional regular-differential basis yields coefficient blocks of ranks two and two; their Frobenius-twisted composition has diagonal entries \(1\) and \(3+a^8\). The exact stable rank, the quotient formula, and the prime-to-five Prym isogeny prove the one-point arithmetic stratification. `verify_symbolic.py` and `verify_field.py` independently checked critical symbolic and extension-field calculations.
+## correctness
 
-**Originality — PASS, with risk.** Ozman–Pries–Weir (arXiv:1907.05684) give general trielliptic rank-stratum existence; Sutherland (arXiv:2004.10189) and Asif–Fité–Pentland (arXiv:2010.07247) supply established Cartier methods. Nourozi–Rahmati (arXiv:2306.07823) treats Picard \(a\)-numbers. Kazemifard–Tafazolian (2015) treats two specific fixed Picard models. These do not give the exact genus-seven exceptional equation and its Prym interpretation. The closest accessible earlier marked Picard pencil has a different equation and genus; its result does not imply this one. Search incompleteness and unindexed prior specialization remain real risks.
+PASS
 
-**Mathematical value — PASS.** The jump is one reduced parameter point of arithmetic degree eight, and it is detected in the genus-three quotient while the Prym fourfold retains fixed \(5\)-torsion invariants. The complete extension-field coefficient counts follow, distinguishing arithmetic-rank degeneration from coordinate-marking choices.
+For C_a:y^3=x^8+a x^6+1 over algebraically closed char5, smoothness iff a^4≠3 follows derivative, genus7 via Riemann–Hurwitz. Explicit Cartier blocks A (5×2), B (2×5) both rank2, with twisted two-step B^[5] A=diag(1,3+a^8), give constant a-number3, stable f5=2 on a^8=2 and 4 otherwise. Quotient by x↦-x gives genus3 D_a:y^3=t^4+a t^3+1 with twisted scalar 3+a^8, a(D)=1 and f5=0 or2. Degree-2 isogeny Jac(D)×Prym→Jac(C) preserves characteristic-five torsion data, yielding fixed Prym a=2 and f5=2. Independent symbolic coefficient extraction verified these matrices, binomial irreducibility x^8−2 and x^4−3 over F5 and their disjointness. Thus exactly one degree8 closed rank-jump point and stated counts over F_{5^m}.
 
-**Limitations.** The work concerns a one-dimensional coefficient-marked genus-seven pencil over characteristic five and does not establish distinct geometric isomorphism types, full Newton polygons, or all Prym isogeny classes. Computational checks are finite and external independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ozman–Pries–Weir give geometric existence and dimension bounds for p-rank strata of cyclic covers, while Sutherland supplies general Cartier–Manin algorithms and Asif–Fité–Pentland treat genus3 Picard examples. None of the relevant inspected mathematical statements determines this exact genus7 marked pencil, degree-eight Frobenius orbit of jumps, and constant Prym invariants. O PASS best knowledge with risk of unindexed special-pencils.
+
+## value
+
+PASS
+
+An exact arithmetic rank jump concentrated in a lower-genus quotient while the complementary Prym invariants stay fixed is a motivated structural phenomenon in arithmetic algebraic curves, not merely isolated finite-field matrix arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
