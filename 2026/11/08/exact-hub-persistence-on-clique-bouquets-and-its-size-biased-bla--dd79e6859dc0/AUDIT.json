@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The hub-clock Poisson thinning is independent of all private-vertex clocks. In the frozen-hub process, all blades evolve independently and absorb at all ones almost surely. For a blade with z zeros, its down/up rates are z(r-z+1)/r and z(r-z)/r. The Feynman–Kac equations give the claimed tridiagonal determinant quotient with numerator product_z d_z=(r!)^2/r^r. The drift u_z-d_z=-z/r yields an integrated-zero expectation r^2. With all r_i bounded by R, the logarithms of the blade transforms have uniform second-order Taylor remainders, giving log p=-sum r_i^2/L+O_R(1/L). Independent full-labelled-state generator tests passed 40 cases with at most eight private vertices; symbolic calculations checked the transform and first derivative through private size six. All changes of state, not update attempts, are counted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sood–Antal–Redner, arXiv:0712.4288, Section II B derives a degree-weighted fixation law and explicitly notes star hub fixation probability one-half.",
+        "Iwamasa–Masuda, arXiv:1404.6360, Sections II–V/Appendices concern mean consensus time for other graph families and update rules."
+      ],
+      "reasoning": "A formula for final consensus winner does not determine the probability of never flipping along a path. A consensus-time bound does not determine this occupation-time Laplace transform. The present factored Feynman–Kac evaluation and size-biased limit are additional path information.",
+      "searches": [
+        "Voter Models on Heterogeneous Networks Sood Antal Redner 2008 arxiv",
+        "Networks maximizing the consensus time of voter models Iwamasa Masuda 2014 arxiv full text",
+        "voter model persistence probability central hub spin never flips friendship graph windmill triangular cactus",
+        "arxiv:0712.4288",
+        "arxiv:1404.6360"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/9511040v1",
+      "arxiv:0712.4288",
+      "arxiv:1404.6360",
+      "arxiv:1403.4763",
+      "doi:10.1103/PhysRevE.53.3078",
+      "doi:10.1103/PhysRevE.77.041121"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general model and pre-existing persistence observable are recognized in Ben-Naim–Frachebourg–Krapivsky.",
+        "Degree-weighted fixation is classical; the complete hub no-change event is strictly contained in hub eventual victory and is not fixed by its probability.",
+        "Other inspected graph classes and performance observables do not imply the private blade size-biased limit."
+      ],
+      "reasoning": "The antecedents establish stochastic-copy dynamics, a persistence observable, and a martingale fixation formula. None of those result statements evaluates the conditional integrated-zero exposure of each clique blade; this evaluation and its product limit require additional analysis. Any unknown exact no-flip theorem in less-indexed literature remains a residual priority risk.",
+      "searches": [
+        "Ben-Naim Frachebourg Krapivsky 1996 \"Coarsening and persistence in the voter model\" pdf arxiv",
+        "Voter Models on Heterogeneous Networks Sood Antal Redner 2008 arxiv",
+        "Networks maximizing the consensus time of voter models Iwamasa Masuda 2014 arxiv full text",
+        "arxiv:1403.4763"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ben-Naim et al. define P_0(t) as no-flip probability on lattices and a complete-graph mean field; introductory scope, Sections II–III and summary were inspected.",
+        "No searched statement gave an absorption-stopped central-site no-change probability for a bouquet of private cliques."
+      ],
+      "reasoning": "The claimed quantity is a first-consensus stopped path event on a nonregular finite windmill, not the known fixed-time persistence fraction for infinite lattices or complete-graph mean field; no equivalence via time substitution is available.",
+      "searches": [
+        "site:arxiv.org \"windmill graph\" \"voter model\" persistence",
+        "site:arxiv.org \"friendship graph\" \"voter model\" persistence",
+        "voter model probability vertex never flips before consensus exact graph friendship",
+        "arxiv:cond-mat/9511040v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible mathematical source searches returned general voter-model persistence, heterogeneous-network fixation, and consensus-time papers, rather than a value table for the clique-bouquet no-flip quantity.",
+        "Finite computed values such as p(2,2)=64/289 were independently checked rather than copied from a table."
+      ],
+      "reasoning": "No actual database or published table was found covering the family with the specific no-change stopping event. Search absence alone is not treated as proof of novelty.",
+      "searches": [
+        "voter model persistence windmill network clique hub zero flips exact formula probability consensus",
+        "voter model local persistence spin survival at first consensus finite friendship graph",
+        "site:arxiv.org \"windmill graph\" \"voter model\" persistence"
+      ]
+    },
+    "rationale": "The closest older persistence literature studies temporal spin-flip statistics on regular lattices and complete-graph mean field. Known voter model fixation laws identify who ultimately wins, not the no-hub-flip path event. Consensus-time work on lollipop, barbell, and double-star graphs does not compute the clique-bouquet persistence product or its bounded-blade asymptotic. Accessible mathematical searches and claim-level comparisons showed no directly covering theorem. Historical priority remains subject to inaccessible or unindexed material.",
+    "residual_risks": [
+      "Less-indexed finite-network persistence literature could evaluate a mathematically equivalent absorption-stopped hub probability.",
+      "No independent priority or mathematical audit has been performed.",
+      "The published classical tools apply broadly, so novelty is restricted to the explicit clique-bouquet factorization and size-biased blade law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the finite clique-bouquet absorption-stopped central-site formula.",
+        "evidence": [
+          "arxiv:cond-mat/9511040v1",
+          "p.3 definition of P_0(t); pp.4-5 mean field; p.22 paper summary"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9511040",
+        "material_read": "Title and abstract; introduction; Section II definitions and complete-graph mean-field behavior; Section III scope and persistence discussion; Section IV summary, plus scanned PDF for bouquet/flower terminology.",
+        "method": "Accessible arXiv primary PDF viewed as text and page images.",
+        "title": "Coarsening and Persistence in the Voter Model",
+        "trigger": "Direct same-observable persistence literature"
+      },
+      {
+        "assessment": "Establishes fixation, not hub no-flip persistence; its star final-consensus probability is explicitly credited.",
+        "evidence": [
+          "arxiv:0712.4288",
+          "Section II B, Eq. (15), star example"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0712.4288",
+        "material_read": "Abstract; model/update rules; conservation law and exit probability Section II B; star graph example; network classes described in introduction.",
+        "method": "Accessible arXiv primary PDF viewed as text and page image.",
+        "title": "Voter Models on Heterogeneous Networks",
+        "trigger": "Strongest plausible general network theorem with a star hub example"
+      },
+      {
+        "assessment": "Consensus-time results on lollipop, barbell and double-star networks do not determine hub persistence on clique bouquets.",
+        "evidence": [
+          "arxiv:1404.6360",
+          "Sec. II and Appendix A; no windmill or friendship named"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.6360",
+        "material_read": "Abstract; Section II voter/link/invasion update rules; Sections III and IV network and time-observable descriptions; Appendix A target and discussion of other graphs.",
+        "method": "Accessible arXiv primary PDF viewed as text and page image; specific terminology searched.",
+        "title": "Networks maximizing the consensus time of voter models",
+        "trigger": "Relevant old heterogeneous-network voter-model analysis"
+      },
+      {
+        "assessment": "Uses link dynamics and two cliques; the result is consensus-time scaling, not ordinary voter hub no-flip probability.",
+        "evidence": [
+          "arxiv:1403.4763",
+          "Sec. II specifies link dynamics; Sec. III consensus-time analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.4763",
+        "material_read": "Abstract; Sections I–II graph and updating conventions; Section III observable and analytic regime.",
+        "method": "Accessible arXiv primary PDF viewed as text and page image.",
+        "title": "Voter model on the two-clique graph",
+        "trigger": "Potential community-structure dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd79e685-9dc0-4298-a6bb-80f8539c3444",
+  "value": {
+    "rationale": "No-opinion-change persistence is a motivated observable in the historical voter-model literature. The exact factorization for arbitrary clique bouquets and its uniform finite-blade asymptotic give an explicit structural criterion: the size-biased private clique size controls hub persistence, even while the total hub degree grows. Adding only peripheral edges changes the star persistence limit e^-1 to e^-2 for friendship graphs at the same hub degree. Comparing to the classical fixation probability 1/(1+size-biased mean) shows that eventual victory and path persistence are quantitatively different. The result is an all-size infinite-family structural law, not a relabelled classical martingale or unmotivated finite invariant.",
+    "status": "PASS"
+  }
+}
