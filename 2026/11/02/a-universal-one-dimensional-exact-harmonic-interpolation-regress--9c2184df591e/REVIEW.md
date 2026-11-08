@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof first supplies an exhaustive Walsh support bound by polynomial degree and global parity. Every nonempty proper Walsh level is attained by an explicit product of a two-variable complex harmonic and multilinear factors; the constant level is handled separately by null-vector harmonics, with a nonzero Taylor coefficient in degrees congruent to two modulo four. The sign projection of a top-parity harmonic of degree \(d+2\) has the forced form \(\prod_i x_i\sum_i a_i x_i^2\); the harmonic condition forces \(\sum_i a_i=0\). This yields precisely one additional missing Walsh mode. Exact Gegenbauer/Krawtchouk checks independently agree for ten dimensions; they are not substitutes for the general proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-The inspected 2013 and 2015 primary papers on harmonic-index designs address unweighted harmonic sums and tight designs; they do not state the full Walsh-mode evaluation image or the isolated alternating-character regression. The closest published research record on q-ary Hamming-shell Fourier bands studies discrete Fourier spaces rather than restrictions of Euclidean harmonic polynomials to all sign-cube corners. The classical Hamming-scheme spectral framework may encode equivalent computations, but no directly covering theorem was identified. The full text of Lloyd's 1980 Hamming-associator article was unavailable; an older equivalent result cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-The theorem provides a complete uniform-in-dimension exact-degree interpolation rank chart through the first post-saturation regression on a canonical spherical point family. The one-dimensional defect appears after three consecutive full degrees when \(d\ge4\), and is explicitly identified as a nontrivial alternating moment relation. This is more informative than the familiar quadratic design obstruction or a fixed-dimensional numerical census, and it informs sampling on hypercube-based spherical grids. The theorem does not address later degrees or conditioning.
+Every exact-degree spherical harmonic on the normalized d-cube has Walsh parity and support-size restrictions. The proof constructs explicit harmonic witnesses for every nonempty proper Walsh component (products of two-variable harmonic powers with disjoint multilinear factors), treats the constant component separately, and shows the top alternating character at degree d+2 is absent because its sign projection is product(x_i)*sum(a_i*x_i²) with sum a_i=0 by harmonicity. This proves rank sum_{j<=min(d,k),j≡k mod2} binom(d,j) minus the k=2 and k=d+2 exceptions for every d>=3 and 0<=k<=d+2, unique top Walsh annihilator and regression after full rank. Independent exact Gegenbauer/Krawtchouk rank calculation for d=3..6 and all listed degrees agreed; finite ranks alone are not an all-d proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. Classical Hamming association scheme identities might imply the rank formula, including the alternating character, without matching phrasing; full Lloyd 1980 text not available. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
+
+## value
+
+PASS
+
+Exact-degree harmonic interpolation is a natural sampling question on the high-symmetry cube. The one-dimensional rank loss at d+2 after parity-saturated interpolation at d and d+1 is genuinely counterintuitive, with an explicit unique missing Walsh functional. This is an exact infinite-family structure theorem useful in spherical sampling/design diagnostics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
