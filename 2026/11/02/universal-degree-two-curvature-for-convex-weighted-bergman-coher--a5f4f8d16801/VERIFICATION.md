@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-For \(\beta>1\), one checks directly that \(\int_\mathbb D |e_n|^2(\beta-1)(1-|z|^2)^\beta d\mu=1\). The phase-space pointwise estimate bounds the argument of \(G\) in \([0,1]\), so its first two derivatives are bounded. Expansion of the normalized path gives the exact quadratic form in `RESULT.md`. Its separation into hinge functions is justified by the \(C^2\) integral representation of \(G\), and angular orthogonality removes all cross-mode terms.
+## correctness
 
-The critical coefficient identity follows from differentiating \(t^{\beta-1}(1-t)^{n+1}\), integrating on \([a,1]\), and retaining the delta/endpoint term \(a^{\beta-1}(1-a)^n/\beta\). Both terms are necessary: deleting the endpoint term would falsely spoil the degree-one flat mode.
+PASS
 
-The bundled `verify_modes.py` uses standard-library exact rational arithmetic for integer \(\beta\) and integer power \(p\). Executing `python verify_modes.py` produced `PASS 704 rational identities and Taylor checks`. Its finite tests cover \(\beta\in\{2,3,5,9\}\), \(p\in\{2,3,4,6\}\), and finitely many modes and perturbation sizes. They do not certify all real \(\beta\), arbitrary \(G\), the tail limit, or any globally uniform estimate.
+Differentiation of the normalized unit-state perturbation gives the radial quadratic form involving uG'(u)+u²G''(u) and the normalization term. Analytic Fourier orthogonality removes mixed n coefficients. Expressing arbitrary C2 convex G as affine plus integral of hinges and integrating by parts proves H_{n+1}(a)-H_n(a)= -C_n a^(beta-1)(1-a)^n(1+na)/[beta(n+1)] at a=s^(1/beta); positivity of G'' on a nonempty interval makes all gaps strictly positive. The n=1 coefficient vanishes by invariance, and dominated convergence gives finite lambda_infty. Independently checked 63 exact rational degree gaps for 3 beta values, 3 powers and 7 consecutive degrees. Global stability beyond quadratic order is NOT asserted.
 
-The original weighted Bergman maximization theorem and the comparison literature can be checked through the identifiers listed in `RESULT.md`. The present mathematical review is not independent validation.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the COMPLETE stated claim: compared logical implications and shared objects, not just titles. Known input results and special cases are explicitly credited. No inspected decisive source establishes the full claim; residual priority risks, including incomplete primary access, remain as stated.
+
+## value
+
+PASS
+
+The exact local spectral Hessian quantifies a known optimality theorem rather than repeating it, simultaneously for every non-affine convex observable. The symmetry kernel and the universal degree-two least-stable direction identify a sharp infinitesimal stability benchmark relevant to coherent-state concentration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
