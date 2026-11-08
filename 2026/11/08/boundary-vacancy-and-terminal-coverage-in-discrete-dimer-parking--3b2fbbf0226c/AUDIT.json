@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The first-dimer split gives the three exact recurrences in RESULT.md, with an independent cross-term only when the left residual segment is nonempty. Formal generating-function integration yields B/E and the displayed coefficients. Alternating-series remainder R_n is strictly decreasing from n=11, R_11=275267/2851200<1/6; since (exp(-1)+exp(-3))/2>1/6, all n>=11 are negative. Rational finite values establish exactly the n=2,3,5 zeros. Exact verifier replay passed 523 assertions including exhaustive edge priorities n=2..9. Finite tests support rather than substitute for the analytic all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gerin (2015), Theorem 4, proves summable covariances for the infinite model and calculates one short-range pair correlation, without finite path endpoint-global formula.",
+        "Shneer--van de Ven (2016), Theorem 1, gives individual site occupancy probabilities, without joint moment.",
+        "Rintoul--Torquato--Tarjus (1996) studies nearest-neighbor particle spacing in a one-dimensional adsorption model rather than boundary-global covariance."
+      ],
+      "reasoning": "An infinite-volume pair-correlation bound is not an explicit finite-volume endpoint sum. A one-point finite-site generating function gives first moments only. These broader adjacent methods do not state a dominating finite multivariate joint law with the claimed sign classification.",
+      "searches": [
+        "random sequential adsorption one dimension dimer endpoint number particles covariance terminal first site total occupied",
+        "\"random sequential adsorption\" \"boundary\" \"covariance\" \"number\"",
+        "Gerin The Page--Rényi parking process 2015 pdf sections 1-3",
+        "Shneer van de Ven Per-site occupancy in discrete parking problem 2016 pdf",
+        "\"Page Rényi\" \"mixed moments\" boundary occupancy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1411.8002 (2014-11-28 first public version, Gerin 2015 journal full text)",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p4/pdf/",
+      "https://ir.cwi.nl/pub/25286/parking5.pdf",
+      "https://doi.org/10.1103/PhysRevE.53.450 (abstract only)",
+      "Research-record and literature keyword searches, actual query terms recorded in checks",
+      "E. S. Page (1959), publisher abstract only; full text unavailable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gerin eq. on first dimer yields E[M_n] and E[M_n^2] via scalar recurrences; does not condition jointly on terminal boundary vacancy.",
+        "Shneer--van de Ven eq. (1) and Theorem 1 express marginal site occupancy via bivariate generating functions of site and system sizes but give no pair probabilities or joint covariance."
+      ],
+      "reasoning": "Neither prior displayed marginal identity implies E[V_n M_n] directly. New marking of boundary vacancy yields the mixed recurrence for b_n; coefficient extraction, finite sign exceptions and limiting negative constant require additional information. General historical extensions could still implicitly subsume this, and no absolute priority assertion is made.",
+      "searches": [
+        "arXiv:1411.8002 full journal text, recurrence and correlation sections",
+        "Shneer--van de Ven 2016 full preprint, generating functions",
+        "Random sequential adsorption on finite path covariance boundary empty indicator and total occupied dimers sign theorem",
+        "exact covariance terminal leftmost vacant site and total occupied pairs random sequential adsorption 1d dimer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gerin arXiv:1411.8002 p.2 first-dimer decomposition and pp.5-6 infinite correlations; no finite boundary-by-total moment.",
+        "Shneer--van de Ven 2016 pp.1-4 site occupancy probabilities; no covariance of an endpoint indicator and total coverage."
+      ],
+      "reasoning": "Vacant endpoint equals one minus its occupancy indicator; number occupied sites equals twice the number of parked cars. These equivalent formulations were checked; the inspected papers cover separate marginals, not their joint mixed moment. Generic exact expectation identities do not algebraically determine covariance.",
+      "searches": [
+        "Discrete Page-Rényi dimer parking final vacancy at first site covariance total number occupied sites, exact finite formula and negative limit -(e^-1+e^-3)/2",
+        "Random sequential adsorption on finite path covariance boundary empty indicator and total occupied dimers sign theorem",
+        "Unfriendly seating random greedy matching endpoint occupancy total packing size mixed moment generating function",
+        "Semantic research-record searches using these same descriptions",
+        "uniform unfriendly seating boundary empty number matched vertices correlation generating functions n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct finite covariance table found in the searched research-record results or searched primary texts.",
+        "Gerin 2015 contains a numerical one-pair infinite-line correlation example, not a table of the finite mixed moments."
+      ],
+      "reasoning": "The full function of n and its infinite limit cannot be inferred from a known one-site occupancy table without additional joint information. Absence from searched databases does not certify unique novelty.",
+      "searches": [
+        "Page parking E_n boundary terminal covariance bulk occupied sites exponential truncated sums",
+        "\"parking\" \"boundary\" \"covariance\" \"jamming\" lattice",
+        "Randomized sequential adsorption parking process on path root coverage and total car count covariance.",
+        "Page (1959) vacancy distribution length n conditional first vacancy count of remaining sites cross covariance discrete parking Page Renyi"
+      ]
+    },
+    "rationale": "Gerin 2015 gives the same Page parking model, first-dimer occupancy recursion and infinite-volume covariance bounds, and Shneer--van de Ven 2016 gives per-site marginals. The inspected primary proofs and statements do not provide the mixed boundary indicator/global coverage exact generating function, finite-size sign classification, or limiting covariance. Research-record and literature searches returned no direct equivalent. General older correlation treatments remain a genuine historical-priority risk.",
+    "residual_risks": [
+      "General older formulations of finite-jamming two-site or multivariate moments, especially Page (1959), were not fully read and could imply the result.",
+      "A complete historical-priority proof is unavailable; negative searches do not establish absolute novelty.",
+      "Page (1959) complete article was not accessible for definitive same-object comparison; its summary contains total vacancy moments but does not resolve whether it treats boundary/global mixed moments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partial methodological coverage, not the claimed finite boundary-global mixed moment",
+        "evidence": "p.2 first split recurrence; pp.5-6 summable infinite-volume correlations; pp.8-9 finite expectation bounds.",
+        "identifier_or_url": "arXiv:1411.8002; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p4/pdf/",
+        "material_read": "Full 13-page journal text, particularly pp.1-8 on model/first-dimer decomposition, infinite correlations and finite boundary estimates; publication and MSC checked",
+        "method": "Open-access full-text pages and page screenshots",
+        "title": "The Page--Rényi parking process",
+        "trigger": "Same discrete dimer random parking model, total occupancy and covariance results"
+      },
+      {
+        "assessment": "Provides first moments but no boundary/global covariance",
+        "evidence": "pp.1-4 definitions, Theorem 1 site-specific marginal, generating function; no joint 2-point term.",
+        "identifier_or_url": "https://ir.cwi.nl/pub/25286/parking5.pdf",
+        "material_read": "Full six-page preprint, including Theorem 1 and its generating-function proof",
+        "method": "Open-access full text with page screenshot",
+        "title": "Per-site occupancy in the discrete parking problem",
+        "trigger": "Explicit per-site finite-interval parking marginal formulas"
+      },
+      {
+        "assessment": "Discusses nearest-neighbor distance statistics for adsorbed particles; model/parameter comparison only at abstract level",
+        "evidence": "Abstract describes pair-spacing functions rather than finite path endpoint/coverage covariance.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.53.450",
+        "material_read": "Publisher abstract and bibliographic metadata, not the full paper",
+        "method": "Publisher abstract inspection",
+        "title": "Nearest-neighbor statistics in a one-dimensional random sequential adsorption process",
+        "trigger": "Potential stronger 1996 correlation treatment"
+      },
+      {
+        "assessment": "Summary concerns distributional moments of total vacancy count; does not establish whether a specified boundary vacancy mixed moment is addressed in the unexamined pages",
+        "evidence": "Abstract says mean and other moments of total remaining points and some related problems, without explicit endpoint/global dependence law.",
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1959.tb00343.x",
+        "material_read": "Publisher abstract and bibliographic description; complete primary PDF unavailable",
+        "method": "Publisher abstract and open-access-location search",
+        "title": "The Distribution of Vacancies on a Line",
+        "trigger": "Classical source with moments of terminal vacancy count in exactly the same discrete parking model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b2fbbf0-226c-499a-8fdf-da2864c6593e",
+  "value": {
+    "rationale": "Boundary vacancy versus total occupied length is a natural finite-size measure of jamming dependence, not a chosen artificial parameter slice. The result fully classifies its sign including exceptional deterministic-cover sizes and proves a nonzero thermodynamic boundary-global limit. Marginal occupancy and total mean alone cannot determine this joint information; it isolates the boundary contribution to global fluctuations.",
+    "status": "PASS"
+  }
+}
