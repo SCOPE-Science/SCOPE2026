@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:45:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-one-swap-robustness-law-for-three-pair-stable-marriage--0c1e867a807b/RESULT.md",
+        "2026/11/02/exact-one-swap-robustness-law-for-three-pair-stable-marriage--0c1e867a807b/verify_robust.py"
+      ],
+      "rationale": "For each labeled strict profile (6!) is not the sample size: there are (3!)^6=46656 profiles and 12 single-agent adjacent swaps, hence 559872 equally weighted instances. All six perfect matchings are stable precisely when none of nine opposite-side pairs blocks. Independent exact brute force computed the stable-match bitmask for each of 46656 profiles, then intersected it with the stable-match bitmask of each one-swap neighbor: the eight (S,R) cells are 64944,344016,5616,49536,82656,1872,7344,3888, with failure count 70560 and top/bottom 49248/21312. The original source verifier independently uses a local necessary-and-sufficient affected-agent blocking-pair condition. This is a complete finite exhaustive proof for n=3, not an approximation or a general n theorem.",
+      "residual_risks": [
+        "Specialist combinatorial matching profile catalogues or unpublished tables might already contain the joint law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 paper studies common stable matchings, lattice structure and algorithms; find on full HTML did not locate 46656 or impartial distribution."
+        ],
+        "reasoning": "General robust lattice structure and optimization algorithms do not give the uniform finite joint law without enumerating the preference-profile incidence.",
+        "searches": [
+          "arxiv:2601.07959v1 §4.2 one-agent upward shift",
+          "Mai Vazirani ESA 2018 paper on robust stable matchings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify_robust.py",
+        "https://arxiv.org/html/2601.07959v1",
+        "Resultary 2026/10/4 full-symmetry stable marriage record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published symmetry census identifies 669 profile classes and S counts, not the (S,R) split. Lemma 18 identifies possible newly blocking pair without tabulating how often it occurs."
+        ],
+        "reasoning": "The present numbers require processing all labeled swaps; neither class frequencies nor structural characterization specifies the incidence distribution.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1 full RESULT",
+          "arxiv:2601.07959v1 single-agent shift Lemma 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Common stable matching is intersection of the stable-match sets before and after one preference swap."
+        ],
+        "reasoning": "Mapped a single adjacent swap to the papers’ one-agent promotion operation and their overlap-of-lattices notion; the local criterion is not new.",
+        "searches": [
+          "Mai Vazirani 2018 robustness one shift",
+          "Gangam Mai Raju Vazirani 2026 robust stable matching one upward shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary table by S: 34080 profiles S=1, 11484 S=2, 1092 S=3. These agree with current (S,R) totals after dividing by 12 but omit R and swap positions."
+        ],
+        "reasoning": "A 3x3 profile table containing all exact swap neighborhoods would dominate; existing published 3x3 symmetry counts alone are insufficient for joint robustness probabilities.",
+        "searches": [
+          "Resultary full-symmetry census 3x3 stable marriage 2026/10/4",
+          "\"stable marriage adjacent swap probability common stable matching impartial culture n=3\" web"
+        ]
+      },
+      "rationale": "Classical stable marriage and 2018/2026 robustness papers establish existence, shift structure and algorithms for common stable matchings. Previously published SCOPE 3x3 profile symmetry census gives counts by S alone, not the joint distribution with one adjacent swap. The size-3 impartial-culture joint table and failure asymmetry require an additional exhaustive swap incidence; not obtained from S marginal without more calculations.",
+      "residual_risks": [
+        "Specialist combinatorial matching profile catalogues or unpublished tables might already contain the joint law.",
+        "Only n=2 and n=3; a finite census is not a general market-size theorem.",
+        "Uniform independent preference lists are a stylized impartial-culture benchmark."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural lattice and algorithmic analysis; no 3x3 joint probability table located in inspected text.",
+          "evidence": [
+            "§4.2.1 and Lemma 18, upward shift new blocking pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.07959v1",
+          "material_read": "Full accessible primary HTML §§3–4.2 incl. Lemma 18, introduction and related work; searched for 46656, impartial and probability.",
+          "method": "Primary arXiv HTML section reading and text searches",
+          "title": "Robust Stable Matchings: Dealing with Changes in Preferences",
+          "trigger": "Same one-agent upward-shift stability model"
+        },
+        {
+          "assessment": "S marginal distribution exact and known; joint with swap and positional split are not supplied.",
+          "evidence": [
+            "34080,11484,1092 labeled original profiles, 669 symmetry classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+          "material_read": "Full public RESULT.md Finding, proof and verification sections including S marginal counts.",
+          "method": "GitHub read-only raw RESULT",
+          "title": "Full-symmetry census of three-by-three stable-marriage profiles",
+          "trigger": "Published exact n=3 stable-matching census may dominate"
+        },
+        {
+          "assessment": "Recognized model and algorithmic antecedent, not asserted whole-paper noncoverage.",
+          "evidence": [
+            "ESA 2018 60:1–60:11 paper overview."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2018.60",
+          "material_read": "Published conference abstract and paper metadata; full PDF not read.",
+          "method": "Open-access publisher discovery",
+          "title": "Finding Stable Matchings That Are Robust to Errors in the Input",
+          "trigger": "Original robust single-perturbation work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-one-swap-robustness-law-for-three-pair-stable-marriage--0c1e867a807b/RESULT.md",
+        "https://arxiv.org/html/2601.07959v1",
+        "Resultary 2026/10/4 full-symmetry stable marriage record"
+      ],
+      "rationale": "The 3x3 model is the first size permitting three stable matchings, making it a natural smallest-case diagnostic of common-stability fragility under minimal preference perturbation. The full (S,R) table and top-vs-bottom asymmetry provide an exact finite benchmark for robustness algorithms and noise models; significance is a narrow exhaustive finite classification, not an arbitrary one-off numeric coincidence.",
+      "residual_risks": [
+        "Only n=2 and n=3; a finite census is not a general market-size theorem.",
+        "Uniform independent preference lists are a stylized impartial-culture benchmark."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialist combinatorial matching profile catalogues or unpublished tables might already contain the joint law.",
+    "Only n=2 and n=3; a finite census is not a general market-size theorem.",
+    "Uniform independent preference lists are a stylized impartial-culture benchmark."
+  ],
+  "schema_version": 1
+}
