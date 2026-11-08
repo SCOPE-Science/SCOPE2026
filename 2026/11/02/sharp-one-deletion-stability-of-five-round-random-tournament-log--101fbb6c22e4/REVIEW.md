@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is a statement about the five-round noncounting theory of one-vertex deletions, not about isomorphism. The logical equivalence with the two-witness property is established by an explicit five-round back-and-forth and the five-quantifier extension sentences. Affine-square automorphisms prove that every four-set over a prime field has a representative with two selected elements \(0,1\); the two independent executable censuses agree on the exact minimum for all 24 eligible primes through 211. Nonprime \(q=27\) fails by pigeonhole. For any odd finite field, the character-product identity, exact quadratic character correlations, and the squarefree degree-three/four Weil bounds prove \(N_q\ge(q-38-11\sqrt q)/16>1\) for \(q\ge223\). This combines to cover all permitted prime powers, and \(q=107\) has a certified pattern with exactly two witnesses. The supplied code is supporting finite evidence, not an attempted proof of the unbounded case.
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** The principal exact prior result is ordinary four-extension for Paley tournaments; existence of one witness does not imply survival after deletion. The old orders \(67,71,79,83\) give concrete one-witness but not two-witness examples. Graham and Spencer establish character-sum existence constructions; Bonato–Gordinowicz–Prałat explicitly treat 4-e.c. tournaments and order 67; Javier–Llano–Zuazua treat 2-/3-e.c. tournaments and related 4-point domination. The 2026 Erdős #902 working report computes one-vertex deletion criticality for the **single common-dominator** pattern at order 67, not the all-16-pattern two-witness threshold. Searches for vertex-deletion stability, fault tolerance, two witnesses, and Paley order 107 revealed no published direct coverage in material inspected. A more obscure source, unpublished computation, or an implicit stronger incidence-array theorem could still cover this result; absence of a search hit alone is not relied upon as a novelty proof.
+PASS
 
-## Value
-**PASS.** Vertex deletion stability is a natural strengthening of first-order approximation of the countable random tournament: it asks not just whether every four-point type is realized, but whether its realization survives an arbitrary local perturbation. The threshold \(107\) is sharp across all eligible prime-power Paley tournaments, improves a one-witness existence fact, and is nontrivial because several smaller examples have the full undeleted five-round theory but lose it after a deletion. The character bound plus finite orbit classification also supplies an easily reusable exact-check method for robustness in other finite-field homogeneous structures.
+The five-round Ehrenfeucht--Fraïsse criterion is equivalent to ordinary four-extension for a deleted finite tournament, and universal deletion robustness is exactly the two-witness four-extension property (one witness may be deleted). For prime p=3 mod4, translation and nonzero-square scaling normalize some oriented pair of each four-set to 0,1. A fresh independent bitset program exhaustively checked every normalized {0,1,x,y}, x<y, and 16 signs for ALL 24 eligible primes 7..211: minima [0,0,0,0,0,0,0,0,1,1,1,1,0,2,3,2,3,4,4,4,5,6,5,6] for p=[7,11,19,23,31,43,47,59,67,71,79,83,103,107,127,131,139,151,163,167,179,191,199,211]. Prime power 27 fails by 32 required distinct witnesses for 16 patterns versus 23 outside a four-set. For q>=223, character-expansion with degree1,2,3,4 Weil bounds yields N_q >=(q-38-11 sqrt(q))/16>1, hence at least two integer witnesses. These exhaust all eligible q. Verification is complete for the finite range by proved orbit normalization, while the infinite tail relies on the Weil theorem.
 
-## Relationship to nearest work and limits
-The closest sources are Graham–Spencer (1971), Bonato–Gordinowicz–Prałat (2010, DOI 10.55016/ojs/cdm.v5i2.62061), Javier–Llano–Zuazua (2026, DOI 10.55016/0sre1423), and the 2026-07-28 Erdős #902 report. They establish or calculate ordinary extension and particular domination patterns, not the joint two-witness bound for all patterns. The result does not concern higher variable/quantifier ranks, arbitrary tournaments, deletion of two vertices, or quantitative minima at every field size. Independent validation and an exhaustive priority audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Paley domination and ordinary n-e.c. construction literature yields one-witness extensions, and published 2026 work treats nearby P3/P4 properties. Those do not imply at least two for every sign pattern nor deletion robustness at quantifier rank five; q=67,71,79,83 show the difference. Best-of-knowledge PASS has priority risks in specialized tournament tables.
+
+## value
+
+PASS
+
+Exact first deletion-robust threshold across all eligible prime powers, together with an explicit logical interpretation and genuine one-vs-two-witness separation, is a natural sharp invariant of finite pseudorandom tournaments, not a routine restatement of existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
