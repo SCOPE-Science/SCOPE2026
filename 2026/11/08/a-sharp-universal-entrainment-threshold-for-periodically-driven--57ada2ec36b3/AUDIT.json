@@ -1,0 +1,176 @@
+{
+  "correctness": {
+    "rationale": "The exact logit conjugacy gives a derivative s_a'(y)=1-(a/4)sech^2(y/2). For 0<a≤8, integrating its derivative proves strict distance diminution for distinct states despite the endpoint derivative -1 at one isolated point. Tail drift and IVT establish a return-map fixed point for every periodic target, strict separation proves uniqueness and global attraction; bounded-input inward drift gives compactness for arbitrary forcing, whence same-input synchronization and all-a Cesàro calibration. Return multiplier has modulus one at a=8 only if every phase has y=0, forcing b≡1/2. The odd critical map y−4tanh(y/2)=−y+y^3/6−y^5/60+O(y^7) gives the sharp sqrt(n) constant by reciprocal-square increments; preimages of zero are explicitly excepted. For a>8 the centered fixed point is repelling. The included checker was run on its actual candidate path and verifies exact algebra plus bounded diagnostic samples; finite tests are not substituted for the quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vlatakis-Gkaragkounis et al. arXiv:2306.01032v2 §2.4 keeps b fixed but lets the step size a_n depend on past regret, yielding a different two-dimensional nonautonomous process.",
+        "Falniowski–Mertikopoulos arXiv:2402.09824 studies three autonomous models and their game-parameter bifurcations.",
+        "General strict contraction and entrainment ideas explain subcritical convergence but a global uniform contraction constant is unavailable on all of R, and at a=8 the derivative attains modulus one."
+      ],
+      "reasoning": "A general nonautonomous contraction theorem with a uniform strict contraction constant would give periodic attraction if its hypotheses held, but the logit maps have derivative approaching 1 at infinity and attain -1 at the endpoint. The bespoke inward-drift + strict distance decrease proof gives endpoint global attraction, exact critical forcing rigidity, and power-law constant. Related adaptive learning-rate and time-varying-game results do not imply this prescribed-target classification. Possible uninspected abstract nonautonomous results remain a historical priority risk.",
+      "searches": [
+        "\"multiplicative weights\" \"periodic\" \"global convergence\" \"time-varying\" 2-strategy",
+        "\"time-dependent\" \"multiplicative weights\" \"replicator\" \"periodic\" \"attracting\"",
+        "\"replicator map\" \"forcing\" \"attracting periodic\" 2020 2026",
+        "arXiv:2306.01032v2 §2.4: dynamic learning-rate model",
+        "arXiv:2402.09824 §§3–4: autonomous EW games"
+      ]
+    },
+    "checked_sources": [
+      "Shift maps and statistical invariants for some dynamical systems — https://arxiv.org/abs/2603.20685",
+      "Family of chaotic maps from game theory — https://arxiv.org/abs/1807.06831",
+      "Bifurcations and invariant sets for a family of replicator maps from evolutionary games — https://arxiv.org/html/2412.16379v1",
+      "On the discrete-time origins of the replicator dynamics: From convergence to instability and chaos — https://arxiv.org/abs/2402.09824",
+      "Chaos persists in large-scale multi-agent learning despite adaptive learning rates — https://arxiv.org/html/2306.01032v2",
+      "Singular symmetry-breaking threshold for the period-two orbit of a replicator map — https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-singular-symmetry-breaking-threshold-for-the-period-two-orbit-of--fdee730ba349",
+      "Multiplicative Weights Update with Constant Step-Size in Congestion Games: Convergence, Limit Cycles and Chaos — https://arxiv.org/abs/1703.01138"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Autonomous convergence for fixed b and a≤2/[b(1-b)] does not imply stability under switching among maps: each step could individually attract a different fixed point, and the common strict-distance estimate is a new assumption verified here.",
+        "The nearest matched exact public report proves a singular transverse loss of an *autonomous* period-two orbit for b approaching 1/2; it does not establish periodic forcing of b_n or the 8-endpoint uniqueness/critical response.",
+        "The exact phase-average identity for a forced m-cycle is immediate from a logit coboundary and is not claimed to be independently substantial; its role is a calibration component of the sharp entrainment classification."
+      ],
+      "reasoning": "The prior results include important special cases: fixed b=1/2 critical convergence and supercritical cycles, and fixed-b Cesàro means. A special case cannot yield the main uniformly-forced statement without additional cross-map control; here that control and the forced-periodic multiplier classification are proved. General one-dimensional contraction logic covers part of the subcritical mechanism, but the endpoint and exceptional n^{-1/2} coefficient require the nonlinear calculation. Historical priority remains provisional.",
+      "searches": [
+        "nonautonomous forcing periodic payoff b_n varying replicator map unique attracting entrained orbit sharp universal threshold 8",
+        "critical sigmoid logit forced discrete dynamical system derivative -1 only for constant half forcing exponential attraction nonlinear 1/sqrt(n)",
+        "multiplicative weights varying congestion equilibrium periodic payoffs unique globally attracting orbit plus exact temporal mean",
+        "published-finding corpus nearest report id 2026/10/11/SCOPE-singular-symmetry-breaking-threshold-for-the-period-two-orbit-of--fdee730ba349",
+        "arXiv:2603.20685 §§4–6",
+        "arXiv:1807.06831 Theorems 3.4, 3.9",
+        "arXiv:2306.01032v2 §2.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kryzhevich–Zhang arXiv:2603.20685 §5 writes g_{a,b}(y)=y+a/(1+e^y)-ab with constant b.",
+        "Chotibut et al. arXiv:1807.06831 Theorem 3.9 gives autonomous centered 8-threshold, not switched targets.",
+        "Kryzhevich–Zhang–Chmara arXiv:2412.16379 §§2–3 treats the same map with fixed b and its period-two bifurcations."
+      ],
+      "reasoning": "The logit form, fixed-target mean identity, and centered autonomous threshold are known equivalent formulations and are explicitly credited. The proposed assertion is instead a global statement for an arbitrary *sequence* of targets, including forced m-cycles, shared-input synchronization, the exact characterization of the only nonhyperbolic period at a=8, and its critical coefficient. Those conclusions are not the statements of the inspected fixed-parameter theorems.",
+      "searches": [
+        "nonautonomous forcing periodic payoff b_n varying replicator map unique attracting entrained orbit sharp universal threshold 8",
+        "critical sigmoid logit forced discrete dynamical system derivative -1 only for constant half forcing exponential attraction nonlinear 1/sqrt(n)",
+        "\"replicator map\" \"periodic\" \"nonautonomous\" \"payoff\"",
+        "arXiv:2603.20685 §§4–6: logit conjugacy g_{a,b}",
+        "arXiv:2412.16379 §3: periodic orbits fixed b",
+        "arXiv:1807.06831 Theorems 3.4, 3.9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest public report on the same family, “Singular symmetry-breaking threshold for the period-two orbit of a replicator map,” treats a constant asymmetric b and a changing a; its RESULT.md has no prescribed nonconstant input sequence b_n.",
+        "The historical autonomous 8-threshold is already tabulated in Chotibut et al. and is not counted as a new result."
+      ],
+      "reasoning": "The inspected relevant exact tables and enumerations concern autonomous period-two orbits and bifurcation thresholds, rather than existence/uniqueness and stability of prescribed periodic target responses or arbitrary uniformly interior target sequences. No matching database entry or exact-table implication was located; that negative search is not a proof of novelty.",
+      "searches": [
+        "nonautonomous forcing periodic payoff b_n varying replicator map unique attracting entrained orbit sharp universal threshold 8",
+        "multiplicative weights varying congestion equilibrium periodic payoffs unique globally attracting orbit plus exact temporal mean",
+        "published-finding corpus semantic comparison: nonautonomous replicator forcing; critical endpoint sqrt(n)",
+        "arXiv:1807.06831 Theorem 3.9 centered fixed-target case",
+        "arXiv:2412.16379 §§3.1–3.3 constant-target period-two tables"
+      ]
+    },
+    "rationale": "The 2026 motivating paper, original 2018 theorem and 2024 equivalent-model studies explicitly establish autonomous constant-target maps, fixed-target mean identities and centered a=8 stability. These covered parts are attributed. The assessed new unit of knowledge is the complete *periodically driven* global response theorem at the sharp input-independent threshold, its unique nonhyperbolic forcing and critical coefficient, and same-input synchronization for bounded aperiodic targets. Originality is conditional on the inspected primary materials, one closely related complete public report, and multiple targeted exact and semantic searches. Prior dominance by an uninspected general theorem remains possible.",
+    "residual_risks": [
+      "No exhaustive bibliography or full-text access to all early results on nonautonomous one-dimensional contracting maps; a generic theorem might subsume the qualitative entrainment subset without providing the sharp boundary law.",
+      "A 2017 paper on related MWU variants was inspected only at abstract level; its different fixed-parameter updates cannot justify a whole-document negative claim.",
+      "The prior autonomous b=1/2 threshold, two-cycle existence, and fixed-b orbit means are known and excluded from originality; the forced result alone carries the originality claim.",
+      "The same-formula forced-map statement could conceivably occur in unpublished or unindexed literature; no priority certification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the family and fixed-target invariants, but not prescribed periodic b_n, endpoint input rigidity, or same-input nonautonomous synchronization.",
+        "evidence": [
+          "Sections 4–5 formulate a constant-b map, and (5.4) gives the scalar logit recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.20685",
+        "material_read": "Full arXiv-text Sections 1, 4, 5, 6 and relevant appendix formulas",
+        "method": "read the arXiv rendered source, including equations (1.1), (4.2), (5.4), the logit conjugacy and stationary chaos result",
+        "title": "Shift maps and statistical invariants for some dynamical systems",
+        "trigger": "2026 motivating source on the exact map and orbit means"
+      },
+      {
+        "assessment": "Contains fixed-b Cesàro mean identity and exact centered a=8 threshold, explicitly credited; does not treat nonstationary b_n, m-periodic target switching or critical coefficient.",
+        "evidence": [
+          "Theorems 3.4 and 3.9, Sections 3.1–3.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1807.06831",
+        "material_read": "Full arXiv-text Section 3 including Theorems 3.4, 3.8, 3.9 and proofs",
+        "method": "compared the exact map, temporal means, and b=1/2 bifurcation statements against each part of the forced theorem",
+        "title": "Family of chaotic maps from game theory",
+        "trigger": "Original primary theorem on the same two-strategy map, potentially stronger coverage"
+      },
+      {
+        "assessment": "Autonomous b, period-two and hyperbolic-chaos statements; no arbitrary prescribed periodic target sequence.",
+        "evidence": [
+          "Sections 2.1, 3.1–3.3 and Sections 4–6 scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.16379v1",
+        "material_read": "Full HTML Sections 1–3 and main result/section structure",
+        "method": "compared fixed parameter map, 2-cycle existence and bifurcation, invariant means",
+        "title": "Bifurcations and invariant sets for a family of replicator maps from evolutionary games",
+        "trigger": "Relevant 2024 complete primary treatment identified through the nearest public report"
+      },
+      {
+        "assessment": "Autonomous learning and game-theoretic parameter families; no demonstrated stronger prescribed-target theorem.",
+        "evidence": [
+          "Sections 1, 4.4 and nearby propositions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.09824",
+        "material_read": "ArXiv rendered text Introduction, convergence and exponential-weights model sections, numerical bifurcation statements",
+        "method": "compared model parameter dependence and conclusions about autonomous game dynamics",
+        "title": "On the discrete-time origins of the replicator dynamics: From convergence to instability and chaos",
+        "trigger": "Potentially general statement about exponential-weights convergence"
+      },
+      {
+        "assessment": "Adapts a_n through trajectory-dependent regret with fixed game b; does not imply arbitrary exogenous periodic b_n threshold or endpoint relaxation.",
+        "evidence": [
+          "§2.4, equation (2), and Introduction result summary."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.01032v2",
+        "material_read": "Full HTML Abstract, Introduction, Sections 2.2–2.4, dynamic model and theorem overview with proof map",
+        "method": "compared nonautonomy dimension, which parameter varies, and the quantified claims",
+        "title": "Chaos persists in large-scale multi-agent learning despite adaptive learning rates",
+        "trigger": "Potential nonautonomous domination of forced learning claim"
+      },
+      {
+        "assessment": "Classifies a fixed asymmetric target b near 1/2 and its autonomous two-cycle multiplier loss; nonstationary forcing and global entrainment are absent.",
+        "evidence": [
+          "Report Finding and Proof Sections 1–6."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-singular-symmetry-breaking-threshold-for-the-period-two-orbit-of--fdee730ba349",
+        "material_read": "Public RESULT.md statement, assumptions, six-step proof, prior-work comparison and limitations",
+        "method": "retrieved the public mathematical report and compared exact quantified statements and implications",
+        "title": "Singular symmetry-breaking threshold for the period-two orbit of a replicator map",
+        "trigger": "Nearest semantic mathematical report on the same f_{a,b}"
+      },
+      {
+        "assessment": "Shows fixed-step convergence and chaos in distinct update variants; full text not inspected, leaving a bounded priority risk.",
+        "evidence": [
+          "ArXiv abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.01138",
+        "material_read": "ArXiv abstract and citation summary only, not full technical text",
+        "method": "compared the cost update variants and declared limitations of accessible content",
+        "title": "Multiplicative Weights Update with Constant Step-Size in Congestion Games: Convergence, Limit Cycles and Chaos",
+        "trigger": "Original variant of the EW model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "57ada2ec-36b3-4ab5-aaf8-23637d2c19a6",
+  "value": {
+    "rationale": "Whether changing an equilibrium target can destroy pointwise convergence despite each frozen game being stable is a natural stability issue for discrete learning. The sharp universal a≤8 theorem covers all periodic schedules, including a nonuniform strict-contraction endpoint, and distinguishes precisely when critical inverse-square-root relaxation survives nonconstant forcing. It additionally separates dynamical synchronization (which fails above 8 for some inputs) from input-average calibration (valid at every a under bounded inputs). These are structural threshold and rigidity statements for a motivated model, not arbitrary parameter census; the autonomous special case is not counted as novel value.",
+    "status": "PASS"
+  }
+}
