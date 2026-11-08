@@ -1,15 +1,21 @@
-# Review of sharp three-round stabilization of finite path powers
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every integer \(r\ge2\) and \(n\ge4r+3\), the interval-overlap argument proves exact realizability criteria for all four third-vertex adjacency patterns after an ordered pair is selected. These criteria yield the five complete pointed profiles. Matching first moves by pointed profile, second moves by adjacency and pair-extension mask, and third moves by the corresponding realized pattern gives a three-round Ehrenfeucht–Fraïssé strategy, including repeated moves. A rank-three two-vertex-domination sentence separates the immediately preceding order \(4r+2\) from every order in the stable tail. An explicit rank-three neighborhood-containment sentence separates stable path powers from stable cycle powers. The least eleven-vertex representative is established by exhaustive complete three-round recursion over the 36 possible smaller noncomplete path powers, not by inspecting only examples. Two independent programs checked the local arithmetic and finite claims, and `reproduce.sh` replays them.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** Brown and Hoshino (2007), *The Ehrenfeucht–Fraïssé Game for Paths and Cycles*, classify **ordinary paths and cycles**, not powers of paths for variable radius. Ganian et al. (2015), *FO Model Checking of Interval Graphs*, prove tractability for bounded-length representations, not a sharp logical equivalence between arbitrary radii. Foucaud et al. (2015), *On Powers of Interval Graphs and Their Orders*, establish order-preserving interval representations, not quantifier-rank equivalence. Related studies of cycle powers address a different family and do not imply the present result: the rank-three neighborhood-containment sentence separates the two stable classes. An existing result on identifying path powers using two-variable counting logic asks an identification question in a stronger, different logic and does not imply the claimed equivalence in pure adjacency logic. Direct semantic searches found no matching published indexed claim, but search failure does not certify historical priority; unindexed older literature could contain it.
+PASS
 
-## Mathematical value
-**PASS.** The two-parameter family of powers of paths is a canonical family of proper/unit-interval graphs and a natural test case for the expressive power of very shallow first-order logic. The result gives a sharp all-radius stabilization theorem, identifies five distinct pointed boundary profiles as the governing structural invariant, determines the least representative of the stable class, and establishes a logical separation from apparently similar cycle powers. The stable class includes graphs with unbounded orders, radii, clique numbers and degrees; it is not merely a finite-table calculation or a restatement of the ordinary-path case.
+For r,s>=2 and n>=4r+3, m>=4s+3, the exact pair-extension lemma identifies masks 00/01/10/11, including both endpoint exceptions. Five fully realized pointed profiles and symmetric three-move EF strategy prove cross-radius rank-3 equivalence. Two closed r-neighborhoods cover <=4r+2 vertices, giving the sharp domination sentence. Complete small 3-round recursion certifies P11^[2] is least among path powers; endpoint containment separates long cycle powers. Independent profiles and recursion matched.
 
-## Scope and limitations
-The statements concern simple undirected path powers with \(r\ge2\), ordinary first-order equality and adjacency, and quantifier rank at most three. No complete census of the shorter path powers, higher-rank classification, or extension to naming endpoints, order, distance, or counting is asserted. The eleven-vertex minimum uses finite exhaustive recursion; the infinite equivalence and the fixed-radius sharp threshold are proved symbolically. Independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.
+
+## value
+
+PASS
+
+A sharp finite-model-theoretic phase boundary and five endpoint-sensitive rooted types resolve a natural classification of how graph powers become indistinguishable at quantifier rank three. Cross-radius equivalence and least representative are nontrivial structural information beyond algorithmic model checking; the rank-four case remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
