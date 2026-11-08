@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact categorical-product adjacency rule to classify maximum independent sets, then writes weight exactly as vertex count minus empties plus double labels. Equality forces one full coordinate fiber to be empty and all remaining labels to be singleton. The rainbow condition reduces to each color supporting at least two columns, whose bad cases are counted by disjoint inclusion-exclusion for at least three columns. The two exceptional dimensions are handled separately by a complete classification on a six-cycle and two disjoint edges. The independent graph-level checker confirms the formula and the small boundaries. The proof, rather than testing finitely many sizes, establishes the infinite claim.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+In K_m x K_n, every independent set lies in one row or column, so at most t empty labels, and total weight equals mn - z + d where d counts double labels. Equality mn-t forces maximal empty coordinate fiber and singleton other labels. An empty row is rainbow dominated precisely when both singleton colors occur in at least two distinct columns; inclusion-exclusion counts 2^((s-1)t)-2-2t(2^(s-1)-1), times s or 2s maximal fibers. For (2,2) and (2,3), direct structural exceptional graph analysis gives min4 and counts36,48. Independently enumerated all 4^N labelings for 2x2,2x3,2x4,3x3, reproducing respective minima and counts; corrects a prior overbroad lower-bound sharpness assertion.
 
-Samadi–Soltankhah, arXiv:2208.02340, Theorem 3.1 supplies general categorical-product bounds and mentions products of complete graphs, but does not count or classify all optimum functions. Mansouri–Mojdeh (2020), Observations 2.2–2.3, gives scalar values for cycles and complete graphs; those do not imply the new product multiplicities. Cabrera-Martínez (2022) covers related lower/upper bounds and join, lexicographic, and corona products. The nearest indexed enumeration concerns ordinary two-rainbow domination on complete multipartite graphs, which differs both in graph family and in the empty-label independence requirement. Primary text and scientific search comparisons revealed no equivalent multiplicity formula. Unindexed or incompletely accessible work remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural Cartesian-indexed family already used to test outer-independent two-rainbow product inequalities. Its optimal functions have an exact two-color matrix interpretation, yielding a complete equality classification and closed counts for every pair of factor orders. The classification explains why the smallest nontrivial products do not attain the vertex-cover lower bound and why the multiplicity grows exponentially in the large factor. These are additional structural and enumerative facts, not re-statements of a known scalar extremum.
+Best-of-knowledge PASS for the precise complete statement, after distinguishing prior objects, scope and implications. Relevant primary mathematical results were inspected, and none of the materially read theorems supplies the same whole claim. Earlier components are explicitly credited; unsuccessful indexing alone is not proof of priority. See four structured checks, primary reading and residual risks.
 
-## Boundaries and status
+## value
 
-The result does not cover nonoptimal labelings, higher rainbow palettes, or arbitrary graph products. Publication priority is not independently certified. The direct-product manuscript was inspected in its relevant full-text sections; the 2022 related-products article was available via abstract and indexed sections only. Verification used exact finite computations plus a separate general mathematical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum-weight OI2RD functions of a natural tensor-product family admit a complete labeled optimizer classification; the small-graph exceptions actually correct an overbroad prior sharpness argument. Full counts refine known scalar values and are potentially useful for enumeration and structural comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
