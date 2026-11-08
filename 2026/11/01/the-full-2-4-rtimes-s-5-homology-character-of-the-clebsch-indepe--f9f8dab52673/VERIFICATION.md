@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python3 verify_clebsch_action.py` using Python 3. This standalone file reconstructs all data from \(A=\mathbb F_2^4\) and edge differences \((1,2,4,8,15)\). It enumerates every nonempty independent set among the sixteen vertices, checking the face vector and degree/common-neighbor numbers. It then reconstructs a greedy acyclic matching using the explicit vertex order in RESULT.md, checks all 1,200 nonempty face-poset cover relations and topologically sorts the associated gradient digraph.
+## correctness
 
-For each of the \(16\cdot5!=1920\) affine automorphisms the program directly computes signed fixed faces and separately computes the signed count of compatible vertex-orbit blocks. Both are compared to the proposed closed character formula with integer arithmetic. Finally all sixteen translation Fourier multiplicities are computed and asserted. The complete actual output is embedded in `verification_output.txt`; it ends `VERIFY_OK`.
+PASS
 
-The finite exhaustiveness is mathematical evidence only for this specific 16-vertex graph and its 1920 automorphisms. It does not certify unenumerated larger folded cubes, mathematical originality in unindexed sources, or independent external validation.
+Independently reconstructed all 392 nonempty independence faces and 191 Morse pairs with acyclic 1200-incidence Hasse digraph, critical cells one dimension zero and nine dimension three. Generated all 16×120 affine actions, independently evaluated signed fixed-simplex Lefschetz traces and matched all 1920 against formula; verified translation traces (9 once,5 ten times,1 five times) and translation-fixed dimension four.
+
+## originality
+
+PASS
+
+Independent, best-of-knowledge search and mathematical comparison support a distinct exact claim. Barmak’s arXiv:1007.0418 triangle-free suspension theorem is nonequivariant. Earlier published Clebsch/folded-five-cube findings establish wedge9 S3, not automatically the 1920-element automorphism action. The exact module and invariant dimensions are additional motivated information.
+
+## value
+
+PASS
+
+The natural complete automorphism action on H3 of a canonical strongly regular graph is not determined by the known nine-sphere homotopy result; the full character and fixed-space ranks offer precise reusable equivariant information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
