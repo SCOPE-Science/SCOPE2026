@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Exact inclusion-exclusion plus uniform truncation establishes the expansion. The bounds use factorial dominance q_(n,k)^m <= exp(-2mk/n); the Taylor remainder summed against Poisson weights is O(log²n/n²). Three alternating exponential sums give the signed coefficient. Exact DP and high-precision checks corroborate the derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Betken–Thäle introduction and Section 5 prove general quantitative Poisson error of order log(n)/n.",
+        "The same paper attributes earlier general rates to Barbour–Holst–Janson."
+      ],
+      "reasoning": "A uniform error bound allows but does not identify the leading coefficient, its sign, or cancellation for the zero-missing atom. Global TV rate may remain optimal despite the special pointwise cancellation.",
+      "searches": [
+        "Betken Thäle group drawings Stein Poisson total variation 2023",
+        "Barbour Holst Janson Poisson Approximation Theorem 6.F"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/two-poisson-limit-theorems-for-the-coupon-collectors-problem-with-group-drawings/14AC31D4C06D477DD4A613B846AE3CAE",
+      "arxiv:2202.07485",
+      "doi:10.1017/jpr.2023.6",
+      "Barbour, Holst and Janson, Poisson Approximation (1992), as cited in Betken–Thäle; theorem 6.F not inspected directly"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schilling–Henze (2021) accessible abstract: group-drawing Poisson limit.",
+        "Betken–Thäle (2022 preprint, 2023 journal), Sections 1–5: quantitative rates, method of size biasing and Stein approximation.",
+        "The explicit inclusion-exclusion expansion in the new proof supplies coefficient -exp(-lambda)[lambda²+(lambda²-2lambda)L]/(2n)."
+      ],
+      "reasoning": "The exact new coefficient is not an immediate implication of the cited Poisson convergence/TV results, even after the zero-unseen specialization. It is obtained by a separate controlled second-order expansion; earlier unpublished or uninspected special-case computations remain a risk.",
+      "searches": [
+        "\"Two Poisson limit theorems for the coupon collector’s problem with group drawings\"",
+        "\"Approaching the coupon collector’s problem with group drawings via Stein’s method\"",
+        "coupon collector group drawings inclusion exclusion second order asymptotic coverage probability correction log n n Poisson 2 coupons"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new event Z=0 is the cdf of completion time, and its exact inclusion-exclusion representation is classical.",
+        "Betken–Thäle (arxiv:2202.07485) formulate the number of missing cells and its Poisson limit."
+      ],
+      "reasoning": "Rewriting as the completion-time cdf or zero-empty occupancy event does not turn the published convergence-rate bounds into the evaluated signed term.",
+      "searches": [
+        "\"coupon collector\" \"pair drawings\" \"completion probability\" \"asymptotic correction\"",
+        "\"occupancy\" \"group drawings\" \"zero empty cells\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical record searches produced closest findings concerning reset coupon collection and pairwise-independent occupancy, not this uniform group-draw completion expansion.",
+        "The accessible same-topic earlier ledger claims were searched for coupon/occupancy/group drawings; no direct counterpart was found."
+      ],
+      "reasoning": "The mathematical-record and local-claim comparisons yielded no explicit preexisting coefficient; neither absence proves uniqueness nor is a partition boundary a novelty argument.",
+      "searches": [
+        "Group drawing coupon collector uniform pairs missing coupons coverage probability exact finite size second order expansion Gumbel distribution logarithmic over n correction cancellation at mean 2",
+        "Schilling Henze 2021 Betken Thale 2023 coupon collector group drawings Poisson approximation two coupon samples exact probability all seen second-order correction",
+        "coupon collector s=2 complete collection probability Gumbel finite size correction e^-2 optimal logarithmic term vanishes"
+      ]
+    },
+    "rationale": "The inspected complete 2023 article proves Poisson approximation at order log(n)/n but does not evaluate the signed complete-collection second-order coefficient or its special cancellation at mean two. General bounds do not imply this pointwise coefficient. A prior 2021 article was only abstract-accessible; earlier asymptotic expansions remain a specific risk.",
+    "residual_risks": [
+      "Historical priority: a special-case asymptotic expansion may appear in older coupon-collector literature not inspected in full.",
+      "Schilling–Henze (2021) full text was inaccessible, so only abstract-level statements were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Poisson error-rate results and existing references do not evaluate the signed zero-missing atom correction",
+        "evidence": [
+          "Poisson approximation in alpha=1 window",
+          "Section 5 gives Stein size-biased TV bound rather than explicit signed asymptotic of Pr(Z=0)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2023.6",
+        "material_read": "Accessible complete HTML sections including Introduction, Results, Coupling construction, Proof of Theorem 1 and Proof of Theorem 2",
+        "method": "Read scientific statements and derivations; compared pointwise coefficient to rate-only theorems",
+        "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+        "trigger": "Identical sampling model and strongest recent general Poisson approximation"
+      },
+      {
+        "assessment": "Relevant Poisson limit precursor; residual risk of implicit or explicit finite-size expansion",
+        "evidence": [
+          "Abstract describes Poisson limit for group drawings, not its next asymptotic coefficient."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/two-poisson-limit-theorems-for-the-coupon-collectors-problem-with-group-drawings/14AC31D4C06D477DD4A613B846AE3CAE",
+        "material_read": "Publisher abstract and bibliographic details only; full paper inaccessible in this run",
+        "method": "Abstract-level comparison only, not full-text exclusion",
+        "title": "Two Poisson limit theorems for the coupon collector’s problem with group drawings",
+        "trigger": "2021 source on same group-drawing model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7c256b72-ae70-4d2c-9ccb-dc41fa811613",
+  "value": {
+    "rationale": "The completed coupon collection probability is the natural cdf of the collection-time law. The signed finite-size bias and special mean-two cancellation refine the previously known O(log n/n) estimates and identify a qualitatively different finite-size calibration point.",
+    "status": "PASS"
+  }
+}
