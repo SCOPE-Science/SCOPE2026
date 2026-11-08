@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "At a minimum of m squares, an empty row and empty column are impossible. Occupancy and the outside-neighbor formula r_i+c_j restrict every positive column count to 1 or m. This gives all families in both aspect-ratio cases. The intersection bound proves the isolates. A dependency path/cycle argument establishes the exact injection distance t+c and the sharp diameter. Two standalone standard-library programs agree with the symbolic statements on specified finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Filomat 31 (2017), pp. 413-423, Theorem 1, DOI 10.2298/FIL1702413C: gamma_12(G)=gamma(G) for claw-free graphs",
+        "Discrete Applied Mathematics 161 (2013), Question 15: K_p square K_2 boundary",
+        "Day–Tripathi (1992), Information Processing Letters 42:235–241, DOI 10.1016/0020-0190(92)90030-Y, establishes the arrangement graph as a known network with degree and diameter properties."
+      ],
+      "reasoning": "Because a rook graph is a line graph it is claw-free, so prior work already covers the minimum number, which is not a new contribution. Neither the equality statement nor the two-row example implies the exact counts and mobility structure on 3-by-n and larger boards. The known arrangement-graph diameter is subsumed by prior arrangement-network theory. That literature does not assert the previously unrecognized optimum [1,2]-set realization, the isolated full-column states, or the square/rectangular phase boundary.",
+      "searches": [
+        "\"On Perfect and Quasiperfect Domination in Graphs\" claw-free Theorem 1",
+        "\"[1,2]-sets in graphs\" Question 15 Cartesian product",
+        "\"quasiperfect\" \"claw-free\" reconfiguration",
+        "\"Arrangement graphs: a class of generalized star graphs\" Day Tripathi 1992"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.dam.2013.06.012",
+      "arxiv:1411.7818v1",
+      "doi:10.2298/FIL1702413C",
+      "doi:10.4236/ojdm.2020.101004",
+      "doi:10.1016/0020-0190(92)90030-Y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chellali et al. establish the class of [1,2]-sets and a two-row example.",
+        "Caceres et al. establish existence of minimum [1,2]-sets on claw-free graphs, not uniqueness, number, or exchange-graph diameter.",
+        "Day–Tripathi arrangement graphs give known injection-state metrics, but not the map from [1,2]-minimum configurations of rook graphs to those states."
+      ],
+      "reasoning": "The final result asserts a significantly stronger configuration-space theorem. Numerical equality gamma_12=gamma supplies no count or mobility, and the 2013 two-row observation cannot be extrapolated to m>=3 without the column-count restriction and arrangement-graph analysis proved here. We do not claim originality for the abstract arrangement graph or its diameter: novelty would be defeated if an older source already established the relevant minimum-set classification or the entire reconfiguration graph.",
+      "searches": [
+        "doi:10.1016/j.dam.2013.06.012",
+        "arxiv:1411.7818v1",
+        "doi:10.2298/FIL1702413C",
+        "rook graphs domination minimum reconfiguration",
+        "doi:10.1016/0020-0190(92)90030-Y"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1016/j.dam.2013.06.012 (the same notion is called a [1,2]-set)",
+        "arxiv:1411.7818v1 (k-quasiperfect terminology)",
+        "R_{m,n}=K_m square K_n=L(K_{m,n})",
+        "Day–Tripathi 1992, doi:10.1016/0020-0190(92)90030-Y: A(n,m) is already the named injection-adjacency graph."
+      ],
+      "reasoning": "All aliases refer to the same outside-neighborhood condition. The two-row product example occurs explicitly in the 2013 paper; it is excluded. The m,n>=3 complete optimal-state and exchange classification was not found in the inspected coverage. Arrangement graph is a name for the exact injection-state subgraph; no originality is asserted for that graph in isolation.",
+      "searches": [
+        "\"quasiperfect domination\" \"rook graph\"",
+        "\"[1,2]-domination\" \"rook graph\" \"minimum\"",
+        "\"quasiperfect dominating sets\" \"Cartesian\" \"complete graphs\"",
+        "arxiv:1411.7818v1",
+        "\"quasiperfect\" \"rook graph\" \"reconfiguration\"",
+        "\"[1,2]\" \"arrangement graph\" domination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2013/2017 papers give tables of basic graph-family minimum parameters, not an m-by-n array of optimum-state multiplicities or exchange-graph edges.",
+        "Related rook-code tables address identifying codes, total domination or Roman domination, different predicates."
+      ],
+      "reasoning": "No complete table of the (n)_m+n minimum [1,2]-sets or of the associated exchange graph was located. Failure to find a table does not prove one does not exist.",
+      "searches": [
+        "\"2-quasiperfect\" \"rook\"",
+        "\"[1,2]-sets\" \"rook graph\" count minimum configurations",
+        "\"rook\" \"two-quasiperfect\" \"arrangement graph\"",
+        "\"quasiperfect domination\" \"Cartesian products\"",
+        "\"arrangement graphs\" \"quasiperfect\" domination"
+      ]
+    },
+    "rationale": "The numerical minimum and the two-row [1,2]-set case are prior results. Day–Tripathi (1992) already introduced arrangement graphs with their standard degree and diameter, so those graph invariants are also not separately new. The claim is the full optimum-set classification for m,n>=3 and its identification with a known arrangement graph plus isolated configurations, with a sharp square-board immobility boundary. Actual published-finding corpus and literature comparisons found no stronger covering claim; unindexed work remains a priority risk.",
+    "residual_risks": [
+      "Unindexed theses, workshop notes and unpublished exact tables may contain the same classification.",
+      "The 2013 publisher PDF was not available for full linear inspection; the accessible article text includes its Cartesian-product observation.",
+      "The independent scientific assessment is not performed.",
+      "The full 1992 arrangement-graph paper could not be inspected, but only its standard network graph properties are being used, not claimed new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the two-row boundary and definition but does not establish our m>=3 configuration-space theorem",
+        "evidence": [
+          "The article explicitly mentions K_p square K_2 in Question 15; that boundary is removed from the novelty claim."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2013.06.012",
+        "material_read": "Accessible extended article text including introduction, theorems in the available online text, and Question 15; full publisher PDF not available",
+        "method": "Publicly indexed full-text passages, comparative statement reading",
+        "title": "[1,2]-sets in graphs",
+        "trigger": "Foundational same predicate and exact Cartesian-product example"
+      },
+      {
+        "assessment": "Theorem 1 proves numerical equality for claw-free graphs; no classification or reconfiguration of m-by-n rook minimum [1,2]-sets found.",
+        "evidence": [
+          "First arxiv version 1411.7818 dated 2014-11-28; primary MSC 05C69.",
+          "Published theorem 1: gamma_12(G)=gamma(G) for claw-free G."
+        ],
+        "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2017/31-2/31-2-20-2080.pdf",
+        "material_read": "Full freely accessible preprint text via author-uploaded public page and publisher PDF sections 1, 2, 4, Theorem 1, figures and references",
+        "method": "Full-text section review and visual inspection of published PDF page with Theorem 1",
+        "title": "On Perfect and Quasiperfect Domination in Graphs / On Perfect and Quasiperfect Dominations in Graphs",
+        "trigger": "Highly relevant general implication for claw-free graphs"
+      },
+      {
+        "assessment": "Roman weights and their minimizers do not imply the new [1,2]-set exchange structure.",
+        "evidence": [
+          "Theorems 3-5 count Roman-function minimizers with labels 0,1,2, a distinct optimization problem."
+        ],
+        "identifier_or_url": "https://www.scirp.org/html/4-1200395_97890.htm",
+        "material_read": "Full HTML article sections 1 and 2, Theorems 1 through 5",
+        "method": "Comparison of Roman dominating function to [1,2]-domination predicate",
+        "title": "The Number of Minimum Roman and Minimum Total Dominating Sets for Some Chessboard Graphs",
+        "trigger": "Closest rook-board minimum-configuration counting literature, but different domination type"
+      },
+      {
+        "assessment": "Existing arrangement-graph definition, degree and diameter are prior art; no connection with rook [1,2]-domination identified in the accessible abstract and references. Full text not directly inspected.",
+        "evidence": [
+          "Day and Tripathi, Information Processing Letters 42(5), 1992, 235–241: generalized-star network, vertex/edge symmetry, routing, degree and diameter parameters."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0020-0190(92)90030-Y",
+        "material_read": "Author institutional publication record, complete bibliographic metadata and abstract; publisher paper full text not obtained",
+        "method": "Comparison of stated interconnection-network object and standard arrangement-graph diameter with the new domination realization",
+        "title": "Arrangement graphs: a class of generalized star graphs",
+        "trigger": "Exact named graph emerging from optimal-state exchange computation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1210053d-a0ca-47ef-a87b-3fb0dbe2705d",
+  "value": {
+    "rationale": "The complete optimal-state classification and isolated-versus-connected mobility threshold are motivated missing structural information for [1,2]-domination; the existence/number of an optimum and the pre-existing diameter of abstract arrangement graphs do not supply the new physical rook configuration-space identification. The result gives exact optimal-set counts and relocation structure uniformly for all dimensions >=3.",
+    "status": "PASS"
+  }
+}
