@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The radial Gaussian STFT moment identity gives a complete Hermite diagonalization for the bounded indicator by monotone strong convergence. Gamma sums modulo the period are circular convolution powers of a positive wrapped exponential. The unique maximum of its interval mass and a pointwise density minimum prove the explicit uniform gap. Absolutely convergent Fourier inversion gives the full tail, a rigorously bounded second-harmonic remainder, and the one-point essential spectrum; rational/irrational rotation cases yield infinitely many signs. The embedded standard-library checker independently evaluates cell integrals and Fourier values and passes 624 assertions; computation is corroboration, not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2104.10976, Sect. 3.1, Cor. 3.1; finite canonical-alphabet Cantor masks",
+        "arxiv:2311.06525, abstract and Section 2 (requires finite Lp and Lq norm of symbol)",
+        "The universal circular convolution concentration inequality bounds any convolution power by maximal interval mass and explains the top norm; it does not quantify the oscillatory Hermite tail."
+      ],
+      "reasoning": "Knutsen II proves Gaussian dominance for compact finite Cantor masks, which is stronger in another family but not a theorem about the noncompact periodic infinite-area mask or its essential tail. Riccardi assumes finite Lp/Lq symbol norms, which the indicator here lacks for every finite p. The direct known convolution inequality accounts for part of the result, not the claimed spectral oscillation.",
+      "searches": [
+        "Daubechies Cantor type set I section 3.2 periodic radial mask arbitrary period uniform spectral gap Hermite oscillatory exponential tail",
+        "Knutsen 2021 generalized leftmost Cantor mask Gaussian top eigenvalue",
+        "Riccardi 2023 optimal norm localization Lp Lq"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1907.00848; J. Fourier Anal. Appl. 26 (2020), Sect. 3.2, Thm. 3.1",
+      "arxiv:2104.10976, Sect. 3.1, Cor. 3.1; finite canonical-alphabet Cantor masks",
+      "arxiv:2311.06525, abstract and Section 2 (requires finite Lp and Lq norm of symbol)",
+      "doi:10.1109/18.9761, Hermite diagonalization",
+      "Published record 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88 (distinct half-line concentration object)",
+      "Previously documented scientific claim IDs 63edb957-9ca8-484e-9b9c-e479910b5622 and 23d104dc-a61a-4e76-aa0a-3056ba426bb1 (distinct objects)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1109/18.9761, Hermite diagonalization",
+        "arxiv:1907.00848; J. Fourier Anal. Appl. 26 (2020), Sect. 3.2, Thm. 3.1",
+        "arxiv:2104.10976, Sect. 3.1, Cor. 3.1; finite canonical-alphabet Cantor masks"
+      ],
+      "reasoning": "Daubechies supplies the radial Hermite spectral integral; Knutsen I supplies unit-period infinite-mask eigenvalue formulas and a sufficiently-small-width norm equality, neither an infinite sequence of above/below-essential eigenvalues nor an all-period gap bound. Knutsen II proves a Gaussian maximizing mode for finite Cantor masks, not the noncompact essential spectrum. Combining those known premises with standard wrapped Fourier analysis leads to the new specialized infinite-tail statement; an unlocated earlier explicit combination remains a priority risk.",
+      "searches": [
+        "Gaussian Daubechies localization on infinite unit-periodic radial comb intervals [n,n+s] exact operator norm all s=1-e^-s over 1-e^-1 exponential fractional part cyclic convolution Hermite unique",
+        "Daubechies Cantor infinite radial comb Theorem 3.1 formula and proof",
+        "Knutsen II finite Cantor canonical alphabet Corollary 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1907.00848; J. Fourier Anal. Appl. 26 (2020), Sect. 3.2, Thm. 3.1",
+        "Wrapped gamma circle law has Fourier coefficients (1+2πin/T)^(-(k+1)), derived from its characteristic function; the operator link and tail signs require this specialization."
+      ],
+      "reasoning": "The direct object is a radially periodic Gaussian STFT multiplier, equivalent to a Bargmann–Fock radial Toeplitz multiplier and to a wrapped Gamma interval-probability sequence. No inspected source states its quantitative isolated top together with universal two-sided essential-spectrum accumulation.",
+      "searches": [
+        "periodic radial Gaussian Gabor localization operator exact norm all duty cycles unique Gaussian Hermite top eigenvalue wrapped exponential gamma convolution",
+        "wrapped gamma fractional part interval probability oscillations around duty cycle Fourier coefficient powers essential spectrum Gaussian localization",
+        "Daubechies radial localization wrapped gamma Fourier series essential spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Compared nearby previously documented findings on Hermite localization and Cantor-related spectral concentration, including opaque scientific claim IDs 63edb957-9ca8-484e-9b9c-e479910b5622 and 23d104dc-a61a-4e76-aa0a-3056ba426bb1; neither states the radial periodic comb essential-spectrum theorem.",
+        "Closest published research record: 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88; different half-line finite Hermite mask, no infinite periodic radial localization."
+      ],
+      "reasoning": "No exact parameter/eigenvalue table or stronger result for this radial periodic infinite-area mask was located in the examined mathematical records. Absence of a match does not establish priority.",
+      "searches": [
+        "periodic radial Gaussian Gabor localization operator exact norm all duty cycles unique Gaussian Hermite top eigenvalue wrapped exponential gamma convolution",
+        "wrapped gamma fractional part interval probability oscillations around duty cycle Fourier coefficient powers essential spectrum Gaussian localization",
+        "Daubechies Cantor type set I section 3.2 periodic radial mask arbitrary period uniform spectral gap Hermite oscillatory exponential tail",
+        "periodic Gaussian localization claim comparison Cantor Hermite concentration"
+      ]
+    },
+    "rationale": "The specific all-period infinite radial mask theorem combines positive spectral isolation with exponential two-sided oscillation about a nonzero essential point, unlike the preceding small-width estimate and finite-Cantor norm results. The wrapped-exponential Fourier identity itself is standard, and the familiar convolution interval bound implies the top-norm formula; those ingredients are not claimed as newly discovered. No directly dominating statement for the complete infinite-area spectral tail was identified in the inspected primary papers or records.",
+    "residual_risks": [
+      "Standard wrapped distribution Fourier theory could have been specialized to this operator in earlier literature under circular-renewal or Bargmann–Fock terminology.",
+      "A known broad circle-convolution inequality already implies the elementary norm-maximization component; originality is asserted only for the combined quantitative spectral-tail classification.",
+      "No exhaustive historical uniqueness claim can be made from semantic searches; a stronger older result might be indexed under different mathematical terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the unit-period mask and small-width exact norm; does not provide all-period positive gap or asymptotically oscillating essential-spectrum tail",
+        "evidence": "Section 3.2 formulas (3.2)-(3.7), especially Theorem 3.1 equality only for some sufficiently small s0.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-020-09751-9",
+        "material_read": "Full-access article HTML, Sections 2.3 and 3.2, Theorem 3.1 and proof, conclusions on generalized Cantor sets",
+        "method": "Read primary online full-text sections and checked the precise norm equality range",
+        "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+        "trigger": "Exact same infinite radial unit-period comb and original small-width conclusion"
+      },
+      {
+        "assessment": "Finite generalized Cantor sets are treated; Gaussian top eigenvalue for leftmost-digit masks is acknowledged, but no infinite-periodic essential spectral sign classification appears in read sections",
+        "evidence": "Corollary 3.1 and Lemma 3.7 concern finite n and a finite base-scale radius.",
+        "identifier_or_url": "https://arxiv.org/abs/2104.10976",
+        "material_read": "Primary arXiv HTML, introduction, Sections 2 and 3, Corollary 3.1, Lemmas 3.5–3.7",
+        "method": "Inspected primary article mathematical text and hypothesis sets",
+        "title": "Daubechies’ Time-Frequency Localization Operator on Cantor Type Sets II",
+        "trigger": "Strong potential broader Gaussian-maximization coverage for Cantor masks"
+      },
+      {
+        "assessment": "Not applicable directly because this symbol is not in Lp∩Lq for finite p and q; no inference about uninspected portions",
+        "evidence": "Abstract explicitly assumes symbol F in Lp(R^{2d})∩Lq(R^{2d}).",
+        "identifier_or_url": "https://arxiv.org/abs/2311.06525",
+        "material_read": "Primary arXiv readable abstract, Section 2 theorem excerpt on weighted distribution rearrangements",
+        "method": "Compared stated Lp∩Lq hypotheses to the proposed infinite-measure indicator",
+        "title": "A new optimal estimate for the norm of time-frequency localization operators",
+        "trigger": "More recent potentially dominating sharp norm result"
+      },
+      {
+        "assessment": "Contains underlying radial diagonalization, not the claimed infinite radial periodic spectral tail",
+        "evidence": "IEEE Trans. Inf. Theory 34 (1988), 605–612; Knutsen 2020 Theorem 2.1.",
+        "identifier_or_url": "doi:10.1109/18.9761",
+        "material_read": "Bibliographic primary abstract and the reproduced eigenvalue formula in Knutsen Sections 2.2–2.3",
+        "method": "Verified bibliographic identity and used established radial STFT spectral formula",
+        "title": "Time-Frequency Localization Operators: A Geometric Phase Space Approach",
+        "trigger": "Underlying Hermite diagonalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c03ad688-7154-402f-adef-5b82b313e360",
+  "value": {
+    "rationale": "For a canonical infinite-area phase-space mask previously studied only with estimates/small-width equality, the theorem identifies a unique Gaussian top eigenfunction with an explicit uniform gap, a nonzero singleton essential spectrum, and an exponential tail forced to cross that essential point infinitely often in both directions for every permitted period and width. This qualitative structure is valuable beyond a routine norm estimate; it gives a complete asymptotic spectral classification and distinguishes a noncompact operator from its finite-area analogues. The exact operator-norm formula alone is not the basis for the value judgment.",
+    "status": "PASS"
+  }
+}
