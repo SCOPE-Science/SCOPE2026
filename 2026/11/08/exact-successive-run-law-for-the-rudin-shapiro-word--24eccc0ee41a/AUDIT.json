@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Primitivity of the explicitly stated four-letter two-uniform substitution gives positive frequencies of every occurring factor. Eight hidden adjacent pairs each have exact frequency 1/8, verified against the full stationary equation. A shorter-length rational recurrence computes each of the 32 sign-specific run-pair patterns and excludes length-five constant-sign patterns. Run normalization yields the stated matrix and exactly 1/8+3/16 log_2(3) bits of adjacent-run mutual information. verify.py independently checks exact transfer arithmetic and all 262144 digit-definition prefix symbols. Finite counts are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer–Shallit (2015) studies closed, palindromic, rich, privileged, trapezoidal and balanced factors, not successive-run pair frequencies.",
+        "Hendel (2025) studies maximal run length four and some run positions; those facts do not imply the nine transition frequencies.",
+        "Lü et al. (2016) studies abelian factor complexity, not run transitions."
+      ],
+      "reasoning": "The published substitution gives a method for evaluating any fixed factor frequency, but its existence is not the explicit evaluation of the full adjacent-run matrix. The complete pair table and information-theoretic consequence are not stated or implied by the published special run-length maximum alone.",
+      "searches": [
+        "Golay Rudin Shapiro word consecutive runs +1 -1 lengths 1 2 3 4 joint frequency",
+        "arXiv:1508.02074 Section 3, 5-10",
+        "arXiv:2505.20547 Section 8",
+        "arXiv:1606.06935"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A203531",
+      "OEIS:A020985",
+      "arXiv:1508.02074",
+      "arXiv:1606.06935",
+      "arXiv:2505.20547",
+      "public research item on Rudin-Shapiro prefix string-attractor sizes (2026-09-08)",
+      "public research item on fixed-composition transition covariances (2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Maximal run length four only restricts candidate pairs to 16, while the theorem excludes seven and gives different rational weights among the remaining nine.",
+        "String-attractor estimates concern minimum substring-hitting sets and have no implication for the run transition matrix.",
+        "General automaticity provides an algorithmic route, not the explicit values and mutual information stated here."
+      ],
+      "reasoning": "A stronger publication would have to provide this joint law or an explicit closed factor-frequency formula that immediately evaluates it. None was established in inspected sources. A source with only related objects or separate marginal data does not subsume the new exact conditional distribution.",
+      "searches": [
+        "Rudin Shapiro sequence run length coding joint distribution successive alternating sign blocks",
+        "Golay Rudin Shapiro word consecutive runs +1 -1 lengths 1 2 3 4 joint frequency",
+        "arXiv:2505.20547 Section 8",
+        "Published item: exact minimal string attractors for Rudin-Shapiro dyadic prefixes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A203531 specifies the interleaved + and - run lengths but does not state a pair-frequency or transition formula.",
+        "The result is equivalently a full pair-frequency evaluation of consecutive elements of that run-length sequence; simple sign renaming or binary 0/1 coding does not change Q."
+      ],
+      "reasoning": "All sign choices were analyzed in both +,- and 0,1 coding. Existing explicit sequence data and a definition permit computation but provide no evaluated all-length limit for the nine allowed transitions or their mutual information. No stronger explicit equivalent claim was found in sources inspected.",
+      "searches": [
+        "Rudin-Shapiro binary word exact frequencies of adjacent runs of signs, 9 possible run-length pairs, 1/32 3/64 1/64",
+        "Rudin Shapiro sequence run length coding joint distribution successive alternating sign blocks",
+        "OEIS:A203531",
+        "OEIS:A020985"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A203531 has a list of 10,000 run lengths, with an explicit definition of alternating signs and no listed transition-probability matrix.",
+        "OEIS A020985 is the underlying sign sequence, not a table of joint run-pair frequencies."
+      ],
+      "reasoning": "Finite values can verify instances but cannot establish limiting rational densities. The exact database entries inspected lack a covering theorem or table. An unindexed table remains a historical-priority risk.",
+      "searches": [
+        "OEIS:A203531",
+        "OEIS:A020985",
+        "Rudin Shapiro run-length sequence distribution adjacent runs frequencies runs of length 1 2 3 4",
+        "Rudin Shapiro word run length distribution 1 2 3 4 frequency"
+      ]
+    },
+    "rationale": "The published Rudin–Shapiro run-length sequence, maximal run bound, and standard substitution are known. Neither the directly inspected closely relevant primary materials nor the reviewed public research comparisons explicitly evaluate the exact sign-resolved ordered adjacent-run frequency matrix and its induced mutual information; this is a genuine new evaluated statistic conditional on historical-priority limitations. Run length four alone neither determines which consecutive pair types are forbidden nor their nonuniform rational frequencies.",
+    "residual_risks": [
+      "The run-length encoding is explicitly known, so an unindexed earlier computation of its joint pair frequencies could be equivalent despite different terminology.",
+      "The complete 2023 automatic-sequence monograph section cited by Hendel on maximal runs was not inspected; Hendel describes it as a maximum-run result, not a full pair-law evaluation.",
+      "No claim of independent expert literature certification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KNOWN RUN SEQUENCE; NO EXPLICIT JOINT LIMIT IN INSPECTED ENTRY",
+        "evidence": [
+          "Entries alternate + and - run lengths and list finite values; there is no exact per-pair density or mutual-information formula."
+        ],
+        "identifier_or_url": "https://oeis.org/A203531",
+        "material_read": "Full accessible entry: definition, sample terms, comments, links, code and bibliographic fields",
+        "method": "HTML reading and explicit comparison of stated content with frequency matrix",
+        "title": "Run lengths in Golay-Rudin-Shapiro sequence",
+        "trigger": "Direct exact run-length database with original 2012 date"
+      },
+      {
+        "assessment": "COVERS SUBSTITUTION AND OTHER FACTOR CLASSES; NO RUN-PAIR MATRIX IN INSPECTED MATERIAL",
+        "evidence": [
+          "Section 3 provides the four-letter substitution and coding; main theorems target closed, palindromic, rich, privileged, trapezoidal and balanced factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.02074",
+        "material_read": "HTML full-text material, in particular Section 3 sequence definitions, main theorem statements of Sections 5–10, and consequences",
+        "method": "Read scientific statements and compare object and claimed invariant",
+        "title": "Closed, Palindromic, Rich, Privileged, Trapezoidal, and Balanced Words in Automatic Sequences",
+        "trigger": "Contains the exact four-symbol substitution and advanced factor classifications"
+      },
+      {
+        "assessment": "DIFFERENT INVARIANT; WHOLE-DOCUMENT NONCOVERAGE NOT INFERRED FROM SHORT MATERIAL",
+        "evidence": [
+          "Theorems A/B address 2-regularity of abelian complexity and box dimension of a limit graph; no explicit pair run table in these statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.06935",
+        "material_read": "Full-text HTML abstract, introduction, Theorems A/B, and topic/section outline",
+        "method": "Compared precisely specified abelian complexity statistics with adjacent-run joint frequencies",
+        "title": "On the abelian complexity of the Rudin-Shapiro sequence",
+        "trigger": "Nearby classical exact combinatorics of the same sequence"
+      },
+      {
+        "assessment": "STRONGEST TOPICAL RUN SOURCE; MAXIMUM FOUR KNOWN, ORDERED JOINT LAW NOT STATED",
+        "evidence": [
+          "Section 8 says the maximum run length for Rudin-Shapiro is four and presents selected maximal run positions; these do not give relative frequencies of all 16 possible consecutive lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.20547",
+        "material_read": "HTML full-text introduction, Theorem 3, and Section 8 Run Positions and Lengths",
+        "method": "Compared maximum-run statement and selected position formulas with entire adjacent-run frequency matrix",
+        "title": "A Family of Sequences Generalizing the Thue Morse and Rudin Shapiro Sequences",
+        "trigger": "Section 8 directly concerns run lengths and their starting positions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24eccc0e-e41a-4764-9814-886f9b62a868",
+  "value": {
+    "rationale": "The complete signed run-pair transition spectrum and exact rational weights are natural observables of the Rudin–Shapiro run-length code, not arbitrary small cases. The nine possible transitions give a structural constraint; a length-two run must always be followed by a length-one run, whereas length-one runs have four equally likely successors. The induced nonzero mutual information 1/8+(3/16)log_2 3 quantitatively contrasts with independently distributed nearest-neighbor original signs. These supply a usable all-length structural and information-theoretic benchmark, not a routine restatement of the known maximum run length.",
+    "status": "PASS"
+  }
+}
