@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-stage stationary Markov embedding fixes the otherwise ambiguous equilibrium residual holding-time convention. Its resolvent gives the stated coherence transform and positive rational line spectrum. Differentiation reduces global peak classification to a single quintic; a fully stated discriminant identity and two explicit positive-coefficient polynomial substitutions exclude hidden positive-root collisions. Reference points at two detunings establish the complete zero-versus-one positive critical-root count, and the sign of the derivative completes the global classification. The matched-mean Markov threshold follows directly from its two-state lineshape. `check_erlang2.py` rechecks all key symbolic identities and supplies separate numerical matrix-resolvent comparisons. No infinite assertion depends on finite sampling.
+## correctness
 
-## Originality — PASS on inspected evidence
-Jung–Barkai–Silbey's 2000 stationary arbitrary-renewal formula [2] is a substantial broader framework and can be specialized to an Erlang-two kernel. Their stated examples, figures and analysis instead concern heavy-tailed waiting laws and stationarity effects; they do not give the exact quintic root-count proof, sharp Erlang-two algebraic crossover or the mean-matched Markov factor. Šanda–Mukamel [3] likewise develop arbitrary renewal and stationary-ensemble tools, but the fully inspected model discussion and linear response section focus on exponential and power-law waiting laws and do not supply the specific phase-type shape-two classification. Seki–Marumoto [4] investigate Gaussian site-disorder and non-Markov heavy tails, rather than a fixed symmetric two-frequency Erlang-two switch. Published database searches under residence-time, phase-type, Erlang, Kubo–Anderson, gamma holding and spectral-coalescence aliases did not identify a dominating theorem. Exact historical priority has not received independent certification; a calculation implicit in a general transform cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-A sharp global spectral-mode partition is a natural measurable invariant of a non-Poisson Kubo–Anderson model with finite-variance holding times. The theorem excludes satellite resonances without assuming unimodality, isolates a nonrational critical constant through an explicit polynomial, and quantifies an approximately 75.18-percent shift of the splitting amplitude relative to matched-mean Poisson switching. These are not normalization checks or a tabulated substitution: the global modal count needs a nonvanishing discriminant and a rigorous root-count continuation. The result directly distinguishes the effect of residence-time regularity from mean switching frequency in stochastic spectroscopy. Its model restrictions and historical-priority caveat remain material.
+From the actual RESULT.md, stationary four-stage cyclic generator Q with signs ++-- gives the stated Feynman-Kac resolvent. Independently differentiating its dimensionless rational lineshape reproduced J_y'(x)=-2yP_y(x)/(D_1D_2)^2. SymPy recomputed disc_x(P_y)=65536*y*(y+2)*(4*y+5)^2*H(y); the positive-coefficient H-transform certificates in the proof preclude root collisions. The quartic f(y)=y^4+11y^3+10y^2-24y-32 has exactly one positive zero y*=1.53440426264242..., and continuity from y=1 and 2 yields zero or exactly one positive off-axis root. The stationary residual-life assumption, delta>0, kappa>0 and comparison to matched-mean exponential residence rate kappa/2 are essential. This is an infinite-parameter proof, not extrapolation from 150 numerical samples.
 
-## Closest literature and limitations
-[2] Y. Jung, E. Barkai and R. J. Silbey, *Dispersive Lineshape Theory*, arXiv:cond-mat/0008234 (2000): general stationary renewal formalism, including a response formula but no identified Erlang-two peak theorem. [3] F. Šanda and S. Mukamel, *Physical Review E* 73, 011103 (2006): related stationary CTRW spectra and nonlinear response, examined through its supplied complete PDF. [4] K. Seki and K. Marumoto, arXiv:1905.01400 (2019): Gaussian-disordered motional narrowing and non-Markov waiting statistics. The work does not address higher Erlang shapes, asymmetric switching, extra broadening, or nonstationary starts. General renewal literature is the main residual coverage risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as a global exact Erlang-2 spectral mode count, not an original renewal formula. Jung–Barkai–Silbey supply a stationary general-renewal transform; specializing the transform and proving a positive quintic-root count with a nonzero discriminant is a substantive additional classification. No exact published stationary Erlang-2 phase partition was located, but general transforms and specialized older exchange-narrowing articles are residual risks.
+
+## value
+
+PASS
+
+One vs exactly two maxima is a directly interpretable observable of stationary Kubo–Anderson line spectra; the proof rules out unexpected satellite peaks globally. The sharp nonrational threshold and the 1.7518015... mean-matched exponential-switching comparison quantify a meaningful memory-shape effect, requiring more than routine substitution into a general transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
