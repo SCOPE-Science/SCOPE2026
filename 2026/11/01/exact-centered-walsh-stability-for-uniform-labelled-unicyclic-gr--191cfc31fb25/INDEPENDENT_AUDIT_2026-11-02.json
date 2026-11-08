@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:49:06.566035Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=4 the sample space is all connected labelled simple n-edge graphs on n vertices, uniformly weighted. The cycle of length ell with rooted trees attached yields N_{n,ell}=(n-1)! n^{n-ell}/(2(n-ell)!) using the *already-known* Abel–Cayley–Hurwitz rooted forest polynomial (sum_{root} x_r)(sum_{all}x_v)^{n-ell-1}. Differentiating gives total degree factorial moment 3(n-z_n), hence exact p=2/(n-1), adjacent-edge a, and disjoint-edge b. Covariance is (p-b)I+(a-b)A+(b-p^2)J; Johnson two-subset eigenvalues 2(n-2),n-4,-2 lead to 0,4A_n and 4B_n on the claimed dimensions after w_e=-2(I_e-p). For n=4, z=4/5 gives equality; for n>=5 exact sign checks give B>A>0 and B<2A, and Gaussian product/Riemann sum gives z~sqrt(2/(pi n)), B/A=2-6/n+O(n^-3/2). Independently enumerated all labelled connected unicyclic n-edge graphs for n=4,5,6 and exactly verified counts 15,222,3660 and full one/two-edge moments; finite cases corroborate the symbolic uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman supplies forest enumerators for arbitrary root sets.",
+          "Classical S_n-invariant two-edge scheme gives a *recipe* once adjacent/disjoint pair probabilities are known, but does not compute their values for this conditioned unicyclic ensemble."
+        ],
+        "reasoning": "The classical stronger general combinatorial tools cover proof ingredients but do not state all ensemble-specific moments and condition-number optimization; do not claim root-forest identity novelty.",
+        "searches": [
+          "Pitman Forest volume decompositions and Abel-Cayley-Hurwitz multinomial expansions",
+          "Cameron C50 enumerate trees Cayley Prüfer codes",
+          "Johnson association scheme edge covariance eigenvalues random graph"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 41122ccab72b160bbab04b91e787bb570f51f018",
+        "SCOPE check_unicyclic.py blob be2b835101b204ab0bee9ed374cfd55061525c51",
+        "Pitman 2001 Technical Report 591 https://statistics.berkeley.edu/sites/default/files/tech-reports/591.pdf",
+        "Bell Burris Yeats arxiv:math/0512432",
+        "Takács 1990 DOI:10.1016/0097-3165(90)90064-4",
+        "Resultary graph-supported Walsh sampling query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pitman’s formula reproduces the weighted rooted-forest factor in the supplied proof, so that lemma is not an independent contribution.",
+          "The remaining probability law mixes over unicyclic cycle lengths, evaluates degree factorial moments, and assembles a Johnson-algebra spectrum with a new sharp ratio inequality."
+        ],
+        "reasoning": "None of the forest-enumeration statements inspected gives the final covariance spectrum or asymptotic condition number without additional substantial nonstandard calculations, though earlier random graph covariance literature may contain an equivalent.",
+        "searches": [
+          "Pitman 2001 theorem forest volume decomposition",
+          "Bell Burris Yeats Counting Rooted Trees Universal Law 2006",
+          "Takács 1990 counting forests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman 2001 Technical Report 591 gives the exact rooted-forest polynomial (sum_R x_r)(sum_S x_s)^{|S|-|R|-1} on its first page; it is prior, not new.",
+          "The claim concerns edge covariance eigenvalues of a uniform unicyclic graph law, which are not the rooted-forest enumeration alone."
+        ],
+        "reasoning": "A strong classical enumeration lemma is explicitly recognized as prior here; no inspected source equates that lemma with the complete eigenvalue/condition-number theorem.",
+        "searches": [
+          "Resultary uniform labelled unicyclic graphs centered Walsh Gram covariance spectrum",
+          "random unicyclic graph edge covariance J(n,2)",
+          "Jim Pitman forest volume polynomial 2001"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary graph-supported Walsh fourth-moment tables use coefficient support graphs, not the random-graph sample distribution.",
+          "The exact values for n=4..6 were directly recomputed: 15,222,3660 support graphs, distinct moment sectors."
+        ],
+        "reasoning": "No located exact table gives these covariance eigenvalues or the uniform <2 condition bound; incomplete index coverage remains a risk.",
+        "searches": [
+          "Resultary unicyclic Walsh Gram spectral stability query",
+          "S_n invariant unicyclic random graph edge inclusion probability table",
+          "random unicyclic edge correlation first order Walsh spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge, after implication-aware prior/source comparisons: None of the forest-enumeration statements inspected gives the final covariance spectrum or asymptotic condition number without additional substantial nonstandard calculations, though earlier random graph covariance literature may contain an equivalent.",
+      "residual_risks": [
+        "Classical weighted-rooted-forest enumerator is explicitly covered by Pitman (2001): do not attribute its invention to this work.",
+        "Unindexed random-graph edge covariance or association-scheme tables could contain the whole spectrum despite the bounded search.",
+        "The theorem concerns only first centered edge-Walsh band and uniform labelled connected unicyclic graphs, not arbitrary graph measures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT MATCH for the weighted forest polynomial; source is strong prior coverage of a lemma, but not the full unicyclic covariance spectrum",
+          "evidence": "Pitman 2001 abstract on page 1 states (sum_{r in R} x_r)(sum_{s in S} x_s)^{|S|-|R|-1}, precisely the F_R polynomial used here.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/591.pdf",
+          "material_read": "Accessible University of California technical report, cover/abstract with exact identity and theorem framework",
+          "method": "open full primary PDF and inspect explicit displayed forest-volume identity",
+          "title": "Forest volume decompositions and Abel-Cayley-Hurwitz multinomial expansions",
+          "trigger": "The package claims weighted rooted forest polynomial as proof input"
+        },
+        {
+          "assessment": "Tree counting universal growth laws do not assert the precise conditioned unicyclic two-edge moments or Gram spectrum",
+          "evidence": "Bell–Burris–Yeats focuses general rooted-tree asymptotics and recursive constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0512432",
+          "material_read": "OA article preprint abstract and combinatorial enumeration framework",
+          "method": "inspect accessible arXiv article summary and theorem scope",
+          "title": "Counting Rooted Trees: The Universal Law",
+          "trigger": "Possible enumeration of random graph cycle/forest structures"
+        },
+        {
+          "assessment": "Classical forest counting antecedent, not verified as a source of final spectral theorem",
+          "evidence": "Takács 1990, Journal of Combinatorial Theory A 53, 321-323.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(90)90064-4",
+          "material_read": "Publisher metadata/accessible excerpt; full CORE mirror inaccessible",
+          "method": "read bibliographic record; full text not claimed",
+          "title": "On Cayley’s formula for counting forests",
+          "trigger": "Earlier rooted-forest count for the same proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform connected unicyclic labelled ensemble is a classical, natural sparse random-graph model with exactly one cycle, and its centered edge Walsh Gram conditioning quantifies spectral stability of its first Fourier band. The exact full eigenvalue multiplicities and sharp uniform condition-number bound 2 address a natural sampling/frame problem; neither the known forest polynomial nor the standard Johnson decomposition alone supplies these ensemble-specific moments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical weighted-rooted-forest enumerator is explicitly covered by Pitman (2001): do not attribute its invention to this work.",
+    "Unindexed random-graph edge covariance or association-scheme tables could contain the whole spectrum despite the bounded search.",
+    "The theorem concerns only first centered edge-Walsh band and uniform labelled connected unicyclic graphs, not arbitrary graph measures."
+  ],
+  "schema_version": 1
+}

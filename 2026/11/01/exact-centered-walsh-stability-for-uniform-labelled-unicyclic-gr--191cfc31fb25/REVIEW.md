@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete exact spectral theorem for the centered one-edge Walsh frame on uniformly chosen connected labelled unicyclic graphs for every integer \(n\ge4\). The sample-space normalization, centered character convention, known linear dependence, precise multiplicities and limiting statement are explicit. Cycle-length counting uses the all-minors directed matrix-tree theorem with the rank-one determinant lemma; its weighted rooted-forest enumerator gives a checkable factorial-degree moment. The one-edge probability, the overlapping-edge probability and the disjoint-edge probability follow by exact counting identities. The Johnson two-subset eigenspaces then yield the three Gram sectors. All inequality boundaries are algebraically checked: at \(n=4\) the positive levels coincide; at \(n=5,6\) the sign check is exact; at \(n\ge7\) its sign is manifest. A separate inequality proves the strict universal squared-condition-number bound \(2\), and a Gaussian-product Riemann sum proves sharpness in the limit. The package's exact-arithmetic standalone checker fully enumerates the supports for four small orders, corroborating but not replacing the proof. No infinite claim is inferred solely from finite tests.
+## correctness
 
-## Originality — PASS, bounded evidence
-Related work: Bell–Burris–Yeats, *Counting Rooted Trees* (arXiv:math/0512432v1, doi:10.37236/1089) concerns combinatorial tree-generating equations, not this particular covariance spectral classification in the passages reviewed. Cameron's 2003 combinatorics notes concern Cayley enumeration and Prüfer degrees. Takács's forest formula supplies a standard enumeration ingredient. The closest retrievable published published mathematical statements were `2026/10/11/SCOPE-graph-spectral-transfer-for-transposition-sampling-in-the-standa--75af0a9770e8` (sampling the standard Fourier block of \(S_n\) on transpositions, not the Boolean edge-coordinate Walsh functions on all unicyclic graphs), `2026/10/4/SCOPE-a-unicyclic-graph-criterion-for-basis-partners-of-the-two-line-r--6ede33f195c7` (unicyclic bipartite graphs as frequency-index designs, not random connected unicyclic sampling), and `2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805` (uniform permutations, not this graph ensemble). Their titles are not the rationale; the distinct domains, operators and implications are. No inspected statement supplies the unicyclic degree-moment factor \(z_n\), the resulting two probability-normalized spectral levels and the sharp limiting squared-condition-number bound. The bounded search does not prove universal historical uniqueness, especially among random-graph covariance and association-scheme articles. Independent historical review is recommended before public novelty assertions.
+PASS
 
-## Mathematical value — PASS
-The object is the standard critical-complexity connected graph class (one cycle), and the evaluated invariant is the complete linear-reconstruction stability of edge-additive statistics, not an arbitrarily chosen graph index. The theorem shows a one-relation injectivity boundary for every size, gives every stable eigenspace and sharp bound, detects exact tightness at the minimum nontrivial size, and proves that an optimal universal squared-condition-number constant is approached but never attained. The factorial forest moment connecting cycle lengths with the star and interaction spectral sectors is a structural identity usable in studies of constrained random graphs. The independent uniform-tree case does not furnish the specific unicyclic correction or stability bound. These are natural full-family results rather than an isolated numerical improvement.
+For n>=4 the sample space is all connected labelled simple n-edge graphs on n vertices, uniformly weighted. The cycle of length ell with rooted trees attached yields N_{n,ell}=(n-1)! n^{n-ell}/(2(n-ell)!) using the *already-known* Abel–Cayley–Hurwitz rooted forest polynomial (sum_{root} x_r)(sum_{all}x_v)^{n-ell-1}. Differentiating gives total degree factorial moment 3(n-z_n), hence exact p=2/(n-1), adjacent-edge a, and disjoint-edge b. Covariance is (p-b)I+(a-b)A+(b-p^2)J; Johnson two-subset eigenvalues 2(n-2),n-4,-2 lead to 0,4A_n and 4B_n on the claimed dimensions after w_e=-2(I_e-p). For n=4, z=4/5 gives equality; for n>=5 exact sign checks give B>A>0 and B<2A, and Gaussian product/Riemann sum gives z~sqrt(2/(pi n)), B/A=2-6/n+O(n^-3/2). Independently enumerated all labelled connected unicyclic n-edge graphs for n=4,5,6 and exactly verified counts 15,222,3660 and full one/two-edge moments; finite cases corroborate the symbolic uniform proof.
 
-## Limitations
-Only first-degree centered edge Walsh characters, uniformly distributed labelled connected unicyclic graphs and the quotient by their deterministic constant-edge relation are treated. Previous equivalent random-graph covariance results remain possible. Independent audit and validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, after implication-aware prior/source comparisons: None of the forest-enumeration statements inspected gives the final covariance spectrum or asymptotic condition number without additional substantial nonstandard calculations, though earlier random graph covariance literature may contain an equivalent.
+
+## value
+
+PASS
+
+The uniform connected unicyclic labelled ensemble is a classical, natural sparse random-graph model with exactly one cycle, and its centered edge Walsh Gram conditioning quantifies spectral stability of its first Fourier band. The exact full eigenvalue multiplicities and sharp uniform condition-number bound 2 address a natural sampling/frame problem; neither the known forest polynomial nor the standard Johnson decomposition alone supplies these ensemble-specific moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
