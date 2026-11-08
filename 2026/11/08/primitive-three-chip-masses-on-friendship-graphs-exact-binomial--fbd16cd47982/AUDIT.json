@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Equal three-round firing counts follow from the connected Laplacian kernel. Explicit degree-two phase enumeration leaves exactly three peripheral pattern pairs; hub degree \\(2k\\) threshold yields \\(0\\le r\\le k-a-1\\), directly producing polynomial coefficients. Bounded chip complementation produces the reflected band and preserves primitive period. Binomial size bias proves the two-uniform limit. A direct finite state checker tested all 1,099,840 bounded configurations for \\(1\\le k\\le4\\), and a separate firing-word inequality checker reproduced the exact coefficients for \\(1\\le k\\le12\\); both scripts and outputs are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2408.10508 Theorem 1 proves that period-three and four cannot occur at masses 2|E|-|V|<M<2|E| for any connected graph. This is an exclusion theorem, not an endpoint census.",
+        "arXiv:1003.0943 Sections 3-4 study complete bipartite and multipartite periods, not friendship graph recurrence by mass.",
+        "Previous one-resonant-cycle claim expressly assumes exactly one cycle divisible by three. Friendship graph has k>=2 such cycles."
+      ],
+      "reasoning": "The middle-stair exclusion implies the two bands must avoid (4k-1,6k); it does not imply nonzero endpoint counts 3(3^k-1), exact polynomial coefficients or the mass limit. The single resonant cycle theorem does not cover multiple resonant cycles, and its total state count does not determine the new polynomial.",
+      "searches": [
+        "Parallel chip firing triangular friendship graph 3k to 4k-1 chip counts period three 2024 middle stair",
+        "arxiv:2408.10508 Theorem 1 and proof",
+        "arxiv:1003.0943 full text",
+        "Earlier claim 2ef75751-7c7e-41ed-ac34-e1591de2c351"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0304-3975(92)90316-8 (abstract only)",
+      "arxiv:1003.0943 (full accessible HTML)",
+      "arxiv:1211.6786 (full open-access PDF)",
+      "arxiv:2408.10508 (full open-access PDF)",
+      "local record:2ef75751-7c7e-41ed-ac34-e1591de2c351 (recoverable claim)",
+      "local record:b825566c-983b-41bf-9e67-701850e6070b (recoverable claim)",
+      "local record:f6507932-06b5-451b-ac2a-df63536b9b9e (recoverable claim)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier 2ef75751 claim identifies unicyclic/resonant constraint and explicitly excludes multiple resonant cycles; friendship graph with k>=2 is outside its hypotheses.",
+        "Earlier b825566c gives K_{3,b} mass bands with 3+3 bipartite forcing; F_k has a shared triangle hub and no bipartite structure.",
+        "Earlier f6507932 gives complete-graph mass bands; F_k is not complete if k>=2.",
+        "arXiv:1211.6786 supplies equal firing counts and the nonclumpiness restriction but does not count its feasible chip assignments on F_k."
+      ],
+      "reasoning": "Some proof ingredients, including constant per-period firing counts and bounded complementation, are antecedents. The new claim additionally enumerates the feasible hub range for every mixture of synchronized/split triangular arms, computes each labelled state count at fixed chip mass, reaches both universal middle-stair boundaries sharply, and identifies a two-uniform limit. Those are not logical consequences of cited prior numerical claims without substantial new model-specific analysis.",
+      "searches": [
+        "Historical records 2ef75751-7c7e-41ed-ac34-e1591de2c351; b825566c-983b-41bf-9e67-701850e6070b; f6507932-06b5-451b-ac2a-df63536b9b9e",
+        "arxiv:1211.6786 Section 7",
+        "arxiv:2408.10508 Theorem 1",
+        "Parallel chip firing friendship windmill graph bouquet of triangles primitive period three exact chip mass generating polynomial binomial cumulative distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1211.6786, Sections 6-7, gives nonclumpy periodic firing patterns and motors but not a friendship-graph mass generating polynomial.",
+        "Published mathematical index: nearest result f09137092e5f treats general-position polynomial of windmills, not chip-firing.",
+        "Exact first-hand phase-word comparison: peripheral pair has only three realizable combinations for hub firing word (1,0,0)."
+      ],
+      "reasoning": "Aliases friendship graph / windmill / bouquet of triangles / triangular cactus / periodic firing words were searched. Existing general firing-word classifications do not give counts by conserved mass or a two-uniform asymptotic law. No equivalent source identified, but absence from searches alone is not priority proof.",
+      "searches": [
+        "Parallel chip firing friendship windmill graph bouquet of triangles primitive period three exact chip mass generating polynomial binomial cumulative distribution",
+        "Parallel chip firing triangular cactus one shared hub period-three state count 12 k 3^(k-1)",
+        "\"friendship graph\" \"chip firing\" period",
+        "\"parallel chip-firing\" \"windmill\" \"period 3\"",
+        "arxiv:1211.6786 Sections 2,6,7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific index ranked result ac ea41c73be7 concerns Boolean parity updates on multipartite graphs, a different map and graph family.",
+        "Historical recorded mass polynomials b825566c-983b-41bf-9e67-701850e6070b and f6507932-06b5-451b-ac2a-df63536b9b9e describe primitive-three chip-firing on complete bipartite and complete graphs, neither of which contains friendship F_k for k>=2 as a graph family.",
+        "Web searches did not surface any published friendship-graph primitive-three mass table."
+      ],
+      "reasoning": "The exact coefficient spectrum and total are compared at the level of the dynamical rule, graph family and chip mass, not merely by matching numeral three. The located index matches are inapplicable to friendship graph, and no specific numerical table or stronger covering formula was found.",
+      "searches": [
+        "Parallel chip firing friendship windmill graph bouquet of triangles primitive period three exact chip mass generating polynomial binomial cumulative distribution",
+        "Parallel chip firing triangular cactus one shared hub period-three state count 12 k 3^(k-1)",
+        "Parallel chip firing triangular friendship graph 3k to 4k-1 chip counts period three 2024 middle stair",
+        "3 periodic configurations in friendship graph complete temporal chip mass spectrum",
+        "\"parallel chip firing games on graphs\" \"friendship\"",
+        "\"chip firing\" \"windmill\" \"three\""
+      ]
+    },
+    "rationale": "The exact mass polynomial is for multi-resonant friendship graphs \\(k\\ge2\\). Known general chip-firing period and firing-pattern theorems, one-resonant-cycle results, and other graph-family mass polynomials do not cover these exact coefficients; the 2024 forbidden middle-stair theorem supplies only exclusions, not the attained sharp endpoints. Full text of original Bitar–Goles 1992 was unavailable, and this residual risk is explicitly acknowledged.",
+    "residual_risks": [
+      "The foundational 1992 Bitar–Goles full article could not be inspected despite lawful-source search and bounded institutional request.",
+      "An unindexed equivalent friendship-graph mass polynomial could exist. Searches do not prove global priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Abstract reports tree-period classification and general computer simulation properties; no visible friendship-graph mass result, but unseen full text cannot be declared non-covering.",
+        "evidence": [
+          "https://pure.uai.cl/en/publications/parallel-chip-firing-games-on-graphs/",
+          "The full text was unavailable; no whole-paper comparison is claimed."
+        ],
+        "identifier_or_url": "doi:10.1016/0304-3975(92)90316-8",
+        "material_read": "Public university archival bibliographic record, publication date 1992-01-20, and full abstract; full paper unavailable",
+        "method": "Read accessible university bibliographic record and abstract; searched for a lawful public full-text copy, without success.",
+        "title": "Parallel chip firing games on graphs",
+        "trigger": "Foundational 1992 study; same dynamical model and early public source"
+      },
+      {
+        "assessment": "Bounded-complement transformation and equal firing count are antecedents, but graph families are complete bipartite and complete multipartite, not F_k for k>=2; no F_k mass coefficients.",
+        "evidence": [
+          "https://ar5iv.labs.arxiv.org/html/1003.0943 Sections 2-4"
+        ],
+        "identifier_or_url": "arxiv:1003.0943",
+        "material_read": "Accessible complete HTML; consulted introduction, the bounded-state and complementation lemmas in Section 2, and Sections 3-4 period classification statements",
+        "method": "Compared the full-text source sections relevant to hypotheses, periods and family of graphs; checked friendship-graph phrase",
+        "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+        "trigger": "General bounded/complemented states and exact chip-firing periods for special graphs"
+      },
+      {
+        "assessment": "Establishes general phase-pattern restrictions and motor construction, not exact friendship-graph temporal mass polynomial. In Section 7 discussion suggests further graph families with cycles.",
+        "evidence": [
+          "https://arxiv.org/pdf/1211.6786; Theorem 6.2 and Section 7 pp. 13-17"
+        ],
+        "identifier_or_url": "arxiv:1211.6786",
+        "material_read": "Open-access PDF: abstract and introduction, Theorem 6.2 and its proof context, Section 7 implications and conclusion; inspected page-two image",
+        "method": "Examined relevant full-text sections, checked for friendship/triangle statements, and inspected the page image",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Most relevant general pattern classification, plausible dominating statement"
+      },
+      {
+        "assessment": "Proves absence of three- and four-periodicity for masses strictly between 4k-1 and 6k. Does not count positive endpoint states or give any F_k chip-mass law.",
+        "evidence": [
+          "https://arxiv.org/pdf/2408.10508 Theorem 1 (p.2), proof (p.6)"
+        ],
+        "identifier_or_url": "arxiv:2408.10508",
+        "material_read": "Open-access PDF: abstract, Theorem 1 and statements in introduction, proof of Theorem 1, full-text searches for friendship and triangle, image of page two",
+        "method": "Read relevant primary theorem and proof from PDF, including the excluded strict mass interval, and checked whether graph-specific counts were given",
+        "title": "Non-Stabilizing Parallel Chip-Firing Games",
+        "trigger": "Universal forbidden mass interval for primitive-three firing, central value benchmark"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbd16cd4-7982-43df-a6a7-56d139ae9921",
+  "value": {
+    "rationale": "The exact infinite-family mass polynomial classifies all immediate primitive-three recurrent states on an arbitrarily large multi-resonant triangular cactus with one articulation point. Its support meets both sharp limits of the known universal period-three excluded middle interval, and a nontrivial two-uniform normalized mass law emerges. This is neither a textbook reduction of the universal theorem nor a handful of finite examples.",
+    "status": "PASS"
+  }
+}
