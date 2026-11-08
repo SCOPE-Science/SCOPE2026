@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Exact formula (1) counts specified off-path and endpoint leaves via rooted-forest deletion: denominator k*n^(m-1), numerator (k-s)*(n-r-s)^(m-1), with zero impossible boundary. The two-variable binomial transform gives the full conditional PGF. Direct subtraction yields (7) with a single sign change and the specified terminal step; the cubic-root optimum follows. A uniform expansion for d<=n^(3/5) plus Rayleigh/Gaussian distance tails establishes (5) and moment convergence for (6). A separately executable standard-library Prüfer enumerator passed 3013 tests, exhausting all labeled trees of size 3..8 and checking finite algebra to size 74. No finite check is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Remmel and Williamson (2002) present combinatorial spanning-tree/function-class enumeration; inspected sections do not specialize to this conditional law.",
+        "Berzunza Ojeda and Janson (2022, 2020 preprint) analyze distance profiles and leaf-biased trees, not the finite total-leaf distribution at fixed marked-pair distance.",
+        "The public indexed local-degree conditional law is not stronger than the complete global leaf-count law.",
+        "Joyal’s function–doubly marked tree equivalence gives exact off-path-only coverage, which is explicitly distinguished from the joint endpoint/off-path law."
+      ],
+      "reasoning": "General tree forest formulas and known conditional mapping indegree-zero factorial moments strongly cover the s=0 subcase. The new law adds conditional endpoint-leaf indicators and their dependence on off-path leaves; their sharp optimum is not a known corollary of the off-path marginal alone. Older broad bivariate enumerators may still dominate that stronger claim, retained as risk.",
+      "searches": [
+        "leaves versus diameter or path length joint distribution random labeled Cayley trees distance leaves covariance",
+        "random rooted forest root attachment conditional leaf counts tree path distance exact",
+        "\"random Cayley tree\" \"leaf count\" \"path length\" covariance",
+        "\"random tree\" \"leaves\" \"distance\" \"conditional expectation\" Cayley"
+      ]
+    },
+    "checked_sources": [
+      "https://statistics.berkeley.edu/tech-reports/457",
+      "https://www.cs.cmu.edu/afs/cs/academic/class/15859n-f16/RelatedWork/AldousRandomTrees.pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+      "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+      "https://algo.inria.fr/seminars/sem96-97/soria.html",
+      "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+      "https://doi.org/10.1016/0001-8708(81)90052-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest 2026 public indexed statement: Exact negative regression between endpoint degree and distance in a uniform Cayley tree. Its exact PGF concerns degree of one endpoint and its conditional expectation decreases with distance.",
+        "This finding treats the entire leaf-count generating polynomial, whose mean first increases with distance and later decreases; thus it cannot be obtained by equating that single-endpoint PGF with a global leaf count.",
+        "Pitman 1996 and Moon forest extension yield the enumeration lemma, not a direct statement of the new mixed moment identity, cube-root optimum or covariance scaling.",
+        "A prior conditional uniform-mapping result gives factorial moments (n-k)_r(1-r/n)^(n-k-1) for indegree-zero count given k cyclic vertices; under Joyal, this exactly matches the s=0 conditional moment family here with k=d+1."
+      ],
+      "reasoning": "The s=0 factorial moments and leading covariance are covered by the uniform-mapping result via Joyal. The s>=1 moments require joint events for marked endpoints not represented in that earlier scalar mapping leaf count. Therefore the claim is narrowed in originality to the full joint endpoint/off-path law and its nonmonotone cube-root optimum; there is no novelty credit for the off-path marginal or the leading covariance alone.",
+      "searches": [
+        "Uniform labeled Cayley tree: conditional total leaf count given marked-vertex distance, binomial factorial moments, unique cube-root maximum of conditional expected leaves",
+        "uniform random Cayley tree leaf count conditioned on distance between two vertices, conditional leaf regression quadratic Rayleigh distribution",
+        "Uniform Cayley tree number of leaves regression on pairwise distance exact probability generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An exact source on local endpoint degree conditional on marked distance has a binomial-plus-Bernoulli law; its statement does not give total leaves among all vertices.",
+        "Pitman (1996), Sections 2.1–2.2, supplies rooted and unrooted forest-extension counts but no explicit joint leaf-count/marked-distance generating polynomial.",
+        "Soria (1996), Section 3, gives a classical leaf-count generating function of Cayley trees but no fixed-pair distance conditioning.",
+        "Under Joyal’s mapping–tree bijection, conditional indegree-zero mapping counts given a cyclic core correspond exactly to off-path leaf counts given the number of marked-path vertices: the s=0 part of (1) is not original."
+      ],
+      "reasoning": "The off-path-only factorial moments and leading covariance are implied by earlier conditional random-mapping results under the Joyal bijection, so they are excluded from the originality claim. That mapping statistic does not record whether the two marked path endpoints are leaves. The s=1,2 joint mixed moments and sharp total-leaf conditional-mean optimum are the remaining distinct claims.",
+      "searches": [
+        "Uniform labeled Cayley tree: conditional total leaf count given marked-vertex distance, binomial factorial moments, unique cube-root maximum of conditional expected leaves",
+        "Uniform Cayley tree number of leaves regression on pairwise distance exact probability generating function",
+        "\"Cayley trees\" \"number of leaves\" \"distance\" \"conditional\"",
+        "\"random labelled trees\" \"leaves\" \"distance\" \"joint distribution\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact small-size Prüfer tables independently generated by verify.py match the stated joint factorial moments for all trees through eight vertices.",
+        "Targeted table/sequence/conditional-generating-function searches returned no identified prior table expressing the distance-conditioned leaf-count law."
+      ],
+      "reasoning": "The finite tables verify rather than establish novelty; an absent matching database hit cannot establish originality. No exact preexisting table was located in the checked sources, and the decisive object is the all-size law and optimized distance, not merely small-size values.",
+      "searches": [
+        "\"number of leaves\" \"given distance\" \"Cayley trees\"",
+        "\"labeled trees\" \"specified path\" \"leaves\" distribution",
+        "Uniform Cayley tree number of leaves regression on pairwise distance exact probability generating function"
+      ]
+    },
+    "rationale": "The known Joyal correspondence maps cyclic vertices of uniform mappings to a marked-tree path and mapping indegree-zero vertices to the off-path leaves. Thus the entire off-path marginal (the s=0 moment family), and its leading distance covariance, are already covered by existing mapping conditional-moment results: these are expressly excluded from the new contribution. The non-covered and mathematically distinctive claim is the mixed off-path/marked-endpoint leaf law (s=1,2), its full total-leaf conditional PGF, and the sharp nonmonotone conditional mean with cube-root optimizer. The previously indexed endpoint-degree theorem also lacks those joint moments. Historical multivariate enumeration could implicitly contain them, a stated risk.",
+    "residual_risks": [
+      "Older multivariate labeled-tree generating-function literature may imply (1) without matching the search wording, especially historical Cayley-tree parametrization work.",
+      "Some historically plausible enumerative papers do not have inspectable full text; no claim of absolute uniqueness or independent novelty certification.",
+      "General rooted-forest counting is classical and excluded from novelty; the claimed contribution is the joint specialization and sharp dependent asymptotics.",
+      "The off-path-only subcase is explicitly covered by previously known mapping moments under Joyal, so only the coupled endpoint law and optimized total-leaf regression carry an originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies forest counts, not a finite conditional total-leaf PGF or optimizing marked-pair distance",
+        "evidence": "Section 2.1 count of rooted forests with k prescribed roots and Section 2.2 Moon forest-extension count.",
+        "identifier_or_url": "https://statistics.berkeley.edu/tech-reports/457",
+        "material_read": "Report abstract; full-text introductory and Sections 2.1–2.2 enumeration formulas, including rooted forests and Moon forest-extension lemma",
+        "method": "Inspected publicly dated report page and accessible revised PDF text and relevant page images",
+        "title": "Coalescent Random Forests",
+        "trigger": "Classical count of trees containing a prescribed path and rooted forests with specified roots"
+      },
+      {
+        "assessment": "Classical marginal information, no identified joint total-leaf law conditioned on two-point distance",
+        "evidence": "Properties of uniformly labeled trees include marginal leaf and distance behavior.",
+        "identifier_or_url": "https://www.cs.cmu.edu/afs/cs/academic/class/15859n-f16/RelatedWork/AldousRandomTrees.pdf",
+        "material_read": "Abstract and relevant full-text sections on leaf proportion, degree properties and diameter/distance",
+        "method": "Inspected available primary PDF sections",
+        "title": "The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees",
+        "trigger": "Common model with marginal leaves, degree and distance statements"
+      },
+      {
+        "assessment": "General counting framework, no inspected equivalent of the exact path-conditioned total-leaf polynomial",
+        "evidence": "Classifying tree/function-count transformations differs from conditioning on a distinguished two-vertex distance.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+        "material_read": "Primary full-text introduction, definitions, stated results and searches for leaf and distance terminology",
+        "method": "Read available OA PDF and inspected relevant sections and text searches",
+        "title": "Spanning Trees and Function Classes",
+        "trigger": "Multivariate spanning-tree enumerators might dominate the new conditional formula"
+      },
+      {
+        "assessment": "Addresses global profile and leaf-biased distributions, not the finite leaf-count conditional PGF",
+        "evidence": "Section 8 constructs a leaf-biased unrooted tree, asymptotically close to the original distribution.",
+        "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+        "material_read": "OA article introduction, distance-profile theorem statements and Section 8 on marking a leaf",
+        "method": "Read public full HTML and relevant sections",
+        "title": "The distance profile of rooted and unrooted simply generated trees",
+        "trigger": "Potentially stronger results on distance profiles and marked leaves"
+      },
+      {
+        "assessment": "Exact endpoint-degree law given distance, rather than global conditional total leaf count or cubic-root conditional-mean peak",
+        "evidence": "A binomial-plus-Bernoulli conditional endpoint-degree PGF implies decreasing local regression; the full new leaf-count PGF includes all non-path leaves.",
+        "identifier_or_url": "2026 public indexed result by this exact title",
+        "material_read": "Entire publicly available RESULT.md with precise conditional degree law and proof",
+        "method": "Read accessible public full statement and all proof sections",
+        "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+        "trigger": "Closest public-result semantic match within the same uniform Cayley-tree model"
+      },
+      {
+        "assessment": "Marginal Cayley-tree leaf enumeration, not fixed-pair path-length conditioning",
+        "evidence": "Tree-generating equation with leaf weight, no marked-pair distance parameter.",
+        "identifier_or_url": "https://algo.inria.fr/seminars/sem96-97/soria.html",
+        "material_read": "Full available seminar text and Section 3 tree leaf enumeration",
+        "method": "Inspected public seminar HTML",
+        "title": "Distribution of Image Points in Random Mappings",
+        "trigger": "Classical Cayley-tree leaf generating functions and combinatorial probability"
+      },
+      {
+        "assessment": "Decisive coverage of the off-path marginal and its leading covariance; no corresponding conditional joint endpoint indicator formula identified",
+        "evidence": "Cyclic mapping vertices are precisely the marked-tree path; off-path indegree-zero vertices are off-path tree leaves. This identifies the entire s=0 factorial-moment family.",
+        "identifier_or_url": "https://doi.org/10.1016/0001-8708(81)90052-9",
+        "material_read": "Original journal abstract; full explanatory account of the functions–marked-trees construction and cyclic-point/path identification available as a secondary detailed exposition",
+        "method": "Compared explicit structural bijection to the existing uniform-mapping conditional moment formula",
+        "title": "Une théorie combinatoire des séries formelles",
+        "trigger": "Joyal species and functions–doubly marked trees bijection potentially reduce the new off-path marginal to known mapping statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8c3144f8-8f32-4953-ad12-9187e99484d4",
+  "value": {
+    "rationale": "The number of leaves and marked-vertex separation are natural global/geometric statistics. Although Joyal’s mapping correspondence already yields the off-path leaf marginal, combining it with the two path-endpoint leaf indicators produces a complete joint law and a sharp, nonmonotone optimum at separation order n^(1/3), contrasting with typical n^(1/2) separation and the monotone local-degree regression. This structural crossover is the principal value, not the already-covered off-path-only moment family or leading covariance.",
+    "status": "PASS"
+  }
+}
