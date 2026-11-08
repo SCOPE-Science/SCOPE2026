@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:45:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All nonconstant palindromes center at a complete equal-symbol run; symmetric wings are forced by alternating a/b run lengths, and boundary distances at j-th run are min((j-1)p,(k-j)p+b) or min((j-1)p+a,(k-j)p). Their maximum over run indices gives displayed R0,R1 (odd/even k). Every binary palindromic cvc extension of an occurring interior is a unique candidate; subtracting already present palindromes gives B(z)=2z^2H-H+1+2z. The radii sum (k-1)p, so |MAPW|=kp+4 and longest=kp-min(a,b)+2. Independent literal-factor checker recomputed every occurrence and MAPW length coefficient in 125 triples 1<=a,b,k<=5; no finite experiment substituted for the all-triples proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mieno et al., Lemma 7/Corollary 1 generic missing-edge characterization; Glen et al. Theorem 3.1 rich-periodic words"
+        ],
+        "reasoning": "The generic method and richness cover candidate accounting and total length+4, explicitly excluded from novelty, but not the detailed two wing ray radii and polynomial without a new structural classification.",
+        "searches": [
+          "Mieno Watanabe Nakashima palindromic trees sliding window minimal absent palindromes",
+          "Glen Justin Widmer Zamboni Palindromic Richness"
+        ]
+      },
+      "checked_sources": [
+        "Mieno et al. arXiv:2006.02134 Section 5.2",
+        "Glen–Justin–Widmer–Zamboni arXiv:0801.1656 Theorem 3.1",
+        "Akagi et al. CPM2022 ordinary minimal-absent-factor predicate (different definition)",
+        "Resultary query minimal absent palindromic words (0^a1^b)^k exact palindromic factor length enumerator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General theorems imply B(z) once H(z) is supplied, and rich words imply total |W|+4; they do not determine R0,R1."
+        ],
+        "reasoning": "The exact finite-word rays and all MAPW coefficients remain the assessed additional mathematical assertion, not the known missing-edge identity.",
+        "searches": [
+          "Mieno 2020 minimal absent palindromic word theorem versus full length spectrum",
+          "Glen 2009 periodic rich word theorem versus finite endpoint rays"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mieno et al. count missing eertree extensions for any word; run-center rays depend on a,b,k and finite endpoints."
+        ],
+        "reasoning": "General eertree characterization implies B from a known H, but does not itself give the exact H for these finite binary block powers; definitions of ordinary minimal absent factor differ.",
+        "searches": [
+          "minimal absent palindromic words (0^a1^b)^k exact palindromic factor length enumerator",
+          "arXiv:2006.02134 §5.2",
+          "arXiv:0801.1656 periodic richness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical parameterized all-length coefficient table among the consulted Mieno/Glen sources and Resultary nearest hits; this is not proof of absent prior work."
+        ],
+        "reasoning": "No standard finite database applies directly to all three unbounded positive parameters; a specialized formula might exist outside indexed sources.",
+        "searches": [
+          "minimal absent palindromic words (0^a1^b)^k exact palindromic factor length enumerator",
+          "(0^a1^b)^k minimal absent palindromic length generating polynomial"
+        ]
+      },
+      "rationale": "The general eertree missing-palindromic-extension theorem is Mieno et al. prior work; rich periodic words already explain the easy total count |W|+4. No examined primary result gives both finite-power run-center rays and the complete coefficient-by-coefficient MAPW length spectrum. Qualifies only on the explicit structure/spectrum, with residual specialized-formula risk.",
+      "residual_risks": [
+        "Unindexed exact formula for two-block periodic palindrome spectra could predate this claim.",
+        "Rich-word prior literature covers easy total and generic MAPW extension method; do not claim them new.",
+        "Proof limited to exact equal binary block repetitions and interior-occurs MAPW definition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL METHOD COVERED; finite block-power ray formulas not in inspected relevant results",
+          "evidence": "Section 5.2 eertree missing outgoing palindrome edge interpretation",
+          "identifier_or_url": "https://arxiv.org/abs/2006.02134",
+          "material_read": "Full accessible journal HTML relevant paper material, especially Section 5.2, Lemma 7, Corollary 1 and definitions",
+          "method": "Direct primary text/section reading",
+          "title": "Palindromic Trees for a Sliding Window and Its Applications",
+          "trigger": "Definition and general missing-edge MAPW theorem"
+        },
+        {
+          "assessment": "Total rich-word fact known; no all-length MAPW spectrum established from inspected material",
+          "evidence": "Theorem 3.1 discusses periodic richness, not endpoint-dependent finite-power rays",
+          "identifier_or_url": "https://arxiv.org/abs/0801.1656",
+          "material_read": "Abstract, theorem-3.1 discussion and finite rich-word scope through accessible published metadata/excerpts; whole PDF not read this run",
+          "method": "Primary result/theorem comparison",
+          "title": "Palindromic Richness",
+          "trigger": "Potential stronger periodic-word implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete spectrum, not the previously inferable total, is a natural exact boundary-sensitive string invariant; the two distinct center radii permit individual length counts and maximum length for all finite two-block powers. It is reusable in palindrome-indexing and absent-palindrome benchmarks without presenting a routine generic missing-edge identity as new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mieno et al. arXiv:2006.02134 Section 5.2",
+    "Glen–Justin–Widmer–Zamboni arXiv:0801.1656 Theorem 3.1",
+    "Akagi et al. CPM2022 ordinary minimal-absent-factor predicate (different definition)",
+    "Resultary query minimal absent palindromic words (0^a1^b)^k exact palindromic factor length enumerator"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every a,b,k>=1, W=(0^a1^b)^k has exactly the unary palindromes and two centered-run wing rays of radii R_0,R_1; the complete MAPW length enumerator is (2z^2-1)H(z)+1+2z, cardinality k(a+b)+4 and longest MAPW k(a+b)-min(a,b)+2.",
+  "limitations": [
+    "Unindexed exact formula for two-block periodic palindrome spectra could predate this claim.",
+    "Rich-word prior literature covers easy total and generic MAPW extension method; do not claim them new.",
+    "Proof limited to exact equal binary block repetitions and interior-occurs MAPW definition.",
+    "No GitHub mutation or dispatcher closeout. Independent finite computations corroborate the inspected proofs only; no Lean or expert attestation asserted.",
+    "Publication not_ready due to public metadata privacy/transport, scientifically passed is not imported acceptance."
+  ],
+  "residual_risks": [
+    "Unindexed exact formula for two-block periodic palindrome spectra could predate this claim.",
+    "Rich-word prior literature covers easy total and generic MAPW extension method; do not claim them new.",
+    "Proof limited to exact equal binary block repetitions and interior-occurs MAPW definition."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL METHOD COVERED; finite block-power ray formulas not in inspected relevant results",
+      "evidence": "Section 5.2 eertree missing outgoing palindrome edge interpretation",
+      "identifier_or_url": "https://arxiv.org/abs/2006.02134",
+      "material_read": "Full accessible journal HTML relevant paper material, especially Section 5.2, Lemma 7, Corollary 1 and definitions",
+      "method": "Direct primary text/section reading",
+      "title": "Palindromic Trees for a Sliding Window and Its Applications",
+      "trigger": "Definition and general missing-edge MAPW theorem"
+    },
+    {
+      "assessment": "Total rich-word fact known; no all-length MAPW spectrum established from inspected material",
+      "evidence": "Theorem 3.1 discusses periodic richness, not endpoint-dependent finite-power rays",
+      "identifier_or_url": "https://arxiv.org/abs/0801.1656",
+      "material_read": "Abstract, theorem-3.1 discussion and finite rich-word scope through accessible published metadata/excerpts; whole PDF not read this run",
+      "method": "Primary result/theorem comparison",
+      "title": "Palindromic Richness",
+      "trigger": "Potential stronger periodic-word implication"
+    }
+  ]
+}

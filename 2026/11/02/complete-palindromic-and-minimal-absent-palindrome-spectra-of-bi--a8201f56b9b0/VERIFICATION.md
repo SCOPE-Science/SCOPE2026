@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence boundary
+# Independent mathematical audit
 
-The included standalone `verify.py` requires only the Python standard library. Run it with `python verify.py` after extracting the files. It checks all triples of integers \(1\le a,b\le7\) and \(1\le k\le8\) for \(W=(0^a1^b)^k\). Direct literal enumeration produces the full set of contiguous factors, the distinct palindromic factors, and all missing palindromic one-letter extensions of occurring palindromes. The results are compared against the independently constructed two-wing families, every coefficient of the predicted length polynomial, the total count, and the maximal MAPW length.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK cases=392 distinct_palindromes=14504 distinct_MAPW=15680 length_checks=14504 total_n_plus_four=True longest_n_minus_min_plus_two=True`
+All nonconstant palindromes center at a complete equal-symbol run; symmetric wings are forced by alternating a/b run lengths, and boundary distances at j-th run are min((j-1)p,(k-j)p+b) or min((j-1)p+a,(k-j)p). Their maximum over run indices gives displayed R0,R1 (odd/even k). Every binary palindromic cvc extension of an occurring interior is a unique candidate; subtracting already present palindromes gives B(z)=2z^2H-H+1+2z. The radii sum (k-1)p, so |MAPW|=kp+4 and longest=kp-min(a,b)+2. Independent literal-factor checker recomputed every occurrence and MAPW length coefficient in 125 triples 1<=a,b,k<=5; no finite experiment substituted for the all-triples proof.
 
-All checks completed successfully. This test set is finite and cannot establish correctness for unbounded exponents; the proof in `RESULT.md` supplies the infinite-parameter argument. The literature comparisons in `REVIEW.md` are provisional rather than a certification of absolute novelty. No independent audit has been performed.
+## originality
+
+PASS
+
+The general eertree missing-palindromic-extension theorem is Mieno et al. prior work; rich periodic words already explain the easy total count |W|+4. No examined primary result gives both finite-power run-center rays and the complete coefficient-by-coefficient MAPW length spectrum. Qualifies only on the explicit structure/spectrum, with residual specialized-formula risk.
+
+## value
+
+PASS
+
+The complete spectrum, not the previously inferable total, is a natural exact boundary-sensitive string invariant; the two distinct center radii permit individual length counts and maximum length for all finite two-block powers. It is reusable in palindrome-indexing and absent-palindrome benchmarks without presenting a routine generic missing-edge identity as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
