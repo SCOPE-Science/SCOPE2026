@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stationary relation of [1] is used without approximation. The zero-field threshold reduces to a quadratic with exactly one positive root. An algebraic nonsingular form of the exact field-dependent stationary function has a uniform three-times-differentiable expansion in the joint scaling; normalizing by the exact zero-field critical coupling yields the explicit limit. Its fold discriminant has a unique maximum, and at the limiting cusp the two derivative conditions have a nonsingular Jacobian. The implicit-function theorem proves the existence and local uniqueness of a nearby finite-parameter cusp, with nonzero cubic and unfolding coefficients. The extracted Python checker completed 43 supporting numerical/symbolic tests, including exact-source-formula comparisons and finite-parameter cusp equations.
+PASS
 
-## Originality — PASS (within checked sources)
+For beta>1 the zero-field logarithmic derivative has numerator 2s²+(2-beta)s-(beta-1) and exactly one positive root, giving a global alpha minimum. At epsilon=beta-1>0 the exact Bertin stationary map with s=sqrt D=epsilon sqrt y and scaled drift b=|h|/D=sqrt(epsilon)z/y has a nonsingular even expansion, uniform with three derivatives on compact y>0, leading to F=2(sqrt y-1)-log y-z²/(12y²). Setting F_y=0 gives z²=6s⁴(1-s), unique maximum at s=4/5, so y*=16/25,z*=sqrt(1536/3125). Nonzero F_yyy and F_yz make the local cusp persist uniquely by IFT; no remote/global stability is proved. Independent high-precision solves at eps=.03,.01 yielded cusp parameters trending to the stated constants and checked the height; finite evaluations are corroboration.
 
-Bertin (2022) gives the full stationary formula, the zero-field superlinear coexistence, and the critical \(\beta=1\) response exponent; those ingredients are prior work. Its Section 4.3 does not state or derive the joint \(\beta\downarrow1\) and nonzero-field cusp scaling, the universal normalized curve, or the exact limiting cusp coordinates. The compared Hébraud–Lequeux and related asymptotic literature focuses on linear feedback or distinct questions. Targeted searches found no implication-equivalent theorem. A negative search cannot certify global novelty, and further publication-priority checks remain appropriate.
+## originality
 
-## Value — PASS
+PASS
 
-The model has a mathematically and physically motivated change from continuous to discontinuous resetting-driven diffusion response when the feedback exponent passes one. The result identifies the leading field scale, exact universal coefficient, diffusion scale, normalized fold geometry, and a genuine local three-branch wedge at that boundary. This is more than an evaluation at a chosen parameter or a repetition of the source's zero-field condition. It gives an analytic organizer for nonzero-field stationary multiplicity where the primary source explicitly resorts to numerical resolution.
+Bertin (2022) gives the same exact stationary map, beta=1 critical field laws, and implicit zero-field superlinear feedback transition. The claimed new part is the coupled singular beta-down-to-one, field epsilon^(5/2) scaling with explicit universal local cusp and the exact finite-epsilon persistence via the IFT. Existing beta=1 field or h=0 tangency statements alone do not imply the two-variable cusp constants.
 
-## Closest literature and limitations
+## value
 
-The strongest exact overlap is the stationary self-consistency relation in Bertin, arXiv:2205.00817, especially Eqs. (9)–(11) and Secs. 4.1 and 4.3. The new theorem retains the stationary equation and does not claim it proves dynamical stability, hysteresis, global root counts, or absolute publication priority. Other potentially relevant mathematically oriented Hébraud–Lequeux texts concern the \(\beta=1\) model rather than the exact superlinear joint limit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nontrivial double-scaling catastrophe geometry at a physically motivated continuous/discontinuous resetting boundary, with exact universal cusp coordinates and a rigorous local branch-count transition. The result distinguishes existence of branches from their dynamical stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

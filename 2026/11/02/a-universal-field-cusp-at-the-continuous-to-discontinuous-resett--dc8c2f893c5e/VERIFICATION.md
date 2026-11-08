@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` establishes the limit by an analytic Taylor expansion and a parameterized implicit-function argument. Run `python artifacts/verify.py` with Python 3.10+ and `mpmath>=1.3` from the package root. The script separately evaluates both exact expressions for the stationary function and checks cusp identities and finite-parameter cusp solutions. Its computations are not a proof of the general quantifiers or the uniform differentiation remainder; those follow from the explicit nonsingular representation.
+## correctness
 
-# Observed checks
+PASS
 
-The supplied verifier completed **43 checks**. The limiting cusp was \(y_*=0.64\), \(z_*=0.7010848736066126252249\), with normalized log height \(-0.05371289737158048846741\). Solving the exact cusp equations gave \((y,z)=(0.6138586190837529,0.66105777316346685)\) at \(\epsilon=0.02\); \((0.62651700454772365,0.68047679934938036)\) at \(\epsilon=0.01\); and \((0.63314971213668695,0.69062479142458257)\) at \(\epsilon=0.005\), consistent with the established limit.
+For beta>1 the zero-field logarithmic derivative has numerator 2s²+(2-beta)s-(beta-1) and exactly one positive root, giving a global alpha minimum. At epsilon=beta-1>0 the exact Bertin stationary map with s=sqrt D=epsilon sqrt y and scaled drift b=|h|/D=sqrt(epsilon)z/y has a nonsingular even expansion, uniform with three derivatives on compact y>0, leading to F=2(sqrt y-1)-log y-z²/(12y²). Setting F_y=0 gives z²=6s⁴(1-s), unique maximum at s=4/5, so y*=16/25,z*=sqrt(1536/3125). Nonzero F_yyy and F_yz make the local cusp persist uniquely by IFT; no remote/global stability is proved. Independent high-precision solves at eps=.03,.01 yielded cusp parameters trending to the stated constants and checked the height; finite evaluations are corroboration.
 
-# Boundaries
+## originality
 
-This verifies a local stationary cusp for sufficiently small positive \(\epsilon\), not stability of the full evolution, global uniqueness of folds, or publication precedence. Independent scientific audit has not been performed.
+PASS
+
+Bertin (2022) gives the same exact stationary map, beta=1 critical field laws, and implicit zero-field superlinear feedback transition. The claimed new part is the coupled singular beta-down-to-one, field epsilon^(5/2) scaling with explicit universal local cusp and the exact finite-epsilon persistence via the IFT. Existing beta=1 field or h=0 tangency statements alone do not imply the two-variable cusp constants.
+
+## value
+
+PASS
+
+Nontrivial double-scaling catastrophe geometry at a physically motivated continuous/discontinuous resetting boundary, with exact universal cusp coordinates and a rigorous local branch-count transition. The result distinguishes existence of branches from their dynamical stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
