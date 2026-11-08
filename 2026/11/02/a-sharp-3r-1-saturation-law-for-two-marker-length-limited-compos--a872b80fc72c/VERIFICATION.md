@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-This package includes `verify_two_marker_limited_deck.py`, executable with ordinary Python 3 and no external dependencies. Its literal window enumerator computes weight-composition counts from actual words independently of the gap-polynomial proof. It compares every observation class with the proposed truncated-gap signature in both directions, checks the complete finite-length capacity formula, verifies the two generating-polynomial identities by coefficient arithmetic, and checks the saturation formulas at larger parameters.
+# Independent mathematical audit
 
-Executed output:
+## correctness
 
-```text
-VERIFY_OK literal_source_profiles=50050 length_cutoff_pairs=324
-VERIFY_OK every_literal_profile_matches_complete_signature=True
-VERIFY_OK both_exact_generating_polynomial_identities=True
-VERIFY_OK full_finite_length_formula=True saturation_and_boundary=True
-VERIFY_OK symbolic_formula_large_r=1..119
-r=1 saturated_capacity=1 first_saturated_length=2
-r=2 saturated_capacity=5 first_saturated_length=5
-r=3 saturated_capacity=12 first_saturated_length=8
-r=4 saturated_capacity=22 first_saturated_length=11
-r=5 saturated_capacity=35 first_saturated_length=14
-r=6 saturated_capacity=51 first_saturated_length=17
-r=10 saturated_capacity=145 first_saturated_length=29
-```
+PASS
 
-No experiment proves the infinitely many cases. The general proof is the polynomial/truncation argument and disjoint counting in `RESULT.md`. Checks do not cover noisy reads, altered weights, cyclic words, or unobserved source errors. External independent scientific audit has not occurred.
+For binary linear 0^a 1 0^b 1 0^c, the known n and counts N_{ell,j} give polynomials F and G. Multiplication by (1-z)^2 yields exact identities 2z-z^(a+2)-z^(b+2)-z^(c+2)+z^(n+2) and z^(b+2)-z^(a+b+3)-z^(b+c+3)+z^(n+2). Truncation through r recovers B=b+2 exactly if B<=r, and the multiset of outer markers A=a+1,D=c+1 below r, while all other information is invisible. The iff profile-signature classification follows both directions. Counting unordered A,D by visible B, both-small, exactly-one-small, neither-small gives four displayed terms. For n>=3r-1 they are r(r-1),r(r-1)/2,r-1,1, totaling r(3r-1)/2; one-class deficit at n=3r-2 (r>=2); r=1 is correctly handled. Independent literal substring profiles and both-way signature tests confirm every n<=18, all r<=n; formula boundary checked to r=59. Full proof not inferred from testing.
+
+## originality
+
+PASS
+
+The r-dependent exactly-two-marker profile equivalence and sharp stabilization differ from known full-deck reconstruction or restricted length-r code constructions. Existing published all-weights r=2 exact enumeration naturally covers an r=2 special case, but not the uniform-in-r classification. Priority qualification remains for sparse reconstruction/turnpike specializations.
+
+## value
+
+PASS
+
+Substring-composition channels are natural in polymer/string reconstruction; the result supplies an exact maximum zero-error code size and a full ambiguity-fiber classification with a sharp observation-length saturation boundary. It quantifies what length-limited reads can and cannot distinguish rather than merely tabulating small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

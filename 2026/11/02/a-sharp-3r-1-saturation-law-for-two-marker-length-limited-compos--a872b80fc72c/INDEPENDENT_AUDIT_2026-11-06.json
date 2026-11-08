@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:13:17.086116Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary linear 0^a 1 0^b 1 0^c, the known n and counts N_{ell,j} give polynomials F and G. Multiplication by (1-z)^2 yields exact identities 2z-z^(a+2)-z^(b+2)-z^(c+2)+z^(n+2) and z^(b+2)-z^(a+b+3)-z^(b+c+3)+z^(n+2). Truncation through r recovers B=b+2 exactly if B<=r, and the multiset of outer markers A=a+1,D=c+1 below r, while all other information is invisible. The iff profile-signature classification follows both directions. Counting unordered A,D by visible B, both-small, exactly-one-small, neither-small gives four displayed terms. For n>=3r-1 they are r(r-1),r(r-1)/2,r-1,1, totaling r(3r-1)/2; one-class deficit at n=3r-2 (r>=2); r=1 is correctly handled. Independent literal substring profiles and both-way signature tests confirm every n<=18, all r<=n; formula boundary checked to r=59. Full proof not inferred from testing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye/Elishco 2022 Section VIII Definition VIII.1 and Corollary VIII.3: code construction from partial deck",
+          "Gupta/Mahdavifar arXiv:2201.09955 Sections II-IV algebraic reconstruction from full deck",
+          "Acharya et al 2014 full multiset equivalence"
+        ],
+        "reasoning": "General full-length reconstruction and constructed codes do not imply exact restricted-weight count at every length cutoff. The full-length r=n and r=2 special instances can be older; the claimed new contribution requires variable cutoff and sharp saturation.",
+        "searches": [
+          "binary string weight two substring composition multiset limited lengths r signatures saturation 3r-1",
+          "reconstruction of a single string from part composition multiset 2208.14963",
+          "string reconstruction from substring compositions 1403.2439"
+        ]
+      },
+      "checked_sources": [
+        "Ye/Elishco 2022 arXiv:2208.14963 Section VIII (full text)",
+        "Gupta/Mahdavifar 2022 arXiv:2201.09955 Sections II-IV (full text)",
+        "Acharya et al 2014 arXiv:1403.2439 (full deck background)",
+        "Resultary SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e (published summary)",
+        "Resultary SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 (published summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier partial-deck constructions give achievable code families, not exact channel fiber count",
+          "Polynomial technique can be adapted but does not specify the counting formula without an independent analysis"
+        ],
+        "reasoning": "A code lower bound, a full-deck method, or a fixed r=2 all-weight census alone does not entail the all-r finite formula. The precise hierarchy of deductions was compared, not just titles.",
+        "searches": [
+          "binary string weight two substring composition multiset limited lengths r signatures saturation 3r-1",
+          "2208.14963 Section VIII Lyndon codes",
+          "2201.09955 full composition deck polynomial representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ye/Elishco arXiv:2208.14963 Section VIII introduces length-limited compositions",
+          "Acharya et al arXiv:1403.2439 covers full substring-composition equivalences"
+        ],
+        "reasoning": "The same observation type appears in prior work, but explicit two-marker signature based on B and censored outer gaps with variable r was not seen in compared statements.",
+        "searches": [
+          "binary string weight two substring composition multiset limited lengths r signatures saturation 3r-1",
+          "weight 2 composition substring multiset limited observation equivalence",
+          "Ye Elishco 2208.14963 composition multiset limited"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e: all binary words r=2, counts by length",
+          "Resultary 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71: all binary words two-multispectra"
+        ],
+        "reasoning": "The r=2 slice is already in a broader all-word table, so no novelty is attributed to that boundary. Neither cited Resultary entry gives all r, weight-two signatures, or 3r-1 saturation.",
+        "searches": [
+          "binary string weight two substring composition multiset limited lengths r signatures saturation 3r-1",
+          "Resultary Exact binary r=2 length-limited composition reconstruction",
+          "Resultary Exact binary two-multispectrum code size"
+        ]
+      },
+      "rationale": "The r-dependent exactly-two-marker profile equivalence and sharp stabilization differ from known full-deck reconstruction or restricted length-r code constructions. Existing published all-weights r=2 exact enumeration naturally covers an r=2 special case, but not the uniform-in-r classification. Priority qualification remains for sparse reconstruction/turnpike specializations.",
+      "residual_risks": [
+        "Other sparse turnpike or substring-composition literature may contain equivalent profile enumeration.",
+        "The r=2 and full length r=n boundary cases overlap previously studied larger classes; only all-r law assessed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "related, no all-r two-marker count identified",
+          "evidence": "Section VIII supplies limited-read model and constructive codes, not the formula C_{n,r}^{(2)}.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.14963",
+          "material_read": "full arXiv paper, in particular Section VIII Definition VIII.1 and Corollary VIII.3 on Lyndon constructions",
+          "method": "read primary PDF including relevant section",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "same length-limited multiset observation"
+        },
+        {
+          "assessment": "related full-deck method; distinct truncation problem",
+          "evidence": "The recovered full-deck polynomial information differs from truncation at r<n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.09955",
+          "material_read": "full arXiv paper, especially Sections II-IV",
+          "method": "read full accessible PDF and original statements",
+          "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+          "trigger": "full composition polynomial method"
+        },
+        {
+          "assessment": "covers r=2 slice, not established to cover all r",
+          "evidence": "All-word fixed cutoff r=2 cannot algebraically imply the general variable-r formula without further argument.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "material_read": "published result summary and all-word counting statement, not entire source tree",
+          "method": "read published finding summary via Resultary",
+          "title": "Exact binary r=2 length-limited composition reconstruction",
+          "trigger": "possible dominating r=2 special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Substring-composition channels are natural in polymer/string reconstruction; the result supplies an exact maximum zero-error code size and a full ambiguity-fiber classification with a sharp observation-length saturation boundary. It quantifies what length-limited reads can and cannot distinguish rather than merely tabulating small n.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ye/Elishco 2022 arXiv:2208.14963 Section VIII (full text)",
+    "Gupta/Mahdavifar 2022 arXiv:2201.09955 Sections II-IV (full text)",
+    "Acharya et al 2014 arXiv:1403.2439 (full deck background)",
+    "Resultary SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e (published summary)",
+    "Resultary SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 (published summary)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two ones in known-length linear binary words; noiseless complete contiguous-substring multiplicities of all lengths <=r.",
+    "The zero-error capacity is restricted to weight-two messages, not unrestricted-source capacity.",
+    "Finite independent literal verification n<=18 does not replace the generating-function proof."
+  ],
+  "schema_version": 1
+}

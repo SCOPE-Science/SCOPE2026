@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact zero-run identities (1) and (2) recover the truncated central and outer gaps from the actual composition observations. Both directions of the fiber equivalence are proved and give a disjoint exhaustive count; no unverified finite search is used as an infinite proof. The sharp cutoff follows by substituting the boundary values into the exact count. The independent literal enumerator inside the package tested \(50{,}050\) source-profile instances across \(324\) length/cutoff combinations and the polynomial identities. Boundary cases include \(r=1\) and \(r=n\). Residual correctness risk: ordinary possibility of a proof-reading mistake, not a known unverified lemma.
+PASS
 
-## Originality — PASS, with residual risk
+For binary linear 0^a 1 0^b 1 0^c, the known n and counts N_{ell,j} give polynomials F and G. Multiplication by (1-z)^2 yields exact identities 2z-z^(a+2)-z^(b+2)-z^(c+2)+z^(n+2) and z^(b+2)-z^(a+b+3)-z^(b+c+3)+z^(n+2). Truncation through r recovers B=b+2 exactly if B<=r, and the multiset of outer markers A=a+1,D=c+1 below r, while all other information is invisible. The iff profile-signature classification follows both directions. Counting unordered A,D by visible B, both-small, exactly-one-small, neither-small gives four displayed terms. For n>=3r-1 they are r(r-1),r(r-1)/2,r-1,1, totaling r(3r-1)/2; one-class deficit at n=3r-2 (r>=2); r=1 is correctly handled. Independent literal substring profiles and both-way signature tests confirm every n<=18, all r<=n; formula boundary checked to r=59. Full proof not inferred from testing.
 
-Ye–Elishco (arXiv:2208.14963, Section VIII) defines precisely this short-fragment model but presents a Lyndon-code construction for a different regime, not the exact two-marker observation-fiber/optimal code count for all cutoffs. Gupta–Mahdavifar (arXiv:2201.09955) and Acharya et al. (arXiv:1403.2439) work with full-composition reconstruction. The publicly indexed \(r=2\), all-word enumeration overlaps at the special cutoff but does not cover the variable-\(r\) theorem. Literature-index and web searches for weight-two limited-composition capacity, equivalent truncated-gap descriptions, the exact polynomial and the sharp threshold did not identify a dominating statement. Unlocated sparse turnpike or polymer-read literature could still imply part or all of the result; search absence is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-A physically motivated short-fragment composition channel loses positional information as the molecule length grows. The theorem determines its exact zero-error weight-two code size for every finite length and read limit, not just an asymptotic trend. The sharp transition \(n=3r-1\) distinguishes two fundamentally different regimes, while the explicit ambiguity-fiber classifier supplies the actual reconstruction algorithm and the combinatorial mechanism of information saturation. The two-marker restriction is structurally motivated as the first nontrivial sparse-source class, not an arbitrary numerical slice.
+The r-dependent exactly-two-marker profile equivalence and sharp stabilization differ from known full-deck reconstruction or restricted length-r code constructions. Existing published all-weights r=2 exact enumeration naturally covers an r=2 special case, but not the uniform-in-r classification. Priority qualification remains for sparse reconstruction/turnpike specializations.
 
-## Scope and residual risks
+## value
 
-The result assumes known \(n\), weight exactly two, complete noiseless multisets, and linear (not cyclic) input strings. No all-weight extension or error correction is claimed. Comparison with every possible equivalent specialization is not guaranteed. Finite test logs are supplementary and not independent proof certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Substring-composition channels are natural in polymer/string reconstruction; the result supplies an exact maximum zero-error code size and a full ambiguity-fiber classification with a sharp observation-length saturation boundary. It quantifies what length-limited reads can and cannot distinguish rather than merely tabulating small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
