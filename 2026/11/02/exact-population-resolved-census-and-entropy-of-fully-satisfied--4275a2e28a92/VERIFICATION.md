@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The static claim and all formulae were checked by an analytic proof reconstructing run-length necessity and sufficiency, the marked-run composition factor, and the six-state transfer matrix with a primitive Perron root.
+## correctness
 
-`CHECKER.py` depends only on the Python standard library. Running `python3 CHECKER.py` prints `PASS 134474 assertions`. It independently enumerates every binary word of lengths 5 through 16, tests the local four-neighbor satisfaction rule, compares the complete population-resolved count with the formula, and verifies every allowed run pattern. It also compares matrix traces and closed counts through length 50, and checks the polynomial matrix identity \(T^6-2T^5+T^4-I=0\).
+PASS
 
-The exhaustive verification is confined to the explicitly tested lengths. The proof of the statement for all \(n\ge5\) does not rely on extrapolation from a finite computation.
+On any labeled binary n-cycle n>=5 with 4 distinct neighbors ±1,±2, satisfaction means at least 2 agree. A singleton run can be happy only if both neighboring runs are singletons, forcing full alternating checkerboard; absent singletons any length-two run endpoint has at most one matching neighbor; every run>=3 is sufficient. Hence the exhaustive static class is constants, 2 even checkerboards, or alternating runs all length>=3. With k runs of each type, weak compositions after removing 3 from each yield binom(m-2k-1,k-1)binom(n-m-2k-1,k-1), weighted n/k for labeled positions. Summing m gives H_n=2+2[even]+sum_{k<=n/6}(n/k)binom(n-4k-1,2k-1). Six-state capped-run transfer has characteristic (t³-t²-1)(t³-t²+1) and primitive Perron root λ=1.465571..., so H_n~λ^n. Independent direct satisfaction predicate for all 16,352 words at n=5..13 exactly matches all S_{n,m}; check is finite and all-n run proof independent.
 
-Literature comparisons distinguish the new enumeration from known sufficient long-run fixed-point structures and from results about dynamical absorption. Historical priority and independent validation remain unperformed.
+## originality
+
+PASS
+
+Long-run stability of majority cellular automata and structural short-run exceptions were known, including Nakar–Ron 2022 rank/radius general theory. The new mathematical object is the explicit population-resolved microcanonical census for every m and entropy for exactly the four-neighbor radius-two weak threshold model, not newly claiming the generic run dichotomy. Inspected original structural statements do not themselves state the binomial census. An older transfer-matrix/fixed-point table could overlap.
+
+## value
+
+PASS
+
+Population count m is conserved under pair-swap Schelling dynamics, so S_{n,m} gives a natural exact fixed-composition invariant, not arbitrary sliced enumeration. The full microcanonical counts and exponential entropy quantify rarity of all-satisfied configurations at fixed m and under fair initialization without pretending to solve dynamic hitting probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

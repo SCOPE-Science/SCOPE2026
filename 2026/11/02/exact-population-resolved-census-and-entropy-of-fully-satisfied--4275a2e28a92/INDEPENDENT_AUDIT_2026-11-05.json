@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:17:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On any labeled binary n-cycle n>=5 with 4 distinct neighbors ±1,±2, satisfaction means at least 2 agree. A singleton run can be happy only if both neighboring runs are singletons, forcing full alternating checkerboard; absent singletons any length-two run endpoint has at most one matching neighbor; every run>=3 is sufficient. Hence the exhaustive static class is constants, 2 even checkerboards, or alternating runs all length>=3. With k runs of each type, weak compositions after removing 3 from each yield binom(m-2k-1,k-1)binom(n-m-2k-1,k-1), weighted n/k for labeled positions. Summing m gives H_n=2+2[even]+sum_{k<=n/6}(n/k)binom(n-4k-1,2k-1). Six-state capped-run transfer has characteristic (t³-t²-1)(t³-t²+1) and primitive Perron root λ=1.465571..., so H_n~λ^n. Independent direct satisfaction predicate for all 16,352 words at n=5..13 exactly matches all S_{n,m}; check is finite and all-n run proof independent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakar–Ron structural fixed/periodic automaton results dominate some run-structure elements but the inspected theorem does not give exact fixed-m counts or entropy; transfer machinery can derive them with extra counting."
+        ],
+        "reasoning": "Nakar–Ron structural fixed/periodic automaton results dominate some run-structure elements but the inspected theorem does not give exact fixed-m counts or entropy; transfer machinery can derive them with extra counting.; inspect the indicated primary material limitations in source_inspections.",
+        "searches": [
+          "radius two majority circular Schelling fully satisfied run length 3 exact enumeration",
+          "https://arxiv.org/abs/2205.08972",
+          "https://arxiv.org/abs/1203.6346"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2205.08972",
+        "https://arxiv.org/abs/1203.6346",
+        "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-population-resolved-census-and-entropy-of-fully-satisfied--4275a2e28a92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier structural theorem supplies long stable runs and periodic exceptions, but counting every labeled binary ring at fixed population and isolating all-satisfied from merely periodic configurations needs the run-composition and labeled n/k argument, hence is not a verbatim corollary of a displayed prior count."
+        ],
+        "reasoning": "The earlier structural theorem supplies long stable runs and periodic exceptions, but counting every labeled binary ring at fixed population and isolating all-satisfied from merely periodic configurations needs the run-composition and labeled n/k argument, hence is not a verbatim corollary of a displayed prior count.",
+        "searches": [
+          "radius two majority circular Schelling fully satisfied run length 3 exact enumeration",
+          "https://arxiv.org/abs/2205.08972",
+          "https://arxiv.org/abs/1203.6346",
+          "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact 4-neighbor weak-majority satisfaction differs from 2-neighbor classical Schelling and from synchronous radius-r majority orbit classification; microcanonical population count is the invariant here.",
+          "Reviewed source RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-population-resolved-census-and-entropy-of-fully-satisfied--4275a2e28a92"
+        ],
+        "reasoning": "Compare invariants, normalizations and exact mathematical objects: Exact 4-neighbor weak-majority satisfaction differs from 2-neighbor classical Schelling and from synchronous radius-r majority orbit classification; microcanonical population count is the invariant here.",
+        "searches": [
+          "radius two majority circular Schelling fully satisfied run length 3 exact enumeration",
+          "https://arxiv.org/abs/2205.08972",
+          "https://arxiv.org/abs/1203.6346"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No explicit pre-existing S_{n,m} binomial table or total H_n for this exact radius-two satisfaction rule surfaced in Resultary query. Broader CA fixed-point tables might contain equivalent sequences."
+        ],
+        "reasoning": "No explicit pre-existing S_{n,m} binomial table or total H_n for this exact radius-two satisfaction rule surfaced in Resultary query. Broader CA fixed-point tables might contain equivalent sequences.; a failed query is not a novelty proof.",
+        "searches": [
+          "radius two majority circular Schelling fully satisfied run length 3 exact enumeration",
+          "Resultary semantic search query: radius two majority circular Schelling fully satisfied run length 3 exact enumeration"
+        ]
+      },
+      "rationale": "Long-run stability of majority cellular automata and structural short-run exceptions were known, including Nakar–Ron 2022 rank/radius general theory. The new mathematical object is the explicit population-resolved microcanonical census for every m and entropy for exactly the four-neighbor radius-two weak threshold model, not newly claiming the generic run dichotomy. Inspected original structural statements do not themselves state the binomial census. An older transfer-matrix/fixed-point table could overlap.",
+      "residual_risks": [
+        "The Nakar–Ron full PDF was partly inspected; a hidden explicit fixed-state enumeration table could cover some counts.",
+        "A previously published transfer-matrix table for binary radius-two majority fixed points may imply H_n; no exhaustive table search.",
+        "Static all-satisfied counts are not absorbing-set probabilities or dynamic reachability probabilities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structure/short-run exceptions is prior coverage; inspected statements do not give population-specific exact binomial count",
+          "evidence": "Nakar–Ron 2022 Theorem 1 and r=2 examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+          "material_read": "Accessible arXiv full PDF, abstract, model definitions, structural theorem and r=2 discussion around Section 1.4; not every appendix",
+          "method": "Primary PDF text and theorem pages, including screenshot",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "same radius-r majority fixed-state/run decomposition"
+        },
+        {
+          "assessment": "Studies dynamic behavior and run stabilization, not confirmed to contain the microcanonical radius-2 static census",
+          "evidence": "Brandt–Immorlica–Kamath–Kleinberg 2012.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.6346",
+          "material_read": "Abstract and citation-level source summary; not full current paper",
+          "method": "Bibliographic/abstract comparison",
+          "title": "An Analysis of One-Dimensional Schelling Segregation",
+          "trigger": "same ring/pair-swap population dynamics"
+        },
+        {
+          "assessment": "Long-run stability mechanism is prior art; equivalent fixed-point count requires further check",
+          "evidence": "Tosic–Agha 2004.",
+          "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "material_read": "Cited structural results and abstract-level summary; complete original not read in this run",
+          "method": "Bibliographic/source-summary comparison",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "long homogeneous run stationary states"
+        },
+        {
+          "assessment": "Top matches concerned unrelated cyclic enumeration/automata and did not give the stated S_{n,m}; search alone does not establish priority",
+          "evidence": "Search radius two majority circular Schelling fully satisfied run length 3 exact enumeration",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Semantic search hit summaries returned for radius two majority circular Schelling fully satisfied run length 3 exact enumeration",
+          "method": "Resultary semantic query",
+          "title": "Resultary majority cellular automata and Schelling census search",
+          "trigger": "same 4-neighbor static exact enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Population count m is conserved under pair-swap Schelling dynamics, so S_{n,m} gives a natural exact fixed-composition invariant, not arbitrary sliced enumeration. The full microcanonical counts and exponential entropy quantify rarity of all-satisfied configurations at fixed m and under fair initialization without pretending to solve dynamic hitting probabilities.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2205.08972",
+    "https://arxiv.org/abs/1203.6346",
+    "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-population-resolved-census-and-entropy-of-fully-satisfied--4275a2e28a92"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=5 four distinct neighbors, fully occupied static rings, identical weak threshold 2.",
+    "Does not characterize dynamic absorbing sets, equilibrium reachability, or hitting times."
+  ],
+  "residual_risks": [
+    "The Nakar–Ron full PDF was partly inspected; a hidden explicit fixed-state enumeration table could cover some counts.",
+    "A previously published transfer-matrix table for binary radius-two majority fixed points may imply H_n; no exhaustive table search.",
+    "Static all-satisfied counts are not absorbing-set probabilities or dynamic reachability probabilities."
+  ],
+  "schema_version": 1
+}

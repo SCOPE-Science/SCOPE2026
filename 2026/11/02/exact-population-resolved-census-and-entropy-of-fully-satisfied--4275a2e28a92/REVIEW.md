@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The static satisfaction rule uses the four distinct sites at offsets \(\pm1,\pm2\), with weak threshold two; this requires \(n\ge5\). A singleton color-run can meet the threshold only when its two adjacent runs are themselves singletons, so the entire nonconstant ring alternates. With no singletons, any length-two run has a boundary resident with one matching neighbor, so every run has length at least three. Conversely these two classes are satisfied. Counting the \(k\) type-one and \(k\) type-zero runs by positive compositions with parts at least three gives the factor \(n/k\) after accounting for the \(k\) possible marked type-one run starts. Summing across populations gives the univariate formula. A primitive six-state adjacency matrix has characteristic polynomial \((t^3-t^2-1)(t^3-t^2+1)\), yielding the Perron growth constant.
+PASS
 
-The package contains a standalone Python checker which independently enumerated all binary words up to length 16 and compared each fixed-composition count and classification, and then tested transfer traces up to length 50. It passed 134,474 assertions. Finite checks supplement, not substitute for, the proof.
+On any labeled binary n-cycle n>=5 with 4 distinct neighbors ±1,±2, satisfaction means at least 2 agree. A singleton run can be happy only if both neighboring runs are singletons, forcing full alternating checkerboard; absent singletons any length-two run endpoint has at most one matching neighbor; every run>=3 is sufficient. Hence the exhaustive static class is constants, 2 even checkerboards, or alternating runs all length>=3. With k runs of each type, weak compositions after removing 3 from each yield binom(m-2k-1,k-1)binom(n-m-2k-1,k-1), weighted n/k for labeled positions. Summing m gives H_n=2+2[even]+sum_{k<=n/6}(n/k)binom(n-4k-1,2k-1). Six-state capped-run transfer has characteristic (t³-t²-1)(t³-t²+1) and primitive Perron root λ=1.465571..., so H_n~λ^n. Independent direct satisfaction predicate for all 16,352 words at n=5..13 exactly matches all S_{n,m}; check is finite and all-n run proof independent.
 
-## Originality — PASS within inspected literature, provisional
+## originality
 
-The cited 2004 majority-cellular-automaton article explicitly gives the general sufficient stability of long homogeneous runs. A 2022 structural treatment additionally partitions periodic fixed states into strongly stable configurations and short-run exceptions. Thus the run-length building blocks and the structural direction are prior art. The final claim is the explicit **microcanonical** all-satisfied census \(S_{n,m}\) at every fixed population balance and the exact total-state entropy. The inspected 2004 article (including its fixed-point section), the complete 2012 circular Schelling article, the 2011 full text on segregation dynamics, and the 2022 automaton study do not state this binomial census or its six-state entropy. Their general structural machinery could simplify its derivation but does not itself numerically provide it. Research-index searches for radius-two majority fixed-point composition enumeration and Schelling all-happy counts found no exact matching record.
+PASS
 
-A general fixed-point transfer-matrix method and a possible unlocated explicit sequence/table remain residual historical-priority risks; this self-review is not an independent priority determination.
+Long-run stability of majority cellular automata and structural short-run exceptions were known, including Nakar–Ron 2022 rank/radius general theory. The new mathematical object is the explicit population-resolved microcanonical census for every m and entropy for exactly the four-neighbor radius-two weak threshold model, not newly claiming the generic run dichotomy. Inspected original structural statements do not themselves state the binomial census. An older transfer-matrix/fixed-point table could overlap.
 
-## Value — PASS
+## value
 
-The number \(m\) of residents of each type is conserved by type-swapping versions of the ring model, so \(S_{n,m}\) describes a natural fixed-population invariant, not an arbitrary slice. It gives the exact proportion of configurations with universal satisfaction conditional on group composition and distinguishes the two integrative checkerboards from minimum-run segregated layouts. The all-population entropy quantifies how sparse all-satisfied layouts are under a uniform random initialization. These questions are distinct from, and not answered by, dynamic run-length estimates or the qualitative existence of long-run fixed points.
+PASS
 
-## Limitations and closest literature
+Population count m is conserved under pair-swap Schelling dynamics, so S_{n,m} gives a natural exact fixed-composition invariant, not arbitrary sliced enumeration. The full microcanonical counts and exponential entropy quantify rarity of all-satisfied configurations at fixed m and under fair initialization without pretending to solve dynamic hitting probabilities.
 
-This is a finite-ring, two-type, no-vacancy, uniform-threshold and static-counting result. It does not count all absorbing states of a particular pair-swap dynamics, prove accessibility from initial states, or treat empirical neighborhoods. Directly compared prior sources: Tosic–Agha (2004), Goles Domic–Goles–Rica (2011), Brandt–Immorlica–Kamath–Kleinberg (2012, arXiv:1203.6346), and Nakar–Ron (2022, arXiv:2205.08972). A general counting method or historical table could subsume the explicit census if later located.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
