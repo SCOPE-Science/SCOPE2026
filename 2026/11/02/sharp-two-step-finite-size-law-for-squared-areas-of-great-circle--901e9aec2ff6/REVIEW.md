@@ -1,19 +1,21 @@
-# Review of the finite-size spherical cell-area theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact three-probe Crofton identity reduces the squared area of a size-biased spherical cell to an integral over two auxiliary sphere points. Local exponential coordinates, the spherical cosine law, and a globally exponentially dominated remainder give a justified three-term expansion. The independent rational certificate re-evaluates all three planar triangle integrals (the normalizer, radial square, and area-over-opposite-side term) and establishes the constants \(4\pi^2/7\), \(32\pi^2/11\), \(8\pi^2/11\). The gamma radial moments give \(-10\) and \(65\), with the curvature term \(-28\pi^2/11\). The asymptotic proof is analytical; finite checks and optional quadrature alone are not used as an infinite proof.
+PASS
 
-## Originality — PASS (bounded prior-art scope)
+Three-point same-cell probability equals [1-perimeter(N,Y,Z)/(2π)]^n by spherical Crofton. Exponential tangent coordinates Y=exp_N(u/n), Z=exp_N(v/n) give q=(|u|+|v|+|u-v|)/(2π), curvature cubic determinant term t, and surface Jacobian 1-(|u|²+|v|²)/(6n²). Uniform exponential domination from perimeter≥2 max(d(N,Y),d(N,Z)) controls remainder. Independent exact Dirichlet evaluations recovered 4/21,32/165,14/33 and the resulting I0=4π²/7, IR=32π²/11, IT=8π²/11. Gamma(4) q-moments 20,120,840 give -10,65, while curvature (2π)²(IT-IR)/(6I0)=-28π²/11. Weighted third-area power sum follows by conditioning on uniform base point. The asymptotic relies on the uniform analytic error argument, not numerical quadrature.
 
-The closest foundational source, Kabluchko–Thäle (arXiv:2005.01055v1, Sections 5.3–5.4), calculates first expected spherical intrinsic volumes of weighted cells and their large-\(n\) limits, not the square of random cell area. Hug–Schneider (arXiv:1508.07768, Theorem 8.1) proves second face-content moments for an **unweighted typical** Schläfli cell; a second moment of that cell corresponds to a *first* moment of the size-biased area, not its square. The new \(\mathbb E\sum_C\operatorname{area}(C)^3\) requires a third raw cell-area moment. Richey–Sarkar (arXiv:2006.01323) and the classical Goudsmit result provide planar moment background but not the finite spherical second correction. Actual database searches by source terminology, coefficient and equivalent cubic-area formulation returned no dominating record. Residual risk: Miles (1971) was accessible only through bibliographic information and later full-text citations; it was not fully inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The squared area of an area-weighted cell measures the variability experienced by a random spherical location, rather than merely its mean. Its leading scaling connects to the planar Crofton cell; the correction \(-10/n\) measures finite binomial count effects, while the exact \(-28\pi^2/(11n^2)\) term isolates curvature. The observable requires a three-point joint no-cut integral and an exact two-dimensional triangle-moment evaluation, not a standard first-moment conversion or parameter substitution. The result concerns a motivated infinite family rather than an arbitrary single numeric slice.
+Best-knowledge PASS for explicit finite-count two-correction third-area-power result, not the known leading Crofton scaling. Direct comparison distinguishes area-weighted squared cell area = cubic unweighted cell-area power sum from unweighted second moments. Older Miles 1971 full text inaccessible; genuine risk of implicitly covered third moments.
 
-## Limits and source coverage
+## value
 
-The claim is asymptotic for isotropic independent cuts on the unit sphere. An exact fixed-\(n\) formula, nonisotropic extensions and higher-order corrections are not claimed. The 1971 Miles source remains a historical-priority risk; independent verification is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Area-squared of area-biased cell is an intrinsically natural variance/third moment observable in random tessellations; the finite-sample curvature correction quantifies geometric effects not determined by limiting planar laws. Exact asymptotic coefficients can be used to benchmark spherical-cell statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
