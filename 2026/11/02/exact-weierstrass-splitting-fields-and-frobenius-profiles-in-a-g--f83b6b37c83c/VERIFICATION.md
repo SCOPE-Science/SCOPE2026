@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification and boundaries
+# Independent mathematical audit
 
-Execute `python verify_weierstrass.py` from the folder containing the standalone checker. The script requires Python 3 and SymPy. It verifies the defining quartic identity, the root discriminant identity, the exact quadratic--quartic resultant, and all four root formulas by reducing in the quotient algebra defined by \(i^2+1=0\), \(s^2-(t^2+1)=0\).
+## correctness
 
-It also performs finite-field enumeration of all parameters satisfying the explicitly stated nonvanishing condition in the prime fields of orders \(3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59\) and the quadratic extensions of the first four. It checks direct six-degree-polynomial root counts against the quadratic-character formulas in \(488\) admissible cases; it independently compares the full paired curve point counts in the same \(488\) cases, including points at infinity; and for four eligible prime-field parameters it checks that every one of the six roots lies in the quadratic extension and verifies their Frobenius fixed points.
+PASS
 
-The expected terminal marker is `WEIERSTRASS_AND_JACOBIAN_COMPATIBILITY_PASS parameter_cases=488 pair_point_counts=488 quadratic_splitting_cases=4`. These checks were executed successfully on the exact accompanying script.
+For U(t)=t(t²+1)(2t²+1)(t²+2)(t²−1)(t⁴+t²+1) nonzero, the quartic identity Q_t(x)=(4t²x²+1)²+16(t²+1)(t−1)²x² and A²=t²+(t²+1)B² yield quartic roots i(εA+δB√(t²+1))/(2t²). The two other branch roots are ±√(-t)/2. Difference of quartic roots recovers i and i√(t²+1), and hence s; quadratic roots recover √t. The resultant 256(t−1)^4A^4 excludes collisions. Distinct root actions follow directly by applying signs under any Galois automorphism. In Fq, each sign is χ(-1),χ(t²+1),χ(t); q ≡ 3 mod 4 has opposite quadratic-pair fixedness. External Jacobian isomorphism is correctly cited as Abdellatif Theorem 2, not independently proved. Confirmed polynomial identities/resultant with fresh SymPy and direct character-root counts for all admissible t in prime fields 5..31. Full field proof, not finite enumeration, proves universal part.
 
-The infinite-field results are established in the proof by factorization, nonvanishing, explicit inversion of root differences, and sign characters. Finite enumeration is not used as an infinite proof. The isomorphism of the two unpolarized Jacobians is the cited theorem of Abdellatif (arXiv:2410.03664v1); its proof is not supplied as part of this certificate. No independent external mathematical audit has been conducted.
+## originality
+
+PASS
+
+Abdellatif supplies the same curves and unpolarized Jacobian isomorphism, not an explicit family-wide six-root splitting-field equality and opposite branch Frobenius permutation profiles. Howe previously established broader arithmetic disparity for other isomorphic-Jacobian families. Novelty here is the explicit field and full Galois actions, not the construction or general phenomenon.
+
+## value
+
+PASS
+
+The Weierstrass branch divisor and its Frobenius representation are natural genus-two arithmetic invariants that measure precisely what unpolarized Jacobian isomorphism does not preserve. Explicit formula for the entire parameter family is mathematically usable and not a mere sample curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
