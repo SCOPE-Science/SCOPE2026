@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:53:00Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Exact SymPy Jacobian determinant/discriminant relations and rational β,h sample regimes, with symbolic Schur reduction."
+      ],
+      "rationale": "For a primitive period-two orbit, displacements sum to x0/(epsilon+sqrt(v0))=-x1/(epsilon+sqrt(v1)), and memory difference (1+beta)(v1-v0)=(1-beta)a²(x0²-x1²). Unequal spatial magnitudes contradict displacement ordering; hence antipodal equal-memory orbit q=h/2-epsilon/a>0, v=a²q² is unique. Reflection S conjugates the two Jacobians; K=S Jplus has trace 1+beta, det d=2-beta-4(1-beta)epsilon/(ah), and monodromy K². Exact Jury conditions reduce to d<1, equivalent h<4epsilon/a. Discriminant vanishes uniquely at h_nf=16epsilon/[a(7+beta)], distinguishing positive real roots from complex conjugates. At equality h=4epsilon/a unit-circle crossing transversal, nonlinear boundary dynamics not asserted. Independently rederived K determinant and discriminant in symbolic algebra and bounded test cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Loh derives RMSProp two-cycle results for a different moment timing; Li et al delay blockwise preconditioners with privacy noise."
+        ],
+        "reasoning": "Neither broader optimization theorem supplies local iff threshold for every h, beta for the exact noiseless one-step lag map.",
+        "searches": [
+          "arxiv:2610.30078 §§3–5",
+          "arxiv:2212.00309 Algorithm 1",
+          "Resultary: RMSProp lagged preconditioner stale memory exact two-cycle stability flip node spiral"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.30078 primary PDF inspected",
+        "arxiv:2212.00309 primary PDF inspected",
+        "Resultary Resultary: RMSProp lagged preconditioner stale memory exact two-cycle stability flip node spiral",
+        "Resultary Resultary: RMSProp one step delay stale preconditioner two cycle full state stability memory lag"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Loh monodromy depends on v_next update, Li DP2 is blockwise stochastic. Here the determinant d=2-beta-4(1-beta)epsilon/(ah) comes from the lagged-map Jacobian."
+        ],
+        "reasoning": "Their assumptions cannot be specialized to this map without replacing its update rule, so their orbit results do not imply the sharp window.",
+        "searches": [
+          "arxiv:2610.30078 Theorem 5.2 and 5.7",
+          "arxiv:2212.00309 Sections 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lagged iteration is a 2D equivariant map with two-step monodromy K²; Loh 2026 uses current newly accumulated moment in its step."
+        ],
+        "reasoning": "Stale-memory and current-memory maps differ on general states and have different linearization; their two-cycle coincidence is not a dynamical conjugacy.",
+        "searches": [
+          "Resultary: RMSProp lagged preconditioner stale memory exact two-cycle stability flip node spiral",
+          "Resultary: RMSProp one step delay stale preconditioner two cycle full state stability memory lag",
+          "arxiv:2610.30078 Theorems 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is a continuous stability phase diagram with parameters beta,a,epsilon,h, rather than an integer sequence or finite table."
+        ],
+        "reasoning": "No numerical table was located that logically supplies a universal exact Schur iff theorem; absence of a table is not proof of priority.",
+        "searches": [
+          "Resultary: RMSProp one step delay stale preconditioner two cycle full state stability memory lag",
+          "search exact Schur h4 epsilon lag RMSProp two cycle"
+        ]
+      },
+      "rationale": "Original 2026 Loh et al RMSProp dynamic paper uses newly updated memory v_next in the denominator, not the previous-step v; its cycle/stability results do not transfer without a conjugacy. Li et al block-delayed private adaptive method uses different stochastic/block schedule. Originality limited to the precise lagged deterministic full-state model and sharp β-independent threshold. Broader literature on lagged adaptivity remains a priority risk.",
+      "residual_risks": [
+        "Unindexed deterministic stale-RMSProp two-cycle analysis might already derive the same Floquet threshold.",
+        "The critical h=4epsilon/a orbit is nonhyperbolic; nonlinear attraction or invariant-circle bifurcation is not established.",
+        "Only one-dimensional deterministic quadratic full-state map is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Denominator uses freshly updated moment, unlike defined lagged map; does not directly establish lagged theorem.",
+          "evidence": "Algorithm equations and local stability sections",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30078",
+          "material_read": "Primary accessible PDF, equations defining current-memory map and portions of Theorems 4–5 and discussion; several pages visually inspected.",
+          "method": "arXiv primary PDF with page screenshots",
+          "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+          "trigger": "Direct near-identical scalar RMSProp cycle study"
+        },
+        {
+          "assessment": "Different stochastic hybrid algorithm, no exact scalar autonomous period-two theorem.",
+          "evidence": "Algorithm 1 and Sections 3–4",
+          "identifier_or_url": "https://arxiv.org/abs/2212.00309",
+          "material_read": "Primary full PDF available; sections describing algorithm and block delays inspected with page rendering.",
+          "method": "arXiv primary PDF",
+          "title": "Differentially Private Adaptive Optimization with Delayed Preconditioners",
+          "trigger": "Delayed second-moment preconditioning context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Using stale versus updated second-moment denominators changes the full-state Floquet matrix and the sharp stability border, despite similar-looking cycles. The exact loss-of-attraction, node-to-spiral transition, and β-independence isolate a motivated mechanism in a natural minimal adaptive optimizer, not merely a generic Jury test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.30078 primary PDF inspected",
+    "arxiv:2212.00309 primary PDF inspected",
+    "Resultary Resultary: RMSProp lagged preconditioner stale memory exact two-cycle stability flip node spiral",
+    "Resultary Resultary: RMSProp one step delay stale preconditioner two cycle full state stability memory lag"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the explicitly defined scalar one-step-lag epsilon-outside RMSProp quadratic map with a,epsilon>0 and 0<beta<1, exactly one primitive antipodal two-cycle exists iff h>2epsilon/a, locally attracts iff 2epsilon/a<h<4epsilon/a, repels if h>4epsilon/a, with exact node-to-spiral crossover h=16epsilon/[a(7+beta)].",
+  "limitations": [
+    "Unindexed deterministic stale-RMSProp two-cycle analysis might already derive the same Floquet threshold.",
+    "The critical h=4epsilon/a orbit is nonhyperbolic; nonlinear attraction or invariant-circle bifurcation is not established.",
+    "Only one-dimensional deterministic quadratic full-state map is assessed."
+  ],
+  "schema_version": 1
+}

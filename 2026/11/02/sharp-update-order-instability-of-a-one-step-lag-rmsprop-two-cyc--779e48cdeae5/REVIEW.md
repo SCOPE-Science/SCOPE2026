@@ -1,19 +1,21 @@
-# Assessment of the one-step-lag RMSProp period-two theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The two spatial displacement equations enforce opposing signs, and the memory difference identity rules out unequal magnitudes; this completes, rather than assumes, the classification of all primitive two-cycles. At the unique symmetric orbit, the full two-state one-step Jacobians are related by reflection, yielding an exact quadratic characteristic polynomial for their signed product. Strict Schur conditions prove attraction exactly between the existence and crossing thresholds. Discriminant and determinant calculations prove the defective node-to-spiral transition and hyperbolic repulsion above the second threshold. The packaged SymPy verification recomputes these identities from the original map.
+PASS
 
-**Limits:** The finite rational tests corroborate only; the written proof gives the uniform quantifiers. At equality of the unit-circle threshold, no nonlinear conclusion is proved.
+For a primitive period-two orbit, displacements sum to x0/(epsilon+sqrt(v0))=-x1/(epsilon+sqrt(v1)), and memory difference (1+beta)(v1-v0)=(1-beta)a²(x0²-x1²). Unequal spatial magnitudes contradict displacement ordering; hence antipodal equal-memory orbit q=h/2-epsilon/a>0, v=a²q² is unique. Reflection S conjugates the two Jacobians; K=S Jplus has trace 1+beta, det d=2-beta-4(1-beta)epsilon/(ah), and monodromy K². Exact Jury conditions reduce to d<1, equivalent h<4epsilon/a. Discriminant vanishes uniquely at h_nf=16epsilon/[a(7+beta)], distinguishing positive real roots from complex conjugates. At equality h=4epsilon/a unit-circle crossing transversal, nonlinear boundary dynamics not asserted. Independently rederived K determinant and discriminant in symbolic algebra and bounded test cases.
 
-## Originality
+## originality
 
-**PASS under examined evidence.** The closest full primary text is Loh et al. (arxiv:2610.30078v1), which treats the immediate, newly updated RMSProp memory. Its antiphase-existence and near-onset-stability theorems do not cover the one-step-stale map. Li et al. (arxiv:2212.00309) and Tian Li's 2023 thesis develop delayed preconditioners using a different blockwise algorithm, without this exact two-cycle spectrum. The difference is in the update equations and the implications, not titles: a different Jacobian and a finite universal upper stability frontier are proved for the lagged recurrence. Related numerical and alternative optimizer thresholds do not entail this exact result.
+PASS
 
-**Residual risk:** Historical priority against specialized or unindexed optimization dynamics remains provisional; one related central-flow full text could not be fully accessed. This does not remove the need for human literature review prior to a publication claim.
+Original 2026 Loh et al RMSProp dynamic paper uses newly updated memory v_next in the denominator, not the previous-step v; its cycle/stability results do not transfer without a conjugacy. Li et al block-delayed private adaptive method uses different stochastic/block schedule. Originality limited to the precise lagged deterministic full-state model and sharp β-independent threshold. Broader literature on lagged adaptivity remains a priority risk.
 
-## Mathematical value
+## value
 
-**PASS.** A precise one-step lag in applying the adaptive memory is a motivated change to the optimizer, and the resulting sharp upper threshold (independent of memory decay) distinguishes delayed from immediately updated normalization. The complete pair classification, stability window, exact spectral crossover and post-threshold repelling regime provide a compact dynamical benchmark. The conclusion is local and does not imply general convergence or nonlinear invariant-circle birth.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Using stale versus updated second-moment denominators changes the full-state Floquet matrix and the sharp stability border, despite similar-looking cycles. The exact loss-of-attraction, node-to-spiral transition, and β-independence isolate a motivated mechanism in a natural minimal adaptive optimizer, not merely a generic Jury test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
