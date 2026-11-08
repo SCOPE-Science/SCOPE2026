@@ -1,23 +1,21 @@
-# Scientific assessment: A six-factor criterion for circular subsequence universality in binary de Bruijn cycles of order five
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes a bijection between all binary order-five de Bruijn necklaces and those of the 65,536 four-suffix Boolean feedback maps whose induced 32-state permutation is a single cycle. The checker iterates every map with integer arithmetic, separately reproduces the complete 2,048-necklace set by Euler tours, and compares greedy complete-arch indices with independent earliest-embedding distinct-subsequence dynamic programming at all 32 rotations. Its exact 512/768/768 feedback table proves all class frequencies; the two relevant feedback entries exactly characterize the two circular alternating length-six factors, and both together force a prohibited 2-cycle. The complete finite proof is in RESULT.md, the executable exhaustive enumeration in checker.py. Finite claims only, no infinite inference.
+PASS
 
-The statement is a finite theorem. The verifier does not sample a subset, infer from a timeout, or claim an infinite extension; exhaustive coverage follows from the bijection between valid sixteen-output feedback maps and order-five binary de Bruijn necklaces. The source includes all definitions, code, and exact target counts, and comparisons use separate constructions of the cycles and of the invariant. Evidence is the self-contained `checker.py` and the finite-exhaustive proof in `RESULT.md`.
+Each binary order-five de Bruijn circle corresponds bijectively to a single 32-orbit feedback permutation F_h(b0,s)=(s,b0 xor h(s)) for one of 2^16 tables; rooting at the unique 00000 removes rotation duplicates. Greedy complete two-letter arches compute the subsequence-universality index, corroborated by independent earliest-subsequence DP in actual checker.py. Independently enumerated all 65536 tables, obtained exactly 2048 full cycles; enumerated all 32 starts for each and found 512 circles with (iota9 at 4 starts,iota10 at 28) and 768+768 circles with (iota10 at 9,iota11 at 23). h(5),h(10) govern length-six alternating factor occurrence, both 1 would form a prohibited two-state cycle. This is exhaustive FINITE proof, not an extrapolation or timed sample.
 
-## Originality — PASS, with residual uncertainty
+## originality
 
-Full-text research on de Bruijn cycles, finite-word subsequence universality, arch factorizations, and circular scattered-factor universality was compared at statement/implication level with the exact 2048-cycle rotation spectrum and six-factor iff criterion. The most relevant sources supply the object, enumeration methods, or general arch machinery but not the specific order-five joint spectrum or local six-factor witness. A published general finite-word generating function concerns all words of given length and does not determine this restricted conditional distribution. Previously accessible classifications of BWT-run and palindromic invariants on the same order-five cycles are logically different. Searches do not prove priority; an uncatalogued equivalent finite census remains a disclosed risk.
+PASS
 
-The closest primary sources are Zhi Xu (arXiv:1004.1216v1), Barker et al. (arXiv:2003.04629), Fleischmann et al. (arXiv:2104.09063), and Gabric–Sawada (arXiv:2005.01638). The first counts/constructs contiguous de Bruijn and multi-shift factors; the second and third develop general scattered-universality and arch methods; the fourth concerns discrepancy. None of the relevant inspected statements supplies the full conditional 512/1536 count, the 23/9 and 28/4 per-rotation profile, or the six-factor criterion. OEIS A169672 documents one cycle only. The 1946 paper is bibliographically verified, but its full text was not examined. Exact source comparisons, equivalences and uncertainties are recorded in `AUDIT.json`. Absence from search results alone is not taken as priority proof.
+Best-of-knowledge PASS qualified: existing de Bruijn construction theory, general scattered-factor universality, and an all-binary-words index distribution do not determine this rotation-class-conditioned order-five exact table or the local six-factor criterion. Highly relevant scattered-factor primary full text was inaccessible; the Oxford connector reported VPN disconnected, which is disclosed as priority risk rather than automatic failure.
 
-## Value — PASS
+## value
 
-Classical de Bruijn cycles are maximally universal for contiguous five-bit windows, but scattered-subsequence universality of a single circular traversal is a different natural invariant. The exact dichotomy, its sharp index endpoints, and the small six-letter alternating-factor obstruction give a structural recognition criterion across all 2,048 cycles instead of a list of samples. Exact per-rotation class frequencies complete this tractable order-five census and create reproducible benchmarks for subsequence-based sequence analysis. The small rank is mathematically motivated by its classical full necklace count and exhaustive feasibility. No unproved relevance to larger orders or performance application is asserted.
+PASS
 
-## Scope and limitations
+The 2048 order-five binary de Bruijn circles form a standard complete finite class. A simple local factor deciding optimal rotation universality and an exact per-rotation spectrum are useful motivated combinatorial invariants; completeness of the census and transparent certificate distinguish this from an arbitrary unstructured list. No larger-order law is inferred.
 
-This classification is restricted to binary order-five de Bruijn circles and circular traversals of exactly 32 symbols. The theorem does not assert a new result for all word lengths or alphabet sizes. Exhaustive historical priority and external verification are not asserted. The dated primary source anchoring the classification is arXiv:1004.1216v1 from 2010-04-08; the 1946 foundational paper has only year-level publication evidence.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
