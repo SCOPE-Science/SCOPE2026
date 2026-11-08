@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T22:55:36.635971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "actual packaged verification program",
+        "independent_checks.py"
+      ],
+      "rationale": "With u_j=m_j+b_j xi, W=diag(1,1/3) is exactly the physical norm and the Fourier generator is [[z-1,z-1],[3(1-z),-3(1+z)]]. The SSPRK3 polynomial R=I+nu L+nu²L²/2+nu³L³/6 gives D=W-R*WR. The source proves exact rational identities D11=2nu(1-c)Q and det D=-(4/9)nu^4(1-c)^2 F(nu,c), with F affine in c, one edge factor containing p(nu)=18nu^4-9nu^3+3nu²+5nu-1 and the other negative up to 1/5. All 18 tensor Bernstein coefficients of Q on [0,1/5]x[0,2] are strictly positive; verified rational certificate source VERIFY.py establishes identities by 13x13 degree-bounded interpolation, and independent recalculation matched determinant at several rational values. p strictly increases and has unique positive zero 0.18645728037; constant Fourier mode is nonexpansive below threshold. Above it, near-zero nonzero Fourier angles have det D<0, and dense roots of unity give some real finite-grid input with strict one-step energy growth. No assertion of instability on each fixed grid nor nonlinear entropy.",
+      "residual_risks": [
+        "Linear constant-speed periodic uniform one-dimensional upwind P1 DG, exact integration, standard SSPRK(3,3), physical global L² only.",
+        "The theorem gives failure of prefactor-one one-step contractivity on some large mesh, not blowup on all meshes.",
+        "Full Zhang and Shu 2010 article unavailable due institutional VPN; high-relevance originality risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Actual source VERIFY.py: exact rational 13x13 interpolation and 18 Bernstein coefficients; independent determinant identities and quartic root calculations.",
+          "SIAM Zhang-Shu 2010 DOI 10.1137/090771363 abstract; public alternate searches and institutional attempt (blocked).",
+          "doi:10.1137/090771363",
+          "arxiv:1811.10680"
+        ],
+        "reasoning": "Zhang-Shu 2010 covers general polynomial k>=1 and nonlinear scalar conservation errors with some CFL, but an existential gamma does not imply the maximal value. Because full text inaccessible, an optimal constant inside remains a material priority risk. Sun-Shu general seminegative operators do not supply the sharp specialized quartic from accessible material.",
+        "searches": [
+          "published mathematical findings semantic query: P1 upwind DG SSPRK3 exact sharp L2 CFL 0.186457 contractivity",
+          "published repository code query: upwind DG SSPRK3 sharp CFL",
+          "doi:10.1137/090771363",
+          "arxiv:1811.10680"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1137/090771363",
+        "arxiv:1811.10680",
+        "arxiv:2610.30535"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Actual source VERIFY.py: exact rational 13x13 interpolation and 18 Bernstein coefficients; independent determinant identities and quartic root calculations.",
+          "SIAM Zhang-Shu 2010 DOI 10.1137/090771363 abstract; public alternate searches and institutional attempt (blocked).",
+          "doi:10.1137/090771363",
+          "arxiv:1811.10680"
+        ],
+        "reasoning": "Prior L2 stability at sufficiently small nu gives a lower bound on allowed steps, not an iff sharp cutoff. At each nu>nu_star this theorem constructs real data on some large grid with one-step energy increase, a converse absent from the checked abstracts. Original source could nonetheless contain a hidden sharp constant; report risk.",
+        "searches": [
+          "published mathematical findings semantic query: P1 upwind DG SSPRK3 exact sharp L2 CFL 0.186457 contractivity",
+          "published repository code query: upwind DG SSPRK3 sharp CFL",
+          "doi:10.1137/090771363",
+          "arxiv:1811.10680"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Actual source VERIFY.py: exact rational 13x13 interpolation and 18 Bernstein coefficients; independent determinant identities and quartic root calculations.",
+          "SIAM Zhang-Shu 2010 DOI 10.1137/090771363 abstract; public alternate searches and institutional attempt (blocked).",
+          "doi:10.1137/090771363",
+          "arxiv:1811.10680"
+        ],
+        "reasoning": "Exactly a uniform contractivity bound for all periodic Fourier modes in W=diag(1,1/3), equivalent to 2x2 Hermitian decrement PSD for all unit-circle z; it is not the usual scalar absolute stability polynomial, since the DG Fourier block is nonnormal.",
+        "searches": [
+          "published mathematical findings semantic query: P1 upwind DG SSPRK3 exact sharp L2 CFL 0.186457 contractivity",
+          "published repository code query: upwind DG SSPRK3 sharp CFL",
+          "doi:10.1137/090771363",
+          "arxiv:1811.10680"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual source VERIFY.py: exact rational 13x13 interpolation and 18 Bernstein coefficients; independent determinant identities and quartic root calculations.",
+          "SIAM Zhang-Shu 2010 DOI 10.1137/090771363 abstract; public alternate searches and institutional attempt (blocked).",
+          "doi:10.1137/090771363",
+          "arxiv:1811.10680"
+        ],
+        "reasoning": "A continuous Courant threshold for all periodic grid sizes is not an exact numeric table; finite CFL sweeps miss small angle failure and endpoint certification. Symbolic Bernstein/sign certificate is essential.",
+        "searches": [
+          "published mathematical findings semantic query: P1 upwind DG SSPRK3 exact sharp L2 CFL 0.186457 contractivity",
+          "doi:10.1137/090771363"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precisely scoped sharp theorem survives comparisons to primary antecedents; generic tools, original model/method and known broad phenomena are explicitly credited. Detailed four implications below distinguish genuinely new claimed conclusions from prior theory; remaining literature-access/priority risk is material but not in itself a known covering theorem.",
+      "residual_risks": [
+        "Full Zhang and Shu 2010 article unavailable due institutional VPN; high-relevance originality risk.",
+        "Unindexed equivalent prior theorem remains possible; search failure is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published 2010 analysis proves L² stability under some positive mesh-independent CFL for k>=1, but the abstract does not specify optimal P1 uniform periodic threshold. Full article priority cannot be ruled out; material risk explicitly preserved; no whole-document negative claim.",
+          "evidence": [
+            "https://epubs.siam.org/doi/abs/10.1137/090771363",
+            "SIAM J Numer Anal 48 (2010) 1038-1063; DOI 10.1137/090771363"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/090771363",
+          "material_read": "Publisher abstract and bibliographic metadata, no original full text; authorized PDF access blocked by disconnected VPN",
+          "method": "Attempted arXiv/OA primary then authenticated institutional PDF (returned vpn_disconnected); compared precise statement of known generic sufficient CFL and unverified sharp uniform constant",
+          "title": "Stability Analysis and A Priori Error Estimates of the Third Order Explicit Runge–Kutta Discontinuous Galerkin Method for Scalar Conservation Laws",
+          "trigger": "Same unmodified third-order explicit RKDG with L² stability and upwind flux; most plausible prior stronger result"
+        },
+        {
+          "assessment": "General seminegative operator conditions and barriers do not explicitly state the selected P1 symbol quartic and iff threshold from the inspected material.",
+          "evidence": [
+            "Sun and Shu, arXiv:1811.10680"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+          "material_read": "Accessible abstract and source references, not a verified full-text reading",
+          "method": "Compared general seminegative RK stability implications to specific Fourier generator threshold",
+          "title": "Strong Stability of Explicit Runge-Kutta Time Discretizations",
+          "trigger": "Broader seminegative generator RK energy contractivity framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.1137/090771363",
+        "arxiv:1811.10680",
+        "RESULT.md"
+      ],
+      "rationale": "An exact necessary-and-sufficient physical L² CFL threshold for a canonical P1 upwind RKDG scheme is a natural missing stability parameter, stronger and operationally different from an unspecified sufficiently small CFL. The algebraic root, determinant onset at long waves, and finite reproducible certificate are genuinely useful for selecting safe steps and studying nonnormality.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Linear constant-speed periodic uniform one-dimensional upwind P1 DG, exact integration, standard SSPRK(3,3), physical global L² only.",
+    "The theorem gives failure of prefactor-one one-step contractivity on some large mesh, not blowup on all meshes.",
+    "Full Zhang and Shu 2010 article unavailable due institutional VPN; high-relevance originality risk."
+  ],
+  "schema_version": 1
+}
