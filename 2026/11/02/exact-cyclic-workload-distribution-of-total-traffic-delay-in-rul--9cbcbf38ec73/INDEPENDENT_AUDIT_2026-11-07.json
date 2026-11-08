@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:14:21.642298Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The parallel update on lifted ordered positions gives p_i(t)=min_{0<=j<=t}(p_(i+j)(0)+t-2j), hence car-stop counts equal maxima of cyclic partial sums (1-g_i). Every complete tour contributes -h<=0, yielding finite exact workload w_i and cyclic Lindley recurrence w_i=max(0,1-g_i+w_(i+1)), with at least one zero. Conversely w plus a weak composition of h among zero coordinates reconstructs all gaps uniquely. Rooted-car double counting gives n/k; cyclic staircase from a zero proves D<=k(k-1)/2 with contiguous-block equality. Independently enumerated all site states in 20 complete (k,h) cases up to k=5,h=3 and recovered histogram/endpoints. General proof is combinatorial, not experimental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biham et al. arxiv:2605.19023 studies first-stop and stop probabilities for a randomly selected car.",
+          "Fukś arxiv:comp-gas/9902001 gives mean flow and local word-preimage descriptions."
+        ],
+        "reasoning": "Marginal single-car laws and time-dependent expected flow do not determine the entire sum-of-correlated-stops distribution at fixed k,n without joint enumeration.",
+        "searches": [
+          "Biham Rabinovich Katzav 2605.19023 first passage Rule184 stopping distribution",
+          "Fuks comp-gas/9902001 traffic flow exact result"
+        ]
+      },
+      "checked_sources": [
+        "Original RESULT.md and source verify.py tree 67318f216954735bbba5c25e7f23313b384da6a2",
+        "Fukś 1997 arxiv:comp-gas/9703001 and 1999 arxiv:comp-gas/9902001 bibliographic/abstract records",
+        "Jha et al. arxiv:2501.08417 abstract",
+        "Biham et al. arxiv:2605.19023 abstract",
+        "Resultary query: rule 184 cyclic queue Lindley workloads total delay distribution ring fixed cars"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jha et al. supplies per-configuration delay estimator, whereas current proof counts all configurations via cyclic workload bijection and weak compositions.",
+          "Fukś density convergence controls when free flow begins but not occupancy-area multiplicities."
+        ],
+        "reasoning": "One must prove the workload and rooted-counting identities; they are not stated corollaries of the cited local dynamics or first passage laws.",
+        "searches": [
+          "traffic jams Dyck paths Rule184 2025 exact total delay distribution all finite rings",
+          "Rule184 free-flow time ballot Fuks 1997"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jha et al. arxiv:2501.08417 identifies total delay and computes it from Dyck-path/elementary jams for configurations.",
+          "Source formula is entire distribution across all indexed fixed-density initial states, with n/k correction and binomial-in-h weights."
+        ],
+        "reasoning": "An algorithm evaluating individual configurations does not give a closed joint histogram; queueing encodings might be equivalent only if their total-area law yields the same weighted path counts.",
+        "searches": [
+          "rule 184 cyclic queue Lindley workloads total delay distribution ring fixed cars",
+          "rule 184 total jam area generating function parking functions cyclic Lindley queue",
+          "Jha Wiesenfeld Lee Laval 2501.08417 total delay elementary jams"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed-ring direct enumeration independently recovered source histogram and endpoint for 20 complete parameter pairs.",
+          "Resultary returned no same cumulative-delay histogram or table."
+        ],
+        "reasoning": "No matching published numerical database found; a hidden older table may still exist, so no global priority inference.",
+        "searches": [
+          "rule 184 cyclic queue Lindley workloads total delay distribution ring fixed cars",
+          "Rule 184 traffic total delay k=4 h=0 2 8 12 16 16 8 8"
+        ]
+      },
+      "rationale": "Fukś 1997/1999 derives local preimage and density results; Jha et al. 2025 defines total delay and a Dyck-path algorithm for jam-area observations, not the complete finite indexed-ring fixed-k joint distribution. Biham et al. 2026 derives first/last stopping laws for a chosen car under random ensemble, not aggregate joint law. Possible older cyclic queue/Lindley occupation-area enumerators are a qualified priority risk.",
+      "residual_risks": [
+        "Older queueing, occupation-area or Dyck-path combinatorics might supply an equivalent weighted whole-ring formula under another encoding.",
+        "Highly relevant 2025/2026 primary full PDFs were not accessible; abstract-level noncoverage only, priority remains qualified.",
+        "Total delay is infinite outside stated density regime and no asymptotic limit law is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED: abstract indicates per-configuration numerical algorithm, cannot make whole-paper negative claim",
+          "evidence": "Abstract explicitly focuses on computation of total delay and relaxation time and sampled critical behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.08417",
+          "material_read": "Public abstract with scope, algorithm and reference to elementary jams; full arXiv HTML unavailable",
+          "method": "arXiv abstract and indexed primary description",
+          "title": "Evidence of Non-Equilibrium Critical Phenomena in a Simple Model of Traffic",
+          "trigger": "Same Rule184 traffic total delay statistic"
+        },
+        {
+          "assessment": "ACCESS_LIMITED: inspected statements concern single-car marginals, not entire ring delay distribution",
+          "evidence": "Abstract gives P(T_FS=t) and P_S(t), not whole-system total-delay histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.19023",
+          "material_read": "Public author abstract and journal abstract, including first-stop and stopped-at-time probabilities; full paper unavailable",
+          "method": "arXiv and journal abstract",
+          "title": "First-passage processes in a deterministic one-dimensional cellular automaton model of traffic flow",
+          "trigger": "Same CA184 but car stopping statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Aggregate stop-time is the area of all transient jams, a natural system-wide observable. The exact all-d law with universal finite workload vectors and a surplus-hole polynomial gives information not determined by single-car means or density flow; sharp maximum and complete extremizers are useful finite traffic-model invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older queueing, occupation-area or Dyck-path combinatorics might supply an equivalent weighted whole-ring formula under another encoding.",
+    "Highly relevant 2025/2026 primary full PDFs were not accessible; abstract-level noncoverage only, priority remains qualified.",
+    "Total delay is infinite outside stated density regime and no asymptotic limit law is proved.",
+    "Publication not ready due to public metadata confidentiality/first-date issues; no scientific revisions were supplied."
+  ],
+  "schema_version": 1
+}
