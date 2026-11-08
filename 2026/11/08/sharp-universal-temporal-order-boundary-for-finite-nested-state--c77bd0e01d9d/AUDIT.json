@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For any i>=3 and q in [nu_i,1), finite affine values y_j are distinct; disjoint local slope modifications preserve values, produce exact history Lipschitz constant 2 and norm <1. The autonomous relay DDE has |g(t)|<=1+norm(phi) for all t>=0, so eta=q/2 satisfies every strict invisibility condition globally. All nested trajectories coincide with g. On a genuine initial interval, chain differentiation yields D_i=1-sum_{k=1}^{i-1}q^k, a plateau at equality and reversal above. Source Theorem 5.1 proves strict TOR below nu_i. Python rational script passed 345 corroborative checks; it is not used in place of an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Walther (2009) develops implicit algebraic-delay equations and presents instances of temporal-order reversal.",
+        "The full arXiv:2610.39281v1 text distinguishes the implicit-delay TOR theorem from finite-depth nested TOR and does not claim sharpness for each nested depth."
+      ],
+      "reasoning": "Results about implicit-delay order or individual counterexamples do not entail exact uniform sharpness across every finite depth and equality at the generalized-Fibonacci boundary. Walther full text was not available, creating a residual historical-priority risk.",
+      "searches": [
+        "\"state-dependent delay\" \"temporal order of reactions\" counterexample monotonicity",
+        "\"Algebraic-Delay Differential Systems\" Walther 2009 pdf Giessen",
+        "doi:10.1007/s10884-009-9129-6 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.39281v1 (full HTML, relevant sections and proofs)",
+      "DOI:10.1007/s10884-009-9129-6 (abstract only)",
+      "Related published research records on delay and temporal-order models (semantic search; no exact dominating claim identified)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 provides global trajectory identity under q<1, without guaranteeing strict TOR for every finite depth.",
+        "Theorem 5.1 provides TOR when q<nu_i, and explicitly notes that its condition is only sufficient.",
+        "An earlier clipped-history construction at q=1 addressed loss of trajectory invisibility, which cannot imply below-one temporal-order failure."
+      ],
+      "reasoning": "The new extremal histories give d_i(t)=d_i(0)+(1-sum_{k=1}^{i-1}q^k)t locally, so the nonimplication is witnessed within the entire invisibility regime for all i>=3. No stronger consulted theorem covers this universal optimality conclusion.",
+      "searches": [
+        "arXiv:2610.39281v1 Sections 3-5 full HTML",
+        "\"Bolduc-St-Aubin\" \"Krauskopf\" \"nu\" nested delay sharp",
+        "\"finite-depth\" \"state dependent delays\" monotonicity order q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 5.1 expresses the sufficient TOR condition by S_i=sum_{k=1}^{i-1}(eta L)^k<1.",
+        "The present theorem proves that S_i=1 can be realized as a flat delayed-argument interval and S_i>1 as a decreasing interval while eta L<1."
+      ],
+      "reasoning": "An identical threshold formula is already present as a sufficient bound; novelty is NOT that formula, but its universal necessity and exact boundary realization under admissible DDE dynamics.",
+      "searches": [
+        "\"nested delay\" \"temporal order\" \"sharp\" Lipschitz",
+        "\"sum\" \"Lipschitz\" \"nested delays\" monotonicity",
+        "arXiv:2610.39281v1, Theorem 5.1 and equation (19)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 of the motivating source tabulates values nu_2 through nu_9 and 1/2 as the limiting bound.",
+        "Figure 2 illustrates temporal-order reversal numerically for q=0.987, with no all-depth threshold construction or equality plateau."
+      ],
+      "reasoning": "Tables of sufficient constants and an isolated numerical reversal do not supply the exact sharpness witnesses in this claim. No known exact finite-depth counterexample table matching the conclusion was found.",
+      "searches": [
+        "arXiv:2610.39281v1 Table 1 generalized Fibonacci thresholds",
+        "\"finite nested delays sharp monotonicity contraction threshold generalized Fibonacci\"",
+        "\"nested delays\" \"temporal order\" \"finite\" \"sharp\" 2026"
+      ]
+    },
+    "rationale": "Full motivating text distinguishes sufficient generalized-Fibonacci TOR conditions from demonstrated numerical failures; it does not provide universal necessity or the equality plateau. Exact analytic admissible histories prove both. Distinct earlier q=1 invisibility counterexamples do not imply this below-one result. Historical priority is provisional where older full text could not be checked.",
+    "residual_risks": [
+      "Walther 2009 full text was not accessible; its abstract does not decide finite-depth sharpness.",
+      "Unindexed specialized results on monotonicity of iterated Lipschitz delays might yield a broader equivalent statement.",
+      "The present result uses source Theorem 1.1 for global identity and Theorem 5.1 for the already-known positive half; all new witness premises were independently verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the sufficient threshold, invisibility and example order reversal, but does not establish all-depth sharpness at and above each nu_i.",
+        "evidence": [
+          "arXiv:2610.39281v1, Sections 1, 3, 4 and 5",
+          "Theorem 5.1: q<nu_i implies TOR; text before Fig. 2 says only sufficient and example confirms failure at q=0.987"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39281v1",
+        "material_read": "Abstract; Introduction; Definitions 2.1-2.2; Theorem 1.1; Lemma 3.1 and its contraction/sign proof; Theorem 5.1 and its proof; Proposition 5.2; Table 1; Figure 2 and surrounding explanation; Section 5.1",
+        "method": "Inspected full open-access HTML, checking hypotheses, equations (6), (7), (13), (18), (19) and the authors' own scope statements",
+        "title": "Dynamic invisibility of implicit and nested state-dependent delays in a class of externally forced delay equations",
+        "trigger": "Identical nested-delay model and the candidate sharp TOR constants"
+      },
+      {
+        "assessment": "The accessible abstract concerns general algebraic/implicit delays and temporal-order reversal, not the finite-depth nested threshold. Uninspected full-text overlap remains possible.",
+        "evidence": [
+          "DOI 10.1007/s10884-009-9129-6, abstract",
+          "2009 Journal of Dynamics and Differential Equations 21:195-232"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10884-009-9129-6",
+        "material_read": "Published abstract and bibliographic descriptions; full text not accessible",
+        "method": "Searched for lawful arXiv and open-access full-text copies, and reviewed abstract/metadata",
+        "title": "Algebraic-Delay Differential Systems, State-Dependent Delay, and Temporal Order of Reactions",
+        "trigger": "Potential stronger prior work on temporal-order reversal"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c77bd0e0-1d9d-4a8f-8034-cd39da3edd94",
+  "value": {
+    "rationale": "The original DDE study explicitly distinguishes trajectory invisibility from finite-depth ordering and offers sufficient generalized-Fibonacci TOR thresholds without an optimality theorem. Sharp universal boundaries with equality plateaus for every finite depth are a natural structural classification and clarify exactly which ordering guarantee can survive in the invisible regime; they are not merely numerical or notation changes.",
+    "status": "PASS"
+  }
+}
