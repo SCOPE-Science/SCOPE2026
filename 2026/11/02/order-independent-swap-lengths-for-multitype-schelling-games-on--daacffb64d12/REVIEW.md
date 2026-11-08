@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-For any positive bipartition sizes and any finite number of types, the two individual utility inequalities are cross-multiplied without approximation. They yield exactly one positive and one negative imbalance condition. Under a swap, the corresponding imbalances shift by the constant part-size sum in opposite directions. Strict threshold inequalities prevent an updated surplus from becoming a deficit, or vice versa. The ceiling-ticket counts therefore each fall by exactly one; a swap exists exactly when both are positive. This establishes the exact length for every maximal sequence, including boundary cases. The linear bound follows from the number of occupied vertices in each positive-ticket type. Standalone exhaustive finite checks and the declining-edge-potential witness executed successfully; finite checks are not offered as an infinite proof.
+## correctness
 
-## Originality (PASS; residual publication-priority uncertainty)
-The nearest conceptual antecedent is the regular/almost-regular finite improvement theorem of Bilò et al.; it neither includes arbitrarily unbalanced bicliques nor gives exact schedule-independent durations. Agarwal et al. provide the underlying strategic model and general equilibrium results but no exact all-update-order count for bicliques. Kreisel et al. focus on hardness and robustness. Related work on continuous-type distance swap games gives different payoff objects and potential identities; a potential-increase identity alone does not imply equal lengths of all improving trajectories. The closest inspected research-index hits concern different graph invariants rather than swap Schelling dynamics. This is a same mathematical model literature assessment, not a proof of global novelty. A specialized unidentified equivalent statement remains possible.
+PASS
 
-## Mathematical value (PASS)
-An exact, computable initial-state clock for *every* adversarial update order is substantially stronger than equilibrium existence, finite improvement, or a worst-case estimate. It holds uniformly for any number of types and even highly unbalanced bicliques; it also classifies all equilibria by two scalar inequalities. The explicit strict swap on an irregular biclique that decreases the usual monochromatic-edge potential demonstrates the need for a distinct argument. This gives a structural convergence invariant for an economically natural graph game, with a linear bound and matching-order examples.
+Same-side swaps have unchanged utilities and same-type cross-part swaps cannot strictly benefit both. For i on the a-side and j on the b-side of different types, strict cross-multiplied utility gains are exactly d_i=b r_i-a s_i>b and d_j<-a, and force r_i>=2,s_j>=2 so the swap is legal. After the swap d_i decreases by h=a+b and d_j increases by h. Since d_i-h>-a and d_j+h<b, sign classes cannot reverse. The surplus-ticket ceilings P=sum max(0,ceil((d_c-b)/h)) and deficit tickets Q=sum max(0,ceil((-a-d_c)/h)) therefore both decrement by exactly one; a legal swap exists iff both are positive. All maximal trajectories have T=min(P,Q), an equilibrium iff max d<=b or min d>=-a. Each surplus ticket bounded by r_c-1 and deficit by s_c-1, giving T<=min(a-1,b-1), including a=1/b=1.
 
-## Verification and limits
-Run `python3 verify_biclique.py` alongside these files. All reported finite checks passed using exact integer arithmetic; the universal theorem follows from the proof, not exhaustion. Only full occupancy, homogeneous like-neighbor fraction utilities, global bilateral strict swaps, and complete bipartite graphs are covered. The result fixes the length, not the final equilibrium state, and does not claim an all-parameter sharp universal worst-case value. No independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise final claim, not a certification of historical priority: inspected stronger-formulation searches and primary sources do not establish prior coverage of the extra mathematical assertion. Claim-specific comparisons, actual material read and residual risks follow.
+
+## value
+
+PASS
+
+Exact policy-independent improvement duration for a nontrivial strategic dynamics is a natural dynamical invariant: even though terminal equilibria differ, every maximal strict-improvement schedule has the same length, computable in closed form from the initial type profile. The linear bound works on unbalanced bicliques where the usual regular-graph monochromatic-edge potential is not monotone; K_{2,7} gives an explicit decreasing-potential witness. This materially strengthens mere termination or equilibrium existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

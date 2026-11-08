@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:57:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/order-independent-swap-lengths-for-multitype-schelling-games-on--daacffb64d12/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/order-independent-swap-lengths-for-multitype-schelling-games-on--daacffb64d12/verify_biclique.py"
+      ],
+      "rationale": "Same-side swaps have unchanged utilities and same-type cross-part swaps cannot strictly benefit both. For i on the a-side and j on the b-side of different types, strict cross-multiplied utility gains are exactly d_i=b r_i-a s_i>b and d_j<-a, and force r_i>=2,s_j>=2 so the swap is legal. After the swap d_i decreases by h=a+b and d_j increases by h. Since d_i-h>-a and d_j+h<b, sign classes cannot reverse. The surplus-ticket ceilings P=sum max(0,ceil((d_c-b)/h)) and deficit tickets Q=sum max(0,ceil((-a-d_c)/h)) therefore both decrement by exactly one; a legal swap exists iff both are positive. All maximal trajectories have T=min(P,Q), an equilibrium iff max d<=b or min d>=-a. Each surplus ticket bounded by r_c-1 and deficit by s_c-1, giving T<=min(a-1,b-1), including a=1/b=1.",
+      "residual_risks": [
+        "Fully occupied complete bipartite graphs, nonnegative type populations, fractions of like-type neighbors, strict mutual improvement; no vacancies, non-bicliques, or alternative utilities.",
+        "Different maximal sequences need not share the same terminal profile or welfare."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilò et al. show finite improvement on regular and almost-regular graphs using a monochromatic-edge potential; an unbalanced K_{2,7} instance has a profitable move that changes this potential 6 to 5. Agarwal et al. study swap equilibrium complexity and quality."
+        ],
+        "reasoning": "The existing topological sufficient conditions do not apply to all unbalanced bicliques, and a termination theorem does not entail equal path length for every selection schedule.",
+        "searches": [
+          "Resultary: complete bipartite graph swap Schelling mutual profitable order-independent improvement length types",
+          "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+          "https://arxiv.org/abs/1909.02421"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1909.02421",
+        "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+        "https://repository.essex.ac.uk/27297/",
+        "Resultary: complete bipartite graph swap Schelling mutual profitable order-independent improvement length types"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agarwal et al. define the same strict swap utility context; Bilò et al. establish the FIP under different graph assumptions. A known FIP potential could decrease or increase by varying amounts and hence cannot force exact common maximal length."
+        ],
+        "reasoning": "The new P,Q ticket decrement is the additional mathematical assertion. It implies stabilization on bicliques and equilibrium iff criterion, rather than being deduced solely from known regular-graph FIP.",
+        "searches": [
+          "https://arxiv.org/abs/1909.02421",
+          "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+          "Resultary: complete bipartite graph swap Schelling mutual profitable order-independent improvement length types"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In fully occupied fraction-of-like-neighbors swap games, profitable pairs on K_{a,b} correspond exactly to type excess and deficit inequalities; no prior reviewed formulation supplies the two-ticket identity or schedule-independent exact duration."
+        ],
+        "reasoning": "Theorem is equivalent to a graded acyclic improvement digraph with rank min(P,Q). General finite improvement properties of regular graphs need not fix rank and do not cover arbitrary a,b.",
+        "searches": [
+          "Resultary: complete bipartite graph swap Schelling mutual profitable order-independent improvement length types",
+          "https://arxiv.org/abs/1909.02421",
+          "https://link.springer.com/article/10.1007/s10458-022-09573-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published complete exact improvement-length table for all multitype K_{a,b} was surfaced; independent profile-state checks are specific verification, not a known prior counting database."
+        ],
+        "reasoning": "There is no natural database analogue to this all-parameter dynamical statement; no match found does not establish historical priority.",
+        "searches": [
+          "Resultary: complete bipartite graph swap Schelling mutual profitable order-independent improvement length types",
+          "https://arxiv.org/abs/1909.02421",
+          "https://link.springer.com/article/10.1007/s10458-022-09573-7"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final claim, not a certification of historical priority: inspected stronger-formulation searches and primary sources do not establish prior coverage of the extra mathematical assertion. Claim-specific comparisons, actual material read and residual risks follow.",
+      "residual_risks": [
+        "Full text of the original Agarwal et al. 2019 preprint was not inspected in this run; a specialized schedule-independence corollary there or another game-theory paper cannot be excluded.",
+        "Alternative potential/rank descriptions under a different swap-game terminology may predate the exact-ticket formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish K_{a,b} exact schedule-independent length for all a,b.",
+          "evidence": "Monochromatic-edge count is not monotone in the K_{2,7} explicit example, unlike regular topology assumptions.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+          "material_read": "Springer open full-text HTML: definitions, graph-regularity classes, potential function and convergence theorems, and comparative discussion.",
+          "method": "Read primary HTML mathematical hypotheses and identified regularity dependence of its potential.",
+          "title": "Bilò, Bilò, Lenzner, Molitor, Topological Influence and Locality in Swap Schelling Games",
+          "trigger": "Closest published graph-topology strict-swap FIP framework."
+        },
+        {
+          "assessment": "No exact biclique-duration claim in accessible material, but full-text absence is not certified.",
+          "evidence": "Abstract concerns existence, complexity, welfare and diversity of swap stable assignments; full-text unexamined risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.02421",
+          "material_read": "Original preprint abstract, official publication metadata and repository abstract available; whole paper not read in this audit.",
+          "method": "Compared studied model and declared equilibrium/computational aims to theorem statement.",
+          "title": "Agarwal, Elkind, Gan, Voudouris, Swap Stability in Schelling Games on Graphs",
+          "trigger": "Exact source-model authors and equilibria."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1909.02421",
+        "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+        "https://repository.essex.ac.uk/27297/",
+        "Resultary: complete bipartite graph swap Schelling mutual profitable order-independent improvement length types"
+      ],
+      "rationale": "Exact policy-independent improvement duration for a nontrivial strategic dynamics is a natural dynamical invariant: even though terminal equilibria differ, every maximal strict-improvement schedule has the same length, computable in closed form from the initial type profile. The linear bound works on unbalanced bicliques where the usual regular-graph monochromatic-edge potential is not monotone; K_{2,7} gives an explicit decreasing-potential witness. This materially strengthens mere termination or equilibrium existence.",
+      "residual_risks": [
+        "Fully occupied complete bipartite graphs, nonnegative type populations, fractions of like-type neighbors, strict mutual improvement; no vacancies, non-bicliques, or alternative utilities.",
+        "Different maximal sequences need not share the same terminal profile or welfare."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1909.02421",
+    "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+    "https://repository.essex.ac.uk/27297/",
+    "Resultary: complete bipartite graph swap Schelling mutual profitable order-independent improvement length types"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fully occupied complete bipartite graphs, nonnegative type populations, fractions of like-type neighbors, strict mutual improvement; no vacancies, non-bicliques, or alternative utilities.",
+    "Different maximal sequences need not share the same terminal profile or welfare."
+  ],
+  "residual_risks": [
+    "Full text of the original Agarwal et al. 2019 preprint was not inspected in this run; a specialized schedule-independence corollary there or another game-theory paper cannot be excluded.",
+    "Alternative potential/rank descriptions under a different swap-game terminology may predate the exact-ticket formulation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Does not establish K_{a,b} exact schedule-independent length for all a,b.",
+      "evidence": "Monochromatic-edge count is not monotone in the K_{2,7} explicit example, unlike regular topology assumptions.",
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-022-09573-7",
+      "material_read": "Springer open full-text HTML: definitions, graph-regularity classes, potential function and convergence theorems, and comparative discussion.",
+      "method": "Read primary HTML mathematical hypotheses and identified regularity dependence of its potential.",
+      "title": "Bilò, Bilò, Lenzner, Molitor, Topological Influence and Locality in Swap Schelling Games",
+      "trigger": "Closest published graph-topology strict-swap FIP framework."
+    },
+    {
+      "assessment": "No exact biclique-duration claim in accessible material, but full-text absence is not certified.",
+      "evidence": "Abstract concerns existence, complexity, welfare and diversity of swap stable assignments; full-text unexamined risk retained.",
+      "identifier_or_url": "https://arxiv.org/abs/1909.02421",
+      "material_read": "Original preprint abstract, official publication metadata and repository abstract available; whole paper not read in this audit.",
+      "method": "Compared studied model and declared equilibrium/computational aims to theorem statement.",
+      "title": "Agarwal, Elkind, Gan, Voudouris, Swap Stability in Schelling Games on Graphs",
+      "trigger": "Exact source-model authors and equilibria."
+    }
+  ]
+}
