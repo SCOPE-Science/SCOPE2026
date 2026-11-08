@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Each of m base cliques contains a vertex of a dominating set because its diagonal vertex has no outside-clique neighbours. Hence every chosen vertex there sees all omitted vertices in its clique, imposing at most k omissions. A symmetric constant-row-k binary matrix exists by cyclic offsets and yields a dominating set with exactly m-k vertices per clique. On equality, all selected vertices are saturated by k intra-clique omissions, so no cross-row edge can connect selected to omitted; thus the omission matrix must be symmetric. Converse holds. Exact coefficient extraction and the involution/cycle-path enumerations follow by independent combinatorial bijections. The included independent direct graph checker agrees with the matrix method for 2<=m<=5 and checks every subset at m<=3; finite tests are corroborative, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 10 of arXiv:2610.01584v1 provides only the 1-limited minimum cardinality for S(n,m), while Theorem 11 gives a scalar formula for S(n,3).",
+        "A third-party indexed research record claims the general scalar conjecture settled and expressly leaves all minimizing configurations open; the full record was not available for inspection.",
+        "The earlier 2026 initiating paper defines k-limited domination and analyzes general inequalities/basic families rather than Sierpiński all-minimizer enumerators."
+      ],
+      "reasoning": "An existing scalar value for S(2,m), even for all k, is strictly weaker than a bijection of every optimal set to a row-regular symmetric matrix and its exact count. A broader all-minimum-set result would dominate but was not identified.",
+      "searches": [
+        "published-finding corpus: Bozovic 2026 Sierpinski k-limited domination conjecture number minima enumerator 2026",
+        "web: Sierpinski graph S(2,m) k limited domination optimal sets regular graphs loops",
+        "arxiv:2610.01584v1 Section 5 Theorems 10-11 and Section 6 Conjecture 12",
+        "arxiv:2606.22422 preliminaries and general graph results"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.01584v1",
+      "arxiv:2606.22422",
+      "https://oeis.org/A000085",
+      "published-finding corpus published semantic findings (bounded searches)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source establishes a scalar lower/upper bound and exhibits one optimum; many distinct row-regular symmetric matrices exist, e.g. 18 minima at (m,k)=(4,2), so its stated result cannot imply their classification.",
+        "The closest published-finding corpus hit is \"Exact k-limited domination of complete multipartite graphs\", whose objects do not have the m row-cliques linked by cross-row matching edges.",
+        "No accessible own previous claim mentions Sierpiński graphs or k-limited domination of them."
+      ],
+      "reasoning": "The new theorem strictly refines the source scalar statement at n=2 and adds all-minimum-set information for each k. A result for complete multipartite graphs does not include S(2,m) (for m>=3) by graph isomorphism or parameter substitution.",
+      "searches": [
+        "arxiv:2610.01584v1 Section 5 complete text",
+        "arxiv:2606.22422 Sections 1-2",
+        "published-finding corpus: 2026 k-limited domination graphs Sierpinski exact values enumeration optimal k-limited dominating sets",
+        "own accessible prior finding claims: sierpi; k-limited; symmetric binary; involution; 2610.01584"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned similar generic domination-set enumerations but no same-object statement; closest k-limited hit concerns complete multipartite graphs.",
+        "The full arXiv:2610.01584v1 Section 5 treats cardinalities and one explicit witness, not classification of all minimizing sets.",
+        "The involution counts themselves are known as OEIS A000085, without an identified S(2,m) interpretation."
+      ],
+      "reasoning": "Equivalence requires matching both the S(2,m) base-clique/cross-edge construction and the parameter-dependent all-minimizer enumeration. Neither scalar values nor a generic involution formula imply it.",
+      "searches": [
+        "published-finding corpus: Minimum k-limited dominating sets of the two-level Sierpinski graph S(2,m) correspond to symmetric binary matrices with constant row sum k; all minimizers enumerated",
+        "published-finding corpus: Count minimum 1-limited dominating sets of S(2,m) involution numbers, 2-limited minima regular looped graph coefficient extraction",
+        "web: \"Sierpiński\" \"involutions\" \"dominating\" sets",
+        "web: Sierpinski graph k limited dominating sets symmetric zero one matrix minimum number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000085 explicitly tabulates the involution sequence 1,1,2,4,10,26,... and identifies it with symmetric permutation matrices and matchings with fixed points.",
+        "The general fixed-row-sum symmetric-matrix coefficient extractor counts already-defined combinatorial objects; known standalone matrix counts are not claimed as new.",
+        "The matching of those counts with minimum limited-dominating sets of S(2,m) and all-capacity classification was not identified in searched records."
+      ],
+      "reasoning": "The exact numerical values for involutions are prior tables. The novelty claim concerns the graph-theoretic equivalence, not discovery of sequence terms. No known S(2,m) minimum-set database was located; this is bounded evidence, not a priority proof.",
+      "searches": [
+        "web: OEIS A000085 involutions count matchings fixed points",
+        "web: number symmetric zero one matrices row sum 2 loops allowed path cycle generating function",
+        "published-finding corpus: minimum 1 limited dominating sets S(2,m) involutions telephone numbers matching K_m"
+      ]
+    },
+    "rationale": "The 2026 primary paper proves scalar 1-limited values and S(n,3) values, not an all-minimum-set classification at arbitrary capacity for S(2,m). The initiating paper defines the parameter. A relevant indexed third-party project reports a stronger scalar resolution, which still does not supply this claimed enumeration in the available description. The combination of symmetric row-regular 0-1 matrices, exact labelled coefficients, capacity-complement symmetry and involution/path-cycle specializations was not found in bounded mathematical-repository and literature checks. The underlying involution sequence is known (OEIS A000085) and is expressly prior, not claimed as original. Historical priority is provisional.",
+    "residual_risks": [
+      "Historical priority has not been exhaustively checked, especially unpublished work or alternate descriptions of k-limited Sierpiński minimizers.",
+      "A third-party indexed record announces a proof of a broader scalar conjecture; its full mathematical text was not accessible, though its index describes all minimum-set configurations as open.",
+      "General enumeration of row-regular symmetric binary matrices is classical; novelty is restricted to the graph-theoretic bijection and its consequences.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed all-minimum-set classification; scalar parameter results overlap and are expressly excluded from novelty.",
+        "evidence": [
+          "Theorem 10 proves gamma_1^L(S(n,m))=(m-1)m^(n-1) with one construction.",
+          "Theorem 11 treats scalar gamma_k^L(S(n,3)) for k=1,2; Section 6 conjectures general scalar values, not all minimum-set counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01584v1",
+        "material_read": "Full Section 2 definition, full Section 5 Theorems 10-11 with proofs, Section 6 Conjecture 12, introduction and references.",
+        "method": "Read arXiv HTML full text; compared the quantified statements and proof constructions.",
+        "title": "On k-limited domination: complexity and Sierpiński graphs",
+        "trigger": "Exact same graph family and k-limited parameter, plausible coverage of all optimal configurations."
+      },
+      {
+        "assessment": "NOT_COVERING the S(2,m) all-minimum-set enumeration; establishes general k-limited domination and simple family values.",
+        "evidence": [
+          "Definition 1 gives k-limited domination, and Proposition 2 treats paths, stars, complete and bipartite graphs.",
+          "No symmetric-matrix optimum classification for the two-level Sierpiński graphs appears in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+        "material_read": "Accessible HTML introduction, preliminaries and basic-family results including Proposition 2 and stated general results.",
+        "method": "Read the text-form article and matched definitions and graph classes.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Foundational definition, possibility of a general theorem implying optimal-set classification."
+      },
+      {
+        "assessment": "COVERS involution numbers as standard enumerative combinatorics, NOT_COVERING the S(2,m) minimum-set bijection.",
+        "evidence": [
+          "A000085 counts self-inverse permutations, and has initial terms 1,1,2,4,10,26."
+        ],
+        "identifier_or_url": "https://oeis.org/A000085",
+        "material_read": "Description, initial values, equivalence with symmetric permutation matrices and matchings.",
+        "method": "Read online sequence text.",
+        "title": "OEIS A000085 — involutions",
+        "trigger": "Exact-match risk for the one-limited optimal-set numerical sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9efdac7d-121b-458d-8c94-4c52843b5ca6",
+  "value": {
+    "rationale": "The October 2026 Sierpiński k-limited-domination work motivates a natural problem beyond determining only minimum cardinality. An all-optimum classification for every capacity at the first nontrivial recursive level determines exact labelled multiplicities, a symmetry between capacities k and m-k, and a surprising relation with involutions and 2-regular looped components. It gives usable exact counts and a structural explanation even when the number of optimal sets grows; this is not a simple restatement of the known scalar minimum.",
+    "status": "PASS"
+  }
+}
