@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:17:10.887577Z",
+  "axes": {
+    "correctness": {
+      "critical_checks": [
+        "derived distribution of R² by normalized complex Gaussian independent exponentials",
+        "verified exact integral for CDF and volume quotient",
+        "SymPy exact J_j primitives for j=1..8",
+        "beta-moment calculation of projective p=2 linear diameter constant, d=3..11",
+        "checked known 3D predecessor domain excluded"
+      ],
+      "rationale": "Fix one point by U(d) homogeneity. Quotient distance equals arccos(R cos Theta) with R²~Beta(1,d-1), independent nearest-phase Theta uniform on [-pi/p,pi/p]. Conditioning yields the exact CDF and volume (2 pi^d/[p Gamma(d)])F. A shared phase-uniform and radial beta coupling proves strictly shorter distances for larger p and strictly longer for larger d at each interior CDF threshold. Independently differentiated J_j(u)=sum binom(j-1,k)u^(2k+1)/(2k+1), recovering sec^(2j) integral coefficients. For p=2, E(1/R)=sqrt(pi)Gamma(d)/Gamma(d-1/2) gives the linear tail coefficient by dominated convergence; checked exactly for d=3..11. The strict epsilon upper bound for polynomial is essential.",
+      "risks": [
+        "No formal Lean or expert attestation; independent analytic reasoning and bounded symbolic tests do not certify every hidden assumption."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balch–Peterson–Shonkwiler 2020 arXiv:2004.13196, text version at researchgate Theorem 4 only 3D; Herman–Pakianathan arXiv:1407.5607 general homogeneous mean distances."
+        ],
+        "reasoning": "The 2020 complete formula covers only dimension three and is a special d=2 case; general homogeneous mean-distance bounds are weaker observables.",
+        "searches": [
+          "homogeneous scalar lens spaces S^(2d-1) distance distribution geodesic ball volume higher dimensional tail",
+          "\"higher dimensional lens spaces\" \"volume of balls\" distribution distances",
+          "https://www.researchgate.net/publication/340997050_Distributions_of_Distances_and_Volumes_of_Balls_in_Homogeneous_Lens_Spaces"
+        ]
+      },
+      "checked_sources": [
+        "Balch–Peterson–Shonkwiler 2020 arXiv:2004.13196, text version at researchgate Theorem 4 only 3D; Herman–Pakianathan arXiv:1407.5607 general homogeneous mean distances.",
+        "Resultary semantic search: homogeneous scalar lens spaces S^(2d-1) distance distribution geodesic ball volume higher dimensional tail",
+        "Git frozen package https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/higher-dimensional-homogeneous-lens-space-distance-laws-and-a-sh--2c7348614978",
+        "Independent exact arithmetic /mnt/data/scope05_independent_checks_20261102.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balch–Peterson–Shonkwiler 2020 arXiv:2004.13196, text version at researchgate Theorem 4 only 3D; Herman–Pakianathan arXiv:1407.5607 general homogeneous mean distances."
+        ],
+        "reasoning": "A d=2 CDF does not imply the higher-dimensional beta(1,d-1) integral or exact finite endpoint polynomial; these are proved independently. General mean bounds cannot imply pointwise CDF strict stochastic orders.",
+        "searches": [
+          "homogeneous scalar lens spaces S^(2d-1) distance distribution geodesic ball volume higher dimensional tail",
+          "\"higher dimensional lens spaces\" \"volume of balls\" distribution distances",
+          "https://www.researchgate.net/publication/340997050_Distributions_of_Distances_and_Volumes_of_Balls_in_Homogeneous_Lens_Spaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balch–Peterson–Shonkwiler 2020 arXiv:2004.13196, text version at researchgate Theorem 4 only 3D; Herman–Pakianathan arXiv:1407.5607 general homogeneous mean distances."
+        ],
+        "reasoning": "geodesic ball volume distribution, random chord distance in L(p;1,...,1), homogeneous Clifford quotient, Hopf-fibration angular nearest-phase law. Balch–Peterson–Shonkwiler 2020 full text Theorem 4 computes all ball radii on three-dimensional L(p;1) only (complex d=2). This finding expressly starts d>=3 and gives beta-coordinate dimensions, endpoint polynomials and strict stochastic comparisons; older Herman–Pakianathan 2014 mean-distance framework does not imply them without added proof. Possible older Hopf/geodesic-ball formulas remain an explicit priority risk.",
+        "searches": [
+          "homogeneous scalar lens spaces S^(2d-1) distance distribution geodesic ball volume higher dimensional tail",
+          "\"higher dimensional lens spaces\" \"volume of balls\" distribution distances",
+          "https://www.researchgate.net/publication/340997050_Distributions_of_Distances_and_Volumes_of_Balls_in_Homogeneous_Lens_Spaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balch–Peterson–Shonkwiler 2020 arXiv:2004.13196, text version at researchgate Theorem 4 only 3D; Herman–Pakianathan arXiv:1407.5607 general homogeneous mean distances."
+        ],
+        "reasoning": "No finite table could cover all p,d,t; checked previous exact 3D predecessor theorem rather than treating mismatched coefficients as novelty.",
+        "searches": [
+          "homogeneous scalar lens spaces S^(2d-1) distance distribution geodesic ball volume higher dimensional tail",
+          "\"higher dimensional lens spaces\" \"volume of balls\" distribution distances",
+          "https://www.researchgate.net/publication/340997050_Distributions_of_Distances_and_Volumes_of_Balls_in_Homogeneous_Lens_Spaces"
+        ]
+      },
+      "rationale": "Balch–Peterson–Shonkwiler 2020 full text Theorem 4 computes all ball radii on three-dimensional L(p;1) only (complex d=2). This finding expressly starts d>=3 and gives beta-coordinate dimensions, endpoint polynomials and strict stochastic comparisons; older Herman–Pakianathan 2014 mean-distance framework does not imply them without added proof. Possible older Hopf/geodesic-ball formulas remain an explicit priority risk.",
+      "residual_risks": [
+        "An older ball-volume theorem for all homogeneous Clifford lens spaces might imply the dimension-uniform CDF.",
+        "Herman–Pakianathan original full text not independently examined this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4 is explicitly L(n;1)=S³/Z_n; does not cover d>=3 higher complex dimensions",
+          "evidence": "https://www.researchgate.net/publication/340997050_Distributions_of_Distances_and_Volumes_of_Balls_in_Homogeneous_Lens_Spaces",
+          "identifier_or_url": "arXiv:2004.13196v1",
+          "material_read": "full public author-uploaded text, Introduction, Section 2 construction, Section 4 distributions and Theorem 4, conclusion",
+          "method": "read HTML-extracted full-text version hosted on ResearchGate",
+          "title": "Distributions of Distances and Volumes of Balls in Homogeneous Lens Spaces",
+          "trigger": "exact same scalar cyclic quotient, dimension 3 predecessor"
+        },
+        {
+          "assessment": "General mean bounds do not by themselves yield the explicit beta integral or tail coefficients; residual risk remains",
+          "evidence": "https://arxiv.org/abs/1407.5607",
+          "identifier_or_url": "arXiv:1407.5607v1",
+          "material_read": "abstract and theorem descriptions from published package/bibliographic search; original full text not inspected in current run",
+          "method": "abstract/statement-level, not full reading",
+          "title": "On the distribution of distances in homogeneous compact metric spaces",
+          "trigger": "possible general framework that might imply all-radius CDF"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "mathematical_motivation": "Geodesic-ball volume and random-distance law are intrinsic full-family invariants. The p=2 vs p>=3 endpoint exponent transition and strict dimension/order stochastic inequalities are meaningful geometry facts useful for benchmark shape comparisons, not isolated numerical integration.",
+      "rationale": "Geodesic-ball volume and random-distance law are intrinsic full-family invariants. The p=2 vs p>=3 endpoint exponent transition and strict dimension/order stochastic inequalities are meaningful geometry facts useful for benchmark shape comparisons, not isolated numerical integration.",
+      "residual_risks": [
+        "Value judgment is for exact stated claim/domain, not speculative downstream theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older ball-volume theorem for all homogeneous Clifford lens spaces might imply the dimension-uniform CDF.",
+    "Herman–Pakianathan original full text not independently examined this run.",
+    "All five original source packages have private provenance metadata and no publication-ready replacements; completed science is not public release."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: higher-dimensional homogeneous lens-space distance law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The quotient distance is the minimum round-sphere distance over scalar cyclic rotations. Unitary homogeneity fixes one point, the squared modulus of a first complex coordinate is beta distributed, and its phase is independent and uniform. Conditioning on the phase proves the exact CDF for all \(d\ge3\), \(p\ge2\), and all radii. Shared-uniform couplings prove both strict stochastic comparisons. A finite binomial expansion and a tangent substitution prove the complete polynomial for every admissible near-diameter radius. The order-two coefficient follows by dominated convergence and an integrable inverse radial moment; the distinction is necessary because the order-two angular interval reaches a cosine zero. The limiting law follows from dominated convergence. The standalone checker passed 951 exact and numerical consistency assertions. No inference from finite experiments to an infinite family was used.
+PASS
 
-## Originality
+Fix one point by U(d) homogeneity. Quotient distance equals arccos(R cos Theta) with R²~Beta(1,d-1), independent nearest-phase Theta uniform on [-pi/p,pi/p]. Conditioning yields the exact CDF and volume (2 pi^d/[p Gamma(d)])F. A shared phase-uniform and radial beta coupling proves strictly shorter distances for larger p and strictly longer for larger d at each interior CDF threshold. Independently differentiated J_j(u)=sum binom(j-1,k)u^(2k+1)/(2k+1), recovering sec^(2j) integral coefficients. For p=2, E(1/R)=sqrt(pi)Gamma(d)/Gamma(d-1/2) gives the linear tail coefficient by dominated convergence; checked exactly for d=3..11. The strict epsilon upper bound for polynomial is essential.
 
-PASS with bounded-priority risk. The closest exact primary work is Balch–Peterson–Shonkwiler (2020), arXiv:2004.13196v1, which states and proves only the three-dimensional distribution and ball-volume formula; this work is subsumed at \(complex dimension two\), so that case is explicitly excluded from the new claim. The earlier source Herman–Pakianathan (2014), arXiv:1407.5607v1, treats general homogeneous spaces but gives bounds for average distance, not an all-radius lens-space formula. The extension uses the nonconstant beta exponent in every complex dimension \(d\ge3\) and adds a finite exact near-diameter polynomial and two strict stochastic parameter orders. Public literature searches and research-record searches for lens-space ball volumes, beta-coordinate distance laws, and endpoint exponents did not locate broader covering results. The search cannot rule out unindexed older results or equivalent Hopf-coordinate derivations. The known three-dimensional formula must not be presented as novel.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. All geodesic-ball volumes are intrinsic geometric data, and the complete higher-dimensional lens-space formulas provide benchmark distributions without simulation. Their order-dependent endpoint-exponent jump separates real projective quotients from all higher cyclic scalar quotients in every odd dimension at least five. Exact finite tail coefficients are natural distance-profile invariants; strict stochastic ordering provides stronger geometric comparison than the known mean bound. This is a natural infinite-family theorem, not an arbitrary single-parameter numerical example.
+Balch–Peterson–Shonkwiler 2020 full text Theorem 4 computes all ball radii on three-dimensional L(p;1) only (complex d=2). This finding expressly starts d>=3 and gives beta-coordinate dimensions, endpoint polynomials and strict stochastic comparisons; older Herman–Pakianathan 2014 mean-distance framework does not imply them without added proof. Possible older Hopf/geodesic-ball formulas remain an explicit priority risk.
 
-## Scientific limitations
+## value
 
-Only scalar cyclic quotients of round spheres are treated, not general weighted lens spaces or other curvature normalizations. The dimensions at least five are the new domain. The comparison with prior work is thorough within accessible and inspected primary sources, but historical priority is not guaranteed and the review is not independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geodesic-ball volume and random-distance law are intrinsic full-family invariants. The p=2 vs p>=3 endpoint exponent transition and strict dimension/order stochastic inequalities are meaningful geometry facts useful for benchmark shape comparisons, not isolated numerical integration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
