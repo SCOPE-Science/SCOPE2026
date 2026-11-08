@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Analytical and computational verification
-The Gaussian conditioning proof, Schur-complement positivity, noiseless rational formula, strict endpoint data-processing gap, and two-variable analytic expansion are presented in `RESULT.md`. For \(t>0\), all inverted covariance matrices are positive definite. The global small-readout-noise optimum proof does not assume a priori that an optimum lies on the square-root scale; it first localizes every maximizing sequence.
+# Independent mathematical audit
 
-Execute `python CHECKER.py` using Python 3 (standard library only). The direct four-dimensional Gaussian KL computation and independently reduced two-dimensional conditioning formula agreed over four parameter sets and three observation-noise levels per selected lag. The script also checks the evaluated noiseless expression, the positive-noise upper bound, and high-precision optimum and rate-loss asymptotics. The complete packaged execution returned 64 passed deterministic checks.
+## correctness
 
-### What the checks do not establish
-Finite floating-point comparisons do not prove all-parameter identities or global uniqueness. The main mathematical proof supplies quantifiers and full analytic limits. A later external audit has not been performed. The two-frame KL rate must not be substituted for a finite-sample inference guarantee or for the full hidden observation sequence's entropy-production rate.
+PASS
+
+For fixed kappa>0, 0<|u|<kappa and unequal positive bath temperatures, the jointly Gaussian forward/reversed two-frame laws have exact conditional KL 2 tr[(Q-H^T P^-1 H)^-1 H^T P^-1 H]. Covariance Lyapunov identity gives the uniform small-lag, small h/t expansion J_h(t)/sigma=1-kappa*t-h/t+O((t+h/t)^2), with sigma=u^2(Tx-Ty)^2/(2*kappa*Tx*Ty). Strict noiseless pair-versus-path data processing (nonzero stochastic-area fluctuation conditional on endpoints), monotonicity under independent noise and exponential large-lag decay localize every global maximizer; minimizing kappa*s+1/s gives t_h/sqrt(h/kappa)->1 and maximum sigma[1-2 sqrt(kappa h)+o(sqrt h)]. I independently checked the exact 4x4 covariance/2x2 Schur form and numerically optimized three nondegenerate parameter choices for h=10^-3 and 10^-4; normalized optimizer/loss ratios approach one. These finite diagnostics do not establish the uniform proof by themselves. Read source RESULT.md and original CHECKER.py for formulas and boundary assumptions.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison against stronger and equivalent claims, not titles alone; primary texts and known antecedents acknowledged. Earlier exact model distributions and continuous sigma do not directly state or imply the universal sensor-noise scale absent these additional steps. Unresolved historical-priority possibilities are explicitly retained; unsuccessful searches are not proof of novelty.
+
+## value
+
+PASS
+
+The question is a natural experimentally motivated sensor-noise-versus-time-resolution tradeoff for a stationary irreversible Gaussian diffusion, with a sharp universal leading sampling scale and optimal information loss; it resolves a global variational limit not given by the standard Gaussian KL formula. It is explicitly NOT a finite-sample estimator, continuous-path entropy production or arbitrary anisotropic noise theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

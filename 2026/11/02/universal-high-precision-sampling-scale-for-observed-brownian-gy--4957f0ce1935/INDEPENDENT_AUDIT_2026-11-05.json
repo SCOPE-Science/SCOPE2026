@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:02:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed kappa>0, 0<|u|<kappa and unequal positive bath temperatures, the jointly Gaussian forward/reversed two-frame laws have exact conditional KL 2 tr[(Q-H^T P^-1 H)^-1 H^T P^-1 H]. Covariance Lyapunov identity gives the uniform small-lag, small h/t expansion J_h(t)/sigma=1-kappa*t-h/t+O((t+h/t)^2), with sigma=u^2(Tx-Ty)^2/(2*kappa*Tx*Ty). Strict noiseless pair-versus-path data processing (nonzero stochastic-area fluctuation conditional on endpoints), monotonicity under independent noise and exponential large-lag decay localize every global maximizer; minimizing kappa*s+1/s gives t_h/sqrt(h/kappa)->1 and maximum sigma[1-2 sqrt(kappa h)+o(sqrt h)]. I independently checked the exact 4x4 covariance/2x2 Schur form and numerically optimized three nondegenerate parameter choices for h=10^-3 and 10^-4; normalized optimizer/loss ratios approach one. These finite diagnostics do not establish the uniform proof by themselves. Read source RESULT.md and original CHECKER.py for formulas and boundary assumptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lucente et al. derive continuous gyrator entropy rate; Otsubo et al. address noise-biased estimators; Mazzolo–Monthus discuss full trajectories."
+        ],
+        "reasoning": "The exact continuous entropy rate and general data-processing bound do not determine the high-precision optimum after independent endpoint readout noise; a general OU Gaussian channel result could still dominate.",
+        "searches": [
+          "arxiv:2306.14558",
+          "doi:10.1038/s42005-021-00787-x",
+          "arxiv:2210.05353",
+          "Brownian gyrator noisy discrete observation time reversal entropy production KL two time measurement noise optimal sampling lag sqrt noise"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2307.05248",
+        "https://arxiv.org/html/2306.14558v2",
+        "https://doi.org/10.1038/s42005-021-00787-x",
+        "https://arxiv.org/abs/2210.05353",
+        "Resultary semantic query: Brownian gyrator noisy discrete observation time reversal entropy production KL two time measurement noise optimal sampling lag sqrt noise"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known covariance and standard conditional Gaussian KL reconstruct (1), but sharp global t_h asymptotic additionally uses strict gap, uniform t and h/t expansion and localization."
+        ],
+        "reasoning": "Earlier exact model distributions and continuous sigma do not directly state or imply the universal sensor-noise scale absent these additional steps.",
+        "searches": [
+          "arxiv:2307.05248",
+          "arxiv:2306.14558",
+          "Brownian gyrator noisy discrete observation time reversal entropy production KL two time measurement noise optimal sampling lag sqrt noise"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Viot et al. 2023 analyzes finite-step angular momentum rather than independently corrupted swapped-pair KL; pairwise KL is equivalent to stationary Gaussian time-reversal discrimination."
+        ],
+        "reasoning": "Changing the name to sampling time-reversal discrimination does not make Viot finite-step angle statistics an equivalent optimized KL statement; no direct statement located.",
+        "searches": [
+          "Brownian gyrator noisy discrete observation time reversal entropy production KL two time measurement noise optimal sampling lag sqrt noise",
+          "\"Brownian gyrator\" \"Kullback-Leibler\" \"sampling\" entropy production",
+          "arxiv:2307.05248"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching numerical table/closed optimization was seen; the known continuous sigma is prior."
+        ],
+        "reasoning": "An asymptotic continuous parameter optimizer is not a database enumeration. The lack of matched search is risk-limited, not novelty proof.",
+        "searches": [
+          "\"Brownian gyrator\" optimal sample lag measurement noise KL",
+          "Resultary semantic query: Brownian gyrator noisy discrete observation time reversal entropy production KL two time measurement noise optimal sampling lag sqrt noise"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison against stronger and equivalent claims, not titles alone; primary texts and known antecedents acknowledged. Earlier exact model distributions and continuous sigma do not directly state or imply the universal sensor-noise scale absent these additional steps. Unresolved historical-priority possibilities are explicitly retained; unsuccessful searches are not proof of novelty.",
+      "residual_risks": [
+        "An older more general high-SNR observation-scale theorem for irreversible OU processes could subsume this specialization.",
+        "Strict conditional diffusion-bridge signed-area fluctuation is invoked analytically, not separately computationally certified.",
+        "Noise covariance proportional to bath diffusivities is essential; fixed parameters must stay away from reversible limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_PRIOR_NOT_SAME_OPTIMIZATION",
+          "evidence": [
+            "Model drift/diffusion, main finite-step angular-momentum PDFs, no noisy swapped-pair KL maximizer in examined sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+          "material_read": "Full accessible primary parsed paper, finite-step angular momentum/velocity distribution sections and supplemented model discussion",
+          "method": "Compared their observable probability laws and sampling notions with independent additive endpoint measurement noise and swapped two-frame KL optimization",
+          "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+          "trigger": "Exactly the same Brownian gyrator dynamical model and finite-step observables"
+        },
+        {
+          "assessment": "CONTINUOUS_RATE_PRIOR",
+          "evidence": [
+            "Equation (38) continuous rate; not the positive-noise lag-optimization claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.14558v2",
+          "material_read": "Accessible full HTML, theoretical resolution discussion and gyrator Gaussian baseline",
+          "method": "Compared continuous entropy production and coarse path statistics to sensor-corrupted two-frame KL",
+          "title": "Statistical Features of Systems driven by non-Gaussian Processes: Theory & Practice",
+          "trigger": "Finite-resolution entropy production in a gyrator"
+        },
+        {
+          "assessment": "RELATED_BUT_DISTINCT",
+          "evidence": [
+            "Communications Physics 5, 11 (2022); empirical interval sensitivity is not sharp universal sqrt(h) KL optimum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s42005-021-00787-x",
+          "material_read": "Published primary article relevant text and Figure 3 discussion",
+          "method": "Compared inference bias and objectives to exact model-specific two-point KL rate",
+          "title": "Estimating time-dependent entropy production from non-equilibrium trajectories",
+          "trigger": "Empirical sampling interval and measurement noise effects"
+        },
+        {
+          "assessment": "CONTINUOUS_PATH_PRIOR",
+          "evidence": [
+            "Continuous-path stochastic area and entropy production, no independently noisy two-frame optimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.05353",
+          "material_read": "Accessible source sections on continuous trajectory entropy-production and area fluctuation",
+          "method": "Compared complete-path large deviation with two-time endpoint data processing",
+          "title": "Nonequilibrium diffusion processes via non-Hermitian electromagnetic quantum mechanics",
+          "trigger": "Strong Brownian-gyrator entropy-production literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question is a natural experimentally motivated sensor-noise-versus-time-resolution tradeoff for a stationary irreversible Gaussian diffusion, with a sharp universal leading sampling scale and optimal information loss; it resolves a global variational limit not given by the standard Gaussian KL formula. It is explicitly NOT a finite-sample estimator, continuous-path entropy production or arbitrary anisotropic noise theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2307.05248",
+    "https://arxiv.org/html/2306.14558v2",
+    "https://doi.org/10.1038/s42005-021-00787-x",
+    "https://arxiv.org/abs/2210.05353",
+    "Resultary semantic query: Brownian gyrator noisy discrete observation time reversal entropy production KL two time measurement noise optimal sampling lag sqrt noise",
+    "Exact assigned Git tree/blob identities; RESULT.md; named mathematical checker scripts"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older more general high-SNR observation-scale theorem for irreversible OU processes could subsume this specialization.",
+    "Strict conditional diffusion-bridge signed-area fluctuation is invoked analytically, not separately computationally certified.",
+    "Noise covariance proportional to bath diffusivities is essential; fixed parameters must stay away from reversible limits."
+  ],
+  "residual_risks": [
+    "An older more general high-SNR observation-scale theorem for irreversible OU processes could subsume this specialization.",
+    "Strict conditional diffusion-bridge signed-area fluctuation is invoked analytically, not separately computationally certified.",
+    "Noise covariance proportional to bath diffusivities is essential; fixed parameters must stay away from reversible limits."
+  ],
+  "schema_version": 1
+}
