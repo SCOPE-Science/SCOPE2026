@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The self-contained `verify.py` was executed with Python 3, with only the standard library. It enumerates all subsets of each \(\binom n2\)-vertex ground set for \(n=5,6,7\), checks agreement between the local-degree and connected-component face tests, verifies all Hasse arrows acyclic, and independently obtains all integer Morse differentials by recursive gradient-path substitution and exact Schur-complement cancellation.
+## correctness
 
-The output records 85, 405 and 1,911 nonempty faces; 180, 1,155 and 6,405 directed Hasse incidences; and 39, 185 and 747 matched pairs. Facet-count vectors are \( (0,0,30)\), \( (0,0,15,90)\), and \( (0,0,0,945)\). The critical cells are \((1,6)\), \((1,0,24,10)\) and \((1,0,8,408)\), in dimensions from zero. All Morse boundary entries vanish for the five- and six-point cases. The seven-point degree-three boundary has an eight-row, 408-column integral matrix with a determinant-\(-1\) minor selected by the procedure in `RESULT.md`.
+PASS
 
-The exact deterministic results are in `verified_output.txt` and end with `ALL_CHECKS_PASS`. This is a finite exhaustive verification of the specified three cases, not a computational proof of any untested larger-parameter statement. No independent audit is reported.
+For X_n=Ind_2(L(K_n)), n=5,6,7, each face is an edge set in K_n such that every chosen edge intersects at most one other. Independently enumerated all 2^10, 2^15, 2^21 candidate bitmasks and obtained f-vectors (10,45,30), (15,105,195,90), (21,210,735,945). Reconstructed complete element-matching directed Hasse graphs with 39/185/747 pairs and 180/1155/6405 incidences; all acyclic. Exact signed integral Morse boundary vanishes for X5 and X6; X7 has eight critical 2-cells and 408 critical 3-cells, with an independently recomputed full 8x408 signed matrix and displayed 8x8 determinant -1. Hurewicz in degree two identifies attachments and the unimodular minor permits cancellation, proving wedges 6S1, 24S2+10S3, and 400S3 respectively. No extrapolation beyond n=7.
+
+## originality
+
+PASS
+
+The P3-devoid/2-independence formulation and triangular line graph T_n=J(n,2) were both searched. Taylan proves general matching-tree technology and results for path/forest/cycle base graphs; Deshpande–Singh classify multipartite, whiskered, path/cycle and arity-tree families, not these T_n. Resultary neighborhood and cut results for triangular graphs use non-equivalent face predicates, so none computes this n=5..7 homotopy set.
+
+## value
+
+PASS
+
+T5–T7 form the first natural triangular-graph sequence at r=2. The middle member X6 is a canonical nonpure, two-degree integral wedge (24 two-spheres and ten three-spheres), contrasted with X5 and pure X7; the explicit unit minor proves the nonobvious cancellation in the larger example. These exact finite homotopy types are useful benchmarks for higher-independence and P3-devoid complexes and are not arbitrary edge counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
