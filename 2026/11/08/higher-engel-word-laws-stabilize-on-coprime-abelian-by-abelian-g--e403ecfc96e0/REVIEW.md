@@ -1,0 +1,19 @@
+# Scientific review of stabilized higher Engel word laws
+
+## Correctness — PASS
+
+The theorem is quantified over every finite abelian kernel and abelian complement of coprime orders, and all Engel depths at least two. The direct semidirect-product commutator identity is checked against independent full group multiplication in the accompanying executable verification. Coprime cyclic averaging establishes the decomposition \(A=C_A(v)\oplus(v-1)A\), and invertibility of \(v-1\) on its own image is the crucial, explicitly proved nonstandard reduction. Conditional uniformity proves the entire distribution and the Fourier and orbit identities; solving the resulting linear condition gives the exact conjugate-subgroup Engelizer. A noncoprime dihedral example shows an actual depth-two/depth-three discrepancy, so the hypothesis is not silently generalized. Finite enumeration is supplemental and does not establish the theorem for arbitrarily large groups.
+
+## Originality — PASS, with priority limitations
+
+The recent paper by Putignano and Vannacci proves general lower bounds comparing probabilities of different group words and gives no explicit abelian-by-abelian distribution or orbit formula. Erfanian–Farrokhi already covers metabelian Engelizer subgroup closure and general \(2\)-Engel probability bounds; subgroup closure alone is explicitly **not** new here. Jafarian Amiri–Rostami considers eventual Engel probabilities and selected families of almost simple groups, not fixed-depth full value laws in split abelian extensions. The published exact Engel-digraph result for abelian-kernel cyclic Frobenius groups controls zero/nonzero incidence in a narrower class; it does not determine the full distribution on the kernel or non-Frobenius/noncyclic complement cases. One earlier exact \(2\)-Engel law for unitriangular groups concerns a distinct class, not a dominating statement. Literature and indexed-result searches did not yield the same theorem, but alternative formulations using word measures, module characters, or group actions remain a real historical-priority risk. No claim of independent novelty certification is made.
+
+## Mathematical value — PASS
+
+The object is a canonical right Engel word measure, already central in contemporary quantitative group theory. Determining all its fibers across an entire natural class gives information strictly richer than a single identity probability or an Engel digraph: exact conditional uniformity on image subgroups, an explicit character Fourier transform, a Burnside orbit interpretation, a sharp extremal criterion, and full stabilization for all higher Engel depths. The result applies to non-Frobenius actions and noncyclic complements, where the known special-family digraph theorem has no coverage. The noncoprime boundary shows that the stabilization is structural rather than a formal identity or arbitrary restricted computation.
+
+## Closest literature and limits
+
+Sources compared in full accessible text: Putignano–Vannacci (arXiv:2610.23100); Erfanian–Farrokhi (*International Journal of Group Theory*, 2013); Jafarian Amiri–Rostami (*J. Indonesian Mathematical Society*, 2019); and an earlier complete directed Engel-graph classification for abelian-kernel cyclic Frobenius groups. Important known components are cited rather than silently rebranded. No full exhaustive search of all historical books and manuscripts is possible, and comparison across different word-measure nomenclature can miss an old equivalent formula. The proof is self-contained apart from elementary character orthogonality and Burnside's orbit-counting lemma. The verification program tests ten explicit split coprime cases and one counterexample outside the scope; it is not an infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.
