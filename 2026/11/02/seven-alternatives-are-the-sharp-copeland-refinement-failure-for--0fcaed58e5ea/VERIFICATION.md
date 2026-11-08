@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The exact scientific artifact is `dsr_verify.c` in this package. Run:
+## correctness
 
-```sh
-cc -O2 -std=c99 -Wall -Wextra -Werror dsr_verify.c -o dsr_verify
-./dsr_verify
-```
+PASS
 
-Output reproduced from the packaged source:
+The stated 2024 DSR home-plus-away score is specialized explicitly to strict tournaments, with both active partition conditions and the empty-successor case. We independently wrote a C implementation of the score separate from the source dsr_verify.c, compiled it and enumerated without pruning every integer bit encoding of each labeled tournament n=2,...,7. Failure counts were exactly 0,0,0,0,0,5040 out of 2,8,64,1024,32768,2097152; first failure is bit mask 1324. The witness scores were independently recovered as DSR (6,3,2,4,5,14,14) and Copeland (3,3,2,2,2,5,4). A separate independent 7! permutation-orbit enumeration found 5040 distinct relabelings of witness 1324, hence trivial automorphism group; original package code checks all 5040 failures lie in that orbit. These exact finite exhaustive checks establish the bound n<=7, not arbitrary larger tournaments. Primary 2024 source Proposition 7 and scoring equations were inspected.
 
-```text
-orbit_size=5040
-n=2 total=2 exceptions=0
-n=3 total=8 exceptions=0
-n=4 total=64 exceptions=0
-n=5 total=1024 exceptions=0
-n=6 total=32768 exceptions=0
-n=7 total=2097152 exceptions=5040
-witness=1324
-DSR: 6 3 2 4 5 14 14
-Copeland: 3 3 2 2 2 5 4
-```
+## originality
 
-Every labeled tournament is generated exactly once by an unpruned integer loop covering all \(2^{\binom n2}\) bit strings. The eligibility logic includes every active partition case of the original 2024 scoring definition. In addition to the census, the checker compares the derived scoring routine against the paper's four-candidate Table 7 and tests every failing seven-candidate tournament against the full relabeling orbit of the witness. The certificate is reproducible finite computation, not a formal proof about unbounded orders. A separately coded matrix implementation independently found the same \(5,040\) failures and first witness. There is no external audit certificate, no independently confirmed publication priority, and no assertion concerning the later distinct scoring rule.
+PASS
+
+Hou 2024 Sections 4 and 6.3 established up-to-four containment, reported five-case verification and posed a general Copeland refinement conjecture. The new bit-coded exhaustive first failure at seven and unique asymmetric isomorphism class refutes that exact 2024 rule. The 2025 journal abstract repeats the smaller guarantee; a 2026 DSR tournament solution uses a different scoring version, and its full text could not be accessed due to VPN disconnection. Resultary seven-alternative Banks/uncovered census concerns different tournament correspondences and does not cover this DSR/Copeland condition. Qualified PASS, with a precise risk of an already-known counterexample in 2025/2026 follow-ups.
+
+## value
+
+PASS
+
+This resolves an explicit universal refinement conjecture for a named voting rule, determines its sharp first counterexample size, and classifies/counts every first-layer failure. The finite census is natural and complete over the alleged minimal order, not an arbitrary search for small exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

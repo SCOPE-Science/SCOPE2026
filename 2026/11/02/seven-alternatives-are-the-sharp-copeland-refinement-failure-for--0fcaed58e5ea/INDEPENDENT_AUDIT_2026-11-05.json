@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:00:31.892249Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated 2024 DSR home-plus-away score is specialized explicitly to strict tournaments, with both active partition conditions and the empty-successor case. We independently wrote a C implementation of the score separate from the source dsr_verify.c, compiled it and enumerated without pruning every integer bit encoding of each labeled tournament n=2,...,7. Failure counts were exactly 0,0,0,0,0,5040 out of 2,8,64,1024,32768,2097152; first failure is bit mask 1324. The witness scores were independently recovered as DSR (6,3,2,4,5,14,14) and Copeland (3,3,2,2,2,5,4). A separate independent 7! permutation-orbit enumeration found 5040 distinct relabelings of witness 1324, hence trivial automorphism group; original package code checks all 5040 failures lie in that orbit. These exact finite exhaustive checks establish the bound n<=7, not arbitrary larger tournaments. Primary 2024 source Proposition 7 and scoring equations were inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 source proves containment for <=4 and conjectures generalization; 2025 journal abstract reports <=4; 2026 source discusses a modified tournament solution but full text unavailable."
+        ],
+        "reasoning": "None of the inspected accessible statements supplies the <=6 sharp boundary and exact 5040/one-orbit census. Without complete 2026 paper no blanket noncoverage finding is justified.",
+        "searches": [
+          "Hou arXiv:2403.16373 Proposition 7",
+          "DOI:10.1080/03081079.2025.2493189",
+          "DOI:10.1016/j.eswa.2025.130835"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.16373",
+        "https://doi.org/10.1080/03081079.2025.2493189",
+        "https://doi.org/10.1016/j.eswa.2025.130835",
+        "Resultary semantic query: dominating set relaxed scoring DSR Copeland tournament seven alternatives Hou 2024 refinement counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier first-order theorem n<=4 does not imply failure at n=7; a different rule not being exactly Copeland also need not refute DSR subset Copeland for this version."
+        ],
+        "reasoning": "The new exact witness violates the particular inclusion, and the complete census supplies minimality/classification; inaccessible follow-up full text is retained as residual risk.",
+        "searches": [
+          "Hou 2024 Section 6.3 Proposition 7",
+          "Hou 2026 related abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact 2024 home-plus-away DSR scoring is required; equivalently, failure means one maximizer of psi_T has strictly submaximal Copeland outdegree."
+        ],
+        "reasoning": "Alternative rules with DSR terminology or other tournament-solution score definitions are not equivalent; the explicit score specialization fixes the precise object.",
+        "searches": [
+          "dominating set relaxed scoring DSR Copeland tournament seven alternatives Hou 2024 refinement counterexample",
+          "Hou arXiv:2403.16373 formulas (5)-(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Banks vs uncovered at n=7 has 13440 failures in four classes, unlike the 5040 failures in one class here."
+        ],
+        "reasoning": "Matching alternative count seven does not imply matching tournament rules; the score definitions and actual failure predicates differ.",
+        "searches": [
+          "dominating set relaxed scoring DSR Copeland tournament seven alternatives Hou 2024 refinement counterexample",
+          "Resultary Complete seven-alternative Banks–uncovered disparity census",
+          "Resultary minimal covering/iterated uncovered first disparity"
+        ]
+      },
+      "rationale": "Hou 2024 Sections 4 and 6.3 established up-to-four containment, reported five-case verification and posed a general Copeland refinement conjecture. The new bit-coded exhaustive first failure at seven and unique asymmetric isomorphism class refutes that exact 2024 rule. The 2025 journal abstract repeats the smaller guarantee; a 2026 DSR tournament solution uses a different scoring version, and its full text could not be accessed due to VPN disconnection. Resultary seven-alternative Banks/uncovered census concerns different tournament correspondences and does not cover this DSR/Copeland condition. Qualified PASS, with a precise risk of an already-known counterexample in 2025/2026 follow-ups.",
+      "residual_risks": [
+        "Complete 2026 related full text unavailable; matching or stronger counterexample under the same score cannot be excluded.",
+        "No results for tournaments with ties or general n>7; first-layer exhaustive finite fact only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "2024 full text proves only <=4 and frames general inclusion as conjecture",
+          "evidence": "Defined home-plus-away scoring and Proposition 7 up-to-four containment; exact benchmark (3,4,1,0).",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.16373",
+          "material_read": "Full accessible primary PDF, especially equations (5)-(9), Section 6.3 Proposition 7, worked four-alternative Table 7; relevant page screenshots inspected",
+          "method": "Primary arXiv PDF text and page images",
+          "title": "A new social welfare function with a number of desirable properties",
+          "trigger": "Original exact score equations and posed Copeland refinement question"
+        },
+        {
+          "assessment": "Abstract reports only up-to-four containment; no whole-document noncoverage claimed",
+          "evidence": "Published online 2025-04-21.",
+          "identifier_or_url": "https://doi.org/10.1080/03081079.2025.2493189",
+          "material_read": "Accessible abstract and bibliographic material only, not whole article",
+          "method": "Journal description/abstract inspection",
+          "title": "A social welfare function based on dominating set relaxations",
+          "trigger": "Subsequent journal version potentially updating conjecture"
+        },
+        {
+          "assessment": "Possible overlap remains; accessible description indicates different placement-indicator tournament scoring",
+          "evidence": "Published in Expert Systems with Applications 306 (2026).",
+          "identifier_or_url": "https://doi.org/10.1016/j.eswa.2025.130835",
+          "material_read": "Accessible abstract and bibliographic material; complete primary text inaccessible",
+          "method": "OA/preprint search then authorized Oxford retrieval returned vpn_disconnected",
+          "title": "A tournament solution based on dominating-set-relaxed partitions",
+          "trigger": "Potential stronger later DSR result and possible alternate score"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves an explicit universal refinement conjecture for a named voting rule, determines its sharp first counterexample size, and classifies/counts every first-layer failure. The finite census is natural and complete over the alleged minimal order, not an arbitrary search for small exceptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete 2026 related full text unavailable; matching or stronger counterexample under the same score cannot be excluded.",
+    "No results for tournaments with ties or general n>7; first-layer exhaustive finite fact only."
+  ],
+  "schema_version": 1
+}
