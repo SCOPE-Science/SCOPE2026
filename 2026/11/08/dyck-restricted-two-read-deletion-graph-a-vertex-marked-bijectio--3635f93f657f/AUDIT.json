@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Type-A characterization plus equal-weight parity makes the alternating interval even. The remove/insert bijection at positive height is invertible and counts unordered edges once. Ground-vertex marks have generating function C(z)^2, yielding H_m=(2m+1)C_m-C_(m+1). All admissible intervals lie strictly inside the first and final steps, giving at most (n-1)^2; the interior alternating witness attains it and the opposite phase fails at n>=3. Catalan asymptotics yield E_n~(2/3)n C_n. Exact finite cross-checks on n<=10 (direct deletion balls through n<=8) passed. The published Type-A theorem is the only non-elementary input.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Read unrestricted edge-count theorem at 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "Read published Type-A condition in Cai et al. author PDF",
+        "Checked balance-constrained code literature search (Wu–Zhang, arXiv:2207.00832)"
+      ],
+      "reasoning": "The all-word q-ary edge count is a broader vertex domain but a different scalar, and cannot imply its Dyck-induced edge count by substituting Catalan vertices; the all-word Type-A characterization is a proof ingredient, not this enumeration. A complete degree bound and unique extremizer are not given by either source.",
+      "searches": [
+        "Catalan binary deletion reconstruction codes two reads extremal pairs",
+        "Distinct deletion outputs and reconstruction from one deletion of periodic or constrained words",
+        "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+      ]
+    },
+    "checked_sources": [
+      "https://www.brics.dk/RS/95/1/BRICS-RS-95-1.pdf",
+      "https://yaakobi.net.technion.ac.il/files/2020/07/108_Reconstruction_Edit_ISIT20.pdf",
+      "https://jl.baril.u-bourgogne.fr/pamkim.pdf",
+      "https://oeis.org/A371965",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai et al. gives a pairwise Type-A criterion; the new theorem counts its restricted instances and proves sharp degree",
+        "Unrestricted edge result counts over all q-ary words",
+        "Baril et al. counts peaks of Catalan words, not induced deletion graphs",
+        "OEIS A371965 records the same integer sequence but not the graph interpretation"
+      ],
+      "reasoning": "The numerical formula is implied by Baril et al. once a previously unrecorded correspondence to deletion-confusability edges has been proved. The novel proposed statement is precisely that correspondence and the sharp degree/unique extremizer; the older results alone do not assert those graph facts. This is a structural combination, not numerical priority.",
+      "searches": [
+        "Dyck paths two common one-deletion descendants Catalan deletion confusability graph maximal overlap edge count",
+        "Catalan binary deletion reconstruction codes two reads extremal pairs",
+        "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "\"Dyck\" \"alternating\" \"deletion\" \"intersection\"",
+        "OEIS A371965"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "K. Cai et al., arXiv:2001.01376, Type-A theorem on common deletion descendants",
+        "Full-text comparison: Frandsen et al., 1995, introduction and results on dynamic Dyck membership",
+        "published-finding corpus closest 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+      ],
+      "reasoning": "Alternating-interval Type-A equivalence is known for binary words, but none of these inspected claims states the restricted Dyck graph edge-to-positive-marked-vertex bijection or its unique degree maximizer. The result is not a renaming of unrestricted edge counting.",
+      "searches": [
+        "Dyck paths two common one-deletion descendants Catalan deletion confusability graph maximal overlap edge count",
+        "Dyck language Levenshtein deletion intersection of two words pairs alternating path flipping Catalan",
+        "Dyck path deletion balls two common descendants alternating interval number of edges",
+        "\"Dyck\" \"deletion\" \"two\" \"common\" subsequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A371965: same sequence 0,0,0,1,6,27,111,... and asymptotic",
+        "Baril et al., arXiv:2404.05672, full PDF page 19, Corollary 5.4: matching generating function, exact sequence and asymptotic"
+      ],
+      "reasoning": "The exact edge-total integer sequence and leading asymptotic **are already known** as the total peak statistic. They are not claimed as numerically new. The claim concerns the deletion-graph realization, explicit marked-vertex bijection, and uniquely maximized graph degree, none present in the inspected table/paper.",
+      "searches": [
+        "\"1, 6, 27, 111, 441, 1728, 6733\" Catalan",
+        "OEIS A371965",
+        "Baril Harris Harry McClinton Ramirez \"Enumerating runs, valleys, and peaks in Catalan words\" Corollary 5.4 sum peaks pdf"
+      ]
+    },
+    "rationale": "PASS for the Dyck-induced deletion-graph correspondence and sharp unique maximal degree, **not** for the known integer edge-count sequence or its asymptotic. The same numbers occur as OEIS A371965 and Baril et al. 2024 Catalan peaks. Strongest closest graph result counts unrestricted words; comparison of implications does not furnish the restricted structural claim. Remaining risk of an unindexed equivalent noted.",
+    "residual_risks": [
+      "Unindexed historic paper may already state the Dyck-constrained deletion graph or its maximum-degree theorem",
+      "The edge-count sequence is already in OEIS A371965 and Baril et al. 2024; numeric evaluation has no novelty",
+      "The structural proof builds on the existing Type-A characterization; future priority checks may identify an earlier equivalent graph interpretation"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and treats Dyck membership and edit operations, but no two-read deletion confusability graph edge or maximum-degree result",
+        "evidence": [
+          "BRICS RS-95-1, first public date 1995-01-11; introduction and main results"
+        ],
+        "identifier_or_url": "https://www.brics.dk/RS/95/1/BRICS-RS-95-1.pdf",
+        "material_read": "Report title/date page, abstract, introduction and dynamic algorithm results; public release date 1995-01-11",
+        "method": "Full PDF text extraction and page screenshot",
+        "title": "Dynamic Algorithms for the Dyck Languages",
+        "trigger": "Archive-period Dyck language membership under edits"
+      },
+      {
+        "assessment": "Supplies general Type-A premise, not Dyck-restricted edge enumeration or extremal degree",
+        "evidence": [
+          "Cai–Kiah–Nguyen–Yaakobi, arXiv:2001.01376, Type-A definition and deletion-ball intersection result"
+        ],
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2020/07/108_Reconstruction_Edit_ISIT20.pdf",
+        "material_read": "Full author PDF, Type-A definition and characterization pages; proof context",
+        "method": "Full PDF text extraction and page screenshot",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Exact characterization of pairs with two common single-deletion descendants"
+      },
+      {
+        "assessment": "Already proves same numerical sequence/generating function and asymptotic for Catalan peaks; does not define or study the Dyck deletion reconstruction graph",
+        "evidence": [
+          "Baril et al., arXiv:2404.05672, Corollary 5.4"
+        ],
+        "identifier_or_url": "https://jl.baril.u-bourgogne.fr/pamkim.pdf",
+        "material_read": "Full paper introductory definitions, Catalan/Dyck bijection section and page 19 Corollary 5.4",
+        "method": "Full PDF text extraction and page-19 screenshot",
+        "title": "Enumerating runs, valleys, and peaks in Catalan words",
+        "trigger": "OEIS A371965 exact sequence match"
+      },
+      {
+        "assessment": "Exact table is covered; proposed novelty excludes numeric priority",
+        "evidence": [
+          "A371965 initial terms and link to Baril et al."
+        ],
+        "identifier_or_url": "https://oeis.org/A371965",
+        "material_read": "Whole web entry description, formulas, references, and initial values",
+        "method": "OEIS entry read",
+        "title": "OEIS A371965",
+        "trigger": "Exact numerical sequence collision"
+      },
+      {
+        "assessment": "Enumerates unrestricted q-ary source pairs and average degree; does not enumerate Dyck-induced pairs, does not determine Dyck max-degree extremizer",
+        "evidence": [
+          "Record 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "RESULT.md all-q/all-n edge formula"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91/RESULT.md",
+        "material_read": "Complete RESULT.md theorem, proof, relationship to prior work, limitations and references",
+        "method": "Repository read-only file fetch",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "Closest indexed all-word graph result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3635f93f-657f-4e9c-88c4-fe15fad39ae4",
+  "value": {
+    "rationale": "Two-read deletion reconstruction on balanced-parentheses sources motivates the induced graph. The theorem supplies a bijective description of every forbidden pair, a complete all-n edge count in its appropriate interpretation, and a sharp quadratic worst-case degree with unique maximizer, distinguishing average (linear) and worst-case (quadratic) ambiguity. The point is graph structure and constrained channel behavior, not a known-table recomputation.",
+    "status": "PASS"
+  }
+}
