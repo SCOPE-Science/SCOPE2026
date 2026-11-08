@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "A complete output-indexed bijective encoding forces exactly r target bits of each parity in each final-coordinate slice, counted by (r!)^(2s). It forces exactly s sources of each parity for each first-coordinate value, counted by extracted polynomial coefficient and (s!)^(2r). All choices are uniquely invertible, proving no omission or overcount for all r,s. Opposite-semigroup inversion and r=1,2 expansions are exact. Eight direct brute-force permutation cases match.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 5.1 covers the existence implication N>0 iff index product even, which is expressly excluded from the novel claim.",
+        "Section 6.1 counts different Brandt semigroup transversals using Latin squares."
+      ],
+      "reasoning": "The stronger general existence theorem covers only a boolean predicate, not the exact count. A Brandt semigroup has products vanishing when indices mismatch and hence its enumeration does not specialize to the all-identity sandwich rectangular group; group-table results do not cover r or s greater than one.",
+      "searches": [
+        "arXiv:2608.25092v1 Sections 5,6.1",
+        "arXiv:2610.35611v1 group-transversal paper",
+        "rectangular group Cayley table transversals enumeration formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.25092v1 Theorem 5.1 / Sections 5,6.1",
+      "arXiv:2610.35611v1 abstract",
+      "Published mathematical records for transversal counts: closest 2026/9/11/SCOPE031 (unrelated DCLS(11))",
+      "Historic rectangular-band exact count f2eb19e4-14ec-46b1-8ee7-6bdc5a8cae38",
+      "Historic Brandt C2 count a68a108d-1885-4450-b795-6fd00cbe7d72"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.1 implies N_{r,s}=0 when rs odd and N_{r,s}>0 when rs even, but does not specify either positive value.",
+        "Rectangular-band formula lacks the nontrivial middle C2 group; Brandt tables use matrix-unit zero products.",
+        "Davis–Jedwab–Wanless–Wiebe analyze Latin-square transversals of groups of even order, a genuinely different Cayley table."
+      ],
+      "reasoning": "The exact positive counts, e.g. N_{2,2}=2048 and closed N_{2,s} binomial sum, are not logical consequences of a yes/no classification and cannot be deduced by direct substitution into the unrelated band, Brandt, or group-Latin-square counts.",
+      "searches": [
+        "arXiv:2608.25092v1 Theorem 5.1 and Proposition 6.5",
+        "prior result rectangular band exact enumeration",
+        "prior result Brandt B2 C2 full permutation count",
+        "arXiv:2610.35611v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 Rees semigroup theorem reports an existence condition, not counts.",
+        "The 2026 Latin-square paper counts group-table transversals, not non-group rectangular groups."
+      ],
+      "reasoning": "A transversal is exactly a complete mapping, so both terms and Rees rectangular-group terminology were searched. The main source addresses the same ambient structures but stops at existence for this family; no equivalent enumeration was located.",
+      "searches": [
+        "exact number complete mappings rectangular group C2 times rectangular band I times Lambda transversal count coefficient formula",
+        "number of transversals in Cayley table rectangular group C2 2-row 2-column complete mapping counting",
+        "binary rectangular group complete mapping count r s coefficient polynomial binomial",
+        "complete mappings semigroups 2026 Araújo Bentz Cameron Hendrey Kinyon enumeration rectangular group",
+        "arXiv:2608.25092v1, Sections 1,5,6.1",
+        "arXiv:2610.35611v1 abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible prior records contain a formula for rectangular bands with trivial maximal subgroup and an exact Brandt B2(C2) count, neither for the C2 rectangular group.",
+        "Direct new coefficient values include 2048 for the 2-by-2 index case; no matching published exact count or table was found."
+      ],
+      "reasoning": "Matching numerics would not alone establish coverage; actual multiplication and parameter families were compared. These records change the group or sandwich matrix and have no implication yielding the present coefficient formula.",
+      "searches": [
+        "number of transversals in Cayley table rectangular group C2 2-row 2-column complete mapping counting",
+        "binary rectangular group complete mapping count r s coefficient polynomial binomial",
+        "complete mappings semigroups 2026 Araújo Bentz Cameron Hendrey Kinyon enumeration rectangular group",
+        "2026-10 historic rectangular-band count",
+        "2026-10 historic Brandt C2 count",
+        "transversal number rectangular group C2 semigroup 2026"
+      ]
+    },
+    "rationale": "Direct full-text comparison with the same-object Rees semigroup source found a known general existence criterion but no exact count. Other closest enumerative works involve zero-containing Brandt semigroups, trivial-group rectangular bands, or group Latin squares, with neither equivalence nor parameter domination. Relevant published-finding corpus and own historical claim queries did not reveal a covering count; priority risk remains.",
+    "residual_risks": [
+      "Unindexed earlier equivalent count for all-identity-sandwich Rees groups might exist under alternate terminology.",
+      "The relevant October 2026 group-transversal paper was inspected at abstract rather than full-text level; it treats groups, so no unresolved stronger coverage from its stated theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes existence for the present group, not exact all-index enumeration; Section 6.1 enumerates a different zero-containing semigroup",
+        "evidence": [
+          "Theorem 5.1 even-index-product condition, Section 5",
+          "Proposition 6.5 bijection between Brandt complete mappings and Latin squares, Section 6.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.25092v1",
+        "material_read": "Full-text material: introduction/statement Theorem 5.1; Section 5 (Rees matrix even-index construction and converse); Section 6.1 (combinatorial Brandt enumeration); problem section",
+        "method": "Primary open-access arXiv HTML and page-checked PDF; compared theorems, multiplication and counted parameters",
+        "title": "Complete Mappings of Semigroups",
+        "trigger": "Same complete-mapping notion; same Rees group family and likely broader coverage"
+      },
+      {
+        "assessment": "Group Latin-square transversal counts; not a comparison that settles the present rectangular-group enumeration",
+        "evidence": [
+          "Abstract describes 2-plex reduction for Cayley Latin squares of finite groups, including C2 times a group"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.35611",
+        "material_read": "Title, dated abstract, scope and stated reduction for groups with normal order-two subgroup",
+        "method": "Public arXiv abstract and bibliographic description; full text not inspected",
+        "title": "Counting transversals in Latin squares over groups of even order",
+        "trigger": "2026 enumerative transversal paper for groups with two-torsion"
+      },
+      {
+        "assessment": "Counts for trivial group rectangular bands and zero-containing Brandt family, respectively, not the new C2 rectangular-group count",
+        "evidence": [
+          "Rectangular-band count (s!)^r (r!)^s; Brandt B2(C2) count 32 in a semigroup with zero"
+        ],
+        "identifier_or_url": "recoverable prior claim IDs f2eb19e4-14ec-46b1-8ee7-6bdc5a8cae38 and a68a108d-1885-4450-b795-6fd00cbe7d72",
+        "material_read": "Recoverable claim statements from prior history; full original packages not reinspected",
+        "method": "Scientific statement/implication comparison only",
+        "title": "Accessible previous rectangular-band and Brandt complete-mapping results",
+        "trigger": "Closest prior exact enumerations with overlapping terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6264cf1f-154b-4d62-aa66-8eeb44c7f9fd",
+  "value": {
+    "rationale": "Exact transversal numbers for the canonical Rees rectangular groups over C2, the smallest Hall–Paige obstruction, are the natural counting refinement of the known existence criterion. The closed coefficient formula enumerates arbitrary index sets without factorial-size permutation search; its nontrivial two-row binomial specialization produces explicit new positive counts for an infinite parameter family. This is a canonical algebraic invariant, not an unmotivated arbitrary slice.",
+    "status": "PASS"
+  }
+}
