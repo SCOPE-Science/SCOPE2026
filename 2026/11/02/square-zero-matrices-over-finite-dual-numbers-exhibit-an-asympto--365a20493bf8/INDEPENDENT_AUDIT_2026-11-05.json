@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write X=A+epsilon B, so A^2=0 and AB+BA=0 in any characteristic. Rank-r A has r length-two Jordan blocks and s=n-2r zero blocks. Diagonal P reversing the image block sign satisfies PA=-AP, including char 2, so anti-commutator fibers biject with the commutant of A, dimension (n-r)^2+r^2. The reductions are counted by choosing image U subset kernel K and an isomorphism F_q^n/K to U: [n choose r]_q[n-r choose r]_q |GL_r|=q^(2r(n-r)) Phi_n/(Phi_r Phi_(n-2r)). Multiplication cancels exponent to n^2. Uniform exponential estimates Phi_m-Phi_infty=O_q(q^-m) imply rank weights differ from 1/Phi_infty by a summable boundary term, yielding total O_q(1) remainder and O_q(1/n) empirical CDF error. Endpoints r=0 and n=1 valid. Fresh exhaustive anticommutator kernel ranks checked F2 n<=3 and F3 n<=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheong–Liang–Strand explicitly assume square-free reduction of polynomial, excluding t^2; length-two local-ring similarity classifications include these coefficient rings but not the stated all-n rank law."
+        ],
+        "reasoning": "A seemingly broader theorem on polynomial roots is inapplicable due to its hypothesis. A more general representation-scheme point-count result remains an originality risk.",
+        "searches": [
+          "arxiv:2209.03626 Theorem 1.1",
+          "arxiv:1212.6157",
+          "square-zero matrices over finite dual numbers Fq epsilon squared zero rank distribution counting jet scheme"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen Git blob e3cff36a26370b7b74f92da8f3bd374a732c2f95",
+        "verify.py frozen Git blob ba797a2d804801a128a3f4cc5279909f815c795f",
+        "arxiv:1212.6157",
+        "arxiv:2209.03626",
+        "DOI:10.1007/s00029-021-00724-4",
+        "square-zero matrices over finite dual numbers Fq epsilon squared zero rank distribution counting jet scheme"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prasad–Singla–Spallone centralizer and similarity methods provide critical ingredients, while Cheong–Liang–Strand square-free theorem does not cover a repeated root."
+        ],
+        "reasoning": "Classical centralizers and Gaussian coefficients imply the result by nontrivial combination, but the precise joint finite-ring census/uniform limit is not a quoted implication of inspected prior theorem.",
+        "searches": [
+          "arxiv:1212.6157 Sections 2-3",
+          "arxiv:2209.03626 Theorem 1.1",
+          "square-zero matrices over finite dual numbers Fq epsilon squared zero rank distribution counting jet scheme"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tangent equation AB+BA=0 is exactly a first-jet point-count problem for the square-zero matrix scheme. Prasad–Singla–Spallone classify similarity orbits in local rings."
+        ],
+        "reasoning": "Jet-scheme language is mathematically equivalent at the level of objects but an identified theorem giving the same all-dimensional count and rank limit was not found; orbit classification alone does not supply labelled counts without summation.",
+        "searches": [
+          "square-zero matrices over finite dual numbers Fq epsilon squared zero rank distribution counting jet scheme",
+          "arxiv:1212.6157",
+          "Derived representation schemes and Nakajima quiver varieties, D’Alesio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Jordan-lifts result fixes one nilpotent Jordan block and counts nilpotency indices; strongly nil-clean census counts a different predicate."
+        ],
+        "reasoning": "Neither inspected finding/tabulation gives the all-n square-zero rank strata; no identical database was found, but this is not proof none exists.",
+        "searches": [
+          "square-zero matrices over finite dual numbers Fq epsilon squared zero rank distribution counting jet scheme",
+          "Resultary: exact nilpotency-index distribution for Jordan lifts over finite dual numbers",
+          "Resultary: exact strongly nil-clean census over Fq[eps]"
+        ]
+      },
+      "rationale": "Length-two local-ring similarity classifications and square-free matrix-polynomial formulas do not assert the unrestricted labelled square-zero rank census; first jet of square-zero scheme is a possible equivalent reformulation, so stronger literature could implicitly cover it.",
+      "residual_risks": [
+        "A broader jet-scheme Fq-point formula may imply exact rank strata without the present wording.",
+        "Uniform convergence relies on fixed q; no asymptotics asserted when q varies with n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP methods, not exact stated rank census",
+          "evidence": "Similarity-orbit classification/centralizer data, including low dimensions, rather than exact labelled all-n square-zero rank law.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.6157",
+          "material_read": "Primary PDF introduction, theorem scope, normal forms and centralizer descriptions; PDF first page visually inspected",
+          "method": "Full-text PDF selected sections with screenshot",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Same split dual-number coefficient ring and matrix similarity"
+        },
+        {
+          "assessment": "INAPPLICABLE to polynomial t^2",
+          "evidence": "Square-free reduction required; t^2 has repeated root.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.03626",
+          "material_read": "Primary abstract and Theorem 1.1 hypotheses",
+          "method": "OA arXiv webpage",
+          "title": "Polynomial equations for matrices over integers modulo a prime power and the cokernel of a random matrix",
+          "trigger": "Counting roots of matrix polynomials over finite local rings"
+        },
+        {
+          "assessment": "RISK—not decisive prior-coverage comparison",
+          "evidence": "Representation-scheme formalism could encode locus; no identified full rank count.",
+          "identifier_or_url": "https://doi.org/10.1007/s00029-021-00724-4",
+          "material_read": "Indexed abstract and cited sections scope; no exhaustive full-text reading",
+          "method": "OA metadata and citation",
+          "title": "Derived representation schemes and Nakajima quiver varieties",
+          "trigger": "Potential square-zero matrix first-jet scheme equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-dimensional arithmetic rank census and macroscopic uniform rank law for first-order thickening are natural deformation-theoretic phenomena, sharply contrasting with the field-only square-zero rank distribution. A future researcher can use both the exact fibers and limiting law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen Git blob e3cff36a26370b7b74f92da8f3bd374a732c2f95",
+    "verify.py frozen Git blob ba797a2d804801a128a3f4cc5279909f815c795f",
+    "arxiv:1212.6157",
+    "arxiv:2209.03626",
+    "DOI:10.1007/s00029-021-00724-4",
+    "square-zero matrices over finite dual numbers Fq epsilon squared zero rank distribution counting jet scheme"
+  ],
+  "disposition": "passed",
+  "final_claim": "For split finite dual numbers F_q[epsilon]/epsilon^2, square-zero n-by-n matrices of reduction rank r have exact count q^(n^2)Phi_n/(Phi_r Phi_(n-2r)) for 0<=r<=floor(n/2); the normalized rank tends uniformly to the continuous uniform law on [0,1/2] with CDF O_q(1/n) error.",
+  "limitations": [
+    "Only split dual numbers Fq[epsilon]/epsilon^2 and labelled matrices, not Z/p² or higher nilpotent thickenings.",
+    "Finite verification is not proof of O_q(1/n); proof is finite-product bound.",
+    "A broader jet-scheme Fq-point formula may imply exact rank strata without the present wording.",
+    "Uniform convergence relies on fixed q; no asymptotics asserted when q varies with n."
+  ],
+  "schema_version": 1
+}

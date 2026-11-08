@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The square-zero and first-order tangent equations are exact in the split dual-number ring. For any square-zero reduction of rank \(r\), multiplying by a sign-changing Jordan-basis involution identifies the anti-commutator kernel with the centralizer, whose dimension is \((n-r)^2+r^2\). The image/kernel/isomorphism count of reductions gives the Gaussian-product factor; exponents cancel to \(n^2\). Uniformly summable product-tail bounds prove the rank limit and its quantitative error. Direct exhaustive computations check the rank strata in eight configurations, including \(\mathbb F_4\); finite tests are corroboration rather than proof.
+## correctness
 
-## Originality — PASS, with priority limitations
-Cheong–Liang–Strand, arXiv:2209.03626, prove a theorem under a square-free-reduction hypothesis and explicitly do not handle the repeated-root polynomial \(t^2\). Prasad–Singla–Spallone, arXiv:1212.6157, treat length-two-ring matrix similarity and centralizers but not the stated all-dimension rank census or uniform limit in inspected results. D'Alesio's open-access representation-scheme discussion identifies the square-zero scheme, but not the finite-field first-jet count. Closely matched indexed findings on a single Jordan-block lift and strongly nil-clean matrices were compared by implication; their advertised claims do not subsume the present full rank distribution. A general jet-scheme formula might still imply it, and some matched manuscripts were available only as published summaries, so global publication priority is provisional.
+PASS
 
-## Mathematical value — PASS
-First jets of a classical singular representation scheme are intrinsically motivated. The exact all-dimensional count and the sharp transition from field-level concentration at maximal square-zero rank to a uniform macroscopic rank law over dual numbers are substantive structural information for a natural family, independent of numerical spot checks.
+Write X=A+epsilon B, so A^2=0 and AB+BA=0 in any characteristic. Rank-r A has r length-two Jordan blocks and s=n-2r zero blocks. Diagonal P reversing the image block sign satisfies PA=-AP, including char 2, so anti-commutator fibers biject with the commutant of A, dimension (n-r)^2+r^2. The reductions are counted by choosing image U subset kernel K and an isomorphism F_q^n/K to U: [n choose r]_q[n-r choose r]_q |GL_r|=q^(2r(n-r)) Phi_n/(Phi_r Phi_(n-2r)). Multiplication cancels exponent to n^2. Uniform exponential estimates Phi_m-Phi_infty=O_q(q^-m) imply rank weights differ from 1/Phi_infty by a summable boundary term, yielding total O_q(1) remainder and O_q(1/n) empirical CDF error. Endpoints r=0 and n=1 valid. Fresh exhaustive anticommutator kernel ranks checked F2 n<=3 and F3 n<=2.
 
-## Scientific boundaries
-Only the split ring \(\mathbb F_q[\varepsilon]/(\varepsilon^2)\) is covered; no claim is made for \(\mathbb Z/p^2\mathbb Z\), higher thickenings, conjugacy classes, or independent publication-priority certification. The finite verifier tests small prime fields and \(\mathbb F_4\) but the general theorem is proved separately. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Length-two local-ring similarity classifications and square-free matrix-polynomial formulas do not assert the unrestricted labelled square-zero rank census; first jet of square-zero scheme is a possible equivalent reformulation, so stronger literature could implicitly cover it.
+
+## value
+
+PASS
+
+The all-dimensional arithmetic rank census and macroscopic uniform rank law for first-order thickening are natural deformation-theoretic phenomena, sharply contrasting with the field-only square-zero rank distribution. A future researcher can use both the exact fibers and limiting law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
