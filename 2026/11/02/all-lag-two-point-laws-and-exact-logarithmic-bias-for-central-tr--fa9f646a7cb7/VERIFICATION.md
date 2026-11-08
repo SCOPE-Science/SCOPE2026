@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The included `verify_trinomial_5.py` is self-contained Python 3 code using only the standard library. Running `python3 verify_trinomial_5.py` checks 4,097 integer recurrence values against the base-five digit product; all sixteen adjacent-pair counts through \(k=12\) by a separate dynamic program; rational lag laws through \(h=72\); a complete block of 15,625 indices for each of 39 lags; and direct enumeration through \(k=6\). It prints:
+## correctness
 
-`VERIFY_OK integer_terms=4097 exact_pair_levels=12 ratio_lags=39 ratio_block=15625 direct_pair_levels=6`
+PASS
 
-No proof relies on the checked finite bounds. Infinite assertions follow from the exact constant-term, digit-carry and character arguments in `RESULT.md`. The code is not an independent scientific audit.
+The constant-term freshman-dream factorization gives T_{5m+a}=w_a T_m (mod 5), w=(1,1,3,2,4), hence all residues nonzero. Conditioning on the lowest digit gives ratio carry recursion; h=1 has a contraction and uniform fixed point; all h>=2 descend to smaller lags. For character pairs with chi psi!=1, F_k(0)=1 and the h=1 recurrence has one unit-modulus self-loop, yielding O_h(k) by induction on h; chi psi=1 ratios have O_h(1) carry coupling error. Fourier inversion and aligned base-five block decomposition yield the count O_h(log^2 N). Exact adjacent recurrences give all 16 P_k cells, independently checked through k=7. The finite check corroborates the all-lag mathematical derivation, not replaces it.
+
+## originality
+
+PASS
+
+The known Lucas-product framework proves the one-point digit law, not the explicit joint law nor the exact 16-cell logarithmic term. Search and inspected primary work did not reveal an implication giving all these constants; historical priority remains qualified.
+
+## value
+
+PASS
+
+Joint correlation and its scale-dependent discrepancy are canonical arithmetic observables of an automatic residue sequence: adjacency asymptotically independent while lag two is strongly nonuniform, and the exact logarithmic bias quantifies the first nontrivial finite-size effect. The explicit all-lag algorithm is reusable beyond a tiny numerically sampled case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The digit product follows from the constant-term range in the freshman's-dream factorization. The finite ratio recursion is well-founded for all lags above one; the lag-one self-loop has a unique uniform solution. Character orthogonality and the recursive carry structure prove an \(O_h(k)\) nontrivial Fourier bound on length-\(5^k\) blocks; base-five interval decomposition establishes the arbitrary-cutoff theorem. The adjacent-pair identity follows from the exact two-coordinate digit recursion. The embedded verifier checks representative arithmetic identities and sharp finite counts without being substituted for the infinite proof.
+PASS
 
-## Originality: PASS within checked evidence
+The constant-term freshman-dream factorization gives T_{5m+a}=w_a T_m (mod 5), w=(1,1,3,2,4), hence all residues nonzero. Conditioning on the lowest digit gives ratio carry recursion; h=1 has a contraction and uniform fixed point; all h>=2 descend to smaller lags. For character pairs with chi psi!=1, F_k(0)=1 and the h=1 recurrence has one unit-modulus self-loop, yielding O_h(k) by induction on h; chi psi=1 ratios have O_h(1) carry coupling error. Fourier inversion and aligned base-five block decomposition yield the count O_h(log^2 N). Exact adjacent recurrences give all 16 P_k cells, independently checked through k=7. The finite check corroborates the all-lag mathematical derivation, not replaces it.
 
-Henningsen–Straub (2021) provide the single-sequence Lucas principle and Straub (2022) gives related constant-term schemes; Kohen (2024) proves uniform recurrence properties. Direct comparison did not find the all-lag two-point law or the exact finite-level 16-cell logarithmic bias. A two-point result modulo eight and a consecutive-residue result for Motzkin numbers concern different objects and do not entail this joint mod-five trinomial theorem. A hidden earlier equivalent theorem or a stronger general automatic-sequence correlation result remains the principal bibliographic risk; priority is not independently certified.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Fixed-shift correlations are natural arithmetic invariants not determined by one-point Lucas congruences. The exact rational recursion gives a complete family of pair laws, including a nontrivial first correlated lag, while the closed finite-level formula exhibits a sharp bias invisible in limiting equidistribution. This is more than recomputation of a known table or a parameter-only relabeling: the joint character induction and exact bias are structural additions.
+The known Lucas-product framework proves the one-point digit law, not the explicit joint law nor the exact 16-cell logarithmic term. Search and inspected primary work did not reveal an implication giving all these constants; historical priority remains qualified.
 
-## Scientific limitations
+## value
 
-Only modulus five and fixed lags are covered. The arbitrary-cutoff discrepancy is not claimed sharp. Independent scientific validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Joint correlation and its scale-dependent discrepancy are canonical arithmetic observables of an automatic residue sequence: adjacency asymptotically independent while lag two is strongly nonuniform, and the exact logarithmic bias quantifies the first nontrivial finite-size effect. The explicit all-lag algorithm is reusable beyond a tiny numerically sampled case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

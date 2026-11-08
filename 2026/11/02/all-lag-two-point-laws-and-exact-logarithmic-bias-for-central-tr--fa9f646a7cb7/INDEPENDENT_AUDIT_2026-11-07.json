@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:34:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The constant-term freshman-dream factorization gives T_{5m+a}=w_a T_m (mod 5), w=(1,1,3,2,4), hence all residues nonzero. Conditioning on the lowest digit gives ratio carry recursion; h=1 has a contraction and uniform fixed point; all h>=2 descend to smaller lags. For character pairs with chi psi!=1, F_k(0)=1 and the h=1 recurrence has one unit-modulus self-loop, yielding O_h(k) by induction on h; chi psi=1 ratios have O_h(1) carry coupling error. Fourier inversion and aligned base-five block decomposition yield the count O_h(log^2 N). Exact adjacent recurrences give all 16 P_k cells, independently checked through k=7. The finite check corroborates the all-lag mathematical derivation, not replaces it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henningsen–Straub arXiv:2111.08641 Lucas congruence theorem supplies T_{5m+a}=w_a T_m",
+          "Straub arXiv:2205.09902 discusses general constant-term congruence methods."
+        ],
+        "reasoning": "General p-schemes imply an automaton computability framework, but do not automatically establish the explicit infinite-lag rational measures with uniform-in-cutoff Fourier error and signed exact finite-level term; new argument is required.",
+        "searches": [
+          "arxiv:2111.08641 generalized Lucas congruences linear p schemes",
+          "arxiv:2205.09902 constant-term congruence schemes",
+          "central trinomial coefficients mod 5 Lucas congruence pair correlations all lag joint distribution logarithmic discrepancy"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2111.08641",
+        "arxiv:2205.09902",
+        "arxiv:2403.00149",
+        "OEIS:A002426",
+        "Resultary query: central trinomial coefficients mod 5 Lucas congruence pair correlations all lag joint distribution logarithmic discrepancy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Lucas digit identity is used as a premise, and the ratio recursion plus character Fourier estimates are separately proved.",
+          "Kohen arxiv:2403.00149 treats recurrence of related residue words, not their joint limiting frequencies."
+        ],
+        "reasoning": "One-point congruence identities and qualitative recurrence do not imply character-mixing rates, ratio laws or the exact logarithmic signed bias. The claimed theorem is therefore not a direct stated corollary of inspected sources.",
+        "searches": [
+          "arxiv:2111.08641 Lucas mod 5 imply two-point distribution?",
+          "arxiv:2403.00149 uniform recurrence Motzkin generalized central trinomial mod p",
+          "central trinomial coefficients mod 5 Lucas congruence pair correlations all lag joint distribution logarithmic discrepancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Central trinomial sequence A002426 supplies coefficients and recurrence, not an all-lag pair-frequency theorem",
+          "Lag-one mu1 is uniform, lag-two mu2=(1,3,5,1)/10; distinction is a joint, not one-point, distribution."
+        ],
+        "reasoning": "Neither the underlying central-trinomial sequence nor a single-digit Lucas law is an equivalent formulation of its infinite array of two-point laws. No matching modulo-five joint correlation table was located in actual searches.",
+        "searches": [
+          "central trinomial coefficients mod 5 Lucas congruence pair correlations all lag joint distribution logarithmic discrepancy",
+          "central trinomial mod five joint pair frequency adjacent residue coefficients",
+          "OEIS A002426"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A002426 is a coefficient table, not 16 ordered residue-pair counts; independent k=1..7 pair calculation matches the new formula."
+        ],
+        "reasoning": "An underlying table of T_n does not count as an existing exact closed P_k formula. No identified prior exact two-point or finite-scale tabulation dominates the theorem; undiscovered automata tables remain a risk.",
+        "searches": [
+          "OEIS A002426 central trinomial mod 5 table",
+          "central trinomial adjacent pair 16 cells N=5^k bias",
+          "central trinomial coefficients mod 5 Lucas congruence pair correlations all lag joint distribution logarithmic discrepancy"
+        ]
+      },
+      "rationale": "The known Lucas-product framework proves the one-point digit law, not the explicit joint law nor the exact 16-cell logarithmic term. Search and inspected primary work did not reveal an implication giving all these constants; historical priority remains qualified.",
+      "residual_risks": [
+        "General automatic-sequence correlation theory or an unindexed older paper could imply this particular law; a whole-document exclusion for every related primary work has not been proven.",
+        "The general N discrepancy O_h(log^2 N) is only an upper bound; sharpness is established at N=5^k, not for arbitrary cutoffs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS digit-product premise, no matching all-lag pair theorem in inspected portion",
+          "evidence": "The congruence framework establishes Lucas products for constant-term sequences; two-point Fourier/carry laws are an extra conclusion.",
+          "identifier_or_url": "arxiv:2111.08641",
+          "material_read": "Primary PDF Proposition 1.3/Theorem 1.4 and introductory constructions (rendered page 2, as well as extracted text)",
+          "method": "PDF text and rendered page",
+          "title": "Generalized Lucas congruences and linear p-schemes",
+          "trigger": "same constant-term Lucas property"
+        },
+        {
+          "assessment": "RELATED, full text priority check remains limited",
+          "evidence": "General p-schemes concern congruences of coefficients, no verified explicit modulo-five 16-cell two-point law.",
+          "identifier_or_url": "arxiv:2205.09902",
+          "material_read": "Primary abstract and cited scope; no complete paper-wide exclusion established",
+          "method": "primary bibliographic/abstract reading",
+          "title": "On congruence schemes for constant terms and their applications",
+          "trigger": "possible generalized congruence machinery"
+        },
+        {
+          "assessment": "RELATED, not sufficient to exclude all hidden two-point corollaries",
+          "evidence": "Uniform recurrence is a qualitative recurrence property, not a numerical pair-frequency distribution.",
+          "identifier_or_url": "arxiv:2403.00149",
+          "material_read": "Primary abstract/identified recurrence claims, not full document",
+          "method": "abstract and statement-level reading",
+          "title": "Uniform Recurrence in the Motzkin Numbers and Related Sequences mod p",
+          "trigger": "related finite-state residue words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint correlation and its scale-dependent discrepancy are canonical arithmetic observables of an automatic residue sequence: adjacency asymptotically independent while lag two is strongly nonuniform, and the exact logarithmic bias quantifies the first nontrivial finite-size effect. The explicit all-lag algorithm is reusable beyond a tiny numerically sampled case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2111.08641",
+    "arxiv:2205.09902",
+    "arxiv:2403.00149",
+    "OEIS:A002426",
+    "Resultary query: central trinomial coefficients mod 5 Lucas congruence pair correlations all lag joint distribution logarithmic discrepancy"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each fixed nonnegative lag h, the mod-5 nonzero central-trinomial residues have joint distribution mu_h(v/u)/4 with O_h((1+log_5 N)^2) counting discrepancy; mu_h has an exact finite carry recursion, and adjacent-pair counts over 5^k have the stated exact logarithmic-bias 16-cell formula.",
+  "limitations": [
+    "Source package Git object contents were actually fetched and inspected at the frozen commit; full directory tree not independently recomputed.",
+    "Bibliographic novelty is best-of-knowledge and not global priority certification; material-access/reading limits appear in each source_inspections entry.",
+    "Finite checking has the exact stated bounds and does not substitute for proofs of parameter-universal assertions."
+  ],
+  "residual_risks": [
+    "General automatic-sequence correlation theory or an unindexed older paper could imply this particular law; a whole-document exclusion for every related primary work has not been proven.",
+    "The general N discrepancy O_h(log^2 N) is only an upper bound; sharpness is established at N=5^k, not for arbitrary cutoffs."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS digit-product premise, no matching all-lag pair theorem in inspected portion",
+      "evidence": "The congruence framework establishes Lucas products for constant-term sequences; two-point Fourier/carry laws are an extra conclusion.",
+      "identifier_or_url": "arxiv:2111.08641",
+      "material_read": "Primary PDF Proposition 1.3/Theorem 1.4 and introductory constructions (rendered page 2, as well as extracted text)",
+      "method": "PDF text and rendered page",
+      "title": "Generalized Lucas congruences and linear p-schemes",
+      "trigger": "same constant-term Lucas property"
+    },
+    {
+      "assessment": "RELATED, full text priority check remains limited",
+      "evidence": "General p-schemes concern congruences of coefficients, no verified explicit modulo-five 16-cell two-point law.",
+      "identifier_or_url": "arxiv:2205.09902",
+      "material_read": "Primary abstract and cited scope; no complete paper-wide exclusion established",
+      "method": "primary bibliographic/abstract reading",
+      "title": "On congruence schemes for constant terms and their applications",
+      "trigger": "possible generalized congruence machinery"
+    },
+    {
+      "assessment": "RELATED, not sufficient to exclude all hidden two-point corollaries",
+      "evidence": "Uniform recurrence is a qualitative recurrence property, not a numerical pair-frequency distribution.",
+      "identifier_or_url": "arxiv:2403.00149",
+      "material_read": "Primary abstract/identified recurrence claims, not full document",
+      "method": "abstract and statement-level reading",
+      "title": "Uniform Recurrence in the Motzkin Numbers and Related Sequences mod p",
+      "trigger": "related finite-state residue words"
+    }
+  ]
+}
