@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact mathematical verification
 
-Run `python verify_reduction.py` with Python 3. No packages beyond the standard library are required. The code uses integer pairs to represent Gaussian integers and exact finite-field arithmetic to compute residue sections.
+# Independent mathematical audit
 
-## Actual checks performed
+## correctness
 
-The verifier executed successfully and emitted `KOMIYA_KURIBAYASHI_PRIMITIVE_66_SECTION_ARITHMETIC_AND_HERMITIAN_JUMP_OK` along with the exact norm and weight catalogues:
+PASS
 
-- Gaussian triple determinant norms: `{4:8, 20:48, 36:24, 40:24, 64:12, 80:48, 100:48, 200:8}`, counting exactly 220 triples.
-- Inert prime 3: 30 singleton and 6 six-label primitive pair-section classes.
-- Both primes above 5: 12 singleton and 6 nine-label classes, all 18 rational points on the reduced four-line quartic.
-- Prime 2: 3 two-label, 3 four-label, and 1 forty-eight-label classes, all 7 support points explicitly checked.
-- Every one of the 12 fourth-contact identities and both quartic special-fiber polynomial identities.
-- Characteristic-three Hermitian 28-point polar tangent set and inclusion of the 12 specialized lines.
+On the displayed quartic over Z[i] and its ordered twelve linear forms, exactly computed Gaussian triple-determinant norms have support 2,3,5 only, proving 66 distinct double intersections at every p>=7. Gaussian-primitive cross-product pair sections remain defined under every reduction; the exhaustive finite residue classifications are p=3: thirty singleton and six weight-six points; p=5 at both primes: twelve singleton and six weight-nine; p=2: one weight-48, three weight-four and three weight-two. These agree with geometric Hermitian 28-point quartic at p=3, four-line factorization at p=5, and double conic at p=2. The sections count marked generic pair labels, not special-fiber intrinsic intersection lengths. Independent norm and limiting-line checks corroborate the provided complete residue-field proof.
 
-## Proof boundary
+## originality
 
-The full prime-uniform conclusion is based on the *complete* 220-triple norm factorization and the elementary prime divisibility implication. A single good-characteristic sample would not suffice. The complete characteristic-specific enumeration is finite and exact over the specified residue fields. The number of marked sections and their weights must not be identified with the scheme-theoretic local lengths of a flat limit without additional deformation theory. No independent external mathematical audit has been performed.
+PASS
+
+Merta-Zielinski completely tabulate the complex 12 tangent arrangement and its distinct dual arrangement; the paper does not give the arithmetic reduction of the original tangent lines and primitive pair-section multiplicities in the relevant full Section 3. Edge 1945 original remains a priority risk.
+
+## value
+
+PASS
+
+A complete finite bad-prime classification and exact marked degeneration weights for a canonical 12-line quartic arrangement give geometric/arithmetic information not contained in its complex incidence census; the p=3 Hermitian coincidence is a meaningful structural explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
