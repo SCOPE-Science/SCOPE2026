@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Conditioning on one fixed non-induced motif copy forces exactly its incident template edges, producing a parity character expectation of \((-1)^{d_H(u)}(1-2p)^{n-1-d_H(u)}\). Linearity over copies gives the exact mixed covariance without assuming the copies are independent. Within each uniform degree-parity class, every summand has the same sign away from the midpoint; the highest-degree template vertices give the nonzero leading midpoint coefficient. The standalone exact-rational enumeration independently checked 338 identities/signs, including every graph on at most five vertices at five edge probabilities and additional explicit formulas. No finite check substitutes for the proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+PASS: With chi_w=(-1)^{deg_G(w)}, O=(n-sum chi_w)/2. Conditioning on the presence of a noninduced copy of H forces d_H(u) incident edges at each copied u, hence E[chi_w|copy]=(-1)^d s^(n-1-d), s=1-2p; outside copy the expectation remains s^(n-1). Linearity over M_H=(n)_v/Aut(H) gives equation (1), with no independence assumption between motif copies. For pure even/odd degrees, each bracket factors s^(n-1-d)(1∓s^d); the parenthetic term is strictly positive for -1<s<1 and all exponents share parity. Factoring s^(n-1-Delta) yields midpoint zero multiplicity exactly n-1-Delta and nonzero leading coefficient from m maximum-degree vertices. At q=0 midpoint covariance is nonzero. Independent enumeration of all graph edge subsets for n=3,4 and rational p=1/4,1/2,3/4 matches exact covariance for K2,P3,K3, including a mixed-degree motif. Thus unrestricted statement is backed by character derivation, not finite graph tests.
 
-The examined primary-text sections of *Random even graphs* (arXiv:0709.3039) and *Random graphs with forbidden vertex degrees* (arXiv:0712.0270) concern degree-conditioned probability measures and random-even-graph structure, not the present unconditioned non-induced-motif covariance. Broad and targeted mathematical research searches did not identify the same two-class sign and exact zero-multiplicity theorem. The elementary parity-character method could have appeared elsewhere, and the absence of a found statement is not proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The odd-degree count is a natural measure of the mod-two degree boundary, while subgraph counts are fundamental observables in random graph theory. The result gives a complete sign classification simultaneously for every Eulerian and every odd-regular-parity motif (including disconnected ones), identifies a phase reversal at the fair-edge model where applicable, and evaluates the exact order of degeneracy there in terms of maximum motif degree. This is a structural restriction not supplied by either marginal distribution alone.
+PASS best-of-knowledge: Grimmett–Janson primarily study laws conditioned on all degrees even or on allowed degrees, not the exact unconditioned motif-covariance formula with parity-based signs and midpoint multiplicities. A classical mod-two Fourier/character approach makes the calculation elementary, but no same all-motif formula or zero-order table was located in the inspected sources.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS, with modest scope: The universal sign-and-zero law for the joint behavior of odd-degree vertex counts and arbitrary noninduced motif counts is a natural probability invariant. Its exact midpoint vanishing order and dependence only on the maximum motif degree can support covariance comparisons and statistical signatures across motifs; it is more than checking one graph example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
