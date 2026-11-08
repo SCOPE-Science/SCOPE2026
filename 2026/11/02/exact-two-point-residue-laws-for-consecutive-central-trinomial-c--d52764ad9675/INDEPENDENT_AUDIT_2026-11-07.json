@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:49:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The antecedent Krattenthaler–Müller Theorem 17 gives T_n≡1+2s₂(floor(n/2))+4e₂(n) mod8. Write n=2^(t+1)H+2^t−1, t=v₂(n+1); direct carry counting gives Δ(a,b)=(0,H mod2) for t=0 and (t mod2,(H+t−1) mod2) for t≥1. Every initial-state/low-bit triple is asymptotically uniformly distributed with O(√M) discrepancy by binary Walsh inversion and a signed 2×2 transfer with M_u M_u^T=2I. The parity-class trailing-run weights are t=0:1/2, positive odd t:1/3, positive even t:1/6; with conditional fair Δb this yields each 1/12 or 1/24 joint transition. Sum O(√(N/2^t)) over t gives O(√N) for every cutoff. A Rudin–Shapiro transfer shows B_r=∑_{n<2^r}(−1)^{e₂(n)}=2^ceil(r/2), a signed row-combination obstruction to a uniform smaller error exponent. Independent recurrence and digit checks verified first 514 coefficients and pair tables through 2^16; this does not substitute for infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krattenthaler–Müller complete pointwise digit formula is stronger for any individual coefficient but does not in its inspected theorem state 16 joint densities with O(√N) uniform discrepancy.",
+          "General p-linear/automatic generation tools do not by themselves imply a particular explicit two-point limiting distribution and sharp discrepancy exponent."
+        ],
+        "reasoning": "Pointwise determination and joint quantitative correlation are not equivalent theorem statements: the latter is derived from the former plus an additional nontrivial transfer estimate. Any broader automatic-correlation theorem would need matching hypotheses and exact weights.",
+        "searches": [
+          "arXiv:1608.05657 Theorem 17 central trinomial modulo 8",
+          "arXiv:2211.15240 p linear schemes",
+          "arXiv:1310.8635 Rowland Yassawi diagonals automatic congruences"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1608.05657 §8.4 Thm 17",
+        "https://arxiv.org/abs/2211.15240 abstract",
+        "https://arxiv.org/abs/1310.8635 abstract/known related modulo-four formulation",
+        "Resultary semantic search for adjacent central trinomial mod-eight correlations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 17 produces the a(n),b(n) states. To obtain joint probabilities requires conditioning on t=v₂(n+1) and uniform 3-bit Walsh frequencies; the paper itself proves pointwise congruence.",
+          "B_r=2^ceil(r/2) sharpness comes from a separate Rudin–Shapiro transfer identity."
+        ],
+        "reasoning": "The source is a necessary antecedent, not the same published quantitative theorem in inspected text. Stronger block-distribution automata results remain a real bibliographic risk.",
+        "searches": [
+          "Krattenthaler Müller arXiv:1608.05657 Section 8.4 Theorem 17",
+          "Beukers arXiv:2211.15240 linear schemes modulo powers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T_n mod8 is bijective with the 2-bit state (s₂(n>>1),e₂(n)) mod2; pair laws correspond to joint letter frequencies of that automatic sequence.",
+          "The previous pointwise congruence can mechanically compute each pair of finite indices but not automatically provide the density/error law without transfer analysis."
+        ],
+        "reasoning": "Explicitly compared automatic-word correlation formulation with direct trinomial congruences and distinguished pointwise algorithm from a proven asymptotic.",
+        "searches": [
+          "central trinomial coefficients modulo 8 consecutive adjacent residue transition densities joint distribution",
+          "central trinomial sequence modulo 8 Rudin Shapiro adjacent correlations",
+          "automatic sequence two point measures central trinomial mod8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known OEIS single-index residue table can by itself certify all-cutoff pair error or its sharp exponent.",
+          "The published digit formula yields marginal residues but does not display the ordered 16-pair limit table in inspected Section 8.4."
+        ],
+        "reasoning": "Checked natural tabulation/automatic-sequence aliases. A tabulation of finite data is not a quantified density law; no exact dominating table found.",
+        "searches": [
+          "central trinomial coefficients modulo 8 consecutive adjacent residue transition densities joint distribution",
+          "central trinomial coefficient mod8 consecutive residues 16 transition matrix 1/12 1/24",
+          "OEIS A002426 modulo eight pairs distribution"
+        ]
+      },
+      "rationale": "Krattenthaler–Müller Theorem 17 ALREADY determines each coefficient modulo 8 and is correctly credited. The new claim is its quantitative adjacent-pair distribution and sharp all-cutoff discrepancy, obtained via carry partition and signed automata; the inspected theorem/neighboring text does not state this joint law. Beukers p-linear schemes and Rowland–Yassawi automata provide wider techniques, not a located dominating two-point transition table. An unindexed automatic-sequence autocorrelation theorem might imply it, acknowledged as risk.",
+      "residual_risks": [
+        "An earlier block-frequency theorem for the automatic sequence implicit in Theorem 17 might entail the same joint table; not categorically excluded.",
+        "The O(√N) optimality is family-wide, not proved separately for each of 16 pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "published antecedent for all pointwise residues; inspected theorem does not state pair-density/correlation bound",
+          "evidence": "Theorem 17 expresses T_n mod8 via binary digit count and overlapping adjacent ones.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05657",
+          "material_read": "full relevant PDF §8.4 including Theorem 17 and surrounding coefficient-extraction formula (8.10), page image",
+          "method": "primary PDF text and screenshot",
+          "title": "Motzkin numbers and related sequences modulo powers of 2",
+          "trigger": "directly determines central trinomial residues modulo eight"
+        },
+        {
+          "assessment": "general scheme but full text not independently inspected for possible correlations",
+          "evidence": "The abstract concerns modular generation of sequences, not an explicit adjacent trinomial law.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.15240",
+          "material_read": "abstract and described p-linear framework only",
+          "method": "arXiv abstract",
+          "title": "p-Linear schemes for sequences modulo p^r",
+          "trigger": "general prime-power automaton technique"
+        },
+        {
+          "assessment": "related modulo-four case rather than proven adjacent mod-eight law in material examined",
+          "evidence": "Potential higher-dimensional automatic-product framework is a remaining priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "abstract and Section 4.2 described in accessible secondary summaries",
+          "method": "arXiv description and contextual source",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "automatic sequence representation of related coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Consecutive residues of a classical integer sequence have a natural 16-state joint distribution; the exact two-level Markov-like transition probabilities show persistent dependence despite uniform one-point frequencies. A sharp all-cutoff square-root error and its obstruction supply mathematically reusable quantitative digit-correlation information, not merely rephrasing the antecedent digit formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every ordered j,k∈{1,3,5,7}, #{0≤n<N:T_n≡j,T_(n+1)≡k mod8}=N/12+O(√N) if α(j)=α(k) and N/24+O(√N) otherwise, α(j)=((j−1)/2) mod2. Both positive conditional probability tiers are exact; the √N exponent cannot be uniformly improved for the 16-pair family.",
+  "limitations": [
+    "An earlier block-frequency theorem for the automatic sequence implicit in Theorem 17 might entail the same joint table; not categorically excluded.",
+    "The O(√N) optimality is family-wide, not proved separately for each of 16 pairs."
+  ],
+  "schema_version": 1
+}

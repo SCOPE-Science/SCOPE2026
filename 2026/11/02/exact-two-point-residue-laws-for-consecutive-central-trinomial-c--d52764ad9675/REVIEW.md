@@ -1,19 +1,21 @@
-# Scientific review: two-point central trinomial residue law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact definition of \(T_n\), the four starting and target congruence classes, all quantifiers and the all-cutoff error are explicit. The source's actual Theorem 17 was inspected in full in arXiv:1608.05657v3, Section 8.4, and agrees with the digit-formula normalization used here. The fresh step is the exhaustive trailing-one carry decomposition: \(n=2^{t+1}H+2^t-1\), with an exact rule for the two parity increments, checked through the first 10,000 consecutive pairs. The independent eight-state Walsh analysis gives square-root bounds on each digit-triple fiber, and summing the geometric trailing-run slices yields both positive pair densities and an error for every integer cutoff. The signed Rudin–Shapiro two-state transfer gives a lower bound of square-root size for the combined error, proving precisely the claimed family-wide optimality. The standalone checker successfully verifies direct coefficients, a separate integer recurrence, all sixteen pair counts at ten dyadic scales, and the carry law. The proof, not those finite checks, establishes the infinite statements.
+PASS
 
-## Originality — PASS, with explicit residual priority risk
+The antecedent Krattenthaler–Müller Theorem 17 gives T_n≡1+2s₂(floor(n/2))+4e₂(n) mod8. Write n=2^(t+1)H+2^t−1, t=v₂(n+1); direct carry counting gives Δ(a,b)=(0,H mod2) for t=0 and (t mod2,(H+t−1) mod2) for t≥1. Every initial-state/low-bit triple is asymptotically uniformly distributed with O(√M) discrepancy by binary Walsh inversion and a signed 2×2 transfer with M_u M_u^T=2I. The parity-class trailing-run weights are t=0:1/2, positive odd t:1/3, positive even t:1/6; with conditional fair Δb this yields each 1/12 or 1/24 joint transition. Sum O(√(N/2^t)) over t gives O(√N) for every cutoff. A Rudin–Shapiro transfer shows B_r=∑_{n<2^r}(−1)^{e₂(n)}=2^ceil(r/2), a signed row-combination obstruction to a uniform smaller error exponent. Independent recurrence and digit checks verified first 514 coefficients and pair tables through 2^16; this does not substitute for infinite proof.
 
-Krattenthaler and Müller (arXiv:1608.05657, Theorem 17) **already give the complete pointwise congruence modulo eight**. This is credited as an antecedent, not claimed as new. The new claim is a quantitative two-point correlation theorem: a sixteen-entry transition law, conditional dependence despite uniform marginals, a global \(O(\sqrt N)\) discrepancy, and the sharp family-wide exponent. The inspected source's full relevant theorem and surrounding text state neither such pair limits nor any correlation-discrepancy theorem. Beukers (arXiv:2211.15240) concerns general prime-power linear schemes and does not state the sixteen transition limits; Rowland–Yassawi establish automaticity and earlier lower-modulus constructions but not these asymptotics. Targeted primary-literature and mathematical-record searches, plus checked accessible prior claims, found no equivalent assertion. A pointwise digit formula logically permits computation of all finite paired events; therefore a sufficiently broad prior *statistical* theorem about automatic sequences could cover the present density result without naming trinomial coefficients. This is an identified, unresolved bibliographic risk, not disguised by claims of absolute priority. No decisive covering theorem emerged from inspected sources.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform one-point residue densities do not reveal whether consecutive terms behave independently. Their exact dependence is a natural correlation question for a classical number-theory sequence. The nonuniform limiting transition matrix is fully explicit and positive across sixteen pairs, and the quantitative square-root bound works for arbitrary cutoffs with a genuine global sharpness obstruction. The carry partition and signed transfer argument give structural information beyond recomputing a finite table. This is not a new pointwise modular formula or a general higher-order correlation theorem; both limitations are explicit.
+Krattenthaler–Müller Theorem 17 ALREADY determines each coefficient modulo 8 and is correctly credited. The new claim is its quantitative adjacent-pair distribution and sharp all-cutoff discrepancy, obtained via carry partition and signed automata; the inspected theorem/neighboring text does not state this joint law. Beukers p-linear schemes and Rowland–Yassawi automata provide wider techniques, not a located dominating two-point transition table. An unindexed automatic-sequence autocorrelation theorem might imply it, acknowledged as risk.
 
-## Source assessment and limitations
+## value
 
-Theorem 17 and the surrounding Section 8.4 of Krattenthaler–Müller were inspected as full HTML. Beukers's accessible preprint and Rowland–Yassawi's relevant construction were checked for the corresponding objects and results. Search also included exact consecutive-residue terms, two-point correlation, modular-eight transition matrices and relevant published-finding corpus records. The strongest originality risk is an unindexed specialized correlation calculation derived from the known complete pointwise formula; independent bibliographic audit remains outstanding. Finite verifications corroborate normalization but do not replace the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Consecutive residues of a classical integer sequence have a natural 16-state joint distribution; the exact two-level Markov-like transition probabilities show persistent dependence despite uniform one-point frequencies. A sharp all-cutoff square-root error and its obstruction supply mathematically reusable quantitative digit-correlation information, not merely rephrasing the antecedent digit formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
