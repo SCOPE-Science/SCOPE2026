@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes normalization and quantifiers \(L\ge2\), \(m=2L\), \(0<h<1\), and all real \(\delta\), then decomposes the full sample Gram by separate cyclic Fourier transforms. Strict positivity of every ordinary residue follows from two explicitly nonvanishing adjacent-degree associated Legendre factors with opposite latitude parities. The Nyquist residue contains precisely the two degree-\(L\) orders and gives eigenvalues \(2mw(1\pm\cos(L\delta))\). Determinant, exact rank loss, and condition-number comparison are algebraic consequences, checked against direct matrices. No step infers the infinite family from finite tests.
+## correctness
 
-## Originality — PASS, bounded
-The closest source, zu Castell–Lain Fernández–Xu (arXiv:math/0407448), already uses half-shifted symmetric latitude grids to establish qualitative interpolation statements; therefore the half-step geometry alone is covered. Its inspected material does not establish the new *comparison across every angular offset*: exact Gram determinant ratio \(\sin^2(L\delta)\), independence of \(4L-2\) eigenvalues, and the resulting sharp phase-only conditioning optimum for all \(L\) and heights. Khalid–Kennedy–McEwen (arXiv:1403.4661) and Marzo (arXiv:math/0611503) address different sampling schemes or qualitative density statements. Index searches did not identify the same stronger claim, but incompleteness of indexing and possible equivalent interpolation formulas remain real risks.
+PASS
 
-## Mathematical value — PASS
-For a natural two-ring spherical-harmonic acquisition geometry already used for interpolation, the theorem selects a globally determinant-optimal relative angular arrangement and quantifies *exactly* how stability and rank deteriorate with phase. The all-bandwidth factorization separates geometry-sensitive and insensitive modes and supplies a reusable spectral design criterion rather than a routine example of generic full rank.
+Under two length-m unitary Fourier transforms, non-Nyquist residues contain one order q and the opposite-parity ℓ=|q|,|q|+1 contributions, both strictly nonzero for 0<h<1; their two Gram eigenvalues m(a_q±|b_q|) are strictly positive and phase independent. The Nyquist residue alone mixes q=±L and has eigenvalues 2mw(1±cos(Lδ)), producing determinant ratio sin²(Lδ); aligned rings therefore have rank 4L-1 and half-step full rank 4L. The two varying Nyquist eigenvalues spread away from half-step with fixed sum, so every phase yields weakly larger condition number; determinant optimality is unique modulo longitudes, while condition-number uniqueness is not asserted. New evaluations for L=2,3,4 and two heights independently corroborated the determinant ratio; the algebra establishes every integer L.
 
-## Limits
-No theorem on optimal latitude heights, sample weights or arbitrary spherical nodes. Finite computation corroborates but does not certify the continuum claim. Bibliographic overlap assessment is bounded; independent audit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Half-step latitude staggering and qualitative interpolation are acknowledged prior art. The candidate new part is the complete sharp determinant ratio and spectral stability/conditioning decomposition at the exactly two-ring critical harmonic bandwidth; the 2004 paper was inspected beyond its abstract to distinguish its multi-circle unisolvence theorems.
+
+## value
+
+PASS
+
+Spherical harmonic interpolation across latitude rings is a natural numerical-analysis problem. The exact determinant loss and one-dimensional rank defect diagnose sampling degeneracy, while the optimal staggered offset has a closed-form design rule at a sharp bandwidth, meaningful beyond the already-known qualitative half-step trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

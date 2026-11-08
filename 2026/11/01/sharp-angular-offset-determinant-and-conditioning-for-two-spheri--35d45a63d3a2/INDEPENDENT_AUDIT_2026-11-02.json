@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:54:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under two length-m unitary Fourier transforms, non-Nyquist residues contain one order q and the opposite-parity ℓ=|q|,|q|+1 contributions, both strictly nonzero for 0<h<1; their two Gram eigenvalues m(a_q±|b_q|) are strictly positive and phase independent. The Nyquist residue alone mixes q=±L and has eigenvalues 2mw(1±cos(Lδ)), producing determinant ratio sin²(Lδ); aligned rings therefore have rank 4L-1 and half-step full rank 4L. The two varying Nyquist eigenvalues spread away from half-step with fixed sum, so every phase yields weakly larger condition number; determinant optimality is unique modulo longitudes, while condition-number uniqueness is not asserted. New evaluations for L=2,3,4 and two heights independently corroborated the determinant ratio; the algebra establishes every integer L.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2004 work proves degree-n polynomial interpolation at (n+1)^2 nodes, with circle-based constructions; the audited matrix has 4L rows and (L+1)^2 columns, typically not square.",
+          "Marzo studies asymptotic interpolation density and Marcinkiewicz–Zygmund bounds on sphere rather than exact fixed two-latitude row-Gram determinant."
+        ],
+        "reasoning": "These results furnish geometric context and qualitative rank/sampling expectations; none of the checked primary theorem statements gives the exact analytic sin² determinant factor for this distinct dimensional setting.",
+        "searches": [
+          "arxiv:math/0407448",
+          "arxiv:math/0611503",
+          "sphere polynomials interpolation MZ inequalities angular determinants"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0407448",
+        "arxiv:1403.4661",
+        "arxiv:math/0611503",
+        "Resultary two-latitude Nyquist sampling query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior half-step constructions give point arrangement and unisolvence in other configurations, not the full two-by-two Fourier Nyquist eigenvalue law.",
+          "The present formula implies precise rank loss exactly for aligned phases and conditional minimization at staggered phases."
+        ],
+        "reasoning": "Known interpolation sufficiency is weaker than an exact determinant phase factor; the sharp numerical robustness statements do not follow by merely relabeling existing half-step sampling points.",
+        "searches": [
+          "arxiv:math/0407448",
+          "arxiv:1403.4661",
+          "Resultary: two concentric symmetric latitude circles spherical harmonics sampling determinant sin squared offset Nyquist half-step sharp condition number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zu Castell–Lain Fernández–Xu (2004) Theorem 2.6 uses staggered latitude rings among special interpolation node sets, not a two-ring all-degree Gram determinant optimization.",
+          "Khalid–Kennedy–McEwen 2014 pursue an iso-latitude sampling scheme involving many rings."
+        ],
+        "reasoning": "Existence of a half-step node arrangement or an unisolvent polynomial interpolation scheme does not imply the exact two-ring Nyquist spectral factorization and global determinant or condition-number extremum.",
+        "searches": [
+          "arxiv:math/0407448",
+          "arxiv:1403.4661",
+          "two symmetric latitude circles Nyquist harmonic Fourier frame determinant sin² angular staggering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For L>=2,h∈(0,1), δ continuous, the proposed formula is an analytic continuum identity rather than one numerical table.",
+          "Earlier designs compare node counts and stability but not a matching full-parameter tabulation in the examined sections."
+        ],
+        "reasoning": "No matching exact table identified, but failure to find one is only bounded evidence and remains a priority risk.",
+        "searches": [
+          "spherical harmonics two concentric latitude rings exact Gram determinant Nyquist offset table",
+          "arxiv:1403.4661"
+        ]
+      },
+      "rationale": "Half-step latitude staggering and qualitative interpolation are acknowledged prior art. The candidate new part is the complete sharp determinant ratio and spectral stability/conditioning decomposition at the exactly two-ring critical harmonic bandwidth; the 2004 paper was inspected beyond its abstract to distinguish its multi-circle unisolvence theorems.",
+      "residual_risks": [
+        "An equivalent determinant identity could appear under discrete-Fourier alias or unpublished spherical-design literature.",
+        "The 2014 and density-theory papers were not reread fully; their general interpolation implications were assessed from available statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No corresponding two-equal-ring all-harmonic Gram determinant phase ratio or condition-number result in inspected theorems.",
+          "evidence": "2004 Theorem 2.6 uses half-step construction for general polynomial interpolation nodes.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407448",
+          "material_read": "Opened complete 2004 arXiv PDF, visually inspected relevant page, read Theorems 2.6–2.7 and the central interpolation construction.",
+          "method": "Compared hypotheses, number of nodes, circle geometry and asserted interpolation conclusion.",
+          "title": "Polynomial Interpolation on the Unit Sphere II",
+          "trigger": "Original half-step latitude circle construction potentially covering claim"
+        },
+        {
+          "assessment": "Related design framework, no full-text noncoverage claim.",
+          "evidence": "Optimal-dimensionality criterion differs from two-circle fixed-bandwidth condition number.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.4661",
+          "material_read": "Bibliographic abstract and problem description available; full paper not independently inspected this execution.",
+          "method": "Compared distinct multiple-circle optimal-dimensional node design to exactly two-ring constrained Gram optimization.",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "Possible global iso-latitude sampling dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Spherical harmonic interpolation across latitude rings is a natural numerical-analysis problem. The exact determinant loss and one-dimensional rank defect diagnose sampling degeneracy, while the optimal staggered offset has a closed-form design rule at a sharp bandwidth, meaningful beyond the already-known qualitative half-step trick.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two symmetric, nonpolar and nonequatorial latitude rings, uniform unweighted samples, degree cutoff L=m/2.",
+    "Condition number optimum may be nonunique; proof establishes minimum, not unique minimum."
+  ],
+  "schema_version": 1
+}

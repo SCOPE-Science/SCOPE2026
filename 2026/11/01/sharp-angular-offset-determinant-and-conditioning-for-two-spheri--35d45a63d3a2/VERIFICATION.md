@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical block proof in `RESULT.md` gives the theorem for every integer \(L\ge2\), every real offset and every height \(0<h<1\). Its critical checks are that each non-Nyquist Fourier residue has strictly positive even- and odd-parity contributions, and that the Nyquist block has eigenvalues \(2mw(1\pm\cos(L\delta))\).
+## correctness
 
-Run `python check.py` with Python 3, NumPy and SciPy (including `scipy.special.sph_harm_y`). The checker independently evaluates the spherical harmonics and compares the full row Gram spectrum, rank, and determinant ratios with the analytic Fourier block for dimensions \(L=2,\ldots,9\), three heights, and seven phase choices. It reported 168 successful configurations. These finite checks are not a proof of all-parameter validity. Bibliographic similarity comparisons were bounded; independent mathematical audit has not been performed.
+PASS
+
+Under two length-m unitary Fourier transforms, non-Nyquist residues contain one order q and the opposite-parity ℓ=|q|,|q|+1 contributions, both strictly nonzero for 0<h<1; their two Gram eigenvalues m(a_q±|b_q|) are strictly positive and phase independent. The Nyquist residue alone mixes q=±L and has eigenvalues 2mw(1±cos(Lδ)), producing determinant ratio sin²(Lδ); aligned rings therefore have rank 4L-1 and half-step full rank 4L. The two varying Nyquist eigenvalues spread away from half-step with fixed sum, so every phase yields weakly larger condition number; determinant optimality is unique modulo longitudes, while condition-number uniqueness is not asserted. New evaluations for L=2,3,4 and two heights independently corroborated the determinant ratio; the algebra establishes every integer L.
+
+## originality
+
+PASS
+
+Half-step latitude staggering and qualitative interpolation are acknowledged prior art. The candidate new part is the complete sharp determinant ratio and spectral stability/conditioning decomposition at the exactly two-ring critical harmonic bandwidth; the 2004 paper was inspected beyond its abstract to distinguish its multi-circle unisolvence theorems.
+
+## value
+
+PASS
+
+Spherical harmonic interpolation across latitude rings is a natural numerical-analysis problem. The exact determinant loss and one-dimensional rank defect diagnose sampling degeneracy, while the optimal staggered offset has a closed-form design rule at a sharp bandwidth, meaningful beyond the already-known qualitative half-step trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
