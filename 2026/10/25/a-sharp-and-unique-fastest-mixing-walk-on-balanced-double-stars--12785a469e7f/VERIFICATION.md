@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof establishes the theorem for **all** integers \(k\ge1\) and **all** feasible symmetric nonnegative stochastic matrices. The certificate is the single Rayleigh vector with hub entries \(\pm1\) and leaf entries \(\pm(1+\sqrt2)\); row stochasticity bounds its quadratic energy by 4. Equality forces every hub diagonal to vanish, while the leaf eigen-equations force all edge weights. The constructed spectrum controls the negative eigenvalue and verifies the SLEM. These steps, not tests, establish global optimality and uniqueness.
+## correctness
 
-To independently reproduce the supplementary computational checks, install the pinned packages in `requirements.txt` under Python 3 and run `python verify.py` from the folder containing those two files. The actual successful output was:
+PASS
 
-`VERIFY_OK: exact radical identities for 12 graph orders; 2000 fully nonuniform feasible competitors; stochasticity, 2k+2 eigenvalue comparisons and Metropolis asymptotic comparison`
+For each integer k>=1, x=(1,t on left; -1,-t on right), t=1+sqrt2, has x⊥1, ||x||²=2[1+k(3+2sqrt2)]=2D, and x^TLx=2(A+C)+4b≤4 by hub row budgets. Thus algebraic connectivity α≤2/D for EVERY feasible symmetric P, regardless of edge orbit invariance. Candidate a=(2+sqrt2)/D, b=(1+k(1+sqrt2))/D gives ka+b=1, is nonnegative, and Lx=(2/D)x. Full orthogonal eigenvalue decomposition: 0,a (2k-2 copies),(k+1)a,η± where q(z)=z²-[(k+1)a+2b]z+2ab. Signs q(a)=-ka² and q((k+1)a)=-2kab place η-=2/D as smallest positive eigenvalue and η+≤2-η- since a+b≤1, giving SLEM 1-2/D. Equal SLEM forces both hub budgets saturated, x as eigenvector and every individual leaf edge a, hence bridge b: global unique optimum. Distinct heuristic a=b=1/(k+1) has gap [k+3-sqrt((k+3)²-8)]/[2(k+1)], worse for k>=2 and order k^-2. Independent symbolic residuals in free k and twelve matrix spectra reproduced; finite tests are support, not unrestricted proof.
 
-The code uses exact symbolic arithmetic for \(1\le k\le12\) to verify hub saturation, the left hub/leaf eigenvector equations, and the antisymmetric quadratic. It builds all matrix entries and independently checks their numeric spectra. It further constructs 2,000 distinct feasible non-orbit-invariant random chains and verifies they do not undercut the formula. These experiments are finite checks, not exhaustive enumeration, not a proof of infinite-dimensional statements, and not independent scientific audit.
+## originality
 
-No proof is claimed beyond balanced double stars or outside symmetric nonnegative stochastic matrices. Specialized historical sources not surfaced by the documented search may exist. Independent audit: not performed.
+PASS
+
+Best-of-knowledge original for k>=2 in the uniformly stationary balanced bistar. Crucially, the 2020 Jafarizadeh source already addresses exactly the bistar topology but its formula requires conditions (60), violated for all k>=2 with uniform masses; its candidate even breaches hub stochasticity. General FMMC SDP and clique-bridge block theory do not entail a closed-form constrained optimizer or uniqueness. k=1 is known path, explicitly credited. Strong exact-object prior merits ongoing specialist check.
+
+## value
+
+PASS
+
+Balanced double stars are a natural diameter-three cut-bottleneck family for discrete-time fastest mixing with uniform equilibrium. A single sharp non-symmetrized Rayleigh dual vector, optimizer on a hub-loop-saturation boundary, and individual-edge uniqueness resolve a nontrivial family of SDPs in closed form. The exact comparison proves order-k improvement in spectral gap over standard maximum-degree/Metropolis heuristics; not merely a parameter renaming, known table entry, or tiny sample computation. Natural limits are balanced sizes and reversible nonnegative stochastic transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

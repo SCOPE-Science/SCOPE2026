@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T09:49:40.695594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each integer k>=1, x=(1,t on left; -1,-t on right), t=1+sqrt2, has x⊥1, ||x||²=2[1+k(3+2sqrt2)]=2D, and x^TLx=2(A+C)+4b≤4 by hub row budgets. Thus algebraic connectivity α≤2/D for EVERY feasible symmetric P, regardless of edge orbit invariance. Candidate a=(2+sqrt2)/D, b=(1+k(1+sqrt2))/D gives ka+b=1, is nonnegative, and Lx=(2/D)x. Full orthogonal eigenvalue decomposition: 0,a (2k-2 copies),(k+1)a,η± where q(z)=z²-[(k+1)a+2b]z+2ab. Signs q(a)=-ka² and q((k+1)a)=-2kab place η-=2/D as smallest positive eigenvalue and η+≤2-η- since a+b≤1, giving SLEM 1-2/D. Equal SLEM forces both hub budgets saturated, x as eigenvector and every individual leaf edge a, hence bridge b: global unique optimum. Distinct heuristic a=b=1/(k+1) has gap [k+3-sqrt((k+3)²-8)]/[2(k+1)], worse for k>=2 and order k^-2. Independent symbolic residuals in free k and twelve matrix spectra reproduced; finite tests are support, not unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd–Diaconis–Xiao 2004 formulates arbitrary-graph fastest mixing as a semidefinite program; its general framework is not itself this closed-form optimizer/uniqueness classification.",
+          "Jafarizadeh 2020 §7.2 symmetric rooted trees assume every vertex of a given depth has the same number of children, with m0≥2; edge-centered balanced bistars with k≥2 do not fit that rooted-tree family.",
+          "Roch 2004 discusses variational bounding techniques rather than an explicit balanced-bistar solution."
+        ],
+        "reasoning": "An optimization algorithm valid on every graph or a sharp trial-vector technique is methodological coverage, not automatically exact formula or uniqueness for each graph family. Closest graph-specific theorem is the conditional bistar treatment, excluded by its feasibility conditions when k≥2.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain tree double star D_{k,k} uniform stationary hub bridge fastest mixing asymptotic gap",
+          "Resultary: optimal fastest mixing symmetric stochastic chain two cliques connected bridge or clique corona exact SLEM spectral gap",
+          "arXiv:2501.02421 §7.2 symmetric rooted trees; §§6.7,7.1",
+          "DOI:10.1137/S0036144503423264 general SDP",
+          "arXiv:math/0409429 fastest mixing variational bounds"
+        ]
+      },
+      "checked_sources": [
+        "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs, IEEE TSIPN 2020, open arXiv:2501.02421, Section 6.7 pp22–24, equations (56)–(60)",
+        "Boyd, Diaconis, Xiao, Fastest Mixing Markov Chain on a Graph, SIAM Review 46 (2004), DOI:10.1137/S0036144503423264, Stanford author PDF",
+        "Boyd, Diaconis, Parrilo, Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955, Section 5.3.4 joined cliques and equation (29)",
+        "Roch, Bounding Fastest Mixing, arXiv:math/0409429, spectral-gap variational bounds",
+        "Jafarizadeh, Fastest Distributed Consensus Problem on Fusion of Two Star Networks, arXiv:1003.3543 (2010)",
+        "Resultary 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc; Resultary 2026/9/7/SCOPE002; Resultary 2026/10/11/SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe",
+        "Boyd et al., Fastest Mixing Markov Chain on a Path, Amer. Math. Monthly 2006"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bistar interior formula in Jafarizadeh 2020 requires k≤1 for uniform masses and in fact fails the stochastic hub budget for k≥2.",
+          "The two-joined-cliques optimizer in arXiv:0709.0955 has strictly positive within-clique edge weight p2; the balanced double star is the constrained subgraph with these edges forbidden. A quotient block specialization is not the optimal graph-constrained solution.",
+          "The four-vertex path exact solution covers D_1, not D_k for all k≥2."
+        ],
+        "reasoning": "The new k≥2 closed form and nonuniform uniqueness are neither stated nor directly entailed by the inspected exact-object bistar case (whose hypotheses fail), the joined-clique optimum (wrong feasible set), or the path case (single boundary member). This is best-of-knowledge, not absolute priority; implicit derivability from other work remains possible.",
+        "searches": [
+          "Resultary: fastest mixing symmetric stochastic Markov chain balanced double star tree two adjacent hubs k pendant leaves optimal edge probabilities spectral gap uniqueness",
+          "Resultary: optimal fastest mixing symmetric stochastic chain two cliques connected bridge or clique corona exact SLEM spectral gap",
+          "arXiv:2501.02421 §6.7 eqs 56–60, §7.2",
+          "arXiv:0709.0955 §5.3.4 joined cliques",
+          "Boyd–Diaconis–Sun–Xiao 2006 fastest-mixing path theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jafarizadeh 2020 §6.7 Figure 6 identifies the EXACT underlying bistar graph, not just similar parameters; equations (56)–(60) give conditional interior solutions for arbitrary stationary masses.",
+          "Specializing π_i=1 and m1=m2=k in equation (60) yields k≤1. For k≥2, the candidate pendant probability 1/(k+1) plus central bridge 1/2 gives total hub outgoing k/(k+1)+1/2>1; it is infeasible in the present stochastic problem.",
+          "Jafarizadeh 2010 fused-stars has one shared central vertex, whereas D_k has two distinct adjacent hubs."
+        ],
+        "reasoning": "The exact graph does occur in earlier primary literature, an important previously unacknowledged predecessor. Its conditional formula is not applicable to the uniform stationary balanced bistar regime k≥2, and it provides no verified bound or unique optimizer there. For k=1 it coincides with the previously known four-path. The fused-star graph is not graph-isomorphic to D_k.",
+        "searches": [
+          "Resultary: fastest mixing symmetric stochastic Markov chain balanced double star tree two adjacent hubs k pendant leaves optimal edge probabilities spectral gap uniqueness",
+          "Resultary: fastest mixing Markov chain tree double star D_{k,k} uniform stationary hub bridge fastest mixing asymptotic gap",
+          "arXiv:2501.02421 §6.7 exact Bistar topology",
+          "arXiv:1003.3543 fused two stars"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary double-star hit computes fractional zero-forcing, not Markov transition optimization. The balanced-spider hit studies fixed lazy simple random walk and coupling time, not optimal stochastic weights.",
+          "Three semantic Resultary searches did not surface an exact D_k fastest-mixing weight table or formula."
+        ],
+        "reasoning": "An exact table of optimum SLEM/weights for D_k would dominate, but the checked indexed records concern different invariants. Incomplete index coverage is a priority risk, not proof of novelty.",
+        "searches": [
+          "Resultary: fastest mixing symmetric stochastic Markov chain balanced double star tree two adjacent hubs k pendant leaves optimal edge probabilities spectral gap uniqueness",
+          "Resultary: fastest mixing Markov chain tree double star D_{k,k} uniform stationary hub bridge fastest mixing asymptotic gap",
+          "Resultary: optimal fastest mixing symmetric stochastic chain two cliques connected bridge or clique corona exact SLEM spectral gap",
+          "Resultary title/summary: fort hypergraph and fractional zero forcing of double stars",
+          "Resultary title/summary: explicit coupling-tail mixing concentration for lazy balanced spiders"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for k>=2 in the uniformly stationary balanced bistar. Crucially, the 2020 Jafarizadeh source already addresses exactly the bistar topology but its formula requires conditions (60), violated for all k>=2 with uniform masses; its candidate even breaches hub stochasticity. General FMMC SDP and clique-bridge block theory do not entail a closed-form constrained optimizer or uniqueness. k=1 is known path, explicitly credited. Strong exact-object prior merits ongoing specialist check.",
+      "residual_risks": [
+        "Earlier Jafarizadeh 2020 exactly identifies the bistar graph, though its listed optimal regime does not reach uniform k>=2. An unstated implication or a supplemental section could still supersede the solution.",
+        "Search coverage is bounded; unpublished, unindexed, or specialized optimal-edge classifications may exist.",
+        "k=1 is a covered four-vertex path and should never be asserted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_OBJECT_PARTIAL_COVERAGE: prior conditional bistar solution covers k=1 but excludes all uniform k≥2; no verified formula for target regime",
+          "evidence": "§6.7 eq.(60): π_1 Π_- ≤ π_{-1}² and π_{-1} Π_+ ≤ π_1². For all π_i=1 and Π_±=k these require k≤1. Eq.(56) then a=1/(k+1), eq.(57) b=1/2, whose hub outgoing sum exceeds one for k≥2. §7.2 rooted regular symmetric tree family is not edge-centered D_k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.02421 (2020 journal paper; lawful author preprint uploaded 2025)",
+          "material_read": "Full 38-page accessible PDF searched for bistar, symmetry, trees; materially read introduction, §§6.7 and 7.2, equations 56–60 and Fig. 6; inspected screenshot of PDF page 23",
+          "method": "Primary author OA full-text search, relevant sections read, mathematical specialization of eqs (56),(57),(60) to uniform π and m1=m2=k; graphical screenshot",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "Exact bistar graph with two adjacent star centers; strongest plausible dominating source"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_CLASSIFICATION",
+          "evidence": "Introduces and solves fastest mixing via convex SDP and examples; does not state the exact balanced-double-star all-k radical weights or individual-edge equality classification in inspected material.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf (2004, DOI:10.1137/S0036144503423264)",
+          "material_read": "Author PDF intro, optimization formulation, general methods and graph examples, with first PDF page screenshot",
+          "method": "Opened author OA full PDF, searched definitions and canonical examples; compared formulation to a one-parameter graph-family closed form",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational arbitrary-graph SDP might imply formula by a specialization"
+        },
+        {
+          "assessment": "RELATED_QUOTIENT_NOT_DOMINATING",
+          "evidence": "Optimal joined-clique transition uses positive internal leaf-to-leaf weight; setting those edges to zero is an extra constraint and changes the optimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "Full OA paper searched and materially read Section 5.3.4 two joined cliques, positive internal weight p2 and optimum formulas, inspected PDF page screenshot",
+          "method": "OA PDF text and page screenshot; compared feasible edge sets and optimum support",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Joined-clique graph contains the target tree as an edge-deleted constrained subgraph"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Fusion means a single shared hub; target graph has two connected distinct hubs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.3543",
+          "material_read": "Author OA PDF abstract, graph definition and first page with screenshot",
+          "method": "OA primary PDF and topology comparison",
+          "title": "Fastest Distributed Consensus Problem on Fusion of Two Star Networks",
+          "trigger": "Title suggests two-star equivalence"
+        },
+        {
+          "assessment": "METHOD_PREDECESSOR_NOT_FORMULA",
+          "evidence": "General upper/lower variational methods; no inspected all-k balanced-double-star unique transition formula.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0409429",
+          "material_read": "OA paper introduction and variational framework with opening-page screenshot",
+          "method": "OA PDF reading and comparison of explicit family vs general technique",
+          "title": "Bounding Fastest Mixing",
+          "trigger": "Potential broad exact spectral-gap bound subsuming Rayleigh construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Balanced double stars are a natural diameter-three cut-bottleneck family for discrete-time fastest mixing with uniform equilibrium. A single sharp non-symmetrized Rayleigh dual vector, optimizer on a hub-loop-saturation boundary, and individual-edge uniqueness resolve a nontrivial family of SDPs in closed form. The exact comparison proves order-k improvement in spectral gap over standard maximum-degree/Metropolis heuristics; not merely a parameter renaming, known table entry, or tiny sample computation. Natural limits are balanced sizes and reversible nonnegative stochastic transitions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md Git blob 68541a053e4397ecfe6d3c49b5f0f68d7dbc05df",
+    "Assigned verify.py blob 95daadde4746a137379b413019f07afdfebca64b",
+    "Assigned VERIFICATION.md blob e2e25792ba8f82fb425c4394d7fabbfcd07a114b",
+    "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs, IEEE TSIPN 2020, open arXiv:2501.02421, Section 6.7 pp22–24, equations (56)–(60)",
+    "Boyd, Diaconis, Xiao, Fastest Mixing Markov Chain on a Graph, SIAM Review 46 (2004), DOI:10.1137/S0036144503423264, Stanford author PDF",
+    "Boyd, Diaconis, Parrilo, Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955, Section 5.3.4 joined cliques and equation (29)",
+    "Jafarizadeh, Fastest Distributed Consensus Problem on Fusion of Two Star Networks, arXiv:1003.3543 (2010)",
+    "Roch, Bounding Fastest Mixing, arXiv:math/0409429, spectral-gap variational bounds",
+    "Resultary 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc; Resultary 2026/9/7/SCOPE002; Resultary 2026/10/11/SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Earlier Jafarizadeh 2020 exactly identifies the bistar graph, though its listed optimal regime does not reach uniform k>=2. An unstated implication or a supplemental section could still supersede the solution.",
+    "Search coverage is bounded; unpublished, unindexed, or specialized optimal-edge classifications may exist.",
+    "k=1 is a covered four-vertex path and should never be asserted as new."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "k>=1, equal k leaves on both hubs; symmetric entrywise nonnegative row-stochastic transitions with allowed nonnegative self loops only. No unbalanced, nonreversible, signed or continuous-time statement.",
+    "Finite symbolic k=1..12 and numerical spectra cannot replace the Rayleigh and full-block analytic proofs.",
+    "The bistar 2020 primary predecessor is limited to a regime excluding uniformly weighted k>=2; interpretation is based on actual conditions and full-source checked sections, not title matching."
+  ]
+}
