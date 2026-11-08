@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The ordinary standard-library script `verify.py` can be run with `python3 verify.py` in a folder containing the script. It constructs adjacency for each rook graph independently of the incidence-matrix formula, enumerates all vertex subsets, and determines whether every selected vertex has odd or even degree in the induced graph. This includes the vacuously admissible empty set in both counters.
+## correctness
 
-It compares exact coefficient dictionaries with an independently written parity-constrained binary-matrix enumerator on 19 general rook graphs having up to 12 vertices, and with a two-row combinatorial counter on prisms with up to 20 vertices. Altogether it directly checks 1,412,734 vertex subsets. The Fourier projection is separately expanded coefficientwise and compared against 64 tiny binary-matrix cases, and the two closed supports are checked through 60 columns.
+PASS
 
-Observed output:
+For each selected rook vertex (i,j) the induced degree is d_i+e_j-2; equality/opposition of row and column parities therefore characterizes even/odd degrees. Each binary incidence matrix has unique parity-class sets, leaving two disjoint admissible rectangles with prescribed mod-two margins. The sign-character projection proves B_ab even for zero-sized sides. The two-row dichotomy between one full column and only single cells gives the displayed closed forms, including the empty set in both. I independently enumerated actual graph induced degrees for boards (1,1),(1,3),(2,1..5),(3,3),(3,4) and matched the polynomial/structural predictions; the general theorem is symbolic, not inferred from these tests.
 
-`VERIFY_OK general_graphs=19 prism_graphs=10 direct_vertex_subsets=1412734 fourier_blocks=64 symbolic_support_orders=60`
+## originality
 
-Proof dependencies are the degree equality \(\deg_{R[S]}(i,j)=d_i+e_j-2\), the unique parity partition of rows and columns, the roots-of-unity parity projection, and the two-row full-pair/disjoint-row dichotomy. Each is derived in `RESULT.md`. These finite checks are corroboration and do not certify the infinite theorem or publication priority. No independent audit has been performed.
+PASS
+
+The line-graph equivalence and roots-of-unity margin filter are standard. Belmonte–Sau treats largest odd induced subgraphs and complexity, not cardinality-generating polynomials for the rectangular rook family; the additional complete-prism support/residue classification is not a consequence of the cited optimizing bounds. No equivalent full family was found in Resultary or the searched published-record index; this is qualified priority, not a novelty certificate.
+
+## value
+
+PASS
+
+Complete coefficientwise enumerators for a natural highly symmetric graph family determine exactly which induced even/odd-degree subgraph sizes are possible. Complete prisms exhibit unbounded missing even cardinalities above n and binomial exact multiplicities, a substantive distinction from merely determining maximum sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
