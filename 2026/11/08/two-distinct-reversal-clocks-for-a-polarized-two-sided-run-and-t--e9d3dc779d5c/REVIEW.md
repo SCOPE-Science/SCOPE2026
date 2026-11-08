@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The model specifies independent Poisson spatial clouds, marked signs and telegraph flips. Conditioning on Poisson flip counts derives the Bessel absolute-displacement expression via Beta holding times; Poisson thinning produces independent transfer counts. A positive-series Bessel inequality yields the strict derivative sign for \(R(x)\), giving both uniqueness assertions and precise boundary behavior. Large-argument asymptotics justify the two scaling laws. The standalone numerical checker agrees with an independent holding-time calculation but is not the infinite-time proof.
+
+**Originality — PASS, qualified.** Relevant sources include Jose, Rosso and Ramola (arXiv:2306.13613 and arXiv:2310.16811), who study initial magnetization and current moments for a one-sided gas, and Britton et al. (arXiv:2608.23519), who analyze the reorientation-induced displacement laws. The present two-sided signed-current phase diagram, exact order of flux and net-transfer sign crossings, and logarithmic/inverse-square separation are not statements identified in the material inspected. The underlying first-moment formulas have prior coverage; this result does not claim those as new. Some primary full texts could not be read, so independent confirmation of publication priority remains necessary.
+
+**Value — PASS.** The density gradient and initial mean directional polarization are separate physically natural driving mechanisms. Their competition leads to a sharp threshold, two observables with unexpectedly different reversal times, and a divergence in their ratio as the density gradient becomes small. The statement is a complete classification for the stated free-particle model rather than a single parameter example.
+
+**Closest literature and limitations.** The 2023 one-sided current-statistics literature is the closest mathematical input, and 2026 preferred-reorientation work motivates independent directional control. Existing formulas could supply parts of the derivation, so broader independent or unindexed coverage is a live risk. The proof does not address interacting particles, repeated crossing counts, non-Poisson spatial inputs, or trajectories with external forces.
+
+Self-review: passed. Independent audit: not yet performed.
