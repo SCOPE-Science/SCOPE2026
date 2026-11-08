@@ -1,0 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll=long long;using I=__int128_t; const int N=16,FULL=(1<<16)-1;
+string istr(I n){if(!n)return "0";bool neg=n<0;if(neg)n=-n;string s;while(n){s+=char('0'+n%10);n/=10;}if(neg)s+='-';reverse(s.begin(),s.end());return s;}
+vector<array<int,6>> mk(bool sh){vector<array<int,6>> adj(16);for(int v=0;v<16;v++){int x=v/4,y=v%4;vector<int> nb;for(int u=0;u<16;u++){if(u==v)continue;int a=(u/4-x+4)%4,b=(u%4-y+4)%4;bool ok=sh ? ((a==1&&b==0)||(a==3&&b==0)||(a==0&&b==1)||(a==0&&b==3)||(a==1&&b==1)||(a==3&&b==3)):(u/4==x || u%4==y);if(ok)nb.push_back(u);}if(nb.size()!=6)abort();copy(nb.begin(),nb.end(),adj[v].begin());}return adj;}
+I det(vector<vector<I>> A){int n=A.size();if(!n)return 1;I den=1,sgn=1;for(int k=0;k<n-1;k++){if(A[k][k]==0){int j=k+1;while(j<n&&A[j][k]==0)j++;if(j==n)return 0;swap(A[k],A[j]);sgn=-sgn;}I piv=A[k][k];for(int i=k+1;i<n;i++)for(int j=k+1;j<n;j++){I num=A[i][j]*piv-A[i][k]*A[k][j];if(num%den)abort();A[i][j]=num/den;}for(int i=k+1;i<n;i++)A[i][k]=0;den=piv;}return sgn*A[n-1][n-1];}
+int main(int argc,char**argv){if(argc!=2 || (string(argv[1])!="rook" && string(argv[1])!="shrikhande")){cerr<<"Usage: exact_cover rook|shrikhande\n";return 2;}auto adj=mk(string(argv[1])=="shrikhande");int count=0;I mn=0,mx=0;for(int s=1;s<FULL;s+=2){int nodes[16],k=0;for(int v=0;v<N;v++)if(s>>v&1)nodes[k++]=v;vector<vector<I>> M(k,vector<I>(k,0));for(int i=0;i<k;i++){M[i][i]=6;for(int j=0;j<k;j++)if(i!=j)for(int w:adj[nodes[i]])if(w==nodes[j])M[i][j]=-1;}
+I d=det(M);if(d<=0)abort();for(int i=0;i<k;i++)M[i][0]=6;I num=det(M);if(num<=0)abort();if(num/d>100000)abort();cout<<s<<","<<istr(num)<<","<<istr(d)<<"\n";count++;}cerr<<count<<" masks\n";}

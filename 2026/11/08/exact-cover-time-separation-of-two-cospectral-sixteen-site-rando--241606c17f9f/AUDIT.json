@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Both graphs are explicitly defined, verified six-regular with common-neighbor count two and adjacency spectrum 6,2,-2. The exact covering-time identity follows from pointwise max/min inclusion-exclusion and unique finite absorbing-set hitting equations. Fraction-free exact determinants on all 32767 proper root-containing subsets per graph and independent rational summation give a strictly positive exact rational difference in the asserted bounds. Independent backward DP over all 2^16 visited sets agrees; several killed-walk equations were separately solved using exact fraction Gaussian elimination. The included 10-file source and certificate artifacts replayed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feige and Rabinovich (2003), DOI 10.1002/rsa.10083, Section 3 gives a polynomial-time approximation, not the exact pairwise evaluation.",
+        "Cooper and Frieze (2005), DOI 10.1137/S0895480103428478, gives asymptotics for random regular graphs, not a fixed 16-vertex strongly regular pair."
+      ],
+      "reasoning": "General upper/lower bounds and algorithms are applicable in principle but contain no statement implying which of these two specific 16-vertex means is larger. The new claim is the evaluated exact comparison, not a new inclusion-exclusion theorem or an approximation algorithm.",
+      "searches": [
+        "cover time strongly regular graphs same parameters cospectral",
+        "strongly regular graph cover time same parameters cospectral",
+        "Feige Rabinovich 2003 exact cover time vs cover time algorithms",
+        "random walk cover time Shrikhande rook graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://static.aminer.org/pdf/PDF/001/051/963/deterministic_approximation_of_the_cover_time.pdf",
+      "https://arxiv.org/pdf/1207.4535",
+      "https://epubs.siam.org/doi/abs/10.1137/S0895480103428478",
+      "https://onlinelibrary.wiley.com/doi/abs/10.1002/rsa.10083"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rudinger et al. (2012), arXiv:1207.4535, Sections II, IV and VII: quantum-walk graph certificates, not the classical expected full-coverage time.",
+        "Distinct adsorption, percolation, Ising, and independence-complex calculations on the same pair do not provide probabilities for complete visitation of a single classical walk."
+      ],
+      "reasoning": "Quantum-walk certificate distinguishing power does not yield this classical expected cover time, and static adjacency spectrum and strongly regular parameters are identical for both graphs. The new exact calculation resolves a different, history-dependent transport observable.",
+      "searches": [
+        "Comparing algorithms for graph isomorphism using discrete- and continuous-time quantum random walks",
+        "nonisomorphic cospectral strongly regular graphs differing expected cover time random walks",
+        "random walk cover time Shrikhande rook graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "U. Feige and Y. Rabinovich (2003), DOI 10.1002/rsa.10083, Section 2.6 derives general approximate inclusion-exclusion via hitting sets; no evaluated Shrikhande/rook pair appears.",
+        "The two computed quantities are expected times to visit all vertices, not the much simpler single-target hitting times."
+      ],
+      "reasoning": "Cover time, full-coverage hitting time, absorbing-set complement inclusion–exclusion, and continuous-time unit-rate uniformization name the same observable (up to a stated time scale). The prior general method implies an exact computational recipe but not the evaluated rational comparison or its sign without the nontrivial 32767-subset evaluation per graph.",
+      "searches": [
+        "Shrikhande graph cover time exact expected",
+        "rook graph cover time random walk 4x4",
+        "expected random walk time to visit all vertices cover time exact 16 vertex Shrikhande and 4x4 rook graphs",
+        "determinant inclusion exclusion absorbing subset hitting times for cospectral strongly regular random walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined exact-value search results instead concern bounds, asymptotic random-regular graphs, and other invariants; no source was identified reporting 55.1202395226859... and 55.1206438175266... as exact covering times."
+      ],
+      "reasoning": "No matching evaluated table was found in the accessible searches. Search nonappearance alone does not prove priority, and an unindexed table remains a residual risk.",
+      "searches": [
+        "exact cover time rook graph Shrikhande",
+        "Shrikhande graph cover time exact expected",
+        "expected covering time discrepancy four vertex motif strongly regular nonisomorphic graphs",
+        "Shrinkhande Shrikhande rook graph K4 square K4 cospectral cover time 55.1202395 55.1206438 random walk"
+      ]
+    },
+    "rationale": "Exact rational classical simple-random-walk covering times and their strict ordering for the particular Shrikhande/rook strongly regular pair were not supplied or implied by inspected general cover-time, quantum-walk, or asymptotic random-regular-graph sources. Other known distinctions between these graphs use mathematically different observables. An unindexed historical exact finite computation remains possible; the priority conclusion is best-knowledge, not an exhaustiveness assertion.",
+    "residual_risks": [
+      "Unindexed historical exact-cover-time tables or graph-specific calculations could contain the same two exact values.",
+      "A stronger but non-obvious prior general theorem might encode the same comparison; none was identified in inspected relevant sources.",
+      "The asymptotic random-regular-graph paper was available only at abstract level and cannot be used to exclude every appendix result, though its stated model is distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General method and inclusion-exclusion, but no evaluated fixed pair or strict comparison",
+        "evidence": "Section 2.6 describes inclusion-exclusion using subset hitting times; Section 4.2 evaluates clique/path/lollipop toy examples.",
+        "identifier_or_url": "https://static.aminer.org/pdf/PDF/001/051/963/deterministic_approximation_of_the_cover_time.pdf",
+        "material_read": "Title/abstract, Introduction and related work, Sections 2.5–2.6 and 3, illustrative examples and Section 4.1–4.2",
+        "method": "Direct reading of lawful publicly accessible preliminary PDF and its formulas; searched the PDF text for graph names and strongly regular terminology",
+        "title": "Deterministic approximation of the cover time",
+        "trigger": "Potentially dominating general exact or approximate cover-time formula"
+      },
+      {
+        "assessment": "Different quantum-walk observable, no exact classical cover time or pairwise covering inequality",
+        "evidence": "Section IV compares quantum walk certificates, including four-index subgraphs; Section VII summarizes quantum distinguishing claims.",
+        "identifier_or_url": "https://arxiv.org/pdf/1207.4535",
+        "material_read": "Abstract, Section II definitions and strongly regular identity, Section IV certificate distinctions, Section VII summary and appendix",
+        "method": "Direct reading of the arXiv primary PDF including equations and context; searched for cover time and specific graph name",
+        "title": "Comparing algorithms for graph isomorphism using discrete- and continuous-time quantum random walks",
+        "trigger": "Same-class spectral ambiguity and four-vertex subgraph effects"
+      },
+      {
+        "assessment": "Asymptotic statement for random regular graph sequences rather than fixed Shrikhande/rook evaluated values; full text priority risk retained",
+        "evidence": "Reported asymptotic (r-1)/(r-2) n log n with high probability for a random regular graph.",
+        "identifier_or_url": "https://doi.org/10.1137/S0895480103428478",
+        "material_read": "Public abstract and scope/metadata of theorem",
+        "method": "Read abstract and reported theorem scope; full text not acquired",
+        "title": "The Cover Time of Random Regular Graphs",
+        "trigger": "Potential regular-graph coverage stronger than fixed example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "241606c1-7f9f-409e-95c6-c3dd8c160569",
+  "value": {
+    "rationale": "Expected finite-volume cover time is a natural transport/first-passage invariant. The two canonical strongly regular networks have equal graph size, degree, common-neighbor counts and adjacency spectrum, so a rigorously certified nonzero cover-time separation identifies a higher-order history-sensitive property not determined by these statistics. The four-site first discrepancy supplies interpretable structural granularity; small magnitude is acknowledged and no broader theorem claimed.",
+    "status": "PASS"
+  }
+}
