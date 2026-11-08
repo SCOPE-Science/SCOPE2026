@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:56:46.127988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and package verifiers",
+        "Independent replay as in scientific_evidence"
+      ],
+      "rationale": "Encode every two-chain linear extension as a monotone gap vector and queries as rectangular-grid ideal membership. The standard antichain argument gives VC=min(a,b). Independent direct enumeration of all 35 (3,4) interleavings gave the smaller root-branch counts rows (15,10,4,1),(5,13,13,5),(1,4,10,15): each root has at most 15 concepts in one branch, preventing depth five (requires 16 each). A separate memoized Littlestone recursion over exact membership-mask splits computed all twelve unordered positive two-chain profiles through total size seven: (3,4) has Ldim=4, entropy bound=5; every other profile saturates the bound. This validates the witness lower bound and minimality without relying on saved verification_output.txt. No claim is made for all chain sizes.",
+      "residual_risks": [
+        "Finite exhaustive verification is restricted to its specified domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chase--Freitag 2020 establishes general query-learning complexity bounds using Littlestone and consistency dimensions; inspected PDF gives definitions and general theorems but no two-chain specific profiles.",
+          "The known two-row ideal recurrence covers a=2 families but not the a=3,b=4 obstruction as asserted."
+        ],
+        "reasoning": "General query-learning inequalities do not yield the exact (3,4) root-count obstruction. Two-row grid results do not subsume the three-row first exception.",
+        "searches": [
+          "web: Chase Freitag Bounds in Query Learning full",
+          "web: Chase Freitag Reyzin Applications Littlestone dimension 2024"
+        ]
+      },
+      "checked_sources": [
+        "Chase and Freitag 2020 OA PDF relevant sections",
+        "Chase, Freitag and Reyzin 2024 bibliographic abstract",
+        "Resultary two-chain comparison/online shattering searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cardinality cap gives Ldim <=floor(log2 35)=5 but cannot decide whether it equals four or five.",
+          "Exact root split counts rule out depth five; a depth-four tree exists via the embedded (3,3) subclass and direct recurrence."
+        ],
+        "reasoning": "Generic Ldim/cardinality bounds and static lattice width do not settle the sharp first obstruction. The root-split table is substantive additional mathematics.",
+        "searches": [
+          "web: Bounds in Query Learning Chase Freitag 2020",
+          "Resultary comparison shattering two chain"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-chain interleavings are distributive-lattice order ideals / monotone lattice paths in an a-by-b grid.",
+          "The static VC width min(a,b) is a known antichain fact and is not proposed as original."
+        ],
+        "reasoning": "Terminology variants were sought: merge comparisons, Ferrers diagrams, grid ideals, online shattering. The new threshold concerns depth-complete mistake trees on the 3-by-4 ideal family, not the static width theorem.",
+        "searches": [
+          "Resultary: two chains linear extensions Littlestone comparison shattering",
+          "web: Littlestone dimension order ideals product of chains"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent recurrence yields the exact tuple (a,b,N,Ldim,entropy bound) for all twelve unordered profiles through seven.",
+          "Previously available two-row ideal ranks are acknowledged rather than claimed."
+        ],
+        "reasoning": "No located complete table contains the same unique (3,4) seven-element exception. A differently named adversarial merge comparison table could still predate it.",
+        "searches": [
+          "Resultary: order ideals rectangular grid Littlestone two row online",
+          "web: two disjoint chains Littlestone dimension 3 4"
+        ]
+      },
+      "rationale": "The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.",
+      "residual_risks": [
+        "Possible equivalent recurrence for three-row Ferrers ideals in the order-theory/online-learning literature.",
+        "Closest 2024 MFCS article was only seen in abstract/metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general Littlestone and query-learning machinery, no identified exact two-chain interleaving classification",
+          "evidence": "https://proceedings.mlr.press/v125/chase20a/chase20a.pdf",
+          "identifier_or_url": "https://proceedings.mlr.press/v125/chase20a/chase20a.pdf",
+          "material_read": "OA primary PDF introduction, definitions, Theorems 2.6/2.24 descriptions and appendix recurrence passages; targeted full-PDF searches for poset and linear extensions",
+          "method": "Read extracted PDF and visually inspect first page",
+          "title": "Bounds in query learning",
+          "trigger": "Relevant learning-dimension framework and possible dominating theorem"
+        },
+        {
+          "assessment": "General query/compression results, no established same 3-by-4 grid statement from material read",
+          "evidence": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2024.42",
+          "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2024.42",
+          "material_read": "Publication metadata and abstract/summary only, no full paper inspected",
+          "method": "Web retrieval",
+          "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+          "trigger": "Potential newer generality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Intrinsic object/invariant motivation in RESULT.md",
+        "Primary research comparison recorded under originality"
+      ],
+      "rationale": "This identifies a sharp and mathematically motivated first entropy-cardinality obstruction for adaptive shattering of linear extensions, with explicit difference from the static grid width. It gives a canonical small counterexample to assuming that concept-count information always controls online comparison depth. An exact first obstruction is useful without an all-parameter recurrence.",
+      "residual_risks": [
+        "The value is finite or parameter-specific and should not be promoted as an all-parameter theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Two-chain interleaving comparison classes have VC dimension min(a,b); Littlestone meets floor(log2 binomial(a+b,a)) for totals <=6, and the only total-seven obstruction is (3,4), with Ldim=4<5 and VC=3.",
+  "limitations": [
+    "Only the first obstruction through total chain length seven; no unrestricted recurrence or query-optimal merge sorting theorem."
+  ],
+  "schema_version": 1
+}

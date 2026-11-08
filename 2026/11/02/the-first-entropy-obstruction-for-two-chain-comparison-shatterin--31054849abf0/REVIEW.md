@@ -1,15 +1,21 @@
-# Scientific review: first entropy obstruction for two-chain comparisons
+# Independent mathematical audit
 
-## Correctness
-PASS. The gap-vector encoding is bijective. The VC formula follows from the antichain criterion for the ideals of the rectangle. The root-branch counts follow from the explicit binomial sum, and their maximum smaller side is exactly fifteen for the exceptional three-by-four profile, excluding any depth-five shattered tree. Four full labeled decision-tree certificates give the matching lower bounds and the smaller-profile saturation; threshold monotonicity and extension embeddings fill the remaining profiles. Independent gap-vector verification reproduces all finite numbers. The limited claims are not extrapolated to arbitrary parameters.
+## correctness
 
-## Originality
-PASS under accessible evidence, with historical-priority risk. Searches of published mathematical records, available preceding claims, and general query-learning/linear-extension literature did not identify a theorem giving these exact first entropy obstructions. A previously available result on VC dimension of linear extensions addresses static shattering. A separate preceding result gives the complete two-row ideal Littlestone recurrence, and hence covers the two-element-chain case; that covered result is expressly excluded from the present new claim. Neither implies the three-by-four threshold. The inspected Chase–Freitag query-learning full text develops general bounds, not this exact value; the Eiben et al. full text concerns counting extensions. The significant residual risk is an older equivalent result for the three-row grid expressed using merging-comparison games or rectangular-order-ideal adversary ranks.
+PASS
 
-## Mathematical value
-PASS. The natural information bound \(\lfloor\log_2|\mathcal C|\rfloor\) is a compelling benchmark for adaptive shattering. The theorem proves the first sharp counterexample, with uniqueness at its minimum total size, within the natural two-chain merge family; the root-balance obstruction explains its failure rather than a bare enumeration. It precisely distinguishes count-based capacity from permissible comparison-query geometry.
+Encode every two-chain linear extension as a monotone gap vector and queries as rectangular-grid ideal membership. The standard antichain argument gives VC=min(a,b). Independent direct enumeration of all 35 (3,4) interleavings gave the smaller root-branch counts rows (15,10,4,1),(5,13,13,5),(1,4,10,15): each root has at most 15 concepts in one branch, preventing depth five (requires 16 each). A separate memoized Littlestone recursion over exact membership-mask splits computed all twelve unordered positive two-chain profiles through total size seven: (3,4) has Ldim=4, entropy bound=5; every other profile saturates the bound. This validates the witness lower bound and minimality without relying on saved verification_output.txt. No claim is made for all chain sizes.
 
-## Scope and limitations
-Results concern exactly two disjoint chain orders and their cross-comparison concepts. No general Littlestone formula for all chain lengths, historical uniqueness beyond the searched literature, or external certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.
+
+## value
+
+PASS
+
+This identifies a sharp and mathematically motivated first entropy-cardinality obstruction for adaptive shattering of linear extensions, with explicit difference from the static grid width. It gives a canonical small counterexample to assuming that concept-count information always controls online comparison depth. An exact first obstruction is useful without an all-parameter recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
