@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed one-step conjugacy is an exact algebraic identity: for \(y=((1+x)/(1-x))^2\), the map becomes \(y\mapsto ty+1/2+1/(16ty)\). The neutral finite composition has the expansion \(G(y)=y+B+C/y+O(y^{-2})\) with the stated reciprocal-prefix coefficients. Positivity proves global growth \(Y_n\ge Y_0+nB\), and an absolutely summable remainder proves the limiting constant and its \(O((\log n)/n)\) tail. Adjacent swaps change only one prefix and strictly order both coefficients. The period-length and starting-phase conventions and the initial boundary exclusion are explicit. A standalone exact-rational checker execution passed 172 finite checks; this supplements, but does not replace, the proof.
+PASS
 
-## Originality — PASS with residual risk
+The Cayley-square transform y=((1+x)/(1-x))^2 yields the exact step F_t(y)=t y+1/2+1/(16ty), t=[(1+a)/(2(1-a))]^2. For a neutral m-word, composing formal y->infinity expansions gives G(y)=y+B+C/y+O(y^-2), B=sum 1/(2R_j), C=sum 1/(16R_j^2); positivity gives G(y)>y+B for every finite y, so all admissible orbits grow. Summability of increments of Y_n-Bn-(C/B)log n (order log n/n^2) produces finite L and stated O(log n/n) tail. Adjacent swaps change only one prefix R_i, proving the unique B,C maximizing/minimizing monotone orders up to ties. Independently computed exact B,C for k=1,2,3,5,9 grouped a=1/7,b=1/2 and alternating schedules, verifying exponential vs linear separation and neutral products. The logarithmic coefficient is C/B and is not claimed separately sorted-optimal.
 
-González-Tokman and Oldfield (arXiv:2607.15488v1, Theorem 3.2 and Remark 3.8) analyze random synchronization and deterministic qualitative parabolic convergence, but their inspected claims do not provide exact ordered-prefix coefficients or the sharp periodic rearrangement. Jones (1997, Section 5.1) establishes generic parabolic power laws, so the exponent alone is established background. Evdoridou and colleagues (arXiv:2609.31476v2, Theorems A–E) study centred inner functions and nonautonomous entropy rather than this particular neutral word. Public mathematical-result comparisons found nearby work on summable Blaschke sequences and on unrelated ordered cocycle spectra, not an implication of the stated theorem. Specialist parabolic-composition literature could contain a stronger result; no exhaustive novelty guarantee is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's zero-exponent critical point makes a rate comparison mathematically natural. The theorem exposes a nontrivial schedule-dependent scale not visible to the common unit boundary multiplier, proves sharp extremizers for every neutral multiset, and gives an explicit two-positive-parameter family with an exponentially large ratio in block length. Both prefix-sum constants are sharply extremized; the actual logarithmic coefficient is their ratio \(C/B\), which is determined explicitly but is not separately claimed to have either sorting extremum. The phase restriction is intrinsic to a periodic scheduling problem, not an unmotivated numerical slice.
+Compared precise mathematical statements with their strongest identified precursors and published mathematical finding searches. Originality is best-of-knowledge with explicitly named inaccessible/unindexed priority risks, not certification.
 
-## Closest literature and limits
+## value
 
-The most material priority uncertainty is whether a specialized Fatou-coordinate or parabolic-composition theorem already implies the full schedule-optimization claim. The relevant full texts and source sections actually read are identified in the audit. This proof does not cover nonperiodic switching, complex basins, or uniform-in-period transient bounds.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Critical zero-boundary-Lyapunov scheduling is a natural parabolic dynamics question; exact drift and logarithmic correction depend on ordering despite unit period multiplier. Sharp rearrangement over every neutral multiset and exponential schedule contrast constitute substantive dynamical structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

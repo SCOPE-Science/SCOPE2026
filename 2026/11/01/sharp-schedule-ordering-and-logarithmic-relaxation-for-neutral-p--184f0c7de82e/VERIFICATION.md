@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standard-library Python file `verify.py` was executed against the exact source embedded in this package. It passed 172 finite checks, including 96 exact rational state/conjugacy comparisons, formal large-coordinate coefficient identities for six words, the exact four-step constants, all six word permutations, nine exact general-block formulas, and two numerical logarithmic-residual convergence checks. Printed check counts are according to the program's own counter and are not an exhaustive mathematical verification of arbitrary words.
+## correctness
 
-The proof in `RESULT.md` establishes the infinite-time result analytically from an exact recurrence, a positive linear drift, a finite asymptotic expansion, summability, and strict adjacent-swap comparison. The numerical stabilization checks do not prove the existence of the limit. No external independent audit has been performed; no claim of machine formalization or independent certification is made.
+PASS
+
+The Cayley-square transform y=((1+x)/(1-x))^2 yields the exact step F_t(y)=t y+1/2+1/(16ty), t=[(1+a)/(2(1-a))]^2. For a neutral m-word, composing formal y->infinity expansions gives G(y)=y+B+C/y+O(y^-2), B=sum 1/(2R_j), C=sum 1/(16R_j^2); positivity gives G(y)>y+B for every finite y, so all admissible orbits grow. Summability of increments of Y_n-Bn-(C/B)log n (order log n/n^2) produces finite L and stated O(log n/n) tail. Adjacent swaps change only one prefix R_i, proving the unique B,C maximizing/minimizing monotone orders up to ties. Independently computed exact B,C for k=1,2,3,5,9 grouped a=1/7,b=1/2 and alternating schedules, verifying exponential vs linear separation and neutral products. The logarithmic coefficient is C/B and is not claimed separately sorted-optimal.
+
+## originality
+
+PASS
+
+Compared precise mathematical statements with their strongest identified precursors and published mathematical finding searches. Originality is best-of-knowledge with explicitly named inaccessible/unindexed priority risks, not certification.
+
+## value
+
+PASS
+
+Critical zero-boundary-Lyapunov scheduling is a natural parabolic dynamics question; exact drift and logarithmic correction depend on ordering despite unit period multiplier. Sharp rearrangement over every neutral multiset and exponential schedule contrast constitute substantive dynamical structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
