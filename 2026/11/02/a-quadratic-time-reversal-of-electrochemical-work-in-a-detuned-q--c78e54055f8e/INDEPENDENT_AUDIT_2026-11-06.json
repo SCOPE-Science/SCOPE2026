@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:50:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git tree RESULT.md and verify.py; exact secular generator, nondegenerate perturbation and fast/slow matrix projection."
+      ],
+      "rationale": "The exact four-state star generator has p0'(t) equal to signed load particle current. Finite positive Fermi rates yield reversible equilibrium pi0=1/Z→0, so the long-first order of limits is -p0. Perturbation of H_delta gives |u_g|²,|u_e|²∼Omega²/(2delta²), |u_d|²→1, while mu tracks E_d. Fast (0,d) equilibration gives p0=(1-f)m; Schur-complement time rescaling theta=Gamma Omega² t/delta² gives m'=-(1-f)m and p0=(1-f)m exp(-(1-f)theta). Opposite limiting signs require (1-f)m>p0; strict monotonicity produces theta*=log((1-f)m/p0)/(1-f). The proof only claims a zero on this scale, not uniqueness at all finite detunings. Independent matrix-exponential root checks delta=100 and 500 approach theta*=0.9325745932.",
+      "residual_risks": [
+        "No proof of all-time physical device performance beyond one-electron secular idealization; finite checks alone not infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic finite-chain fast/slow averaging applies in principle; arXiv:1512.01189 supplies thermodynamic background."
+        ],
+        "reasoning": "General methods do not themselves state the device-specific rate normalization and signed-work zero. A general theorem could imply the calculation when specialized; no direct published instance identified.",
+        "searches": [
+          "quantum dot battery secular detuning time scale slow leakage eigenstate load",
+          "strong detuning secular quantum dot battery accumulated electrochemical work load long-time reversal singular limit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.33408v1 abstract and metadata (full article inaccessible)",
+        "arXiv:1512.01189 thermodynamic background",
+        "Resultary semantic search: strong detuning secular quantum dot battery accumulated electrochemical work load long-time reversal singular limit",
+        "Git RESULT.md prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-device paper identifies rates, finite discharge and positive output; standard equilibrium drives pi0 to zero."
+        ],
+        "reasoning": "Neither finite-time extraction nor stationary detailed balance alone determines the normalized quadratic crossing theta*. Both are prior inputs and are explicitly credited.",
+        "searches": [
+          "Singh Sánchez Jordan Dephasing-powered open quantum-dot battery arxiv 2610.33408 load work",
+          "strong detuning secular quantum dot battery accumulated electrochemical work load long-time reversal singular limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Secular four-state load master equation and grand-canonical stationary limit; positive finite-time discharge already known."
+        ],
+        "reasoning": "A thermodynamic relaxation assertion or generator singular perturbation may be a reformulation, but the complete explicit two-iterated-limits and theta-star work law was not found in material actually read.",
+        "searches": [
+          "strong detuning secular quantum dot battery accumulated electrochemical work load long-time reversal singular limit",
+          "arXiv:2610.33408v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant natural exact-database or numerical-table claim encountered; observable is a continuous time/detuning asymptotic."
+        ],
+        "reasoning": "An exact database or discrete table would not naturally encode this all-parameter singular limit; reviewed same-device source may contain plots but no scanned full source.",
+        "searches": [
+          "strong detuning secular quantum dot battery accumulated electrochemical work load long-time reversal singular limit",
+          "quantum dot battery electrochemical load work detuning crossover time table"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: detailed balance and the load-only quantum-dot model are established; the final claim is the explicit singular order-of-limits and positive-to-negative signed-work transition on the quadratic detuning clock. The same-device source's full article was not accessible, so its appendices remain a material priority risk.",
+      "residual_risks": [
+        "Full same-model 2026 source text/appendices could already derive a long-time reversal or asymptotic.",
+        "General singular perturbation literature could contain essentially equivalent two-scale star-chain calculations.",
+        "Reported laboratory times may invalidate the simplified secular physical model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides identical device/rates and finite-time extraction, leaving exact slow-time asymptotic priority as a substantial risk.",
+          "evidence": "Study discusses finite-time load operation; full detailed appendices were not read.",
+          "identifier_or_url": "arXiv:2610.33408v1",
+          "material_read": "Public abstract and record references; full paper text not available in retrieval.",
+          "method": "Public arXiv metadata/abstract and model comparison with submitted source.",
+          "title": "Dephasing-powered open quantum-dot battery, Singh, Sánchez and Jordan",
+          "trigger": "Same three-dot Hamiltonian, load rates and electrochemical work objective."
+        },
+        {
+          "assessment": "Grand-canonical detailed balance is standard and not new; this does not imply the specific detuning/time profile.",
+          "evidence": "General thermal-equilibrium framework.",
+          "identifier_or_url": "arXiv:1512.01189",
+          "material_read": "Background description and abstract; not a full original-paper inspection.",
+          "method": "Abstract-level framework identification.",
+          "title": "Thermal-state derivations from noncommuting charges, Yunger Halpern et al.",
+          "trigger": "Broader detailed balance and thermodynamics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md, generator/Schur complement, eigenmode asymptotics",
+        "Same-device arXiv:2610.33408 source model"
+      ],
+      "rationale": "The sharp detuning-time law is a motivated finite-device dynamical boundary: it distinguishes favorable finite-time extraction from unfavorable prolonged connection and quantitatively locates the reversal scale. This is a nontrivial time-scale theorem, not just restating Gibbs equilibration. The exact dimensionless crossing can guide valid model-domain protocol choices.",
+      "residual_risks": [
+        "Physics beyond the secular four-population model, omitted charge sectors and reservoir feedback can change very long laboratory-time behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Priority assessment qualified because exact same-model full original paper unavailable; abstract-level inspection cannot exclude appendix calculation.",
+    "Asymptotics concern secular weak-coupling model with load μΔ tracking detuned eigenvalue; not a claim of universally observed work."
+  ],
+  "schema_version": 1
+}
