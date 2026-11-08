@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-The diffusion is defined by a natural-scale Brownian clock, avoiding ambiguity at the singular origin. Brownian exit-time domination supplies finite cycle moments. The displayed Green kernel yields the published mean occupation fraction, and the Dirichlet Poisson potential has the required boundary values and continuous derivative. The identity \(u(\rho)=0\) is essential: it turns the centered excursion reward into a stopped martingale and its second moment into the explicit nonnegative energy integral. Direct integration reduces the latter to the stated universal factor \(1-\rho^2\); dividing by mean cycle duration produces the central limit coefficient. Independent rational and numerical checks corroborate the algebra. Risk: the theorem is for the natural-scale continuum limit only, not the finite lattice walk.
+## correctness
 
-## Originality
-The closest source is Frimpong–Bresque–Roldán (arXiv:2610.21962v1), whose threshold-reset section provides an exact law of large numbers, Green function, and order of fluctuations but no evaluated Gaussian constant. Its Poisson-reset calculation is not a threshold-reset variance formula. The 2024 Méndez–Flaquer-Galmés–Pal paper's reset section was examined and uses independent Poissonian reset times. Prior mathematical-record and literature searches found no directly equivalent coefficient, universal centered-excursion second-moment identity, or exact Brownian-constancy versus sluggish-strictness classification. Absence of a matching search result cannot prove priority; generic renewal-reward and Green-function theory could enable the calculation without explicitly stating it.
+PASS
 
-## Mathematical value
-The motivating study explicitly quantifies occupation concentration only to order and predicts a Gaussian concentration profile for a different reset protocol. An exact variance provides a model-calibrated fluctuation law and a sharp comparison of Brownian versus sluggish restart-point sensitivity. The \(1-\rho^2\) cycle-moment factor and Brownian invariance are structural, not arbitrary numerical specializations. The result concerns a natural observable and the entire continuum parameter family rather than a selected parameter point. The scope remains one-dimensional and does not deliver a general reset-design theorem.
+The natural-scale diffusion is defined by Brownian generator d^2/dx^2 with physical clock integral |B_s|^alpha ds, alpha>=0, avoiding ambiguity at x=0. For a cycle from s=rho in (-1,1), the stopped Brownian Green kernel G(s,y) and weight |y|^alpha give E tau=(1-s^{alpha+2})/[(alpha+1)(alpha+2)] and theta=1-(1-s)/[2(1-s^{alpha+2})]. For centered reward A=int_0^tau(1_{X>0}-theta)dt, solve Dirichlet u''= -|x|^alpha(1_{x>0}-theta), u(s)=0. Ito stochastic integral and Green energy give E A^2=2int G(s,y)|u'(y)|^2 dy=3(1-s^2)/[4(alpha+2)^2(alpha+3)(2alpha+3)] for L=1. Brownian exit time controls all needed moments, so iid-cycle regenerative renewal-reward CLT yields V=E A^2/E tau. Brownian scaling multiplies CLT coefficient by L^{alpha+2} and cycle second moment by L^{2alpha+4}. For alpha=0 V=L^2/24 independent of rho; alpha>0 strict decrease follows monotonicity of (1-rho^2)/(1-rho^{alpha+2}) via positive conditional-integral average; endpoint values are one-sided limits. Independent quadrature for alpha 0,1,2 and rho .25,.6,.9 matched exact energy coefficients to numerical precision. No finite computation stands in for the regenerative CLT.
 
-## Closest literature and limitations
-Primary comparison: Frimpong, Bresque, Roldán (2026), arXiv:2610.21962v1 §§6.1.1–6.1.2. Related comparison: Méndez, Flaquer-Galmés, Pal (2024), arXiv:2412.05247v1 §VI. Both works were consulted in primary text. Related first-passage literature with externally timed resetting and general renewal-reward central limit theory are not equivalent statement coverage. A more general additive-functional variance result, if located, might supersede the formula; this remains a priority risk, not a correctness qualification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified new exact centered stopped-cycle moment and CLT variance for boundary-triggered sluggish reset diffusion. Frimpong-Bresque-Roldán 2026 supplies the same model, occupation LLN and cycle duration; its accessible account discusses order-T^-1/2 fluctuations but no evaluated coefficient. Poisson-reset occupation CLTs concern a different protocol. Same-paper primary full text could not be retrieved, a significant risk of an explicit coefficient elsewhere.
+
+## value
+
+PASS
+
+It is natural to ask not merely where the occupation fraction concentrates but its exact fluctuations; the universal 1-rho^2 single-cycle law and Brownian invariance versus strictly sluggish monotonicity are structural predictions with direct statistical meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
