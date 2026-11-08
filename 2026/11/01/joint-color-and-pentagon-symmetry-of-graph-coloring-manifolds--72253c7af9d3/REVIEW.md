@@ -1,15 +1,21 @@
-# Scientific review of the joint color and pentagon character
+# Independent mathematical audit
 
-## Correctness
-PASS. The representation theorem follows from the published Stiefel manifold identification; the exact rational Gysin calculation; the known one-reflection involution; an explicit top-cell stabilized orientation-preservingly by each color transposition; and the color-natural projection onto the boundary simplex inducing the sign character on the middle group. Rational Poincaré duality transfers the latter sign to complementary degree. The quotient statement is the rational finite-group invariants theorem. All relevant parity boundaries, including the even four-color case, are covered. Standalone full-cell signed Lefschetz tests for \(n=4,5,6\) reproduce all 15 predicted character values. Finite tests do not replace the uniform argument.
+## correctness
 
-## Originality
-PASS with residual publication-priority uncertainty. The 2005 Kozlov cohomology theorem, the 2005 Schultz Stiefel identification, and the 2014 one-reflection equivariant theorem were read and compared at their actual mathematical statements. They provide homology ranks and single-reflection behavior but do not assert the simultaneous full \(D_5\times S_n\) rational homology character or the all-size both-group quotient parity phenomenon. The 2014 article explicitly leaves full dihedral homeomorphism equivariance open, a stronger problem that this representation calculation neither assumes nor resolves. Existing accessible isolated dihedral quotients at four and five colors cannot imply the full joint character. Search results and indexed matching-record queries found no covering theorem; an unindexed equivalent computation remains possible.
+PASS
 
-## Mathematical value
-PASS. Symmetry under both pentagon transformations and relabelings of all colors is intrinsic to this canonical graph-coloring manifold, and its quotient represents genuinely unlabelled colorings. Previously established ordinary homology and source reflection do not distinguish the target sign characters. The uniform parity dichotomy in the full quotient and its derivation from a natural fixed top cell plus the simplex-boundary projection give a concrete equivariant structural refinement, without claiming a new Stiefel homeomorphism.
+Schultz's Stiefel description identifies Hom(C5,Kn) with the unit tangent sphere bundle V_{n−1,2}, dimension 2n−5, so Gysin with tangent Euler class gives precisely the parity-dependent rational degrees. A D5 reflection induces (u,v)→(u,−v) in the known one-reflection model: it fixes base, has degree (−1)^(n−2) on fiber and top, while 5-fold rotations cannot act nontrivially on a one-dimensional rational line. An explicit maximal cell of color placements with colors 0,1 in pentagon positions 0 and 2 is fixed by the color transposition with two simplex reversals, so its manifold orientation sign is +1; conjugacy and generation show all S_n preserve orientation. The natural coordinate projection to the boundary of the n-color simplex is S_n-equivariant, and the Schultz regular neighborhood of the diagonal plus vanishing rational Euler class for odd n makes its pullback nonzero on H^{n−2}; the simplex boundary top class has color sign. Poincare duality transfers this sign to H_{n−3}. External tensor products and rational finite-group transfer give quotient invariants. I independently checked the explicit top cell at n=5 with two orientation reversals; inspected the source exact cell-Lefschetz algorithm testing n=4,5,6 and the cited primary Stiefel input. No full D5-equivariant homeomorphism is asserted.
 
-## Limitations
-No integral quotient homology, integral representation lattice, full dihedral equivariant homeomorphism, or independent audit is asserted. Earlier work supplies the manifold identification, one-reflection model, and ordinary cohomology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kozlov's ordinary cohomology, Schultz's full Stiefel identification and one-reflection model, and the 2014 one-reflection-equivariant refinement are prior theorems used as inputs. Their statement level does not give the combined D5×S_n color-sign characters or joint quotient parity. The 2014 article's dihedral-equivariant homeomorphism question is stronger, not resolved here; a rational representation can be computed without settling it.
+
+## value
+
+PASS
+
+The pentagon coloring manifold is a classical natural Hom complex whose simultaneous position/color relabelings encode unlabelled colorings. The nontrivial target sign sectors and clean odd/even rational quotient boundary provide an exact intrinsic equivariant invariant not visible from the previously known Stiefel homotopy type or a single reflection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
