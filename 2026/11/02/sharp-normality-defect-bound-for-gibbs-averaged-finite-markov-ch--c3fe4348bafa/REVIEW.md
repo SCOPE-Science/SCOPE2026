@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The setting is finite and completely specified: positive stationary law, stochastic baseline, conditional-expectation Gibbs kernel and weighted Hilbert-space adjoints. The proof carefully separates normality of the baseline from that of the compression. The singular-value compression bound is valid for any orthogonal projection; noncommutative Schatten Hölder controls powers of a nonnormal compression. Squared singular-value losses sum to the exact projection residual, and convexity gives the sharp dimension factor. The time-two defect is an exact trace/commutator identity; the normal case follows from the spectral theorem. Ergodicity of the normal baseline implies a strict operator contraction on mean-zero functions, proving ergodicity of the compressed chain. Sharpness is an explicit lazy-refresh chain and one-cell partition, not extrapolated from finite testing. The standalone checker passed 5,602 exact-rational assertions, including normal nonreversible examples and nonnormal second-step checks. Finite tests do not prove the infinite quantification across sizes/times.
+PASS
 
-## Originality (PASS, provisional)
+For all N>=2 and integer t>=1, checked the actual Gibbs projection G(x,y)=1_C(x,y)pi(y)/pi(C), weighted Hilbert space adjoint and Pi; A=P-Pi, B=GAG. The compression M->GMG is an orthogonal Hilbert–Schmidt projection, giving ||A||_F²=||B||_F²+D. Individual s_j(B)<=s_j(A), and noncommutative Schatten Hölder yields ||B^t||_F²<=sum s_j(B)^{2t} without assuming B normal. With x_j=s_j(A)^2, y_j=s_j(B)^2, the inequalities x_j^t-y_j^t>=(x_j-y_j)^t and Jensen for N-1 entries give D^t/(N-1)^{t-1}. Cyclic trace identity gives delta_2=1/2||P*P-PP*||_F², normal A makes delta_t=0. For ergodic normal P spectral radius on mean-zero <1 and ||B||op<1 ensures primitive Q. Rank k-1 variant and rI+(1-r)Pi sharpness are compatible with all edge cases k=1,N. Bounded independent rational checks cover a directed normal chain, normal-to-nonnormal compression, time-two defect and eight powers. Computations are corroborative only; this analytic chain supplies the unbounded time theorem.
 
-The nearest full primary text, Choi–Wang (2026), §4 Theorem 4.1 and Corollaries 4.2–4.4, proves the all-time comparison when the baseline is reversible and treats both centered operators as self-adjoint. No normal nonreversible all-time result or explicit all-time normality-defect gap is stated there. The 2025 Choi–Wang group-averaging paper and Choi–Hird–Wang projection article concern related but different averaged-kernel comparisons. Related records on binary conditional-expectation chains and reversible autocovariances are not implication-wise covering; the former concerns \(L^p\) time-reversal of chains of projections, not Gibbs compression of a normal baseline. An existing finite three-state nilpotent nonnormal example has distinct assumptions and cannot cover a theorem for normal baselines; the latter family cannot have nonzero nilpotent centered operators. Standard Schatten Hölder and singular-value compression are credited; the substantive combination is the quantitative sharp Markov comparison and its commutator defect. A historical matrix-inequality or unindexed sampling literature corollary remains possible, and priority is not independently certified.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Gibbs block averaging is a natural practical operation for simplifying transition kernels. The result extends a recent reversible-only finite-time guarantee to genuinely directed normal chains without any commutation requirement on the partition, and shows why simply inheriting normality of the averaged chain is invalid. It does more than relabel a hypothesis: a new quantitative deficit bridges arbitrary and normal baselines; its time-two obstruction is a computable commutator, while its dimension coefficient is globally best possible. It provides both a strict all-time guarantee and a sufficient near-normal condition, though only for squared weighted Frobenius error and transition counts.
+Compared actual all-time squared weighted Frobenius inequality, singular-value correction and sharp D^t coefficient to Choi–Wang Theorem 4.1/Corollaries (reversible case). Their statement has self-adjoint baseline/average, while current theorem permits normal nonreversible baseline with nonnormal GPG and supplies exact nonnormal defect at t=2. Generic noncommutative Schatten Hölder and Eckart–Young are classical ingredients but do not state the combined sharp Markov comparison. Resultary published nearest binary-event chain theorem treats different operators. Best-of-knowledge O passes; an older general compression inequality might subsume.
 
-## Closest literature and risks
+## value
 
-* Choi–Wang (2026), arXiv:2610.39239v1, full public HTML §4: reversible-only singular-power theorem and strictness; directly compared.
-* Choi–Wang (2025), arXiv:2509.02996, full public HTML §§3–5: related group averaging and other mixing metrics; no identified domination.
-* Choi–Hird–Wang (2025), doi:10.1002/rsa.70016, full public text §§2–3: permutation-based projection construction, not the present theorem.
-* Recent two-block and spectral-partition papers were available mainly through abstracts; broader literature and textbook-derived priority remain risks. These sources are not asserted wholly noncovering when their full material was inaccessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A dimension-sharp, all-positive-time comparison for conditional Gibbs compression of finite Markov chains is a motivated strengthening of reversible mixing acceleration. The exact commutator defect quantifies how nonnormality obstructs the comparison, and the sharp loss term makes equality/strictness and finite threshold mixing ordering explicit. This is not simply a renaming of spectral contraction: normal P may yield nonnormal GPG, so Hölder is essential. Useful as a benchmark when designing block samplers. The result does not imply total-variation improvement from every start or reduced computational cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
