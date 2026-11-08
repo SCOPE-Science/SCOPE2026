@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the powered-distance threshold
+# Independent mathematical audit
 
-The proof is analytic. The standalone `verify_hypercube_line_negative_type.py` checks separate, finite consequences: direct cube-edge incidence construction, all-pairs BFS distances in the line graph, agreement of those distances with the endpoint-Hamming formulas, and complete dense spectral agreement with the Walsh sector formulas. The checker compares five real exponents for every dimension from two through five (twenty matrix spectral tests) and confirms root equations through dimension twelve.
+## correctness
 
-Command executed from a folder containing the standalone script:
+PASS
 
-`OPENBLAS_NUM_THREADS=1 python3 verify_hypercube_line_negative_type.py`
+Reconstructed edge-to-edge line distance as 1+minimum endpoint Hamming distance (off-diagonal); Walsh edge-axis sectors give diagonal F_(n-1)(s,p)-1 and off-diagonal 2 F_(n-2)(s,p). For 0<p<1 Bernstein integral J proves negative all axial/nonprincipal transverse modes; only axis-constant zero-sum multiplicity n-1 has eigenvalue S_n(p)-1. S_n increases from 0 to 2^(n-2); n=2 boundary p=1 handled separately. Centered Schoenberg Gram rank gives n2^(n-1)-n at endpoint; binomial B_n∼2^(n-1)/n and p B_n≤S_n(p)≤p n^p B_n yield p_n∼n/2^(n-1). Independently compared direct BFS cube-edge powered-distance spectra to sector eigenvalues for n=2..4 at distinct powers; no inference for infinite n from finite eigenvalues.
 
-Observed completion marker:
+## originality
 
-`CUBE_LINE_POWERED_DISTANCE_OK 20 independent BFS/Gram spectral comparisons; n=2..12 roots`
+PASS
 
-The checker requires Python 3 and NumPy; it does not require a separate external dataset. Its numerical tolerances cannot prove an infinite family or historical originality. Those conclusions rest on the explicit Walsh-block identity, Bernstein integral inequality, strict eigenmode comparison and binomial concentration proof in RESULT.md. Independent external validation was not performed.
+Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.
+
+## value
+
+PASS
+
+Identifies sharp generalized roundness and endpoint isometric embedding dimension of a natural edge-adjacency metric. Intrinsic line-graph metric differs from familiar Hamming vertex metric; explicit cutoff, multiplicity, and dimension dependence are useful for negative-type embeddings and finite metric geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
