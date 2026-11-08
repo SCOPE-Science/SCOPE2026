@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducing the finite integral homotopy calculation
 
-The file `verify.py` is complete and uses Python 3 standard-library functions only. From the directory containing `verify.py`, run:
+# Independent mathematical audit
 
-```sh
-python3 verify.py
-```
+## correctness
 
-The verifier builds the sixteen-vertex Shrikhande graph directly from the six Cayley differences, proves its vertex degrees and pairwise common-neighbor counts by exhaustive loops, and identifies exactly thirty-two triangles. It enumerates all nonempty vertex masks twice (triangle containment and direct triple adjacency), then checks the complete face vector and constructs the specified greedy face matching.
+PASS
 
-Every one of the 48,272 nonempty-face Hasse incidences is oriented according to the matching. Kahn's topological sort must visit all 8,950 faces. This checks acyclicity of the matching, rather than relying on a heuristic. The five-by-fourteen Morse boundary is rebuilt by signed gradient-path recursion; five columns (zero-based indices 0, 1, 4, 9 and 11) form a determinant-one integer minor. The complete matrix and critical face masks appear in `certificate.json` for straightforward human inspection. The executable independently recalculates the matrix before comparing it with those expected values.
+The frozen Shrikhande graph is the 16-vertex Cayley graph on Z4² with generators ±(1,0), ±(0,1), ±(1,1), giving 32 triangles. Independent full enumeration of all 65535 nonempty masks reproduced exactly 8950 triangle-free faces and f=(16,120,528,1452,2496,2568,1424,330,16). Independent lexicographic face-pair reconstruction gives 4465 matched pairs, 1 critical 0-cell, 5 critical 5-cells and 14 critical 6-cells, and the directed full Hasse matching is acyclic (8950 nodes, 48272 incidences). Signed gradient-path recursion independently reproduced the complete integral 5×14 Morse differential from certificate.json, including a determinant +1 minor on columns (0,1,4,9,11). Because the Morse CW five-skeleton is a wedge of five 5-spheres, the degree-five attaching maps are classified by π5=Z^5; unimodular cancellation leaves exactly nine 6-spheres. Raw mod-two ranks are only corroboration and alone would not certify integral homotopy.
 
-Finally, binary linear algebra is performed on the **original simplicial boundaries**, not on the reduced Morse matrix. The ranks of the eight nonzero boundary maps are checked as 15, 105, 423, 1029, 1467, 1101, 314 and 16, giving reduced mod-two homology only in degree six with rank nine. These ranks are only corroboration; the integral statement depends on the acyclic matching and unit determinant.
+## originality
 
-The expected terminal marker is `ALL_VERIFY_OK`. The source code and finite tables are supplied in the same package, without network fetches or unstated dependencies. The proof establishes this one finite graph only; there is no infinitely quantified enumeration claim. Independent external mathematical validation has not been performed.
+PASS
+
+The exact triangle-free induced-vertex CF3 complex of Shrikhande is not the clique complex or usual independence complex. Ghosh–Selvaraja’s chordal-type shellability hypotheses do not cover Shrikhande’s induced neighborhood 6-cycles. Published rook graph CF3=two-matching K4,4 gives 15 S5 (different graph despite same strongly regular parameters); published CF2 Shrikhande is also a different functor. No inspected result already gives this full Shrikhande integral homotopy type; priority subject to unindexed finite computation.
+
+## value
+
+PASS
+
+A fully certified integral wedge homotopy of a natural canonical strongly regular graph is mathematically useful, especially because its cospectral rook counterpart has a different clique-free type. The unimodular Morse certificate rules out ambiguity from mere mod-two Betti tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

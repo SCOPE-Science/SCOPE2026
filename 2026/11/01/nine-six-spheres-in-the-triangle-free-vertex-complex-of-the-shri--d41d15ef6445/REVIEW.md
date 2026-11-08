@@ -1,15 +1,21 @@
-# Scientific assessment: Shrikhande three-clique-free homotopy
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is explicitly the sixteen-vertex Cayley graph with the stated six difference generators, and the faces are **all** induced triangle-free vertex subsets. The executable checks all vertex subsets and records the complete face vector. It constructs a matching of 4,465 face pairs and a complete directed Hasse graph with 48,272 incidences; the topological sort checks every one of the 8,950 nodes and returns no directed cycle. A signed integral Morse-boundary recurrence produces a specified five-by-fourteen matrix, and a five-by-five minor has exact determinant one. On a CW complex with only a base point and five- and six-cells, the relevant attaching homotopy classes are the degree vectors in this matrix. Its unit minor gives five cellular cancellations and leaves precisely nine trivially attached six-cells. Raw simplicial mod-two boundary ranks independently match the nine sixth Betti classes but are not the reason for the integral conclusion. The proof does not extrapolate finite parameter samples to an infinite family.
+## correctness
 
-## Originality — PASS, subject to literature uncertainty
-The closest primary paper is Ghosh–Selvaraja, *Shellability in Clique-Free Complexes of Graphs* (arXiv:2602.09623v1, 2026-02-10). The inspected mathematical definitions and main theorems concern general shellability conditions and graph modifications, not a homotopy classification of the Shrikhande graph. The graph is not chordal, so the paper's chordal theorem does not cover it. A prior exact homotopy calculation for the two-matching complex of the complete bipartite graph on two sets of four vertices is precisely the **rook** graph's three-clique-free complex. That result is acknowledged as covered and not repackaged as new. Another accessible research result calculates the Shrikhande **independence** complex, which forbids edges rather than triangles; the prior theorem is not strong enough to determine the new complex. A separate 2026 paper concerns clique homology of the original graphs, likewise a different complex. Direct database searches of aliases and hypergraph independence formulations, searches for exact homology tables, and implication comparisons produced no covering result. Unindexed prior work is a residual risk, not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The Shrikhande graph is the canonical exceptional strongly regular mate of the four-by-four rook graph. Both have sixteen vertices, valency six, thirty-two triangles, and identical adjacency spectra, but their triangle-incidence structures differ: the former is the one-skeleton of a regular torus triangulation, while the latter is a line graph and its three-clique-free complex is a previously understood two-matching complex. The exact sixth-dimensional sphere wedge is therefore a natural, non-implied topological invariant for the canonical toroidal case, and the contrast with the already known fifth-dimensional rook wedge is structurally informative. The complete integral homotopy calculation, not just the distinct Euler characteristic, establishes the claimed value. No general theorem for other graphs is asserted or needed.
+The frozen Shrikhande graph is the 16-vertex Cayley graph on Z4² with generators ±(1,0), ±(0,1), ±(1,1), giving 32 triangles. Independent full enumeration of all 65535 nonempty masks reproduced exactly 8950 triangle-free faces and f=(16,120,528,1452,2496,2568,1424,330,16). Independent lexicographic face-pair reconstruction gives 4465 matched pairs, 1 critical 0-cell, 5 critical 5-cells and 14 critical 6-cells, and the directed full Hasse matching is acyclic (8950 nodes, 48272 incidences). Signed gradient-path recursion independently reproduced the complete integral 5×14 Morse differential from certificate.json, including a determinant +1 minor on columns (0,1,4,9,11). Because the Morse CW five-skeleton is a wedge of five 5-spheres, the degree-five attaching maps are classified by π5=Z^5; unimodular cancellation leaves exactly nine 6-spheres. Raw mod-two ranks are only corroboration and alone would not certify integral homotopy.
 
-## Remaining limitations
-The conclusion is specific to this single graph and its three-clique-free complex. There is no equivariant module decomposition, no full classification of strongly regular graphs and no assertion that online searching exhausts all mathematical literature. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact triangle-free induced-vertex CF3 complex of Shrikhande is not the clique complex or usual independence complex. Ghosh–Selvaraja’s chordal-type shellability hypotheses do not cover Shrikhande’s induced neighborhood 6-cycles. Published rook graph CF3=two-matching K4,4 gives 15 S5 (different graph despite same strongly regular parameters); published CF2 Shrikhande is also a different functor. No inspected result already gives this full Shrikhande integral homotopy type; priority subject to unindexed finite computation.
+
+## value
+
+PASS
+
+A fully certified integral wedge homotopy of a natural canonical strongly regular graph is mathematically useful, especially because its cospectral rook counterpart has a different clique-free type. The unimodular Morse certificate rules out ambiguity from mere mod-two Betti tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
