@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Induct on appending a letter to prove B=binom(r,2)+h-t pointwise; identify i.i.d. uniform modular increments and independent nonzero-boundary Bernoulli indicators. Conditional on boundaries, adjacent inverse increments are independent Bernoulli(1/(q-1)), so t has a Binomial(J,1/(q-1)) law. Expand conditional mean into orthogonal centered square-free Bernoulli monomials; add conditional variance to recover exact formula. Handle n=2 directly; verify raw deletion sets and independent conditional moments by two standalone packages for q=2,3,4,5 on finite lengths. No finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liron--Langberg https://arxiv.org/abs/1202.1644: binary deletion sphere extrema by number of runs.",
+        "Li--Wang--Fu https://arxiv.org/abs/2601.06493: nonbinary extremal deletion sphere bounds and structural maximizing/minimizing words.",
+        "Mercier et al. https://doi.org/10.1109/TIT.2008.924730: older nonbinary deterministic subsequence counting (abstract/catalogue; inaccessible full text)."
+      ],
+      "reasoning": "Extremal counts, per-word formulas and bounds can contain stronger *pointwise* information, but an exact q-ary variance additionally requires the law of the run pattern and equality-backtrack events. No inspected text supplies the claimed averaged second moment. The inaccessible Mercier full text is expressly left as a priority risk rather than certified noncoverage.",
+      "searches": [
+        "Mercier deletion sphere two-deletion variance extension alphabet",
+        "https://arxiv.org/abs/1202.1644",
+        "https://arxiv.org/abs/2601.06493",
+        "https://doi.org/10.1109/TIT.2008.924730"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md",
+      "https://arxiv.org/abs/1202.1644",
+      "https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes",
+      "https://arxiv.org/abs/2601.06493",
+      "https://doi.org/10.1109/TIT.2008.924730",
+      "published-finding corpus semantic search of q-ary deletion-sphere second moments and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "New statement: Var(B_nq)=((n-2)(q-1)/(2q^4))[2(n-1)^2(q-1)^2+(n-1)(-2q^2+5q-3)+2q^2-4q] for every q>=3,n>=2.",
+        "Binary predecessor https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md: only q=2; substitution of q=2 agrees but is not the new claim.",
+        "Mercier (2008) https://doi.org/10.1109/TIT.2008.924730 concerns exact deterministic descendant counts; not independently verified absent in full text."
+      ],
+      "reasoning": "The binary theorem is not stronger than a nonbinary variance theorem. Nonbinary deterministic sphere-size formulas can be input to a new expectation/variance derivation but do not, on accessible evidence, supply the specific rational second moment. The new formula is derived by independent modular increments and a nontrivial conditional binomial law; a structural corollary from a hypothetical prior variance identity would defeat originality, but none has been located.",
+      "searches": [
+        "variance of the number of distinct subsequences after deleting exactly two symbols from a uniformly random q-ary word",
+        "Mercier deletion sphere two-deletion variance extension alphabet",
+        "2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+        "https://arxiv.org/abs/1202.1644",
+        "https://doi.org/10.1109/TIT.2008.924730",
+        "https://arxiv.org/abs/2601.06493"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Binary record https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md: variance (n-1)(n-2)(2n-3)/32 only for q=2.",
+        "Swart--Ferreira https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes: a deterministic binary per-word deletion formula, no random nonbinary second moment in the inspected sections."
+      ],
+      "reasoning": "Compared cardinality fluctuations, squared deletion-ball size, and second moments, not simply exact matching words. The q=2 formula is a strict specialization but does not logically determine dependence on q>=3; the q>=3 formula additionally requires return-event probabilities 1/(q-1).",
+      "searches": [
+        "variance of the number of distinct subsequences after deleting exactly two symbols from a uniformly random q-ary word",
+        "exact qary two deletion sphere size mean variance q q-2",
+        "published-finding corpus 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+        "\"variance\" \"number of distinct subsequences\" \"deletion\" random"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search closest: 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc (binary-only result).",
+        "Independent direct enumeration q=3,4,5 verifies the proposed exact rationals at small lengths, but no previously published nonbinary table was identified."
+      ],
+      "reasoning": "Searches addressed nonbinary deletion-sphere variance, exact second moments and fixed q values, rather than only matching the leading constant. No existing retrieved database/table gives the exact general q>=3 variance. Exhaustive small-value matching is verification, not a novelty proof.",
+      "searches": [
+        "variance of the number of distinct subsequences after deleting exactly two symbols from a uniformly random q-ary word",
+        "exact qary two deletion sphere size mean variance q q-2",
+        "Mercier deletion sphere two-deletion variance extension alphabet"
+      ]
+    },
+    "rationale": "The public binary variance formula expressly covers only q=2, whereas the final claim is an exact uniform-input variance for every q>=3. Deterministic q-ary subsequence counts and extremal run bounds do not themselves state a distributional second moment. Direct statement/implication searches across research records and primary texts found no matching nonbinary evaluated variance. Mercier et al. 2008 remains a material-access residual risk: its deterministic analysis might contain a previously unnoticed related averaging. This is qualified best-knowledge originality, not independent certification.",
+    "residual_risks": [
+      "Mercier et al. (2008) complete text was inaccessible through available authorized channels; it could contain a q-ary moment treatment not exposed in abstract.",
+      "An unindexed thesis, paper or differently formulated statistical computation could imply the exact q>=3 second moment.",
+      "Independent mathematical and historical-priority audits have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Binary theorem q=2 only; does not imply q>=3 formula, and is acknowledged as antecedent",
+        "evidence": "Title and theorem state X in {0,1}^n and variance (n-1)(n-2)(2n-3)/32; Limitations explicitly exclude nonbinary alphabets.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc/RESULT.md",
+        "material_read": "Entire RESULT.md including proof, comparison, and limitations",
+        "method": "Connected GitHub fetch_file and theorem/parameter comparison",
+        "title": "Exact variance of binary two-deletion sphere size",
+        "trigger": "Nearest exact published-finding corpus match; identical statistic for q=2"
+      },
+      {
+        "assessment": "Binary extremal cardinalities rather than a q>=3 random-center variance",
+        "evidence": "arXiv first version dated 2012-02-08; text specifies r-run binary strings and minima/maxima of deletion descendants.",
+        "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+        "material_read": "arXiv metadata, abstract and available primary HTML structural results sections",
+        "method": "Primary preprint, focus on alphabet and optimization quantifiers",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "Archive-eligible public foundation for deletion-ball run analysis"
+      },
+      {
+        "assessment": "Binary deterministic deletion counts are prior, but no nonbinary variance statement located in inspected content",
+        "evidence": "2003 article develops run-based sub- and supersequence cardinalities and deletion-code constructions.",
+        "identifier_or_url": "https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes",
+        "material_read": "Author-uploaded publicly available text, introduction, run-length method and double-deletion sections",
+        "method": "Read primary author-uploaded text for exact per-word versus expected second moments",
+        "title": "A note on double insertion/deletion correcting codes",
+        "trigger": "Early exact double-deletion run-size formula"
+      },
+      {
+        "assessment": "Addresses nonbinary extrema, not the random uniform second moment on inspected text",
+        "evidence": "Theorems concern numbers of distinct outputs for extremal strings at fixed run parameters.",
+        "identifier_or_url": "https://arxiv.org/abs/2601.06493",
+        "material_read": "Public arXiv abstract, introduction, core extrema and conclusion",
+        "method": "Check whether maximum/minimum and extremal run formulas imply evaluated random variance",
+        "title": "On the number of subsequences in the nonbinary deletion channel",
+        "trigger": "Nonbinary same-object antecedent and potential stronger result"
+      },
+      {
+        "assessment": "PRIORITY RISK: cannot designate whole article NOT_COVERING; no available evidence of an explicit variance but this comparison is incomplete",
+        "evidence": "DOI 10.1109/TIT.2008.924730; deterministic subsequence-counting subject includes small deletions.",
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+        "material_read": "Bibliographic metadata and abstract only; complete article not accessible",
+        "method": "Searched arXiv/preprint and OA, then authorized institutional retrieval; latter reported VPN disconnected",
+        "title": "On the number of subsequences when deleting symbols from a string",
+        "trigger": "Highly relevant 2008 nonbinary deterministic counting, older than source anchor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa5a9681-2855-452e-a69e-d6fb6512d0c2",
+  "value": {
+    "rationale": "Deletion-ball cardinality is a standard channel-geometry statistic governing varying numbers of distinct descendants. For nonbinary alphabets, including the four-symbol DNA case, its exact uniform-center dispersion and leading cubic coefficient provide all-length quantified nonregularity beyond maximum/minimum and first-moment results. The conditional inverse-increment decomposition is structural; the claim does not assert a coding-rate theorem or falsely inflate a small finite census.",
+    "status": "PASS"
+  }
+}
