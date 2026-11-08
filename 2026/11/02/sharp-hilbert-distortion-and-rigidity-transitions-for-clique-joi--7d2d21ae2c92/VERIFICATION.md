@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The universal lower bound is derived from the Hilbert quadrilateral identity, rectangle incidence counts, two exact centroid variance identities, and the graph-distance constraints. The exact upper bound is attained by three explicitly given orthogonal regular simplices. Rigidity and nonrigidity are proved through equality analysis and a separate translation construction. These are mathematical arguments, not computer inferences.
+## correctness
 
-The bundled `CHECKER.py` uses only standard-library `fractions.Fraction`. A completed exact-arithmetic run checked 224 triples with \(2\le n\le m\le8\) and \(1\le h\le8\), and 20 alternative balanced strict-phase embeddings. All 154006 enumerated pair-distance inequalities passed, together with the threshold and simplex-radius identities. The checker should be run from the unpacked package using `python CHECKER.py`.
+PASS
 
-No finite enumeration establishes the universal parameter ranges or the optimal-classification statement; the analytical proof does. No independent mathematical audit, formal theorem prover, or external certificate was used. Earlier matching claims under different graph or semidefinite terminology remain a source-priority risk.
+The Hilbert quadrilateral identity on every rook rectangle proves squared distortion at least 2 and U+V>=4. With squared rook diagonal distances >=4, variance around the rook centroid A=[(M-1)U+(N-1)V+(M-1)(N-1)W]/(2MN) and hub variance B>=(h-1)/(2h) give the sharp second bound D^2(2MN+M-N)>=4N(M-1)+MN(1-1/h); no equivariance is assumed for the lower bound. Three centered mutually orthogonal regular simplices with coordinate squared lengths (2,2), or (4-L,L) in the binding regime, attain every bound. Equality implies zero rectangle defects, additive coordinate splitting, orthogonality and regular-simplex rigidity at and above L=2; translation of the hub simplex in a new orthogonal direction gives continuum below L=2. No source-formula corrections were required: all m,n>=2,h>=1 and equal-threshold cases are covered. This analytic proof is independent of finite checking.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge priority based on direct mathematical statement/implication comparison, with explicit named residual risks; none of the inspected prior statements dominates the final claim. The source theorem for a subgraph supplies only one lower bound, not a theorem for a metric with universal new vertices; graph-distance spectrum is not itself a minimax embedding statement. None of the inspected implications dominates the final claim.
+
+## value
+
+PASS
+
+A natural family of joins changes metric distortion from the rook graph lower bound sqrt(2) to a sharp rational second regime; moreover, rigidity and nonrigidity exchange at precise dimension/size frontiers. Exact classification of all labelled optimal embeddings in binding cases is nontrivial geometric information, not a routine specialization of Hamming graph distortion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
