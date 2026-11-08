@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of finite binary polarization classification
+# Independent mathematical audit
 
-Run `python3 verify_binary.py` using only the Python 3 standard library. The replay enumerates every connected labeled graph with two through five vertices, every missing edge, and every binary opinion vector, using exact rational inverses. It validates the inverse matrices by exact multiplication and checks that the strict-increase census is \(0,0,0,480\) for orders \(2,3,4,5\). It also checks the canonical orbit classes \((58,0,9)\) and \((185,1,11)\), each of size \(240\), and independently recomputes their exact rational differences \(8/405\) and \(18123/1250600\).
+## correctness
 
-The successful replay prints `EXHAUSTIVE_RATIONAL_CENSUS_OK` followed by the four graph/test/increase totals and the two orbit counts. The finite enumeration is exhaustive for its explicitly bounded domain, not a proof about unbounded graph size or arbitrary edge weights. The analytical mean-centering and rank-one arguments are given in RESULT.md; they are not substitutes for the full finite graph census.
+PASS
+
+Since (I+L)^{-1}1=1, centering subtracts the same mean before and after edge insertion, making the squared-norm difference exact. An independent enumeration over every connected graph, nonedge and binary profile obtained for n=2,3,4,5 respectively 1/4/38/728 graphs; 0/24/1344/100480 tested triples; 0/0/0/480 positive differences. For both supplied n=5 representatives, independent symbolic rational Laplacian inversion gave exactly 8/405 and 18123/1250600. The Sherman–Morrison rank-one identity gives 8 t^2/[5(4t+5)^2] for the five-path at any t>0. Count/orbit classification is a finite exact claim; the source checker specifies exhaustive rational inverse and symmetry normal forms, though the independent counting replay used well-separated floating values.
+
+## originality
+
+PASS
+
+Classical edge-response formulas and nonmonotonicity are prior; new finite obstruction is exact binary n=5 cutoff and complete two-orbit population. A closely related full paper was inaccessible, so confidence is qualified.
+
+## value
+
+PASS
+
+Binary innate signals are a natural two-camp FJ model not equivalent to continuous arbitrary opinions. A sharp minimum number of vertices, complete first-obstruction census and two canonical orbit types quantify how a new tie can increase pure polarization, which is more informative than generic nonmonotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
