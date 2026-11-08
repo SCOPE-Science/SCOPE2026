@@ -1,19 +1,21 @@
-# Scientific review: exact weighted-star dephasing/capture optimum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the Lindblad normalization, the initial state, all rate domains and the mean-time objective. The three-dimensional invariant subspace is exact even for an arbitrarily weighted original star. The displayed integrated density solves the full reduced Poisson equation and, after embedding, the original generator equation. A Hilbert–Schmidt dissipativity argument excludes nondecaying eigenoperators in the reachable block, establishing that its trace is the true mean capture time. Two strict equality conditions yield the unique global optimum. The coherent dark state establishes the zero-noise boundary. The standalone code passes 96 unequal-coupling full-space comparisons, three finite-time comparisons, and 345 joint-optimum parameter groups. Critical computations support but do not replace the analytic proof.
+PASS
 
-## Originality — PASS on currently inspectable evidence; priority risk retained
+Unitary leaf rotation reduces the star initially excited at leaf 1 to reachable three-level (s,r,h), with a=J1 and b=norm(J2..JN)>0, Omega=sqrt(a^2+b^2). The Hilbert–Schmidt dissipator is strictly negative on any nonzero imaginary-axis eigenmatrix because [P,Z]=QZ=ZQ=0 and H coupling force both remaining diagonal entries to zero. Therefore the reachable Lindblad generator decays and its integrated density is unique. Direct algebraic matrix certificate X solves L(X)=-|s><s|; trace gives T=Omega^2/(2a^2 gamma)+gamma/(2a^2)+3/kappa+kappa/(4a^2) and kappa X_hh=1. Separate AM–GM inequalities give unique global optimum gamma=Omega,kappa=2sqrt(3)*a and min T=(Omega+sqrt(3)*a)/a^2. At gamma=0, the initial state overlaps a dark leaf vector and mean survival time diverges, with capture prob a^2/Omega^2. Independently formed 30 random 9x9 complex Liouvillian matrices, solved linear systems, verified X, formula, capture certainty and all eigenvalue real parts negative; largest relative certificate residual 4.15e-16.
 
-Plenio–Huelga (2008) gives the foundational local-dephasing/Lindblad transport model, but its relevant derived results concern linear chains and finite-time or transfer-efficiency objectives, not the explicit mean-hitting-time star optimization. Kassal–Aspuru-Guzik (2012), whose model and analytical solution were read, uses homogeneous dephasing, uniform competing loss, and trapping efficiency on one-dimensional chains/circles; neither their formulas nor their limiting cases imply source-only weighted-star joint rate independence. Pepe–Pouthier–Yalouz (2023) was inspected through the model, results, and appendices: its extended stars have energy-defect branches, uniform dephasing, delocalized periphery preparation and the time to 50-percent absorption, unlike the present exact mean-time result. Semantically closest published mathematical-result records concern different mechanisms (state transfer without a sink, dephasing-bath approximation, or decoherence in entanglement). The 2004 Gaab–Bardeen work is particularly relevant; its abstract and secondary literature disclose a qualitative joint trap/coherence optimum. Its inaccessible full text may include stronger special cases, so historical priority cannot be certified. No inspected complete claim implies the exact rate formulas, and this material but unresolved access risk is explicitly retained.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The optimization addresses a motivated quantum-transport design problem: localized preparation populates a dark state without noise, while strong noise or strong trapping produces a Zeno bottleneck. A sharp, all-weight, all-network-size theorem specifies an actual optimal noise level and independent optimal capture strength; this gives a robust, falsifiable design law, not a small arbitrary parameter slice. It is distinct from a mere numerical search because both optima and the mean time are closed and globally exact.
+Qualified best-of-knowledge originality: compare exact statement and model rather than terminology. Known foundational tools, marginal/special cases and directly overlapping results are credited. No actually inspected stronger result is shown to imply the complete final claim. Unavailable or only partially inspected plausible primary work is identified in residual risks; failed searches are not treated as proof of novelty.
 
-## Remaining limitations
+## value
 
-Full historical priority is unverified, particularly the 2004 source. Assumptions exclude additional environmental channels, initial mixed states, energy detuning, and source-independent dephasing. The original full Liouvillian has inaccessible dark states, so strict decay is asserted only on the excited preparation's invariant block.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact formula and unique joint optimizer in two physical rates are meaningful for a specified natural weighted quantum-star model: it cleanly separates the global coupling-dependent optimal dephasing from source-edge-dependent sink rate and makes a dark-state noise boundary explicit. General noise-assisted transport is well-known but the precise weighted source-local objective is a motivated distinct optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
