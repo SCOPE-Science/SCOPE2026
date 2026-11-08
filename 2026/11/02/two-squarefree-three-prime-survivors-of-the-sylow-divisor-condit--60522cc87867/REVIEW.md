@@ -1,11 +1,21 @@
-# Scientific review: Two squarefree three-prime survivors
+# Independent mathematical audit
 
-**Correctness — PASS.** The largest-prime witness forces \(pq-1=kr\) with \(1\le k<p\). The middle-prime witness forces \(q=p+k\); the smallest-prime witness then forces \(k=p-1\) for odd \(p\). Modular arithmetic and primality leave only \(p=2,3\). Explicit witnesses show both survivors exist. The independent finite checker corroborates, but is not an infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Li's complete 2026 asymptotic theorem for the same predicate does not classify squarefree prime triples. OEIS A352287 already lists both numbers and demonstrates 105, so their discovery is not claimed. A classical theorem excludes finite simple groups of order \(pqr\) but says nothing decisive about numerical witness survival. No equivalent statement emerged from targeted literature and indexed-research searches. The original 1974 Erdős note and other historical observations remain potential uninspected priority risks.
+PASS
 
-**Mathematical value — PASS.** This closes the first nonempty squarefree support layer in an established Sylow-divisor problem: apart from 30 and 105, the arithmetic test itself excludes every squarefree integer with at most three prime factors from being the order of a nonabelian finite simple group. This classification explains exactly where additional group-theoretic restrictions are required. No higher-support or nonsquarefree case is resolved.
+Let primes p<q<r. At r only pq can witness, so pq-1=kr with 1<=k<=p-1. At q, witness r would force q|k+1 while 2<=k+1<=p<q, so pr must witness and q|k+p; bounds p<k+p<2q force q=p+k. Mod p, qr=-1, q=1 mod p would give k=1 with q=p+1 composite for odd p; qr cannot witness for odd p, so r=1 mod p and k=p-1, yielding q=2p-1 and r=2p+1. If p>3 one candidate multiple of 3 and >3. Thus p=3 gives 3,5,7; p=2 gives k=1, 2,3,5. Explicit witnesses 30: (3,10,6), 105:(7,21,15). For one or two primes a witness for largest prime is too small. Independent direct divisor-condition enumeration over all triples of the first 46 primes (15180 cases) reproduced exactly the two; this finite check is not the global proof.
 
-The proof is elementary and complete; no independent external validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two numbers 30 and 105 are recorded in OEIS A352287 and not their discovery. Eric Li 2026 proves asymptotic enumeration for all Sylow-condition integers, and the complete accessible mathematical source text of that paper was examined for a three-prime squarefree stratum, finding no such classification. Classical exclusion of simple groups of order pqr does not settle the arithmetic predicate (both 30 and 105 survive its numerical test). This is best-of-knowledge original as the complete infinite three-prime stratum, not the predicate itself.
+
+## value
+
+PASS
+
+Classification of the first nonempty squarefree support layer of an established Erdős/Sylow divisor problem. Pinpoints exactly which squarefree pqr integers survive the necessary Sylow congruence test and require stronger group-theoretic obstructions. Although short elementary congruence chase, its unbounded complete boundary distinguishes it from arbitrary small casework.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

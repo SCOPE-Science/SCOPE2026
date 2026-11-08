@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:50:51.296386Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 43db28c688b648e32c67af0f071bf23cad5a7690",
+        "Independent CASE4_OK 15180 finite triple tests"
+      ],
+      "rationale": "Let primes p<q<r. At r only pq can witness, so pq-1=kr with 1<=k<=p-1. At q, witness r would force q|k+1 while 2<=k+1<=p<q, so pr must witness and q|k+p; bounds p<k+p<2q force q=p+k. Mod p, qr=-1, q=1 mod p would give k=1 with q=p+1 composite for odd p; qr cannot witness for odd p, so r=1 mod p and k=p-1, yielding q=2p-1 and r=2p+1. If p>3 one candidate multiple of 3 and >3. Thus p=3 gives 3,5,7; p=2 gives k=1, 2,3,5. Explicit witnesses 30: (3,10,6), 105:(7,21,15). For one or two primes a witness for largest prime is too small. Independent direct divisor-condition enumeration over all triples of the first 46 primes (15180 cases) reproduced exactly the two; this finite check is not the global proof.",
+      "residual_risks": [
+        "This classifies a necessary numerical congruence, not finite simple groups or nonsquarefree/higher-support n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li main theorem determines density/asymptotic A(x)/x with constant 1/(2sqrt(log2)); its full source spans introduction, subset-product lemma, lower/upper asymptotic proofs and contains no pqr exclusion theorem."
+        ],
+        "reasoning": "A global asymptotic does not imply an exact thin squarefree-three-prime classification; no stronger same-predicate exact support bound identified in inspected full source.",
+        "searches": [
+          "Eric Li arxiv:2606.24872v2 full accessible tex (ericlisg/erdos768-lean)",
+          "Resultary semantic: distribution Sylow divisor condition squarefree three prime factors 30 105 Erdos"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 43db28c688b648e32c67af0f071bf23cad5a7690",
+        "Independent CASE4_OK 15180 finite triple tests",
+        "Eric Li full TeX https://github.com/ericlisg/erdos768-lean/blob/main/erdos768_source.tex",
+        "OEIS A352287",
+        "Resultary query on Sylow divisor triple classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li analytic density result estimates all satisfying integers, OEIS lists sample values, and classical group theory gives only a necessary condition for group orders. These facts cannot exclude a sparse infinite family of squarefree three-prime solutions."
+        ],
+        "reasoning": "The unrestricted congruence proof is necessary for the iff classification; none of the inspected prior statements implies that exact assertion.",
+        "searches": [
+          "Eric Li arxiv:2606.24872",
+          "OEIS A352287",
+          "Resultary semantic: distribution Sylow divisor condition squarefree three prime factors 30 105 Erdos"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS lists 30 and 105 but does not establish that no other squarefree products of three primes qualify. A group theorem excluding nonabelian simple order pqr concerns a stronger predicate, not this purely numerical condition."
+        ],
+        "reasoning": "Aliases Erdős 768, Sylow count congruence witnesses, simple-group order necessary test, squarefree three-prime survivors were checked. Group-order theorem cannot imply that the numerical predicate itself fails except for two explicit survivors.",
+        "searches": [
+          "Resultary semantic: distribution Sylow divisor condition squarefree three prime factors 30 105 Erdos",
+          "OEIS A352287 Sylow divisor condition",
+          "Eric Li arxiv:2606.24872"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS sequence enumerates individual examples including 30 and 105, without a proof of three-prime exhaustiveness or a table parameterized by all p<q<r."
+        ],
+        "reasoning": "Known exact examples are acknowledged and excluded from priority; new step is forcing k=p-1 by congruence inequalities and mod 3 to eliminate infinitely many triples.",
+        "searches": [
+          "OEIS A352287",
+          "Resultary Sylow divisor condition squarefree three prime factors query"
+        ]
+      },
+      "rationale": "The two numbers 30 and 105 are recorded in OEIS A352287 and not their discovery. Eric Li 2026 proves asymptotic enumeration for all Sylow-condition integers, and the complete accessible mathematical source text of that paper was examined for a three-prime squarefree stratum, finding no such classification. Classical exclusion of simple groups of order pqr does not settle the arithmetic predicate (both 30 and 105 survive its numerical test). This is best-of-knowledge original as the complete infinite three-prime stratum, not the predicate itself.",
+      "residual_risks": [
+        "Original Erdős 1974 note and obscure group-order arithmetic classifications were not exhaustively inspected; they could mention the same three-prime case.",
+        "This classifies a necessary numerical congruence, not finite simple groups or nonsquarefree/higher-support n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes overall asymptotic constant and general numerical predicate; does not prove exact three-prime squarefree classification in inspected full source.",
+          "evidence": [
+            "Eric Li, 2026, main theorem and source sections 1-8; arxiv:2606.24872"
+          ],
+          "identifier_or_url": "https://github.com/ericlisg/erdos768-lean/blob/main/erdos768_source.tex",
+          "material_read": "Accessible complete primary TeX source: 1633 lines, full abstract/statement, sections on subset-products, constructive lower bound, canonical compression, upper bound; searched entire document for squarefree, pqr and three-prime classifications",
+          "method": "Full lawful public GitHub TeX primary-source read and programmatic search of all 1633 lines",
+          "title": "The Sylow Divisor Condition: a Resolution of Erdős Problem 768",
+          "trigger": "Exact same arithmetic predicate, potentially dominating result"
+        },
+        {
+          "assessment": "Already contains 30 and 105, but no inspected complete three-prime iff proof.",
+          "evidence": [
+            "OEIS A352287, numerical examples and predicate"
+          ],
+          "identifier_or_url": "https://oeis.org/A352287",
+          "material_read": "Known public sequence definition and listed numbers as described in assigned source; full comments/history not exhaustively analyzed",
+          "method": "Sequence description and example-level cross-reference",
+          "title": "OEIS A352287: Sylow divisor condition",
+          "trigger": "Exact examples 30 and 105 and perhaps hidden proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 43db28c688b648e32c67af0f071bf23cad5a7690",
+        "Independent CASE4_OK 15180 finite triple tests",
+        "Eric Li full TeX https://github.com/ericlisg/erdos768-lean/blob/main/erdos768_source.tex",
+        "OEIS A352287",
+        "Resultary query on Sylow divisor triple classification"
+      ],
+      "rationale": "Classification of the first nonempty squarefree support layer of an established Erdős/Sylow divisor problem. Pinpoints exactly which squarefree pqr integers survive the necessary Sylow congruence test and require stronger group-theoretic obstructions. Although short elementary congruence chase, its unbounded complete boundary distinguishes it from arbitrary small casework.",
+      "residual_risks": [
+        "Original Erdős 1974 note and obscure group-order arithmetic classifications were not exhaustively inspected; they could mention the same three-prime case.",
+        "This classifies a necessary numerical congruence, not finite simple groups or nonsquarefree/higher-support n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 43db28c688b648e32c67af0f071bf23cad5a7690",
+    "Independent CASE4_OK 15180 finite triple tests",
+    "Eric Li full TeX https://github.com/ericlisg/erdos768-lean/blob/main/erdos768_source.tex",
+    "OEIS A352287",
+    "Resultary query on Sylow divisor triple classification"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Original Erdős 1974 note and obscure group-order arithmetic classifications were not exhaustively inspected; they could mention the same three-prime case.",
+    "This classifies a necessary numerical congruence, not finite simple groups or nonsquarefree/higher-support n."
+  ],
+  "schema_version": 1
+}

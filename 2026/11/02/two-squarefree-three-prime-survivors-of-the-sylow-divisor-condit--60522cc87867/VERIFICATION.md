@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and boundaries
+# Independent mathematical audit
 
-The proof is mathematical and unrestricted. The reproducible supplementary finite check is `python3 verify.py` using only standard Python. It directly visits 776,216 prime triples with all primes less than 1000, calculating the divisors of each product and testing the defining congruences independently. It reports only (2,3,5) and (3,5,7). A distinct shape-based check tests all primes below 100000 against the forced pattern (p,2p-1,2p+1), with only p=2,3. Those experiments are finite and do not certify any broader infinite claim; the proof in RESULT.md covers unbounded primes.
+## correctness
 
-No independent audit has been performed. The priority assessment has specific historical-source limitations described in REVIEW.md and AUDIT.json.
+PASS
+
+Let primes p<q<r. At r only pq can witness, so pq-1=kr with 1<=k<=p-1. At q, witness r would force q|k+1 while 2<=k+1<=p<q, so pr must witness and q|k+p; bounds p<k+p<2q force q=p+k. Mod p, qr=-1, q=1 mod p would give k=1 with q=p+1 composite for odd p; qr cannot witness for odd p, so r=1 mod p and k=p-1, yielding q=2p-1 and r=2p+1. If p>3 one candidate multiple of 3 and >3. Thus p=3 gives 3,5,7; p=2 gives k=1, 2,3,5. Explicit witnesses 30: (3,10,6), 105:(7,21,15). For one or two primes a witness for largest prime is too small. Independent direct divisor-condition enumeration over all triples of the first 46 primes (15180 cases) reproduced exactly the two; this finite check is not the global proof.
+
+## originality
+
+PASS
+
+The two numbers 30 and 105 are recorded in OEIS A352287 and not their discovery. Eric Li 2026 proves asymptotic enumeration for all Sylow-condition integers, and the complete accessible mathematical source text of that paper was examined for a three-prime squarefree stratum, finding no such classification. Classical exclusion of simple groups of order pqr does not settle the arithmetic predicate (both 30 and 105 survive its numerical test). This is best-of-knowledge original as the complete infinite three-prime stratum, not the predicate itself.
+
+## value
+
+PASS
+
+Classification of the first nonempty squarefree support layer of an established Erdős/Sylow divisor problem. Pinpoints exactly which squarefree pqr integers survive the necessary Sylow congruence test and require stronger group-theoretic obstructions. Although short elementary congruence chase, its unbounded complete boundary distinguishes it from arbitrary small casework.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
