@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact Gram singular values, explicit near-identity SPD operator and nondegenerate Krylov prefix, deterministic noncollision lower bound, finite signed-column angular bound and independent occupancy counts establish the probability for every admissible integer and epsilon; standalone arithmetic checker succeeds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel--Liu--Nyman, Sec. 2.2, provides high-probability embedding guarantees and Alg. 4 monitors kappa(SB).",
+        "Palitta et al. study sketch whitening and generic nonorthogonal Krylov conditioning; Grigori et al. restore projected-matrix similarity."
+      ],
+      "reasoning": "Embedding-success guarantees can protect the condition number but do not exclude an atom of embedding failure with a misleading small kappa(SB). Neither compared more general statement yields the present exact probability or SPD construction. Similarity restoration targets another defect.",
+      "searches": [
+        "Sketch-and-Restart Güttel Liu Nyman sparse sign condition-number monitor false safe collision probability",
+        "Sketch-and-Restart section 2.2 condition 9, Algorithm 4; Palitta truncated polynomial Krylov conditioning",
+        "Grigori Kressner Shao Simunec randomized Arnoldi similarity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.10354v2, Secs. 2.2, 4.1, 6",
+      "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596",
+      "https://arxiv.org/abs/1308.3280",
+      "https://arxiv.org/abs/2601.10248",
+      "Related scientific claims on Gaussian harmonic Ritz values and sketched basis conditioning"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary Algorithm 4 tests sketched basis kappa against threshold but does not quantify an exact false-safe probability under failed embeddings.",
+        "OSE literature collision arguments force embedding failures; they are compatible with but do not state this positive acceptance probability with arbitrarily large original kappa."
+      ],
+      "reasoning": "If a valid subspace embedding holds, norm and condition estimates follow; the constructed collision is outside the premise of that implication. Conversely a low condition number of SB does not imply that S is a subspace embedding, as this exact example shows. Existing rank-loss lower bounds do not dominate the stronger full-rank accepted-event conclusion.",
+      "searches": [
+        "exact probability sparse sign oblivious sketch two-column basis near collinear appears well conditioned conditional column collision adaptive truncated Arnoldi 2607.10354",
+        "Sketch-and-Restart Güttel Liu Nyman sparse sign condition-number monitor false safe collision probability",
+        "countsketch sign-sparse alias cancels shared difference near-collinear Krylov basis condition number finite atomic event",
+        "Gaussian sketch estimated condition number of Krylov basis false acceptance probability truncated Arnoldi threshold; highly ill-conditioned two-column basis exact decay",
+        "arxiv:2607.10354v2 full text, Sections 2.2 and 4.1",
+        "arxiv:1308.3280 OSE lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nelson--Nguyen 2013 proves lower bounds for sparse OSEs and describes collision-based embedding obstructions; it does not equate sketch-condition acceptance to good subspace embedding.",
+        "The exact atom in the present construction has a full-rank and well-conditioned sketched basis even though the true basis diverges."
+      ],
+      "reasoning": "Standard coordinate collision detects loss of norm for a difference. This construction redirects the lost common direction so the two surviving perturbed columns have small but comparable norm; a condition-only test accepts. Generic rank-loss bounds do not assert this different acceptance event or the \\((M-2)/M^2\\) law.",
+      "searches": [
+        "exact probability sparse sign oblivious sketch two-column basis near collinear appears well conditioned conditional column collision adaptive truncated Arnoldi 2607.10354",
+        "countsketch sign-sparse alias cancels shared difference near-collinear Krylov basis condition number finite atomic event",
+        "arxiv:1308.3280 exact sparse OSE collision rank loss",
+        "arxiv:2601.10248 similarity restored Arnoldi"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus searches returned no matching exact atomic probability; closest IDs 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee and 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af cover other algorithms.",
+        "Earlier related scientific claims about Gaussian sketched harmonic Ritz values concern a continuous sketch distribution and a different screening statistic."
+      ],
+      "reasoning": "The finite probability is derived from a specific independently signed sparse-column support alphabet; neither cited exact database record nor a published table gives this condition-screening event. Negative searches alone are not novelty proof.",
+      "searches": [
+        "exact probability sparse sign oblivious sketch two-column basis near collinear appears well conditioned conditional column collision adaptive truncated Arnoldi 2607.10354",
+        "Sketch-and-Restart Güttel Liu Nyman sparse sign condition-number monitor false safe collision probability",
+        "countsketch sign-sparse alias cancels shared difference near-collinear Krylov basis condition number finite atomic event",
+        "sparse sign sketch CountSketch exact collision cancellation masks arbitrarily ill conditioned two column basis as perfectly conditioned; adaptive Arnoldi false accept",
+        "published-finding corpus prior adaptive sketching truncated Arnoldi sparse sign collision condition number"
+      ]
+    },
+    "rationale": "Specific sparse-sign collision atom, exact conditional count, and near-identity symmetric positive-definite nondegenerate Krylov realization were not given by or implied as claims in the compared full-text primary work, generic sparse OSE lower bounds, Gaussian harmonic Ritz claims, or similarity restoration. Prior collision mechanisms remain acknowledged; novelty is restricted to the exact false-safe condition-screening law and realization.",
+    "residual_risks": [
+      "An undocumented CountSketch construction could have the same condition-number masking mechanism or exact atom.",
+      "Generic sparse-embedding literature was not exhaustively inspected full text; rank-loss collision arguments are acknowledged prior art.",
+      "The false-safe event is extremely rare for large sketch dimension; no frequency or full-algorithm failure claim is warranted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITIONS_COVERED_NOT_CLAIM: sparsity law and the threshold check appear, but the exact false-safe event and its SPD witness do not",
+        "evidence": [
+          "Section 2.2 lines 119-142 independent signed-column sketch and conditional OSE",
+          "Algorithm 4 lines 390-438 condition check",
+          "Section 6 lines 661-663 practical zeta and threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.10354v2",
+        "material_read": "Sections 2.2, 4.1 (including entire Algorithm 4), 5.3 and 6",
+        "method": "Full arXiv HTML text, direct section reading",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Exactly matching sketch distribution and condition-screening algorithm"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: numerical conditioning and whitening differ from an exact sparse signed support collision",
+        "evidence": [
+          "Full-text Figure 3 discussion compares basis conditioning and sketched whitening"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596",
+        "material_read": "Accessible full article text and condition/whitening numerical experiment discussion",
+        "method": "Publisher HTML content search and reading",
+        "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+        "trigger": "Prior methods with nonorthogonal Krylov basis conditioning and whitening"
+      },
+      {
+        "assessment": "PRIORITY_RISK_NOT_DECISIVE: collision mechanism familiar, but no observed statement of full-rank false-safe screening atom",
+        "evidence": [
+          "Abstract describes quantitative sparsity/dimension lower bounds; generic collision rank-loss mechanism"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.3280",
+        "material_read": "Original abstract and accessible exposition of sparse OSE lower-bound claims",
+        "method": "arXiv bibliographic abstract and scholarly overview; full proof not independently compared",
+        "title": "Lower Bounds for Oblivious Subspace Embeddings",
+        "trigger": "Known collision-based sparse OSE obstructions"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: modification restores projected-matrix similarity and is not a probability statement for sparse sign collision",
+        "evidence": [
+          "Abstract identifies projected-matrix similarity defect and rank-one correction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.10248",
+        "material_read": "Primary arXiv abstract and accessible SIAM HTML abstract",
+        "method": "arXiv abstract and publisher HTML",
+        "title": "Restoring similarity in randomized Krylov methods with applications to eigenvalue problems and matrix functions",
+        "trigger": "Same numerical-Krylov setting and potential broader stability result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ebc7f1db-1f42-41ca-9404-832aef105f10",
+  "value": {
+    "rationale": "The exact nonzero false-safe atom exposes an actionable diagnostic boundary in condition-only screening of adaptive truncated Krylov bases. It includes an SPD generator approaching identity, not just an arbitrary ill-conditioned matrix, and a complete finite support count. The event rarity and norm-based remedy are explicitly acknowledged.",
+    "status": "PASS"
+  }
+}
