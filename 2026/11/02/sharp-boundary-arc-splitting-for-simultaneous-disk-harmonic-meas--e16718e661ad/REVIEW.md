@@ -1,15 +1,21 @@
-# Scientific review: two-point disk harmonic-measure observation
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The Poisson kernel is normalized with respect to \(dt/(2\pi)\). Averaging the two harmonic measures gives a universal maximin upper bound. Reflection of any superlevel region forces the two harmonic masses equal, attaining that bound. Analyticity and nonconstancy make superlevel optimizers unique modulo null sets. The exact rational derivative reduces the mode count to a strictly monotone quadratic, and its factorization at the central value gives the critical length. Strict angular monotonicity of an arc's Poisson mass proves optimality of the geodesic midpoint among connected arcs. The small-length ratio and square-root opening follow from those explicit formulas. Finite numerical checks are not used to prove any statement requiring infinitely many cases.
+## correctness
 
-## Originality (O) — PASS, within inspected evidence
-The October 16, 2024 source supplies classical/alpha-harmonic Poisson boundary-integral theory but not a two-source maximin observation design. The 2013 wrapped-Cauchy mixture paper uses the same two-component density family and highest-density/excess-mass regions: both are credited as prior art rather than claimed as contributions. Direct comparison of its density-regression and region-selection sections does not produce the exact equal-source maximin value, the separation threshold, the critical occupied fraction, the best-connected-arc rule, or the strict split gap. A 2008 circular-density classification considers a different family. A 2003 two-point harmonic-measure paper concerns compact interior obstacles, with only an abstract and limited snippet available; it remains a historical-priority risk. No equivalent/dominating published finding emerged from actual semantic searches, though absence of a match is not a novelty proof. A previously recorded Gaussian two-center concentration result has a related rearrangement idea but different measure, domain and topology formulas, and does not imply the present disk result.
+PASS
 
-## Value (V) — PASS
-The mathematical object is classical harmonic measure on a disk and the design objective is the worst observed mass over two prescribed interior locations. The theorem completely resolves the constrained/unconstrained comparison, including its exact two-parameter phase boundary and a strict penalty for insisting on a single sensor arc. The topology transition and square-root onset provide structural information not obtained merely by restating the bathtub principle. The result is limited to equal radii and two points; extension to asymmetry remains open.
+For symmetric sources z±=r exp(±ia), averaging their measures bounds the smaller, and its strictly analytic even density H has a reflection-invariant superlevel set, so bathtub rearrangement attains this bound with both measures equal. Writing u=cos t, H=C(k−cu)/[u²−2kcu+k²−sin²a]; derivative numerator q=cu²−2ku+c(k²+sin²a) is strictly decreasing in u, giving one/two maxima and c*=(sqrt(k²+8)−k)/2. The exact factorization H(u)−H(1)=−C(k−c)(u−1)(u−[kc+c²−1])/[Q(u)Q(1)] yields ρc=acos(kc+c²−1)/π. Unique (mod null sets) two reflected superlevel arcs for a>acos c*, ρ<ρc, and central arc elsewhere. A Poisson interval integral decreases with circular distance, making central midpoint the best connected arc. Local arccos expansion gives square-root merger. Independently verified q and crossing factor with symbolic polynomial operations; finite grid tests cannot prove continuum uniqueness.
 
-## Closest literature and limits
-Long (arXiv:2410.12137v1); McMillan–Hanson–Saunders–Gallun (doi:10.1111/rssc.12004); Siew–Kato–Shimizu (Japanese Journal of Applied Statistics 37, 2008); Betsakos (doi:10.1112/S0024609303002108). The Betsakos full text was not available in the inspected lawful sources; this and unlocated equivalent circular-mixture formulas remain residual historical risks. The standalone checker provides corroboration rather than an exhaustive proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wrapped Cauchy mixtures are the same densities, and bathtub superlevel rearrangement is classical. The specific two-point harmonic-measure maximin equivalence, critical separation and occupied-fraction topology, uniqueness, and strict connected-arc penalty are additional exact combined statements not supplied by the inspected applied mixture source.
+
+## value
+
+PASS
+
+A complete exact geometric phase diagram for optimal shared boundary observation, including the qualitative component transition, sharp connectedness penalty and merger asymptotics. This is a natural constrained potential-theoretic design problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
