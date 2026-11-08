@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For every q>=1, each primitive necklace of length six has a unique lexicographically least cyclic representative, and each set of t used ordered symbols has a unique monotone normalization to {0,...,t-1}. Exactly all t^6 candidate tuples for t=1,...,6 are enumerated. Two independently written exact programs enumerate via primitive rotations and via stable last-to-first permutation respectively, agree on all 384 accepted normalized images and their cyclic-input-run labels, and reproduce the 10 partition cells. The binomial lifting across q is a proven bijection, and the fraction asymptotic follows from leading binomial coefficients. No statement for other input lengths is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kumallagov Proposition 6.1 establishes U_q(6)=4, and Table 1 gives one six-letter example.",
+        "Fici et al. prove unclustered-image existence for q>=3 in every length and a general lower bound for the count; the conclusion identifies exact characterization/counting as future work."
+      ],
+      "reasoning": "Knowing an optimum cyclic-run count or a general existence/lower bound cannot imply the exact number of inputs achieving each of four, five, and six cyclic runs, nor their complete multiplicity-profile restrictions.",
+      "searches": [
+        "arXiv:2606.01267v1 §§3,6,7",
+        "arXiv:2508.20879; DOI:10.4230/LIPIcs.CPM.2026.13 §§1,3,4,6",
+        "completely unclustered BWT enumeration primitive necklaces alphabet size number"
+      ]
+    },
+    "checked_sources": [
+      "Kumallagov, arXiv:2606.01267v1, initial public source May 31, 2026",
+      "Fici et al., arXiv:2508.20879, initially public August 28, 2025; CPM 2026 DOI:10.4230/LIPIcs.CPM.2026.13",
+      "Targeted public searches for equivalent unclustered-BWT length-six enumerators and run spectra",
+      "Semantic published-record searches on exact BWT image/necklace input-run census and alternate stable permutation terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior minimum U_q(6)=4 rules out smaller run counts but places no exact constraints on the number or alphabet support of optimal inputs.",
+        "Prior general counting lower bound for unclustered images is not a pointwise exact input-run distribution for n=6."
+      ],
+      "reasoning": "The new theorem is a refinement not implied by the known minimum or existence bounds. The older appendix uses the same finite search space to exclude a three-run example, so adaptation of its procedure would produce the new counts; that is a novelty/value risk but not publication of the count statement itself.",
+      "searches": [
+        "arXiv:2606.01267v1 Proposition 6.1 and Appendix A",
+        "arXiv:2508.20879 counting lower bound",
+        "BWT run amplification exceptional n six optimal necklace enumeration Parikh 2211 321"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.01267v1, Lemma 4.1 and Proposition 4.3 use the stable permutation and Hamming distance to sorted last column; Appendix A checks the length-six minimum.",
+        "A primitive-necklace rotation census and a stable-permutation last-column census were implemented as equivalent formulations of the complete enumeration."
+      ],
+      "reasoning": "The equivalent BWT standard-permutation encoding covers the same objects, but the prior manuscript records the minimum and individual examples, not the exact binomial spectrum by input-run number. The present coefficient table is a new exact statistic within that formulation.",
+      "searches": [
+        "\"Burrows Wheeler\" \"length 6\" \"completely unclustered\" counts",
+        "Burrows-Wheeler unclustered image count length six alphabet profile 6-cycle permutations",
+        "arXiv:2606.01267v1 §4 and Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary Table 1 displays one witness at length six, not the enumerator 5C(q,3)+14C(q,4) or the full eight-cell alphabet-size/run histogram.",
+        "Targeted public searches did not return an exact table of normalized six-letter BWT image counts; available results led to the two primary works inspected."
+      ],
+      "reasoning": "No examined table or mathematical-record entry gives the proposed 384-row normalized complete census, the 10 multiplicity-partition entries, or the all-q binomial polynomial. A negative search does not prove global absence.",
+      "searches": [
+        "\"unclustered BWT\" \"5\" \"14\" extremal necklaces",
+        "\"Kumallagov\" \"n=6\" number minimizers BWT",
+        "length six unclustered BWT complete enumeration exact counts 5 ternary 14 quaternary extremal input 4 runs six-cycle stable permutation",
+        "totally unclustered Burrows Wheeler transform exact number of necklaces length 6",
+        "arXiv:2606.01267v1 Table 1 and Appendix A"
+      ]
+    },
+    "rationale": "The closest primary result proves U_q(6)=4 with example images and an algorithm excluding three-run inputs, but does not state the counts of four-, five-, or six-run inputs or the complete Parikh-partition census. The earlier all-length construction provides existence and lower bounds, not exact length-six numbers. Precise implication comparisons, alternative last-to-first descriptions, and targeted public-record searches did not identify an equivalent count theorem. The existing appendix makes computational extraction feasible; this is recorded as a residual risk and is not misrepresented as logical independence.",
+    "residual_risks": [
+      "An unindexed table, modified version of existing finite-search code, unpublished dataset, or equivalent enumeration might already give the coefficients.",
+      "The closest 2026 appendix enumerates the same finite length-six universe to prove the optimum; while it does not publish this distribution, the new enumeration may be regarded as an accessible refinement rather than a new structural method.",
+      "Publication-priority and mathematical validation have not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes minimum four and nonexistence of three-run inputs; does not present complete counts by input runs and active alphabet.",
+        "evidence": [
+          "arXiv:2606.01267v1 §6 Table 1 and Proposition 6.1; §7 Conjecture 7.1; Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.01267",
+        "material_read": "HTML abstract and sections 1–4, 6–7, and Appendix A finite enumeration listing; particularly Proposition 6.1, Table 1, and the displayed stable-permutation code",
+        "method": "Read primary arXiv HTML text with theorem/section and appendix comparisons",
+        "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+        "trigger": "Exact same BWT objects, exceptional input length six, and a finite appendix search"
+      },
+      {
+        "assessment": "Provides all-length existence and a lower bound on numbers, without the claimed exact length-six cyclic-input-run distribution.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.CPM.2026.13, Theorems 2–3, §4, §6"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html",
+        "material_read": "Primary published HTML abstract, sections 1–3, counting discussion in section 4, and conclusions and future-work discussion",
+        "method": "Read primary open-access conference full text",
+        "title": "Totally Unclustered BWT Images of Any Length over Non-Binary Alphabets",
+        "trigger": "Earlier all-length existence and numerical lower-bound results for the same unclustered BWT images"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68bffef2-2908-4735-b009-cf97a5f09625",
+  "value": {
+    "rationale": "Length six is the exceptional input length singled out by the sharpness theory for unclustered BWT amplification, where the general half-length lower bound is not attained. The result completely counts sources at each possible cyclic-run number for every ordered alphabet and determines their exact letter-multiplicity support. It exhibits the structural restriction to at most four active letters for optimal four-run sources and the asymptotic scarcity fraction 7/(2q^2), addressing a natural finer classification left after the published optimum and existence results.",
+    "status": "PASS"
+  }
+}
