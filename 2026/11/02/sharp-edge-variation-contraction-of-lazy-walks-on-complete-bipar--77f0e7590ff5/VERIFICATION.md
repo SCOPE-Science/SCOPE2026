@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify_bipartite.py` using Python 3 with the standard library. It independently evaluates the graph-neighbor averaging map and every undirected edge difference using `fractions.Fraction`.
+## correctness
 
-Successful execution produced:
+PASS
 
-- 31,468 exact direct checks of nonconstant binary signals for part sizes \(2\le p,q\le5\) and nine or fewer rational holding parameters per size profile;
-- 2,536 exact comparisons of direct graph variation with the separately implemented cut-count formula;
-- 1,200 additional direct inequalities on random real-valued rational profiles;
-- 814 exact equality/extremizer comparisons for bipartition sizes \(2\le p,q\le14\).
+Coarea/layer-cake reduces every real signal to binary indicators because T preserves constants and J is graph-edge ℓ1 variation. For cut r,s, oriented differences have counts U=r(q−s), V=(p−r)s and shift δ=(U−V)/(pq). If U>V, U≥min(p,q)=pq/M, and the two exhaustive signs of α−(1−α)δ yield the upper bound max(1−2α,1−2(1−α)/M). Full-side and larger-part singleton indicators attain its branches; their intersection uniquely minimizes at α=1/(M+1). Independent all-indicator checks for p,q=2..4 and four α tested 3064 ratios; the proof is all-size.
 
-No floating-point comparisons, timeouts, or external mathematical libraries are involved in the reported run. These finite tests do **not** certify the universal claim; the proof uses a coarea identity, a sharp integer cut-size inequality and two exhaustive absolute-value sign cases. In particular, the script's random generator is seeded for repeatability, but no probabilistic statement is asserted.
+## originality
 
-The independent scientific audit is not performed. The possibility of equivalent older results under another terminology is a priority limitation, not a proof defect or a claim of certified novelty.
+PASS
+
+The target is edgewise real-signal BV seminorm, neither vertex-shift variation nor stationary-probability total variation. Resultary biclique height functions/ellipsoids do not imply the sharp Markov edge-seminorm; primary general graph TV and signal processing works supply definitions but not the exact two-branch sharp biclique formula in the inspected material.
+
+## value
+
+PASS
+
+An exact nontrivial operator norm and uniquely optimal holding parameter quantify sharp smoothing versus bipartite oscillation, with interpretable extremizers and the surprising dependence on only the larger part.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

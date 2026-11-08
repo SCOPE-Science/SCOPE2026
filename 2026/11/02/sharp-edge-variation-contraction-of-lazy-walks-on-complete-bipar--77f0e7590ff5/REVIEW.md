@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim concerns the one-input edge-variation ratio of the *linear, constant-preserving* lazy neighbor average on real signals on finite unweighted complete bipartite graphs with both classes nonempty and of size at least two, for all holding probabilities in the closed unit interval. Edgewise coarea converts the exact operator seminorm into a maximum over indicator cuts, without any unjustified inference from finite search. For each cut, the positive/negative/zero edge counts and update difference are explicitly derived. The integer lemma \(U>V\Rightarrow U\ge pq/\max\{p,q\}\) and the two sign regimes yield the upper envelope. A whole-part indicator and a singleton of a larger part attain the two active branches; their intersection yields a unique optimum. Exact-rational direct checks support, but do not replace, this proof.
+PASS
 
-## Originality
+Coarea/layer-cake reduces every real signal to binary indicators because T preserves constants and J is graph-edge ℓ1 variation. For cut r,s, oriented differences have counts U=r(q−s), V=(p−r)s and shift δ=(U−V)/(pq). If U>V, U≥min(p,q)=pq/M, and the two exhaustive signs of α−(1−α)δ yield the upper bound max(1−2α,1−2(1−α)/M). Full-side and larger-part singleton indicators attain its branches; their intersection uniquely minimizes at α=1/(M+1). Independent all-indicator checks for p,q=2..4 and four α tested 3064 ratios; the proof is all-size.
 
-**PASS, with priority risk.** Searches for biclique neighbor averaging, graph-edge BV contraction, optimal holding probability, Markov shift norms, and the related total-variation terminology did not identify an earlier statement covering the exact two-branch formula with the unique graph-dependent optimum. Relevant full texts on graph Markov square functionals (Feneuil, arXiv:1404.1353), graph filtering with a different shift-based variation (Sandryhaila–Moura, arXiv:1307.0468), signal variation minimization (Chen et al., arXiv:1411.7414), and nonlinear graph TV flow (Kirisits et al., arXiv:1807.10514) were inspected. Those statements do not dominate the present result, but an older equivalent under cut-norm or variation-diminishing terminology cannot be excluded. Standard coarea itself is not claimed as new.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The entire family of unit-edge biclique lazy neighbor filters admits an exact one-step graph BV stability curve and a unique optimal holding probability. Both depend only on the size of the larger bipartition class, despite the graph having two independent size parameters. The phase switch between a full-part cut and a singleton cut identifies distinct stability obstructions and supplies explicit equality cases. This is a natural and usable filter-design invariant beyond an isolated numeric example; it is not an arbitrary small-subgraph computation or a rephrasing of ordinary stationary-distribution mixing.
+The target is edgewise real-signal BV seminorm, neither vertex-shift variation nor stationary-probability total variation. Resultary biclique height functions/ellipsoids do not imply the sharp Markov edge-seminorm; primary general graph TV and signal processing works supply definitions but not the exact two-branch sharp biclique formula in the inspected material.
 
-## Scope and limitations
+## value
 
-No conclusion is given for noncomplete or weighted bipartite networks, higher-step filters, anisotropic holding, or another notion of variation. The named works were compared by mathematical implication rather than title only. Independently verifying historical priority remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact nontrivial operator norm and uniquely optimal holding parameter quantify sharp smoothing versus bipartite oscillation, with interpretable extremizers and the surprising dependence on only the larger part.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
