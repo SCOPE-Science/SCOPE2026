@@ -1,0 +1,19 @@
+# Mathematical review
+
+## Correctness — PASS
+
+The theorem treats all positive numbers of labeled agents and positive multipartite part sizes under identical unit-additive values. For these values, EF1 is precisely the bundle-size spread bound of one. The core structural argument is that any partially unassigned multipartite part would allow addition to an assigned bundle in that part; and any unallocated good forces every agent to be nonempty. Selecting a shortest decreasing-size prefix with total between the number of agents and strictly twice that number, then pairing within parts, yields feasible nonempty bundles of sizes one or two. The pair supply follows from a two-part floor inequality. The bipartite formula separates complete allocations from one-sided maximal allocations, with disjoint cases and factorial multinomial counts. In the odd balanced family, parity rules out full EF1 allocation and the remaining fair allocation count is exactly twice a factorial. The total maximal-outcome count uses disjoint agent-label subsets and Stirling surjection numbers; explicit partition subclasses prove superexponential scarcity. These arguments cover every stated boundary, including one agent and more agents than goods. Direct enumerations checked 121 small counting instances; 116,020 constructor cases and direct outcome enumeration for the three-agent odd case agree. Finite checking is a corroboration, not an argument for arbitrary input sizes.
+
+## Originality — PASS, with publication-priority qualification
+
+The primary work of Equbal and collaborators (arXiv:2605.09930v1, first posted 11 May 2026) treats maximal EF1 under conflicts and raises minimizing unallocated goods as a further direction. Its inspected results cover trees and other valuation/agent restrictions, not the complete-multipartite construction, the bipartite exact labeled count, or the scarcity probability here. Yan–Wang (arXiv:1207.3578v1) and Nakprasit–Nakprasit (arXiv:1508.04201v1) already study complete equitable multipartite colorings, so the full-coloring parity obstruction is not itself claimed as new. The present characterization concerns maximal *partial* allocations, exact counts and worst-case retained welfare. Searches for aliases, exact formulas, and neighboring results did not reveal a dominating result. Absence of a retrieved source is not a proof of uniqueness. An unindexed maximal-equitable-partial-coloring result remains a publication-priority risk.
+
+## Mathematical value — PASS
+
+A recent fairness-under-conflict study explicitly identifies allocation wastage as a motivated gap. The theorem provides a constructive solution for a broad and highly structured graph family, a complete exact enumeration for every bipartite member, and an infinite family in which maximality plus EF1 forces discarding half the goods despite the presence of many other maximal allocations. Quantifying the superexponentially vanishing incidence of fair maximal allocations adds mechanism-relevant information and is not just a restatement of equitable full-coloring feasibility. The labeled-count convention and uniform maximal-outcome sampling are necessary scope restrictions.
+
+## Relationship to literature and limitations
+
+Compared sources: Equbal et al. (2026), *Fair Allocation under Conflict Constraints*, https://arxiv.org/abs/2605.09930; Yan and Wang (2012), *Equitable chromatic threshold of complete multipartite graphs*, https://arxiv.org/abs/1207.3578; Nakprasit and Nakprasit (2015), *Equitable colorings of complete multipartite graphs*, https://arxiv.org/abs/1508.04201. The theorem is not a claim of general-graph maximal EF1, heterogeneous-valuation guarantees, polynomial-time sampling of maximal allocations, or new complete-coloring parity facts. Publication priority is conditional on accessible published evidence.
+
+Self-review: passed. Independent audit: not yet performed.
