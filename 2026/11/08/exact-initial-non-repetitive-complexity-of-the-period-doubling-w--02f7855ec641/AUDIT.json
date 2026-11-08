@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Substitution implies p_(2j)=0, p_(2j+1)=1-p_j; no 11 and hence no 0000. Equal length≥4 factors of opposite parity would be all-zero over four letters and are impossible. Same-parity equalities decimate bijectively to equal factors of lengths floor(n/2) and ceil(n/2), producing first possible repeat positions 2R(floor(n/2)) and 2R(ceil(n/2))+1. R is monotone, giving the recurrence. Base positions 2,3,4 determine the two plateau ranges and liminf/limsup. The package checker directly compares the fixed point and first-repeat windows at n=1..512 using complete byte equality and confirms 320 further arithmetic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang–Zhang, arXiv:1408.5495, Section 6, provides position formulas for each factor using its envelope word and an auxiliary substitution count.",
+        "Huang–Wen, arXiv:1606.05150, describes return words and substitutions for each fixed factor of the period-doubling word.",
+        "Nicholson–Rampersad, arXiv:1507.08206, establishes some general initial-complexity bounds and solves three distinct named sequences."
+      ],
+      "reasoning": "Individual-factor position formulas provide a potentially powerful route to the result, but require an additional length-dependent optimization over all factor types and starting positions that is absent from the inspected statements. The general bounds do not imply the exact all-lengths recurrence. The broad occurrence theory is a genuine historical-priority risk, not evidence of a published equivalent theorem.",
+      "searches": [
+        "arxiv:1408.5495, Theorem 5.2, Propositions 6.2 and 6.3",
+        "arxiv:1606.05150, abstract and return-word theorems",
+        "period doubling word return words first and second occurrences all factors",
+        "initial non repetitive complexity automatic substitution fixed point general theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1507.08206v3 (initial complexity definition, methods, scope)",
+      "https://arxiv.org/abs/1408.5495 (occurrence/gap and positions formulas)",
+      "https://arxiv.org/abs/1606.05150 (period-doubling return words)",
+      "https://oeis.org/A366462 (unrestricted maximal uniqueness window)",
+      "https://oeis.org/A367184 (earliest unrestricted maximizer)",
+      "https://arxiv.org/abs/2002.12593 (Arnoux–Rauzy scope, abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem here: for every integer n≥4, R(n)=2R(floor(n/2)), derived via cross-parity length-four impossibility.",
+        "Nicholson–Rampersad: different named substitution words, their methods and formulas do not specialize to this one by renaming.",
+        "Huang–Zhang: occurrence positions require a chosen factor, while R(n) is a minimum across all factors; no displayed extremal/minimization theorem.",
+        "OEIS A366462: at n=3 its window length is 7 while R(3)+3−1=6, demonstrating non-equivalence."
+      ],
+      "reasoning": "There is no direct equivalence, substitution renaming or stated stronger theorem in the inspected sources. A derived implication from the broad position theory remains possible, but it would need a further nontrivial all-factor minimization; it is recorded as a residual risk rather than declared impossible.",
+      "searches": [
+        "Nicholson Rampersad period doubling initial nonrepetitive Thue Morse recurrence",
+        "Huang Zhang doubling sequence positions all occurrences first repetition optimization",
+        "period doubling first repeated factor all length n exact closed form",
+        "related local complexity and return sequences in period doubling fixed points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nicholson–Rampersad, arXiv:1507.08206, Section 1 definition and Sections 4–6: initial complexity formulas for Thue–Morse/Fibonacci/Tribonacci, not period-doubling.",
+        "Huang–Zhang, arXiv:1408.5495, Sections 5–6: gaps and positions of occurrences of a chosen period-doubling factor, not the globally earliest repetition among all factors of a given length.",
+        "OEIS A366462 measures a best anywhere-in-word repeat-free window; at length 3 it has length 7, whereas the repeat-free initial prefix has length 6."
+      ],
+      "reasoning": "The new statistic fixes the window start to zero and minimizes the second-occurrence position over all distinct factors of each length. Neither the factor-occurrence function for a chosen factor nor the maximal anywhere-window invariant is the same optimization; no found formula matches the dyadic recurrence.",
+      "searches": [
+        "period-doubling initial non-repetitive complexity exact formula",
+        "period doubling word first repetition length n factors prefix non repetitive complexity",
+        "initial nonrepetitive complexity inrc period-doubling first collision",
+        "arxiv:1507.08206 (initial complexity), arxiv:1408.5495 (factor occurrences)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A366462 defines the unrestricted longest unique-factor-containing word and supplies a finite table, not the shortest first-repetition index of the fixed prefix.",
+        "OEIS A367184 gives positions of the earliest unrestricted maximizers and states a prefix-maximality property at dyadic powers only.",
+        "The closest available published records concerning the same sequence concern string attractors, prefix-normality, abelian powers and palindrome pairs rather than first-repeat complexity."
+      ],
+      "reasoning": "The cited tables record different optimizations. They could furnish consistency checks or partial dyadic observations but do not state an all-length initial-complexity formula or its two limiting slopes.",
+      "searches": [
+        "OEIS A366462 longest factor-unique windows in period-doubling sequence",
+        "OEIS A367184 first starting position for maximum factor-unique window",
+        "initial non-repetitive complexity period doubling integer sequence 2 3 4 6 6 8 8 12",
+        "semantic research records: period-doubling first repeated length-n factor and dyadic recurrence"
+      ]
+    },
+    "rationale": "The exact length-doubling recurrence and resulting two-plateau formula for the period-doubling fixed-point initial non-repetitive complexity were not stated or directly implied by the inspected primary literature, general occurrence formulas, or competing maximal-window tables. Searches for synonyms and equivalent optimizations found related but distinct results; historical-priority risk from individual-factor occurrence literature remains.",
+    "residual_risks": [
+      "A global first-collision formula could be derivable with further nontrivial minimization from the all-factor occurrence formulas of Huang–Zhang (2014) or related return-word work.",
+      "A specialized earlier result or unindexed database may contain the same two-plateau sequence; no exhaustive historical uniqueness claim is made.",
+      "No independent assessment of historical priority has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant, gives formulas for Thue–Morse, Fibonacci and Tribonacci but not the period-doubling word.",
+        "evidence": [
+          "arXiv:1507.08206, abstract, Section 1 and Sections 4–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1507.08206v3",
+        "material_read": "Full-text HTML, definition/intro, theorem inventory and arguments for named substitutions; searched for period-doubling",
+        "method": "Inspected arXiv HTML text and searched its whole text for the named substitution",
+        "title": "Initial non-repetitive complexity of infinite words",
+        "trigger": "Exact definition and closest named explicit evaluations of the same invariant"
+      },
+      {
+        "assessment": "Gives individual-factor occurrence positions but no R(n) first collision over all factors or the recurrence. Strong conceptual prior work with residual implication risk.",
+        "evidence": [
+          "arXiv:1408.5495, Theorem 5.2, Propositions 6.2–6.3, Section 7 applications"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.5495",
+        "material_read": "Accessible arXiv full text, especially the introduction, envelope/gap results in Sections 4–5 and position formulas in Section 6",
+        "method": "Read displayed full-text passages and examined Theorem 5.2 and Propositions 6.2–6.3",
+        "title": "Envelope Word and Gap Sequence in Doubling Sequence",
+        "trigger": "Potentially dominating all-occurrences formula for arbitrary factors of exactly the same fixed point"
+      },
+      {
+        "assessment": "Return words of each prescribed factor; no formula minimizing the first repetition index over all factors of a given length.",
+        "evidence": [
+          "arXiv:1606.05150, abstract, Sections 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.05150",
+        "material_read": "Accessible arXiv full-text introduction, main theorem statements and selected envelope word examples and return-word formulas",
+        "method": "Read arXiv source HTML/text and compared the studied invariant",
+        "title": "Envelope Words and Return Words Sequences in the Period-doubling Sequence",
+        "trigger": "Other individual-factor return-word theory that could dominate first-repeat claims"
+      },
+      {
+        "assessment": "Optimizes over all starting positions; distinct from the fixed-prefix initial complexity.",
+        "evidence": [
+          "OEIS A366462, description, n=3 example and Walnut definition"
+        ],
+        "identifier_or_url": "https://oeis.org/A366462",
+        "material_read": "OEIS definition, terms, comments and references, including displayed Walnut test",
+        "method": "Directly compared the quantified starting positions and the length-3 example",
+        "title": "Longest factor-distinct windows in the period-doubling sequence",
+        "trigger": "An apparently very close sequence with uniqueness of sliding factors"
+      },
+      {
+        "assessment": "Provides a dyadic-power prefix-maximality observation only; no exact general initial-complexity expression.",
+        "evidence": [
+          "OEIS A367184, comments and program"
+        ],
+        "identifier_or_url": "https://oeis.org/A367184",
+        "material_read": "OEIS definition, displayed terms, dyadic-power comment and Walnut code",
+        "method": "Compared the equality cases for the unrestricted optimum against first-collision indices",
+        "title": "First position attaining longest factor-distinct window",
+        "trigger": "Position of optimal repeat-free windows might imply an all-length initial formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "02f7855e-c641-4977-bcc5-615ec4cdd01b",
+  "value": {
+    "rationale": "Initial non-repetitive complexity is an established natural invariant quantifying how long the fixed prefix reveals new factors before its first collision. This gives its first all-length exact classification for a canonical primitive automatic substitution, a renormalization law, and exact extremal normalized ratios; it is not an arbitrary finite slice or merely a restated factor table. Prior studies determine this invariant on other classical substitutions and all-factor occurrence positions for this one, but not the reported global prefix optimum.",
+    "status": "PASS"
+  }
+}
