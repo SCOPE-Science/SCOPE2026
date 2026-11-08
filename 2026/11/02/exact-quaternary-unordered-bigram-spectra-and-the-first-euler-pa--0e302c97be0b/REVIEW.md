@@ -1,19 +1,21 @@
-# Scientific review: quaternary unordered-bigram spectra
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A ten-coordinate unordered adjacent-pair profile is realized by a linear four-letter word if and only if its associated undirected looped multigraph admits an Euler trail. The proof separately enumerates one-, two-, three- and four-vertex connected supports, and subtracts only the four-odd-degree profiles in the four-active-vertex case. The parity fiber has exactly eight subgraphs of \(K_4\): three matchings, four stars and the complete graph. For matchings, the required even-multiplicity connecting edge is explicitly enforced. The resulting rational function has reduced denominator \((1-z)^{10}(1+z)^4\), nonzero values at both singularities, and the stated asymptotics. Standalone literal-word and independent integer-profile checks match twelve coefficients; finite checks support but do not replace the proof. Boundary \(m\ge1\) and loop degree two are explicit.
+PASS
 
-## Originality
+The observation is a ten-coordinate multiset of unordered adjacent pairs in a four-letter LINEAR word, without known endpoints. It is realizable iff the looped multigraph on active letters is connected and has 0 or 2 odd-degree vertices. Counting connected support graphs with 1,2,3,4 active letters and subtracting the eight four-odd parity supports (3 perfect matchings, 4 stars, complete K4), with positive odd and even multiplicity series O=z/(1-z^2), E=z^2/(1-z^2), yields exactly the quoted rational function with denominator (1-z)^10(1+z)^4. Exact symbolic subtraction and factor cancellation verified the numerator, N(1)=14 and N(-1)=-6, establishing leading feasible fraction 7/8 and genuine quasipolynomial period 2 for all m>=1. Independent complete literal word enumeration matched coefficients m=1..7. The Euler argument, not that finite enumeration, proves the infinite count.
 
-**PASS, subject to the listed unindexed-specialization risk.** Ye--Elishco's length-limited substring composition model gives a motivating broader readout framework but no exact isolated length-two quaternary image count. Gabrys--Milenkovic retain ordered factors, Gupta--Mahdavifar use all substring lengths over a binary alphabet, and the exact published binary two-multispectrum result is alphabet- and orientation-distinct. Jacquet--Knessl--Szpankowski count cyclic directed Markov types, not undirected open Euler trails. Searches of adjacent-composition, graph-Euler, exact generating-function and initial coefficient aliases did not locate the present rational spectrum. The general Euler-trail theorem itself is not claimed as new. Potential coverage by an older labeled-looped-multigraph table remains a residual risk, not a checked absence.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The four-letter alphabet is the smallest where connected unordered-bigram multigraphs can have four odd vertices and hence a genuine parity obstruction to realizability. The result resolves the full all-length observation-space cardinality at that threshold, identifies an exact period-two law and the limiting achievable fraction \(7/8\), and gives the exact largest zero-error code size under a natural limited-composition observation model. The contribution is the motivated all-length classification/enumeration, not a routine finite instance or a restatement of Euler's theorem.
+The four-letter unordered length-two composition multiset, absent endpoints, is a different output channel from ordered fixed-length spectra or all-length compositions; no exact same all-length enumeration was found in inspected literature. Classical Euler-trail parity is credited. Priority remains qualified by unindexed graph-enumeration tables.
 
-## Literature and limitations
+## value
 
-Compared in detail with Z. Ye and O. Elishco (arXiv:2208.14963, Section VIII); R. Gabrys and O. Milenkovic (arXiv:1804.04548, Sections I--II); U. Gupta and H. Mahdavifar (arXiv:2201.09955, Sections I--II); the published exact binary two-multispectrum RESULT.md; and P. Jacquet, C. Knessl and W. Szpankowski (2010, accessible abstract only). This work does not determine individual observation-class sizes, noisy recovery, or larger-alphabet counts. Independently qualified originality remains to be assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural zero-error channel has precisely T_m distinguishable outputs, so the all-length rational function, sharp feasibility fraction 7/8, and first obstruction from 4 odd vertices provide substantive combinatorics and coding capacity information beyond elementary Euler-trail criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

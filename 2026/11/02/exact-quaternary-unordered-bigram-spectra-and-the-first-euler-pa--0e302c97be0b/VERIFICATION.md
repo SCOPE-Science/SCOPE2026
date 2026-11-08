@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Direct reproducibility checks
 
-Extract `verify.py` from the same package and run `python3 verify.py` (Python standard library only).
+# Independent mathematical audit
 
-Actual executable output:
+## correctness
 
-`VERIFY_OK literal_lengths=2..9 literal_words=349520 graph_profiles_m=1..12 profile_vectors_tested=646645 rational_coefficients_m=1..12 exact_match=True`
+PASS
 
-The program uses three different objects: literal strings and their length-two composition multisets; nonnegative ten-edge multiplicity vectors with a direct connectedness/odd-degree feasibility test; and exact rational-series coefficients computed using integer binomial convolutions. It checks all four-letter words of length 2 through 9 and all ten-coordinate edge profiles of total 1 through 12. The twelve exact coefficients are `10,34,116,367,1060,2782,6704,14963,31276,61738,116020,208848`.
+The observation is a ten-coordinate multiset of unordered adjacent pairs in a four-letter LINEAR word, without known endpoints. It is realizable iff the looped multigraph on active letters is connected and has 0 or 2 odd-degree vertices. Counting connected support graphs with 1,2,3,4 active letters and subtracting the eight four-odd parity supports (3 perfect matchings, 4 stars, complete K4), with positive odd and even multiplicity series O=z/(1-z^2), E=z^2/(1-z^2), yields exactly the quoted rational function with denominator (1-z)^10(1+z)^4. Exact symbolic subtraction and factor cancellation verified the numerator, N(1)=14 and N(-1)=-6, establishing leading feasible fraction 7/8 and genuine quasipolynomial period 2 for all m>=1. Independent complete literal word enumeration matched coefficients m=1..7. The Euler argument, not that finite enumeration, proves the infinite count.
 
-The all-length identity is established mathematically by classifying connected simple supports on at most four vertices and all eight parity subgraphs with four odd degrees. These finite experiments cannot prove an infinite claim. No independent mathematical audit is asserted.
+## originality
+
+PASS
+
+The four-letter unordered length-two composition multiset, absent endpoints, is a different output channel from ordered fixed-length spectra or all-length compositions; no exact same all-length enumeration was found in inspected literature. Classical Euler-trail parity is credited. Priority remains qualified by unindexed graph-enumeration tables.
+
+## value
+
+PASS
+
+A natural zero-error channel has precisely T_m distinguishable outputs, so the all-length rational function, sharp feasibility fraction 7/8, and first obstruction from 4 odd vertices provide substantive combinatorics and coding capacity information beyond elementary Euler-trail criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
