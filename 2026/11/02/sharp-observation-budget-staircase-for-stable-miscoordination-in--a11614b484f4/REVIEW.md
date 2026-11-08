@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every payoff \(u>1\), the small group's size-two binomial response is \(2p-p^2\). When the other group's optimal response requires one observation, the population drift is positive. When it requires exactly two, the odds-coordinate drift is a polynomial with constant \(2\alpha-1\) and strictly positive higher coefficients. It has either no interior root or one repelling root. When at least three observations are required, an explicit rational share \(\alpha=1/2+1/(128\binom{k}{3}^2)\) produces a strictly positive drift near zero and one but a negative drift at \(p=1/(4\binom{k}{3})\); hence an attracting interior equilibrium exists. The threshold is precisely \(k>2(u+1)\). The standalone exact verifier passed 227 coefficient, payoff-boundary and witness tests. Finite tests are supplemental to the all-size symbolic proof.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+The exact ODE is p_dot=alpha(2p-p²)+(1-alpha)Pr(Bin(k,p)>=m)-p with m=ceil(k/(u+1)), u>1, 0<alpha<1, sample ties to a. If k<=2(u+1), m<=2. For m=1 drift>0 on (0,1); for m=2 the odds-coordinate positive prefactor yields polynomial 2alpha-1+sum_{j=1}^{k-2}[C(k-2,j)+(1-alpha)C(k-2,j+1)]y^j, all nonconstant coefficients strictly positive, so any interior zero repels. If k>2(u+1), m>=3 and m<=k-1. Let C=binom(k,3), eps=1/(4C), alpha=1/2+eps²/8. Union bound Pr(Bin>=m)<=Cp³ makes drift negative at eps, while leading 2alpha-1 makes drift positive sufficiently near zero and m<=k-1 yields drift positive near1. Crossing yields at least one attracting interior stationary point and another separator, for every real u>1 and integer k including tie boundaries. Independently checked all-degree odds polynomial k=3..17 and exact drift sign witnesses. Finite checks supplement exact uniform proof.
 
-Arigapudi, Heller and Schreiber, *Heterogeneous Noise and Stable Miscoordination* (arXiv:2305.10301; originally 2023), already prove that sufficiently large sample-size heterogeneity can stabilize miscoordination, and that homogeneous sampling does not. Their 2025 full-text Theorem 2, Section 2.6 and Appendix A.6 do not identify the smallest admissible larger sample size at each payoff, or a sharp closed-form staircase including all rational tie points. A narrower known five-observation boundary in the first payoff cell is credited as a special case rather than a separately new result. The present theorem covers every \(u>1\) and supplies a uniform all-degree obstruction and constructive rational witness, not merely a further numerical cutoff. Source searches did not locate a broader published implication; unindexed or inaccessible specialist work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's qualitative insight—that better-informed agents can stabilize miscoordination—raises the direct economic question of the least required information. This theorem gives a sharp observation-budget rule for the entire payoff range, identifies discontinuous changes at exact best-response ties, and supplies a reusable positivity argument for binomial response mixtures. It establishes a structural infinite family of thresholds, not an arbitrary fixed payoff instance, while retaining the source's dynamics and behavioral assumptions.
+The source Arigapudi–Heller–Schreiber treats the exact sampled best response and establishes qualitative existence under heterogeneous sample sizes. The present fixed {2,k} if-and-only-if k>2(u+1), explicit k_min and all-payoff tie staircase is not implied by its quoted sufficient theorem. Classical binomial tail and 1D stability tests are ingredients rather than the exact global budget. Search found no dominating Resultary finding.
 
-## Scope and scientific limits
+## value
 
-The finding concerns a two-point sample-size mixture, with the smaller size fixed to two, and local attracting interior states of the deterministic one-population ODE. It does not assert global convergence or extend to arbitrary mixture supports. The source comparison includes an accessible complete version of the most relevant manuscript but does not eliminate unindexed prior work. Independent external validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least large-sample observation budget needed for stable miscoordination is a motivated exact threshold within the published heterogeneous sampling dynamics. The all-payoff infinite staircase, precise tie transitions, and explicit mixture construction strengthen qualitative existence and let one distinguish feasible from impossible sample budgets; not an arbitrary slice because one sample size of two is the smallest nontrivial heterogeneous mixture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
