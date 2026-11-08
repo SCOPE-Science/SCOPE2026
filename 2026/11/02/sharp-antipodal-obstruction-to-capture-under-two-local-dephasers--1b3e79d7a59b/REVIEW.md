@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The projection theorem follows from trace monotonicity, stationary Cesàro limits, the negative-semidefinite purity identity, and the connectivity of the hypercube to eliminate all stationary populations at monitored sites. Exact Walsh row-rank analysis then yields the full dimension formula with correct endpoint eigenspace contributions and the sharp dimension-three exception. A stand-alone checker performs 59,988 exact integer spectral-rank assertions through dimension seven and four direct Lindblad propagations in dimensions three and four. Numerical agreement is not an all-dimensional proof; the displayed analytic argument is.
+## correctness
 
-**Originality: PASS, subject to historical-priority uncertainty.** The most relevant primary sources are Strauch's 2008 all-vertex hypercube decoherence model, Novo and collaborators' 2014 coherent one-sink hypercube cyclic-space calculation, and Le and collaborators' 2017 general graph dark-state treatment. None of the inspected text states this exact two-selected-dephaser, three-monitored-site antipodal classification. The earlier two-marked-vertex hypercube result does not determine the independent third evaluation functional. The remaining risk is an equivalent unindexed or less accessible result, or a broader theorem whose consequences were not recognized.
+PASS
 
-**Mathematical value: PASS.** Exact monitoring placement, rather than time-dependent optimal rates, determines which hypercube excitation subspaces remain forever inaccessible to a sink. Three selected monitored sites are the first nontrivial case yielding a universal-capture cutoff in dimension three and a rate-independent \(d-1\) loss under antipodal placement. These are meaningful structural constraints for coherent capture and monitoring, not small changes in a numerical bound.
+For all d>=3, any distinct a,b,c, nonzero real J and positive kappa,gamma_b,gamma_c, the stationary Cesaro-state argument is sound: trace loss forces P_aR=0, the Hilbert-Schmidt purity identity forces commutation with both local dephasers, and the nonzero J^h h! shortest-walk amplitude excludes dephaser site mass from the H-invariant support. Hence only the common spectral dark space survives. In each Walsh eigenspace k=1,...,d-1, coordinate swaps yield evaluation rank 3 without an antipodal pair and 2 with any antipodal pair, while k=0,d rank is 1. Thus bright dimension is 3d-1 or 2d, and absorption is exactly 1-tr(P_D rho0) for arbitrary density matrices. I separately constructed Walsh evaluation matrices (not repository Gram determinants) for every anchored unordered three-monitor configuration in d=3,4,5,6 and checked all ranks and summed dimensions. This finite corroboration is not the proof for unbounded d.
 
-**Limits.** The theorem addresses finite homogeneous binary hypercubes with one sink, two distinct local Markovian dephasers and positive rates. It does not establish finite-time capture rates, perturbation tolerance or arbitrary-graph extensions. External historical priority and independent validation are unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for a sharp three-site spectral-rank and capture dichotomy; cited prior work develops dark-state graph methods, full-vertex/subspace hypercube decoherence, and single-trap invariant cyclic spaces, without the inspected triple of two sitewise dephasers plus absorber exact all-dimension formula. No total-priority claim.
+
+## value
+
+PASS
+
+The exact asymptotic absorption projector for all initial states is a natural experimentally relevant transport invariant. The antipodal rank-defect changes capture probability by d-1 bright levels and yields a sharp d=3 universal capture cutoff; neither is a routine substitution into one-trap dimension d+1. A natural and reusable structural theorem for monitored hypercube transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

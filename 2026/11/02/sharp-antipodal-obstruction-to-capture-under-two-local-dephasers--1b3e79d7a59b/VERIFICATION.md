@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with NumPy and SciPy. The checker exhaustively enumerates all unordered anchored triples of distinct hypercube vertices in dimensions three through seven and obtains spectral ranks via **exact integer** Krawtchouk Gram determinants. It confirms that all interior Hamming-level evaluation ranks are three without antipodal pairs and two with them, and that total bright ranks are respectively \(3d-1\) and \(2d\). It performs 59,988 finite exact-rank assertions.
+## correctness
 
-The checker also constructs the density-matrix Lindblad generator separately from the Walsh argument, computes matrix exponentials for two triples in dimension three and two in dimension four, and compares their late-time capture fractions against the closed forms. The specific examples are the vertex triples \((0,1,2)\) and \((0,1,7)\) in dimension three, and \((0,1,2)\) and \((0,1,15)\) in dimension four. Numerical convergence at the tested late times is not a proof of the infinite-time limit. The proof in RESULT.md supplies that via positivity, monotone trace and stationary-state arguments.
+PASS
 
-Analytic scope: every integer dimension at least three; pairwise distinct monitored sites; nonzero uniform real hopping; strictly positive absorber and local pure-dephasing rates; arbitrary normalized positive semidefinite initial density matrices. No independent audit has been performed.
+For all d>=3, any distinct a,b,c, nonzero real J and positive kappa,gamma_b,gamma_c, the stationary Cesaro-state argument is sound: trace loss forces P_aR=0, the Hilbert-Schmidt purity identity forces commutation with both local dephasers, and the nonzero J^h h! shortest-walk amplitude excludes dephaser site mass from the H-invariant support. Hence only the common spectral dark space survives. In each Walsh eigenspace k=1,...,d-1, coordinate swaps yield evaluation rank 3 without an antipodal pair and 2 with any antipodal pair, while k=0,d rank is 1. Thus bright dimension is 3d-1 or 2d, and absorption is exactly 1-tr(P_D rho0) for arbitrary density matrices. I separately constructed Walsh evaluation matrices (not repository Gram determinants) for every anchored unordered three-monitor configuration in d=3,4,5,6 and checked all ranks and summed dimensions. This finite corroboration is not the proof for unbounded d.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for a sharp three-site spectral-rank and capture dichotomy; cited prior work develops dark-state graph methods, full-vertex/subspace hypercube decoherence, and single-trap invariant cyclic spaces, without the inspected triple of two sitewise dephasers plus absorber exact all-dimension formula. No total-priority claim.
+
+## value
+
+PASS
+
+The exact asymptotic absorption projector for all initial states is a natural experimentally relevant transport invariant. The antipodal rank-defect changes capture probability by d-1 bright levels and yields a sharp d=3 universal capture cutoff; neither is a routine substitution into one-trap dimension d+1. A natural and reusable structural theorem for monitored hypercube transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
