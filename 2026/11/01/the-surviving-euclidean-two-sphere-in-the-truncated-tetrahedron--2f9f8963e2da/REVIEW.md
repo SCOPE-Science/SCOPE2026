@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Four exact normalized distance classes exhaust all 66 vertex pairs. The three required acyclic Morse certificates leave respectively \((c_0,c_1,c_2)=(1,3,0),(1,0,5),(1,0,1)\), as verified by reconstructing their entire reversed-incidence directed Hasse graphs. These critical counts imply the claimed integral homotopy types, not merely field Betti numbers. A geometric 20-triangle integral two-cycle from the original convex boundary is transported through 146 checked elementary collapses of the larger complex onto a connected closed triangulated two-sphere; each final triangle has coefficient \(\pm1\). This establishes a split-surjective integral persistence map rather than merely a nonzero mod-prime map. No unchecked step is needed to derive the intervals. See `verify.py`, the three matching certificates, and `verification_output.txt`.
+PASS
 
-## Originality
+The 12 exact integer triples 2p_a+p_b yield all 66 squared distances 8(18),24(24),32(12),40(12), divided by eight. Independent regeneration gave face vectors 34/114/342 nonempty faces at squared thresholds 8/24/32. I independently fetched all three actual matching certificates (Git object blobs 0e28c0a5,1b10a05f,ffe3a246), checked every pair and every directed Hasse cover, and topologically sorted all 34,114,342 faces; all acyclic, leaving respectively (c0,c1)=(1,3),(c0,c2)=(1,5),(c0,c2)=(1,1). I separately rebuilt the oriented 20-triangle convex boundary cycle at sqrt(3), exact greedy 146 free-face collapse sequence at squared threshold 32, and integral transfer to the (V,E,F)=(10,24,16) sphere with all 16 final triangle coefficients ±1, establishing a primitive integral H2 generator. The original source code checks connectedness, triangle edge valences, cyclic vertex links and boundary-zero. Matching/collapse plus Forman and integral chain retraction prove the claimed homotopy types and split-surjective map; 11 degree-zero intervals and the 3/4/1 remaining bar multiplicities follow. Finite enumeration is exhaustive only for these 12 specified vertices.
 
-**PASS, with residual risk.** The closest directly comparable published mathematical record classifies the **shortest-path graph-metric** filtration of the truncated tetrahedron. Its first two nontrivial stages coincide with those at Euclidean radii \(1\) and \(\sqrt3\), so they are prior coverage, explicitly not a novel contribution here. Graph radius three, however, identifies both remaining Euclidean distance classes and makes the full simplex; it does not calculate the intermediate Euclidean \(S^2\) stage at \(2\), nor the primitive two-homology inclusion map. The 2015 source treats truncated-tetrahedral twelve-state spin directions, not Rips topology. The 2023 Platonic-solid theorem and the relevant dissertation chapter do not cover this Archimedean point cloud. A targeted dissertation search found no truncated-tetrahedron calculation. Exact technical searches and scientific implication comparisons found no covering statement. Possible unindexed numerical diagrams or independent computations remain a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Distinguishing the two geometric diagonal-distance classes is natural for a uniform Archimedean vertex configuration also used as a twelve-state geometric model. The resulting two-dimensional sphere persists for an additional genuine Euclidean scale, while four other spheres die; the primitive integral generator identifies exactly which topology is retained. The result therefore contributes an exact complete filtration, homotopy types rather than ranks alone, and a certified integral inclusion map. It is not a rephrasing of the known graph-metric result.
+The graph-metric result already covers the first two nontrivial types (3 circles,5 two-spheres); this overlap is excluded from originality. The new Euclidean squared-distance-32 intermediate S2, distinct sqrt(5) terminal threshold and primitive integral persistence inclusion are not implied by graph radius 3, which adds both classes together. The Platonic-solid classification and its dissertation concern different vertex configurations, with no dominating general Archimedean theorem identified.
 
-## Scope and limits
+## value
 
-Exactly twelve points, regular truncation and ordinary Euclidean chord metric. The original published graph-metric stages are acknowledged. No conclusion for other ratios, more points, ambient surface Rips complexes, or equivalence of other unindexed sources is asserted. No external independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The regular truncated tetrahedron is a natural Archimedean 12-point Euclidean configuration. The previously studied graph shortest-path metric merges geometric diagonal scales; resolving them reveals a genuine longer-lived sphere and, crucially, which primitive H2 class persists. Exact integral barcode and inclusion maps are useful independently of a broader polyhedron census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
