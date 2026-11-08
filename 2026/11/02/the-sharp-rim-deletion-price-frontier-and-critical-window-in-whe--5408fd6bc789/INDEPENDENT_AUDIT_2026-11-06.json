@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:18:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any connected nonnegative conductance vector, Kirchhoff index is (n+1)(tr(L+J)^−1−1). The Hessian along every nonzero edge variation is 2(n+1)tr(A² (L+J)^−1)>0, so unique global minimizer exists and wheel rotations force equal spokes a>0 and equal rims b≥0 without imposing symmetry a priori. Fourier modes yield (n+1)[1/((n+1)a)+sum_{k=1}^{n−1}1/(a+c_k b)], c_k=2−2cos(2pi k/n). Budget saturation n(Pa+Qb)=B yields scalar F=(P+Qz)S(z), z=b/a. S(0)=n²/(n+1), sum c_k=2n and sum c_k²=6n give derivative zero exactly Q/P=2(n+1)/n; strict convexity in budget-affine b gives unique activation and interior root. Second derivative and implicit Taylor yield stated local linear onset and quadratic improvement; Riemann-sum derivative limit gives z→max(0,P/Q−1/2), cost limit and critical window nz→max(0,(1−eta)/2) for Q=2P(1+eta/n). New checks computed independent weighted-Laplacian eigenspectra and derivative signs for n=3,4,7 and three price regimes (9 class parameter combinations). These finite checks do not establish general n/budget.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary SIAM Review 2008 Section 5.2 derives wheel optimal conductances and convexity under one uniform cost per edge, with n(a+b)=1.",
+          "General network convex program allows weighted budget but no explicit all-n class-priced threshold/critical window in inspected wheel example."
+        ],
+        "reasoning": "The priced problem is a specialization of a known general convex optimizer, so generic convex solvability is covered; the explicit cost-induced topology switch and critical coefficient are additional solution structure.",
+        "searches": [
+          "Ghosh Boyd Saberi 2008 Minimizing Effective Resistance of a Graph wheel section 5.2 equation 38"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1137/050645452",
+        "Ghosh-Boyd-Saberi (2006) MTNS precursor",
+        "Li-Yang-Zhang 2008 weighted wheel",
+        "Resultary wheel optimal resistance query top 9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At P=Q the new theorem specializes to nonzero rim investment and recovers the published equal-price wheel optimizer; the P≠Q phase Q/P>=2(n+1)/n is not in its equal-price equation (38).",
+          "The general SDP/convex framework permits cost constraints, but does not provide closed threshold, expansion, or asymptotic price-window automatically."
+        ],
+        "reasoning": "Credits precisely the shared Fourier reduction and convexity and assesses only the explicit distinct-price frontier and scaling; these require additional spectral moment/Taylor analysis.",
+        "searches": [
+          "Ghosh Boyd Saberi equal price wheel optimizer price threshold Q P"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimizing trace of Laplacian pseudoinverse equals minimizing sum of pairwise effective resistances; Ghosh–Boyd–Saberi 2008 Section 5.2 wheel objective uses identical Fourier eigenmodes.",
+          "Resultary Löwner ellipsoid wheel finding optimizes different edge-polytope objective and cannot be identified with electrical resistance minimization."
+        ],
+        "reasoning": "Recast graph objective as Kirchhoff-index design and compare equal-price spectral formula; new statement varies distinct class prices, not simply renamed common price.",
+        "searches": [
+          "optimal resistance weighted wheel spoke rim conductance unequal prices sharp critical cost threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Li–Yang–Zhang (2008) bibliographic record addresses weighted-wheel Kirchhoff indices; full article not inspected.",
+          "Resultary search of wheel resistances showed no matching price-frontier table, but this is a weak negative search."
+        ],
+        "reasoning": "Known fixed-conductance Kirchhoff formula does not directly fix optimal prices; if a full weighted-wheel source includes cost-constrained optimum, its material must be checked before asserting unique historical priority.",
+        "searches": [
+          "Kirchhoff index of weighted wheel graphs Wn a b Li Yang Zhang 2008"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi 2008 already proves general strict convexity and explicit wheel spectral reduction at equal edge prices; no novelty for these facts. The additional distinct spoke/rim prices, sharp deletion threshold, finite-size onset coefficients, and critical scaling differ mathematically from the equal-price case. A 2008 weighted-wheel Kirchhoff index paper may compute some overlapping spectral identities; complete optimization coverage remains unverified.",
+      "residual_risks": [
+        "Weighted wheel graph index paper could give equivalent formulas or even optimization; full text unavailable.",
+        "General convex design framework already supplies existence/uniqueness and numerical solution, so only exact price frontier and critical window are claimed beyond it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "equal-price wheel solved; distinct class-price activation and critical window not present in inspected statements",
+          "evidence": "Section 5.2 has n(a+b)=1 and eigenvalue sum; this is covered foundation.",
+          "identifier_or_url": "DOI:10.1137/050645452 (Ghosh, Boyd and Saberi, 2008)",
+          "material_read": "original author-hosted SIAM Review full PDF, title/abstract, Section 5.2 pp. 59–60, Eq. (38), and context",
+          "method": "full PDF page screenshots and text",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "direct same graph and electrical objective"
+        },
+        {
+          "assessment": "cannot claim full article does not solve priced design",
+          "evidence": "Weighted wheel Kirchhoff-index evaluation could overlap important spectral sublemmas; explicit cost window unverified.",
+          "identifier_or_url": "Li, Yang and Zhang (2008), Journal of Lanzhou University 44(3)",
+          "material_read": "bibliographic abstract/listing only; full text not accessible",
+          "method": "publisher/public bibliographic listing",
+          "title": "Kirchhoff index of weighted wheel graphs",
+          "trigger": "plausible same weighted wheel with two conductance classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cost-dependent edge-removal frontier for a natural electrically designed wheel, including strict uniqueness without symmetry assumptions and the singular 1/n price window, gives structurally meaningful topology selection and budget-allocation guidance rather than a routine fixed-price spectral computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Weighted wheel graph index paper could give equivalent formulas or even optimization; full text unavailable.",
+    "General convex design framework already supplies existence/uniqueness and numerical solution, so only exact price frontier and critical window are claimed beyond it.",
+    "The publication plan is not_ready due to unsafe public metadata; no GitHub write, publication, independent external attestation or formal proof certification is implied."
+  ],
+  "schema_version": 1
+}
