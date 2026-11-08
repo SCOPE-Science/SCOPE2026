@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T01:49:44.860409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formal binary-partition product B(x)=product_j(1-x^{2^j})^-2 satisfies B(x^2)=(1-x)^2B(x) and B(x)≡1+2x+5x² (mod 8) from a coefficientwise Mahler induction. Finite polynomial T(x)=product_{j=0}^6 (sum_{a=0}^{2^{7-j}-1}x^{a2^j})² has degree 1538, and B(x)=T(x)(1-x^128)^-14 B(x^128). Decimating yields T_r(y)B(y)/(1-y)^14. A complete finite coefficient certificate checks T_r identities for all r=0..127, exactly r=36,62 give identically 112 (mod 128) for every t>=0. Independent modular polynomial construction and first 120 decimated coefficients of all 128 classes confirmed exactly these two. Legendre: 112+128t=16(8t+7) never three squares. Two progressions give lower density 1/64 without existence of total obstruction density.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Valuation nu_2=4 on 32t+4 and 32t+30 includes the claimed progressions but does not fix the odd factor modulo8.",
+          "Sobolewski and Ulas general 2-automaticity enables algorithms but does not state uniform 112 mod128 on r36,r62."
+        ],
+        "reasoning": "Broader theoretical framework does not automatically supply the exact computed congruence; a natural finite evaluation supplies missing arithmetic data.",
+        "searches": [
+          "Gawron Miska Ulas theorem 5.4 binary partition valuation 32n+4 32n+30",
+          "Sobolewski Ulas 2023 binary partition three squares Problem 7.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.16622 full OA publisher HTML sections incl. Problem7.2",
+        "doi:10.1007/s00605-017-1041-2 full publisher HTML",
+        "Resultary query two colored binary partitions b2(n) congruence mod 128 three squares positive density obstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "nu_2=4 alone means b_2(n)=16*odd, whereas Legendre exclusion requires odd factor ≡7 (mod8).",
+          "2-automaticity is existence of algorithm and does not logically specify these values."
+        ],
+        "reasoning": "The 1/64 positive-density corollary is not implied by the inspected previously known valuation result.",
+        "searches": [
+          "Sobolewski Ulas three squares colored binary partitions 2023",
+          "Gawron Miska Ulas valuation 4 theorem5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Legendre obstruction is n=4^a(8b+7): residue 112 mod128 means 16(8b+7).",
+          "Congruence is an exact residue-word in automatic sequence b_2(n) mod128, not just a valuation class."
+        ],
+        "reasoning": "Examined equivalent three-square-exclusion, Mahler-series 2-kernel, and residue automaton formulations; no equivalent exact progression located in cited work.",
+        "searches": [
+          "two colored binary partitions b2(n) congruence mod 128 three squares positive density obstruction",
+          "Sobolewski Ulas Values of Binary Partition Function Represented by a Sum of Three Squares Problem 7.2",
+          "2-automatic binary partition coefficients modulo 128"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual degree-1538 finite polynomial test and full 128-class scan specifically singles out r36,r62.",
+          "Previously published valuations cover many indices but not b2(n) mod128 exact tables."
+        ],
+        "reasoning": "This is a natural complete classification of a fixed low 2-power modulus for the relevant Legendre obstruction; no matching external exact table identified.",
+        "searches": [
+          "two colored binary partitions b2(n) congruence mod 128 three squares positive density obstruction",
+          "binary partitions coefficient modulo 128 table two colors three squares"
+        ]
+      },
+      "rationale": "Gawron–Miska–Ulas Theorem 5.4 already identifies valuation 4 on broad progressions modulo32, which implies neither odd parts modulo8 nor exact residues 112 modulo128. Sobolewski–Ulas 2023 study three-square binary partitions and their Problem7.2 explicitly asks about other color counts including two. Their automaticity statements do not supply these particular uniform congruences. Best-of-knowledge precise two-colored congruence/density contribution PASS; residual possibility of earlier computable table or general automata output.",
+      "residual_risks": [
+        "A known automatic-sequence table might already list r36/r62 without appearing in searchable statements.",
+        "No claim that 1/64 is optimal or that the full set of nonrepresentable values has a density."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known automaticity and related color cases, but no checked uniform 112 mod128 or two-color density result",
+          "evidence": "Section 7 Problem 7.2 and Proposition 7.3",
+          "identifier_or_url": "arXiv:2211.16622; doi:10.1007/s00025-023-01966-8",
+          "material_read": "Full publisher open-access HTML, especially general-color discussion, Proposition 7.3, Problem 7.2, earlier example formulas",
+          "method": "Read full available HTML and targeted theorem sections",
+          "title": "Values of Binary Partition Function Represented by a Sum of Three Squares",
+          "trigger": "Primary same three-square problem with colored binary partitions"
+        },
+        {
+          "assessment": "Valuation-4 result does not pin odd residues mod 8; distinct target",
+          "evidence": "Theorem 5.4 gives valuation information, not exact mod128 odd parts",
+          "identifier_or_url": "doi:10.1007/s00605-017-1041-2",
+          "material_read": "Publisher accessible full text, valuation theorems and comparison to 32n+4,32n+30",
+          "method": "Read HTML main theorem sections",
+          "title": "Arithmetic properties of coefficients of power series expansion of powers of the binary partition generating function",
+          "trigger": "Closest valuation theorem containing the new residue classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive-density explicit three-square nonrepresentability for the natural two-color binary partition function, addressing a recognized gap beyond special 2^k-1 color counts. Exact 128-class census is mathematically motivated by Legendre obstruction and cannot be inferred solely from valuation-4 theorems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two residue classes for the target constant 112 modulo128; not a complete classification of all nonsums of three squares.",
+    "Only lower asymptotic density 1/64 asserted."
+  ],
+  "schema_version": 1
+}
