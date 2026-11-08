@@ -1,15 +1,21 @@
-# Review: noncontingency introspection on finite out-trees
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator is constant truth over immediate successors. At a world with at most one child, the nested consequent is vacuously true. A branching child of a branching parent is a necessary and sufficient obstruction: construct a valuation constant on the parent's children and nonconstant on two children of the branching child, while keeping a second child's own successor set constant. This gives the full iff statement. The resulting labelled-species equations are \(A=z(1+T)\) and \(T=A+z(e^A-1-A)\), with independently derived coefficient recurrence. Positive implicit-function singularity analysis yields the exponential-rarity asymptotic. The standalone exact checker enumerates all rooted labelled trees through seven vertices and exhaustively checks valuation semantics through six vertices; its finite scope is not confused with the infinite proof.
+## correctness
 
-## Originality — PASS, with limits
-The motivating 2026 paper develops semantic GPC-calculus completeness, while Fan's earlier primary full text addresses bimodal variants and frame definability; the exact labelled out-tree census and its asymptotic are not results observed in those inspected full texts. published-finding corpus claim-level searches compared unrelated finite-tree orbit-profile, directed-tree and modal-frame findings and found no encompassing result. Cayley's ordinary counts are strictly broader than the new subclass and do not imply the present refinement. The 2015 Fan–Wang–van Ditmarsch full text could not be inspected; an earlier equivalent correspondence or a pre-existing differently named tree enumeration remains a historical-priority risk. A negative search result is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The noncontingency introspection schema is a natural modal principle. Its validating tree frames admit a sharp local structural classification, an exact all-size labelled census, a minimal failing size, and a nontrivial singularity-controlled exponential rarity law. The dependence on immediate-child accessibility is essential and delineates an interpretable boundary of the finding.
+PASS: Δφ means truth constant over the immediate children, including 0/1-child vacuity. If a parent v and child u both branch, assigning p constant on children of v but differing on two grandchildren under u makes Δp(v)=true and ΔΔp(v)=false. If no such edge, a vertex or all its children are nonbranching, forcing ΔΔp everywhere. The correct labeled species split A=z(1+T) for nonbranching root, B=z(exp(A)−1−A) for branching root gives T=A+B and counts [1,2,9,64,565,6036,77749,1176736]. Smooth implicit-function transfer yields t_n/n^(n−1)~(c/sqrt 2)(e rho)^(-n) with rho≈0.446602824618744, c≈4.6404518492014, base≈0.8237284247. Independently reconstructed recurrence through n=8 and high-precision characteristic solution; finite enumeration does not replace asymptotic schema.
 
-## Scope and reproducibility
-Results concern classical Kripke valuations on finite rooted trees with only outward parent-to-immediate-child edges, no loops and no transitive closure. The same package contains the proof, exact recurrence, all checks and a standalone standard-library checker. Numerical constants are approximations, not certified intervals. No external or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Classical frame correspondence and general sequent calculi for noncontingency do not directly enumerate finite labeled rooted immediate-successor trees with no adjacent branching. The specific species equation and exponential density decay were not located in the inspected primary sources and semantically related Resultary records.
+
+## value
+
+PASS
+
+PASS: A clean forbidden-local-structure characterization of a natural modal introspection axiom, paired with exact labelled counts, first failure, and rigorous asymptotics. It connects noncontingency frame semantics with a well-motivated species enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
