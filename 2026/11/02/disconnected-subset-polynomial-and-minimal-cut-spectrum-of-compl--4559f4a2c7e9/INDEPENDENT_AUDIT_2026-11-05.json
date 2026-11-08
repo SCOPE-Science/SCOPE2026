@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:14:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let G=K_m x K_n with adjacency when both coordinates differ, m,n>=3. Reconstructed classification: disconnected survivors with an isolate lie in one row/column cross; without isolates an edge in one component forces every vertex of the other into the two cross corners, so exactly a 2x2 rectangle. These four disjoint forms yield D(t)=m[(1+t)^n-1-nt]+n[(1+t)^m-1-mt]+mn t[(1+t)^(m-1)-1][(1+t)^(n-1)-1]+C(m,2)C(n,2)t^4. Maximal disconnected survivor sets are full crosses and 2x2 rectangles; complements are all inclusion-minimal cuts of sizes (m-1)(n-1), mn-4. Independent exhaustive graph search over every labeled survivor subset for 3x3, 3x4, 3x5, 4x4 (sum 2144 disconnected subsets) matched all coefficients and both maximal-cut types; graph proof covers unbounded m,n. Reliability subtraction is exact for independent p survival with nonempty-connected convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Shan establishes kappa(K_m x K_n)=(m-1)(n-1) and all minimum cuts are neighborhoods, and general super-kappa for max-connected factors; does not enumerate arbitrary disconnected survivor subsets or all inclusion-minimal separators."
+        ],
+        "reasoning": "General connectivity/super-connectivity results have broader graph families but weaker invariants and do not imply the two-term full minimal-cut polynomial.",
+        "searches": [
+          "Wang Shan 2011 Theorem 1 and Theorem 3",
+          "Soliemany et al 2022 super connectivity graph products"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Shan arXiv:1105.1567 full HTML theorems and proof",
+        "Soliemany–Ghasemi–Varmazyar DOI:10.1051/ro/2022085 bibliographic",
+        "Resultary semantic search: categorical product complete graph..."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior neighborhood-minimum-cut formula matches precisely the first monomial of M(z), but cannot infer second monomial C(m,2)C(n,2)z^(mn-4), nor D(t) all sizes."
+        ],
+        "reasoning": "The theorem claims those complete refined enumerations; it explicitly excludes minimum connectivity and known super-connectivity from independent novelty.",
+        "searches": [
+          "Wang–Shan arXiv:1105.1567 Theorems 1,3 and proof",
+          "Soliemany et al 2022 DOI:10.1051/ro/2022085"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct/categorical/Kronecker/tensor graph product are aliases. G=K_m x K_n is complement of the m-by-n rook graph; disconnected survivor subsets correspond to vertex separators via set complementation."
+        ],
+        "reasoning": "Existing minimum vertex connectivity and complement graph formulations might transfer, so the comparison uses the four-form all-survivor classification, not only known scalar connectivity.",
+        "searches": [
+          "Resultary: categorical product complete graphs disconnected induced vertex subset polynomial minimal separators residual node reliability",
+          "Wang–Shan arXiv:1105.1567"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A360873 counts connected induced subsets of Cartesian rook graph, not its categorical-product complement. Resultary top hits were complete multipartite graph invariants, not exact K_m x K_n cut tables."
+        ],
+        "reasoning": "A full residual node-reliability polynomial table covering this family was not located; that is bounded search evidence, not an absolute novelty proof.",
+        "searches": [
+          "Resultary search categorical product complete graph connected induced subset reliability polynomial",
+          "OEIS A360873 Cartesian rook graph"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality: the exact published model/theorem comparisons below do not establish an earlier dominating theorem for the narrow stated new remainder. Related prior methods and components explicitly credited; uninspected specialized literature risks remain.",
+      "residual_risks": [
+        "Earlier minimal-separator or residual node reliability enumerations may use the complement-of-rook-graph terminology and escape a simple graph-product title search.",
+        "The first/minimum cut tier is known and is not part of the new contribution. The 2025 general node-reliability article remained uninspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FIRST_MINCUT_TIER_NOT_FULL_POLYNOMIAL",
+          "evidence": "Theorems give scalar minimum cut and property of minimum cuts, not all maximal disconnected induced subgraphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.1567",
+          "material_read": "Available arXiv full HTML: graph product aliases, Theorem 1 connectivity, Theorem 3 super-connectedness and proof comparison; full extracted document 129 lines.",
+          "method": "Full text viewed, theorems and implications checked.",
+          "title": "On the super connectivity of Kronecker products of graphs",
+          "trigger": "Exact K_m x K_n graph product under different names"
+        },
+        {
+          "assessment": "UNREAD_PRIORITY_RISK",
+          "evidence": "Known scalar super cuts for K3 x Kn may overlap a corollary; does not justify claiming full paper noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1051/ro/2022085",
+          "material_read": "Reference and abstract/theorem pointers from assigned package; full PDF not inspected in this run.",
+          "method": "Bibliographic and package comparison only.",
+          "title": "On the super connectivity of direct product of graphs",
+          "trigger": "Same super vertex-cut context"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": "Counting connected survivor sets is classical, not newly claimed.",
+          "identifier_or_url": "https://doi.org/10.1137/0220009",
+          "material_read": "Bibliographic reference and problem formulation, not primary full text.",
+          "method": "Citation-level contextual comparison.",
+          "title": "The complexity of residual node connectedness reliability problem",
+          "trigger": "Generic node reliability polynomial background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete labeled disconnected-subset polynomial and all inclusion-minimal vertex-cut sizes refine previously known minimum cut and super-connectivity into a full reliability invariant, useful for exact residual node-failure distributions in categorical-product networks. Both tiers have natural cut interpretation and an unbounded separation, not a random small graph computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wang–Shan arXiv:1105.1567 full HTML theorems and proof",
+    "Soliemany–Ghasemi–Varmazyar DOI:10.1051/ro/2022085 bibliographic",
+    "Resultary semantic search: categorical product complete graph..."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Accepted C/O/V judgment concerns the final claim and precise domain in the original RESULT.md, not generalizations beyond it.",
+    "Finite checks corroborate bounded cases only; analytical all-parameter proofs were reconstructed separately.",
+    "Best-of-knowledge originality is qualified by explicitly named source-inspection limitations; publication has an independent privacy/transport blocker."
+  ],
+  "residual_risks": [
+    "Earlier minimal-separator or residual node reliability enumerations may use the complement-of-rook-graph terminology and escape a simple graph-product title search.",
+    "The first/minimum cut tier is known and is not part of the new contribution. The 2025 general node-reliability article remained uninspected."
+  ],
+  "schema_version": 1
+}

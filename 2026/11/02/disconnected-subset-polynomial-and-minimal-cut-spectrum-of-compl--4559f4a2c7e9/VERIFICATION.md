@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope of verification
 
-The independent graph-search verifier, `verify.py`, uses the original adjacency predicate (both row and column unequal) rather than the asserted structural characterization. From every vertex subset it computes connected components using graph search, compares the entire disconnected-by-size distribution with the closed formula, and independently tests whether a disconnected set remains disconnected after any single missing cell is restored.
+# Independent mathematical audit
 
-The exact verified dimension pairs are `(3,3)`, `(3,4)`, `(3,5)`, `(4,4)` and `(4,5)`, totaling 1,151,488 subsets. Expected inclusion-maximal disconnected subsets are generated separately as all full row-column crosses and all four-cell rectangles; the exhaustive graph-search predicate matched those sets exactly. The completed command was `python verify.py` with `ALL PASS; 1151488 subsets checked`. No third-party data or package is required.
+## correctness
 
-The finite experiments independently corroborate the formulas only in the tested cases. They do not establish the all-parameter theorem or novelty; those claims depend respectively on the supplied proof and the documented literature comparisons. An independent mathematical audit has not been performed.
+PASS
+
+Let G=K_m x K_n with adjacency when both coordinates differ, m,n>=3. Reconstructed classification: disconnected survivors with an isolate lie in one row/column cross; without isolates an edge in one component forces every vertex of the other into the two cross corners, so exactly a 2x2 rectangle. These four disjoint forms yield D(t)=m[(1+t)^n-1-nt]+n[(1+t)^m-1-mt]+mn t[(1+t)^(m-1)-1][(1+t)^(n-1)-1]+C(m,2)C(n,2)t^4. Maximal disconnected survivor sets are full crosses and 2x2 rectangles; complements are all inclusion-minimal cuts of sizes (m-1)(n-1), mn-4. Independent exhaustive graph search over every labeled survivor subset for 3x3, 3x4, 3x5, 4x4 (sum 2144 disconnected subsets) matched all coefficients and both maximal-cut types; graph proof covers unbounded m,n. Reliability subtraction is exact for independent p survival with nonempty-connected convention.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality: the exact published model/theorem comparisons below do not establish an earlier dominating theorem for the narrow stated new remainder. Related prior methods and components explicitly credited; uninspected specialized literature risks remain.
+
+## value
+
+PASS
+
+The complete labeled disconnected-subset polynomial and all inclusion-minimal vertex-cut sizes refine previously known minimum cut and super-connectivity into a full reliability invariant, useful for exact residual node-failure distributions in categorical-product networks. Both tiers have natural cut interpretation and an unbounded separation, not a random small graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
