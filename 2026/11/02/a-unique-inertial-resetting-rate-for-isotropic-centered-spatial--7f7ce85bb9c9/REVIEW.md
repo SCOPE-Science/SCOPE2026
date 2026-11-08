@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The resetting model, Brownian-noise normalization, all parameter domains, and centered rather than raw covariance are defined explicitly. An exponential-age representation yields both complex moments by direct integration; independent generator equations reproduce all the closed expressions. The critical cubic has a strictly positive derivative in the resetting rate, negative value at zero, and positive value at twice rotational diffusivity. A concave-in-relaxation parameterization proves the strict inertial shift. The 550 checks in `verify.py` were successfully run; they are auxiliary consistency checks and do not substitute for the proof.
+## correctness
 
-**Originality — PASS, qualified best-knowledge.** The primary 2026 inertial study derives scalar stationary displacement moments, not the centered coordinate covariance or the unique finite-inertia isotropy transition. The 2025 anisotropic-ABP study already yields the overdamped threshold when shape anisotropy vanishes, so that limiting assertion is explicitly treated as covered prior work. The 2023 no-reset inertial moment framework and standard resetting renewal formulas provide reusable ingredients, not a stated finite-inertia cubic threshold or its monotonic shift. Actual research-record searches, accessible prior scientific claims, relevant published sources, and full-text sections of the closest publications were compared. Residual risk: a broader but unlocated coordinate-tensor formula could imply the result; no claim of independent priority certification is made.
+PASS
 
-**Value — PASS.** Scalar mean-squared displacement hides directional fluctuations. The unique covariance-isotropy crossing makes the momentum-relaxation scale quantitatively identifiable through anisotropy, and shows that the fixed overdamped critical reset rate is not robust to inertia. Its exact rate dependence and thermal-noise independence are natural model diagnostics, not an arbitrary isolated parameter slice.
+PASS. For complete Poisson resets of (Z,U,theta) in the stated two-dimensional inertial active Brownian SDE, exponential renewal age and the integrated OU displacement kernel give E[Z]=gamma*v/((r+d)*(r+gamma)), E[Z^2]=2gamma^2*v^2*(2d+2gamma+3r)/((r+d)*(r+4d)*(r+gamma)*(r+2gamma)*(r+d+gamma)). Independent symbolic subtraction reproduced the displayed rational centered Q with numerator P=5r^3+(5d+7gamma)r^2+2gamma^2*r-4d*gamma*(d+gamma). Noise κ contributes only isotropic trace, not Q. P'(r)>0, P(0)<0, P(2d)=12d^2(5d+2gamma)>0, hence unique root in (0,2d) and exact variance sign ordering. For fixed 0<r<2d, P is concave quadratic in gamma with one positive gamma zero; this orders the r roots strictly with gamma. Implicit asymptotics yield (2/sqrt5)sqrt(d gamma) near gamma=0 and 2d-12d^2/gamma at large gamma. Boundary gamma=0 not asserted; density isotropy not asserted. Checked the polynomial and expansion independently with sympy; algebra and renewal derivation, not finite samples, support all parameters.
 
-**Scope and limitations.** Only the unique stationary law of the fully reset, two-dimensional inertial ABP with isotropic velocity noise and nonzero rotational diffusion is treated. Isotropic centered covariance is not full distributional isotropy. Position-only resetting, colored angular noise, anisotropic thermal forcing, and any dynamical stability conclusion are outside the claim. The literature assessment is self-review and best-knowledge only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original finite-inertia tensor threshold and strict parameter shift, not the already-published resetting model or overdamped limit.
+
+## value
+
+PASS
+
+PASS. The inertia-dependent unique centered-covariance zero is a natural physical response threshold for an established stochastic resetting model, with exact finite-parameter rate and strict approach to the overdamped threshold. It can be used to benchmark anisotropy control independent of isotropic thermal diffusivity; not routine substitution into a known scalar mean-square formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

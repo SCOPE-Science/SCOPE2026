@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:58:23.479723Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-unique-inertial-resetting-rate-for-isotropic-centered-spatial--7f7ce85bb9c9/RESULT.md",
+        "actual Git tree 37c3f0c8a76aef87906379c1067a053280dee5d6",
+        "actual Resultary query Resultary: inertial active Brownian particle complete Poisson resetting stationary centered spatial covariance isotropy finite inertia unique critical rate variance"
+      ],
+      "rationale": "PASS. For complete Poisson resets of (Z,U,theta) in the stated two-dimensional inertial active Brownian SDE, exponential renewal age and the integrated OU displacement kernel give E[Z]=gamma*v/((r+d)*(r+gamma)), E[Z^2]=2gamma^2*v^2*(2d+2gamma+3r)/((r+d)*(r+4d)*(r+gamma)*(r+2gamma)*(r+d+gamma)). Independent symbolic subtraction reproduced the displayed rational centered Q with numerator P=5r^3+(5d+7gamma)r^2+2gamma^2*r-4d*gamma*(d+gamma). Noise κ contributes only isotropic trace, not Q. P'(r)>0, P(0)<0, P(2d)=12d^2(5d+2gamma)>0, hence unique root in (0,2d) and exact variance sign ordering. For fixed 0<r<2d, P is concave quadratic in gamma with one positive gamma zero; this orders the r roots strictly with gamma. Implicit asymptotics yield (2/sqrt5)sqrt(d gamma) near gamma=0 and 2d-12d^2/gamma at large gamma. Boundary gamma=0 not asserted; density isotropy not asserted. Checked the polynomial and expansion independently with sympy; algebra and renewal derivation, not finite samples, support all parameters.",
+      "residual_risks": [
+        "Complete state reset and isotropic velocity noise required; no full-density isotropy, non-Poisson clock, or gamma=0 assertion.",
+        "Historical originality of finite-inertia tensor threshold remains best-knowledge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel–Chaudhuri describe inertial ABP moment generators without full Poisson regeneration; Patel–Shee develop reset moment integrals, but inspected model/second-moment sections do not state finite-gamma centered tensor root."
+        ],
+        "reasoning": "A general moment generator could derive Q on combination with resetting, but cited published results neither directly settle unique finite-gamma r root nor strict monotonic shift. Risk of hidden tensor formula recorded.",
+        "searches": [
+          "Resultary: inertial active Brownian particle complete Poisson resetting stationary centered spatial covariance isotropy finite inertia unique critical rate variance",
+          "arXiv:2310.00802 inertial ABP moment hierarchy without resets"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.21134",
+        "https://arxiv.org/abs/2501.05149",
+        "https://arxiv.org/abs/2310.00802",
+        "https://arxiv.org/abs/2508.12223",
+        "Resultary: inertial active Brownian particle complete Poisson resetting stationary centered spatial covariance isotropy finite inertia unique critical rate variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radial second moment = VarX+VarY+|EZ|^2, leaving VarX-VarY free; overdamped gamma=∞ specialization cannot determine finite gamma cubic."
+        ],
+        "reasoning": "The exact finite-inertia equality rate and its monotonicity require the additional complex second-moment calculation; known scalar/overdamped formulas do not imply them alone.",
+        "searches": [
+          "arXiv:2602.21134 full-text Section III/appendix and eq(7)",
+          "arXiv:2501.05149 overdamped variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patel–Shee give raw scalar E|Z|^2 after complete inertial reset; a scalar trace does not determine centered Var(X)-Var(Y).",
+          "Ghosh–Mandal–Chaki treat overdamped longitudinal/transverse variance; their r=2d limit equals gamma->infinity here."
+        ],
+        "reasoning": "The present claim is the off-diagonal centered pseudo-moment E(Z-EZ)^2=0, equivalent to equality of centered Cartesian variances under reflection; it is not determined by the scalar radial moment or the overdamped limit.",
+        "searches": [
+          "Resultary: inertial active Brownian particle complete Poisson resetting stationary centered spatial covariance isotropy finite inertia unique critical rate variance",
+          "arXiv:2602.21134 Section III eq(7)",
+          "arXiv:2501.05149 covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table applies: a continuous exact cubic root over positive d,gamma is required; Resultary hits concerned unrelated stationary variance dynamical models."
+        ],
+        "reasoning": "No located lookup table states this all-parameter threshold. A negative search is not proof of novelty.",
+        "searches": [
+          "Resultary: inertial active Brownian particle complete Poisson resetting stationary centered spatial covariance isotropy finite inertia unique critical rate variance",
+          "search: stationary inertial active Brownian spatial anisotropy threshold table"
+        ]
+      },
+      "rationale": "Best-knowledge original finite-inertia tensor threshold and strict parameter shift, not the already-published resetting model or overdamped limit.",
+      "residual_risks": [
+        "Unlocated original treatment might have already computed finite-inertia anisotropic centered tensor; comparison is best of knowledge.",
+        "The threshold only gives second-moment isotropy, not full density symmetry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_SCALAR_MOMENTS_NOT_DIRECT_FINITE_INERTIA_TENSOR",
+          "evidence": [
+            "Equation (7) measures total mean-square displacement; it does not specify centered complex pseudo-covariance nor the finite inertia root."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.21134",
+          "material_read": "Full arXiv primary text: governing stochastic equations, Section III scalar second moments, normalization eq(7), and relevant derivation material examined; not every unrelated section rechecked",
+          "method": "HTML/PDF text and direct screenshot of PDF page showing model/eq(7)",
+          "title": "Controlling inertial active Brownian motion via stochastic resetting",
+          "trigger": "Same complete-reset inertial ABP model"
+        },
+        {
+          "assessment": "OVERDAMPED_LIMIT_PRIOR",
+          "evidence": [
+            "Shape-anisotropic overdamped model gives r=2d after isotropic specialization; lacks inertial relaxation gamma."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.05149",
+          "material_read": "Accessible primary abstract and selected variance formulas, not whole original PDF",
+          "method": "Primary web retrieval and source-record formula comparison",
+          "title": "Anisotropic active Brownian particle in two dimensions under stochastic resetting",
+          "trigger": "Closest longitudinal/transverse covariance under resets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.21134",
+        "https://arxiv.org/abs/2501.05149",
+        "https://arxiv.org/abs/2310.00802",
+        "https://arxiv.org/abs/2508.12223"
+      ],
+      "rationale": "PASS. The inertia-dependent unique centered-covariance zero is a natural physical response threshold for an established stochastic resetting model, with exact finite-parameter rate and strict approach to the overdamped threshold. It can be used to benchmark anisotropy control independent of isotropic thermal diffusivity; not routine substitution into a known scalar mean-square formula.",
+      "residual_risks": [
+        "Complete state reset and isotropic velocity noise required; no full-density isotropy, non-Poisson clock, or gamma=0 assertion.",
+        "Historical originality of finite-inertia tensor threshold remains best-knowledge."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete state reset and isotropic velocity noise required; no full-density isotropy, non-Poisson clock, or gamma=0 assertion.",
+    "Historical originality of finite-inertia tensor threshold remains best-knowledge."
+  ],
+  "schema_version": 1
+}
