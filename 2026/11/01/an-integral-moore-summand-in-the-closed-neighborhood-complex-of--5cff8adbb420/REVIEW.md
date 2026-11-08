@@ -1,19 +1,21 @@
-# Scientific review: closed-neighborhood complex of the Paley graph of order thirteen
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph and simplicial complex are given by explicit modular arithmetic. The certificate enumerates all 1,171 simplices including the empty face, produces 579 matched pairs, and checks global acyclicity on every one of 4,693 Hasse incidences. The resulting CW complex has one vertex, six two-cells and seven three-cells. An exact signed cellular boundary is recovered from the original oriented simplices; its Smith diagonal has four unit entries, one entry equal to two, and one zero row. The corresponding attaching maps, which land in a wedge of six two-spheres, are classified by their integer degree vectors, proving a Moore-space summand, one additional two-sphere and two three-spheres. Separate original-chain calculations over characteristics two, three and five agree with the resulting integral homology. This is a finite proof for this graph; it is not extrapolation from sampled instances.
+PASS
 
-## Originality — PASS (subject to indexed-literature limits)
+PASS. For P13 with quadratic-residue steps ±1, ±3, ±4, independently formed all thirteen distinct 7-vertex closed neighborhoods; their complete subface union has 1171 faces including empty, with cardinality f=(1,13,78,286,416,273,91,13) and 13 maximal 6-simplices. Reconstructed the deterministic toggle matching including empty, with pivot order 12,10,5,7,2,4,11,6,9,3,0,8,1, 579 pairs, 13 unmatched positive-dimensional critical faces (six 2-cells/seven 3-cells), and verified a global DAG on all 1171 faces/4693 incidences. The exact signed critical Morse boundary is a 6×7 matrix with Smith diagonal 1,1,1,1,2,0; independent calculation reproduced every entry and its invariant factors. The basepoint CW model has no 1-cells, so π2≅H2 for its 2-skeleton; integer changes of bases correspond to 2-sphere wedge equivalences and 3-cell slides. Four unit attachments cancel, one degree-two attachment forms M(Z/2,2), one free 2-cell gives S², two zero attaching 3-cells give 2S³. Thus H~2=Z⊕Z/2, H~3=Z², all other reduced groups vanish; pure dimension six and torsion imply non-shellability.
 
-Matsushita's *Closed neighborhood complexes of graphs*, arXiv:2511.12608 (initial version 2025-11-16; revised 2025-12-07), introduces general topological correspondences and examples, but its inspected full-text versions do not compute the closed-neighborhood complex of the Paley graph of order thirteen. Indexed calculations for the open-neighborhood complex of the Paley graph on seventeen vertices and for the independence and Vietoris–Rips complexes of the Paley graph on twenty-nine vertices have different objects and parameters. These results do not imply this integral attaching matrix or complete homotopy type. Searches for the Paley-13 intrinsic Čech nerve, circulant graph formulation, canonical double cover reduction and Moore-space torsion found no covering statement. Equivalent unindexed work remains possible; summary-only comparisons have not been mistaken for full-document inspections.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact homotopy classification for a natural vertex-transitive graph. Its 13 maximal six-simplices conceal both nontrivial integral two-torsion and free homology in dimensions two and three. A simply connected Moore summand cannot be inferred from rational Betti numbers or from the usual strongly regular parameters. The classification provides a concrete test case for closed-neighborhood, intrinsic Čech and torsion-sensitive topological constructions, and the lower-degree torsion obstructs pure shellability.
+PASS. Compared the actual integral/homotopy claim, its intrinsic invariant and implications against published exact/nearby records, Resultary semantic search and mathematically relevant primary text. Distinguishes general methods and other complex functors from an exact integral calculation; inaccessible or unindexed priorities remain explicitly qualified.
 
-## Boundaries of the claim
+## value
 
-No classification is asserted for other Paley graph orders, other Čech radii, equivariant homotopy types or persistent homology. Primary full-text coverage was checked for the motivating article. Publicly indexed comparisons may be incomplete, and independent mathematical auditing is outside this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The graph P13 is the smallest nontrivial Paley quadratic-residue graph with a rich 13-element vertex-transitive neighborhood family; closed-neighborhood/vertex-centered intrinsic Čech complexes are natural constructions. Exact integral Moore summand and mixed sphere wedge type of a small canonical strongly regular graph is a motivated invariant with genuine characteristic-two information, beyond rational Betti counts or an arbitrary subgraph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

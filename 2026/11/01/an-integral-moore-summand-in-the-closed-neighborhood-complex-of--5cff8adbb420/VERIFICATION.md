@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The file `verify.py` is a standalone exact checker. From a Python environment with `sympy` installed (compatible version stated in `requirements.txt`), run:
+## correctness
 
-```bash
-python verify.py
-```
+PASS
 
-It reconstructs the 13 Paley closed neighborhoods directly from quadratic residues modulo 13, enumerates all 1,171 faces, and performs a deterministic vertex-toggle matching with 579 pairs. It orients every incidence in the complete face-poset Hasse graph, verifies acyclicity with a complete topological sort, computes the full signed integral 6-by-7 Morse differential and its exact Smith diagonal, and independently calculates original augmented simplicial boundary ranks over three prime fields.
+PASS. For P13 with quadratic-residue steps ±1, ±3, ±4, independently formed all thirteen distinct 7-vertex closed neighborhoods; their complete subface union has 1171 faces including empty, with cardinality f=(1,13,78,286,416,273,91,13) and 13 maximal 6-simplices. Reconstructed the deterministic toggle matching including empty, with pivot order 12,10,5,7,2,4,11,6,9,3,0,8,1, 579 pairs, 13 unmatched positive-dimensional critical faces (six 2-cells/seven 3-cells), and verified a global DAG on all 1171 faces/4693 incidences. The exact signed critical Morse boundary is a 6×7 matrix with Smith diagonal 1,1,1,1,2,0; independent calculation reproduced every entry and its invariant factors. The basepoint CW model has no 1-cells, so π2≅H2 for its 2-skeleton; integer changes of bases correspond to 2-sphere wedge equivalences and 3-cell slides. Four unit attachments cancel, one degree-two attachment forms M(Z/2,2), one free 2-cell gives S², two zero attaching 3-cells give 2S³. Thus H~2=Z⊕Z/2, H~3=Z², all other reduced groups vanish; pure dimension six and torsion imply non-shellability.
 
-Expected terminal output includes:
+## originality
 
-```text
-FACES_OK (1, 13, 78, 286, 416, 273, 91, 13)
-MATCHING_OK 579 critical {'two': 6, 'three': 7}
-ACYCLIC_OK 1171 4693
-INTEGRAL_MORSE_OK [1, 1, 1, 1, 2, 0]
-RAW_FIELD_HOMOLOGY_OK {2: (2, 3), 3: (1, 2), 5: (1, 2)}
-HOMOTOPY_OK Moore(Z/2,2) wedge S2 wedge 2*S3
-ALL_VERIFY_OK
-```
+PASS
 
-The checker establishes the finite combinatorial and integral chain data. The additional mathematical step upgrading those data to a homotopy equivalence is given in `RESULT.md`: the Morse CW two-skeleton is simply connected and is a wedge of two-spheres, so cellular attaching maps from two-spheres are classified by their degree vectors. An integral Smith reduction therefore represents elementary cell changes, giving a Moore space together with the indicated spheres.
+PASS. Compared the actual integral/homotopy claim, its intrinsic invariant and implications against published exact/nearby records, Resultary semantic search and mathematically relevant primary text. Distinguishes general methods and other complex functors from an exact integral calculation; inaccessible or unindexed priorities remain explicitly qualified.
 
-The finite-field calculations alone cannot exclude other torsion or determine homotopy. The exact integral differential and topological attaching-map analysis are essential. No infinite-family theorem, equivariant classification or independent external audit is asserted.
+## value
+
+PASS
+
+PASS. The graph P13 is the smallest nontrivial Paley quadratic-residue graph with a rich 13-element vertex-transitive neighborhood family; closed-neighborhood/vertex-centered intrinsic Čech complexes are natural constructions. Exact integral Moore summand and mixed sphere wedge type of a small canonical strongly regular graph is a motivated invariant with genuine characteristic-two information, beyond rational Betti counts or an arbitrary subgraph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
