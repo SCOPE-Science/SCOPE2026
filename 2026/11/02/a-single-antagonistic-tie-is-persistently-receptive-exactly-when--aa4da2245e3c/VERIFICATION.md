@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The accompanying `verify.py` is self-contained. It reads no external files, uses no downloaded data and requires only Python's standard library. Execute `python3 verify.py` from the same directory.
+## correctness
 
-The script uses exact rational Gaussian elimination on the graph Laplacian and exact rational execution of the update rule. It checks every connected labeled graph with \(2\) through \(5\) vertices and each possible choice of one negative edge, totaling **4,294 graph-edge instances** (1,067 bridges, 3,227 nonbridges). The strict nonbridge criterion, endpoint max/min potential property, two fixed-point equations and degree-weighted conservation all passed.
+PASS
 
-The script additionally verifies the exact resistance formulas \(R_{C_n}=(n-1)/n\) and \(R_{K_n}=2/n\) for \(3\le n\le16\), and 45 exact-rational iterations of a perturbed four-cycle polarization. All assertions passed in the recorded run. For the infinite graph family and all parameters, correctness relies on the mathematical proof in RESULT.md, not on these finite checks.
+For connected simple G and one negative edge uv under the exact self-inclusive strict synchronous Kann–Feng rule, all-edge-receptive orientations give x_next=(I-D^-1 L)x ± c D^-1(e_v-e_u). The D-mean is invariant and the Laplacian Poisson solution has endpoint voltage R_G(u,v). The electrical maximum principle places all node voltages between endpoints; R<1 exactly for nonbridges (parallel alternate path), R=1 for bridges. Thus two interior fixed states per fixed D-mean iff nonbridge, with exact margin c(1-R); at a bridge the hostile edge hits excluded strict threshold. P is reversible, irreducible, lazy and aperiodic, proving local exponential attraction on the D-mean-zero hyperplane. The tie orientation has no extra stationary solution. Independent enumerated 4294 connected graph/edge cases through n=5, and checked potentials and affine fixed points; the all-graph proof is analytic, not enumeration.
 
-Independent audit and validation have not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: The combined bridge/cycle classification is not a quoted general corollary of the accessible comparison material; it is a qualified specific-model result, with a directly relevant inaccessible original paper flagged.
+
+## value
+
+PASS
+
+A precise graph-topological boundary for persistent receptive antagonism in the motivating exact signed confidence dynamics is useful: bridge versus cycle decides equilibrium existence, electrical resistance quantifies margin, and weighted-mean contraction quantifies local stability. It is not merely recomputing generic effective resistance because the strict nonlinear receptive domain must be established. The triangle is the first possible case; global convergence and multi-negative-edge extensions are not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
