@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every clique of the line graph belongs to one vertex-star simplex or to the three edge-vertices of a graph triangle. Because distinct stars share at most one edge-vertex and a triangle shares at most two with any star, the stated decreasing-cardinality elementary pairs are free. The remaining size-two free pairs are exactly those absent from a graph triangle. After their removal, the remaining complex is literally the four-triangle-per-face midpoint subdivision of the original graph's two-skeleton. The matched pair orbits have matching stabilizers, giving the equivariant statement. For complete graphs, the integral cellular cycles are the kernel of contraction on the third exterior power, identified as the third exterior power of the augmentation lattice. The exact verifier reproduces every declared small-case pair and homology-action matrix. The proof does not infer the all-graphs theorem from the finite tests.
+## correctness
 
-**Originality — PASS (best knowledge, with residual risk).** Linusson–Shareshian–Welker established the nonequivariant sphere-wedge result in 2004, and Goyal–Shukla–Singh established the ordinary homotopy equivalence to the two-skeleton in 2020; neither prior result is claimed as new. The available full-text proofs do not specify a graph-automorphism-invariant orbitwise *simple collapse* nor an isomorphism of integral permutation modules for this case. A later generic equivariant Euler–Poincaré formula covers the rational character in principle; no originality is claimed for that character alone. Dedicated searches in the published research record and external literature did not identify the exact stronger construction. The chief risk is an unindexed construction or a stronger equivariant nerve principle implying the same explicit result.
+PASS
 
-**Value — PASS.** The new uniform construction makes the previously known homotopy equivalence suitable for subgroup fixed-point and quotient topology, and recovers the entire integral action in a natural infinite family. Integral equivariant simple homotopy is stronger than a Betti count or a rational character and is explicitly motivated by the representation question raised in the original bounded-matching-complex paper. This is not a numeric example or an isolated routine invariant.
+Pairwise intersecting 2-element edge sets either have common endpoint (star facet A_i) or are exactly 3 edges of a graph triangle. Degree >=3 ensures stars are maximal and pairwise star intersections contain at most one vertex. After symmetric stellar subdivision of every A_i, descending proper star faces F of size >=3 form elementary free pairs (F,b_i*F) once larger faces removed. Nontriangle incident-edge pairs form final free pairs; triangle pairs survive and precisely form the standard midpoint subdivision of Cl(G)^(2). Every pair has a uniquely determined star center, so stabilizer equality yields an Aut(G)-orbitwise equivariant collapse. For K_n the target is a 2-skeleton of the simplex with 2-chain C2=∧³ Z^n and boundary contraction by ε; kernel is canonically ∧³ker ε, rank C(n-1,3). Read every relevant line of verify.py including literal full-coface assertions, orbit checks and integral cycle action; no extrapolation from tests to all G.
 
-**Closest literature and limits.** LSW (2004), Theorem 1.1 and Question 1.13; Goyal–Shukla–Singh (2020), Lemma 3.2; and the 2026 online general rational-character observation are fully separated by their implications. Minimum graph degree is at least three, and no equivariant wedge splitting or higher matching-number classification is asserted. Publication priority and independent verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goyal–Shukla–Singh Lemma 3.2 already establishes the ordinary Cl(L(G)) ≃ Cl(G)^(2) theorem for general G, and Linusson–Shareshian–Welker established complete-graph non-equivariant wedge rank. The claimed incremental explicit orbitwise simplicial collapse and integral S_n lattice are more specific; a general equivariant nerve proof could imply equivariant homotopy but not literally these elementary collapse pairs.
+
+## value
+
+PASS
+
+An explicit automorphism-invariant SIMPLE collapse is a constructive strengthening with direct subgroup-fixed and quotient consequences, and the complete integral representation lattice improves known rational characters of the natural infinite graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
