@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:00:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original RESULT.md (frozen Git blob 2a150752f94a0aa65620b4590f42bc12ed6d9a8c) gives the exact precontact scalar recurrence X_(n+2)=T X_(n+1)-D X_n-epsilon, with U_0=u,U_1=Tu+v,h_0=h_1=0,h_(n+2)=T h_(n+1)-D h_n+1. Both max gates remain on their positive branches before first contact: X_n=U_n-epsilon h_n, X_(tau)<=0 and Y_tau=-epsilon-D X_(tau-1)<0; two further iterations reach (-epsilon,-epsilon) for the first time. For 0<D<1,0<T<1+D,u>0,v>=0,epsilon>0, companion eigenvalues are stable. When T²<4D an unforced decaying sinusoid has a fixed negative sample, giving tau=O(1) as epsilon->0. For T²>4D, exact positive U_n~c lambda_+^n and h_n->1/(1-T+D) imply tau=log(1/epsilon)/(-log lambda_+)+O(1). At repeated positive root r=sqrt(D), U_n=(u+n(u+v/r))r^n, so tau=[log(1/epsilon)+loglog(1/epsilon)]/(-log r)+O(1). Exact first-crossing thresholds U_n/h_n hold for n>=2 without asserting globally monotonic initial thresholds. Independent Fraction iteration, recurrence and reset gave tau=5,32,80 for (T,D)=(9/10,3/10),(1,1/4),(11/10,6/25), (u,v)=(1,1),epsilon=10^-8. Finite samples corroborate, not prove, the full quantifier statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The homogeneous model B=0 has persistent cone in real-root regimes; present B=-epsilon has finite divergent reset times, so zero-input extinction formulas do not determine this result. The other paper studies saddle-node phase delays."
+        ],
+        "reasoning": "A B=0 classification is not dominating because the nonuniform epsilon limit changes the orbit fate; phase-bottleneck logarithms refer to another mechanism.",
+        "searches": [
+          "Resultary: sharp extinction and persistence at homogeneous max-plus border collision 2026-10-11",
+          "Yamazaki–Ohmori arXiv:2312.13292 phase bottleneck"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2402.06230",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qualitative spiral finite reset and homogeneous B=0 persistence do not bound the epsilon-dependent first-contact time for repeated or distinct positive roots."
+        ],
+        "reasoning": "Neither cited premise logically forces the three-regime asymptotics; the recurrence root multiplicity is the missing analysis.",
+        "searches": [
+          "Ohmori–Yamazaki arXiv:2402.06230 negative-B spiral reset",
+          "Resultary zero-input homogeneous border-collision classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive-branch forcing recurrence has eigenvalues roots of lambda²-Tlambda+D; arXiv:2402.06230 treats branch dynamics and spiral negative-bias resetting but not the full double-root or real-node time law."
+        ],
+        "reasoning": "Relating the max-plus dynamics to affine second-order recurrence is standard; the new conclusion compares first switching under fixed seeds and epsilon to zero. Mere overlap of matrices does not yield the singular asymptotics.",
+        "searches": [
+          "Resultary semantic query: max plus discrete Selkov map negative bias first hitting reset time repeated eigenvalue log log focus node first passage",
+          "Ohmori–Yamazaki arXiv:2402.06230 §§2–3, full manuscript"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located published table gives the fixed-u,v double-root loglog first-switching law."
+        ],
+        "reasoning": "A search absence is not novelty proof; the result is an all-parameter asymptotic theorem, not just a finite table.",
+        "searches": [
+          "Resultary search for negative bias reset first hitting time double root loglog",
+          "GitHub Resultary homogeneous max-plus border collision record"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the negative-bias, fixed-seed three-regime first-contact latency, especially the repeated-eigenvalue loglog term. Existing exact homogeneous zero-bias extinction/persistence, general max-plus Selkov branch dynamics, and phase-bottleneck delays have different forcing or initial-data normalization and do not directly imply the complete epsilon-downarrow-zero trichotomy. An unindexed older first-passage recurrence theorem could subsume it; this remains a priority risk.",
+      "residual_risks": [
+        "Older unindexed affine-recurrence first-passage results might contain an equivalent specialized asymptotic.",
+        "No claim of uniformity when (u,v), T or D vary with epsilon."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_OVERLAPPING, not demonstrated covering",
+          "evidence": "Spiral finite-time resets are prior; fixed-seed focus/double-root/node epsilon-asymptotics not stated there.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.06230",
+          "material_read": "Main text §§2–3 on branch matrices and negative-bias spiral resets",
+          "method": "Readable arXiv preprint inspected in full, especially model definition/spiral regime",
+          "title": "A Generalization for Ultradiscrete Limit Cycles in a Certain Type of Max-Plus Dynamical Systems",
+          "trigger": "Same max-plus map and negative forcing"
+        },
+        {
+          "assessment": "DIFFERENT_INPUT_REGIME",
+          "evidence": "B=0 persistent cone cannot supply the negative-bias first-contact logarithmic or loglog law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864",
+          "material_read": "Published finding summary, homogeneous B=0 assumptions and nonoscillatory persistence set",
+          "method": "Resultary semantic search and mathematical comparison of stated result (not asserted full-text reading)",
+          "title": "Sharp extinction and persistence at the homogeneous max-plus border collision",
+          "trigger": "Potential stronger same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The reset-time boundary separates bounded focus passage, logarithmic node passage, and an extra loglog critical slowdown at the discriminant. The model is an established max-plus oscillator, the first-switching time is a natural observable, and the critical asymptotic coefficient is exact. It is more than a normalization check or numerical phase plot.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2402.06230",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-focus-double-node-node-trichotomy-for-negative-bias-reset-late--fede1e042478"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed seeds u>0,v>=0, stable 0<D<1,0<T<1+D and epsilon->0; no claim about unstable parameters, moving seeds, or all initial quadrants."
+  ],
+  "residual_risks": [
+    "Older unindexed affine-recurrence first-passage results might contain an equivalent specialized asymptotic.",
+    "No claim of uniformity when (u,v), T or D vary with epsilon."
+  ],
+  "schema_version": 1
+}
