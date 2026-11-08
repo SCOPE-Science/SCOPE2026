@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Connectedness forces equal three-round firing totals via the graph Laplacian. For the once-firing case the precise local interval has cardinality r_v, the number of neighbors firing on the preceding round. Choosing a predecessor neighbor by an arbitrary local order gives an exact weighted-to-functional-graph count. Every selected arrow reduces phase modulo three, hence all directed cycles have length divisible by three. Uniqueness forces a single oriented core cycle and a spanning rooted forest, counted by the multigraph contraction matrix-tree invariant. There are two orientations and three phases; bounded complement symmetry doubles the once-firing total from 6 tau to 12 tau. Independent brute-force phase/determinant enumeration passed for 4,963 unique-resonant and 3,460 zero-resonance connected labelled graphs on 3–6 vertices. Separate exhaustive update replay passed eight named graphs, including a noncactus theta graph.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "L. Dall'Asta, arxiv:cond-mat/0601267, pp. 1–4: complete one-dimensional ring period analysis, not arbitrary single-resonant-cycle graphs.",
+        "T.-Y. Jiang, Z. Scully, Y. X. Zhang, arxiv:1211.6786, pp. 3–8 and 14–17: firing-pattern restrictions and tree attachment propagation; conclusion discusses extending analysis to graph classes with few cycles.",
+        "T.-Y. Jiang, arxiv:1003.0943, introduction: attainable periods on complete bipartite and multipartite graphs."
+      ],
+      "reasoning": "General restrictions on firing patterns and tree-following behavior do not count exact immediate states on graphs with nonresonant additional cycles. The exact one-dimensional result does not cover theta graphs or cacti; multipartite period-classification concerns a different graph class. Published general statements would imply the current theorem only if they also fixed the multiplicity of phase-compatible chip configurations, which the inspected statements do not.",
+      "searches": [
+        "Motors and Impossible Firing Patterns parallel chip firing graph cycles theorem sections 3 4 6 7",
+        "On the Period Lengths parallel chip firing complete multipartite",
+        "Dall'Asta exact solution one dimensional sandpile period 3",
+        "parallel chip firing cactus graphs general period structure"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0601267",
+      "arxiv:1211.6786",
+      "arxiv:1003.0943",
+      "arxiv:1207.6175"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "L. Dall'Asta, arxiv:cond-mat/0601267, pp. 1–4: complete one-dimensional ring period analysis, not arbitrary single-resonant-cycle graphs.",
+        "T.-Y. Jiang, Z. Scully, Y. X. Zhang, arxiv:1211.6786, pp. 3–8 and 14–17: firing-pattern restrictions and tree attachment propagation; conclusion discusses extending analysis to graph classes with few cycles.",
+        "S. Backman, arxiv:1207.6175, pp. 1–3: spanning-tree bijection in a sink-based hereditary stabilization model.",
+        "On a triangle plus a four-cycle the chip-firing formula gives 48, whereas a predecessor-neighbor 3-coloring census without local multiplicity gives 18; the two counts are not identified."
+      ],
+      "reasoning": "The new statement counts immediate primitive-three states for synchronous nonnegative-integer chip firing via predecessor-neighbor multiplicities and spanning trees after contraction. A related three-color excitable-model theorem counts only phase colorings, not weighted chip assignments, and does not imply the 48-state example. A general graph firing-sequence lemma is likewise insufficient to derive the contraction count without the independent multiplicity and spanning-forest arguments. The theorem is a strict extension of cycle-only facts but is not subsumed by the full-text statements inspected.",
+      "searches": [
+        "parallel chip firing period three graph exactly one multiple of three cycle",
+        "parallel chip-firing spanning tree count periodic orbit 3",
+        "three-state Greenberg Hastings cactus singly resonant primitive 3 orbit count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "L. Dall'Asta, arxiv:cond-mat/0601267, pp. 1–4: complete one-dimensional ring period analysis, not arbitrary single-resonant-cycle graphs.",
+        "T.-Y. Jiang, Z. Scully, Y. X. Zhang, arxiv:1211.6786, pp. 3–8 and 14–17: firing-pattern restrictions and tree attachment propagation; conclusion discusses extending analysis to graph classes with few cycles.",
+        "S. Backman, arxiv:1207.6175, pp. 1–3: spanning-tree bijection in a sink-based hereditary stabilization model."
+      ],
+      "reasoning": "The possible aliases include deterministic fixed-energy sandpile, synchronous parallel chip firing, three-step firing-word colorings, and phase-weighted functional digraphs. The inspected period-three ring construction is a strict special case. The hereditary recurrent/spanning-tree correspondence uses sink-based stabilization and is not equivalent to three-step temporal cycles of the simultaneous unsunk update. No inspected source states the contraction law for the current dynamical system.",
+      "searches": [
+        "parallel chip firing unicyclic graph period three exactly twelve configurations",
+        "parallel chip firing unicyclic graphs period 3 iff cycle length divisible by 3",
+        "parallel chip firing period 3 graph unique directed cycle spanning tree forest determinant",
+        "sink-free fixed-energy sandpile period 3 spanning forest bijection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact enumerations reproduce 12 for a single triangle, 48 for a triangle-plus-four-cycle cactus, and 36 for a theta graph with paths 2,3,4. The table values in the included scripts were derived independently from the rule."
+      ],
+      "reasoning": "No retrieved indexed result or sequence table gives these graph-family totals or the all-order contraction identity; particular small counts alone would not establish priority. The scope of the claim is a structural family classification, not a table recomputation.",
+      "searches": [
+        "period three parallel chip firing cactus number of configurations 12",
+        "parallel chip firing single resonant cycle sequence spanning tree",
+        "fixed energy sandpile three period count unique 3 divisible simple cycle"
+      ]
+    },
+    "rationale": "Inspected primary material establishes ring-only exact configurations, general firing-pattern limitations, or a different sink-based spanning-tree model; none states the precise unique-resonant-cycle period-three matrix-tree census. The 2012 general firing-pattern paper highlights low-cycle graphs as an open direction. Targeted query and prior-claim comparisons found no subsuming theorem, but differently phrased unindexed work remains a priority risk.",
+    "residual_risks": [
+      "An unindexed or equivalently formulated periodic-state/spanning-forest theorem may already imply this count; search failure is not proof of priority.",
+      "The introductory comparison for arxiv:1003.0943 was partial, so a less conspicuous related statement outside the inspected sections remains possible.",
+      "No independent audit of the proof or mathematical priority has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RING_ONLY_NOT_COVERING_GRAPH_EXTENSION",
+        "evidence": "The construction and counting are on one-dimensional rings, with no theorem for unique resonant cycles amid arbitrary other cycles or for contracted-tree multiplicities.",
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0601267",
+        "material_read": "Five-page preprint, including initial definitions, figures and temporal block classification, discussion of exact periodic counts on numbered rings and conclusion (especially pp. 1–4).",
+        "method": "Full-text section and page reading of the open preprint.",
+        "title": "Exact solution of the one-dimensional deterministic Fixed-Energy Sandpile",
+        "trigger": "Same synchronous fixed-energy dynamics; ring periodic classification potentially covering base cycle."
+      },
+      {
+        "assessment": "GENERAL_FIRING_RESTRICTIONS_NOT_EXACT_CENSUS",
+        "evidence": "The conclusion explicitly presents graphs where each vertex belongs to at most one cycle as possible future analysis, while the current result counts immediate configurations even on noncactus theta graphs.",
+        "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+        "material_read": "Introduction, preliminaries, Sections 3 and 4, Sections 6 and 7, and conclusions; especially Theorem 4.1 and Corollary 7.3 on tree-like regions.",
+        "method": "Open full-text theorem/argument inspection, including the last section describing graph classes left for extension.",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Closest general undirected parallel-firing theorem and tree-attachment glider results."
+      },
+      {
+        "assessment": "INAPPLICABLE_DIFFERENT_DYNAMICS",
+        "evidence": "Uses a distinguished nonfiring sink and order-independent stabilization; this claim uses the sink-free synchronous fixed-energy update and exact primitive temporal period three.",
+        "identifier_or_url": "https://arxiv.org/pdf/1207.6175",
+        "material_read": "Abstract, introduction, definition and theory of hereditary firing families, sink and stable recurrent configurations, pp. 1–3.",
+        "method": "Full-text comparison of state space and update model.",
+        "title": "A Bijection Between the Recurrent Configurations of a Hereditary Chip-Firing Model and Spanning Trees",
+        "trigger": "Potentially dominating general theorem linking chip firing recurrent states and spanning trees."
+      },
+      {
+        "assessment": "NO_COVERAGE_IN_INSPECTED_SCOPE_WITH_RESIDUAL_RISK",
+        "evidence": "The stated focus is complete bipartite and multipartite graphs, plus general period lemmas, not an exact period-three population on unique-resonance graphs.",
+        "identifier_or_url": "https://arxiv.org/pdf/1003.0943",
+        "material_read": "Title page, abstract, definitions and introduction with explicit graph-class scope.",
+        "method": "Partial source inspection; did not inspect every theorem or appendix.",
+        "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+        "trigger": "Primary graph-class period theorem potentially implying the proposed count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2ef75751-7c7e-41ed-ac34-e1591de2c351",
+  "value": {
+    "rationale": "Exact immediate-period-three census on all connected graphs with one viable three-phase feedback cycle, including noncactus theta networks; identifies a standard, independently motivated spanning-tree invariant for the entire temporal population. In cactus graphs it gives a simple multiplicative law for arbitrary attached nonresonant cycles while bridges and trees have no effect. Generalizes one-dimensional ring analysis in a structurally natural direction without requiring a downstream theorem.",
+    "status": "PASS"
+  }
+}
