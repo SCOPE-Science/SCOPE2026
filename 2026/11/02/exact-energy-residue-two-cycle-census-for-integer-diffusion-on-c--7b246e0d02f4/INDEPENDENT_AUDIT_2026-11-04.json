@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:55:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The synchronous sign-comparison update conserves total S by pair cancellation. Equal heights remain tied and displacements strictly decrease across distinct height classes. The known two-time potential rules out primitive cycles longer than two; every unequal pair must reverse ordering on a recurrent step. For an ordered k-class state with multiplicities (m_j), the displacement drop between adjacent classes equals m_j+m_{j+1}; strict reversal iff every gap 1<=g_j<=m_j+m_{j+1}-1. Given ordered multiplicities and gaps, S=nh_1+sum_j(n-M_j)g_j fixes at most one integer baseline, yielding exactly the stated multinomial modulo-n count A_{n,S mod n}. One fixed state iff n|S; other recurrent states pair to give C_n=(A-1_{n|S})/2. The gap bound gives spread<=2n-4 for n>=4, with equality precisely at (1,n-2,1), maximal gaps and n(n-1) maximal-phase cycles only at zero sum residue. Independent code separately enumerated normalized nondecreasing states and the distinct composition-gap formula for n=2..7, agreeing for every residue and recovering A_{5,*}=(401,370,300,300,370). These finite checks corroborate the all-n structural proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-graph eventual period <=2 includes cliques, but does not count recurrent states.",
+          "General property plus is a membership criterion, not an explicit counting function for each conserved sum."
+        ],
+        "reasoning": "The broader graph class of the antecedent has a much weaker conclusion; no automatic implication of precise energy-shell cycle counts.",
+        "searches": [
+          "arxiv:1704.04295 Theorem 1.1",
+          "arxiv:1609.05792 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1609.05792",
+        "arxiv:1704.04295",
+        "arxiv:1003.0943",
+        "Resultary published-record semantic query: complete graph integer diffusion game sign height differences temporal 2 cycle counts fixed conserved sum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-height clique result covers only k=2 height classes, whereas the exact sum enumerates all k.",
+          "Parallel chip-firing rule fires at a degree threshold, unlike sign transfer on each unequal pair."
+        ],
+        "reasoning": "Neither period bound nor distinct chip-firing orbit census implies the claimed full sign-diffusion integer-fibre formula or extremal orbit multiplicity.",
+        "searches": [
+          "arxiv:1609.05792 Theorems 3.1,3.4",
+          "arxiv:1704.04295",
+          "arxiv:1003.0943"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duffy et al. property-plus criterion for F² states is already known.",
+          "Their two-valued clique statement is Theorem 3.4 in the inspected PDF; it does not cover all ordered height multiplicities and gaps."
+        ],
+        "reasoning": "Reversal and weakly decreasing potential are proper antecedents but do not provide the weighted modular count or maximum spread equalities without substantial new enumeration.",
+        "searches": [
+          "Resultary published-record semantic query: complete graph integer diffusion game sign height differences temporal 2 cycle counts fixed conserved sum",
+          "arxiv:1609.05792 Theorem 3.1",
+          "arxiv:1704.04295"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite n=5 counts (401,370,300,300,370) are provided as verification, not novelty evidence.",
+          "No all-n table of labelled clique sign-diffusion orbits by conserved-sum residue was found in inspected primary source."
+        ],
+        "reasoning": "An unindexed enumerator might exist; the finite sample does not by itself prove novel infinite formula.",
+        "searches": [
+          "Resultary published-record semantic query: complete graph integer diffusion game sign height differences temporal 2 cycle counts fixed conserved sum",
+          "arxiv:1609.05792"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the complete energy-shell count and sharp recurrence spread census. Duffy et al. established the same sign-diffusion model and order-reversal criterion, and Long--Narayanan all-graph eventual period at most two; both are prior and expressly credited. Duffy's *complete graph two-height* theorem in the actual source is Theorem 3.4 (source RESULT cites Theorem 3.7, which concerns bipartite graphs: a bibliographic cross-reference error without affecting the proved numerical theorem). No inspected source gives the ordered-composition residue count or extremal-orbit counts. Standard degree-threshold parallel chip firing is a different update, not a matching antecedent.",
+      "residual_risks": [
+        "The underlying reversal criterion and potential proof are known; contribution is limited to the explicit complete census and sharp extremizers.",
+        "Duffy Theorem 3.7 citation in source is erroneous; actual complete-graph statement Theorem 3.4, does not affect proof but should be corrected in a later source revision.",
+        "Historical unindexed counts could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_REVERSAL_NOT_CENSUS",
+          "evidence": [
+            "Theorem 3.1 is property plus; Theorem 3.4 handles a two-height clique, not the complete fixed-sum census; source citation to 3.7 is misnumbered."
+          ],
+          "identifier_or_url": "arxiv:1609.05792",
+          "material_read": "Primary PDF full text relevant definitions, Section 3.1 Theorem 3.1, Section 3 complete graph Theorem 3.4 and proofs; original page screenshot",
+          "method": "Read original primary PDF around actual theorem statements and proof context",
+          "title": "A Variation on Chip-Firing: the Diffusion Game",
+          "trigger": "Identical synchronous sign-diffusion rule; key comparator"
+        },
+        {
+          "assessment": "KNOWN_PERIOD_BOUND_NOT_COUNTS",
+          "evidence": [
+            "Theorem 1.1 gives eventual period at most two for all finite graphs, not labelled orbit counts by S."
+          ],
+          "identifier_or_url": "arxiv:1704.04295",
+          "material_read": "Complete short main theorem, potential proof and conclusion in primary ar5iv HTML",
+          "method": "Read main source article and proof",
+          "title": "Diffusion on Graphs Is Eventually Periodic",
+          "trigger": "Possible stronger all-graph dynamics"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR",
+          "evidence": [
+            "Vertex fires to neighbors only on degree threshold, not sign-comparison diffusion."
+          ],
+          "identifier_or_url": "arxiv:1003.0943",
+          "material_read": "Primary introduction and update definition of degree-triggered chip firing",
+          "method": "Read primary relevant sections",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Apparent overlap from chip-firing orbit counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A conserved-total fibre is the natural invariant decomposition of the infinite integer diffusion state space. Quantifying precisely the orbit population for each total, its nontrivial dependence on S mod n, and exact sharp recurrent spread/attaining cycles answers mathematically motivated questions beyond mere periodicity. This is a uniform finite formula for all graph sizes, not an arbitrary table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Existing general period and reversal principles explicitly acknowledged.",
+    "Original source has incorrect prior-theorem number (3.7 vs 3.4); no mathematical assertion relies on that number.",
+    "Finite census checks only n<=7; all-n count is proven from height partition."
+  ],
+  "schema_version": 1
+}

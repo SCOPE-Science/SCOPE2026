@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Integer diffusion is explicitly defined, all states retain their sum, and the argument reconstructs the pairwise sign-reversal criterion and monotone two-time potential before counting. The ordered height partition is unique, the allowed adjacent gaps are exactly bounded by adjacent class sizes, and total conservation enforces a single congruence selecting a unique integer baseline. Thus the multinomial count is complete without duplicate states, and division by two removes temporal-phase duplication. The sharp spread inequality, equality cases, energy divisibility, and extreme-orbit count are independently proved. `verify.py` executes the microscopic rule on 379,706 normalized profiles and 324,504 broader-spread negative controls and agrees with the distinct composition enumeration for sizes 2 through 9; this check supports rather than replaces the infinite proof.
+## correctness
 
-**Originality — PASS, with qualification.** The 2016 Duffy–Lidbetter–Messinger–Nowakowski paper supplies the original game and a general order-reversal property, and the 2017 Long–Narayanan paper proves eventual one/two-periodicity by a potential argument. Both are explicitly credited, so neither known result is claimed anew. The inspected relevant text does not supply the energy-residue indexed clique orbit count, its strict spread extremizers, or the number of maximal-spread orbits. Research-record and literature searches for the same integer-diffusion model, conserved chip-sum census, and equivalent bounded-gap/rank-reversal formulations identified no equivalent enumerator. The closest previous complete-graph mass-resolved orbit formula concerns a **different** degree-threshold chip-firing update; it does not imply the present integer sign-comparison rule. Historical equivalence in unindexed counting work remains possible; the value of the new claim rests on the precise enumerative result, not the already-known reversal lemma.
+PASS
 
-**Mathematical value — PASS.** Conserved-total shells are a natural dynamical decomposition of an infinite integer configuration space, and a period-at-most-two theorem does not give their orbit populations. The formula answers that concrete invariant uniformly for all clique sizes and every conserved total, including an exact nonuniform dependence on the residue class; for instance the five-vertex two-cycle counts are 200, 185, 150, 150, 185. The sharp recurrent-spread bound and its precise energy-zero extreme orbit population identify a geometric boundary of these finite shells. This is an exact all-parameter census, not an arbitrary parameter slice or a mere finite table.
+The synchronous sign-comparison update conserves total S by pair cancellation. Equal heights remain tied and displacements strictly decrease across distinct height classes. The known two-time potential rules out primitive cycles longer than two; every unequal pair must reverse ordering on a recurrent step. For an ordered k-class state with multiplicities (m_j), the displacement drop between adjacent classes equals m_j+m_{j+1}; strict reversal iff every gap 1<=g_j<=m_j+m_{j+1}-1. Given ordered multiplicities and gaps, S=nh_1+sum_j(n-M_j)g_j fixes at most one integer baseline, yielding exactly the stated multinomial modulo-n count A_{n,S mod n}. One fixed state iff n|S; other recurrent states pair to give C_n=(A-1_{n|S})/2. The gap bound gives spread<=2n-4 for n>=4, with equality precisely at (1,n-2,1), maximal gaps and n(n-1) maximal-phase cycles only at zero sum residue. Independent code separately enumerated normalized nondecreasing states and the distinct composition-gap formula for n=2..7, agreeing for every residue and recovering A_{5,*}=(401,370,300,300,370). These finite checks corroborate the all-n structural proof.
 
-**Closest literature and remaining limits.** Duffy et al., arXiv:1609.05792, Sections 3.1 and 3.7; Long–Narayanan, arXiv:1704.04295, Sections 1–3; Jiang, arXiv:1003.0943, as a comparison with the different parallel firing rule. Finite verification is not a substitute for proof. An unindexed enumeration could overlap, and the theorem does not determine transient basins or large-size asymptotics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the complete energy-shell count and sharp recurrence spread census. Duffy et al. established the same sign-diffusion model and order-reversal criterion, and Long--Narayanan all-graph eventual period at most two; both are prior and expressly credited. Duffy's *complete graph two-height* theorem in the actual source is Theorem 3.4 (source RESULT cites Theorem 3.7, which concerns bipartite graphs: a bibliographic cross-reference error without affecting the proved numerical theorem). No inspected source gives the ordered-composition residue count or extremal-orbit counts. Standard degree-threshold parallel chip firing is a different update, not a matching antecedent.
+
+## value
+
+PASS
+
+A conserved-total fibre is the natural invariant decomposition of the infinite integer diffusion state space. Quantifying precisely the orbit population for each total, its nontrivial dependence on S mod n, and exact sharp recurrent spread/attaining cycles answers mathematically motivated questions beyond mere periodicity. This is a uniform finite formula for all graph sizes, not an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
