@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The stationary four-moment recursion is derived by conditional expectation, solved symbolically, and its fixed point is unique under the two uniform contractions. Denominator positivity and the polynomial factorization at each endpoint reduce global optimality to endpoint derivatives. An explicit sum-of-squares proof for nonnegative crossover parameter and a direct sign proof for negative crossover parameter settle every parameter and equality case. Symbolic identities plus 906 exact rational checks passed; finite tests are not substituted for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Doan et al. analyze diminishing steps under Markov randomness.",
+        "Existing listed STORM and Loopless SVRG results concern different update recursions and sampling mechanisms."
+      ],
+      "reasoning": "A general convergence bound does not imply an exact stationary finite-step objective or a sharp transition-policy optimizer. General affine Markov-jump moment methods may reproduce fixed-point calculations but no verified broader optimizer theorem was located.",
+      "searches": [
+        "Markov SGD persistent repeated versus deterministic alternating two gradient components, optimal covariance sharp curvature contrast half",
+        "MC-SGD stationary risk mean square optimal Markov transition, bang-bang correlation, two-state fixed step",
+        "arXiv:2003.10973 Theorem 1",
+        "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2302.14428v3",
+      "https://arxiv.org/html/2003.10973v2",
+      "https://arxiv.org/html/1810.03124v1",
+      "Relevant semantic published-finding corpus records: 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73; 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834; 2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Even gives a finite-horizon two-state equal-curvature covariance calculation, which implies parts of the t=0 case but not the t>0 claims.",
+        "Liu/Xu optimize within-minibatch covariance, not transition timing.",
+        "STORM and Loopless SVRG entries are different estimators with fundamentally different states."
+      ],
+      "reasoning": "The new claim is not simply its own t=0 corollary: unequal curvatures change the random multiplier and its correlation with the sample history. The analytic phase crossover depends on that coupling, and none of the inspected prior statements entails its optimization over all r.",
+      "searches": [
+        "arXiv:2302.14428 Section 5 and Appendix D.2",
+        "arXiv:1810.03124 Section 3.3",
+        "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-state equal-curvature Markov SGD test is explicitly present in Even (2023), so the t=0 mechanism is prior.",
+        "The candidate allows t>0, computes the stationary risk globally in p and gives an exact t=1/2 attainability boundary."
+      ],
+      "reasoning": "Antithetic step sampling, symmetric reversible two-state sampling, and lag-one eigenvalue r=2p-1 are equivalent parametrizations of the same design. Prior equal-curvature expressions can be specialized to t=0 but do not yield the unequal-curvature global optimizer. No matching full claim was returned by the exact-formulation search.",
+      "searches": [
+        "two-state Markov sampling of gradients on heterogeneous strongly convex scalar quadratics stationary mean square error optimal persistence perfect alternation curvature threshold 1/2",
+        "Two-state symmetric Markov chain stochastic gradient descent scalar strongly convex quadratics, exact stationary mean square error optimized over repeat switching probability and one-half curvature heterogeneity threshold",
+        "arXiv:2302.14428 Appendix D.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned reversible-chain variance-floor entry concerns asymptotic additive-functionals, not an affine SGD iterate stationary risk.",
+        "The closest comparable prior claims concern Markov-varying stepsizes, iid importance weights, and shuffled per-epoch gradients."
+      ],
+      "reasoning": "No exact stationary two-curvature Markov-SGD risk table with the global endpoint phase diagram was located among the actual records searched; absence in records is not uniqueness evidence.",
+      "searches": [
+        "SGD two-component quadratics deterministic alternation versus persistent Markov gradient sampling, optimum noise floor, large stepsize reversal",
+        "Stochastic gradient Markov chain spectral gap mixing versus stationary variance overshooting one-dimensional affine",
+        "2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6"
+      ]
+    },
+    "rationale": "The inspected closest primary work already contains a symmetric two-state equal-curvature Markov SGD example, which is not independently claimed. It does not supply a heterogeneous-curvature stationary-risk minimization over the full transition range or the sharp relative contrast one-half frontier. Other primary work treats diminishing step bounds or within-minibatch antithetic gradients. Accessible research records examined reveal no claim logically implying the exact joint classification; classical Markov-jump affine covariance theory remains a disclosed indirect-coverage risk.",
+    "residual_risks": [
+      "Publication priority was not independently established; classical Markov-jump affine-system stationary covariance and switching-policy optimization might yield the full statement indirectly.",
+      "The equal-curvature two-state Markov covariance calculation occurs explicitly in Even (2023); only the heterogeneous-curvature stationary optimizer frontier is proposed as the distinct finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the equal-curvature two-state gradient-correlation example and finite-time behavior, but the inspected theorem and appendix do not optimize stationary MSE for heterogeneous curvature or derive the sharp one-half contrast cutoff. Equal-curvature ingredients treated as prior, not new.",
+        "evidence": [
+          "arXiv:2302.14428, Appendix D.2, lines 856–867 in accessible HTML; two-state equal-curvature example and covariance sum",
+          "arXiv:2302.14428, Section 5, finite-time mixing/hitting-time estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.14428v3",
+        "material_read": "Introduction, Section 5, Appendix D especially D.2 and its two-state quadratic lower-bound computation, plus discussion and references",
+        "method": "Inspected substantive HTML full-text sections and compared exact components, identical/heterogeneous curvature, constant-step stationary minimization, and optimizing over correlations",
+        "title": "Stochastic Gradient Descent under Markov-Chain Sampling Schemes",
+        "trigger": "Exact two-state Markov SGD model plausibly subsumes this result"
+      },
+      {
+        "assessment": "Analyzes diminishing-step convergence and mixing-time penalties, not a positive constant-step stationary exact risk optimized over two-state transition persistence.",
+        "evidence": [
+          "arXiv:2003.10973, Theorem 1 uses step alpha_k=4/(sigma k)",
+          "arXiv:2003.10973, Sections 2–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.10973v2",
+        "material_read": "Definitions/assumptions in Sections 2–3 and Theorem 1 for strongly convex objectives; statement and discussion of finite-time rates",
+        "method": "Inspected substantive HTML full-text sections on assumptions and displayed theorem, specifically its diminishing step condition",
+        "title": "Finite-Time Analysis of Stochastic Gradient Descent under Markov Randomness",
+        "trigger": "General Markov-sampling convergence results could dominate an exact scalar case"
+      },
+      {
+        "assessment": "Correlates the two samples inside a minibatch while using one combined update; does not optimize cross-iteration Markov persistence at one sample per update.",
+        "evidence": [
+          "arXiv:1810.03124, Section 3.3 Eq. (12) and (14), minibatch size two",
+          "arXiv:1810.03124, Section 4 antithetic pairing"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1810.03124v1",
+        "material_read": "Introduction, Sections 3.1–3.3, mini-batch covariance derivations and Algorithm discussion in Section 4",
+        "method": "Inspected HTML full-text mechanisms and covariance formula, distinguishing within-update gradient averaging from across-step Markov transitions",
+        "title": "Accelerating Stochastic Gradient Descent Using Antithetic Sampling",
+        "trigger": "Antithetic sampling might imply endpoint-optimal alternating gradients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "185fdcb8-0ccc-437c-a937-2b1ec25ac07d",
+  "value": {
+    "rationale": "The exact sharp contrast boundary gives a nontrivial sampling-design phase diagram: even among stable positive-step scalar quadratics with one gradient evaluation per step, a nonmixing persistent sample can be stationary-risk optimal at high step, while for curvature contrast at least one-half alternating sampling is universally optimal throughout the stable step interval. It distinguishes per-component stability, sample decorrelation, and stationary full-objective risk; not merely a new numerical example.",
+    "status": "PASS"
+  }
+}
