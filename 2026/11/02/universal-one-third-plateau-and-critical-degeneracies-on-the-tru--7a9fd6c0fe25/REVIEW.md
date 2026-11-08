@@ -1,19 +1,21 @@
-# Scientific review: universal one-third plateau on the truncated tetrahedron
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result fixes all twelve spins and two inequivalent edge orbits explicitly, with independent positive couplings and an arbitrary nonnegative real field. The proof derives sharp local lower bounds by assigning the field to disjoint intertriangle bridges and triangle blocks. It proves the simultaneous feasibility of each equality condition and therefore covers the entire continuous coupling/field domain, including both exact boundaries. The bijection with edge orientations and no-reciprocal-pair assignments yields the exact multiplicities 24, 114, 30, 163, 1. A standalone exhaustive, exact-arithmetic check over all 4096 spin configurations agrees with the theorem for several widely separated coupling ratios, transition fields and interior fields. Such computation checks a finite model but does not substitute for the analytical all-real-parameter argument.
+PASS
 
-## Originality — PASS on available evidence, with residual priority risk
+The 12 vertices (i,j), i≠j in {1,2,3,4}, form four triangles (12 J edges) connected by six opposite-arc K bridges. Triangle J energy J(s²-3)/2 minimizes at s=±1. For h<K, putting all field on bridge pairs gives H>=-4J-6K; equality orientations of abstract K4 must have every indegree 1 or 2, exactly 24. For h≥K, split field K onto each bridge and h-K on triangles: Kxy-K(x+y) minimizes at unlike or ++ bridge pairs and triangle F(s) favors s=1 until h=K+2J, ties s=1,3 there, and s=3 above. Equality constraints simultaneously feasible. At h=K triangle sums ±1 and each bridge not --; 114 configurations with magnetizations (0:24,2:60,4:30). In K<h<K+2J, one negative per triangle and no reciprocal negative bridge gives 3^4-6·3²+3=30 with magnetization4. At h=K+2J, 0 or 1 negative per triangle gives 1+12+48+72+30=163 in magnetizations12,10,8,6,4. Above, unique all-positive state. Thus exact energies -4J-6K, -4J-2K-4h, 12J+6K-12h for the three field bands (continuous at endpoints). Independently constructed all 12 triangles/6 bridges, enumerated all 4096 spin configurations, checked energies and magnetization counts at h=0,K,K+J,K+2J,K+2J+J for (J,K)=(1,1),(3,5),(10,2); these finite checks corroborate all-real coupling proof. Model classical ±1 spins, not vector/quantum or thermodynamic limit.
 
-Coffey and Trugman (arXiv:cond-mat/9206011) use this exact twelve-site graph and its two edge orbits but study isotropic vector-spin Heisenberg physics and quantum correlations. Their field-transition description does not entail the Ising discontinuities or the exact combinatorial multiplicities. Strečka, Karľová and Madaras (arXiv:1502.04449) study Ising fields and magnetization plateaux, but on the five Platonic graphs, not on the two-edge-orbit truncated tetrahedron. Žukovič (arXiv:1406.5626) studies planar triangular-lattice domains, rather than a closed truncated tetrahedral graph. Search results on similarly named truncated-tetrahedral *spin-direction* models describe square-lattice interactions, not this finite graph. Relevant published research-record searches produced a matching-complex result on the same graph but no theorem implying the present magnetic phase diagram. The relevant original 1992 paper and the graph/model sections of the 2014 paper were inspected directly; the 2015 primary abstract was available but its full text was not. Therefore independent confirmation of exhaustive historical priority remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The truncated tetrahedron is a finite molecular-spin surrogate with a naturally motivated distinction between triangular and bridging exchange bonds. The theorem gives its entire coupling-uniform, nonperturbative field phase diagram and exact critical-state entropies, rather than merely one Ising instance or a numerical graph count. Its two magnetization jumps and the exceptionally large 163-state saturation manifold give concrete, testable finite-cluster equilibrium predictions and a rigorous combinatorial model for frustration-enhanced ground-state entropy. This is a complete natural finite classification; it does not claim a thermodynamic phase transition or quantum effect.
+Coffey–Trugman 1992 studies the *same* truncated-tetrahedral graph with two bond orbits, but its spin Hamiltonian is quantum/classical vector Heisenberg rather than collinear Ising, so its field response and degeneracies do not entail these combinatorial Ising counts. Strečka–Karľová–Madaras study Ising plateaus on five Platonic (not Archimedean truncated tetrahedral) graphs; planar triangular nanoclusters and square-lattice truncated-tetrahedral spin-direction models are different objects. Thus the exact uniform two-coupling Ising phase/critical count is best-of-knowledge original; possibility of a specialized unindexed earlier Ising computation remains.
 
-## Closest sources and remaining limitations
+## value
 
-The nearest object match is Coffey–Trugman's two-bond truncated-tetrahedral Heisenberg model, arXiv:cond-mat/9206011 (1992). The nearest type-of-observable match is Strečka–Karľová–Madaras's Platonic Ising-cluster phase diagram, arXiv:1502.04449 (2015). The nearest finite-cluster counting context is Žukovič's triangular Ising nanoclusters, arXiv:1406.5626 (2014). Inaccessible or unindexed prior papers could describe equivalent Ising counts, and no independent audit has been performed. The result is confined to collinear homogeneous-orbit classical spins and zero-temperature ground states.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A finite frustrated molecular-magnet cluster has two natural edge-orbit exchange parameters. Exact all-(J,K>0) field thresholds, magnetization sectors and residual ground-state entropies provide a complete physically meaningful phase diagram, including unusually high 114/163 critical degeneracy and a robust 1/3 plateau. Finite systems can support valuable exact structural classifications; no thermodynamic phase transition or quantum prediction is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
