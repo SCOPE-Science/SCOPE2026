@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3.9 or later using the standard library only. The program enumerates all increasing-labelled rooted trees of orders \(1\) through \(6\) (representing every rooted unlabelled tree of these sizes) and all uniform vertex-priority permutations. It calculates the complete subtree-argmin signature distribution and its exact \(k\)-fold collision probability using `fractions.Fraction` for \(k=2,3,4\). It compares each with the formula derived independently from child-subtree sizes. In total, \(462\) exact comparisons are made; separate brute-force tests with three valuations for \(n\le3\) verify the semantic minimum-of-sums equivalence. Successful output ends in `ALL_CHECKS_OK 462 exact collision probabilities and direct semantics n<=3`.
+## correctness
 
-The verification is finite. The proof of the theorem for arbitrary finite tree size and all integer \(k\ge2\) is the uniform block-interleaving argument in `RESULT.md`. Exact tests cannot establish historical originality, independence, or generalization beyond the proved topology and distribution assumptions. Independent audit has not been performed.
+PASS
+
+Lower-semicontinuous envelope is exactly the minimum over each descendant subtree; min of sum equals sum of mins precisely when all k terms have a shared minimizer. Atomlessness gives unique independent random priority permutations. Recursive independent block-interleavings imply every subtree-root minimum-block selector is independent from all descendants and has weight 1/s_v for root and s_c/s_v for child subtrees. Equality of all full argmin signatures iff all block selector families agree. Multiplication yields the exact k-way collision product. Star/path specializations and convergent hyperbolic-sine product are valid k≥2; binary-tree log asymptotics follow from absolutely convergent geometric series. Separate finite direct priority enumeration checked 68 shape/arity instances independent of the package check code.
+
+## originality
+
+PASS
+
+Affine modal propositional logic supplies LSC semantics and L(f)+L(g)≤L(f+g), not this random simultaneous-equality law. Randomized priority/treap theory supplies the independent interleaving idea but no retrieved source states the exact equality probability for the complete subtree-argmin signature across every finite tree. An older equivalent record/heap signature collision identity remains an acknowledged plausible coverage risk.
+
+## value
+
+PASS
+
+Exact distribution-free simultaneous equality of a natural modal-semantic inequality on a whole rooted model is motivated beyond a single-point tautology; the tree shape dramatically changes polynomial to exponential decay, providing a useful invariant of hierarchical order geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
