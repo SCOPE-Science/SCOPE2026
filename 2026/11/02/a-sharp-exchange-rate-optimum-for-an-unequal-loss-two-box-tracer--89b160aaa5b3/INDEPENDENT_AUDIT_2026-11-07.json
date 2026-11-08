@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, checker.py, REVIEW.md, METADATA.json/AUDIT.json, SLOGAN.txt, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Independent symbolic verification of curvature at D=0 and positive-series coefficient identity.",
+        "Independent numerical roots for six unequal-loss contrasts including r large/small, verifying global root and >1 bound."
+      ],
+      "rationale": "The exact two-box ODE has generator [[-k-ell1,k],[k,-k-ell2]] and initial (1,0). Writing m=(ell1+ell2)/2, delta=(ell1-ell2)/2 gives x2(T;k)=exp(-(k+m)T)k*sinh(T sqrt(k²+delta²))/sqrt(k²+delta²) by a 2x2 matrix exponential. For dimensionless y=kT, r=(Tdelta)², the log derivative of y exp(-y)sinh(sqrt(y²+r))/sqrt(y²+r) is D=r/[y(y²+r)]+y/z*coth(z)-1. When r>0, D is positive near zero and negative for large y. Substitution of its critical equation yields D_y|D=0=-r(y²-3y+3)/(y²(y²+r))<0, so all crossings are strictly downward and the root is unique and globally optimal. D(1,r)>0 proves y*>1. The sign D_r<0 follows from positive hyperbolic series H(z)=z sinh z cosh z+z²-2sinh²z=sum_{n>=3}[(n-2)2^(2n-1)/(2n)!]z^(2n); hence the root strictly decreases as r increases. Limits r down to0 and up to infinity and peak above perfect-mixing value follow. At r=0 response (1-exp(-2y))/2 is monotone with no finite optimum. Swapping losses leaves x2 invariant. Independent symbolic curvature identity and numerical roots confirm, not replace, all-r proof.",
+      "residual_risks": [
+        "Exactly two equal-volume well-mixed linear compartments, equal bidirectional exchange, constant independent nonnegative losses, one pulse and a single positive snapshot T; no unequal-volume, nonlinear, forced or integrated-exposure result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lake-quality multiple-box modeling and groundwater late-time rate-limited transfer are broader application settings, not inspected theorems about the same finite-horizon two-state endpoint objective."
+        ],
+        "reasoning": "Existing transport frameworks could allow reduction to two boxes, but available mathematical statements do not imply the sharp global parameter optimizer without an additional argument; uninspected full text is a residual risk.",
+        "searches": [
+          "two compartment unequal loss exchange rate single time maximum tracer",
+          "Shanahan and Harleman 1984 transport lake water quality",
+          "Haggerty et al 2000 tracer breakthrough"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, checker.py, REVIEW.md, METADATA.json/AUDIT.json, SLOGAN.txt, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Complete Comp2ExchangeReaction_0.mod and 4-page guide; complete Comp2Exchange_0.mod and 2-page guide",
+        "Shanahan–Harleman 1984 and Haggerty–McKenna–Meigs 2000 abstracts/citation",
+        "Resultary query: two compartment unequal loss exchange rate single time maximum tracer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The no-loss model yields monotone x2(T;k) and no finite maximizer, so it cannot imply the asymmetric-loss unimodal optimum; reactive two-box equations give a starting point but no global uniqueness proof."
+        ],
+        "reasoning": "The actual stationary-root curvature identity and globally positive hyperbolic series provide new nontrivial all-contrast uniqueness and monotonicity deductions; modeled dynamics are not claimed as new.",
+        "searches": [
+          "two compartment unequal loss exchange rate single time maximum tracer",
+          "Comp2ExchangeReaction model/guide",
+          "Comp2Exchange no-loss model/guide"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The archived model source has the same two-box bidirectional transfer with individual first-order chemical losses; its equation solution is known."
+        ],
+        "reasoning": "Equivalence of the governing ODE is credited as prior, but knowing the explicit solution does not already state/prove existence, unique global optimum and monotone response to loss asymmetry over the continuum of k.",
+        "searches": [
+          "two compartment unequal loss exchange rate single time maximum tracer",
+          "National Simulation Resource Comp2ExchangeReaction_0.mod and four-page guide"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The model is in a documented catalog, but its complete four-page/two-page guides give response curves rather than a best-k theorem or exact strict optimizer."
+        ],
+        "reasoning": "Known model catalogs do not by themselves catalog all derived extrema; searched finding tables yielded no matching unique-rate law, which is not conclusive novelty evidence.",
+        "searches": [
+          "two compartment unequal loss exchange rate single time maximum tracer",
+          "Resultary semantic two-box exchange optimizer search",
+          "SCOPE GitHub exchange rate optimum code search",
+          "Comp2Exchange archived model catalog 0245/0246"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The archived National Simulation Resource Comp2ExchangeReaction model has precisely the prior art two-box exchange plus independent losses and exact governing equations, and its four-page guide studies time courses but not a theorem globally optimizing the receiver concentration over k at fixed horizon. The Comp2Exchange no-loss model is an even simpler known specialization. The candidate new finding is the global optimizer uniqueness, threshold at equal losses, y*>1, strict contrast monotonicity and above-fast-mixing peak. Historical transport literature may have an equivalent optimization under another name; inaccessible full 1984/2000 texts are explicitly retained as risks.",
+      "residual_risks": [
+        "Shanahan–Harleman (1984) complete journal text and Haggerty et al (2000) full report not read, so an older equivalent transport maximum could be hidden there.",
+        "Classical matrix semigroup/optimal linear exchange parameter literature may prove an equivalent theorem under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL PRIOR, OPTIMUM NOT STATED",
+          "evidence": "Equation structure and reaction-location/time-course behavior are present; no proof of a finite-horizon global exchange-rate optimizer, strict contrast monotonicity or equality boundary.",
+          "identifier_or_url": "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.mod ; https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.pdf",
+          "material_read": "Full archived model text and complete four-page PDF guide, with page screenshots inspected",
+          "method": "full source file and full guide inspection",
+          "title": "Comp2ExchangeReaction model and instructional guide",
+          "trigger": "Exactly same two compartments with separate irreversible losses"
+        },
+        {
+          "assessment": "CLASSICAL SPECIAL CASE",
+          "evidence": "No-loss exchange dynamics predate target and give monotone increasing response, rather than unequal-loss finite optimum.",
+          "identifier_or_url": "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.mod ; https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.pdf",
+          "material_read": "Full archived source and complete two-page model guide with screenshots",
+          "method": "full source file and full guide inspection",
+          "title": "Comp2Exchange model and instructional guide",
+          "trigger": "No-reaction specialization of two-box exchange"
+        },
+        {
+          "assessment": "FULL TEXT NOT INSPECTED",
+          "evidence": "No whole-document exclusion; possible older finite-horizon optimal exchange analysis remains a residual risk.",
+          "identifier_or_url": "doi:10.1061/(ASCE)0733-9372(1984)110:1(42)",
+          "material_read": "Accessible bibliographic/abstract description, not entire journal article",
+          "method": "metadata/abstract inspection",
+          "title": "Transport in Lake Water Quality Modeling",
+          "trigger": "Historical multiple-box environmental transport models"
+        },
+        {
+          "assessment": "FULL TEXT NOT INSPECTED",
+          "evidence": "Different late-time breakthrough focus; any hidden finite two-box optimum calculation remains unverified.",
+          "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc703765/",
+          "material_read": "Accessible report abstract/description; full technical report not fully read",
+          "method": "abstract/context inspection",
+          "title": "On the late-time behavior of tracer test breakthrough curves",
+          "trigger": "Relevant groundwater tracer exchange transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, checker.py, REVIEW.md, METADATA.json/AUDIT.json, SLOGAN.txt, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Complete Comp2ExchangeReaction_0.mod and 4-page guide; complete Comp2Exchange_0.mod and 2-page guide",
+        "Shanahan–Harleman 1984 and Haggerty–McKenna–Meigs 2000 abstracts/citation",
+        "Resultary query: two compartment unequal loss exchange rate single time maximum tracer"
+      ],
+      "rationale": "Exchange-rate tuning at a finite observation time is a physically and mathematically natural design parameter: strong mixing need not maximize downstream snapshot when losses differ. The sharp unique exchange optimum, its dimensionless lower bound and contrast sensitivity make an exact interpretable boundary in the minimal reactive two-zone model; not just a restatement of its textbook ODE or a tiny numerical example.",
+      "residual_risks": [
+        "Motivated natural scoped theorem only; not a general result outside the exact stated hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly two equal-volume well-mixed linear compartments, equal bidirectional exchange, constant independent nonnegative losses, one pulse and a single positive snapshot T; no unequal-volume, nonlinear, forced or integrated-exposure result.",
+    "Shanahan–Harleman (1984) complete journal text and Haggerty et al (2000) full report not read, so an older equivalent transport maximum could be hidden there.",
+    "Classical matrix semigroup/optimal linear exchange parameter literature may prove an equivalent theorem under different terminology."
+  ]
+}
