@@ -1,0 +1,15 @@
+# Scientific review: endpoint projection onto two opposite finite parabolas
+
+## Correctness
+**PASS.** The spectral-set indicator is the sum of the two parabola indicators minus the common origin. Completion of squares with the classical quadratic Gauss identity yields the exact two-dimensional Fourier kernel. Grouping nonzero frequency pairs by \(t=u^2/(4v)\) proves the one-dimensional norm identity, and the convolution-kernel equality proves that this is an attained endpoint operator norm rather than just an upper bound. A bounded-variation Riemann-sum estimate, an explicit near-zero count, and incomplete quadratic character-sum cancellation imply the asserted sharp \(4/\pi\) limit. Unitization and Plancherel give the separate Fourier-ratio normalization. The executable checker independently reconstructs the Fourier kernel directly at thirteen odd primes. The finite tests do not replace any all-prime argument.
+
+## Originality
+**PASS relative to the materials inspected, with publication-priority uncertainty.** Iosevich–Li–Yu (arXiv:2609.25404v1, Sections 2, 4–6, 8) establishes the relevance of Fourier ratio and computes single-paraboloid synthesis constants, but the full inspected manuscript does not state an endpoint projection norm for the union of opposite parabolas or the \(4/\pi\) interference factor. Li (arXiv:2609.16030v1) proves finite-parabola sparse-zero bounds, a different invariant. Gilbert–Rzeszotnik (2010) study norm bounds for the unrestricted Fourier transform on finite abelian groups, not a specific spectral idempotent. Searches for spectral projection norms, finite parabolic unions, signed Gauss-sum interference, and Fourier algebra norms found nearby but not equivalent results. A classic formula under another name may exist; the journal article's full text was not inspected.
+
+## Value
+**PASS.** The spectral set \(\Gamma_p\) is a canonical reducible quadratic curve, and the Fourier-algebra norm is the exact operator amplification of the corresponding Fourier projection. While either branch has norm asymptotic to \(\sqrt p\), their union has a sharp and strictly larger universal leading constant \(4/\pi\). The associated Fourier-ratio coefficient \(2\sqrt2/\pi\) supplies a quantitative synthesis-concentration invariant for a natural non-single-paraboloid example. The result is an infinite prime family with an exact finite-size formula and a rigorously controlled asymptotic, not an isolated sample or a routine normalization exercise.
+
+## Limitations and remaining comparison risk
+The estimate does not determine arbitrary-weight spectral-synthesis constants, full families of conic unions, or composite-modulus behavior. General quadratic Gauss identities and Pólya–Vinogradov cancellation are classical ingredients, and the novelty rests on their sharp assembly for this specific Fourier idempotent. An older equivalent result in the paired-chirp/idempotent-norm literature remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
