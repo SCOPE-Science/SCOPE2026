@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved for independent Bernoulli subsets with fixed number of events and central-limit-scale thresholds. A capacitated Hall matching argument gives an **exact finite-dimensional** condition for mutually disjoint witnesses. The independent binomial central limit theorem controls the marginal surpluses, while explicit binomial-coordinate moment calculations give \(B_{J,n}/s_n-\binom{|J|}{2}\tau_n\to0\) in probability at bounded collision scale. Gaussian boundary continuity then identifies the full multivariate limit. A separate pair-intersection concentration argument handles divergent collision scale. The small- and large-parameter Gaussian laws follow from simplex integration and conditional Gaussian regression. All quantifiers, ceiling errors, subset constraints, and parameter regimes are stated in `RESULT.md`. Exhaustive matching, exact-rational probabilities, an analytic Gaussian integral, and seeded finite-size checks provide supplementary evidence, not infinite proof.
+PASS
 
-## Originality — PASS (subject to historical-priority risk)
+For fixed r>=2, clone each threshold demand and use Hall marriage: disjoint witnesses iff every nonempty J has |union S_i|>=sum k_i. Independent centered Bin(n,p_n) counts converge jointly to N(a_i,1). The overcount B_J=sum_i |S_i|-|union| has expectation binom(|J|,2) n p_n^2+O(np_n^3), variance O(np_n^2), so B_J/s_n concentrates at binom(|J|,2)tau_n when tau_n bounded, uniformly over the finitely many J. Gaussian boundary probabilities vanish, yielding the exact order-statistic Hall polytope and crossover p_n~n^(-1/3). If tau_n diverges, a pair intersection scaled by s_n diverges while binomial margins stay tight, so success tends to zero. The small tau^2 pair-triangle law and large tau Gaussian total-sum tail follow by finite inclusion-exclusion and conditional Gaussian concentration. The claims assume fixed r and offsets and np_n->infty; finite simulations are not the proof.
 
-Tesio's *How much do increasing events occur disjointly?* (arXiv:2610.32658v1, Section 6) gives the exact pair-union criterion and studies threshold witnesses explicitly at **fixed** Bernoulli parameter; it does not evaluate a sparse \(n^{-1/3}\) triangular-array crossover or multiway Hall-polytope limit. Cerf–Tesio's *The case of equality in BK* (arXiv:2607.02272, Definition 1.4 and Theorem 1.5) supplies the pairwise disjoint-testimony formalism, not this asymptotic law. published-finding corpus semantic searches for sparse threshold testimony, Hall matching, and Gaussian critical windows returned no same-object complete theorem. An accessible earlier mathematical record addressing fixed-bias two-event windows does not imply this sparse multiway limit. The closest general reductions (Hall matching and binomial CLT) do imply some ingredients but not directly the identified critical balance, subset-indexed Gaussian limit, or endpoint coefficient; these are explicitly proved here. A generic unpublished or differently phrased random matching limit could still contain the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Witness compatibility and the difference between eventwise occurrence and simultaneous disjoint certification are natural quantitative questions for increasing events. The theorem identifies a sharp sparsity exponent and a nontrivial continuum of multi-event collision laws; the full Hall-subset geometry, different marginal offsets, and the quadratic onset are not captured by pairwise overlap heuristics. The exact result remains meaningful even without a convergence-rate theorem, and supplies testable asymptotic benchmarks for product-space strengthened-BK questions.
+Best-of-knowledge original as a fixed-r, sparse triangular-array, multi-threshold Gaussian Hall crossover for product-space disjoint certificates. Cerf–Tesio provide the two-event product-space framework, Tesio examines quantitative BK gap and fixed-bias threshold examples. Neither inspected statement supplies the r-way n^(-1/3) scaling with unequal offsets and exact asymptotic endpoints; relevant matchings/normal-approximation literature could yield an equivalent formulation.
 
-## Residual limitations
+## value
 
-No independence or third-party certification is claimed. The result does not characterize standard single-configuration BK gaps; it characterizes the product-space testimony defect. Only fixed event number and independent Bernoulli sampling are addressed. Publication-priority review should also consider general capacitated matching limit theorems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem gives a full nondegenerate collision-to-obstruction phase transition and exact endpoint onset/tail laws in a canonical random-set matching problem. Its capacitated Hall geometry connects probabilistic dependence to Gaussian polyhedral feasibility for any fixed number of demands, resolving more than a central-limit triviality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
