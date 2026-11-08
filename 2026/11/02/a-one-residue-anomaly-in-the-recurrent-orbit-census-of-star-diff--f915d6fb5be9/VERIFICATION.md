@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite checks and their logical limits
+# Independent mathematical audit
 
-The self-contained script `verify.py` requires only Python 3 standard-library modules. It was executed as `python verify.py`; the captured output is in `verify_output.txt`.
+## correctness
 
-The program computes each vertex update directly from the sign of the current difference across each edge; this is independent of the algebraic residue-class calculation. For each \(1\le r\le5\), center value zero and every leaf gap in \([-r-2,r+2]\), it checks whether the direct fixed/two-step return agrees with the claimed gap-based classification, totaling 789,355 configurations. Translation invariance in the center explains why using center zero is sufficient for these local comparisons, but finite gap bounds do not prove all-size correctness.
+PASS
 
-It then enumerates all \(r^r\) canonical gap tuples for each \(1\le r\le7\) and checks the modular count formula across 35 residue classes. Finally, it enumerates positive-gap tuples and independently computes a polynomial convolution times a geometric-series sum across 340 nonnegative graph-size/total pairs for \(1\le r\le6\). All checks passed, ending with `STAR_DIFFUSION_CENSUS_VERIFIED`.
+Direct edge-transfer gives c_prime=c+H, d_i_prime=d_i-sign(d_i)-H. The established monotone two-time diffusion potential makes every periodic edge sign alternate or stay zero, forcing F^2=id on periodic states. For F^2=id each leaf transfer cancels. A zero gap implies H=0 and all other gaps zero; mixed-sign gaps require incompatible inequalities H>=positive d and H<=negative d, so all nonfixed gaps have one sign. Center-lower gaps must satisfy 1<=d_i<=r, yielding unique phase representatives. Since S=(r+1)c+sum d_i, exact residue enumeration is obtained in Z[z]/(z^(r+1)-1) from (H(z)-1)^r=(-1)^r+((r^r-(-1)^r)/(r+1))H(z). Nonnegative c>=0 gives geometric series. Independently enumerated bounded gap boxes through r=5 and exact residue classes. Proof handles r=1 and negative unrestricted states; finite checks are corroborative.
 
-The infinite all-integer and all-star statements are justified by the written potential, sign-reversal argument, quotient-ring identity, and canonical nonnegative phase proof, not by finite enumeration. There has been no independent external audit or validation.
+## originality
+
+PASS
+
+Earlier star-diffusion and all-graph period-two results give dynamics but not the conserved-mass recurrent two-cycle orbit histogram or nonnegative generating function. This is a genuine new exact enumerative statement to best knowledge, with unindexed equivalent work remaining a risk.
+
+## value
+
+PASS
+
+The conserved sum is the natural component label of integer diffusion. Its nearly uniform two-cycle orbit histogram (differing by one orbit in one residue class) and exact nonnegative cutoff are structural enumerations useful beyond a generic period-two theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
