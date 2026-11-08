@@ -1,15 +1,21 @@
-# Mathematical review: block-transitive fixed rooted-forest spaces
+# Independent mathematical audit
 
-## Correctness — PASS
-For a product of independently transitive group actions on disjoint blocks, every orbit of directed edges is classified exhaustively: fixed-to-fixed singleton arrows, singleton-to-block stars, block-to-singleton arrows (indegree obstruction), arrows between nontrivial blocks (indegree obstruction), and arrows internal to a nontrivial block (directed-cycle obstruction). At most one star attaches to each block; the remaining arrows form a directed forest on the fixed labels. The resulting orbit-face complex is exactly the stated simplicial join. The barycentric-orbit construction proves this is an actual geometric fixed space and gives a PL homeomorphism. The classical complete-digraph forest homotopy theorem and integral join homology prove the asserted wedge rank and sphere dimension, including separate \(f=0\) and \(f=1\) boundary checks. The accompanying independent enumerator checked 490 edge orbits and 142,870 orbit-subsets in 46 finite cases. Finite checking is not used in place of the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Knudson–Owens-White (arXiv:2609.06844v1, Sections 4 and 9) identify the rooted-forest vertex-edge skeleton and its ordinary sphere-wedge type, not its pointwise fixed loci under block-transitive group actions. Engström (arXiv:math/0508148v1, Section 2) develops the directed-forest framework and fixed-root shellability, but the inspected material does not classify these symmetry-fixed geometric realizations. The closest published indexed results provide equivariant face characters of graph Morse complexes or a distinct isolated forest subcomplex for simplex boundaries; characters alone do not determine homotopy types of fixed spaces. Statement-level searches for transpositions, directed forests, joins, and block products identified no encompassing claim. Residual uncertainty: the complete original 1999 Kozlov article was inaccessible at the publisher, and equivalent unindexed literature could exist. This is self-review, not independent novelty certification.
+PASS
 
-## Value — PASS
-The result completely determines a natural multi-parameter equivariant fixed-space problem on the canonical rooted-forest skeleton of strong Morse simplex complexes. The surprising invariance under nontrivial block size and internal transitive group, the empty/contractible/spherical trichotomy, an explicit PL join description, and the infinite sequence of sphere multiplicities are stronger than mere Euler or nonequivariant Betti counts. For two singleton labels and \(t\) nontrivial blocks the fixed locus is always \(S^t\), an unbounded-dimensional family insensitive to block sizes. This is a structural classification, not a relabeling of the known ordinary homotopy theorem.
+A fixed geometric point has simplex support invariant under the group and barycentric coordinates constant on each arrow orbit. The actual admissible orbits are singleton-to-singleton arrows and independently transitive stars from one fixed label into one block; other orbits produce competing incoming edges or a directed cycle. Hence invariant simplices form the PL orbit-barycenter join F_f*D_f^{*t}. For f=0 it has no vertices; f=1 is a (t-1)-simplex; for f>=2 the standard complete directed-forest homotopy theorem and join formula yield (f-1)^(f-1+t) spheres of dimension f+t-2. The verification source explicitly tests orbit admissibility; independently checked the f=2,t=1 two-element block orbit classification (four admissible vertex orbits). General conclusion rests on proof and cited directed-tree theorem, not that finite check.
 
-## Scope and limitations
-The action must factor as a direct product acting transitively on disjoint nontrivial blocks. Diagonal subgroup actions and the fixed locus of the *entire* strong discrete Morse complex are outside the claim. The full Kozlov 1999 text could not be inspected; this is noted rather than converted into a claim of absence. The result has not received independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+A natural symmetry-fixed-space classification for a canonical rooted-forest subcomplex; the all-block-size-independent PL join model and exact sphere count refine a nonequivariant result and can serve equivariant topology computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

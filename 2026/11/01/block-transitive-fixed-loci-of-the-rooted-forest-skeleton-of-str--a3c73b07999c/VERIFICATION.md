@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scientific boundaries
+# Independent mathematical audit
 
-Run `python verify_block_fixed_forests.py` using Python 3 (standard library only). The program enumerates directed-arrow orbits and independently checks rooted-forest admissibility, comparing actual group-orbit simplices with the predicted join-face criterion for cyclic and full symmetric transitive block actions. The completed execution reported 490 classified edge orbits, 142,870 exhaustive face-subset checks and 46 finite action cases, with every comparison passing. To reproduce, run it alongside the other supplied files without external data.
+## correctness
 
-The infinite-family proof is mathematical, not computational: transitivity and independence classify all directed-edge orbits, and the classical directed-tree homotopy theorem applies to the fixed-label part. The finite enumeration cannot prove the arbitrary-size assertion and is not presented as such. The statement is about geometric fixed points of the canonical vertex-edge-pair subcomplex, not the full strong Morse complex; no equivariant collapse for that larger complex is assumed. Independent audit has not been performed.
+PASS
+
+A fixed geometric point has simplex support invariant under the group and barycentric coordinates constant on each arrow orbit. The actual admissible orbits are singleton-to-singleton arrows and independently transitive stars from one fixed label into one block; other orbits produce competing incoming edges or a directed cycle. Hence invariant simplices form the PL orbit-barycenter join F_f*D_f^{*t}. For f=0 it has no vertices; f=1 is a (t-1)-simplex; for f>=2 the standard complete directed-forest homotopy theorem and join formula yield (f-1)^(f-1+t) spheres of dimension f+t-2. The verification source explicitly tests orbit admissibility; independently checked the f=2,t=1 two-element block orbit classification (four admissible vertex orbits). General conclusion rests on proof and cited directed-tree theorem, not that finite check.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+A natural symmetry-fixed-space classification for a canonical rooted-forest subcomplex; the all-block-size-independent PL join model and exact sphere count refine a nonequivariant result and can serve equivariant topology computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
