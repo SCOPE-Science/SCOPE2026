@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Greedy embedding in a repeated permutation word is characterized by positive modular transition distances. For a palindrome, reversing each first-half edge pairs those distances into a total of one full period for a change of symbol, or two periods for a repeated symbol. An even-length center contributes one period. This proves the cost test and its sharp endpoint exception. Counting half-words with prescribed equal-neighbor positions yields the coefficient formulas, and a formal geometric-series summation yields the rational function. Literal subsequence enumeration and an independent formal-series coefficient algorithm agree over the tested domains; the program is finite corroboration, not an infinite proof.
+## correctness
 
-## Originality
-PASS under the available-source, nonpriority standard. Mahalingam–Pandoh, arXiv:2108.02729, Sections 3–5, give extremal and general estimates for scattered-palindrome counts, not this length-resolved periodic-permutation formula. Müllner–Ryzhikov, arXiv:1901.07502, concern longest palindromic subsequences of circular or linear words, not distinct-target full spectra. A previously known binary alternating-word length spectrum is excluded from the claim. That binary result provides neither the \(q\ge3\) classification nor the independent length-resolved contribution of each final-prefix letter; the present formulas are derived directly from the full \(q\)-ary greedy model. Residual risk: an equivalent specialized \(q\)-ary periodic-word formula may be unlocated; database search alone cannot establish priority.
+PASS
 
-## Mathematical value
-PASS. The question is the exact scattered-palindrome complexity of one of the simplest strongly recurrent words over every nonbinary alphabet. The theorem gives a complete, testable membership invariant and all length counts, including the nontrivial incomplete-period boundary that general full-period counts omit. It also gives a sharp longest-length boundary and a uniform per-letter prefix increment, useful as exact benchmarks for distinct-subsequence counting. This is a full natural infinite-family classification rather than one evaluated parameter slice. Its scope and the earlier binary result are explicitly acknowledged.
+The actual cyclic-word RESULT.md supplies an all-size greedy subsequence proof: earliest symbol v1 occurs at index v1; each successive letter change advances by least strictly positive cyclic distance. Reflected transitions of palindrome cost q for unequal symbols and 2q for equal, plus a central q for even lengths. Thus greedy terminal index is v1+q(m+e(h)); containment iff m+e<k or cost=k and v1<s. Counting half-words by equal-adjacency locations gives both binomial spectra. Formal power-series summation yields F_{q,s}=q u z(1+uz)/((1-z)(1-u²z(q-1+z)))+s u²z(1+u(q-1+z))/(1-u²z(q-1+z)), with maximal lengths 2k-1 if s=0 and 2k+1 if s>0. Independently enumerated literal index subsequences of W_(3,2,1), grouped distinct palindromic targets by length {1:3,2:3,3:7,4:2,5:4}, exactly matching formula. Finite test only corroborates infinite proof.
 
-## Closest literature and limits
-The closest inspected primary works are Mahalingam–Pandoh (2021, arXiv:2108.02729) and Müllner–Ryzhikov (2019, arXiv:1901.07502). These do not state the complete \(q\ge3\) cyclic-prefix spectrum in the material inspected. No priority claim beyond the inspected comparisons is made. Independent reproduction and exhaustive literature priority review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS: full length-by-length spectrum for nonbinary cyclic-permutation powers and incomplete final prefix, not generic scattered-palindrome bounds or the known binary alternating case.
+
+## value
+
+PASS
+
+Powers of the alphabet permutation are a canonical highly structured word family; the exact distinct scattered-palindrome spectrum is a motivated fine complexity statistic. The membership test, all k,q,s binomial profile and rational generating function solve the entire nonbinary family rather than one arbitrary finite slice; the uniform per-added-prefix-symbol correction gives an exact benchmark for word-combinatoric comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

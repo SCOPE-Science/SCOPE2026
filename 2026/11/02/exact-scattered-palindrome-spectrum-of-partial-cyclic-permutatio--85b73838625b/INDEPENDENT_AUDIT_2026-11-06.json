@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:16:45.879927Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual cyclic-word RESULT.md supplies an all-size greedy subsequence proof: earliest symbol v1 occurs at index v1; each successive letter change advances by least strictly positive cyclic distance. Reflected transitions of palindrome cost q for unequal symbols and 2q for equal, plus a central q for even lengths. Thus greedy terminal index is v1+q(m+e(h)); containment iff m+e<k or cost=k and v1<s. Counting half-words by equal-adjacency locations gives both binomial spectra. Formal power-series summation yields F_{q,s}=q u z(1+uz)/((1-z)(1-u²z(q-1+z)))+s u²z(1+u(q-1+z))/(1-u²z(q-1+z)), with maximal lengths 2k-1 if s=0 and 2k+1 if s>0. Independently enumerated literal index subsequences of W_(3,2,1), grouped distinct palindromic targets by length {1:3,2:3,3:7,4:2,5:4}, exactly matching formula. Finite test only corroborates infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahalingam–Pandoh 2021 gives general Fibonacci upper bounds and fixed-alphabet extremal estimates; Müllner–Ryzhikov 2019 considers longest palindromic/antipalindromic subsequence existence in circular words."
+        ],
+        "reasoning": "Their statements bound counts or lengths for general words but do not determine the exact distinct-target length spectrum or rational generating function for the specified structured infinite family.",
+        "searches": [
+          "distinct palindromic scattered subsequences repeated permutation word cyclic word length generating function",
+          "arxiv:2108.02729 sections 3-5; arxiv:1901.07502"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2108.02729 PDF Theorem 4.2, tables and sections 3-5",
+        "arxiv:1901.07502 PDF introduction",
+        "Resultary query distinct palindromic scattered subsequences repeated permutation word cyclic word length generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known binary spectrum covers q=2 only; Mahalingam–Pandoh Theorem 4.2 gives an inequality F_{n+2}-1, and the 2019 circular-word work gives lower/upper length phenomena."
+        ],
+        "reasoning": "None implies the explicit q>=3 half-word count with the incomplete-prefix s correction for each length. Repeated period structure must be used to prove the cost identity.",
+        "searches": [
+          "distinct scattered palindromes 012 repeated q ary spectrum",
+          "arxiv:2108.02729 sections 3-5; arxiv:1901.07502"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scattered subsequences count distinct target strings rather than embeddings, and circular-word longest-palindrome questions are not the same invariant. The q=2 alternating-word spectrum is a separate prior special case."
+        ],
+        "reasoning": "Relabeling a binary word cannot produce a q>=3 repeated permutation word; the new equality-transition and starting-symbol criterion covers a larger alphabet with different branching.",
+        "searches": [
+          "distinct palindromic scattered subsequences repeated permutation word cyclic word length generating function",
+          "distinct scattered palindromes 012 repeated q ary spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2021 paper tables give length 3-6 maximum total counts, not a complete table for q-ary periodic words of all k,s; Resultary returns related string code/subsequence universality claims rather than a q>=3 periodic scattered-palindrome spectrum."
+        ],
+        "reasoning": "An upper-bound/extremal table is not the exact invariant asked here; a specialized unindexed periodic-word table remains possible.",
+        "searches": [
+          "distinct palindromic scattered subsequences repeated permutation word cyclic word length generating function",
+          "distinct scattered palindromes 012 repeated q ary spectrum"
+        ]
+      },
+      "rationale": "Best-knowledge PASS: full length-by-length spectrum for nonbinary cyclic-permutation powers and incomplete final prefix, not generic scattered-palindrome bounds or the known binary alternating case.",
+      "residual_risks": [
+        "Unindexed work on subsequence automata/periodic words could already give equivalent rational generating functions.",
+        "Binary q=2 is known and excluded; no claim on nonperiodic sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds and sample tables, not an explicit all-k partial cyclic-permutation length spectrum in inspected portions.",
+          "evidence": [
+            "Theorem 4.2 gives at most Fibonacci F_{n+2}-1; tables give small n maxima across all words."
+          ],
+          "identifier_or_url": "arxiv:2108.02729; https://arxiv.org/pdf/2108.02729",
+          "material_read": "Primary 19-page PDF sections 3-5 text and page 5 screenshot; especially Theorem 4.2, adjacent Lemma 4.1, fixed-q estimates and small-length tables",
+          "method": "Read PDF text, targeted theorem search and page-image inspection",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Same distinct scattered-palindrome invariant"
+        },
+        {
+          "assessment": "Studies longest palindromic/antipalindromic subsequence in circular words, rather than all distinct-target length counts.",
+          "evidence": [
+            "Introduction motivates longest subsequence in circular words and anti-palindrome conjecture."
+          ],
+          "identifier_or_url": "arxiv:1901.07502; https://arxiv.org/pdf/1901.07502",
+          "material_read": "Primary 7-page PDF abstract, definitions, opening statements and rendered first page; did not re-read all later pages",
+          "method": "PDF text and screenshot",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Potential cyclic-word longest-palindrome specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Powers of the alphabet permutation are a canonical highly structured word family; the exact distinct scattered-palindrome spectrum is a motivated fine complexity statistic. The membership test, all k,q,s binomial profile and rational generating function solve the entire nonbinary family rather than one arbitrary finite slice; the uniform per-added-prefix-symbol correction gives an exact benchmark for word-combinatoric comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "q>=3, k>=1, 0<=s<q, identical increasing cyclic order in all complete periods.",
+    "Counts distinct target words, not embeddings, and excludes general/reordered or binary cyclic words."
+  ],
+  "schema_version": 1
+}
