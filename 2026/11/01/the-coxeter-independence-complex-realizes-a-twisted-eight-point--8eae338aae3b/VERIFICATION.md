@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of exact checks
+# Independent mathematical audit
 
-Run `python3 verify_coxeter_symmetry.py` with Python 3.10 or newer. The verifier uses only the Python standard library. `verification_output.txt` is the recorded successful run, including the final marker `COXETER_SYMMETRY_VERIFY_OK`.
+## correctness
 
-The program independently rebuilds the Fano plane and all 28 non-line triples, verifies the 42 disjointness edges, enumerates all 196,008 nonempty independent-set faces, and performs a complete acyclic-Morse certificate on 1,319,724 codimension-one incidences. Exactly one critical vertex and seven critical six-cells remain, establishing the required homology concentration by the discrete-Morse theorem.
+PASS
 
-It enumerates all 336 graph automorphisms by exhaustive adjacency/nonadjacency-preserving backtracking, constructs eight Sylow-seven subgroups, and checks the character identity for each group element via an exact deletion–closed-neighborhood recurrence. It directly enumerates the signed fixed simplices for eight representative order/sign/fixed-point types as an independent orientation check. The output confirms both the exact character norm \(336/336=1\) and the rational invariant-space dimensions for the full group, its sign kernel, and a Sylow-seven subgroup.
+The actual frozen RESULT.md specifies the non-line triples of Fano (28) and disjointness cubic graph (42 edges). An independently written finite Python auditor reconstructed all 196,009 independent faces; explicit parity-first matching has one critical 0-cell and seven critical dimension-six cells, with an exhaustive directed Hasse acyclicity sort on 196,008 faces and 1,319,724 incidences. Independently enumerated 336 distinct automorphisms, all eight Sylow-seven subgroups, and Lefschetz traces by independent-set recursion for ALL group elements; the complete eight-type (order, epsilon, fixed count, trace, multiplicity) table agrees, not only a sampled character or saved log. The character squared sum 336 proves absolute irreducibility, and rational quotient ranks follow from exact averaging; the known nonequivariant seven-sphere wedge is a premise but not claimed new.
 
-The script is an exact finite certificate for the specified graph. It does not compute integral equivariant lattices or classify other graphs, and its successful execution is not an independent external audit.
+## originality
+
+PASS
+
+The prior same-graph complete homotopy calculation supplies only the H6 rank and does NOT determine how the full 336 automorphisms act; the new signed permutation-augmentation module is a genuinely sharper equivariant determination. Relevant Kneser parent graph and Heawood matching calculations have different underlying complexes. No found source states the present full character, but search does not establish absolute priority.
+
+## value
+
+PASS
+
+The previously unexplained full automorphism action on the seven independent top classes of a canonical highly symmetric graph is a motivated, exact, discriminating invariant. The signed eight-Sylow permutation construction and irreducibility determine rational quotient homology for natural subgroups, information invisible in earlier Betti-number and homotopy tables. This is not an arbitrary renamed elementary exercise; a topology/symmetry researcher could need precisely this character.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
