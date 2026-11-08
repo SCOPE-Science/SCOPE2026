@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:57:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For constant-coefficient periodic uniform unlimited fifth-order face stencil, independently reconstructed Fourier symbol Q with Re(Q)=16 sin^6(xi/2)/15 >=0 and squared imaginary part 4T(1-T)(8T^2+10T+15)^2/225. The scalar five-stage amplification factors as Crank-Nicolson contraction times P3(-cQ). At calibration gamma=7/10 effective c=C(1-theta)<10/7 for every C, and exact symbolic expansion 1-|P3|²=c*T²*H verifies bidegree (5,13) and 168 nonnegative rational Bernstein coefficients after split T=1/2. Thus all continuous xi and unbounded Courant C are stable; Parseval gives periodic l2 nonexpansion. At gamma=69/100, xi=pi/2, C->infinity exact positive squared-amplitude excess 14399294983760/708051067974441 gives finite high-C instability. Independently rederived Bernstein coefficient inequalities and rational witness; numerical mode sampling is not the global proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AdHImEx published sample uses finite C<=100 and 401 phases; NEMO manual quotes numerical CFL 1.43498; analytic bound c<=10/7≈1.42857 is slightly smaller."
+        ],
+        "reasoning": "An independently established global SSPRK3/UP5 CFL lower bound >=10/7 would imply the main stability through scalar factorization; none was located in inspected accessible material, and this is explicit residual risk.",
+        "searches": [
+          "te Winkel Weller Kuhnlein Kent AdHImEx arxiv 2610.08166",
+          "NEMO Ocean Engine Manual RK3/UP5 maximum CFL 1.43498",
+          "Ullrich Jablonowski operator split Runge Kutta Rosenbrock"
+        ]
+      },
+      "checked_sources": [
+        "te Winkel et al 2026 arxiv:2610.08166 abstract; full preprint access blocked",
+        "NEMO numerical RK3 UP5 CFL value",
+        "Ullrich and Jablonowski 2012 bibliography",
+        "Resultary semantic query on exact AdHImEx continuum stability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At C->infinity the Crank-Nicolson multiplier approaches modulus one; gamma=0.69 has exact excess >0 at pi/2."
+        ],
+        "reasoning": "Original numerical evidence alone does not imply this all-C guarantee. The new Bernstein proof yields global verification, with nearby necessary counterexample demonstrating calibration sensitivity rather than optimal gamma.",
+        "searches": [
+          "AdHImEx original equations 6 16 18 von Neumann sample 401 phases C up to 100",
+          "general SSPRK3 absolute stability region complex Fourier upwind"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R(z,theta)=(1+theta*z/2)/(1-theta*z/2)*P3((1-theta)z), Re Q>=0; H>=0 on compact c,T rectangle."
+        ],
+        "reasoning": "Compared SSPRK3 stability region, upwind numerical CFL, positivity of Fourier symbols and all-Courant blended stability formulations, including if a general CFL result at c>=10/7 would imply this corollary.",
+        "searches": [
+          "Resultary:AdHImEx five-stage transport RK3 Crank Nicolson fifth-order upwind Fourier stability Courant gamma 0.7",
+          "SSPRK3 fifth order upwind von Neumann Fourier stability 10/7 Bernstein coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Manual numeric RK3/UP5 CFL figure 1.43498 and original paper discrete stability plot do not supply exact full rectangle positivity."
+        ],
+        "reasoning": "Finite numerical tables are not equivalent to an exact rational Bernstein certificate or unbounded-C stability proof.",
+        "searches": [
+          "Resultary:AdHImEx five-stage transport RK3 Crank Nicolson fifth-order upwind Fourier stability Courant gamma 0.7",
+          "RK3 fifth order upwind CFL table 1.43498 Courant 0.7 AdHImEx"
+        ]
+      },
+      "rationale": "Crank-Nicolson and SSPRK3 stability polynomials and the specific fifth-order flux operator are prior methods; te Winkel et al 2026 propose gamma=0.7 and give sampled von Neumann envelope. The new contribution is the nonnegative exact rational Bernstein certificate globally in all Courant and continuous phases plus nearby exact counter-calibration. The primary 2026 full method preprint was not available after OA and authorized Oxford (vpn_disconnected), leaving possible general UP5 analytic theorem overlap.",
+      "residual_risks": [
+        "An older rigorous exact SSPRK3/UP5 stability region covering the effective c<=10/7 could imply part of theorem.",
+        "Motivating 2026 full primary paper was inaccessible after OA and authorized Oxford vpn_disconnected.",
+        "Only uniform periodic unlimited linear scalar transport; not variable blending."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original method and gamma choice are prior; full text access uncertainty remains",
+          "evidence": [
+            "2026 source numerically tests 401 Fourier phases and C<=100 according to assigned material"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08166",
+          "material_read": "Accessible abstract and source-paper quotations of equations/finite sampling; full text inaccessible after arxiv/OA and authorized Oxford vpn_disconnected",
+          "method": "Compared the assigned actual tableau/stencil with accessible abstract, did NOT declare whole paper negative",
+          "title": "AdHImEx: Adaptively High-Order Implicit-Explicit Transport for Large Time Steps",
+          "trigger": "Same scheme tableau, fifth-order flux and cutoff/calibration"
+        },
+        {
+          "assessment": "Numerical prior value consistent with but not a rigorous source for full parameter continuum",
+          "evidence": [
+            "RK3/UP5 CFL approximately 1.43498"
+          ],
+          "identifier_or_url": "https://www.nemo-ocean.eu/doc/node16.html",
+          "material_read": "Accessible reported numerical CFL constant around 1.43498 through assigned documentation; no complete manual proof read",
+          "method": "Compared reported numerical bound with 10/7 certificate",
+          "title": "NEMO Ocean Engine Manual 5.0",
+          "trigger": "Could supply general SSPRK3/UP5 CFL result"
+        },
+        {
+          "assessment": "Background; does not establish exact method-specific continuum certificate from material read",
+          "evidence": [
+            "Ullrich-Jablonowski 2012 splitting methods"
+          ],
+          "identifier_or_url": "https://doi.org/10.1175/MWR-D-10-05073.1",
+          "material_read": "Bibliographic abstract and mathematical background only; full text not read",
+          "method": "Scope comparison: different numerical splitting and transport schemes",
+          "title": "Operator-Split Runge–Kutta–Rosenbrock Methods for Nonhydrostatic Atmospheric Models",
+          "trigger": "General splitting methods may imply stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating high-C transport scheme reported a numerically sampled stability envelope through C=100. An all-Courant continuum analytic certificate for its chosen calibration and an exact neighboring 0.69 failure close a practical mathematical reliability gap. Scope is deliberately fixed uniform blending; not a nonlinear or variable-coefficient claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older rigorous exact SSPRK3/UP5 stability region covering the effective c<=10/7 could imply part of theorem.",
+    "Motivating 2026 full primary paper was inaccessible after OA and authorized Oxford vpn_disconnected.",
+    "Only uniform periodic unlimited linear scalar transport; not variable blending."
+  ],
+  "schema_version": 1
+}

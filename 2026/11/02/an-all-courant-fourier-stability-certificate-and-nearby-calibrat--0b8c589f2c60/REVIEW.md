@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar tableau exactly factors into a Crank--Nicolson multiplier times the cubic SSPRK stability polynomial. The stated upwind flux stencil has nonnegative real Fourier symbol \(16T^3/15\), so the implicit multiplier is contractive. For the prescribed calibration, its explicit effective Courant parameter never exceeds \(10/7\). The exact rational polynomial \(1-|P_3|^2=cT^2H(c,T)\) has a complete nonnegative Bernstein coefficient certificate on two rectangles; a standalone verifier constructs and checks all \(168\) coefficients. The separate rational instability witness at phase \(\pi/2\) gives genuine high-Courant instability for calibration \(69/100\). The theorem's finite-mesh conclusion follows from Parseval, not from sampling. Risks are limited to possible transcription error, addressed through independent numerical tableau comparison and exact symbolic construction.
+PASS
 
-## Originality — PASS (accessible-source comparison)
+For constant-coefficient periodic uniform unlimited fifth-order face stencil, independently reconstructed Fourier symbol Q with Re(Q)=16 sin^6(xi/2)/15 >=0 and squared imaginary part 4T(1-T)(8T^2+10T+15)^2/225. The scalar five-stage amplification factors as Crank-Nicolson contraction times P3(-cQ). At calibration gamma=7/10 effective c=C(1-theta)<10/7 for every C, and exact symbolic expansion 1-|P3|²=c*T²*H verifies bidegree (5,13) and 168 nonnegative rational Bernstein coefficients after split T=1/2. Thus all continuous xi and unbounded Courant C are stable; Parseval gives periodic l2 nonexpansion. At gamma=69/100, xi=pi/2, C->infinity exact positive squared-amplitude excess 14399294983760/708051067974441 gives finite high-C instability. Independently rederived Bernstein coefficient inequalities and rational witness; numerical mode sampling is not the global proof.
 
-The closest source is te Winkel--Weller--Kühnlein--Kent (2026), equations (6), (16), (18) and their stability analysis: it uses a sampled numerical phase/Courant region rather than a mathematical guarantee for all continuous phases and unbounded Courant values. Classical splitting work may anticipate the factorization, which is not the novelty claim. The NEMO manual's numerical RK3/UP5 threshold near \(1.43498\) provides relevant antecedent numerical evidence, but not the method-specific all-Courant Bernstein proof or the calibration-failure rational witness. Searches of closely related published results and the accessible mathematical records did not identify a theorem covering the complete statement. This is a best-knowledge comparison, not exhaustive priority certification; a rigorous prior UP5 stability theorem could potentially shorten or imply part of the proof.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating method is designed for locally very large Courant numbers, yet its published stability envelope rests on finitely sampled modes and Courant numbers up to \(100\). A global uniform-coefficient analytic guarantee closes a mathematically material reliability gap, and the \(0.69\) counter-calibration quantifies its near-boundary sensitivity. The exact positive-coefficient proof is fully reproducible and independently useful when choosing an implicitness rule. Its scope is deliberately restricted to spatially uniform blending; it is not a general variable-coefficient stability theorem.
+Crank-Nicolson and SSPRK3 stability polynomials and the specific fifth-order flux operator are prior methods; te Winkel et al 2026 propose gamma=0.7 and give sampled von Neumann envelope. The new contribution is the nonnegative exact rational Bernstein certificate globally in all Courant and continuous phases plus nearby exact counter-calibration. The primary 2026 full method preprint was not available after OA and authorized Oxford (vpn_disconnected), leaving possible general UP5 analytic theorem overlap.
 
-## Related sources and limitations
+## value
 
-The motivating arXiv:2610.08166v1 was inspected in accessible HTML across its method, spatial stencil, stability section, and conclusions. Related operator-splitting literature, the Weller--Lock--Wood IMEX abstract, and the NEMO RK3/UP5 numerical table were compared. An exhaustive search of older rigorous SSPRK3/UP5 CFL proofs was not feasible. No statement about variable blending, flux correction, positivity or general boundary conditions is reviewed as proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivating high-C transport scheme reported a numerically sampled stability envelope through C=100. An all-Courant continuum analytic certificate for its chosen calibration and an exact neighboring 0.69 failure close a practical mathematical reliability gap. Scope is deliberately fixed uniform blending; not a nonlinear or variable-coefficient claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
