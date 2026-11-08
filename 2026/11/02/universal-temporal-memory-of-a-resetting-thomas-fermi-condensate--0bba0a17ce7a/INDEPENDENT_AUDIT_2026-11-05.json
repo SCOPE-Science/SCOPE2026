@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:14:43.960134Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Read frozen RESULT.md and verify_edge.py. From b''=ω²/b², b(0)=1, b'(0)=0 follows b'²=2ω²(1−1/b), strict b''>0 and 0<b'<sqrt(2)ω. Stationary Poisson age A~Exp(r) and no-reset conditioning yield C_r(τ)=x0²exp(−rτ)Cov(b(A),b(A+τ)); the reset-event contribution vanishes upon centering. Since b and b(·+τ)−b are strictly increasing, independent-copy covariance is strictly positive; long-lag factor follows L² derivative limit b'(t)→sqrt(2)ω. Independently rederived exact moments Cov(Z²,Z²)=20, Cov(Z²,Z⁴)=672, integrated shift moments 28 and 2304, giving Var=5ε⁴−56ε⁶ and integrated covariance=7ε⁴−96ε⁶, hence rT=7/5−88ε²/25+O(ε⁴). Slow-reset dominated limit rT→1. These identities and the tail-splitting proof support the asymptotics; no finite ODE quadrature is substituted for them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2107.11686: diffusion-reset autocorrelation renewal decomposition prior."
+        ],
+        "reasoning": "Diffusive reset autocorrelation is a broader technique, but its linear Brownian coefficients do not imply TF b''=ω²/b² expansion constants.",
+        "searches": [
+          "Resultary semantic query: Thomas Fermi condensate edge Poisson resetting autocorrelation integrated time 7/5 asymptotic",
+          "https://arxiv.org/abs/2609.37110",
+          "https://arxiv.org/abs/2107.11686"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.37110 — Weakly interacting Bose-Einstein condensate with stochastic resetting",
+        "https://arxiv.org/abs/2107.11686 — Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/universal-temporal-memory-of-a-resetting-thomas-fermi-condensate--0bba0a17ce7a/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic last-reset conditioning gives factor e^(-rτ), not convexity enhancement or evaluated 7/5,-88/25."
+        ],
+        "reasoning": "The model's one-time distribution plus generic resetting does not directly provide signed correction without nonlinear b derivatives.",
+        "searches": [
+          "Resultary semantic query: Thomas Fermi condensate edge Poisson resetting autocorrelation integrated time 7/5 asymptotic",
+          "https://arxiv.org/abs/2609.37110",
+          "https://arxiv.org/abs/2107.11686"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2609.37110: b(s) expansion and stationary one-time law are prior."
+        ],
+        "reasoning": "Nonlinear deterministic-age renewal observables may equivalently formulate first covariance identity.",
+        "searches": [
+          "Resultary semantic query: Thomas Fermi condensate edge Poisson resetting autocorrelation integrated time 7/5 asymptotic",
+          "https://arxiv.org/abs/2609.37110",
+          "https://arxiv.org/abs/2107.11686"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical one-time edge histograms do not tabulate stationary two-time covariance and its integral."
+        ],
+        "reasoning": "This is a continuum two-time law, not a finite tabulation; compared exact source equations.",
+        "searches": [
+          "Resultary semantic query: Thomas Fermi condensate edge Poisson resetting autocorrelation integrated time 7/5 asymptotic",
+          "https://arxiv.org/abs/2609.37110",
+          "https://arxiv.org/abs/2107.11686"
+        ]
+      },
+      "rationale": "PASS at best knowledge. Mesquita et al. introduced exactly the condensate reset protocol and the one-time stationary edge law, while Stojkoski et al. studied renewal autocorrelations for diffusive resetting. Their inspected results do not yield the nonlinear convex-edge strict inequality or the Thomas–Fermi-specific 7/5 and -88/25 memory asymptotics. More general deterministic-age renewal theory could subsume the first covariance identity.",
+      "residual_risks": [
+        "Generic convex-age reset covariance theorem might cover qualitative part."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, ODE and one-time edge distribution are known; inspected text does not give the stationary two-time covariance and sharp integrated memory constants.",
+          "evidence": "Shared ODE and resetting clock are prior premises, whereas two-time covariance plus 7/5 and -88/25 constants go beyond the inspected law.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37110",
+          "material_read": "Open-access manuscript: hydrodynamic expansion scaling equation (37), reset protocol, stationary one-time edge law in section 4.2, equations (61)-(62); relevant primary PDF read",
+          "method": "arXiv/preprint PDF text and page-image review",
+          "title": "Weakly interacting Bose-Einstein condensate with stochastic resetting",
+          "trigger": "Identical resetting Thomas-Fermi expansion model and stationary edge"
+        },
+        {
+          "assessment": "No-reset conditioning is known for Brownian diffusion/drift; exact convex-edge inequality and Thomas-Fermi-specific asymptotic coefficients absent in inspected comparison.",
+          "evidence": "General renewal method implies covariance decomposition for some reset processes but not nonlinear b-specific evaluated correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.11686",
+          "material_read": "Open-access preprint sections 2.2 and 3 plus correlation formula around equation (11) inspected",
+          "method": "arXiv full-text PDF sections with page-image review",
+          "title": "Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+          "trigger": "Possible generic reset renewal correlation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Temporal memory is a natural missing observable of a known condensate protocol; exact all-rate strict inequality and nontrivial two-limit quantitative law are meaningful in modeling reset dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hydrodynamic Thomas–Fermi support edge, not microscopic particle maximum.",
+    "Instantaneous complete Poisson resets, not finite duration or non-Poisson clocks.",
+    "Generic convex-age reset covariance theorem might cover qualitative part."
+  ],
+  "schema_version": 1
+}
