@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python3 verify.py` in a standard Python 3 environment. It uses only the standard library, exact `Fraction` arithmetic and integer divisor enumeration, and prints the tested parameter values and checks. Ten odd parameter values (3, 5, 7, 9, 11, 15, 21, 35, 105, 1155) are checked for greedy denominators, the entire prescribed divisor-parameterized family and its cardinality, the distinction between weak and strict denominator conventions, and all construction bounds. For the first eight values it checks every bounded pair of first two denominators and confirms that (a) all exact three-unit representations of the constructed rational value are precisely those prescribed, and (b) none can yield a better strict underapproximation below the constructed target. Across those eight cases, 58,020 bounded first-two-denominator pairs enter the candidate screen.
+# Independent mathematical audit
 
-The universal theorem has a symbolic proof in RESULT.md. Enumeration at finitely many q is not a certificate for all odd q, and these checks do not establish priority over the entire literature. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Nathanson greedy interval criterion (or three explicit successive remainder inequalities) applies because a<b<c and denominator growth b>=a²-a+1, c>=b²-b+1 and 0<θ-S<1/(c(c-1)). For any equal-sum triple ordered x<=y<=z, rational magnitude gives a<=x<3a and x<=y<2b; setting R=qxy<6qab and N=2xy-q(x+y), the formula z=Rc/(Nc+R) and c=(6qab)²+1 force N=0 by positive denominator or rational denominator-integrality contradictions (R²<c), hence z=c and (2x-q)(2y-q)=q². Divisor pairing classifies exactly. Any supposed S<T<θ gives a nonzero rational gap >=1/(Qxy), or, if H=1/x+1/y<S, derives z<6Qab and then T-S>=1/(Qxyz)>1/(36Q²a²b²)=2(θ-S); both impossible. Exact Fraction independent checks for q=3,5,7,9,11,15 checked greedy, all divisor ties, and bounded no-improving intervals; infinite q follows from rational inequalities, not enumeration. Note the standard two-term factorization itself is classical.
+
+## originality
+
+PASS
+
+Nathanson open question on equality of greedy Egyptian n-term best underapproximations motivates the general target. Earlier two-term optimal equalities and divisor identities do not provide unbounded best 3-term fiber. Kovač and Kovač–Tang eventually greedy approximation for almost all/rational targets concern long prefixes and not exactly three terms, so quantifiers do not dominate.
+
+## value
+
+PASS
+
+Gives a complete explicit fiber of optimal triples and proves unbounded multiplicity, including strict denominator variant, directly addressing a named published finite Egyptian best approximation question; the small rational perturbation and no-better-gap proof are substantive beyond classical divisor enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
