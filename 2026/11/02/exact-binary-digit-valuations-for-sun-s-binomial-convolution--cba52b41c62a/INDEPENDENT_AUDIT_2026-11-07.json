@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:16:51.873439Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual proof specializes classical Clausen hypergeometric square to obtain exact finite expansion T_n=sum_{k=ceil(n/2)}^n (-432)^(n-k)a_k binom(2k,k)binom(k,n-k). Legendre gives v2(a_k)=2s2(k) and v2(binomial(2k,k))=s2(k). The k=n summand has exact valuation 3s2(n), while any k=n-j earlier contributes valuation >=4j+3s2(k)>=3s2(n)+j by binary subadditivity, strictly greater, so cancellation cannot change the unique minimum. Since 2n-1 is odd and v2(binomial(3n,n))=2s2(n)-s2(3n), the normalized valuation follows, using Guo for integer normalization. A separate exact-integer Python computation compared direct convolution and transformed sum plus both valuation identities at n=1..69; this is corroboration, not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo proves (2n-1)binom(3n,n) divides T_n; Yang 2017 Theorem 1.2 provides termwise >=s2(3n) normalization bounds, not an equality for the full sum."
+        ],
+        "reasoning": "Divisibility proves only nonnegative normalized valuation; summandwise lower bounds cannot fix a valuation of a sum without handling cancellations.",
+        "searches": [
+          "Guo 1301.4877 divisibility Sun binomial convolution",
+          "Yang Ars Combinatoria 135 2017 Theorem 1.2 v2 summands"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1301.4877",
+        "https://combinatorialpress.com/article/ars/Volume%20135/volume-135-paper-17.pdf",
+        "https://arxiv.org/abs/1104.3856",
+        "Clausen, J. Reine Angew. Math. 3 (1828), classical square identity",
+        "Resultary 2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clausen yields a finite transformed convolution but does not itself assert its two-adic least-term inequality.",
+          "Yang 2017 bounds individual terms in the original convolution, rather than guaranteeing noncancellation in the transformed basis."
+        ],
+        "reasoning": "The strict 4j+3s2(k) > 3s2(n) inequality is the decisive new implication; older divisibility/identity statements alone do not state the valuation equality.",
+        "searches": [
+          "Clausen hypergeometric quadratic identity square 2F1 (1/6,5/6)",
+          "Yang 2017 normalized summand lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun arxiv:1104.3856 defines the original sum; Guo arxiv:1301.4877 proves its divisor, not the digit-sum exponent."
+        ],
+        "reasoning": "Normalized and unnormalized equations are equivalent via Legendre valuation of binom(3n,n). Searches of those equivalent forms identified no existing exact all-index formula.",
+        "searches": [
+          "Sun Guo binomial convolution two-adic valuation digit sums Clausen",
+          "\"3s_2(n)\" \"Sun\" binomial convolution",
+          "\"Clausen\" \"6n\" \"3n\" exact 2-adic valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search Sun multinomial prime congruence is a different weighted sum.",
+          "No exact n↦3s2(n) table or formula identified in returned records."
+        ],
+        "reasoning": "Small computed valuation tables, even if known, do not prove the all-positive-n digit law; no matching exact database table was verified.",
+        "searches": [
+          "Sun Guo binomial convolution two-adic valuation digit sums Clausen",
+          "Sun binomial convolution 2-adic valuations OEIS digit sums"
+        ]
+      },
+      "rationale": "Sun states the convolution and divisibility questions; Guo establishes divisibility/integrality of the normalization, which yields no exact valuation. Yang 2017 Theorem 1.2 from actual full PDF asserts a lower bound on the valuation of individual normalized summands with equality at endpoints; those lower bounds do not imply the exact valuation of their SUM, where cancellation may change it. Clausen 1828 gives the analytic series identity; selecting its unique minimum 2-adic term is the additional arithmetic argument. Resultary search returned a Sun multinomial prime congruence, different summand/claim. Classical identities create a possible implicit-coverage priority risk, but no stronger valuation theorem identified.",
+      "residual_risks": [
+        "Historical source may give the digit law under a different hypergeometric alias or implicitly derive the strict unique-term valuation.",
+        "The integer normalizing divisor is known from Guo; the proof does not independently prove Guo integer divisibility or odd-prime valuations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DIVISIBILITY_ONLY",
+          "evidence": "Guo proves integrality of S_n, not ν₂(T_n)=3s₂(n).",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.4877",
+          "material_read": "Full PDF accessible, read theorem and first-page formula; searched paper for valuation conclusion",
+          "method": "ArXiv full-text PDF and page screenshot",
+          "title": "Proof of Sun's conjecture on the divisibility of certain binomial sums",
+          "trigger": "Same normalized binomial convolution"
+        },
+        {
+          "assessment": "PRIOR_TERMWISE_BOUND_ONLY",
+          "evidence": "Theorem 1.2 states v₂(s(n,k))>=α₂(3n), equality at endpoints; it does not fix the valuation of the convolution sum, and is strictly weaker than v₂(S_n)=α₂(n)+α₂(3n) for n>0.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20135/volume-135-paper-17.pdf",
+          "material_read": "Full nine-page primary PDF accessible, page screenshots of title, introduction and Theorem 1.2, further theorem/proof sections",
+          "method": "Publisher open PDF screenshots",
+          "title": "A refinement of Guo's theorem concerning divisibility properties of binomial coefficients",
+          "trigger": "Potential exact valuation overshadow"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It provides the exact power of two in every term of a named arithmetic convolution and in its established integer normalization, sharpening earlier divisibility and termwise lower bounds by explicit digit-sum formula. The full index quantifier and noncancellation argument make it mathematically motivated beyond a small modulus experiment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the 2-adic valuations; integer quotient existence uses cited Guo theorem; no claims about odd primes.",
+    "Historical source may give the digit law under a different hypergeometric alias or implicitly derive the strict unique-term valuation.",
+    "The integer normalizing divisor is known from Guo; the proof does not independently prove Guo integer divisibility or odd-prime valuations."
+  ],
+  "schema_version": 1
+}
