@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact flip-energy identities give iff local constraints for all spins and all positive fields. Run decompositions, independent-set size counts, and hub-magnetization cutoffs produce every finite-n case, including equality cases. A separately written brute-force enumerator confirmed 90 parameter cases for 5<=n<=14 and 105 independently enumerated cyclic-word coefficient cases; checker.py replayed with 195 exact checks. The proof of entropy uses Perrin and Lucas recurrences plus a four-state transfer-matrix spectral-radius upper bound, not an extrapolation from finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Waclaw and Burda, arxiv:0801.1224, equations (1)-(2), study disorder-averaged one-spin-stable states with Gaussian random couplings and regular-graph asymptotics, not this uniform antiferromagnetic finite wheel.",
+        "De Smedt et al., arxiv:cond-mat/0202465, discuss constrained one-dimensional ferromagnetic/paramagnetic dynamics and blocked states, not the wheel hub plus uniform antiferromagnetic field.",
+        "Baek et al., arxiv:1112.5927, study random graph dynamical absorbing-state distributions; the main model is not a field-resolved antiferromagnetic wheel."
+      ],
+      "reasoning": "These broader theories motivate local stability, but none of their checked theorems directly determines the exact wheel counts or the special-field entropy enhancement. They concern different couplings, graph ensembles or kinetic constraints.",
+      "searches": [
+        "arxiv:0801.1224 local minima Gaussian random coupling regular graphs",
+        "arxiv:cond-mat/0202465 jamming freezing one dimensional spin systems",
+        "arxiv:1112.5927 random networks zero temperature Glauber absorbing states",
+        "wheel graph antiferromagnetic Ising metastable states magnetic field frustration ground states stable configurations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0701647",
+      "arxiv:0801.1224",
+      "arxiv:cond-mat/0202465",
+      "arxiv:1112.5927",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.html",
+      "https://oeis.org/A007391",
+      "https://mathscinet.ams.org/msc/msc2020.html?t=82B20"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously published wheel Potts result classifies energy-minimizing three-state Potts configurations, not the complete local-minimum set of a two-state Ising Hamiltonian.",
+        "A previously published wheel dimer adsorption result is a random irreversible matching process with a different sample space and observable.",
+        "The closest returned semantic records concerned quantum finite-spin entanglement, not classical field-resolved wheel local minima.",
+        "Bisdorff–Marichal covers only the Perrin cyclic-word component; no full matching implication was found in the inspected primary source."
+      ],
+      "reasoning": "The previously published spin and wheel statements do not dominate the final theorem: state alphabet, local-versus-global optimization, kinetic-versus-static observables and field parameters differ materially. Semantic search absence is not itself novelty proof; the conclusion is based on the explicit mathematical nonimplications and examined source scope.",
+      "searches": [
+        "published-finding corpus: Antiferromagnetic Ising wheel graph single-spin-flip stable metastable local minima field h J entropy Perrin sequence",
+        "published-finding corpus: one-spin-flip stable states energy antiferromagnetic wheel with field transition h=J h=3J",
+        "own published wheel Potts ground-state and wheel adsorption claims",
+        "antiferromagnetic Ising wheel graph metastable single spin flip stable blocked configurations enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bisdorff and Marichal, arxiv:math/0701647, sections 1 and 3: Perrin numbers already enumerate maximal independent sets of the cycle, equivalently the local low-field forbidden-word pattern.",
+        "The new wheel count additionally imposes the hub condition and compares every positive uniform field range, including the marginal entropy at the first field threshold."
+      ],
+      "reasoning": "The Perrin ingredient is known and credited. It does not imply the change from the low-field two-hub local minima to the intermediate-field polynomial counts, the critical Lucas contribution, or the high-field hub reversal without solving field-dependent hub inequalities.",
+      "searches": [
+        "antiferromagnetic Ising wheel graph single-spin-flip stable metastable local minima field h J entropy Perrin sequence",
+        "uniform antiferromagnetic Ising on K1 join cycle spin flip stable configurations counting",
+        "arxiv:math/0701647 sections 1 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bisdorff and Marichal give the Perrin count, a known low-field subingredient; arxiv:math/0701647, section 3.",
+        "OEIS A007391 is a distinct strict-maximal-independent-set sequence and explicitly references Perrin numbers and parity-dependent exclusions, not a complete external-field Ising-wheel table."
+      ],
+      "reasoning": "The known cyclic MIS table accounts for a part of the low-field row. No inspected table covers all field intervals, their hub orientation restrictions, and the entropy value at the field threshold. Prior coverage of the Perrin subcase is disclosed and not claimed as novelty.",
+      "searches": [
+        "OEIS A001608 Perrin number maximal independent sets cycle graph",
+        "OEIS A007391 strict first order maximal independent sets cycle graph",
+        "Bisdorff Marichal 2008 Perrin Padovan maximal independent sets cycle"
+      ]
+    },
+    "rationale": "The low-field Perrin identity is expressly known and not claimed as new. Comparison of statements with the closest cycle MIS count, graph spin-glass metastability methods, and random-network zero-temperature dynamics found no implication of the exact field-dependent wheel classification, resonant cardinalities, or critical entropy enhancement. Priority remains provisional beyond accessible inspected material.",
+    "residual_risks": [
+      "Unindexed treatments of antiferromagnetic wheel-local minima or a graph-theoretic equivalence may exist.",
+      "The strongly related Perrin subcase is established in prior cycle independent-set literature and cannot itself be presented as new.",
+      "The sample of inspected broad statistical-mechanical sources is not exhaustive; source pages and sections read are stated precisely."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_SCOPE_NOT_COVERING_EXPLICIT_WHEEL",
+        "evidence": [
+          "arxiv:0801.1224v1, pp. 1,5: disorder-averaged Gaussian coupling model, random regular graph asymptotics; no exact homogeneous wheel field count in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0801.1224",
+        "material_read": "Abstract, Introduction, equations (1)-(2) defining general local minima and random Gaussian couplings, §V random-regular-graph treatment and sample figure",
+        "method": "Direct public PDF text and page-image inspection",
+        "title": "Counting metastable states of Ising spin glasses on arbitrary graphs",
+        "trigger": "General one-spin-stability count on graphs could dominate the field-specific wheel problem"
+      },
+      {
+        "assessment": "COVERS_BACKGROUND_KINETIC_PATTERN_NOT_WHEEL_FIELD",
+        "evidence": [
+          "arxiv:cond-mat/0202465, abstract and §2: constrained spin dynamics and monomer/dimer/trimer adsorption; no hub or homogeneous frustrated wheel in inspected sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0202465",
+        "material_read": "Abstract, Introduction, part of the rate-equation section on clusters, pages 1 and 9",
+        "method": "Direct public PDF text and page-image inspection",
+        "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+        "trigger": "A known transfer/run enumeration for blocked spins could contain the new forbidden-word count"
+      },
+      {
+        "assessment": "DIRECTLY_COVERS_PERRIN_SUBCLAIM_ONLY",
+        "evidence": [
+          "arxiv:math/0701647 §3: maximal independent cycle sets obey no adjacent chosen sites and no three unchosen sites; their count is the Perrin number"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0701647",
+        "material_read": "HTML full text, introduction, Section 3 definitions and conditions (4)-(5), recurrence and orbit framework",
+        "method": "Public full-text HTML reading",
+        "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+        "trigger": "The low-field cyclic pattern may be a known MIS/Perrin enumeration"
+      },
+      {
+        "assessment": "DIFFERENT_RANDOM_NETWORK_DYNAMICS_AND_OBSERVABLE",
+        "evidence": [
+          "arxiv:1112.5927 §II: zero-energy flips occur with probability 1/2 and absorbing-state distributions are studied on Erdős–Rényi networks; not an all-size wheel field-count formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1112.5927",
+        "material_read": "Abstract, Introduction, §II definitions and tie rule, sample results discussion page 7",
+        "method": "Direct public PDF text and page-image inspection",
+        "title": "Absorbing states of zero-temperature Glauber dynamics in random networks",
+        "trigger": "Zero-temperature spin-flip stability on finite networks may include an equivalent enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c3fe6166-89b5-405e-b1a0-74214aad6985",
+  "value": {
+    "rationale": "The observable is the number of metastable one-spin energy minima of a natural frustrated spin network under an external field. The exact all-n result exhibits an unusual critical entropy increase from log(plastic constant) to log(golden ratio), followed by a zero-entropy polynomial regime, explicit parity dependence, and a separate high-field hub-polarity transition. This structural mechanism is not supplied by the known standalone Perrin MIS count. It does not claim unrelated dynamical hitting probabilities or high-temperature effects.",
+    "status": "PASS"
+  }
+}
